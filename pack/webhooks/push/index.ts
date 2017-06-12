@@ -6,13 +6,13 @@ import {WebHookBase} from "../webhook";
 import {Context} from "@lumi/aws/serverless";
 
 // Handler is the function signature for serverless event handlers.
-export type Handler = (e: Event, context: Context, callback: (error: any, result: any) => void) => any;
+export type Handler = (e: Event, callback: (error: any, result: any) => void) => any;
 
 // WebHook represents an active push webhook; that is, both a subscription and a handler.
 export class WebHook extends WebHookBase {
     constructor(hooks: WebHooks, handler: Handler) {
         super(hooks, "push", (e: any, context: Context, callback: (error: any, result: any) => void) => {
-            handler(<Event>e, context, callback);
+            handler(<Event>e, callback);
         });
     }
 }

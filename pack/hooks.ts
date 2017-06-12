@@ -4,6 +4,8 @@ import * as config from "./config";
 import * as webhooks from "./webhooks";
 import {API} from "@lumi/aws/serverless";
 
+// TODO: eventually we should defer subscription until after the publication.
+
 // Make sure the username and repo are configured, and use that information to set up a prefix.
 let user: string = config.requireUser();
 let repo: string = config.requireRepo();
@@ -14,12 +16,12 @@ export class WebHooks {
     public readonly gateway: API;   // the shared API gateway for all handlers.
 
     constructor() {
-        this.prefix = "webhooks-" + user + "-" + repo;
+        this.prefix  = "webhooks-" + user + "-" + repo;
+        this.gateway = new API(this.prefix + "-api");
     }
 
-    // publish is called when you are finished registering APIs, to make the hooks available.
-    // TODO: ideally we wouldn't need this.
-    public publish(): void {
+    // listen is called when you are finished registering APIs, to make the hooks available.
+    public listen(): void {
         this.gateway.publish(this.prefix + "-stage");
     }
 
