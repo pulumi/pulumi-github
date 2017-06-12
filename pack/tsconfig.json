@@ -17,14 +17,14 @@
     },
     "files": [
         "index.ts",
+        "hooks.ts",
 
         "config/index.ts",
 
         "types/index.ts",
         "webhooks/index.ts",
-        "webhooks/api.ts",
         "webhooks/subscription.ts",
-        "webhooks/webhooks.ts",
+        "webhooks/webhook.ts",
         "webhooks/issueComment/index.ts",
         "webhooks/push/index.ts"
     ]

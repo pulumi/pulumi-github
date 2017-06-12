@@ -1,6 +1,7 @@
 // Copyright 2017 Pulumi, Inc. All rights reserved.
 
 import {Comment, Issue, Repository, User} from "../../types";
+import {WebHooks} from "../../hooks";
 import {WebHookBase} from "../webhook";
 import {Context} from "@lumi/aws/serverless";
 
@@ -9,8 +10,8 @@ export type Handler = (e: Event, context: Context, callback: (error: any, result
 
 // WebHook represents an active push webhook; that is, both a subscription and a handler.
 export class WebHook extends WebHookBase {
-    constructor(handler: Handler) {
-        super("issue_comment", (e, context, callback) => {
+    constructor(hooks: WebHooks, handler: Handler) {
+        super(hooks, "issue_comment", (e: any, context: Context, callback: (error: any, result: any) => void) => {
             handler(<Event>e, context, callback);
         });
     }
