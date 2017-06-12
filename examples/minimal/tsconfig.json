@@ -1,0 +1,13 @@
+{
+    "compilerOptions": {
+        "outDir": ".lumi/bin",
+        "target": "es6",
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "sourceMap": true,
+        "pretty": true
+    },
+    "files": [
+        "index.ts"
+    ]
+}

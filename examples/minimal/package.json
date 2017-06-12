@@ -1,0 +1,17 @@
+{
+    "name": "gh",
+    "version": "0.1",
+    "typings": ".lumi/bin/index.d.ts",
+    "scripts": {
+        "build": "lumijs"
+    },
+    "devDependencies": {
+        "typescript": "^2.1.4"
+    },
+    "peerDependencies": {
+        "@lumi/lumi": "*",
+        "@lumi/github": "*",
+        "@lumi/aws": "*"
+    }
+}
+

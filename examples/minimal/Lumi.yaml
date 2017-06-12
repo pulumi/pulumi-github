@@ -1,0 +1,6 @@
+name: gh
+description: Serverless GitHub webhooks FTW!
+dependencies:
+    lumijs: "*"
+    github: "*"
+
