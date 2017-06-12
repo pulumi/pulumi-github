@@ -2,5 +2,6 @@
 
 import * as config from "./config";
 import * as types from "./types";
-export {config, types};
+import * as webhooks from "./webhooks";
+export {config, types, webhooks};
 
