@@ -31,10 +31,11 @@ export class WebHookBase {
 
         // Finally, tell GitHub to poke our endpoint in response to hook events.
         this.sub = new Subscription(prefix + "-sub", {
-            repo: repo,
-            token: token,
+            active: true,
             events: [ event ],
-            url: "TODO"/*hooks.api.url?*/,
+            config: {
+                url: "TODO"/*hooks.api.url?*/,
+            },
         });
     }
 }

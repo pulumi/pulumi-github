@@ -1,6 +1,6 @@
 // Copyright 2017 Pulumi, Inc. All rights reserved.
 
-package push
+package webhooks
 
 import (
 	"github.com/pulumi/lumi/pkg/resource/idl"
@@ -10,23 +10,28 @@ import (
 type Subscription struct {
 	idl.NamedResource
 
-	// A repo that this subscription pertains to.  TODO: take this from config.
-	Repo string `lumi:"repo,replaces"`
-	// An API token to use for API calls.  TODO: take this from config.
-	Token string `lumi:"token"`
+	// Name is the name of the service.  Use `web` for a webhook.
+	Name string `lumi:"name"`
+	// Config contains the various webhook configuration options.
+	Config Config `lumi:"config"`
 
 	// The events array determines what events the hook is triggered for. Default: ["push"].
 	Events *[]string `lumi:"events,optional"`
+	// Active indicates whether this hook is actually triggered on the given events.
+	Active *bool `lumi:"active,optional"`
+}
 
+// Config represents a webhook's subscription configuration.
+type Config struct {
 	// A required string defining the URL to which the payloads will be delivered.
-	URL string `lumi:"url,replaces"`
+	URL string `lumi:"url"`
 	// An optional string defining the media type used to serialize the payloads.  The default is `form`.
 	ContentType *ContentType `lumi:"contentType,optional"`
 	// An optional string that's passed with the HTTP requests as an `X-Hub-Signature` header.  The value of this
 	// header is computed as the HMAC hex digest of the body, using the secret as the key.
 	Secret *string `lumi:"secret,optional"`
 	// An optional setting that determines whether the SSL certificate of the host for url will be verified when
-	// delivering payloads.  The default is off.a
+	// delivering payloads.  The default is off.
 	InsecureSSL *bool `lumi:"insecureSSL,optional"`
 }
 

@@ -6,19 +6,22 @@ import * as lumi from "@lumi/lumi";
 export let FormContentType: ContentType = "form";
 export let JSONContentType: ContentType = "json";
 
+export interface Config {
+    url: string;
+    contentType?: ContentType;
+    secret?: string;
+    insecureSSL?: boolean;
+}
+
 export type ContentType =
     "form" |
     "json";
 
 export class Subscription extends lumi.Resource implements SubscriptionArgs {
     public readonly name: string;
-    public readonly repo: string;
-    public token: string;
+    public config: Config;
     public events?: string[];
-    public readonly url: string;
-    public contentType?: ContentType;
-    public secret?: string;
-    public insecureSSL?: boolean;
+    public active?: boolean;
 
     constructor(name: string, args: SubscriptionArgs) {
         super();
@@ -26,33 +29,19 @@ export class Subscription extends lumi.Resource implements SubscriptionArgs {
             throw new Error("Missing required resource name");
         }
         this.name = name;
-        if (args.repo === undefined) {
-            throw new Error("Missing required argument 'repo'");
+        if (args.config === undefined) {
+            throw new Error("Missing required argument 'config'");
         }
-        this.repo = args.repo;
-        if (args.token === undefined) {
-            throw new Error("Missing required argument 'token'");
-        }
-        this.token = args.token;
+        this.config = args.config;
         this.events = args.events;
-        if (args.url === undefined) {
-            throw new Error("Missing required argument 'url'");
-        }
-        this.url = args.url;
-        this.contentType = args.contentType;
-        this.secret = args.secret;
-        this.insecureSSL = args.insecureSSL;
+        this.active = args.active;
     }
 }
 
 export interface SubscriptionArgs {
-    readonly repo: string;
-    token: string;
+    config: Config;
     events?: string[];
-    readonly url: string;
-    contentType?: ContentType;
-    secret?: string;
-    insecureSSL?: boolean;
+    active?: boolean;
 }
 
 
