@@ -9,33 +9,33 @@ import * as aws from "@lumi/aws";
 
 // WebHookBase combines a serverless function with a GitHub webhook subscription.
 export class WebHookBase {
-    private readonly func: aws.serverless.Function;
-    private readonly sub: Subscription;
+    private parent: WebHooks;                       // the parent webhooks object.
+    private event: string;                          // the GitHub webhook event name.
+    private readonly func: aws.serverless.Function; // the function to invoke in response to the event.
+    private sub: Subscription;                      // the subscription, once it is initialized.
 
-    constructor(hooks: WebHooks, event: string, handler: aws.serverless.Handler) {
-        // Ensure the required GitHub configuration is available before even proceeding.
-        let user: string = config.requireUser();
-        let repo: string = config.requireRepo();
-        let token: string = config.requireToken();
-        let prefix: string = hooks.prefix + "-" + event;
+    constructor(parent: WebHooks, event: string, handler: aws.serverless.Handler) {
+        this.parent = parent;
+        this.event = event;
 
         // New up a lambda that will invoke the handler code.
         this.func = new aws.serverless.Function(
-            prefix + "-handler",
-            [ aws.iam.AWSLambdaFullAccess ],
+            this.parent.prefix + "-" + event + "-handler",
+            [ aws.iam.AWSLambdaFullAccess ], // TODO: consider making this configurable.
             handler,
         );
 
-        // Associate an endpoint with the handler.
-        hooks.gateway.route("POST", `/${user}/${repo}/${event}`, this.func);
+        // Associate an endpoint with the handler.  Note that the hooks object ensures that the user/repo pair are
+        // uniquely isolated from all others, such that the URL needn't actually contain them.
+        this.parent.gateway.route("POST", `/${event}`, this.func);
+    }
 
-        // Finally, tell GitHub to poke our endpoint in response to hook events.
-        this.sub = new Subscription(prefix + "-sub", {
+    // activate tells GitHub to call the specified URL in response to the right kind of events.
+    public activate(url: string) {
+        this.sub = new Subscription(this.parent.prefix + "-sub", {
             active: true,
-            events: [ event ],
-            config: {
-                url: "TODO"/*hooks.api.url?*/,
-            },
+            events: [ this.event ],
+            config: { url: url + `/${event}` },
         });
     }
 }

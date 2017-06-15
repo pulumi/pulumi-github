@@ -53,7 +53,7 @@ func (p *subProvider) Check(ctx context.Context, obj *webhooks.Subscription) ([]
 
 type subBody struct {
 	ID     *string   `json:"id,omitempty"`
-	Name   *string   `json:"name,omitempty:"`
+	Name   string    `json:"name"`
 	Active *bool     `json:"active,omitempty"`
 	Events *[]string `json:"events,omitempty"`
 	Config subConfig `json:"config"`
@@ -84,7 +84,7 @@ func subToSubBody(obj *webhooks.Subscription) subBody {
 		insecureSSL = &ins
 	}
 	return subBody{
-		Name: obj.Name,
+		Name: obj.Service,
 		Config: subConfig{
 			URL:         obj.Config.URL,
 			ContentType: contentType,
@@ -146,9 +146,9 @@ func (p *subProvider) Get(ctx context.Context, id resource.ID) (*webhooks.Subscr
 		contentType = &ct
 	}
 	return &webhooks.Subscription{
-		Name:   reply.Name,
-		Events: reply.Events,
-		Active: reply.Active,
+		Service: reply.Name,
+		Events:  reply.Events,
+		Active:  reply.Active,
 		Config: webhooks.Config{
 			URL:         reply.Config.URL,
 			ContentType: contentType,
