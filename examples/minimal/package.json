@@ -9,9 +9,11 @@
         "typescript": "^2.1.4"
     },
     "peerDependencies": {
-        "@lumi/lumi": "*",
+        "@lumi/aws": "*",
         "@lumi/github": "*",
-        "@lumi/aws": "*"
+        "@lumi/lumi": "*"
+    },
+    "dependencies": {
+        "@slack/client": "^3.10.0"
     }
 }
-

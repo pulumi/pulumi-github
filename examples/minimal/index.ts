@@ -13,13 +13,37 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+import {requireSlackToken} from "./config";
 import * as github from "@lumi/github";
 
 let hooks = new github.WebHooks();
+let slackToken = requireSlackToken();
 
+declare let require;
 hooks.onIssueComment((e, callback) => {
-    console.log(`Issue #${<any>e.issue.id} ${e.action}: ${e.comment.body}`);
-    callback(null, null);
+    if (e.action == "created") {
+        let slack = require("@slack/client");
+        let client = new slack.WebClient(slackToken);
+        client.chat.postMessage(
+            "#issue-spam",
+            `*Issue #${<any>e.issue.number} ${e.issue.title}* by ${e.issue.user.login}\n` +
+                `${e.comment.body}\n` +
+            `(with :love_letter: from Lumi)`,
+            {
+                as_user: true,
+            },
+            (err, res) => {
+                if (err) {
+                    console.log(err);
+                    callback(null, { statusCode: 500 });
+                } else {
+                    callback(null, { statusCode: 200 });
+                }
+            },
+        );
+    } else {
+        callback(null, { statusCode: 200 });
+    }
 });
 
 hooks.listen();

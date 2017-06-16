@@ -8,6 +8,7 @@
         "pretty": true
     },
     "files": [
-        "index.ts"
+        "index.ts",
+        "config.ts"
     ]
 }

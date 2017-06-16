@@ -1,3 +1,4 @@
 /.lumi/
 /node_modules/
+yarn.lock
 
