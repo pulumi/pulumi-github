@@ -12,7 +12,7 @@ export type Handler = (e: Event, callback: (error: any, result: any) => void) =>
 export class WebHook extends WebHookBase {
     constructor(hooks: WebHooks, handler: Handler) {
         super(hooks, "issue_comment", (e: any, context: Context, callback: (error: any, result: any) => void) => {
-            handler(<Event>e, callback);
+            handler(<Event>(<any>JSON).parse(e.body), callback);
         });
     }
 }
