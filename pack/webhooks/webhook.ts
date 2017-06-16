@@ -35,7 +35,7 @@ export class WebHookBase {
         this.sub = new Subscription(this.parent.prefix + "-sub", {
             active: true,
             events: [ this.event ],
-            config: { url: url + `/${event}` },
+            config: { url: url + `/${this.event}` },
         });
     }
 }
