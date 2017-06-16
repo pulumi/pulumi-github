@@ -19,12 +19,17 @@ export type ContentType =
     "json";
 
 export class Subscription extends lumi.NamedResource implements SubscriptionArgs {
+    public service: string;
     public config: Config;
     public events?: string[];
     public active?: boolean;
 
     constructor(name: string, args: SubscriptionArgs) {
         super(name);
+        if (args.service === undefined) {
+            throw new Error("Missing required argument 'service'");
+        }
+        this.service = args.service;
         if (args.config === undefined) {
             throw new Error("Missing required argument 'config'");
         }
@@ -35,6 +40,7 @@ export class Subscription extends lumi.NamedResource implements SubscriptionArgs
 }
 
 export interface SubscriptionArgs {
+    service: string;
     config: Config;
     events?: string[];
     active?: boolean;

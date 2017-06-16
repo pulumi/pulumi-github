@@ -11,7 +11,7 @@ type Subscription struct {
 	idl.NamedResource
 
 	// Service is the name of the webhook service.  Use `web` for a webhook.
-	Service string `lumi:"name"`
+	Service string `lumi:"service"`
 	// Config contains the various webhook configuration options.
 	Config Config `lumi:"config"`
 

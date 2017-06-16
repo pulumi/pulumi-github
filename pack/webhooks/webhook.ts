@@ -33,9 +33,13 @@ export class WebHookBase {
     // activate tells GitHub to call the specified URL in response to the right kind of events.
     public activate(url: string) {
         this.sub = new Subscription(this.parent.prefix + "-sub", {
+            service: "web",
             active: true,
             events: [ this.event ],
-            config: { url: url + `/${this.event}` },
+            config: {
+                contentType: "json",
+                url: url + `/${this.event}`,
+            },
         });
     }
 }

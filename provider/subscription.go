@@ -20,6 +20,7 @@ import (
 	"encoding/json"
 	"io/ioutil"
 	"net/http"
+	"strconv"
 
 	"github.com/pkg/errors"
 	"github.com/pulumi/lumi/pkg/resource"
@@ -41,18 +42,17 @@ type subProvider struct {
 
 func (p *subProvider) baseWebHooksURL() string {
 	// TODO: fetch these from real configuration.
-	owner := "pulumi"
+	owner := "joeduffy"
 	repo := "pulumi/lumi"
-	return "https://github.com/repos/" + owner + "/" + repo + "/hooks"
+	return "https://" + owner + "@api.github.com/repos/" + repo + "/hooks"
 }
 
 // Check validates that the given property bag is valid for a resource of the given type.
-func (p *subProvider) Check(ctx context.Context, obj *webhooks.Subscription) ([]error, error) {
-	return nil, nil
+func (p *subProvider) Check(ctx context.Context, obj *webhooks.Subscription, property string) error {
+	return nil
 }
 
 type subBody struct {
-	ID     *string   `json:"id,omitempty"`
 	Name   string    `json:"name"`
 	Active *bool     `json:"active,omitempty"`
 	Events *[]string `json:"events,omitempty"`
@@ -64,6 +64,11 @@ type subConfig struct {
 	ContentType *string `json:"content_type,omitempty"`
 	Secret      *string `json:"secret,omitempty"`
 	InsecureSSL *string `json:"insecure_ssl,omitempty"`
+}
+
+// isSuccessHTTPCode returns true if the status represents success.
+func isSuccessHTTPCode(status int) bool {
+	return status >= 200 && status < 300
 }
 
 // subToSubBody translates a subscription from RPC into a JSON serializable structure.
@@ -108,8 +113,8 @@ func (p *subProvider) Create(ctx context.Context, obj *webhooks.Subscription) (r
 	resp, err := http.Post(p.baseWebHooksURL(), "application/json", bytes.NewBuffer(body))
 	if err != nil {
 		return "", err
-	} else if resp.StatusCode != 201 {
-		return "", errors.Errorf("GitHub POST replied with a code other than 201 Created (%v)", resp.Status)
+	} else if !isSuccessHTTPCode(resp.StatusCode) {
+		return "", errors.Errorf("GitHub POST did not reply with the expected 201 Created; got %v", resp.Status)
 	}
 
 	// Parse the reply and pluck out the webhook ID.
@@ -118,18 +123,23 @@ func (p *subProvider) Create(ctx context.Context, obj *webhooks.Subscription) (r
 		return "", err
 	}
 	reply := struct {
-		ID string `json:"id"`
+		ID float64 `json:"id"`
 	}{}
 	if err = json.Unmarshal(respbody, &reply); err != nil {
 		return "", err
 	}
-	return resource.ID(reply.ID), err
+	return resource.ID(strconv.FormatInt(int64(reply.ID), 10)), err
 }
 
 // Get reads the instance state identified by ID, returning a populated resource object, or an error if not found.
 func (p *subProvider) Get(ctx context.Context, id resource.ID) (*webhooks.Subscription, error) {
 	// Simply perform a GET to fetch the information.
 	resp, err := http.Get(p.baseWebHooksURL() + "/" + string(id))
+	if err != nil {
+		return nil, err
+	} else if !isSuccessHTTPCode(resp.StatusCode) {
+		return nil, errors.Errorf("GitHub GET did not reply with the expected 200 OK; got %v", resp.Status)
+	}
 
 	// Parse the reply and pluck out the webhook ID.
 	respbody, err := ioutil.ReadAll(resp.Body)
@@ -172,7 +182,7 @@ func (p *subProvider) Update(ctx context.Context, id resource.ID,
 	if err != nil {
 		return err
 	}
-	req, err := http.NewRequest(http.MethodPatch, p.baseWebHooksURL(), bytes.NewBuffer(body))
+	req, err := http.NewRequest(http.MethodPatch, p.baseWebHooksURL()+"/"+string(id), bytes.NewBuffer(body))
 	if err != nil {
 		return err
 	}
@@ -180,8 +190,8 @@ func (p *subProvider) Update(ctx context.Context, id resource.ID,
 	resp, err := http.DefaultClient.Do(req)
 	if err != nil {
 		return err
-	} else if resp.StatusCode != 200 {
-		return errors.Errorf("GitHub PATCH replied with a code other than 200 OK (%v)", resp.Status)
+	} else if !isSuccessHTTPCode(resp.StatusCode) {
+		return errors.Errorf("GitHub PATCH did not reply with the expected 200 OK; got %v", resp.Status)
 	}
 	return nil
 }
@@ -192,8 +202,8 @@ func (p *subProvider) Delete(ctx context.Context, id resource.ID) error {
 	resp, err := http.Get(p.baseWebHooksURL() + "/" + string(id))
 	if err != nil {
 		return err
-	} else if resp.StatusCode != 204 {
-		return errors.Errorf("GitHub DELETE replied with a code other than 204 No Content (%v)", resp.Status)
+	} else if !isSuccessHTTPCode(resp.StatusCode) {
+		return errors.Errorf("GitHub DELETE did not reply with the expected 204 No Content; got %v", resp.Status)
 	}
 	return nil
 }
