@@ -24,6 +24,7 @@ import (
 
 	"github.com/pkg/errors"
 	"github.com/pulumi/lumi/pkg/resource"
+	"github.com/pulumi/lumi/pkg/resource/provider"
 	"github.com/pulumi/lumi/sdk/go/pkg/lumirpc"
 	"golang.org/x/net/context"
 
@@ -33,18 +34,34 @@ import (
 const SubscriptionToken = webhooks.SubscriptionToken
 
 // NewSubscriptionProvider creates a provider that handles EC2 security group operations.
-func NewSubscriptionProvider() lumirpc.ResourceProviderServer {
-	return webhooks.NewSubscriptionProvider(&subProvider{})
+func NewSubscriptionProvider(host *provider.HostClient) lumirpc.ResourceProviderServer {
+	return webhooks.NewSubscriptionProvider(&subProvider{host: host})
 }
 
 type subProvider struct {
+	host *provider.HostClient
 }
 
-func (p *subProvider) baseWebHooksURL() string {
-	// TODO: fetch these from real configuration.
-	owner := "joeduffy"
-	repo := "pulumi/lumi"
-	return "https://" + owner + "@api.github.com/repos/" + repo + "/hooks"
+const (
+	configUser  = "github:config:user"
+	configRepo  = "github:config:repo"
+	configToken = "github:config:token"
+)
+
+func (p *subProvider) baseWebHooksURL() (string, error) {
+	owner, err := p.host.ReadStringLocation(configUser)
+	if err != nil {
+		return "", err
+	}
+	repo, err := p.host.ReadStringLocation(configRepo)
+	if err != nil {
+		return "", err
+	}
+	token, err := p.host.ReadStringLocation(configToken)
+	if err != nil {
+		return "", err
+	}
+	return "https://" + owner + ":" + token + "@api.github.com/repos/" + repo + "/hooks", nil
 }
 
 // Check validates that the given property bag is valid for a resource of the given type.
@@ -110,7 +127,11 @@ func (p *subProvider) Create(ctx context.Context, obj *webhooks.Subscription) (r
 	if err != nil {
 		return "", err
 	}
-	resp, err := http.Post(p.baseWebHooksURL(), "application/json", bytes.NewBuffer(body))
+	url, err := p.baseWebHooksURL()
+	if err != nil {
+		return "", err
+	}
+	resp, err := http.Post(url, "application/json", bytes.NewBuffer(body))
 	if err != nil {
 		return "", err
 	} else if !isSuccessHTTPCode(resp.StatusCode) {
@@ -134,7 +155,11 @@ func (p *subProvider) Create(ctx context.Context, obj *webhooks.Subscription) (r
 // Get reads the instance state identified by ID, returning a populated resource object, or an error if not found.
 func (p *subProvider) Get(ctx context.Context, id resource.ID) (*webhooks.Subscription, error) {
 	// Simply perform a GET to fetch the information.
-	resp, err := http.Get(p.baseWebHooksURL() + "/" + string(id))
+	url, err := p.baseWebHooksURL()
+	if err != nil {
+		return nil, err
+	}
+	resp, err := http.Get(url + "/" + string(id))
 	if err != nil {
 		return nil, err
 	} else if !isSuccessHTTPCode(resp.StatusCode) {
@@ -182,7 +207,11 @@ func (p *subProvider) Update(ctx context.Context, id resource.ID,
 	if err != nil {
 		return err
 	}
-	req, err := http.NewRequest(http.MethodPatch, p.baseWebHooksURL()+"/"+string(id), bytes.NewBuffer(body))
+	url, err := p.baseWebHooksURL()
+	if err != nil {
+		return err
+	}
+	req, err := http.NewRequest(http.MethodPatch, url+"/"+string(id), bytes.NewBuffer(body))
 	if err != nil {
 		return err
 	}
@@ -199,7 +228,11 @@ func (p *subProvider) Update(ctx context.Context, id resource.ID,
 // Delete tears down an existing resource with the given ID.  If it fails, the resource is assumed to still exist.
 func (p *subProvider) Delete(ctx context.Context, id resource.ID) error {
 	// DELETE the resource using its ID.
-	req, err := http.NewRequest(http.MethodDelete, p.baseWebHooksURL()+"/"+string(id), nil)
+	url, err := p.baseWebHooksURL()
+	if err != nil {
+		return err
+	}
+	req, err := http.NewRequest(http.MethodDelete, url+"/"+string(id), nil)
 	if err != nil {
 		return err
 	}

@@ -19,6 +19,7 @@ import (
 	"fmt"
 
 	pbempty "github.com/golang/protobuf/ptypes/empty"
+	"github.com/pulumi/lumi/pkg/resource/provider"
 	"github.com/pulumi/lumi/pkg/tokens"
 	"github.com/pulumi/lumi/sdk/go/pkg/lumirpc"
 	"golang.org/x/net/context"
@@ -30,10 +31,10 @@ type Provider struct {
 }
 
 // NewProvider creates a new provider instance with server objects registered for every resource type.
-func NewProvider() (*Provider, error) {
+func NewProvider(host *provider.HostClient) (*Provider, error) {
 	return &Provider{
 		impls: map[tokens.Type]lumirpc.ResourceProviderServer{
-			SubscriptionToken: NewSubscriptionProvider(),
+			SubscriptionToken: NewSubscriptionProvider(host),
 		},
 	}, nil
 }
