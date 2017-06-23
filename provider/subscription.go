@@ -28,7 +28,7 @@ import (
 	"github.com/pulumi/lumi/sdk/go/pkg/lumirpc"
 	"golang.org/x/net/context"
 
-	"github.com/pulumi/github-lumipack/rpc/webhooks"
+	"github.com/pulumi/lumi-github/rpc/webhooks"
 )
 
 const SubscriptionToken = webhooks.SubscriptionToken
