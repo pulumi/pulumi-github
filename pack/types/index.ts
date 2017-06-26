@@ -1,4 +1,4 @@
-// Copyright 2017 Pulumi, Inc. All rights reserved.
+// Copyright 2016-2017, Pulumi Corporation.  All rights reserved.
 
 // An Asset is data related to a release.  See https://developer.github.com/v3/repos/releases/ for details.
 export interface Asset {

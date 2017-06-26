@@ -1,4 +1,4 @@
-// Copyright 2017 Pulumi, Inc. All rights reserved.
+// Copyright 2016-2017, Pulumi Corporation.  All rights reserved.
 
 export let user: string;  // the GitHub identity to assume.
 export let token: string; // the token to use for API calls.
