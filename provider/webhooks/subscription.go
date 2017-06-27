@@ -1,6 +1,6 @@
 // Copyright 2016-2017, Pulumi Corporation.  All rights reserved.
 
-package main
+package webhooks
 
 import (
 	"bytes"
@@ -15,12 +15,13 @@ import (
 	"github.com/pulumi/lumi/sdk/go/pkg/lumirpc"
 	"golang.org/x/net/context"
 
+	"github.com/pulumi/lumi-github/provider/ghctx"
 	"github.com/pulumi/lumi-github/rpc/webhooks"
 )
 
 const SubscriptionToken = webhooks.SubscriptionToken
 
-// NewSubscriptionProvider creates a provider that handles EC2 security group operations.
+// NewSubscriptionProvider creates a provider that handles GitHub webhook operations.
 func NewSubscriptionProvider(host *provider.HostClient) lumirpc.ResourceProviderServer {
 	return webhooks.NewSubscriptionProvider(&subProvider{host: host})
 }
@@ -29,26 +30,16 @@ type subProvider struct {
 	host *provider.HostClient
 }
 
-const (
-	configUser  = "github:config:user"
-	configRepo  = "github:config:repo"
-	configToken = "github:config:token"
-)
-
-func (p *subProvider) baseWebHooksURL() (string, error) {
-	owner, err := p.host.ReadStringLocation(configUser)
+func (p *subProvider) baseURL() (string, error) {
+	repo, err := ghctx.Repo(p.host)
 	if err != nil {
 		return "", err
 	}
-	repo, err := p.host.ReadStringLocation(configRepo)
+	base, err := ghctx.BaseURL(p.host)
 	if err != nil {
 		return "", err
 	}
-	token, err := p.host.ReadStringLocation(configToken)
-	if err != nil {
-		return "", err
-	}
-	return "https://" + owner + ":" + token + "@api.github.com/repos/" + repo + "/hooks", nil
+	return base + "/repos/" + repo + "/hooks", nil
 }
 
 // Check validates that the given property bag is valid for a resource of the given type.
@@ -68,11 +59,6 @@ type subConfig struct {
 	ContentType *string `json:"content_type,omitempty"`
 	Secret      *string `json:"secret,omitempty"`
 	InsecureSSL *string `json:"insecure_ssl,omitempty"`
-}
-
-// isSuccessHTTPCode returns true if the status represents success.
-func isSuccessHTTPCode(status int) bool {
-	return status >= 200 && status < 300
 }
 
 // subToSubBody translates a subscription from RPC into a JSON serializable structure.
@@ -114,14 +100,14 @@ func (p *subProvider) Create(ctx context.Context, obj *webhooks.Subscription) (r
 	if err != nil {
 		return "", err
 	}
-	url, err := p.baseWebHooksURL()
+	url, err := p.baseURL()
 	if err != nil {
 		return "", err
 	}
 	resp, err := http.Post(url, "application/json", bytes.NewBuffer(body))
 	if err != nil {
 		return "", err
-	} else if !isSuccessHTTPCode(resp.StatusCode) {
+	} else if !ghctx.HTTPSuccess(resp.StatusCode) {
 		return "", errors.Errorf("GitHub POST did not reply with the expected 201 Created; got %v", resp.Status)
 	}
 
@@ -142,14 +128,14 @@ func (p *subProvider) Create(ctx context.Context, obj *webhooks.Subscription) (r
 // Get reads the instance state identified by ID, returning a populated resource object, or an error if not found.
 func (p *subProvider) Get(ctx context.Context, id resource.ID) (*webhooks.Subscription, error) {
 	// Simply perform a GET to fetch the information.
-	url, err := p.baseWebHooksURL()
+	url, err := p.baseURL()
 	if err != nil {
 		return nil, err
 	}
 	resp, err := http.Get(url + "/" + string(id))
 	if err != nil {
 		return nil, err
-	} else if !isSuccessHTTPCode(resp.StatusCode) {
+	} else if !ghctx.HTTPSuccess(resp.StatusCode) {
 		return nil, errors.Errorf("GitHub GET did not reply with the expected 200 OK; got %v", resp.Status)
 	}
 
@@ -194,7 +180,7 @@ func (p *subProvider) Update(ctx context.Context, id resource.ID,
 	if err != nil {
 		return err
 	}
-	url, err := p.baseWebHooksURL()
+	url, err := p.baseURL()
 	if err != nil {
 		return err
 	}
@@ -206,7 +192,7 @@ func (p *subProvider) Update(ctx context.Context, id resource.ID,
 	resp, err := http.DefaultClient.Do(req)
 	if err != nil {
 		return err
-	} else if !isSuccessHTTPCode(resp.StatusCode) {
+	} else if !ghctx.HTTPSuccess(resp.StatusCode) {
 		return errors.Errorf("GitHub PATCH did not reply with the expected 200 OK; got %v", resp.Status)
 	}
 	return nil
@@ -215,7 +201,7 @@ func (p *subProvider) Update(ctx context.Context, id resource.ID,
 // Delete tears down an existing resource with the given ID.  If it fails, the resource is assumed to still exist.
 func (p *subProvider) Delete(ctx context.Context, id resource.ID) error {
 	// DELETE the resource using its ID.
-	url, err := p.baseWebHooksURL()
+	url, err := p.baseURL()
 	if err != nil {
 		return err
 	}
@@ -226,7 +212,7 @@ func (p *subProvider) Delete(ctx context.Context, id resource.ID) error {
 	resp, err := http.DefaultClient.Do(req)
 	if err != nil {
 		return err
-	} else if !isSuccessHTTPCode(resp.StatusCode) {
+	} else if !ghctx.HTTPSuccess(resp.StatusCode) {
 		return errors.Errorf("GitHub DELETE did not reply with the expected 204 No Content; got %v", resp.Status)
 	}
 	return nil

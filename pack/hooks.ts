@@ -5,10 +5,6 @@ import * as webhooks from "./webhooks";
 import {API} from "@lumi/aws/serverless";
 import {sha1hash} from "@lumi/lumirt";
 
-// Make sure the username and repo are configured, and use that information to set up a prefix.
-let user: string = config.requireUser();
-let repo: string = config.requireRepo();
-
 // WebHooks represents a shared webhooks API endpoint and associated handlers.
 export class WebHooks {
     public readonly prefix: string;                // the globally unique resource name prefix.
@@ -16,6 +12,9 @@ export class WebHooks {
     public readonly hooks: webhooks.WebHookBase[]; // the list of registered webhooks for this endpoint.
 
     constructor() {
+        // Make sure the username and repo are configured, and use that information to set up a prefix.
+        let user: string = config.requireUser();
+        let repo: string = config.requireRepo();
         this.prefix  = "webhooks-" + sha1hash(user + "-" + repo);
         this.gateway = new API(this.prefix + "-api");
         this.hooks   = [];

@@ -10,6 +10,9 @@ import (
 	"github.com/pulumi/lumi/pkg/tokens"
 	"github.com/pulumi/lumi/sdk/go/pkg/lumirpc"
 	"golang.org/x/net/context"
+
+	"github.com/pulumi/lumi-github/provider/repos/issues"
+	"github.com/pulumi/lumi-github/provider/webhooks"
 )
 
 // Provider implements the AWS resource provider's operations for all known AWS types.
@@ -21,7 +24,9 @@ type Provider struct {
 func NewProvider(host *provider.HostClient) (*Provider, error) {
 	return &Provider{
 		impls: map[tokens.Type]lumirpc.ResourceProviderServer{
-			SubscriptionToken: NewSubscriptionProvider(host),
+			issues.LabelToken:          issues.NewLabelProvider(host),
+			issues.MilestoneToken:      issues.NewMilestoneProvider(host),
+			webhooks.SubscriptionToken: webhooks.NewSubscriptionProvider(host),
 		},
 	}, nil
 }

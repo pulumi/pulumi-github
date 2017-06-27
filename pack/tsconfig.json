@@ -21,7 +21,13 @@
 
         "config/index.ts",
 
+        "repos/index.ts",
+        "repos/issues/index.ts",
+        "repos/issues/label.ts",
+        "repos/issues/milestone.ts",
+
         "types/index.ts",
+
         "webhooks/index.ts",
         "webhooks/subscription.ts",
         "webhooks/webhook.ts",

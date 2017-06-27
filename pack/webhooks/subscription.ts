@@ -24,6 +24,14 @@ export class Subscription extends lumi.NamedResource implements SubscriptionArgs
     public events?: string[];
     public active?: boolean;
 
+    public static get(id: lumi.ID): Subscription {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): Subscription[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: SubscriptionArgs) {
         super(name);
         if (args.service === undefined) {
@@ -45,5 +53,4 @@ export interface SubscriptionArgs {
     events?: string[];
     active?: boolean;
 }
-
 
