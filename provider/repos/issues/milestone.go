@@ -122,12 +122,12 @@ func (p *msProvider) Create(ctx context.Context, obj *issues.Milestone) (resourc
 		return "", err
 	}
 	var reply struct {
-		ID int `json:"id"`
+		Number int `json:"number"`
 	}
 	if err = json.Unmarshal(respbody, &reply); err != nil {
 		return "", err
 	}
-	return newMilestoneID(repo, reply.ID), err
+	return newMilestoneID(repo, reply.Number), err
 }
 
 // Get reads the instance state identified by ID, returning a populated resource object, or an error if not found.
