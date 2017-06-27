@@ -85,7 +85,10 @@ func (p *lblProvider) Create(ctx context.Context, obj *issues.Label) (resource.I
 	if err != nil {
 		return "", err
 	} else if !ghctx.HTTPSuccess(resp.StatusCode) {
-		return "", errors.Errorf("GitHub POST did not reply with the expected 201 Created; got %v", resp.Status)
+		respbody, err := ioutil.ReadAll(resp.Body)
+		contract.IgnoreError(err)
+		return "", errors.Errorf(
+			"GitHub POST did not reply with the expected 201 Created; got %v: %v", resp.Status, string(respbody))
 	}
 	return newLabelID(repo, name), err
 }
@@ -102,7 +105,10 @@ func (p *lblProvider) Get(ctx context.Context, id resource.ID) (*issues.Label, e
 	if err != nil {
 		return nil, err
 	} else if !ghctx.HTTPSuccess(resp.StatusCode) {
-		return nil, errors.Errorf("GitHub GET did not reply with the expected 200 OK; got %v", resp.Status)
+		respbody, err := ioutil.ReadAll(resp.Body)
+		contract.IgnoreError(err)
+		return nil, errors.Errorf(
+			"GitHub GET did not reply with the expected 200 OK; got %v: %v", resp.Status, string(respbody))
 	}
 
 	// Parse the reply and pluck out the color property.
@@ -158,7 +164,10 @@ func (p *lblProvider) Update(ctx context.Context, id resource.ID,
 	if err != nil {
 		return err
 	} else if !ghctx.HTTPSuccess(resp.StatusCode) {
-		return errors.Errorf("GitHub PATCH did not reply with the expected 200 OK; got %v", resp.Status)
+		respbody, err := ioutil.ReadAll(resp.Body)
+		contract.IgnoreError(err)
+		return errors.Errorf(
+			"GitHub PATCH did not reply with the expected 200 OK; got %v: %v", resp.Status, string(respbody))
 	}
 	return nil
 }
@@ -179,7 +188,10 @@ func (p *lblProvider) Delete(ctx context.Context, id resource.ID) error {
 	if err != nil {
 		return err
 	} else if !ghctx.HTTPSuccess(resp.StatusCode) {
-		return errors.Errorf("GitHub DELETE did not reply with the expected 204 No Content; got %v", resp.Status)
+		respbody, err := ioutil.ReadAll(resp.Body)
+		contract.IgnoreError(err)
+		return errors.Errorf(
+			"GitHub DELETE did not reply with the expected 204 No Content; got %v: %v", resp.Status, string(respbody))
 	}
 	return nil
 }

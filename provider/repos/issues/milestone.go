@@ -110,7 +110,10 @@ func (p *msProvider) Create(ctx context.Context, obj *issues.Milestone) (resourc
 	if err != nil {
 		return "", err
 	} else if !ghctx.HTTPSuccess(resp.StatusCode) {
-		return "", errors.Errorf("GitHub POST did not reply with the expected 201 Created; got %v", resp.Status)
+		respbody, err := ioutil.ReadAll(resp.Body)
+		contract.IgnoreError(err)
+		return "", errors.Errorf(
+			"GitHub POST did not reply with the expected 201 Created; got %v: %v", resp.Status, string(respbody))
 	}
 
 	// Parse the reply and pluck out the milestone number.
@@ -139,7 +142,10 @@ func (p *msProvider) Get(ctx context.Context, id resource.ID) (*issues.Milestone
 	if err != nil {
 		return nil, err
 	} else if !ghctx.HTTPSuccess(resp.StatusCode) {
-		return nil, errors.Errorf("GitHub GET did not reply with the expected 200 OK; got %v", resp.Status)
+		respbody, err := ioutil.ReadAll(resp.Body)
+		contract.IgnoreError(err)
+		return nil, errors.Errorf(
+			"GitHub GET did not reply with the expected 200 OK; got %v: %v", resp.Status, string(respbody))
 	}
 
 	// Parse the reply and pluck out the color property.
@@ -194,7 +200,10 @@ func (p *msProvider) Update(ctx context.Context, id resource.ID,
 	if err != nil {
 		return err
 	} else if !ghctx.HTTPSuccess(resp.StatusCode) {
-		return errors.Errorf("GitHub PATCH did not reply with the expected 200 OK; got %v", resp.Status)
+		respbody, err := ioutil.ReadAll(resp.Body)
+		contract.IgnoreError(err)
+		return errors.Errorf(
+			"GitHub PATCH did not reply with the expected 200 OK; got %v: %v", resp.Status, string(respbody))
 	}
 	return nil
 }
@@ -215,7 +224,10 @@ func (p *msProvider) Delete(ctx context.Context, id resource.ID) error {
 	if err != nil {
 		return err
 	} else if !ghctx.HTTPSuccess(resp.StatusCode) {
-		return errors.Errorf("GitHub DELETE did not reply with the expected 204 No Content; got %v", resp.Status)
+		respbody, err := ioutil.ReadAll(resp.Body)
+		contract.IgnoreError(err)
+		return errors.Errorf(
+			"GitHub DELETE did not reply with the expected 204 No Content; got %v: %v", resp.Status, string(respbody))
 	}
 	return nil
 }
