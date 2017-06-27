@@ -76,6 +76,15 @@ func stringToState(s *string) *issues.MilestoneState {
 	return &st
 }
 
+// Name creates a unique name for this resource.
+func (p *msProvider) Name(ctx context.Context, obj *issues.Milestone) (string, error) {
+	name := obj.Title
+	if obj.Repo != nil {
+		name = *obj.Repo + ":" + name
+	}
+	return name, nil
+}
+
 // Check validates that the given property bag is valid for a resource of the given type.
 func (p *msProvider) Check(ctx context.Context, obj *issues.Milestone, property string) error {
 	if property == "" {
@@ -88,9 +97,8 @@ func (p *msProvider) Check(ctx context.Context, obj *issues.Milestone, property 
 // must be blank.)  If this call fails, the resource must not have been created (i.e., it is "transacational").
 func (p *msProvider) Create(ctx context.Context, obj *issues.Milestone) (resource.ID, error) {
 	// Manufacture and POST a payload to the right endpoint.
-	name := *obj.Name
 	body, err := json.Marshal(milestone{
-		Title:       name,
+		Title:       obj.Title,
 		DueOn:       obj.DueOn,
 		Description: obj.Description,
 		State:       stateToString(obj.State),
@@ -158,7 +166,7 @@ func (p *msProvider) Get(ctx context.Context, id resource.ID) (*issues.Milestone
 		return nil, err
 	}
 	return &issues.Milestone{
-		Name:        &ms.Title,
+		Title:       ms.Title,
 		DueOn:       ms.DueOn,
 		Description: ms.Description,
 		State:       stringToState(ms.State),
@@ -179,7 +187,7 @@ func (p *msProvider) Update(ctx context.Context, id resource.ID,
 	// Just do a PATCH with the full object state to update the target.
 	repo, number := fromMilestoneID(id)
 	body, err := json.Marshal(milestone{
-		Title:       *new.Name,
+		Title:       new.Title,
 		DueOn:       new.DueOn,
 		Description: new.Description,
 		State:       stateToString(new.State),

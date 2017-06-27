@@ -7,7 +7,8 @@ import * as lumi from "@lumi/lumi";
 export let MilestoneClosed: MilestoneState = "closed";
 export let MilestoneOpen: MilestoneState = "open";
 
-export class Milestone extends lumi.NamedResource implements MilestoneArgs {
+export class Milestone extends lumi.Resource implements MilestoneArgs {
+    public title: string;
     public dueOn: string;
     public description?: string;
     public state?: MilestoneState;
@@ -21,8 +22,12 @@ export class Milestone extends lumi.NamedResource implements MilestoneArgs {
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: MilestoneArgs) {
-        super(name);
+    constructor(args: MilestoneArgs) {
+        super();
+        if (args.title === undefined) {
+            throw new Error("Missing required argument 'title'");
+        }
+        this.title = args.title;
         if (args.dueOn === undefined) {
             throw new Error("Missing required argument 'dueOn'");
         }
@@ -34,6 +39,7 @@ export class Milestone extends lumi.NamedResource implements MilestoneArgs {
 }
 
 export interface MilestoneArgs {
+    title: string;
     dueOn: string;
     description?: string;
     state?: MilestoneState;

@@ -50,6 +50,15 @@ func fromLabelID(id resource.ID) (string, string) {
 	return s[:ix], s[ix+1:]
 }
 
+// Name creates a unique name for this resource.
+func (p *lblProvider) Name(ctx context.Context, obj *issues.Label) (string, error) {
+	name := obj.Name
+	if obj.Repo != nil {
+		name = *obj.Repo + ":" + name
+	}
+	return name, nil
+}
+
 // Check validates that the given property bag is valid for a resource of the given type.
 func (p *lblProvider) Check(ctx context.Context, obj *issues.Label, property string) error {
 	if property == "" {
@@ -62,12 +71,11 @@ func (p *lblProvider) Check(ctx context.Context, obj *issues.Label, property str
 // must be blank.)  If this call fails, the resource must not have been created (i.e., it is "transacational").
 func (p *lblProvider) Create(ctx context.Context, obj *issues.Label) (resource.ID, error) {
 	// Manufacture and POST a payload to the right endpoint.
-	name := *obj.Name
 	body, err := json.Marshal(struct {
 		Name  string `json:"name"`
 		Color string `json:"color"`
 	}{
-		Name:  name,
+		Name:  obj.Name,
 		Color: obj.Color,
 	})
 	if err != nil {
@@ -90,7 +98,7 @@ func (p *lblProvider) Create(ctx context.Context, obj *issues.Label) (resource.I
 		return "", errors.Errorf(
 			"GitHub POST did not reply with the expected 201 Created; got %v: %v", resp.Status, string(respbody))
 	}
-	return newLabelID(repo, name), err
+	return newLabelID(repo, obj.Name), err
 }
 
 // Get reads the instance state identified by ID, returning a populated resource object, or an error if not found.
@@ -123,7 +131,7 @@ func (p *lblProvider) Get(ctx context.Context, id resource.ID) (*issues.Label, e
 		return nil, err
 	}
 	return &issues.Label{
-		Name:  &name,
+		Name:  name,
 		Color: reply.Color,
 		Repo:  &repo,
 	}, nil

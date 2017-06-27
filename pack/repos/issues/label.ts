@@ -4,7 +4,8 @@
 /* tslint:disable:ordered-imports variable-name */
 import * as lumi from "@lumi/lumi";
 
-export class Label extends lumi.NamedResource implements LabelArgs {
+export class Label extends lumi.Resource implements LabelArgs {
+    public name: string;
     public color: string;
     public repo?: string;
 
@@ -16,8 +17,12 @@ export class Label extends lumi.NamedResource implements LabelArgs {
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: LabelArgs) {
-        super(name);
+    constructor(args: LabelArgs) {
+        super();
+        if (args.name === undefined) {
+            throw new Error("Missing required argument 'name'");
+        }
+        this.name = args.name;
         if (args.color === undefined) {
             throw new Error("Missing required argument 'color'");
         }
@@ -27,6 +32,7 @@ export class Label extends lumi.NamedResource implements LabelArgs {
 }
 
 export interface LabelArgs {
+    name: string;
     color: string;
     repo?: string;
 }
