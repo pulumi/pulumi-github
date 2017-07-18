@@ -15,7 +15,7 @@ hooks.onIssueComment((e, callback) => {
             "#issue-spam",
             `*Issue #${<any>e.issue.number} ${e.issue.title}* by ${e.comment.user.login}\n` +
                 `${e.comment.body}\n` +
-            `(with :love_letter: from Lumi)`,
+            `(with :love_letter: from Pulumi)`,
             {
                 as_user: true,
             },
