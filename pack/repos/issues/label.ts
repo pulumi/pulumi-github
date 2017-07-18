@@ -3,11 +3,12 @@
 
 /* tslint:disable:ordered-imports variable-name */
 import * as lumi from "@lumi/lumi";
+import * as lumirt from "@lumi/lumirt";
 
 export class Label extends lumi.Resource implements LabelArgs {
-    public name: string;
+    public readonly name: string;
     public color: string;
-    public repo?: string;
+    public readonly repo?: string;
 
     public static get(id: lumi.ID): Label {
         return <any>undefined; // functionality provided by the runtime
@@ -19,11 +20,11 @@ export class Label extends lumi.Resource implements LabelArgs {
 
     constructor(args: LabelArgs) {
         super();
-        if (args.name === undefined) {
+        if (lumirt.defaultIfComputed(args.name, "") === undefined) {
             throw new Error("Missing required argument 'name'");
         }
         this.name = args.name;
-        if (args.color === undefined) {
+        if (lumirt.defaultIfComputed(args.color, "") === undefined) {
             throw new Error("Missing required argument 'color'");
         }
         this.color = args.color;
@@ -32,8 +33,8 @@ export class Label extends lumi.Resource implements LabelArgs {
 }
 
 export interface LabelArgs {
-    name: string;
+    readonly name: string;
     color: string;
-    repo?: string;
+    readonly repo?: string;
 }
 

@@ -3,6 +3,7 @@
 
 /* tslint:disable:ordered-imports variable-name */
 import * as lumi from "@lumi/lumi";
+import * as lumirt from "@lumi/lumirt";
 
 export let FormContentType: ContentType = "form";
 export let JSONContentType: ContentType = "json";
@@ -34,11 +35,11 @@ export class Subscription extends lumi.NamedResource implements SubscriptionArgs
 
     constructor(name: string, args: SubscriptionArgs) {
         super(name);
-        if (args.service === undefined) {
+        if (lumirt.defaultIfComputed(args.service, "") === undefined) {
             throw new Error("Missing required argument 'service'");
         }
         this.service = args.service;
-        if (args.config === undefined) {
+        if (lumirt.defaultIfComputed(args.config, "") === undefined) {
             throw new Error("Missing required argument 'config'");
         }
         this.config = args.config;

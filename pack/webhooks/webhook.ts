@@ -21,7 +21,7 @@ export class WebHookBase {
         // New up a lambda that will invoke the handler code.
         this.func = new aws.serverless.Function(
             this.parent.prefix + "-" + event + "-handler",
-            [ aws.iam.AWSLambdaFullAccess ], // TODO: consider making this configurable.
+            { policies: [ aws.iam.AWSLambdaFullAccess ] }, // TODO: consider making this configurable.
             handler,
         );
 

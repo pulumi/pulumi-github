@@ -3,16 +3,17 @@
 
 /* tslint:disable:ordered-imports variable-name */
 import * as lumi from "@lumi/lumi";
+import * as lumirt from "@lumi/lumirt";
 
 export let MilestoneClosed: MilestoneState = "closed";
 export let MilestoneOpen: MilestoneState = "open";
 
 export class Milestone extends lumi.Resource implements MilestoneArgs {
-    public title: string;
+    public readonly title: string;
     public dueOn: string;
     public description?: string;
     public state?: MilestoneState;
-    public repo?: string;
+    public readonly repo?: string;
 
     public static get(id: lumi.ID): Milestone {
         return <any>undefined; // functionality provided by the runtime
@@ -24,11 +25,11 @@ export class Milestone extends lumi.Resource implements MilestoneArgs {
 
     constructor(args: MilestoneArgs) {
         super();
-        if (args.title === undefined) {
+        if (lumirt.defaultIfComputed(args.title, "") === undefined) {
             throw new Error("Missing required argument 'title'");
         }
         this.title = args.title;
-        if (args.dueOn === undefined) {
+        if (lumirt.defaultIfComputed(args.dueOn, "") === undefined) {
             throw new Error("Missing required argument 'dueOn'");
         }
         this.dueOn = args.dueOn;
@@ -39,11 +40,11 @@ export class Milestone extends lumi.Resource implements MilestoneArgs {
 }
 
 export interface MilestoneArgs {
-    title: string;
+    readonly title: string;
     dueOn: string;
     description?: string;
     state?: MilestoneState;
-    repo?: string;
+    readonly repo?: string;
 }
 
 export type MilestoneState =
