@@ -3,31 +3,33 @@
 import * as config from "../config";
 import {WebHooks} from "../hooks";
 import {Subscription} from "./subscription";
-import * as aws from "@lumi/aws";
+import * as platform from "@lumi/platform";
 
-// TODO: everything below is currently AWS-specific.  Eventually we want to make this cloud agnostic.
+export type WebHookHandler = (body: any) => Promise<void>;
 
 // WebHookBase combines a serverless function with a GitHub webhook subscription.
 export class WebHookBase {
     private parent: WebHooks;                       // the parent webhooks object.
     private event: string;                          // the GitHub webhook event name.
-    private readonly func: aws.serverless.Function; // the function to invoke in response to the event.
     private sub: Subscription;                      // the subscription, once it is initialized.
 
-    constructor(parent: WebHooks, event: string, handler: aws.serverless.Handler) {
+    constructor(parent: WebHooks, event: string, handler: WebHookHandler) {
         this.parent = parent;
         this.event = event;
 
-        // New up a lambda that will invoke the handler code.
-        this.func = new aws.serverless.Function(
-            this.parent.prefix + "-" + event + "-handler",
-            { policies: [ aws.iam.AWSLambdaFullAccess ] }, // TODO: consider making this configurable.
-            handler,
-        );
-
         // Associate an endpoint with the handler.  Note that the hooks object ensures that the user/repo pair are
         // uniquely isolated from all others, such that the URL needn't actually contain them.
-        this.parent.gateway.route("POST", `/${event}`, this.func);
+        this.parent.gateway.post(`/${event}`, {}, async(req, res) => {
+            try {
+                let body = (<any>JSON).parse(req.body);
+                await handler(body);
+                console.log("Returning 200 success.");
+                res.status(200).end("");
+            } catch(err) {
+                console.log("Returning 500 error: " + err);
+                res.status(500).end("");
+            }
+        });
     }
 
     // activate tells GitHub to call the specified URL in response to the right kind of events.

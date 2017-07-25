@@ -181,7 +181,7 @@ func (p *lblProvider) Update(ctx context.Context, id resource.ID,
 }
 
 // Delete tears down an existing resource with the given ID.  If it fails, the resource is assumed to still exist.
-func (p *lblProvider) Delete(ctx context.Context, id resource.ID) error {
+func (p *lblProvider) Delete(ctx context.Context, id resource.ID, obj issues.Label) error {
 	// DELETE the resource using its ID (name).
 	repo, name := fromLabelID(id)
 	url, err := p.baseURL(repo)
