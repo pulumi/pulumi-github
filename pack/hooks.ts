@@ -2,13 +2,13 @@
 
 import * as config from "./config";
 import * as webhooks from "./webhooks";
-import {API} from "@lumi/aws/serverless";
+import {HttpAPI} from "@lumi/platform";
 import {sha1hash} from "@lumi/lumirt";
 
 // WebHooks represents a shared webhooks API endpoint and associated handlers.
 export class WebHooks {
     public readonly prefix: string;                // the globally unique resource name prefix.
-    public readonly gateway: API;                  // the shared API gateway for all handlers.
+    public readonly gateway: HttpAPI;                  // the shared API gateway for all handlers.
     public readonly hooks: webhooks.WebHookBase[]; // the list of registered webhooks for this endpoint.
 
     constructor() {
@@ -16,13 +16,13 @@ export class WebHooks {
         let user: string = config.requireUser();
         let repo: string = config.requireRepo();
         this.prefix  = "webhooks-" + sha1hash(user + "-" + repo);
-        this.gateway = new API(this.prefix + "-api");
+        this.gateway = new HttpAPI(this.prefix + "-api");
         this.hooks   = [];
     }
 
     // listen is called when you are finished registering APIs, to make the hooks available.
     public listen(): void {
-        let url = this.gateway.publish().url;
+        let url = this.gateway.publish();
         for (let i = 0; i < (<any>this.hooks).length; i++) {
             this.hooks[i].activate(url);
         }

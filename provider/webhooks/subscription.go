@@ -199,7 +199,7 @@ func (p *subProvider) Update(ctx context.Context, id resource.ID,
 }
 
 // Delete tears down an existing resource with the given ID.  If it fails, the resource is assumed to still exist.
-func (p *subProvider) Delete(ctx context.Context, id resource.ID) error {
+func (p *subProvider) Delete(ctx context.Context, id resource.ID, obj webhooks.Subscription) error {
 	// DELETE the resource using its ID.
 	url, err := p.baseURL()
 	if err != nil {

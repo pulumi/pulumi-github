@@ -217,7 +217,7 @@ func (p *msProvider) Update(ctx context.Context, id resource.ID,
 }
 
 // Delete tears down an existing resource with the given ID.  If it fails, the resource is assumed to still exist.
-func (p *msProvider) Delete(ctx context.Context, id resource.ID) error {
+func (p *msProvider) Delete(ctx context.Context, id resource.ID, obj issues.Milestone) error {
 	// DELETE the resource using its ID (number).
 	repo, number := fromMilestoneID(id)
 	url, err := p.baseURL(repo)
