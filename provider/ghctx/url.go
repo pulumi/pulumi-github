@@ -3,7 +3,7 @@
 package ghctx
 
 import (
-	"github.com/pulumi/lumi/pkg/resource/provider"
+	"github.com/pulumi/pulumi-fabric/pkg/resource/provider"
 )
 
 // BaseURL returns the base URL to use for all GitHub API calls.

@@ -45,9 +45,15 @@
 
 [[projects]]
   name = "github.com/pulumi/lumi"
-  packages = ["pkg/compiler/ast","pkg/compiler/binder","pkg/compiler/core","pkg/compiler/errors","pkg/compiler/metadata","pkg/compiler/symbols","pkg/compiler/types","pkg/compiler/types/predef","pkg/diag","pkg/diag/colors","pkg/encoding","pkg/eval","pkg/eval/rt","pkg/pack","pkg/resource","pkg/resource/idl","pkg/resource/plugin","pkg/resource/provider","pkg/tokens","pkg/util/cmdutil","pkg/util/contract","pkg/util/mapper","pkg/util/rpcutil","pkg/workspace","sdk/go/pkg/lumirpc"]
+  packages = ["pkg/compiler/ast","pkg/compiler/binder","pkg/compiler/core","pkg/compiler/errors","pkg/compiler/metadata","pkg/compiler/symbols","pkg/compiler/types","pkg/compiler/types/predef","pkg/diag","pkg/diag/colors","pkg/encoding","pkg/eval","pkg/eval/rt","pkg/pack","pkg/resource","pkg/resource/plugin","pkg/tokens","pkg/util/cmdutil","pkg/util/contract","pkg/util/mapper","pkg/util/rpcutil","pkg/workspace","sdk/go/pkg/lumirpc"]
   revision = "300af627477814a56df4b3e277c3bc83cc9b1bd2"
   version = "v0.4"
+
+[[projects]]
+  branch = "master"
+  name = "github.com/pulumi/pulumi-fabric"
+  packages = ["pkg/compiler/ast","pkg/compiler/binder","pkg/compiler/core","pkg/compiler/errors","pkg/compiler/metadata","pkg/compiler/symbols","pkg/compiler/types","pkg/compiler/types/predef","pkg/diag","pkg/diag/colors","pkg/encoding","pkg/eval","pkg/eval/rt","pkg/pack","pkg/resource","pkg/resource/idl","pkg/resource/plugin","pkg/resource/provider","pkg/tokens","pkg/util/cmdutil","pkg/util/contract","pkg/util/mapper","pkg/util/rpcutil","pkg/workspace","sdk/go/pkg/lumirpc"]
+  revision = "35aa6b755999f963922e7acf99fb3b1de6a1d419"
 
 [[projects]]
   branch = "master"
@@ -71,7 +77,7 @@
   branch = "master"
   name = "golang.org/x/crypto"
   packages = ["ssh/terminal"]
-  revision = "558b6879de74bc843225cde5686419267ff707ca"
+  revision = "358f15eacb587b056fc93273b930314a5cda12fe"
 
 [[projects]]
   branch = "master"
@@ -83,7 +89,7 @@
   branch = "master"
   name = "golang.org/x/sys"
   packages = ["unix"]
-  revision = "396c9fc8fb0ce27fc7a1ff136dc5af797bba258a"
+  revision = "e312636bdaa2fac4f0acde9d17ab9fbad2b4ad10"
 
 [[projects]]
   branch = "master"
@@ -112,6 +118,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "8ce6d909826b1f1a59460909853379b0d35887562e3a84463cc35b2026233748"
+  inputs-digest = "46fd28223707a9a8d7fce60de622ed80dcd2065807b4a048ed5e4a15db9a7cc8"
   solver-name = "gps-cdcl"
   solver-version = 1

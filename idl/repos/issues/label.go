@@ -3,7 +3,7 @@
 package issues
 
 import (
-	"github.com/pulumi/lumi/pkg/resource/idl"
+	"github.com/pulumi/pulumi-fabric/pkg/resource/idl"
 )
 
 // Labels can be applied to issues and pull requests to signify priority, category, or any other information that you

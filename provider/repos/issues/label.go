@@ -10,14 +10,14 @@ import (
 	"strings"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/lumi/pkg/resource"
-	"github.com/pulumi/lumi/pkg/resource/provider"
-	"github.com/pulumi/lumi/pkg/util/contract"
-	"github.com/pulumi/lumi/sdk/go/pkg/lumirpc"
+	"github.com/pulumi/pulumi-fabric/pkg/resource"
+	"github.com/pulumi/pulumi-fabric/pkg/resource/provider"
+	"github.com/pulumi/pulumi-fabric/pkg/util/contract"
+	"github.com/pulumi/pulumi-fabric/sdk/go/pkg/lumirpc"
 	"golang.org/x/net/context"
 
-	"github.com/pulumi/lumi-github/provider/ghctx"
-	"github.com/pulumi/lumi-github/rpc/repos/issues"
+	"github.com/pulumi/pulumi-github/provider/ghctx"
+	"github.com/pulumi/pulumi-github/rpc/repos/issues"
 )
 
 const LabelToken = issues.LabelToken

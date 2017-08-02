@@ -3,7 +3,7 @@
 package webhooks
 
 import (
-	"github.com/pulumi/lumi/pkg/resource/idl"
+	"github.com/pulumi/pulumi-fabric/pkg/resource/idl"
 )
 
 // Subscription represents an active webhook subscription for a given GitHub repository.

@@ -10,13 +10,13 @@ import (
 	"strconv"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/lumi/pkg/resource"
-	"github.com/pulumi/lumi/pkg/resource/provider"
-	"github.com/pulumi/lumi/sdk/go/pkg/lumirpc"
+	"github.com/pulumi/pulumi-fabric/pkg/resource"
+	"github.com/pulumi/pulumi-fabric/pkg/resource/provider"
+	"github.com/pulumi/pulumi-fabric/sdk/go/pkg/lumirpc"
 	"golang.org/x/net/context"
 
-	"github.com/pulumi/lumi-github/provider/ghctx"
-	"github.com/pulumi/lumi-github/rpc/webhooks"
+	"github.com/pulumi/pulumi-github/provider/ghctx"
+	"github.com/pulumi/pulumi-github/rpc/webhooks"
 )
 
 const SubscriptionToken = webhooks.SubscriptionToken

@@ -6,13 +6,13 @@ import (
 	"fmt"
 
 	pbempty "github.com/golang/protobuf/ptypes/empty"
-	"github.com/pulumi/lumi/pkg/resource/provider"
-	"github.com/pulumi/lumi/pkg/tokens"
-	"github.com/pulumi/lumi/sdk/go/pkg/lumirpc"
+	"github.com/pulumi/pulumi-fabric/pkg/resource/provider"
+	"github.com/pulumi/pulumi-fabric/pkg/tokens"
+	"github.com/pulumi/pulumi-fabric/sdk/go/pkg/lumirpc"
 	"golang.org/x/net/context"
 
-	"github.com/pulumi/lumi-github/provider/repos/issues"
-	"github.com/pulumi/lumi-github/provider/webhooks"
+	"github.com/pulumi/pulumi-github/provider/repos/issues"
+	"github.com/pulumi/pulumi-github/provider/webhooks"
 )
 
 // Provider implements the AWS resource provider's operations for all known AWS types.

@@ -4,9 +4,9 @@ package issues
 
 import (
 	"github.com/pkg/errors"
-	"github.com/pulumi/lumi/pkg/resource/provider"
+	"github.com/pulumi/pulumi-fabric/pkg/resource/provider"
 
-	"github.com/pulumi/lumi-github/provider/ghctx"
+	"github.com/pulumi/pulumi-github/provider/ghctx"
 )
 
 // defaultRepo fetches either the repo provided by the repop argument, or gets it from host configuration.

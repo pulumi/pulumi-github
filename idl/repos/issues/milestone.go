@@ -3,7 +3,7 @@
 package issues
 
 import (
-	"github.com/pulumi/lumi/pkg/resource/idl"
+	"github.com/pulumi/pulumi-fabric/pkg/resource/idl"
 )
 
 // You can use milestones to track progress on groups of issues or pull requests in a repository.
