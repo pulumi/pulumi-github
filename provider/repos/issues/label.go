@@ -138,7 +138,7 @@ func (p *lblProvider) Get(ctx context.Context, id resource.ID) (*issues.Label, e
 }
 
 // InspectChange checks what impacts a hypothetical update will have on the resource's properties.
-func (p *lblProvider) InspectChange(ctx context.Context, id resource.ID,
+func (p *lblProvider) Diff(ctx context.Context, id resource.ID,
 	old *issues.Label, new *issues.Label, diff *resource.ObjectDiff) ([]string, error) {
 	return nil, nil
 }

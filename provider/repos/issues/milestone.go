@@ -175,7 +175,7 @@ func (p *msProvider) Get(ctx context.Context, id resource.ID) (*issues.Milestone
 }
 
 // InspectChange checks what impacts a hypothetical update will have on the resource's properties.
-func (p *msProvider) InspectChange(ctx context.Context, id resource.ID,
+func (p *msProvider) Diff(ctx context.Context, id resource.ID,
 	old *issues.Milestone, new *issues.Milestone, diff *resource.ObjectDiff) ([]string, error) {
 	return nil, nil
 }

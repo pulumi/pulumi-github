@@ -72,12 +72,12 @@ func (p *Provider) Get(ctx context.Context, req *lumirpc.GetRequest) (*lumirpc.G
 	return nil, fmt.Errorf("Unrecognized resource type (Get): %v", t)
 }
 
-// InspectChange checks what impacts a hypothetical update will have on the resource's properties.
-func (p *Provider) InspectChange(
-	ctx context.Context, req *lumirpc.InspectChangeRequest) (*lumirpc.InspectChangeResponse, error) {
+// Diff checks what impacts a hypothetical update will have on the resource's properties.
+func (p *Provider) Diff(
+	ctx context.Context, req *lumirpc.DiffRequest) (*lumirpc.DiffResponse, error) {
 	t := tokens.Type(req.GetType())
 	if prov, has := p.impls[t]; has {
-		return prov.InspectChange(ctx, req)
+		return prov.Diff(ctx, req)
 	}
 	return nil, fmt.Errorf("Unrecognized resource type (InspectChange): %v", t)
 }

@@ -8,12 +8,12 @@ import (
     pbstruct "github.com/golang/protobuf/ptypes/struct"
     "golang.org/x/net/context"
 
-    "github.com/pulumi/lumi/pkg/resource"
-    "github.com/pulumi/lumi/pkg/resource/plugin"
-    "github.com/pulumi/lumi/pkg/tokens"
-    "github.com/pulumi/lumi/pkg/util/contract"
-    "github.com/pulumi/lumi/pkg/util/mapper"
-    "github.com/pulumi/lumi/sdk/go/pkg/lumirpc"
+    "github.com/pulumi/pulumi-fabric/pkg/resource"
+    "github.com/pulumi/pulumi-fabric/pkg/resource/plugin"
+    "github.com/pulumi/pulumi-fabric/pkg/tokens"
+    "github.com/pulumi/pulumi-fabric/pkg/util/contract"
+    "github.com/pulumi/pulumi-fabric/pkg/util/mapper"
+    "github.com/pulumi/pulumi-fabric/sdk/go/pkg/lumirpc"
 )
 
 /* RPC stubs for Label resource provider */
@@ -25,10 +25,10 @@ const LabelToken = tokens.Type("github:repos/issues/label:Label")
 type LabelProviderOps interface {
     Check(ctx context.Context, obj *Label, property string) error
     Name(ctx context.Context, obj *Label) (string, error)
+    Diff(ctx context.Context, id resource.ID,
+        old *Label, new *Label, diff *resource.ObjectDiff) ([]string, error)
     Create(ctx context.Context, obj *Label) (resource.ID, error)
     Get(ctx context.Context, id resource.ID) (*Label, error)
-    InspectChange(ctx context.Context, id resource.ID,
-        old *Label, new *Label, diff *resource.ObjectDiff) ([]string, error)
     Update(ctx context.Context, id resource.ID,
         old *Label, new *Label, diff *resource.ObjectDiff) error
     Delete(ctx context.Context, id resource.ID, obj Label) error
@@ -103,22 +103,8 @@ func (p *LabelProvider) Create(
     }, nil
 }
 
-func (p *LabelProvider) Get(
-    ctx context.Context, req *lumirpc.GetRequest) (*lumirpc.GetResponse, error) {
-    contract.Assert(req.GetType() == string(LabelToken))
-    id := resource.ID(req.GetId())
-    obj, err := p.ops.Get(ctx, id)
-    if err != nil {
-        return nil, err
-    }
-    return &lumirpc.GetResponse{
-        Properties: plugin.MarshalProperties(
-            resource.NewPropertyMap(obj), plugin.MarshalOptions{}),
-    }, nil
-}
-
-func (p *LabelProvider) InspectChange(
-    ctx context.Context, req *lumirpc.InspectChangeRequest) (*lumirpc.InspectChangeResponse, error) {
+func (p *LabelProvider) Diff(
+    ctx context.Context, req *lumirpc.DiffRequest) (*lumirpc.DiffResponse, error) {
     contract.Assert(req.GetType() == string(LabelToken))
     id := resource.ID(req.GetId())
     old, oldprops, err := p.Unmarshal(req.GetOlds())
@@ -139,13 +125,27 @@ func (p *LabelProvider) InspectChange(
             replaces = append(replaces, "repo")
         }
     }
-    more, err := p.ops.InspectChange(ctx, id, old, new, diff)
+    more, err := p.ops.Diff(ctx, id, old, new, diff)
     if err != nil {
         return nil, err
     }
-    return &lumirpc.InspectChangeResponse{
+    return &lumirpc.DiffResponse{
         Replaces: append(replaces, more...),
     }, err
+}
+
+func (p *LabelProvider) Get(
+    ctx context.Context, req *lumirpc.GetRequest) (*lumirpc.GetResponse, error) {
+    contract.Assert(req.GetType() == string(LabelToken))
+    id := resource.ID(req.GetId())
+    obj, err := p.ops.Get(ctx, id)
+    if err != nil {
+        return nil, err
+    }
+    return &lumirpc.GetResponse{
+        Properties: plugin.MarshalProperties(
+            resource.NewPropertyMap(obj), plugin.MarshalOptions{}),
+    }, nil
 }
 
 func (p *LabelProvider) Update(

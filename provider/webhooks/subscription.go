@@ -165,7 +165,7 @@ func (p *subProvider) Get(ctx context.Context, id resource.ID) (*webhooks.Subscr
 }
 
 // InspectChange checks what impacts a hypothetical update will have on the resource's properties.
-func (p *subProvider) InspectChange(ctx context.Context, id resource.ID,
+func (p *subProvider) Diff(ctx context.Context, id resource.ID,
 	old *webhooks.Subscription, new *webhooks.Subscription, diff *resource.ObjectDiff) ([]string, error) {
 	return nil, nil
 }
