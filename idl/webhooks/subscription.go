@@ -8,8 +8,7 @@ import (
 
 // Subscription represents an active webhook subscription for a given GitHub repository.
 type Subscription struct {
-	idl.NamedResource
-
+	idl.Resource
 	// Service is the name of the webhook service.  Use `web` for a webhook.
 	Service string `lumi:"service"`
 	// Config contains the various webhook configuration options.

@@ -5,7 +5,7 @@ package main
 import (
 	"github.com/pulumi/pulumi-fabric/pkg/resource/provider"
 	"github.com/pulumi/pulumi-fabric/pkg/util/cmdutil"
-	"github.com/pulumi/pulumi-fabric/sdk/go/pkg/lumirpc"
+	lumirpc "github.com/pulumi/pulumi-fabric/sdk/proto/go"
 )
 
 func main() {

@@ -2,15 +2,14 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 /* tslint:disable:ordered-imports variable-name */
-import * as lumi from "@lumi/lumi";
-import * as lumirt from "@lumi/lumirt";
+import * as fabric from "@pulumi/pulumi-fabric";
 
-export class Label extends lumi.Resource implements LabelArgs {
-    public readonly name: string;
-    public color: string;
-    public readonly repo?: string;
+export class Label extends fabric.Resource {
+    public readonly name: fabric.Computed<string>;
+    public color: fabric.Computed<string>;
+    public readonly repo?: fabric.Computed<string>;
 
-    public static get(id: lumi.ID): Label {
+    public static get(id: fabric.ID): Label {
         return <any>undefined; // functionality provided by the runtime
     }
 
@@ -18,23 +17,24 @@ export class Label extends lumi.Resource implements LabelArgs {
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(args: LabelArgs) {
-        super();
-        if (lumirt.defaultIfComputed(args.name, "") === undefined) {
-            throw new Error("Missing required argument 'name'");
+    constructor(name: string, args: LabelArgs) {
+        if (args.name === undefined) {
+            throw new Error("Missing required property 'name'");
         }
-        this.name = args.name;
-        if (lumirt.defaultIfComputed(args.color, "") === undefined) {
-            throw new Error("Missing required argument 'color'");
+        if (args.color === undefined) {
+            throw new Error("Missing required property 'color'");
         }
-        this.color = args.color;
-        this.repo = args.repo;
+        super("github:repos/issues/label:Label", name, {
+            "name": args.name,
+            "color": args.color,
+            "repo": args.repo,
+        });
     }
 }
 
 export interface LabelArgs {
-    readonly name: string;
-    color: string;
-    readonly repo?: string;
+    readonly name: fabric.MaybeComputed<string>;
+    color: fabric.MaybeComputed<string>;
+    readonly repo?: fabric.MaybeComputed<string>;
 }
 

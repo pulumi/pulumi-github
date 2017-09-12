@@ -12,8 +12,9 @@ import (
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi-fabric/pkg/resource"
 	"github.com/pulumi/pulumi-fabric/pkg/resource/provider"
+	"github.com/pulumi/pulumi-fabric/pkg/tokens"
 	"github.com/pulumi/pulumi-fabric/pkg/util/contract"
-	"github.com/pulumi/pulumi-fabric/sdk/go/pkg/lumirpc"
+	lumirpc "github.com/pulumi/pulumi-fabric/sdk/proto/go"
 	"golang.org/x/net/context"
 
 	"github.com/pulumi/pulumi-github/provider/ghctx"
@@ -32,7 +33,7 @@ type lblProvider struct {
 }
 
 func (p *lblProvider) baseURL(repo string) (string, error) {
-	base, err := defaultBaseURL(p.host, repo)
+	base, err := defaultBaseURL(repo)
 	if err != nil {
 		return "", err
 	}
@@ -50,19 +51,15 @@ func fromLabelID(id resource.ID) (string, string) {
 	return s[:ix], s[ix+1:]
 }
 
-// Name creates a unique name for this resource.
-func (p *lblProvider) Name(ctx context.Context, obj *issues.Label) (string, error) {
-	name := obj.Name
-	if obj.Repo != nil {
-		name = *obj.Repo + ":" + name
-	}
-	return name, nil
+// Configure configures the resource provider with "globals" that control its behavior.
+func (p *lblProvider) Configure(ctx context.Context, vars map[tokens.ModuleMember]string) error {
+	return nil
 }
 
 // Check validates that the given property bag is valid for a resource of the given type.
 func (p *lblProvider) Check(ctx context.Context, obj *issues.Label, property string) error {
 	if property == "" {
-		return checkCommon(p.host, obj.Repo)
+		return checkCommon(obj.Repo)
 	}
 	return nil
 }
@@ -81,7 +78,7 @@ func (p *lblProvider) Create(ctx context.Context, obj *issues.Label) (resource.I
 	if err != nil {
 		return "", err
 	}
-	repo, err := defaultRepo(p.host, obj.Repo)
+	repo, err := defaultRepo(obj.Repo)
 	if err != nil {
 		return "", err
 	}

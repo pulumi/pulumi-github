@@ -2,30 +2,29 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 /* tslint:disable:ordered-imports variable-name */
-import * as lumi from "@lumi/lumi";
-import * as lumirt from "@lumi/lumirt";
+import * as fabric from "@pulumi/pulumi-fabric";
 
 export let FormContentType: ContentType = "form";
 export let JSONContentType: ContentType = "json";
 
 export interface Config {
-    url: string;
-    contentType?: ContentType;
-    secret?: string;
-    insecureSSL?: boolean;
+    url: fabric.MaybeComputed<string>;
+    contentType?: fabric.MaybeComputed<ContentType>;
+    secret?: fabric.MaybeComputed<string>;
+    insecureSSL?: fabric.MaybeComputed<boolean>;
 }
 
 export type ContentType =
     "form" |
     "json";
 
-export class Subscription extends lumi.NamedResource implements SubscriptionArgs {
-    public service: string;
-    public config: Config;
-    public events?: string[];
-    public active?: boolean;
+export class Subscription extends fabric.Resource {
+    public service: fabric.Computed<string>;
+    public config: fabric.Computed<Config>;
+    public events?: fabric.Computed<string[]>;
+    public active?: fabric.Computed<boolean>;
 
-    public static get(id: lumi.ID): Subscription {
+    public static get(id: fabric.ID): Subscription {
         return <any>undefined; // functionality provided by the runtime
     }
 
@@ -34,24 +33,25 @@ export class Subscription extends lumi.NamedResource implements SubscriptionArgs
     }
 
     constructor(name: string, args: SubscriptionArgs) {
-        super(name);
-        if (lumirt.defaultIfComputed(args.service, "") === undefined) {
-            throw new Error("Missing required argument 'service'");
+        if (args.service === undefined) {
+            throw new Error("Missing required property 'service'");
         }
-        this.service = args.service;
-        if (lumirt.defaultIfComputed(args.config, "") === undefined) {
-            throw new Error("Missing required argument 'config'");
+        if (args.config === undefined) {
+            throw new Error("Missing required property 'config'");
         }
-        this.config = args.config;
-        this.events = args.events;
-        this.active = args.active;
+        super("github:webhooks/subscription:Subscription", name, {
+            "service": args.service,
+            "config": args.config,
+            "events": args.events,
+            "active": args.active,
+        });
     }
 }
 
 export interface SubscriptionArgs {
-    service: string;
-    config: Config;
-    events?: string[];
-    active?: boolean;
+    service: fabric.MaybeComputed<string>;
+    config: fabric.MaybeComputed<Config>;
+    events?: fabric.MaybeComputed<fabric.MaybeComputed<string>[]>;
+    active?: fabric.MaybeComputed<boolean>;
 }
 

@@ -1,7 +1,5 @@
 {
-    "name": "@lumi/github",
-    "main": ".lumi/bin/index.js",
-    "typings": ".lumi/bin/index.d.ts",
+    "name": "@pulumi/github",
     "scripts": {
         "build": "tsc"
     },
@@ -9,8 +7,11 @@
         "typescript": "^2.1.4"
     },
     "peerDependencies": {
-        "@lumi/aws": "*",
-        "@lumi/lumi": "*"
+        "@pulumi/aws": "*",
+        "@pulumi/pulumi": "*",
+        "@pulumi/pulumi-fabric": "*"
+    },
+    "dependencies": {
+        "@types/node": "^8.0.28"
     }
 }
-

@@ -1,17 +1,16 @@
 // Copyright 2016-2017, Pulumi Corporation.  All rights reserved.
 
-import {requireSlackToken} from "./config";
-import * as github from "@lumi/github";
+import * as config from "./config";
+import * as github from "@pulumi/github";
 
 let hooks = new github.WebHooks();
-let slackToken = requireSlackToken();
 
 declare let require;
 hooks.onIssueComment(async (e) => {
     console.log(e);
-    if (e.action === "created") {    
+    if (e.action === "created") {
         let slack = require("@slack/client");
-        let client = new slack.WebClient(slackToken);
+        let client = new slack.WebClient(config.slackToken);
         try {
             console.log("posting message...")
             await client.chat.postMessage(

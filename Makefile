@@ -1,7 +1,4 @@
 GOPKGS    = $(shell go list ./provider/... | grep -v /vendor/)
-LUMIROOT ?= /usr/local/lumi
-LUMILIB   = ${LUMIROOT}/packs
-THISLIB   = ${LUMILIB}/github
 
 .PHONY: default
 default: banner lint_quiet vet build test install
@@ -15,7 +12,7 @@ banner:
 .PHONY: gen
 gen:
 	@echo "\033[0;32mGEN:\033[0m"
-	@lumidl \
+	lumidl \
 	    github idl/ \
 		--recursive \
 		--out-pack=pack/ \
@@ -23,30 +20,26 @@ gen:
 
 .PHONY: clean
 clean:
-	rm -rf ./bin
-	rm -rf ${THISLIB}
+	rm -rf ./pack/bin
 
 .PHONY: build
 build:
 	@echo "\033[0;32mBUILD:\033[0m"
-	@cd pack/ && yarn link @lumi/lumirt @lumi/lumi @lumi/lumijs @lumi/platform # link dependencies.
-	@cd pack/ && lumijs # compile the LumiPack
-	@cd pack/ && lumi pack verify # ensure the pack verifies
-	@cp -R pack/.lumi/bin/ bin/ # copy the pack to our bin dir
-	@go version
-	@cd provider/ && go build -i -o ../bin/lumi-resource-github # compile the resource provider
+	cd pack/ && yarn link @pulumi/pulumi-fabric @pulumi/pulumi # link dependencies.
+	cd pack/ && yarn run build
+	go version
+	cd provider/ && go build -i -o ../pack/bin/pulumi-provider-github # compile the resource provider
 
 .PHONY: install
 install:
 	@echo "\033[0;32mINSTALL:\033[0m [${LUMILIB}]"
-	@cd pack/ && yarn link  # ensure NPM references resolve locally.
-	@mkdir -p ${LUMILIB} # ensure the machine-wide library dir exists.
-	@cp -R ./bin/ ${THISLIB} # copy to the standard library location.
+	cp pack/package.json pack/bin/package.json
+	cd pack/bin/ && yarn link  # ensure NPM references resolve locally.
 
 .PHONY: lint
 lint:
 	@echo "\033[0;32mLINT:\033[0m"
-	@golint -set_exit_status provider/...
+	golint -set_exit_status provider/...
 
 .PHONY: lint_quiet
 lint_quiet:
@@ -58,14 +51,10 @@ lint_quiet:
 .PHONY: vet
 vet:
 	@echo "\033[0;32mVET:\033[0m"
-	@go tool vet -printf=false provider/
+	go tool vet -printf=false provider/
 
 .PHONY: test
 test:
 	@echo "\033[0;32mTEST:\033[0m"
-	@go test -cover ${GOPKGS}
-
-.PHONY: verify
-verify: gen
-	@$(shell git diff --quiet .)
+	go test -cover ${GOPKGS}
 

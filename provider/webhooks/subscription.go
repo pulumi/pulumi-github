@@ -12,7 +12,8 @@ import (
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi-fabric/pkg/resource"
 	"github.com/pulumi/pulumi-fabric/pkg/resource/provider"
-	"github.com/pulumi/pulumi-fabric/sdk/go/pkg/lumirpc"
+	"github.com/pulumi/pulumi-fabric/pkg/tokens"
+	lumirpc "github.com/pulumi/pulumi-fabric/sdk/proto/go"
 	"golang.org/x/net/context"
 
 	"github.com/pulumi/pulumi-github/provider/ghctx"
@@ -31,15 +32,20 @@ type subProvider struct {
 }
 
 func (p *subProvider) baseURL() (string, error) {
-	repo, err := ghctx.Repo(p.host)
+	repo, err := ghctx.Repo()
 	if err != nil {
 		return "", err
 	}
-	base, err := ghctx.BaseURL(p.host)
+	base, err := ghctx.BaseURL()
 	if err != nil {
 		return "", err
 	}
 	return base + "/repos/" + repo + "/hooks", nil
+}
+
+// Configure configures the resource provider with "globals" that control its behavior.
+func (p *subProvider) Configure(ctx context.Context, vars map[tokens.ModuleMember]string) error {
+	return nil
 }
 
 // Check validates that the given property bag is valid for a resource of the given type.

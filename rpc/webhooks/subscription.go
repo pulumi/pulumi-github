@@ -4,8 +4,6 @@
 package webhooks
 
 import (
-    "errors"
-
     pbempty "github.com/golang/protobuf/ptypes/empty"
     pbstruct "github.com/golang/protobuf/ptypes/struct"
     "golang.org/x/net/context"
@@ -15,7 +13,7 @@ import (
     "github.com/pulumi/pulumi-fabric/pkg/tokens"
     "github.com/pulumi/pulumi-fabric/pkg/util/contract"
     "github.com/pulumi/pulumi-fabric/pkg/util/mapper"
-    "github.com/pulumi/pulumi-fabric/sdk/go/pkg/lumirpc"
+    lumirpc "github.com/pulumi/pulumi-fabric/sdk/proto/go"
 )
 
 /* Marshalable Config structure(s) */
@@ -43,11 +41,11 @@ const SubscriptionToken = tokens.Type("github:webhooks/subscription:Subscription
 
 // SubscriptionProviderOps is a pluggable interface for Subscription-related management functionality.
 type SubscriptionProviderOps interface {
+    Configure(ctx context.Context, vars map[tokens.ModuleMember]string) error
     Check(ctx context.Context, obj *Subscription, property string) error
     Diff(ctx context.Context, id resource.ID,
         old *Subscription, new *Subscription, diff *resource.ObjectDiff) ([]string, error)
     Create(ctx context.Context, obj *Subscription) (resource.ID, error)
-    Get(ctx context.Context, id resource.ID) (*Subscription, error)
     Update(ctx context.Context, id resource.ID,
         old *Subscription, new *Subscription, diff *resource.ObjectDiff) error
     Delete(ctx context.Context, id resource.ID, obj Subscription) error
@@ -64,9 +62,21 @@ func NewSubscriptionProvider(ops SubscriptionProviderOps) lumirpc.ResourceProvid
     return &SubscriptionProvider{ops: ops}
 }
 
+func (p *SubscriptionProvider) Configure(
+    ctx context.Context, req *lumirpc.ConfigureRequest) (*pbempty.Empty, error) {
+    vars := make(map[tokens.ModuleMember]string)
+    for k, v := range req.GetVariables() {
+        vars[tokens.ModuleMember(k)] = v
+    }
+    if err := p.ops.Configure(ctx, vars); err != nil {
+        return nil, err
+    }
+    return &pbempty.Empty{}, nil
+}
+
 func (p *SubscriptionProvider) Check(
     ctx context.Context, req *lumirpc.CheckRequest) (*lumirpc.CheckResponse, error) {
-    contract.Assert(req.GetType() == string(SubscriptionToken))
+    contract.Assert(resource.URN(req.GetUrn()).Type() == SubscriptionToken)
     obj, _, err := p.Unmarshal(req.GetProperties())
     if err != nil {
         return plugin.NewCheckResponse(err), nil
@@ -74,10 +84,6 @@ func (p *SubscriptionProvider) Check(
     var failures []error
     if failure := p.ops.Check(ctx, obj, ""); failure != nil {
         failures = append(failures, failure)
-    }
-    if failure := p.ops.Check(ctx, obj, "name"); failure != nil {
-        failures = append(failures,
-            resource.NewPropertyError("Subscription", "name", failure))
     }
     if failure := p.ops.Check(ctx, obj, "service"); failure != nil {
         failures = append(failures,
@@ -101,22 +107,9 @@ func (p *SubscriptionProvider) Check(
     return plugin.NewCheckResponse(nil), nil
 }
 
-func (p *SubscriptionProvider) Name(
-    ctx context.Context, req *lumirpc.NameRequest) (*lumirpc.NameResponse, error) {
-    contract.Assert(req.GetType() == string(SubscriptionToken))
-    obj, _, err := p.Unmarshal(req.GetProperties())
-    if err != nil {
-        return nil, err
-    }
-    if obj.Name == nil || *obj.Name == "" {
-        return nil, errors.New("Name property cannot be empty")
-    }
-    return &lumirpc.NameResponse{Name: *obj.Name}, nil
-}
-
 func (p *SubscriptionProvider) Create(
     ctx context.Context, req *lumirpc.CreateRequest) (*lumirpc.CreateResponse, error) {
-    contract.Assert(req.GetType() == string(SubscriptionToken))
+    contract.Assert(resource.URN(req.GetUrn()).Type() == SubscriptionToken)
     obj, _, err := p.Unmarshal(req.GetProperties())
     if err != nil {
         return nil, err
@@ -134,7 +127,7 @@ func (p *SubscriptionProvider) Create(
 
 func (p *SubscriptionProvider) Diff(
     ctx context.Context, req *lumirpc.DiffRequest) (*lumirpc.DiffResponse, error) {
-    contract.Assert(req.GetType() == string(SubscriptionToken))
+    contract.Assert(resource.URN(req.GetUrn()).Type() == SubscriptionToken)
     id := resource.ID(req.GetId())
     old, oldprops, err := p.Unmarshal(req.GetOlds())
     if err != nil {
@@ -147,9 +140,6 @@ func (p *SubscriptionProvider) Diff(
     var replaces []string
     diff := oldprops.Diff(newprops)
     if diff != nil {
-        if diff.Changed("name") {
-            replaces = append(replaces, "name")
-        }
     }
     more, err := p.ops.Diff(ctx, id, old, new, diff)
     if err != nil {
@@ -160,23 +150,9 @@ func (p *SubscriptionProvider) Diff(
     }, err
 }
 
-func (p *SubscriptionProvider) Get(
-    ctx context.Context, req *lumirpc.GetRequest) (*lumirpc.GetResponse, error) {
-    contract.Assert(req.GetType() == string(SubscriptionToken))
-    id := resource.ID(req.GetId())
-    obj, err := p.ops.Get(ctx, id)
-    if err != nil {
-        return nil, err
-    }
-    return &lumirpc.GetResponse{
-        Properties: plugin.MarshalProperties(
-            resource.NewPropertyMap(obj), plugin.MarshalOptions{}),
-    }, nil
-}
-
 func (p *SubscriptionProvider) Update(
     ctx context.Context, req *lumirpc.UpdateRequest) (*lumirpc.UpdateResponse, error) {
-    contract.Assert(req.GetType() == string(SubscriptionToken))
+    contract.Assert(resource.URN(req.GetUrn()).Type() == SubscriptionToken)
     id := resource.ID(req.GetId())
     old, oldprops, err := p.Unmarshal(req.GetOlds())
     if err != nil {
@@ -198,7 +174,7 @@ func (p *SubscriptionProvider) Update(
 
 func (p *SubscriptionProvider) Delete(
     ctx context.Context, req *lumirpc.DeleteRequest) (*pbempty.Empty, error) {
-    contract.Assert(req.GetType() == string(SubscriptionToken))
+    contract.Assert(resource.URN(req.GetUrn()).Type() == SubscriptionToken)
     id := resource.ID(req.GetId())
     obj, _, err := p.Unmarshal(req.GetProperties())
     if err != nil {
@@ -221,7 +197,6 @@ func (p *SubscriptionProvider) Unmarshal(
 
 // Subscription is a marshalable representation of its corresponding IDL type.
 type Subscription struct {
-    Name *string `lumi:"name,optional"`
     Service string `lumi:"service"`
     Config Config `lumi:"config"`
     Events *[]string `lumi:"events,optional"`
@@ -230,7 +205,6 @@ type Subscription struct {
 
 // Subscription's properties have constants to make dealing with diffs and property bags easier.
 const (
-    Subscription_Name = "name"
     Subscription_Service = "service"
     Subscription_Config = "config"
     Subscription_Events = "events"

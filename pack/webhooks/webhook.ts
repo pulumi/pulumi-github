@@ -3,7 +3,7 @@
 import * as config from "../config";
 import {WebHooks} from "../hooks";
 import {Subscription} from "./subscription";
-import * as platform from "@lumi/platform";
+import {Computed} from "@pulumi/pulumi-fabric";
 
 export type WebHookHandler = (body: any) => Promise<void>;
 
@@ -19,7 +19,7 @@ export class WebHookBase {
 
         // Associate an endpoint with the handler.  Note that the hooks object ensures that the user/repo pair are
         // uniquely isolated from all others, such that the URL needn't actually contain them.
-        this.parent.gateway.post(`/${event}`, {}, async(req, res) => {
+        this.parent.gateway.post(`/${event}`, [], async(req, res) => {
             try {
                 let body = (<any>JSON).parse(req.body);
                 await handler(body);
@@ -33,14 +33,14 @@ export class WebHookBase {
     }
 
     // activate tells GitHub to call the specified URL in response to the right kind of events.
-    public activate(url: string) {
+    public activate(url: Computed<string>) {
         this.sub = new Subscription(this.parent.prefix + "-sub", {
             service: "web",
             active: true,
             events: [ this.event ],
             config: {
                 contentType: "json",
-                url: url + `/${this.event}`,
+                url: url.mapValue((u: string) => u + `/${this.event}`),
             },
         });
     }

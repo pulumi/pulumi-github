@@ -1,0 +1,4 @@
+name: gh-serverless-ftw
+description: Serverless GitHub webhooks FTW!
+runtime: nodejs
+

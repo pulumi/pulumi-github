@@ -13,7 +13,7 @@ import (
     "github.com/pulumi/pulumi-fabric/pkg/tokens"
     "github.com/pulumi/pulumi-fabric/pkg/util/contract"
     "github.com/pulumi/pulumi-fabric/pkg/util/mapper"
-    "github.com/pulumi/pulumi-fabric/sdk/go/pkg/lumirpc"
+    lumirpc "github.com/pulumi/pulumi-fabric/sdk/proto/go"
 )
 
 /* RPC stubs for Milestone resource provider */
@@ -23,12 +23,11 @@ const MilestoneToken = tokens.Type("github:repos/issues/milestone:Milestone")
 
 // MilestoneProviderOps is a pluggable interface for Milestone-related management functionality.
 type MilestoneProviderOps interface {
+    Configure(ctx context.Context, vars map[tokens.ModuleMember]string) error
     Check(ctx context.Context, obj *Milestone, property string) error
-    Name(ctx context.Context, obj *Milestone) (string, error)
     Diff(ctx context.Context, id resource.ID,
         old *Milestone, new *Milestone, diff *resource.ObjectDiff) ([]string, error)
     Create(ctx context.Context, obj *Milestone) (resource.ID, error)
-    Get(ctx context.Context, id resource.ID) (*Milestone, error)
     Update(ctx context.Context, id resource.ID,
         old *Milestone, new *Milestone, diff *resource.ObjectDiff) error
     Delete(ctx context.Context, id resource.ID, obj Milestone) error
@@ -45,9 +44,21 @@ func NewMilestoneProvider(ops MilestoneProviderOps) lumirpc.ResourceProviderServ
     return &MilestoneProvider{ops: ops}
 }
 
+func (p *MilestoneProvider) Configure(
+    ctx context.Context, req *lumirpc.ConfigureRequest) (*pbempty.Empty, error) {
+    vars := make(map[tokens.ModuleMember]string)
+    for k, v := range req.GetVariables() {
+        vars[tokens.ModuleMember(k)] = v
+    }
+    if err := p.ops.Configure(ctx, vars); err != nil {
+        return nil, err
+    }
+    return &pbempty.Empty{}, nil
+}
+
 func (p *MilestoneProvider) Check(
     ctx context.Context, req *lumirpc.CheckRequest) (*lumirpc.CheckResponse, error) {
-    contract.Assert(req.GetType() == string(MilestoneToken))
+    contract.Assert(resource.URN(req.GetUrn()).Type() == MilestoneToken)
     obj, _, err := p.Unmarshal(req.GetProperties())
     if err != nil {
         return plugin.NewCheckResponse(err), nil
@@ -82,20 +93,9 @@ func (p *MilestoneProvider) Check(
     return plugin.NewCheckResponse(nil), nil
 }
 
-func (p *MilestoneProvider) Name(
-    ctx context.Context, req *lumirpc.NameRequest) (*lumirpc.NameResponse, error) {
-    contract.Assert(req.GetType() == string(MilestoneToken))
-    obj, _, err := p.Unmarshal(req.GetProperties())
-    if err != nil {
-        return nil, err
-    }
-    name, err := p.ops.Name(ctx, obj)
-    return &lumirpc.NameResponse{Name: name}, err
-}
-
 func (p *MilestoneProvider) Create(
     ctx context.Context, req *lumirpc.CreateRequest) (*lumirpc.CreateResponse, error) {
-    contract.Assert(req.GetType() == string(MilestoneToken))
+    contract.Assert(resource.URN(req.GetUrn()).Type() == MilestoneToken)
     obj, _, err := p.Unmarshal(req.GetProperties())
     if err != nil {
         return nil, err
@@ -113,7 +113,7 @@ func (p *MilestoneProvider) Create(
 
 func (p *MilestoneProvider) Diff(
     ctx context.Context, req *lumirpc.DiffRequest) (*lumirpc.DiffResponse, error) {
-    contract.Assert(req.GetType() == string(MilestoneToken))
+    contract.Assert(resource.URN(req.GetUrn()).Type() == MilestoneToken)
     id := resource.ID(req.GetId())
     old, oldprops, err := p.Unmarshal(req.GetOlds())
     if err != nil {
@@ -142,23 +142,9 @@ func (p *MilestoneProvider) Diff(
     }, err
 }
 
-func (p *MilestoneProvider) Get(
-    ctx context.Context, req *lumirpc.GetRequest) (*lumirpc.GetResponse, error) {
-    contract.Assert(req.GetType() == string(MilestoneToken))
-    id := resource.ID(req.GetId())
-    obj, err := p.ops.Get(ctx, id)
-    if err != nil {
-        return nil, err
-    }
-    return &lumirpc.GetResponse{
-        Properties: plugin.MarshalProperties(
-            resource.NewPropertyMap(obj), plugin.MarshalOptions{}),
-    }, nil
-}
-
 func (p *MilestoneProvider) Update(
     ctx context.Context, req *lumirpc.UpdateRequest) (*lumirpc.UpdateResponse, error) {
-    contract.Assert(req.GetType() == string(MilestoneToken))
+    contract.Assert(resource.URN(req.GetUrn()).Type() == MilestoneToken)
     id := resource.ID(req.GetId())
     old, oldprops, err := p.Unmarshal(req.GetOlds())
     if err != nil {
@@ -180,7 +166,7 @@ func (p *MilestoneProvider) Update(
 
 func (p *MilestoneProvider) Delete(
     ctx context.Context, req *lumirpc.DeleteRequest) (*pbempty.Empty, error) {
-    contract.Assert(req.GetType() == string(MilestoneToken))
+    contract.Assert(resource.URN(req.GetUrn()).Type() == MilestoneToken)
     id := resource.ID(req.GetId())
     obj, _, err := p.Unmarshal(req.GetProperties())
     if err != nil {

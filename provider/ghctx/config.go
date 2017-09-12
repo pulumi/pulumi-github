@@ -3,26 +3,44 @@
 package ghctx
 
 import (
-	"github.com/pulumi/pulumi-fabric/pkg/resource/provider"
+	"github.com/pkg/errors"
+	"github.com/pulumi/pulumi-fabric/pkg/tokens"
 )
+
+var config map[tokens.ModuleMember]string
 
 const (
-	configUser  = "github:config:user"
-	configRepo  = "github:config:repo"
-	configToken = "github:config:token"
+	configUser  = tokens.ModuleMember("github:config:user")
+	configRepo  = tokens.ModuleMember("github:config:repo")
+	configToken = tokens.ModuleMember("github:config:token")
 )
 
+// Configure configures the user, repo, and token.
+func Configure(vars map[tokens.ModuleMember]string) error {
+	config = vars
+	return nil
+}
+
 // User fetches the current confiured GitHub user.
-func User(host *provider.HostClient) (string, error) {
-	return host.ReadStringLocation(configUser)
+func User() (string, error) {
+	if user, has := config[configUser]; has {
+		return user, nil
+	}
+	return "", errors.Errorf("missing required user configuration '%v'", configUser)
 }
 
 // Repo fetches the current confiured GitHub repo.
-func Repo(host *provider.HostClient) (string, error) {
-	return host.ReadStringLocation(configRepo)
+func Repo() (string, error) {
+	if repo, has := config[configRepo]; has {
+		return repo, nil
+	}
+	return "", errors.Errorf("missing required repo configuration '%v'", configRepo)
 }
 
 // Token fetches the current confiured GitHub auth token.
-func Token(host *provider.HostClient) (string, error) {
-	return host.ReadStringLocation(configToken)
+func Token() (string, error) {
+	if token, has := config[configToken]; has {
+		return token, nil
+	}
+	return "", errors.Errorf("missing required token configuration '%v'", configToken)
 }

@@ -1,17 +1,18 @@
 {
-    "name": "gh",
+    "name": "gh-serverless-ftw",
     "version": "0.1",
-    "typings": ".lumi/bin/index.d.ts",
+    "main": "bin/index.js",
+    "typings": "bin/index.d.ts",
     "scripts": {
-        "build": "lumijs"
+        "build": "tsc"
     },
     "devDependencies": {
         "typescript": "^2.1.4"
     },
     "peerDependencies": {
-        "@lumi/aws": "*",
-        "@lumi/github": "*",
-        "@lumi/lumi": "*"
+        "@pulumi/aws": "*",
+        "@pulumi/github": "*",
+        "@pulumi/pulumi-fabric": "*"
     },
     "dependencies": {
         "@slack/client": "^3.10.0"

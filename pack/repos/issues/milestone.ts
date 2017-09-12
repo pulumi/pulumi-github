@@ -2,20 +2,19 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 /* tslint:disable:ordered-imports variable-name */
-import * as lumi from "@lumi/lumi";
-import * as lumirt from "@lumi/lumirt";
+import * as fabric from "@pulumi/pulumi-fabric";
 
 export let MilestoneClosed: MilestoneState = "closed";
 export let MilestoneOpen: MilestoneState = "open";
 
-export class Milestone extends lumi.Resource implements MilestoneArgs {
-    public readonly title: string;
-    public dueOn: string;
-    public description?: string;
-    public state?: MilestoneState;
-    public readonly repo?: string;
+export class Milestone extends fabric.Resource {
+    public readonly title: fabric.Computed<string>;
+    public dueOn: fabric.Computed<string>;
+    public description?: fabric.Computed<string>;
+    public state?: fabric.Computed<MilestoneState>;
+    public readonly repo?: fabric.Computed<string>;
 
-    public static get(id: lumi.ID): Milestone {
+    public static get(id: fabric.ID): Milestone {
         return <any>undefined; // functionality provided by the runtime
     }
 
@@ -23,28 +22,29 @@ export class Milestone extends lumi.Resource implements MilestoneArgs {
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(args: MilestoneArgs) {
-        super();
-        if (lumirt.defaultIfComputed(args.title, "") === undefined) {
-            throw new Error("Missing required argument 'title'");
+    constructor(name: string, args: MilestoneArgs) {
+        if (args.title === undefined) {
+            throw new Error("Missing required property 'title'");
         }
-        this.title = args.title;
-        if (lumirt.defaultIfComputed(args.dueOn, "") === undefined) {
-            throw new Error("Missing required argument 'dueOn'");
+        if (args.dueOn === undefined) {
+            throw new Error("Missing required property 'dueOn'");
         }
-        this.dueOn = args.dueOn;
-        this.description = args.description;
-        this.state = args.state;
-        this.repo = args.repo;
+        super("github:repos/issues/milestone:Milestone", name, {
+            "title": args.title,
+            "dueOn": args.dueOn,
+            "description": args.description,
+            "state": args.state,
+            "repo": args.repo,
+        });
     }
 }
 
 export interface MilestoneArgs {
-    readonly title: string;
-    dueOn: string;
-    description?: string;
-    state?: MilestoneState;
-    readonly repo?: string;
+    readonly title: fabric.MaybeComputed<string>;
+    dueOn: fabric.MaybeComputed<string>;
+    description?: fabric.MaybeComputed<string>;
+    state?: fabric.MaybeComputed<MilestoneState>;
+    readonly repo?: fabric.MaybeComputed<string>;
 }
 
 export type MilestoneState =

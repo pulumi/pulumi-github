@@ -13,7 +13,7 @@ import (
     "github.com/pulumi/pulumi-fabric/pkg/tokens"
     "github.com/pulumi/pulumi-fabric/pkg/util/contract"
     "github.com/pulumi/pulumi-fabric/pkg/util/mapper"
-    "github.com/pulumi/pulumi-fabric/sdk/go/pkg/lumirpc"
+    lumirpc "github.com/pulumi/pulumi-fabric/sdk/proto/go"
 )
 
 /* RPC stubs for Label resource provider */
@@ -23,12 +23,11 @@ const LabelToken = tokens.Type("github:repos/issues/label:Label")
 
 // LabelProviderOps is a pluggable interface for Label-related management functionality.
 type LabelProviderOps interface {
+    Configure(ctx context.Context, vars map[tokens.ModuleMember]string) error
     Check(ctx context.Context, obj *Label, property string) error
-    Name(ctx context.Context, obj *Label) (string, error)
     Diff(ctx context.Context, id resource.ID,
         old *Label, new *Label, diff *resource.ObjectDiff) ([]string, error)
     Create(ctx context.Context, obj *Label) (resource.ID, error)
-    Get(ctx context.Context, id resource.ID) (*Label, error)
     Update(ctx context.Context, id resource.ID,
         old *Label, new *Label, diff *resource.ObjectDiff) error
     Delete(ctx context.Context, id resource.ID, obj Label) error
@@ -45,9 +44,21 @@ func NewLabelProvider(ops LabelProviderOps) lumirpc.ResourceProviderServer {
     return &LabelProvider{ops: ops}
 }
 
+func (p *LabelProvider) Configure(
+    ctx context.Context, req *lumirpc.ConfigureRequest) (*pbempty.Empty, error) {
+    vars := make(map[tokens.ModuleMember]string)
+    for k, v := range req.GetVariables() {
+        vars[tokens.ModuleMember(k)] = v
+    }
+    if err := p.ops.Configure(ctx, vars); err != nil {
+        return nil, err
+    }
+    return &pbempty.Empty{}, nil
+}
+
 func (p *LabelProvider) Check(
     ctx context.Context, req *lumirpc.CheckRequest) (*lumirpc.CheckResponse, error) {
-    contract.Assert(req.GetType() == string(LabelToken))
+    contract.Assert(resource.URN(req.GetUrn()).Type() == LabelToken)
     obj, _, err := p.Unmarshal(req.GetProperties())
     if err != nil {
         return plugin.NewCheckResponse(err), nil
@@ -74,20 +85,9 @@ func (p *LabelProvider) Check(
     return plugin.NewCheckResponse(nil), nil
 }
 
-func (p *LabelProvider) Name(
-    ctx context.Context, req *lumirpc.NameRequest) (*lumirpc.NameResponse, error) {
-    contract.Assert(req.GetType() == string(LabelToken))
-    obj, _, err := p.Unmarshal(req.GetProperties())
-    if err != nil {
-        return nil, err
-    }
-    name, err := p.ops.Name(ctx, obj)
-    return &lumirpc.NameResponse{Name: name}, err
-}
-
 func (p *LabelProvider) Create(
     ctx context.Context, req *lumirpc.CreateRequest) (*lumirpc.CreateResponse, error) {
-    contract.Assert(req.GetType() == string(LabelToken))
+    contract.Assert(resource.URN(req.GetUrn()).Type() == LabelToken)
     obj, _, err := p.Unmarshal(req.GetProperties())
     if err != nil {
         return nil, err
@@ -105,7 +105,7 @@ func (p *LabelProvider) Create(
 
 func (p *LabelProvider) Diff(
     ctx context.Context, req *lumirpc.DiffRequest) (*lumirpc.DiffResponse, error) {
-    contract.Assert(req.GetType() == string(LabelToken))
+    contract.Assert(resource.URN(req.GetUrn()).Type() == LabelToken)
     id := resource.ID(req.GetId())
     old, oldprops, err := p.Unmarshal(req.GetOlds())
     if err != nil {
@@ -134,23 +134,9 @@ func (p *LabelProvider) Diff(
     }, err
 }
 
-func (p *LabelProvider) Get(
-    ctx context.Context, req *lumirpc.GetRequest) (*lumirpc.GetResponse, error) {
-    contract.Assert(req.GetType() == string(LabelToken))
-    id := resource.ID(req.GetId())
-    obj, err := p.ops.Get(ctx, id)
-    if err != nil {
-        return nil, err
-    }
-    return &lumirpc.GetResponse{
-        Properties: plugin.MarshalProperties(
-            resource.NewPropertyMap(obj), plugin.MarshalOptions{}),
-    }, nil
-}
-
 func (p *LabelProvider) Update(
     ctx context.Context, req *lumirpc.UpdateRequest) (*lumirpc.UpdateResponse, error) {
-    contract.Assert(req.GetType() == string(LabelToken))
+    contract.Assert(resource.URN(req.GetUrn()).Type() == LabelToken)
     id := resource.ID(req.GetId())
     old, oldprops, err := p.Unmarshal(req.GetOlds())
     if err != nil {
@@ -172,7 +158,7 @@ func (p *LabelProvider) Update(
 
 func (p *LabelProvider) Delete(
     ctx context.Context, req *lumirpc.DeleteRequest) (*pbempty.Empty, error) {
-    contract.Assert(req.GetType() == string(LabelToken))
+    contract.Assert(resource.URN(req.GetUrn()).Type() == LabelToken)
     id := resource.ID(req.GetId())
     obj, _, err := p.Unmarshal(req.GetProperties())
     if err != nil {

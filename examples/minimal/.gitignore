@@ -1,4 +1,5 @@
 /.lumi/
+/bin/
 /node_modules/
 yarn.lock
 
