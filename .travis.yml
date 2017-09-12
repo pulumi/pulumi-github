@@ -15,7 +15,7 @@ install:
     - export VERSION=HEAD
     # Clone the Pulumi repo and use its script to fetch the latest installation packages.
     - git clone git@github.com:pulumi/pulumi ${GOPATH}/src/github.com/pulumi/pulumi
-    - ${GOPATH}/src/github.com/pulumi/pulumi/scripts/install pulumi-fabric HEAD ~/.pulumi
+    - ${GOPATH}/src/github.com/pulumi/pulumi/scripts/install.sh pulumi-fabric HEAD ~/.pulumi
     - ${GOPATH}/src/github.com/pulumi/pulumi/scripts/install.sh aws HEAD ~/.pulumi/packs/aws
     - ${GOPATH}/src/github.com/pulumi/pulumi/scripts/install.sh pulumi HEAD ~/.pulumi/packs/pulumi
     # Now restore all dependencies, after cloning, to rebuild vendor appropriately.
