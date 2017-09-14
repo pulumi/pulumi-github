@@ -25,6 +25,7 @@ clean:
 .PHONY: build
 build:
 	@echo "\033[0;32mBUILD:\033[0m"
+	cd pack/ && yarn install
 	cd pack/ && yarn link @pulumi/pulumi-fabric @pulumi/pulumi # link dependencies.
 	cd pack/ && yarn run build
 	go version
