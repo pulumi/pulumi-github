@@ -1,61 +1,56 @@
-GOPKGS    = $(shell go list ./provider/... | grep -v /vendor/)
+PROJECT_NAME := GitHub Package
+include build/common.mk
 
-.PHONY: default
-default: banner lint_quiet vet build test install
+PACK             := github
+PACKDIR          := pack
+PROJECT          := github.com/pulumi/pulumi-github
+NODE_MODULE_NAME := @pulumi/github
 
-.PHONY: banner
-banner:
-	@echo "\033[1;37m===================\033[0m"
-	@echo "\033[1;37mLumi GitHub Package\033[0m"
-	@echo "\033[1;37m===================\033[0m"
+TFGEN           := pulumi-tfgen-${PACK}
+PROVIDER        := pulumi-provider-${PACK}
+VERSION         := $(shell git describe --tags --dirty 2>/dev/null)
 
-.PHONY: gen
-gen:
-	@echo "\033[0;32mGEN:\033[0m"
-	lumidl \
-	    github idl/ \
-		--recursive \
-		--out-pack=pack/ \
-		--out-rpc=rpc/
+GOMETALINTERBIN=gometalinter
+GOMETALINTER=${GOMETALINTERBIN} --config=Gometalinter.json
 
-.PHONY: clean
-clean:
-	rm -rf ./pack/bin
+TESTPARALLELISM := 10
 
-.PHONY: build
-build:
-	@echo "\033[0;32mBUILD:\033[0m"
+build::
+	rm -rf ${PACKDIR}
+	go install -ldflags "-X github.com/pulumi/pulumi-github/pkg/version.Version=${VERSION}" ${PROJECT}/cmd/${TFGEN}
+	go install -ldflags "-X github.com/pulumi/pulumi-github/pkg/version.Version=${VERSION}" ${PROJECT}/cmd/${PROVIDER}
+	$(TFGEN) --out pack/
 	cd pack/ && yarn install
-	cd pack/ && yarn link @pulumi/pulumi-fabric @pulumi/pulumi # link dependencies.
-	cd pack/ && yarn run build
-	go version
-	cd provider/ && go build -i -o ../pack/bin/pulumi-provider-github # compile the resource provider
+	cd ${PACKDIR} && yarn link pulumi @pulumi/cloud # ensure we resolve to Pulumi's stdlibs.
+	cd ${PACKDIR} && yarn run tsc
 
-.PHONY: install
-install:
-	@echo "\033[0;32mINSTALL:\033[0m [${LUMILIB}]"
-	cp pack/package.json pack/bin/package.json
-	cd pack/bin/ && yarn link  # ensure NPM references resolve locally.
+lint::
+	$(GOMETALINTER) ./cmd/... resources.go | sort ; exit "$${PIPESTATUS[0]}"
 
-.PHONY: lint
-lint:
-	@echo "\033[0;32mLINT:\033[0m"
-	golint -set_exit_status provider/...
+install::
+	GOBIN=$(PULUMI_BIN) go install -ldflags "-X github.com/pulumi/pulumi-github/pkg/version.Version=${VERSION}" ${PROJECT}/cmd/${PROVIDER}
+	[ ! -e "$(PULUMI_NODE_MODULES)/$(NODE_MODULE_NAME)" ] || rm -rf "$(PULUMI_NODE_MODULES)/$(NODE_MODULE_NAME)"
+	mkdir -p "$(PULUMI_NODE_MODULES)/$(NODE_MODULE_NAME)"
+	cp -r pack/bin/. "$(PULUMI_NODE_MODULES)/$(NODE_MODULE_NAME)"
+	cp pack/package.json "$(PULUMI_NODE_MODULES)/$(NODE_MODULE_NAME)"
+	cp pack/yarn.lock "$(PULUMI_NODE_MODULES)/$(NODE_MODULE_NAME)"
+	rm -rf "$(PULUMI_NODE_MODULES)/$(NODE_MODULE_NAME)/node_modules"
+	cd "$(PULUMI_NODE_MODULES)/$(NODE_MODULE_NAME)" && \
+	yarn install --offline --production && \
+	(yarn unlink > /dev/null 2>&1 || true) && \
+	yarn link
 
-.PHONY: lint_quiet
-lint_quiet:
-	@echo "\033[0;32mLINT (quiet):\033[0m"
-	@echo "`golint provider/... | grep -v "or be unexported"`"
-	@test -z "$$(golint provider/... | grep -v 'or be unexported')"
-	@echo "\033[0;33mgolint was run quietly; to run with noisy errors, run 'make lint'\033[0m"
+test_all::
+	PATH=$(PULUMI_BIN):$(PATH) go test -v -cover -timeout 1h -parallel ${TESTPARALLELISM} ./examples
 
-.PHONY: vet
-vet:
-	@echo "\033[0;32mVET:\033[0m"
-	go tool vet -printf=false provider/
+.PHONY: publish
+publish:
+	$(call STEP_MESSAGE)
+	./scripts/publish.sh
 
-.PHONY: test
-test:
-	@echo "\033[0;32mTEST:\033[0m"
-	go test -cover ${GOPKGS}
-
+# The travis_* targets are entrypoints for CI.
+.PHONY: travis_cron travis_push travis_pull_request travis_api
+travis_cron: all
+travis_push: only_build publish only_test
+travis_pull_request: all
+travis_api: all

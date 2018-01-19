@@ -1,29 +1,16 @@
+[[override]]
+  name = "github.com/google/go-github"
+  revision = "5f3187e17912ee2e3fbe2fa5bdada9d577d25e83"
 
-# Gopkg.toml example
-#
-# Refer to https://github.com/golang/dep/blob/master/docs/Gopkg.toml.md
-# for detailed Gopkg.toml documentation.
-#
-# required = ["github.com/user/thing/cmd/thing"]
-# ignored = ["github.com/user/project/pkgX", "bitbucket.org/user/project/pkgA/pkgY"]
-#
-# [[constraint]]
-#   name = "github.com/user/project"
-#   version = "1.0.0"
-#
-# [[constraint]]
-#   name = "github.com/user/project2"
-#   branch = "dev"
-#   source = "github.com/myfork/project2"
-#
-# [[override]]
-#  name = "github.com/x/y"
-#  version = "2.4.0"
+[[override]]
+  name = "github.com/pulumi/pulumi"
+  revision = "ed0c068651cffbdffe648e215caf0b0c4101a841"
 
-[[constraint]]
-  name = "github.com/pulumi/pulumi-fabric"
-  branch = "master"
+[[override]]
+  name = "github.com/pulumi/pulumi-terraform"
+  revision = "72b5c0d2380ad8ede7052e883b579630a2689f40"
 
-[[constraint]]
-  name = "github.com/pkg/errors"
-  version = "0.8.0"
+[[override]]
+  name = "github.com/hashicorp/terraform"
+  source = "github.com/pulumi/terraform"
+  branch = "pulumi-master"

@@ -2,5 +2,4 @@
 
 # pulumi-github
 
-A Lumi package that facilitate interacting with GitHub.
-
+A Pulumi package that facilitates interacting with GitHub.
