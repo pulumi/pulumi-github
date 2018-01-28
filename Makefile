@@ -21,7 +21,7 @@ build::
 	go install -ldflags "-X github.com/pulumi/pulumi-github/pkg/version.Version=${VERSION}" ${PROJECT}/cmd/${PROVIDER}
 	$(TFGEN) --out pack/
 	cd pack/ && yarn install
-	cd ${PACKDIR} && yarn link pulumi @pulumi/cloud # ensure we resolve to Pulumi's stdlibs.
+	cd ${PACKDIR} && yarn link pulumi # ensure we resolve to Pulumi's stdlibs.
 	cd ${PACKDIR} && yarn run tsc
 
 lint::
@@ -40,8 +40,9 @@ install::
 	(yarn unlink > /dev/null 2>&1 || true) && \
 	yarn link
 
-test_all::
-	PATH=$(PULUMI_BIN):$(PATH) go test -v -cover -timeout 1h -parallel ${TESTPARALLELISM} ./examples
+# TODO: Add integration test
+# test_all::
+# 	PATH=$(PULUMI_BIN):$(PATH) go test -v -cover -timeout 1h -parallel ${TESTPARALLELISM} ./examples
 
 .PHONY: publish
 publish:

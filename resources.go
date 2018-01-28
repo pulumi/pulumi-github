@@ -17,9 +17,10 @@ const (
 	githubPkg = "github"
 	// modules:
 	githubMod = "index"
-	issuesMod = "issues"
 	orgsMod   = "orgs"
 	reposMod  = "repos"
+	teamsMod  = "teams"
+	usersMod  = "users"
 )
 
 // githubMember manufactures a type token for the GitHub package and the given module and type.
@@ -47,6 +48,7 @@ func githubResource(mod string, res string) tokens.Type {
 }
 
 // Provider returns additional overlaid schema and metadata associated with the github package.
+// Modules and resource names are based on the GitHub v3 API (https://developer.github.com/v3/).
 func Provider() tfbridge.ProviderInfo {
 	p := github.Provider().(*schema.Provider)
 	prov := tfbridge.ProviderInfo{
@@ -55,7 +57,7 @@ func Provider() tfbridge.ProviderInfo {
 		Config: map[string]*tfbridge.SchemaInfo{},
 		Resources: map[string]*tfbridge.ResourceInfo{
 			"github_branch_protection": {Tok: githubResource(reposMod, "BranchProtection")},
-			"github_issue_label":       {Tok: githubResource(issuesMod, "Label")},
+			"github_issue_label":       {Tok: githubResource(reposMod, "Label")},
 			"github_membership": {
 				Tok: githubResource(orgsMod, "Membership"),
 				Fields: map[string]*tfbridge.SchemaInfo{
@@ -64,7 +66,7 @@ func Provider() tfbridge.ProviderInfo {
 					},
 				},
 			},
-			"github_organization_webhook": {Tok: githubResource(orgsMod, "WebHook")},
+			"github_organization_webhook": {Tok: githubResource(orgsMod, "Webhook")},
 			"github_repository_collaborator": {
 				Tok: githubResource(reposMod, "Collaborator"),
 				Fields: map[string]*tfbridge.SchemaInfo{
@@ -74,18 +76,18 @@ func Provider() tfbridge.ProviderInfo {
 				},
 			},
 			"github_repository_deploy_key": {Tok: githubResource(reposMod, "DeployKey")},
-			"github_repository_webhook":    {Tok: githubResource(reposMod, "WebHook")},
+			"github_repository_webhook":    {Tok: githubResource(reposMod, "Webhook")},
 			"github_repository":            {Tok: githubResource(reposMod, "Repository")},
 			"github_team_membership": {
-				Tok: githubResource(orgsMod, "TeamMembership"),
+				Tok: githubResource(teamsMod, "Membership"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"role": {
-						Type: githubType(orgsMod, "TeamMembershipRole"),
+						Type: githubType(orgsMod, "MembershipRole"),
 					},
 				},
 			},
 			"github_team_repository": {
-				Tok: githubResource(orgsMod, "TeamRepository"),
+				Tok: githubResource(teamsMod, "Repository"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"permission": {
 						Type: githubType(githubMod, "Permission"),
@@ -93,17 +95,17 @@ func Provider() tfbridge.ProviderInfo {
 				},
 			},
 			"github_team": {
-				Tok: githubResource(orgsMod, "Team"),
+				Tok: githubResource(teamsMod, "Team"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"privacy": {
-						Type: githubType(orgsMod, "Privacy"),
+						Type: githubType(teamsMod, "Privacy"),
 					},
 				},
 			},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
-			"github_team": {Tok: githubDataSource(orgsMod, "getTeam")},
-			"github_user": {Tok: githubDataSource(githubMod, "getUser")},
+			"github_team": {Tok: githubDataSource(teamsMod, "getTeam")},
+			"github_user": {Tok: githubDataSource(usersMod, "getUser")},
 		},
 		Overlay: &tfbridge.OverlayInfo{
 			Files: []string{
@@ -112,9 +114,13 @@ func Provider() tfbridge.ProviderInfo {
 			Modules: map[string]*tfbridge.OverlayInfo{
 				"orgs": {
 					Files: []string{
-						"privacy.ts",
 						"membershipRole.ts",
-						"teamMembershipRole.ts",
+					},
+				},
+				"teams": {
+					Files: []string{
+						"membershipRole.ts",
+						"privacy.ts",
 					},
 				},
 			},
