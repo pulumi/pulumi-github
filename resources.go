@@ -66,7 +66,14 @@ func Provider() tfbridge.ProviderInfo {
 					},
 				},
 			},
-			"github_organization_webhook": {Tok: githubResource(orgsMod, "Webhook")},
+			"github_organization_webhook": {
+				Tok: githubResource(orgsMod, "Webhook"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"configuration": {
+						Type: githubType(githubMod, "WebhookConfiguration"),
+					},
+				},
+			},
 			"github_repository_collaborator": {
 				Tok: githubResource(reposMod, "Collaborator"),
 				Fields: map[string]*tfbridge.SchemaInfo{
@@ -76,8 +83,15 @@ func Provider() tfbridge.ProviderInfo {
 				},
 			},
 			"github_repository_deploy_key": {Tok: githubResource(reposMod, "DeployKey")},
-			"github_repository_webhook":    {Tok: githubResource(reposMod, "Webhook")},
-			"github_repository":            {Tok: githubResource(reposMod, "Repository")},
+			"github_repository_webhook": {
+				Tok: githubResource(reposMod, "Webhook"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"configuration": {
+						Type: githubType(githubMod, "WebhookConfiguration"),
+					},
+				},
+			},
+			"github_repository": {Tok: githubResource(reposMod, "Repository")},
 			"github_team_membership": {
 				Tok: githubResource(teamsMod, "Membership"),
 				Fields: map[string]*tfbridge.SchemaInfo{
@@ -110,6 +124,7 @@ func Provider() tfbridge.ProviderInfo {
 		Overlay: &tfbridge.OverlayInfo{
 			Files: []string{
 				"permission.ts",
+				"webhookConfiguration.ts",
 			},
 			Modules: map[string]*tfbridge.OverlayInfo{
 				"orgs": {
