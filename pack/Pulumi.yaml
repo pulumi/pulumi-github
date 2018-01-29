@@ -1,7 +1,0 @@
-name: github
-description: A Lumi package that facilitate interacting with GitHub.
-dependencies:
-    lumi: "*"
-    platform: "*"
-    lumirt: "*"
-

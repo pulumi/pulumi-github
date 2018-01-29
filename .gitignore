@@ -1,3 +1,4 @@
-/node_modules/
+/pack/
 /vendor/
-
+.pulumi
+**/node_modules/
