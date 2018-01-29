@@ -1,0 +1,3 @@
+name: github/minimal
+description: An empty Pulumi GitHub test script.
+runtime: nodejs

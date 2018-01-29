@@ -40,9 +40,8 @@ install::
 	(yarn unlink > /dev/null 2>&1 || true) && \
 	yarn link
 
-# TODO: Add integration test
-# test_all::
-# 	PATH=$(PULUMI_BIN):$(PATH) go test -v -cover -timeout 1h -parallel ${TESTPARALLELISM} ./examples
+test_all::
+	PATH=$(PULUMI_BIN):$(PATH) go test -v -cover -timeout 1h -parallel ${TESTPARALLELISM} ./examples
 
 .PHONY: publish
 publish:

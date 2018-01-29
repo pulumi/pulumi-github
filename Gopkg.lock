@@ -86,6 +86,12 @@
   revision = "3a0bb77429bd3a61596f5e8a3172445844342120"
 
 [[projects]]
+  name = "github.com/davecgh/go-spew"
+  packages = ["spew"]
+  revision = "346938d642f2ec3594ed81d874461961cd0faa76"
+  version = "v1.1.0"
+
+[[projects]]
   name = "github.com/go-ini/ini"
   packages = ["."]
   revision = "32e4c1e6bc4e7d0d8451aa6b75200d19e37a536a"
@@ -321,6 +327,12 @@
   version = "v0.8.0"
 
 [[projects]]
+  name = "github.com/pmezard/go-difflib"
+  packages = ["difflib"]
+  revision = "792786c7400a136282c1664665ae0a8db921c6c2"
+  version = "v1.0.0"
+
+[[projects]]
   name = "github.com/posener/complete"
   packages = [
     ".",
@@ -334,21 +346,29 @@
 [[projects]]
   name = "github.com/pulumi/pulumi"
   packages = [
+    "pkg/compiler/errors",
     "pkg/diag",
     "pkg/diag/colors",
     "pkg/encoding",
+    "pkg/engine",
     "pkg/pack",
     "pkg/resource",
     "pkg/resource/config",
+    "pkg/resource/deploy",
     "pkg/resource/plugin",
     "pkg/resource/provider",
+    "pkg/resource/stack",
+    "pkg/testing",
+    "pkg/testing/integration",
     "pkg/tokens",
     "pkg/tools",
     "pkg/util/cmdutil",
     "pkg/util/contract",
     "pkg/util/fsutil",
+    "pkg/util/ioutil",
     "pkg/util/mapper",
     "pkg/util/rpcutil",
+    "pkg/version",
     "pkg/workspace",
     "sdk/proto/go"
   ]
@@ -374,6 +394,12 @@
   revision = "b061729afc07e77a8aa4fad0a2fd840958f1942a"
 
 [[projects]]
+  name = "github.com/sergi/go-diff"
+  packages = ["diffmatchpatch"]
+  revision = "1744e2970ca51c86172c8190fadad617561ed6e7"
+  version = "v1.0.0"
+
+[[projects]]
   branch = "master"
   name = "github.com/spf13/cobra"
   packages = ["."]
@@ -384,6 +410,12 @@
   packages = ["."]
   revision = "e57e3eeb33f795204c1ca35f56c44f83227c6e66"
   version = "v1.0.0"
+
+[[projects]]
+  name = "github.com/stretchr/testify"
+  packages = ["assert"]
+  revision = "b91bfb9ebec76498946beb6af7c0230c7cc7ba6c"
+  version = "v1.2.0"
 
 [[projects]]
   name = "github.com/terraform-providers/terraform-provider-github"
@@ -560,6 +592,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "8d156e70d90027ee66ec8d92f2723b12130c60bc0145a0d1c5031da48ba6c292"
+  inputs-digest = "010ccf22b249fdf17faef5b9765fff30c56e9da7bf5ec3393c320345b499f2e1"
   solver-name = "gps-cdcl"
   solver-version = 1
