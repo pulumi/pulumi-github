@@ -1,0 +1,3 @@
+name: github/teams
+description: A Pulumi GitHub test script.
+runtime: nodejs
