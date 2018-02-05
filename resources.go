@@ -52,9 +52,13 @@ func githubResource(mod string, res string) tokens.Type {
 func Provider() tfbridge.ProviderInfo {
 	p := github.Provider().(*schema.Provider)
 	prov := tfbridge.ProviderInfo{
-		P:      p,
-		Name:   "github",
-		Config: map[string]*tfbridge.SchemaInfo{},
+		P:           p,
+		Name:        "github",
+		Description: "A Pulumi package for creating and managing GitHub resources.",
+		Keywords:    []string{"pulumi", "github"},
+		Homepage:    "https://pulumi.io/github",
+		Repository:  "https://github.com/pulumi/pulumi-github",
+		Config:      map[string]*tfbridge.SchemaInfo{},
 		Resources: map[string]*tfbridge.ResourceInfo{
 			"github_branch_protection": {Tok: githubResource(reposMod, "BranchProtection")},
 			"github_issue_label":       {Tok: githubResource(reposMod, "Label")},
@@ -139,7 +143,7 @@ func Provider() tfbridge.ProviderInfo {
 					},
 				},
 			},
-			Dependencies: map[string]string{
+			DevDependencies: map[string]string{
 				"@types/node": "^8.0.25", // so we can access strongly typed node definitions.
 			},
 		},

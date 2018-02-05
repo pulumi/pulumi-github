@@ -1,9 +1,7 @@
+if: branch = master OR tag IS present
 language: go
 go: 1.9
 sudo: true # give us 7.5GB and >2 bursted cores.
-branches:
-  only:
-  - master
 before_install:
     - export PULUMI_ROOT=/opt/pulumi
     # Travis only fetches 50 commits by default, and we want them all so we can do git describe --tags
@@ -18,6 +16,8 @@ before_install:
     # Install Yarn as per https://yarnpkg.com/lang/en/docs/install-ci/#travis-tab.
     - curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version 1.2.1
     - export PATH=$HOME/.yarn/bin:$PATH
+    # Ensure that we can access Pulumi's private NPM org.
+    - echo "//registry.npmjs.org/:_authToken=\${NPM_TOKEN}" > ~/.npmrc
     # Install the AWS CLI so that we can publish the resulting release (if applicable) at the end.
     - pip install --upgrade --user awscli
     - export PULUMI_FAILED_TESTS_DIR=$(mktemp -d); echo "${PULUMI_FAILED_TESTS_DIR}"
