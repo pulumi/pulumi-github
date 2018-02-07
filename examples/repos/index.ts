@@ -37,7 +37,11 @@ const webhook = new github.repos.Webhook(name, {
     repository: repo.name,
     name: "web",
     configuration: {
-        url: "https://google.com",
+        // We could easily set `url` to any `string` value, such as
+        // "https://google.com/some-repo", but this demonstrates using
+        // `apply` to set `url` based on a property of another resource,
+        // in this case, `repo.name`.
+        url: repo.name.apply(n => "https://google.com/" + n),
         content_type: "form"
     },
     events: ["issues"],
