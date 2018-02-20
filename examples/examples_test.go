@@ -32,8 +32,8 @@ func TestExamples(t *testing.T) {
 			"github:config:token":        os.Getenv("GITHUB_TOKEN"),
 		},
 		Dependencies: []string{
-			"pulumi",
 			"@pulumi/github",
+			"@pulumi/pulumi",
 		},
 	}
 

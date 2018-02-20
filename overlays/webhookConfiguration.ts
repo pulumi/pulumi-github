@@ -1,6 +1,6 @@
 // Copyright 2016-2018, Pulumi Corporation.  All rights reserved.
 
-import * as pulumi from "pulumi";
+import * as pulumi from "@pulumi/pulumi";
 
 // TODO: https://github.com/pulumi/pulumi-terraform/issues/111
 // Rename `content_type` and `insecure_ssl` to `contentType` and `insecureSsl`

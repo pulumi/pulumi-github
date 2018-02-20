@@ -366,12 +366,13 @@
     "pkg/util/contract",
     "pkg/util/fsutil",
     "pkg/util/mapper",
+    "pkg/util/retry",
     "pkg/util/rpcutil",
     "pkg/version",
     "pkg/workspace",
     "sdk/proto/go"
   ]
-  revision = "1dbe4b7dfd59a8e045bf07b423aa73d2f457c3ca"
+  revision = "444ebdd1b52b72bbffa1a637626cdd77687afc70"
 
 [[projects]]
   name = "github.com/pulumi/pulumi-terraform"
@@ -379,7 +380,7 @@
     "pkg/tfbridge",
     "pkg/tfgen"
   ]
-  revision = "4057f2ea47decc79726c6142c5ce2b0c1abff0bb"
+  revision = "e86618687f5e295deee4756ac32dac7431bf7257"
 
 [[projects]]
   branch = "master"
@@ -591,6 +592,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "8dbf94135677d6c63cdccfbe2cba170a94862efcb3bc32d0e65e40f0244761e4"
+  inputs-digest = "5dadc830214c53659f3750d4fd93170cdaa48b83538ef13d59747a7055595fbd"
   solver-name = "gps-cdcl"
   solver-version = 1
