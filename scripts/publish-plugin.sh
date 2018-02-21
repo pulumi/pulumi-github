@@ -6,7 +6,7 @@ set -o nounset -o errexit -o pipefail
 ROOT=$(dirname $0)/..
 WORK_PATH=$(mktemp -d)
 VERSION=$(git describe --tags --dirty 2>/dev/null)
-PLUGIN_PACKAGE_NAME="pulumi-provider-github-${VERSION}-$(go env GOOS)-$(go env GOARCH).tar.gz"
+PLUGIN_PACKAGE_NAME="pulumi-resource-github-${VERSION}-$(go env GOOS)-$(go env GOARCH).tar.gz"
 PLUGIN_PACKAGE_DIR="$(mktemp -d)"
 PLUGIN_PACKAGE_PATH="${PLUGIN_PACKAGE_DIR}/${PLUGIN_PACKAGE_NAME}"
 
@@ -18,8 +18,8 @@ fi
 
 go build \
    -ldflags "-X github.com/pulumi/pulumi-github/pkg/version.Version=${VERSION}" \
-   -o "${WORK_PATH}/pulumi-provider-github${BIN_SUFFIX}" \
-   "${ROOT}/cmd/pulumi-provider-github"
+   -o "${WORK_PATH}/pulumi-resource-github${BIN_SUFFIX}" \
+   "${ROOT}/cmd/pulumi-resource-github"
 
 # Tar up the plugin
 tar -czf ${PLUGIN_PACKAGE_PATH} -C ${WORK_PATH} .
@@ -27,7 +27,7 @@ tar -czf ${PLUGIN_PACKAGE_PATH} -C ${WORK_PATH} .
 # rel.pulumi.com is in our production account, so assume that role first
 CREDS_JSON=$(aws sts assume-role \
                  --role-arn "arn:aws:iam::058607598222:role/UploadPulumiReleases" \
-                 --role-session-name "upload-plugin-pulumi-provider-github" \
+                 --role-session-name "upload-plugin-pulumi-resource-github" \
                  --external-id "upload-pulumi-release")
 
 # Use the credentials we just assumed
