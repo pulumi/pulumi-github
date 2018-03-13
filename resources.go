@@ -74,7 +74,8 @@ func Provider() tfbridge.ProviderInfo {
 				Tok: githubResource(orgsMod, "Webhook"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"configuration": {
-						Type: githubType(githubMod, "WebhookConfiguration"),
+						Type:              githubType(githubMod, "WebhookConfiguration"),
+						MangleTypeMapKeys: boolPointer(true),
 					},
 				},
 			},
@@ -91,7 +92,8 @@ func Provider() tfbridge.ProviderInfo {
 				Tok: githubResource(reposMod, "Webhook"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"configuration": {
-						Type: githubType(githubMod, "WebhookConfiguration"),
+						Type:              githubType(githubMod, "WebhookConfiguration"),
+						MangleTypeMapKeys: boolPointer(true),
 					},
 				},
 			},
@@ -153,4 +155,8 @@ func Provider() tfbridge.ProviderInfo {
 	}
 
 	return prov
+}
+
+func boolPointer(b bool) *bool {
+	return &b
 }
