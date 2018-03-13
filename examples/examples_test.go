@@ -28,8 +28,8 @@ func TestExamples(t *testing.T) {
 	// base options shared amongst all tests.
 	base := integration.ProgramTestOptions{
 		Config: map[string]string{
-			"github:config:organization": os.Getenv("GITHUB_ORGANIZATION"),
-			"github:config:token":        os.Getenv("GITHUB_TOKEN"),
+			"github:organization": os.Getenv("GITHUB_ORGANIZATION"),
+			"github:token":        os.Getenv("GITHUB_TOKEN"),
 		},
 		Dependencies: []string{
 			"@pulumi/github",
