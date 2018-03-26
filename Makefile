@@ -40,8 +40,9 @@ install::
 	(yarn unlink > /dev/null 2>&1 || true) && \
 	yarn link
 
-test_all::
-	PATH=$(PULUMI_BIN):$(PATH) go test -v -cover -timeout 1h -parallel ${TESTPARALLELISM} ./examples
+# TODO(pulumi-github/issues/16): Re-enable tests once we've hardened the TF provider.
+# test_all::
+# 	PATH=$(PULUMI_BIN):$(PATH) go test -v -cover -timeout 1h -parallel ${TESTPARALLELISM} ./examples
 
 .PHONY: publish
 publish:
