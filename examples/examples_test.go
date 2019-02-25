@@ -47,8 +47,9 @@ func TestExamples(t *testing.T) {
 		base.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "teams")}),
 	}
 
+	tests := shortTests
 	if !testing.Short() {
-		tests = append(examples, longTests...)
+		tests = append(tests, longTests...)
 	}
 
 	for _, ex := range tests {
