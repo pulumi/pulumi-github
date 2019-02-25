@@ -37,18 +37,22 @@ func TestExamples(t *testing.T) {
 		},
 	}
 
-	examples := []integration.ProgramTestOptions{
+	shortTests := []integration.ProgramTestOptions{
 		base.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "minimal")}),
 	}
-	if !testing.Short() {
-		examples = append(examples, []integration.ProgramTestOptions{
-			base.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "orgs")}),
-			base.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "repos")}),
-			base.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "teams")}),
-		}...)
+
+	longTests := []integration.ProgramTestOptions{
+		base.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "orgs")}),
+		base.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "repos")}),
+		base.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "teams")}),
 	}
 
-	for _, ex := range examples {
+	tests := shortTests
+	if !testing.Short() {
+		tests = append(tests, longTests...)
+	}
+
+	for _, ex := range tests {
 		example := ex
 		t.Run(example.Dir, func(t *testing.T) {
 			integration.ProgramTest(t, &example)
