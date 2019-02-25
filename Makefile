@@ -41,6 +41,9 @@ install::
 	yarn link
 
 # TODO(pulumi-github/issues/16): Re-enable tests once we've hardened the TF provider.
+# test_fast::
+# 	PATH=$(PULUMI_BIN):$(PATH) go test -short-v -cover -timeout 1h -parallel ${TESTPARALLELISM} ./examples
+
 # test_all::
 # 	PATH=$(PULUMI_BIN):$(PATH) go test -v -cover -timeout 1h -parallel ${TESTPARALLELISM} ./examples
 
