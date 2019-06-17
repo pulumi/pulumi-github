@@ -1,11 +1,59 @@
-[![Build Status](https://travis-ci.com/pulumi/pulumi-github.svg?token=cTUUEgrxaTEGyecqJpDn&branch=master)](https://travis-ci.com/pulumi/pulumi-github)
+[![Build Status](https://travis-ci.com/pulumi/pulumi-github.svg?token=eHg7Zp5zdDDJfTjY8ejq&branch=master)](https://travis-ci.com/pulumi/pulumi-github)
 
-# Pulumi GitHub Resource Provider
+# GitHub provider
 
-:warning: **Pulumi is in private beta.  This package may not work unless you are already participating.
-Please visit [pulumi.com](https://pulumi.com/) to register for access.**
+The GitHub resource provider for Pulumi lets you use GitHub resources in your cloud programs.  To use
+this package, please [install the Pulumi CLI first](https://pulumi.io/).
 
-The GitHub provider for Pulumi lets you use Azure resources in your cloud programs.
+## Installing
 
-This package is meant for use with the Pulumi CLI.  Please visit [docs.pulumi.com](https://docs.pulumi.com) for
-installation instructions.
+This package is available in many languages in the standard packaging formats.
+
+### Node.js (Java/TypeScript)
+
+To use from JavaScript or TypeScript in Node.js, install using either `npm`:
+
+    $ npm install @pulumi/github
+
+or `yarn`:
+
+    $ yarn add @pulumi/github
+
+### Python
+
+To use from Python, install using `pip`:
+
+    $ pip install pulumi_github
+
+### Go
+
+To use from Go, use `go get` to grab the latest version of the library
+
+    $ go get github.com/pulumi/pulumi-github/sdk/go/...
+    
+
+## Configuration
+
+The following configuration points are available:
+
+* token (Required) - GitHub personal access token. This can also be set via the `GITHUB_TOKEN` environment variable.
+* organization (Required) - This is the target GitHub organization to manage. The account corresponding to the token 
+  will need "owner" privileges for this organization. This can also be set via the `GITHUB_ORGANIZATION` environment 
+  variable.
+* baseUrl (Optional) - This is the target GitHub base API endpoint. Providing a value is a requirement when working with
+  GitHub Enterprise. It can be sourced from `GITHUB_BASE_URL` environment variable and must end with `\`.
+* insecure (Optional) - Whether server should be accessed without verifying the TLS certificate. As the name suggests 
+  this is insecure and should not be used beyond experiments, accessing local (non-production) GHE instance etc. The
+ default is `false`.
+
+## Reference
+
+For detailed reference documentation, please visit [the API docs](
+https://pulumi.io/reference/pkg/nodejs/@pulumi/github/index.html).
+
+## Updating this provider
+
+The AWS Resource Provider for Pulumi is based on the Terraform Provider for
+AWS. Instructions for keeping it up to date are available [here][updating].
+
+[updating]: https://github.com/pulumi/pulumi-terraform/wiki/Updating-Pulumi-Providers-Backed-By-Terraform-Providers
