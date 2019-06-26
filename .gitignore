@@ -1,4 +1,11 @@
-/pack/
 /vendor/
 .pulumi
-**/node_modules/
+**/bin/
+Pulumi.*.yaml
+
+**/command-output/
+
+.idea/
+*.iml
+
+yarn.lock
