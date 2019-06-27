@@ -21,8 +21,8 @@ func TestExamples(t *testing.T) {
 	}
 
 	cwd, err := os.Getwd()
-	if !assert.NoError(t, err, "expected a valid working directory: %v", err) {
-		return
+	if !assert.NoError(t, err) {
+		t.FailNow()
 	}
 
 	// base options shared amongst all tests.
@@ -33,23 +33,14 @@ func TestExamples(t *testing.T) {
 		},
 		Dependencies: []string{
 			"@pulumi/github",
-			"@pulumi/pulumi",
 		},
 	}
 
-	shortTests := []integration.ProgramTestOptions{
+	tests := []integration.ProgramTestOptions{
 		base.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "minimal")}),
-	}
-
-	longTests := []integration.ProgramTestOptions{
 		base.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "orgs")}),
 		base.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "repos")}),
 		base.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "teams")}),
-	}
-
-	tests := shortTests
-	if !testing.Short() {
-		tests = append(tests, longTests...)
 	}
 
 	for _, ex := range tests {
