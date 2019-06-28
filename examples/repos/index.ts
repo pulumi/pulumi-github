@@ -35,7 +35,6 @@ const label = new github.repos.Label(name, {
 // Add a repository webhook
 const webhook = new github.repos.Webhook(name, {
     repository: repo.name,
-    name: "web",
     configuration: github.WebhookConfiguration = {
         url: "https://google.com",
         content_type: github.ContentTypes.Form,

@@ -13,7 +13,6 @@ const membership = new github.orgs.Membership(name, {
 
 // Add an organization webhook
 const webhook = new github.orgs.Webhook(name, {
-    name: "web",
     configuration: github.WebhookConfiguration = {
         url: "https://google.com",
         content_type: github.ContentTypes.Form,
