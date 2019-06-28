@@ -16,7 +16,7 @@ const webhook = new github.orgs.Webhook(name, {
     name: "web",
     configuration: github.WebhookConfiguration = {
         url: "https://google.com",
-        content_type: "form"
+        content_type: github.ContentTypes.Form,
     },
     events: ["issues"],
     active: false

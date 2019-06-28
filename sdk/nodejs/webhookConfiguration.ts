@@ -16,4 +16,9 @@ export interface WebhookConfiguration {
     readonly insecure_ssl?: pulumi.Input<string>;
 }
 
+export module ContentTypes {
+    export const Form: ContentType = "form";
+    export const JSON: ContentType = "json";
+}
+
 export type ContentType = "form" | "json";
