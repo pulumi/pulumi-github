@@ -1,6 +1,7 @@
 // Copyright 2016-2018, Pulumi Corporation.  All rights reserved.
 
 import * as github from "@pulumi/github";
+import {WebhookConfiguration} from "../../sdk/nodejs";
 
 const name = "orgs";
 
@@ -13,10 +14,12 @@ const membership = new github.orgs.Membership(name, {
 // Add an organization webhook
 const webhook = new github.orgs.Webhook(name, {
     name: "web",
-    configuration: {
+    configuration: github.WebhookConfiguration = {
         url: "https://google.com",
         content_type: "form"
     },
     events: ["issues"],
     active: false
 });
+
+export const webhookId = webhook.id
