@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package xyz
+package github
 
 import (
 	"unicode"
@@ -22,13 +22,13 @@ import (
 	"github.com/pulumi/pulumi-terraform-bridge/v2/pkg/tfbridge"
 	"github.com/pulumi/pulumi/sdk/v2/go/common/resource"
 	"github.com/pulumi/pulumi/sdk/v2/go/common/tokens"
-	"github.com/terraform-providers/terraform-provider-xyz/xyz"
+	"github.com/terraform-providers/terraform-provider-github/github"
 )
 
 // all of the token components used below.
 const (
 	// packages:
-	mainPkg = "xyz"
+	mainPkg = "github"
 	// modules:
 	mainMod = "index" // the y module
 )
@@ -87,17 +87,17 @@ var managedByPulumi = &tfbridge.DefaultInfo{Value: "Managed by Pulumi"}
 // Provider returns additional overlaid schema and metadata associated with the provider..
 func Provider() tfbridge.ProviderInfo {
 	// Instantiate the Terraform provider
-	p := xyz.Provider().(*schema.Provider)
+	p := github.Provider().(*schema.Provider)
 
 	// Create a Pulumi provider mapping
 	prov := tfbridge.ProviderInfo{
 		P:           p,
-		Name:        "xyz",
-		Description: "A Pulumi package for creating and managing xyz cloud resources.",
-		Keywords:    []string{"pulumi", "xyz"},
+		Name:        "github",
+		Description: "A Pulumi package for creating and managing github cloud resources.",
+		Keywords:    []string{"pulumi", "github"},
 		License:     "Apache-2.0",
 		Homepage:    "https://pulumi.io",
-		Repository:  "https://github.com/pulumi/pulumi-xyz",
+		Repository:  "https://github.com/pulumi/pulumi-github",
 		Config:      map[string]*tfbridge.SchemaInfo{
 			// Add any required configuration here, or remove the example below if
 			// no additional points are required.
@@ -109,24 +109,38 @@ func Provider() tfbridge.ProviderInfo {
 			// },
 		},
 		PreConfigureCallback: preConfigureCallback,
-		Resources:            map[string]*tfbridge.ResourceInfo{
-			// Map each resource in the Terraform provider to a Pulumi type. Two examples
-			// are below - the single line form is the common case. The multi-line form is
-			// needed only if you wish to override types or other default options.
-			//
-			// "aws_iam_role": {Tok: makeResource(mainMod, "IamRole")}
-			//
-			// "aws_acm_certificate": {
-			// 	Tok: makeResource(mainMod, "Certificate"),
-			// 	Fields: map[string]*tfbridge.SchemaInfo{
-			// 		"tags": {Type: makeType(mainPkg, "Tags")},
-			// 	},
-			// },
+		Resources: map[string]*tfbridge.ResourceInfo{
+			//"github_actions_secret":           {Tok: makeResource(mainMod, "ActionsSecret")},
+			"github_branch_protection":        {Tok: makeResource(mainMod, "BranchProtection")},
+			"github_issue_label":              {Tok: makeResource(mainMod, "IssueLabel")},
+			"github_membership":               {Tok: makeResource(mainMod, "Membership")},
+			"github_organization_block":       {Tok: makeResource(mainMod, "OrganizationBlock")},
+			"github_organization_project":     {Tok: makeResource(mainMod, "OrganizationProject")},
+			"github_organization_webhook":     {Tok: makeResource(mainMod, "OrganizationWebhook")},
+			"github_project_column":           {Tok: makeResource(mainMod, "ProjectColumn")},
+			"github_repository":               {Tok: makeResource(mainMod, "Repository")},
+			"github_repository_collaborator":  {Tok: makeResource(mainMod, "RepositoryCollaborator")},
+			"github_repository_deploy_key":    {Tok: makeResource(mainMod, "RepositoryDeployKey")},
+			"github_repository_file":          {Tok: makeResource(mainMod, "RepositoryFile")},
+			"github_repository_project":       {Tok: makeResource(mainMod, "RepositoryProject")},
+			"github_repository_webhook":       {Tok: makeResource(mainMod, "RepositoryWebhook")},
+			"github_team":                     {Tok: makeResource(mainMod, "Team")},
+			"github_team_membership":          {Tok: makeResource(mainMod, "TeamMembership")},
+			"github_team_repository":          {Tok: makeResource(mainMod, "TeamRepository")},
+			"github_user_gpg_key":             {Tok: makeResource(mainMod, "UserGpgKey")},
+			"github_user_invitation_accepter": {Tok: makeResource(mainMod, "UserInvitationAccepter")},
+			"github_user_ssh_key":             {Tok: makeResource(mainMod, "UserSshKey")},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
-			// Map each resource in the Terraform provider to a Pulumi function. An example
-			// is below.
-			// "aws_ami": {Tok: makeDataSource(mainMod, "getAmi")},
+			"github_actions_public_key": {Tok: makeDataSource(mainMod, "getActionsPublicKey")},
+			"github_collaborators":      {Tok: makeDataSource(mainMod, "getCollaborators")},
+			"github_ip_ranges":          {Tok: makeDataSource(mainMod, "getIpRanges")},
+			"github_membership":         {Tok: makeDataSource(mainMod, "getMembership")},
+			"github_release":            {Tok: makeDataSource(mainMod, "getRelease")},
+			"github_repositories":       {Tok: makeDataSource(mainMod, "getRepositories")},
+			"github_repository":         {Tok: makeDataSource(mainMod, "getRepository")},
+			"github_team":               {Tok: makeDataSource(mainMod, "getTeam")},
+			"github_user":               {Tok: makeDataSource(mainMod, "getUser")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			AsyncDataSources: true,

@@ -1,0 +1,25 @@
+{
+    "name": "@pulumi/github",
+    "version": "${VERSION}",
+    "description": "A Pulumi package for creating and managing github cloud resources.",
+    "keywords": [
+        "pulumi",
+        "github"
+    ],
+    "homepage": "https://pulumi.io",
+    "repository": "https://github.com/pulumi/pulumi-github",
+    "license": "Apache-2.0",
+    "scripts": {
+        "build": "tsc"
+    },
+    "dependencies": {
+        "@pulumi/pulumi": "^2.0.0"
+    },
+    "devDependencies": {
+        "@types/mime": "^2.0.0",
+        "@types/node": "^8.0.25"
+    },
+    "pulumi": {
+        "resource": true
+    }
+}
