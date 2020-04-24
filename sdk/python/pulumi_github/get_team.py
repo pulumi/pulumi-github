@@ -24,7 +24,7 @@ class GetTeamResult:
             raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
-        The provider-assigned unique ID for this managed resource.
+        id is the provider-assigned unique ID for this managed resource.
         """
         if members and not isinstance(members, list):
             raise TypeError("Expected argument 'members' to be a list")

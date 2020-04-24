@@ -26,7 +26,7 @@ type GetActionsPublicKeyArgs struct {
 
 // A collection of values returned by getActionsPublicKey.
 type GetActionsPublicKeyResult struct {
-	// The provider-assigned unique ID for this managed resource.
+	// id is the provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// Actual key retrieved.
 	Key string `pulumi:"key"`

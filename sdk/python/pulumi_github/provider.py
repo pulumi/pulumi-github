@@ -45,10 +45,16 @@ class Provider(pulumi.ProviderResource):
             __props__ = dict()
 
             __props__['anonymous'] = pulumi.Output.from_input(anonymous).apply(json.dumps) if anonymous is not None else None
+            if base_url is None:
+                base_url = (utilities.get_env('GITHUB_BASE_URL') or 'https://api.github.com/')
             __props__['base_url'] = base_url
             __props__['individual'] = pulumi.Output.from_input(individual).apply(json.dumps) if individual is not None else None
             __props__['insecure'] = pulumi.Output.from_input(insecure).apply(json.dumps) if insecure is not None else None
+            if organization is None:
+                organization = utilities.get_env('GITHUB_ORGANIZATION')
             __props__['organization'] = organization
+            if token is None:
+                token = utilities.get_env('GITHUB_TOKEN')
             __props__['token'] = token
         super(Provider, __self__).__init__(
             'github',

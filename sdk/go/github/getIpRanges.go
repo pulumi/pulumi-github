@@ -22,7 +22,7 @@ type GetIpRangesResult struct {
 	Gits []string `pulumi:"gits"`
 	// An Array of IP addresses in CIDR format specifying the addresses that incoming service hooks will originate from.
 	Hooks []string `pulumi:"hooks"`
-	// The provider-assigned unique ID for this managed resource.
+	// id is the provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// An Array of IP addresses in CIDR format specifying the A records for GitHub Importer.
 	Importers []string `pulumi:"importers"`

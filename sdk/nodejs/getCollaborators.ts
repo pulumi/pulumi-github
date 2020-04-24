@@ -70,7 +70,7 @@ export interface GetCollaboratorsResult {
     readonly owner: string;
     readonly repository: string;
     /**
-     * The provider-assigned unique ID for this managed resource.
+     * id is the provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
 }

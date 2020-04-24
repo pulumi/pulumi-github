@@ -14,7 +14,7 @@ export let anonymous: boolean | undefined = __config.getObject<boolean>("anonymo
 /**
  * The GitHub Base API URL
  */
-export let baseUrl: string | undefined = __config.get("baseUrl");
+export let baseUrl: string | undefined = __config.get("baseUrl") || (utilities.getEnv("GITHUB_BASE_URL") || "https://api.github.com/");
 /**
  * Run outside an organization. When `individual`is true, the provider will run outside the scope of anorganization.
  */
@@ -26,8 +26,8 @@ export let insecure: boolean | undefined = __config.getObject<boolean>("insecure
 /**
  * The GitHub organization name to manage. If `individual` is false, `organization` is required.
  */
-export let organization: string | undefined = __config.get("organization");
+export let organization: string | undefined = __config.get("organization") || utilities.getEnv("GITHUB_ORGANIZATION");
 /**
  * The OAuth token used to connect to GitHub. If `anonymous` is false, `token` is required.
  */
-export let token: string | undefined = __config.get("token");
+export let token: string | undefined = __config.get("token") || utilities.getEnv("GITHUB_TOKEN");

@@ -41,7 +41,7 @@ namespace Pulumi.Github
     public sealed class GetActionsPublicKeyResult
     {
         /// <summary>
-        /// The provider-assigned unique ID for this managed resource.
+        /// id is the provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
         /// <summary>

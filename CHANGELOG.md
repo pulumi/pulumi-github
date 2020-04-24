@@ -2,8 +2,7 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Prepare for 2.0 release
-* Add prepare command to rename the `github` occurrences
+* Initial creation of the provider against v2.6.1 of the GitHub Terraform Provider
 
 ---
 

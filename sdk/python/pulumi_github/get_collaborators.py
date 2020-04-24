@@ -27,7 +27,7 @@ class GetCollaboratorsResult:
             raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
-        The provider-assigned unique ID for this managed resource.
+        id is the provider-assigned unique ID for this managed resource.
         """
         if owner and not isinstance(owner, str):
             raise TypeError("Expected argument 'owner' to be a str")

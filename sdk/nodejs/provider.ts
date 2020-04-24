@@ -41,11 +41,11 @@ export class Provider extends pulumi.ProviderResource {
         let inputs: pulumi.Inputs = {};
         {
             inputs["anonymous"] = pulumi.output(args ? args.anonymous : undefined).apply(JSON.stringify);
-            inputs["baseUrl"] = args ? args.baseUrl : undefined;
+            inputs["baseUrl"] = (args ? args.baseUrl : undefined) || (utilities.getEnv("GITHUB_BASE_URL") || "https://api.github.com/");
             inputs["individual"] = pulumi.output(args ? args.individual : undefined).apply(JSON.stringify);
             inputs["insecure"] = pulumi.output(args ? args.insecure : undefined).apply(JSON.stringify);
-            inputs["organization"] = args ? args.organization : undefined;
-            inputs["token"] = args ? args.token : undefined;
+            inputs["organization"] = (args ? args.organization : undefined) || utilities.getEnv("GITHUB_ORGANIZATION");
+            inputs["token"] = (args ? args.token : undefined) || utilities.getEnv("GITHUB_TOKEN");
         }
         if (!opts) {
             opts = {}

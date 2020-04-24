@@ -126,7 +126,7 @@ export interface GetUserResult {
     readonly updatedAt: string;
     readonly username: string;
     /**
-     * The provider-assigned unique ID for this managed resource.
+     * id is the provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
 }

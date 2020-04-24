@@ -32,7 +32,7 @@ namespace Pulumi.Github
         /// </summary>
         public readonly ImmutableArray<string> Hooks;
         /// <summary>
-        /// The provider-assigned unique ID for this managed resource.
+        /// id is the provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
         /// <summary>

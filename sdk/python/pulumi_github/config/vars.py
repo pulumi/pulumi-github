@@ -17,7 +17,7 @@ Authenticate without a token. When `anonymous`is true, the provider will not be 
 authentication.
 """
 
-base_url = __config__.get('baseUrl')
+base_url = __config__.get('baseUrl') or (utilities.get_env('GITHUB_BASE_URL') or 'https://api.github.com/')
 """
 The GitHub Base API URL
 """
@@ -32,12 +32,12 @@ insecure = __config__.get('insecure')
 Whether server should be accessed without verifying the TLS certificate.
 """
 
-organization = __config__.get('organization')
+organization = __config__.get('organization') or utilities.get_env('GITHUB_ORGANIZATION')
 """
 The GitHub organization name to manage. If `individual` is false, `organization` is required.
 """
 
-token = __config__.get('token')
+token = __config__.get('token') or utilities.get_env('GITHUB_TOKEN')
 """
 The OAuth token used to connect to GitHub. If `anonymous` is false, `token` is required.
 """

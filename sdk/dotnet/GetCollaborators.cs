@@ -57,7 +57,7 @@ namespace Pulumi.Github
         /// </summary>
         public readonly ImmutableArray<Outputs.GetCollaboratorsCollaboratorResult> Collaborators;
         /// <summary>
-        /// The provider-assigned unique ID for this managed resource.
+        /// id is the provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
         public readonly string Owner;

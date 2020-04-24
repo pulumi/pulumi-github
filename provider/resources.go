@@ -98,19 +98,27 @@ func Provider() tfbridge.ProviderInfo {
 		License:     "Apache-2.0",
 		Homepage:    "https://pulumi.io",
 		Repository:  "https://github.com/pulumi/pulumi-github",
-		Config:      map[string]*tfbridge.SchemaInfo{
-			// Add any required configuration here, or remove the example below if
-			// no additional points are required.
-			// "region": {
-			// 	Type: makeType("region", "Region"),
-			// 	Default: &tfbridge.DefaultInfo{
-			// 		EnvVars: []string{"AWS_REGION", "AWS_DEFAULT_REGION"},
-			// 	},
-			// },
+		Config: map[string]*tfbridge.SchemaInfo{
+			"token": {
+				Default: &tfbridge.DefaultInfo{
+					EnvVars: []string{"GITHUB_TOKEN"},
+				},
+			},
+			"organization": {
+				Default: &tfbridge.DefaultInfo{
+					EnvVars: []string{"GITHUB_ORGANIZATION"},
+				},
+			},
+			"base_url": {
+				Default: &tfbridge.DefaultInfo{
+					EnvVars: []string{"GITHUB_BASE_URL"},
+					Value:   "https://api.github.com/",
+				},
+			},
 		},
 		PreConfigureCallback: preConfigureCallback,
 		Resources: map[string]*tfbridge.ResourceInfo{
-			//"github_actions_secret":           {Tok: makeResource(mainMod, "ActionsSecret")},
+			"github_actions_secret":           {Tok: makeResource(mainMod, "ActionsSecret")},
 			"github_branch_protection":        {Tok: makeResource(mainMod, "BranchProtection")},
 			"github_issue_label":              {Tok: makeResource(mainMod, "IssueLabel")},
 			"github_membership":               {Tok: makeResource(mainMod, "Membership")},

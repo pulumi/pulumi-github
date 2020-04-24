@@ -32,7 +32,7 @@ type GetCollaboratorsResult struct {
 	Affiliation *string `pulumi:"affiliation"`
 	// An Array of GitHub collaborators.  Each `collaborator` block consists of the fields documented below.
 	Collaborators []GetCollaboratorsCollaborator `pulumi:"collaborators"`
-	// The provider-assigned unique ID for this managed resource.
+	// id is the provider-assigned unique ID for this managed resource.
 	Id         string `pulumi:"id"`
 	Owner      string `pulumi:"owner"`
 	Repository string `pulumi:"repository"`

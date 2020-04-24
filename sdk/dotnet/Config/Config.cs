@@ -17,7 +17,7 @@ namespace Pulumi.Github
         /// <summary>
         /// The GitHub Base API URL
         /// </summary>
-        public static string? BaseUrl { get; set; } = __config.Get("baseUrl");
+        public static string? BaseUrl { get; set; } = __config.Get("baseUrl") ?? Utilities.GetEnv("GITHUB_BASE_URL") ?? "https://api.github.com/";
 
         /// <summary>
         /// Run outside an organization. When `individual`is true, the provider will run outside the scope of anorganization.
@@ -32,12 +32,12 @@ namespace Pulumi.Github
         /// <summary>
         /// The GitHub organization name to manage. If `individual` is false, `organization` is required.
         /// </summary>
-        public static string? Organization { get; set; } = __config.Get("organization");
+        public static string? Organization { get; set; } = __config.Get("organization") ?? Utilities.GetEnv("GITHUB_ORGANIZATION");
 
         /// <summary>
         /// The OAuth token used to connect to GitHub. If `anonymous` is false, `token` is required.
         /// </summary>
-        public static string? Token { get; set; } = __config.Get("token");
+        public static string? Token { get; set; } = __config.Get("token") ?? Utilities.GetEnv("GITHUB_TOKEN");
 
     }
 }
