@@ -17,9 +17,9 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
  * 
- * const example = github.getUser({
+ * const example = pulumi.output(github.getUser({
  *     username: "example",
- * });
+ * }, { async: true }));
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-github/blob/master/website/docs/d/user.html.markdown.

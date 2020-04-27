@@ -17,11 +17,11 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
  * 
- * const example = github.getRelease({
+ * const example = pulumi.output(github.getRelease({
  *     owner: "example-owner",
  *     repository: "example-repository",
  *     retrieveBy: "latest",
- * });
+ * }, { async: true }));
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-github/blob/master/website/docs/d/release.html.markdown.

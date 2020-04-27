@@ -15,7 +15,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
  * 
- * const test = github.getIpRanges();
+ * const test = pulumi.output(github.getIpRanges({ async: true }));
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-github/blob/master/website/docs/d/ip_ranges.html.markdown.
