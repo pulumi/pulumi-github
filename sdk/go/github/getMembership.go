@@ -26,7 +26,7 @@ type LookupMembershipArgs struct {
 type LookupMembershipResult struct {
 	// An etag representing the membership object.
 	Etag string `pulumi:"etag"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// `admin` or `member` -- the role the user has within the organization.
 	Role string `pulumi:"role"`

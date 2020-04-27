@@ -31,7 +31,7 @@ type GetRepositoriesArgs struct {
 // A collection of values returned by getRepositories.
 type GetRepositoriesResult struct {
 	FullNames []string `pulumi:"fullNames"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id    string   `pulumi:"id"`
 	Names []string `pulumi:"names"`
 	Query string   `pulumi:"query"`
