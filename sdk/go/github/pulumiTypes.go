@@ -162,27 +162,57 @@ func (o BranchProtectionRequiredPullRequestReviewsPtrOutput) Elem() BranchProtec
 }
 
 func (o BranchProtectionRequiredPullRequestReviewsPtrOutput) DismissStaleReviews() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v BranchProtectionRequiredPullRequestReviews) *bool { return v.DismissStaleReviews }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v *BranchProtectionRequiredPullRequestReviews) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DismissStaleReviews
+	}).(pulumi.BoolPtrOutput)
 }
 
 func (o BranchProtectionRequiredPullRequestReviewsPtrOutput) DismissalTeams() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v BranchProtectionRequiredPullRequestReviews) []string { return v.DismissalTeams }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v *BranchProtectionRequiredPullRequestReviews) []string {
+		if v == nil {
+			return nil
+		}
+		return v.DismissalTeams
+	}).(pulumi.StringArrayOutput)
 }
 
 func (o BranchProtectionRequiredPullRequestReviewsPtrOutput) DismissalUsers() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v BranchProtectionRequiredPullRequestReviews) []string { return v.DismissalUsers }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v *BranchProtectionRequiredPullRequestReviews) []string {
+		if v == nil {
+			return nil
+		}
+		return v.DismissalUsers
+	}).(pulumi.StringArrayOutput)
 }
 
 func (o BranchProtectionRequiredPullRequestReviewsPtrOutput) IncludeAdmins() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v BranchProtectionRequiredPullRequestReviews) *bool { return v.IncludeAdmins }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v *BranchProtectionRequiredPullRequestReviews) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IncludeAdmins
+	}).(pulumi.BoolPtrOutput)
 }
 
 func (o BranchProtectionRequiredPullRequestReviewsPtrOutput) RequireCodeOwnerReviews() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v BranchProtectionRequiredPullRequestReviews) *bool { return v.RequireCodeOwnerReviews }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v *BranchProtectionRequiredPullRequestReviews) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.RequireCodeOwnerReviews
+	}).(pulumi.BoolPtrOutput)
 }
 
 func (o BranchProtectionRequiredPullRequestReviewsPtrOutput) RequiredApprovingReviewCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v BranchProtectionRequiredPullRequestReviews) *int { return v.RequiredApprovingReviewCount }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v *BranchProtectionRequiredPullRequestReviews) *int {
+		if v == nil {
+			return nil
+		}
+		return v.RequiredApprovingReviewCount
+	}).(pulumi.IntPtrOutput)
 }
 
 type BranchProtectionRequiredStatusChecks struct {
@@ -317,15 +347,30 @@ func (o BranchProtectionRequiredStatusChecksPtrOutput) Elem() BranchProtectionRe
 }
 
 func (o BranchProtectionRequiredStatusChecksPtrOutput) Contexts() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v BranchProtectionRequiredStatusChecks) []string { return v.Contexts }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v *BranchProtectionRequiredStatusChecks) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Contexts
+	}).(pulumi.StringArrayOutput)
 }
 
 func (o BranchProtectionRequiredStatusChecksPtrOutput) IncludeAdmins() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v BranchProtectionRequiredStatusChecks) *bool { return v.IncludeAdmins }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v *BranchProtectionRequiredStatusChecks) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IncludeAdmins
+	}).(pulumi.BoolPtrOutput)
 }
 
 func (o BranchProtectionRequiredStatusChecksPtrOutput) Strict() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v BranchProtectionRequiredStatusChecks) *bool { return v.Strict }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v *BranchProtectionRequiredStatusChecks) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Strict
+	}).(pulumi.BoolPtrOutput)
 }
 
 type BranchProtectionRestrictions struct {
@@ -460,15 +505,30 @@ func (o BranchProtectionRestrictionsPtrOutput) Elem() BranchProtectionRestrictio
 }
 
 func (o BranchProtectionRestrictionsPtrOutput) Apps() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v BranchProtectionRestrictions) []string { return v.Apps }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v *BranchProtectionRestrictions) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Apps
+	}).(pulumi.StringArrayOutput)
 }
 
 func (o BranchProtectionRestrictionsPtrOutput) Teams() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v BranchProtectionRestrictions) []string { return v.Teams }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v *BranchProtectionRestrictions) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Teams
+	}).(pulumi.StringArrayOutput)
 }
 
 func (o BranchProtectionRestrictionsPtrOutput) Users() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v BranchProtectionRestrictions) []string { return v.Users }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v *BranchProtectionRestrictions) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Users
+	}).(pulumi.StringArrayOutput)
 }
 
 type OrganizationWebhookConfiguration struct {
@@ -612,20 +672,40 @@ func (o OrganizationWebhookConfigurationPtrOutput) Elem() OrganizationWebhookCon
 }
 
 func (o OrganizationWebhookConfigurationPtrOutput) ContentType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v OrganizationWebhookConfiguration) *string { return v.ContentType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *OrganizationWebhookConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ContentType
+	}).(pulumi.StringPtrOutput)
 }
 
 func (o OrganizationWebhookConfigurationPtrOutput) InsecureSsl() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v OrganizationWebhookConfiguration) *bool { return v.InsecureSsl }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v *OrganizationWebhookConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.InsecureSsl
+	}).(pulumi.BoolPtrOutput)
 }
 
 func (o OrganizationWebhookConfigurationPtrOutput) Secret() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v OrganizationWebhookConfiguration) *string { return v.Secret }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *OrganizationWebhookConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Secret
+	}).(pulumi.StringPtrOutput)
 }
 
 // URL of the webhook
-func (o OrganizationWebhookConfigurationPtrOutput) Url() pulumi.StringOutput {
-	return o.ApplyT(func(v OrganizationWebhookConfiguration) string { return v.Url }).(pulumi.StringOutput)
+func (o OrganizationWebhookConfigurationPtrOutput) Url() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrganizationWebhookConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Url
+	}).(pulumi.StringPtrOutput)
 }
 
 type RepositoryTemplate struct {
@@ -753,12 +833,22 @@ func (o RepositoryTemplatePtrOutput) Elem() RepositoryTemplateOutput {
 	return o.ApplyT(func(v *RepositoryTemplate) RepositoryTemplate { return *v }).(RepositoryTemplateOutput)
 }
 
-func (o RepositoryTemplatePtrOutput) Owner() pulumi.StringOutput {
-	return o.ApplyT(func(v RepositoryTemplate) string { return v.Owner }).(pulumi.StringOutput)
+func (o RepositoryTemplatePtrOutput) Owner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RepositoryTemplate) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Owner
+	}).(pulumi.StringPtrOutput)
 }
 
-func (o RepositoryTemplatePtrOutput) Repository() pulumi.StringOutput {
-	return o.ApplyT(func(v RepositoryTemplate) string { return v.Repository }).(pulumi.StringOutput)
+func (o RepositoryTemplatePtrOutput) Repository() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RepositoryTemplate) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Repository
+	}).(pulumi.StringPtrOutput)
 }
 
 type RepositoryWebhookConfiguration struct {
@@ -902,20 +992,40 @@ func (o RepositoryWebhookConfigurationPtrOutput) Elem() RepositoryWebhookConfigu
 }
 
 func (o RepositoryWebhookConfigurationPtrOutput) ContentType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RepositoryWebhookConfiguration) *string { return v.ContentType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *RepositoryWebhookConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ContentType
+	}).(pulumi.StringPtrOutput)
 }
 
 func (o RepositoryWebhookConfigurationPtrOutput) InsecureSsl() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v RepositoryWebhookConfiguration) *bool { return v.InsecureSsl }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v *RepositoryWebhookConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.InsecureSsl
+	}).(pulumi.BoolPtrOutput)
 }
 
 func (o RepositoryWebhookConfigurationPtrOutput) Secret() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RepositoryWebhookConfiguration) *string { return v.Secret }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *RepositoryWebhookConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Secret
+	}).(pulumi.StringPtrOutput)
 }
 
 // URL of the webhook
-func (o RepositoryWebhookConfigurationPtrOutput) Url() pulumi.StringOutput {
-	return o.ApplyT(func(v RepositoryWebhookConfiguration) string { return v.Url }).(pulumi.StringOutput)
+func (o RepositoryWebhookConfigurationPtrOutput) Url() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RepositoryWebhookConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Url
+	}).(pulumi.StringPtrOutput)
 }
 
 type GetCollaboratorsCollaborator struct {

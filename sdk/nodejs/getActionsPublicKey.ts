@@ -18,9 +18,9 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
  * 
- * const example = github.SecretsPublicKey({
+ * const example = pulumi.output(github.SecretsPublicKey({
  *     repository: "exampleRepo",
- * });
+ * }, { async: true }));
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-github/blob/master/website/docs/d/actions_public_key.html.markdown.
@@ -62,7 +62,7 @@ export interface GetActionsPublicKeyResult {
     readonly keyId: string;
     readonly repository: string;
     /**
-     * id is the provider-assigned unique ID for this managed resource.
+     * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
 }

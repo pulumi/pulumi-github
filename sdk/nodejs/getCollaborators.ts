@@ -17,10 +17,10 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
  * 
- * const test = github.getCollaborators({
+ * const test = pulumi.output(github.getCollaborators({
  *     owner: "exampleOwner",
  *     repository: "exampleRepository",
- * });
+ * }, { async: true }));
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-github/blob/master/website/docs/d/collaborators.html.markdown.
@@ -70,7 +70,7 @@ export interface GetCollaboratorsResult {
     readonly owner: string;
     readonly repository: string;
     /**
-     * id is the provider-assigned unique ID for this managed resource.
+     * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
 }

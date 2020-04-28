@@ -45,7 +45,7 @@ type GetUserResult struct {
 	GpgKeys []string `pulumi:"gpgKeys"`
 	// the user's gravatar ID.
 	GravatarId string `pulumi:"gravatarId"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// the user's location.
 	Location string `pulumi:"location"`

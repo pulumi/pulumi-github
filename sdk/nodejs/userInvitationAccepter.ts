@@ -28,7 +28,7 @@ import * as utilities from "./utilities";
  * });
  * const exampleUserInvitationAccepter = new github.UserInvitationAccepter("example", {
  *     invitationId: exampleRepositoryCollaborator.invitationId,
- * }, {provider: invitee});
+ * }, { provider: invitee });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-github/blob/master/website/docs/r/user_invitation_accepter.html.markdown.
