@@ -3,8 +3,10 @@
 
 // Export members:
 export * from "./actionsSecret";
+export * from "./branch";
 export * from "./branchProtection";
 export * from "./getActionsPublicKey";
+export * from "./getBranch";
 export * from "./getCollaborators";
 export * from "./getIpRanges";
 export * from "./getMembership";
