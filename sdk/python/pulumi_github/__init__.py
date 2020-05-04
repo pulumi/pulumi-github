@@ -11,8 +11,10 @@ for pkg in __all__:
 
 # Export this package's modules as members:
 from .actions_secret import *
+from .branch import *
 from .branch_protection import *
 from .get_actions_public_key import *
+from .get_branch import *
 from .get_collaborators import *
 from .get_ip_ranges import *
 from .get_membership import *

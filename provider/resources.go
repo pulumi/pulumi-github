@@ -118,7 +118,15 @@ func Provider() tfbridge.ProviderInfo {
 		},
 		PreConfigureCallback: preConfigureCallback,
 		Resources: map[string]*tfbridge.ResourceInfo{
-			"github_actions_secret":           {Tok: makeResource(mainMod, "ActionsSecret")},
+			"github_actions_secret": {Tok: makeResource(mainMod, "ActionsSecret")},
+			"github_branch": {
+				Tok: makeResource(mainMod, "Branch"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"branch": {
+						CSharpName: "BranchName",
+					},
+				},
+			},
 			"github_branch_protection":        {Tok: makeResource(mainMod, "BranchProtection")},
 			"github_issue_label":              {Tok: makeResource(mainMod, "IssueLabel")},
 			"github_membership":               {Tok: makeResource(mainMod, "Membership")},
@@ -141,6 +149,7 @@ func Provider() tfbridge.ProviderInfo {
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			"github_actions_public_key": {Tok: makeDataSource(mainMod, "getActionsPublicKey")},
+			"github_branch":             {Tok: makeDataSource(mainMod, "getBranch")},
 			"github_collaborators":      {Tok: makeDataSource(mainMod, "getCollaborators")},
 			"github_ip_ranges":          {Tok: makeDataSource(mainMod, "getIpRanges")},
 			"github_membership":         {Tok: makeDataSource(mainMod, "getMembership")},
