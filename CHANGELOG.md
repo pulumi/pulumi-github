@@ -2,9 +2,12 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Upgrade to v2.7.0 of the GitHub Terraform Provider
+_(none)_
 
 ---
+
+## 1.2.0 (2020-05-04)
+* Upgrade to v2.7.0 of the GitHub Terraform Provider
 
 ## 1.1.0 (2020-04-28)
 * Regenerate datasource examples to be async
