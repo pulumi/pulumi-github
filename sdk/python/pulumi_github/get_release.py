@@ -149,6 +149,18 @@ def get_release(owner=None,release_id=None,release_tag=None,repository=None,retr
     """
     Use this data source to retrieve information about a GitHub release in a specific repository.
 
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_github as github
+
+    example = github.get_release(owner="example-owner",
+        repository="example-repository",
+        retrieve_by="latest")
+    ```
 
 
 

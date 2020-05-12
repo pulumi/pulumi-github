@@ -19,6 +19,16 @@ class OrganizationBlock(pulumi.CustomResource):
         """
         This resource allows you to create and manage blocks for GitHub organizations.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        example = github.OrganizationBlock("example", username="paultyng")
+        ```
 
 
         :param str resource_name: The name of the resource.

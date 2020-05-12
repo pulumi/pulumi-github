@@ -27,6 +27,16 @@ class OrganizationProject(pulumi.CustomResource):
         """
         This resource allows you to create and manage projects for GitHub organization.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        project = github.OrganizationProject("project", body="This is a organization project.")
+        ```
 
 
         :param str resource_name: The name of the resource.

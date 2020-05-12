@@ -75,6 +75,16 @@ def get_team(slug=None,opts=None):
     """
     Use this data source to retrieve information about a GitHub team.
 
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_github as github
+
+    example = github.get_team(slug="example")
+    ```
 
 
 

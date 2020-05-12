@@ -57,6 +57,18 @@ class AwaitableGetIpRangesResult(GetIpRangesResult):
             pages=self.pages)
 
 def get_ip_ranges(opts=None):
+    """
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_github as github
+
+    test = github.get_ip_ranges()
+    ```
+    """
     __args__ = dict()
 
 

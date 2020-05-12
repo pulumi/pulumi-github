@@ -46,6 +46,19 @@ class Team(pulumi.CustomResource):
         This resource allows you to add/remove teams from your organization. When applied,
         a new team will be created. When destroyed, that team will be removed.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        # Add a team to the organization
+        some_team = github.Team("someTeam",
+            description="Some cool team",
+            privacy="closed")
+        ```
 
 
         :param str resource_name: The name of the resource.

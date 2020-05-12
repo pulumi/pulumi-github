@@ -51,6 +51,16 @@ class AwaitableGetMembershipResult(GetMembershipResult):
 
 def get_membership(username=None,opts=None):
     """
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_github as github
+
+    membership_for_some_user = github.get_membership(username="SomeUser")
+    ```
 
 
 
