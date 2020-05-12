@@ -168,10 +168,7 @@ class AwaitableGetRepositoryResult(GetRepositoryResult):
 
 def get_repository(full_name=None,name=None,opts=None):
     """
-    Use this data source to retrieve information about a GitHub repository.
-
-
-
+    Use this data source to access information about an existing resource.
 
     :param str full_name: Full name of the repository (in `org/name` format).
     :param str name: The name of the repository.

@@ -51,6 +51,16 @@ def get_repositories(query=None,sort=None,opts=None):
 
     Use this data source to retrieve a list of GitHub repositories using a search query.
 
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_github as github
+
+    example = github.get_repositories(query="org:hashicorp language:Go")
+    ```
 
 
 

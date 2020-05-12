@@ -61,6 +61,17 @@ def get_branch(branch=None,repository=None,opts=None):
     """
     Use this data source to retrieve information about a repository branch.
 
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_github as github
+
+    development = github.get_branch(branch="development",
+        repository="example")
+    ```
 
 
 

@@ -28,6 +28,19 @@ class Membership(pulumi.CustomResource):
         an invitation will be sent to the user to become part of the organization. When
         destroyed, either the invitation will be cancelled or the user will be removed.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        # Add a user to the organization
+        membership_for_some_user = github.Membership("membershipForSomeUser",
+            role="member",
+            username="SomeUser")
+        ```
 
 
         :param str resource_name: The name of the resource.

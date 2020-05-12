@@ -160,7 +160,6 @@ func Provider() tfbridge.ProviderInfo {
 			"github_user":               {Tok: makeDataSource(mainMod, "getUser")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
-			AsyncDataSources: true,
 			// List any npm dependencies and their versions
 			Dependencies: map[string]string{
 				"@pulumi/pulumi": "^2.0.0",

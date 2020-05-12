@@ -29,6 +29,18 @@ class UserSshKey(pulumi.CustomResource):
 
         This resource allows you to add/remove SSH keys from your user account.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        example = github.UserSshKey("example",
+            key=(lambda path: open(path).read())("~/.ssh/id_rsa.pub"),
+            title="example title")
+        ```
 
 
         :param str resource_name: The name of the resource.

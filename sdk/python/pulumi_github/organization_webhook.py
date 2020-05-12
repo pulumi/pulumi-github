@@ -36,6 +36,23 @@ class OrganizationWebhook(pulumi.CustomResource):
         """
         This resource allows you to create and manage webhooks for GitHub organization.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        foo = github.OrganizationWebhook("foo",
+            active=False,
+            configuration={
+                "contentType": "form",
+                "insecureSsl": False,
+                "url": "https://google.de/",
+            },
+            events=["issues"])
+        ```
 
 
         :param str resource_name: The name of the resource.

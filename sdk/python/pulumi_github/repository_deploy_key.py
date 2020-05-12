@@ -40,6 +40,21 @@ class RepositoryDeployKey(pulumi.CustomResource):
         Further documentation on GitHub repository deploy keys:
         - [About deploy keys](https://developer.github.com/guides/managing-deploy-keys/#deploy-keys)
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        # Add a deploy key
+        example_repository_deploy_key = github.RepositoryDeployKey("exampleRepositoryDeployKey",
+            key="ssh-rsa AAA...",
+            read_only="false",
+            repository="test-repo",
+            title="Repository test key")
+        ```
 
 
         :param str resource_name: The name of the resource.

@@ -33,6 +33,24 @@ class TeamMembership(pulumi.CustomResource):
         organization, they won't be part of the team until they do. When
         destroyed, the user will be removed from the team.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        # Add a user to the organization
+        membership_for_some_user = github.Membership("membershipForSomeUser",
+            role="member",
+            username="SomeUser")
+        some_team = github.Team("someTeam", description="Some cool team")
+        some_team_membership = github.TeamMembership("someTeamMembership",
+            role="member",
+            team_id=some_team.id,
+            username="SomeUser")
+        ```
 
 
         :param str resource_name: The name of the resource.

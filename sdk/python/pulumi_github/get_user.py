@@ -166,6 +166,16 @@ def get_user(username=None,opts=None):
     """
     Use this data source to retrieve information about a GitHub user.
 
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_github as github
+
+    example = github.get_user(username="example")
+    ```
 
 
 

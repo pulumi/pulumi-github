@@ -126,14 +126,7 @@ class Repository(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, allow_merge_commit=None, allow_rebase_merge=None, allow_squash_merge=None, archived=None, auto_init=None, default_branch=None, delete_branch_on_merge=None, description=None, gitignore_template=None, has_downloads=None, has_issues=None, has_projects=None, has_wiki=None, homepage_url=None, is_template=None, license_template=None, name=None, private=None, template=None, topics=None, __props__=None, __name__=None, __opts__=None):
         """
-        This resource allows you to create and manage repositories within your
-        GitHub organization.
-
-        This resource cannot currently be used to manage *personal* repositories,
-        outside of organizations.
-
-
-
+        Create a Repository resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] allow_merge_commit: Set to `false` to disable merge commits on the repository.

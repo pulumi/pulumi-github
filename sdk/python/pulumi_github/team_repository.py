@@ -36,6 +36,22 @@ class TeamRepository(pulumi.CustomResource):
         on GitHub. This resource does not actually *create* any repositories;
         to do that, see `.Repository`.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        # Add a repository to the team
+        some_team = github.Team("someTeam", description="Some cool team")
+        some_repo = github.Repository("someRepo")
+        some_team_repo = github.TeamRepository("someTeamRepo",
+            permission="pull",
+            repository=some_repo.name,
+            team_id=some_team.id)
+        ```
 
 
         :param str resource_name: The name of the resource.

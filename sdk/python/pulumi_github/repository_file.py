@@ -49,6 +49,19 @@ class RepositoryFile(pulumi.CustomResource):
         GitHub repository.
 
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        gitignore = github.RepositoryFile("gitignore",
+            content="**/*.tfstate",
+            file=".gitignore",
+            repository="example")
+        ```
 
 
         :param str resource_name: The name of the resource.
