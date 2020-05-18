@@ -18,7 +18,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
  * 
- * const example = pulumi.output(github.SecretsPublicKey({
+ * const example = pulumi.output(github.getActionsPublicKey({
  *     repository: "exampleRepo",
  * }, { async: true }));
  * ```

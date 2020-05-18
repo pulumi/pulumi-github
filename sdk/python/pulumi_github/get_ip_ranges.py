@@ -58,6 +58,8 @@ class AwaitableGetIpRangesResult(GetIpRangesResult):
 
 def get_ip_ranges(opts=None):
     """
+    Use this data source to retrieve information about GitHub's IP addresses.
+
     ## Example Usage
 
 

@@ -51,6 +51,11 @@ class AwaitableGetMembershipResult(GetMembershipResult):
 
 def get_membership(username=None,opts=None):
     """
+    Use this data source to find out if a user is a member of your organization, as well
+    as what role they have within it.
+    If the user's membership in the organization is pending their acceptance of an invite,
+    the role they would have once they accept will be returned.
+
     ## Example Usage
 
 

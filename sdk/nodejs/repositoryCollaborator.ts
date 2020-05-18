@@ -74,7 +74,7 @@ export class RepositoryCollaborator extends pulumi.CustomResource {
     public /*out*/ readonly invitationId!: pulumi.Output<string>;
     /**
      * The permission of the outside collaborator for the repository.
-     * Must be one of `pull`, `push`, or `admin`. Defaults to `push`.
+     * Must be one of `pull`, `push`, `maintain`, `triage` or `admin`. Defaults to `push`.
      */
     public readonly permission!: pulumi.Output<string | undefined>;
     /**
@@ -136,7 +136,7 @@ export interface RepositoryCollaboratorState {
     readonly invitationId?: pulumi.Input<string>;
     /**
      * The permission of the outside collaborator for the repository.
-     * Must be one of `pull`, `push`, or `admin`. Defaults to `push`.
+     * Must be one of `pull`, `push`, `maintain`, `triage` or `admin`. Defaults to `push`.
      */
     readonly permission?: pulumi.Input<string>;
     /**
@@ -155,7 +155,7 @@ export interface RepositoryCollaboratorState {
 export interface RepositoryCollaboratorArgs {
     /**
      * The permission of the outside collaborator for the repository.
-     * Must be one of `pull`, `push`, or `admin`. Defaults to `push`.
+     * Must be one of `pull`, `push`, `maintain`, `triage` or `admin`. Defaults to `push`.
      */
     readonly permission?: pulumi.Input<string>;
     /**

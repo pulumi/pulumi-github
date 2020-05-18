@@ -18,6 +18,7 @@ from .get_branch import *
 from .get_collaborators import *
 from .get_ip_ranges import *
 from .get_membership import *
+from .get_organization_team_sync_groups import *
 from .get_release import *
 from .get_repositories import *
 from .get_repository import *
@@ -39,6 +40,7 @@ from .repository_webhook import *
 from .team import *
 from .team_membership import *
 from .team_repository import *
+from .team_sync_group_mapping import *
 from .user_gpg_key import *
 from .user_invitation_accepter import *
 from .user_ssh_key import *

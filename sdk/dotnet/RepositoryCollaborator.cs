@@ -36,7 +36,7 @@ namespace Pulumi.Github
 
         /// <summary>
         /// The permission of the outside collaborator for the repository.
-        /// Must be one of `pull`, `push`, or `admin`. Defaults to `push`.
+        /// Must be one of `pull`, `push`, `maintain`, `triage` or `admin`. Defaults to `push`.
         /// </summary>
         [Output("permission")]
         public Output<string?> Permission { get; private set; } = null!;
@@ -101,7 +101,7 @@ namespace Pulumi.Github
     {
         /// <summary>
         /// The permission of the outside collaborator for the repository.
-        /// Must be one of `pull`, `push`, or `admin`. Defaults to `push`.
+        /// Must be one of `pull`, `push`, `maintain`, `triage` or `admin`. Defaults to `push`.
         /// </summary>
         [Input("permission")]
         public Input<string>? Permission { get; set; }
@@ -133,7 +133,7 @@ namespace Pulumi.Github
 
         /// <summary>
         /// The permission of the outside collaborator for the repository.
-        /// Must be one of `pull`, `push`, or `admin`. Defaults to `push`.
+        /// Must be one of `pull`, `push`, `maintain`, `triage` or `admin`. Defaults to `push`.
         /// </summary>
         [Input("permission")]
         public Input<string>? Permission { get; set; }

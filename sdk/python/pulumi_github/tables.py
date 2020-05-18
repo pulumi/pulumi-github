@@ -44,6 +44,7 @@ _SNAKE_TO_CAMEL_CASE_TABLE = {
     "ssh_clone_url": "sshCloneUrl",
     "svn_url": "svnUrl",
     "team_id": "teamId",
+    "team_slug": "teamSlug",
     "updated_at": "updatedAt",
 }
 
@@ -89,5 +90,6 @@ _CAMEL_TO_SNAKE_CASE_TABLE = {
     "sshCloneUrl": "ssh_clone_url",
     "svnUrl": "svn_url",
     "teamId": "team_id",
+    "teamSlug": "team_slug",
     "updatedAt": "updated_at",
 }

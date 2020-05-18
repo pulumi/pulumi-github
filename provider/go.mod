@@ -9,5 +9,5 @@ require (
 	github.com/pulumi/pulumi-terraform-bridge/v2 v2.3.1
 	github.com/pulumi/pulumi/pkg/v2 v2.1.1-0.20200508232528-aa313aecf8a0 // indirect; indrect
 	github.com/pulumi/pulumi/sdk/v2 v2.1.1-0.20200508232528-aa313aecf8a0
-	github.com/terraform-providers/terraform-provider-github v1.3.1-0.20200501173849-399401faddd9
+	github.com/terraform-providers/terraform-provider-github v1.3.1-0.20200515203321-b47cb2a17068
 )

@@ -12,6 +12,11 @@ namespace Pulumi.Github
     public static class GetMembership
     {
         /// <summary>
+        /// Use this data source to find out if a user is a member of your organization, as well
+        /// as what role they have within it.
+        /// If the user's membership in the organization is pending their acceptance of an invite,
+        /// the role they would have once they accept will be returned.
+        /// 
         /// {{% examples %}}
         /// {{% /examples %}}
         /// </summary>
