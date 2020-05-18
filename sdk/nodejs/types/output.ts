@@ -92,6 +92,21 @@ export interface GetCollaboratorsCollaborator {
     url: string;
 }
 
+export interface GetOrganizationTeamSyncGroupsGroup {
+    /**
+     * The description of the IdP group.
+     */
+    groupDescription: string;
+    /**
+     * The ID of the IdP group.
+     */
+    groupId: string;
+    /**
+     * The name of the IdP group. 
+     */
+    groupName: string;
+}
+
 export interface OrganizationWebhookConfiguration {
     contentType?: string;
     insecureSsl?: boolean;
@@ -115,4 +130,19 @@ export interface RepositoryWebhookConfiguration {
      * URL of the webhook
      */
     url: string;
+}
+
+export interface TeamSyncGroupMappingGroup {
+    /**
+     * The description of the IdP group.
+     */
+    groupDescription: string;
+    /**
+     * The ID of the IdP group.
+     */
+    groupId: string;
+    /**
+     * The name of the IdP group. 
+     */
+    groupName: string;
 }

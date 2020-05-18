@@ -7,6 +7,8 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
+ * Use this data source to retrieve information about GitHub's IP addresses.
+ * 
  * ## Example Usage
  * 
  * 

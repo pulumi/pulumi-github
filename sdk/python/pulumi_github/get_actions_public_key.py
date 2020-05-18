@@ -51,6 +51,16 @@ def get_actions_public_key(repository=None,opts=None):
     Use this data source to retrieve information about a GitHub Actions public key. This data source is required to be used with other GitHub secrets interactions.
     Note that the provider `token` must have admin rights to a repository to retrieve it's action public key.
 
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_github as github
+
+    example = github.get_actions_public_key(repository="example_repo")
+    ```
 
 
 

@@ -12,6 +12,8 @@ namespace Pulumi.Github
     public static class GetIpRanges
     {
         /// <summary>
+        /// Use this data source to retrieve information about GitHub's IP addresses.
+        /// 
         /// {{% examples %}}
         /// {{% /examples %}}
         /// </summary>

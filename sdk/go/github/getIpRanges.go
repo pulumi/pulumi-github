@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Use this data source to retrieve information about GitHub's IP addresses.
 func GetIpRanges(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetIpRangesResult, error) {
 	var rv GetIpRangesResult
 	err := ctx.Invoke("github:index/getIpRanges:getIpRanges", nil, &rv, opts...)

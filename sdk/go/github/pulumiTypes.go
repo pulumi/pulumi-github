@@ -1028,6 +1028,123 @@ func (o RepositoryWebhookConfigurationPtrOutput) Url() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type TeamSyncGroupMappingGroup struct {
+	// The description of the IdP group.
+	GroupDescription string `pulumi:"groupDescription"`
+	// The ID of the IdP group.
+	GroupId string `pulumi:"groupId"`
+	// The name of the IdP group.
+	GroupName string `pulumi:"groupName"`
+}
+
+// TeamSyncGroupMappingGroupInput is an input type that accepts TeamSyncGroupMappingGroupArgs and TeamSyncGroupMappingGroupOutput values.
+// You can construct a concrete instance of `TeamSyncGroupMappingGroupInput` via:
+//
+// 		 TeamSyncGroupMappingGroupArgs{...}
+//
+type TeamSyncGroupMappingGroupInput interface {
+	pulumi.Input
+
+	ToTeamSyncGroupMappingGroupOutput() TeamSyncGroupMappingGroupOutput
+	ToTeamSyncGroupMappingGroupOutputWithContext(context.Context) TeamSyncGroupMappingGroupOutput
+}
+
+type TeamSyncGroupMappingGroupArgs struct {
+	// The description of the IdP group.
+	GroupDescription pulumi.StringInput `pulumi:"groupDescription"`
+	// The ID of the IdP group.
+	GroupId pulumi.StringInput `pulumi:"groupId"`
+	// The name of the IdP group.
+	GroupName pulumi.StringInput `pulumi:"groupName"`
+}
+
+func (TeamSyncGroupMappingGroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TeamSyncGroupMappingGroup)(nil)).Elem()
+}
+
+func (i TeamSyncGroupMappingGroupArgs) ToTeamSyncGroupMappingGroupOutput() TeamSyncGroupMappingGroupOutput {
+	return i.ToTeamSyncGroupMappingGroupOutputWithContext(context.Background())
+}
+
+func (i TeamSyncGroupMappingGroupArgs) ToTeamSyncGroupMappingGroupOutputWithContext(ctx context.Context) TeamSyncGroupMappingGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TeamSyncGroupMappingGroupOutput)
+}
+
+// TeamSyncGroupMappingGroupArrayInput is an input type that accepts TeamSyncGroupMappingGroupArray and TeamSyncGroupMappingGroupArrayOutput values.
+// You can construct a concrete instance of `TeamSyncGroupMappingGroupArrayInput` via:
+//
+// 		 TeamSyncGroupMappingGroupArray{ TeamSyncGroupMappingGroupArgs{...} }
+//
+type TeamSyncGroupMappingGroupArrayInput interface {
+	pulumi.Input
+
+	ToTeamSyncGroupMappingGroupArrayOutput() TeamSyncGroupMappingGroupArrayOutput
+	ToTeamSyncGroupMappingGroupArrayOutputWithContext(context.Context) TeamSyncGroupMappingGroupArrayOutput
+}
+
+type TeamSyncGroupMappingGroupArray []TeamSyncGroupMappingGroupInput
+
+func (TeamSyncGroupMappingGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TeamSyncGroupMappingGroup)(nil)).Elem()
+}
+
+func (i TeamSyncGroupMappingGroupArray) ToTeamSyncGroupMappingGroupArrayOutput() TeamSyncGroupMappingGroupArrayOutput {
+	return i.ToTeamSyncGroupMappingGroupArrayOutputWithContext(context.Background())
+}
+
+func (i TeamSyncGroupMappingGroupArray) ToTeamSyncGroupMappingGroupArrayOutputWithContext(ctx context.Context) TeamSyncGroupMappingGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TeamSyncGroupMappingGroupArrayOutput)
+}
+
+type TeamSyncGroupMappingGroupOutput struct{ *pulumi.OutputState }
+
+func (TeamSyncGroupMappingGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TeamSyncGroupMappingGroup)(nil)).Elem()
+}
+
+func (o TeamSyncGroupMappingGroupOutput) ToTeamSyncGroupMappingGroupOutput() TeamSyncGroupMappingGroupOutput {
+	return o
+}
+
+func (o TeamSyncGroupMappingGroupOutput) ToTeamSyncGroupMappingGroupOutputWithContext(ctx context.Context) TeamSyncGroupMappingGroupOutput {
+	return o
+}
+
+// The description of the IdP group.
+func (o TeamSyncGroupMappingGroupOutput) GroupDescription() pulumi.StringOutput {
+	return o.ApplyT(func(v TeamSyncGroupMappingGroup) string { return v.GroupDescription }).(pulumi.StringOutput)
+}
+
+// The ID of the IdP group.
+func (o TeamSyncGroupMappingGroupOutput) GroupId() pulumi.StringOutput {
+	return o.ApplyT(func(v TeamSyncGroupMappingGroup) string { return v.GroupId }).(pulumi.StringOutput)
+}
+
+// The name of the IdP group.
+func (o TeamSyncGroupMappingGroupOutput) GroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v TeamSyncGroupMappingGroup) string { return v.GroupName }).(pulumi.StringOutput)
+}
+
+type TeamSyncGroupMappingGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (TeamSyncGroupMappingGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TeamSyncGroupMappingGroup)(nil)).Elem()
+}
+
+func (o TeamSyncGroupMappingGroupArrayOutput) ToTeamSyncGroupMappingGroupArrayOutput() TeamSyncGroupMappingGroupArrayOutput {
+	return o
+}
+
+func (o TeamSyncGroupMappingGroupArrayOutput) ToTeamSyncGroupMappingGroupArrayOutputWithContext(ctx context.Context) TeamSyncGroupMappingGroupArrayOutput {
+	return o
+}
+
+func (o TeamSyncGroupMappingGroupArrayOutput) Index(i pulumi.IntInput) TeamSyncGroupMappingGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TeamSyncGroupMappingGroup {
+		return vs[0].([]TeamSyncGroupMappingGroup)[vs[1].(int)]
+	}).(TeamSyncGroupMappingGroupOutput)
+}
+
 type GetCollaboratorsCollaborator struct {
 	// The GitHub API URL for the collaborator's events.
 	EventsUrl string `pulumi:"eventsUrl"`
@@ -1262,6 +1379,123 @@ func (o GetCollaboratorsCollaboratorArrayOutput) Index(i pulumi.IntInput) GetCol
 	}).(GetCollaboratorsCollaboratorOutput)
 }
 
+type GetOrganizationTeamSyncGroupsGroup struct {
+	// The description of the IdP group.
+	GroupDescription string `pulumi:"groupDescription"`
+	// The ID of the IdP group.
+	GroupId string `pulumi:"groupId"`
+	// The name of the IdP group.
+	GroupName string `pulumi:"groupName"`
+}
+
+// GetOrganizationTeamSyncGroupsGroupInput is an input type that accepts GetOrganizationTeamSyncGroupsGroupArgs and GetOrganizationTeamSyncGroupsGroupOutput values.
+// You can construct a concrete instance of `GetOrganizationTeamSyncGroupsGroupInput` via:
+//
+// 		 GetOrganizationTeamSyncGroupsGroupArgs{...}
+//
+type GetOrganizationTeamSyncGroupsGroupInput interface {
+	pulumi.Input
+
+	ToGetOrganizationTeamSyncGroupsGroupOutput() GetOrganizationTeamSyncGroupsGroupOutput
+	ToGetOrganizationTeamSyncGroupsGroupOutputWithContext(context.Context) GetOrganizationTeamSyncGroupsGroupOutput
+}
+
+type GetOrganizationTeamSyncGroupsGroupArgs struct {
+	// The description of the IdP group.
+	GroupDescription pulumi.StringInput `pulumi:"groupDescription"`
+	// The ID of the IdP group.
+	GroupId pulumi.StringInput `pulumi:"groupId"`
+	// The name of the IdP group.
+	GroupName pulumi.StringInput `pulumi:"groupName"`
+}
+
+func (GetOrganizationTeamSyncGroupsGroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetOrganizationTeamSyncGroupsGroup)(nil)).Elem()
+}
+
+func (i GetOrganizationTeamSyncGroupsGroupArgs) ToGetOrganizationTeamSyncGroupsGroupOutput() GetOrganizationTeamSyncGroupsGroupOutput {
+	return i.ToGetOrganizationTeamSyncGroupsGroupOutputWithContext(context.Background())
+}
+
+func (i GetOrganizationTeamSyncGroupsGroupArgs) ToGetOrganizationTeamSyncGroupsGroupOutputWithContext(ctx context.Context) GetOrganizationTeamSyncGroupsGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetOrganizationTeamSyncGroupsGroupOutput)
+}
+
+// GetOrganizationTeamSyncGroupsGroupArrayInput is an input type that accepts GetOrganizationTeamSyncGroupsGroupArray and GetOrganizationTeamSyncGroupsGroupArrayOutput values.
+// You can construct a concrete instance of `GetOrganizationTeamSyncGroupsGroupArrayInput` via:
+//
+// 		 GetOrganizationTeamSyncGroupsGroupArray{ GetOrganizationTeamSyncGroupsGroupArgs{...} }
+//
+type GetOrganizationTeamSyncGroupsGroupArrayInput interface {
+	pulumi.Input
+
+	ToGetOrganizationTeamSyncGroupsGroupArrayOutput() GetOrganizationTeamSyncGroupsGroupArrayOutput
+	ToGetOrganizationTeamSyncGroupsGroupArrayOutputWithContext(context.Context) GetOrganizationTeamSyncGroupsGroupArrayOutput
+}
+
+type GetOrganizationTeamSyncGroupsGroupArray []GetOrganizationTeamSyncGroupsGroupInput
+
+func (GetOrganizationTeamSyncGroupsGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetOrganizationTeamSyncGroupsGroup)(nil)).Elem()
+}
+
+func (i GetOrganizationTeamSyncGroupsGroupArray) ToGetOrganizationTeamSyncGroupsGroupArrayOutput() GetOrganizationTeamSyncGroupsGroupArrayOutput {
+	return i.ToGetOrganizationTeamSyncGroupsGroupArrayOutputWithContext(context.Background())
+}
+
+func (i GetOrganizationTeamSyncGroupsGroupArray) ToGetOrganizationTeamSyncGroupsGroupArrayOutputWithContext(ctx context.Context) GetOrganizationTeamSyncGroupsGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetOrganizationTeamSyncGroupsGroupArrayOutput)
+}
+
+type GetOrganizationTeamSyncGroupsGroupOutput struct{ *pulumi.OutputState }
+
+func (GetOrganizationTeamSyncGroupsGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetOrganizationTeamSyncGroupsGroup)(nil)).Elem()
+}
+
+func (o GetOrganizationTeamSyncGroupsGroupOutput) ToGetOrganizationTeamSyncGroupsGroupOutput() GetOrganizationTeamSyncGroupsGroupOutput {
+	return o
+}
+
+func (o GetOrganizationTeamSyncGroupsGroupOutput) ToGetOrganizationTeamSyncGroupsGroupOutputWithContext(ctx context.Context) GetOrganizationTeamSyncGroupsGroupOutput {
+	return o
+}
+
+// The description of the IdP group.
+func (o GetOrganizationTeamSyncGroupsGroupOutput) GroupDescription() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOrganizationTeamSyncGroupsGroup) string { return v.GroupDescription }).(pulumi.StringOutput)
+}
+
+// The ID of the IdP group.
+func (o GetOrganizationTeamSyncGroupsGroupOutput) GroupId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOrganizationTeamSyncGroupsGroup) string { return v.GroupId }).(pulumi.StringOutput)
+}
+
+// The name of the IdP group.
+func (o GetOrganizationTeamSyncGroupsGroupOutput) GroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOrganizationTeamSyncGroupsGroup) string { return v.GroupName }).(pulumi.StringOutput)
+}
+
+type GetOrganizationTeamSyncGroupsGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (GetOrganizationTeamSyncGroupsGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetOrganizationTeamSyncGroupsGroup)(nil)).Elem()
+}
+
+func (o GetOrganizationTeamSyncGroupsGroupArrayOutput) ToGetOrganizationTeamSyncGroupsGroupArrayOutput() GetOrganizationTeamSyncGroupsGroupArrayOutput {
+	return o
+}
+
+func (o GetOrganizationTeamSyncGroupsGroupArrayOutput) ToGetOrganizationTeamSyncGroupsGroupArrayOutputWithContext(ctx context.Context) GetOrganizationTeamSyncGroupsGroupArrayOutput {
+	return o
+}
+
+func (o GetOrganizationTeamSyncGroupsGroupArrayOutput) Index(i pulumi.IntInput) GetOrganizationTeamSyncGroupsGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetOrganizationTeamSyncGroupsGroup {
+		return vs[0].([]GetOrganizationTeamSyncGroupsGroup)[vs[1].(int)]
+	}).(GetOrganizationTeamSyncGroupsGroupOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(BranchProtectionRequiredPullRequestReviewsOutput{})
 	pulumi.RegisterOutputType(BranchProtectionRequiredPullRequestReviewsPtrOutput{})
@@ -1275,6 +1509,10 @@ func init() {
 	pulumi.RegisterOutputType(RepositoryTemplatePtrOutput{})
 	pulumi.RegisterOutputType(RepositoryWebhookConfigurationOutput{})
 	pulumi.RegisterOutputType(RepositoryWebhookConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(TeamSyncGroupMappingGroupOutput{})
+	pulumi.RegisterOutputType(TeamSyncGroupMappingGroupArrayOutput{})
 	pulumi.RegisterOutputType(GetCollaboratorsCollaboratorOutput{})
 	pulumi.RegisterOutputType(GetCollaboratorsCollaboratorArrayOutput{})
+	pulumi.RegisterOutputType(GetOrganizationTeamSyncGroupsGroupOutput{})
+	pulumi.RegisterOutputType(GetOrganizationTeamSyncGroupsGroupArrayOutput{})
 }

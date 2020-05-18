@@ -49,3 +49,18 @@ export interface RepositoryWebhookConfiguration {
      */
     url: pulumi.Input<string>;
 }
+
+export interface TeamSyncGroupMappingGroup {
+    /**
+     * The description of the IdP group.
+     */
+    groupDescription: pulumi.Input<string>;
+    /**
+     * The ID of the IdP group.
+     */
+    groupId: pulumi.Input<string>;
+    /**
+     * The name of the IdP group. 
+     */
+    groupName: pulumi.Input<string>;
+}

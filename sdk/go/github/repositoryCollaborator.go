@@ -31,7 +31,7 @@ type RepositoryCollaborator struct {
 	// ID of the invitation to be used in `.UserInvitationAccepter`
 	InvitationId pulumi.StringOutput `pulumi:"invitationId"`
 	// The permission of the outside collaborator for the repository.
-	// Must be one of `pull`, `push`, or `admin`. Defaults to `push`.
+	// Must be one of `pull`, `push`, `maintain`, `triage` or `admin`. Defaults to `push`.
 	Permission pulumi.StringPtrOutput `pulumi:"permission"`
 	// The GitHub repository
 	Repository pulumi.StringOutput `pulumi:"repository"`
@@ -76,7 +76,7 @@ type repositoryCollaboratorState struct {
 	// ID of the invitation to be used in `.UserInvitationAccepter`
 	InvitationId *string `pulumi:"invitationId"`
 	// The permission of the outside collaborator for the repository.
-	// Must be one of `pull`, `push`, or `admin`. Defaults to `push`.
+	// Must be one of `pull`, `push`, `maintain`, `triage` or `admin`. Defaults to `push`.
 	Permission *string `pulumi:"permission"`
 	// The GitHub repository
 	Repository *string `pulumi:"repository"`
@@ -88,7 +88,7 @@ type RepositoryCollaboratorState struct {
 	// ID of the invitation to be used in `.UserInvitationAccepter`
 	InvitationId pulumi.StringPtrInput
 	// The permission of the outside collaborator for the repository.
-	// Must be one of `pull`, `push`, or `admin`. Defaults to `push`.
+	// Must be one of `pull`, `push`, `maintain`, `triage` or `admin`. Defaults to `push`.
 	Permission pulumi.StringPtrInput
 	// The GitHub repository
 	Repository pulumi.StringPtrInput
@@ -102,7 +102,7 @@ func (RepositoryCollaboratorState) ElementType() reflect.Type {
 
 type repositoryCollaboratorArgs struct {
 	// The permission of the outside collaborator for the repository.
-	// Must be one of `pull`, `push`, or `admin`. Defaults to `push`.
+	// Must be one of `pull`, `push`, `maintain`, `triage` or `admin`. Defaults to `push`.
 	Permission *string `pulumi:"permission"`
 	// The GitHub repository
 	Repository string `pulumi:"repository"`
@@ -113,7 +113,7 @@ type repositoryCollaboratorArgs struct {
 // The set of arguments for constructing a RepositoryCollaborator resource.
 type RepositoryCollaboratorArgs struct {
 	// The permission of the outside collaborator for the repository.
-	// Must be one of `pull`, `push`, or `admin`. Defaults to `push`.
+	// Must be one of `pull`, `push`, `maintain`, `triage` or `admin`. Defaults to `push`.
 	Permission pulumi.StringPtrInput
 	// The GitHub repository
 	Repository pulumi.StringInput

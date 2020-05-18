@@ -17,7 +17,7 @@ class RepositoryCollaborator(pulumi.CustomResource):
     permission: pulumi.Output[str]
     """
     The permission of the outside collaborator for the repository.
-    Must be one of `pull`, `push`, or `admin`. Defaults to `push`.
+    Must be one of `pull`, `push`, `maintain`, `triage` or `admin`. Defaults to `push`.
     """
     repository: pulumi.Output[str]
     """
@@ -64,7 +64,7 @@ class RepositoryCollaborator(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] permission: The permission of the outside collaborator for the repository.
-               Must be one of `pull`, `push`, or `admin`. Defaults to `push`.
+               Must be one of `pull`, `push`, `maintain`, `triage` or `admin`. Defaults to `push`.
         :param pulumi.Input[str] repository: The GitHub repository
         :param pulumi.Input[str] username: The user to add to the repository as a collaborator.
         """
@@ -110,7 +110,7 @@ class RepositoryCollaborator(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] invitation_id: ID of the invitation to be used in `.UserInvitationAccepter`
         :param pulumi.Input[str] permission: The permission of the outside collaborator for the repository.
-               Must be one of `pull`, `push`, or `admin`. Defaults to `push`.
+               Must be one of `pull`, `push`, `maintain`, `triage` or `admin`. Defaults to `push`.
         :param pulumi.Input[str] repository: The GitHub repository
         :param pulumi.Input[str] username: The user to add to the repository as a collaborator.
         """

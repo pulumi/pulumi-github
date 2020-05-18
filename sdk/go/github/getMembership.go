@@ -7,6 +7,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Use this data source to find out if a user is a member of your organization, as well
+// as what role they have within it.
+// If the user's membership in the organization is pending their acceptance of an invite,
+// the role they would have once they accept will be returned.
 func LookupMembership(ctx *pulumi.Context, args *LookupMembershipArgs, opts ...pulumi.InvokeOption) (*LookupMembershipResult, error) {
 	var rv LookupMembershipResult
 	err := ctx.Invoke("github:index/getMembership:getMembership", args, &rv, opts...)
