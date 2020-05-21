@@ -6,25 +6,23 @@ import * as utilities from "./utilities";
 
 /**
  * This resource allows you to create and manage branches within your repository.
- * 
+ *
  * Additional constraints can be applied to ensure your branch is created from
  * another branch or commit.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
- * 
+ *
  * const development = new github.Branch("development", {
  *     branch: "development",
  *     repository: "example",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-github/blob/master/website/docs/r/branch.html.markdown.
  */
 export class Branch extends pulumi.CustomResource {
     /**

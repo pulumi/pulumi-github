@@ -8,29 +8,29 @@ import * as utilities from "./utilities";
 
 /**
  * Provides a GitHub repository collaborator resource.
- * 
+ *
  * This resource allows you to add/remove collaborators from repositories in your
  * organization. Collaborators can have explicit (and differing levels of) read,
  * write, or administrator access to specific repositories in your organization,
  * without giving the user full organization membership.
- * 
+ *
  * When applied, an invitation will be sent to the user to become a collaborator
  * on a repository. When destroyed, either the invitation will be cancelled or the
  * collaborator will be removed from the repository.
- * 
+ *
  * Further documentation on GitHub collaborators:
- * 
+ *
  * - [Adding outside collaborators to repositories in your organization](https://help.github.com/articles/adding-outside-collaborators-to-repositories-in-your-organization/)
  * - [Converting an organization member to an outside collaborator](https://help.github.com/articles/converting-an-organization-member-to-an-outside-collaborator/)
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
- * 
+ *
  * // Add a collaborator to a repository
  * const aRepoCollaborator = new github.RepositoryCollaborator("aRepoCollaborator", {
  *     permission: "admin",
@@ -38,8 +38,6 @@ import * as utilities from "./utilities";
  *     username: "SomeUser",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-github/blob/master/website/docs/r/repository_collaborator.html.markdown.
  */
 export class RepositoryCollaborator extends pulumi.CustomResource {
     /**

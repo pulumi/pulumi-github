@@ -8,15 +8,15 @@ import * as utilities from "./utilities";
 
 /**
  * Provides a resource to manage GitHub repository collaborator invitations.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
- * 
+ *
  * const exampleRepository = new github.Repository("example", {});
  * const exampleRepositoryCollaborator = new github.RepositoryCollaborator("example", {
  *     permission: "push",
@@ -30,8 +30,6 @@ import * as utilities from "./utilities";
  *     invitationId: exampleRepositoryCollaborator.invitationId,
  * }, { provider: invitee });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-github/blob/master/website/docs/r/user_invitation_accepter.html.markdown.
  */
 export class UserInvitationAccepter extends pulumi.CustomResource {
     /**

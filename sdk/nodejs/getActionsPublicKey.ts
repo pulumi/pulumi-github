@@ -9,21 +9,19 @@ import * as utilities from "./utilities";
 /**
  * Use this data source to retrieve information about a GitHub Actions public key. This data source is required to be used with other GitHub secrets interactions.
  * Note that the provider `token` must have admin rights to a repository to retrieve it's action public key.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
- * 
+ *
  * const example = pulumi.output(github.getActionsPublicKey({
  *     repository: "exampleRepo",
  * }, { async: true }));
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-github/blob/master/website/docs/d/actions_public_key.html.markdown.
  */
 export function getActionsPublicKey(args: GetActionsPublicKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetActionsPublicKeyResult> {
     if (!opts) {

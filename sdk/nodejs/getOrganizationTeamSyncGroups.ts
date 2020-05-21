@@ -8,19 +8,17 @@ import * as utilities from "./utilities";
 
 /**
  * Use this data source to retrieve the identity provider (IdP) groups for an organization.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
- * 
+ *
  * const test = pulumi.output(github.getOrganizationTeamSyncGroups({ async: true }));
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-github/blob/master/website/docs/d/organization_team_sync_groups.html.markdown.
  */
 export function getOrganizationTeamSyncGroups(opts?: pulumi.InvokeOptions): Promise<GetOrganizationTeamSyncGroupsResult> {
     if (!opts) {

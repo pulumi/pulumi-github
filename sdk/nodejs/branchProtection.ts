@@ -8,17 +8,17 @@ import * as utilities from "./utilities";
 
 /**
  * Protects a GitHub branch.
- * 
+ *
  * This resource allows you to configure branch protection for repositories in your organization. When applied, the branch will be protected from forced pushes and deletion. Additional constraints, such as required status checks or restrictions on users, teams, and apps, can also be configured.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
- * 
+ *
  * const exampleTeam = new github.Team("example", {});
  * // Protect the master branch of the foo repository. Additionally, require that
  * // the "ci/travis" context to be passing and only allow the engineers team merge
@@ -51,8 +51,6 @@ import * as utilities from "./utilities";
  *     teamId: exampleTeam.id,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-github/blob/master/website/docs/r/branch_protection.html.markdown.
  */
 export class BranchProtection extends pulumi.CustomResource {
     /**

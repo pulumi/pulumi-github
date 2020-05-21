@@ -8,20 +8,20 @@ import * as utilities from "./utilities";
 
 /**
  * Provides a GitHub team membership resource.
- * 
+ *
  * This resource allows you to add/remove users from teams in your organization. When applied,
  * the user will be added to the team. If the user hasn't accepted their invitation to the
  * organization, they won't be part of the team until they do. When
  * destroyed, the user will be removed from the team.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
- * 
+ *
  * // Add a user to the organization
  * const membershipForSomeUser = new github.Membership("membershipForSomeUser", {
  *     role: "member",
@@ -36,8 +36,6 @@ import * as utilities from "./utilities";
  *     username: "SomeUser",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-github/blob/master/website/docs/r/team_membership.html.markdown.
  */
 export class TeamMembership extends pulumi.CustomResource {
     /**

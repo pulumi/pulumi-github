@@ -9,24 +9,22 @@ import * as utilities from "./utilities";
 /**
  * This resource allows you to create and manage files within a
  * GitHub repository.
- * 
- * 
+ *
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
- * 
+ *
  * const gitignore = new github.RepositoryFile("gitignore", {
  *     content: "**&#47;*.tfstate",
  *     file: ".gitignore",
  *     repository: "example",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-github/blob/master/website/docs/r/repository_file.html.markdown.
  */
 export class RepositoryFile extends pulumi.CustomResource {
     /**

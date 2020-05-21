@@ -11,12 +11,13 @@ import (
 )
 
 type BranchProtectionRequiredPullRequestReviews struct {
-	DismissStaleReviews          *bool    `pulumi:"dismissStaleReviews"`
-	DismissalTeams               []string `pulumi:"dismissalTeams"`
-	DismissalUsers               []string `pulumi:"dismissalUsers"`
-	IncludeAdmins                *bool    `pulumi:"includeAdmins"`
-	RequireCodeOwnerReviews      *bool    `pulumi:"requireCodeOwnerReviews"`
-	RequiredApprovingReviewCount *int     `pulumi:"requiredApprovingReviewCount"`
+	DismissStaleReviews *bool    `pulumi:"dismissStaleReviews"`
+	DismissalTeams      []string `pulumi:"dismissalTeams"`
+	DismissalUsers      []string `pulumi:"dismissalUsers"`
+	// Deprecated: Use enforce_admins instead
+	IncludeAdmins                *bool `pulumi:"includeAdmins"`
+	RequireCodeOwnerReviews      *bool `pulumi:"requireCodeOwnerReviews"`
+	RequiredApprovingReviewCount *int  `pulumi:"requiredApprovingReviewCount"`
 }
 
 // BranchProtectionRequiredPullRequestReviewsInput is an input type that accepts BranchProtectionRequiredPullRequestReviewsArgs and BranchProtectionRequiredPullRequestReviewsOutput values.
@@ -32,12 +33,13 @@ type BranchProtectionRequiredPullRequestReviewsInput interface {
 }
 
 type BranchProtectionRequiredPullRequestReviewsArgs struct {
-	DismissStaleReviews          pulumi.BoolPtrInput     `pulumi:"dismissStaleReviews"`
-	DismissalTeams               pulumi.StringArrayInput `pulumi:"dismissalTeams"`
-	DismissalUsers               pulumi.StringArrayInput `pulumi:"dismissalUsers"`
-	IncludeAdmins                pulumi.BoolPtrInput     `pulumi:"includeAdmins"`
-	RequireCodeOwnerReviews      pulumi.BoolPtrInput     `pulumi:"requireCodeOwnerReviews"`
-	RequiredApprovingReviewCount pulumi.IntPtrInput      `pulumi:"requiredApprovingReviewCount"`
+	DismissStaleReviews pulumi.BoolPtrInput     `pulumi:"dismissStaleReviews"`
+	DismissalTeams      pulumi.StringArrayInput `pulumi:"dismissalTeams"`
+	DismissalUsers      pulumi.StringArrayInput `pulumi:"dismissalUsers"`
+	// Deprecated: Use enforce_admins instead
+	IncludeAdmins                pulumi.BoolPtrInput `pulumi:"includeAdmins"`
+	RequireCodeOwnerReviews      pulumi.BoolPtrInput `pulumi:"requireCodeOwnerReviews"`
+	RequiredApprovingReviewCount pulumi.IntPtrInput  `pulumi:"requiredApprovingReviewCount"`
 }
 
 func (BranchProtectionRequiredPullRequestReviewsArgs) ElementType() reflect.Type {
@@ -129,6 +131,7 @@ func (o BranchProtectionRequiredPullRequestReviewsOutput) DismissalUsers() pulum
 	return o.ApplyT(func(v BranchProtectionRequiredPullRequestReviews) []string { return v.DismissalUsers }).(pulumi.StringArrayOutput)
 }
 
+// Deprecated: Use enforce_admins instead
 func (o BranchProtectionRequiredPullRequestReviewsOutput) IncludeAdmins() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BranchProtectionRequiredPullRequestReviews) *bool { return v.IncludeAdmins }).(pulumi.BoolPtrOutput)
 }
@@ -188,6 +191,7 @@ func (o BranchProtectionRequiredPullRequestReviewsPtrOutput) DismissalUsers() pu
 	}).(pulumi.StringArrayOutput)
 }
 
+// Deprecated: Use enforce_admins instead
 func (o BranchProtectionRequiredPullRequestReviewsPtrOutput) IncludeAdmins() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *BranchProtectionRequiredPullRequestReviews) *bool {
 		if v == nil {
@@ -216,9 +220,10 @@ func (o BranchProtectionRequiredPullRequestReviewsPtrOutput) RequiredApprovingRe
 }
 
 type BranchProtectionRequiredStatusChecks struct {
-	Contexts      []string `pulumi:"contexts"`
-	IncludeAdmins *bool    `pulumi:"includeAdmins"`
-	Strict        *bool    `pulumi:"strict"`
+	Contexts []string `pulumi:"contexts"`
+	// Deprecated: Use enforce_admins instead
+	IncludeAdmins *bool `pulumi:"includeAdmins"`
+	Strict        *bool `pulumi:"strict"`
 }
 
 // BranchProtectionRequiredStatusChecksInput is an input type that accepts BranchProtectionRequiredStatusChecksArgs and BranchProtectionRequiredStatusChecksOutput values.
@@ -234,9 +239,10 @@ type BranchProtectionRequiredStatusChecksInput interface {
 }
 
 type BranchProtectionRequiredStatusChecksArgs struct {
-	Contexts      pulumi.StringArrayInput `pulumi:"contexts"`
-	IncludeAdmins pulumi.BoolPtrInput     `pulumi:"includeAdmins"`
-	Strict        pulumi.BoolPtrInput     `pulumi:"strict"`
+	Contexts pulumi.StringArrayInput `pulumi:"contexts"`
+	// Deprecated: Use enforce_admins instead
+	IncludeAdmins pulumi.BoolPtrInput `pulumi:"includeAdmins"`
+	Strict        pulumi.BoolPtrInput `pulumi:"strict"`
 }
 
 func (BranchProtectionRequiredStatusChecksArgs) ElementType() reflect.Type {
@@ -320,6 +326,7 @@ func (o BranchProtectionRequiredStatusChecksOutput) Contexts() pulumi.StringArra
 	return o.ApplyT(func(v BranchProtectionRequiredStatusChecks) []string { return v.Contexts }).(pulumi.StringArrayOutput)
 }
 
+// Deprecated: Use enforce_admins instead
 func (o BranchProtectionRequiredStatusChecksOutput) IncludeAdmins() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BranchProtectionRequiredStatusChecks) *bool { return v.IncludeAdmins }).(pulumi.BoolPtrOutput)
 }
@@ -355,6 +362,7 @@ func (o BranchProtectionRequiredStatusChecksPtrOutput) Contexts() pulumi.StringA
 	}).(pulumi.StringArrayOutput)
 }
 
+// Deprecated: Use enforce_admins instead
 func (o BranchProtectionRequiredStatusChecksPtrOutput) IncludeAdmins() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *BranchProtectionRequiredStatusChecks) *bool {
 		if v == nil {

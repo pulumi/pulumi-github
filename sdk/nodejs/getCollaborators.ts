@@ -8,22 +8,20 @@ import * as utilities from "./utilities";
 
 /**
  * Use this data source to retrieve the collaborators for a given repository.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
- * 
+ *
  * const test = pulumi.output(github.getCollaborators({
  *     owner: "exampleOwner",
  *     repository: "exampleRepository",
  * }, { async: true }));
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-github/blob/master/website/docs/d/collaborators.html.markdown.
  */
 export function getCollaborators(args: GetCollaboratorsArgs, opts?: pulumi.InvokeOptions): Promise<GetCollaboratorsResult> {
     if (!opts) {

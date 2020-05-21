@@ -9,18 +9,18 @@ import * as utilities from "./utilities";
 /**
  * This resource allows you to create and manage Identity Provider (IdP) group connections within your GitHub teams.
  * You must have team synchronization enabled for organizations owned by enterprise accounts.
- * 
+ *
  * To learn more about team synchronization between IdPs and Github, please refer to:
  * https://help.github.com/en/github/setting-up-and-managing-organizations-and-teams/synchronizing-teams-between-your-identity-provider-and-github
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
- * 
+ *
  * const exampleGroups = github.getOrganizationTeamSyncGroups({});
  * const exampleGroupMapping = new github.TeamSyncGroupMapping("exampleGroupMapping", {
  *     teamSlug: "example",
@@ -34,8 +34,6 @@ import * as utilities from "./utilities";
  *     }],
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-github/blob/master/website/docs/r/team_sync_group_mapping.html.markdown.
  */
 export class TeamSyncGroupMapping extends pulumi.CustomResource {
     /**

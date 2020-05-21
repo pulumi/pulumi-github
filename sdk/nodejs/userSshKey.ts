@@ -8,25 +8,23 @@ import * as utilities from "./utilities";
 
 /**
  * Provides a GitHub user's SSH key resource.
- * 
+ *
  * This resource allows you to add/remove SSH keys from your user account.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as fs from "fs";
  * import * as github from "@pulumi/github";
- * 
+ *
  * const example = new github.UserSshKey("example", {
  *     key: fs.readFileSync("~/.ssh/id_rsa.pub", "utf-8"),
  *     title: "example title",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-github/blob/master/website/docs/r/user_ssh_key.html.markdown.
  */
 export class UserSshKey extends pulumi.CustomResource {
     /**
