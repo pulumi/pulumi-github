@@ -1,0 +1,3250 @@
+{
+    "name": "github",
+    "description": "A Pulumi package for creating and managing github cloud resources.",
+    "keywords": [
+        "pulumi",
+        "github"
+    ],
+    "homepage": "https://pulumi.io",
+    "license": "Apache-2.0",
+    "attribution": "This Pulumi package is based on the [`github` Terraform Provider](https://github.com/terraform-providers/terraform-provider-github).",
+    "repository": "https://github.com/pulumi/pulumi-github",
+    "meta": {
+        "moduleFormat": "(.*)(?:/[^/]*)"
+    },
+    "config": {
+        "variables": {
+            "anonymous": {
+                "type": "boolean",
+                "description": "Authenticate without a token. When `anonymous`is true, the provider will not be able to access resourcesthat require\nauthentication.\n"
+            },
+            "baseUrl": {
+                "type": "string",
+                "description": "The GitHub Base API URL\n",
+                "default": "https://api.github.com/",
+                "defaultInfo": {
+                    "environment": [
+                        "GITHUB_BASE_URL"
+                    ]
+                }
+            },
+            "individual": {
+                "type": "boolean",
+                "description": "Run outside an organization. When `individual`is true, the provider will run outside the scope of anorganization.\n"
+            },
+            "insecure": {
+                "type": "boolean",
+                "description": "Whether server should be accessed without verifying the TLS certificate.\n"
+            },
+            "organization": {
+                "type": "string",
+                "description": "The GitHub organization name to manage. If `individual` is false, `organization` is required.\n",
+                "defaultInfo": {
+                    "environment": [
+                        "GITHUB_ORGANIZATION"
+                    ]
+                }
+            },
+            "token": {
+                "type": "string",
+                "description": "The OAuth token used to connect to GitHub. If `anonymous` is false, `token` is required.\n",
+                "defaultInfo": {
+                    "environment": [
+                        "GITHUB_TOKEN"
+                    ]
+                }
+            }
+        }
+    },
+    "types": {
+        "github:/BranchProtectionRequiredPullRequestReviews:BranchProtectionRequiredPullRequestReviews": {
+            "properties": {
+                "dismissStaleReviews": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "dismissalTeams": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "dismissalUsers": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "includeAdmins": {
+                    "type": "boolean",
+                    "deprecationMessage": "Use enforce_admins instead",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "requireCodeOwnerReviews": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "requiredApprovingReviewCount": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "github:/BranchProtectionRequiredStatusChecks:BranchProtectionRequiredStatusChecks": {
+            "properties": {
+                "contexts": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "includeAdmins": {
+                    "type": "boolean",
+                    "deprecationMessage": "Use enforce_admins instead",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "strict": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "github:/BranchProtectionRestrictions:BranchProtectionRestrictions": {
+            "properties": {
+                "apps": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "teams": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "users": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "github:/OrganizationWebhookConfiguration:OrganizationWebhookConfiguration": {
+            "properties": {
+                "contentType": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "insecureSsl": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "secret": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "url": {
+                    "type": "string",
+                    "description": "URL of the webhook\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "url"
+            ]
+        },
+        "github:/RepositoryTemplate:RepositoryTemplate": {
+            "properties": {
+                "owner": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "repository": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "owner",
+                "repository"
+            ]
+        },
+        "github:/RepositoryWebhookConfiguration:RepositoryWebhookConfiguration": {
+            "properties": {
+                "contentType": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "insecureSsl": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "secret": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "url": {
+                    "type": "string",
+                    "description": "URL of the webhook\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "url"
+            ]
+        },
+        "github:/TeamSyncGroupMappingGroup:TeamSyncGroupMappingGroup": {
+            "properties": {
+                "groupDescription": {
+                    "type": "string",
+                    "description": "The description of the IdP group.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "groupId": {
+                    "type": "string",
+                    "description": "The ID of the IdP group.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "groupName": {
+                    "type": "string",
+                    "description": "The name of the IdP group. \n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "groupDescription",
+                "groupId",
+                "groupName"
+            ]
+        },
+        "github:/getCollaboratorsCollaborator:getCollaboratorsCollaborator": {
+            "properties": {
+                "eventsUrl": {
+                    "type": "string",
+                    "description": "The GitHub API URL for the collaborator's events.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "followersUrl": {
+                    "type": "string",
+                    "description": "The GitHub API URL for the collaborator's followers.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "followingUrl": {
+                    "type": "string",
+                    "description": "The GitHub API URL for those following the collaborator.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "gistsUrl": {
+                    "type": "string",
+                    "description": "The GitHub API URL for the collaborator's gists.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "htmlUrl": {
+                    "type": "string",
+                    "description": "The GitHub HTML URL for the collaborator.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "id": {
+                    "type": "integer",
+                    "description": "The ID of the collaborator.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "login": {
+                    "type": "string",
+                    "description": "The collaborator's login.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "organizationsUrl": {
+                    "type": "string",
+                    "description": "The GitHub API URL for the collaborator's organizations.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "permission": {
+                    "type": "string",
+                    "description": "The permission of the collaborator.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "receivedEventsUrl": {
+                    "type": "string",
+                    "description": "The GitHub API URL for the collaborator's received events.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "reposUrl": {
+                    "type": "string",
+                    "description": "The GitHub API URL for the collaborator's repositories.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "siteAdmin": {
+                    "type": "boolean",
+                    "description": "Whether the user is a GitHub admin.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "starredUrl": {
+                    "type": "string",
+                    "description": "The GitHub API URL for the collaborator's starred repositories.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "subscriptionsUrl": {
+                    "type": "string",
+                    "description": "The GitHub API URL for the collaborator's subscribed repositories.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "type": {
+                    "type": "string",
+                    "description": "The type of the collaborator (ex. `user`).\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "url": {
+                    "type": "string",
+                    "description": "The GitHub API URL for the collaborator.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "eventsUrl",
+                "followersUrl",
+                "followingUrl",
+                "gistsUrl",
+                "htmlUrl",
+                "id",
+                "login",
+                "organizationsUrl",
+                "permission",
+                "receivedEventsUrl",
+                "reposUrl",
+                "siteAdmin",
+                "starredUrl",
+                "subscriptionsUrl",
+                "type",
+                "url"
+            ]
+        },
+        "github:/getOrganizationTeamSyncGroupsGroup:getOrganizationTeamSyncGroupsGroup": {
+            "properties": {
+                "groupDescription": {
+                    "type": "string",
+                    "description": "The description of the IdP group.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "groupId": {
+                    "type": "string",
+                    "description": "The ID of the IdP group.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "groupName": {
+                    "type": "string",
+                    "description": "The name of the IdP group. \n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "groupDescription",
+                "groupId",
+                "groupName"
+            ]
+        }
+    },
+    "provider": {
+        "description": "The provider type for the github package. By default, resources use package-wide configuration\nsettings, however an explicit `Provider` instance may be created and passed during resource\nconstruction to achieve fine-grained programmatic control over provider settings. See the\n[documentation](https://www.pulumi.com/docs/reference/programming-model/#providers) for more information.\n",
+        "inputProperties": {
+            "anonymous": {
+                "type": "boolean",
+                "description": "Authenticate without a token. When `anonymous`is true, the provider will not be able to access resourcesthat require\nauthentication.\n"
+            },
+            "baseUrl": {
+                "type": "string",
+                "description": "The GitHub Base API URL\n",
+                "default": "https://api.github.com/",
+                "defaultInfo": {
+                    "environment": [
+                        "GITHUB_BASE_URL"
+                    ]
+                }
+            },
+            "individual": {
+                "type": "boolean",
+                "description": "Run outside an organization. When `individual`is true, the provider will run outside the scope of anorganization.\n"
+            },
+            "insecure": {
+                "type": "boolean",
+                "description": "Whether server should be accessed without verifying the TLS certificate.\n"
+            },
+            "organization": {
+                "type": "string",
+                "description": "The GitHub organization name to manage. If `individual` is false, `organization` is required.\n",
+                "defaultInfo": {
+                    "environment": [
+                        "GITHUB_ORGANIZATION"
+                    ]
+                }
+            },
+            "token": {
+                "type": "string",
+                "description": "The OAuth token used to connect to GitHub. If `anonymous` is false, `token` is required.\n",
+                "defaultInfo": {
+                    "environment": [
+                        "GITHUB_TOKEN"
+                    ]
+                }
+            }
+        }
+    },
+    "resources": {
+        "github:index/actionsSecret:ActionsSecret": {
+            "properties": {
+                "createdAt": {
+                    "type": "string",
+                    "description": "Date of actions_secret creation.\n"
+                },
+                "plaintextValue": {
+                    "type": "string",
+                    "description": "Plaintext value of the secret to be encrypted\n"
+                },
+                "repository": {
+                    "type": "string",
+                    "description": "Name of the repository\n"
+                },
+                "secretName": {
+                    "type": "string",
+                    "description": "Name of the secret\n"
+                },
+                "updatedAt": {
+                    "type": "string",
+                    "description": "Date of actions_secret update.\n"
+                }
+            },
+            "required": [
+                "createdAt",
+                "plaintextValue",
+                "repository",
+                "secretName",
+                "updatedAt"
+            ],
+            "inputProperties": {
+                "plaintextValue": {
+                    "type": "string",
+                    "description": "Plaintext value of the secret to be encrypted\n"
+                },
+                "repository": {
+                    "type": "string",
+                    "description": "Name of the repository\n"
+                },
+                "secretName": {
+                    "type": "string",
+                    "description": "Name of the secret\n"
+                }
+            },
+            "requiredInputs": [
+                "plaintextValue",
+                "repository",
+                "secretName"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering ActionsSecret resources.\n",
+                "properties": {
+                    "createdAt": {
+                        "type": "string",
+                        "description": "Date of actions_secret creation.\n"
+                    },
+                    "plaintextValue": {
+                        "type": "string",
+                        "description": "Plaintext value of the secret to be encrypted\n"
+                    },
+                    "repository": {
+                        "type": "string",
+                        "description": "Name of the repository\n"
+                    },
+                    "secretName": {
+                        "type": "string",
+                        "description": "Name of the secret\n"
+                    },
+                    "updatedAt": {
+                        "type": "string",
+                        "description": "Date of actions_secret update.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "github:index/branch:Branch": {
+            "description": "This resource allows you to create and manage branches within your repository.\n\nAdditional constraints can be applied to ensure your branch is created from\nanother branch or commit.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\nconst development = new github.Branch(\"development\", {\n    branch: \"development\",\n    repository: \"example\",\n});\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\ndevelopment = github.Branch(\"development\",\n    branch=\"development\",\n    repository=\"example\")\n```\n\n{{% /example %}}\n{{% /examples %}}\n",
+            "properties": {
+                "branch": {
+                    "type": "string",
+                    "description": "The repository branch to create.\n",
+                    "language": {
+                        "csharp": {
+                            "name": "BranchName"
+                        }
+                    }
+                },
+                "etag": {
+                    "type": "string",
+                    "description": "An etag representing the Branch object.\n"
+                },
+                "ref": {
+                    "type": "string",
+                    "description": "A string representing a branch reference, in the form of `refs/heads/\u003cbranch\u003e`.\n"
+                },
+                "repository": {
+                    "type": "string",
+                    "description": "The GitHub repository name.\n"
+                },
+                "sha": {
+                    "type": "string",
+                    "description": "A string storing the reference's `HEAD` commit's SHA1.\n"
+                },
+                "sourceBranch": {
+                    "type": "string",
+                    "description": "The branch name to start from. Defaults to `master`.\n"
+                },
+                "sourceSha": {
+                    "type": "string",
+                    "description": "The commit hash to start from. Defaults to the tip of `source_branch`. If provided, `source_branch` is ignored.\n"
+                }
+            },
+            "required": [
+                "branch",
+                "etag",
+                "ref",
+                "repository",
+                "sha",
+                "sourceSha"
+            ],
+            "inputProperties": {
+                "branch": {
+                    "type": "string",
+                    "description": "The repository branch to create.\n",
+                    "language": {
+                        "csharp": {
+                            "name": "BranchName"
+                        }
+                    }
+                },
+                "repository": {
+                    "type": "string",
+                    "description": "The GitHub repository name.\n"
+                },
+                "sourceBranch": {
+                    "type": "string",
+                    "description": "The branch name to start from. Defaults to `master`.\n"
+                },
+                "sourceSha": {
+                    "type": "string",
+                    "description": "The commit hash to start from. Defaults to the tip of `source_branch`. If provided, `source_branch` is ignored.\n"
+                }
+            },
+            "requiredInputs": [
+                "branch",
+                "repository"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Branch resources.\n",
+                "properties": {
+                    "branch": {
+                        "type": "string",
+                        "description": "The repository branch to create.\n",
+                        "language": {
+                            "csharp": {
+                                "name": "BranchName"
+                            }
+                        }
+                    },
+                    "etag": {
+                        "type": "string",
+                        "description": "An etag representing the Branch object.\n"
+                    },
+                    "ref": {
+                        "type": "string",
+                        "description": "A string representing a branch reference, in the form of `refs/heads/\u003cbranch\u003e`.\n"
+                    },
+                    "repository": {
+                        "type": "string",
+                        "description": "The GitHub repository name.\n"
+                    },
+                    "sha": {
+                        "type": "string",
+                        "description": "A string storing the reference's `HEAD` commit's SHA1.\n"
+                    },
+                    "sourceBranch": {
+                        "type": "string",
+                        "description": "The branch name to start from. Defaults to `master`.\n"
+                    },
+                    "sourceSha": {
+                        "type": "string",
+                        "description": "The commit hash to start from. Defaults to the tip of `source_branch`. If provided, `source_branch` is ignored.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "github:index/branchProtection:BranchProtection": {
+            "description": "Protects a GitHub branch.\n\nThis resource allows you to configure branch protection for repositories in your organization. When applied, the branch will be protected from forced pushes and deletion. Additional constraints, such as required status checks or restrictions on users, teams, and apps, can also be configured.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\nconst exampleTeam = new github.Team(\"example\", {});\n// Protect the master branch of the foo repository. Additionally, require that\n// the \"ci/travis\" context to be passing and only allow the engineers team merge\n// to the branch.\nconst exampleBranchProtection = new github.BranchProtection(\"example\", {\n    branch: \"master\",\n    enforceAdmins: true,\n    repository: github_repository_example.name,\n    requiredPullRequestReviews: {\n        dismissStaleReviews: true,\n        dismissalTeams: [\n            exampleTeam.slug,\n            github_team_second.slug,\n        ],\n        dismissalUsers: [\"foo-user\"],\n    },\n    requiredStatusChecks: {\n        contexts: [\"ci/travis\"],\n        strict: false,\n    },\n    restrictions: {\n        apps: [\"foo-app\"],\n        teams: [exampleTeam.slug],\n        users: [\"foo-user\"],\n    },\n});\nconst exampleTeamRepository = new github.TeamRepository(\"example\", {\n    permission: \"pull\",\n    repository: github_repository_example.name,\n    teamId: exampleTeam.id,\n});\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\nexample_team = github.Team(\"exampleTeam\")\n# Protect the master branch of the foo repository. Additionally, require that\n# the \"ci/travis\" context to be passing and only allow the engineers team merge\n# to the branch.\nexample_branch_protection = github.BranchProtection(\"exampleBranchProtection\",\n    branch=\"master\",\n    enforce_admins=True,\n    repository=github_repository[\"example\"][\"name\"],\n    required_pull_request_reviews={\n        \"dismissStaleReviews\": True,\n        \"dismissalTeams\": [\n            example_team.slug,\n            github_team[\"second\"][\"slug\"],\n        ],\n        \"dismissalUsers\": [\"foo-user\"],\n    },\n    required_status_checks={\n        \"contexts\": [\"ci/travis\"],\n        \"strict\": False,\n    },\n    restrictions={\n        \"apps\": [\"foo-app\"],\n        \"teams\": [example_team.slug],\n        \"users\": [\"foo-user\"],\n    })\nexample_team_repository = github.TeamRepository(\"exampleTeamRepository\",\n    permission=\"pull\",\n    repository=github_repository[\"example\"][\"name\"],\n    team_id=example_team.id)\n```\n\n{{% /example %}}\n{{% /examples %}}\n",
+            "properties": {
+                "branch": {
+                    "type": "string",
+                    "description": "The Git branch to protect.\n"
+                },
+                "enforceAdmins": {
+                    "type": "boolean",
+                    "description": "Boolean, setting this to `true` enforces status checks for repository administrators.\n"
+                },
+                "etag": {
+                    "type": "string"
+                },
+                "repository": {
+                    "type": "string",
+                    "description": "The GitHub repository name.\n"
+                },
+                "requireSignedCommits": {
+                    "type": "boolean",
+                    "description": "Boolean, setting this to `true` requires all commits to be signed with GPG.\n"
+                },
+                "requiredPullRequestReviews": {
+                    "$ref": "#/types/github:/BranchProtectionRequiredPullRequestReviews:BranchProtectionRequiredPullRequestReviews",
+                    "description": "Enforce restrictions for pull request reviews. See Required Pull Request Reviews below for details.\n"
+                },
+                "requiredStatusChecks": {
+                    "$ref": "#/types/github:/BranchProtectionRequiredStatusChecks:BranchProtectionRequiredStatusChecks",
+                    "description": "Enforce restrictions for required status checks. See Required Status Checks below for details.\n"
+                },
+                "restrictions": {
+                    "$ref": "#/types/github:/BranchProtectionRestrictions:BranchProtectionRestrictions",
+                    "description": "Enforce restrictions for the users and teams that may push to the branch. See Restrictions below for details.\n"
+                }
+            },
+            "required": [
+                "branch",
+                "etag",
+                "repository"
+            ],
+            "inputProperties": {
+                "branch": {
+                    "type": "string",
+                    "description": "The Git branch to protect.\n"
+                },
+                "enforceAdmins": {
+                    "type": "boolean",
+                    "description": "Boolean, setting this to `true` enforces status checks for repository administrators.\n"
+                },
+                "repository": {
+                    "type": "string",
+                    "description": "The GitHub repository name.\n"
+                },
+                "requireSignedCommits": {
+                    "type": "boolean",
+                    "description": "Boolean, setting this to `true` requires all commits to be signed with GPG.\n"
+                },
+                "requiredPullRequestReviews": {
+                    "$ref": "#/types/github:/BranchProtectionRequiredPullRequestReviews:BranchProtectionRequiredPullRequestReviews",
+                    "description": "Enforce restrictions for pull request reviews. See Required Pull Request Reviews below for details.\n"
+                },
+                "requiredStatusChecks": {
+                    "$ref": "#/types/github:/BranchProtectionRequiredStatusChecks:BranchProtectionRequiredStatusChecks",
+                    "description": "Enforce restrictions for required status checks. See Required Status Checks below for details.\n"
+                },
+                "restrictions": {
+                    "$ref": "#/types/github:/BranchProtectionRestrictions:BranchProtectionRestrictions",
+                    "description": "Enforce restrictions for the users and teams that may push to the branch. See Restrictions below for details.\n"
+                }
+            },
+            "requiredInputs": [
+                "branch",
+                "repository"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering BranchProtection resources.\n",
+                "properties": {
+                    "branch": {
+                        "type": "string",
+                        "description": "The Git branch to protect.\n"
+                    },
+                    "enforceAdmins": {
+                        "type": "boolean",
+                        "description": "Boolean, setting this to `true` enforces status checks for repository administrators.\n"
+                    },
+                    "etag": {
+                        "type": "string"
+                    },
+                    "repository": {
+                        "type": "string",
+                        "description": "The GitHub repository name.\n"
+                    },
+                    "requireSignedCommits": {
+                        "type": "boolean",
+                        "description": "Boolean, setting this to `true` requires all commits to be signed with GPG.\n"
+                    },
+                    "requiredPullRequestReviews": {
+                        "$ref": "#/types/github:/BranchProtectionRequiredPullRequestReviews:BranchProtectionRequiredPullRequestReviews",
+                        "description": "Enforce restrictions for pull request reviews. See Required Pull Request Reviews below for details.\n"
+                    },
+                    "requiredStatusChecks": {
+                        "$ref": "#/types/github:/BranchProtectionRequiredStatusChecks:BranchProtectionRequiredStatusChecks",
+                        "description": "Enforce restrictions for required status checks. See Required Status Checks below for details.\n"
+                    },
+                    "restrictions": {
+                        "$ref": "#/types/github:/BranchProtectionRestrictions:BranchProtectionRestrictions",
+                        "description": "Enforce restrictions for the users and teams that may push to the branch. See Restrictions below for details.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "github:index/issueLabel:IssueLabel": {
+            "properties": {
+                "color": {
+                    "type": "string",
+                    "description": "A 6 character hex code, **without the leading #**, identifying the color of the label.\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "A short description of the label.\n"
+                },
+                "etag": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the label.\n"
+                },
+                "repository": {
+                    "type": "string",
+                    "description": "The GitHub repository\n"
+                },
+                "url": {
+                    "type": "string",
+                    "description": "The URL to the issue label\n"
+                }
+            },
+            "required": [
+                "color",
+                "etag",
+                "name",
+                "repository",
+                "url"
+            ],
+            "inputProperties": {
+                "color": {
+                    "type": "string",
+                    "description": "A 6 character hex code, **without the leading #**, identifying the color of the label.\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "A short description of the label.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the label.\n"
+                },
+                "repository": {
+                    "type": "string",
+                    "description": "The GitHub repository\n"
+                }
+            },
+            "requiredInputs": [
+                "color",
+                "repository"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering IssueLabel resources.\n",
+                "properties": {
+                    "color": {
+                        "type": "string",
+                        "description": "A 6 character hex code, **without the leading #**, identifying the color of the label.\n"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "A short description of the label.\n"
+                    },
+                    "etag": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The name of the label.\n"
+                    },
+                    "repository": {
+                        "type": "string",
+                        "description": "The GitHub repository\n"
+                    },
+                    "url": {
+                        "type": "string",
+                        "description": "The URL to the issue label\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "github:index/membership:Membership": {
+            "description": "Provides a GitHub membership resource.\n\nThis resource allows you to add/remove users from your organization. When applied,\nan invitation will be sent to the user to become part of the organization. When\ndestroyed, either the invitation will be cancelled or the user will be removed.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\n// Add a user to the organization\nconst membershipForSomeUser = new github.Membership(\"membership_for_some_user\", {\n    role: \"member\",\n    username: \"SomeUser\",\n});\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\n# Add a user to the organization\nmembership_for_some_user = github.Membership(\"membershipForSomeUser\",\n    role=\"member\",\n    username=\"SomeUser\")\n```\n\n{{% /example %}}\n{{% /examples %}}\n",
+            "properties": {
+                "etag": {
+                    "type": "string"
+                },
+                "role": {
+                    "type": "string",
+                    "description": "The role of the user within the organization.\nMust be one of `member` or `admin`. Defaults to `member`.\n"
+                },
+                "username": {
+                    "type": "string",
+                    "description": "The user to add to the organization.\n"
+                }
+            },
+            "required": [
+                "etag",
+                "username"
+            ],
+            "inputProperties": {
+                "role": {
+                    "type": "string",
+                    "description": "The role of the user within the organization.\nMust be one of `member` or `admin`. Defaults to `member`.\n"
+                },
+                "username": {
+                    "type": "string",
+                    "description": "The user to add to the organization.\n"
+                }
+            },
+            "requiredInputs": [
+                "username"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Membership resources.\n",
+                "properties": {
+                    "etag": {
+                        "type": "string"
+                    },
+                    "role": {
+                        "type": "string",
+                        "description": "The role of the user within the organization.\nMust be one of `member` or `admin`. Defaults to `member`.\n"
+                    },
+                    "username": {
+                        "type": "string",
+                        "description": "The user to add to the organization.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "github:index/organizationBlock:OrganizationBlock": {
+            "description": "This resource allows you to create and manage blocks for GitHub organizations.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\nconst example = new github.OrganizationBlock(\"example\", {\n    username: \"paultyng\",\n});\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\nexample = github.OrganizationBlock(\"example\", username=\"paultyng\")\n```\n\n{{% /example %}}\n{{% /examples %}}\n",
+            "properties": {
+                "etag": {
+                    "type": "string"
+                },
+                "username": {
+                    "type": "string",
+                    "description": "The name of the user to block.\n"
+                }
+            },
+            "required": [
+                "etag",
+                "username"
+            ],
+            "inputProperties": {
+                "username": {
+                    "type": "string",
+                    "description": "The name of the user to block.\n"
+                }
+            },
+            "requiredInputs": [
+                "username"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering OrganizationBlock resources.\n",
+                "properties": {
+                    "etag": {
+                        "type": "string"
+                    },
+                    "username": {
+                        "type": "string",
+                        "description": "The name of the user to block.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "github:index/organizationProject:OrganizationProject": {
+            "description": "This resource allows you to create and manage projects for GitHub organization.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\nconst project = new github.OrganizationProject(\"project\", {\n    body: \"This is a organization project.\",\n});\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\nproject = github.OrganizationProject(\"project\", body=\"This is a organization project.\")\n```\n\n{{% /example %}}\n{{% /examples %}}\n",
+            "properties": {
+                "body": {
+                    "type": "string",
+                    "description": "The body of the project.\n"
+                },
+                "etag": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the project.\n"
+                },
+                "url": {
+                    "type": "string",
+                    "description": "URL of the project\n"
+                }
+            },
+            "required": [
+                "etag",
+                "name",
+                "url"
+            ],
+            "inputProperties": {
+                "body": {
+                    "type": "string",
+                    "description": "The body of the project.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the project.\n"
+                }
+            },
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering OrganizationProject resources.\n",
+                "properties": {
+                    "body": {
+                        "type": "string",
+                        "description": "The body of the project.\n"
+                    },
+                    "etag": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The name of the project.\n"
+                    },
+                    "url": {
+                        "type": "string",
+                        "description": "URL of the project\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "github:index/organizationWebhook:OrganizationWebhook": {
+            "description": "This resource allows you to create and manage webhooks for GitHub organization.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\nconst foo = new github.OrganizationWebhook(\"foo\", {\n    active: false,\n    configuration: {\n        contentType: \"form\",\n        insecureSsl: false,\n        url: \"https://google.de/\",\n    },\n    events: [\"issues\"],\n});\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\nfoo = github.OrganizationWebhook(\"foo\",\n    active=False,\n    configuration={\n        \"contentType\": \"form\",\n        \"insecureSsl\": False,\n        \"url\": \"https://google.de/\",\n    },\n    events=[\"issues\"])\n```\n\n{{% /example %}}\n{{% /examples %}}\n",
+            "properties": {
+                "active": {
+                    "type": "boolean",
+                    "description": "Indicate of the webhook should receive events. Defaults to `true`.\n"
+                },
+                "configuration": {
+                    "$ref": "#/types/github:/OrganizationWebhookConfiguration:OrganizationWebhookConfiguration",
+                    "description": "key/value pair of configuration for this webhook. Available keys are `url`, `content_type`, `secret` and `insecure_ssl`.\n"
+                },
+                "etag": {
+                    "type": "string"
+                },
+                "events": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of events which should trigger the webhook. See a list of [available events](https://developer.github.com/v3/activity/events/types/)\n"
+                },
+                "url": {
+                    "type": "string",
+                    "description": "URL of the webhook\n"
+                }
+            },
+            "required": [
+                "etag",
+                "events",
+                "url"
+            ],
+            "inputProperties": {
+                "active": {
+                    "type": "boolean",
+                    "description": "Indicate of the webhook should receive events. Defaults to `true`.\n"
+                },
+                "configuration": {
+                    "$ref": "#/types/github:/OrganizationWebhookConfiguration:OrganizationWebhookConfiguration",
+                    "description": "key/value pair of configuration for this webhook. Available keys are `url`, `content_type`, `secret` and `insecure_ssl`.\n"
+                },
+                "events": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of events which should trigger the webhook. See a list of [available events](https://developer.github.com/v3/activity/events/types/)\n"
+                }
+            },
+            "requiredInputs": [
+                "events"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering OrganizationWebhook resources.\n",
+                "properties": {
+                    "active": {
+                        "type": "boolean",
+                        "description": "Indicate of the webhook should receive events. Defaults to `true`.\n"
+                    },
+                    "configuration": {
+                        "$ref": "#/types/github:/OrganizationWebhookConfiguration:OrganizationWebhookConfiguration",
+                        "description": "key/value pair of configuration for this webhook. Available keys are `url`, `content_type`, `secret` and `insecure_ssl`.\n"
+                    },
+                    "etag": {
+                        "type": "string"
+                    },
+                    "events": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "A list of events which should trigger the webhook. See a list of [available events](https://developer.github.com/v3/activity/events/types/)\n"
+                    },
+                    "url": {
+                        "type": "string",
+                        "description": "URL of the webhook\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "github:index/projectColumn:ProjectColumn": {
+            "description": "This resource allows you to create and manage columns for GitHub projects.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\nconst project = new github.OrganizationProject(\"project\", {\n    body: \"This is an organization project.\",\n});\nconst column = new github.ProjectColumn(\"column\", {\n    projectId: project.id,\n});\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\nproject = github.OrganizationProject(\"project\", body=\"This is an organization project.\")\ncolumn = github.ProjectColumn(\"column\", project_id=project.id)\n```\n\n{{% /example %}}\n{{% /examples %}}\n",
+            "properties": {
+                "etag": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the column.\n"
+                },
+                "projectId": {
+                    "type": "string",
+                    "description": "The ID of an existing project that the column will be created in.\n"
+                }
+            },
+            "required": [
+                "etag",
+                "name",
+                "projectId"
+            ],
+            "inputProperties": {
+                "name": {
+                    "type": "string",
+                    "description": "The name of the column.\n"
+                },
+                "projectId": {
+                    "type": "string",
+                    "description": "The ID of an existing project that the column will be created in.\n"
+                }
+            },
+            "requiredInputs": [
+                "projectId"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering ProjectColumn resources.\n",
+                "properties": {
+                    "etag": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The name of the column.\n"
+                    },
+                    "projectId": {
+                        "type": "string",
+                        "description": "The ID of an existing project that the column will be created in.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "github:index/repository:Repository": {
+            "properties": {
+                "allowMergeCommit": {
+                    "type": "boolean",
+                    "description": "Set to `false` to disable merge commits on the repository.\n"
+                },
+                "allowRebaseMerge": {
+                    "type": "boolean",
+                    "description": "Set to `false` to disable rebase merges on the repository.\n"
+                },
+                "allowSquashMerge": {
+                    "type": "boolean",
+                    "description": "Set to `false` to disable squash merges on the repository.\n"
+                },
+                "archived": {
+                    "type": "boolean",
+                    "description": "Specifies if the repository should be archived. Defaults to `false`. **NOTE** Currently, the API does not support unarchiving.\n"
+                },
+                "autoInit": {
+                    "type": "boolean",
+                    "description": "Set to `true` to produce an initial commit in the repository.\n"
+                },
+                "defaultBranch": {
+                    "type": "string",
+                    "description": "The name of the default branch of the repository. **NOTE:** This can only be set after a repository has already been created,\nand after a correct reference has been created for the target branch inside the repository. This means a user will have to omit this parameter from the\ninitial repository creation and create the target branch inside of the repository prior to setting this attribute.\n"
+                },
+                "deleteBranchOnMerge": {
+                    "type": "boolean",
+                    "description": "Automatically delete head branch after a pull request is merged. Defaults to `false`.\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "A description of the repository.\n"
+                },
+                "etag": {
+                    "type": "string"
+                },
+                "fullName": {
+                    "type": "string",
+                    "description": "A string of the form \"orgname/reponame\".\n"
+                },
+                "gitCloneUrl": {
+                    "type": "string",
+                    "description": "URL that can be provided to `git clone` to clone the repository anonymously via the git protocol.\n"
+                },
+                "gitignoreTemplate": {
+                    "type": "string",
+                    "description": "Use the [name of the template](https://github.com/github/gitignore) without the extension. For example, \"Haskell\".\n"
+                },
+                "hasDownloads": {
+                    "type": "boolean",
+                    "description": "Set to `true` to enable the (deprecated) downloads features on the repository.\n"
+                },
+                "hasIssues": {
+                    "type": "boolean",
+                    "description": "Set to `true` to enable the GitHub Issues features\non the repository.\n"
+                },
+                "hasProjects": {
+                    "type": "boolean",
+                    "description": "Set to `true` to enable the GitHub Projects features on the repository. Per the GitHub [documentation](https://developer.github.com/v3/repos/#create) when in an organization that has disabled repository projects it will default to `false` and will otherwise default to `true`. If you specify `true` when it has been disabled it will return an error.\n"
+                },
+                "hasWiki": {
+                    "type": "boolean",
+                    "description": "Set to `true` to enable the GitHub Wiki features on\nthe repository.\n"
+                },
+                "homepageUrl": {
+                    "type": "string",
+                    "description": "URL of a page describing the project.\n"
+                },
+                "htmlUrl": {
+                    "type": "string",
+                    "description": "URL to the repository on the web.\n"
+                },
+                "httpCloneUrl": {
+                    "type": "string",
+                    "description": "URL that can be provided to `git clone` to clone the repository via HTTPS.\n"
+                },
+                "isTemplate": {
+                    "type": "boolean",
+                    "description": "Set to `true` to tell GitHub that this is a template repository.\n"
+                },
+                "licenseTemplate": {
+                    "type": "string",
+                    "description": "Use the [name of the template](https://github.com/github/choosealicense.com/tree/gh-pages/_licenses) without the extension. For example, \"mit\" or \"mpl-2.0\".\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the repository.\n"
+                },
+                "nodeId": {
+                    "type": "string"
+                },
+                "private": {
+                    "type": "boolean",
+                    "description": "Set to `true` to create a private repository.\nRepositories are created as public (e.g. open source) by default.\n"
+                },
+                "sshCloneUrl": {
+                    "type": "string",
+                    "description": "URL that can be provided to `git clone` to clone the repository via SSH.\n"
+                },
+                "svnUrl": {
+                    "type": "string",
+                    "description": "URL that can be provided to `svn checkout` to check out the repository via GitHub's Subversion protocol emulation.\n"
+                },
+                "template": {
+                    "$ref": "#/types/github:/RepositoryTemplate:RepositoryTemplate",
+                    "description": "Use a template repository to create this resource. See Template Repositories below for details.\n"
+                },
+                "topics": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The list of topics of the repository.\n"
+                }
+            },
+            "required": [
+                "defaultBranch",
+                "etag",
+                "fullName",
+                "gitCloneUrl",
+                "htmlUrl",
+                "httpCloneUrl",
+                "name",
+                "nodeId",
+                "sshCloneUrl",
+                "svnUrl"
+            ],
+            "inputProperties": {
+                "allowMergeCommit": {
+                    "type": "boolean",
+                    "description": "Set to `false` to disable merge commits on the repository.\n"
+                },
+                "allowRebaseMerge": {
+                    "type": "boolean",
+                    "description": "Set to `false` to disable rebase merges on the repository.\n"
+                },
+                "allowSquashMerge": {
+                    "type": "boolean",
+                    "description": "Set to `false` to disable squash merges on the repository.\n"
+                },
+                "archived": {
+                    "type": "boolean",
+                    "description": "Specifies if the repository should be archived. Defaults to `false`. **NOTE** Currently, the API does not support unarchiving.\n"
+                },
+                "autoInit": {
+                    "type": "boolean",
+                    "description": "Set to `true` to produce an initial commit in the repository.\n"
+                },
+                "defaultBranch": {
+                    "type": "string",
+                    "description": "The name of the default branch of the repository. **NOTE:** This can only be set after a repository has already been created,\nand after a correct reference has been created for the target branch inside the repository. This means a user will have to omit this parameter from the\ninitial repository creation and create the target branch inside of the repository prior to setting this attribute.\n"
+                },
+                "deleteBranchOnMerge": {
+                    "type": "boolean",
+                    "description": "Automatically delete head branch after a pull request is merged. Defaults to `false`.\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "A description of the repository.\n"
+                },
+                "gitignoreTemplate": {
+                    "type": "string",
+                    "description": "Use the [name of the template](https://github.com/github/gitignore) without the extension. For example, \"Haskell\".\n"
+                },
+                "hasDownloads": {
+                    "type": "boolean",
+                    "description": "Set to `true` to enable the (deprecated) downloads features on the repository.\n"
+                },
+                "hasIssues": {
+                    "type": "boolean",
+                    "description": "Set to `true` to enable the GitHub Issues features\non the repository.\n"
+                },
+                "hasProjects": {
+                    "type": "boolean",
+                    "description": "Set to `true` to enable the GitHub Projects features on the repository. Per the GitHub [documentation](https://developer.github.com/v3/repos/#create) when in an organization that has disabled repository projects it will default to `false` and will otherwise default to `true`. If you specify `true` when it has been disabled it will return an error.\n"
+                },
+                "hasWiki": {
+                    "type": "boolean",
+                    "description": "Set to `true` to enable the GitHub Wiki features on\nthe repository.\n"
+                },
+                "homepageUrl": {
+                    "type": "string",
+                    "description": "URL of a page describing the project.\n"
+                },
+                "isTemplate": {
+                    "type": "boolean",
+                    "description": "Set to `true` to tell GitHub that this is a template repository.\n"
+                },
+                "licenseTemplate": {
+                    "type": "string",
+                    "description": "Use the [name of the template](https://github.com/github/choosealicense.com/tree/gh-pages/_licenses) without the extension. For example, \"mit\" or \"mpl-2.0\".\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the repository.\n"
+                },
+                "private": {
+                    "type": "boolean",
+                    "description": "Set to `true` to create a private repository.\nRepositories are created as public (e.g. open source) by default.\n"
+                },
+                "template": {
+                    "$ref": "#/types/github:/RepositoryTemplate:RepositoryTemplate",
+                    "description": "Use a template repository to create this resource. See Template Repositories below for details.\n"
+                },
+                "topics": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The list of topics of the repository.\n"
+                }
+            },
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Repository resources.\n",
+                "properties": {
+                    "allowMergeCommit": {
+                        "type": "boolean",
+                        "description": "Set to `false` to disable merge commits on the repository.\n"
+                    },
+                    "allowRebaseMerge": {
+                        "type": "boolean",
+                        "description": "Set to `false` to disable rebase merges on the repository.\n"
+                    },
+                    "allowSquashMerge": {
+                        "type": "boolean",
+                        "description": "Set to `false` to disable squash merges on the repository.\n"
+                    },
+                    "archived": {
+                        "type": "boolean",
+                        "description": "Specifies if the repository should be archived. Defaults to `false`. **NOTE** Currently, the API does not support unarchiving.\n"
+                    },
+                    "autoInit": {
+                        "type": "boolean",
+                        "description": "Set to `true` to produce an initial commit in the repository.\n"
+                    },
+                    "defaultBranch": {
+                        "type": "string",
+                        "description": "The name of the default branch of the repository. **NOTE:** This can only be set after a repository has already been created,\nand after a correct reference has been created for the target branch inside the repository. This means a user will have to omit this parameter from the\ninitial repository creation and create the target branch inside of the repository prior to setting this attribute.\n"
+                    },
+                    "deleteBranchOnMerge": {
+                        "type": "boolean",
+                        "description": "Automatically delete head branch after a pull request is merged. Defaults to `false`.\n"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "A description of the repository.\n"
+                    },
+                    "etag": {
+                        "type": "string"
+                    },
+                    "fullName": {
+                        "type": "string",
+                        "description": "A string of the form \"orgname/reponame\".\n"
+                    },
+                    "gitCloneUrl": {
+                        "type": "string",
+                        "description": "URL that can be provided to `git clone` to clone the repository anonymously via the git protocol.\n"
+                    },
+                    "gitignoreTemplate": {
+                        "type": "string",
+                        "description": "Use the [name of the template](https://github.com/github/gitignore) without the extension. For example, \"Haskell\".\n"
+                    },
+                    "hasDownloads": {
+                        "type": "boolean",
+                        "description": "Set to `true` to enable the (deprecated) downloads features on the repository.\n"
+                    },
+                    "hasIssues": {
+                        "type": "boolean",
+                        "description": "Set to `true` to enable the GitHub Issues features\non the repository.\n"
+                    },
+                    "hasProjects": {
+                        "type": "boolean",
+                        "description": "Set to `true` to enable the GitHub Projects features on the repository. Per the GitHub [documentation](https://developer.github.com/v3/repos/#create) when in an organization that has disabled repository projects it will default to `false` and will otherwise default to `true`. If you specify `true` when it has been disabled it will return an error.\n"
+                    },
+                    "hasWiki": {
+                        "type": "boolean",
+                        "description": "Set to `true` to enable the GitHub Wiki features on\nthe repository.\n"
+                    },
+                    "homepageUrl": {
+                        "type": "string",
+                        "description": "URL of a page describing the project.\n"
+                    },
+                    "htmlUrl": {
+                        "type": "string",
+                        "description": "URL to the repository on the web.\n"
+                    },
+                    "httpCloneUrl": {
+                        "type": "string",
+                        "description": "URL that can be provided to `git clone` to clone the repository via HTTPS.\n"
+                    },
+                    "isTemplate": {
+                        "type": "boolean",
+                        "description": "Set to `true` to tell GitHub that this is a template repository.\n"
+                    },
+                    "licenseTemplate": {
+                        "type": "string",
+                        "description": "Use the [name of the template](https://github.com/github/choosealicense.com/tree/gh-pages/_licenses) without the extension. For example, \"mit\" or \"mpl-2.0\".\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The name of the repository.\n"
+                    },
+                    "nodeId": {
+                        "type": "string"
+                    },
+                    "private": {
+                        "type": "boolean",
+                        "description": "Set to `true` to create a private repository.\nRepositories are created as public (e.g. open source) by default.\n"
+                    },
+                    "sshCloneUrl": {
+                        "type": "string",
+                        "description": "URL that can be provided to `git clone` to clone the repository via SSH.\n"
+                    },
+                    "svnUrl": {
+                        "type": "string",
+                        "description": "URL that can be provided to `svn checkout` to check out the repository via GitHub's Subversion protocol emulation.\n"
+                    },
+                    "template": {
+                        "$ref": "#/types/github:/RepositoryTemplate:RepositoryTemplate",
+                        "description": "Use a template repository to create this resource. See Template Repositories below for details.\n"
+                    },
+                    "topics": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "The list of topics of the repository.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "github:index/repositoryCollaborator:RepositoryCollaborator": {
+            "description": "Provides a GitHub repository collaborator resource.\n\nThis resource allows you to add/remove collaborators from repositories in your\norganization. Collaborators can have explicit (and differing levels of) read,\nwrite, or administrator access to specific repositories in your organization,\nwithout giving the user full organization membership.\n\nWhen applied, an invitation will be sent to the user to become a collaborator\non a repository. When destroyed, either the invitation will be cancelled or the\ncollaborator will be removed from the repository.\n\nFurther documentation on GitHub collaborators:\n\n- [Adding outside collaborators to repositories in your organization](https://help.github.com/articles/adding-outside-collaborators-to-repositories-in-your-organization/)\n- [Converting an organization member to an outside collaborator](https://help.github.com/articles/converting-an-organization-member-to-an-outside-collaborator/)\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\n// Add a collaborator to a repository\nconst aRepoCollaborator = new github.RepositoryCollaborator(\"a_repo_collaborator\", {\n    permission: \"admin\",\n    repository: \"our-cool-repo\",\n    username: \"SomeUser\",\n});\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\n# Add a collaborator to a repository\na_repo_collaborator = github.RepositoryCollaborator(\"aRepoCollaborator\",\n    permission=\"admin\",\n    repository=\"our-cool-repo\",\n    username=\"SomeUser\")\n```\n\n{{% /example %}}\n{{% /examples %}}\n",
+            "properties": {
+                "invitationId": {
+                    "type": "string",
+                    "description": "ID of the invitation to be used in `github..UserInvitationAccepter`\n"
+                },
+                "permission": {
+                    "type": "string",
+                    "description": "The permission of the outside collaborator for the repository.\nMust be one of `pull`, `push`, `maintain`, `triage` or `admin`. Defaults to `push`.\n"
+                },
+                "repository": {
+                    "type": "string",
+                    "description": "The GitHub repository\n"
+                },
+                "username": {
+                    "type": "string",
+                    "description": "The user to add to the repository as a collaborator.\n"
+                }
+            },
+            "required": [
+                "invitationId",
+                "repository",
+                "username"
+            ],
+            "inputProperties": {
+                "permission": {
+                    "type": "string",
+                    "description": "The permission of the outside collaborator for the repository.\nMust be one of `pull`, `push`, `maintain`, `triage` or `admin`. Defaults to `push`.\n"
+                },
+                "repository": {
+                    "type": "string",
+                    "description": "The GitHub repository\n"
+                },
+                "username": {
+                    "type": "string",
+                    "description": "The user to add to the repository as a collaborator.\n"
+                }
+            },
+            "requiredInputs": [
+                "repository",
+                "username"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering RepositoryCollaborator resources.\n",
+                "properties": {
+                    "invitationId": {
+                        "type": "string",
+                        "description": "ID of the invitation to be used in `github..UserInvitationAccepter`\n"
+                    },
+                    "permission": {
+                        "type": "string",
+                        "description": "The permission of the outside collaborator for the repository.\nMust be one of `pull`, `push`, `maintain`, `triage` or `admin`. Defaults to `push`.\n"
+                    },
+                    "repository": {
+                        "type": "string",
+                        "description": "The GitHub repository\n"
+                    },
+                    "username": {
+                        "type": "string",
+                        "description": "The user to add to the repository as a collaborator.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "github:index/repositoryDeployKey:RepositoryDeployKey": {
+            "description": "Provides a GitHub repository deploy key resource.\n\nA deploy key is an SSH key that is stored on your server and grants\naccess to a single GitHub repository. This key is attached directly to the repository instead of to a personal user\naccount.\n\nThis resource allows you to add/remove repository deploy keys.\n\nFurther documentation on GitHub repository deploy keys:\n- [About deploy keys](https://developer.github.com/guides/managing-deploy-keys/#deploy-keys)\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\n// Add a deploy key\nconst exampleRepositoryDeployKey = new github.RepositoryDeployKey(\"example_repository_deploy_key\", {\n    key: \"ssh-rsa AAA...\",\n    readOnly: false,\n    repository: \"test-repo\",\n    title: \"Repository test key\",\n});\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\n# Add a deploy key\nexample_repository_deploy_key = github.RepositoryDeployKey(\"exampleRepositoryDeployKey\",\n    key=\"ssh-rsa AAA...\",\n    read_only=\"false\",\n    repository=\"test-repo\",\n    title=\"Repository test key\")\n```\n\n{{% /example %}}\n{{% /examples %}}\n",
+            "properties": {
+                "etag": {
+                    "type": "string"
+                },
+                "key": {
+                    "type": "string",
+                    "description": "A SSH key.\n"
+                },
+                "readOnly": {
+                    "type": "boolean",
+                    "description": "A boolean qualifying the key to be either read only or read/write.\n"
+                },
+                "repository": {
+                    "type": "string",
+                    "description": "Name of the GitHub repository.\n"
+                },
+                "title": {
+                    "type": "string",
+                    "description": "A title.\n"
+                }
+            },
+            "required": [
+                "etag",
+                "key",
+                "repository",
+                "title"
+            ],
+            "inputProperties": {
+                "key": {
+                    "type": "string",
+                    "description": "A SSH key.\n"
+                },
+                "readOnly": {
+                    "type": "boolean",
+                    "description": "A boolean qualifying the key to be either read only or read/write.\n"
+                },
+                "repository": {
+                    "type": "string",
+                    "description": "Name of the GitHub repository.\n"
+                },
+                "title": {
+                    "type": "string",
+                    "description": "A title.\n"
+                }
+            },
+            "requiredInputs": [
+                "key",
+                "repository",
+                "title"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering RepositoryDeployKey resources.\n",
+                "properties": {
+                    "etag": {
+                        "type": "string"
+                    },
+                    "key": {
+                        "type": "string",
+                        "description": "A SSH key.\n"
+                    },
+                    "readOnly": {
+                        "type": "boolean",
+                        "description": "A boolean qualifying the key to be either read only or read/write.\n"
+                    },
+                    "repository": {
+                        "type": "string",
+                        "description": "Name of the GitHub repository.\n"
+                    },
+                    "title": {
+                        "type": "string",
+                        "description": "A title.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "github:index/repositoryFile:RepositoryFile": {
+            "description": "This resource allows you to create and manage files within a\nGitHub repository.\n\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\nconst gitignore = new github.RepositoryFile(\"gitignore\", {\n    content: \"**/*.tfstate\",\n    file: \".gitignore\",\n    repository: \"example\",\n});\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\ngitignore = github.RepositoryFile(\"gitignore\",\n    content=\"**/*.tfstate\",\n    file=\".gitignore\",\n    repository=\"example\")\n```\n\n\n{{% /example %}}\n{{% /examples %}}\n",
+            "properties": {
+                "branch": {
+                    "type": "string",
+                    "description": "Git branch (defaults to `master`).\nThe branch must already exist, it will not be created if it does not already exist.\n"
+                },
+                "commitAuthor": {
+                    "type": "string",
+                    "description": "Committer author name to use.\n"
+                },
+                "commitEmail": {
+                    "type": "string",
+                    "description": "Committer email address to use.\n"
+                },
+                "commitMessage": {
+                    "type": "string",
+                    "description": "Commit message when adding or updating the managed file.\n"
+                },
+                "content": {
+                    "type": "string",
+                    "description": "The file content.\n"
+                },
+                "file": {
+                    "type": "string",
+                    "description": "The path of the file to manage.\n"
+                },
+                "repository": {
+                    "type": "string",
+                    "description": "The repository name\n"
+                },
+                "sha": {
+                    "type": "string",
+                    "description": "The SHA blob of the file.\n"
+                }
+            },
+            "required": [
+                "commitAuthor",
+                "commitEmail",
+                "commitMessage",
+                "content",
+                "file",
+                "repository",
+                "sha"
+            ],
+            "inputProperties": {
+                "branch": {
+                    "type": "string",
+                    "description": "Git branch (defaults to `master`).\nThe branch must already exist, it will not be created if it does not already exist.\n"
+                },
+                "commitAuthor": {
+                    "type": "string",
+                    "description": "Committer author name to use.\n"
+                },
+                "commitEmail": {
+                    "type": "string",
+                    "description": "Committer email address to use.\n"
+                },
+                "commitMessage": {
+                    "type": "string",
+                    "description": "Commit message when adding or updating the managed file.\n"
+                },
+                "content": {
+                    "type": "string",
+                    "description": "The file content.\n"
+                },
+                "file": {
+                    "type": "string",
+                    "description": "The path of the file to manage.\n"
+                },
+                "repository": {
+                    "type": "string",
+                    "description": "The repository name\n"
+                }
+            },
+            "requiredInputs": [
+                "content",
+                "file",
+                "repository"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering RepositoryFile resources.\n",
+                "properties": {
+                    "branch": {
+                        "type": "string",
+                        "description": "Git branch (defaults to `master`).\nThe branch must already exist, it will not be created if it does not already exist.\n"
+                    },
+                    "commitAuthor": {
+                        "type": "string",
+                        "description": "Committer author name to use.\n"
+                    },
+                    "commitEmail": {
+                        "type": "string",
+                        "description": "Committer email address to use.\n"
+                    },
+                    "commitMessage": {
+                        "type": "string",
+                        "description": "Commit message when adding or updating the managed file.\n"
+                    },
+                    "content": {
+                        "type": "string",
+                        "description": "The file content.\n"
+                    },
+                    "file": {
+                        "type": "string",
+                        "description": "The path of the file to manage.\n"
+                    },
+                    "repository": {
+                        "type": "string",
+                        "description": "The repository name\n"
+                    },
+                    "sha": {
+                        "type": "string",
+                        "description": "The SHA blob of the file.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "github:index/repositoryProject:RepositoryProject": {
+            "description": "This resource allows you to create and manage projects for GitHub repository.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\nconst example = new github.Repository(\"example\", {\n    description: \"My awesome codebase\",\n    hasProjects: true,\n});\nconst project = new github.RepositoryProject(\"project\", {\n    body: \"This is a repository project.\",\n    repository: example.name,\n});\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\nexample = github.Repository(\"example\",\n    description=\"My awesome codebase\",\n    has_projects=True)\nproject = github.RepositoryProject(\"project\",\n    body=\"This is a repository project.\",\n    repository=example.name)\n```\n\n{{% /example %}}\n{{% /examples %}}\n",
+            "properties": {
+                "body": {
+                    "type": "string",
+                    "description": "The body of the project.\n"
+                },
+                "etag": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the project.\n"
+                },
+                "repository": {
+                    "type": "string",
+                    "description": "The repository of the project.\n"
+                },
+                "url": {
+                    "type": "string",
+                    "description": "URL of the project\n"
+                }
+            },
+            "required": [
+                "etag",
+                "name",
+                "repository",
+                "url"
+            ],
+            "inputProperties": {
+                "body": {
+                    "type": "string",
+                    "description": "The body of the project.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the project.\n"
+                },
+                "repository": {
+                    "type": "string",
+                    "description": "The repository of the project.\n"
+                }
+            },
+            "requiredInputs": [
+                "repository"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering RepositoryProject resources.\n",
+                "properties": {
+                    "body": {
+                        "type": "string",
+                        "description": "The body of the project.\n"
+                    },
+                    "etag": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The name of the project.\n"
+                    },
+                    "repository": {
+                        "type": "string",
+                        "description": "The repository of the project.\n"
+                    },
+                    "url": {
+                        "type": "string",
+                        "description": "URL of the project\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "github:index/repositoryWebhook:RepositoryWebhook": {
+            "properties": {
+                "active": {
+                    "type": "boolean",
+                    "description": "Indicate of the webhook should receive events. Defaults to `true`.\n"
+                },
+                "configuration": {
+                    "$ref": "#/types/github:/RepositoryWebhookConfiguration:RepositoryWebhookConfiguration",
+                    "description": "key/value pair of configuration for this webhook. Available keys are `url`, `content_type`, `secret` and `insecure_ssl`. `secret` is [the shared secret, see API documentation](https://developer.github.com/v3/repos/hooks/#create-a-hook).\n"
+                },
+                "etag": {
+                    "type": "string"
+                },
+                "events": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of events which should trigger the webhook. See a list of [available events](https://developer.github.com/v3/activity/events/types/).\n"
+                },
+                "repository": {
+                    "type": "string",
+                    "description": "The repository of the webhook.\n"
+                },
+                "url": {
+                    "type": "string",
+                    "description": "URL of the webhook\n"
+                }
+            },
+            "required": [
+                "etag",
+                "events",
+                "repository",
+                "url"
+            ],
+            "inputProperties": {
+                "active": {
+                    "type": "boolean",
+                    "description": "Indicate of the webhook should receive events. Defaults to `true`.\n"
+                },
+                "configuration": {
+                    "$ref": "#/types/github:/RepositoryWebhookConfiguration:RepositoryWebhookConfiguration",
+                    "description": "key/value pair of configuration for this webhook. Available keys are `url`, `content_type`, `secret` and `insecure_ssl`. `secret` is [the shared secret, see API documentation](https://developer.github.com/v3/repos/hooks/#create-a-hook).\n"
+                },
+                "events": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of events which should trigger the webhook. See a list of [available events](https://developer.github.com/v3/activity/events/types/).\n"
+                },
+                "repository": {
+                    "type": "string",
+                    "description": "The repository of the webhook.\n"
+                }
+            },
+            "requiredInputs": [
+                "events",
+                "repository"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering RepositoryWebhook resources.\n",
+                "properties": {
+                    "active": {
+                        "type": "boolean",
+                        "description": "Indicate of the webhook should receive events. Defaults to `true`.\n"
+                    },
+                    "configuration": {
+                        "$ref": "#/types/github:/RepositoryWebhookConfiguration:RepositoryWebhookConfiguration",
+                        "description": "key/value pair of configuration for this webhook. Available keys are `url`, `content_type`, `secret` and `insecure_ssl`. `secret` is [the shared secret, see API documentation](https://developer.github.com/v3/repos/hooks/#create-a-hook).\n"
+                    },
+                    "etag": {
+                        "type": "string"
+                    },
+                    "events": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "A list of events which should trigger the webhook. See a list of [available events](https://developer.github.com/v3/activity/events/types/).\n"
+                    },
+                    "repository": {
+                        "type": "string",
+                        "description": "The repository of the webhook.\n"
+                    },
+                    "url": {
+                        "type": "string",
+                        "description": "URL of the webhook\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "github:index/team:Team": {
+            "description": "Provides a GitHub team resource.\n\nThis resource allows you to add/remove teams from your organization. When applied,\na new team will be created. When destroyed, that team will be removed.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\n// Add a team to the organization\nconst someTeam = new github.Team(\"some_team\", {\n    description: \"Some cool team\",\n    privacy: \"closed\",\n});\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\n# Add a team to the organization\nsome_team = github.Team(\"someTeam\",\n    description=\"Some cool team\",\n    privacy=\"closed\")\n```\n\n{{% /example %}}\n{{% /examples %}}\n",
+            "properties": {
+                "description": {
+                    "type": "string",
+                    "description": "A description of the team.\n"
+                },
+                "etag": {
+                    "type": "string"
+                },
+                "ldapDn": {
+                    "type": "string",
+                    "description": "The LDAP Distinguished Name of the group where membership will be synchronized. Only available in GitHub Enterprise.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the team.\n"
+                },
+                "nodeId": {
+                    "type": "string"
+                },
+                "parentTeamId": {
+                    "type": "integer",
+                    "description": "The ID of the parent team, if this is a nested team.\n"
+                },
+                "privacy": {
+                    "type": "string",
+                    "description": "The level of privacy for the team. Must be one of `secret` or `closed`.\nDefaults to `secret`.\n"
+                },
+                "slug": {
+                    "type": "string",
+                    "description": "The slug of the created team, which may or may not differ from `name`,\ndepending on whether `name` contains \"URL-unsafe\" characters.\nUseful when referencing the team in [`github..BranchProtection`](https://www.terraform.io/docs/providers/github/r/branch_protection.html).\n"
+                }
+            },
+            "required": [
+                "etag",
+                "name",
+                "nodeId",
+                "slug"
+            ],
+            "inputProperties": {
+                "description": {
+                    "type": "string",
+                    "description": "A description of the team.\n"
+                },
+                "ldapDn": {
+                    "type": "string",
+                    "description": "The LDAP Distinguished Name of the group where membership will be synchronized. Only available in GitHub Enterprise.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the team.\n"
+                },
+                "parentTeamId": {
+                    "type": "integer",
+                    "description": "The ID of the parent team, if this is a nested team.\n"
+                },
+                "privacy": {
+                    "type": "string",
+                    "description": "The level of privacy for the team. Must be one of `secret` or `closed`.\nDefaults to `secret`.\n"
+                }
+            },
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Team resources.\n",
+                "properties": {
+                    "description": {
+                        "type": "string",
+                        "description": "A description of the team.\n"
+                    },
+                    "etag": {
+                        "type": "string"
+                    },
+                    "ldapDn": {
+                        "type": "string",
+                        "description": "The LDAP Distinguished Name of the group where membership will be synchronized. Only available in GitHub Enterprise.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The name of the team.\n"
+                    },
+                    "nodeId": {
+                        "type": "string"
+                    },
+                    "parentTeamId": {
+                        "type": "integer",
+                        "description": "The ID of the parent team, if this is a nested team.\n"
+                    },
+                    "privacy": {
+                        "type": "string",
+                        "description": "The level of privacy for the team. Must be one of `secret` or `closed`.\nDefaults to `secret`.\n"
+                    },
+                    "slug": {
+                        "type": "string",
+                        "description": "The slug of the created team, which may or may not differ from `name`,\ndepending on whether `name` contains \"URL-unsafe\" characters.\nUseful when referencing the team in [`github..BranchProtection`](https://www.terraform.io/docs/providers/github/r/branch_protection.html).\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "github:index/teamMembership:TeamMembership": {
+            "description": "Provides a GitHub team membership resource.\n\nThis resource allows you to add/remove users from teams in your organization. When applied,\nthe user will be added to the team. If the user hasn't accepted their invitation to the\norganization, they won't be part of the team until they do. When\ndestroyed, the user will be removed from the team.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\n// Add a user to the organization\nconst membershipForSomeUser = new github.Membership(\"membership_for_some_user\", {\n    role: \"member\",\n    username: \"SomeUser\",\n});\nconst someTeam = new github.Team(\"some_team\", {\n    description: \"Some cool team\",\n});\nconst someTeamMembership = new github.TeamMembership(\"some_team_membership\", {\n    role: \"member\",\n    teamId: someTeam.id,\n    username: \"SomeUser\",\n});\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\n# Add a user to the organization\nmembership_for_some_user = github.Membership(\"membershipForSomeUser\",\n    role=\"member\",\n    username=\"SomeUser\")\nsome_team = github.Team(\"someTeam\", description=\"Some cool team\")\nsome_team_membership = github.TeamMembership(\"someTeamMembership\",\n    role=\"member\",\n    team_id=some_team.id,\n    username=\"SomeUser\")\n```\n\n{{% /example %}}\n{{% /examples %}}\n",
+            "properties": {
+                "etag": {
+                    "type": "string"
+                },
+                "role": {
+                    "type": "string",
+                    "description": "The role of the user within the team.\nMust be one of `member` or `maintainer`. Defaults to `member`.\n"
+                },
+                "teamId": {
+                    "type": "string",
+                    "description": "The GitHub team id\n"
+                },
+                "username": {
+                    "type": "string",
+                    "description": "The user to add to the team.\n"
+                }
+            },
+            "required": [
+                "etag",
+                "teamId",
+                "username"
+            ],
+            "inputProperties": {
+                "role": {
+                    "type": "string",
+                    "description": "The role of the user within the team.\nMust be one of `member` or `maintainer`. Defaults to `member`.\n"
+                },
+                "teamId": {
+                    "type": "string",
+                    "description": "The GitHub team id\n"
+                },
+                "username": {
+                    "type": "string",
+                    "description": "The user to add to the team.\n"
+                }
+            },
+            "requiredInputs": [
+                "teamId",
+                "username"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering TeamMembership resources.\n",
+                "properties": {
+                    "etag": {
+                        "type": "string"
+                    },
+                    "role": {
+                        "type": "string",
+                        "description": "The role of the user within the team.\nMust be one of `member` or `maintainer`. Defaults to `member`.\n"
+                    },
+                    "teamId": {
+                        "type": "string",
+                        "description": "The GitHub team id\n"
+                    },
+                    "username": {
+                        "type": "string",
+                        "description": "The user to add to the team.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "github:index/teamRepository:TeamRepository": {
+            "description": "This resource manages relationships between teams and repositories\nin your GitHub organization.\n\nCreating this resource grants a particular team permissions on a\nparticular repository.\n\nThe repository and the team must both belong to the same organization\non GitHub. This resource does not actually *create* any repositories;\nto do that, see `github..Repository`.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\n// Add a repository to the team\nconst someTeam = new github.Team(\"some_team\", {\n    description: \"Some cool team\",\n});\nconst someRepo = new github.Repository(\"some_repo\", {});\nconst someTeamRepo = new github.TeamRepository(\"some_team_repo\", {\n    permission: \"pull\",\n    repository: someRepo.name,\n    teamId: someTeam.id,\n});\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\n# Add a repository to the team\nsome_team = github.Team(\"someTeam\", description=\"Some cool team\")\nsome_repo = github.Repository(\"someRepo\")\nsome_team_repo = github.TeamRepository(\"someTeamRepo\",\n    permission=\"pull\",\n    repository=some_repo.name,\n    team_id=some_team.id)\n```\n\n{{% /example %}}\n{{% /examples %}}\n",
+            "properties": {
+                "etag": {
+                    "type": "string"
+                },
+                "permission": {
+                    "type": "string",
+                    "description": "The permissions of team members regarding the repository.\nMust be one of `pull`, `triage`, `push`, `maintain`, or `admin`. Defaults to `pull`.\n"
+                },
+                "repository": {
+                    "type": "string",
+                    "description": "The repository to add to the team.\n"
+                },
+                "teamId": {
+                    "type": "string",
+                    "description": "The GitHub team id\n"
+                }
+            },
+            "required": [
+                "etag",
+                "repository",
+                "teamId"
+            ],
+            "inputProperties": {
+                "permission": {
+                    "type": "string",
+                    "description": "The permissions of team members regarding the repository.\nMust be one of `pull`, `triage`, `push`, `maintain`, or `admin`. Defaults to `pull`.\n"
+                },
+                "repository": {
+                    "type": "string",
+                    "description": "The repository to add to the team.\n"
+                },
+                "teamId": {
+                    "type": "string",
+                    "description": "The GitHub team id\n"
+                }
+            },
+            "requiredInputs": [
+                "repository",
+                "teamId"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering TeamRepository resources.\n",
+                "properties": {
+                    "etag": {
+                        "type": "string"
+                    },
+                    "permission": {
+                        "type": "string",
+                        "description": "The permissions of team members regarding the repository.\nMust be one of `pull`, `triage`, `push`, `maintain`, or `admin`. Defaults to `pull`.\n"
+                    },
+                    "repository": {
+                        "type": "string",
+                        "description": "The repository to add to the team.\n"
+                    },
+                    "teamId": {
+                        "type": "string",
+                        "description": "The GitHub team id\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "github:index/teamSyncGroupMapping:TeamSyncGroupMapping": {
+            "description": "This resource allows you to create and manage Identity Provider (IdP) group connections within your GitHub teams.\nYou must have team synchronization enabled for organizations owned by enterprise accounts.\n\nTo learn more about team synchronization between IdPs and Github, please refer to:\nhttps://help.github.com/en/github/setting-up-and-managing-organizations-and-teams/synchronizing-teams-between-your-identity-provider-and-github\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\nconst exampleGroups = github.getOrganizationTeamSyncGroups({});\nconst exampleGroupMapping = new github.TeamSyncGroupMapping(\"exampleGroupMapping\", {\n    teamSlug: \"example\",\n    dynamic: [{\n        forEach: exampleGroups.then(exampleGroups =\u003e exampleGroups.groups.filter(g =\u003e g.groupName == \"some_team_group\").map(g =\u003e g)),\n        content: [{\n            groupId: group.value.group_id,\n            groupName: group.value.group_name,\n            groupDescription: group.value.group_description,\n        }],\n    }],\n});\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\nexample_groups = github.get_organization_team_sync_groups()\nexample_group_mapping = github.TeamSyncGroupMapping(\"exampleGroupMapping\",\n    team_slug=\"example\",\n    dynamic=[{\n        \"forEach\": [g for g in example_groups.groups if g.group_name == \"some_team_group\"],\n        \"content\": [{\n            \"groupId\": group[\"value\"][\"group_id\"],\n            \"groupName\": group[\"value\"][\"group_name\"],\n            \"groupDescription\": group[\"value\"][\"group_description\"],\n        }],\n    }])\n```\n\n{{% /example %}}\n{{% /examples %}}\n",
+            "properties": {
+                "etag": {
+                    "type": "string"
+                },
+                "groups": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/github:/TeamSyncGroupMappingGroup:TeamSyncGroupMappingGroup"
+                    },
+                    "description": "An Array of GitHub Identity Provider Groups (or empty []).  Each `group` block consists of the fields documented below.\n___\n"
+                },
+                "teamSlug": {
+                    "type": "string",
+                    "description": "Slug of the team\n"
+                }
+            },
+            "required": [
+                "etag",
+                "teamSlug"
+            ],
+            "inputProperties": {
+                "groups": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/github:/TeamSyncGroupMappingGroup:TeamSyncGroupMappingGroup"
+                    },
+                    "description": "An Array of GitHub Identity Provider Groups (or empty []).  Each `group` block consists of the fields documented below.\n___\n"
+                },
+                "teamSlug": {
+                    "type": "string",
+                    "description": "Slug of the team\n"
+                }
+            },
+            "requiredInputs": [
+                "teamSlug"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering TeamSyncGroupMapping resources.\n",
+                "properties": {
+                    "etag": {
+                        "type": "string"
+                    },
+                    "groups": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/github:/TeamSyncGroupMappingGroup:TeamSyncGroupMappingGroup"
+                        },
+                        "description": "An Array of GitHub Identity Provider Groups (or empty []).  Each `group` block consists of the fields documented below.\n___\n"
+                    },
+                    "teamSlug": {
+                        "type": "string",
+                        "description": "Slug of the team\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "github:index/userGpgKey:UserGpgKey": {
+            "description": "Provides a GitHub user's GPG key resource.\n\nThis resource allows you to add/remove GPG keys from your user account.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\nconst example = new github.UserGpgKey(\"example\", {\n    armoredPublicKey: `-----BEGIN PGP PUBLIC KEY BLOCK-----\n...\n-----END PGP PUBLIC KEY BLOCK-----`,\n});\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\nexample = github.UserGpgKey(\"example\", armored_public_key=\"\"\"-----BEGIN PGP PUBLIC KEY BLOCK-----\n...\n-----END PGP PUBLIC KEY BLOCK-----\n\"\"\")\n```\n\n{{% /example %}}\n{{% /examples %}}\n",
+            "properties": {
+                "armoredPublicKey": {
+                    "type": "string",
+                    "description": "Your public GPG key, generated in ASCII-armored format.\nSee [Generating a new GPG key](https://help.github.com/articles/generating-a-new-gpg-key/) for help on creating a GPG key.\n"
+                },
+                "etag": {
+                    "type": "string"
+                },
+                "keyId": {
+                    "type": "string",
+                    "description": "The key ID of the GPG key, e.g. `3262EFF25BA0D270`\n"
+                }
+            },
+            "required": [
+                "armoredPublicKey",
+                "etag",
+                "keyId"
+            ],
+            "inputProperties": {
+                "armoredPublicKey": {
+                    "type": "string",
+                    "description": "Your public GPG key, generated in ASCII-armored format.\nSee [Generating a new GPG key](https://help.github.com/articles/generating-a-new-gpg-key/) for help on creating a GPG key.\n"
+                }
+            },
+            "requiredInputs": [
+                "armoredPublicKey"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering UserGpgKey resources.\n",
+                "properties": {
+                    "armoredPublicKey": {
+                        "type": "string",
+                        "description": "Your public GPG key, generated in ASCII-armored format.\nSee [Generating a new GPG key](https://help.github.com/articles/generating-a-new-gpg-key/) for help on creating a GPG key.\n"
+                    },
+                    "etag": {
+                        "type": "string"
+                    },
+                    "keyId": {
+                        "type": "string",
+                        "description": "The key ID of the GPG key, e.g. `3262EFF25BA0D270`\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "github:index/userInvitationAccepter:UserInvitationAccepter": {
+            "description": "Provides a resource to manage GitHub repository collaborator invitations.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\nconst exampleRepository = new github.Repository(\"example\", {});\nconst exampleRepositoryCollaborator = new github.RepositoryCollaborator(\"example\", {\n    permission: \"push\",\n    repository: exampleRepository.name,\n    username: \"example-username\",\n});\nconst invitee = new github.Provider(\"invitee\", {\n    token: var_invitee_token,\n});\nconst exampleUserInvitationAccepter = new github.UserInvitationAccepter(\"example\", {\n    invitationId: exampleRepositoryCollaborator.invitationId,\n}, { provider: invitee });\n```\n```python\nimport pulumi\nimport pulumi_github as github\nimport pulumi_pulumi as pulumi\n\nexample_repository = github.Repository(\"exampleRepository\")\nexample_repository_collaborator = github.RepositoryCollaborator(\"exampleRepositoryCollaborator\",\n    permission=\"push\",\n    repository=example_repository.name,\n    username=\"example-username\")\ninvitee = pulumi.providers.Github(\"invitee\", token=var[\"invitee_token\"])\nexample_user_invitation_accepter = github.UserInvitationAccepter(\"exampleUserInvitationAccepter\", invitation_id=example_repository_collaborator.invitation_id)\n```\n\n{{% /example %}}\n{{% /examples %}}\n",
+            "properties": {
+                "invitationId": {
+                    "type": "string",
+                    "description": "ID of the invitation to accept\n"
+                }
+            },
+            "required": [
+                "invitationId"
+            ],
+            "inputProperties": {
+                "invitationId": {
+                    "type": "string",
+                    "description": "ID of the invitation to accept\n"
+                }
+            },
+            "requiredInputs": [
+                "invitationId"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering UserInvitationAccepter resources.\n",
+                "properties": {
+                    "invitationId": {
+                        "type": "string",
+                        "description": "ID of the invitation to accept\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "github:index/userSshKey:UserSshKey": {
+            "description": "Provides a GitHub user's SSH key resource.\n\nThis resource allows you to add/remove SSH keys from your user account.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as fs from \"fs\";\nimport * as github from \"@pulumi/github\";\n\nconst example = new github.UserSshKey(\"example\", {\n    key: fs.readFileSync(\"~/.ssh/id_rsa.pub\", \"utf-8\"),\n    title: \"example title\",\n});\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\nexample = github.UserSshKey(\"example\",\n    key=(lambda path: open(path).read())(\"~/.ssh/id_rsa.pub\"),\n    title=\"example title\")\n```\n\n{{% /example %}}\n{{% /examples %}}\n",
+            "properties": {
+                "etag": {
+                    "type": "string"
+                },
+                "key": {
+                    "type": "string",
+                    "description": "The public SSH key to add to your GitHub account.\n"
+                },
+                "title": {
+                    "type": "string",
+                    "description": "A descriptive name for the new key. e.g. `Personal MacBook Air`\n"
+                },
+                "url": {
+                    "type": "string",
+                    "description": "The URL of the SSH key\n"
+                }
+            },
+            "required": [
+                "etag",
+                "key",
+                "title",
+                "url"
+            ],
+            "inputProperties": {
+                "key": {
+                    "type": "string",
+                    "description": "The public SSH key to add to your GitHub account.\n"
+                },
+                "title": {
+                    "type": "string",
+                    "description": "A descriptive name for the new key. e.g. `Personal MacBook Air`\n"
+                }
+            },
+            "requiredInputs": [
+                "key",
+                "title"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering UserSshKey resources.\n",
+                "properties": {
+                    "etag": {
+                        "type": "string"
+                    },
+                    "key": {
+                        "type": "string",
+                        "description": "The public SSH key to add to your GitHub account.\n"
+                    },
+                    "title": {
+                        "type": "string",
+                        "description": "A descriptive name for the new key. e.g. `Personal MacBook Air`\n"
+                    },
+                    "url": {
+                        "type": "string",
+                        "description": "The URL of the SSH key\n"
+                    }
+                },
+                "type": "object"
+            }
+        }
+    },
+    "functions": {
+        "github:index/getActionsPublicKey:getActionsPublicKey": {
+            "description": "Use this data source to retrieve information about a GitHub Actions public key. This data source is required to be used with other GitHub secrets interactions.\nNote that the provider `token` must have admin rights to a repository to retrieve it's action public key.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\nconst example = pulumi.output(github.getActionsPublicKey({\n    repository: \"example_repo\",\n}, { async: true }));\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\nexample = github.get_actions_public_key(repository=\"example_repo\")\n```\n\n{{% /example %}}\n{{% /examples %}}\n",
+            "inputs": {
+                "description": "A collection of arguments for invoking getActionsPublicKey.\n",
+                "properties": {
+                    "repository": {
+                        "type": "string",
+                        "description": "Name of the repository to get public key from.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "repository"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getActionsPublicKey.\n",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "key": {
+                        "type": "string",
+                        "description": "Actual key retrieved.\n"
+                    },
+                    "keyId": {
+                        "type": "string",
+                        "description": "ID of the key that has been retrieved.\n"
+                    },
+                    "repository": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "key",
+                    "keyId",
+                    "repository",
+                    "id"
+                ]
+            }
+        },
+        "github:index/getBranch:getBranch": {
+            "description": "Use this data source to retrieve information about a repository branch.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\nconst development = pulumi.output(github.getBranch({\n    branch: \"development\",\n    repository: \"example\",\n}, { async: true }));\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\ndevelopment = github.get_branch(branch=\"development\",\n    repository=\"example\")\n```\n\n{{% /example %}}\n{{% /examples %}}\n",
+            "inputs": {
+                "description": "A collection of arguments for invoking getBranch.\n",
+                "properties": {
+                    "branch": {
+                        "type": "string",
+                        "description": "The repository branch to create.\n"
+                    },
+                    "repository": {
+                        "type": "string",
+                        "description": "The GitHub repository name.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "branch",
+                    "repository"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getBranch.\n",
+                "properties": {
+                    "branch": {
+                        "type": "string"
+                    },
+                    "etag": {
+                        "type": "string",
+                        "description": "An etag representing the Branch object.\n"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "ref": {
+                        "type": "string",
+                        "description": "A string representing a branch reference, in the form of `refs/heads/\u003cbranch\u003e`.\n"
+                    },
+                    "repository": {
+                        "type": "string"
+                    },
+                    "sha": {
+                        "type": "string",
+                        "description": "A string storing the reference's `HEAD` commit's SHA1.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "branch",
+                    "etag",
+                    "ref",
+                    "repository",
+                    "sha",
+                    "id"
+                ]
+            }
+        },
+        "github:index/getCollaborators:getCollaborators": {
+            "description": "Use this data source to retrieve the collaborators for a given repository.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\nconst test = pulumi.output(github.getCollaborators({\n    owner: \"example_owner\",\n    repository: \"example_repository\",\n}, { async: true }));\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\ntest = github.get_collaborators(owner=\"example_owner\",\n    repository=\"example_repository\")\n```\n\n{{% /example %}}\n{{% /examples %}}\n",
+            "inputs": {
+                "description": "A collection of arguments for invoking getCollaborators.\n",
+                "properties": {
+                    "affiliation": {
+                        "type": "string",
+                        "description": "Filter collaborators returned by their affiliation. Can be one of: `outside`, `direct`, `all`.  Defaults to `all`.\n"
+                    },
+                    "owner": {
+                        "type": "string",
+                        "description": "The organization that owns the repository.\n"
+                    },
+                    "repository": {
+                        "type": "string",
+                        "description": "The name of the repository.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "owner",
+                    "repository"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getCollaborators.\n",
+                "properties": {
+                    "affiliation": {
+                        "type": "string"
+                    },
+                    "collaborators": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/github:/getCollaboratorsCollaborator:getCollaboratorsCollaborator"
+                        },
+                        "description": "An Array of GitHub collaborators.  Each `collaborator` block consists of the fields documented below.\n"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "owner": {
+                        "type": "string"
+                    },
+                    "repository": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "collaborators",
+                    "owner",
+                    "repository",
+                    "id"
+                ]
+            }
+        },
+        "github:index/getIpRanges:getIpRanges": {
+            "description": "Use this data source to retrieve information about GitHub's IP addresses.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\nconst test = pulumi.output(github.getIpRanges({ async: true }));\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\ntest = github.get_ip_ranges()\n```\n\n{{% /example %}}\n{{% /examples %}}\n",
+            "outputs": {
+                "description": "A collection of values returned by getIpRanges.\n",
+                "properties": {
+                    "gits": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "An Array of IP addresses in CIDR format specifying the Git servers.\n"
+                    },
+                    "hooks": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "An Array of IP addresses in CIDR format specifying the addresses that incoming service hooks will originate from.\n"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "importers": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "An Array of IP addresses in CIDR format specifying the A records for GitHub Importer.\n"
+                    },
+                    "pages": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "An Array of IP addresses in CIDR format specifying the A records for GitHub Pages.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "gits",
+                    "hooks",
+                    "importers",
+                    "pages",
+                    "id"
+                ]
+            }
+        },
+        "github:index/getMembership:getMembership": {
+            "description": "Use this data source to find out if a user is a member of your organization, as well\nas what role they have within it.\nIf the user's membership in the organization is pending their acceptance of an invite,\nthe role they would have once they accept will be returned.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\nconst membershipForSomeUser = pulumi.output(github.getMembership({\n    username: \"SomeUser\",\n}, { async: true }));\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\nmembership_for_some_user = github.get_membership(username=\"SomeUser\")\n```\n\n{{% /example %}}\n{{% /examples %}}\n",
+            "inputs": {
+                "description": "A collection of arguments for invoking getMembership.\n",
+                "properties": {
+                    "username": {
+                        "type": "string",
+                        "description": "The username to lookup in the organization.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "username"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getMembership.\n",
+                "properties": {
+                    "etag": {
+                        "type": "string",
+                        "description": "An etag representing the membership object.\n"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "role": {
+                        "type": "string",
+                        "description": "`admin` or `member` -- the role the user has within the organization.\n"
+                    },
+                    "username": {
+                        "type": "string",
+                        "description": "The username.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "etag",
+                    "role",
+                    "username",
+                    "id"
+                ]
+            }
+        },
+        "github:index/getOrganizationTeamSyncGroups:getOrganizationTeamSyncGroups": {
+            "description": "Use this data source to retrieve the identity provider (IdP) groups for an organization.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\nconst test = pulumi.output(github.getOrganizationTeamSyncGroups({ async: true }));\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\ntest = github.get_organization_team_sync_groups()\n```\n\n{{% /example %}}\n{{% /examples %}}\n",
+            "outputs": {
+                "description": "A collection of values returned by getOrganizationTeamSyncGroups.\n",
+                "properties": {
+                    "groups": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/github:/getOrganizationTeamSyncGroupsGroup:getOrganizationTeamSyncGroupsGroup"
+                        },
+                        "description": "An Array of GitHub Identity Provider Groups.  Each `group` block consists of the fields documented below.\n"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "groups",
+                    "id"
+                ]
+            }
+        },
+        "github:index/getRelease:getRelease": {
+            "description": "Use this data source to retrieve information about a GitHub release in a specific repository.\n\n{{% examples %}}\n## Example Usage\n\n{{% example %}}\nTo retrieve the latest release that is present in a repository:\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\nconst example = pulumi.output(github.getRelease({\n    owner: \"example-owner\",\n    repository: \"example-repository\",\n    retrieveBy: \"latest\",\n}, { async: true }));\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\nexample = github.get_release(owner=\"example-owner\",\n    repository=\"example-repository\",\n    retrieve_by=\"latest\")\n```\n\nTo retrieve a specific release from a repository based on it's ID:\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\nconst example = pulumi.output(github.getRelease({\n    id: 12345,\n    owner: \"example-owner\",\n    repository: \"example-repository\",\n    retrieveBy: \"id\",\n}, { async: true }));\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\nexample = github.get_release(id=12345,\n    owner=\"example-owner\",\n    repository=\"example-repository\",\n    retrieve_by=\"id\")\n```\n\nFinally, to retrieve a release based on it's tag:\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\nconst example = pulumi.output(github.getRelease({\n    owner: \"example-owner\",\n    releaseTag: \"v1.0.0\",\n    repository: \"example-repository\",\n    retrieveBy: \"tag\",\n}, { async: true }));\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\nexample = github.get_release(owner=\"example-owner\",\n    release_tag=\"v1.0.0\",\n    repository=\"example-repository\",\n    retrieve_by=\"tag\")\n```\n\n{{% /example %}}\n{{% /examples %}}\n",
+            "inputs": {
+                "description": "A collection of arguments for invoking getRelease.\n",
+                "properties": {
+                    "owner": {
+                        "type": "string",
+                        "description": "Owner of the repository.\n"
+                    },
+                    "releaseId": {
+                        "type": "integer",
+                        "description": "ID of the release to retrieve. Must be specified when `retrieve_by` = `id`.\n"
+                    },
+                    "releaseTag": {
+                        "type": "string",
+                        "description": "Tag of the release to retrieve. Must be specified when `retrieve_by` = `tag`.\n"
+                    },
+                    "repository": {
+                        "type": "string",
+                        "description": "Name of the repository to retrieve the release from.\n"
+                    },
+                    "retrieveBy": {
+                        "type": "string",
+                        "description": "Describes how to fetch the release. Valid values are `id`, `tag`, `latest`.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "owner",
+                    "repository",
+                    "retrieveBy"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getRelease.\n",
+                "properties": {
+                    "assertsUrl": {
+                        "type": "string",
+                        "description": "URL of any associated assets with the release\n"
+                    },
+                    "body": {
+                        "type": "string",
+                        "description": "Contents of the description (body) of a release\n"
+                    },
+                    "createdAt": {
+                        "type": "string",
+                        "description": "Date of release creation\n"
+                    },
+                    "draft": {
+                        "type": "boolean",
+                        "description": "(`Boolean`) indicates whether the release is a draft\n"
+                    },
+                    "htmlUrl": {
+                        "type": "string",
+                        "description": "URL directing to detailed information on the release\n"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Name of release\n"
+                    },
+                    "owner": {
+                        "type": "string"
+                    },
+                    "prerelease": {
+                        "type": "boolean",
+                        "description": "(`Boolean`) indicates whether the release is a prerelease\n"
+                    },
+                    "publishedAt": {
+                        "type": "string",
+                        "description": "Date of release publishing\n"
+                    },
+                    "releaseId": {
+                        "type": "integer",
+                        "description": "ID of release\n"
+                    },
+                    "releaseTag": {
+                        "type": "string",
+                        "description": "Tag of release\n"
+                    },
+                    "repository": {
+                        "type": "string"
+                    },
+                    "retrieveBy": {
+                        "type": "string"
+                    },
+                    "tarballUrl": {
+                        "type": "string",
+                        "description": "Download URL of a specific release in `tar.gz` format\n"
+                    },
+                    "targetCommitish": {
+                        "type": "string",
+                        "description": "Commitish value that determines where the Git release is created from\n"
+                    },
+                    "uploadUrl": {
+                        "type": "string",
+                        "description": "URL that can be used to upload Assets to the release\n"
+                    },
+                    "url": {
+                        "type": "string",
+                        "description": "Base URL of the release\n"
+                    },
+                    "zipballUrl": {
+                        "type": "string",
+                        "description": "Download URL of a specific release in `zip` format\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "assertsUrl",
+                    "body",
+                    "createdAt",
+                    "draft",
+                    "htmlUrl",
+                    "name",
+                    "owner",
+                    "prerelease",
+                    "publishedAt",
+                    "repository",
+                    "retrieveBy",
+                    "tarballUrl",
+                    "targetCommitish",
+                    "uploadUrl",
+                    "url",
+                    "zipballUrl",
+                    "id"
+                ]
+            }
+        },
+        "github:index/getRepositories:getRepositories": {
+            "description": "\u003e **Note:** The data source will return a maximum of `1000` repositories\n\t[as documented in official API docs](https://developer.github.com/v3/search/#about-the-search-api).\n\nUse this data source to retrieve a list of GitHub repositories using a search query.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\nconst example = pulumi.output(github.getRepositories({\n    query: \"org:hashicorp language:Go\",\n}, { async: true }));\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\nexample = github.get_repositories(query=\"org:hashicorp language:Go\")\n```\n\n{{% /example %}}\n{{% /examples %}}\n",
+            "inputs": {
+                "description": "A collection of arguments for invoking getRepositories.\n",
+                "properties": {
+                    "query": {
+                        "type": "string",
+                        "description": "Search query. See [documentation for the search syntax](https://help.github.com/articles/understanding-the-search-syntax/).\n"
+                    },
+                    "sort": {
+                        "type": "string",
+                        "description": "Sorts the repositories returned by the specified attribute. Valid values include `stars`, `fork`, and `updated`. Defaults to `updated`.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "query"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getRepositories.\n",
+                "properties": {
+                    "fullNames": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "names": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "query": {
+                        "type": "string"
+                    },
+                    "sort": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "fullNames",
+                    "names",
+                    "query",
+                    "id"
+                ]
+            }
+        },
+        "github:index/getRepository:getRepository": {
+            "inputs": {
+                "description": "A collection of arguments for invoking getRepository.\n",
+                "properties": {
+                    "fullName": {
+                        "type": "string",
+                        "description": "Full name of the repository (in `org/name` format).\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The name of the repository.\n"
+                    }
+                },
+                "type": "object"
+            },
+            "outputs": {
+                "description": "A collection of values returned by getRepository.\n",
+                "properties": {
+                    "allowMergeCommit": {
+                        "type": "boolean",
+                        "description": "Whether the repository allows merge commits.\n"
+                    },
+                    "allowRebaseMerge": {
+                        "type": "boolean",
+                        "description": "Whether the repository allows rebase merges.\n"
+                    },
+                    "allowSquashMerge": {
+                        "type": "boolean",
+                        "description": "Whether the repository allows squash merges.\n"
+                    },
+                    "archived": {
+                        "type": "boolean",
+                        "description": "Whether the repository is archived.\n"
+                    },
+                    "defaultBranch": {
+                        "type": "string",
+                        "description": "The name of the default branch of the repository.\n"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "A description of the repository.\n"
+                    },
+                    "fullName": {
+                        "type": "string"
+                    },
+                    "gitCloneUrl": {
+                        "type": "string",
+                        "description": "URL that can be provided to `git clone` to clone the repository anonymously via the git protocol.\n"
+                    },
+                    "hasDownloads": {
+                        "type": "boolean",
+                        "description": "Whether the repository has Downloads feature enabled.\n"
+                    },
+                    "hasIssues": {
+                        "type": "boolean",
+                        "description": "Whether the repository has GitHub Issues enabled.\n"
+                    },
+                    "hasProjects": {
+                        "type": "boolean",
+                        "description": "Whether the repository has the GitHub Projects enabled.\n"
+                    },
+                    "hasWiki": {
+                        "type": "boolean",
+                        "description": "Whether the repository has the GitHub Wiki enabled.\n"
+                    },
+                    "homepageUrl": {
+                        "type": "string",
+                        "description": "URL of a page describing the project.\n"
+                    },
+                    "htmlUrl": {
+                        "type": "string",
+                        "description": "URL to the repository on the web.\n"
+                    },
+                    "httpCloneUrl": {
+                        "type": "string",
+                        "description": "URL that can be provided to `git clone` to clone the repository via HTTPS.\n"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "nodeId": {
+                        "type": "string"
+                    },
+                    "private": {
+                        "type": "boolean",
+                        "description": "Whether the repository is private.\n"
+                    },
+                    "sshCloneUrl": {
+                        "type": "string",
+                        "description": "URL that can be provided to `git clone` to clone the repository via SSH.\n"
+                    },
+                    "svnUrl": {
+                        "type": "string",
+                        "description": "URL that can be provided to `svn checkout` to check out the repository via GitHub's Subversion protocol emulation.\n"
+                    },
+                    "topics": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "The list of topics of the repository.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "allowMergeCommit",
+                    "allowRebaseMerge",
+                    "allowSquashMerge",
+                    "archived",
+                    "defaultBranch",
+                    "description",
+                    "gitCloneUrl",
+                    "hasDownloads",
+                    "hasIssues",
+                    "hasProjects",
+                    "hasWiki",
+                    "homepageUrl",
+                    "htmlUrl",
+                    "httpCloneUrl",
+                    "nodeId",
+                    "private",
+                    "sshCloneUrl",
+                    "svnUrl",
+                    "topics",
+                    "id"
+                ]
+            }
+        },
+        "github:index/getTeam:getTeam": {
+            "description": "Use this data source to retrieve information about a GitHub team.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\nconst example = pulumi.output(github.getTeam({\n    slug: \"example\",\n}, { async: true }));\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\nexample = github.get_team(slug=\"example\")\n```\n\n{{% /example %}}\n{{% /examples %}}\n",
+            "inputs": {
+                "description": "A collection of arguments for invoking getTeam.\n",
+                "properties": {
+                    "slug": {
+                        "type": "string",
+                        "description": "The team slug.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "slug"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getTeam.\n",
+                "properties": {
+                    "description": {
+                        "type": "string",
+                        "description": "the team's description.\n"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "members": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "List of team members\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "the team's full name.\n"
+                    },
+                    "nodeId": {
+                        "type": "string"
+                    },
+                    "permission": {
+                        "type": "string",
+                        "description": "the team's permission level.\n"
+                    },
+                    "privacy": {
+                        "type": "string",
+                        "description": "the team's privacy type.\n"
+                    },
+                    "slug": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "description",
+                    "members",
+                    "name",
+                    "nodeId",
+                    "permission",
+                    "privacy",
+                    "slug",
+                    "id"
+                ]
+            }
+        },
+        "github:index/getUser:getUser": {
+            "description": "Use this data source to retrieve information about a GitHub user.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\nconst example = pulumi.output(github.getUser({\n    username: \"example\",\n}, { async: true }));\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\nexample = github.get_user(username=\"example\")\n```\n\n{{% /example %}}\n{{% /examples %}}\n",
+            "inputs": {
+                "description": "A collection of arguments for invoking getUser.\n",
+                "properties": {
+                    "username": {
+                        "type": "string",
+                        "description": "The username.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "username"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getUser.\n",
+                "properties": {
+                    "avatarUrl": {
+                        "type": "string",
+                        "description": "the user's avatar URL.\n"
+                    },
+                    "bio": {
+                        "type": "string",
+                        "description": "the user's bio.\n"
+                    },
+                    "blog": {
+                        "type": "string",
+                        "description": "the user's blog location.\n"
+                    },
+                    "company": {
+                        "type": "string",
+                        "description": "the user's company name.\n"
+                    },
+                    "createdAt": {
+                        "type": "string",
+                        "description": "the creation date.\n"
+                    },
+                    "email": {
+                        "type": "string",
+                        "description": "the user's email.\n"
+                    },
+                    "followers": {
+                        "type": "integer",
+                        "description": "the number of followers.\n"
+                    },
+                    "following": {
+                        "type": "integer",
+                        "description": "the number of following users.\n"
+                    },
+                    "gpgKeys": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "list of user's GPG keys.\n"
+                    },
+                    "gravatarId": {
+                        "type": "string",
+                        "description": "the user's gravatar ID.\n"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "location": {
+                        "type": "string",
+                        "description": "the user's location.\n"
+                    },
+                    "login": {
+                        "type": "string",
+                        "description": "the user's login.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "the user's full name.\n"
+                    },
+                    "nodeId": {
+                        "type": "string"
+                    },
+                    "publicGists": {
+                        "type": "integer",
+                        "description": "the number of public gists.\n"
+                    },
+                    "publicRepos": {
+                        "type": "integer",
+                        "description": "the number of public repositories.\n"
+                    },
+                    "siteAdmin": {
+                        "type": "boolean",
+                        "description": "whether the user is a GitHub admin.\n"
+                    },
+                    "sshKeys": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "list of user's SSH keys.\n"
+                    },
+                    "updatedAt": {
+                        "type": "string",
+                        "description": "the update date.\n"
+                    },
+                    "username": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "avatarUrl",
+                    "bio",
+                    "blog",
+                    "company",
+                    "createdAt",
+                    "email",
+                    "followers",
+                    "following",
+                    "gpgKeys",
+                    "gravatarId",
+                    "location",
+                    "login",
+                    "name",
+                    "nodeId",
+                    "publicGists",
+                    "publicRepos",
+                    "siteAdmin",
+                    "sshKeys",
+                    "updatedAt",
+                    "username",
+                    "id"
+                ]
+            }
+        }
+    },
+    "language": {
+        "csharp": {
+            "namespaces": null,
+            "packageReferences": {
+                "Pulumi": "2.*",
+                "System.Collections.Immutable": "1.6.0"
+            }
+        },
+        "nodejs": {
+            "dependencies": {
+                "@pulumi/pulumi": "^2.0.0"
+            },
+            "devDependencies": {
+                "@types/mime": "^2.0.0",
+                "@types/node": "^8.0.25"
+            },
+            "packageDescription": "A Pulumi package for creating and managing github cloud resources.",
+            "packageName": "",
+            "typescriptVersion": ""
+        },
+        "python": {
+            "requires": {
+                "pulumi": "\u003e=2.0.0,\u003c3.0.0"
+            }
+        }
+    }
+}

@@ -9,23 +9,21 @@ import * as utilities from "./utilities";
 /**
  * > **Note:** The data source will return a maximum of `1000` repositories
  * 	[as documented in official API docs](https://developer.github.com/v3/search/#about-the-search-api).
- * 
+ *
  * Use this data source to retrieve a list of GitHub repositories using a search query.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
- * 
+ *
  * const example = pulumi.output(github.getRepositories({
  *     query: "org:hashicorp language:Go",
  * }, { async: true }));
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-github/blob/master/website/docs/d/repositories.html.markdown.
  */
 export function getRepositories(args: GetRepositoriesArgs, opts?: pulumi.InvokeOptions): Promise<GetRepositoriesResult> {
     if (!opts) {

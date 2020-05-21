@@ -8,24 +8,24 @@ import * as utilities from "./utilities";
 
 /**
  * Provides a GitHub repository deploy key resource.
- * 
+ *
  * A deploy key is an SSH key that is stored on your server and grants
  * access to a single GitHub repository. This key is attached directly to the repository instead of to a personal user
  * account.
- * 
+ *
  * This resource allows you to add/remove repository deploy keys.
- * 
+ *
  * Further documentation on GitHub repository deploy keys:
  * - [About deploy keys](https://developer.github.com/guides/managing-deploy-keys/#deploy-keys)
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
- * 
+ *
  * // Add a deploy key
  * const exampleRepositoryDeployKey = new github.RepositoryDeployKey("exampleRepositoryDeployKey", {
  *     key: "ssh-rsa AAA...",
@@ -34,8 +34,6 @@ import * as utilities from "./utilities";
  *     title: "Repository test key",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-github/blob/master/website/docs/r/repository_deploy_key.html.markdown.
  */
 export class RepositoryDeployKey extends pulumi.CustomResource {
     /**

@@ -8,21 +8,19 @@ import * as utilities from "./utilities";
 
 /**
  * This resource allows you to create and manage blocks for GitHub organizations.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
- * 
+ *
  * const example = new github.OrganizationBlock("example", {
  *     username: "paultyng",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-github/blob/master/website/docs/r/organization_block.html.markdown.
  */
 export class OrganizationBlock extends pulumi.CustomResource {
     /**

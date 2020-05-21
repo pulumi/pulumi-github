@@ -9,22 +9,22 @@ import * as utilities from "./utilities";
 /**
  * This resource manages relationships between teams and repositories
  * in your GitHub organization.
- * 
+ *
  * Creating this resource grants a particular team permissions on a
  * particular repository.
- * 
+ *
  * The repository and the team must both belong to the same organization
  * on GitHub. This resource does not actually *create* any repositories;
  * to do that, see `github..Repository`.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
- * 
+ *
  * // Add a repository to the team
  * const someTeam = new github.Team("someTeam", {
  *     description: "Some cool team",
@@ -36,8 +36,6 @@ import * as utilities from "./utilities";
  *     teamId: someTeam.id,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-github/blob/master/website/docs/r/team_repository.html.markdown.
  */
 export class TeamRepository extends pulumi.CustomResource {
     /**

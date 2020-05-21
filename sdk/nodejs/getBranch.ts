@@ -8,22 +8,20 @@ import * as utilities from "./utilities";
 
 /**
  * Use this data source to retrieve information about a repository branch.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
- * 
+ *
  * const development = pulumi.output(github.getBranch({
  *     branch: "development",
  *     repository: "example",
  * }, { async: true }));
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-github/blob/master/website/docs/d/branch.html.markdown.
  */
 export function getBranch(args: GetBranchArgs, opts?: pulumi.InvokeOptions): Promise<GetBranchResult> {
     if (!opts) {

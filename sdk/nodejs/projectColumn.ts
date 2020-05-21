@@ -8,15 +8,15 @@ import * as utilities from "./utilities";
 
 /**
  * This resource allows you to create and manage columns for GitHub projects.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
- * 
+ *
  * const project = new github.OrganizationProject("project", {
  *     body: "This is an organization project.",
  * });
@@ -24,8 +24,6 @@ import * as utilities from "./utilities";
  *     projectId: project.id,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-github/blob/master/website/docs/r/project_column.html.markdown.
  */
 export class ProjectColumn extends pulumi.CustomResource {
     /**

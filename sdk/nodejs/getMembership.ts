@@ -11,21 +11,19 @@ import * as utilities from "./utilities";
  * as what role they have within it.
  * If the user's membership in the organization is pending their acceptance of an invite,
  * the role they would have once they accept will be returned.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
- * 
+ *
  * const membershipForSomeUser = pulumi.output(github.getMembership({
  *     username: "SomeUser",
  * }, { async: true }));
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-github/blob/master/website/docs/d/membership.html.markdown.
  */
 export function getMembership(args: GetMembershipArgs, opts?: pulumi.InvokeOptions): Promise<GetMembershipResult> {
     if (!opts) {

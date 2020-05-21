@@ -8,27 +8,25 @@ import * as utilities from "./utilities";
 
 /**
  * Provides a GitHub membership resource.
- * 
+ *
  * This resource allows you to add/remove users from your organization. When applied,
  * an invitation will be sent to the user to become part of the organization. When
  * destroyed, either the invitation will be cancelled or the user will be removed.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
- * 
+ *
  * // Add a user to the organization
  * const membershipForSomeUser = new github.Membership("membershipForSomeUser", {
  *     role: "member",
  *     username: "SomeUser",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-github/blob/master/website/docs/r/membership.html.markdown.
  */
 export class Membership extends pulumi.CustomResource {
     /**

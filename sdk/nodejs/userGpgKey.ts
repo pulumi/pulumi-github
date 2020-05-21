@@ -8,25 +8,23 @@ import * as utilities from "./utilities";
 
 /**
  * Provides a GitHub user's GPG key resource.
- * 
+ *
  * This resource allows you to add/remove GPG keys from your user account.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
- * 
+ *
  * const example = new github.UserGpgKey("example", {
  *     armoredPublicKey: `-----BEGIN PGP PUBLIC KEY BLOCK-----
  * ...
  * -----END PGP PUBLIC KEY BLOCK-----`,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-github/blob/master/website/docs/r/user_gpg_key.html.markdown.
  */
 export class UserGpgKey extends pulumi.CustomResource {
     /**

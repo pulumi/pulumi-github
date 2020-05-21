@@ -8,15 +8,15 @@ import * as utilities from "./utilities";
 
 /**
  * This resource allows you to create and manage webhooks for GitHub organization.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
- * 
+ *
  * const foo = new github.OrganizationWebhook("foo", {
  *     active: false,
  *     configuration: {
@@ -27,8 +27,6 @@ import * as utilities from "./utilities";
  *     events: ["issues"],
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-github/blob/master/website/docs/r/organization_webhook.html.markdown.
  */
 export class OrganizationWebhook extends pulumi.CustomResource {
     /**

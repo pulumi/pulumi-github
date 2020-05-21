@@ -8,23 +8,21 @@ import * as utilities from "./utilities";
 
 /**
  * Use this data source to retrieve information about a GitHub release in a specific repository.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
- * 
+ *
  * const example = pulumi.output(github.getRelease({
  *     owner: "example-owner",
  *     repository: "example-repository",
  *     retrieveBy: "latest",
  * }, { async: true }));
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-github/blob/master/website/docs/d/release.html.markdown.
  */
 export function getRelease(args: GetReleaseArgs, opts?: pulumi.InvokeOptions): Promise<GetReleaseResult> {
     if (!opts) {

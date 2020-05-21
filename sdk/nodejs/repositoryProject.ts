@@ -8,15 +8,15 @@ import * as utilities from "./utilities";
 
 /**
  * This resource allows you to create and manage projects for GitHub repository.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
- * 
+ *
  * const example = new github.Repository("example", {
  *     description: "My awesome codebase",
  *     hasProjects: true,
@@ -26,8 +26,6 @@ import * as utilities from "./utilities";
  *     repository: example.name,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-github/blob/master/website/docs/r/repository_project.html.markdown.
  */
 export class RepositoryProject extends pulumi.CustomResource {
     /**

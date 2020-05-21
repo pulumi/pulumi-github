@@ -8,21 +8,19 @@ import * as utilities from "./utilities";
 
 /**
  * This resource allows you to create and manage projects for GitHub organization.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
- * 
+ *
  * const project = new github.OrganizationProject("project", {
  *     body: "This is a organization project.",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-github/blob/master/website/docs/r/organization_project.html.markdown.
  */
 export class OrganizationProject extends pulumi.CustomResource {
     /**
