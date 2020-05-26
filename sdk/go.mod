@@ -1,6 +1,6 @@
 module github.com/pulumi/pulumi-github/sdk
 
-go 1.13
+go 1.14
 
 require (
 	github.com/pkg/errors v0.9.1
