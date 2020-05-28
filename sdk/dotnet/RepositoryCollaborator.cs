@@ -25,6 +25,30 @@ namespace Pulumi.Github
     /// 
     /// - [Adding outside collaborators to repositories in your organization](https://help.github.com/articles/adding-outside-collaborators-to-repositories-in-your-organization/)
     /// - [Converting an organization member to an outside collaborator](https://help.github.com/articles/converting-an-organization-member-to-an-outside-collaborator/)
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Github = Pulumi.Github;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         // Add a collaborator to a repository
+    ///         var aRepoCollaborator = new Github.RepositoryCollaborator("aRepoCollaborator", new Github.RepositoryCollaboratorArgs
+    ///         {
+    ///             Permission = "admin",
+    ///             Repository = "our-cool-repo",
+    ///             Username = "SomeUser",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class RepositoryCollaborator : Pulumi.CustomResource
     {

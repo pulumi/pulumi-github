@@ -15,6 +15,28 @@ namespace Pulumi.Github
         /// Use this data source to retrieve the collaborators for a given repository.
         /// 
         /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Github = Pulumi.Github;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var test = Output.Create(Github.GetCollaborators.InvokeAsync(new Github.GetCollaboratorsArgs
+        ///         {
+        ///             Owner = "example_owner",
+        ///             Repository = "example_repository",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// 
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetCollaboratorsResult> InvokeAsync(GetCollaboratorsArgs args, InvokeOptions? options = null)

@@ -13,6 +13,77 @@ namespace Pulumi.Github
     /// Protects a GitHub branch.
     /// 
     /// This resource allows you to configure branch protection for repositories in your organization. When applied, the branch will be protected from forced pushes and deletion. Additional constraints, such as required status checks or restrictions on users, teams, and apps, can also be configured.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Github = Pulumi.Github;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleTeam = new Github.Team("exampleTeam", new Github.TeamArgs
+    ///         {
+    ///         });
+    ///         // Protect the master branch of the foo repository. Additionally, require that
+    ///         // the "ci/travis" context to be passing and only allow the engineers team merge
+    ///         // to the branch.
+    ///         var exampleBranchProtection = new Github.BranchProtection("exampleBranchProtection", new Github.BranchProtectionArgs
+    ///         {
+    ///             Branch = "master",
+    ///             EnforceAdmins = true,
+    ///             Repository = github_repository.Example.Name,
+    ///             RequiredPullRequestReviews = new Github.Inputs.BranchProtectionRequiredPullRequestReviewsArgs
+    ///             {
+    ///                 DismissStaleReviews = true,
+    ///                 DismissalTeams = 
+    ///                 {
+    ///                     exampleTeam.Slug,
+    ///                     github_team.Second.Slug,
+    ///                 },
+    ///                 DismissalUsers = 
+    ///                 {
+    ///                     "foo-user",
+    ///                 },
+    ///             },
+    ///             RequiredStatusChecks = new Github.Inputs.BranchProtectionRequiredStatusChecksArgs
+    ///             {
+    ///                 Contexts = 
+    ///                 {
+    ///                     "ci/travis",
+    ///                 },
+    ///                 Strict = false,
+    ///             },
+    ///             Restrictions = new Github.Inputs.BranchProtectionRestrictionsArgs
+    ///             {
+    ///                 Apps = 
+    ///                 {
+    ///                     "foo-app",
+    ///                 },
+    ///                 Teams = 
+    ///                 {
+    ///                     exampleTeam.Slug,
+    ///                 },
+    ///                 Users = 
+    ///                 {
+    ///                     "foo-user",
+    ///                 },
+    ///             },
+    ///         });
+    ///         var exampleTeamRepository = new Github.TeamRepository("exampleTeamRepository", new Github.TeamRepositoryArgs
+    ///         {
+    ///             Permission = "pull",
+    ///             Repository = github_repository.Example.Name,
+    ///             TeamId = exampleTeam.Id,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class BranchProtection : Pulumi.CustomResource
     {

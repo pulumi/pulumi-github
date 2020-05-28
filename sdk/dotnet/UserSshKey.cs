@@ -13,6 +13,29 @@ namespace Pulumi.Github
     /// Provides a GitHub user's SSH key resource.
     /// 
     /// This resource allows you to add/remove SSH keys from your user account.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using System.IO;
+    /// using Pulumi;
+    /// using Github = Pulumi.Github;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Github.UserSshKey("example", new Github.UserSshKeyArgs
+    ///         {
+    ///             Key = File.ReadAllText("~/.ssh/id_rsa.pub"),
+    ///             Title = "example title",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class UserSshKey : Pulumi.CustomResource
     {

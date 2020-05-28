@@ -15,6 +15,28 @@ namespace Pulumi.Github
         /// Use this data source to retrieve information about a repository branch.
         /// 
         /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Github = Pulumi.Github;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var development = Output.Create(Github.GetBranch.InvokeAsync(new Github.GetBranchArgs
+        ///         {
+        ///             Branch = "development",
+        ///             Repository = "example",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// 
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetBranchResult> InvokeAsync(GetBranchArgs args, InvokeOptions? options = null)

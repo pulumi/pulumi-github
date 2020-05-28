@@ -20,6 +20,31 @@ namespace Pulumi.Github
     /// 
     /// Further documentation on GitHub repository deploy keys:
     /// - [About deploy keys](https://developer.github.com/guides/managing-deploy-keys/#deploy-keys)
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Github = Pulumi.Github;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         // Add a deploy key
+    ///         var exampleRepositoryDeployKey = new Github.RepositoryDeployKey("exampleRepositoryDeployKey", new Github.RepositoryDeployKeyArgs
+    ///         {
+    ///             Key = "ssh-rsa AAA...",
+    ///             ReadOnly = "false",
+    ///             Repository = "test-repo",
+    ///             Title = "Repository test key",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class RepositoryDeployKey : Pulumi.CustomResource
     {

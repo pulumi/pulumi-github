@@ -16,6 +16,39 @@ namespace Pulumi.Github
     /// the user will be added to the team. If the user hasn't accepted their invitation to the
     /// organization, they won't be part of the team until they do. When
     /// destroyed, the user will be removed from the team.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Github = Pulumi.Github;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         // Add a user to the organization
+    ///         var membershipForSomeUser = new Github.Membership("membershipForSomeUser", new Github.MembershipArgs
+    ///         {
+    ///             Role = "member",
+    ///             Username = "SomeUser",
+    ///         });
+    ///         var someTeam = new Github.Team("someTeam", new Github.TeamArgs
+    ///         {
+    ///             Description = "Some cool team",
+    ///         });
+    ///         var someTeamMembership = new Github.TeamMembership("someTeamMembership", new Github.TeamMembershipArgs
+    ///         {
+    ///             Role = "member",
+    ///             TeamId = someTeam.Id,
+    ///             Username = "SomeUser",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class TeamMembership : Pulumi.CustomResource
     {

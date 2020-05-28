@@ -11,6 +11,27 @@ namespace Pulumi.Github
 {
     /// <summary>
     /// This resource allows you to create and manage projects for GitHub organization.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Github = Pulumi.Github;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var project = new Github.OrganizationProject("project", new Github.OrganizationProjectArgs
+    ///         {
+    ///             Body = "This is a organization project.",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class OrganizationProject : Pulumi.CustomResource
     {
