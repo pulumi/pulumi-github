@@ -12,6 +12,30 @@ namespace Pulumi.Github
     /// <summary>
     /// This resource allows you to create and manage files within a
     /// GitHub repository.
+    /// 
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Github = Pulumi.Github;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var gitignore = new Github.RepositoryFile("gitignore", new Github.RepositoryFileArgs
+    ///         {
+    ///             Content = "**/*.tfstate",
+    ///             File = ".gitignore",
+    ///             Repository = "example",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class RepositoryFile : Pulumi.CustomResource
     {

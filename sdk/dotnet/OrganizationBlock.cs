@@ -11,6 +11,27 @@ namespace Pulumi.Github
 {
     /// <summary>
     /// This resource allows you to create and manage blocks for GitHub organizations.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Github = Pulumi.Github;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Github.OrganizationBlock("example", new Github.OrganizationBlockArgs
+    ///         {
+    ///             Username = "paultyng",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class OrganizationBlock : Pulumi.CustomResource
     {

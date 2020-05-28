@@ -15,6 +15,75 @@ namespace Pulumi.Github
         /// Use this data source to retrieve information about a GitHub release in a specific repository.
         /// 
         /// {{% examples %}}
+        /// ## Example Usage
+        /// 
+        /// {{% example %}}
+        /// To retrieve the latest release that is present in a repository:
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Github = Pulumi.Github;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Github.GetRelease.InvokeAsync(new Github.GetReleaseArgs
+        ///         {
+        ///             Owner = "example-owner",
+        ///             Repository = "example-repository",
+        ///             RetrieveBy = "latest",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// 
+        /// To retrieve a specific release from a repository based on it's ID:
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Github = Pulumi.Github;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Github.GetRelease.InvokeAsync(new Github.GetReleaseArgs
+        ///         {
+        ///             Id = 12345,
+        ///             Owner = "example-owner",
+        ///             Repository = "example-repository",
+        ///             RetrieveBy = "id",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// 
+        /// Finally, to retrieve a release based on it's tag:
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Github = Pulumi.Github;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Github.GetRelease.InvokeAsync(new Github.GetReleaseArgs
+        ///         {
+        ///             Owner = "example-owner",
+        ///             ReleaseTag = "v1.0.0",
+        ///             Repository = "example-repository",
+        ///             RetrieveBy = "tag",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// 
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetReleaseResult> InvokeAsync(GetReleaseArgs args, InvokeOptions? options = null)

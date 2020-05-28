@@ -14,6 +14,29 @@ namespace Pulumi.Github
     /// 
     /// This resource allows you to add/remove teams from your organization. When applied,
     /// a new team will be created. When destroyed, that team will be removed.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Github = Pulumi.Github;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         // Add a team to the organization
+    ///         var someTeam = new Github.Team("someTeam", new Github.TeamArgs
+    ///         {
+    ///             Description = "Some cool team",
+    ///             Privacy = "closed",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Team : Pulumi.CustomResource
     {

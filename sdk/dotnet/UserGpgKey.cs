@@ -13,6 +13,30 @@ namespace Pulumi.Github
     /// Provides a GitHub user's GPG key resource.
     /// 
     /// This resource allows you to add/remove GPG keys from your user account.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Github = Pulumi.Github;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Github.UserGpgKey("example", new Github.UserGpgKeyArgs
+    ///         {
+    ///             ArmoredPublicKey = @"-----BEGIN PGP PUBLIC KEY BLOCK-----
+    /// ...
+    /// -----END PGP PUBLIC KEY BLOCK-----
+    /// ",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class UserGpgKey : Pulumi.CustomResource
     {

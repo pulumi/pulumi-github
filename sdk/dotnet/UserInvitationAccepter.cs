@@ -11,6 +11,40 @@ namespace Pulumi.Github
 {
     /// <summary>
     /// Provides a resource to manage GitHub repository collaborator invitations.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Github = Pulumi.Github;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleRepository = new Github.Repository("exampleRepository", new Github.RepositoryArgs
+    ///         {
+    ///         });
+    ///         var exampleRepositoryCollaborator = new Github.RepositoryCollaborator("exampleRepositoryCollaborator", new Github.RepositoryCollaboratorArgs
+    ///         {
+    ///             Permission = "push",
+    ///             Repository = exampleRepository.Name,
+    ///             Username = "example-username",
+    ///         });
+    ///         var invitee = new Github.Provider("invitee", new Github.ProviderArgs
+    ///         {
+    ///             Token = @var.Invitee_token,
+    ///         });
+    ///         var exampleUserInvitationAccepter = new Github.UserInvitationAccepter("exampleUserInvitationAccepter", new Github.UserInvitationAccepterArgs
+    ///         {
+    ///             InvitationId = exampleRepositoryCollaborator.InvitationId,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class UserInvitationAccepter : Pulumi.CustomResource
     {

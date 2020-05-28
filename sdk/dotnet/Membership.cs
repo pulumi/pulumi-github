@@ -15,6 +15,29 @@ namespace Pulumi.Github
     /// This resource allows you to add/remove users from your organization. When applied,
     /// an invitation will be sent to the user to become part of the organization. When
     /// destroyed, either the invitation will be cancelled or the user will be removed.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Github = Pulumi.Github;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         // Add a user to the organization
+    ///         var membershipForSomeUser = new Github.Membership("membershipForSomeUser", new Github.MembershipArgs
+    ///         {
+    ///             Role = "member",
+    ///             Username = "SomeUser",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Membership : Pulumi.CustomResource
     {

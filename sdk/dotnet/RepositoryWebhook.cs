@@ -9,13 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Github
 {
-    /// <summary>
-    /// This resource allows you to create and manage webhooks for repositories within your
-    /// GitHub organization.
-    /// 
-    /// This resource cannot currently be used to manage webhooks for *personal* repositories,
-    /// outside of organizations.
-    /// </summary>
     public partial class RepositoryWebhook : Pulumi.CustomResource
     {
         /// <summary>

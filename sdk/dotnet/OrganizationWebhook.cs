@@ -11,6 +11,37 @@ namespace Pulumi.Github
 {
     /// <summary>
     /// This resource allows you to create and manage webhooks for GitHub organization.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Github = Pulumi.Github;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var foo = new Github.OrganizationWebhook("foo", new Github.OrganizationWebhookArgs
+    ///         {
+    ///             Active = false,
+    ///             Configuration = new Github.Inputs.OrganizationWebhookConfigurationArgs
+    ///             {
+    ///                 ContentType = "form",
+    ///                 InsecureSsl = false,
+    ///                 Url = "https://google.de/",
+    ///             },
+    ///             Events = 
+    ///             {
+    ///                 "issues",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class OrganizationWebhook : Pulumi.CustomResource
     {

@@ -18,6 +18,27 @@ namespace Pulumi.Github
         /// the role they would have once they accept will be returned.
         /// 
         /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Github = Pulumi.Github;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var membershipForSomeUser = Output.Create(Github.GetMembership.InvokeAsync(new Github.GetMembershipArgs
+        ///         {
+        ///             Username = "SomeUser",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// 
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetMembershipResult> InvokeAsync(GetMembershipArgs args, InvokeOptions? options = null)

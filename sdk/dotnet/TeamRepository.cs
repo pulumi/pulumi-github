@@ -19,6 +19,37 @@ namespace Pulumi.Github
     /// The repository and the team must both belong to the same organization
     /// on GitHub. This resource does not actually *create* any repositories;
     /// to do that, see `github..Repository`.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Github = Pulumi.Github;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         // Add a repository to the team
+    ///         var someTeam = new Github.Team("someTeam", new Github.TeamArgs
+    ///         {
+    ///             Description = "Some cool team",
+    ///         });
+    ///         var someRepo = new Github.Repository("someRepo", new Github.RepositoryArgs
+    ///         {
+    ///         });
+    ///         var someTeamRepo = new Github.TeamRepository("someTeamRepo", new Github.TeamRepositoryArgs
+    ///         {
+    ///             Permission = "pull",
+    ///             Repository = someRepo.Name,
+    ///             TeamId = someTeam.Id,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class TeamRepository : Pulumi.CustomResource
     {

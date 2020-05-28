@@ -14,6 +14,28 @@ namespace Pulumi.Github
     /// 
     /// Additional constraints can be applied to ensure your branch is created from
     /// another branch or commit.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Github = Pulumi.Github;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var development = new Github.Branch("development", new Github.BranchArgs
+    ///         {
+    ///             Branch = "development",
+    ///             Repository = "example",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Branch : Pulumi.CustomResource
     {
