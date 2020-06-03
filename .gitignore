@@ -11,3 +11,6 @@ sdk/nodejs/node_modules
 *.iml
 
 yarn.lock
+
+**/schema.go
+**/version.txt
