@@ -1,6 +1,7 @@
 env:
-  GITHUB_ORGANIZATION: ${{ secrets.GITHUB_ORGANIZATION }}
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  GITHUB_ORGANIZATION: ${{ secrets.GITHUB_ORGANIZATION }}
+  GITHUB_TESTING_TOKEN: ${{ secrets.GITHUB_TESTING_TOKEN }}
   GO111MODULE: "on"
   PROVIDER: github
   PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
@@ -72,6 +73,7 @@ jobs:
         - nodejs
         - python
         - dotnet
+        - go
         nodeversion:
         - 13.x
         pythonversion:
@@ -258,6 +260,7 @@ jobs:
         - nodejs
         - python
         - dotnet
+        - go
         nodeversion:
         - 13.x
         pythonversion:

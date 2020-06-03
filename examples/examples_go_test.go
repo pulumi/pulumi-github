@@ -1,5 +1,5 @@
 // Copyright 2016-2017, Pulumi Corporation.  All rights reserved.
-// +build dotnet all
+// +build go all
 
 package examples
 
@@ -9,13 +9,13 @@ import (
 	"github.com/pulumi/pulumi/pkg/v2/testing/integration"
 )
 
-func getCsharpBaseOptions(t *testing.T) integration.ProgramTestOptions {
+func getGoBaseOptions(t *testing.T) integration.ProgramTestOptions {
 	base := getBaseOptions(t)
-	baseCsharp := base.With(integration.ProgramTestOptions{
+	baseGo := base.With(integration.ProgramTestOptions{
 		Dependencies: []string{
-			"Pulumi.Github",
+			"github.com/pulumi/pulumi-github/sdk",
 		},
 	})
 
-	return baseCsharp
+	return baseGo
 }

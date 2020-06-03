@@ -1,3 +1,6 @@
+// Copyright 2016-2017, Pulumi Corporation.  All rights reserved.
+// +build nodejs all
+
 package examples
 
 import (

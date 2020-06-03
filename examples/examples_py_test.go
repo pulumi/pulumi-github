@@ -1,7 +1,9 @@
+// Copyright 2016-2017, Pulumi Corporation.  All rights reserved.
+// +build python all
+
 package examples
 
 import (
-	"os"
 	"path"
 	"path/filepath"
 	"testing"
