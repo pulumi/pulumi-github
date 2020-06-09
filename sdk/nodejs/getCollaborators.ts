@@ -65,10 +65,10 @@ export interface GetCollaboratorsResult {
      * An Array of GitHub collaborators.  Each `collaborator` block consists of the fields documented below.
      */
     readonly collaborators: outputs.GetCollaboratorsCollaborator[];
-    readonly owner: string;
-    readonly repository: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly owner: string;
+    readonly repository: string;
 }

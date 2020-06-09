@@ -92,6 +92,10 @@ export interface GetReleaseResult {
      */
     readonly htmlUrl: string;
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * Name of release
      */
     readonly name: string;
@@ -134,8 +138,4 @@ export interface GetReleaseResult {
      * Download URL of a specific release in `zip` format
      */
     readonly zipballUrl: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

@@ -45,6 +45,10 @@ export interface GetIpRangesResult {
      */
     readonly hooks: string[];
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * An Array of IP addresses in CIDR format specifying the A records for GitHub Importer.
      */
     readonly importers: string[];
@@ -52,8 +56,4 @@ export interface GetIpRangesResult {
      * An Array of IP addresses in CIDR format specifying the A records for GitHub Pages.
      */
     readonly pages: string[];
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

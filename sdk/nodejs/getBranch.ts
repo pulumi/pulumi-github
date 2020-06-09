@@ -61,6 +61,10 @@ export interface GetBranchResult {
      */
     readonly etag: string;
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * A string representing a branch reference, in the form of `refs/heads/<branch>`.
      */
     readonly ref: string;
@@ -69,8 +73,4 @@ export interface GetBranchResult {
      * A string storing the reference's `HEAD` commit's SHA1.
      */
     readonly sha: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

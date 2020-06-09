@@ -37,7 +37,7 @@ namespace Pulumi.Github
     ///         var exampleRepositoryDeployKey = new Github.RepositoryDeployKey("exampleRepositoryDeployKey", new Github.RepositoryDeployKeyArgs
     ///         {
     ///             Key = "ssh-rsa AAA...",
-    ///             ReadOnly = "false",
+    ///             ReadOnly = false,
     ///             Repository = "test-repo",
     ///             Title = "Repository test key",
     ///         });

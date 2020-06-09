@@ -57,6 +57,10 @@ export interface GetMembershipResult {
      */
     readonly etag: string;
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * `admin` or `member` -- the role the user has within the organization.
      */
     readonly role: string;
@@ -64,8 +68,4 @@ export interface GetMembershipResult {
      * The username.
      */
     readonly username: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

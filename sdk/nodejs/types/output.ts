@@ -2,12 +2,16 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
 import * as outputs from "../types/output";
 
 export interface BranchProtectionRequiredPullRequestReviews {
     dismissStaleReviews?: boolean;
     dismissalTeams?: string[];
     dismissalUsers?: string[];
+    /**
+     * @deprecated Use enforce_admins instead
+     */
     includeAdmins?: boolean;
     requireCodeOwnerReviews?: boolean;
     requiredApprovingReviewCount?: number;
@@ -15,6 +19,9 @@ export interface BranchProtectionRequiredPullRequestReviews {
 
 export interface BranchProtectionRequiredStatusChecks {
     contexts?: string[];
+    /**
+     * @deprecated Use enforce_admins instead
+     */
     includeAdmins?: boolean;
     strict?: boolean;
 }

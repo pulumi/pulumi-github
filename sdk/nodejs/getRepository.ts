@@ -96,6 +96,10 @@ export interface GetRepositoryResult {
      * URL that can be provided to `git clone` to clone the repository via HTTPS.
      */
     readonly httpCloneUrl: string;
+    /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     readonly name?: string;
     readonly nodeId: string;
     /**
@@ -114,8 +118,4 @@ export interface GetRepositoryResult {
      * The list of topics of the repository.
      */
     readonly topics: string[];
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

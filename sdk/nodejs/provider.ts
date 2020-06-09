@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "./types/input";
-import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
@@ -37,14 +35,12 @@ export class Provider extends pulumi.ProviderResource {
      */
     constructor(name: string, args?: ProviderArgs, opts?: pulumi.ResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        {
-            inputs["anonymous"] = pulumi.output(args ? args.anonymous : undefined).apply(JSON.stringify);
-            inputs["baseUrl"] = (args ? args.baseUrl : undefined) || (utilities.getEnv("GITHUB_BASE_URL") || "https://api.github.com/");
-            inputs["individual"] = pulumi.output(args ? args.individual : undefined).apply(JSON.stringify);
-            inputs["insecure"] = pulumi.output(args ? args.insecure : undefined).apply(JSON.stringify);
-            inputs["organization"] = (args ? args.organization : undefined) || utilities.getEnv("GITHUB_ORGANIZATION");
-            inputs["token"] = (args ? args.token : undefined) || utilities.getEnv("GITHUB_TOKEN");
-        }
+        inputs["anonymous"] = pulumi.output(args ? args.anonymous : undefined).apply(JSON.stringify);
+        inputs["baseUrl"] = (args ? args.baseUrl : undefined) || (utilities.getEnv("GITHUB_BASE_URL") || "https://api.github.com/");
+        inputs["individual"] = pulumi.output(args ? args.individual : undefined).apply(JSON.stringify);
+        inputs["insecure"] = pulumi.output(args ? args.insecure : undefined).apply(JSON.stringify);
+        inputs["organization"] = (args ? args.organization : undefined) || utilities.getEnv("GITHUB_ORGANIZATION");
+        inputs["token"] = (args ? args.token : undefined) || utilities.getEnv("GITHUB_TOKEN");
         if (!opts) {
             opts = {}
         }
