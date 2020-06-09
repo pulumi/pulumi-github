@@ -51,6 +51,10 @@ export interface GetActionsPublicKeyArgs {
  */
 export interface GetActionsPublicKeyResult {
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * Actual key retrieved.
      */
     readonly key: string;
@@ -59,8 +63,4 @@ export interface GetActionsPublicKeyResult {
      */
     readonly keyId: string;
     readonly repository: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

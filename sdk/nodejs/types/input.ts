@@ -3,11 +3,15 @@
 
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 
 export interface BranchProtectionRequiredPullRequestReviews {
     dismissStaleReviews?: pulumi.Input<boolean>;
     dismissalTeams?: pulumi.Input<pulumi.Input<string>[]>;
     dismissalUsers?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * @deprecated Use enforce_admins instead
+     */
     includeAdmins?: pulumi.Input<boolean>;
     requireCodeOwnerReviews?: pulumi.Input<boolean>;
     requiredApprovingReviewCount?: pulumi.Input<number>;
@@ -15,6 +19,9 @@ export interface BranchProtectionRequiredPullRequestReviews {
 
 export interface BranchProtectionRequiredStatusChecks {
     contexts?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * @deprecated Use enforce_admins instead
+     */
     includeAdmins?: pulumi.Input<boolean>;
     strict?: pulumi.Input<boolean>;
 }

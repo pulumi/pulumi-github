@@ -90,6 +90,10 @@ export interface GetUserResult {
      */
     readonly gravatarId: string;
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * the user's location.
      */
     readonly location: string;
@@ -123,8 +127,4 @@ export interface GetUserResult {
      */
     readonly updatedAt: string;
     readonly username: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

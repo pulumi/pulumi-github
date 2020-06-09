@@ -58,11 +58,11 @@ export interface GetRepositoriesArgs {
  */
 export interface GetRepositoriesResult {
     readonly fullNames: string[];
-    readonly names: string[];
-    readonly query: string;
-    readonly sort?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly names: string[];
+    readonly query: string;
+    readonly sort?: string;
 }

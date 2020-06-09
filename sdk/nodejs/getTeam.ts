@@ -54,6 +54,10 @@ export interface GetTeamResult {
      */
     readonly description: string;
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * List of team members
      */
     readonly members: string[];
@@ -71,8 +75,4 @@ export interface GetTeamResult {
      */
     readonly privacy: string;
     readonly slug: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }
