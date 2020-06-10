@@ -2,9 +2,12 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Upgrade to v2.8.1 of the GitHub Terraform Provider
+_(none)_
 
 ---
+
+## 1.3.2 (2020-06-10)
+* Upgrade to v2.8.1 of the GitHub Terraform Provider
 
 ## 1.3.1 (2020-05-28)
 * Upgrade to Pulumi v2.3.0
