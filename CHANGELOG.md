@@ -6,6 +6,9 @@ _(none)_
 
 ---
 
+## 1.3.3 (2020-06-10)
+* Switch to GitHub actions for build
+
 ## 1.3.2 (2020-06-10)
 * Upgrade to v2.8.1 of the GitHub Terraform Provider
 
