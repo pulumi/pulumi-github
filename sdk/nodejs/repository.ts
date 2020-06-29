@@ -127,8 +127,10 @@ export class Repository extends pulumi.CustomResource {
     /**
      * Set to `true` to create a private repository.
      * Repositories are created as public (e.g. open source) by default.
+     *
+     * @deprecated use visibility instead
      */
-    public readonly private!: pulumi.Output<boolean | undefined>;
+    public readonly private!: pulumi.Output<boolean>;
     /**
      * URL that can be provided to `git clone` to clone the repository via SSH.
      */
@@ -145,6 +147,10 @@ export class Repository extends pulumi.CustomResource {
      * The list of topics of the repository.
      */
     public readonly topics!: pulumi.Output<string[] | undefined>;
+    /**
+     * Can be `public` or `private`. If your organization is associated with an enterprise account using GitHub Enterprise Cloud or GitHub Enterprise Server 2.20+, visibility can also be `internal`. The `visibility` parameter overrides the `private` parameter.
+     */
+    public readonly visibility!: pulumi.Output<string>;
 
     /**
      * Create a Repository resource with the given unique name, arguments, and options.
@@ -186,6 +192,7 @@ export class Repository extends pulumi.CustomResource {
             inputs["svnUrl"] = state ? state.svnUrl : undefined;
             inputs["template"] = state ? state.template : undefined;
             inputs["topics"] = state ? state.topics : undefined;
+            inputs["visibility"] = state ? state.visibility : undefined;
         } else {
             const args = argsOrState as RepositoryArgs | undefined;
             inputs["allowMergeCommit"] = args ? args.allowMergeCommit : undefined;
@@ -208,6 +215,7 @@ export class Repository extends pulumi.CustomResource {
             inputs["private"] = args ? args.private : undefined;
             inputs["template"] = args ? args.template : undefined;
             inputs["topics"] = args ? args.topics : undefined;
+            inputs["visibility"] = args ? args.visibility : undefined;
             inputs["etag"] = undefined /*out*/;
             inputs["fullName"] = undefined /*out*/;
             inputs["gitCloneUrl"] = undefined /*out*/;
@@ -325,6 +333,8 @@ export interface RepositoryState {
     /**
      * Set to `true` to create a private repository.
      * Repositories are created as public (e.g. open source) by default.
+     *
+     * @deprecated use visibility instead
      */
     readonly private?: pulumi.Input<boolean>;
     /**
@@ -343,6 +353,10 @@ export interface RepositoryState {
      * The list of topics of the repository.
      */
     readonly topics?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Can be `public` or `private`. If your organization is associated with an enterprise account using GitHub Enterprise Cloud or GitHub Enterprise Server 2.20+, visibility can also be `internal`. The `visibility` parameter overrides the `private` parameter.
+     */
+    readonly visibility?: pulumi.Input<string>;
 }
 
 /**
@@ -424,6 +438,8 @@ export interface RepositoryArgs {
     /**
      * Set to `true` to create a private repository.
      * Repositories are created as public (e.g. open source) by default.
+     *
+     * @deprecated use visibility instead
      */
     readonly private?: pulumi.Input<boolean>;
     /**
@@ -434,4 +450,8 @@ export interface RepositoryArgs {
      * The list of topics of the repository.
      */
     readonly topics?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Can be `public` or `private`. If your organization is associated with an enterprise account using GitHub Enterprise Cloud or GitHub Enterprise Server 2.20+, visibility can also be `internal`. The `visibility` parameter overrides the `private` parameter.
+     */
+    readonly visibility?: pulumi.Input<string>;
 }

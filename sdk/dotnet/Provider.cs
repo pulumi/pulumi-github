@@ -45,35 +45,22 @@ namespace Pulumi.Github
     public sealed class ProviderArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Authenticate without a token. When `anonymous`is true, the provider will not be able to access resourcesthat require
-        /// authentication.
-        /// </summary>
-        [Input("anonymous", json: true)]
-        public Input<bool>? Anonymous { get; set; }
-
-        /// <summary>
         /// The GitHub Base API URL
         /// </summary>
         [Input("baseUrl")]
         public Input<string>? BaseUrl { get; set; }
 
         /// <summary>
-        /// Run outside an organization. When `individual`is true, the provider will run outside the scope of anorganization.
-        /// </summary>
-        [Input("individual", json: true)]
-        public Input<bool>? Individual { get; set; }
-
-        /// <summary>
-        /// Whether server should be accessed without verifying the TLS certificate.
-        /// </summary>
-        [Input("insecure", json: true)]
-        public Input<bool>? Insecure { get; set; }
-
-        /// <summary>
-        /// The GitHub organization name to manage. If `individual` is false, `organization` is required.
+        /// (Deprecated) The GitHub organization name to manage.
         /// </summary>
         [Input("organization")]
         public Input<string>? Organization { get; set; }
+
+        /// <summary>
+        /// The GitHub owner name to manage.
+        /// </summary>
+        [Input("owner")]
+        public Input<string>? Owner { get; set; }
 
         /// <summary>
         /// The OAuth token used to connect to GitHub. If `anonymous` is false, `token` is required.

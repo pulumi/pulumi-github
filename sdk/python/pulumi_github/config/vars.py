@@ -11,30 +11,19 @@ from .. import utilities, tables
 
 __config__ = pulumi.Config('github')
 
-anonymous = __config__.get('anonymous')
-"""
-Authenticate without a token. When `anonymous`is true, the provider will not be able to access resourcesthat require
-authentication.
-"""
-
 base_url = __config__.get('baseUrl') or (utilities.get_env('GITHUB_BASE_URL') or 'https://api.github.com/')
 """
 The GitHub Base API URL
 """
 
-individual = __config__.get('individual')
-"""
-Run outside an organization. When `individual`is true, the provider will run outside the scope of anorganization.
-"""
-
-insecure = __config__.get('insecure')
-"""
-Whether server should be accessed without verifying the TLS certificate.
-"""
-
 organization = __config__.get('organization') or utilities.get_env('GITHUB_ORGANIZATION')
 """
-The GitHub organization name to manage. If `individual` is false, `organization` is required.
+(Deprecated) The GitHub organization name to manage.
+"""
+
+owner = __config__.get('owner')
+"""
+The GitHub owner name to manage.
 """
 
 token = __config__.get('token') or utilities.get_env('GITHUB_TOKEN')
