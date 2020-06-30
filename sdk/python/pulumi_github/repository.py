@@ -124,7 +124,11 @@ class Repository(pulumi.CustomResource):
     """
     The list of topics of the repository.
     """
-    def __init__(__self__, resource_name, opts=None, allow_merge_commit=None, allow_rebase_merge=None, allow_squash_merge=None, archived=None, auto_init=None, default_branch=None, delete_branch_on_merge=None, description=None, gitignore_template=None, has_downloads=None, has_issues=None, has_projects=None, has_wiki=None, homepage_url=None, is_template=None, license_template=None, name=None, private=None, template=None, topics=None, __props__=None, __name__=None, __opts__=None):
+    visibility: pulumi.Output[str]
+    """
+    Can be `public` or `private`. If your organization is associated with an enterprise account using GitHub Enterprise Cloud or GitHub Enterprise Server 2.20+, visibility can also be `internal`. The `visibility` parameter overrides the `private` parameter.
+    """
+    def __init__(__self__, resource_name, opts=None, allow_merge_commit=None, allow_rebase_merge=None, allow_squash_merge=None, archived=None, auto_init=None, default_branch=None, delete_branch_on_merge=None, description=None, gitignore_template=None, has_downloads=None, has_issues=None, has_projects=None, has_wiki=None, homepage_url=None, is_template=None, license_template=None, name=None, private=None, template=None, topics=None, visibility=None, __props__=None, __name__=None, __opts__=None):
         """
         Create a Repository resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
@@ -154,6 +158,7 @@ class Repository(pulumi.CustomResource):
                Repositories are created as public (e.g. open source) by default.
         :param pulumi.Input[dict] template: Use a template repository to create this resource. See Template Repositories below for details.
         :param pulumi.Input[list] topics: The list of topics of the repository.
+        :param pulumi.Input[str] visibility: Can be `public` or `private`. If your organization is associated with an enterprise account using GitHub Enterprise Cloud or GitHub Enterprise Server 2.20+, visibility can also be `internal`. The `visibility` parameter overrides the `private` parameter.
 
         The **template** object supports the following:
 
@@ -194,9 +199,13 @@ class Repository(pulumi.CustomResource):
             __props__['is_template'] = is_template
             __props__['license_template'] = license_template
             __props__['name'] = name
+            if private is not None:
+                warnings.warn("use visibility instead", DeprecationWarning)
+                pulumi.log.warn("private is deprecated: use visibility instead")
             __props__['private'] = private
             __props__['template'] = template
             __props__['topics'] = topics
+            __props__['visibility'] = visibility
             __props__['etag'] = None
             __props__['full_name'] = None
             __props__['git_clone_url'] = None
@@ -212,7 +221,7 @@ class Repository(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, allow_merge_commit=None, allow_rebase_merge=None, allow_squash_merge=None, archived=None, auto_init=None, default_branch=None, delete_branch_on_merge=None, description=None, etag=None, full_name=None, git_clone_url=None, gitignore_template=None, has_downloads=None, has_issues=None, has_projects=None, has_wiki=None, homepage_url=None, html_url=None, http_clone_url=None, is_template=None, license_template=None, name=None, node_id=None, private=None, ssh_clone_url=None, svn_url=None, template=None, topics=None):
+    def get(resource_name, id, opts=None, allow_merge_commit=None, allow_rebase_merge=None, allow_squash_merge=None, archived=None, auto_init=None, default_branch=None, delete_branch_on_merge=None, description=None, etag=None, full_name=None, git_clone_url=None, gitignore_template=None, has_downloads=None, has_issues=None, has_projects=None, has_wiki=None, homepage_url=None, html_url=None, http_clone_url=None, is_template=None, license_template=None, name=None, node_id=None, private=None, ssh_clone_url=None, svn_url=None, template=None, topics=None, visibility=None):
         """
         Get an existing Repository resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -251,6 +260,7 @@ class Repository(pulumi.CustomResource):
         :param pulumi.Input[str] svn_url: URL that can be provided to `svn checkout` to check out the repository via GitHub's Subversion protocol emulation.
         :param pulumi.Input[dict] template: Use a template repository to create this resource. See Template Repositories below for details.
         :param pulumi.Input[list] topics: The list of topics of the repository.
+        :param pulumi.Input[str] visibility: Can be `public` or `private`. If your organization is associated with an enterprise account using GitHub Enterprise Cloud or GitHub Enterprise Server 2.20+, visibility can also be `internal`. The `visibility` parameter overrides the `private` parameter.
 
         The **template** object supports the following:
 
@@ -289,6 +299,7 @@ class Repository(pulumi.CustomResource):
         __props__["svn_url"] = svn_url
         __props__["template"] = template
         __props__["topics"] = topics
+        __props__["visibility"] = visibility
         return Repository(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

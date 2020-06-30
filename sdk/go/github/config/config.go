@@ -8,12 +8,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi/config"
 )
 
-// Authenticate without a token. When `anonymous`is true, the provider will not be able to access resourcesthat require
-// authentication.
-func GetAnonymous(ctx *pulumi.Context) bool {
-	return config.GetBool(ctx, "github:anonymous")
-}
-
 // The GitHub Base API URL
 func GetBaseUrl(ctx *pulumi.Context) string {
 	v, err := config.Try(ctx, "github:baseUrl")
@@ -23,23 +17,20 @@ func GetBaseUrl(ctx *pulumi.Context) string {
 	return getEnvOrDefault("https://api.github.com/", nil, "GITHUB_BASE_URL").(string)
 }
 
-// Run outside an organization. When `individual`is true, the provider will run outside the scope of anorganization.
-func GetIndividual(ctx *pulumi.Context) bool {
-	return config.GetBool(ctx, "github:individual")
-}
-
-// Whether server should be accessed without verifying the TLS certificate.
-func GetInsecure(ctx *pulumi.Context) bool {
-	return config.GetBool(ctx, "github:insecure")
-}
-
-// The GitHub organization name to manage. If `individual` is false, `organization` is required.
+// (Deprecated) The GitHub organization name to manage.
+//
+// Deprecated: Use owner field (or GITHUB_OWNER ENV variable)
 func GetOrganization(ctx *pulumi.Context) string {
 	v, err := config.Try(ctx, "github:organization")
 	if err == nil {
 		return v
 	}
 	return getEnvOrDefault("", nil, "GITHUB_ORGANIZATION").(string)
+}
+
+// The GitHub owner name to manage.
+func GetOwner(ctx *pulumi.Context) string {
+	return config.Get(ctx, "github:owner")
 }
 
 // The OAuth token used to connect to GitHub. If `anonymous` is false, `token` is required.

@@ -9,30 +9,19 @@ namespace Pulumi.Github
     {
         private static readonly Pulumi.Config __config = new Pulumi.Config("github");
         /// <summary>
-        /// Authenticate without a token. When `anonymous`is true, the provider will not be able to access resourcesthat require
-        /// authentication.
-        /// </summary>
-        public static bool? Anonymous { get; set; } = __config.GetBoolean("anonymous");
-
-        /// <summary>
         /// The GitHub Base API URL
         /// </summary>
         public static string? BaseUrl { get; set; } = __config.Get("baseUrl") ?? Utilities.GetEnv("GITHUB_BASE_URL") ?? "https://api.github.com/";
 
         /// <summary>
-        /// Run outside an organization. When `individual`is true, the provider will run outside the scope of anorganization.
-        /// </summary>
-        public static bool? Individual { get; set; } = __config.GetBoolean("individual");
-
-        /// <summary>
-        /// Whether server should be accessed without verifying the TLS certificate.
-        /// </summary>
-        public static bool? Insecure { get; set; } = __config.GetBoolean("insecure");
-
-        /// <summary>
-        /// The GitHub organization name to manage. If `individual` is false, `organization` is required.
+        /// (Deprecated) The GitHub organization name to manage.
         /// </summary>
         public static string? Organization { get; set; } = __config.Get("organization") ?? Utilities.GetEnv("GITHUB_ORGANIZATION");
+
+        /// <summary>
+        /// The GitHub owner name to manage.
+        /// </summary>
+        public static string? Owner { get; set; } = __config.Get("owner");
 
         /// <summary>
         /// The OAuth token used to connect to GitHub. If `anonymous` is false, `token` is required.
