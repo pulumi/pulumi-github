@@ -16,8 +16,6 @@ namespace Pulumi.Github
     /// 
     /// ## Example Usage
     /// 
-    /// 
-    /// 
     /// ```csharp
     /// using System.IO;
     /// using Pulumi;

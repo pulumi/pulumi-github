@@ -25,7 +25,7 @@ namespace Pulumi.Github.Inputs
         public Input<string> GroupId { get; set; } = null!;
 
         /// <summary>
-        /// The name of the IdP group. 
+        /// The name of the IdP group.
         /// </summary>
         [Input("groupName", required: true)]
         public Input<string> GroupName { get; set; } = null!;

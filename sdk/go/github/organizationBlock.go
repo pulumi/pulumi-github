@@ -11,6 +11,29 @@ import (
 )
 
 // This resource allows you to create and manage blocks for GitHub organizations.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-github/sdk/go/github"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := github.NewOrganizationBlock(ctx, "example", &github.OrganizationBlockArgs{
+// 			Username: pulumi.String("paultyng"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type OrganizationBlock struct {
 	pulumi.CustomResourceState
 

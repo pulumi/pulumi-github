@@ -16,8 +16,8 @@ namespace Pulumi.Github
         /// 
         /// {{% examples %}}
         /// ## Example Usage
-        /// 
         /// {{% example %}}
+        /// 
         /// To retrieve the latest release that is present in a repository:
         /// 
         /// ```csharp
@@ -82,7 +82,6 @@ namespace Pulumi.Github
         /// 
         /// }
         /// ```
-        /// 
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>

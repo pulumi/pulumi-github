@@ -12,14 +12,12 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- *
- *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
  *
  * // Add a team to the organization
- * const someTeam = new github.Team("someTeam", {
+ * const someTeam = new github.Team("some_team", {
  *     description: "Some cool team",
  *     privacy: "closed",
  * });
@@ -79,7 +77,7 @@ export class Team extends pulumi.CustomResource {
     /**
      * The slug of the created team, which may or may not differ from `name`,
      * depending on whether `name` contains "URL-unsafe" characters.
-     * Useful when referencing the team in [`github..BranchProtection`](https://www.terraform.io/docs/providers/github/r/branch_protection.html).
+     * Useful when referencing the team in [`github.BranchProtection`](https://www.terraform.io/docs/providers/github/r/branch_protection.html).
      */
     public /*out*/ readonly slug!: pulumi.Output<string>;
 
@@ -155,7 +153,7 @@ export interface TeamState {
     /**
      * The slug of the created team, which may or may not differ from `name`,
      * depending on whether `name` contains "URL-unsafe" characters.
-     * Useful when referencing the team in [`github..BranchProtection`](https://www.terraform.io/docs/providers/github/r/branch_protection.html).
+     * Useful when referencing the team in [`github.BranchProtection`](https://www.terraform.io/docs/providers/github/r/branch_protection.html).
      */
     readonly slug?: pulumi.Input<string>;
 }

@@ -12,6 +12,46 @@ import (
 
 // This resource allows you to create and manage webhooks for repositories within your
 // GitHub organization or personal account.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-github/sdk/go/github"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		repo, err := github.NewRepository(ctx, "repo", &github.RepositoryArgs{
+// 			Description: pulumi.String("Terraform acceptance tests"),
+// 			HomepageUrl: pulumi.String("http://example.com/"),
+// 			Private:     pulumi.Bool(false),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = github.NewRepositoryWebhook(ctx, "foo", &github.RepositoryWebhookArgs{
+// 			Active: pulumi.Bool(false),
+// 			Configuration: &github.RepositoryWebhookConfigurationArgs{
+// 				ContentType: pulumi.String("form"),
+// 				InsecureSsl: pulumi.Bool(false),
+// 				Url:         pulumi.String("https://google.de/"),
+// 			},
+// 			Events: pulumi.StringArray{
+// 				pulumi.String("issues"),
+// 			},
+// 			Repository: repo.Name,
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type RepositoryWebhook struct {
 	pulumi.CustomResourceState
 

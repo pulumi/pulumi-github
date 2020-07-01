@@ -13,6 +13,31 @@ import (
 // Provides a GitHub user's GPG key resource.
 //
 // This resource allows you to add/remove GPG keys from your user account.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"fmt"
+//
+// 	"github.com/pulumi/pulumi-github/sdk/go/github"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := github.NewUserGpgKey(ctx, "example", &github.UserGpgKeyArgs{
+// 			ArmoredPublicKey: pulumi.String(fmt.Sprintf("%v%v%v", "-----BEGIN PGP PUBLIC KEY BLOCK-----\n", "...\n", "-----END PGP PUBLIC KEY BLOCK-----\n")),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type UserGpgKey struct {
 	pulumi.CustomResourceState
 

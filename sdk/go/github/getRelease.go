@@ -8,6 +8,86 @@ import (
 )
 
 // Use this data source to retrieve information about a GitHub release in a specific repository.
+//
+// ## Example Usage
+//
+// To retrieve the latest release that is present in a repository:
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-github/sdk/go/github"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := github.GetRelease(ctx, &github.GetReleaseArgs{
+// 			Owner:      "example-owner",
+// 			Repository: "example-repository",
+// 			RetrieveBy: "latest",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
+// To retrieve a specific release from a repository based on it's ID:
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-github/sdk/go/github"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := github.GetRelease(ctx, &github.GetReleaseArgs{
+// 			Id:         12345,
+// 			Owner:      "example-owner",
+// 			Repository: "example-repository",
+// 			RetrieveBy: "id",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
+// Finally, to retrieve a release based on it's tag:
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-github/sdk/go/github"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		opt0 := "v1.0.0"
+// 		_, err := github.GetRelease(ctx, &github.GetReleaseArgs{
+// 			Owner:      "example-owner",
+// 			ReleaseTag: &opt0,
+// 			Repository: "example-repository",
+// 			RetrieveBy: "tag",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 func GetRelease(ctx *pulumi.Context, args *GetReleaseArgs, opts ...pulumi.InvokeOption) (*GetReleaseResult, error) {
 	var rv GetReleaseResult
 	err := ctx.Invoke("github:index/getRelease:getRelease", args, &rv, opts...)

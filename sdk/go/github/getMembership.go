@@ -11,6 +11,29 @@ import (
 // as what role they have within it.
 // If the user's membership in the organization is pending their acceptance of an invite,
 // the role they would have once they accept will be returned.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-github/sdk/go/github"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := github.LookupMembership(ctx, &github.LookupMembershipArgs{
+// 			Username: "SomeUser",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 func LookupMembership(ctx *pulumi.Context, args *LookupMembershipArgs, opts ...pulumi.InvokeOption) (*LookupMembershipResult, error) {
 	var rv LookupMembershipResult
 	err := ctx.Invoke("github:index/getMembership:getMembership", args, &rv, opts...)

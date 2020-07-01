@@ -18,8 +18,6 @@ namespace Pulumi.Github
     /// 
     /// ## Example Usage
     /// 
-    /// 
-    /// 
     /// ```csharp
     /// using Pulumi;
     /// using Github = Pulumi.Github;

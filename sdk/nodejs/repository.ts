@@ -6,6 +6,26 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
+/**
+ * This resource allows you to create and manage repositories within your
+ * GitHub organization or personal account.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const example = new github.Repository("example", {
+ *     description: "My awesome codebase",
+ *     private: true,
+ *     template: {
+ *         owner: "github",
+ *         repository: "terraform-module-template",
+ *     },
+ * });
+ * ```
+ */
 export class Repository extends pulumi.CustomResource {
     /**
      * Get an existing Repository resource's state with the given name, ID, and optional extra

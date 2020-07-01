@@ -67,7 +67,7 @@ export interface TeamSyncGroupMappingGroup {
      */
     groupId: pulumi.Input<string>;
     /**
-     * The name of the IdP group. 
+     * The name of the IdP group.
      */
     groupName: pulumi.Input<string>;
 }

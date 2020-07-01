@@ -28,10 +28,35 @@ import (
 // - [Adding outside collaborators to your personal repositories](https://help.github.com/en/github/setting-up-and-managing-your-github-user-account/managing-access-to-your-personal-repositories)
 // - [Adding outside collaborators to repositories in your organization](https://help.github.com/articles/adding-outside-collaborators-to-repositories-in-your-organization/)
 // - [Converting an organization member to an outside collaborator](https://help.github.com/articles/converting-an-organization-member-to-an-outside-collaborator/)
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-github/sdk/go/github"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := github.NewRepositoryCollaborator(ctx, "aRepoCollaborator", &github.RepositoryCollaboratorArgs{
+// 			Permission: pulumi.String("admin"),
+// 			Repository: pulumi.String("our-cool-repo"),
+// 			Username:   pulumi.String("SomeUser"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type RepositoryCollaborator struct {
 	pulumi.CustomResourceState
 
-	// ID of the invitation to be used in `.UserInvitationAccepter`
+	// ID of the invitation to be used in `UserInvitationAccepter`
 	InvitationId pulumi.StringOutput `pulumi:"invitationId"`
 	// The permission of the outside collaborator for the repository.
 	// Must be one of `pull`, `push`, `maintain`, `triage` or `admin` for organization-owned repositories.
@@ -77,7 +102,7 @@ func GetRepositoryCollaborator(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RepositoryCollaborator resources.
 type repositoryCollaboratorState struct {
-	// ID of the invitation to be used in `.UserInvitationAccepter`
+	// ID of the invitation to be used in `UserInvitationAccepter`
 	InvitationId *string `pulumi:"invitationId"`
 	// The permission of the outside collaborator for the repository.
 	// Must be one of `pull`, `push`, `maintain`, `triage` or `admin` for organization-owned repositories.
@@ -90,7 +115,7 @@ type repositoryCollaboratorState struct {
 }
 
 type RepositoryCollaboratorState struct {
-	// ID of the invitation to be used in `.UserInvitationAccepter`
+	// ID of the invitation to be used in `UserInvitationAccepter`
 	InvitationId pulumi.StringPtrInput
 	// The permission of the outside collaborator for the repository.
 	// Must be one of `pull`, `push`, `maintain`, `triage` or `admin` for organization-owned repositories.

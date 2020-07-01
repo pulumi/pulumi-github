@@ -8,6 +8,29 @@ import (
 )
 
 // Use this data source to retrieve information about a GitHub team.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-github/sdk/go/github"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := github.LookupTeam(ctx, &github.LookupTeamArgs{
+// 			Slug: "example",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 func LookupTeam(ctx *pulumi.Context, args *LookupTeamArgs, opts ...pulumi.InvokeOption) (*LookupTeamResult, error) {
 	var rv LookupTeamResult
 	err := ctx.Invoke("github:index/getTeam:getTeam", args, &rv, opts...)

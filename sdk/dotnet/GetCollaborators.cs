@@ -35,7 +35,6 @@ namespace Pulumi.Github
         /// 
         /// }
         /// ```
-        /// 
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>

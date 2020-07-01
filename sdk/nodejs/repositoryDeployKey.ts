@@ -18,14 +18,12 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- *
- *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
  *
  * // Add a deploy key
- * const exampleRepositoryDeployKey = new github.RepositoryDeployKey("exampleRepositoryDeployKey", {
+ * const exampleRepositoryDeployKey = new github.RepositoryDeployKey("example_repository_deploy_key", {
  *     key: "ssh-rsa AAA...",
  *     readOnly: false,
  *     repository: "test-repo",

@@ -9,6 +9,46 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Github
 {
+    /// <summary>
+    /// This resource allows you to create and manage webhooks for repositories within your
+    /// GitHub organization or personal account.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Github = Pulumi.Github;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var repo = new Github.Repository("repo", new Github.RepositoryArgs
+    ///         {
+    ///             Description = "Terraform acceptance tests",
+    ///             HomepageUrl = "http://example.com/",
+    ///             Private = false,
+    ///         });
+    ///         var foo = new Github.RepositoryWebhook("foo", new Github.RepositoryWebhookArgs
+    ///         {
+    ///             Active = false,
+    ///             Configuration = new Github.Inputs.RepositoryWebhookConfigurationArgs
+    ///             {
+    ///                 ContentType = "form",
+    ///                 InsecureSsl = false,
+    ///                 Url = "https://google.de/",
+    ///             },
+    ///             Events = 
+    ///             {
+    ///                 "issues",
+    ///             },
+    ///             Repository = repo.Name,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// </summary>
     public partial class RepositoryWebhook : Pulumi.CustomResource
     {
         /// <summary>

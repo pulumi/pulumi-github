@@ -12,14 +12,12 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- *
- *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
  *
  * const example = pulumi.output(github.getActionsPublicKey({
- *     repository: "exampleRepo",
+ *     repository: "example_repo",
  * }, { async: true }));
  * ```
  */

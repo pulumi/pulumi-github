@@ -11,6 +11,34 @@ import (
 
 // This resource allows you to create and manage repositories within your
 // GitHub organization or personal account.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-github/sdk/go/github"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := github.NewRepository(ctx, "example", &github.RepositoryArgs{
+// 			Description: pulumi.String("My awesome codebase"),
+// 			Private:     pulumi.Bool(true),
+// 			Template: &github.RepositoryTemplateArgs{
+// 				Owner:      pulumi.String("github"),
+// 				Repository: pulumi.String("terraform-module-template"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type Repository struct {
 	pulumi.CustomResourceState
 

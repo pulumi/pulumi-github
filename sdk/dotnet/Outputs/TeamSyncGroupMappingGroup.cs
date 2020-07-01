@@ -22,7 +22,7 @@ namespace Pulumi.Github.Outputs
         /// </summary>
         public readonly string GroupId;
         /// <summary>
-        /// The name of the IdP group. 
+        /// The name of the IdP group.
         /// </summary>
         public readonly string GroupName;
 
