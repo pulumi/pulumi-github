@@ -18,7 +18,42 @@ import (
 //
 // The repository and the team must both belong to the same organization
 // on GitHub. This resource does not actually *create* any repositories;
-// to do that, see `.Repository`.
+// to do that, see `Repository`.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-github/sdk/go/github"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		someTeam, err := github.NewTeam(ctx, "someTeam", &github.TeamArgs{
+// 			Description: pulumi.String("Some cool team"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		someRepo, err := github.NewRepository(ctx, "someRepo", nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = github.NewTeamRepository(ctx, "someTeamRepo", &github.TeamRepositoryArgs{
+// 			Permission: pulumi.String("pull"),
+// 			Repository: someRepo.Name,
+// 			TeamId:     someTeam.ID(),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type TeamRepository struct {
 	pulumi.CustomResourceState
 

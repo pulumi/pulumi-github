@@ -15,8 +15,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- *
- *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
@@ -25,7 +23,7 @@ import * as utilities from "./utilities";
  * const exampleGroupMapping = new github.TeamSyncGroupMapping("exampleGroupMapping", {
  *     teamSlug: "example",
  *     dynamic: [{
- *         forEach: exampleGroups.then(exampleGroups => exampleGroups.groups.filter(g => g.groupName == "someTeamGroup").map(g => g)),
+ *         forEach: exampleGroups.then(exampleGroups => exampleGroups.groups.filter(g => g.groupName == "some_team_group").map(g => g)),
  *         content: [{
  *             groupId: group.value.group_id,
  *             groupName: group.value.group_name,

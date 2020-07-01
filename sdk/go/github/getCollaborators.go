@@ -8,6 +8,30 @@ import (
 )
 
 // Use this data source to retrieve the collaborators for a given repository.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-github/sdk/go/github"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := github.GetCollaborators(ctx, &github.GetCollaboratorsArgs{
+// 			Owner:      "example_owner",
+// 			Repository: "example_repository",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 func GetCollaborators(ctx *pulumi.Context, args *GetCollaboratorsArgs, opts ...pulumi.InvokeOption) (*GetCollaboratorsResult, error) {
 	var rv GetCollaboratorsResult
 	err := ctx.Invoke("github:index/getCollaborators:getCollaborators", args, &rv, opts...)

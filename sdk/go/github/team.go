@@ -13,6 +13,30 @@ import (
 //
 // This resource allows you to add/remove teams from your organization. When applied,
 // a new team will be created. When destroyed, that team will be removed.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-github/sdk/go/github"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := github.NewTeam(ctx, "someTeam", &github.TeamArgs{
+// 			Description: pulumi.String("Some cool team"),
+// 			Privacy:     pulumi.String("closed"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type Team struct {
 	pulumi.CustomResourceState
 
@@ -31,7 +55,7 @@ type Team struct {
 	Privacy pulumi.StringPtrOutput `pulumi:"privacy"`
 	// The slug of the created team, which may or may not differ from `name`,
 	// depending on whether `name` contains "URL-unsafe" characters.
-	// Useful when referencing the team in [`.BranchProtection`](https://www.terraform.io/docs/providers/github/r/branch_protection.html).
+	// Useful when referencing the team in [`BranchProtection`](https://www.terraform.io/docs/providers/github/r/branch_protection.html).
 	Slug pulumi.StringOutput `pulumi:"slug"`
 }
 
@@ -78,7 +102,7 @@ type teamState struct {
 	Privacy *string `pulumi:"privacy"`
 	// The slug of the created team, which may or may not differ from `name`,
 	// depending on whether `name` contains "URL-unsafe" characters.
-	// Useful when referencing the team in [`.BranchProtection`](https://www.terraform.io/docs/providers/github/r/branch_protection.html).
+	// Useful when referencing the team in [`BranchProtection`](https://www.terraform.io/docs/providers/github/r/branch_protection.html).
 	Slug *string `pulumi:"slug"`
 }
 
@@ -98,7 +122,7 @@ type TeamState struct {
 	Privacy pulumi.StringPtrInput
 	// The slug of the created team, which may or may not differ from `name`,
 	// depending on whether `name` contains "URL-unsafe" characters.
-	// Useful when referencing the team in [`.BranchProtection`](https://www.terraform.io/docs/providers/github/r/branch_protection.html).
+	// Useful when referencing the team in [`BranchProtection`](https://www.terraform.io/docs/providers/github/r/branch_protection.html).
 	Slug pulumi.StringPtrInput
 }
 

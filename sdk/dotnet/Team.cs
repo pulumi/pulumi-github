@@ -17,8 +17,6 @@ namespace Pulumi.Github
     /// 
     /// ## Example Usage
     /// 
-    /// 
-    /// 
     /// ```csharp
     /// using Pulumi;
     /// using Github = Pulumi.Github;
@@ -80,7 +78,7 @@ namespace Pulumi.Github
         /// <summary>
         /// The slug of the created team, which may or may not differ from `name`,
         /// depending on whether `name` contains "URL-unsafe" characters.
-        /// Useful when referencing the team in [`github..BranchProtection`](https://www.terraform.io/docs/providers/github/r/branch_protection.html).
+        /// Useful when referencing the team in [`github.BranchProtection`](https://www.terraform.io/docs/providers/github/r/branch_protection.html).
         /// </summary>
         [Output("slug")]
         public Output<string> Slug { get; private set; } = null!;
@@ -209,7 +207,7 @@ namespace Pulumi.Github
         /// <summary>
         /// The slug of the created team, which may or may not differ from `name`,
         /// depending on whether `name` contains "URL-unsafe" characters.
-        /// Useful when referencing the team in [`github..BranchProtection`](https://www.terraform.io/docs/providers/github/r/branch_protection.html).
+        /// Useful when referencing the team in [`github.BranchProtection`](https://www.terraform.io/docs/providers/github/r/branch_protection.html).
         /// </summary>
         [Input("slug")]
         public Input<string>? Slug { get; set; }

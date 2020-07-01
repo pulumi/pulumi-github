@@ -11,7 +11,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- *
+ * To retrieve the latest release that is present in a repository:
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -21,6 +21,34 @@ import * as utilities from "./utilities";
  *     owner: "example-owner",
  *     repository: "example-repository",
  *     retrieveBy: "latest",
+ * }, { async: true }));
+ * ```
+ *
+ * To retrieve a specific release from a repository based on it's ID:
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const example = pulumi.output(github.getRelease({
+ *     id: 12345,
+ *     owner: "example-owner",
+ *     repository: "example-repository",
+ *     retrieveBy: "id",
+ * }, { async: true }));
+ * ```
+ *
+ * Finally, to retrieve a release based on it's tag:
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const example = pulumi.output(github.getRelease({
+ *     owner: "example-owner",
+ *     releaseTag: "v1.0.0",
+ *     repository: "example-repository",
+ *     retrieveBy: "tag",
  * }, { async: true }));
  * ```
  */

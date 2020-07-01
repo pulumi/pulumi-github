@@ -12,6 +12,31 @@ import (
 
 // This resource allows you to create and manage files within a
 // GitHub repository.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-github/sdk/go/github"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := github.NewRepositoryFile(ctx, "gitignore", &github.RepositoryFileArgs{
+// 			Content:    pulumi.String("**/*.tfstate"),
+// 			File:       pulumi.String(".gitignore"),
+// 			Repository: pulumi.String("example"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type RepositoryFile struct {
 	pulumi.CustomResourceState
 

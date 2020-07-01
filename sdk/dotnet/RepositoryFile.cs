@@ -13,10 +13,7 @@ namespace Pulumi.Github
     /// This resource allows you to create and manage files within a
     /// GitHub repository.
     /// 
-    /// 
     /// ## Example Usage
-    /// 
-    /// 
     /// 
     /// ```csharp
     /// using Pulumi;

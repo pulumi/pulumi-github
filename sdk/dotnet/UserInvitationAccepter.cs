@@ -14,8 +14,6 @@ namespace Pulumi.Github
     /// 
     /// ## Example Usage
     /// 
-    /// 
-    /// 
     /// ```csharp
     /// using Pulumi;
     /// using Github = Pulumi.Github;
@@ -40,6 +38,9 @@ namespace Pulumi.Github
     ///         var exampleUserInvitationAccepter = new Github.UserInvitationAccepter("exampleUserInvitationAccepter", new Github.UserInvitationAccepterArgs
     ///         {
     ///             InvitationId = exampleRepositoryCollaborator.InvitationId,
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             Provider = "github.invitee",
     ///         });
     ///     }
     /// 

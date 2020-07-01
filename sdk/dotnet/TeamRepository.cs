@@ -18,11 +18,9 @@ namespace Pulumi.Github
     /// 
     /// The repository and the team must both belong to the same organization
     /// on GitHub. This resource does not actually *create* any repositories;
-    /// to do that, see `github..Repository`.
+    /// to do that, see `github.Repository`.
     /// 
     /// ## Example Usage
-    /// 
-    /// 
     /// 
     /// ```csharp
     /// using Pulumi;

@@ -9,6 +9,35 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Github
 {
+    /// <summary>
+    /// This resource allows you to create and manage repositories within your
+    /// GitHub organization or personal account.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Github = Pulumi.Github;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Github.Repository("example", new Github.RepositoryArgs
+    ///         {
+    ///             Description = "My awesome codebase",
+    ///             Private = true,
+    ///             Template = new Github.Inputs.RepositoryTemplateArgs
+    ///             {
+    ///                 Owner = "github",
+    ///                 Repository = "terraform-module-template",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// </summary>
     public partial class Repository : Pulumi.CustomResource
     {
         /// <summary>

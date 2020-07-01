@@ -14,10 +14,10 @@ namespace Pulumi.Github
     /// 
     /// This resource allows you to add/remove collaborators from repositories in your
     /// organization or personal account. For organization repositories, collaborators can
-    /// have explicit (and differing levels of) read, write, or administrator access to 
-    /// specific repositories, without giving the user full organization membership. 
+    /// have explicit (and differing levels of) read, write, or administrator access to
+    /// specific repositories, without giving the user full organization membership.
     /// For personal repositories, collaborators can only be granted write
-    /// (implictly includes read) permission. 
+    /// (implictly includes read) permission.
     /// 
     /// When applied, an invitation will be sent to the user to become a collaborator
     /// on a repository. When destroyed, either the invitation will be cancelled or the
@@ -30,8 +30,6 @@ namespace Pulumi.Github
     /// - [Converting an organization member to an outside collaborator](https://help.github.com/articles/converting-an-organization-member-to-an-outside-collaborator/)
     /// 
     /// ## Example Usage
-    /// 
-    /// 
     /// 
     /// ```csharp
     /// using Pulumi;
@@ -56,7 +54,7 @@ namespace Pulumi.Github
     public partial class RepositoryCollaborator : Pulumi.CustomResource
     {
         /// <summary>
-        /// ID of the invitation to be used in `github..UserInvitationAccepter`
+        /// ID of the invitation to be used in `github.UserInvitationAccepter`
         /// </summary>
         [Output("invitationId")]
         public Output<string> InvitationId { get; private set; } = null!;
@@ -155,7 +153,7 @@ namespace Pulumi.Github
     public sealed class RepositoryCollaboratorState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// ID of the invitation to be used in `github..UserInvitationAccepter`
+        /// ID of the invitation to be used in `github.UserInvitationAccepter`
         /// </summary>
         [Input("invitationId")]
         public Input<string>? InvitationId { get; set; }

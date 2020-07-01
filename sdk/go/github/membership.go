@@ -15,6 +15,30 @@ import (
 // This resource allows you to add/remove users from your organization. When applied,
 // an invitation will be sent to the user to become part of the organization. When
 // destroyed, either the invitation will be cancelled or the user will be removed.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-github/sdk/go/github"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := github.NewMembership(ctx, "membershipForSomeUser", &github.MembershipArgs{
+// 			Role:     pulumi.String("member"),
+// 			Username: pulumi.String("SomeUser"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type Membership struct {
 	pulumi.CustomResourceState
 

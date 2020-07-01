@@ -13,22 +13,20 @@ import * as utilities from "./utilities";
  *
  * The repository and the team must both belong to the same organization
  * on GitHub. This resource does not actually *create* any repositories;
- * to do that, see `github..Repository`.
+ * to do that, see `github.Repository`.
  *
  * ## Example Usage
- *
- *
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
  *
  * // Add a repository to the team
- * const someTeam = new github.Team("someTeam", {
+ * const someTeam = new github.Team("some_team", {
  *     description: "Some cool team",
  * });
- * const someRepo = new github.Repository("someRepo", {});
- * const someTeamRepo = new github.TeamRepository("someTeamRepo", {
+ * const someRepo = new github.Repository("some_repo", {});
+ * const someTeamRepo = new github.TeamRepository("some_team_repo", {
  *     permission: "pull",
  *     repository: someRepo.name,
  *     teamId: someTeam.id,

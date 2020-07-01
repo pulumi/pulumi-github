@@ -16,6 +16,44 @@ import (
 // the user will be added to the team. If the user hasn't accepted their invitation to the
 // organization, they won't be part of the team until they do. When
 // destroyed, the user will be removed from the team.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-github/sdk/go/github"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := github.NewMembership(ctx, "membershipForSomeUser", &github.MembershipArgs{
+// 			Role:     pulumi.String("member"),
+// 			Username: pulumi.String("SomeUser"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		someTeam, err := github.NewTeam(ctx, "someTeam", &github.TeamArgs{
+// 			Description: pulumi.String("Some cool team"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = github.NewTeamMembership(ctx, "someTeamMembership", &github.TeamMembershipArgs{
+// 			Role:     pulumi.String("member"),
+// 			TeamId:   someTeam.ID(),
+// 			Username: pulumi.String("SomeUser"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type TeamMembership struct {
 	pulumi.CustomResourceState
 

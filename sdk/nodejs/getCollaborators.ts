@@ -11,15 +11,13 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- *
- *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
  *
  * const test = pulumi.output(github.getCollaborators({
- *     owner: "exampleOwner",
- *     repository: "exampleRepository",
+ *     owner: "example_owner",
+ *     repository: "example_repository",
  * }, { async: true }));
  * ```
  */

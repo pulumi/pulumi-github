@@ -109,7 +109,7 @@ export interface GetOrganizationTeamSyncGroupsGroup {
      */
     groupId: string;
     /**
-     * The name of the IdP group. 
+     * The name of the IdP group.
      */
     groupName: string;
 }
@@ -149,7 +149,7 @@ export interface TeamSyncGroupMappingGroup {
      */
     groupId: string;
     /**
-     * The name of the IdP group. 
+     * The name of the IdP group.
      */
     groupName: string;
 }
