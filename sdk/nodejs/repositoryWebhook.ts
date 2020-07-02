@@ -8,7 +8,10 @@ import * as utilities from "./utilities";
 
 /**
  * This resource allows you to create and manage webhooks for repositories within your
- * GitHub organization or personal account.
+ * GitHub organization.
+ *
+ * This resource cannot currently be used to manage webhooks for *personal* repositories,
+ * outside of organizations.
  *
  * ## Example Usage
  *

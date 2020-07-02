@@ -132,8 +132,4 @@ export interface GetRepositoryResult {
      * The list of topics of the repository.
      */
     readonly topics: string[];
-    /**
-     * Whether the repository is public, private or internal.
-     */
-    readonly visibility: string;
 }

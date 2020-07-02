@@ -11,7 +11,10 @@ namespace Pulumi.Github
 {
     /// <summary>
     /// This resource allows you to create and manage repositories within your
-    /// GitHub organization or personal account.
+    /// GitHub organization.
+    /// 
+    /// This resource cannot currently be used to manage *personal* repositories,
+    /// outside of organizations.
     /// 
     /// ## Example Usage
     /// 
@@ -181,7 +184,7 @@ namespace Pulumi.Github
         /// Repositories are created as public (e.g. open source) by default.
         /// </summary>
         [Output("private")]
-        public Output<bool> Private { get; private set; } = null!;
+        public Output<bool?> Private { get; private set; } = null!;
 
         /// <summary>
         /// URL that can be provided to `git clone` to clone the repository via SSH.
@@ -206,12 +209,6 @@ namespace Pulumi.Github
         /// </summary>
         [Output("topics")]
         public Output<ImmutableArray<string>> Topics { get; private set; } = null!;
-
-        /// <summary>
-        /// Can be `public` or `private`. If your organization is associated with an enterprise account using GitHub Enterprise Cloud or GitHub Enterprise Server 2.20+, visibility can also be `internal`. The `visibility` parameter overrides the `private` parameter.
-        /// </summary>
-        [Output("visibility")]
-        public Output<string> Visibility { get; private set; } = null!;
 
 
         /// <summary>
@@ -389,12 +386,6 @@ namespace Pulumi.Github
             get => _topics ?? (_topics = new InputList<string>());
             set => _topics = value;
         }
-
-        /// <summary>
-        /// Can be `public` or `private`. If your organization is associated with an enterprise account using GitHub Enterprise Cloud or GitHub Enterprise Server 2.20+, visibility can also be `internal`. The `visibility` parameter overrides the `private` parameter.
-        /// </summary>
-        [Input("visibility")]
-        public Input<string>? Visibility { get; set; }
 
         public RepositoryArgs()
         {
@@ -575,12 +566,6 @@ namespace Pulumi.Github
             get => _topics ?? (_topics = new InputList<string>());
             set => _topics = value;
         }
-
-        /// <summary>
-        /// Can be `public` or `private`. If your organization is associated with an enterprise account using GitHub Enterprise Cloud or GitHub Enterprise Server 2.20+, visibility can also be `internal`. The `visibility` parameter overrides the `private` parameter.
-        /// </summary>
-        [Input("visibility")]
-        public Input<string>? Visibility { get; set; }
 
         public RepositoryState()
         {

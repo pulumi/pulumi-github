@@ -10,7 +10,10 @@ import (
 )
 
 // This resource allows you to create and manage repositories within your
-// GitHub organization or personal account.
+// GitHub organization.
+//
+// This resource cannot currently be used to manage *personal* repositories,
+// outside of organizations.
 //
 // ## Example Usage
 //
@@ -92,9 +95,7 @@ type Repository struct {
 	NodeId pulumi.StringOutput `pulumi:"nodeId"`
 	// Set to `true` to create a private repository.
 	// Repositories are created as public (e.g. open source) by default.
-	//
-	// Deprecated: use visibility instead
-	Private pulumi.BoolOutput `pulumi:"private"`
+	Private pulumi.BoolPtrOutput `pulumi:"private"`
 	// URL that can be provided to `git clone` to clone the repository via SSH.
 	SshCloneUrl pulumi.StringOutput `pulumi:"sshCloneUrl"`
 	// URL that can be provided to `svn checkout` to check out the repository via GitHub's Subversion protocol emulation.
@@ -103,8 +104,6 @@ type Repository struct {
 	Template RepositoryTemplatePtrOutput `pulumi:"template"`
 	// The list of topics of the repository.
 	Topics pulumi.StringArrayOutput `pulumi:"topics"`
-	// Can be `public` or `private`. If your organization is associated with an enterprise account using GitHub Enterprise Cloud or GitHub Enterprise Server 2.20+, visibility can also be `internal`. The `visibility` parameter overrides the `private` parameter.
-	Visibility pulumi.StringOutput `pulumi:"visibility"`
 }
 
 // NewRepository registers a new resource with the given unique name, arguments, and options.
@@ -185,8 +184,6 @@ type repositoryState struct {
 	NodeId *string `pulumi:"nodeId"`
 	// Set to `true` to create a private repository.
 	// Repositories are created as public (e.g. open source) by default.
-	//
-	// Deprecated: use visibility instead
 	Private *bool `pulumi:"private"`
 	// URL that can be provided to `git clone` to clone the repository via SSH.
 	SshCloneUrl *string `pulumi:"sshCloneUrl"`
@@ -196,8 +193,6 @@ type repositoryState struct {
 	Template *RepositoryTemplate `pulumi:"template"`
 	// The list of topics of the repository.
 	Topics []string `pulumi:"topics"`
-	// Can be `public` or `private`. If your organization is associated with an enterprise account using GitHub Enterprise Cloud or GitHub Enterprise Server 2.20+, visibility can also be `internal`. The `visibility` parameter overrides the `private` parameter.
-	Visibility *string `pulumi:"visibility"`
 }
 
 type RepositoryState struct {
@@ -251,8 +246,6 @@ type RepositoryState struct {
 	NodeId pulumi.StringPtrInput
 	// Set to `true` to create a private repository.
 	// Repositories are created as public (e.g. open source) by default.
-	//
-	// Deprecated: use visibility instead
 	Private pulumi.BoolPtrInput
 	// URL that can be provided to `git clone` to clone the repository via SSH.
 	SshCloneUrl pulumi.StringPtrInput
@@ -262,8 +255,6 @@ type RepositoryState struct {
 	Template RepositoryTemplatePtrInput
 	// The list of topics of the repository.
 	Topics pulumi.StringArrayInput
-	// Can be `public` or `private`. If your organization is associated with an enterprise account using GitHub Enterprise Cloud or GitHub Enterprise Server 2.20+, visibility can also be `internal`. The `visibility` parameter overrides the `private` parameter.
-	Visibility pulumi.StringPtrInput
 }
 
 func (RepositoryState) ElementType() reflect.Type {
@@ -311,15 +302,11 @@ type repositoryArgs struct {
 	Name *string `pulumi:"name"`
 	// Set to `true` to create a private repository.
 	// Repositories are created as public (e.g. open source) by default.
-	//
-	// Deprecated: use visibility instead
 	Private *bool `pulumi:"private"`
 	// Use a template repository to create this resource. See Template Repositories below for details.
 	Template *RepositoryTemplate `pulumi:"template"`
 	// The list of topics of the repository.
 	Topics []string `pulumi:"topics"`
-	// Can be `public` or `private`. If your organization is associated with an enterprise account using GitHub Enterprise Cloud or GitHub Enterprise Server 2.20+, visibility can also be `internal`. The `visibility` parameter overrides the `private` parameter.
-	Visibility *string `pulumi:"visibility"`
 }
 
 // The set of arguments for constructing a Repository resource.
@@ -364,15 +351,11 @@ type RepositoryArgs struct {
 	Name pulumi.StringPtrInput
 	// Set to `true` to create a private repository.
 	// Repositories are created as public (e.g. open source) by default.
-	//
-	// Deprecated: use visibility instead
 	Private pulumi.BoolPtrInput
 	// Use a template repository to create this resource. See Template Repositories below for details.
 	Template RepositoryTemplatePtrInput
 	// The list of topics of the repository.
 	Topics pulumi.StringArrayInput
-	// Can be `public` or `private`. If your organization is associated with an enterprise account using GitHub Enterprise Cloud or GitHub Enterprise Server 2.20+, visibility can also be `internal`. The `visibility` parameter overrides the `private` parameter.
-	Visibility pulumi.StringPtrInput
 }
 
 func (RepositoryArgs) ElementType() reflect.Type {
