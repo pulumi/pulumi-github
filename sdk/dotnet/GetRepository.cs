@@ -144,10 +144,6 @@ namespace Pulumi.Github
         /// The list of topics of the repository.
         /// </summary>
         public readonly ImmutableArray<string> Topics;
-        /// <summary>
-        /// Whether the repository is public, private or internal.
-        /// </summary>
-        public readonly string Visibility;
 
         [OutputConstructor]
         private GetRepositoryResult(
@@ -193,9 +189,7 @@ namespace Pulumi.Github
 
             string svnUrl,
 
-            ImmutableArray<string> topics,
-
-            string visibility)
+            ImmutableArray<string> topics)
         {
             AllowMergeCommit = allowMergeCommit;
             AllowRebaseMerge = allowRebaseMerge;
@@ -219,7 +213,6 @@ namespace Pulumi.Github
             SshCloneUrl = sshCloneUrl;
             SvnUrl = svnUrl;
             Topics = topics;
-            Visibility = visibility;
         }
     }
 }

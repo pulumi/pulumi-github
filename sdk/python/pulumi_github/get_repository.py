@@ -12,7 +12,7 @@ class GetRepositoryResult:
     """
     A collection of values returned by getRepository.
     """
-    def __init__(__self__, allow_merge_commit=None, allow_rebase_merge=None, allow_squash_merge=None, archived=None, default_branch=None, description=None, full_name=None, git_clone_url=None, has_downloads=None, has_issues=None, has_projects=None, has_wiki=None, homepage_url=None, html_url=None, http_clone_url=None, id=None, name=None, node_id=None, private=None, ssh_clone_url=None, svn_url=None, topics=None, visibility=None):
+    def __init__(__self__, allow_merge_commit=None, allow_rebase_merge=None, allow_squash_merge=None, archived=None, default_branch=None, description=None, full_name=None, git_clone_url=None, has_downloads=None, has_issues=None, has_projects=None, has_wiki=None, homepage_url=None, html_url=None, http_clone_url=None, id=None, name=None, node_id=None, private=None, ssh_clone_url=None, svn_url=None, topics=None):
         if allow_merge_commit and not isinstance(allow_merge_commit, bool):
             raise TypeError("Expected argument 'allow_merge_commit' to be a bool")
         __self__.allow_merge_commit = allow_merge_commit
@@ -136,12 +136,6 @@ class GetRepositoryResult:
         """
         The list of topics of the repository.
         """
-        if visibility and not isinstance(visibility, str):
-            raise TypeError("Expected argument 'visibility' to be a str")
-        __self__.visibility = visibility
-        """
-        Whether the repository is public, private or internal.
-        """
 class AwaitableGetRepositoryResult(GetRepositoryResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -169,8 +163,7 @@ class AwaitableGetRepositoryResult(GetRepositoryResult):
             private=self.private,
             ssh_clone_url=self.ssh_clone_url,
             svn_url=self.svn_url,
-            topics=self.topics,
-            visibility=self.visibility)
+            topics=self.topics)
 
 def get_repository(full_name=None,name=None,opts=None):
     """
@@ -222,5 +215,4 @@ def get_repository(full_name=None,name=None,opts=None):
         private=__ret__.get('private'),
         ssh_clone_url=__ret__.get('sshCloneUrl'),
         svn_url=__ret__.get('svnUrl'),
-        topics=__ret__.get('topics'),
-        visibility=__ret__.get('visibility'))
+        topics=__ret__.get('topics'))

@@ -13,11 +13,9 @@ import (
 // Provides a GitHub repository collaborator resource.
 //
 // This resource allows you to add/remove collaborators from repositories in your
-// organization or personal account. For organization repositories, collaborators can
-// have explicit (and differing levels of) read, write, or administrator access to
-// specific repositories, without giving the user full organization membership.
-// For personal repositories, collaborators can only be granted write
-// (implictly includes read) permission.
+// organization. Collaborators can have explicit (and differing levels of) read,
+// write, or administrator access to specific repositories in your organization,
+// without giving the user full organization membership.
 //
 // When applied, an invitation will be sent to the user to become a collaborator
 // on a repository. When destroyed, either the invitation will be cancelled or the
@@ -25,7 +23,6 @@ import (
 //
 // Further documentation on GitHub collaborators:
 //
-// - [Adding outside collaborators to your personal repositories](https://help.github.com/en/github/setting-up-and-managing-your-github-user-account/managing-access-to-your-personal-repositories)
 // - [Adding outside collaborators to repositories in your organization](https://help.github.com/articles/adding-outside-collaborators-to-repositories-in-your-organization/)
 // - [Converting an organization member to an outside collaborator](https://help.github.com/articles/converting-an-organization-member-to-an-outside-collaborator/)
 //
@@ -59,8 +56,7 @@ type RepositoryCollaborator struct {
 	// ID of the invitation to be used in `UserInvitationAccepter`
 	InvitationId pulumi.StringOutput `pulumi:"invitationId"`
 	// The permission of the outside collaborator for the repository.
-	// Must be one of `pull`, `push`, `maintain`, `triage` or `admin` for organization-owned repositories.
-	// Must be `push` for personal repositories. Defaults to `push`.
+	// Must be one of `pull`, `push`, `maintain`, `triage` or `admin`. Defaults to `push`.
 	Permission pulumi.StringPtrOutput `pulumi:"permission"`
 	// The GitHub repository
 	Repository pulumi.StringOutput `pulumi:"repository"`
@@ -105,8 +101,7 @@ type repositoryCollaboratorState struct {
 	// ID of the invitation to be used in `UserInvitationAccepter`
 	InvitationId *string `pulumi:"invitationId"`
 	// The permission of the outside collaborator for the repository.
-	// Must be one of `pull`, `push`, `maintain`, `triage` or `admin` for organization-owned repositories.
-	// Must be `push` for personal repositories. Defaults to `push`.
+	// Must be one of `pull`, `push`, `maintain`, `triage` or `admin`. Defaults to `push`.
 	Permission *string `pulumi:"permission"`
 	// The GitHub repository
 	Repository *string `pulumi:"repository"`
@@ -118,8 +113,7 @@ type RepositoryCollaboratorState struct {
 	// ID of the invitation to be used in `UserInvitationAccepter`
 	InvitationId pulumi.StringPtrInput
 	// The permission of the outside collaborator for the repository.
-	// Must be one of `pull`, `push`, `maintain`, `triage` or `admin` for organization-owned repositories.
-	// Must be `push` for personal repositories. Defaults to `push`.
+	// Must be one of `pull`, `push`, `maintain`, `triage` or `admin`. Defaults to `push`.
 	Permission pulumi.StringPtrInput
 	// The GitHub repository
 	Repository pulumi.StringPtrInput
@@ -133,8 +127,7 @@ func (RepositoryCollaboratorState) ElementType() reflect.Type {
 
 type repositoryCollaboratorArgs struct {
 	// The permission of the outside collaborator for the repository.
-	// Must be one of `pull`, `push`, `maintain`, `triage` or `admin` for organization-owned repositories.
-	// Must be `push` for personal repositories. Defaults to `push`.
+	// Must be one of `pull`, `push`, `maintain`, `triage` or `admin`. Defaults to `push`.
 	Permission *string `pulumi:"permission"`
 	// The GitHub repository
 	Repository string `pulumi:"repository"`
@@ -145,8 +138,7 @@ type repositoryCollaboratorArgs struct {
 // The set of arguments for constructing a RepositoryCollaborator resource.
 type RepositoryCollaboratorArgs struct {
 	// The permission of the outside collaborator for the repository.
-	// Must be one of `pull`, `push`, `maintain`, `triage` or `admin` for organization-owned repositories.
-	// Must be `push` for personal repositories. Defaults to `push`.
+	// Must be one of `pull`, `push`, `maintain`, `triage` or `admin`. Defaults to `push`.
 	Permission pulumi.StringPtrInput
 	// The GitHub repository
 	Repository pulumi.StringInput

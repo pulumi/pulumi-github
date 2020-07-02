@@ -41,28 +41,34 @@ func NewProvider(ctx *pulumi.Context,
 }
 
 type providerArgs struct {
+	// Authenticate without a token. When `anonymous`is true, the provider will not be able to access resourcesthat require
+	// authentication.
+	Anonymous *bool `pulumi:"anonymous"`
 	// The GitHub Base API URL
 	BaseUrl *string `pulumi:"baseUrl"`
-	// (Deprecated) The GitHub organization name to manage.
-	//
-	// Deprecated: Use owner field (or GITHUB_OWNER ENV variable)
+	// Run outside an organization. When `individual`is true, the provider will run outside the scope of anorganization.
+	Individual *bool `pulumi:"individual"`
+	// Whether server should be accessed without verifying the TLS certificate.
+	Insecure *bool `pulumi:"insecure"`
+	// The GitHub organization name to manage. If `individual` is false, `organization` is required.
 	Organization *string `pulumi:"organization"`
-	// The GitHub owner name to manage.
-	Owner *string `pulumi:"owner"`
 	// The OAuth token used to connect to GitHub. If `anonymous` is false, `token` is required.
 	Token *string `pulumi:"token"`
 }
 
 // The set of arguments for constructing a Provider resource.
 type ProviderArgs struct {
+	// Authenticate without a token. When `anonymous`is true, the provider will not be able to access resourcesthat require
+	// authentication.
+	Anonymous pulumi.BoolPtrInput
 	// The GitHub Base API URL
 	BaseUrl pulumi.StringPtrInput
-	// (Deprecated) The GitHub organization name to manage.
-	//
-	// Deprecated: Use owner field (or GITHUB_OWNER ENV variable)
+	// Run outside an organization. When `individual`is true, the provider will run outside the scope of anorganization.
+	Individual pulumi.BoolPtrInput
+	// Whether server should be accessed without verifying the TLS certificate.
+	Insecure pulumi.BoolPtrInput
+	// The GitHub organization name to manage. If `individual` is false, `organization` is required.
 	Organization pulumi.StringPtrInput
-	// The GitHub owner name to manage.
-	Owner pulumi.StringPtrInput
 	// The OAuth token used to connect to GitHub. If `anonymous` is false, `token` is required.
 	Token pulumi.StringPtrInput
 }
