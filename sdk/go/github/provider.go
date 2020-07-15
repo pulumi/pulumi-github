@@ -43,10 +43,12 @@ func NewProvider(ctx *pulumi.Context,
 type providerArgs struct {
 	// Authenticate without a token. When `anonymous`is true, the provider will not be able to access resourcesthat require
 	// authentication.
+	//
+	// Deprecated: For versions later than 3.0.0, absence of a token enables this mode
 	Anonymous *bool `pulumi:"anonymous"`
 	// The GitHub Base API URL
 	BaseUrl *string `pulumi:"baseUrl"`
-	// Run outside an organization. When `individual`is true, the provider will run outside the scope of anorganization.
+	// Deprecated: For versions later than 3.0.0, absence of an organization enables this mode
 	Individual *bool `pulumi:"individual"`
 	// Whether server should be accessed without verifying the TLS certificate.
 	Insecure *bool `pulumi:"insecure"`
@@ -60,10 +62,12 @@ type providerArgs struct {
 type ProviderArgs struct {
 	// Authenticate without a token. When `anonymous`is true, the provider will not be able to access resourcesthat require
 	// authentication.
+	//
+	// Deprecated: For versions later than 3.0.0, absence of a token enables this mode
 	Anonymous pulumi.BoolPtrInput
 	// The GitHub Base API URL
 	BaseUrl pulumi.StringPtrInput
-	// Run outside an organization. When `individual`is true, the provider will run outside the scope of anorganization.
+	// Deprecated: For versions later than 3.0.0, absence of an organization enables this mode
 	Individual pulumi.BoolPtrInput
 	// Whether server should be accessed without verifying the TLS certificate.
 	Insecure pulumi.BoolPtrInput

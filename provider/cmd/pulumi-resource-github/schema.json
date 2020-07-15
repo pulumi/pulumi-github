@@ -16,7 +16,8 @@
         "variables": {
             "anonymous": {
                 "type": "boolean",
-                "description": "Authenticate without a token. When `anonymous`is true, the provider will not be able to access resourcesthat require\nauthentication.\n"
+                "description": "Authenticate without a token. When `anonymous`is true, the provider will not be able to access resourcesthat require\nauthentication.\n",
+                "deprecationMessage": "For versions later than 3.0.0, absence of a token enables this mode"
             },
             "baseUrl": {
                 "type": "string",
@@ -30,7 +31,7 @@
             },
             "individual": {
                 "type": "boolean",
-                "description": "Run outside an organization. When `individual`is true, the provider will run outside the scope of anorganization.\n"
+                "deprecationMessage": "For versions later than 3.0.0, absence of an organization enables this mode"
             },
             "insecure": {
                 "type": "boolean",
@@ -552,7 +553,8 @@
         "inputProperties": {
             "anonymous": {
                 "type": "boolean",
-                "description": "Authenticate without a token. When `anonymous`is true, the provider will not be able to access resourcesthat require\nauthentication.\n"
+                "description": "Authenticate without a token. When `anonymous`is true, the provider will not be able to access resourcesthat require\nauthentication.\n",
+                "deprecationMessage": "For versions later than 3.0.0, absence of a token enables this mode"
             },
             "baseUrl": {
                 "type": "string",
@@ -566,7 +568,7 @@
             },
             "individual": {
                 "type": "boolean",
-                "description": "Run outside an organization. When `individual`is true, the provider will run outside the scope of anorganization.\n"
+                "deprecationMessage": "For versions later than 3.0.0, absence of an organization enables this mode"
             },
             "insecure": {
                 "type": "boolean",

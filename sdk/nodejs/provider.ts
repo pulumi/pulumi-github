@@ -59,6 +59,8 @@ export interface ProviderArgs {
     /**
      * Authenticate without a token. When `anonymous`is true, the provider will not be able to access resourcesthat require
      * authentication.
+     *
+     * @deprecated For versions later than 3.0.0, absence of a token enables this mode
      */
     readonly anonymous?: pulumi.Input<boolean>;
     /**
@@ -66,7 +68,7 @@ export interface ProviderArgs {
      */
     readonly baseUrl?: pulumi.Input<string>;
     /**
-     * Run outside an organization. When `individual`is true, the provider will run outside the scope of anorganization.
+     * @deprecated For versions later than 3.0.0, absence of an organization enables this mode
      */
     readonly individual?: pulumi.Input<boolean>;
     /**

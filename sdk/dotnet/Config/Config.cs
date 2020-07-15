@@ -19,9 +19,6 @@ namespace Pulumi.Github
         /// </summary>
         public static string? BaseUrl { get; set; } = __config.Get("baseUrl") ?? Utilities.GetEnv("GITHUB_BASE_URL") ?? "https://api.github.com/";
 
-        /// <summary>
-        /// Run outside an organization. When `individual`is true, the provider will run outside the scope of anorganization.
-        /// </summary>
         public static bool? Individual { get; set; } = __config.GetBoolean("individual");
 
         /// <summary>
