@@ -17,9 +17,6 @@ export let anonymous: boolean | undefined = __config.getObject<boolean>("anonymo
  * The GitHub Base API URL
  */
 export let baseUrl: string | undefined = __config.get("baseUrl") || (utilities.getEnv("GITHUB_BASE_URL") || "https://api.github.com/");
-/**
- * Run outside an organization. When `individual`is true, the provider will run outside the scope of anorganization.
- */
 export let individual: boolean | undefined = __config.getObject<boolean>("individual");
 /**
  * Whether server should be accessed without verifying the TLS certificate.

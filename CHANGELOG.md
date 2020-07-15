@@ -2,7 +2,7 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-_(none)_
+* Upgrade to v2.9.2 of the GitHub Terraform Provider
 
 ---
 
@@ -10,7 +10,7 @@ _(none)_
 * Upgrade to v2.9.1 of the GitHub Terraform Provider
 
 ## 1.4.0 (2020-06-30)
-* Upgrade to v2.10.0 of the GitHub Terraform Provider
+* Upgrade to v2.9.0 of the GitHub Terraform Provider
 
 ## 1.3.3 (2020-06-10)
 * Switch to GitHub actions for build

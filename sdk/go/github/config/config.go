@@ -10,6 +10,8 @@ import (
 
 // Authenticate without a token. When `anonymous`is true, the provider will not be able to access resourcesthat require
 // authentication.
+//
+// Deprecated: For versions later than 3.0.0, absence of a token enables this mode
 func GetAnonymous(ctx *pulumi.Context) bool {
 	return config.GetBool(ctx, "github:anonymous")
 }
@@ -23,7 +25,7 @@ func GetBaseUrl(ctx *pulumi.Context) string {
 	return getEnvOrDefault("https://api.github.com/", nil, "GITHUB_BASE_URL").(string)
 }
 
-// Run outside an organization. When `individual`is true, the provider will run outside the scope of anorganization.
+// Deprecated: For versions later than 3.0.0, absence of an organization enables this mode
 func GetIndividual(ctx *pulumi.Context) bool {
 	return config.GetBool(ctx, "github:individual")
 }

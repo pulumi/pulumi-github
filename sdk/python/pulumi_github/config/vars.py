@@ -22,9 +22,6 @@ The GitHub Base API URL
 """
 
 individual = __config__.get('individual')
-"""
-Run outside an organization. When `individual`is true, the provider will run outside the scope of anorganization.
-"""
 
 insecure = __config__.get('insecure')
 """

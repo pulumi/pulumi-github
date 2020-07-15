@@ -23,7 +23,6 @@ class Provider(pulumi.ProviderResource):
         :param pulumi.Input[bool] anonymous: Authenticate without a token. When `anonymous`is true, the provider will not be able to access resourcesthat require
                authentication.
         :param pulumi.Input[str] base_url: The GitHub Base API URL
-        :param pulumi.Input[bool] individual: Run outside an organization. When `individual`is true, the provider will run outside the scope of anorganization.
         :param pulumi.Input[bool] insecure: Whether server should be accessed without verifying the TLS certificate.
         :param pulumi.Input[str] organization: The GitHub organization name to manage. If `individual` is false, `organization` is required.
         :param pulumi.Input[str] token: The OAuth token used to connect to GitHub. If `anonymous` is false, `token` is required.
@@ -45,10 +44,16 @@ class Provider(pulumi.ProviderResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if anonymous is not None:
+                warnings.warn("For versions later than 3.0.0, absence of a token enables this mode", DeprecationWarning)
+                pulumi.log.warn("anonymous is deprecated: For versions later than 3.0.0, absence of a token enables this mode")
             __props__['anonymous'] = pulumi.Output.from_input(anonymous).apply(json.dumps) if anonymous is not None else None
             if base_url is None:
                 base_url = (utilities.get_env('GITHUB_BASE_URL') or 'https://api.github.com/')
             __props__['base_url'] = base_url
+            if individual is not None:
+                warnings.warn("For versions later than 3.0.0, absence of an organization enables this mode", DeprecationWarning)
+                pulumi.log.warn("individual is deprecated: For versions later than 3.0.0, absence of an organization enables this mode")
             __props__['individual'] = pulumi.Output.from_input(individual).apply(json.dumps) if individual is not None else None
             __props__['insecure'] = pulumi.Output.from_input(insecure).apply(json.dumps) if insecure is not None else None
             if organization is None:

@@ -57,9 +57,6 @@ namespace Pulumi.Github
         [Input("baseUrl")]
         public Input<string>? BaseUrl { get; set; }
 
-        /// <summary>
-        /// Run outside an organization. When `individual`is true, the provider will run outside the scope of anorganization.
-        /// </summary>
         [Input("individual", json: true)]
         public Input<bool>? Individual { get; set; }
 
