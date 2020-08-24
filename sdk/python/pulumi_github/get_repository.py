@@ -5,9 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from . import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from . import _utilities, _tables
 
+__all__ = [
+    'GetRepositoryResult',
+    'AwaitableGetRepositoryResult',
+    'get_repository',
+]
+
+@pulumi.output_type
 class GetRepositoryResult:
     """
     A collection of values returned by getRepository.
@@ -15,127 +22,239 @@ class GetRepositoryResult:
     def __init__(__self__, allow_merge_commit=None, allow_rebase_merge=None, allow_squash_merge=None, archived=None, default_branch=None, description=None, full_name=None, git_clone_url=None, has_downloads=None, has_issues=None, has_projects=None, has_wiki=None, homepage_url=None, html_url=None, http_clone_url=None, id=None, name=None, node_id=None, private=None, ssh_clone_url=None, svn_url=None, topics=None):
         if allow_merge_commit and not isinstance(allow_merge_commit, bool):
             raise TypeError("Expected argument 'allow_merge_commit' to be a bool")
-        __self__.allow_merge_commit = allow_merge_commit
+        pulumi.set(__self__, "allow_merge_commit", allow_merge_commit)
+        if allow_rebase_merge and not isinstance(allow_rebase_merge, bool):
+            raise TypeError("Expected argument 'allow_rebase_merge' to be a bool")
+        pulumi.set(__self__, "allow_rebase_merge", allow_rebase_merge)
+        if allow_squash_merge and not isinstance(allow_squash_merge, bool):
+            raise TypeError("Expected argument 'allow_squash_merge' to be a bool")
+        pulumi.set(__self__, "allow_squash_merge", allow_squash_merge)
+        if archived and not isinstance(archived, bool):
+            raise TypeError("Expected argument 'archived' to be a bool")
+        pulumi.set(__self__, "archived", archived)
+        if default_branch and not isinstance(default_branch, str):
+            raise TypeError("Expected argument 'default_branch' to be a str")
+        pulumi.set(__self__, "default_branch", default_branch)
+        if description and not isinstance(description, str):
+            raise TypeError("Expected argument 'description' to be a str")
+        pulumi.set(__self__, "description", description)
+        if full_name and not isinstance(full_name, str):
+            raise TypeError("Expected argument 'full_name' to be a str")
+        pulumi.set(__self__, "full_name", full_name)
+        if git_clone_url and not isinstance(git_clone_url, str):
+            raise TypeError("Expected argument 'git_clone_url' to be a str")
+        pulumi.set(__self__, "git_clone_url", git_clone_url)
+        if has_downloads and not isinstance(has_downloads, bool):
+            raise TypeError("Expected argument 'has_downloads' to be a bool")
+        pulumi.set(__self__, "has_downloads", has_downloads)
+        if has_issues and not isinstance(has_issues, bool):
+            raise TypeError("Expected argument 'has_issues' to be a bool")
+        pulumi.set(__self__, "has_issues", has_issues)
+        if has_projects and not isinstance(has_projects, bool):
+            raise TypeError("Expected argument 'has_projects' to be a bool")
+        pulumi.set(__self__, "has_projects", has_projects)
+        if has_wiki and not isinstance(has_wiki, bool):
+            raise TypeError("Expected argument 'has_wiki' to be a bool")
+        pulumi.set(__self__, "has_wiki", has_wiki)
+        if homepage_url and not isinstance(homepage_url, str):
+            raise TypeError("Expected argument 'homepage_url' to be a str")
+        pulumi.set(__self__, "homepage_url", homepage_url)
+        if html_url and not isinstance(html_url, str):
+            raise TypeError("Expected argument 'html_url' to be a str")
+        pulumi.set(__self__, "html_url", html_url)
+        if http_clone_url and not isinstance(http_clone_url, str):
+            raise TypeError("Expected argument 'http_clone_url' to be a str")
+        pulumi.set(__self__, "http_clone_url", http_clone_url)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if node_id and not isinstance(node_id, str):
+            raise TypeError("Expected argument 'node_id' to be a str")
+        pulumi.set(__self__, "node_id", node_id)
+        if private and not isinstance(private, bool):
+            raise TypeError("Expected argument 'private' to be a bool")
+        pulumi.set(__self__, "private", private)
+        if ssh_clone_url and not isinstance(ssh_clone_url, str):
+            raise TypeError("Expected argument 'ssh_clone_url' to be a str")
+        pulumi.set(__self__, "ssh_clone_url", ssh_clone_url)
+        if svn_url and not isinstance(svn_url, str):
+            raise TypeError("Expected argument 'svn_url' to be a str")
+        pulumi.set(__self__, "svn_url", svn_url)
+        if topics and not isinstance(topics, list):
+            raise TypeError("Expected argument 'topics' to be a list")
+        pulumi.set(__self__, "topics", topics)
+
+    @property
+    @pulumi.getter(name="allowMergeCommit")
+    def allow_merge_commit(self) -> bool:
         """
         Whether the repository allows merge commits.
         """
-        if allow_rebase_merge and not isinstance(allow_rebase_merge, bool):
-            raise TypeError("Expected argument 'allow_rebase_merge' to be a bool")
-        __self__.allow_rebase_merge = allow_rebase_merge
+        return pulumi.get(self, "allow_merge_commit")
+
+    @property
+    @pulumi.getter(name="allowRebaseMerge")
+    def allow_rebase_merge(self) -> bool:
         """
         Whether the repository allows rebase merges.
         """
-        if allow_squash_merge and not isinstance(allow_squash_merge, bool):
-            raise TypeError("Expected argument 'allow_squash_merge' to be a bool")
-        __self__.allow_squash_merge = allow_squash_merge
+        return pulumi.get(self, "allow_rebase_merge")
+
+    @property
+    @pulumi.getter(name="allowSquashMerge")
+    def allow_squash_merge(self) -> bool:
         """
         Whether the repository allows squash merges.
         """
-        if archived and not isinstance(archived, bool):
-            raise TypeError("Expected argument 'archived' to be a bool")
-        __self__.archived = archived
+        return pulumi.get(self, "allow_squash_merge")
+
+    @property
+    @pulumi.getter
+    def archived(self) -> bool:
         """
         Whether the repository is archived.
         """
-        if default_branch and not isinstance(default_branch, str):
-            raise TypeError("Expected argument 'default_branch' to be a str")
-        __self__.default_branch = default_branch
+        return pulumi.get(self, "archived")
+
+    @property
+    @pulumi.getter(name="defaultBranch")
+    def default_branch(self) -> str:
         """
         The name of the default branch of the repository.
         """
-        if description and not isinstance(description, str):
-            raise TypeError("Expected argument 'description' to be a str")
-        __self__.description = description
+        return pulumi.get(self, "default_branch")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
         """
         A description of the repository.
         """
-        if full_name and not isinstance(full_name, str):
-            raise TypeError("Expected argument 'full_name' to be a str")
-        __self__.full_name = full_name
-        if git_clone_url and not isinstance(git_clone_url, str):
-            raise TypeError("Expected argument 'git_clone_url' to be a str")
-        __self__.git_clone_url = git_clone_url
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="fullName")
+    def full_name(self) -> Optional[str]:
+        return pulumi.get(self, "full_name")
+
+    @property
+    @pulumi.getter(name="gitCloneUrl")
+    def git_clone_url(self) -> str:
         """
         URL that can be provided to `git clone` to clone the repository anonymously via the git protocol.
         """
-        if has_downloads and not isinstance(has_downloads, bool):
-            raise TypeError("Expected argument 'has_downloads' to be a bool")
-        __self__.has_downloads = has_downloads
+        return pulumi.get(self, "git_clone_url")
+
+    @property
+    @pulumi.getter(name="hasDownloads")
+    def has_downloads(self) -> bool:
         """
         Whether the repository has Downloads feature enabled.
         """
-        if has_issues and not isinstance(has_issues, bool):
-            raise TypeError("Expected argument 'has_issues' to be a bool")
-        __self__.has_issues = has_issues
+        return pulumi.get(self, "has_downloads")
+
+    @property
+    @pulumi.getter(name="hasIssues")
+    def has_issues(self) -> bool:
         """
         Whether the repository has GitHub Issues enabled.
         """
-        if has_projects and not isinstance(has_projects, bool):
-            raise TypeError("Expected argument 'has_projects' to be a bool")
-        __self__.has_projects = has_projects
+        return pulumi.get(self, "has_issues")
+
+    @property
+    @pulumi.getter(name="hasProjects")
+    def has_projects(self) -> bool:
         """
         Whether the repository has the GitHub Projects enabled.
         """
-        if has_wiki and not isinstance(has_wiki, bool):
-            raise TypeError("Expected argument 'has_wiki' to be a bool")
-        __self__.has_wiki = has_wiki
+        return pulumi.get(self, "has_projects")
+
+    @property
+    @pulumi.getter(name="hasWiki")
+    def has_wiki(self) -> bool:
         """
         Whether the repository has the GitHub Wiki enabled.
         """
-        if homepage_url and not isinstance(homepage_url, str):
-            raise TypeError("Expected argument 'homepage_url' to be a str")
-        __self__.homepage_url = homepage_url
+        return pulumi.get(self, "has_wiki")
+
+    @property
+    @pulumi.getter(name="homepageUrl")
+    def homepage_url(self) -> str:
         """
         URL of a page describing the project.
         """
-        if html_url and not isinstance(html_url, str):
-            raise TypeError("Expected argument 'html_url' to be a str")
-        __self__.html_url = html_url
+        return pulumi.get(self, "homepage_url")
+
+    @property
+    @pulumi.getter(name="htmlUrl")
+    def html_url(self) -> str:
         """
         URL to the repository on the web.
         """
-        if http_clone_url and not isinstance(http_clone_url, str):
-            raise TypeError("Expected argument 'http_clone_url' to be a str")
-        __self__.http_clone_url = http_clone_url
+        return pulumi.get(self, "html_url")
+
+    @property
+    @pulumi.getter(name="httpCloneUrl")
+    def http_clone_url(self) -> str:
         """
         URL that can be provided to `git clone` to clone the repository via HTTPS.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
+        return pulumi.get(self, "http_clone_url")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
         """
         The provider-assigned unique ID for this managed resource.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
-        if node_id and not isinstance(node_id, str):
-            raise TypeError("Expected argument 'node_id' to be a str")
-        __self__.node_id = node_id
-        if private and not isinstance(private, bool):
-            raise TypeError("Expected argument 'private' to be a bool")
-        __self__.private = private
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="nodeId")
+    def node_id(self) -> str:
+        return pulumi.get(self, "node_id")
+
+    @property
+    @pulumi.getter
+    def private(self) -> bool:
         """
         Whether the repository is private.
         """
-        if ssh_clone_url and not isinstance(ssh_clone_url, str):
-            raise TypeError("Expected argument 'ssh_clone_url' to be a str")
-        __self__.ssh_clone_url = ssh_clone_url
+        return pulumi.get(self, "private")
+
+    @property
+    @pulumi.getter(name="sshCloneUrl")
+    def ssh_clone_url(self) -> str:
         """
         URL that can be provided to `git clone` to clone the repository via SSH.
         """
-        if svn_url and not isinstance(svn_url, str):
-            raise TypeError("Expected argument 'svn_url' to be a str")
-        __self__.svn_url = svn_url
+        return pulumi.get(self, "ssh_clone_url")
+
+    @property
+    @pulumi.getter(name="svnUrl")
+    def svn_url(self) -> str:
         """
         URL that can be provided to `svn checkout` to check out the repository via GitHub's Subversion protocol emulation.
         """
-        if topics and not isinstance(topics, list):
-            raise TypeError("Expected argument 'topics' to be a list")
-        __self__.topics = topics
+        return pulumi.get(self, "svn_url")
+
+    @property
+    @pulumi.getter
+    def topics(self) -> List[str]:
         """
         The list of topics of the repository.
         """
+        return pulumi.get(self, "topics")
+
+
 class AwaitableGetRepositoryResult(GetRepositoryResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -165,7 +284,10 @@ class AwaitableGetRepositoryResult(GetRepositoryResult):
             svn_url=self.svn_url,
             topics=self.topics)
 
-def get_repository(full_name=None,name=None,opts=None):
+
+def get_repository(full_name: Optional[str] = None,
+                   name: Optional[str] = None,
+                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRepositoryResult:
     """
     Use this data source to retrieve information about a GitHub repository.
 
@@ -183,36 +305,34 @@ def get_repository(full_name=None,name=None,opts=None):
     :param str name: The name of the repository.
     """
     __args__ = dict()
-
-
     __args__['fullName'] = full_name
     __args__['name'] = name
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('github:index/getRepository:getRepository', __args__, opts=opts).value
+        opts.version = _utilities.get_version()
+    __ret__ = pulumi.runtime.invoke('github:index/getRepository:getRepository', __args__, opts=opts, typ=GetRepositoryResult).value
 
     return AwaitableGetRepositoryResult(
-        allow_merge_commit=__ret__.get('allowMergeCommit'),
-        allow_rebase_merge=__ret__.get('allowRebaseMerge'),
-        allow_squash_merge=__ret__.get('allowSquashMerge'),
-        archived=__ret__.get('archived'),
-        default_branch=__ret__.get('defaultBranch'),
-        description=__ret__.get('description'),
-        full_name=__ret__.get('fullName'),
-        git_clone_url=__ret__.get('gitCloneUrl'),
-        has_downloads=__ret__.get('hasDownloads'),
-        has_issues=__ret__.get('hasIssues'),
-        has_projects=__ret__.get('hasProjects'),
-        has_wiki=__ret__.get('hasWiki'),
-        homepage_url=__ret__.get('homepageUrl'),
-        html_url=__ret__.get('htmlUrl'),
-        http_clone_url=__ret__.get('httpCloneUrl'),
-        id=__ret__.get('id'),
-        name=__ret__.get('name'),
-        node_id=__ret__.get('nodeId'),
-        private=__ret__.get('private'),
-        ssh_clone_url=__ret__.get('sshCloneUrl'),
-        svn_url=__ret__.get('svnUrl'),
-        topics=__ret__.get('topics'))
+        allow_merge_commit=__ret__.allow_merge_commit,
+        allow_rebase_merge=__ret__.allow_rebase_merge,
+        allow_squash_merge=__ret__.allow_squash_merge,
+        archived=__ret__.archived,
+        default_branch=__ret__.default_branch,
+        description=__ret__.description,
+        full_name=__ret__.full_name,
+        git_clone_url=__ret__.git_clone_url,
+        has_downloads=__ret__.has_downloads,
+        has_issues=__ret__.has_issues,
+        has_projects=__ret__.has_projects,
+        has_wiki=__ret__.has_wiki,
+        homepage_url=__ret__.homepage_url,
+        html_url=__ret__.html_url,
+        http_clone_url=__ret__.http_clone_url,
+        id=__ret__.id,
+        name=__ret__.name,
+        node_id=__ret__.node_id,
+        private=__ret__.private,
+        ssh_clone_url=__ret__.ssh_clone_url,
+        svn_url=__ret__.svn_url,
+        topics=__ret__.topics)

@@ -31,7 +31,7 @@ import * as utilities from "./utilities";
  * import * as github from "@pulumi/github";
  *
  * const example = pulumi.output(github.getRelease({
- *     id: 12345,
+ *     id: "12345",
  *     owner: "example-owner",
  *     repository: "example-repository",
  *     retrieveBy: "id",

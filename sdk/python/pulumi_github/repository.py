@@ -5,126 +5,41 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from . import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from . import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['Repository']
 
 
 class Repository(pulumi.CustomResource):
-    allow_merge_commit: pulumi.Output[bool]
-    """
-    Set to `false` to disable merge commits on the repository.
-    """
-    allow_rebase_merge: pulumi.Output[bool]
-    """
-    Set to `false` to disable rebase merges on the repository.
-    """
-    allow_squash_merge: pulumi.Output[bool]
-    """
-    Set to `false` to disable squash merges on the repository.
-    """
-    archived: pulumi.Output[bool]
-    """
-    Specifies if the repository should be archived. Defaults to `false`. **NOTE** Currently, the API does not support unarchiving.
-    """
-    auto_init: pulumi.Output[bool]
-    """
-    Set to `true` to produce an initial commit in the repository.
-    """
-    default_branch: pulumi.Output[str]
-    """
-    The name of the default branch of the repository. **NOTE:** This can only be set after a repository has already been created,
-    and after a correct reference has been created for the target branch inside the repository. This means a user will have to omit this parameter from the
-    initial repository creation and create the target branch inside of the repository prior to setting this attribute.
-    """
-    delete_branch_on_merge: pulumi.Output[bool]
-    """
-    Automatically delete head branch after a pull request is merged. Defaults to `false`.
-    """
-    description: pulumi.Output[str]
-    """
-    A description of the repository.
-    """
-    etag: pulumi.Output[str]
-    full_name: pulumi.Output[str]
-    """
-    A string of the form "orgname/reponame".
-    """
-    git_clone_url: pulumi.Output[str]
-    """
-    URL that can be provided to `git clone` to clone the repository anonymously via the git protocol.
-    """
-    gitignore_template: pulumi.Output[str]
-    """
-    Use the [name of the template](https://github.com/github/gitignore) without the extension. For example, "Haskell".
-    """
-    has_downloads: pulumi.Output[bool]
-    """
-    Set to `true` to enable the (deprecated) downloads features on the repository.
-    """
-    has_issues: pulumi.Output[bool]
-    """
-    Set to `true` to enable the GitHub Issues features
-    on the repository.
-    """
-    has_projects: pulumi.Output[bool]
-    """
-    Set to `true` to enable the GitHub Projects features on the repository. Per the GitHub [documentation](https://developer.github.com/v3/repos/#create) when in an organization that has disabled repository projects it will default to `false` and will otherwise default to `true`. If you specify `true` when it has been disabled it will return an error.
-    """
-    has_wiki: pulumi.Output[bool]
-    """
-    Set to `true` to enable the GitHub Wiki features on
-    the repository.
-    """
-    homepage_url: pulumi.Output[str]
-    """
-    URL of a page describing the project.
-    """
-    html_url: pulumi.Output[str]
-    """
-    URL to the repository on the web.
-    """
-    http_clone_url: pulumi.Output[str]
-    """
-    URL that can be provided to `git clone` to clone the repository via HTTPS.
-    """
-    is_template: pulumi.Output[bool]
-    """
-    Set to `true` to tell GitHub that this is a template repository.
-    """
-    license_template: pulumi.Output[str]
-    """
-    Use the [name of the template](https://github.com/github/choosealicense.com/tree/gh-pages/_licenses) without the extension. For example, "mit" or "mpl-2.0".
-    """
-    name: pulumi.Output[str]
-    """
-    The name of the repository.
-    """
-    node_id: pulumi.Output[str]
-    private: pulumi.Output[bool]
-    """
-    Set to `true` to create a private repository.
-    Repositories are created as public (e.g. open source) by default.
-    """
-    ssh_clone_url: pulumi.Output[str]
-    """
-    URL that can be provided to `git clone` to clone the repository via SSH.
-    """
-    svn_url: pulumi.Output[str]
-    """
-    URL that can be provided to `svn checkout` to check out the repository via GitHub's Subversion protocol emulation.
-    """
-    template: pulumi.Output[dict]
-    """
-    Use a template repository to create this resource. See Template Repositories below for details.
-
-      * `owner` (`str`)
-      * `repository` (`str`)
-    """
-    topics: pulumi.Output[list]
-    """
-    The list of topics of the repository.
-    """
-    def __init__(__self__, resource_name, opts=None, allow_merge_commit=None, allow_rebase_merge=None, allow_squash_merge=None, archived=None, auto_init=None, default_branch=None, delete_branch_on_merge=None, description=None, gitignore_template=None, has_downloads=None, has_issues=None, has_projects=None, has_wiki=None, homepage_url=None, is_template=None, license_template=None, name=None, private=None, template=None, topics=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 allow_merge_commit: Optional[pulumi.Input[bool]] = None,
+                 allow_rebase_merge: Optional[pulumi.Input[bool]] = None,
+                 allow_squash_merge: Optional[pulumi.Input[bool]] = None,
+                 archived: Optional[pulumi.Input[bool]] = None,
+                 auto_init: Optional[pulumi.Input[bool]] = None,
+                 default_branch: Optional[pulumi.Input[str]] = None,
+                 delete_branch_on_merge: Optional[pulumi.Input[bool]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 gitignore_template: Optional[pulumi.Input[str]] = None,
+                 has_downloads: Optional[pulumi.Input[bool]] = None,
+                 has_issues: Optional[pulumi.Input[bool]] = None,
+                 has_projects: Optional[pulumi.Input[bool]] = None,
+                 has_wiki: Optional[pulumi.Input[bool]] = None,
+                 homepage_url: Optional[pulumi.Input[str]] = None,
+                 is_template: Optional[pulumi.Input[bool]] = None,
+                 license_template: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 private: Optional[pulumi.Input[bool]] = None,
+                 template: Optional[pulumi.Input[pulumi.InputType['RepositoryTemplateArgs']]] = None,
+                 topics: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         This resource allows you to create and manage repositories within your
         GitHub organization.
@@ -141,10 +56,10 @@ class Repository(pulumi.CustomResource):
         example = github.Repository("example",
             description="My awesome codebase",
             private=True,
-            template={
-                "owner": "github",
-                "repository": "terraform-module-template",
-            })
+            template=github.RepositoryTemplateArgs(
+                owner="github",
+                repository="terraform-module-template",
+            ))
         ```
 
         :param str resource_name: The name of the resource.
@@ -172,13 +87,8 @@ class Repository(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the repository.
         :param pulumi.Input[bool] private: Set to `true` to create a private repository.
                Repositories are created as public (e.g. open source) by default.
-        :param pulumi.Input[dict] template: Use a template repository to create this resource. See Template Repositories below for details.
-        :param pulumi.Input[list] topics: The list of topics of the repository.
-
-        The **template** object supports the following:
-
-          * `owner` (`pulumi.Input[str]`)
-          * `repository` (`pulumi.Input[str]`)
+        :param pulumi.Input[pulumi.InputType['RepositoryTemplateArgs']] template: Use a template repository to create this resource. See Template Repositories below for details.
+        :param pulumi.Input[List[pulumi.Input[str]]] topics: The list of topics of the repository.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -191,7 +101,7 @@ class Repository(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
@@ -232,13 +142,43 @@ class Repository(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, allow_merge_commit=None, allow_rebase_merge=None, allow_squash_merge=None, archived=None, auto_init=None, default_branch=None, delete_branch_on_merge=None, description=None, etag=None, full_name=None, git_clone_url=None, gitignore_template=None, has_downloads=None, has_issues=None, has_projects=None, has_wiki=None, homepage_url=None, html_url=None, http_clone_url=None, is_template=None, license_template=None, name=None, node_id=None, private=None, ssh_clone_url=None, svn_url=None, template=None, topics=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            allow_merge_commit: Optional[pulumi.Input[bool]] = None,
+            allow_rebase_merge: Optional[pulumi.Input[bool]] = None,
+            allow_squash_merge: Optional[pulumi.Input[bool]] = None,
+            archived: Optional[pulumi.Input[bool]] = None,
+            auto_init: Optional[pulumi.Input[bool]] = None,
+            default_branch: Optional[pulumi.Input[str]] = None,
+            delete_branch_on_merge: Optional[pulumi.Input[bool]] = None,
+            description: Optional[pulumi.Input[str]] = None,
+            etag: Optional[pulumi.Input[str]] = None,
+            full_name: Optional[pulumi.Input[str]] = None,
+            git_clone_url: Optional[pulumi.Input[str]] = None,
+            gitignore_template: Optional[pulumi.Input[str]] = None,
+            has_downloads: Optional[pulumi.Input[bool]] = None,
+            has_issues: Optional[pulumi.Input[bool]] = None,
+            has_projects: Optional[pulumi.Input[bool]] = None,
+            has_wiki: Optional[pulumi.Input[bool]] = None,
+            homepage_url: Optional[pulumi.Input[str]] = None,
+            html_url: Optional[pulumi.Input[str]] = None,
+            http_clone_url: Optional[pulumi.Input[str]] = None,
+            is_template: Optional[pulumi.Input[bool]] = None,
+            license_template: Optional[pulumi.Input[str]] = None,
+            name: Optional[pulumi.Input[str]] = None,
+            node_id: Optional[pulumi.Input[str]] = None,
+            private: Optional[pulumi.Input[bool]] = None,
+            ssh_clone_url: Optional[pulumi.Input[str]] = None,
+            svn_url: Optional[pulumi.Input[str]] = None,
+            template: Optional[pulumi.Input[pulumi.InputType['RepositoryTemplateArgs']]] = None,
+            topics: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None) -> 'Repository':
         """
         Get an existing Repository resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] allow_merge_commit: Set to `false` to disable merge commits on the repository.
         :param pulumi.Input[bool] allow_rebase_merge: Set to `false` to disable rebase merges on the repository.
@@ -269,13 +209,8 @@ class Repository(pulumi.CustomResource):
                Repositories are created as public (e.g. open source) by default.
         :param pulumi.Input[str] ssh_clone_url: URL that can be provided to `git clone` to clone the repository via SSH.
         :param pulumi.Input[str] svn_url: URL that can be provided to `svn checkout` to check out the repository via GitHub's Subversion protocol emulation.
-        :param pulumi.Input[dict] template: Use a template repository to create this resource. See Template Repositories below for details.
-        :param pulumi.Input[list] topics: The list of topics of the repository.
-
-        The **template** object supports the following:
-
-          * `owner` (`pulumi.Input[str]`)
-          * `repository` (`pulumi.Input[str]`)
+        :param pulumi.Input[pulumi.InputType['RepositoryTemplateArgs']] template: Use a template repository to create this resource. See Template Repositories below for details.
+        :param pulumi.Input[List[pulumi.Input[str]]] topics: The list of topics of the repository.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -311,8 +246,232 @@ class Repository(pulumi.CustomResource):
         __props__["topics"] = topics
         return Repository(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="allowMergeCommit")
+    def allow_merge_commit(self) -> Optional[bool]:
+        """
+        Set to `false` to disable merge commits on the repository.
+        """
+        return pulumi.get(self, "allow_merge_commit")
+
+    @property
+    @pulumi.getter(name="allowRebaseMerge")
+    def allow_rebase_merge(self) -> Optional[bool]:
+        """
+        Set to `false` to disable rebase merges on the repository.
+        """
+        return pulumi.get(self, "allow_rebase_merge")
+
+    @property
+    @pulumi.getter(name="allowSquashMerge")
+    def allow_squash_merge(self) -> Optional[bool]:
+        """
+        Set to `false` to disable squash merges on the repository.
+        """
+        return pulumi.get(self, "allow_squash_merge")
+
+    @property
+    @pulumi.getter
+    def archived(self) -> Optional[bool]:
+        """
+        Specifies if the repository should be archived. Defaults to `false`. **NOTE** Currently, the API does not support unarchiving.
+        """
+        return pulumi.get(self, "archived")
+
+    @property
+    @pulumi.getter(name="autoInit")
+    def auto_init(self) -> Optional[bool]:
+        """
+        Set to `true` to produce an initial commit in the repository.
+        """
+        return pulumi.get(self, "auto_init")
+
+    @property
+    @pulumi.getter(name="defaultBranch")
+    def default_branch(self) -> str:
+        """
+        The name of the default branch of the repository. **NOTE:** This can only be set after a repository has already been created,
+        and after a correct reference has been created for the target branch inside the repository. This means a user will have to omit this parameter from the
+        initial repository creation and create the target branch inside of the repository prior to setting this attribute.
+        """
+        return pulumi.get(self, "default_branch")
+
+    @property
+    @pulumi.getter(name="deleteBranchOnMerge")
+    def delete_branch_on_merge(self) -> Optional[bool]:
+        """
+        Automatically delete head branch after a pull request is merged. Defaults to `false`.
+        """
+        return pulumi.get(self, "delete_branch_on_merge")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        A description of the repository.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="fullName")
+    def full_name(self) -> str:
+        """
+        A string of the form "orgname/reponame".
+        """
+        return pulumi.get(self, "full_name")
+
+    @property
+    @pulumi.getter(name="gitCloneUrl")
+    def git_clone_url(self) -> str:
+        """
+        URL that can be provided to `git clone` to clone the repository anonymously via the git protocol.
+        """
+        return pulumi.get(self, "git_clone_url")
+
+    @property
+    @pulumi.getter(name="gitignoreTemplate")
+    def gitignore_template(self) -> Optional[str]:
+        """
+        Use the [name of the template](https://github.com/github/gitignore) without the extension. For example, "Haskell".
+        """
+        return pulumi.get(self, "gitignore_template")
+
+    @property
+    @pulumi.getter(name="hasDownloads")
+    def has_downloads(self) -> Optional[bool]:
+        """
+        Set to `true` to enable the (deprecated) downloads features on the repository.
+        """
+        return pulumi.get(self, "has_downloads")
+
+    @property
+    @pulumi.getter(name="hasIssues")
+    def has_issues(self) -> Optional[bool]:
+        """
+        Set to `true` to enable the GitHub Issues features
+        on the repository.
+        """
+        return pulumi.get(self, "has_issues")
+
+    @property
+    @pulumi.getter(name="hasProjects")
+    def has_projects(self) -> Optional[bool]:
+        """
+        Set to `true` to enable the GitHub Projects features on the repository. Per the GitHub [documentation](https://developer.github.com/v3/repos/#create) when in an organization that has disabled repository projects it will default to `false` and will otherwise default to `true`. If you specify `true` when it has been disabled it will return an error.
+        """
+        return pulumi.get(self, "has_projects")
+
+    @property
+    @pulumi.getter(name="hasWiki")
+    def has_wiki(self) -> Optional[bool]:
+        """
+        Set to `true` to enable the GitHub Wiki features on
+        the repository.
+        """
+        return pulumi.get(self, "has_wiki")
+
+    @property
+    @pulumi.getter(name="homepageUrl")
+    def homepage_url(self) -> Optional[str]:
+        """
+        URL of a page describing the project.
+        """
+        return pulumi.get(self, "homepage_url")
+
+    @property
+    @pulumi.getter(name="htmlUrl")
+    def html_url(self) -> str:
+        """
+        URL to the repository on the web.
+        """
+        return pulumi.get(self, "html_url")
+
+    @property
+    @pulumi.getter(name="httpCloneUrl")
+    def http_clone_url(self) -> str:
+        """
+        URL that can be provided to `git clone` to clone the repository via HTTPS.
+        """
+        return pulumi.get(self, "http_clone_url")
+
+    @property
+    @pulumi.getter(name="isTemplate")
+    def is_template(self) -> Optional[bool]:
+        """
+        Set to `true` to tell GitHub that this is a template repository.
+        """
+        return pulumi.get(self, "is_template")
+
+    @property
+    @pulumi.getter(name="licenseTemplate")
+    def license_template(self) -> Optional[str]:
+        """
+        Use the [name of the template](https://github.com/github/choosealicense.com/tree/gh-pages/_licenses) without the extension. For example, "mit" or "mpl-2.0".
+        """
+        return pulumi.get(self, "license_template")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the repository.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="nodeId")
+    def node_id(self) -> str:
+        return pulumi.get(self, "node_id")
+
+    @property
+    @pulumi.getter
+    def private(self) -> Optional[bool]:
+        """
+        Set to `true` to create a private repository.
+        Repositories are created as public (e.g. open source) by default.
+        """
+        return pulumi.get(self, "private")
+
+    @property
+    @pulumi.getter(name="sshCloneUrl")
+    def ssh_clone_url(self) -> str:
+        """
+        URL that can be provided to `git clone` to clone the repository via SSH.
+        """
+        return pulumi.get(self, "ssh_clone_url")
+
+    @property
+    @pulumi.getter(name="svnUrl")
+    def svn_url(self) -> str:
+        """
+        URL that can be provided to `svn checkout` to check out the repository via GitHub's Subversion protocol emulation.
+        """
+        return pulumi.get(self, "svn_url")
+
+    @property
+    @pulumi.getter
+    def template(self) -> Optional['outputs.RepositoryTemplate']:
+        """
+        Use a template repository to create this resource. See Template Repositories below for details.
+        """
+        return pulumi.get(self, "template")
+
+    @property
+    @pulumi.getter
+    def topics(self) -> Optional[List[str]]:
+        """
+        The list of topics of the repository.
+        """
+        return pulumi.get(self, "topics")
+
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

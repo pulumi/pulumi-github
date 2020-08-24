@@ -5,29 +5,22 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from . import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from . import _utilities, _tables
+
+__all__ = ['RepositoryProject']
 
 
 class RepositoryProject(pulumi.CustomResource):
-    body: pulumi.Output[str]
-    """
-    The body of the project.
-    """
-    etag: pulumi.Output[str]
-    name: pulumi.Output[str]
-    """
-    The name of the project.
-    """
-    repository: pulumi.Output[str]
-    """
-    The repository of the project.
-    """
-    url: pulumi.Output[str]
-    """
-    URL of the project
-    """
-    def __init__(__self__, resource_name, opts=None, body=None, name=None, repository=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 body: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 repository: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         This resource allows you to create and manage projects for GitHub repository.
 
@@ -62,7 +55,7 @@ class RepositoryProject(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
@@ -82,13 +75,20 @@ class RepositoryProject(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, body=None, etag=None, name=None, repository=None, url=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            body: Optional[pulumi.Input[str]] = None,
+            etag: Optional[pulumi.Input[str]] = None,
+            name: Optional[pulumi.Input[str]] = None,
+            repository: Optional[pulumi.Input[str]] = None,
+            url: Optional[pulumi.Input[str]] = None) -> 'RepositoryProject':
         """
         Get an existing RepositoryProject resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] body: The body of the project.
         :param pulumi.Input[str] name: The name of the project.
@@ -106,8 +106,46 @@ class RepositoryProject(pulumi.CustomResource):
         __props__["url"] = url
         return RepositoryProject(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def body(self) -> Optional[str]:
+        """
+        The body of the project.
+        """
+        return pulumi.get(self, "body")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the project.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def repository(self) -> str:
+        """
+        The repository of the project.
+        """
+        return pulumi.get(self, "repository")
+
+    @property
+    @pulumi.getter
+    def url(self) -> str:
+        """
+        URL of the project
+        """
+        return pulumi.get(self, "url")
+
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

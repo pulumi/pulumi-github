@@ -5,8 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from .. import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from .. import _utilities, _tables
+
+__all__ = [
+    'anonymous',
+    'base_url',
+    'individual',
+    'insecure',
+    'organization',
+    'token',
+]
 
 __config__ = pulumi.Config('github')
 
@@ -16,7 +25,7 @@ Authenticate without a token. When `anonymous`is true, the provider will not be 
 authentication.
 """
 
-base_url = __config__.get('baseUrl') or (utilities.get_env('GITHUB_BASE_URL') or 'https://api.github.com/')
+base_url = __config__.get('baseUrl') or (_utilities.get_env('GITHUB_BASE_URL') or 'https://api.github.com/')
 """
 The GitHub Base API URL
 """
@@ -28,12 +37,12 @@ insecure = __config__.get('insecure')
 Whether server should be accessed without verifying the TLS certificate.
 """
 
-organization = __config__.get('organization') or utilities.get_env('GITHUB_ORGANIZATION')
+organization = __config__.get('organization') or _utilities.get_env('GITHUB_ORGANIZATION')
 """
 The GitHub organization name to manage. If `individual` is false, `organization` is required.
 """
 
-token = __config__.get('token') or utilities.get_env('GITHUB_TOKEN')
+token = __config__.get('token') or _utilities.get_env('GITHUB_TOKEN')
 """
 The OAuth token used to connect to GitHub. If `anonymous` is false, `token` is required.
 """

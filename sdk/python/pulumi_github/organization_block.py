@@ -5,17 +5,20 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from . import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from . import _utilities, _tables
+
+__all__ = ['OrganizationBlock']
 
 
 class OrganizationBlock(pulumi.CustomResource):
-    etag: pulumi.Output[str]
-    username: pulumi.Output[str]
-    """
-    The name of the user to block.
-    """
-    def __init__(__self__, resource_name, opts=None, username=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 username: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         This resource allows you to create and manage blocks for GitHub organizations.
 
@@ -43,7 +46,7 @@ class OrganizationBlock(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
@@ -60,13 +63,17 @@ class OrganizationBlock(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, etag=None, username=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            etag: Optional[pulumi.Input[str]] = None,
+            username: Optional[pulumi.Input[str]] = None) -> 'OrganizationBlock':
         """
         Get an existing OrganizationBlock resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] username: The name of the user to block.
         """
@@ -78,8 +85,22 @@ class OrganizationBlock(pulumi.CustomResource):
         __props__["username"] = username
         return OrganizationBlock(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def username(self) -> str:
+        """
+        The name of the user to block.
+        """
+        return pulumi.get(self, "username")
+
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+
