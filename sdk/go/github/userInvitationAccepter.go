@@ -38,7 +38,7 @@ import (
 // 			return err
 // 		}
 // 		_, err = providers.Newgithub(ctx, "invitee", &providers.githubArgs{
-// 			Token: pulumi.String(_var.Invitee_token),
+// 			Token: pulumi.Any(_var.Invitee_token),
 // 		})
 // 		if err != nil {
 // 			return err

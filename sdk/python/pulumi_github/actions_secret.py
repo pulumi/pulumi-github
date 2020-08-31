@@ -5,32 +5,22 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from . import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from . import _utilities, _tables
+
+__all__ = ['ActionsSecret']
 
 
 class ActionsSecret(pulumi.CustomResource):
-    created_at: pulumi.Output[str]
-    """
-    Date of actions_secret creation.
-    """
-    plaintext_value: pulumi.Output[str]
-    """
-    Plaintext value of the secret to be encrypted
-    """
-    repository: pulumi.Output[str]
-    """
-    Name of the repository
-    """
-    secret_name: pulumi.Output[str]
-    """
-    Name of the secret
-    """
-    updated_at: pulumi.Output[str]
-    """
-    Date of actions_secret update.
-    """
-    def __init__(__self__, resource_name, opts=None, plaintext_value=None, repository=None, secret_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 plaintext_value: Optional[pulumi.Input[str]] = None,
+                 repository: Optional[pulumi.Input[str]] = None,
+                 secret_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Create a ActionsSecret resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
@@ -50,7 +40,7 @@ class ActionsSecret(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
@@ -74,13 +64,20 @@ class ActionsSecret(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, created_at=None, plaintext_value=None, repository=None, secret_name=None, updated_at=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            created_at: Optional[pulumi.Input[str]] = None,
+            plaintext_value: Optional[pulumi.Input[str]] = None,
+            repository: Optional[pulumi.Input[str]] = None,
+            secret_name: Optional[pulumi.Input[str]] = None,
+            updated_at: Optional[pulumi.Input[str]] = None) -> 'ActionsSecret':
         """
         Get an existing ActionsSecret resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] created_at: Date of actions_secret creation.
         :param pulumi.Input[str] plaintext_value: Plaintext value of the secret to be encrypted
@@ -99,8 +96,49 @@ class ActionsSecret(pulumi.CustomResource):
         __props__["updated_at"] = updated_at
         return ActionsSecret(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> pulumi.Output[str]:
+        """
+        Date of actions_secret creation.
+        """
+        return pulumi.get(self, "created_at")
+
+    @property
+    @pulumi.getter(name="plaintextValue")
+    def plaintext_value(self) -> pulumi.Output[str]:
+        """
+        Plaintext value of the secret to be encrypted
+        """
+        return pulumi.get(self, "plaintext_value")
+
+    @property
+    @pulumi.getter
+    def repository(self) -> pulumi.Output[str]:
+        """
+        Name of the repository
+        """
+        return pulumi.get(self, "repository")
+
+    @property
+    @pulumi.getter(name="secretName")
+    def secret_name(self) -> pulumi.Output[str]:
+        """
+        Name of the secret
+        """
+        return pulumi.get(self, "secret_name")
+
+    @property
+    @pulumi.getter(name="updatedAt")
+    def updated_at(self) -> pulumi.Output[str]:
+        """
+        Date of actions_secret update.
+        """
+        return pulumi.get(self, "updated_at")
+
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

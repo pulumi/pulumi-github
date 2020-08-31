@@ -5,9 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from . import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from . import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetOrganizationTeamSyncGroupsResult',
+    'AwaitableGetOrganizationTeamSyncGroupsResult',
+    'get_organization_team_sync_groups',
+]
+
+@pulumi.output_type
 class GetOrganizationTeamSyncGroupsResult:
     """
     A collection of values returned by getOrganizationTeamSyncGroups.
@@ -15,16 +23,28 @@ class GetOrganizationTeamSyncGroupsResult:
     def __init__(__self__, groups=None, id=None):
         if groups and not isinstance(groups, list):
             raise TypeError("Expected argument 'groups' to be a list")
-        __self__.groups = groups
+        pulumi.set(__self__, "groups", groups)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def groups(self) -> List['outputs.GetOrganizationTeamSyncGroupsGroupResult']:
         """
         An Array of GitHub Identity Provider Groups.  Each `group` block consists of the fields documented below.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
+        return pulumi.get(self, "groups")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
         """
         The provider-assigned unique ID for this managed resource.
         """
+        return pulumi.get(self, "id")
+
+
 class AwaitableGetOrganizationTeamSyncGroupsResult(GetOrganizationTeamSyncGroupsResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -34,7 +54,8 @@ class AwaitableGetOrganizationTeamSyncGroupsResult(GetOrganizationTeamSyncGroups
             groups=self.groups,
             id=self.id)
 
-def get_organization_team_sync_groups(opts=None):
+
+def get_organization_team_sync_groups(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOrganizationTeamSyncGroupsResult:
     """
     Use this data source to retrieve the identity provider (IdP) groups for an organization.
 
@@ -48,14 +69,12 @@ def get_organization_team_sync_groups(opts=None):
     ```
     """
     __args__ = dict()
-
-
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('github:index/getOrganizationTeamSyncGroups:getOrganizationTeamSyncGroups', __args__, opts=opts).value
+        opts.version = _utilities.get_version()
+    __ret__ = pulumi.runtime.invoke('github:index/getOrganizationTeamSyncGroups:getOrganizationTeamSyncGroups', __args__, opts=opts, typ=GetOrganizationTeamSyncGroupsResult).value
 
     return AwaitableGetOrganizationTeamSyncGroupsResult(
-        groups=__ret__.get('groups'),
-        id=__ret__.get('id'))
+        groups=__ret__.groups,
+        id=__ret__.id)

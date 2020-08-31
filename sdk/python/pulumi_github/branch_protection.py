@@ -5,56 +5,28 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from . import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from . import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['BranchProtection']
 
 
 class BranchProtection(pulumi.CustomResource):
-    branch: pulumi.Output[str]
-    """
-    The Git branch to protect.
-    """
-    enforce_admins: pulumi.Output[bool]
-    """
-    Boolean, setting this to `true` enforces status checks for repository administrators.
-    """
-    etag: pulumi.Output[str]
-    repository: pulumi.Output[str]
-    """
-    The GitHub repository name.
-    """
-    require_signed_commits: pulumi.Output[bool]
-    """
-    Boolean, setting this to `true` requires all commits to be signed with GPG.
-    """
-    required_pull_request_reviews: pulumi.Output[dict]
-    """
-    Enforce restrictions for pull request reviews. See Required Pull Request Reviews below for details.
-
-      * `dismissStaleReviews` (`bool`)
-      * `dismissalTeams` (`list`)
-      * `dismissalUsers` (`list`)
-      * `includeAdmins` (`bool`)
-      * `requireCodeOwnerReviews` (`bool`)
-      * `requiredApprovingReviewCount` (`float`)
-    """
-    required_status_checks: pulumi.Output[dict]
-    """
-    Enforce restrictions for required status checks. See Required Status Checks below for details.
-
-      * `contexts` (`list`)
-      * `includeAdmins` (`bool`)
-      * `strict` (`bool`)
-    """
-    restrictions: pulumi.Output[dict]
-    """
-    Enforce restrictions for the users and teams that may push to the branch. See Restrictions below for details.
-
-      * `apps` (`list`)
-      * `teams` (`list`)
-      * `users` (`list`)
-    """
-    def __init__(__self__, resource_name, opts=None, branch=None, enforce_admins=None, repository=None, require_signed_commits=None, required_pull_request_reviews=None, required_status_checks=None, restrictions=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 branch: Optional[pulumi.Input[str]] = None,
+                 enforce_admins: Optional[pulumi.Input[bool]] = None,
+                 repository: Optional[pulumi.Input[str]] = None,
+                 require_signed_commits: Optional[pulumi.Input[bool]] = None,
+                 required_pull_request_reviews: Optional[pulumi.Input[pulumi.InputType['BranchProtectionRequiredPullRequestReviewsArgs']]] = None,
+                 required_status_checks: Optional[pulumi.Input[pulumi.InputType['BranchProtectionRequiredStatusChecksArgs']]] = None,
+                 restrictions: Optional[pulumi.Input[pulumi.InputType['BranchProtectionRestrictionsArgs']]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Protects a GitHub branch.
 
@@ -74,23 +46,23 @@ class BranchProtection(pulumi.CustomResource):
             branch="master",
             enforce_admins=True,
             repository=github_repository["example"]["name"],
-            required_pull_request_reviews={
-                "dismissStaleReviews": True,
-                "dismissalTeams": [
+            required_pull_request_reviews=github.BranchProtectionRequiredPullRequestReviewsArgs(
+                dismiss_stale_reviews=True,
+                dismissal_teams=[
                     example_team.slug,
                     github_team["second"]["slug"],
                 ],
-                "dismissalUsers": ["foo-user"],
-            },
-            required_status_checks={
-                "contexts": ["ci/travis"],
-                "strict": False,
-            },
-            restrictions={
-                "apps": ["foo-app"],
-                "teams": [example_team.slug],
-                "users": ["foo-user"],
-            })
+                dismissal_users=["foo-user"],
+            ),
+            required_status_checks=github.BranchProtectionRequiredStatusChecksArgs(
+                contexts=["ci/travis"],
+                strict=False,
+            ),
+            restrictions=github.BranchProtectionRestrictionsArgs(
+                apps=["foo-app"],
+                teams=[example_team.slug],
+                users=["foo-user"],
+            ))
         example_team_repository = github.TeamRepository("exampleTeamRepository",
             permission="pull",
             repository=github_repository["example"]["name"],
@@ -103,30 +75,9 @@ class BranchProtection(pulumi.CustomResource):
         :param pulumi.Input[bool] enforce_admins: Boolean, setting this to `true` enforces status checks for repository administrators.
         :param pulumi.Input[str] repository: The GitHub repository name.
         :param pulumi.Input[bool] require_signed_commits: Boolean, setting this to `true` requires all commits to be signed with GPG.
-        :param pulumi.Input[dict] required_pull_request_reviews: Enforce restrictions for pull request reviews. See Required Pull Request Reviews below for details.
-        :param pulumi.Input[dict] required_status_checks: Enforce restrictions for required status checks. See Required Status Checks below for details.
-        :param pulumi.Input[dict] restrictions: Enforce restrictions for the users and teams that may push to the branch. See Restrictions below for details.
-
-        The **required_pull_request_reviews** object supports the following:
-
-          * `dismissStaleReviews` (`pulumi.Input[bool]`)
-          * `dismissalTeams` (`pulumi.Input[list]`)
-          * `dismissalUsers` (`pulumi.Input[list]`)
-          * `includeAdmins` (`pulumi.Input[bool]`)
-          * `requireCodeOwnerReviews` (`pulumi.Input[bool]`)
-          * `requiredApprovingReviewCount` (`pulumi.Input[float]`)
-
-        The **required_status_checks** object supports the following:
-
-          * `contexts` (`pulumi.Input[list]`)
-          * `includeAdmins` (`pulumi.Input[bool]`)
-          * `strict` (`pulumi.Input[bool]`)
-
-        The **restrictions** object supports the following:
-
-          * `apps` (`pulumi.Input[list]`)
-          * `teams` (`pulumi.Input[list]`)
-          * `users` (`pulumi.Input[list]`)
+        :param pulumi.Input[pulumi.InputType['BranchProtectionRequiredPullRequestReviewsArgs']] required_pull_request_reviews: Enforce restrictions for pull request reviews. See Required Pull Request Reviews below for details.
+        :param pulumi.Input[pulumi.InputType['BranchProtectionRequiredStatusChecksArgs']] required_status_checks: Enforce restrictions for required status checks. See Required Status Checks below for details.
+        :param pulumi.Input[pulumi.InputType['BranchProtectionRestrictionsArgs']] restrictions: Enforce restrictions for the users and teams that may push to the branch. See Restrictions below for details.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -139,7 +90,7 @@ class BranchProtection(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
@@ -164,42 +115,31 @@ class BranchProtection(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, branch=None, enforce_admins=None, etag=None, repository=None, require_signed_commits=None, required_pull_request_reviews=None, required_status_checks=None, restrictions=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            branch: Optional[pulumi.Input[str]] = None,
+            enforce_admins: Optional[pulumi.Input[bool]] = None,
+            etag: Optional[pulumi.Input[str]] = None,
+            repository: Optional[pulumi.Input[str]] = None,
+            require_signed_commits: Optional[pulumi.Input[bool]] = None,
+            required_pull_request_reviews: Optional[pulumi.Input[pulumi.InputType['BranchProtectionRequiredPullRequestReviewsArgs']]] = None,
+            required_status_checks: Optional[pulumi.Input[pulumi.InputType['BranchProtectionRequiredStatusChecksArgs']]] = None,
+            restrictions: Optional[pulumi.Input[pulumi.InputType['BranchProtectionRestrictionsArgs']]] = None) -> 'BranchProtection':
         """
         Get an existing BranchProtection resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] branch: The Git branch to protect.
         :param pulumi.Input[bool] enforce_admins: Boolean, setting this to `true` enforces status checks for repository administrators.
         :param pulumi.Input[str] repository: The GitHub repository name.
         :param pulumi.Input[bool] require_signed_commits: Boolean, setting this to `true` requires all commits to be signed with GPG.
-        :param pulumi.Input[dict] required_pull_request_reviews: Enforce restrictions for pull request reviews. See Required Pull Request Reviews below for details.
-        :param pulumi.Input[dict] required_status_checks: Enforce restrictions for required status checks. See Required Status Checks below for details.
-        :param pulumi.Input[dict] restrictions: Enforce restrictions for the users and teams that may push to the branch. See Restrictions below for details.
-
-        The **required_pull_request_reviews** object supports the following:
-
-          * `dismissStaleReviews` (`pulumi.Input[bool]`)
-          * `dismissalTeams` (`pulumi.Input[list]`)
-          * `dismissalUsers` (`pulumi.Input[list]`)
-          * `includeAdmins` (`pulumi.Input[bool]`)
-          * `requireCodeOwnerReviews` (`pulumi.Input[bool]`)
-          * `requiredApprovingReviewCount` (`pulumi.Input[float]`)
-
-        The **required_status_checks** object supports the following:
-
-          * `contexts` (`pulumi.Input[list]`)
-          * `includeAdmins` (`pulumi.Input[bool]`)
-          * `strict` (`pulumi.Input[bool]`)
-
-        The **restrictions** object supports the following:
-
-          * `apps` (`pulumi.Input[list]`)
-          * `teams` (`pulumi.Input[list]`)
-          * `users` (`pulumi.Input[list]`)
+        :param pulumi.Input[pulumi.InputType['BranchProtectionRequiredPullRequestReviewsArgs']] required_pull_request_reviews: Enforce restrictions for pull request reviews. See Required Pull Request Reviews below for details.
+        :param pulumi.Input[pulumi.InputType['BranchProtectionRequiredStatusChecksArgs']] required_status_checks: Enforce restrictions for required status checks. See Required Status Checks below for details.
+        :param pulumi.Input[pulumi.InputType['BranchProtectionRestrictionsArgs']] restrictions: Enforce restrictions for the users and teams that may push to the branch. See Restrictions below for details.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -215,8 +155,70 @@ class BranchProtection(pulumi.CustomResource):
         __props__["restrictions"] = restrictions
         return BranchProtection(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def branch(self) -> pulumi.Output[str]:
+        """
+        The Git branch to protect.
+        """
+        return pulumi.get(self, "branch")
+
+    @property
+    @pulumi.getter(name="enforceAdmins")
+    def enforce_admins(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Boolean, setting this to `true` enforces status checks for repository administrators.
+        """
+        return pulumi.get(self, "enforce_admins")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def repository(self) -> pulumi.Output[str]:
+        """
+        The GitHub repository name.
+        """
+        return pulumi.get(self, "repository")
+
+    @property
+    @pulumi.getter(name="requireSignedCommits")
+    def require_signed_commits(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Boolean, setting this to `true` requires all commits to be signed with GPG.
+        """
+        return pulumi.get(self, "require_signed_commits")
+
+    @property
+    @pulumi.getter(name="requiredPullRequestReviews")
+    def required_pull_request_reviews(self) -> pulumi.Output[Optional['outputs.BranchProtectionRequiredPullRequestReviews']]:
+        """
+        Enforce restrictions for pull request reviews. See Required Pull Request Reviews below for details.
+        """
+        return pulumi.get(self, "required_pull_request_reviews")
+
+    @property
+    @pulumi.getter(name="requiredStatusChecks")
+    def required_status_checks(self) -> pulumi.Output[Optional['outputs.BranchProtectionRequiredStatusChecks']]:
+        """
+        Enforce restrictions for required status checks. See Required Status Checks below for details.
+        """
+        return pulumi.get(self, "required_status_checks")
+
+    @property
+    @pulumi.getter
+    def restrictions(self) -> pulumi.Output[Optional['outputs.BranchProtectionRestrictions']]:
+        """
+        Enforce restrictions for the users and teams that may push to the branch. See Restrictions below for details.
+        """
+        return pulumi.get(self, "restrictions")
+
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+
