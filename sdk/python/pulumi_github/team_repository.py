@@ -5,26 +5,22 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from . import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from . import _utilities, _tables
+
+__all__ = ['TeamRepository']
 
 
 class TeamRepository(pulumi.CustomResource):
-    etag: pulumi.Output[str]
-    permission: pulumi.Output[str]
-    """
-    The permissions of team members regarding the repository.
-    Must be one of `pull`, `triage`, `push`, `maintain`, or `admin`. Defaults to `pull`.
-    """
-    repository: pulumi.Output[str]
-    """
-    The repository to add to the team.
-    """
-    team_id: pulumi.Output[str]
-    """
-    The GitHub team id
-    """
-    def __init__(__self__, resource_name, opts=None, permission=None, repository=None, team_id=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 permission: Optional[pulumi.Input[str]] = None,
+                 repository: Optional[pulumi.Input[str]] = None,
+                 team_id: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         This resource manages relationships between teams and repositories
         in your GitHub organization.
@@ -69,7 +65,7 @@ class TeamRepository(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
@@ -90,13 +86,19 @@ class TeamRepository(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, etag=None, permission=None, repository=None, team_id=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            etag: Optional[pulumi.Input[str]] = None,
+            permission: Optional[pulumi.Input[str]] = None,
+            repository: Optional[pulumi.Input[str]] = None,
+            team_id: Optional[pulumi.Input[str]] = None) -> 'TeamRepository':
         """
         Get an existing TeamRepository resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] permission: The permissions of team members regarding the repository.
                Must be one of `pull`, `triage`, `push`, `maintain`, or `admin`. Defaults to `pull`.
@@ -113,8 +115,39 @@ class TeamRepository(pulumi.CustomResource):
         __props__["team_id"] = team_id
         return TeamRepository(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def etag(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def permission(self) -> pulumi.Output[Optional[str]]:
+        """
+        The permissions of team members regarding the repository.
+        Must be one of `pull`, `triage`, `push`, `maintain`, or `admin`. Defaults to `pull`.
+        """
+        return pulumi.get(self, "permission")
+
+    @property
+    @pulumi.getter
+    def repository(self) -> pulumi.Output[str]:
+        """
+        The repository to add to the team.
+        """
+        return pulumi.get(self, "repository")
+
+    @property
+    @pulumi.getter(name="teamId")
+    def team_id(self) -> pulumi.Output[str]:
+        """
+        The GitHub team id
+        """
+        return pulumi.get(self, "team_id")
+
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

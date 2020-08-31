@@ -5,33 +5,23 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from . import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from . import _utilities, _tables
+
+__all__ = ['IssueLabel']
 
 
 class IssueLabel(pulumi.CustomResource):
-    color: pulumi.Output[str]
-    """
-    A 6 character hex code, **without the leading #**, identifying the color of the label.
-    """
-    description: pulumi.Output[str]
-    """
-    A short description of the label.
-    """
-    etag: pulumi.Output[str]
-    name: pulumi.Output[str]
-    """
-    The name of the label.
-    """
-    repository: pulumi.Output[str]
-    """
-    The GitHub repository
-    """
-    url: pulumi.Output[str]
-    """
-    The URL to the issue label
-    """
-    def __init__(__self__, resource_name, opts=None, color=None, description=None, name=None, repository=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 color: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 repository: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Create a IssueLabel resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
@@ -52,7 +42,7 @@ class IssueLabel(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
@@ -75,13 +65,21 @@ class IssueLabel(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, color=None, description=None, etag=None, name=None, repository=None, url=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            color: Optional[pulumi.Input[str]] = None,
+            description: Optional[pulumi.Input[str]] = None,
+            etag: Optional[pulumi.Input[str]] = None,
+            name: Optional[pulumi.Input[str]] = None,
+            repository: Optional[pulumi.Input[str]] = None,
+            url: Optional[pulumi.Input[str]] = None) -> 'IssueLabel':
         """
         Get an existing IssueLabel resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] color: A 6 character hex code, **without the leading #**, identifying the color of the label.
         :param pulumi.Input[str] description: A short description of the label.
@@ -101,8 +99,54 @@ class IssueLabel(pulumi.CustomResource):
         __props__["url"] = url
         return IssueLabel(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def color(self) -> pulumi.Output[str]:
+        """
+        A 6 character hex code, **without the leading #**, identifying the color of the label.
+        """
+        return pulumi.get(self, "color")
+
+    @property
+    @pulumi.getter
+    def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        A short description of the label.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Output[str]:
+        """
+        The name of the label.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def repository(self) -> pulumi.Output[str]:
+        """
+        The GitHub repository
+        """
+        return pulumi.get(self, "repository")
+
+    @property
+    @pulumi.getter
+    def url(self) -> pulumi.Output[str]:
+        """
+        The URL to the issue label
+        """
+        return pulumi.get(self, "url")
+
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

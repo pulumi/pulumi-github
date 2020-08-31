@@ -5,9 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from . import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from . import _utilities, _tables
 
+__all__ = [
+    'GetActionsPublicKeyResult',
+    'AwaitableGetActionsPublicKeyResult',
+    'get_actions_public_key',
+]
+
+@pulumi.output_type
 class GetActionsPublicKeyResult:
     """
     A collection of values returned by getActionsPublicKey.
@@ -15,25 +22,47 @@ class GetActionsPublicKeyResult:
     def __init__(__self__, id=None, key=None, key_id=None, repository=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
+        pulumi.set(__self__, "id", id)
+        if key and not isinstance(key, str):
+            raise TypeError("Expected argument 'key' to be a str")
+        pulumi.set(__self__, "key", key)
+        if key_id and not isinstance(key_id, str):
+            raise TypeError("Expected argument 'key_id' to be a str")
+        pulumi.set(__self__, "key_id", key_id)
+        if repository and not isinstance(repository, str):
+            raise TypeError("Expected argument 'repository' to be a str")
+        pulumi.set(__self__, "repository", repository)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
         """
         The provider-assigned unique ID for this managed resource.
         """
-        if key and not isinstance(key, str):
-            raise TypeError("Expected argument 'key' to be a str")
-        __self__.key = key
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
         """
         Actual key retrieved.
         """
-        if key_id and not isinstance(key_id, str):
-            raise TypeError("Expected argument 'key_id' to be a str")
-        __self__.key_id = key_id
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter(name="keyId")
+    def key_id(self) -> str:
         """
         ID of the key that has been retrieved.
         """
-        if repository and not isinstance(repository, str):
-            raise TypeError("Expected argument 'repository' to be a str")
-        __self__.repository = repository
+        return pulumi.get(self, "key_id")
+
+    @property
+    @pulumi.getter
+    def repository(self) -> str:
+        return pulumi.get(self, "repository")
+
+
 class AwaitableGetActionsPublicKeyResult(GetActionsPublicKeyResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -45,7 +74,9 @@ class AwaitableGetActionsPublicKeyResult(GetActionsPublicKeyResult):
             key_id=self.key_id,
             repository=self.repository)
 
-def get_actions_public_key(repository=None,opts=None):
+
+def get_actions_public_key(repository: Optional[str] = None,
+                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetActionsPublicKeyResult:
     """
     Use this data source to retrieve information about a GitHub Actions public key. This data source is required to be used with other GitHub secrets interactions.
     Note that the provider `token` must have admin rights to a repository to retrieve it's action public key.
@@ -63,17 +94,15 @@ def get_actions_public_key(repository=None,opts=None):
     :param str repository: Name of the repository to get public key from.
     """
     __args__ = dict()
-
-
     __args__['repository'] = repository
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('github:index/getActionsPublicKey:getActionsPublicKey', __args__, opts=opts).value
+        opts.version = _utilities.get_version()
+    __ret__ = pulumi.runtime.invoke('github:index/getActionsPublicKey:getActionsPublicKey', __args__, opts=opts, typ=GetActionsPublicKeyResult).value
 
     return AwaitableGetActionsPublicKeyResult(
-        id=__ret__.get('id'),
-        key=__ret__.get('key'),
-        key_id=__ret__.get('keyId'),
-        repository=__ret__.get('repository'))
+        id=__ret__.id,
+        key=__ret__.key,
+        key_id=__ret__.key_id,
+        repository=__ret__.repository)

@@ -5,38 +5,25 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from . import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from . import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['RepositoryWebhook']
 
 
 class RepositoryWebhook(pulumi.CustomResource):
-    active: pulumi.Output[bool]
-    """
-    Indicate of the webhook should receive events. Defaults to `true`.
-    """
-    configuration: pulumi.Output[dict]
-    """
-    key/value pair of configuration for this webhook. Available keys are `url`, `content_type`, `secret` and `insecure_ssl`. `secret` is [the shared secret, see API documentation](https://developer.github.com/v3/repos/hooks/#create-a-hook).
-
-      * `contentType` (`str`)
-      * `insecureSsl` (`bool`)
-      * `secret` (`str`)
-      * `url` (`str`) - URL of the webhook
-    """
-    etag: pulumi.Output[str]
-    events: pulumi.Output[list]
-    """
-    A list of events which should trigger the webhook. See a list of [available events](https://developer.github.com/v3/activity/events/types/).
-    """
-    repository: pulumi.Output[str]
-    """
-    The repository of the webhook.
-    """
-    url: pulumi.Output[str]
-    """
-    URL of the webhook
-    """
-    def __init__(__self__, resource_name, opts=None, active=None, configuration=None, events=None, repository=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 active: Optional[pulumi.Input[bool]] = None,
+                 configuration: Optional[pulumi.Input[pulumi.InputType['RepositoryWebhookConfigurationArgs']]] = None,
+                 events: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 repository: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         This resource allows you to create and manage webhooks for repositories within your
         GitHub organization.
@@ -56,11 +43,11 @@ class RepositoryWebhook(pulumi.CustomResource):
             private=False)
         foo = github.RepositoryWebhook("foo",
             active=False,
-            configuration={
-                "contentType": "form",
-                "insecureSsl": False,
-                "url": "https://google.de/",
-            },
+            configuration=github.RepositoryWebhookConfigurationArgs(
+                content_type="form",
+                insecure_ssl=False,
+                url="https://google.de/",
+            ),
             events=["issues"],
             repository=repo.name)
         ```
@@ -68,16 +55,9 @@ class RepositoryWebhook(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] active: Indicate of the webhook should receive events. Defaults to `true`.
-        :param pulumi.Input[dict] configuration: key/value pair of configuration for this webhook. Available keys are `url`, `content_type`, `secret` and `insecure_ssl`. `secret` is [the shared secret, see API documentation](https://developer.github.com/v3/repos/hooks/#create-a-hook).
-        :param pulumi.Input[list] events: A list of events which should trigger the webhook. See a list of [available events](https://developer.github.com/v3/activity/events/types/).
+        :param pulumi.Input[pulumi.InputType['RepositoryWebhookConfigurationArgs']] configuration: key/value pair of configuration for this webhook. Available keys are `url`, `content_type`, `secret` and `insecure_ssl`. `secret` is [the shared secret, see API documentation](https://developer.github.com/v3/repos/hooks/#create-a-hook).
+        :param pulumi.Input[List[pulumi.Input[str]]] events: A list of events which should trigger the webhook. See a list of [available events](https://developer.github.com/v3/activity/events/types/).
         :param pulumi.Input[str] repository: The repository of the webhook.
-
-        The **configuration** object supports the following:
-
-          * `contentType` (`pulumi.Input[str]`)
-          * `insecureSsl` (`pulumi.Input[bool]`)
-          * `secret` (`pulumi.Input[str]`)
-          * `url` (`pulumi.Input[str]`) - URL of the webhook
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -90,7 +70,7 @@ class RepositoryWebhook(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
@@ -113,26 +93,27 @@ class RepositoryWebhook(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, active=None, configuration=None, etag=None, events=None, repository=None, url=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            active: Optional[pulumi.Input[bool]] = None,
+            configuration: Optional[pulumi.Input[pulumi.InputType['RepositoryWebhookConfigurationArgs']]] = None,
+            etag: Optional[pulumi.Input[str]] = None,
+            events: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            repository: Optional[pulumi.Input[str]] = None,
+            url: Optional[pulumi.Input[str]] = None) -> 'RepositoryWebhook':
         """
         Get an existing RepositoryWebhook resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] active: Indicate of the webhook should receive events. Defaults to `true`.
-        :param pulumi.Input[dict] configuration: key/value pair of configuration for this webhook. Available keys are `url`, `content_type`, `secret` and `insecure_ssl`. `secret` is [the shared secret, see API documentation](https://developer.github.com/v3/repos/hooks/#create-a-hook).
-        :param pulumi.Input[list] events: A list of events which should trigger the webhook. See a list of [available events](https://developer.github.com/v3/activity/events/types/).
+        :param pulumi.Input[pulumi.InputType['RepositoryWebhookConfigurationArgs']] configuration: key/value pair of configuration for this webhook. Available keys are `url`, `content_type`, `secret` and `insecure_ssl`. `secret` is [the shared secret, see API documentation](https://developer.github.com/v3/repos/hooks/#create-a-hook).
+        :param pulumi.Input[List[pulumi.Input[str]]] events: A list of events which should trigger the webhook. See a list of [available events](https://developer.github.com/v3/activity/events/types/).
         :param pulumi.Input[str] repository: The repository of the webhook.
         :param pulumi.Input[str] url: URL of the webhook
-
-        The **configuration** object supports the following:
-
-          * `contentType` (`pulumi.Input[str]`)
-          * `insecureSsl` (`pulumi.Input[bool]`)
-          * `secret` (`pulumi.Input[str]`)
-          * `url` (`pulumi.Input[str]`) - URL of the webhook
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -146,8 +127,54 @@ class RepositoryWebhook(pulumi.CustomResource):
         __props__["url"] = url
         return RepositoryWebhook(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def active(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Indicate of the webhook should receive events. Defaults to `true`.
+        """
+        return pulumi.get(self, "active")
+
+    @property
+    @pulumi.getter
+    def configuration(self) -> pulumi.Output[Optional['outputs.RepositoryWebhookConfiguration']]:
+        """
+        key/value pair of configuration for this webhook. Available keys are `url`, `content_type`, `secret` and `insecure_ssl`. `secret` is [the shared secret, see API documentation](https://developer.github.com/v3/repos/hooks/#create-a-hook).
+        """
+        return pulumi.get(self, "configuration")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def events(self) -> pulumi.Output[List[str]]:
+        """
+        A list of events which should trigger the webhook. See a list of [available events](https://developer.github.com/v3/activity/events/types/).
+        """
+        return pulumi.get(self, "events")
+
+    @property
+    @pulumi.getter
+    def repository(self) -> pulumi.Output[str]:
+        """
+        The repository of the webhook.
+        """
+        return pulumi.get(self, "repository")
+
+    @property
+    @pulumi.getter
+    def url(self) -> pulumi.Output[str]:
+        """
+        URL of the webhook
+        """
+        return pulumi.get(self, "url")
+
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

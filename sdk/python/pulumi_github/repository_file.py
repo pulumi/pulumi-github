@@ -5,45 +5,26 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from . import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from . import _utilities, _tables
+
+__all__ = ['RepositoryFile']
 
 
 class RepositoryFile(pulumi.CustomResource):
-    branch: pulumi.Output[str]
-    """
-    Git branch (defaults to `master`).
-    The branch must already exist, it will not be created if it does not already exist.
-    """
-    commit_author: pulumi.Output[str]
-    """
-    Committer author name to use.
-    """
-    commit_email: pulumi.Output[str]
-    """
-    Committer email address to use.
-    """
-    commit_message: pulumi.Output[str]
-    """
-    Commit message when adding or updating the managed file.
-    """
-    content: pulumi.Output[str]
-    """
-    The file content.
-    """
-    file: pulumi.Output[str]
-    """
-    The path of the file to manage.
-    """
-    repository: pulumi.Output[str]
-    """
-    The repository name
-    """
-    sha: pulumi.Output[str]
-    """
-    The SHA blob of the file.
-    """
-    def __init__(__self__, resource_name, opts=None, branch=None, commit_author=None, commit_email=None, commit_message=None, content=None, file=None, repository=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 branch: Optional[pulumi.Input[str]] = None,
+                 commit_author: Optional[pulumi.Input[str]] = None,
+                 commit_email: Optional[pulumi.Input[str]] = None,
+                 commit_message: Optional[pulumi.Input[str]] = None,
+                 content: Optional[pulumi.Input[str]] = None,
+                 file: Optional[pulumi.Input[str]] = None,
+                 repository: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         This resource allows you to create and manage files within a
         GitHub repository.
@@ -82,7 +63,7 @@ class RepositoryFile(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
@@ -109,13 +90,23 @@ class RepositoryFile(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, branch=None, commit_author=None, commit_email=None, commit_message=None, content=None, file=None, repository=None, sha=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            branch: Optional[pulumi.Input[str]] = None,
+            commit_author: Optional[pulumi.Input[str]] = None,
+            commit_email: Optional[pulumi.Input[str]] = None,
+            commit_message: Optional[pulumi.Input[str]] = None,
+            content: Optional[pulumi.Input[str]] = None,
+            file: Optional[pulumi.Input[str]] = None,
+            repository: Optional[pulumi.Input[str]] = None,
+            sha: Optional[pulumi.Input[str]] = None) -> 'RepositoryFile':
         """
         Get an existing RepositoryFile resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] branch: Git branch (defaults to `master`).
                The branch must already exist, it will not be created if it does not already exist.
@@ -141,8 +132,74 @@ class RepositoryFile(pulumi.CustomResource):
         __props__["sha"] = sha
         return RepositoryFile(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def branch(self) -> pulumi.Output[Optional[str]]:
+        """
+        Git branch (defaults to `master`).
+        The branch must already exist, it will not be created if it does not already exist.
+        """
+        return pulumi.get(self, "branch")
+
+    @property
+    @pulumi.getter(name="commitAuthor")
+    def commit_author(self) -> pulumi.Output[str]:
+        """
+        Committer author name to use.
+        """
+        return pulumi.get(self, "commit_author")
+
+    @property
+    @pulumi.getter(name="commitEmail")
+    def commit_email(self) -> pulumi.Output[str]:
+        """
+        Committer email address to use.
+        """
+        return pulumi.get(self, "commit_email")
+
+    @property
+    @pulumi.getter(name="commitMessage")
+    def commit_message(self) -> pulumi.Output[str]:
+        """
+        Commit message when adding or updating the managed file.
+        """
+        return pulumi.get(self, "commit_message")
+
+    @property
+    @pulumi.getter
+    def content(self) -> pulumi.Output[str]:
+        """
+        The file content.
+        """
+        return pulumi.get(self, "content")
+
+    @property
+    @pulumi.getter
+    def file(self) -> pulumi.Output[str]:
+        """
+        The path of the file to manage.
+        """
+        return pulumi.get(self, "file")
+
+    @property
+    @pulumi.getter
+    def repository(self) -> pulumi.Output[str]:
+        """
+        The repository name
+        """
+        return pulumi.get(self, "repository")
+
+    @property
+    @pulumi.getter
+    def sha(self) -> pulumi.Output[str]:
+        """
+        The SHA blob of the file.
+        """
+        return pulumi.get(self, "sha")
+
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

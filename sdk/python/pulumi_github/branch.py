@@ -5,40 +5,23 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from . import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from . import _utilities, _tables
+
+__all__ = ['Branch']
 
 
 class Branch(pulumi.CustomResource):
-    branch: pulumi.Output[str]
-    """
-    The repository branch to create.
-    """
-    etag: pulumi.Output[str]
-    """
-    An etag representing the Branch object.
-    """
-    ref: pulumi.Output[str]
-    """
-    A string representing a branch reference, in the form of `refs/heads/<branch>`.
-    """
-    repository: pulumi.Output[str]
-    """
-    The GitHub repository name.
-    """
-    sha: pulumi.Output[str]
-    """
-    A string storing the reference's `HEAD` commit's SHA1.
-    """
-    source_branch: pulumi.Output[str]
-    """
-    The branch name to start from. Defaults to `master`.
-    """
-    source_sha: pulumi.Output[str]
-    """
-    The commit hash to start from. Defaults to the tip of `source_branch`. If provided, `source_branch` is ignored.
-    """
-    def __init__(__self__, resource_name, opts=None, branch=None, repository=None, source_branch=None, source_sha=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 branch: Optional[pulumi.Input[str]] = None,
+                 repository: Optional[pulumi.Input[str]] = None,
+                 source_branch: Optional[pulumi.Input[str]] = None,
+                 source_sha: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         This resource allows you to create and manage branches within your repository.
 
@@ -74,7 +57,7 @@ class Branch(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
@@ -98,13 +81,22 @@ class Branch(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, branch=None, etag=None, ref=None, repository=None, sha=None, source_branch=None, source_sha=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            branch: Optional[pulumi.Input[str]] = None,
+            etag: Optional[pulumi.Input[str]] = None,
+            ref: Optional[pulumi.Input[str]] = None,
+            repository: Optional[pulumi.Input[str]] = None,
+            sha: Optional[pulumi.Input[str]] = None,
+            source_branch: Optional[pulumi.Input[str]] = None,
+            source_sha: Optional[pulumi.Input[str]] = None) -> 'Branch':
         """
         Get an existing Branch resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] branch: The repository branch to create.
         :param pulumi.Input[str] etag: An etag representing the Branch object.
@@ -127,8 +119,65 @@ class Branch(pulumi.CustomResource):
         __props__["source_sha"] = source_sha
         return Branch(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def branch(self) -> pulumi.Output[str]:
+        """
+        The repository branch to create.
+        """
+        return pulumi.get(self, "branch")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> pulumi.Output[str]:
+        """
+        An etag representing the Branch object.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def ref(self) -> pulumi.Output[str]:
+        """
+        A string representing a branch reference, in the form of `refs/heads/<branch>`.
+        """
+        return pulumi.get(self, "ref")
+
+    @property
+    @pulumi.getter
+    def repository(self) -> pulumi.Output[str]:
+        """
+        The GitHub repository name.
+        """
+        return pulumi.get(self, "repository")
+
+    @property
+    @pulumi.getter
+    def sha(self) -> pulumi.Output[str]:
+        """
+        A string storing the reference's `HEAD` commit's SHA1.
+        """
+        return pulumi.get(self, "sha")
+
+    @property
+    @pulumi.getter(name="sourceBranch")
+    def source_branch(self) -> pulumi.Output[Optional[str]]:
+        """
+        The branch name to start from. Defaults to `master`.
+        """
+        return pulumi.get(self, "source_branch")
+
+    @property
+    @pulumi.getter(name="sourceSha")
+    def source_sha(self) -> pulumi.Output[str]:
+        """
+        The commit hash to start from. Defaults to the tip of `source_branch`. If provided, `source_branch` is ignored.
+        """
+        return pulumi.get(self, "source_sha")
+
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

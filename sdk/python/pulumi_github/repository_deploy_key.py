@@ -5,29 +5,23 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from . import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from . import _utilities, _tables
+
+__all__ = ['RepositoryDeployKey']
 
 
 class RepositoryDeployKey(pulumi.CustomResource):
-    etag: pulumi.Output[str]
-    key: pulumi.Output[str]
-    """
-    A SSH key.
-    """
-    read_only: pulumi.Output[bool]
-    """
-    A boolean qualifying the key to be either read only or read/write.
-    """
-    repository: pulumi.Output[str]
-    """
-    Name of the GitHub repository.
-    """
-    title: pulumi.Output[str]
-    """
-    A title.
-    """
-    def __init__(__self__, resource_name, opts=None, key=None, read_only=None, repository=None, title=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 key: Optional[pulumi.Input[str]] = None,
+                 read_only: Optional[pulumi.Input[bool]] = None,
+                 repository: Optional[pulumi.Input[str]] = None,
+                 title: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Provides a GitHub repository deploy key resource.
 
@@ -49,7 +43,7 @@ class RepositoryDeployKey(pulumi.CustomResource):
         # Add a deploy key
         example_repository_deploy_key = github.RepositoryDeployKey("exampleRepositoryDeployKey",
             key="ssh-rsa AAA...",
-            read_only="false",
+            read_only=False,
             repository="test-repo",
             title="Repository test key")
         ```
@@ -72,7 +66,7 @@ class RepositoryDeployKey(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
@@ -96,13 +90,20 @@ class RepositoryDeployKey(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, etag=None, key=None, read_only=None, repository=None, title=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            etag: Optional[pulumi.Input[str]] = None,
+            key: Optional[pulumi.Input[str]] = None,
+            read_only: Optional[pulumi.Input[bool]] = None,
+            repository: Optional[pulumi.Input[str]] = None,
+            title: Optional[pulumi.Input[str]] = None) -> 'RepositoryDeployKey':
         """
         Get an existing RepositoryDeployKey resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] key: A SSH key.
         :param pulumi.Input[bool] read_only: A boolean qualifying the key to be either read only or read/write.
@@ -120,8 +121,46 @@ class RepositoryDeployKey(pulumi.CustomResource):
         __props__["title"] = title
         return RepositoryDeployKey(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def etag(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Output[str]:
+        """
+        A SSH key.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter(name="readOnly")
+    def read_only(self) -> pulumi.Output[Optional[bool]]:
+        """
+        A boolean qualifying the key to be either read only or read/write.
+        """
+        return pulumi.get(self, "read_only")
+
+    @property
+    @pulumi.getter
+    def repository(self) -> pulumi.Output[str]:
+        """
+        Name of the GitHub repository.
+        """
+        return pulumi.get(self, "repository")
+
+    @property
+    @pulumi.getter
+    def title(self) -> pulumi.Output[str]:
+        """
+        A title.
+        """
+        return pulumi.get(self, "title")
+
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+
