@@ -45,6 +45,8 @@ func LookupMembership(ctx *pulumi.Context, args *LookupMembershipArgs, opts ...p
 
 // A collection of arguments for invoking getMembership.
 type LookupMembershipArgs struct {
+	// The organization to check for the above username.
+	Organization *string `pulumi:"organization"`
 	// The username to lookup in the organization.
 	Username string `pulumi:"username"`
 }
@@ -54,7 +56,8 @@ type LookupMembershipResult struct {
 	// An etag representing the membership object.
 	Etag string `pulumi:"etag"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id           string  `pulumi:"id"`
+	Organization *string `pulumi:"organization"`
 	// `admin` or `member` -- the role the user has within the organization.
 	Role string `pulumi:"role"`
 	// The username.

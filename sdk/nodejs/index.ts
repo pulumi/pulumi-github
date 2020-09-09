@@ -10,6 +10,7 @@ export * from "./getBranch";
 export * from "./getCollaborators";
 export * from "./getIpRanges";
 export * from "./getMembership";
+export * from "./getOrganization";
 export * from "./getOrganizationTeamSyncGroups";
 export * from "./getRelease";
 export * from "./getRepositories";

@@ -19,13 +19,16 @@ class GetMembershipResult:
     """
     A collection of values returned by getMembership.
     """
-    def __init__(__self__, etag=None, id=None, role=None, username=None):
+    def __init__(__self__, etag=None, id=None, organization=None, role=None, username=None):
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if organization and not isinstance(organization, str):
+            raise TypeError("Expected argument 'organization' to be a str")
+        pulumi.set(__self__, "organization", organization)
         if role and not isinstance(role, str):
             raise TypeError("Expected argument 'role' to be a str")
         pulumi.set(__self__, "role", role)
@@ -48,6 +51,11 @@ class GetMembershipResult:
         The provider-assigned unique ID for this managed resource.
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def organization(self) -> Optional[str]:
+        return pulumi.get(self, "organization")
 
     @property
     @pulumi.getter
@@ -74,11 +82,13 @@ class AwaitableGetMembershipResult(GetMembershipResult):
         return GetMembershipResult(
             etag=self.etag,
             id=self.id,
+            organization=self.organization,
             role=self.role,
             username=self.username)
 
 
-def get_membership(username: Optional[str] = None,
+def get_membership(organization: Optional[str] = None,
+                   username: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMembershipResult:
     """
     Use this data source to find out if a user is a member of your organization, as well
@@ -96,9 +106,11 @@ def get_membership(username: Optional[str] = None,
     ```
 
 
+    :param str organization: The organization to check for the above username.
     :param str username: The username to lookup in the organization.
     """
     __args__ = dict()
+    __args__['organization'] = organization
     __args__['username'] = username
     if opts is None:
         opts = pulumi.InvokeOptions()
@@ -109,5 +121,6 @@ def get_membership(username: Optional[str] = None,
     return AwaitableGetMembershipResult(
         etag=__ret__.etag,
         id=__ret__.id,
+        organization=__ret__.organization,
         role=__ret__.role,
         username=__ret__.username)

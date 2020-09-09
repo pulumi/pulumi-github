@@ -2,7 +2,12 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-_(none)_
+* Upgrade to v3.0.0 of the GitHub Terraform Provider  
+  **Please Note there are a number of changes to the provider configuration:**
+  * Provider options `individual` and `anonymous` have been removed  
+  * `token` is now optional and absence enables `anonymous` mode
+  * Absense of `organization` now enables `individual` mode
+  * `owner` is now inferred from `organization`
 
 ---
 

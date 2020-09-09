@@ -9,41 +9,37 @@ from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
 
 __all__ = [
-    'anonymous',
     'base_url',
-    'individual',
     'insecure',
     'organization',
+    'owner',
     'token',
 ]
 
 __config__ = pulumi.Config('github')
-
-anonymous = __config__.get('anonymous')
-"""
-Authenticate without a token. When `anonymous`is true, the provider will not be able to access resourcesthat require
-authentication.
-"""
 
 base_url = __config__.get('baseUrl') or (_utilities.get_env('GITHUB_BASE_URL') or 'https://api.github.com/')
 """
 The GitHub Base API URL
 """
 
-individual = __config__.get('individual')
-
 insecure = __config__.get('insecure')
 """
-Whether server should be accessed without verifying the TLS certificate.
+Enable `insecure` mode for testing purposes
 """
 
 organization = __config__.get('organization') or _utilities.get_env('GITHUB_ORGANIZATION')
 """
-The GitHub organization name to manage. If `individual` is false, `organization` is required.
+The GitHub organization name to manage. Use this field instead of `owner` when managing organization accounts.
+"""
+
+owner = __config__.get('owner')
+"""
+The GitHub owner name to manage. Use this field instead of `organization` when managing individual accounts.
 """
 
 token = __config__.get('token') or _utilities.get_env('GITHUB_TOKEN')
 """
-The OAuth token used to connect to GitHub. If `anonymous` is false, `token` is required.
+The OAuth token used to connect to GitHub. `anonymous` mode is enabled if `token` is not configured.
 """
 

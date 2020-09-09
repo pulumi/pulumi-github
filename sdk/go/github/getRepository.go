@@ -92,4 +92,6 @@ type LookupRepositoryResult struct {
 	SvnUrl string `pulumi:"svnUrl"`
 	// The list of topics of the repository.
 	Topics []string `pulumi:"topics"`
+	// Whether the repository is public, private or internal.
+	Visibility string `pulumi:"visibility"`
 }

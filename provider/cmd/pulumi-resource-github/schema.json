@@ -14,11 +14,6 @@
     },
     "config": {
         "variables": {
-            "anonymous": {
-                "type": "boolean",
-                "description": "Authenticate without a token. When `anonymous`is true, the provider will not be able to access resourcesthat require\nauthentication.\n",
-                "deprecationMessage": "For versions later than 3.0.0, absence of a token enables this mode"
-            },
             "baseUrl": {
                 "type": "string",
                 "description": "The GitHub Base API URL\n",
@@ -29,26 +24,26 @@
                     ]
                 }
             },
-            "individual": {
-                "type": "boolean",
-                "deprecationMessage": "For versions later than 3.0.0, absence of an organization enables this mode"
-            },
             "insecure": {
                 "type": "boolean",
-                "description": "Whether server should be accessed without verifying the TLS certificate.\n"
+                "description": "Enable `insecure` mode for testing purposes\n"
             },
             "organization": {
                 "type": "string",
-                "description": "The GitHub organization name to manage. If `individual` is false, `organization` is required.\n",
+                "description": "The GitHub organization name to manage. Use this field instead of `owner` when managing organization accounts.\n",
                 "defaultInfo": {
                     "environment": [
                         "GITHUB_ORGANIZATION"
                     ]
                 }
             },
+            "owner": {
+                "type": "string",
+                "description": "The GitHub owner name to manage. Use this field instead of `organization` when managing individual accounts.\n"
+            },
             "token": {
                 "type": "string",
-                "description": "The OAuth token used to connect to GitHub. If `anonymous` is false, `token` is required.\n",
+                "description": "The OAuth token used to connect to GitHub. `anonymous` mode is enabled if `token` is not configured.\n",
                 "defaultInfo": {
                     "environment": [
                         "GITHUB_TOKEN"
@@ -551,11 +546,6 @@
     "provider": {
         "description": "The provider type for the github package. By default, resources use package-wide configuration\nsettings, however an explicit `Provider` instance may be created and passed during resource\nconstruction to achieve fine-grained programmatic control over provider settings. See the\n[documentation](https://www.pulumi.com/docs/reference/programming-model/#providers) for more information.\n",
         "inputProperties": {
-            "anonymous": {
-                "type": "boolean",
-                "description": "Authenticate without a token. When `anonymous`is true, the provider will not be able to access resourcesthat require\nauthentication.\n",
-                "deprecationMessage": "For versions later than 3.0.0, absence of a token enables this mode"
-            },
             "baseUrl": {
                 "type": "string",
                 "description": "The GitHub Base API URL\n",
@@ -566,26 +556,26 @@
                     ]
                 }
             },
-            "individual": {
-                "type": "boolean",
-                "deprecationMessage": "For versions later than 3.0.0, absence of an organization enables this mode"
-            },
             "insecure": {
                 "type": "boolean",
-                "description": "Whether server should be accessed without verifying the TLS certificate.\n"
+                "description": "Enable `insecure` mode for testing purposes\n"
             },
             "organization": {
                 "type": "string",
-                "description": "The GitHub organization name to manage. If `individual` is false, `organization` is required.\n",
+                "description": "The GitHub organization name to manage. Use this field instead of `owner` when managing organization accounts.\n",
                 "defaultInfo": {
                     "environment": [
                         "GITHUB_ORGANIZATION"
                     ]
                 }
             },
+            "owner": {
+                "type": "string",
+                "description": "The GitHub owner name to manage. Use this field instead of `organization` when managing individual accounts.\n"
+            },
             "token": {
                 "type": "string",
-                "description": "The OAuth token used to connect to GitHub. If `anonymous` is false, `token` is required.\n",
+                "description": "The OAuth token used to connect to GitHub. `anonymous` mode is enabled if `token` is not configured.\n",
                 "defaultInfo": {
                     "environment": [
                         "GITHUB_TOKEN"
@@ -1256,7 +1246,7 @@
             }
         },
         "github:index/repository:Repository": {
-            "description": "This resource allows you to create and manage repositories within your\nGitHub organization.\n\nThis resource cannot currently be used to manage *personal* repositories,\noutside of organizations.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\nconst example = new github.Repository(\"example\", {\n    description: \"My awesome codebase\",\n    private: true,\n    template: {\n        owner: \"github\",\n        repository: \"terraform-module-template\",\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\nexample = github.Repository(\"example\",\n    description=\"My awesome codebase\",\n    private=True,\n    template=github.RepositoryTemplateArgs(\n        owner=\"github\",\n        repository=\"terraform-module-template\",\n    ))\n```\n```csharp\nusing Pulumi;\nusing Github = Pulumi.Github;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var example = new Github.Repository(\"example\", new Github.RepositoryArgs\n        {\n            Description = \"My awesome codebase\",\n            Private = true,\n            Template = new Github.Inputs.RepositoryTemplateArgs\n            {\n                Owner = \"github\",\n                Repository = \"terraform-module-template\",\n            },\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-github/sdk/go/github\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := github.NewRepository(ctx, \"example\", \u0026github.RepositoryArgs{\n\t\t\tDescription: pulumi.String(\"My awesome codebase\"),\n\t\t\tPrivate:     pulumi.Bool(true),\n\t\t\tTemplate: \u0026github.RepositoryTemplateArgs{\n\t\t\t\tOwner:      pulumi.String(\"github\"),\n\t\t\t\tRepository: pulumi.String(\"terraform-module-template\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "description": "This resource allows you to create and manage repositories within your\nGitHub organization or personal account.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\nconst example = new github.Repository(\"example\", {\n    description: \"My awesome codebase\",\n    private: true,\n    template: {\n        owner: \"github\",\n        repository: \"terraform-module-template\",\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\nexample = github.Repository(\"example\",\n    description=\"My awesome codebase\",\n    private=True,\n    template=github.RepositoryTemplateArgs(\n        owner=\"github\",\n        repository=\"terraform-module-template\",\n    ))\n```\n```csharp\nusing Pulumi;\nusing Github = Pulumi.Github;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var example = new Github.Repository(\"example\", new Github.RepositoryArgs\n        {\n            Description = \"My awesome codebase\",\n            Private = true,\n            Template = new Github.Inputs.RepositoryTemplateArgs\n            {\n                Owner = \"github\",\n                Repository = \"terraform-module-template\",\n            },\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-github/sdk/go/github\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := github.NewRepository(ctx, \"example\", \u0026github.RepositoryArgs{\n\t\t\tDescription: pulumi.String(\"My awesome codebase\"),\n\t\t\tPrivate:     pulumi.Bool(true),\n\t\t\tTemplate: \u0026github.RepositoryTemplateArgs{\n\t\t\t\tOwner:      pulumi.String(\"github\"),\n\t\t\t\tRepository: pulumi.String(\"terraform-module-template\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
             "properties": {
                 "allowMergeCommit": {
                     "type": "boolean",
@@ -1350,7 +1340,8 @@
                 },
                 "private": {
                     "type": "boolean",
-                    "description": "Set to `true` to create a private repository.\nRepositories are created as public (e.g. open source) by default.\n"
+                    "description": "Set to `true` to create a private repository.\nRepositories are created as public (e.g. open source) by default.\n",
+                    "deprecationMessage": "use visibility instead"
                 },
                 "sshCloneUrl": {
                     "type": "string",
@@ -1370,6 +1361,10 @@
                         "type": "string"
                     },
                     "description": "The list of topics of the repository.\n"
+                },
+                "visibility": {
+                    "type": "string",
+                    "description": "Can be `public` or `private`. If your organization is associated with an enterprise account using GitHub Enterprise Cloud or GitHub Enterprise Server 2.20+, visibility can also be `internal`. The `visibility` parameter overrides the `private` parameter.\n"
                 }
             },
             "required": [
@@ -1381,8 +1376,10 @@
                 "httpCloneUrl",
                 "name",
                 "nodeId",
+                "private",
                 "sshCloneUrl",
-                "svnUrl"
+                "svnUrl",
+                "visibility"
             ],
             "inputProperties": {
                 "allowMergeCommit": {
@@ -1455,7 +1452,8 @@
                 },
                 "private": {
                     "type": "boolean",
-                    "description": "Set to `true` to create a private repository.\nRepositories are created as public (e.g. open source) by default.\n"
+                    "description": "Set to `true` to create a private repository.\nRepositories are created as public (e.g. open source) by default.\n",
+                    "deprecationMessage": "use visibility instead"
                 },
                 "template": {
                     "$ref": "#/types/github:/RepositoryTemplate:RepositoryTemplate",
@@ -1467,6 +1465,10 @@
                         "type": "string"
                     },
                     "description": "The list of topics of the repository.\n"
+                },
+                "visibility": {
+                    "type": "string",
+                    "description": "Can be `public` or `private`. If your organization is associated with an enterprise account using GitHub Enterprise Cloud or GitHub Enterprise Server 2.20+, visibility can also be `internal`. The `visibility` parameter overrides the `private` parameter.\n"
                 }
             },
             "stateInputs": {
@@ -1564,7 +1566,8 @@
                     },
                     "private": {
                         "type": "boolean",
-                        "description": "Set to `true` to create a private repository.\nRepositories are created as public (e.g. open source) by default.\n"
+                        "description": "Set to `true` to create a private repository.\nRepositories are created as public (e.g. open source) by default.\n",
+                        "deprecationMessage": "use visibility instead"
                     },
                     "sshCloneUrl": {
                         "type": "string",
@@ -1584,13 +1587,17 @@
                             "type": "string"
                         },
                         "description": "The list of topics of the repository.\n"
+                    },
+                    "visibility": {
+                        "type": "string",
+                        "description": "Can be `public` or `private`. If your organization is associated with an enterprise account using GitHub Enterprise Cloud or GitHub Enterprise Server 2.20+, visibility can also be `internal`. The `visibility` parameter overrides the `private` parameter.\n"
                     }
                 },
                 "type": "object"
             }
         },
         "github:index/repositoryCollaborator:RepositoryCollaborator": {
-            "description": "Provides a GitHub repository collaborator resource.\n\nThis resource allows you to add/remove collaborators from repositories in your\norganization. Collaborators can have explicit (and differing levels of) read,\nwrite, or administrator access to specific repositories in your organization,\nwithout giving the user full organization membership.\n\nWhen applied, an invitation will be sent to the user to become a collaborator\non a repository. When destroyed, either the invitation will be cancelled or the\ncollaborator will be removed from the repository.\n\nFurther documentation on GitHub collaborators:\n\n- [Adding outside collaborators to repositories in your organization](https://help.github.com/articles/adding-outside-collaborators-to-repositories-in-your-organization/)\n- [Converting an organization member to an outside collaborator](https://help.github.com/articles/converting-an-organization-member-to-an-outside-collaborator/)\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\n// Add a collaborator to a repository\nconst aRepoCollaborator = new github.RepositoryCollaborator(\"a_repo_collaborator\", {\n    permission: \"admin\",\n    repository: \"our-cool-repo\",\n    username: \"SomeUser\",\n});\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\n# Add a collaborator to a repository\na_repo_collaborator = github.RepositoryCollaborator(\"aRepoCollaborator\",\n    permission=\"admin\",\n    repository=\"our-cool-repo\",\n    username=\"SomeUser\")\n```\n```csharp\nusing Pulumi;\nusing Github = Pulumi.Github;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        // Add a collaborator to a repository\n        var aRepoCollaborator = new Github.RepositoryCollaborator(\"aRepoCollaborator\", new Github.RepositoryCollaboratorArgs\n        {\n            Permission = \"admin\",\n            Repository = \"our-cool-repo\",\n            Username = \"SomeUser\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-github/sdk/go/github\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := github.NewRepositoryCollaborator(ctx, \"aRepoCollaborator\", \u0026github.RepositoryCollaboratorArgs{\n\t\t\tPermission: pulumi.String(\"admin\"),\n\t\t\tRepository: pulumi.String(\"our-cool-repo\"),\n\t\t\tUsername:   pulumi.String(\"SomeUser\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "description": "Provides a GitHub repository collaborator resource.\n\nThis resource allows you to add/remove collaborators from repositories in your\norganization or personal account. For organization repositories, collaborators can\nhave explicit (and differing levels of) read, write, or administrator access to \nspecific repositories, without giving the user full organization membership. \nFor personal repositories, collaborators can only be granted write\n(implictly includes read) permission. \n\nWhen applied, an invitation will be sent to the user to become a collaborator\non a repository. When destroyed, either the invitation will be cancelled or the\ncollaborator will be removed from the repository.\n\nFurther documentation on GitHub collaborators:\n\n- [Adding outside collaborators to your personal repositories](https://help.github.com/en/github/setting-up-and-managing-your-github-user-account/managing-access-to-your-personal-repositories)\n- [Adding outside collaborators to repositories in your organization](https://help.github.com/articles/adding-outside-collaborators-to-repositories-in-your-organization/)\n- [Converting an organization member to an outside collaborator](https://help.github.com/articles/converting-an-organization-member-to-an-outside-collaborator/)\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\n// Add a collaborator to a repository\nconst aRepoCollaborator = new github.RepositoryCollaborator(\"a_repo_collaborator\", {\n    permission: \"admin\",\n    repository: \"our-cool-repo\",\n    username: \"SomeUser\",\n});\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\n# Add a collaborator to a repository\na_repo_collaborator = github.RepositoryCollaborator(\"aRepoCollaborator\",\n    permission=\"admin\",\n    repository=\"our-cool-repo\",\n    username=\"SomeUser\")\n```\n```csharp\nusing Pulumi;\nusing Github = Pulumi.Github;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        // Add a collaborator to a repository\n        var aRepoCollaborator = new Github.RepositoryCollaborator(\"aRepoCollaborator\", new Github.RepositoryCollaboratorArgs\n        {\n            Permission = \"admin\",\n            Repository = \"our-cool-repo\",\n            Username = \"SomeUser\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-github/sdk/go/github\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := github.NewRepositoryCollaborator(ctx, \"aRepoCollaborator\", \u0026github.RepositoryCollaboratorArgs{\n\t\t\tPermission: pulumi.String(\"admin\"),\n\t\t\tRepository: pulumi.String(\"our-cool-repo\"),\n\t\t\tUsername:   pulumi.String(\"SomeUser\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
             "properties": {
                 "invitationId": {
                     "type": "string",
@@ -1598,7 +1605,7 @@
                 },
                 "permission": {
                     "type": "string",
-                    "description": "The permission of the outside collaborator for the repository.\nMust be one of `pull`, `push`, `maintain`, `triage` or `admin`. Defaults to `push`.\n"
+                    "description": "The permission of the outside collaborator for the repository.\nMust be one of `pull`, `push`, `maintain`, `triage` or `admin` for organization-owned repositories.\nMust be `push` for personal repositories. Defaults to `push`.\n"
                 },
                 "repository": {
                     "type": "string",
@@ -1617,7 +1624,7 @@
             "inputProperties": {
                 "permission": {
                     "type": "string",
-                    "description": "The permission of the outside collaborator for the repository.\nMust be one of `pull`, `push`, `maintain`, `triage` or `admin`. Defaults to `push`.\n"
+                    "description": "The permission of the outside collaborator for the repository.\nMust be one of `pull`, `push`, `maintain`, `triage` or `admin` for organization-owned repositories.\nMust be `push` for personal repositories. Defaults to `push`.\n"
                 },
                 "repository": {
                     "type": "string",
@@ -1641,7 +1648,7 @@
                     },
                     "permission": {
                         "type": "string",
-                        "description": "The permission of the outside collaborator for the repository.\nMust be one of `pull`, `push`, `maintain`, `triage` or `admin`. Defaults to `push`.\n"
+                        "description": "The permission of the outside collaborator for the repository.\nMust be one of `pull`, `push`, `maintain`, `triage` or `admin` for organization-owned repositories.\nMust be `push` for personal repositories. Defaults to `push`.\n"
                     },
                     "repository": {
                         "type": "string",
@@ -1925,7 +1932,7 @@
             }
         },
         "github:index/repositoryWebhook:RepositoryWebhook": {
-            "description": "This resource allows you to create and manage webhooks for repositories within your\nGitHub organization.\n\nThis resource cannot currently be used to manage webhooks for *personal* repositories,\noutside of organizations.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\nconst repo = new github.Repository(\"repo\", {\n    description: \"Terraform acceptance tests\",\n    homepageUrl: \"http://example.com/\",\n    private: false,\n});\nconst foo = new github.RepositoryWebhook(\"foo\", {\n    active: false,\n    configuration: {\n        contentType: \"form\",\n        insecureSsl: false,\n        url: \"https://google.de/\",\n    },\n    events: [\"issues\"],\n    repository: repo.name,\n});\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\nrepo = github.Repository(\"repo\",\n    description=\"Terraform acceptance tests\",\n    homepage_url=\"http://example.com/\",\n    private=False)\nfoo = github.RepositoryWebhook(\"foo\",\n    active=False,\n    configuration=github.RepositoryWebhookConfigurationArgs(\n        content_type=\"form\",\n        insecure_ssl=False,\n        url=\"https://google.de/\",\n    ),\n    events=[\"issues\"],\n    repository=repo.name)\n```\n```csharp\nusing Pulumi;\nusing Github = Pulumi.Github;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var repo = new Github.Repository(\"repo\", new Github.RepositoryArgs\n        {\n            Description = \"Terraform acceptance tests\",\n            HomepageUrl = \"http://example.com/\",\n            Private = false,\n        });\n        var foo = new Github.RepositoryWebhook(\"foo\", new Github.RepositoryWebhookArgs\n        {\n            Active = false,\n            Configuration = new Github.Inputs.RepositoryWebhookConfigurationArgs\n            {\n                ContentType = \"form\",\n                InsecureSsl = false,\n                Url = \"https://google.de/\",\n            },\n            Events = \n            {\n                \"issues\",\n            },\n            Repository = repo.Name,\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-github/sdk/go/github\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\trepo, err := github.NewRepository(ctx, \"repo\", \u0026github.RepositoryArgs{\n\t\t\tDescription: pulumi.String(\"Terraform acceptance tests\"),\n\t\t\tHomepageUrl: pulumi.String(\"http://example.com/\"),\n\t\t\tPrivate:     pulumi.Bool(false),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = github.NewRepositoryWebhook(ctx, \"foo\", \u0026github.RepositoryWebhookArgs{\n\t\t\tActive: pulumi.Bool(false),\n\t\t\tConfiguration: \u0026github.RepositoryWebhookConfigurationArgs{\n\t\t\t\tContentType: pulumi.String(\"form\"),\n\t\t\t\tInsecureSsl: pulumi.Bool(false),\n\t\t\t\tUrl:         pulumi.String(\"https://google.de/\"),\n\t\t\t},\n\t\t\tEvents: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"issues\"),\n\t\t\t},\n\t\t\tRepository: repo.Name,\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "description": "This resource allows you to create and manage webhooks for repositories within your\nGitHub organization or personal account.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\nconst repo = new github.Repository(\"repo\", {\n    description: \"Terraform acceptance tests\",\n    homepageUrl: \"http://example.com/\",\n    private: false,\n});\nconst foo = new github.RepositoryWebhook(\"foo\", {\n    active: false,\n    configuration: {\n        contentType: \"form\",\n        insecureSsl: false,\n        url: \"https://google.de/\",\n    },\n    events: [\"issues\"],\n    repository: repo.name,\n});\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\nrepo = github.Repository(\"repo\",\n    description=\"Terraform acceptance tests\",\n    homepage_url=\"http://example.com/\",\n    private=False)\nfoo = github.RepositoryWebhook(\"foo\",\n    active=False,\n    configuration=github.RepositoryWebhookConfigurationArgs(\n        content_type=\"form\",\n        insecure_ssl=False,\n        url=\"https://google.de/\",\n    ),\n    events=[\"issues\"],\n    repository=repo.name)\n```\n```csharp\nusing Pulumi;\nusing Github = Pulumi.Github;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var repo = new Github.Repository(\"repo\", new Github.RepositoryArgs\n        {\n            Description = \"Terraform acceptance tests\",\n            HomepageUrl = \"http://example.com/\",\n            Private = false,\n        });\n        var foo = new Github.RepositoryWebhook(\"foo\", new Github.RepositoryWebhookArgs\n        {\n            Active = false,\n            Configuration = new Github.Inputs.RepositoryWebhookConfigurationArgs\n            {\n                ContentType = \"form\",\n                InsecureSsl = false,\n                Url = \"https://google.de/\",\n            },\n            Events = \n            {\n                \"issues\",\n            },\n            Repository = repo.Name,\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-github/sdk/go/github\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\trepo, err := github.NewRepository(ctx, \"repo\", \u0026github.RepositoryArgs{\n\t\t\tDescription: pulumi.String(\"Terraform acceptance tests\"),\n\t\t\tHomepageUrl: pulumi.String(\"http://example.com/\"),\n\t\t\tPrivate:     pulumi.Bool(false),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = github.NewRepositoryWebhook(ctx, \"foo\", \u0026github.RepositoryWebhookArgs{\n\t\t\tActive: pulumi.Bool(false),\n\t\t\tConfiguration: \u0026github.RepositoryWebhookConfigurationArgs{\n\t\t\t\tContentType: pulumi.String(\"form\"),\n\t\t\t\tInsecureSsl: pulumi.Bool(false),\n\t\t\t\tUrl:         pulumi.String(\"https://google.de/\"),\n\t\t\t},\n\t\t\tEvents: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"issues\"),\n\t\t\t},\n\t\t\tRepository: repo.Name,\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
             "properties": {
                 "active": {
                     "type": "boolean",
@@ -2655,6 +2662,10 @@
             "inputs": {
                 "description": "A collection of arguments for invoking getMembership.\n",
                 "properties": {
+                    "organization": {
+                        "type": "string",
+                        "description": "The organization to check for the above username.\n"
+                    },
                     "username": {
                         "type": "string",
                         "description": "The username to lookup in the organization.\n"
@@ -2676,6 +2687,9 @@
                         "type": "string",
                         "description": "The provider-assigned unique ID for this managed resource.\n"
                     },
+                    "organization": {
+                        "type": "string"
+                    },
                     "role": {
                         "type": "string",
                         "description": "`admin` or `member` -- the role the user has within the organization.\n"
@@ -2690,6 +2704,55 @@
                     "etag",
                     "role",
                     "username",
+                    "id"
+                ]
+            }
+        },
+        "github:index/getOrganization:getOrganization": {
+            "description": "Use this data source to retrieve basic information about a GitHub Organization.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\nconst test = pulumi.output(github.getOrganization({\n    name: \"github\",\n}, { async: true }));\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\ntest = github.get_organization(name=\"github\")\n```\n```csharp\nusing Pulumi;\nusing Github = Pulumi.Github;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var test = Output.Create(Github.GetOrganization.InvokeAsync(new Github.GetOrganizationArgs\n        {\n            Name = \"github\",\n        }));\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-github/sdk/go/github\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := github.GetOrganization(ctx, \u0026github.GetOrganizationArgs{\n\t\t\tName: \"github\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "inputs": {
+                "description": "A collection of arguments for invoking getOrganization.\n",
+                "properties": {
+                    "name": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "name"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getOrganization.\n",
+                "properties": {
+                    "description": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "login": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "nodeId": {
+                        "type": "string"
+                    },
+                    "plan": {
+                        "type": "string",
+                        "description": "The plan name for the organization account\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "description",
+                    "login",
+                    "name",
+                    "nodeId",
+                    "plan",
                     "id"
                 ]
             }
@@ -3010,6 +3073,10 @@
                             "type": "string"
                         },
                         "description": "The list of topics of the repository.\n"
+                    },
+                    "visibility": {
+                        "type": "string",
+                        "description": "Whether the repository is public, private or internal.\n"
                     }
                 },
                 "type": "object",
@@ -3033,6 +3100,7 @@
                     "sshCloneUrl",
                     "svnUrl",
                     "topics",
+                    "visibility",
                     "id"
                 ]
             }

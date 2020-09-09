@@ -41,39 +41,29 @@ func NewProvider(ctx *pulumi.Context,
 }
 
 type providerArgs struct {
-	// Authenticate without a token. When `anonymous`is true, the provider will not be able to access resourcesthat require
-	// authentication.
-	//
-	// Deprecated: For versions later than 3.0.0, absence of a token enables this mode
-	Anonymous *bool `pulumi:"anonymous"`
 	// The GitHub Base API URL
 	BaseUrl *string `pulumi:"baseUrl"`
-	// Deprecated: For versions later than 3.0.0, absence of an organization enables this mode
-	Individual *bool `pulumi:"individual"`
-	// Whether server should be accessed without verifying the TLS certificate.
+	// Enable `insecure` mode for testing purposes
 	Insecure *bool `pulumi:"insecure"`
-	// The GitHub organization name to manage. If `individual` is false, `organization` is required.
+	// The GitHub organization name to manage. Use this field instead of `owner` when managing organization accounts.
 	Organization *string `pulumi:"organization"`
-	// The OAuth token used to connect to GitHub. If `anonymous` is false, `token` is required.
+	// The GitHub owner name to manage. Use this field instead of `organization` when managing individual accounts.
+	Owner *string `pulumi:"owner"`
+	// The OAuth token used to connect to GitHub. `anonymous` mode is enabled if `token` is not configured.
 	Token *string `pulumi:"token"`
 }
 
 // The set of arguments for constructing a Provider resource.
 type ProviderArgs struct {
-	// Authenticate without a token. When `anonymous`is true, the provider will not be able to access resourcesthat require
-	// authentication.
-	//
-	// Deprecated: For versions later than 3.0.0, absence of a token enables this mode
-	Anonymous pulumi.BoolPtrInput
 	// The GitHub Base API URL
 	BaseUrl pulumi.StringPtrInput
-	// Deprecated: For versions later than 3.0.0, absence of an organization enables this mode
-	Individual pulumi.BoolPtrInput
-	// Whether server should be accessed without verifying the TLS certificate.
+	// Enable `insecure` mode for testing purposes
 	Insecure pulumi.BoolPtrInput
-	// The GitHub organization name to manage. If `individual` is false, `organization` is required.
+	// The GitHub organization name to manage. Use this field instead of `owner` when managing organization accounts.
 	Organization pulumi.StringPtrInput
-	// The OAuth token used to connect to GitHub. If `anonymous` is false, `token` is required.
+	// The GitHub owner name to manage. Use this field instead of `organization` when managing individual accounts.
+	Owner pulumi.StringPtrInput
+	// The OAuth token used to connect to GitHub. `anonymous` mode is enabled if `token` is not configured.
 	Token pulumi.StringPtrInput
 }
 

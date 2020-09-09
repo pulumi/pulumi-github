@@ -37,15 +37,13 @@ class Repository(pulumi.CustomResource):
                  private: Optional[pulumi.Input[bool]] = None,
                  template: Optional[pulumi.Input[pulumi.InputType['RepositoryTemplateArgs']]] = None,
                  topics: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 visibility: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
         """
         This resource allows you to create and manage repositories within your
-        GitHub organization.
-
-        This resource cannot currently be used to manage *personal* repositories,
-        outside of organizations.
+        GitHub organization or personal account.
 
         ## Example Usage
 
@@ -89,6 +87,7 @@ class Repository(pulumi.CustomResource):
                Repositories are created as public (e.g. open source) by default.
         :param pulumi.Input[pulumi.InputType['RepositoryTemplateArgs']] template: Use a template repository to create this resource. See Template Repositories below for details.
         :param pulumi.Input[List[pulumi.Input[str]]] topics: The list of topics of the repository.
+        :param pulumi.Input[str] visibility: Can be `public` or `private`. If your organization is associated with an enterprise account using GitHub Enterprise Cloud or GitHub Enterprise Server 2.20+, visibility can also be `internal`. The `visibility` parameter overrides the `private` parameter.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -124,9 +123,13 @@ class Repository(pulumi.CustomResource):
             __props__['is_template'] = is_template
             __props__['license_template'] = license_template
             __props__['name'] = name
+            if private is not None:
+                warnings.warn("use visibility instead", DeprecationWarning)
+                pulumi.log.warn("private is deprecated: use visibility instead")
             __props__['private'] = private
             __props__['template'] = template
             __props__['topics'] = topics
+            __props__['visibility'] = visibility
             __props__['etag'] = None
             __props__['full_name'] = None
             __props__['git_clone_url'] = None
@@ -172,7 +175,8 @@ class Repository(pulumi.CustomResource):
             ssh_clone_url: Optional[pulumi.Input[str]] = None,
             svn_url: Optional[pulumi.Input[str]] = None,
             template: Optional[pulumi.Input[pulumi.InputType['RepositoryTemplateArgs']]] = None,
-            topics: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None) -> 'Repository':
+            topics: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            visibility: Optional[pulumi.Input[str]] = None) -> 'Repository':
         """
         Get an existing Repository resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -211,6 +215,7 @@ class Repository(pulumi.CustomResource):
         :param pulumi.Input[str] svn_url: URL that can be provided to `svn checkout` to check out the repository via GitHub's Subversion protocol emulation.
         :param pulumi.Input[pulumi.InputType['RepositoryTemplateArgs']] template: Use a template repository to create this resource. See Template Repositories below for details.
         :param pulumi.Input[List[pulumi.Input[str]]] topics: The list of topics of the repository.
+        :param pulumi.Input[str] visibility: Can be `public` or `private`. If your organization is associated with an enterprise account using GitHub Enterprise Cloud or GitHub Enterprise Server 2.20+, visibility can also be `internal`. The `visibility` parameter overrides the `private` parameter.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -244,6 +249,7 @@ class Repository(pulumi.CustomResource):
         __props__["svn_url"] = svn_url
         __props__["template"] = template
         __props__["topics"] = topics
+        __props__["visibility"] = visibility
         return Repository(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -430,7 +436,7 @@ class Repository(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def private(self) -> pulumi.Output[Optional[bool]]:
+    def private(self) -> pulumi.Output[bool]:
         """
         Set to `true` to create a private repository.
         Repositories are created as public (e.g. open source) by default.
@@ -468,6 +474,14 @@ class Repository(pulumi.CustomResource):
         The list of topics of the repository.
         """
         return pulumi.get(self, "topics")
+
+    @property
+    @pulumi.getter
+    def visibility(self) -> pulumi.Output[str]:
+        """
+        Can be `public` or `private`. If your organization is associated with an enterprise account using GitHub Enterprise Cloud or GitHub Enterprise Server 2.20+, visibility can also be `internal`. The `visibility` parameter overrides the `private` parameter.
+        """
+        return pulumi.get(self, "visibility")
 
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

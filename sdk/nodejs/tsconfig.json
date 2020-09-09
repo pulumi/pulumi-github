@@ -23,6 +23,7 @@
         "getCollaborators.ts",
         "getIpRanges.ts",
         "getMembership.ts",
+        "getOrganization.ts",
         "getOrganizationTeamSyncGroups.ts",
         "getRelease.ts",
         "getRepositories.ts",

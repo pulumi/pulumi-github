@@ -32,6 +32,7 @@ export function getMembership(args: GetMembershipArgs, opts?: pulumi.InvokeOptio
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("github:index/getMembership:getMembership", {
+        "organization": args.organization,
         "username": args.username,
     }, opts);
 }
@@ -40,6 +41,10 @@ export function getMembership(args: GetMembershipArgs, opts?: pulumi.InvokeOptio
  * A collection of arguments for invoking getMembership.
  */
 export interface GetMembershipArgs {
+    /**
+     * The organization to check for the above username.
+     */
+    readonly organization?: string;
     /**
      * The username to lookup in the organization.
      */
@@ -58,6 +63,7 @@ export interface GetMembershipResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly organization?: string;
     /**
      * `admin` or `member` -- the role the user has within the organization.
      */
