@@ -2,14 +2,17 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
+_(none)_
+
+---
+
+## 2.0.0 (2020-09-09)
 * Upgrade to v3.0.0 of the GitHub Terraform Provider  
   **Please Note there are a number of changes to the provider configuration:**
   * Provider options `individual` and `anonymous` have been removed  
   * `token` is now optional and absence enables `anonymous` mode
   * Absense of `organization` now enables `individual` mode
   * `owner` is now inferred from `organization`
-
----
 
 ## 1.5.0 (2020-08-31)
 * Upgrade to pulumi-terraform-bridge v2.7.3
