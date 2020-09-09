@@ -48,6 +48,12 @@ namespace Pulumi.Github
     public sealed class GetMembershipArgs : Pulumi.InvokeArgs
     {
         /// <summary>
+        /// The organization to check for the above username.
+        /// </summary>
+        [Input("organization")]
+        public string? Organization { get; set; }
+
+        /// <summary>
         /// The username to lookup in the organization.
         /// </summary>
         [Input("username", required: true)]
@@ -70,6 +76,7 @@ namespace Pulumi.Github
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        public readonly string? Organization;
         /// <summary>
         /// `admin` or `member` -- the role the user has within the organization.
         /// </summary>
@@ -85,12 +92,15 @@ namespace Pulumi.Github
 
             string id,
 
+            string? organization,
+
             string role,
 
             string username)
         {
             Etag = etag;
             Id = id;
+            Organization = organization;
             Role = role;
             Username = username;
         }

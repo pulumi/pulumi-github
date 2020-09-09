@@ -7,24 +7,22 @@ import * as utilities from "../utilities";
 let __config = new pulumi.Config("github");
 
 /**
- * Authenticate without a token. When `anonymous`is true, the provider will not be able to access resourcesthat require
- * authentication.
- */
-export let anonymous: boolean | undefined = __config.getObject<boolean>("anonymous");
-/**
  * The GitHub Base API URL
  */
 export let baseUrl: string | undefined = __config.get("baseUrl") || (utilities.getEnv("GITHUB_BASE_URL") || "https://api.github.com/");
-export let individual: boolean | undefined = __config.getObject<boolean>("individual");
 /**
- * Whether server should be accessed without verifying the TLS certificate.
+ * Enable `insecure` mode for testing purposes
  */
 export let insecure: boolean | undefined = __config.getObject<boolean>("insecure");
 /**
- * The GitHub organization name to manage. If `individual` is false, `organization` is required.
+ * The GitHub organization name to manage. Use this field instead of `owner` when managing organization accounts.
  */
 export let organization: string | undefined = __config.get("organization") || utilities.getEnv("GITHUB_ORGANIZATION");
 /**
- * The OAuth token used to connect to GitHub. If `anonymous` is false, `token` is required.
+ * The GitHub owner name to manage. Use this field instead of `organization` when managing individual accounts.
+ */
+export let owner: string | undefined = __config.get("owner");
+/**
+ * The OAuth token used to connect to GitHub. `anonymous` mode is enabled if `token` is not configured.
  */
 export let token: string | undefined = __config.get("token") || utilities.getEnv("GITHUB_TOKEN");

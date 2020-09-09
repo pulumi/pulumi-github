@@ -26,10 +26,7 @@ class RepositoryWebhook(pulumi.CustomResource):
                  __opts__=None):
         """
         This resource allows you to create and manage webhooks for repositories within your
-        GitHub organization.
-
-        This resource cannot currently be used to manage webhooks for *personal* repositories,
-        outside of organizations.
+        GitHub organization or personal account.
 
         ## Example Usage
 

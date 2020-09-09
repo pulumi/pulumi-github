@@ -36,11 +36,10 @@ export class Provider extends pulumi.ProviderResource {
     constructor(name: string, args?: ProviderArgs, opts?: pulumi.ResourceOptions) {
         let inputs: pulumi.Inputs = {};
         {
-            inputs["anonymous"] = pulumi.output(args ? args.anonymous : undefined).apply(JSON.stringify);
             inputs["baseUrl"] = (args ? args.baseUrl : undefined) || (utilities.getEnv("GITHUB_BASE_URL") || "https://api.github.com/");
-            inputs["individual"] = pulumi.output(args ? args.individual : undefined).apply(JSON.stringify);
             inputs["insecure"] = pulumi.output(args ? args.insecure : undefined).apply(JSON.stringify);
             inputs["organization"] = (args ? args.organization : undefined) || utilities.getEnv("GITHUB_ORGANIZATION");
+            inputs["owner"] = args ? args.owner : undefined;
             inputs["token"] = (args ? args.token : undefined) || utilities.getEnv("GITHUB_TOKEN");
         }
         if (!opts) {
@@ -59,30 +58,23 @@ export class Provider extends pulumi.ProviderResource {
  */
 export interface ProviderArgs {
     /**
-     * Authenticate without a token. When `anonymous`is true, the provider will not be able to access resourcesthat require
-     * authentication.
-     *
-     * @deprecated For versions later than 3.0.0, absence of a token enables this mode
-     */
-    readonly anonymous?: pulumi.Input<boolean>;
-    /**
      * The GitHub Base API URL
      */
     readonly baseUrl?: pulumi.Input<string>;
     /**
-     * @deprecated For versions later than 3.0.0, absence of an organization enables this mode
-     */
-    readonly individual?: pulumi.Input<boolean>;
-    /**
-     * Whether server should be accessed without verifying the TLS certificate.
+     * Enable `insecure` mode for testing purposes
      */
     readonly insecure?: pulumi.Input<boolean>;
     /**
-     * The GitHub organization name to manage. If `individual` is false, `organization` is required.
+     * The GitHub organization name to manage. Use this field instead of `owner` when managing organization accounts.
      */
     readonly organization?: pulumi.Input<string>;
     /**
-     * The OAuth token used to connect to GitHub. If `anonymous` is false, `token` is required.
+     * The GitHub owner name to manage. Use this field instead of `organization` when managing individual accounts.
+     */
+    readonly owner?: pulumi.Input<string>;
+    /**
+     * The OAuth token used to connect to GitHub. `anonymous` mode is enabled if `token` is not configured.
      */
     readonly token?: pulumi.Input<string>;
 }

@@ -16,11 +16,10 @@ class Provider(pulumi.ProviderResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 anonymous: Optional[pulumi.Input[bool]] = None,
                  base_url: Optional[pulumi.Input[str]] = None,
-                 individual: Optional[pulumi.Input[bool]] = None,
                  insecure: Optional[pulumi.Input[bool]] = None,
                  organization: Optional[pulumi.Input[str]] = None,
+                 owner: Optional[pulumi.Input[str]] = None,
                  token: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -33,12 +32,11 @@ class Provider(pulumi.ProviderResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] anonymous: Authenticate without a token. When `anonymous`is true, the provider will not be able to access resourcesthat require
-               authentication.
         :param pulumi.Input[str] base_url: The GitHub Base API URL
-        :param pulumi.Input[bool] insecure: Whether server should be accessed without verifying the TLS certificate.
-        :param pulumi.Input[str] organization: The GitHub organization name to manage. If `individual` is false, `organization` is required.
-        :param pulumi.Input[str] token: The OAuth token used to connect to GitHub. If `anonymous` is false, `token` is required.
+        :param pulumi.Input[bool] insecure: Enable `insecure` mode for testing purposes
+        :param pulumi.Input[str] organization: The GitHub organization name to manage. Use this field instead of `owner` when managing organization accounts.
+        :param pulumi.Input[str] owner: The GitHub owner name to manage. Use this field instead of `organization` when managing individual accounts.
+        :param pulumi.Input[str] token: The OAuth token used to connect to GitHub. `anonymous` mode is enabled if `token` is not configured.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -57,21 +55,14 @@ class Provider(pulumi.ProviderResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if anonymous is not None:
-                warnings.warn("For versions later than 3.0.0, absence of a token enables this mode", DeprecationWarning)
-                pulumi.log.warn("anonymous is deprecated: For versions later than 3.0.0, absence of a token enables this mode")
-            __props__['anonymous'] = pulumi.Output.from_input(anonymous).apply(json.dumps) if anonymous is not None else None
             if base_url is None:
                 base_url = (_utilities.get_env('GITHUB_BASE_URL') or 'https://api.github.com/')
             __props__['base_url'] = base_url
-            if individual is not None:
-                warnings.warn("For versions later than 3.0.0, absence of an organization enables this mode", DeprecationWarning)
-                pulumi.log.warn("individual is deprecated: For versions later than 3.0.0, absence of an organization enables this mode")
-            __props__['individual'] = pulumi.Output.from_input(individual).apply(json.dumps) if individual is not None else None
             __props__['insecure'] = pulumi.Output.from_input(insecure).apply(json.dumps) if insecure is not None else None
             if organization is None:
                 organization = _utilities.get_env('GITHUB_ORGANIZATION')
             __props__['organization'] = organization
+            __props__['owner'] = owner
             if token is None:
                 token = _utilities.get_env('GITHUB_TOKEN')
             __props__['token'] = token

@@ -11,6 +11,7 @@ from .get_branch import *
 from .get_collaborators import *
 from .get_ip_ranges import *
 from .get_membership import *
+from .get_organization import *
 from .get_organization_team_sync_groups import *
 from .get_release import *
 from .get_repositories import *
