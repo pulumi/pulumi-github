@@ -20,6 +20,7 @@ class Repository(pulumi.CustomResource):
                  allow_merge_commit: Optional[pulumi.Input[bool]] = None,
                  allow_rebase_merge: Optional[pulumi.Input[bool]] = None,
                  allow_squash_merge: Optional[pulumi.Input[bool]] = None,
+                 archive_on_destroy: Optional[pulumi.Input[bool]] = None,
                  archived: Optional[pulumi.Input[bool]] = None,
                  auto_init: Optional[pulumi.Input[bool]] = None,
                  default_branch: Optional[pulumi.Input[str]] = None,
@@ -38,6 +39,7 @@ class Repository(pulumi.CustomResource):
                  template: Optional[pulumi.Input[pulumi.InputType['RepositoryTemplateArgs']]] = None,
                  topics: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
                  visibility: Optional[pulumi.Input[str]] = None,
+                 vulnerability_alerts: Optional[pulumi.Input[bool]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -65,6 +67,7 @@ class Repository(pulumi.CustomResource):
         :param pulumi.Input[bool] allow_merge_commit: Set to `false` to disable merge commits on the repository.
         :param pulumi.Input[bool] allow_rebase_merge: Set to `false` to disable rebase merges on the repository.
         :param pulumi.Input[bool] allow_squash_merge: Set to `false` to disable squash merges on the repository.
+        :param pulumi.Input[bool] archive_on_destroy: Set to `true` to archive the repository instead of deleting on destroy.
         :param pulumi.Input[bool] archived: Specifies if the repository should be archived. Defaults to `false`. **NOTE** Currently, the API does not support unarchiving.
         :param pulumi.Input[bool] auto_init: Set to `true` to produce an initial commit in the repository.
         :param pulumi.Input[str] default_branch: The name of the default branch of the repository. **NOTE:** This can only be set after a repository has already been created,
@@ -88,6 +91,7 @@ class Repository(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['RepositoryTemplateArgs']] template: Use a template repository to create this resource. See Template Repositories below for details.
         :param pulumi.Input[List[pulumi.Input[str]]] topics: The list of topics of the repository.
         :param pulumi.Input[str] visibility: Can be `public` or `private`. If your organization is associated with an enterprise account using GitHub Enterprise Cloud or GitHub Enterprise Server 2.20+, visibility can also be `internal`. The `visibility` parameter overrides the `private` parameter.
+        :param pulumi.Input[bool] vulnerability_alerts: Set to `true` to enable security alerts for vulnerable dependencies. Enabling requires alerts to be enabled on the owner level. (Note for importing: GitHub enables the alerts on public repos but disables them on private repos by default.) See [GitHub Documentation](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for details.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -109,6 +113,7 @@ class Repository(pulumi.CustomResource):
             __props__['allow_merge_commit'] = allow_merge_commit
             __props__['allow_rebase_merge'] = allow_rebase_merge
             __props__['allow_squash_merge'] = allow_squash_merge
+            __props__['archive_on_destroy'] = archive_on_destroy
             __props__['archived'] = archived
             __props__['auto_init'] = auto_init
             __props__['default_branch'] = default_branch
@@ -130,6 +135,7 @@ class Repository(pulumi.CustomResource):
             __props__['template'] = template
             __props__['topics'] = topics
             __props__['visibility'] = visibility
+            __props__['vulnerability_alerts'] = vulnerability_alerts
             __props__['etag'] = None
             __props__['full_name'] = None
             __props__['git_clone_url'] = None
@@ -151,6 +157,7 @@ class Repository(pulumi.CustomResource):
             allow_merge_commit: Optional[pulumi.Input[bool]] = None,
             allow_rebase_merge: Optional[pulumi.Input[bool]] = None,
             allow_squash_merge: Optional[pulumi.Input[bool]] = None,
+            archive_on_destroy: Optional[pulumi.Input[bool]] = None,
             archived: Optional[pulumi.Input[bool]] = None,
             auto_init: Optional[pulumi.Input[bool]] = None,
             default_branch: Optional[pulumi.Input[str]] = None,
@@ -176,7 +183,8 @@ class Repository(pulumi.CustomResource):
             svn_url: Optional[pulumi.Input[str]] = None,
             template: Optional[pulumi.Input[pulumi.InputType['RepositoryTemplateArgs']]] = None,
             topics: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-            visibility: Optional[pulumi.Input[str]] = None) -> 'Repository':
+            visibility: Optional[pulumi.Input[str]] = None,
+            vulnerability_alerts: Optional[pulumi.Input[bool]] = None) -> 'Repository':
         """
         Get an existing Repository resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -187,6 +195,7 @@ class Repository(pulumi.CustomResource):
         :param pulumi.Input[bool] allow_merge_commit: Set to `false` to disable merge commits on the repository.
         :param pulumi.Input[bool] allow_rebase_merge: Set to `false` to disable rebase merges on the repository.
         :param pulumi.Input[bool] allow_squash_merge: Set to `false` to disable squash merges on the repository.
+        :param pulumi.Input[bool] archive_on_destroy: Set to `true` to archive the repository instead of deleting on destroy.
         :param pulumi.Input[bool] archived: Specifies if the repository should be archived. Defaults to `false`. **NOTE** Currently, the API does not support unarchiving.
         :param pulumi.Input[bool] auto_init: Set to `true` to produce an initial commit in the repository.
         :param pulumi.Input[str] default_branch: The name of the default branch of the repository. **NOTE:** This can only be set after a repository has already been created,
@@ -216,6 +225,7 @@ class Repository(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['RepositoryTemplateArgs']] template: Use a template repository to create this resource. See Template Repositories below for details.
         :param pulumi.Input[List[pulumi.Input[str]]] topics: The list of topics of the repository.
         :param pulumi.Input[str] visibility: Can be `public` or `private`. If your organization is associated with an enterprise account using GitHub Enterprise Cloud or GitHub Enterprise Server 2.20+, visibility can also be `internal`. The `visibility` parameter overrides the `private` parameter.
+        :param pulumi.Input[bool] vulnerability_alerts: Set to `true` to enable security alerts for vulnerable dependencies. Enabling requires alerts to be enabled on the owner level. (Note for importing: GitHub enables the alerts on public repos but disables them on private repos by default.) See [GitHub Documentation](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for details.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -224,6 +234,7 @@ class Repository(pulumi.CustomResource):
         __props__["allow_merge_commit"] = allow_merge_commit
         __props__["allow_rebase_merge"] = allow_rebase_merge
         __props__["allow_squash_merge"] = allow_squash_merge
+        __props__["archive_on_destroy"] = archive_on_destroy
         __props__["archived"] = archived
         __props__["auto_init"] = auto_init
         __props__["default_branch"] = default_branch
@@ -250,6 +261,7 @@ class Repository(pulumi.CustomResource):
         __props__["template"] = template
         __props__["topics"] = topics
         __props__["visibility"] = visibility
+        __props__["vulnerability_alerts"] = vulnerability_alerts
         return Repository(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -275,6 +287,14 @@ class Repository(pulumi.CustomResource):
         Set to `false` to disable squash merges on the repository.
         """
         return pulumi.get(self, "allow_squash_merge")
+
+    @property
+    @pulumi.getter(name="archiveOnDestroy")
+    def archive_on_destroy(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Set to `true` to archive the repository instead of deleting on destroy.
+        """
+        return pulumi.get(self, "archive_on_destroy")
 
     @property
     @pulumi.getter
@@ -482,6 +502,14 @@ class Repository(pulumi.CustomResource):
         Can be `public` or `private`. If your organization is associated with an enterprise account using GitHub Enterprise Cloud or GitHub Enterprise Server 2.20+, visibility can also be `internal`. The `visibility` parameter overrides the `private` parameter.
         """
         return pulumi.get(self, "visibility")
+
+    @property
+    @pulumi.getter(name="vulnerabilityAlerts")
+    def vulnerability_alerts(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Set to `true` to enable security alerts for vulnerable dependencies. Enabling requires alerts to be enabled on the owner level. (Note for importing: GitHub enables the alerts on public repos but disables them on private repos by default.) See [GitHub Documentation](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for details.
+        """
+        return pulumi.get(self, "vulnerability_alerts")
 
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

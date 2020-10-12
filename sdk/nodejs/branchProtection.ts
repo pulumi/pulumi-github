@@ -10,45 +10,6 @@ import * as utilities from "./utilities";
  * Protects a GitHub branch.
  *
  * This resource allows you to configure branch protection for repositories in your organization. When applied, the branch will be protected from forced pushes and deletion. Additional constraints, such as required status checks or restrictions on users, teams, and apps, can also be configured.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as github from "@pulumi/github";
- *
- * const exampleTeam = new github.Team("example", {});
- * // Protect the master branch of the foo repository. Additionally, require that
- * // the "ci/travis" context to be passing and only allow the engineers team merge
- * // to the branch.
- * const exampleBranchProtection = new github.BranchProtection("example", {
- *     branch: "master",
- *     enforceAdmins: true,
- *     repository: github_repository_example.name,
- *     requiredPullRequestReviews: {
- *         dismissStaleReviews: true,
- *         dismissalTeams: [
- *             exampleTeam.slug,
- *             github_team_second.slug,
- *         ],
- *         dismissalUsers: ["foo-user"],
- *     },
- *     requiredStatusChecks: {
- *         contexts: ["ci/travis"],
- *         strict: false,
- *     },
- *     restrictions: {
- *         apps: ["foo-app"],
- *         teams: [exampleTeam.slug],
- *         users: ["foo-user"],
- *     },
- * });
- * const exampleTeamRepository = new github.TeamRepository("example", {
- *     permission: "pull",
- *     repository: github_repository_example.name,
- *     teamId: exampleTeam.id,
- * });
- * ```
  */
 export class BranchProtection extends pulumi.CustomResource {
     /**
@@ -79,18 +40,21 @@ export class BranchProtection extends pulumi.CustomResource {
     }
 
     /**
-     * The Git branch to protect.
-     */
-    public readonly branch!: pulumi.Output<string>;
-    /**
      * Boolean, setting this to `true` enforces status checks for repository administrators.
      */
     public readonly enforceAdmins!: pulumi.Output<boolean | undefined>;
-    public /*out*/ readonly etag!: pulumi.Output<string>;
     /**
-     * The GitHub repository name.
+     * Identifies the protection rule pattern.
      */
-    public readonly repository!: pulumi.Output<string>;
+    public readonly pattern!: pulumi.Output<string>;
+    /**
+     * The list of actor IDs that may push to the branch.
+     */
+    public readonly pushRestrictions!: pulumi.Output<string[] | undefined>;
+    /**
+     * The repository associated with this branch protection rule.
+     */
+    public readonly repositoryId!: pulumi.Output<string>;
     /**
      * Boolean, setting this to `true` requires all commits to be signed with GPG.
      */
@@ -98,15 +62,11 @@ export class BranchProtection extends pulumi.CustomResource {
     /**
      * Enforce restrictions for pull request reviews. See Required Pull Request Reviews below for details.
      */
-    public readonly requiredPullRequestReviews!: pulumi.Output<outputs.BranchProtectionRequiredPullRequestReviews | undefined>;
+    public readonly requiredPullRequestReviews!: pulumi.Output<outputs.BranchProtectionRequiredPullRequestReview[] | undefined>;
     /**
      * Enforce restrictions for required status checks. See Required Status Checks below for details.
      */
-    public readonly requiredStatusChecks!: pulumi.Output<outputs.BranchProtectionRequiredStatusChecks | undefined>;
-    /**
-     * Enforce restrictions for the users and teams that may push to the branch. See Restrictions below for details.
-     */
-    public readonly restrictions!: pulumi.Output<outputs.BranchProtectionRestrictions | undefined>;
+    public readonly requiredStatusChecks!: pulumi.Output<outputs.BranchProtectionRequiredStatusCheck[] | undefined>;
 
     /**
      * Create a BranchProtection resource with the given unique name, arguments, and options.
@@ -120,30 +80,28 @@ export class BranchProtection extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as BranchProtectionState | undefined;
-            inputs["branch"] = state ? state.branch : undefined;
             inputs["enforceAdmins"] = state ? state.enforceAdmins : undefined;
-            inputs["etag"] = state ? state.etag : undefined;
-            inputs["repository"] = state ? state.repository : undefined;
+            inputs["pattern"] = state ? state.pattern : undefined;
+            inputs["pushRestrictions"] = state ? state.pushRestrictions : undefined;
+            inputs["repositoryId"] = state ? state.repositoryId : undefined;
             inputs["requireSignedCommits"] = state ? state.requireSignedCommits : undefined;
             inputs["requiredPullRequestReviews"] = state ? state.requiredPullRequestReviews : undefined;
             inputs["requiredStatusChecks"] = state ? state.requiredStatusChecks : undefined;
-            inputs["restrictions"] = state ? state.restrictions : undefined;
         } else {
             const args = argsOrState as BranchProtectionArgs | undefined;
-            if (!args || args.branch === undefined) {
-                throw new Error("Missing required property 'branch'");
+            if (!args || args.pattern === undefined) {
+                throw new Error("Missing required property 'pattern'");
             }
-            if (!args || args.repository === undefined) {
-                throw new Error("Missing required property 'repository'");
+            if (!args || args.repositoryId === undefined) {
+                throw new Error("Missing required property 'repositoryId'");
             }
-            inputs["branch"] = args ? args.branch : undefined;
             inputs["enforceAdmins"] = args ? args.enforceAdmins : undefined;
-            inputs["repository"] = args ? args.repository : undefined;
+            inputs["pattern"] = args ? args.pattern : undefined;
+            inputs["pushRestrictions"] = args ? args.pushRestrictions : undefined;
+            inputs["repositoryId"] = args ? args.repositoryId : undefined;
             inputs["requireSignedCommits"] = args ? args.requireSignedCommits : undefined;
             inputs["requiredPullRequestReviews"] = args ? args.requiredPullRequestReviews : undefined;
             inputs["requiredStatusChecks"] = args ? args.requiredStatusChecks : undefined;
-            inputs["restrictions"] = args ? args.restrictions : undefined;
-            inputs["etag"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -161,18 +119,21 @@ export class BranchProtection extends pulumi.CustomResource {
  */
 export interface BranchProtectionState {
     /**
-     * The Git branch to protect.
-     */
-    readonly branch?: pulumi.Input<string>;
-    /**
      * Boolean, setting this to `true` enforces status checks for repository administrators.
      */
     readonly enforceAdmins?: pulumi.Input<boolean>;
-    readonly etag?: pulumi.Input<string>;
     /**
-     * The GitHub repository name.
+     * Identifies the protection rule pattern.
      */
-    readonly repository?: pulumi.Input<string>;
+    readonly pattern?: pulumi.Input<string>;
+    /**
+     * The list of actor IDs that may push to the branch.
+     */
+    readonly pushRestrictions?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The repository associated with this branch protection rule.
+     */
+    readonly repositoryId?: pulumi.Input<string>;
     /**
      * Boolean, setting this to `true` requires all commits to be signed with GPG.
      */
@@ -180,15 +141,11 @@ export interface BranchProtectionState {
     /**
      * Enforce restrictions for pull request reviews. See Required Pull Request Reviews below for details.
      */
-    readonly requiredPullRequestReviews?: pulumi.Input<inputs.BranchProtectionRequiredPullRequestReviews>;
+    readonly requiredPullRequestReviews?: pulumi.Input<pulumi.Input<inputs.BranchProtectionRequiredPullRequestReview>[]>;
     /**
      * Enforce restrictions for required status checks. See Required Status Checks below for details.
      */
-    readonly requiredStatusChecks?: pulumi.Input<inputs.BranchProtectionRequiredStatusChecks>;
-    /**
-     * Enforce restrictions for the users and teams that may push to the branch. See Restrictions below for details.
-     */
-    readonly restrictions?: pulumi.Input<inputs.BranchProtectionRestrictions>;
+    readonly requiredStatusChecks?: pulumi.Input<pulumi.Input<inputs.BranchProtectionRequiredStatusCheck>[]>;
 }
 
 /**
@@ -196,17 +153,21 @@ export interface BranchProtectionState {
  */
 export interface BranchProtectionArgs {
     /**
-     * The Git branch to protect.
-     */
-    readonly branch: pulumi.Input<string>;
-    /**
      * Boolean, setting this to `true` enforces status checks for repository administrators.
      */
     readonly enforceAdmins?: pulumi.Input<boolean>;
     /**
-     * The GitHub repository name.
+     * Identifies the protection rule pattern.
      */
-    readonly repository: pulumi.Input<string>;
+    readonly pattern: pulumi.Input<string>;
+    /**
+     * The list of actor IDs that may push to the branch.
+     */
+    readonly pushRestrictions?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The repository associated with this branch protection rule.
+     */
+    readonly repositoryId: pulumi.Input<string>;
     /**
      * Boolean, setting this to `true` requires all commits to be signed with GPG.
      */
@@ -214,13 +175,9 @@ export interface BranchProtectionArgs {
     /**
      * Enforce restrictions for pull request reviews. See Required Pull Request Reviews below for details.
      */
-    readonly requiredPullRequestReviews?: pulumi.Input<inputs.BranchProtectionRequiredPullRequestReviews>;
+    readonly requiredPullRequestReviews?: pulumi.Input<pulumi.Input<inputs.BranchProtectionRequiredPullRequestReview>[]>;
     /**
      * Enforce restrictions for required status checks. See Required Status Checks below for details.
      */
-    readonly requiredStatusChecks?: pulumi.Input<inputs.BranchProtectionRequiredStatusChecks>;
-    /**
-     * Enforce restrictions for the users and teams that may push to the branch. See Restrictions below for details.
-     */
-    readonly restrictions?: pulumi.Input<inputs.BranchProtectionRestrictions>;
+    readonly requiredStatusChecks?: pulumi.Input<pulumi.Input<inputs.BranchProtectionRequiredStatusCheck>[]>;
 }

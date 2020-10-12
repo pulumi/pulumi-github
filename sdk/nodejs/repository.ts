@@ -67,6 +67,10 @@ export class Repository extends pulumi.CustomResource {
      */
     public readonly allowSquashMerge!: pulumi.Output<boolean | undefined>;
     /**
+     * Set to `true` to archive the repository instead of deleting on destroy.
+     */
+    public readonly archiveOnDestroy!: pulumi.Output<boolean | undefined>;
+    /**
      * Specifies if the repository should be archived. Defaults to `false`. **NOTE** Currently, the API does not support unarchiving.
      */
     public readonly archived!: pulumi.Output<boolean | undefined>;
@@ -171,6 +175,10 @@ export class Repository extends pulumi.CustomResource {
      * Can be `public` or `private`. If your organization is associated with an enterprise account using GitHub Enterprise Cloud or GitHub Enterprise Server 2.20+, visibility can also be `internal`. The `visibility` parameter overrides the `private` parameter.
      */
     public readonly visibility!: pulumi.Output<string>;
+    /**
+     * Set to `true` to enable security alerts for vulnerable dependencies. Enabling requires alerts to be enabled on the owner level. (Note for importing: GitHub enables the alerts on public repos but disables them on private repos by default.) See [GitHub Documentation](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for details.
+     */
+    public readonly vulnerabilityAlerts!: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a Repository resource with the given unique name, arguments, and options.
@@ -187,6 +195,7 @@ export class Repository extends pulumi.CustomResource {
             inputs["allowMergeCommit"] = state ? state.allowMergeCommit : undefined;
             inputs["allowRebaseMerge"] = state ? state.allowRebaseMerge : undefined;
             inputs["allowSquashMerge"] = state ? state.allowSquashMerge : undefined;
+            inputs["archiveOnDestroy"] = state ? state.archiveOnDestroy : undefined;
             inputs["archived"] = state ? state.archived : undefined;
             inputs["autoInit"] = state ? state.autoInit : undefined;
             inputs["defaultBranch"] = state ? state.defaultBranch : undefined;
@@ -213,11 +222,13 @@ export class Repository extends pulumi.CustomResource {
             inputs["template"] = state ? state.template : undefined;
             inputs["topics"] = state ? state.topics : undefined;
             inputs["visibility"] = state ? state.visibility : undefined;
+            inputs["vulnerabilityAlerts"] = state ? state.vulnerabilityAlerts : undefined;
         } else {
             const args = argsOrState as RepositoryArgs | undefined;
             inputs["allowMergeCommit"] = args ? args.allowMergeCommit : undefined;
             inputs["allowRebaseMerge"] = args ? args.allowRebaseMerge : undefined;
             inputs["allowSquashMerge"] = args ? args.allowSquashMerge : undefined;
+            inputs["archiveOnDestroy"] = args ? args.archiveOnDestroy : undefined;
             inputs["archived"] = args ? args.archived : undefined;
             inputs["autoInit"] = args ? args.autoInit : undefined;
             inputs["defaultBranch"] = args ? args.defaultBranch : undefined;
@@ -236,6 +247,7 @@ export class Repository extends pulumi.CustomResource {
             inputs["template"] = args ? args.template : undefined;
             inputs["topics"] = args ? args.topics : undefined;
             inputs["visibility"] = args ? args.visibility : undefined;
+            inputs["vulnerabilityAlerts"] = args ? args.vulnerabilityAlerts : undefined;
             inputs["etag"] = undefined /*out*/;
             inputs["fullName"] = undefined /*out*/;
             inputs["gitCloneUrl"] = undefined /*out*/;
@@ -272,6 +284,10 @@ export interface RepositoryState {
      * Set to `false` to disable squash merges on the repository.
      */
     readonly allowSquashMerge?: pulumi.Input<boolean>;
+    /**
+     * Set to `true` to archive the repository instead of deleting on destroy.
+     */
+    readonly archiveOnDestroy?: pulumi.Input<boolean>;
     /**
      * Specifies if the repository should be archived. Defaults to `false`. **NOTE** Currently, the API does not support unarchiving.
      */
@@ -377,6 +393,10 @@ export interface RepositoryState {
      * Can be `public` or `private`. If your organization is associated with an enterprise account using GitHub Enterprise Cloud or GitHub Enterprise Server 2.20+, visibility can also be `internal`. The `visibility` parameter overrides the `private` parameter.
      */
     readonly visibility?: pulumi.Input<string>;
+    /**
+     * Set to `true` to enable security alerts for vulnerable dependencies. Enabling requires alerts to be enabled on the owner level. (Note for importing: GitHub enables the alerts on public repos but disables them on private repos by default.) See [GitHub Documentation](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for details.
+     */
+    readonly vulnerabilityAlerts?: pulumi.Input<boolean>;
 }
 
 /**
@@ -395,6 +415,10 @@ export interface RepositoryArgs {
      * Set to `false` to disable squash merges on the repository.
      */
     readonly allowSquashMerge?: pulumi.Input<boolean>;
+    /**
+     * Set to `true` to archive the repository instead of deleting on destroy.
+     */
+    readonly archiveOnDestroy?: pulumi.Input<boolean>;
     /**
      * Specifies if the repository should be archived. Defaults to `false`. **NOTE** Currently, the API does not support unarchiving.
      */
@@ -474,4 +498,8 @@ export interface RepositoryArgs {
      * Can be `public` or `private`. If your organization is associated with an enterprise account using GitHub Enterprise Cloud or GitHub Enterprise Server 2.20+, visibility can also be `internal`. The `visibility` parameter overrides the `private` parameter.
      */
     readonly visibility?: pulumi.Input<string>;
+    /**
+     * Set to `true` to enable security alerts for vulnerable dependencies. Enabling requires alerts to be enabled on the owner level. (Note for importing: GitHub enables the alerts on public repos but disables them on private repos by default.) See [GitHub Documentation](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for details.
+     */
+    readonly vulnerabilityAlerts?: pulumi.Input<boolean>;
 }

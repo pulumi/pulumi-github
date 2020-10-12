@@ -13,98 +13,32 @@ namespace Pulumi.Github
     /// Protects a GitHub branch.
     /// 
     /// This resource allows you to configure branch protection for repositories in your organization. When applied, the branch will be protected from forced pushes and deletion. Additional constraints, such as required status checks or restrictions on users, teams, and apps, can also be configured.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using Pulumi;
-    /// using Github = Pulumi.Github;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var exampleTeam = new Github.Team("exampleTeam", new Github.TeamArgs
-    ///         {
-    ///         });
-    ///         // Protect the master branch of the foo repository. Additionally, require that
-    ///         // the "ci/travis" context to be passing and only allow the engineers team merge
-    ///         // to the branch.
-    ///         var exampleBranchProtection = new Github.BranchProtection("exampleBranchProtection", new Github.BranchProtectionArgs
-    ///         {
-    ///             Branch = "master",
-    ///             EnforceAdmins = true,
-    ///             Repository = github_repository.Example.Name,
-    ///             RequiredPullRequestReviews = new Github.Inputs.BranchProtectionRequiredPullRequestReviewsArgs
-    ///             {
-    ///                 DismissStaleReviews = true,
-    ///                 DismissalTeams = 
-    ///                 {
-    ///                     exampleTeam.Slug,
-    ///                     github_team.Second.Slug,
-    ///                 },
-    ///                 DismissalUsers = 
-    ///                 {
-    ///                     "foo-user",
-    ///                 },
-    ///             },
-    ///             RequiredStatusChecks = new Github.Inputs.BranchProtectionRequiredStatusChecksArgs
-    ///             {
-    ///                 Contexts = 
-    ///                 {
-    ///                     "ci/travis",
-    ///                 },
-    ///                 Strict = false,
-    ///             },
-    ///             Restrictions = new Github.Inputs.BranchProtectionRestrictionsArgs
-    ///             {
-    ///                 Apps = 
-    ///                 {
-    ///                     "foo-app",
-    ///                 },
-    ///                 Teams = 
-    ///                 {
-    ///                     exampleTeam.Slug,
-    ///                 },
-    ///                 Users = 
-    ///                 {
-    ///                     "foo-user",
-    ///                 },
-    ///             },
-    ///         });
-    ///         var exampleTeamRepository = new Github.TeamRepository("exampleTeamRepository", new Github.TeamRepositoryArgs
-    ///         {
-    ///             Permission = "pull",
-    ///             Repository = github_repository.Example.Name,
-    ///             TeamId = exampleTeam.Id,
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// ```
     /// </summary>
     public partial class BranchProtection : Pulumi.CustomResource
     {
-        /// <summary>
-        /// The Git branch to protect.
-        /// </summary>
-        [Output("branch")]
-        public Output<string> Branch { get; private set; } = null!;
-
         /// <summary>
         /// Boolean, setting this to `true` enforces status checks for repository administrators.
         /// </summary>
         [Output("enforceAdmins")]
         public Output<bool?> EnforceAdmins { get; private set; } = null!;
 
-        [Output("etag")]
-        public Output<string> Etag { get; private set; } = null!;
+        /// <summary>
+        /// Identifies the protection rule pattern.
+        /// </summary>
+        [Output("pattern")]
+        public Output<string> Pattern { get; private set; } = null!;
 
         /// <summary>
-        /// The GitHub repository name.
+        /// The list of actor IDs that may push to the branch.
         /// </summary>
-        [Output("repository")]
-        public Output<string> Repository { get; private set; } = null!;
+        [Output("pushRestrictions")]
+        public Output<ImmutableArray<string>> PushRestrictions { get; private set; } = null!;
+
+        /// <summary>
+        /// The repository associated with this branch protection rule.
+        /// </summary>
+        [Output("repositoryId")]
+        public Output<string> RepositoryId { get; private set; } = null!;
 
         /// <summary>
         /// Boolean, setting this to `true` requires all commits to be signed with GPG.
@@ -116,19 +50,13 @@ namespace Pulumi.Github
         /// Enforce restrictions for pull request reviews. See Required Pull Request Reviews below for details.
         /// </summary>
         [Output("requiredPullRequestReviews")]
-        public Output<Outputs.BranchProtectionRequiredPullRequestReviews?> RequiredPullRequestReviews { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.BranchProtectionRequiredPullRequestReview>> RequiredPullRequestReviews { get; private set; } = null!;
 
         /// <summary>
         /// Enforce restrictions for required status checks. See Required Status Checks below for details.
         /// </summary>
         [Output("requiredStatusChecks")]
-        public Output<Outputs.BranchProtectionRequiredStatusChecks?> RequiredStatusChecks { get; private set; } = null!;
-
-        /// <summary>
-        /// Enforce restrictions for the users and teams that may push to the branch. See Restrictions below for details.
-        /// </summary>
-        [Output("restrictions")]
-        public Output<Outputs.BranchProtectionRestrictions?> Restrictions { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.BranchProtectionRequiredStatusCheck>> RequiredStatusChecks { get; private set; } = null!;
 
 
         /// <summary>
@@ -177,22 +105,34 @@ namespace Pulumi.Github
     public sealed class BranchProtectionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Git branch to protect.
-        /// </summary>
-        [Input("branch", required: true)]
-        public Input<string> Branch { get; set; } = null!;
-
-        /// <summary>
         /// Boolean, setting this to `true` enforces status checks for repository administrators.
         /// </summary>
         [Input("enforceAdmins")]
         public Input<bool>? EnforceAdmins { get; set; }
 
         /// <summary>
-        /// The GitHub repository name.
+        /// Identifies the protection rule pattern.
         /// </summary>
-        [Input("repository", required: true)]
-        public Input<string> Repository { get; set; } = null!;
+        [Input("pattern", required: true)]
+        public Input<string> Pattern { get; set; } = null!;
+
+        [Input("pushRestrictions")]
+        private InputList<string>? _pushRestrictions;
+
+        /// <summary>
+        /// The list of actor IDs that may push to the branch.
+        /// </summary>
+        public InputList<string> PushRestrictions
+        {
+            get => _pushRestrictions ?? (_pushRestrictions = new InputList<string>());
+            set => _pushRestrictions = value;
+        }
+
+        /// <summary>
+        /// The repository associated with this branch protection rule.
+        /// </summary>
+        [Input("repositoryId", required: true)]
+        public Input<string> RepositoryId { get; set; } = null!;
 
         /// <summary>
         /// Boolean, setting this to `true` requires all commits to be signed with GPG.
@@ -200,23 +140,29 @@ namespace Pulumi.Github
         [Input("requireSignedCommits")]
         public Input<bool>? RequireSignedCommits { get; set; }
 
+        [Input("requiredPullRequestReviews")]
+        private InputList<Inputs.BranchProtectionRequiredPullRequestReviewArgs>? _requiredPullRequestReviews;
+
         /// <summary>
         /// Enforce restrictions for pull request reviews. See Required Pull Request Reviews below for details.
         /// </summary>
-        [Input("requiredPullRequestReviews")]
-        public Input<Inputs.BranchProtectionRequiredPullRequestReviewsArgs>? RequiredPullRequestReviews { get; set; }
+        public InputList<Inputs.BranchProtectionRequiredPullRequestReviewArgs> RequiredPullRequestReviews
+        {
+            get => _requiredPullRequestReviews ?? (_requiredPullRequestReviews = new InputList<Inputs.BranchProtectionRequiredPullRequestReviewArgs>());
+            set => _requiredPullRequestReviews = value;
+        }
+
+        [Input("requiredStatusChecks")]
+        private InputList<Inputs.BranchProtectionRequiredStatusCheckArgs>? _requiredStatusChecks;
 
         /// <summary>
         /// Enforce restrictions for required status checks. See Required Status Checks below for details.
         /// </summary>
-        [Input("requiredStatusChecks")]
-        public Input<Inputs.BranchProtectionRequiredStatusChecksArgs>? RequiredStatusChecks { get; set; }
-
-        /// <summary>
-        /// Enforce restrictions for the users and teams that may push to the branch. See Restrictions below for details.
-        /// </summary>
-        [Input("restrictions")]
-        public Input<Inputs.BranchProtectionRestrictionsArgs>? Restrictions { get; set; }
+        public InputList<Inputs.BranchProtectionRequiredStatusCheckArgs> RequiredStatusChecks
+        {
+            get => _requiredStatusChecks ?? (_requiredStatusChecks = new InputList<Inputs.BranchProtectionRequiredStatusCheckArgs>());
+            set => _requiredStatusChecks = value;
+        }
 
         public BranchProtectionArgs()
         {
@@ -226,25 +172,34 @@ namespace Pulumi.Github
     public sealed class BranchProtectionState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Git branch to protect.
-        /// </summary>
-        [Input("branch")]
-        public Input<string>? Branch { get; set; }
-
-        /// <summary>
         /// Boolean, setting this to `true` enforces status checks for repository administrators.
         /// </summary>
         [Input("enforceAdmins")]
         public Input<bool>? EnforceAdmins { get; set; }
 
-        [Input("etag")]
-        public Input<string>? Etag { get; set; }
+        /// <summary>
+        /// Identifies the protection rule pattern.
+        /// </summary>
+        [Input("pattern")]
+        public Input<string>? Pattern { get; set; }
+
+        [Input("pushRestrictions")]
+        private InputList<string>? _pushRestrictions;
 
         /// <summary>
-        /// The GitHub repository name.
+        /// The list of actor IDs that may push to the branch.
         /// </summary>
-        [Input("repository")]
-        public Input<string>? Repository { get; set; }
+        public InputList<string> PushRestrictions
+        {
+            get => _pushRestrictions ?? (_pushRestrictions = new InputList<string>());
+            set => _pushRestrictions = value;
+        }
+
+        /// <summary>
+        /// The repository associated with this branch protection rule.
+        /// </summary>
+        [Input("repositoryId")]
+        public Input<string>? RepositoryId { get; set; }
 
         /// <summary>
         /// Boolean, setting this to `true` requires all commits to be signed with GPG.
@@ -252,23 +207,29 @@ namespace Pulumi.Github
         [Input("requireSignedCommits")]
         public Input<bool>? RequireSignedCommits { get; set; }
 
+        [Input("requiredPullRequestReviews")]
+        private InputList<Inputs.BranchProtectionRequiredPullRequestReviewGetArgs>? _requiredPullRequestReviews;
+
         /// <summary>
         /// Enforce restrictions for pull request reviews. See Required Pull Request Reviews below for details.
         /// </summary>
-        [Input("requiredPullRequestReviews")]
-        public Input<Inputs.BranchProtectionRequiredPullRequestReviewsGetArgs>? RequiredPullRequestReviews { get; set; }
+        public InputList<Inputs.BranchProtectionRequiredPullRequestReviewGetArgs> RequiredPullRequestReviews
+        {
+            get => _requiredPullRequestReviews ?? (_requiredPullRequestReviews = new InputList<Inputs.BranchProtectionRequiredPullRequestReviewGetArgs>());
+            set => _requiredPullRequestReviews = value;
+        }
+
+        [Input("requiredStatusChecks")]
+        private InputList<Inputs.BranchProtectionRequiredStatusCheckGetArgs>? _requiredStatusChecks;
 
         /// <summary>
         /// Enforce restrictions for required status checks. See Required Status Checks below for details.
         /// </summary>
-        [Input("requiredStatusChecks")]
-        public Input<Inputs.BranchProtectionRequiredStatusChecksGetArgs>? RequiredStatusChecks { get; set; }
-
-        /// <summary>
-        /// Enforce restrictions for the users and teams that may push to the branch. See Restrictions below for details.
-        /// </summary>
-        [Input("restrictions")]
-        public Input<Inputs.BranchProtectionRestrictionsGetArgs>? Restrictions { get; set; }
+        public InputList<Inputs.BranchProtectionRequiredStatusCheckGetArgs> RequiredStatusChecks
+        {
+            get => _requiredStatusChecks ?? (_requiredStatusChecks = new InputList<Inputs.BranchProtectionRequiredStatusCheckGetArgs>());
+            set => _requiredStatusChecks = value;
+        }
 
         public BranchProtectionState()
         {

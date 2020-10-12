@@ -21,6 +21,7 @@ class RepositoryFile(pulumi.CustomResource):
                  commit_message: Optional[pulumi.Input[str]] = None,
                  content: Optional[pulumi.Input[str]] = None,
                  file: Optional[pulumi.Input[str]] = None,
+                 overwrite_on_create: Optional[pulumi.Input[bool]] = None,
                  repository: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -35,10 +36,16 @@ class RepositoryFile(pulumi.CustomResource):
         import pulumi
         import pulumi_github as github
 
-        gitignore = github.RepositoryFile("gitignore",
-            content="**/*.tfstate",
+        foo_repository = github.Repository("fooRepository", auto_init=True)
+        foo_repository_file = github.RepositoryFile("fooRepositoryFile",
+            repository=foo_repository.name,
+            branch="main",
             file=".gitignore",
-            repository="example")
+            content="**/*.tfstate",
+            commit_message="Managed by Terraform",
+            commit_author="Terraform User",
+            commit_email="terraform@example.com",
+            overwrite_on_create=True)
         ```
 
         :param str resource_name: The name of the resource.
@@ -50,6 +57,7 @@ class RepositoryFile(pulumi.CustomResource):
         :param pulumi.Input[str] commit_message: Commit message when adding or updating the managed file.
         :param pulumi.Input[str] content: The file content.
         :param pulumi.Input[str] file: The path of the file to manage.
+        :param pulumi.Input[bool] overwrite_on_create: Enable overwriting existing files
         :param pulumi.Input[str] repository: The repository name
         """
         if __name__ is not None:
@@ -79,6 +87,7 @@ class RepositoryFile(pulumi.CustomResource):
             if file is None:
                 raise TypeError("Missing required property 'file'")
             __props__['file'] = file
+            __props__['overwrite_on_create'] = overwrite_on_create
             if repository is None:
                 raise TypeError("Missing required property 'repository'")
             __props__['repository'] = repository
@@ -99,6 +108,7 @@ class RepositoryFile(pulumi.CustomResource):
             commit_message: Optional[pulumi.Input[str]] = None,
             content: Optional[pulumi.Input[str]] = None,
             file: Optional[pulumi.Input[str]] = None,
+            overwrite_on_create: Optional[pulumi.Input[bool]] = None,
             repository: Optional[pulumi.Input[str]] = None,
             sha: Optional[pulumi.Input[str]] = None) -> 'RepositoryFile':
         """
@@ -115,6 +125,7 @@ class RepositoryFile(pulumi.CustomResource):
         :param pulumi.Input[str] commit_message: Commit message when adding or updating the managed file.
         :param pulumi.Input[str] content: The file content.
         :param pulumi.Input[str] file: The path of the file to manage.
+        :param pulumi.Input[bool] overwrite_on_create: Enable overwriting existing files
         :param pulumi.Input[str] repository: The repository name
         :param pulumi.Input[str] sha: The SHA blob of the file.
         """
@@ -128,6 +139,7 @@ class RepositoryFile(pulumi.CustomResource):
         __props__["commit_message"] = commit_message
         __props__["content"] = content
         __props__["file"] = file
+        __props__["overwrite_on_create"] = overwrite_on_create
         __props__["repository"] = repository
         __props__["sha"] = sha
         return RepositoryFile(resource_name, opts=opts, __props__=__props__)
@@ -180,6 +192,14 @@ class RepositoryFile(pulumi.CustomResource):
         The path of the file to manage.
         """
         return pulumi.get(self, "file")
+
+    @property
+    @pulumi.getter(name="overwriteOnCreate")
+    def overwrite_on_create(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Enable overwriting existing files
+        """
+        return pulumi.get(self, "overwrite_on_create")
 
     @property
     @pulumi.getter

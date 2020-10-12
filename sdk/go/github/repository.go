@@ -48,6 +48,8 @@ type Repository struct {
 	AllowRebaseMerge pulumi.BoolPtrOutput `pulumi:"allowRebaseMerge"`
 	// Set to `false` to disable squash merges on the repository.
 	AllowSquashMerge pulumi.BoolPtrOutput `pulumi:"allowSquashMerge"`
+	// Set to `true` to archive the repository instead of deleting on destroy.
+	ArchiveOnDestroy pulumi.BoolPtrOutput `pulumi:"archiveOnDestroy"`
 	// Specifies if the repository should be archived. Defaults to `false`. **NOTE** Currently, the API does not support unarchiving.
 	Archived pulumi.BoolPtrOutput `pulumi:"archived"`
 	// Set to `true` to produce an initial commit in the repository.
@@ -105,6 +107,8 @@ type Repository struct {
 	Topics pulumi.StringArrayOutput `pulumi:"topics"`
 	// Can be `public` or `private`. If your organization is associated with an enterprise account using GitHub Enterprise Cloud or GitHub Enterprise Server 2.20+, visibility can also be `internal`. The `visibility` parameter overrides the `private` parameter.
 	Visibility pulumi.StringOutput `pulumi:"visibility"`
+	// Set to `true` to enable security alerts for vulnerable dependencies. Enabling requires alerts to be enabled on the owner level. (Note for importing: GitHub enables the alerts on public repos but disables them on private repos by default.) See [GitHub Documentation](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for details.
+	VulnerabilityAlerts pulumi.BoolPtrOutput `pulumi:"vulnerabilityAlerts"`
 }
 
 // NewRepository registers a new resource with the given unique name, arguments, and options.
@@ -141,6 +145,8 @@ type repositoryState struct {
 	AllowRebaseMerge *bool `pulumi:"allowRebaseMerge"`
 	// Set to `false` to disable squash merges on the repository.
 	AllowSquashMerge *bool `pulumi:"allowSquashMerge"`
+	// Set to `true` to archive the repository instead of deleting on destroy.
+	ArchiveOnDestroy *bool `pulumi:"archiveOnDestroy"`
 	// Specifies if the repository should be archived. Defaults to `false`. **NOTE** Currently, the API does not support unarchiving.
 	Archived *bool `pulumi:"archived"`
 	// Set to `true` to produce an initial commit in the repository.
@@ -198,6 +204,8 @@ type repositoryState struct {
 	Topics []string `pulumi:"topics"`
 	// Can be `public` or `private`. If your organization is associated with an enterprise account using GitHub Enterprise Cloud or GitHub Enterprise Server 2.20+, visibility can also be `internal`. The `visibility` parameter overrides the `private` parameter.
 	Visibility *string `pulumi:"visibility"`
+	// Set to `true` to enable security alerts for vulnerable dependencies. Enabling requires alerts to be enabled on the owner level. (Note for importing: GitHub enables the alerts on public repos but disables them on private repos by default.) See [GitHub Documentation](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for details.
+	VulnerabilityAlerts *bool `pulumi:"vulnerabilityAlerts"`
 }
 
 type RepositoryState struct {
@@ -207,6 +215,8 @@ type RepositoryState struct {
 	AllowRebaseMerge pulumi.BoolPtrInput
 	// Set to `false` to disable squash merges on the repository.
 	AllowSquashMerge pulumi.BoolPtrInput
+	// Set to `true` to archive the repository instead of deleting on destroy.
+	ArchiveOnDestroy pulumi.BoolPtrInput
 	// Specifies if the repository should be archived. Defaults to `false`. **NOTE** Currently, the API does not support unarchiving.
 	Archived pulumi.BoolPtrInput
 	// Set to `true` to produce an initial commit in the repository.
@@ -264,6 +274,8 @@ type RepositoryState struct {
 	Topics pulumi.StringArrayInput
 	// Can be `public` or `private`. If your organization is associated with an enterprise account using GitHub Enterprise Cloud or GitHub Enterprise Server 2.20+, visibility can also be `internal`. The `visibility` parameter overrides the `private` parameter.
 	Visibility pulumi.StringPtrInput
+	// Set to `true` to enable security alerts for vulnerable dependencies. Enabling requires alerts to be enabled on the owner level. (Note for importing: GitHub enables the alerts on public repos but disables them on private repos by default.) See [GitHub Documentation](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for details.
+	VulnerabilityAlerts pulumi.BoolPtrInput
 }
 
 func (RepositoryState) ElementType() reflect.Type {
@@ -277,6 +289,8 @@ type repositoryArgs struct {
 	AllowRebaseMerge *bool `pulumi:"allowRebaseMerge"`
 	// Set to `false` to disable squash merges on the repository.
 	AllowSquashMerge *bool `pulumi:"allowSquashMerge"`
+	// Set to `true` to archive the repository instead of deleting on destroy.
+	ArchiveOnDestroy *bool `pulumi:"archiveOnDestroy"`
 	// Specifies if the repository should be archived. Defaults to `false`. **NOTE** Currently, the API does not support unarchiving.
 	Archived *bool `pulumi:"archived"`
 	// Set to `true` to produce an initial commit in the repository.
@@ -320,6 +334,8 @@ type repositoryArgs struct {
 	Topics []string `pulumi:"topics"`
 	// Can be `public` or `private`. If your organization is associated with an enterprise account using GitHub Enterprise Cloud or GitHub Enterprise Server 2.20+, visibility can also be `internal`. The `visibility` parameter overrides the `private` parameter.
 	Visibility *string `pulumi:"visibility"`
+	// Set to `true` to enable security alerts for vulnerable dependencies. Enabling requires alerts to be enabled on the owner level. (Note for importing: GitHub enables the alerts on public repos but disables them on private repos by default.) See [GitHub Documentation](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for details.
+	VulnerabilityAlerts *bool `pulumi:"vulnerabilityAlerts"`
 }
 
 // The set of arguments for constructing a Repository resource.
@@ -330,6 +346,8 @@ type RepositoryArgs struct {
 	AllowRebaseMerge pulumi.BoolPtrInput
 	// Set to `false` to disable squash merges on the repository.
 	AllowSquashMerge pulumi.BoolPtrInput
+	// Set to `true` to archive the repository instead of deleting on destroy.
+	ArchiveOnDestroy pulumi.BoolPtrInput
 	// Specifies if the repository should be archived. Defaults to `false`. **NOTE** Currently, the API does not support unarchiving.
 	Archived pulumi.BoolPtrInput
 	// Set to `true` to produce an initial commit in the repository.
@@ -373,6 +391,8 @@ type RepositoryArgs struct {
 	Topics pulumi.StringArrayInput
 	// Can be `public` or `private`. If your organization is associated with an enterprise account using GitHub Enterprise Cloud or GitHub Enterprise Server 2.20+, visibility can also be `internal`. The `visibility` parameter overrides the `private` parameter.
 	Visibility pulumi.StringPtrInput
+	// Set to `true` to enable security alerts for vulnerable dependencies. Enabling requires alerts to be enabled on the owner level. (Note for importing: GitHub enables the alerts on public repos but disables them on private repos by default.) See [GitHub Documentation](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for details.
+	VulnerabilityAlerts pulumi.BoolPtrInput
 }
 
 func (RepositoryArgs) ElementType() reflect.Type {

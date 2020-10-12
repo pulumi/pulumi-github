@@ -11,33 +11,25 @@ namespace Pulumi.Github.Outputs
 {
 
     [OutputType]
-    public sealed class BranchProtectionRequiredPullRequestReviews
+    public sealed class BranchProtectionRequiredPullRequestReview
     {
         public readonly bool? DismissStaleReviews;
-        public readonly ImmutableArray<string> DismissalTeams;
-        public readonly ImmutableArray<string> DismissalUsers;
-        public readonly bool? IncludeAdmins;
+        public readonly ImmutableArray<string> DismissalRestrictions;
         public readonly bool? RequireCodeOwnerReviews;
         public readonly int? RequiredApprovingReviewCount;
 
         [OutputConstructor]
-        private BranchProtectionRequiredPullRequestReviews(
+        private BranchProtectionRequiredPullRequestReview(
             bool? dismissStaleReviews,
 
-            ImmutableArray<string> dismissalTeams,
-
-            ImmutableArray<string> dismissalUsers,
-
-            bool? includeAdmins,
+            ImmutableArray<string> dismissalRestrictions,
 
             bool? requireCodeOwnerReviews,
 
             int? requiredApprovingReviewCount)
         {
             DismissStaleReviews = dismissStaleReviews;
-            DismissalTeams = dismissalTeams;
-            DismissalUsers = dismissalUsers;
-            IncludeAdmins = includeAdmins;
+            DismissalRestrictions = dismissalRestrictions;
             RequireCodeOwnerReviews = requireCodeOwnerReviews;
             RequiredApprovingReviewCount = requiredApprovingReviewCount;
         }

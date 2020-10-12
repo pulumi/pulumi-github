@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Github.Inputs
 {
 
-    public sealed class BranchProtectionRequiredStatusChecksGetArgs : Pulumi.ResourceArgs
+    public sealed class BranchProtectionRequiredStatusCheckGetArgs : Pulumi.ResourceArgs
     {
         [Input("contexts")]
         private InputList<string>? _contexts;
@@ -20,13 +20,10 @@ namespace Pulumi.Github.Inputs
             set => _contexts = value;
         }
 
-        [Input("includeAdmins")]
-        public Input<bool>? IncludeAdmins { get; set; }
-
         [Input("strict")]
         public Input<bool>? Strict { get; set; }
 
-        public BranchProtectionRequiredStatusChecksGetArgs()
+        public BranchProtectionRequiredStatusCheckGetArgs()
         {
         }
     }

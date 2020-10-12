@@ -5,31 +5,16 @@ import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
 
-export interface BranchProtectionRequiredPullRequestReviews {
+export interface BranchProtectionRequiredPullRequestReview {
     dismissStaleReviews?: boolean;
-    dismissalTeams?: string[];
-    dismissalUsers?: string[];
-    /**
-     * @deprecated Use enforce_admins instead
-     */
-    includeAdmins?: boolean;
+    dismissalRestrictions?: string[];
     requireCodeOwnerReviews?: boolean;
     requiredApprovingReviewCount?: number;
 }
 
-export interface BranchProtectionRequiredStatusChecks {
+export interface BranchProtectionRequiredStatusCheck {
     contexts?: string[];
-    /**
-     * @deprecated Use enforce_admins instead
-     */
-    includeAdmins?: boolean;
     strict?: boolean;
-}
-
-export interface BranchProtectionRestrictions {
-    apps?: string[];
-    teams?: string[];
-    users?: string[];
 }
 
 export interface GetCollaboratorsCollaborator {
