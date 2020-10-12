@@ -23,11 +23,20 @@ namespace Pulumi.Github
     /// {
     ///     public MyStack()
     ///     {
-    ///         var gitignore = new Github.RepositoryFile("gitignore", new Github.RepositoryFileArgs
+    ///         var fooRepository = new Github.Repository("fooRepository", new Github.RepositoryArgs
     ///         {
-    ///             Content = "**/*.tfstate",
+    ///             AutoInit = true,
+    ///         });
+    ///         var fooRepositoryFile = new Github.RepositoryFile("fooRepositoryFile", new Github.RepositoryFileArgs
+    ///         {
+    ///             Repository = fooRepository.Name,
+    ///             Branch = "main",
     ///             File = ".gitignore",
-    ///             Repository = "example",
+    ///             Content = "**/*.tfstate",
+    ///             CommitMessage = "Managed by Terraform",
+    ///             CommitAuthor = "Terraform User",
+    ///             CommitEmail = "terraform@example.com",
+    ///             OverwriteOnCreate = true,
     ///         });
     ///     }
     /// 
@@ -72,6 +81,12 @@ namespace Pulumi.Github
         /// </summary>
         [Output("file")]
         public Output<string> File { get; private set; } = null!;
+
+        /// <summary>
+        /// Enable overwriting existing files
+        /// </summary>
+        [Output("overwriteOnCreate")]
+        public Output<bool?> OverwriteOnCreate { get; private set; } = null!;
 
         /// <summary>
         /// The repository name
@@ -169,6 +184,12 @@ namespace Pulumi.Github
         public Input<string> File { get; set; } = null!;
 
         /// <summary>
+        /// Enable overwriting existing files
+        /// </summary>
+        [Input("overwriteOnCreate")]
+        public Input<bool>? OverwriteOnCreate { get; set; }
+
+        /// <summary>
         /// The repository name
         /// </summary>
         [Input("repository", required: true)]
@@ -217,6 +238,12 @@ namespace Pulumi.Github
         /// </summary>
         [Input("file")]
         public Input<string>? File { get; set; }
+
+        /// <summary>
+        /// Enable overwriting existing files
+        /// </summary>
+        [Input("overwriteOnCreate")]
+        public Input<bool>? OverwriteOnCreate { get; set; }
 
         /// <summary>
         /// The repository name

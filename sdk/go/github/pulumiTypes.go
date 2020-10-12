@@ -10,527 +10,216 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-type BranchProtectionRequiredPullRequestReviews struct {
-	DismissStaleReviews *bool    `pulumi:"dismissStaleReviews"`
-	DismissalTeams      []string `pulumi:"dismissalTeams"`
-	DismissalUsers      []string `pulumi:"dismissalUsers"`
-	// Deprecated: Use enforce_admins instead
-	IncludeAdmins                *bool `pulumi:"includeAdmins"`
-	RequireCodeOwnerReviews      *bool `pulumi:"requireCodeOwnerReviews"`
-	RequiredApprovingReviewCount *int  `pulumi:"requiredApprovingReviewCount"`
+type BranchProtectionRequiredPullRequestReview struct {
+	DismissStaleReviews          *bool    `pulumi:"dismissStaleReviews"`
+	DismissalRestrictions        []string `pulumi:"dismissalRestrictions"`
+	RequireCodeOwnerReviews      *bool    `pulumi:"requireCodeOwnerReviews"`
+	RequiredApprovingReviewCount *int     `pulumi:"requiredApprovingReviewCount"`
 }
 
-// BranchProtectionRequiredPullRequestReviewsInput is an input type that accepts BranchProtectionRequiredPullRequestReviewsArgs and BranchProtectionRequiredPullRequestReviewsOutput values.
-// You can construct a concrete instance of `BranchProtectionRequiredPullRequestReviewsInput` via:
+// BranchProtectionRequiredPullRequestReviewInput is an input type that accepts BranchProtectionRequiredPullRequestReviewArgs and BranchProtectionRequiredPullRequestReviewOutput values.
+// You can construct a concrete instance of `BranchProtectionRequiredPullRequestReviewInput` via:
 //
-//          BranchProtectionRequiredPullRequestReviewsArgs{...}
-type BranchProtectionRequiredPullRequestReviewsInput interface {
+//          BranchProtectionRequiredPullRequestReviewArgs{...}
+type BranchProtectionRequiredPullRequestReviewInput interface {
 	pulumi.Input
 
-	ToBranchProtectionRequiredPullRequestReviewsOutput() BranchProtectionRequiredPullRequestReviewsOutput
-	ToBranchProtectionRequiredPullRequestReviewsOutputWithContext(context.Context) BranchProtectionRequiredPullRequestReviewsOutput
+	ToBranchProtectionRequiredPullRequestReviewOutput() BranchProtectionRequiredPullRequestReviewOutput
+	ToBranchProtectionRequiredPullRequestReviewOutputWithContext(context.Context) BranchProtectionRequiredPullRequestReviewOutput
 }
 
-type BranchProtectionRequiredPullRequestReviewsArgs struct {
-	DismissStaleReviews pulumi.BoolPtrInput     `pulumi:"dismissStaleReviews"`
-	DismissalTeams      pulumi.StringArrayInput `pulumi:"dismissalTeams"`
-	DismissalUsers      pulumi.StringArrayInput `pulumi:"dismissalUsers"`
-	// Deprecated: Use enforce_admins instead
-	IncludeAdmins                pulumi.BoolPtrInput `pulumi:"includeAdmins"`
-	RequireCodeOwnerReviews      pulumi.BoolPtrInput `pulumi:"requireCodeOwnerReviews"`
-	RequiredApprovingReviewCount pulumi.IntPtrInput  `pulumi:"requiredApprovingReviewCount"`
+type BranchProtectionRequiredPullRequestReviewArgs struct {
+	DismissStaleReviews          pulumi.BoolPtrInput     `pulumi:"dismissStaleReviews"`
+	DismissalRestrictions        pulumi.StringArrayInput `pulumi:"dismissalRestrictions"`
+	RequireCodeOwnerReviews      pulumi.BoolPtrInput     `pulumi:"requireCodeOwnerReviews"`
+	RequiredApprovingReviewCount pulumi.IntPtrInput      `pulumi:"requiredApprovingReviewCount"`
 }
 
-func (BranchProtectionRequiredPullRequestReviewsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*BranchProtectionRequiredPullRequestReviews)(nil)).Elem()
+func (BranchProtectionRequiredPullRequestReviewArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BranchProtectionRequiredPullRequestReview)(nil)).Elem()
 }
 
-func (i BranchProtectionRequiredPullRequestReviewsArgs) ToBranchProtectionRequiredPullRequestReviewsOutput() BranchProtectionRequiredPullRequestReviewsOutput {
-	return i.ToBranchProtectionRequiredPullRequestReviewsOutputWithContext(context.Background())
+func (i BranchProtectionRequiredPullRequestReviewArgs) ToBranchProtectionRequiredPullRequestReviewOutput() BranchProtectionRequiredPullRequestReviewOutput {
+	return i.ToBranchProtectionRequiredPullRequestReviewOutputWithContext(context.Background())
 }
 
-func (i BranchProtectionRequiredPullRequestReviewsArgs) ToBranchProtectionRequiredPullRequestReviewsOutputWithContext(ctx context.Context) BranchProtectionRequiredPullRequestReviewsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BranchProtectionRequiredPullRequestReviewsOutput)
+func (i BranchProtectionRequiredPullRequestReviewArgs) ToBranchProtectionRequiredPullRequestReviewOutputWithContext(ctx context.Context) BranchProtectionRequiredPullRequestReviewOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BranchProtectionRequiredPullRequestReviewOutput)
 }
 
-func (i BranchProtectionRequiredPullRequestReviewsArgs) ToBranchProtectionRequiredPullRequestReviewsPtrOutput() BranchProtectionRequiredPullRequestReviewsPtrOutput {
-	return i.ToBranchProtectionRequiredPullRequestReviewsPtrOutputWithContext(context.Background())
-}
-
-func (i BranchProtectionRequiredPullRequestReviewsArgs) ToBranchProtectionRequiredPullRequestReviewsPtrOutputWithContext(ctx context.Context) BranchProtectionRequiredPullRequestReviewsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BranchProtectionRequiredPullRequestReviewsOutput).ToBranchProtectionRequiredPullRequestReviewsPtrOutputWithContext(ctx)
-}
-
-// BranchProtectionRequiredPullRequestReviewsPtrInput is an input type that accepts BranchProtectionRequiredPullRequestReviewsArgs, BranchProtectionRequiredPullRequestReviewsPtr and BranchProtectionRequiredPullRequestReviewsPtrOutput values.
-// You can construct a concrete instance of `BranchProtectionRequiredPullRequestReviewsPtrInput` via:
+// BranchProtectionRequiredPullRequestReviewArrayInput is an input type that accepts BranchProtectionRequiredPullRequestReviewArray and BranchProtectionRequiredPullRequestReviewArrayOutput values.
+// You can construct a concrete instance of `BranchProtectionRequiredPullRequestReviewArrayInput` via:
 //
-//          BranchProtectionRequiredPullRequestReviewsArgs{...}
-//
-//  or:
-//
-//          nil
-type BranchProtectionRequiredPullRequestReviewsPtrInput interface {
+//          BranchProtectionRequiredPullRequestReviewArray{ BranchProtectionRequiredPullRequestReviewArgs{...} }
+type BranchProtectionRequiredPullRequestReviewArrayInput interface {
 	pulumi.Input
 
-	ToBranchProtectionRequiredPullRequestReviewsPtrOutput() BranchProtectionRequiredPullRequestReviewsPtrOutput
-	ToBranchProtectionRequiredPullRequestReviewsPtrOutputWithContext(context.Context) BranchProtectionRequiredPullRequestReviewsPtrOutput
+	ToBranchProtectionRequiredPullRequestReviewArrayOutput() BranchProtectionRequiredPullRequestReviewArrayOutput
+	ToBranchProtectionRequiredPullRequestReviewArrayOutputWithContext(context.Context) BranchProtectionRequiredPullRequestReviewArrayOutput
 }
 
-type branchProtectionRequiredPullRequestReviewsPtrType BranchProtectionRequiredPullRequestReviewsArgs
+type BranchProtectionRequiredPullRequestReviewArray []BranchProtectionRequiredPullRequestReviewInput
 
-func BranchProtectionRequiredPullRequestReviewsPtr(v *BranchProtectionRequiredPullRequestReviewsArgs) BranchProtectionRequiredPullRequestReviewsPtrInput {
-	return (*branchProtectionRequiredPullRequestReviewsPtrType)(v)
+func (BranchProtectionRequiredPullRequestReviewArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BranchProtectionRequiredPullRequestReview)(nil)).Elem()
 }
 
-func (*branchProtectionRequiredPullRequestReviewsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**BranchProtectionRequiredPullRequestReviews)(nil)).Elem()
+func (i BranchProtectionRequiredPullRequestReviewArray) ToBranchProtectionRequiredPullRequestReviewArrayOutput() BranchProtectionRequiredPullRequestReviewArrayOutput {
+	return i.ToBranchProtectionRequiredPullRequestReviewArrayOutputWithContext(context.Background())
 }
 
-func (i *branchProtectionRequiredPullRequestReviewsPtrType) ToBranchProtectionRequiredPullRequestReviewsPtrOutput() BranchProtectionRequiredPullRequestReviewsPtrOutput {
-	return i.ToBranchProtectionRequiredPullRequestReviewsPtrOutputWithContext(context.Background())
+func (i BranchProtectionRequiredPullRequestReviewArray) ToBranchProtectionRequiredPullRequestReviewArrayOutputWithContext(ctx context.Context) BranchProtectionRequiredPullRequestReviewArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BranchProtectionRequiredPullRequestReviewArrayOutput)
 }
 
-func (i *branchProtectionRequiredPullRequestReviewsPtrType) ToBranchProtectionRequiredPullRequestReviewsPtrOutputWithContext(ctx context.Context) BranchProtectionRequiredPullRequestReviewsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BranchProtectionRequiredPullRequestReviewsPtrOutput)
+type BranchProtectionRequiredPullRequestReviewOutput struct{ *pulumi.OutputState }
+
+func (BranchProtectionRequiredPullRequestReviewOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BranchProtectionRequiredPullRequestReview)(nil)).Elem()
 }
 
-type BranchProtectionRequiredPullRequestReviewsOutput struct{ *pulumi.OutputState }
-
-func (BranchProtectionRequiredPullRequestReviewsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BranchProtectionRequiredPullRequestReviews)(nil)).Elem()
-}
-
-func (o BranchProtectionRequiredPullRequestReviewsOutput) ToBranchProtectionRequiredPullRequestReviewsOutput() BranchProtectionRequiredPullRequestReviewsOutput {
+func (o BranchProtectionRequiredPullRequestReviewOutput) ToBranchProtectionRequiredPullRequestReviewOutput() BranchProtectionRequiredPullRequestReviewOutput {
 	return o
 }
 
-func (o BranchProtectionRequiredPullRequestReviewsOutput) ToBranchProtectionRequiredPullRequestReviewsOutputWithContext(ctx context.Context) BranchProtectionRequiredPullRequestReviewsOutput {
+func (o BranchProtectionRequiredPullRequestReviewOutput) ToBranchProtectionRequiredPullRequestReviewOutputWithContext(ctx context.Context) BranchProtectionRequiredPullRequestReviewOutput {
 	return o
 }
 
-func (o BranchProtectionRequiredPullRequestReviewsOutput) ToBranchProtectionRequiredPullRequestReviewsPtrOutput() BranchProtectionRequiredPullRequestReviewsPtrOutput {
-	return o.ToBranchProtectionRequiredPullRequestReviewsPtrOutputWithContext(context.Background())
+func (o BranchProtectionRequiredPullRequestReviewOutput) DismissStaleReviews() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v BranchProtectionRequiredPullRequestReview) *bool { return v.DismissStaleReviews }).(pulumi.BoolPtrOutput)
 }
 
-func (o BranchProtectionRequiredPullRequestReviewsOutput) ToBranchProtectionRequiredPullRequestReviewsPtrOutputWithContext(ctx context.Context) BranchProtectionRequiredPullRequestReviewsPtrOutput {
-	return o.ApplyT(func(v BranchProtectionRequiredPullRequestReviews) *BranchProtectionRequiredPullRequestReviews {
-		return &v
-	}).(BranchProtectionRequiredPullRequestReviewsPtrOutput)
-}
-func (o BranchProtectionRequiredPullRequestReviewsOutput) DismissStaleReviews() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v BranchProtectionRequiredPullRequestReviews) *bool { return v.DismissStaleReviews }).(pulumi.BoolPtrOutput)
+func (o BranchProtectionRequiredPullRequestReviewOutput) DismissalRestrictions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BranchProtectionRequiredPullRequestReview) []string { return v.DismissalRestrictions }).(pulumi.StringArrayOutput)
 }
 
-func (o BranchProtectionRequiredPullRequestReviewsOutput) DismissalTeams() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v BranchProtectionRequiredPullRequestReviews) []string { return v.DismissalTeams }).(pulumi.StringArrayOutput)
+func (o BranchProtectionRequiredPullRequestReviewOutput) RequireCodeOwnerReviews() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v BranchProtectionRequiredPullRequestReview) *bool { return v.RequireCodeOwnerReviews }).(pulumi.BoolPtrOutput)
 }
 
-func (o BranchProtectionRequiredPullRequestReviewsOutput) DismissalUsers() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v BranchProtectionRequiredPullRequestReviews) []string { return v.DismissalUsers }).(pulumi.StringArrayOutput)
+func (o BranchProtectionRequiredPullRequestReviewOutput) RequiredApprovingReviewCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v BranchProtectionRequiredPullRequestReview) *int { return v.RequiredApprovingReviewCount }).(pulumi.IntPtrOutput)
 }
 
-// Deprecated: Use enforce_admins instead
-func (o BranchProtectionRequiredPullRequestReviewsOutput) IncludeAdmins() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v BranchProtectionRequiredPullRequestReviews) *bool { return v.IncludeAdmins }).(pulumi.BoolPtrOutput)
+type BranchProtectionRequiredPullRequestReviewArrayOutput struct{ *pulumi.OutputState }
+
+func (BranchProtectionRequiredPullRequestReviewArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BranchProtectionRequiredPullRequestReview)(nil)).Elem()
 }
 
-func (o BranchProtectionRequiredPullRequestReviewsOutput) RequireCodeOwnerReviews() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v BranchProtectionRequiredPullRequestReviews) *bool { return v.RequireCodeOwnerReviews }).(pulumi.BoolPtrOutput)
-}
-
-func (o BranchProtectionRequiredPullRequestReviewsOutput) RequiredApprovingReviewCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v BranchProtectionRequiredPullRequestReviews) *int { return v.RequiredApprovingReviewCount }).(pulumi.IntPtrOutput)
-}
-
-type BranchProtectionRequiredPullRequestReviewsPtrOutput struct{ *pulumi.OutputState }
-
-func (BranchProtectionRequiredPullRequestReviewsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**BranchProtectionRequiredPullRequestReviews)(nil)).Elem()
-}
-
-func (o BranchProtectionRequiredPullRequestReviewsPtrOutput) ToBranchProtectionRequiredPullRequestReviewsPtrOutput() BranchProtectionRequiredPullRequestReviewsPtrOutput {
+func (o BranchProtectionRequiredPullRequestReviewArrayOutput) ToBranchProtectionRequiredPullRequestReviewArrayOutput() BranchProtectionRequiredPullRequestReviewArrayOutput {
 	return o
 }
 
-func (o BranchProtectionRequiredPullRequestReviewsPtrOutput) ToBranchProtectionRequiredPullRequestReviewsPtrOutputWithContext(ctx context.Context) BranchProtectionRequiredPullRequestReviewsPtrOutput {
+func (o BranchProtectionRequiredPullRequestReviewArrayOutput) ToBranchProtectionRequiredPullRequestReviewArrayOutputWithContext(ctx context.Context) BranchProtectionRequiredPullRequestReviewArrayOutput {
 	return o
 }
 
-func (o BranchProtectionRequiredPullRequestReviewsPtrOutput) Elem() BranchProtectionRequiredPullRequestReviewsOutput {
-	return o.ApplyT(func(v *BranchProtectionRequiredPullRequestReviews) BranchProtectionRequiredPullRequestReviews {
-		return *v
-	}).(BranchProtectionRequiredPullRequestReviewsOutput)
+func (o BranchProtectionRequiredPullRequestReviewArrayOutput) Index(i pulumi.IntInput) BranchProtectionRequiredPullRequestReviewOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BranchProtectionRequiredPullRequestReview {
+		return vs[0].([]BranchProtectionRequiredPullRequestReview)[vs[1].(int)]
+	}).(BranchProtectionRequiredPullRequestReviewOutput)
 }
 
-func (o BranchProtectionRequiredPullRequestReviewsPtrOutput) DismissStaleReviews() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *BranchProtectionRequiredPullRequestReviews) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.DismissStaleReviews
-	}).(pulumi.BoolPtrOutput)
-}
-
-func (o BranchProtectionRequiredPullRequestReviewsPtrOutput) DismissalTeams() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *BranchProtectionRequiredPullRequestReviews) []string {
-		if v == nil {
-			return nil
-		}
-		return v.DismissalTeams
-	}).(pulumi.StringArrayOutput)
-}
-
-func (o BranchProtectionRequiredPullRequestReviewsPtrOutput) DismissalUsers() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *BranchProtectionRequiredPullRequestReviews) []string {
-		if v == nil {
-			return nil
-		}
-		return v.DismissalUsers
-	}).(pulumi.StringArrayOutput)
-}
-
-// Deprecated: Use enforce_admins instead
-func (o BranchProtectionRequiredPullRequestReviewsPtrOutput) IncludeAdmins() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *BranchProtectionRequiredPullRequestReviews) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.IncludeAdmins
-	}).(pulumi.BoolPtrOutput)
-}
-
-func (o BranchProtectionRequiredPullRequestReviewsPtrOutput) RequireCodeOwnerReviews() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *BranchProtectionRequiredPullRequestReviews) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.RequireCodeOwnerReviews
-	}).(pulumi.BoolPtrOutput)
-}
-
-func (o BranchProtectionRequiredPullRequestReviewsPtrOutput) RequiredApprovingReviewCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *BranchProtectionRequiredPullRequestReviews) *int {
-		if v == nil {
-			return nil
-		}
-		return v.RequiredApprovingReviewCount
-	}).(pulumi.IntPtrOutput)
-}
-
-type BranchProtectionRequiredStatusChecks struct {
+type BranchProtectionRequiredStatusCheck struct {
 	Contexts []string `pulumi:"contexts"`
-	// Deprecated: Use enforce_admins instead
-	IncludeAdmins *bool `pulumi:"includeAdmins"`
-	Strict        *bool `pulumi:"strict"`
+	Strict   *bool    `pulumi:"strict"`
 }
 
-// BranchProtectionRequiredStatusChecksInput is an input type that accepts BranchProtectionRequiredStatusChecksArgs and BranchProtectionRequiredStatusChecksOutput values.
-// You can construct a concrete instance of `BranchProtectionRequiredStatusChecksInput` via:
+// BranchProtectionRequiredStatusCheckInput is an input type that accepts BranchProtectionRequiredStatusCheckArgs and BranchProtectionRequiredStatusCheckOutput values.
+// You can construct a concrete instance of `BranchProtectionRequiredStatusCheckInput` via:
 //
-//          BranchProtectionRequiredStatusChecksArgs{...}
-type BranchProtectionRequiredStatusChecksInput interface {
+//          BranchProtectionRequiredStatusCheckArgs{...}
+type BranchProtectionRequiredStatusCheckInput interface {
 	pulumi.Input
 
-	ToBranchProtectionRequiredStatusChecksOutput() BranchProtectionRequiredStatusChecksOutput
-	ToBranchProtectionRequiredStatusChecksOutputWithContext(context.Context) BranchProtectionRequiredStatusChecksOutput
+	ToBranchProtectionRequiredStatusCheckOutput() BranchProtectionRequiredStatusCheckOutput
+	ToBranchProtectionRequiredStatusCheckOutputWithContext(context.Context) BranchProtectionRequiredStatusCheckOutput
 }
 
-type BranchProtectionRequiredStatusChecksArgs struct {
+type BranchProtectionRequiredStatusCheckArgs struct {
 	Contexts pulumi.StringArrayInput `pulumi:"contexts"`
-	// Deprecated: Use enforce_admins instead
-	IncludeAdmins pulumi.BoolPtrInput `pulumi:"includeAdmins"`
-	Strict        pulumi.BoolPtrInput `pulumi:"strict"`
+	Strict   pulumi.BoolPtrInput     `pulumi:"strict"`
 }
 
-func (BranchProtectionRequiredStatusChecksArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*BranchProtectionRequiredStatusChecks)(nil)).Elem()
+func (BranchProtectionRequiredStatusCheckArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BranchProtectionRequiredStatusCheck)(nil)).Elem()
 }
 
-func (i BranchProtectionRequiredStatusChecksArgs) ToBranchProtectionRequiredStatusChecksOutput() BranchProtectionRequiredStatusChecksOutput {
-	return i.ToBranchProtectionRequiredStatusChecksOutputWithContext(context.Background())
+func (i BranchProtectionRequiredStatusCheckArgs) ToBranchProtectionRequiredStatusCheckOutput() BranchProtectionRequiredStatusCheckOutput {
+	return i.ToBranchProtectionRequiredStatusCheckOutputWithContext(context.Background())
 }
 
-func (i BranchProtectionRequiredStatusChecksArgs) ToBranchProtectionRequiredStatusChecksOutputWithContext(ctx context.Context) BranchProtectionRequiredStatusChecksOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BranchProtectionRequiredStatusChecksOutput)
+func (i BranchProtectionRequiredStatusCheckArgs) ToBranchProtectionRequiredStatusCheckOutputWithContext(ctx context.Context) BranchProtectionRequiredStatusCheckOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BranchProtectionRequiredStatusCheckOutput)
 }
 
-func (i BranchProtectionRequiredStatusChecksArgs) ToBranchProtectionRequiredStatusChecksPtrOutput() BranchProtectionRequiredStatusChecksPtrOutput {
-	return i.ToBranchProtectionRequiredStatusChecksPtrOutputWithContext(context.Background())
-}
-
-func (i BranchProtectionRequiredStatusChecksArgs) ToBranchProtectionRequiredStatusChecksPtrOutputWithContext(ctx context.Context) BranchProtectionRequiredStatusChecksPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BranchProtectionRequiredStatusChecksOutput).ToBranchProtectionRequiredStatusChecksPtrOutputWithContext(ctx)
-}
-
-// BranchProtectionRequiredStatusChecksPtrInput is an input type that accepts BranchProtectionRequiredStatusChecksArgs, BranchProtectionRequiredStatusChecksPtr and BranchProtectionRequiredStatusChecksPtrOutput values.
-// You can construct a concrete instance of `BranchProtectionRequiredStatusChecksPtrInput` via:
+// BranchProtectionRequiredStatusCheckArrayInput is an input type that accepts BranchProtectionRequiredStatusCheckArray and BranchProtectionRequiredStatusCheckArrayOutput values.
+// You can construct a concrete instance of `BranchProtectionRequiredStatusCheckArrayInput` via:
 //
-//          BranchProtectionRequiredStatusChecksArgs{...}
-//
-//  or:
-//
-//          nil
-type BranchProtectionRequiredStatusChecksPtrInput interface {
+//          BranchProtectionRequiredStatusCheckArray{ BranchProtectionRequiredStatusCheckArgs{...} }
+type BranchProtectionRequiredStatusCheckArrayInput interface {
 	pulumi.Input
 
-	ToBranchProtectionRequiredStatusChecksPtrOutput() BranchProtectionRequiredStatusChecksPtrOutput
-	ToBranchProtectionRequiredStatusChecksPtrOutputWithContext(context.Context) BranchProtectionRequiredStatusChecksPtrOutput
+	ToBranchProtectionRequiredStatusCheckArrayOutput() BranchProtectionRequiredStatusCheckArrayOutput
+	ToBranchProtectionRequiredStatusCheckArrayOutputWithContext(context.Context) BranchProtectionRequiredStatusCheckArrayOutput
 }
 
-type branchProtectionRequiredStatusChecksPtrType BranchProtectionRequiredStatusChecksArgs
+type BranchProtectionRequiredStatusCheckArray []BranchProtectionRequiredStatusCheckInput
 
-func BranchProtectionRequiredStatusChecksPtr(v *BranchProtectionRequiredStatusChecksArgs) BranchProtectionRequiredStatusChecksPtrInput {
-	return (*branchProtectionRequiredStatusChecksPtrType)(v)
+func (BranchProtectionRequiredStatusCheckArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BranchProtectionRequiredStatusCheck)(nil)).Elem()
 }
 
-func (*branchProtectionRequiredStatusChecksPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**BranchProtectionRequiredStatusChecks)(nil)).Elem()
+func (i BranchProtectionRequiredStatusCheckArray) ToBranchProtectionRequiredStatusCheckArrayOutput() BranchProtectionRequiredStatusCheckArrayOutput {
+	return i.ToBranchProtectionRequiredStatusCheckArrayOutputWithContext(context.Background())
 }
 
-func (i *branchProtectionRequiredStatusChecksPtrType) ToBranchProtectionRequiredStatusChecksPtrOutput() BranchProtectionRequiredStatusChecksPtrOutput {
-	return i.ToBranchProtectionRequiredStatusChecksPtrOutputWithContext(context.Background())
+func (i BranchProtectionRequiredStatusCheckArray) ToBranchProtectionRequiredStatusCheckArrayOutputWithContext(ctx context.Context) BranchProtectionRequiredStatusCheckArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BranchProtectionRequiredStatusCheckArrayOutput)
 }
 
-func (i *branchProtectionRequiredStatusChecksPtrType) ToBranchProtectionRequiredStatusChecksPtrOutputWithContext(ctx context.Context) BranchProtectionRequiredStatusChecksPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BranchProtectionRequiredStatusChecksPtrOutput)
+type BranchProtectionRequiredStatusCheckOutput struct{ *pulumi.OutputState }
+
+func (BranchProtectionRequiredStatusCheckOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BranchProtectionRequiredStatusCheck)(nil)).Elem()
 }
 
-type BranchProtectionRequiredStatusChecksOutput struct{ *pulumi.OutputState }
-
-func (BranchProtectionRequiredStatusChecksOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BranchProtectionRequiredStatusChecks)(nil)).Elem()
-}
-
-func (o BranchProtectionRequiredStatusChecksOutput) ToBranchProtectionRequiredStatusChecksOutput() BranchProtectionRequiredStatusChecksOutput {
+func (o BranchProtectionRequiredStatusCheckOutput) ToBranchProtectionRequiredStatusCheckOutput() BranchProtectionRequiredStatusCheckOutput {
 	return o
 }
 
-func (o BranchProtectionRequiredStatusChecksOutput) ToBranchProtectionRequiredStatusChecksOutputWithContext(ctx context.Context) BranchProtectionRequiredStatusChecksOutput {
+func (o BranchProtectionRequiredStatusCheckOutput) ToBranchProtectionRequiredStatusCheckOutputWithContext(ctx context.Context) BranchProtectionRequiredStatusCheckOutput {
 	return o
 }
 
-func (o BranchProtectionRequiredStatusChecksOutput) ToBranchProtectionRequiredStatusChecksPtrOutput() BranchProtectionRequiredStatusChecksPtrOutput {
-	return o.ToBranchProtectionRequiredStatusChecksPtrOutputWithContext(context.Background())
+func (o BranchProtectionRequiredStatusCheckOutput) Contexts() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BranchProtectionRequiredStatusCheck) []string { return v.Contexts }).(pulumi.StringArrayOutput)
 }
 
-func (o BranchProtectionRequiredStatusChecksOutput) ToBranchProtectionRequiredStatusChecksPtrOutputWithContext(ctx context.Context) BranchProtectionRequiredStatusChecksPtrOutput {
-	return o.ApplyT(func(v BranchProtectionRequiredStatusChecks) *BranchProtectionRequiredStatusChecks {
-		return &v
-	}).(BranchProtectionRequiredStatusChecksPtrOutput)
-}
-func (o BranchProtectionRequiredStatusChecksOutput) Contexts() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v BranchProtectionRequiredStatusChecks) []string { return v.Contexts }).(pulumi.StringArrayOutput)
+func (o BranchProtectionRequiredStatusCheckOutput) Strict() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v BranchProtectionRequiredStatusCheck) *bool { return v.Strict }).(pulumi.BoolPtrOutput)
 }
 
-// Deprecated: Use enforce_admins instead
-func (o BranchProtectionRequiredStatusChecksOutput) IncludeAdmins() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v BranchProtectionRequiredStatusChecks) *bool { return v.IncludeAdmins }).(pulumi.BoolPtrOutput)
+type BranchProtectionRequiredStatusCheckArrayOutput struct{ *pulumi.OutputState }
+
+func (BranchProtectionRequiredStatusCheckArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BranchProtectionRequiredStatusCheck)(nil)).Elem()
 }
 
-func (o BranchProtectionRequiredStatusChecksOutput) Strict() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v BranchProtectionRequiredStatusChecks) *bool { return v.Strict }).(pulumi.BoolPtrOutput)
-}
-
-type BranchProtectionRequiredStatusChecksPtrOutput struct{ *pulumi.OutputState }
-
-func (BranchProtectionRequiredStatusChecksPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**BranchProtectionRequiredStatusChecks)(nil)).Elem()
-}
-
-func (o BranchProtectionRequiredStatusChecksPtrOutput) ToBranchProtectionRequiredStatusChecksPtrOutput() BranchProtectionRequiredStatusChecksPtrOutput {
+func (o BranchProtectionRequiredStatusCheckArrayOutput) ToBranchProtectionRequiredStatusCheckArrayOutput() BranchProtectionRequiredStatusCheckArrayOutput {
 	return o
 }
 
-func (o BranchProtectionRequiredStatusChecksPtrOutput) ToBranchProtectionRequiredStatusChecksPtrOutputWithContext(ctx context.Context) BranchProtectionRequiredStatusChecksPtrOutput {
+func (o BranchProtectionRequiredStatusCheckArrayOutput) ToBranchProtectionRequiredStatusCheckArrayOutputWithContext(ctx context.Context) BranchProtectionRequiredStatusCheckArrayOutput {
 	return o
 }
 
-func (o BranchProtectionRequiredStatusChecksPtrOutput) Elem() BranchProtectionRequiredStatusChecksOutput {
-	return o.ApplyT(func(v *BranchProtectionRequiredStatusChecks) BranchProtectionRequiredStatusChecks { return *v }).(BranchProtectionRequiredStatusChecksOutput)
-}
-
-func (o BranchProtectionRequiredStatusChecksPtrOutput) Contexts() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *BranchProtectionRequiredStatusChecks) []string {
-		if v == nil {
-			return nil
-		}
-		return v.Contexts
-	}).(pulumi.StringArrayOutput)
-}
-
-// Deprecated: Use enforce_admins instead
-func (o BranchProtectionRequiredStatusChecksPtrOutput) IncludeAdmins() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *BranchProtectionRequiredStatusChecks) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.IncludeAdmins
-	}).(pulumi.BoolPtrOutput)
-}
-
-func (o BranchProtectionRequiredStatusChecksPtrOutput) Strict() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *BranchProtectionRequiredStatusChecks) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.Strict
-	}).(pulumi.BoolPtrOutput)
-}
-
-type BranchProtectionRestrictions struct {
-	Apps  []string `pulumi:"apps"`
-	Teams []string `pulumi:"teams"`
-	Users []string `pulumi:"users"`
-}
-
-// BranchProtectionRestrictionsInput is an input type that accepts BranchProtectionRestrictionsArgs and BranchProtectionRestrictionsOutput values.
-// You can construct a concrete instance of `BranchProtectionRestrictionsInput` via:
-//
-//          BranchProtectionRestrictionsArgs{...}
-type BranchProtectionRestrictionsInput interface {
-	pulumi.Input
-
-	ToBranchProtectionRestrictionsOutput() BranchProtectionRestrictionsOutput
-	ToBranchProtectionRestrictionsOutputWithContext(context.Context) BranchProtectionRestrictionsOutput
-}
-
-type BranchProtectionRestrictionsArgs struct {
-	Apps  pulumi.StringArrayInput `pulumi:"apps"`
-	Teams pulumi.StringArrayInput `pulumi:"teams"`
-	Users pulumi.StringArrayInput `pulumi:"users"`
-}
-
-func (BranchProtectionRestrictionsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*BranchProtectionRestrictions)(nil)).Elem()
-}
-
-func (i BranchProtectionRestrictionsArgs) ToBranchProtectionRestrictionsOutput() BranchProtectionRestrictionsOutput {
-	return i.ToBranchProtectionRestrictionsOutputWithContext(context.Background())
-}
-
-func (i BranchProtectionRestrictionsArgs) ToBranchProtectionRestrictionsOutputWithContext(ctx context.Context) BranchProtectionRestrictionsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BranchProtectionRestrictionsOutput)
-}
-
-func (i BranchProtectionRestrictionsArgs) ToBranchProtectionRestrictionsPtrOutput() BranchProtectionRestrictionsPtrOutput {
-	return i.ToBranchProtectionRestrictionsPtrOutputWithContext(context.Background())
-}
-
-func (i BranchProtectionRestrictionsArgs) ToBranchProtectionRestrictionsPtrOutputWithContext(ctx context.Context) BranchProtectionRestrictionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BranchProtectionRestrictionsOutput).ToBranchProtectionRestrictionsPtrOutputWithContext(ctx)
-}
-
-// BranchProtectionRestrictionsPtrInput is an input type that accepts BranchProtectionRestrictionsArgs, BranchProtectionRestrictionsPtr and BranchProtectionRestrictionsPtrOutput values.
-// You can construct a concrete instance of `BranchProtectionRestrictionsPtrInput` via:
-//
-//          BranchProtectionRestrictionsArgs{...}
-//
-//  or:
-//
-//          nil
-type BranchProtectionRestrictionsPtrInput interface {
-	pulumi.Input
-
-	ToBranchProtectionRestrictionsPtrOutput() BranchProtectionRestrictionsPtrOutput
-	ToBranchProtectionRestrictionsPtrOutputWithContext(context.Context) BranchProtectionRestrictionsPtrOutput
-}
-
-type branchProtectionRestrictionsPtrType BranchProtectionRestrictionsArgs
-
-func BranchProtectionRestrictionsPtr(v *BranchProtectionRestrictionsArgs) BranchProtectionRestrictionsPtrInput {
-	return (*branchProtectionRestrictionsPtrType)(v)
-}
-
-func (*branchProtectionRestrictionsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**BranchProtectionRestrictions)(nil)).Elem()
-}
-
-func (i *branchProtectionRestrictionsPtrType) ToBranchProtectionRestrictionsPtrOutput() BranchProtectionRestrictionsPtrOutput {
-	return i.ToBranchProtectionRestrictionsPtrOutputWithContext(context.Background())
-}
-
-func (i *branchProtectionRestrictionsPtrType) ToBranchProtectionRestrictionsPtrOutputWithContext(ctx context.Context) BranchProtectionRestrictionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BranchProtectionRestrictionsPtrOutput)
-}
-
-type BranchProtectionRestrictionsOutput struct{ *pulumi.OutputState }
-
-func (BranchProtectionRestrictionsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BranchProtectionRestrictions)(nil)).Elem()
-}
-
-func (o BranchProtectionRestrictionsOutput) ToBranchProtectionRestrictionsOutput() BranchProtectionRestrictionsOutput {
-	return o
-}
-
-func (o BranchProtectionRestrictionsOutput) ToBranchProtectionRestrictionsOutputWithContext(ctx context.Context) BranchProtectionRestrictionsOutput {
-	return o
-}
-
-func (o BranchProtectionRestrictionsOutput) ToBranchProtectionRestrictionsPtrOutput() BranchProtectionRestrictionsPtrOutput {
-	return o.ToBranchProtectionRestrictionsPtrOutputWithContext(context.Background())
-}
-
-func (o BranchProtectionRestrictionsOutput) ToBranchProtectionRestrictionsPtrOutputWithContext(ctx context.Context) BranchProtectionRestrictionsPtrOutput {
-	return o.ApplyT(func(v BranchProtectionRestrictions) *BranchProtectionRestrictions {
-		return &v
-	}).(BranchProtectionRestrictionsPtrOutput)
-}
-func (o BranchProtectionRestrictionsOutput) Apps() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v BranchProtectionRestrictions) []string { return v.Apps }).(pulumi.StringArrayOutput)
-}
-
-func (o BranchProtectionRestrictionsOutput) Teams() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v BranchProtectionRestrictions) []string { return v.Teams }).(pulumi.StringArrayOutput)
-}
-
-func (o BranchProtectionRestrictionsOutput) Users() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v BranchProtectionRestrictions) []string { return v.Users }).(pulumi.StringArrayOutput)
-}
-
-type BranchProtectionRestrictionsPtrOutput struct{ *pulumi.OutputState }
-
-func (BranchProtectionRestrictionsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**BranchProtectionRestrictions)(nil)).Elem()
-}
-
-func (o BranchProtectionRestrictionsPtrOutput) ToBranchProtectionRestrictionsPtrOutput() BranchProtectionRestrictionsPtrOutput {
-	return o
-}
-
-func (o BranchProtectionRestrictionsPtrOutput) ToBranchProtectionRestrictionsPtrOutputWithContext(ctx context.Context) BranchProtectionRestrictionsPtrOutput {
-	return o
-}
-
-func (o BranchProtectionRestrictionsPtrOutput) Elem() BranchProtectionRestrictionsOutput {
-	return o.ApplyT(func(v *BranchProtectionRestrictions) BranchProtectionRestrictions { return *v }).(BranchProtectionRestrictionsOutput)
-}
-
-func (o BranchProtectionRestrictionsPtrOutput) Apps() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *BranchProtectionRestrictions) []string {
-		if v == nil {
-			return nil
-		}
-		return v.Apps
-	}).(pulumi.StringArrayOutput)
-}
-
-func (o BranchProtectionRestrictionsPtrOutput) Teams() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *BranchProtectionRestrictions) []string {
-		if v == nil {
-			return nil
-		}
-		return v.Teams
-	}).(pulumi.StringArrayOutput)
-}
-
-func (o BranchProtectionRestrictionsPtrOutput) Users() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *BranchProtectionRestrictions) []string {
-		if v == nil {
-			return nil
-		}
-		return v.Users
-	}).(pulumi.StringArrayOutput)
+func (o BranchProtectionRequiredStatusCheckArrayOutput) Index(i pulumi.IntInput) BranchProtectionRequiredStatusCheckOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BranchProtectionRequiredStatusCheck {
+		return vs[0].([]BranchProtectionRequiredStatusCheck)[vs[1].(int)]
+	}).(BranchProtectionRequiredStatusCheckOutput)
 }
 
 type OrganizationWebhookConfiguration struct {
@@ -1487,12 +1176,10 @@ func (o GetOrganizationTeamSyncGroupsGroupArrayOutput) Index(i pulumi.IntInput) 
 }
 
 func init() {
-	pulumi.RegisterOutputType(BranchProtectionRequiredPullRequestReviewsOutput{})
-	pulumi.RegisterOutputType(BranchProtectionRequiredPullRequestReviewsPtrOutput{})
-	pulumi.RegisterOutputType(BranchProtectionRequiredStatusChecksOutput{})
-	pulumi.RegisterOutputType(BranchProtectionRequiredStatusChecksPtrOutput{})
-	pulumi.RegisterOutputType(BranchProtectionRestrictionsOutput{})
-	pulumi.RegisterOutputType(BranchProtectionRestrictionsPtrOutput{})
+	pulumi.RegisterOutputType(BranchProtectionRequiredPullRequestReviewOutput{})
+	pulumi.RegisterOutputType(BranchProtectionRequiredPullRequestReviewArrayOutput{})
+	pulumi.RegisterOutputType(BranchProtectionRequiredStatusCheckOutput{})
+	pulumi.RegisterOutputType(BranchProtectionRequiredStatusCheckArrayOutput{})
 	pulumi.RegisterOutputType(OrganizationWebhookConfigurationOutput{})
 	pulumi.RegisterOutputType(OrganizationWebhookConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(RepositoryTemplateOutput{})

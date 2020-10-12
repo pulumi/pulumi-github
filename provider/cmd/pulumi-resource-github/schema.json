@@ -53,7 +53,7 @@
         }
     },
     "types": {
-        "github:/BranchProtectionRequiredPullRequestReviews:BranchProtectionRequiredPullRequestReviews": {
+        "github:/BranchProtectionRequiredPullRequestReview:BranchProtectionRequiredPullRequestReview": {
             "properties": {
                 "dismissStaleReviews": {
                     "type": "boolean",
@@ -63,31 +63,11 @@
                         }
                     }
                 },
-                "dismissalTeams": {
+                "dismissalRestrictions": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                },
-                "dismissalUsers": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    },
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                },
-                "includeAdmins": {
-                    "type": "boolean",
-                    "deprecationMessage": "Use enforce_admins instead",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -113,7 +93,7 @@
             },
             "type": "object"
         },
-        "github:/BranchProtectionRequiredStatusChecks:BranchProtectionRequiredStatusChecks": {
+        "github:/BranchProtectionRequiredStatusCheck:BranchProtectionRequiredStatusCheck": {
             "properties": {
                 "contexts": {
                     "type": "array",
@@ -126,55 +106,8 @@
                         }
                     }
                 },
-                "includeAdmins": {
-                    "type": "boolean",
-                    "deprecationMessage": "Use enforce_admins instead",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                },
                 "strict": {
                     "type": "boolean",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                }
-            },
-            "type": "object"
-        },
-        "github:/BranchProtectionRestrictions:BranchProtectionRestrictions": {
-            "properties": {
-                "apps": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    },
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                },
-                "teams": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    },
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                },
-                "users": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    },
                     "language": {
                         "python": {
                             "mapCase": false
@@ -774,112 +707,132 @@
             }
         },
         "github:index/branchProtection:BranchProtection": {
-            "description": "Protects a GitHub branch.\n\nThis resource allows you to configure branch protection for repositories in your organization. When applied, the branch will be protected from forced pushes and deletion. Additional constraints, such as required status checks or restrictions on users, teams, and apps, can also be configured.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\nconst exampleTeam = new github.Team(\"example\", {});\n// Protect the master branch of the foo repository. Additionally, require that\n// the \"ci/travis\" context to be passing and only allow the engineers team merge\n// to the branch.\nconst exampleBranchProtection = new github.BranchProtection(\"example\", {\n    branch: \"master\",\n    enforceAdmins: true,\n    repository: github_repository_example.name,\n    requiredPullRequestReviews: {\n        dismissStaleReviews: true,\n        dismissalTeams: [\n            exampleTeam.slug,\n            github_team_second.slug,\n        ],\n        dismissalUsers: [\"foo-user\"],\n    },\n    requiredStatusChecks: {\n        contexts: [\"ci/travis\"],\n        strict: false,\n    },\n    restrictions: {\n        apps: [\"foo-app\"],\n        teams: [exampleTeam.slug],\n        users: [\"foo-user\"],\n    },\n});\nconst exampleTeamRepository = new github.TeamRepository(\"example\", {\n    permission: \"pull\",\n    repository: github_repository_example.name,\n    teamId: exampleTeam.id,\n});\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\nexample_team = github.Team(\"exampleTeam\")\n# Protect the master branch of the foo repository. Additionally, require that\n# the \"ci/travis\" context to be passing and only allow the engineers team merge\n# to the branch.\nexample_branch_protection = github.BranchProtection(\"exampleBranchProtection\",\n    branch=\"master\",\n    enforce_admins=True,\n    repository=github_repository[\"example\"][\"name\"],\n    required_pull_request_reviews=github.BranchProtectionRequiredPullRequestReviewsArgs(\n        dismiss_stale_reviews=True,\n        dismissal_teams=[\n            example_team.slug,\n            github_team[\"second\"][\"slug\"],\n        ],\n        dismissal_users=[\"foo-user\"],\n    ),\n    required_status_checks=github.BranchProtectionRequiredStatusChecksArgs(\n        contexts=[\"ci/travis\"],\n        strict=False,\n    ),\n    restrictions=github.BranchProtectionRestrictionsArgs(\n        apps=[\"foo-app\"],\n        teams=[example_team.slug],\n        users=[\"foo-user\"],\n    ))\nexample_team_repository = github.TeamRepository(\"exampleTeamRepository\",\n    permission=\"pull\",\n    repository=github_repository[\"example\"][\"name\"],\n    team_id=example_team.id)\n```\n```csharp\nusing Pulumi;\nusing Github = Pulumi.Github;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var exampleTeam = new Github.Team(\"exampleTeam\", new Github.TeamArgs\n        {\n        });\n        // Protect the master branch of the foo repository. Additionally, require that\n        // the \"ci/travis\" context to be passing and only allow the engineers team merge\n        // to the branch.\n        var exampleBranchProtection = new Github.BranchProtection(\"exampleBranchProtection\", new Github.BranchProtectionArgs\n        {\n            Branch = \"master\",\n            EnforceAdmins = true,\n            Repository = github_repository.Example.Name,\n            RequiredPullRequestReviews = new Github.Inputs.BranchProtectionRequiredPullRequestReviewsArgs\n            {\n                DismissStaleReviews = true,\n                DismissalTeams = \n                {\n                    exampleTeam.Slug,\n                    github_team.Second.Slug,\n                },\n                DismissalUsers = \n                {\n                    \"foo-user\",\n                },\n            },\n            RequiredStatusChecks = new Github.Inputs.BranchProtectionRequiredStatusChecksArgs\n            {\n                Contexts = \n                {\n                    \"ci/travis\",\n                },\n                Strict = false,\n            },\n            Restrictions = new Github.Inputs.BranchProtectionRestrictionsArgs\n            {\n                Apps = \n                {\n                    \"foo-app\",\n                },\n                Teams = \n                {\n                    exampleTeam.Slug,\n                },\n                Users = \n                {\n                    \"foo-user\",\n                },\n            },\n        });\n        var exampleTeamRepository = new Github.TeamRepository(\"exampleTeamRepository\", new Github.TeamRepositoryArgs\n        {\n            Permission = \"pull\",\n            Repository = github_repository.Example.Name,\n            TeamId = exampleTeam.Id,\n        });\n    }\n\n}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "description": "Protects a GitHub branch.\n\nThis resource allows you to configure branch protection for repositories in your organization. When applied, the branch will be protected from forced pushes and deletion. Additional constraints, such as required status checks or restrictions on users, teams, and apps, can also be configured.\n",
             "properties": {
-                "branch": {
-                    "type": "string",
-                    "description": "The Git branch to protect.\n"
-                },
                 "enforceAdmins": {
                     "type": "boolean",
                     "description": "Boolean, setting this to `true` enforces status checks for repository administrators.\n"
                 },
-                "etag": {
-                    "type": "string"
-                },
-                "repository": {
+                "pattern": {
                     "type": "string",
-                    "description": "The GitHub repository name.\n"
+                    "description": "Identifies the protection rule pattern.\n"
+                },
+                "pushRestrictions": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The list of actor IDs that may push to the branch.\n"
+                },
+                "repositoryId": {
+                    "type": "string",
+                    "description": "The repository associated with this branch protection rule.\n"
                 },
                 "requireSignedCommits": {
                     "type": "boolean",
                     "description": "Boolean, setting this to `true` requires all commits to be signed with GPG.\n"
                 },
                 "requiredPullRequestReviews": {
-                    "$ref": "#/types/github:/BranchProtectionRequiredPullRequestReviews:BranchProtectionRequiredPullRequestReviews",
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/github:/BranchProtectionRequiredPullRequestReview:BranchProtectionRequiredPullRequestReview"
+                    },
                     "description": "Enforce restrictions for pull request reviews. See Required Pull Request Reviews below for details.\n"
                 },
                 "requiredStatusChecks": {
-                    "$ref": "#/types/github:/BranchProtectionRequiredStatusChecks:BranchProtectionRequiredStatusChecks",
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/github:/BranchProtectionRequiredStatusCheck:BranchProtectionRequiredStatusCheck"
+                    },
                     "description": "Enforce restrictions for required status checks. See Required Status Checks below for details.\n"
-                },
-                "restrictions": {
-                    "$ref": "#/types/github:/BranchProtectionRestrictions:BranchProtectionRestrictions",
-                    "description": "Enforce restrictions for the users and teams that may push to the branch. See Restrictions below for details.\n"
                 }
             },
             "required": [
-                "branch",
-                "etag",
-                "repository"
+                "pattern",
+                "repositoryId"
             ],
             "inputProperties": {
-                "branch": {
-                    "type": "string",
-                    "description": "The Git branch to protect.\n"
-                },
                 "enforceAdmins": {
                     "type": "boolean",
                     "description": "Boolean, setting this to `true` enforces status checks for repository administrators.\n"
                 },
-                "repository": {
+                "pattern": {
                     "type": "string",
-                    "description": "The GitHub repository name.\n"
+                    "description": "Identifies the protection rule pattern.\n"
+                },
+                "pushRestrictions": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The list of actor IDs that may push to the branch.\n"
+                },
+                "repositoryId": {
+                    "type": "string",
+                    "description": "The repository associated with this branch protection rule.\n"
                 },
                 "requireSignedCommits": {
                     "type": "boolean",
                     "description": "Boolean, setting this to `true` requires all commits to be signed with GPG.\n"
                 },
                 "requiredPullRequestReviews": {
-                    "$ref": "#/types/github:/BranchProtectionRequiredPullRequestReviews:BranchProtectionRequiredPullRequestReviews",
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/github:/BranchProtectionRequiredPullRequestReview:BranchProtectionRequiredPullRequestReview"
+                    },
                     "description": "Enforce restrictions for pull request reviews. See Required Pull Request Reviews below for details.\n"
                 },
                 "requiredStatusChecks": {
-                    "$ref": "#/types/github:/BranchProtectionRequiredStatusChecks:BranchProtectionRequiredStatusChecks",
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/github:/BranchProtectionRequiredStatusCheck:BranchProtectionRequiredStatusCheck"
+                    },
                     "description": "Enforce restrictions for required status checks. See Required Status Checks below for details.\n"
-                },
-                "restrictions": {
-                    "$ref": "#/types/github:/BranchProtectionRestrictions:BranchProtectionRestrictions",
-                    "description": "Enforce restrictions for the users and teams that may push to the branch. See Restrictions below for details.\n"
                 }
             },
             "requiredInputs": [
-                "branch",
-                "repository"
+                "pattern",
+                "repositoryId"
             ],
             "stateInputs": {
                 "description": "Input properties used for looking up and filtering BranchProtection resources.\n",
                 "properties": {
-                    "branch": {
-                        "type": "string",
-                        "description": "The Git branch to protect.\n"
-                    },
                     "enforceAdmins": {
                         "type": "boolean",
                         "description": "Boolean, setting this to `true` enforces status checks for repository administrators.\n"
                     },
-                    "etag": {
-                        "type": "string"
-                    },
-                    "repository": {
+                    "pattern": {
                         "type": "string",
-                        "description": "The GitHub repository name.\n"
+                        "description": "Identifies the protection rule pattern.\n"
+                    },
+                    "pushRestrictions": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "The list of actor IDs that may push to the branch.\n"
+                    },
+                    "repositoryId": {
+                        "type": "string",
+                        "description": "The repository associated with this branch protection rule.\n"
                     },
                     "requireSignedCommits": {
                         "type": "boolean",
                         "description": "Boolean, setting this to `true` requires all commits to be signed with GPG.\n"
                     },
                     "requiredPullRequestReviews": {
-                        "$ref": "#/types/github:/BranchProtectionRequiredPullRequestReviews:BranchProtectionRequiredPullRequestReviews",
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/github:/BranchProtectionRequiredPullRequestReview:BranchProtectionRequiredPullRequestReview"
+                        },
                         "description": "Enforce restrictions for pull request reviews. See Required Pull Request Reviews below for details.\n"
                     },
                     "requiredStatusChecks": {
-                        "$ref": "#/types/github:/BranchProtectionRequiredStatusChecks:BranchProtectionRequiredStatusChecks",
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/github:/BranchProtectionRequiredStatusCheck:BranchProtectionRequiredStatusCheck"
+                        },
                         "description": "Enforce restrictions for required status checks. See Required Status Checks below for details.\n"
-                    },
-                    "restrictions": {
-                        "$ref": "#/types/github:/BranchProtectionRestrictions:BranchProtectionRestrictions",
-                        "description": "Enforce restrictions for the users and teams that may push to the branch. See Restrictions below for details.\n"
                     }
                 },
                 "type": "object"
@@ -1260,6 +1213,10 @@
                     "type": "boolean",
                     "description": "Set to `false` to disable squash merges on the repository.\n"
                 },
+                "archiveOnDestroy": {
+                    "type": "boolean",
+                    "description": "Set to `true` to archive the repository instead of deleting on destroy.\n"
+                },
                 "archived": {
                     "type": "boolean",
                     "description": "Specifies if the repository should be archived. Defaults to `false`. **NOTE** Currently, the API does not support unarchiving.\n"
@@ -1365,6 +1322,10 @@
                 "visibility": {
                     "type": "string",
                     "description": "Can be `public` or `private`. If your organization is associated with an enterprise account using GitHub Enterprise Cloud or GitHub Enterprise Server 2.20+, visibility can also be `internal`. The `visibility` parameter overrides the `private` parameter.\n"
+                },
+                "vulnerabilityAlerts": {
+                    "type": "boolean",
+                    "description": "Set to `true` to enable security alerts for vulnerable dependencies. Enabling requires alerts to be enabled on the owner level. (Note for importing: GitHub enables the alerts on public repos but disables them on private repos by default.) See [GitHub Documentation](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for details.\n"
                 }
             },
             "required": [
@@ -1393,6 +1354,10 @@
                 "allowSquashMerge": {
                     "type": "boolean",
                     "description": "Set to `false` to disable squash merges on the repository.\n"
+                },
+                "archiveOnDestroy": {
+                    "type": "boolean",
+                    "description": "Set to `true` to archive the repository instead of deleting on destroy.\n"
                 },
                 "archived": {
                     "type": "boolean",
@@ -1469,6 +1434,10 @@
                 "visibility": {
                     "type": "string",
                     "description": "Can be `public` or `private`. If your organization is associated with an enterprise account using GitHub Enterprise Cloud or GitHub Enterprise Server 2.20+, visibility can also be `internal`. The `visibility` parameter overrides the `private` parameter.\n"
+                },
+                "vulnerabilityAlerts": {
+                    "type": "boolean",
+                    "description": "Set to `true` to enable security alerts for vulnerable dependencies. Enabling requires alerts to be enabled on the owner level. (Note for importing: GitHub enables the alerts on public repos but disables them on private repos by default.) See [GitHub Documentation](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for details.\n"
                 }
             },
             "stateInputs": {
@@ -1485,6 +1454,10 @@
                     "allowSquashMerge": {
                         "type": "boolean",
                         "description": "Set to `false` to disable squash merges on the repository.\n"
+                    },
+                    "archiveOnDestroy": {
+                        "type": "boolean",
+                        "description": "Set to `true` to archive the repository instead of deleting on destroy.\n"
                     },
                     "archived": {
                         "type": "boolean",
@@ -1591,6 +1564,10 @@
                     "visibility": {
                         "type": "string",
                         "description": "Can be `public` or `private`. If your organization is associated with an enterprise account using GitHub Enterprise Cloud or GitHub Enterprise Server 2.20+, visibility can also be `internal`. The `visibility` parameter overrides the `private` parameter.\n"
+                    },
+                    "vulnerabilityAlerts": {
+                        "type": "boolean",
+                        "description": "Set to `true` to enable security alerts for vulnerable dependencies. Enabling requires alerts to be enabled on the owner level. (Note for importing: GitHub enables the alerts on public repos but disables them on private repos by default.) See [GitHub Documentation](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for details.\n"
                     }
                 },
                 "type": "object"
@@ -1741,7 +1718,7 @@
             }
         },
         "github:index/repositoryFile:RepositoryFile": {
-            "description": "This resource allows you to create and manage files within a\nGitHub repository.\n\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\nconst gitignore = new github.RepositoryFile(\"gitignore\", {\n    content: \"**/*.tfstate\",\n    file: \".gitignore\",\n    repository: \"example\",\n});\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\ngitignore = github.RepositoryFile(\"gitignore\",\n    content=\"**/*.tfstate\",\n    file=\".gitignore\",\n    repository=\"example\")\n```\n```csharp\nusing Pulumi;\nusing Github = Pulumi.Github;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var gitignore = new Github.RepositoryFile(\"gitignore\", new Github.RepositoryFileArgs\n        {\n            Content = \"**/*.tfstate\",\n            File = \".gitignore\",\n            Repository = \"example\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-github/sdk/v2/go/github\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := github.NewRepositoryFile(ctx, \"gitignore\", \u0026github.RepositoryFileArgs{\n\t\t\tContent:    pulumi.String(\"**/*.tfstate\"),\n\t\t\tFile:       pulumi.String(\".gitignore\"),\n\t\t\tRepository: pulumi.String(\"example\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "description": "This resource allows you to create and manage files within a\nGitHub repository.\n\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\nconst fooRepository = new github.Repository(\"fooRepository\", {autoInit: true});\nconst fooRepositoryFile = new github.RepositoryFile(\"fooRepositoryFile\", {\n    repository: fooRepository.name,\n    branch: \"main\",\n    file: \".gitignore\",\n    content: \"**/*.tfstate\",\n    commitMessage: \"Managed by Terraform\",\n    commitAuthor: \"Terraform User\",\n    commitEmail: \"terraform@example.com\",\n    overwriteOnCreate: true,\n});\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\nfoo_repository = github.Repository(\"fooRepository\", auto_init=True)\nfoo_repository_file = github.RepositoryFile(\"fooRepositoryFile\",\n    repository=foo_repository.name,\n    branch=\"main\",\n    file=\".gitignore\",\n    content=\"**/*.tfstate\",\n    commit_message=\"Managed by Terraform\",\n    commit_author=\"Terraform User\",\n    commit_email=\"terraform@example.com\",\n    overwrite_on_create=True)\n```\n```csharp\nusing Pulumi;\nusing Github = Pulumi.Github;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var fooRepository = new Github.Repository(\"fooRepository\", new Github.RepositoryArgs\n        {\n            AutoInit = true,\n        });\n        var fooRepositoryFile = new Github.RepositoryFile(\"fooRepositoryFile\", new Github.RepositoryFileArgs\n        {\n            Repository = fooRepository.Name,\n            Branch = \"main\",\n            File = \".gitignore\",\n            Content = \"**/*.tfstate\",\n            CommitMessage = \"Managed by Terraform\",\n            CommitAuthor = \"Terraform User\",\n            CommitEmail = \"terraform@example.com\",\n            OverwriteOnCreate = true,\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-github/sdk/v2/go/github\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tfooRepository, err := github.NewRepository(ctx, \"fooRepository\", \u0026github.RepositoryArgs{\n\t\t\tAutoInit: pulumi.Bool(true),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = github.NewRepositoryFile(ctx, \"fooRepositoryFile\", \u0026github.RepositoryFileArgs{\n\t\t\tRepository:        fooRepository.Name,\n\t\t\tBranch:            pulumi.String(\"main\"),\n\t\t\tFile:              pulumi.String(\".gitignore\"),\n\t\t\tContent:           pulumi.String(\"**/*.tfstate\"),\n\t\t\tCommitMessage:     pulumi.String(\"Managed by Terraform\"),\n\t\t\tCommitAuthor:      pulumi.String(\"Terraform User\"),\n\t\t\tCommitEmail:       pulumi.String(\"terraform@example.com\"),\n\t\t\tOverwriteOnCreate: pulumi.Bool(true),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
             "properties": {
                 "branch": {
                     "type": "string",
@@ -1766,6 +1743,10 @@
                 "file": {
                     "type": "string",
                     "description": "The path of the file to manage.\n"
+                },
+                "overwriteOnCreate": {
+                    "type": "boolean",
+                    "description": "Enable overwriting existing files\n"
                 },
                 "repository": {
                     "type": "string",
@@ -1810,6 +1791,10 @@
                     "type": "string",
                     "description": "The path of the file to manage.\n"
                 },
+                "overwriteOnCreate": {
+                    "type": "boolean",
+                    "description": "Enable overwriting existing files\n"
+                },
                 "repository": {
                     "type": "string",
                     "description": "The repository name\n"
@@ -1846,6 +1831,10 @@
                     "file": {
                         "type": "string",
                         "description": "The path of the file to manage.\n"
+                    },
+                    "overwriteOnCreate": {
+                        "type": "boolean",
+                        "description": "Enable overwriting existing files\n"
                     },
                     "repository": {
                         "type": "string",

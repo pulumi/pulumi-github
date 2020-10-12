@@ -25,10 +25,21 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := github.NewRepositoryFile(ctx, "gitignore", &github.RepositoryFileArgs{
-// 			Content:    pulumi.String("**/*.tfstate"),
-// 			File:       pulumi.String(".gitignore"),
-// 			Repository: pulumi.String("example"),
+// 		fooRepository, err := github.NewRepository(ctx, "fooRepository", &github.RepositoryArgs{
+// 			AutoInit: pulumi.Bool(true),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = github.NewRepositoryFile(ctx, "fooRepositoryFile", &github.RepositoryFileArgs{
+// 			Repository:        fooRepository.Name,
+// 			Branch:            pulumi.String("main"),
+// 			File:              pulumi.String(".gitignore"),
+// 			Content:           pulumi.String("**/*.tfstate"),
+// 			CommitMessage:     pulumi.String("Managed by Terraform"),
+// 			CommitAuthor:      pulumi.String("Terraform User"),
+// 			CommitEmail:       pulumi.String("terraform@example.com"),
+// 			OverwriteOnCreate: pulumi.Bool(true),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -53,6 +64,8 @@ type RepositoryFile struct {
 	Content pulumi.StringOutput `pulumi:"content"`
 	// The path of the file to manage.
 	File pulumi.StringOutput `pulumi:"file"`
+	// Enable overwriting existing files
+	OverwriteOnCreate pulumi.BoolPtrOutput `pulumi:"overwriteOnCreate"`
 	// The repository name
 	Repository pulumi.StringOutput `pulumi:"repository"`
 	// The SHA blob of the file.
@@ -109,6 +122,8 @@ type repositoryFileState struct {
 	Content *string `pulumi:"content"`
 	// The path of the file to manage.
 	File *string `pulumi:"file"`
+	// Enable overwriting existing files
+	OverwriteOnCreate *bool `pulumi:"overwriteOnCreate"`
 	// The repository name
 	Repository *string `pulumi:"repository"`
 	// The SHA blob of the file.
@@ -129,6 +144,8 @@ type RepositoryFileState struct {
 	Content pulumi.StringPtrInput
 	// The path of the file to manage.
 	File pulumi.StringPtrInput
+	// Enable overwriting existing files
+	OverwriteOnCreate pulumi.BoolPtrInput
 	// The repository name
 	Repository pulumi.StringPtrInput
 	// The SHA blob of the file.
@@ -153,6 +170,8 @@ type repositoryFileArgs struct {
 	Content string `pulumi:"content"`
 	// The path of the file to manage.
 	File string `pulumi:"file"`
+	// Enable overwriting existing files
+	OverwriteOnCreate *bool `pulumi:"overwriteOnCreate"`
 	// The repository name
 	Repository string `pulumi:"repository"`
 }
@@ -172,6 +191,8 @@ type RepositoryFileArgs struct {
 	Content pulumi.StringInput
 	// The path of the file to manage.
 	File pulumi.StringInput
+	// Enable overwriting existing files
+	OverwriteOnCreate pulumi.BoolPtrInput
 	// The repository name
 	Repository pulumi.StringInput
 }

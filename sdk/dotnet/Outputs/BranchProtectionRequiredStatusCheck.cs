@@ -11,22 +11,18 @@ namespace Pulumi.Github.Outputs
 {
 
     [OutputType]
-    public sealed class BranchProtectionRequiredStatusChecks
+    public sealed class BranchProtectionRequiredStatusCheck
     {
         public readonly ImmutableArray<string> Contexts;
-        public readonly bool? IncludeAdmins;
         public readonly bool? Strict;
 
         [OutputConstructor]
-        private BranchProtectionRequiredStatusChecks(
+        private BranchProtectionRequiredStatusCheck(
             ImmutableArray<string> contexts,
-
-            bool? includeAdmins,
 
             bool? strict)
         {
             Contexts = contexts;
-            IncludeAdmins = includeAdmins;
             Strict = strict;
         }
     }

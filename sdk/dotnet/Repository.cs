@@ -59,6 +59,12 @@ namespace Pulumi.Github
         public Output<bool?> AllowSquashMerge { get; private set; } = null!;
 
         /// <summary>
+        /// Set to `true` to archive the repository instead of deleting on destroy.
+        /// </summary>
+        [Output("archiveOnDestroy")]
+        public Output<bool?> ArchiveOnDestroy { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies if the repository should be archived. Defaults to `false`. **NOTE** Currently, the API does not support unarchiving.
         /// </summary>
         [Output("archived")]
@@ -213,6 +219,12 @@ namespace Pulumi.Github
         [Output("visibility")]
         public Output<string> Visibility { get; private set; } = null!;
 
+        /// <summary>
+        /// Set to `true` to enable security alerts for vulnerable dependencies. Enabling requires alerts to be enabled on the owner level. (Note for importing: GitHub enables the alerts on public repos but disables them on private repos by default.) See [GitHub Documentation](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for details.
+        /// </summary>
+        [Output("vulnerabilityAlerts")]
+        public Output<bool?> VulnerabilityAlerts { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a Repository resource with the given unique name, arguments, and options.
@@ -276,6 +288,12 @@ namespace Pulumi.Github
         /// </summary>
         [Input("allowSquashMerge")]
         public Input<bool>? AllowSquashMerge { get; set; }
+
+        /// <summary>
+        /// Set to `true` to archive the repository instead of deleting on destroy.
+        /// </summary>
+        [Input("archiveOnDestroy")]
+        public Input<bool>? ArchiveOnDestroy { get; set; }
 
         /// <summary>
         /// Specifies if the repository should be archived. Defaults to `false`. **NOTE** Currently, the API does not support unarchiving.
@@ -396,6 +414,12 @@ namespace Pulumi.Github
         [Input("visibility")]
         public Input<string>? Visibility { get; set; }
 
+        /// <summary>
+        /// Set to `true` to enable security alerts for vulnerable dependencies. Enabling requires alerts to be enabled on the owner level. (Note for importing: GitHub enables the alerts on public repos but disables them on private repos by default.) See [GitHub Documentation](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for details.
+        /// </summary>
+        [Input("vulnerabilityAlerts")]
+        public Input<bool>? VulnerabilityAlerts { get; set; }
+
         public RepositoryArgs()
         {
         }
@@ -420,6 +444,12 @@ namespace Pulumi.Github
         /// </summary>
         [Input("allowSquashMerge")]
         public Input<bool>? AllowSquashMerge { get; set; }
+
+        /// <summary>
+        /// Set to `true` to archive the repository instead of deleting on destroy.
+        /// </summary>
+        [Input("archiveOnDestroy")]
+        public Input<bool>? ArchiveOnDestroy { get; set; }
 
         /// <summary>
         /// Specifies if the repository should be archived. Defaults to `false`. **NOTE** Currently, the API does not support unarchiving.
@@ -581,6 +611,12 @@ namespace Pulumi.Github
         /// </summary>
         [Input("visibility")]
         public Input<string>? Visibility { get; set; }
+
+        /// <summary>
+        /// Set to `true` to enable security alerts for vulnerable dependencies. Enabling requires alerts to be enabled on the owner level. (Note for importing: GitHub enables the alerts on public repos but disables them on private repos by default.) See [GitHub Documentation](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for details.
+        /// </summary>
+        [Input("vulnerabilityAlerts")]
+        public Input<bool>? VulnerabilityAlerts { get; set; }
 
         public RepositoryState()
         {

@@ -14,10 +14,16 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
  *
- * const gitignore = new github.RepositoryFile("gitignore", {
- *     content: "**&#47;*.tfstate",
+ * const fooRepository = new github.Repository("fooRepository", {autoInit: true});
+ * const fooRepositoryFile = new github.RepositoryFile("fooRepositoryFile", {
+ *     repository: fooRepository.name,
+ *     branch: "main",
  *     file: ".gitignore",
- *     repository: "example",
+ *     content: "**&#47;*.tfstate",
+ *     commitMessage: "Managed by Terraform",
+ *     commitAuthor: "Terraform User",
+ *     commitEmail: "terraform@example.com",
+ *     overwriteOnCreate: true,
  * });
  * ```
  */
@@ -75,6 +81,10 @@ export class RepositoryFile extends pulumi.CustomResource {
      */
     public readonly file!: pulumi.Output<string>;
     /**
+     * Enable overwriting existing files
+     */
+    public readonly overwriteOnCreate!: pulumi.Output<boolean | undefined>;
+    /**
      * The repository name
      */
     public readonly repository!: pulumi.Output<string>;
@@ -101,6 +111,7 @@ export class RepositoryFile extends pulumi.CustomResource {
             inputs["commitMessage"] = state ? state.commitMessage : undefined;
             inputs["content"] = state ? state.content : undefined;
             inputs["file"] = state ? state.file : undefined;
+            inputs["overwriteOnCreate"] = state ? state.overwriteOnCreate : undefined;
             inputs["repository"] = state ? state.repository : undefined;
             inputs["sha"] = state ? state.sha : undefined;
         } else {
@@ -120,6 +131,7 @@ export class RepositoryFile extends pulumi.CustomResource {
             inputs["commitMessage"] = args ? args.commitMessage : undefined;
             inputs["content"] = args ? args.content : undefined;
             inputs["file"] = args ? args.file : undefined;
+            inputs["overwriteOnCreate"] = args ? args.overwriteOnCreate : undefined;
             inputs["repository"] = args ? args.repository : undefined;
             inputs["sha"] = undefined /*out*/;
         }
@@ -164,6 +176,10 @@ export interface RepositoryFileState {
      */
     readonly file?: pulumi.Input<string>;
     /**
+     * Enable overwriting existing files
+     */
+    readonly overwriteOnCreate?: pulumi.Input<boolean>;
+    /**
      * The repository name
      */
     readonly repository?: pulumi.Input<string>;
@@ -202,6 +218,10 @@ export interface RepositoryFileArgs {
      * The path of the file to manage.
      */
     readonly file: pulumi.Input<string>;
+    /**
+     * Enable overwriting existing files
+     */
+    readonly overwriteOnCreate?: pulumi.Input<boolean>;
     /**
      * The repository name
      */

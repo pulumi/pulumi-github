@@ -9,9 +9,8 @@ from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from . import _utilities, _tables
 
 __all__ = [
-    'BranchProtectionRequiredPullRequestReviewsArgs',
-    'BranchProtectionRequiredStatusChecksArgs',
-    'BranchProtectionRestrictionsArgs',
+    'BranchProtectionRequiredPullRequestReviewArgs',
+    'BranchProtectionRequiredStatusCheckArgs',
     'OrganizationWebhookConfigurationArgs',
     'RepositoryTemplateArgs',
     'RepositoryWebhookConfigurationArgs',
@@ -19,25 +18,16 @@ __all__ = [
 ]
 
 @pulumi.input_type
-class BranchProtectionRequiredPullRequestReviewsArgs:
+class BranchProtectionRequiredPullRequestReviewArgs:
     def __init__(__self__, *,
                  dismiss_stale_reviews: Optional[pulumi.Input[bool]] = None,
-                 dismissal_teams: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-                 dismissal_users: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-                 include_admins: Optional[pulumi.Input[bool]] = None,
+                 dismissal_restrictions: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
                  require_code_owner_reviews: Optional[pulumi.Input[bool]] = None,
                  required_approving_review_count: Optional[pulumi.Input[float]] = None):
         if dismiss_stale_reviews is not None:
             pulumi.set(__self__, "dismiss_stale_reviews", dismiss_stale_reviews)
-        if dismissal_teams is not None:
-            pulumi.set(__self__, "dismissal_teams", dismissal_teams)
-        if dismissal_users is not None:
-            pulumi.set(__self__, "dismissal_users", dismissal_users)
-        if include_admins is not None:
-            warnings.warn("Use enforce_admins instead", DeprecationWarning)
-            pulumi.log.warn("include_admins is deprecated: Use enforce_admins instead")
-        if include_admins is not None:
-            pulumi.set(__self__, "include_admins", include_admins)
+        if dismissal_restrictions is not None:
+            pulumi.set(__self__, "dismissal_restrictions", dismissal_restrictions)
         if require_code_owner_reviews is not None:
             pulumi.set(__self__, "require_code_owner_reviews", require_code_owner_reviews)
         if required_approving_review_count is not None:
@@ -53,31 +43,13 @@ class BranchProtectionRequiredPullRequestReviewsArgs:
         pulumi.set(self, "dismiss_stale_reviews", value)
 
     @property
-    @pulumi.getter(name="dismissalTeams")
-    def dismissal_teams(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
-        return pulumi.get(self, "dismissal_teams")
+    @pulumi.getter(name="dismissalRestrictions")
+    def dismissal_restrictions(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+        return pulumi.get(self, "dismissal_restrictions")
 
-    @dismissal_teams.setter
-    def dismissal_teams(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
-        pulumi.set(self, "dismissal_teams", value)
-
-    @property
-    @pulumi.getter(name="dismissalUsers")
-    def dismissal_users(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
-        return pulumi.get(self, "dismissal_users")
-
-    @dismissal_users.setter
-    def dismissal_users(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
-        pulumi.set(self, "dismissal_users", value)
-
-    @property
-    @pulumi.getter(name="includeAdmins")
-    def include_admins(self) -> Optional[pulumi.Input[bool]]:
-        return pulumi.get(self, "include_admins")
-
-    @include_admins.setter
-    def include_admins(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "include_admins", value)
+    @dismissal_restrictions.setter
+    def dismissal_restrictions(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+        pulumi.set(self, "dismissal_restrictions", value)
 
     @property
     @pulumi.getter(name="requireCodeOwnerReviews")
@@ -99,18 +71,12 @@ class BranchProtectionRequiredPullRequestReviewsArgs:
 
 
 @pulumi.input_type
-class BranchProtectionRequiredStatusChecksArgs:
+class BranchProtectionRequiredStatusCheckArgs:
     def __init__(__self__, *,
                  contexts: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-                 include_admins: Optional[pulumi.Input[bool]] = None,
                  strict: Optional[pulumi.Input[bool]] = None):
         if contexts is not None:
             pulumi.set(__self__, "contexts", contexts)
-        if include_admins is not None:
-            warnings.warn("Use enforce_admins instead", DeprecationWarning)
-            pulumi.log.warn("include_admins is deprecated: Use enforce_admins instead")
-        if include_admins is not None:
-            pulumi.set(__self__, "include_admins", include_admins)
         if strict is not None:
             pulumi.set(__self__, "strict", strict)
 
@@ -124,15 +90,6 @@ class BranchProtectionRequiredStatusChecksArgs:
         pulumi.set(self, "contexts", value)
 
     @property
-    @pulumi.getter(name="includeAdmins")
-    def include_admins(self) -> Optional[pulumi.Input[bool]]:
-        return pulumi.get(self, "include_admins")
-
-    @include_admins.setter
-    def include_admins(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "include_admins", value)
-
-    @property
     @pulumi.getter
     def strict(self) -> Optional[pulumi.Input[bool]]:
         return pulumi.get(self, "strict")
@@ -140,47 +97,6 @@ class BranchProtectionRequiredStatusChecksArgs:
     @strict.setter
     def strict(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "strict", value)
-
-
-@pulumi.input_type
-class BranchProtectionRestrictionsArgs:
-    def __init__(__self__, *,
-                 apps: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-                 teams: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-                 users: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None):
-        if apps is not None:
-            pulumi.set(__self__, "apps", apps)
-        if teams is not None:
-            pulumi.set(__self__, "teams", teams)
-        if users is not None:
-            pulumi.set(__self__, "users", users)
-
-    @property
-    @pulumi.getter
-    def apps(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
-        return pulumi.get(self, "apps")
-
-    @apps.setter
-    def apps(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
-        pulumi.set(self, "apps", value)
-
-    @property
-    @pulumi.getter
-    def teams(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
-        return pulumi.get(self, "teams")
-
-    @teams.setter
-    def teams(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
-        pulumi.set(self, "teams", value)
-
-    @property
-    @pulumi.getter
-    def users(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
-        return pulumi.get(self, "users")
-
-    @users.setter
-    def users(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
-        pulumi.set(self, "users", value)
 
 
 @pulumi.input_type

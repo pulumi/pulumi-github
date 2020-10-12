@@ -9,9 +9,8 @@ from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from . import _utilities, _tables
 
 __all__ = [
-    'BranchProtectionRequiredPullRequestReviews',
-    'BranchProtectionRequiredStatusChecks',
-    'BranchProtectionRestrictions',
+    'BranchProtectionRequiredPullRequestReview',
+    'BranchProtectionRequiredStatusCheck',
     'OrganizationWebhookConfiguration',
     'RepositoryTemplate',
     'RepositoryWebhookConfiguration',
@@ -21,22 +20,16 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class BranchProtectionRequiredPullRequestReviews(dict):
+class BranchProtectionRequiredPullRequestReview(dict):
     def __init__(__self__, *,
                  dismiss_stale_reviews: Optional[bool] = None,
-                 dismissal_teams: Optional[List[str]] = None,
-                 dismissal_users: Optional[List[str]] = None,
-                 include_admins: Optional[bool] = None,
+                 dismissal_restrictions: Optional[List[str]] = None,
                  require_code_owner_reviews: Optional[bool] = None,
                  required_approving_review_count: Optional[float] = None):
         if dismiss_stale_reviews is not None:
             pulumi.set(__self__, "dismiss_stale_reviews", dismiss_stale_reviews)
-        if dismissal_teams is not None:
-            pulumi.set(__self__, "dismissal_teams", dismissal_teams)
-        if dismissal_users is not None:
-            pulumi.set(__self__, "dismissal_users", dismissal_users)
-        if include_admins is not None:
-            pulumi.set(__self__, "include_admins", include_admins)
+        if dismissal_restrictions is not None:
+            pulumi.set(__self__, "dismissal_restrictions", dismissal_restrictions)
         if require_code_owner_reviews is not None:
             pulumi.set(__self__, "require_code_owner_reviews", require_code_owner_reviews)
         if required_approving_review_count is not None:
@@ -48,19 +41,9 @@ class BranchProtectionRequiredPullRequestReviews(dict):
         return pulumi.get(self, "dismiss_stale_reviews")
 
     @property
-    @pulumi.getter(name="dismissalTeams")
-    def dismissal_teams(self) -> Optional[List[str]]:
-        return pulumi.get(self, "dismissal_teams")
-
-    @property
-    @pulumi.getter(name="dismissalUsers")
-    def dismissal_users(self) -> Optional[List[str]]:
-        return pulumi.get(self, "dismissal_users")
-
-    @property
-    @pulumi.getter(name="includeAdmins")
-    def include_admins(self) -> Optional[bool]:
-        return pulumi.get(self, "include_admins")
+    @pulumi.getter(name="dismissalRestrictions")
+    def dismissal_restrictions(self) -> Optional[List[str]]:
+        return pulumi.get(self, "dismissal_restrictions")
 
     @property
     @pulumi.getter(name="requireCodeOwnerReviews")
@@ -77,15 +60,12 @@ class BranchProtectionRequiredPullRequestReviews(dict):
 
 
 @pulumi.output_type
-class BranchProtectionRequiredStatusChecks(dict):
+class BranchProtectionRequiredStatusCheck(dict):
     def __init__(__self__, *,
                  contexts: Optional[List[str]] = None,
-                 include_admins: Optional[bool] = None,
                  strict: Optional[bool] = None):
         if contexts is not None:
             pulumi.set(__self__, "contexts", contexts)
-        if include_admins is not None:
-            pulumi.set(__self__, "include_admins", include_admins)
         if strict is not None:
             pulumi.set(__self__, "strict", strict)
 
@@ -95,46 +75,9 @@ class BranchProtectionRequiredStatusChecks(dict):
         return pulumi.get(self, "contexts")
 
     @property
-    @pulumi.getter(name="includeAdmins")
-    def include_admins(self) -> Optional[bool]:
-        return pulumi.get(self, "include_admins")
-
-    @property
     @pulumi.getter
     def strict(self) -> Optional[bool]:
         return pulumi.get(self, "strict")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class BranchProtectionRestrictions(dict):
-    def __init__(__self__, *,
-                 apps: Optional[List[str]] = None,
-                 teams: Optional[List[str]] = None,
-                 users: Optional[List[str]] = None):
-        if apps is not None:
-            pulumi.set(__self__, "apps", apps)
-        if teams is not None:
-            pulumi.set(__self__, "teams", teams)
-        if users is not None:
-            pulumi.set(__self__, "users", users)
-
-    @property
-    @pulumi.getter
-    def apps(self) -> Optional[List[str]]:
-        return pulumi.get(self, "apps")
-
-    @property
-    @pulumi.getter
-    def teams(self) -> Optional[List[str]]:
-        return pulumi.get(self, "teams")
-
-    @property
-    @pulumi.getter
-    def users(self) -> Optional[List[str]]:
-        return pulumi.get(self, "users")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
