@@ -2,11 +2,14 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
+_(none)_
+
+---
+
+## 2.1.0 (2020-10-12)
 * Upgrade to v3.1.0 of the GitHub Terraform Provider  
 * Upgrade to pulumi-terraform-bridge v2.8.0
 * Upgrade to Pulumi v2.10.0
-
----
 
 ## 2.0.0 (2020-09-09)
 * Upgrade to v3.0.0 of the GitHub Terraform Provider  
