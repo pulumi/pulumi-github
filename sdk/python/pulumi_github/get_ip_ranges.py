@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from . import _utilities, _tables
 
 __all__ = [
@@ -38,7 +38,7 @@ class GetIpRangesResult:
 
     @property
     @pulumi.getter
-    def gits(self) -> List[str]:
+    def gits(self) -> Sequence[str]:
         """
         An Array of IP addresses in CIDR format specifying the Git servers.
         """
@@ -46,7 +46,7 @@ class GetIpRangesResult:
 
     @property
     @pulumi.getter
-    def hooks(self) -> List[str]:
+    def hooks(self) -> Sequence[str]:
         """
         An Array of IP addresses in CIDR format specifying the addresses that incoming service hooks will originate from.
         """
@@ -62,7 +62,7 @@ class GetIpRangesResult:
 
     @property
     @pulumi.getter
-    def importers(self) -> List[str]:
+    def importers(self) -> Sequence[str]:
         """
         An Array of IP addresses in CIDR format specifying the A records for GitHub Importer.
         """
@@ -70,7 +70,7 @@ class GetIpRangesResult:
 
     @property
     @pulumi.getter
-    def pages(self) -> List[str]:
+    def pages(self) -> Sequence[str]:
         """
         An Array of IP addresses in CIDR format specifying the A records for GitHub Pages.
         """

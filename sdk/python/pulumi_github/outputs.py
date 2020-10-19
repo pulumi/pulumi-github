@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from . import _utilities, _tables
 
 __all__ = [
@@ -23,9 +23,9 @@ __all__ = [
 class BranchProtectionRequiredPullRequestReview(dict):
     def __init__(__self__, *,
                  dismiss_stale_reviews: Optional[bool] = None,
-                 dismissal_restrictions: Optional[List[str]] = None,
+                 dismissal_restrictions: Optional[Sequence[str]] = None,
                  require_code_owner_reviews: Optional[bool] = None,
-                 required_approving_review_count: Optional[float] = None):
+                 required_approving_review_count: Optional[int] = None):
         if dismiss_stale_reviews is not None:
             pulumi.set(__self__, "dismiss_stale_reviews", dismiss_stale_reviews)
         if dismissal_restrictions is not None:
@@ -42,7 +42,7 @@ class BranchProtectionRequiredPullRequestReview(dict):
 
     @property
     @pulumi.getter(name="dismissalRestrictions")
-    def dismissal_restrictions(self) -> Optional[List[str]]:
+    def dismissal_restrictions(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "dismissal_restrictions")
 
     @property
@@ -52,7 +52,7 @@ class BranchProtectionRequiredPullRequestReview(dict):
 
     @property
     @pulumi.getter(name="requiredApprovingReviewCount")
-    def required_approving_review_count(self) -> Optional[float]:
+    def required_approving_review_count(self) -> Optional[int]:
         return pulumi.get(self, "required_approving_review_count")
 
     def _translate_property(self, prop):
@@ -62,7 +62,7 @@ class BranchProtectionRequiredPullRequestReview(dict):
 @pulumi.output_type
 class BranchProtectionRequiredStatusCheck(dict):
     def __init__(__self__, *,
-                 contexts: Optional[List[str]] = None,
+                 contexts: Optional[Sequence[str]] = None,
                  strict: Optional[bool] = None):
         if contexts is not None:
             pulumi.set(__self__, "contexts", contexts)
@@ -71,7 +71,7 @@ class BranchProtectionRequiredStatusCheck(dict):
 
     @property
     @pulumi.getter
-    def contexts(self) -> Optional[List[str]]:
+    def contexts(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "contexts")
 
     @property
@@ -246,7 +246,7 @@ class GetCollaboratorsCollaboratorResult(dict):
                  following_url: str,
                  gists_url: str,
                  html_url: str,
-                 id: float,
+                 id: int,
                  login: str,
                  organizations_url: str,
                  permission: str,
@@ -263,7 +263,7 @@ class GetCollaboratorsCollaboratorResult(dict):
         :param str following_url: The GitHub API URL for those following the collaborator.
         :param str gists_url: The GitHub API URL for the collaborator's gists.
         :param str html_url: The GitHub HTML URL for the collaborator.
-        :param float id: The ID of the collaborator.
+        :param int id: The ID of the collaborator.
         :param str login: The collaborator's login.
         :param str organizations_url: The GitHub API URL for the collaborator's organizations.
         :param str permission: The permission of the collaborator.
@@ -334,7 +334,7 @@ class GetCollaboratorsCollaboratorResult(dict):
 
     @property
     @pulumi.getter
-    def id(self) -> float:
+    def id(self) -> int:
         """
         The ID of the collaborator.
         """

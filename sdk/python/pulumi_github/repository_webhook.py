@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from . import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -19,7 +19,7 @@ class RepositoryWebhook(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  active: Optional[pulumi.Input[bool]] = None,
                  configuration: Optional[pulumi.Input[pulumi.InputType['RepositoryWebhookConfigurationArgs']]] = None,
-                 events: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 events: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  repository: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -53,7 +53,7 @@ class RepositoryWebhook(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] active: Indicate of the webhook should receive events. Defaults to `true`.
         :param pulumi.Input[pulumi.InputType['RepositoryWebhookConfigurationArgs']] configuration: key/value pair of configuration for this webhook. Available keys are `url`, `content_type`, `secret` and `insecure_ssl`. `secret` is [the shared secret, see API documentation](https://developer.github.com/v3/repos/hooks/#create-a-hook).
-        :param pulumi.Input[List[pulumi.Input[str]]] events: A list of events which should trigger the webhook. See a list of [available events](https://developer.github.com/v3/activity/events/types/).
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] events: A list of events which should trigger the webhook. See a list of [available events](https://developer.github.com/v3/activity/events/types/).
         :param pulumi.Input[str] repository: The repository of the webhook.
         """
         if __name__ is not None:
@@ -96,7 +96,7 @@ class RepositoryWebhook(pulumi.CustomResource):
             active: Optional[pulumi.Input[bool]] = None,
             configuration: Optional[pulumi.Input[pulumi.InputType['RepositoryWebhookConfigurationArgs']]] = None,
             etag: Optional[pulumi.Input[str]] = None,
-            events: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            events: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             repository: Optional[pulumi.Input[str]] = None,
             url: Optional[pulumi.Input[str]] = None) -> 'RepositoryWebhook':
         """
@@ -108,7 +108,7 @@ class RepositoryWebhook(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] active: Indicate of the webhook should receive events. Defaults to `true`.
         :param pulumi.Input[pulumi.InputType['RepositoryWebhookConfigurationArgs']] configuration: key/value pair of configuration for this webhook. Available keys are `url`, `content_type`, `secret` and `insecure_ssl`. `secret` is [the shared secret, see API documentation](https://developer.github.com/v3/repos/hooks/#create-a-hook).
-        :param pulumi.Input[List[pulumi.Input[str]]] events: A list of events which should trigger the webhook. See a list of [available events](https://developer.github.com/v3/activity/events/types/).
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] events: A list of events which should trigger the webhook. See a list of [available events](https://developer.github.com/v3/activity/events/types/).
         :param pulumi.Input[str] repository: The repository of the webhook.
         :param pulumi.Input[str] url: URL of the webhook
         """
@@ -147,7 +147,7 @@ class RepositoryWebhook(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def events(self) -> pulumi.Output[List[str]]:
+    def events(self) -> pulumi.Output[Sequence[str]]:
         """
         A list of events which should trigger the webhook. See a list of [available events](https://developer.github.com/v3/activity/events/types/).
         """

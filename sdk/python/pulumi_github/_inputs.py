@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from . import _utilities, _tables
 
 __all__ = [
@@ -21,9 +21,9 @@ __all__ = [
 class BranchProtectionRequiredPullRequestReviewArgs:
     def __init__(__self__, *,
                  dismiss_stale_reviews: Optional[pulumi.Input[bool]] = None,
-                 dismissal_restrictions: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 dismissal_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  require_code_owner_reviews: Optional[pulumi.Input[bool]] = None,
-                 required_approving_review_count: Optional[pulumi.Input[float]] = None):
+                 required_approving_review_count: Optional[pulumi.Input[int]] = None):
         if dismiss_stale_reviews is not None:
             pulumi.set(__self__, "dismiss_stale_reviews", dismiss_stale_reviews)
         if dismissal_restrictions is not None:
@@ -44,11 +44,11 @@ class BranchProtectionRequiredPullRequestReviewArgs:
 
     @property
     @pulumi.getter(name="dismissalRestrictions")
-    def dismissal_restrictions(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def dismissal_restrictions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         return pulumi.get(self, "dismissal_restrictions")
 
     @dismissal_restrictions.setter
-    def dismissal_restrictions(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def dismissal_restrictions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "dismissal_restrictions", value)
 
     @property
@@ -62,18 +62,18 @@ class BranchProtectionRequiredPullRequestReviewArgs:
 
     @property
     @pulumi.getter(name="requiredApprovingReviewCount")
-    def required_approving_review_count(self) -> Optional[pulumi.Input[float]]:
+    def required_approving_review_count(self) -> Optional[pulumi.Input[int]]:
         return pulumi.get(self, "required_approving_review_count")
 
     @required_approving_review_count.setter
-    def required_approving_review_count(self, value: Optional[pulumi.Input[float]]):
+    def required_approving_review_count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "required_approving_review_count", value)
 
 
 @pulumi.input_type
 class BranchProtectionRequiredStatusCheckArgs:
     def __init__(__self__, *,
-                 contexts: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 contexts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  strict: Optional[pulumi.Input[bool]] = None):
         if contexts is not None:
             pulumi.set(__self__, "contexts", contexts)
@@ -82,11 +82,11 @@ class BranchProtectionRequiredStatusCheckArgs:
 
     @property
     @pulumi.getter
-    def contexts(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def contexts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         return pulumi.get(self, "contexts")
 
     @contexts.setter
-    def contexts(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def contexts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "contexts", value)
 
     @property

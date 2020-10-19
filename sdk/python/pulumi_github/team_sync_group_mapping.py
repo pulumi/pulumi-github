@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from . import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -17,7 +17,7 @@ class TeamSyncGroupMapping(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 groups: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['TeamSyncGroupMappingGroupArgs']]]]] = None,
+                 groups: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TeamSyncGroupMappingGroupArgs']]]]] = None,
                  team_slug: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -31,7 +31,7 @@ class TeamSyncGroupMapping(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['TeamSyncGroupMappingGroupArgs']]]] groups: An Array of GitHub Identity Provider Groups (or empty []).  Each `group` block consists of the fields documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TeamSyncGroupMappingGroupArgs']]]] groups: An Array of GitHub Identity Provider Groups (or empty []).  Each `group` block consists of the fields documented below.
                ___
         :param pulumi.Input[str] team_slug: Slug of the team
         """
@@ -68,7 +68,7 @@ class TeamSyncGroupMapping(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             etag: Optional[pulumi.Input[str]] = None,
-            groups: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['TeamSyncGroupMappingGroupArgs']]]]] = None,
+            groups: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TeamSyncGroupMappingGroupArgs']]]]] = None,
             team_slug: Optional[pulumi.Input[str]] = None) -> 'TeamSyncGroupMapping':
         """
         Get an existing TeamSyncGroupMapping resource's state with the given name, id, and optional extra
@@ -77,7 +77,7 @@ class TeamSyncGroupMapping(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['TeamSyncGroupMappingGroupArgs']]]] groups: An Array of GitHub Identity Provider Groups (or empty []).  Each `group` block consists of the fields documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TeamSyncGroupMappingGroupArgs']]]] groups: An Array of GitHub Identity Provider Groups (or empty []).  Each `group` block consists of the fields documented below.
                ___
         :param pulumi.Input[str] team_slug: Slug of the team
         """
@@ -97,7 +97,7 @@ class TeamSyncGroupMapping(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def groups(self) -> pulumi.Output[Optional[List['outputs.TeamSyncGroupMappingGroup']]]:
+    def groups(self) -> pulumi.Output[Optional[Sequence['outputs.TeamSyncGroupMappingGroup']]]:
         """
         An Array of GitHub Identity Provider Groups (or empty []).  Each `group` block consists of the fields documented below.
         ___
