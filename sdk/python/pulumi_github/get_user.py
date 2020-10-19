@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from . import _utilities, _tables
 
 __all__ = [
@@ -38,11 +38,11 @@ class GetUserResult:
         if email and not isinstance(email, str):
             raise TypeError("Expected argument 'email' to be a str")
         pulumi.set(__self__, "email", email)
-        if followers and not isinstance(followers, float):
-            raise TypeError("Expected argument 'followers' to be a float")
+        if followers and not isinstance(followers, int):
+            raise TypeError("Expected argument 'followers' to be a int")
         pulumi.set(__self__, "followers", followers)
-        if following and not isinstance(following, float):
-            raise TypeError("Expected argument 'following' to be a float")
+        if following and not isinstance(following, int):
+            raise TypeError("Expected argument 'following' to be a int")
         pulumi.set(__self__, "following", following)
         if gpg_keys and not isinstance(gpg_keys, list):
             raise TypeError("Expected argument 'gpg_keys' to be a list")
@@ -65,11 +65,11 @@ class GetUserResult:
         if node_id and not isinstance(node_id, str):
             raise TypeError("Expected argument 'node_id' to be a str")
         pulumi.set(__self__, "node_id", node_id)
-        if public_gists and not isinstance(public_gists, float):
-            raise TypeError("Expected argument 'public_gists' to be a float")
+        if public_gists and not isinstance(public_gists, int):
+            raise TypeError("Expected argument 'public_gists' to be a int")
         pulumi.set(__self__, "public_gists", public_gists)
-        if public_repos and not isinstance(public_repos, float):
-            raise TypeError("Expected argument 'public_repos' to be a float")
+        if public_repos and not isinstance(public_repos, int):
+            raise TypeError("Expected argument 'public_repos' to be a int")
         pulumi.set(__self__, "public_repos", public_repos)
         if site_admin and not isinstance(site_admin, bool):
             raise TypeError("Expected argument 'site_admin' to be a bool")
@@ -134,7 +134,7 @@ class GetUserResult:
 
     @property
     @pulumi.getter
-    def followers(self) -> float:
+    def followers(self) -> int:
         """
         the number of followers.
         """
@@ -142,7 +142,7 @@ class GetUserResult:
 
     @property
     @pulumi.getter
-    def following(self) -> float:
+    def following(self) -> int:
         """
         the number of following users.
         """
@@ -150,7 +150,7 @@ class GetUserResult:
 
     @property
     @pulumi.getter(name="gpgKeys")
-    def gpg_keys(self) -> List[str]:
+    def gpg_keys(self) -> Sequence[str]:
         """
         list of user's GPG keys.
         """
@@ -203,7 +203,7 @@ class GetUserResult:
 
     @property
     @pulumi.getter(name="publicGists")
-    def public_gists(self) -> float:
+    def public_gists(self) -> int:
         """
         the number of public gists.
         """
@@ -211,7 +211,7 @@ class GetUserResult:
 
     @property
     @pulumi.getter(name="publicRepos")
-    def public_repos(self) -> float:
+    def public_repos(self) -> int:
         """
         the number of public repositories.
         """
@@ -227,7 +227,7 @@ class GetUserResult:
 
     @property
     @pulumi.getter(name="sshKeys")
-    def ssh_keys(self) -> List[str]:
+    def ssh_keys(self) -> Sequence[str]:
         """
         list of user's SSH keys.
         """

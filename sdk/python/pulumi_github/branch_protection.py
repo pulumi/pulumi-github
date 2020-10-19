@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from . import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -19,11 +19,11 @@ class BranchProtection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  enforce_admins: Optional[pulumi.Input[bool]] = None,
                  pattern: Optional[pulumi.Input[str]] = None,
-                 push_restrictions: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 push_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  repository_id: Optional[pulumi.Input[str]] = None,
                  require_signed_commits: Optional[pulumi.Input[bool]] = None,
-                 required_pull_request_reviews: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['BranchProtectionRequiredPullRequestReviewArgs']]]]] = None,
-                 required_status_checks: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['BranchProtectionRequiredStatusCheckArgs']]]]] = None,
+                 required_pull_request_reviews: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BranchProtectionRequiredPullRequestReviewArgs']]]]] = None,
+                 required_status_checks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BranchProtectionRequiredStatusCheckArgs']]]]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -36,11 +36,11 @@ class BranchProtection(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] enforce_admins: Boolean, setting this to `true` enforces status checks for repository administrators.
         :param pulumi.Input[str] pattern: Identifies the protection rule pattern.
-        :param pulumi.Input[List[pulumi.Input[str]]] push_restrictions: The list of actor IDs that may push to the branch.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] push_restrictions: The list of actor IDs that may push to the branch.
         :param pulumi.Input[str] repository_id: The repository associated with this branch protection rule.
         :param pulumi.Input[bool] require_signed_commits: Boolean, setting this to `true` requires all commits to be signed with GPG.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['BranchProtectionRequiredPullRequestReviewArgs']]]] required_pull_request_reviews: Enforce restrictions for pull request reviews. See Required Pull Request Reviews below for details.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['BranchProtectionRequiredStatusCheckArgs']]]] required_status_checks: Enforce restrictions for required status checks. See Required Status Checks below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BranchProtectionRequiredPullRequestReviewArgs']]]] required_pull_request_reviews: Enforce restrictions for pull request reviews. See Required Pull Request Reviews below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BranchProtectionRequiredStatusCheckArgs']]]] required_status_checks: Enforce restrictions for required status checks. See Required Status Checks below for details.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -82,11 +82,11 @@ class BranchProtection(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             enforce_admins: Optional[pulumi.Input[bool]] = None,
             pattern: Optional[pulumi.Input[str]] = None,
-            push_restrictions: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            push_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             repository_id: Optional[pulumi.Input[str]] = None,
             require_signed_commits: Optional[pulumi.Input[bool]] = None,
-            required_pull_request_reviews: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['BranchProtectionRequiredPullRequestReviewArgs']]]]] = None,
-            required_status_checks: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['BranchProtectionRequiredStatusCheckArgs']]]]] = None) -> 'BranchProtection':
+            required_pull_request_reviews: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BranchProtectionRequiredPullRequestReviewArgs']]]]] = None,
+            required_status_checks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BranchProtectionRequiredStatusCheckArgs']]]]] = None) -> 'BranchProtection':
         """
         Get an existing BranchProtection resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -96,11 +96,11 @@ class BranchProtection(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] enforce_admins: Boolean, setting this to `true` enforces status checks for repository administrators.
         :param pulumi.Input[str] pattern: Identifies the protection rule pattern.
-        :param pulumi.Input[List[pulumi.Input[str]]] push_restrictions: The list of actor IDs that may push to the branch.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] push_restrictions: The list of actor IDs that may push to the branch.
         :param pulumi.Input[str] repository_id: The repository associated with this branch protection rule.
         :param pulumi.Input[bool] require_signed_commits: Boolean, setting this to `true` requires all commits to be signed with GPG.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['BranchProtectionRequiredPullRequestReviewArgs']]]] required_pull_request_reviews: Enforce restrictions for pull request reviews. See Required Pull Request Reviews below for details.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['BranchProtectionRequiredStatusCheckArgs']]]] required_status_checks: Enforce restrictions for required status checks. See Required Status Checks below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BranchProtectionRequiredPullRequestReviewArgs']]]] required_pull_request_reviews: Enforce restrictions for pull request reviews. See Required Pull Request Reviews below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BranchProtectionRequiredStatusCheckArgs']]]] required_status_checks: Enforce restrictions for required status checks. See Required Status Checks below for details.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -133,7 +133,7 @@ class BranchProtection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="pushRestrictions")
-    def push_restrictions(self) -> pulumi.Output[Optional[List[str]]]:
+    def push_restrictions(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         The list of actor IDs that may push to the branch.
         """
@@ -157,7 +157,7 @@ class BranchProtection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="requiredPullRequestReviews")
-    def required_pull_request_reviews(self) -> pulumi.Output[Optional[List['outputs.BranchProtectionRequiredPullRequestReview']]]:
+    def required_pull_request_reviews(self) -> pulumi.Output[Optional[Sequence['outputs.BranchProtectionRequiredPullRequestReview']]]:
         """
         Enforce restrictions for pull request reviews. See Required Pull Request Reviews below for details.
         """
@@ -165,7 +165,7 @@ class BranchProtection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="requiredStatusChecks")
-    def required_status_checks(self) -> pulumi.Output[Optional[List['outputs.BranchProtectionRequiredStatusCheck']]]:
+    def required_status_checks(self) -> pulumi.Output[Optional[Sequence['outputs.BranchProtectionRequiredStatusCheck']]]:
         """
         Enforce restrictions for required status checks. See Required Status Checks below for details.
         """

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from . import _utilities, _tables
 
 __all__ = [
@@ -50,8 +50,8 @@ class GetReleaseResult:
         if published_at and not isinstance(published_at, str):
             raise TypeError("Expected argument 'published_at' to be a str")
         pulumi.set(__self__, "published_at", published_at)
-        if release_id and not isinstance(release_id, float):
-            raise TypeError("Expected argument 'release_id' to be a float")
+        if release_id and not isinstance(release_id, int):
+            raise TypeError("Expected argument 'release_id' to be a int")
         pulumi.set(__self__, "release_id", release_id)
         if release_tag and not isinstance(release_tag, str):
             raise TypeError("Expected argument 'release_tag' to be a str")
@@ -157,7 +157,7 @@ class GetReleaseResult:
 
     @property
     @pulumi.getter(name="releaseId")
-    def release_id(self) -> Optional[float]:
+    def release_id(self) -> Optional[int]:
         """
         ID of release
         """
@@ -250,7 +250,7 @@ class AwaitableGetReleaseResult(GetReleaseResult):
 
 
 def get_release(owner: Optional[str] = None,
-                release_id: Optional[float] = None,
+                release_id: Optional[int] = None,
                 release_tag: Optional[str] = None,
                 repository: Optional[str] = None,
                 retrieve_by: Optional[str] = None,
@@ -297,7 +297,7 @@ def get_release(owner: Optional[str] = None,
 
 
     :param str owner: Owner of the repository.
-    :param float release_id: ID of the release to retrieve. Must be specified when `retrieve_by` = `id`.
+    :param int release_id: ID of the release to retrieve. Must be specified when `retrieve_by` = `id`.
     :param str release_tag: Tag of the release to retrieve. Must be specified when `retrieve_by` = `tag`.
     :param str repository: Name of the repository to retrieve the release from.
     :param str retrieve_by: Describes how to fetch the release. Valid values are `id`, `tag`, `latest`.

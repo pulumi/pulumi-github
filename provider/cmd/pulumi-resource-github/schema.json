@@ -53,7 +53,7 @@
         }
     },
     "types": {
-        "github:/BranchProtectionRequiredPullRequestReview:BranchProtectionRequiredPullRequestReview": {
+        "github:index/BranchProtectionRequiredPullRequestReview:BranchProtectionRequiredPullRequestReview": {
             "properties": {
                 "dismissStaleReviews": {
                     "type": "boolean",
@@ -93,7 +93,7 @@
             },
             "type": "object"
         },
-        "github:/BranchProtectionRequiredStatusCheck:BranchProtectionRequiredStatusCheck": {
+        "github:index/BranchProtectionRequiredStatusCheck:BranchProtectionRequiredStatusCheck": {
             "properties": {
                 "contexts": {
                     "type": "array",
@@ -117,7 +117,7 @@
             },
             "type": "object"
         },
-        "github:/OrganizationWebhookConfiguration:OrganizationWebhookConfiguration": {
+        "github:index/OrganizationWebhookConfiguration:OrganizationWebhookConfiguration": {
             "properties": {
                 "contentType": {
                     "type": "string",
@@ -158,7 +158,7 @@
                 "url"
             ]
         },
-        "github:/RepositoryTemplate:RepositoryTemplate": {
+        "github:index/RepositoryTemplate:RepositoryTemplate": {
             "properties": {
                 "owner": {
                     "type": "string",
@@ -183,7 +183,7 @@
                 "repository"
             ]
         },
-        "github:/RepositoryWebhookConfiguration:RepositoryWebhookConfiguration": {
+        "github:index/RepositoryWebhookConfiguration:RepositoryWebhookConfiguration": {
             "properties": {
                 "contentType": {
                     "type": "string",
@@ -224,7 +224,7 @@
                 "url"
             ]
         },
-        "github:/TeamSyncGroupMappingGroup:TeamSyncGroupMappingGroup": {
+        "github:index/TeamSyncGroupMappingGroup:TeamSyncGroupMappingGroup": {
             "properties": {
                 "groupDescription": {
                     "type": "string",
@@ -261,7 +261,7 @@
                 "groupName"
             ]
         },
-        "github:/getCollaboratorsCollaborator:getCollaboratorsCollaborator": {
+        "github:index/getCollaboratorsCollaborator:getCollaboratorsCollaborator": {
             "properties": {
                 "eventsUrl": {
                     "type": "string",
@@ -433,7 +433,7 @@
                 }
             }
         },
-        "github:/getOrganizationTeamSyncGroupsGroup:getOrganizationTeamSyncGroupsGroup": {
+        "github:index/getOrganizationTeamSyncGroupsGroup:getOrganizationTeamSyncGroupsGroup": {
             "properties": {
                 "groupDescription": {
                     "type": "string",
@@ -735,14 +735,14 @@
                 "requiredPullRequestReviews": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/types/github:/BranchProtectionRequiredPullRequestReview:BranchProtectionRequiredPullRequestReview"
+                        "$ref": "#/types/github:index/BranchProtectionRequiredPullRequestReview:BranchProtectionRequiredPullRequestReview"
                     },
                     "description": "Enforce restrictions for pull request reviews. See Required Pull Request Reviews below for details.\n"
                 },
                 "requiredStatusChecks": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/types/github:/BranchProtectionRequiredStatusCheck:BranchProtectionRequiredStatusCheck"
+                        "$ref": "#/types/github:index/BranchProtectionRequiredStatusCheck:BranchProtectionRequiredStatusCheck"
                     },
                     "description": "Enforce restrictions for required status checks. See Required Status Checks below for details.\n"
                 }
@@ -778,14 +778,14 @@
                 "requiredPullRequestReviews": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/types/github:/BranchProtectionRequiredPullRequestReview:BranchProtectionRequiredPullRequestReview"
+                        "$ref": "#/types/github:index/BranchProtectionRequiredPullRequestReview:BranchProtectionRequiredPullRequestReview"
                     },
                     "description": "Enforce restrictions for pull request reviews. See Required Pull Request Reviews below for details.\n"
                 },
                 "requiredStatusChecks": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/types/github:/BranchProtectionRequiredStatusCheck:BranchProtectionRequiredStatusCheck"
+                        "$ref": "#/types/github:index/BranchProtectionRequiredStatusCheck:BranchProtectionRequiredStatusCheck"
                     },
                     "description": "Enforce restrictions for required status checks. See Required Status Checks below for details.\n"
                 }
@@ -823,14 +823,14 @@
                     "requiredPullRequestReviews": {
                         "type": "array",
                         "items": {
-                            "$ref": "#/types/github:/BranchProtectionRequiredPullRequestReview:BranchProtectionRequiredPullRequestReview"
+                            "$ref": "#/types/github:index/BranchProtectionRequiredPullRequestReview:BranchProtectionRequiredPullRequestReview"
                         },
                         "description": "Enforce restrictions for pull request reviews. See Required Pull Request Reviews below for details.\n"
                     },
                     "requiredStatusChecks": {
                         "type": "array",
                         "items": {
-                            "$ref": "#/types/github:/BranchProtectionRequiredStatusCheck:BranchProtectionRequiredStatusCheck"
+                            "$ref": "#/types/github:index/BranchProtectionRequiredStatusCheck:BranchProtectionRequiredStatusCheck"
                         },
                         "description": "Enforce restrictions for required status checks. See Required Status Checks below for details.\n"
                     }
@@ -1075,7 +1075,7 @@
                     "description": "Indicate of the webhook should receive events. Defaults to `true`.\n"
                 },
                 "configuration": {
-                    "$ref": "#/types/github:/OrganizationWebhookConfiguration:OrganizationWebhookConfiguration",
+                    "$ref": "#/types/github:index/OrganizationWebhookConfiguration:OrganizationWebhookConfiguration",
                     "description": "key/value pair of configuration for this webhook. Available keys are `url`, `content_type`, `secret` and `insecure_ssl`.\n"
                 },
                 "etag": {
@@ -1104,7 +1104,7 @@
                     "description": "Indicate of the webhook should receive events. Defaults to `true`.\n"
                 },
                 "configuration": {
-                    "$ref": "#/types/github:/OrganizationWebhookConfiguration:OrganizationWebhookConfiguration",
+                    "$ref": "#/types/github:index/OrganizationWebhookConfiguration:OrganizationWebhookConfiguration",
                     "description": "key/value pair of configuration for this webhook. Available keys are `url`, `content_type`, `secret` and `insecure_ssl`.\n"
                 },
                 "events": {
@@ -1126,7 +1126,7 @@
                         "description": "Indicate of the webhook should receive events. Defaults to `true`.\n"
                     },
                     "configuration": {
-                        "$ref": "#/types/github:/OrganizationWebhookConfiguration:OrganizationWebhookConfiguration",
+                        "$ref": "#/types/github:index/OrganizationWebhookConfiguration:OrganizationWebhookConfiguration",
                         "description": "key/value pair of configuration for this webhook. Available keys are `url`, `content_type`, `secret` and `insecure_ssl`.\n"
                     },
                     "etag": {
@@ -1309,7 +1309,7 @@
                     "description": "URL that can be provided to `svn checkout` to check out the repository via GitHub's Subversion protocol emulation.\n"
                 },
                 "template": {
-                    "$ref": "#/types/github:/RepositoryTemplate:RepositoryTemplate",
+                    "$ref": "#/types/github:index/RepositoryTemplate:RepositoryTemplate",
                     "description": "Use a template repository to create this resource. See Template Repositories below for details.\n"
                 },
                 "topics": {
@@ -1421,7 +1421,7 @@
                     "deprecationMessage": "use visibility instead"
                 },
                 "template": {
-                    "$ref": "#/types/github:/RepositoryTemplate:RepositoryTemplate",
+                    "$ref": "#/types/github:index/RepositoryTemplate:RepositoryTemplate",
                     "description": "Use a template repository to create this resource. See Template Repositories below for details.\n"
                 },
                 "topics": {
@@ -1551,7 +1551,7 @@
                         "description": "URL that can be provided to `svn checkout` to check out the repository via GitHub's Subversion protocol emulation.\n"
                     },
                     "template": {
-                        "$ref": "#/types/github:/RepositoryTemplate:RepositoryTemplate",
+                        "$ref": "#/types/github:index/RepositoryTemplate:RepositoryTemplate",
                         "description": "Use a template repository to create this resource. See Template Repositories below for details.\n"
                     },
                     "topics": {
@@ -1928,7 +1928,7 @@
                     "description": "Indicate of the webhook should receive events. Defaults to `true`.\n"
                 },
                 "configuration": {
-                    "$ref": "#/types/github:/RepositoryWebhookConfiguration:RepositoryWebhookConfiguration",
+                    "$ref": "#/types/github:index/RepositoryWebhookConfiguration:RepositoryWebhookConfiguration",
                     "description": "key/value pair of configuration for this webhook. Available keys are `url`, `content_type`, `secret` and `insecure_ssl`. `secret` is [the shared secret, see API documentation](https://developer.github.com/v3/repos/hooks/#create-a-hook).\n"
                 },
                 "etag": {
@@ -1962,7 +1962,7 @@
                     "description": "Indicate of the webhook should receive events. Defaults to `true`.\n"
                 },
                 "configuration": {
-                    "$ref": "#/types/github:/RepositoryWebhookConfiguration:RepositoryWebhookConfiguration",
+                    "$ref": "#/types/github:index/RepositoryWebhookConfiguration:RepositoryWebhookConfiguration",
                     "description": "key/value pair of configuration for this webhook. Available keys are `url`, `content_type`, `secret` and `insecure_ssl`. `secret` is [the shared secret, see API documentation](https://developer.github.com/v3/repos/hooks/#create-a-hook).\n"
                 },
                 "events": {
@@ -1989,7 +1989,7 @@
                         "description": "Indicate of the webhook should receive events. Defaults to `true`.\n"
                     },
                     "configuration": {
-                        "$ref": "#/types/github:/RepositoryWebhookConfiguration:RepositoryWebhookConfiguration",
+                        "$ref": "#/types/github:index/RepositoryWebhookConfiguration:RepositoryWebhookConfiguration",
                         "description": "key/value pair of configuration for this webhook. Available keys are `url`, `content_type`, `secret` and `insecure_ssl`. `secret` is [the shared secret, see API documentation](https://developer.github.com/v3/repos/hooks/#create-a-hook).\n"
                     },
                     "etag": {
@@ -2250,7 +2250,7 @@
                 "groups": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/types/github:/TeamSyncGroupMappingGroup:TeamSyncGroupMappingGroup"
+                        "$ref": "#/types/github:index/TeamSyncGroupMappingGroup:TeamSyncGroupMappingGroup"
                     },
                     "description": "An Array of GitHub Identity Provider Groups (or empty []).  Each `group` block consists of the fields documented below.\n___\n"
                 },
@@ -2267,7 +2267,7 @@
                 "groups": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/types/github:/TeamSyncGroupMappingGroup:TeamSyncGroupMappingGroup"
+                        "$ref": "#/types/github:index/TeamSyncGroupMappingGroup:TeamSyncGroupMappingGroup"
                     },
                     "description": "An Array of GitHub Identity Provider Groups (or empty []).  Each `group` block consists of the fields documented below.\n___\n"
                 },
@@ -2288,7 +2288,7 @@
                     "groups": {
                         "type": "array",
                         "items": {
-                            "$ref": "#/types/github:/TeamSyncGroupMappingGroup:TeamSyncGroupMappingGroup"
+                            "$ref": "#/types/github:index/TeamSyncGroupMappingGroup:TeamSyncGroupMappingGroup"
                         },
                         "description": "An Array of GitHub Identity Provider Groups (or empty []).  Each `group` block consists of the fields documented below.\n___\n"
                     },
@@ -2574,7 +2574,7 @@
                     "collaborators": {
                         "type": "array",
                         "items": {
-                            "$ref": "#/types/github:/getCollaboratorsCollaborator:getCollaboratorsCollaborator"
+                            "$ref": "#/types/github:index/getCollaboratorsCollaborator:getCollaboratorsCollaborator"
                         },
                         "description": "An Array of GitHub collaborators.  Each `collaborator` block consists of the fields documented below.\n"
                     },
@@ -2754,7 +2754,7 @@
                     "groups": {
                         "type": "array",
                         "items": {
-                            "$ref": "#/types/github:/getOrganizationTeamSyncGroupsGroup:getOrganizationTeamSyncGroupsGroup"
+                            "$ref": "#/types/github:index/getOrganizationTeamSyncGroupsGroup:getOrganizationTeamSyncGroupsGroup"
                         },
                         "description": "An Array of GitHub Identity Provider Groups.  Each `group` block consists of the fields documented below.\n"
                     },

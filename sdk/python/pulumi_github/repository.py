@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from . import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -37,7 +37,7 @@ class Repository(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  private: Optional[pulumi.Input[bool]] = None,
                  template: Optional[pulumi.Input[pulumi.InputType['RepositoryTemplateArgs']]] = None,
-                 topics: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 topics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  visibility: Optional[pulumi.Input[str]] = None,
                  vulnerability_alerts: Optional[pulumi.Input[bool]] = None,
                  __props__=None,
@@ -89,7 +89,7 @@ class Repository(pulumi.CustomResource):
         :param pulumi.Input[bool] private: Set to `true` to create a private repository.
                Repositories are created as public (e.g. open source) by default.
         :param pulumi.Input[pulumi.InputType['RepositoryTemplateArgs']] template: Use a template repository to create this resource. See Template Repositories below for details.
-        :param pulumi.Input[List[pulumi.Input[str]]] topics: The list of topics of the repository.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] topics: The list of topics of the repository.
         :param pulumi.Input[str] visibility: Can be `public` or `private`. If your organization is associated with an enterprise account using GitHub Enterprise Cloud or GitHub Enterprise Server 2.20+, visibility can also be `internal`. The `visibility` parameter overrides the `private` parameter.
         :param pulumi.Input[bool] vulnerability_alerts: Set to `true` to enable security alerts for vulnerable dependencies. Enabling requires alerts to be enabled on the owner level. (Note for importing: GitHub enables the alerts on public repos but disables them on private repos by default.) See [GitHub Documentation](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for details.
         """
@@ -182,7 +182,7 @@ class Repository(pulumi.CustomResource):
             ssh_clone_url: Optional[pulumi.Input[str]] = None,
             svn_url: Optional[pulumi.Input[str]] = None,
             template: Optional[pulumi.Input[pulumi.InputType['RepositoryTemplateArgs']]] = None,
-            topics: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            topics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             visibility: Optional[pulumi.Input[str]] = None,
             vulnerability_alerts: Optional[pulumi.Input[bool]] = None) -> 'Repository':
         """
@@ -223,7 +223,7 @@ class Repository(pulumi.CustomResource):
         :param pulumi.Input[str] ssh_clone_url: URL that can be provided to `git clone` to clone the repository via SSH.
         :param pulumi.Input[str] svn_url: URL that can be provided to `svn checkout` to check out the repository via GitHub's Subversion protocol emulation.
         :param pulumi.Input[pulumi.InputType['RepositoryTemplateArgs']] template: Use a template repository to create this resource. See Template Repositories below for details.
-        :param pulumi.Input[List[pulumi.Input[str]]] topics: The list of topics of the repository.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] topics: The list of topics of the repository.
         :param pulumi.Input[str] visibility: Can be `public` or `private`. If your organization is associated with an enterprise account using GitHub Enterprise Cloud or GitHub Enterprise Server 2.20+, visibility can also be `internal`. The `visibility` parameter overrides the `private` parameter.
         :param pulumi.Input[bool] vulnerability_alerts: Set to `true` to enable security alerts for vulnerable dependencies. Enabling requires alerts to be enabled on the owner level. (Note for importing: GitHub enables the alerts on public repos but disables them on private repos by default.) See [GitHub Documentation](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for details.
         """
@@ -489,7 +489,7 @@ class Repository(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def topics(self) -> pulumi.Output[Optional[List[str]]]:
+    def topics(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         The list of topics of the repository.
         """

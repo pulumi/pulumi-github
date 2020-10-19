@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from . import _utilities, _tables
 
 __all__ = [
@@ -63,7 +63,7 @@ class GetTeamResult:
 
     @property
     @pulumi.getter
-    def members(self) -> List[str]:
+    def members(self) -> Sequence[str]:
         """
         List of team members
         """

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from . import _utilities, _tables
 
 __all__ = [
@@ -251,7 +251,7 @@ class GetRepositoryResult:
 
     @property
     @pulumi.getter
-    def topics(self) -> List[str]:
+    def topics(self) -> Sequence[str]:
         """
         The list of topics of the repository.
         """
