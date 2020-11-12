@@ -35,7 +35,7 @@ namespace Pulumi.Github
         public Output<ImmutableArray<string>> PushRestrictions { get; private set; } = null!;
 
         /// <summary>
-        /// The repository associated with this branch protection rule.
+        /// The name or node ID of the repository associated with this branch protection rule.
         /// </summary>
         [Output("repositoryId")]
         public Output<string> RepositoryId { get; private set; } = null!;
@@ -129,7 +129,7 @@ namespace Pulumi.Github
         }
 
         /// <summary>
-        /// The repository associated with this branch protection rule.
+        /// The name or node ID of the repository associated with this branch protection rule.
         /// </summary>
         [Input("repositoryId", required: true)]
         public Input<string> RepositoryId { get; set; } = null!;
@@ -196,7 +196,7 @@ namespace Pulumi.Github
         }
 
         /// <summary>
-        /// The repository associated with this branch protection rule.
+        /// The name or node ID of the repository associated with this branch protection rule.
         /// </summary>
         [Input("repositoryId")]
         public Input<string>? RepositoryId { get; set; }

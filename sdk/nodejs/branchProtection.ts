@@ -52,7 +52,7 @@ export class BranchProtection extends pulumi.CustomResource {
      */
     public readonly pushRestrictions!: pulumi.Output<string[] | undefined>;
     /**
-     * The repository associated with this branch protection rule.
+     * The name or node ID of the repository associated with this branch protection rule.
      */
     public readonly repositoryId!: pulumi.Output<string>;
     /**
@@ -131,7 +131,7 @@ export interface BranchProtectionState {
      */
     readonly pushRestrictions?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The repository associated with this branch protection rule.
+     * The name or node ID of the repository associated with this branch protection rule.
      */
     readonly repositoryId?: pulumi.Input<string>;
     /**
@@ -165,7 +165,7 @@ export interface BranchProtectionArgs {
      */
     readonly pushRestrictions?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The repository associated with this branch protection rule.
+     * The name or node ID of the repository associated with this branch protection rule.
      */
     readonly repositoryId: pulumi.Input<string>;
     /**

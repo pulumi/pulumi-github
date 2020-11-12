@@ -147,6 +147,9 @@ export class Repository extends pulumi.CustomResource {
      * The name of the repository.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * the Node ID of the Repository.
+     */
     public /*out*/ readonly nodeId!: pulumi.Output<string>;
     /**
      * Set to `true` to create a private repository.
@@ -365,6 +368,9 @@ export interface RepositoryState {
      * The name of the repository.
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * the Node ID of the Repository.
+     */
     readonly nodeId?: pulumi.Input<string>;
     /**
      * Set to `true` to create a private repository.

@@ -22,7 +22,7 @@ namespace Pulumi.Github.Inputs
         public Input<string>? Secret { get; set; }
 
         /// <summary>
-        /// URL of the webhook
+        /// URL of the webhook.  This is a sensitive attribute because it may include basic auth credentials.
         /// </summary>
         [Input("url", required: true)]
         public Input<string> Url { get; set; } = null!;

@@ -110,7 +110,7 @@ class RepositoryWebhook(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['RepositoryWebhookConfigurationArgs']] configuration: key/value pair of configuration for this webhook. Available keys are `url`, `content_type`, `secret` and `insecure_ssl`. `secret` is [the shared secret, see API documentation](https://developer.github.com/v3/repos/hooks/#create-a-hook).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] events: A list of events which should trigger the webhook. See a list of [available events](https://developer.github.com/v3/activity/events/types/).
         :param pulumi.Input[str] repository: The repository of the webhook.
-        :param pulumi.Input[str] url: URL of the webhook
+        :param pulumi.Input[str] url: URL of the webhook.  This is a sensitive attribute because it may include basic auth credentials.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -165,7 +165,7 @@ class RepositoryWebhook(pulumi.CustomResource):
     @pulumi.getter
     def url(self) -> pulumi.Output[str]:
         """
-        URL of the webhook
+        URL of the webhook.  This is a sensitive attribute because it may include basic auth credentials.
         """
         return pulumi.get(self, "url")
 

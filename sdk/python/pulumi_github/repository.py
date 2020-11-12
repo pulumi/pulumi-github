@@ -218,6 +218,7 @@ class Repository(pulumi.CustomResource):
         :param pulumi.Input[bool] is_template: Set to `true` to tell GitHub that this is a template repository.
         :param pulumi.Input[str] license_template: Use the [name of the template](https://github.com/github/choosealicense.com/tree/gh-pages/_licenses) without the extension. For example, "mit" or "mpl-2.0".
         :param pulumi.Input[str] name: The name of the repository.
+        :param pulumi.Input[str] node_id: the Node ID of the Repository.
         :param pulumi.Input[bool] private: Set to `true` to create a private repository.
                Repositories are created as public (e.g. open source) by default.
         :param pulumi.Input[str] ssh_clone_url: URL that can be provided to `git clone` to clone the repository via SSH.
@@ -452,6 +453,9 @@ class Repository(pulumi.CustomResource):
     @property
     @pulumi.getter(name="nodeId")
     def node_id(self) -> pulumi.Output[str]:
+        """
+        the Node ID of the Repository.
+        """
         return pulumi.get(self, "node_id")
 
     @property

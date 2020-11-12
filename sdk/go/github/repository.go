@@ -90,7 +90,8 @@ type Repository struct {
 	// Use the [name of the template](https://github.com/github/choosealicense.com/tree/gh-pages/_licenses) without the extension. For example, "mit" or "mpl-2.0".
 	LicenseTemplate pulumi.StringPtrOutput `pulumi:"licenseTemplate"`
 	// The name of the repository.
-	Name   pulumi.StringOutput `pulumi:"name"`
+	Name pulumi.StringOutput `pulumi:"name"`
+	// the Node ID of the Repository.
 	NodeId pulumi.StringOutput `pulumi:"nodeId"`
 	// Set to `true` to create a private repository.
 	// Repositories are created as public (e.g. open source) by default.
@@ -187,7 +188,8 @@ type repositoryState struct {
 	// Use the [name of the template](https://github.com/github/choosealicense.com/tree/gh-pages/_licenses) without the extension. For example, "mit" or "mpl-2.0".
 	LicenseTemplate *string `pulumi:"licenseTemplate"`
 	// The name of the repository.
-	Name   *string `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// the Node ID of the Repository.
 	NodeId *string `pulumi:"nodeId"`
 	// Set to `true` to create a private repository.
 	// Repositories are created as public (e.g. open source) by default.
@@ -257,7 +259,8 @@ type RepositoryState struct {
 	// Use the [name of the template](https://github.com/github/choosealicense.com/tree/gh-pages/_licenses) without the extension. For example, "mit" or "mpl-2.0".
 	LicenseTemplate pulumi.StringPtrInput
 	// The name of the repository.
-	Name   pulumi.StringPtrInput
+	Name pulumi.StringPtrInput
+	// the Node ID of the Repository.
 	NodeId pulumi.StringPtrInput
 	// Set to `true` to create a private repository.
 	// Repositories are created as public (e.g. open source) by default.

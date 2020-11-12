@@ -27,6 +27,13 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
+// 		current, err := github.GetUser(ctx, &github.GetUserArgs{
+// 			Username: "",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		ctx.Export("currentGithubLogin", current.Login)
 // 		return nil
 // 	})
 // }
@@ -42,7 +49,7 @@ func GetUser(ctx *pulumi.Context, args *GetUserArgs, opts ...pulumi.InvokeOption
 
 // A collection of arguments for invoking getUser.
 type GetUserArgs struct {
-	// The username.
+	// The username. Use an empty string `""` to retrieve information about the currently authenticated user.
 	Username string `pulumi:"username"`
 }
 
@@ -75,7 +82,8 @@ type GetUserResult struct {
 	// the user's login.
 	Login string `pulumi:"login"`
 	// the user's full name.
-	Name   string `pulumi:"name"`
+	Name string `pulumi:"name"`
+	// the Node ID of the user.
 	NodeId string `pulumi:"nodeId"`
 	// the number of public gists.
 	PublicGists int `pulumi:"publicGists"`

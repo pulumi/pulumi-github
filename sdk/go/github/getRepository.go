@@ -81,9 +81,10 @@ type LookupRepositoryResult struct {
 	// URL that can be provided to `git clone` to clone the repository via HTTPS.
 	HttpCloneUrl string `pulumi:"httpCloneUrl"`
 	// The provider-assigned unique ID for this managed resource.
-	Id     string  `pulumi:"id"`
-	Name   *string `pulumi:"name"`
-	NodeId string  `pulumi:"nodeId"`
+	Id   string  `pulumi:"id"`
+	Name *string `pulumi:"name"`
+	// the Node ID of the repository.
+	NodeId string `pulumi:"nodeId"`
 	// Whether the repository is private.
 	Private bool `pulumi:"private"`
 	// URL that can be provided to `git clone` to clone the repository via SSH.

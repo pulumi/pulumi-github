@@ -22,7 +22,7 @@ type BranchProtection struct {
 	Pattern pulumi.StringOutput `pulumi:"pattern"`
 	// The list of actor IDs that may push to the branch.
 	PushRestrictions pulumi.StringArrayOutput `pulumi:"pushRestrictions"`
-	// The repository associated with this branch protection rule.
+	// The name or node ID of the repository associated with this branch protection rule.
 	RepositoryId pulumi.StringOutput `pulumi:"repositoryId"`
 	// Boolean, setting this to `true` requires all commits to be signed with GPG.
 	RequireSignedCommits pulumi.BoolPtrOutput `pulumi:"requireSignedCommits"`
@@ -72,7 +72,7 @@ type branchProtectionState struct {
 	Pattern *string `pulumi:"pattern"`
 	// The list of actor IDs that may push to the branch.
 	PushRestrictions []string `pulumi:"pushRestrictions"`
-	// The repository associated with this branch protection rule.
+	// The name or node ID of the repository associated with this branch protection rule.
 	RepositoryId *string `pulumi:"repositoryId"`
 	// Boolean, setting this to `true` requires all commits to be signed with GPG.
 	RequireSignedCommits *bool `pulumi:"requireSignedCommits"`
@@ -89,7 +89,7 @@ type BranchProtectionState struct {
 	Pattern pulumi.StringPtrInput
 	// The list of actor IDs that may push to the branch.
 	PushRestrictions pulumi.StringArrayInput
-	// The repository associated with this branch protection rule.
+	// The name or node ID of the repository associated with this branch protection rule.
 	RepositoryId pulumi.StringPtrInput
 	// Boolean, setting this to `true` requires all commits to be signed with GPG.
 	RequireSignedCommits pulumi.BoolPtrInput
@@ -110,7 +110,7 @@ type branchProtectionArgs struct {
 	Pattern string `pulumi:"pattern"`
 	// The list of actor IDs that may push to the branch.
 	PushRestrictions []string `pulumi:"pushRestrictions"`
-	// The repository associated with this branch protection rule.
+	// The name or node ID of the repository associated with this branch protection rule.
 	RepositoryId string `pulumi:"repositoryId"`
 	// Boolean, setting this to `true` requires all commits to be signed with GPG.
 	RequireSignedCommits *bool `pulumi:"requireSignedCommits"`
@@ -128,7 +128,7 @@ type BranchProtectionArgs struct {
 	Pattern pulumi.StringInput
 	// The list of actor IDs that may push to the branch.
 	PushRestrictions pulumi.StringArrayInput
-	// The repository associated with this branch protection rule.
+	// The name or node ID of the repository associated with this branch protection rule.
 	RepositoryId pulumi.StringInput
 	// Boolean, setting this to `true` requires all commits to be signed with GPG.
 	RequireSignedCommits pulumi.BoolPtrInput

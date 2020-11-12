@@ -115,6 +115,9 @@ export interface GetRepositoryResult {
      */
     readonly id: string;
     readonly name?: string;
+    /**
+     * the Node ID of the repository.
+     */
     readonly nodeId: string;
     /**
      * Whether the repository is private.

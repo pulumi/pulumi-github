@@ -2,7 +2,9 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-_(none)_
+* Upgrade to v4.0.0 of the GitHub Terraform Provider
+  **Please Note there is a breaking change to the provider:**
+  * `github.branchProtection` `branch` has now been replaced by `pattern`
 
 ---
 

@@ -64,6 +64,9 @@ export class Team extends pulumi.CustomResource {
      * The name of the team.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * The Node ID of the created team.
+     */
     public /*out*/ readonly nodeId!: pulumi.Output<string>;
     /**
      * The ID of the parent team, if this is a nested team.
@@ -140,6 +143,9 @@ export interface TeamState {
      * The name of the team.
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * The Node ID of the created team.
+     */
     readonly nodeId?: pulumi.Input<string>;
     /**
      * The ID of the parent team, if this is a nested team.

@@ -127,6 +127,9 @@ namespace Pulumi.Github
         /// </summary>
         public readonly string Id;
         public readonly string? Name;
+        /// <summary>
+        /// the Node ID of the repository.
+        /// </summary>
         public readonly string NodeId;
         /// <summary>
         /// Whether the repository is private.

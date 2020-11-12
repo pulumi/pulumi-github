@@ -17,7 +17,7 @@ namespace Pulumi.Github.Outputs
         public readonly bool? InsecureSsl;
         public readonly string? Secret;
         /// <summary>
-        /// URL of the webhook
+        /// URL of the webhook.  This is a sensitive attribute because it may include basic auth credentials.
         /// </summary>
         public readonly string Url;
 

@@ -223,6 +223,9 @@ class GetRepositoryResult:
     @property
     @pulumi.getter(name="nodeId")
     def node_id(self) -> str:
+        """
+        the Node ID of the repository.
+        """
         return pulumi.get(self, "node_id")
 
     @property

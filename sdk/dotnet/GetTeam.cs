@@ -75,6 +75,9 @@ namespace Pulumi.Github
         /// the team's full name.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// the Node ID of the team.
+        /// </summary>
         public readonly string NodeId;
         /// <summary>
         /// the team's permission level.
