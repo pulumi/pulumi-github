@@ -30,8 +30,15 @@ namespace Pulumi.Github
         ///         {
         ///             Username = "example",
         ///         }));
+        ///         var current = Output.Create(Github.GetUser.InvokeAsync(new Github.GetUserArgs
+        ///         {
+        ///             Username = "",
+        ///         }));
+        ///         this.CurrentGithubLogin = current.Apply(current =&gt; current.Login);
         ///     }
         /// 
+        ///     [Output("currentGithubLogin")]
+        ///     public Output&lt;string&gt; CurrentGithubLogin { get; set; }
         /// }
         /// ```
         /// {{% /example %}}
@@ -45,7 +52,7 @@ namespace Pulumi.Github
     public sealed class GetUserArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The username.
+        /// The username. Use an empty string `""` to retrieve information about the currently authenticated user.
         /// </summary>
         [Input("username", required: true)]
         public string Username { get; set; } = null!;
@@ -115,6 +122,9 @@ namespace Pulumi.Github
         /// the user's full name.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// the Node ID of the user.
+        /// </summary>
         public readonly string NodeId;
         /// <summary>
         /// the number of public gists.

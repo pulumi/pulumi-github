@@ -199,6 +199,9 @@ class GetUserResult:
     @property
     @pulumi.getter(name="nodeId")
     def node_id(self) -> str:
+        """
+        the Node ID of the user.
+        """
         return pulumi.get(self, "node_id")
 
     @property
@@ -288,10 +291,12 @@ def get_user(username: Optional[str] = None,
     import pulumi_github as github
 
     example = github.get_user(username="example")
+    current = github.get_user(username="")
+    pulumi.export("currentGithubLogin", current.login)
     ```
 
 
-    :param str username: The username.
+    :param str username: The username. Use an empty string `""` to retrieve information about the currently authenticated user.
     """
     __args__ = dict()
     __args__['username'] = username

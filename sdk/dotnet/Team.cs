@@ -59,6 +59,9 @@ namespace Pulumi.Github
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The Node ID of the created team.
+        /// </summary>
         [Output("nodeId")]
         public Output<string> NodeId { get; private set; } = null!;
 
@@ -188,6 +191,9 @@ namespace Pulumi.Github
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The Node ID of the created team.
+        /// </summary>
         [Input("nodeId")]
         public Input<string>? NodeId { get; set; }
 

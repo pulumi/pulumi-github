@@ -119,7 +119,7 @@ export interface RepositoryWebhookConfiguration {
     insecureSsl?: boolean;
     secret?: string;
     /**
-     * URL of the webhook
+     * URL of the webhook.  This is a sensitive attribute because it may include basic auth credentials.
      */
     url: string;
 }

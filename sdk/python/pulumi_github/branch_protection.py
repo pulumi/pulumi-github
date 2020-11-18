@@ -37,7 +37,7 @@ class BranchProtection(pulumi.CustomResource):
         :param pulumi.Input[bool] enforce_admins: Boolean, setting this to `true` enforces status checks for repository administrators.
         :param pulumi.Input[str] pattern: Identifies the protection rule pattern.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] push_restrictions: The list of actor IDs that may push to the branch.
-        :param pulumi.Input[str] repository_id: The repository associated with this branch protection rule.
+        :param pulumi.Input[str] repository_id: The name or node ID of the repository associated with this branch protection rule.
         :param pulumi.Input[bool] require_signed_commits: Boolean, setting this to `true` requires all commits to be signed with GPG.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BranchProtectionRequiredPullRequestReviewArgs']]]] required_pull_request_reviews: Enforce restrictions for pull request reviews. See Required Pull Request Reviews below for details.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BranchProtectionRequiredStatusCheckArgs']]]] required_status_checks: Enforce restrictions for required status checks. See Required Status Checks below for details.
@@ -97,7 +97,7 @@ class BranchProtection(pulumi.CustomResource):
         :param pulumi.Input[bool] enforce_admins: Boolean, setting this to `true` enforces status checks for repository administrators.
         :param pulumi.Input[str] pattern: Identifies the protection rule pattern.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] push_restrictions: The list of actor IDs that may push to the branch.
-        :param pulumi.Input[str] repository_id: The repository associated with this branch protection rule.
+        :param pulumi.Input[str] repository_id: The name or node ID of the repository associated with this branch protection rule.
         :param pulumi.Input[bool] require_signed_commits: Boolean, setting this to `true` requires all commits to be signed with GPG.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BranchProtectionRequiredPullRequestReviewArgs']]]] required_pull_request_reviews: Enforce restrictions for pull request reviews. See Required Pull Request Reviews below for details.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BranchProtectionRequiredStatusCheckArgs']]]] required_status_checks: Enforce restrictions for required status checks. See Required Status Checks below for details.
@@ -143,7 +143,7 @@ class BranchProtection(pulumi.CustomResource):
     @pulumi.getter(name="repositoryId")
     def repository_id(self) -> pulumi.Output[str]:
         """
-        The repository associated with this branch protection rule.
+        The name or node ID of the repository associated with this branch protection rule.
         """
         return pulumi.get(self, "repository_id")
 

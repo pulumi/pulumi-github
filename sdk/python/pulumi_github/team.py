@@ -103,6 +103,7 @@ class Team(pulumi.CustomResource):
         :param pulumi.Input[str] description: A description of the team.
         :param pulumi.Input[str] ldap_dn: The LDAP Distinguished Name of the group where membership will be synchronized. Only available in GitHub Enterprise.
         :param pulumi.Input[str] name: The name of the team.
+        :param pulumi.Input[str] node_id: The Node ID of the created team.
         :param pulumi.Input[int] parent_team_id: The ID of the parent team, if this is a nested team.
         :param pulumi.Input[str] privacy: The level of privacy for the team. Must be one of `secret` or `closed`.
                Defaults to `secret`.
@@ -156,6 +157,9 @@ class Team(pulumi.CustomResource):
     @property
     @pulumi.getter(name="nodeId")
     def node_id(self) -> pulumi.Output[str]:
+        """
+        The Node ID of the created team.
+        """
         return pulumi.get(self, "node_id")
 
     @property

@@ -55,7 +55,8 @@ type LookupTeamResult struct {
 	// List of team members
 	Members []string `pulumi:"members"`
 	// the team's full name.
-	Name   string `pulumi:"name"`
+	Name string `pulumi:"name"`
+	// the Node ID of the team.
 	NodeId string `pulumi:"nodeId"`
 	// the team's permission level.
 	Permission string `pulumi:"permission"`

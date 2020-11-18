@@ -46,7 +46,8 @@ type Team struct {
 	// The LDAP Distinguished Name of the group where membership will be synchronized. Only available in GitHub Enterprise.
 	LdapDn pulumi.StringPtrOutput `pulumi:"ldapDn"`
 	// The name of the team.
-	Name   pulumi.StringOutput `pulumi:"name"`
+	Name pulumi.StringOutput `pulumi:"name"`
+	// The Node ID of the created team.
 	NodeId pulumi.StringOutput `pulumi:"nodeId"`
 	// The ID of the parent team, if this is a nested team.
 	ParentTeamId pulumi.IntPtrOutput `pulumi:"parentTeamId"`
@@ -93,7 +94,8 @@ type teamState struct {
 	// The LDAP Distinguished Name of the group where membership will be synchronized. Only available in GitHub Enterprise.
 	LdapDn *string `pulumi:"ldapDn"`
 	// The name of the team.
-	Name   *string `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// The Node ID of the created team.
 	NodeId *string `pulumi:"nodeId"`
 	// The ID of the parent team, if this is a nested team.
 	ParentTeamId *int `pulumi:"parentTeamId"`
@@ -113,7 +115,8 @@ type TeamState struct {
 	// The LDAP Distinguished Name of the group where membership will be synchronized. Only available in GitHub Enterprise.
 	LdapDn pulumi.StringPtrInput
 	// The name of the team.
-	Name   pulumi.StringPtrInput
+	Name pulumi.StringPtrInput
+	// The Node ID of the created team.
 	NodeId pulumi.StringPtrInput
 	// The ID of the parent team, if this is a nested team.
 	ParentTeamId pulumi.IntPtrInput

@@ -179,6 +179,9 @@ namespace Pulumi.Github
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// the Node ID of the Repository.
+        /// </summary>
         [Output("nodeId")]
         public Output<string> NodeId { get; private set; } = null!;
 
@@ -566,6 +569,9 @@ namespace Pulumi.Github
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// the Node ID of the Repository.
+        /// </summary>
         [Input("nodeId")]
         public Input<string>? NodeId { get; set; }
 

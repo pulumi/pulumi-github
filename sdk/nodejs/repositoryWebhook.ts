@@ -79,7 +79,7 @@ export class RepositoryWebhook extends pulumi.CustomResource {
      */
     public readonly repository!: pulumi.Output<string>;
     /**
-     * URL of the webhook
+     * URL of the webhook.  This is a sensitive attribute because it may include basic auth credentials.
      */
     public /*out*/ readonly url!: pulumi.Output<string>;
 
@@ -149,7 +149,7 @@ export interface RepositoryWebhookState {
      */
     readonly repository?: pulumi.Input<string>;
     /**
-     * URL of the webhook
+     * URL of the webhook.  This is a sensitive attribute because it may include basic auth credentials.
      */
     readonly url?: pulumi.Input<string>;
 }

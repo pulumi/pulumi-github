@@ -15,9 +15,16 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
  *
+ * // Retrieve information about a GitHub user.
  * const example = pulumi.output(github.getUser({
  *     username: "example",
  * }, { async: true }));
+ * // Retrieve information about the currently authenticated user.
+ * const current = pulumi.output(github.getUser({
+ *     username: "",
+ * }, { async: true }));
+ *
+ * export const currentGithubLogin = current.login;
  * ```
  */
 export function getUser(args: GetUserArgs, opts?: pulumi.InvokeOptions): Promise<GetUserResult> {
@@ -38,7 +45,7 @@ export function getUser(args: GetUserArgs, opts?: pulumi.InvokeOptions): Promise
  */
 export interface GetUserArgs {
     /**
-     * The username.
+     * The username. Use an empty string `""` to retrieve information about the currently authenticated user.
      */
     readonly username: string;
 }
@@ -103,6 +110,9 @@ export interface GetUserResult {
      * the user's full name.
      */
     readonly name: string;
+    /**
+     * the Node ID of the user.
+     */
     readonly nodeId: string;
     /**
      * the number of public gists.

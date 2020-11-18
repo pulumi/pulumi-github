@@ -64,7 +64,7 @@ type RepositoryWebhook struct {
 	Events pulumi.StringArrayOutput `pulumi:"events"`
 	// The repository of the webhook.
 	Repository pulumi.StringOutput `pulumi:"repository"`
-	// URL of the webhook
+	// URL of the webhook.  This is a sensitive attribute because it may include basic auth credentials.
 	Url pulumi.StringOutput `pulumi:"url"`
 }
 
@@ -111,7 +111,7 @@ type repositoryWebhookState struct {
 	Events []string `pulumi:"events"`
 	// The repository of the webhook.
 	Repository *string `pulumi:"repository"`
-	// URL of the webhook
+	// URL of the webhook.  This is a sensitive attribute because it may include basic auth credentials.
 	Url *string `pulumi:"url"`
 }
 
@@ -125,7 +125,7 @@ type RepositoryWebhookState struct {
 	Events pulumi.StringArrayInput
 	// The repository of the webhook.
 	Repository pulumi.StringPtrInput
-	// URL of the webhook
+	// URL of the webhook.  This is a sensitive attribute because it may include basic auth credentials.
 	Url pulumi.StringPtrInput
 }
 

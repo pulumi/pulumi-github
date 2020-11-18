@@ -80,6 +80,9 @@ class GetTeamResult:
     @property
     @pulumi.getter(name="nodeId")
     def node_id(self) -> str:
+        """
+        the Node ID of the team.
+        """
         return pulumi.get(self, "node_id")
 
     @property

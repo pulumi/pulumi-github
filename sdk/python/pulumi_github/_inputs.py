@@ -192,7 +192,7 @@ class RepositoryWebhookConfigurationArgs:
                  insecure_ssl: Optional[pulumi.Input[bool]] = None,
                  secret: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] url: URL of the webhook
+        :param pulumi.Input[str] url: URL of the webhook.  This is a sensitive attribute because it may include basic auth credentials.
         """
         pulumi.set(__self__, "url", url)
         if content_type is not None:
@@ -206,7 +206,7 @@ class RepositoryWebhookConfigurationArgs:
     @pulumi.getter
     def url(self) -> pulumi.Input[str]:
         """
-        URL of the webhook
+        URL of the webhook.  This is a sensitive attribute because it may include basic auth credentials.
         """
         return pulumi.get(self, "url")
 

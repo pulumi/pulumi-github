@@ -37,7 +37,7 @@ export interface RepositoryWebhookConfiguration {
     insecureSsl?: pulumi.Input<boolean>;
     secret?: pulumi.Input<string>;
     /**
-     * URL of the webhook
+     * URL of the webhook.  This is a sensitive attribute because it may include basic auth credentials.
      */
     url: pulumi.Input<string>;
 }

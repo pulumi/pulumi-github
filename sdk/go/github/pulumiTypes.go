@@ -542,7 +542,7 @@ type RepositoryWebhookConfiguration struct {
 	ContentType *string `pulumi:"contentType"`
 	InsecureSsl *bool   `pulumi:"insecureSsl"`
 	Secret      *string `pulumi:"secret"`
-	// URL of the webhook
+	// URL of the webhook.  This is a sensitive attribute because it may include basic auth credentials.
 	Url string `pulumi:"url"`
 }
 
@@ -561,7 +561,7 @@ type RepositoryWebhookConfigurationArgs struct {
 	ContentType pulumi.StringPtrInput `pulumi:"contentType"`
 	InsecureSsl pulumi.BoolPtrInput   `pulumi:"insecureSsl"`
 	Secret      pulumi.StringPtrInput `pulumi:"secret"`
-	// URL of the webhook
+	// URL of the webhook.  This is a sensitive attribute because it may include basic auth credentials.
 	Url pulumi.StringInput `pulumi:"url"`
 }
 
@@ -653,7 +653,7 @@ func (o RepositoryWebhookConfigurationOutput) Secret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RepositoryWebhookConfiguration) *string { return v.Secret }).(pulumi.StringPtrOutput)
 }
 
-// URL of the webhook
+// URL of the webhook.  This is a sensitive attribute because it may include basic auth credentials.
 func (o RepositoryWebhookConfigurationOutput) Url() pulumi.StringOutput {
 	return o.ApplyT(func(v RepositoryWebhookConfiguration) string { return v.Url }).(pulumi.StringOutput)
 }
@@ -703,7 +703,7 @@ func (o RepositoryWebhookConfigurationPtrOutput) Secret() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// URL of the webhook
+// URL of the webhook.  This is a sensitive attribute because it may include basic auth credentials.
 func (o RepositoryWebhookConfigurationPtrOutput) Url() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RepositoryWebhookConfiguration) *string {
 		if v == nil {

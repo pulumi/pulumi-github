@@ -63,6 +63,9 @@ export interface GetTeamResult {
      * the team's full name.
      */
     readonly name: string;
+    /**
+     * the Node ID of the team.
+     */
     readonly nodeId: string;
     /**
      * the team's permission level.
