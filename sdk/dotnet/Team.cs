@@ -48,7 +48,7 @@ namespace Pulumi.Github
         public Output<string> Etag { get; private set; } = null!;
 
         /// <summary>
-        /// The LDAP Distinguished Name of the group where membership will be synchronized. Only available in GitHub Enterprise.
+        /// The LDAP Distinguished Name of the group where membership will be synchronized. Only available in GitHub Enterprise Server.
         /// </summary>
         [Output("ldapDn")]
         public Output<string?> LdapDn { get; private set; } = null!;
@@ -139,7 +139,7 @@ namespace Pulumi.Github
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The LDAP Distinguished Name of the group where membership will be synchronized. Only available in GitHub Enterprise.
+        /// The LDAP Distinguished Name of the group where membership will be synchronized. Only available in GitHub Enterprise Server.
         /// </summary>
         [Input("ldapDn")]
         public Input<string>? LdapDn { get; set; }
@@ -180,7 +180,7 @@ namespace Pulumi.Github
         public Input<string>? Etag { get; set; }
 
         /// <summary>
-        /// The LDAP Distinguished Name of the group where membership will be synchronized. Only available in GitHub Enterprise.
+        /// The LDAP Distinguished Name of the group where membership will be synchronized. Only available in GitHub Enterprise Server.
         /// </summary>
         [Input("ldapDn")]
         public Input<string>? LdapDn { get; set; }

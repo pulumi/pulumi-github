@@ -57,7 +57,7 @@ export class Team extends pulumi.CustomResource {
     public readonly description!: pulumi.Output<string | undefined>;
     public /*out*/ readonly etag!: pulumi.Output<string>;
     /**
-     * The LDAP Distinguished Name of the group where membership will be synchronized. Only available in GitHub Enterprise.
+     * The LDAP Distinguished Name of the group where membership will be synchronized. Only available in GitHub Enterprise Server.
      */
     public readonly ldapDn!: pulumi.Output<string | undefined>;
     /**
@@ -136,7 +136,7 @@ export interface TeamState {
     readonly description?: pulumi.Input<string>;
     readonly etag?: pulumi.Input<string>;
     /**
-     * The LDAP Distinguished Name of the group where membership will be synchronized. Only available in GitHub Enterprise.
+     * The LDAP Distinguished Name of the group where membership will be synchronized. Only available in GitHub Enterprise Server.
      */
     readonly ldapDn?: pulumi.Input<string>;
     /**
@@ -173,7 +173,7 @@ export interface TeamArgs {
      */
     readonly description?: pulumi.Input<string>;
     /**
-     * The LDAP Distinguished Name of the group where membership will be synchronized. Only available in GitHub Enterprise.
+     * The LDAP Distinguished Name of the group where membership will be synchronized. Only available in GitHub Enterprise Server.
      */
     readonly ldapDn?: pulumi.Input<string>;
     /**

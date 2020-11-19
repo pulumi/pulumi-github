@@ -43,7 +43,7 @@ type Team struct {
 	// A description of the team.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	Etag        pulumi.StringOutput    `pulumi:"etag"`
-	// The LDAP Distinguished Name of the group where membership will be synchronized. Only available in GitHub Enterprise.
+	// The LDAP Distinguished Name of the group where membership will be synchronized. Only available in GitHub Enterprise Server.
 	LdapDn pulumi.StringPtrOutput `pulumi:"ldapDn"`
 	// The name of the team.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -91,7 +91,7 @@ type teamState struct {
 	// A description of the team.
 	Description *string `pulumi:"description"`
 	Etag        *string `pulumi:"etag"`
-	// The LDAP Distinguished Name of the group where membership will be synchronized. Only available in GitHub Enterprise.
+	// The LDAP Distinguished Name of the group where membership will be synchronized. Only available in GitHub Enterprise Server.
 	LdapDn *string `pulumi:"ldapDn"`
 	// The name of the team.
 	Name *string `pulumi:"name"`
@@ -112,7 +112,7 @@ type TeamState struct {
 	// A description of the team.
 	Description pulumi.StringPtrInput
 	Etag        pulumi.StringPtrInput
-	// The LDAP Distinguished Name of the group where membership will be synchronized. Only available in GitHub Enterprise.
+	// The LDAP Distinguished Name of the group where membership will be synchronized. Only available in GitHub Enterprise Server.
 	LdapDn pulumi.StringPtrInput
 	// The name of the team.
 	Name pulumi.StringPtrInput
@@ -136,7 +136,7 @@ func (TeamState) ElementType() reflect.Type {
 type teamArgs struct {
 	// A description of the team.
 	Description *string `pulumi:"description"`
-	// The LDAP Distinguished Name of the group where membership will be synchronized. Only available in GitHub Enterprise.
+	// The LDAP Distinguished Name of the group where membership will be synchronized. Only available in GitHub Enterprise Server.
 	LdapDn *string `pulumi:"ldapDn"`
 	// The name of the team.
 	Name *string `pulumi:"name"`
@@ -151,7 +151,7 @@ type teamArgs struct {
 type TeamArgs struct {
 	// A description of the team.
 	Description pulumi.StringPtrInput
-	// The LDAP Distinguished Name of the group where membership will be synchronized. Only available in GitHub Enterprise.
+	// The LDAP Distinguished Name of the group where membership will be synchronized. Only available in GitHub Enterprise Server.
 	LdapDn pulumi.StringPtrInput
 	// The name of the team.
 	Name pulumi.StringPtrInput

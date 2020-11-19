@@ -44,7 +44,7 @@ class Team(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: A description of the team.
-        :param pulumi.Input[str] ldap_dn: The LDAP Distinguished Name of the group where membership will be synchronized. Only available in GitHub Enterprise.
+        :param pulumi.Input[str] ldap_dn: The LDAP Distinguished Name of the group where membership will be synchronized. Only available in GitHub Enterprise Server.
         :param pulumi.Input[str] name: The name of the team.
         :param pulumi.Input[int] parent_team_id: The ID of the parent team, if this is a nested team.
         :param pulumi.Input[str] privacy: The level of privacy for the team. Must be one of `secret` or `closed`.
@@ -101,7 +101,7 @@ class Team(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: A description of the team.
-        :param pulumi.Input[str] ldap_dn: The LDAP Distinguished Name of the group where membership will be synchronized. Only available in GitHub Enterprise.
+        :param pulumi.Input[str] ldap_dn: The LDAP Distinguished Name of the group where membership will be synchronized. Only available in GitHub Enterprise Server.
         :param pulumi.Input[str] name: The name of the team.
         :param pulumi.Input[str] node_id: The Node ID of the created team.
         :param pulumi.Input[int] parent_team_id: The ID of the parent team, if this is a nested team.
@@ -142,7 +142,7 @@ class Team(pulumi.CustomResource):
     @pulumi.getter(name="ldapDn")
     def ldap_dn(self) -> pulumi.Output[Optional[str]]:
         """
-        The LDAP Distinguished Name of the group where membership will be synchronized. Only available in GitHub Enterprise.
+        The LDAP Distinguished Name of the group where membership will be synchronized. Only available in GitHub Enterprise Server.
         """
         return pulumi.get(self, "ldap_dn")
 

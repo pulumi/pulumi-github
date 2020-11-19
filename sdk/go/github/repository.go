@@ -26,11 +26,11 @@ import (
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := github.NewRepository(ctx, "example", &github.RepositoryArgs{
 // 			Description: pulumi.String("My awesome codebase"),
-// 			Private:     pulumi.Bool(true),
 // 			Template: &github.RepositoryTemplateArgs{
 // 				Owner:      pulumi.String("github"),
 // 				Repository: pulumi.String("terraform-module-template"),
 // 			},
+// 			Visibility: pulumi.String("public"),
 // 		})
 // 		if err != nil {
 // 			return err

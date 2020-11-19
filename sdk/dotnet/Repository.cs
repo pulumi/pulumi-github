@@ -26,12 +26,12 @@ namespace Pulumi.Github
     ///         var example = new Github.Repository("example", new Github.RepositoryArgs
     ///         {
     ///             Description = "My awesome codebase",
-    ///             Private = true,
     ///             Template = new Github.Inputs.RepositoryTemplateArgs
     ///             {
     ///                 Owner = "github",
     ///                 Repository = "terraform-module-template",
     ///             },
+    ///             Visibility = "public",
     ///         });
     ///     }
     /// 

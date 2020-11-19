@@ -55,11 +55,11 @@ class Repository(pulumi.CustomResource):
 
         example = github.Repository("example",
             description="My awesome codebase",
-            private=True,
             template=github.RepositoryTemplateArgs(
                 owner="github",
                 repository="terraform-module-template",
-            ))
+            ),
+            visibility="public")
         ```
 
         :param str resource_name: The name of the resource.
