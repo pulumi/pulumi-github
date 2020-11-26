@@ -18,11 +18,11 @@ import * as utilities from "./utilities";
  *
  * const example = new github.Repository("example", {
  *     description: "My awesome codebase",
- *     private: true,
  *     template: {
  *         owner: "github",
  *         repository: "terraform-module-template",
  *     },
+ *     visibility: "public",
  * });
  * ```
  */

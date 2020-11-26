@@ -1199,7 +1199,7 @@
             }
         },
         "github:index/repository:Repository": {
-            "description": "This resource allows you to create and manage repositories within your\nGitHub organization or personal account.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\nconst example = new github.Repository(\"example\", {\n    description: \"My awesome codebase\",\n    private: true,\n    template: {\n        owner: \"github\",\n        repository: \"terraform-module-template\",\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\nexample = github.Repository(\"example\",\n    description=\"My awesome codebase\",\n    private=True,\n    template=github.RepositoryTemplateArgs(\n        owner=\"github\",\n        repository=\"terraform-module-template\",\n    ))\n```\n```csharp\nusing Pulumi;\nusing Github = Pulumi.Github;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var example = new Github.Repository(\"example\", new Github.RepositoryArgs\n        {\n            Description = \"My awesome codebase\",\n            Private = true,\n            Template = new Github.Inputs.RepositoryTemplateArgs\n            {\n                Owner = \"github\",\n                Repository = \"terraform-module-template\",\n            },\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-github/sdk/v2/go/github\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := github.NewRepository(ctx, \"example\", \u0026github.RepositoryArgs{\n\t\t\tDescription: pulumi.String(\"My awesome codebase\"),\n\t\t\tPrivate:     pulumi.Bool(true),\n\t\t\tTemplate: \u0026github.RepositoryTemplateArgs{\n\t\t\t\tOwner:      pulumi.String(\"github\"),\n\t\t\t\tRepository: pulumi.String(\"terraform-module-template\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "description": "This resource allows you to create and manage repositories within your\nGitHub organization or personal account.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\nconst example = new github.Repository(\"example\", {\n    description: \"My awesome codebase\",\n    template: {\n        owner: \"github\",\n        repository: \"terraform-module-template\",\n    },\n    visibility: \"public\",\n});\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\nexample = github.Repository(\"example\",\n    description=\"My awesome codebase\",\n    template=github.RepositoryTemplateArgs(\n        owner=\"github\",\n        repository=\"terraform-module-template\",\n    ),\n    visibility=\"public\")\n```\n```csharp\nusing Pulumi;\nusing Github = Pulumi.Github;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var example = new Github.Repository(\"example\", new Github.RepositoryArgs\n        {\n            Description = \"My awesome codebase\",\n            Template = new Github.Inputs.RepositoryTemplateArgs\n            {\n                Owner = \"github\",\n                Repository = \"terraform-module-template\",\n            },\n            Visibility = \"public\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-github/sdk/v2/go/github\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := github.NewRepository(ctx, \"example\", \u0026github.RepositoryArgs{\n\t\t\tDescription: pulumi.String(\"My awesome codebase\"),\n\t\t\tTemplate: \u0026github.RepositoryTemplateArgs{\n\t\t\t\tOwner:      pulumi.String(\"github\"),\n\t\t\t\tRepository: pulumi.String(\"terraform-module-template\"),\n\t\t\t},\n\t\t\tVisibility: pulumi.String(\"public\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
             "properties": {
                 "allowMergeCommit": {
                     "type": "boolean",
@@ -2028,7 +2028,7 @@
                 },
                 "ldapDn": {
                     "type": "string",
-                    "description": "The LDAP Distinguished Name of the group where membership will be synchronized. Only available in GitHub Enterprise.\n"
+                    "description": "The LDAP Distinguished Name of the group where membership will be synchronized. Only available in GitHub Enterprise Server.\n"
                 },
                 "name": {
                     "type": "string",
@@ -2064,7 +2064,7 @@
                 },
                 "ldapDn": {
                     "type": "string",
-                    "description": "The LDAP Distinguished Name of the group where membership will be synchronized. Only available in GitHub Enterprise.\n"
+                    "description": "The LDAP Distinguished Name of the group where membership will be synchronized. Only available in GitHub Enterprise Server.\n"
                 },
                 "name": {
                     "type": "string",
@@ -2091,7 +2091,7 @@
                     },
                     "ldapDn": {
                         "type": "string",
-                        "description": "The LDAP Distinguished Name of the group where membership will be synchronized. Only available in GitHub Enterprise.\n"
+                        "description": "The LDAP Distinguished Name of the group where membership will be synchronized. Only available in GitHub Enterprise Server.\n"
                     },
                     "name": {
                         "type": "string",
