@@ -2,11 +2,14 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
+_(none)_
+
+---
+
+## 2.3.0 (2020-11-26)
 * Upgrade to v4.0.1 of the GitHub Terraform Provider
   **Please Note there is a breaking change to the provider:**
   * `github.branchProtection` `branch` has now been replaced by `pattern`
-
----
 
 ## 2.2.0 (2020-10-26)
 * Upgrade to Pulumi v2.12.0 and pulumi-terraform-bridge v2.11.0
