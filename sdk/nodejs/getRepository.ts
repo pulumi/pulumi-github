@@ -116,13 +116,17 @@ export interface GetRepositoryResult {
     readonly id: string;
     readonly name?: string;
     /**
-     * the Node ID of the repository.
+     * GraphQL global node id for use with v4 API
      */
     readonly nodeId: string;
     /**
      * Whether the repository is private.
      */
     readonly private: boolean;
+    /**
+     * Github ID for the repository
+     */
+    readonly repoId: number;
     /**
      * URL that can be provided to `git clone` to clone the repository via SSH.
      */

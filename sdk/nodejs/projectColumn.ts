@@ -49,6 +49,7 @@ export class ProjectColumn extends pulumi.CustomResource {
         return obj['__pulumiType'] === ProjectColumn.__pulumiType;
     }
 
+    public /*out*/ readonly columnId!: pulumi.Output<number>;
     public /*out*/ readonly etag!: pulumi.Output<string>;
     /**
      * The name of the column.
@@ -71,6 +72,7 @@ export class ProjectColumn extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as ProjectColumnState | undefined;
+            inputs["columnId"] = state ? state.columnId : undefined;
             inputs["etag"] = state ? state.etag : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["projectId"] = state ? state.projectId : undefined;
@@ -81,6 +83,7 @@ export class ProjectColumn extends pulumi.CustomResource {
             }
             inputs["name"] = args ? args.name : undefined;
             inputs["projectId"] = args ? args.projectId : undefined;
+            inputs["columnId"] = undefined /*out*/;
             inputs["etag"] = undefined /*out*/;
         }
         if (!opts) {
@@ -98,6 +101,7 @@ export class ProjectColumn extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ProjectColumn resources.
  */
 export interface ProjectColumnState {
+    readonly columnId?: pulumi.Input<number>;
     readonly etag?: pulumi.Input<string>;
     /**
      * The name of the column.

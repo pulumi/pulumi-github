@@ -128,13 +128,17 @@ namespace Pulumi.Github
         public readonly string Id;
         public readonly string? Name;
         /// <summary>
-        /// the Node ID of the repository.
+        /// GraphQL global node id for use with v4 API
         /// </summary>
         public readonly string NodeId;
         /// <summary>
         /// Whether the repository is private.
         /// </summary>
         public readonly bool Private;
+        /// <summary>
+        /// Github ID for the repository
+        /// </summary>
+        public readonly int RepoId;
         /// <summary>
         /// URL that can be provided to `git clone` to clone the repository via SSH.
         /// </summary>
@@ -192,6 +196,8 @@ namespace Pulumi.Github
 
             bool @private,
 
+            int repoId,
+
             string sshCloneUrl,
 
             string svnUrl,
@@ -219,6 +225,7 @@ namespace Pulumi.Github
             Name = name;
             NodeId = nodeId;
             Private = @private;
+            RepoId = repoId;
             SshCloneUrl = sshCloneUrl;
             SvnUrl = svnUrl;
             Topics = topics;

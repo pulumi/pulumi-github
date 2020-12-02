@@ -19,7 +19,7 @@ class GetRepositoryResult:
     """
     A collection of values returned by getRepository.
     """
-    def __init__(__self__, allow_merge_commit=None, allow_rebase_merge=None, allow_squash_merge=None, archived=None, default_branch=None, description=None, full_name=None, git_clone_url=None, has_downloads=None, has_issues=None, has_projects=None, has_wiki=None, homepage_url=None, html_url=None, http_clone_url=None, id=None, name=None, node_id=None, private=None, ssh_clone_url=None, svn_url=None, topics=None, visibility=None):
+    def __init__(__self__, allow_merge_commit=None, allow_rebase_merge=None, allow_squash_merge=None, archived=None, default_branch=None, description=None, full_name=None, git_clone_url=None, has_downloads=None, has_issues=None, has_projects=None, has_wiki=None, homepage_url=None, html_url=None, http_clone_url=None, id=None, name=None, node_id=None, private=None, repo_id=None, ssh_clone_url=None, svn_url=None, topics=None, visibility=None):
         if allow_merge_commit and not isinstance(allow_merge_commit, bool):
             raise TypeError("Expected argument 'allow_merge_commit' to be a bool")
         pulumi.set(__self__, "allow_merge_commit", allow_merge_commit)
@@ -77,6 +77,9 @@ class GetRepositoryResult:
         if private and not isinstance(private, bool):
             raise TypeError("Expected argument 'private' to be a bool")
         pulumi.set(__self__, "private", private)
+        if repo_id and not isinstance(repo_id, int):
+            raise TypeError("Expected argument 'repo_id' to be a int")
+        pulumi.set(__self__, "repo_id", repo_id)
         if ssh_clone_url and not isinstance(ssh_clone_url, str):
             raise TypeError("Expected argument 'ssh_clone_url' to be a str")
         pulumi.set(__self__, "ssh_clone_url", ssh_clone_url)
@@ -224,7 +227,7 @@ class GetRepositoryResult:
     @pulumi.getter(name="nodeId")
     def node_id(self) -> str:
         """
-        the Node ID of the repository.
+        GraphQL global node id for use with v4 API
         """
         return pulumi.get(self, "node_id")
 
@@ -235,6 +238,14 @@ class GetRepositoryResult:
         Whether the repository is private.
         """
         return pulumi.get(self, "private")
+
+    @property
+    @pulumi.getter(name="repoId")
+    def repo_id(self) -> int:
+        """
+        Github ID for the repository
+        """
+        return pulumi.get(self, "repo_id")
 
     @property
     @pulumi.getter(name="sshCloneUrl")
@@ -294,6 +305,7 @@ class AwaitableGetRepositoryResult(GetRepositoryResult):
             name=self.name,
             node_id=self.node_id,
             private=self.private,
+            repo_id=self.repo_id,
             ssh_clone_url=self.ssh_clone_url,
             svn_url=self.svn_url,
             topics=self.topics,
@@ -348,6 +360,7 @@ def get_repository(full_name: Optional[str] = None,
         name=__ret__.name,
         node_id=__ret__.node_id,
         private=__ret__.private,
+        repo_id=__ret__.repo_id,
         ssh_clone_url=__ret__.ssh_clone_url,
         svn_url=__ret__.svn_url,
         topics=__ret__.topics,

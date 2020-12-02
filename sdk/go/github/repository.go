@@ -54,9 +54,11 @@ type Repository struct {
 	Archived pulumi.BoolPtrOutput `pulumi:"archived"`
 	// Set to `true` to produce an initial commit in the repository.
 	AutoInit pulumi.BoolPtrOutput `pulumi:"autoInit"`
-	// The name of the default branch of the repository. **NOTE:** This can only be set after a repository has already been created,
+	// (Deprecated: Use `BranchDefault` resource instead) The name of the default branch of the repository. **NOTE:** This can only be set after a repository has already been created,
 	// and after a correct reference has been created for the target branch inside the repository. This means a user will have to omit this parameter from the
 	// initial repository creation and create the target branch inside of the repository prior to setting this attribute.
+	//
+	// Deprecated: Use the github_branch_default resource instead
 	DefaultBranch pulumi.StringOutput `pulumi:"defaultBranch"`
 	// Automatically delete head branch after a pull request is merged. Defaults to `false`.
 	DeleteBranchOnMerge pulumi.BoolPtrOutput `pulumi:"deleteBranchOnMerge"`
@@ -91,13 +93,15 @@ type Repository struct {
 	LicenseTemplate pulumi.StringPtrOutput `pulumi:"licenseTemplate"`
 	// The name of the repository.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// the Node ID of the Repository.
+	// GraphQL global node id for use with v4 API
 	NodeId pulumi.StringOutput `pulumi:"nodeId"`
 	// Set to `true` to create a private repository.
 	// Repositories are created as public (e.g. open source) by default.
 	//
 	// Deprecated: use visibility instead
 	Private pulumi.BoolOutput `pulumi:"private"`
+	// Github ID for the repository
+	RepoId pulumi.IntOutput `pulumi:"repoId"`
 	// URL that can be provided to `git clone` to clone the repository via SSH.
 	SshCloneUrl pulumi.StringOutput `pulumi:"sshCloneUrl"`
 	// URL that can be provided to `svn checkout` to check out the repository via GitHub's Subversion protocol emulation.
@@ -152,9 +156,11 @@ type repositoryState struct {
 	Archived *bool `pulumi:"archived"`
 	// Set to `true` to produce an initial commit in the repository.
 	AutoInit *bool `pulumi:"autoInit"`
-	// The name of the default branch of the repository. **NOTE:** This can only be set after a repository has already been created,
+	// (Deprecated: Use `BranchDefault` resource instead) The name of the default branch of the repository. **NOTE:** This can only be set after a repository has already been created,
 	// and after a correct reference has been created for the target branch inside the repository. This means a user will have to omit this parameter from the
 	// initial repository creation and create the target branch inside of the repository prior to setting this attribute.
+	//
+	// Deprecated: Use the github_branch_default resource instead
 	DefaultBranch *string `pulumi:"defaultBranch"`
 	// Automatically delete head branch after a pull request is merged. Defaults to `false`.
 	DeleteBranchOnMerge *bool `pulumi:"deleteBranchOnMerge"`
@@ -189,13 +195,15 @@ type repositoryState struct {
 	LicenseTemplate *string `pulumi:"licenseTemplate"`
 	// The name of the repository.
 	Name *string `pulumi:"name"`
-	// the Node ID of the Repository.
+	// GraphQL global node id for use with v4 API
 	NodeId *string `pulumi:"nodeId"`
 	// Set to `true` to create a private repository.
 	// Repositories are created as public (e.g. open source) by default.
 	//
 	// Deprecated: use visibility instead
 	Private *bool `pulumi:"private"`
+	// Github ID for the repository
+	RepoId *int `pulumi:"repoId"`
 	// URL that can be provided to `git clone` to clone the repository via SSH.
 	SshCloneUrl *string `pulumi:"sshCloneUrl"`
 	// URL that can be provided to `svn checkout` to check out the repository via GitHub's Subversion protocol emulation.
@@ -223,9 +231,11 @@ type RepositoryState struct {
 	Archived pulumi.BoolPtrInput
 	// Set to `true` to produce an initial commit in the repository.
 	AutoInit pulumi.BoolPtrInput
-	// The name of the default branch of the repository. **NOTE:** This can only be set after a repository has already been created,
+	// (Deprecated: Use `BranchDefault` resource instead) The name of the default branch of the repository. **NOTE:** This can only be set after a repository has already been created,
 	// and after a correct reference has been created for the target branch inside the repository. This means a user will have to omit this parameter from the
 	// initial repository creation and create the target branch inside of the repository prior to setting this attribute.
+	//
+	// Deprecated: Use the github_branch_default resource instead
 	DefaultBranch pulumi.StringPtrInput
 	// Automatically delete head branch after a pull request is merged. Defaults to `false`.
 	DeleteBranchOnMerge pulumi.BoolPtrInput
@@ -260,13 +270,15 @@ type RepositoryState struct {
 	LicenseTemplate pulumi.StringPtrInput
 	// The name of the repository.
 	Name pulumi.StringPtrInput
-	// the Node ID of the Repository.
+	// GraphQL global node id for use with v4 API
 	NodeId pulumi.StringPtrInput
 	// Set to `true` to create a private repository.
 	// Repositories are created as public (e.g. open source) by default.
 	//
 	// Deprecated: use visibility instead
 	Private pulumi.BoolPtrInput
+	// Github ID for the repository
+	RepoId pulumi.IntPtrInput
 	// URL that can be provided to `git clone` to clone the repository via SSH.
 	SshCloneUrl pulumi.StringPtrInput
 	// URL that can be provided to `svn checkout` to check out the repository via GitHub's Subversion protocol emulation.
@@ -298,9 +310,11 @@ type repositoryArgs struct {
 	Archived *bool `pulumi:"archived"`
 	// Set to `true` to produce an initial commit in the repository.
 	AutoInit *bool `pulumi:"autoInit"`
-	// The name of the default branch of the repository. **NOTE:** This can only be set after a repository has already been created,
+	// (Deprecated: Use `BranchDefault` resource instead) The name of the default branch of the repository. **NOTE:** This can only be set after a repository has already been created,
 	// and after a correct reference has been created for the target branch inside the repository. This means a user will have to omit this parameter from the
 	// initial repository creation and create the target branch inside of the repository prior to setting this attribute.
+	//
+	// Deprecated: Use the github_branch_default resource instead
 	DefaultBranch *string `pulumi:"defaultBranch"`
 	// Automatically delete head branch after a pull request is merged. Defaults to `false`.
 	DeleteBranchOnMerge *bool `pulumi:"deleteBranchOnMerge"`
@@ -355,9 +369,11 @@ type RepositoryArgs struct {
 	Archived pulumi.BoolPtrInput
 	// Set to `true` to produce an initial commit in the repository.
 	AutoInit pulumi.BoolPtrInput
-	// The name of the default branch of the repository. **NOTE:** This can only be set after a repository has already been created,
+	// (Deprecated: Use `BranchDefault` resource instead) The name of the default branch of the repository. **NOTE:** This can only be set after a repository has already been created,
 	// and after a correct reference has been created for the target branch inside the repository. This means a user will have to omit this parameter from the
 	// initial repository creation and create the target branch inside of the repository prior to setting this attribute.
+	//
+	// Deprecated: Use the github_branch_default resource instead
 	DefaultBranch pulumi.StringPtrInput
 	// Automatically delete head branch after a pull request is merged. Defaults to `false`.
 	DeleteBranchOnMerge pulumi.BoolPtrInput

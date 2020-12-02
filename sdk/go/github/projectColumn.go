@@ -43,7 +43,8 @@ import (
 type ProjectColumn struct {
 	pulumi.CustomResourceState
 
-	Etag pulumi.StringOutput `pulumi:"etag"`
+	ColumnId pulumi.IntOutput    `pulumi:"columnId"`
+	Etag     pulumi.StringOutput `pulumi:"etag"`
 	// The name of the column.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The ID of an existing project that the column will be created in.
@@ -81,7 +82,8 @@ func GetProjectColumn(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ProjectColumn resources.
 type projectColumnState struct {
-	Etag *string `pulumi:"etag"`
+	ColumnId *int    `pulumi:"columnId"`
+	Etag     *string `pulumi:"etag"`
 	// The name of the column.
 	Name *string `pulumi:"name"`
 	// The ID of an existing project that the column will be created in.
@@ -89,7 +91,8 @@ type projectColumnState struct {
 }
 
 type ProjectColumnState struct {
-	Etag pulumi.StringPtrInput
+	ColumnId pulumi.IntPtrInput
+	Etag     pulumi.StringPtrInput
 	// The name of the column.
 	Name pulumi.StringPtrInput
 	// The ID of an existing project that the column will be created in.

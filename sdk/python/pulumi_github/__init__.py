@@ -3,8 +3,10 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
+from .actions_organization_secret import *
 from .actions_secret import *
 from .branch import *
+from .branch_default import *
 from .branch_protection import *
 from .get_actions_public_key import *
 from .get_branch import *
@@ -16,6 +18,7 @@ from .get_organization_team_sync_groups import *
 from .get_release import *
 from .get_repositories import *
 from .get_repository import *
+from .get_repository_milestone import *
 from .get_team import *
 from .get_user import *
 from .issue_label import *
@@ -23,12 +26,14 @@ from .membership import *
 from .organization_block import *
 from .organization_project import *
 from .organization_webhook import *
+from .project_card import *
 from .project_column import *
 from .provider import *
 from .repository import *
 from .repository_collaborator import *
 from .repository_deploy_key import *
 from .repository_file import *
+from .repository_milestone import *
 from .repository_project import *
 from .repository_webhook import *
 from .team import *

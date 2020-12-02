@@ -83,10 +83,12 @@ type LookupRepositoryResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id   string  `pulumi:"id"`
 	Name *string `pulumi:"name"`
-	// the Node ID of the repository.
+	// GraphQL global node id for use with v4 API
 	NodeId string `pulumi:"nodeId"`
 	// Whether the repository is private.
 	Private bool `pulumi:"private"`
+	// Github ID for the repository
+	RepoId int `pulumi:"repoId"`
 	// URL that can be provided to `git clone` to clone the repository via SSH.
 	SshCloneUrl string `pulumi:"sshCloneUrl"`
 	// URL that can be provided to `svn checkout` to check out the repository via GitHub's Subversion protocol emulation.

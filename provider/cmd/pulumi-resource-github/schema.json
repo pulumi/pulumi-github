@@ -518,6 +518,100 @@
         }
     },
     "resources": {
+        "github:index/actionsOrganizationSecret:ActionsOrganizationSecret": {
+            "properties": {
+                "createdAt": {
+                    "type": "string",
+                    "description": "Date of actions_secret creation.\n"
+                },
+                "plaintextValue": {
+                    "type": "string",
+                    "description": "Plaintext value of the secret to be encrypted\n"
+                },
+                "secretName": {
+                    "type": "string",
+                    "description": "Name of the secret\n"
+                },
+                "selectedRepositoryIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    },
+                    "description": "An array of repository ids that can access the organization secret.\n"
+                },
+                "updatedAt": {
+                    "type": "string",
+                    "description": "Date of actions_secret update.\n"
+                },
+                "visibility": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "createdAt",
+                "plaintextValue",
+                "secretName",
+                "updatedAt",
+                "visibility"
+            ],
+            "inputProperties": {
+                "plaintextValue": {
+                    "type": "string",
+                    "description": "Plaintext value of the secret to be encrypted\n"
+                },
+                "secretName": {
+                    "type": "string",
+                    "description": "Name of the secret\n"
+                },
+                "selectedRepositoryIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    },
+                    "description": "An array of repository ids that can access the organization secret.\n"
+                },
+                "visibility": {
+                    "type": "string"
+                }
+            },
+            "requiredInputs": [
+                "plaintextValue",
+                "secretName",
+                "visibility"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering ActionsOrganizationSecret resources.\n",
+                "properties": {
+                    "createdAt": {
+                        "type": "string",
+                        "description": "Date of actions_secret creation.\n"
+                    },
+                    "plaintextValue": {
+                        "type": "string",
+                        "description": "Plaintext value of the secret to be encrypted\n"
+                    },
+                    "secretName": {
+                        "type": "string",
+                        "description": "Name of the secret\n"
+                    },
+                    "selectedRepositoryIds": {
+                        "type": "array",
+                        "items": {
+                            "type": "integer"
+                        },
+                        "description": "An array of repository ids that can access the organization secret.\n"
+                    },
+                    "updatedAt": {
+                        "type": "string",
+                        "description": "Date of actions_secret update.\n"
+                    },
+                    "visibility": {
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            }
+        },
         "github:index/actionsSecret:ActionsSecret": {
             "properties": {
                 "createdAt": {
@@ -701,6 +795,51 @@
                     "sourceSha": {
                         "type": "string",
                         "description": "The commit hash to start from. Defaults to the tip of `source_branch`. If provided, `source_branch` is ignored.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "github:index/branchDefault:BranchDefault": {
+            "description": "Provides a GitHub branch default resource.\n\nThis resource allows you to set the default branch for a given repository. \n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\nconst example = new github.Repository(\"example\", {\n    description: \"My awesome codebase\",\n    \"private\": true,\n    template: {\n        owner: \"github\",\n        repository: \"terraform-module-template\",\n    },\n});\nconst development = new github.Branch(\"development\", {\n    repository: example.name,\n    branch: \"development\",\n});\nconst _default = new github.BranchDefault(\"default\", {\n    repository: example.name,\n    branch: development.branch,\n});\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\nexample = github.Repository(\"example\",\n    description=\"My awesome codebase\",\n    private=True,\n    template=github.RepositoryTemplateArgs(\n        owner=\"github\",\n        repository=\"terraform-module-template\",\n    ))\ndevelopment = github.Branch(\"development\",\n    repository=example.name,\n    branch=\"development\")\ndefault = github.BranchDefault(\"default\",\n    repository=example.name,\n    branch=development.branch)\n```\n```csharp\nusing Pulumi;\nusing Github = Pulumi.Github;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var example = new Github.Repository(\"example\", new Github.RepositoryArgs\n        {\n            Description = \"My awesome codebase\",\n            Private = true,\n            Template = new Github.Inputs.RepositoryTemplateArgs\n            {\n                Owner = \"github\",\n                Repository = \"terraform-module-template\",\n            },\n        });\n        var development = new Github.Branch(\"development\", new Github.BranchArgs\n        {\n            Repository = example.Name,\n            Branch = \"development\",\n        });\n        var @default = new Github.BranchDefault(\"default\", new Github.BranchDefaultArgs\n        {\n            Repository = example.Name,\n            Branch = development.BranchName,\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-github/sdk/v2/go/github\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\texample, err := github.NewRepository(ctx, \"example\", \u0026github.RepositoryArgs{\n\t\t\tDescription: pulumi.String(\"My awesome codebase\"),\n\t\t\tPrivate:     pulumi.Bool(true),\n\t\t\tTemplate: \u0026github.RepositoryTemplateArgs{\n\t\t\t\tOwner:      pulumi.String(\"github\"),\n\t\t\t\tRepository: pulumi.String(\"terraform-module-template\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tdevelopment, err := github.NewBranch(ctx, \"development\", \u0026github.BranchArgs{\n\t\t\tRepository: example.Name,\n\t\t\tBranch:     pulumi.String(\"development\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = github.NewBranchDefault(ctx, \"_default\", \u0026github.BranchDefaultArgs{\n\t\t\tRepository: example.Name,\n\t\t\tBranch:     development.Branch,\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "properties": {
+                "branch": {
+                    "type": "string",
+                    "description": "The branch (e.g. `main`)\n"
+                },
+                "repository": {
+                    "type": "string",
+                    "description": "The GitHub repository\n"
+                }
+            },
+            "required": [
+                "branch",
+                "repository"
+            ],
+            "inputProperties": {
+                "branch": {
+                    "type": "string",
+                    "description": "The branch (e.g. `main`)\n"
+                },
+                "repository": {
+                    "type": "string",
+                    "description": "The GitHub repository\n"
+                }
+            },
+            "requiredInputs": [
+                "branch",
+                "repository"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering BranchDefault resources.\n",
+                "properties": {
+                    "branch": {
+                        "type": "string",
+                        "description": "The branch (e.g. `main`)\n"
+                    },
+                    "repository": {
+                        "type": "string",
+                        "description": "The GitHub repository\n"
                     }
                 },
                 "type": "object"
@@ -1147,9 +1286,71 @@
                 "type": "object"
             }
         },
+        "github:index/projectCard:ProjectCard": {
+            "description": "This resource allows you to create and manage cards for GitHub projects.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\nconst project = new github.OrganizationProject(\"project\", {body: \"This is an organization project.\"});\nconst column = new github.ProjectColumn(\"column\", {projectId: project.id});\nconst card = new github.ProjectCard(\"card\", {\n    columnId: column.columnId,\n    note: \"## Unaccepted 👇\",\n});\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\nproject = github.OrganizationProject(\"project\", body=\"This is an organization project.\")\ncolumn = github.ProjectColumn(\"column\", project_id=project.id)\ncard = github.ProjectCard(\"card\",\n    column_id=column.column_id,\n    note=\"## Unaccepted 👇\")\n```\n```csharp\nusing Pulumi;\nusing Github = Pulumi.Github;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var project = new Github.OrganizationProject(\"project\", new Github.OrganizationProjectArgs\n        {\n            Body = \"This is an organization project.\",\n        });\n        var column = new Github.ProjectColumn(\"column\", new Github.ProjectColumnArgs\n        {\n            ProjectId = project.Id,\n        });\n        var card = new Github.ProjectCard(\"card\", new Github.ProjectCardArgs\n        {\n            ColumnId = column.ColumnId,\n            Note = \"## Unaccepted 👇\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-github/sdk/v2/go/github\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tproject, err := github.NewOrganizationProject(ctx, \"project\", \u0026github.OrganizationProjectArgs{\n\t\t\tBody: pulumi.String(\"This is an organization project.\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tcolumn, err := github.NewProjectColumn(ctx, \"column\", \u0026github.ProjectColumnArgs{\n\t\t\tProjectId: project.ID(),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = github.NewProjectCard(ctx, \"card\", \u0026github.ProjectCardArgs{\n\t\t\tColumnId: column.ColumnId,\n\t\t\tNote:     pulumi.String(\"## Unaccepted 👇\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "properties": {
+                "cardId": {
+                    "type": "integer"
+                },
+                "columnId": {
+                    "type": "string",
+                    "description": "The ID of the card.\n"
+                },
+                "etag": {
+                    "type": "string"
+                },
+                "note": {
+                    "type": "string",
+                    "description": "The note contents of the card. Markdown supported.\n"
+                }
+            },
+            "required": [
+                "cardId",
+                "columnId",
+                "etag",
+                "note"
+            ],
+            "inputProperties": {
+                "columnId": {
+                    "type": "string",
+                    "description": "The ID of the card.\n"
+                },
+                "note": {
+                    "type": "string",
+                    "description": "The note contents of the card. Markdown supported.\n"
+                }
+            },
+            "requiredInputs": [
+                "columnId",
+                "note"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering ProjectCard resources.\n",
+                "properties": {
+                    "cardId": {
+                        "type": "integer"
+                    },
+                    "columnId": {
+                        "type": "string",
+                        "description": "The ID of the card.\n"
+                    },
+                    "etag": {
+                        "type": "string"
+                    },
+                    "note": {
+                        "type": "string",
+                        "description": "The note contents of the card. Markdown supported.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
         "github:index/projectColumn:ProjectColumn": {
             "description": "This resource allows you to create and manage columns for GitHub projects.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\nconst project = new github.OrganizationProject(\"project\", {\n    body: \"This is an organization project.\",\n});\nconst column = new github.ProjectColumn(\"column\", {\n    projectId: project.id,\n});\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\nproject = github.OrganizationProject(\"project\", body=\"This is an organization project.\")\ncolumn = github.ProjectColumn(\"column\", project_id=project.id)\n```\n```csharp\nusing Pulumi;\nusing Github = Pulumi.Github;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var project = new Github.OrganizationProject(\"project\", new Github.OrganizationProjectArgs\n        {\n            Body = \"This is an organization project.\",\n        });\n        var column = new Github.ProjectColumn(\"column\", new Github.ProjectColumnArgs\n        {\n            ProjectId = project.Id,\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-github/sdk/v2/go/github\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tproject, err := github.NewOrganizationProject(ctx, \"project\", \u0026github.OrganizationProjectArgs{\n\t\t\tBody: pulumi.String(\"This is an organization project.\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = github.NewProjectColumn(ctx, \"column\", \u0026github.ProjectColumnArgs{\n\t\t\tProjectId: project.ID(),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
             "properties": {
+                "columnId": {
+                    "type": "integer"
+                },
                 "etag": {
                     "type": "string"
                 },
@@ -1163,6 +1364,7 @@
                 }
             },
             "required": [
+                "columnId",
                 "etag",
                 "name",
                 "projectId"
@@ -1183,6 +1385,9 @@
             "stateInputs": {
                 "description": "Input properties used for looking up and filtering ProjectColumn resources.\n",
                 "properties": {
+                    "columnId": {
+                        "type": "integer"
+                    },
                     "etag": {
                         "type": "string"
                     },
@@ -1227,7 +1432,8 @@
                 },
                 "defaultBranch": {
                     "type": "string",
-                    "description": "The name of the default branch of the repository. **NOTE:** This can only be set after a repository has already been created,\nand after a correct reference has been created for the target branch inside the repository. This means a user will have to omit this parameter from the\ninitial repository creation and create the target branch inside of the repository prior to setting this attribute.\n"
+                    "description": "(Deprecated: Use `github.BranchDefault` resource instead) The name of the default branch of the repository. **NOTE:** This can only be set after a repository has already been created,\nand after a correct reference has been created for the target branch inside the repository. This means a user will have to omit this parameter from the\ninitial repository creation and create the target branch inside of the repository prior to setting this attribute.\n",
+                    "deprecationMessage": "Use the github_branch_default resource instead"
                 },
                 "deleteBranchOnMerge": {
                     "type": "boolean",
@@ -1294,12 +1500,16 @@
                 },
                 "nodeId": {
                     "type": "string",
-                    "description": "the Node ID of the Repository.\n"
+                    "description": "GraphQL global node id for use with v4 API\n"
                 },
                 "private": {
                     "type": "boolean",
                     "description": "Set to `true` to create a private repository.\nRepositories are created as public (e.g. open source) by default.\n",
                     "deprecationMessage": "use visibility instead"
+                },
+                "repoId": {
+                    "type": "integer",
+                    "description": "Github ID for the repository\n"
                 },
                 "sshCloneUrl": {
                     "type": "string",
@@ -1339,6 +1549,7 @@
                 "name",
                 "nodeId",
                 "private",
+                "repoId",
                 "sshCloneUrl",
                 "svnUrl",
                 "visibility"
@@ -1370,7 +1581,8 @@
                 },
                 "defaultBranch": {
                     "type": "string",
-                    "description": "The name of the default branch of the repository. **NOTE:** This can only be set after a repository has already been created,\nand after a correct reference has been created for the target branch inside the repository. This means a user will have to omit this parameter from the\ninitial repository creation and create the target branch inside of the repository prior to setting this attribute.\n"
+                    "description": "(Deprecated: Use `github.BranchDefault` resource instead) The name of the default branch of the repository. **NOTE:** This can only be set after a repository has already been created,\nand after a correct reference has been created for the target branch inside the repository. This means a user will have to omit this parameter from the\ninitial repository creation and create the target branch inside of the repository prior to setting this attribute.\n",
+                    "deprecationMessage": "Use the github_branch_default resource instead"
                 },
                 "deleteBranchOnMerge": {
                     "type": "boolean",
@@ -1470,7 +1682,8 @@
                     },
                     "defaultBranch": {
                         "type": "string",
-                        "description": "The name of the default branch of the repository. **NOTE:** This can only be set after a repository has already been created,\nand after a correct reference has been created for the target branch inside the repository. This means a user will have to omit this parameter from the\ninitial repository creation and create the target branch inside of the repository prior to setting this attribute.\n"
+                        "description": "(Deprecated: Use `github.BranchDefault` resource instead) The name of the default branch of the repository. **NOTE:** This can only be set after a repository has already been created,\nand after a correct reference has been created for the target branch inside the repository. This means a user will have to omit this parameter from the\ninitial repository creation and create the target branch inside of the repository prior to setting this attribute.\n",
+                        "deprecationMessage": "Use the github_branch_default resource instead"
                     },
                     "deleteBranchOnMerge": {
                         "type": "boolean",
@@ -1537,12 +1750,16 @@
                     },
                     "nodeId": {
                         "type": "string",
-                        "description": "the Node ID of the Repository.\n"
+                        "description": "GraphQL global node id for use with v4 API\n"
                     },
                     "private": {
                         "type": "boolean",
                         "description": "Set to `true` to create a private repository.\nRepositories are created as public (e.g. open source) by default.\n",
                         "deprecationMessage": "use visibility instead"
+                    },
+                    "repoId": {
+                        "type": "integer",
+                        "description": "Github ID for the repository\n"
                     },
                     "sshCloneUrl": {
                         "type": "string",
@@ -1845,6 +2062,110 @@
                     "sha": {
                         "type": "string",
                         "description": "The SHA blob of the file.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "github:index/repositoryMilestone:RepositoryMilestone": {
+            "description": "Provides a GitHub repository milestone resource.\n\nThis resource allows you to create and manage milestones for a Github Repository within an organization or user account.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\n// Create a milestone for a repository\nconst example = new github.RepositoryMilestone(\"example\", {\n    owner: \"example-owner\",\n    repository: \"example-repository\",\n    title: \"v1.1.0\",\n});\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\n# Create a milestone for a repository\nexample = github.RepositoryMilestone(\"example\",\n    owner=\"example-owner\",\n    repository=\"example-repository\",\n    title=\"v1.1.0\")\n```\n```csharp\nusing Pulumi;\nusing Github = Pulumi.Github;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        // Create a milestone for a repository\n        var example = new Github.RepositoryMilestone(\"example\", new Github.RepositoryMilestoneArgs\n        {\n            Owner = \"example-owner\",\n            Repository = \"example-repository\",\n            Title = \"v1.1.0\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-github/sdk/v2/go/github\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := github.NewRepositoryMilestone(ctx, \"example\", \u0026github.RepositoryMilestoneArgs{\n\t\t\tOwner:      pulumi.String(\"example-owner\"),\n\t\t\tRepository: pulumi.String(\"example-repository\"),\n\t\t\tTitle:      pulumi.String(\"v1.1.0\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "properties": {
+                "description": {
+                    "type": "string",
+                    "description": "A description of the milestone.\n"
+                },
+                "dueDate": {
+                    "type": "string",
+                    "description": "The milestone due date. In `yyyy-mm-dd` format.\n"
+                },
+                "number": {
+                    "type": "integer",
+                    "description": "The number of the milestone.\n"
+                },
+                "owner": {
+                    "type": "string",
+                    "description": "The owner of the Github Repository.\n"
+                },
+                "repository": {
+                    "type": "string",
+                    "description": "The name of the Github Repository.\n"
+                },
+                "state": {
+                    "type": "string",
+                    "description": "The state of the milestone. Either `open` or `closed`. Default: `open`\n"
+                },
+                "title": {
+                    "type": "string",
+                    "description": "The title of the milestone.\n"
+                }
+            },
+            "required": [
+                "number",
+                "owner",
+                "repository",
+                "title"
+            ],
+            "inputProperties": {
+                "description": {
+                    "type": "string",
+                    "description": "A description of the milestone.\n"
+                },
+                "dueDate": {
+                    "type": "string",
+                    "description": "The milestone due date. In `yyyy-mm-dd` format.\n"
+                },
+                "owner": {
+                    "type": "string",
+                    "description": "The owner of the Github Repository.\n"
+                },
+                "repository": {
+                    "type": "string",
+                    "description": "The name of the Github Repository.\n"
+                },
+                "state": {
+                    "type": "string",
+                    "description": "The state of the milestone. Either `open` or `closed`. Default: `open`\n"
+                },
+                "title": {
+                    "type": "string",
+                    "description": "The title of the milestone.\n"
+                }
+            },
+            "requiredInputs": [
+                "owner",
+                "repository",
+                "title"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering RepositoryMilestone resources.\n",
+                "properties": {
+                    "description": {
+                        "type": "string",
+                        "description": "A description of the milestone.\n"
+                    },
+                    "dueDate": {
+                        "type": "string",
+                        "description": "The milestone due date. In `yyyy-mm-dd` format.\n"
+                    },
+                    "number": {
+                        "type": "integer",
+                        "description": "The number of the milestone.\n"
+                    },
+                    "owner": {
+                        "type": "string",
+                        "description": "The owner of the Github Repository.\n"
+                    },
+                    "repository": {
+                        "type": "string",
+                        "description": "The name of the Github Repository.\n"
+                    },
+                    "state": {
+                        "type": "string",
+                        "description": "The state of the milestone. Either `open` or `closed`. Default: `open`\n"
+                    },
+                    "title": {
+                        "type": "string",
+                        "description": "The title of the milestone.\n"
                     }
                 },
                 "type": "object"
@@ -3047,11 +3368,15 @@
                     },
                     "nodeId": {
                         "type": "string",
-                        "description": "the Node ID of the repository.\n"
+                        "description": "GraphQL global node id for use with v4 API\n"
                     },
                     "private": {
                         "type": "boolean",
                         "description": "Whether the repository is private.\n"
+                    },
+                    "repoId": {
+                        "type": "integer",
+                        "description": "Github ID for the repository\n"
                     },
                     "sshCloneUrl": {
                         "type": "string",
@@ -3091,10 +3416,82 @@
                     "httpCloneUrl",
                     "nodeId",
                     "private",
+                    "repoId",
                     "sshCloneUrl",
                     "svnUrl",
                     "topics",
                     "visibility",
+                    "id"
+                ]
+            }
+        },
+        "github:index/getRepositoryMilestone:getRepositoryMilestone": {
+            "description": "Use this data source to retrieve information about a specific GitHub milestone in a repository.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\nconst example = pulumi.output(github.getRepositoryMilestone({\n    number: 1,\n    owner: \"example-owner\",\n    repository: \"example-repository\",\n}, { async: true }));\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\nexample = github.get_repository_milestone(number=1,\n    owner=\"example-owner\",\n    repository=\"example-repository\")\n```\n```csharp\nusing Pulumi;\nusing Github = Pulumi.Github;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var example = Output.Create(Github.GetRepositoryMilestone.InvokeAsync(new Github.GetRepositoryMilestoneArgs\n        {\n            Number = 1,\n            Owner = \"example-owner\",\n            Repository = \"example-repository\",\n        }));\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-github/sdk/v2/go/github\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := github.LookupRepositoryMilestone(ctx, \u0026github.LookupRepositoryMilestoneArgs{\n\t\t\tNumber:     1,\n\t\t\tOwner:      \"example-owner\",\n\t\t\tRepository: \"example-repository\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "inputs": {
+                "description": "A collection of arguments for invoking getRepositoryMilestone.\n",
+                "properties": {
+                    "number": {
+                        "type": "integer",
+                        "description": "The number of the milestone.\n"
+                    },
+                    "owner": {
+                        "type": "string",
+                        "description": "Owner of the repository.\n"
+                    },
+                    "repository": {
+                        "type": "string",
+                        "description": "Name of the repository to retrieve the milestone from.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "number",
+                    "owner",
+                    "repository"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getRepositoryMilestone.\n",
+                "properties": {
+                    "description": {
+                        "type": "string",
+                        "description": "Description of the milestone.\n"
+                    },
+                    "dueDate": {
+                        "type": "string",
+                        "description": "The milestone due date (in ISO-8601 `yyyy-mm-dd` format).\n"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "number": {
+                        "type": "integer"
+                    },
+                    "owner": {
+                        "type": "string"
+                    },
+                    "repository": {
+                        "type": "string"
+                    },
+                    "state": {
+                        "type": "string",
+                        "description": "State of the milestone.\n"
+                    },
+                    "title": {
+                        "type": "string",
+                        "description": "Title of the milestone.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "description",
+                    "dueDate",
+                    "number",
+                    "owner",
+                    "repository",
+                    "state",
+                    "title",
                     "id"
                 ]
             }

@@ -79,9 +79,11 @@ export class Repository extends pulumi.CustomResource {
      */
     public readonly autoInit!: pulumi.Output<boolean | undefined>;
     /**
-     * The name of the default branch of the repository. **NOTE:** This can only be set after a repository has already been created,
+     * (Deprecated: Use `github.BranchDefault` resource instead) The name of the default branch of the repository. **NOTE:** This can only be set after a repository has already been created,
      * and after a correct reference has been created for the target branch inside the repository. This means a user will have to omit this parameter from the
      * initial repository creation and create the target branch inside of the repository prior to setting this attribute.
+     *
+     * @deprecated Use the github_branch_default resource instead
      */
     public readonly defaultBranch!: pulumi.Output<string>;
     /**
@@ -148,7 +150,7 @@ export class Repository extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * the Node ID of the Repository.
+     * GraphQL global node id for use with v4 API
      */
     public /*out*/ readonly nodeId!: pulumi.Output<string>;
     /**
@@ -158,6 +160,10 @@ export class Repository extends pulumi.CustomResource {
      * @deprecated use visibility instead
      */
     public readonly private!: pulumi.Output<boolean>;
+    /**
+     * Github ID for the repository
+     */
+    public /*out*/ readonly repoId!: pulumi.Output<number>;
     /**
      * URL that can be provided to `git clone` to clone the repository via SSH.
      */
@@ -220,6 +226,7 @@ export class Repository extends pulumi.CustomResource {
             inputs["name"] = state ? state.name : undefined;
             inputs["nodeId"] = state ? state.nodeId : undefined;
             inputs["private"] = state ? state.private : undefined;
+            inputs["repoId"] = state ? state.repoId : undefined;
             inputs["sshCloneUrl"] = state ? state.sshCloneUrl : undefined;
             inputs["svnUrl"] = state ? state.svnUrl : undefined;
             inputs["template"] = state ? state.template : undefined;
@@ -257,6 +264,7 @@ export class Repository extends pulumi.CustomResource {
             inputs["htmlUrl"] = undefined /*out*/;
             inputs["httpCloneUrl"] = undefined /*out*/;
             inputs["nodeId"] = undefined /*out*/;
+            inputs["repoId"] = undefined /*out*/;
             inputs["sshCloneUrl"] = undefined /*out*/;
             inputs["svnUrl"] = undefined /*out*/;
         }
@@ -300,9 +308,11 @@ export interface RepositoryState {
      */
     readonly autoInit?: pulumi.Input<boolean>;
     /**
-     * The name of the default branch of the repository. **NOTE:** This can only be set after a repository has already been created,
+     * (Deprecated: Use `github.BranchDefault` resource instead) The name of the default branch of the repository. **NOTE:** This can only be set after a repository has already been created,
      * and after a correct reference has been created for the target branch inside the repository. This means a user will have to omit this parameter from the
      * initial repository creation and create the target branch inside of the repository prior to setting this attribute.
+     *
+     * @deprecated Use the github_branch_default resource instead
      */
     readonly defaultBranch?: pulumi.Input<string>;
     /**
@@ -369,7 +379,7 @@ export interface RepositoryState {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * the Node ID of the Repository.
+     * GraphQL global node id for use with v4 API
      */
     readonly nodeId?: pulumi.Input<string>;
     /**
@@ -379,6 +389,10 @@ export interface RepositoryState {
      * @deprecated use visibility instead
      */
     readonly private?: pulumi.Input<boolean>;
+    /**
+     * Github ID for the repository
+     */
+    readonly repoId?: pulumi.Input<number>;
     /**
      * URL that can be provided to `git clone` to clone the repository via SSH.
      */
@@ -434,9 +448,11 @@ export interface RepositoryArgs {
      */
     readonly autoInit?: pulumi.Input<boolean>;
     /**
-     * The name of the default branch of the repository. **NOTE:** This can only be set after a repository has already been created,
+     * (Deprecated: Use `github.BranchDefault` resource instead) The name of the default branch of the repository. **NOTE:** This can only be set after a repository has already been created,
      * and after a correct reference has been created for the target branch inside the repository. This means a user will have to omit this parameter from the
      * initial repository creation and create the target branch inside of the repository prior to setting this attribute.
+     *
+     * @deprecated Use the github_branch_default resource instead
      */
     readonly defaultBranch?: pulumi.Input<string>;
     /**
