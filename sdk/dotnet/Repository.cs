@@ -77,7 +77,7 @@ namespace Pulumi.Github
         public Output<bool?> AutoInit { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the default branch of the repository. **NOTE:** This can only be set after a repository has already been created,
+        /// (Deprecated: Use `github.BranchDefault` resource instead) The name of the default branch of the repository. **NOTE:** This can only be set after a repository has already been created,
         /// and after a correct reference has been created for the target branch inside the repository. This means a user will have to omit this parameter from the
         /// initial repository creation and create the target branch inside of the repository prior to setting this attribute.
         /// </summary>
@@ -180,7 +180,7 @@ namespace Pulumi.Github
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// the Node ID of the Repository.
+        /// GraphQL global node id for use with v4 API
         /// </summary>
         [Output("nodeId")]
         public Output<string> NodeId { get; private set; } = null!;
@@ -191,6 +191,12 @@ namespace Pulumi.Github
         /// </summary>
         [Output("private")]
         public Output<bool> Private { get; private set; } = null!;
+
+        /// <summary>
+        /// Github ID for the repository
+        /// </summary>
+        [Output("repoId")]
+        public Output<int> RepoId { get; private set; } = null!;
 
         /// <summary>
         /// URL that can be provided to `git clone` to clone the repository via SSH.
@@ -311,7 +317,7 @@ namespace Pulumi.Github
         public Input<bool>? AutoInit { get; set; }
 
         /// <summary>
-        /// The name of the default branch of the repository. **NOTE:** This can only be set after a repository has already been created,
+        /// (Deprecated: Use `github.BranchDefault` resource instead) The name of the default branch of the repository. **NOTE:** This can only be set after a repository has already been created,
         /// and after a correct reference has been created for the target branch inside the repository. This means a user will have to omit this parameter from the
         /// initial repository creation and create the target branch inside of the repository prior to setting this attribute.
         /// </summary>
@@ -467,7 +473,7 @@ namespace Pulumi.Github
         public Input<bool>? AutoInit { get; set; }
 
         /// <summary>
-        /// The name of the default branch of the repository. **NOTE:** This can only be set after a repository has already been created,
+        /// (Deprecated: Use `github.BranchDefault` resource instead) The name of the default branch of the repository. **NOTE:** This can only be set after a repository has already been created,
         /// and after a correct reference has been created for the target branch inside the repository. This means a user will have to omit this parameter from the
         /// initial repository creation and create the target branch inside of the repository prior to setting this attribute.
         /// </summary>
@@ -570,7 +576,7 @@ namespace Pulumi.Github
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// the Node ID of the Repository.
+        /// GraphQL global node id for use with v4 API
         /// </summary>
         [Input("nodeId")]
         public Input<string>? NodeId { get; set; }
@@ -581,6 +587,12 @@ namespace Pulumi.Github
         /// </summary>
         [Input("private")]
         public Input<bool>? Private { get; set; }
+
+        /// <summary>
+        /// Github ID for the repository
+        /// </summary>
+        [Input("repoId")]
+        public Input<int>? RepoId { get; set; }
 
         /// <summary>
         /// URL that can be provided to `git clone` to clone the repository via SSH.

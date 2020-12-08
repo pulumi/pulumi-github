@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Github
 {
     /// <summary>
-    /// This resource allows you to create and manage columns for GitHub projects.
+    /// This resource allows you to create and manage cards for GitHub projects.
     /// 
     /// ## Example Usage
     /// 
@@ -30,46 +30,51 @@ namespace Pulumi.Github
     ///         {
     ///             ProjectId = project.Id,
     ///         });
+    ///         var card = new Github.ProjectCard("card", new Github.ProjectCardArgs
+    ///         {
+    ///             ColumnId = column.ColumnId,
+    ///             Note = "## Unaccepted 👇",
+    ///         });
     ///     }
     /// 
     /// }
     /// ```
     /// </summary>
-    public partial class ProjectColumn : Pulumi.CustomResource
+    public partial class ProjectCard : Pulumi.CustomResource
     {
+        [Output("cardId")]
+        public Output<int> CardId { get; private set; } = null!;
+
+        /// <summary>
+        /// The ID of the card.
+        /// </summary>
         [Output("columnId")]
-        public Output<int> ColumnId { get; private set; } = null!;
+        public Output<string> ColumnId { get; private set; } = null!;
 
         [Output("etag")]
         public Output<string> Etag { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the column.
+        /// The note contents of the card. Markdown supported.
         /// </summary>
-        [Output("name")]
-        public Output<string> Name { get; private set; } = null!;
-
-        /// <summary>
-        /// The ID of an existing project that the column will be created in.
-        /// </summary>
-        [Output("projectId")]
-        public Output<string> ProjectId { get; private set; } = null!;
+        [Output("note")]
+        public Output<string> Note { get; private set; } = null!;
 
 
         /// <summary>
-        /// Create a ProjectColumn resource with the given unique name, arguments, and options.
+        /// Create a ProjectCard resource with the given unique name, arguments, and options.
         /// </summary>
         ///
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public ProjectColumn(string name, ProjectColumnArgs args, CustomResourceOptions? options = null)
-            : base("github:index/projectColumn:ProjectColumn", name, args ?? new ProjectColumnArgs(), MakeResourceOptions(options, ""))
+        public ProjectCard(string name, ProjectCardArgs args, CustomResourceOptions? options = null)
+            : base("github:index/projectCard:ProjectCard", name, args ?? new ProjectCardArgs(), MakeResourceOptions(options, ""))
         {
         }
 
-        private ProjectColumn(string name, Input<string> id, ProjectColumnState? state = null, CustomResourceOptions? options = null)
-            : base("github:index/projectColumn:ProjectColumn", name, state, MakeResourceOptions(options, id))
+        private ProjectCard(string name, Input<string> id, ProjectCardState? state = null, CustomResourceOptions? options = null)
+            : base("github:index/projectCard:ProjectCard", name, state, MakeResourceOptions(options, id))
         {
         }
 
@@ -85,7 +90,7 @@ namespace Pulumi.Github
             return merged;
         }
         /// <summary>
-        /// Get an existing ProjectColumn resource's state with the given name, ID, and optional extra
+        /// Get an existing ProjectCard resource's state with the given name, ID, and optional extra
         /// properties used to qualify the lookup.
         /// </summary>
         ///
@@ -93,52 +98,52 @@ namespace Pulumi.Github
         /// <param name="id">The unique provider ID of the resource to lookup.</param>
         /// <param name="state">Any extra arguments used during the lookup.</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public static ProjectColumn Get(string name, Input<string> id, ProjectColumnState? state = null, CustomResourceOptions? options = null)
+        public static ProjectCard Get(string name, Input<string> id, ProjectCardState? state = null, CustomResourceOptions? options = null)
         {
-            return new ProjectColumn(name, id, state, options);
+            return new ProjectCard(name, id, state, options);
         }
     }
 
-    public sealed class ProjectColumnArgs : Pulumi.ResourceArgs
+    public sealed class ProjectCardArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the column.
+        /// The ID of the card.
         /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
+        [Input("columnId", required: true)]
+        public Input<string> ColumnId { get; set; } = null!;
 
         /// <summary>
-        /// The ID of an existing project that the column will be created in.
+        /// The note contents of the card. Markdown supported.
         /// </summary>
-        [Input("projectId", required: true)]
-        public Input<string> ProjectId { get; set; } = null!;
+        [Input("note", required: true)]
+        public Input<string> Note { get; set; } = null!;
 
-        public ProjectColumnArgs()
+        public ProjectCardArgs()
         {
         }
     }
 
-    public sealed class ProjectColumnState : Pulumi.ResourceArgs
+    public sealed class ProjectCardState : Pulumi.ResourceArgs
     {
+        [Input("cardId")]
+        public Input<int>? CardId { get; set; }
+
+        /// <summary>
+        /// The ID of the card.
+        /// </summary>
         [Input("columnId")]
-        public Input<int>? ColumnId { get; set; }
+        public Input<string>? ColumnId { get; set; }
 
         [Input("etag")]
         public Input<string>? Etag { get; set; }
 
         /// <summary>
-        /// The name of the column.
+        /// The note contents of the card. Markdown supported.
         /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
+        [Input("note")]
+        public Input<string>? Note { get; set; }
 
-        /// <summary>
-        /// The ID of an existing project that the column will be created in.
-        /// </summary>
-        [Input("projectId")]
-        public Input<string>? ProjectId { get; set; }
-
-        public ProjectColumnState()
+        public ProjectCardState()
         {
         }
     }

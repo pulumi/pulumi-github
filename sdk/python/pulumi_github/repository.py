@@ -70,7 +70,7 @@ class Repository(pulumi.CustomResource):
         :param pulumi.Input[bool] archive_on_destroy: Set to `true` to archive the repository instead of deleting on destroy.
         :param pulumi.Input[bool] archived: Specifies if the repository should be archived. Defaults to `false`. **NOTE** Currently, the API does not support unarchiving.
         :param pulumi.Input[bool] auto_init: Set to `true` to produce an initial commit in the repository.
-        :param pulumi.Input[str] default_branch: The name of the default branch of the repository. **NOTE:** This can only be set after a repository has already been created,
+        :param pulumi.Input[str] default_branch: (Deprecated: Use `BranchDefault` resource instead) The name of the default branch of the repository. **NOTE:** This can only be set after a repository has already been created,
                and after a correct reference has been created for the target branch inside the repository. This means a user will have to omit this parameter from the
                initial repository creation and create the target branch inside of the repository prior to setting this attribute.
         :param pulumi.Input[bool] delete_branch_on_merge: Automatically delete head branch after a pull request is merged. Defaults to `false`.
@@ -116,6 +116,9 @@ class Repository(pulumi.CustomResource):
             __props__['archive_on_destroy'] = archive_on_destroy
             __props__['archived'] = archived
             __props__['auto_init'] = auto_init
+            if default_branch is not None:
+                warnings.warn("Use the github_branch_default resource instead", DeprecationWarning)
+                pulumi.log.warn("default_branch is deprecated: Use the github_branch_default resource instead")
             __props__['default_branch'] = default_branch
             __props__['delete_branch_on_merge'] = delete_branch_on_merge
             __props__['description'] = description
@@ -142,6 +145,7 @@ class Repository(pulumi.CustomResource):
             __props__['html_url'] = None
             __props__['http_clone_url'] = None
             __props__['node_id'] = None
+            __props__['repo_id'] = None
             __props__['ssh_clone_url'] = None
             __props__['svn_url'] = None
         super(Repository, __self__).__init__(
@@ -179,6 +183,7 @@ class Repository(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             node_id: Optional[pulumi.Input[str]] = None,
             private: Optional[pulumi.Input[bool]] = None,
+            repo_id: Optional[pulumi.Input[int]] = None,
             ssh_clone_url: Optional[pulumi.Input[str]] = None,
             svn_url: Optional[pulumi.Input[str]] = None,
             template: Optional[pulumi.Input[pulumi.InputType['RepositoryTemplateArgs']]] = None,
@@ -198,7 +203,7 @@ class Repository(pulumi.CustomResource):
         :param pulumi.Input[bool] archive_on_destroy: Set to `true` to archive the repository instead of deleting on destroy.
         :param pulumi.Input[bool] archived: Specifies if the repository should be archived. Defaults to `false`. **NOTE** Currently, the API does not support unarchiving.
         :param pulumi.Input[bool] auto_init: Set to `true` to produce an initial commit in the repository.
-        :param pulumi.Input[str] default_branch: The name of the default branch of the repository. **NOTE:** This can only be set after a repository has already been created,
+        :param pulumi.Input[str] default_branch: (Deprecated: Use `BranchDefault` resource instead) The name of the default branch of the repository. **NOTE:** This can only be set after a repository has already been created,
                and after a correct reference has been created for the target branch inside the repository. This means a user will have to omit this parameter from the
                initial repository creation and create the target branch inside of the repository prior to setting this attribute.
         :param pulumi.Input[bool] delete_branch_on_merge: Automatically delete head branch after a pull request is merged. Defaults to `false`.
@@ -218,9 +223,10 @@ class Repository(pulumi.CustomResource):
         :param pulumi.Input[bool] is_template: Set to `true` to tell GitHub that this is a template repository.
         :param pulumi.Input[str] license_template: Use the [name of the template](https://github.com/github/choosealicense.com/tree/gh-pages/_licenses) without the extension. For example, "mit" or "mpl-2.0".
         :param pulumi.Input[str] name: The name of the repository.
-        :param pulumi.Input[str] node_id: the Node ID of the Repository.
+        :param pulumi.Input[str] node_id: GraphQL global node id for use with v4 API
         :param pulumi.Input[bool] private: Set to `true` to create a private repository.
                Repositories are created as public (e.g. open source) by default.
+        :param pulumi.Input[int] repo_id: Github ID for the repository
         :param pulumi.Input[str] ssh_clone_url: URL that can be provided to `git clone` to clone the repository via SSH.
         :param pulumi.Input[str] svn_url: URL that can be provided to `svn checkout` to check out the repository via GitHub's Subversion protocol emulation.
         :param pulumi.Input[pulumi.InputType['RepositoryTemplateArgs']] template: Use a template repository to create this resource. See Template Repositories below for details.
@@ -257,6 +263,7 @@ class Repository(pulumi.CustomResource):
         __props__["name"] = name
         __props__["node_id"] = node_id
         __props__["private"] = private
+        __props__["repo_id"] = repo_id
         __props__["ssh_clone_url"] = ssh_clone_url
         __props__["svn_url"] = svn_url
         __props__["template"] = template
@@ -317,7 +324,7 @@ class Repository(pulumi.CustomResource):
     @pulumi.getter(name="defaultBranch")
     def default_branch(self) -> pulumi.Output[str]:
         """
-        The name of the default branch of the repository. **NOTE:** This can only be set after a repository has already been created,
+        (Deprecated: Use `BranchDefault` resource instead) The name of the default branch of the repository. **NOTE:** This can only be set after a repository has already been created,
         and after a correct reference has been created for the target branch inside the repository. This means a user will have to omit this parameter from the
         initial repository creation and create the target branch inside of the repository prior to setting this attribute.
         """
@@ -454,7 +461,7 @@ class Repository(pulumi.CustomResource):
     @pulumi.getter(name="nodeId")
     def node_id(self) -> pulumi.Output[str]:
         """
-        the Node ID of the Repository.
+        GraphQL global node id for use with v4 API
         """
         return pulumi.get(self, "node_id")
 
@@ -466,6 +473,14 @@ class Repository(pulumi.CustomResource):
         Repositories are created as public (e.g. open source) by default.
         """
         return pulumi.get(self, "private")
+
+    @property
+    @pulumi.getter(name="repoId")
+    def repo_id(self) -> pulumi.Output[int]:
+        """
+        Github ID for the repository
+        """
+        return pulumi.get(self, "repo_id")
 
     @property
     @pulumi.getter(name="sshCloneUrl")

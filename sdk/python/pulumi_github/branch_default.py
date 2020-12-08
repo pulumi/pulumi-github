@@ -8,20 +8,22 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from . import _utilities, _tables
 
-__all__ = ['ProjectColumn']
+__all__ = ['BranchDefault']
 
 
-class ProjectColumn(pulumi.CustomResource):
+class BranchDefault(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 name: Optional[pulumi.Input[str]] = None,
-                 project_id: Optional[pulumi.Input[str]] = None,
+                 branch: Optional[pulumi.Input[str]] = None,
+                 repository: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
         """
-        This resource allows you to create and manage columns for GitHub projects.
+        Provides a GitHub branch default resource.
+
+        This resource allows you to set the default branch for a given repository.
 
         ## Example Usage
 
@@ -29,14 +31,25 @@ class ProjectColumn(pulumi.CustomResource):
         import pulumi
         import pulumi_github as github
 
-        project = github.OrganizationProject("project", body="This is an organization project.")
-        column = github.ProjectColumn("column", project_id=project.id)
+        example = github.Repository("example",
+            description="My awesome codebase",
+            private=True,
+            template=github.RepositoryTemplateArgs(
+                owner="github",
+                repository="terraform-module-template",
+            ))
+        development = github.Branch("development",
+            repository=example.name,
+            branch="development")
+        default = github.BranchDefault("default",
+            repository=example.name,
+            branch=development.branch)
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: The name of the column.
-        :param pulumi.Input[str] project_id: The ID of an existing project that the column will be created in.
+        :param pulumi.Input[str] branch: The branch (e.g. `main`)
+        :param pulumi.Input[str] repository: The GitHub repository
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -55,14 +68,14 @@ class ProjectColumn(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            __props__['name'] = name
-            if project_id is None:
-                raise TypeError("Missing required property 'project_id'")
-            __props__['project_id'] = project_id
-            __props__['column_id'] = None
-            __props__['etag'] = None
-        super(ProjectColumn, __self__).__init__(
-            'github:index/projectColumn:ProjectColumn',
+            if branch is None:
+                raise TypeError("Missing required property 'branch'")
+            __props__['branch'] = branch
+            if repository is None:
+                raise TypeError("Missing required property 'repository'")
+            __props__['repository'] = repository
+        super(BranchDefault, __self__).__init__(
+            'github:index/branchDefault:BranchDefault',
             resource_name,
             __props__,
             opts)
@@ -71,55 +84,41 @@ class ProjectColumn(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            column_id: Optional[pulumi.Input[int]] = None,
-            etag: Optional[pulumi.Input[str]] = None,
-            name: Optional[pulumi.Input[str]] = None,
-            project_id: Optional[pulumi.Input[str]] = None) -> 'ProjectColumn':
+            branch: Optional[pulumi.Input[str]] = None,
+            repository: Optional[pulumi.Input[str]] = None) -> 'BranchDefault':
         """
-        Get an existing ProjectColumn resource's state with the given name, id, and optional extra
+        Get an existing BranchDefault resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: The name of the column.
-        :param pulumi.Input[str] project_id: The ID of an existing project that the column will be created in.
+        :param pulumi.Input[str] branch: The branch (e.g. `main`)
+        :param pulumi.Input[str] repository: The GitHub repository
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["column_id"] = column_id
-        __props__["etag"] = etag
-        __props__["name"] = name
-        __props__["project_id"] = project_id
-        return ProjectColumn(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter(name="columnId")
-    def column_id(self) -> pulumi.Output[int]:
-        return pulumi.get(self, "column_id")
+        __props__["branch"] = branch
+        __props__["repository"] = repository
+        return BranchDefault(resource_name, opts=opts, __props__=__props__)
 
     @property
     @pulumi.getter
-    def etag(self) -> pulumi.Output[str]:
-        return pulumi.get(self, "etag")
+    def branch(self) -> pulumi.Output[str]:
+        """
+        The branch (e.g. `main`)
+        """
+        return pulumi.get(self, "branch")
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Output[str]:
+    def repository(self) -> pulumi.Output[str]:
         """
-        The name of the column.
+        The GitHub repository
         """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter(name="projectId")
-    def project_id(self) -> pulumi.Output[str]:
-        """
-        The ID of an existing project that the column will be created in.
-        """
-        return pulumi.get(self, "project_id")
+        return pulumi.get(self, "repository")
 
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

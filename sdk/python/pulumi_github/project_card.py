@@ -8,20 +8,20 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from . import _utilities, _tables
 
-__all__ = ['ProjectColumn']
+__all__ = ['ProjectCard']
 
 
-class ProjectColumn(pulumi.CustomResource):
+class ProjectCard(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 name: Optional[pulumi.Input[str]] = None,
-                 project_id: Optional[pulumi.Input[str]] = None,
+                 column_id: Optional[pulumi.Input[str]] = None,
+                 note: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
         """
-        This resource allows you to create and manage columns for GitHub projects.
+        This resource allows you to create and manage cards for GitHub projects.
 
         ## Example Usage
 
@@ -31,12 +31,15 @@ class ProjectColumn(pulumi.CustomResource):
 
         project = github.OrganizationProject("project", body="This is an organization project.")
         column = github.ProjectColumn("column", project_id=project.id)
+        card = github.ProjectCard("card",
+            column_id=column.column_id,
+            note="## Unaccepted 👇")
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: The name of the column.
-        :param pulumi.Input[str] project_id: The ID of an existing project that the column will be created in.
+        :param pulumi.Input[str] column_id: The ID of the card.
+        :param pulumi.Input[str] note: The note contents of the card. Markdown supported.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -55,14 +58,16 @@ class ProjectColumn(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            __props__['name'] = name
-            if project_id is None:
-                raise TypeError("Missing required property 'project_id'")
-            __props__['project_id'] = project_id
-            __props__['column_id'] = None
+            if column_id is None:
+                raise TypeError("Missing required property 'column_id'")
+            __props__['column_id'] = column_id
+            if note is None:
+                raise TypeError("Missing required property 'note'")
+            __props__['note'] = note
+            __props__['card_id'] = None
             __props__['etag'] = None
-        super(ProjectColumn, __self__).__init__(
-            'github:index/projectColumn:ProjectColumn',
+        super(ProjectCard, __self__).__init__(
+            'github:index/projectCard:ProjectCard',
             resource_name,
             __props__,
             opts)
@@ -71,33 +76,41 @@ class ProjectColumn(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            column_id: Optional[pulumi.Input[int]] = None,
+            card_id: Optional[pulumi.Input[int]] = None,
+            column_id: Optional[pulumi.Input[str]] = None,
             etag: Optional[pulumi.Input[str]] = None,
-            name: Optional[pulumi.Input[str]] = None,
-            project_id: Optional[pulumi.Input[str]] = None) -> 'ProjectColumn':
+            note: Optional[pulumi.Input[str]] = None) -> 'ProjectCard':
         """
-        Get an existing ProjectColumn resource's state with the given name, id, and optional extra
+        Get an existing ProjectCard resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: The name of the column.
-        :param pulumi.Input[str] project_id: The ID of an existing project that the column will be created in.
+        :param pulumi.Input[str] column_id: The ID of the card.
+        :param pulumi.Input[str] note: The note contents of the card. Markdown supported.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
+        __props__["card_id"] = card_id
         __props__["column_id"] = column_id
         __props__["etag"] = etag
-        __props__["name"] = name
-        __props__["project_id"] = project_id
-        return ProjectColumn(resource_name, opts=opts, __props__=__props__)
+        __props__["note"] = note
+        return ProjectCard(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="cardId")
+    def card_id(self) -> pulumi.Output[int]:
+        return pulumi.get(self, "card_id")
 
     @property
     @pulumi.getter(name="columnId")
-    def column_id(self) -> pulumi.Output[int]:
+    def column_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the card.
+        """
         return pulumi.get(self, "column_id")
 
     @property
@@ -107,19 +120,11 @@ class ProjectColumn(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Output[str]:
+    def note(self) -> pulumi.Output[str]:
         """
-        The name of the column.
+        The note contents of the card. Markdown supported.
         """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter(name="projectId")
-    def project_id(self) -> pulumi.Output[str]:
-        """
-        The ID of an existing project that the column will be created in.
-        """
-        return pulumi.get(self, "project_id")
+        return pulumi.get(self, "note")
 
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
