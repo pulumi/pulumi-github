@@ -46,6 +46,14 @@ class BranchDefault(pulumi.CustomResource):
             branch=development.branch)
         ```
 
+        ## Import
+
+        GitHub Branch Defaults can be imported using an ID made up of `repository`, e.g.
+
+        ```sh
+         $ pulumi import github:index/branchDefault:BranchDefault branch_default my-repo
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] branch: The branch (e.g. `main`)

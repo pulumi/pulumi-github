@@ -4,6 +4,7 @@
 package github
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -15,6 +16,14 @@ import (
 //
 // To learn more about team synchronization between IdPs and Github, please refer to:
 // https://help.github.com/en/github/setting-up-and-managing-organizations-and-teams/synchronizing-teams-between-your-identity-provider-and-github
+//
+// ## Import
+//
+// GitHub Team Sync Group Mappings can be imported using the GitHub team `slug` e.g.
+//
+// ```sh
+//  $ pulumi import github:index/teamSyncGroupMapping:TeamSyncGroupMapping example some_team
+// ```
 type TeamSyncGroupMapping struct {
 	pulumi.CustomResourceState
 
@@ -97,4 +106,43 @@ type TeamSyncGroupMappingArgs struct {
 
 func (TeamSyncGroupMappingArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*teamSyncGroupMappingArgs)(nil)).Elem()
+}
+
+type TeamSyncGroupMappingInput interface {
+	pulumi.Input
+
+	ToTeamSyncGroupMappingOutput() TeamSyncGroupMappingOutput
+	ToTeamSyncGroupMappingOutputWithContext(ctx context.Context) TeamSyncGroupMappingOutput
+}
+
+func (TeamSyncGroupMapping) ElementType() reflect.Type {
+	return reflect.TypeOf((*TeamSyncGroupMapping)(nil)).Elem()
+}
+
+func (i TeamSyncGroupMapping) ToTeamSyncGroupMappingOutput() TeamSyncGroupMappingOutput {
+	return i.ToTeamSyncGroupMappingOutputWithContext(context.Background())
+}
+
+func (i TeamSyncGroupMapping) ToTeamSyncGroupMappingOutputWithContext(ctx context.Context) TeamSyncGroupMappingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TeamSyncGroupMappingOutput)
+}
+
+type TeamSyncGroupMappingOutput struct {
+	*pulumi.OutputState
+}
+
+func (TeamSyncGroupMappingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TeamSyncGroupMappingOutput)(nil)).Elem()
+}
+
+func (o TeamSyncGroupMappingOutput) ToTeamSyncGroupMappingOutput() TeamSyncGroupMappingOutput {
+	return o
+}
+
+func (o TeamSyncGroupMappingOutput) ToTeamSyncGroupMappingOutputWithContext(ctx context.Context) TeamSyncGroupMappingOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(TeamSyncGroupMappingOutput{})
 }

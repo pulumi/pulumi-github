@@ -32,6 +32,14 @@ import * as utilities from "./utilities";
  *     branch: development.branch,
  * });
  * ```
+ *
+ * ## Import
+ *
+ * GitHub Branch Defaults can be imported using an ID made up of `repository`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import github:index/branchDefault:BranchDefault branch_default my-repo
+ * ```
  */
 export class BranchDefault extends pulumi.CustomResource {
     /**

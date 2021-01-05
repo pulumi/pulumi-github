@@ -26,6 +26,20 @@ import * as utilities from "./utilities";
  *     overwriteOnCreate: true,
  * });
  * ```
+ *
+ * ## Import
+ *
+ * Repository files can be imported using a combination of the `repo` and `file`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import github:index/repositoryFile:RepositoryFile gitignore example/.gitignore
+ * ```
+ *
+ *  To import a file from a branch other than master, append `:` and the branch name, e.g.
+ *
+ * ```sh
+ *  $ pulumi import github:index/repositoryFile:RepositoryFile gitignore example/.gitignore:dev
+ * ```
  */
 export class RepositoryFile extends pulumi.CustomResource {
     /**

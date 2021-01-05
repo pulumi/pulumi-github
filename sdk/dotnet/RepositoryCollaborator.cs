@@ -50,6 +50,14 @@ namespace Pulumi.Github
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// GitHub Repository Collaborators can be imported using an ID made up of `repository:username`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import github:index/repositoryCollaborator:RepositoryCollaborator collaborator terraform:someuser
+    /// ```
     /// </summary>
     public partial class RepositoryCollaborator : Pulumi.CustomResource
     {

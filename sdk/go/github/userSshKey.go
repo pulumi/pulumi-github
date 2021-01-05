@@ -4,6 +4,7 @@
 package github
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -13,6 +14,14 @@ import (
 // Provides a GitHub user's SSH key resource.
 //
 // This resource allows you to add/remove SSH keys from your user account.
+//
+// ## Import
+//
+// SSH keys can be imported using their ID e.g.
+//
+// ```sh
+//  $ pulumi import github:index/userSshKey:UserSshKey example 1234567
+// ```
 type UserSshKey struct {
 	pulumi.CustomResourceState
 
@@ -99,4 +108,43 @@ type UserSshKeyArgs struct {
 
 func (UserSshKeyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*userSshKeyArgs)(nil)).Elem()
+}
+
+type UserSshKeyInput interface {
+	pulumi.Input
+
+	ToUserSshKeyOutput() UserSshKeyOutput
+	ToUserSshKeyOutputWithContext(ctx context.Context) UserSshKeyOutput
+}
+
+func (UserSshKey) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserSshKey)(nil)).Elem()
+}
+
+func (i UserSshKey) ToUserSshKeyOutput() UserSshKeyOutput {
+	return i.ToUserSshKeyOutputWithContext(context.Background())
+}
+
+func (i UserSshKey) ToUserSshKeyOutputWithContext(ctx context.Context) UserSshKeyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserSshKeyOutput)
+}
+
+type UserSshKeyOutput struct {
+	*pulumi.OutputState
+}
+
+func (UserSshKeyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserSshKeyOutput)(nil)).Elem()
+}
+
+func (o UserSshKeyOutput) ToUserSshKeyOutput() UserSshKeyOutput {
+	return o
+}
+
+func (o UserSshKeyOutput) ToUserSshKeyOutputWithContext(ctx context.Context) UserSshKeyOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(UserSshKeyOutput{})
 }

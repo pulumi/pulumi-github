@@ -54,6 +54,14 @@ class RepositoryCollaborator(pulumi.CustomResource):
             username="SomeUser")
         ```
 
+        ## Import
+
+        GitHub Repository Collaborators can be imported using an ID made up of `repository:username`, e.g.
+
+        ```sh
+         $ pulumi import github:index/repositoryCollaborator:RepositoryCollaborator collaborator terraform:someuser
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] permission: The permission of the outside collaborator for the repository.

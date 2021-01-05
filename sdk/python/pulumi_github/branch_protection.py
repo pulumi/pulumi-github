@@ -32,6 +32,14 @@ class BranchProtection(pulumi.CustomResource):
 
         This resource allows you to configure branch protection for repositories in your organization. When applied, the branch will be protected from forced pushes and deletion. Additional constraints, such as required status checks or restrictions on users, teams, and apps, can also be configured.
 
+        ## Import
+
+        GitHub Branch Protection can be imported using an ID made up of `repository:pattern`, e.g.
+
+        ```sh
+         $ pulumi import github:index/branchProtection:BranchProtection terraform terraform:main
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] enforce_admins: Boolean, setting this to `true` enforces status checks for repository administrators.

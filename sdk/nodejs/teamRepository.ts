@@ -32,6 +32,14 @@ import * as utilities from "./utilities";
  *     teamId: someTeam.id,
  * });
  * ```
+ *
+ * ## Import
+ *
+ * GitHub Team Repository can be imported using an ID made up of `teamid:repository`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import github:index/teamRepository:TeamRepository terraform_repo 1234567:terraform
+ * ```
  */
 export class TeamRepository extends pulumi.CustomResource {
     /**

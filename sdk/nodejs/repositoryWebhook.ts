@@ -2,8 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "./types/input";
-import * as outputs from "./types/output";
+import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
 /**
@@ -32,6 +31,16 @@ import * as utilities from "./utilities";
  *     repository: repo.name,
  * });
  * ```
+ *
+ * ## Import
+ *
+ * Repository webhooks can be imported using the `name` of the repository, combined with the `id` of the webhook, separated by a `/` character. The `id` of the webhook can be found in the URL of the webhook. For example`"https://github.com/foo-org/foo-repo/settings/hooks/14711452"`. Importing uses the name of the repository, as well as the ID of the webhook, e.g.
+ *
+ * ```sh
+ *  $ pulumi import github:index/repositoryWebhook:RepositoryWebhook terraform terraform/11235813
+ * ```
+ *
+ *  If secret is populated in the webhook's configuration, the value will be imported as "********".
  */
 export class RepositoryWebhook extends pulumi.CustomResource {
     /**

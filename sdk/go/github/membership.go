@@ -4,6 +4,7 @@
 package github
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -38,6 +39,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// GitHub Membership can be imported using an ID made up of `organization:username`, e.g.
+//
+// ```sh
+//  $ pulumi import github:index/membership:Membership member hashicorp:someuser
 // ```
 type Membership struct {
 	pulumi.CustomResourceState
@@ -121,4 +130,43 @@ type MembershipArgs struct {
 
 func (MembershipArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*membershipArgs)(nil)).Elem()
+}
+
+type MembershipInput interface {
+	pulumi.Input
+
+	ToMembershipOutput() MembershipOutput
+	ToMembershipOutputWithContext(ctx context.Context) MembershipOutput
+}
+
+func (Membership) ElementType() reflect.Type {
+	return reflect.TypeOf((*Membership)(nil)).Elem()
+}
+
+func (i Membership) ToMembershipOutput() MembershipOutput {
+	return i.ToMembershipOutputWithContext(context.Background())
+}
+
+func (i Membership) ToMembershipOutputWithContext(ctx context.Context) MembershipOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MembershipOutput)
+}
+
+type MembershipOutput struct {
+	*pulumi.OutputState
+}
+
+func (MembershipOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MembershipOutput)(nil)).Elem()
+}
+
+func (o MembershipOutput) ToMembershipOutput() MembershipOutput {
+	return o
+}
+
+func (o MembershipOutput) ToMembershipOutputWithContext(ctx context.Context) MembershipOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(MembershipOutput{})
 }

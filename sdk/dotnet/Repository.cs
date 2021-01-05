@@ -37,6 +37,14 @@ namespace Pulumi.Github
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Repositories can be imported using the `name`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import github:index/repository:Repository terraform terraform
+    /// ```
     /// </summary>
     public partial class Repository : Pulumi.CustomResource
     {

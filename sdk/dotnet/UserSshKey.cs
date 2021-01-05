@@ -34,6 +34,14 @@ namespace Pulumi.Github
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// SSH keys can be imported using their ID e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import github:index/userSshKey:UserSshKey example 1234567
+    /// ```
     /// </summary>
     public partial class UserSshKey : Pulumi.CustomResource
     {

@@ -21,6 +21,14 @@ import * as utilities from "./utilities";
  *     title: "example title",
  * });
  * ```
+ *
+ * ## Import
+ *
+ * SSH keys can be imported using their ID e.g.
+ *
+ * ```sh
+ *  $ pulumi import github:index/userSshKey:UserSshKey example 1234567
+ * ```
  */
 export class UserSshKey extends pulumi.CustomResource {
     /**

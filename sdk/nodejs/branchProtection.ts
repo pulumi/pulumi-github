@@ -2,14 +2,21 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "./types/input";
-import * as outputs from "./types/output";
+import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
 /**
  * Protects a GitHub branch.
  *
  * This resource allows you to configure branch protection for repositories in your organization. When applied, the branch will be protected from forced pushes and deletion. Additional constraints, such as required status checks or restrictions on users, teams, and apps, can also be configured.
+ *
+ * ## Import
+ *
+ * GitHub Branch Protection can be imported using an ID made up of `repository:pattern`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import github:index/branchProtection:BranchProtection terraform terraform:main
+ * ```
  */
 export class BranchProtection extends pulumi.CustomResource {
     /**

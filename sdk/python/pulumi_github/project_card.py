@@ -36,6 +36,14 @@ class ProjectCard(pulumi.CustomResource):
             note="## Unaccepted 👇")
         ```
 
+        ## Import
+
+        A GitHub Project Card can be imported using its [Card ID](https://developer.github.com/v3/projects/cards/#get-a-project-card)
+
+        ```sh
+         $ pulumi import github:index/projectCard:ProjectCard card 01234567
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] column_id: The ID of the card.

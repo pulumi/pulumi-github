@@ -4,6 +4,7 @@
 package github
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -117,4 +118,43 @@ type UserInvitationAccepterArgs struct {
 
 func (UserInvitationAccepterArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*userInvitationAccepterArgs)(nil)).Elem()
+}
+
+type UserInvitationAccepterInput interface {
+	pulumi.Input
+
+	ToUserInvitationAccepterOutput() UserInvitationAccepterOutput
+	ToUserInvitationAccepterOutputWithContext(ctx context.Context) UserInvitationAccepterOutput
+}
+
+func (UserInvitationAccepter) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserInvitationAccepter)(nil)).Elem()
+}
+
+func (i UserInvitationAccepter) ToUserInvitationAccepterOutput() UserInvitationAccepterOutput {
+	return i.ToUserInvitationAccepterOutputWithContext(context.Background())
+}
+
+func (i UserInvitationAccepter) ToUserInvitationAccepterOutputWithContext(ctx context.Context) UserInvitationAccepterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserInvitationAccepterOutput)
+}
+
+type UserInvitationAccepterOutput struct {
+	*pulumi.OutputState
+}
+
+func (UserInvitationAccepterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserInvitationAccepterOutput)(nil)).Elem()
+}
+
+func (o UserInvitationAccepterOutput) ToUserInvitationAccepterOutput() UserInvitationAccepterOutput {
+	return o
+}
+
+func (o UserInvitationAccepterOutput) ToUserInvitationAccepterOutputWithContext(ctx context.Context) UserInvitationAccepterOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(UserInvitationAccepterOutput{})
 }

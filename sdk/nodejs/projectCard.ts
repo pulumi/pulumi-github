@@ -20,6 +20,14 @@ import * as utilities from "./utilities";
  *     note: "## Unaccepted 👇",
  * });
  * ```
+ *
+ * ## Import
+ *
+ * A GitHub Project Card can be imported using its [Card ID](https://developer.github.com/v3/projects/cards/#get-a-project-card)
+ *
+ * ```sh
+ *  $ pulumi import github:index/projectCard:ProjectCard card 01234567
+ * ```
  */
 export class ProjectCard extends pulumi.CustomResource {
     /**

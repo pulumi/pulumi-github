@@ -4,6 +4,7 @@
 package github
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -117,4 +118,43 @@ type ActionsOrganizationSecretArgs struct {
 
 func (ActionsOrganizationSecretArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*actionsOrganizationSecretArgs)(nil)).Elem()
+}
+
+type ActionsOrganizationSecretInput interface {
+	pulumi.Input
+
+	ToActionsOrganizationSecretOutput() ActionsOrganizationSecretOutput
+	ToActionsOrganizationSecretOutputWithContext(ctx context.Context) ActionsOrganizationSecretOutput
+}
+
+func (ActionsOrganizationSecret) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionsOrganizationSecret)(nil)).Elem()
+}
+
+func (i ActionsOrganizationSecret) ToActionsOrganizationSecretOutput() ActionsOrganizationSecretOutput {
+	return i.ToActionsOrganizationSecretOutputWithContext(context.Background())
+}
+
+func (i ActionsOrganizationSecret) ToActionsOrganizationSecretOutputWithContext(ctx context.Context) ActionsOrganizationSecretOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionsOrganizationSecretOutput)
+}
+
+type ActionsOrganizationSecretOutput struct {
+	*pulumi.OutputState
+}
+
+func (ActionsOrganizationSecretOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionsOrganizationSecretOutput)(nil)).Elem()
+}
+
+func (o ActionsOrganizationSecretOutput) ToActionsOrganizationSecretOutput() ActionsOrganizationSecretOutput {
+	return o
+}
+
+func (o ActionsOrganizationSecretOutput) ToActionsOrganizationSecretOutputWithContext(ctx context.Context) ActionsOrganizationSecretOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ActionsOrganizationSecretOutput{})
 }
