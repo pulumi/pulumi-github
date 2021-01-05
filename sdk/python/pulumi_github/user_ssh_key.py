@@ -36,6 +36,14 @@ class UserSshKey(pulumi.CustomResource):
             title="example title")
         ```
 
+        ## Import
+
+        SSH keys can be imported using their ID e.g.
+
+        ```sh
+         $ pulumi import github:index/userSshKey:UserSshKey example 1234567
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] key: The public SSH key to add to your GitHub account.

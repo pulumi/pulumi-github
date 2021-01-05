@@ -2,8 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "./types/input";
-import * as outputs from "./types/output";
+import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
 /**
@@ -25,6 +24,16 @@ import * as utilities from "./utilities";
  *     events: ["issues"],
  * });
  * ```
+ *
+ * ## Import
+ *
+ * Organization webhooks can be imported using the `id` of the webhook. The `id` of the webhook can be found in the URL of the webhook. For example, `"https://github.com/organizations/foo-org/settings/hooks/123456789"`.
+ *
+ * ```sh
+ *  $ pulumi import github:index/organizationWebhook:OrganizationWebhook terraform 123456789
+ * ```
+ *
+ *  If secret is populated in the webhook's configuration, the value will be imported as "********".
  */
 export class OrganizationWebhook extends pulumi.CustomResource {
     /**

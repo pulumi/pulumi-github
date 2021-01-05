@@ -4,6 +4,7 @@
 package github
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -13,6 +14,14 @@ import (
 // Protects a GitHub branch.
 //
 // This resource allows you to configure branch protection for repositories in your organization. When applied, the branch will be protected from forced pushes and deletion. Additional constraints, such as required status checks or restrictions on users, teams, and apps, can also be configured.
+//
+// ## Import
+//
+// GitHub Branch Protection can be imported using an ID made up of `repository:pattern`, e.g.
+//
+// ```sh
+//  $ pulumi import github:index/branchProtection:BranchProtection terraform terraform:main
+// ```
 type BranchProtection struct {
 	pulumi.CustomResourceState
 
@@ -140,4 +149,43 @@ type BranchProtectionArgs struct {
 
 func (BranchProtectionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*branchProtectionArgs)(nil)).Elem()
+}
+
+type BranchProtectionInput interface {
+	pulumi.Input
+
+	ToBranchProtectionOutput() BranchProtectionOutput
+	ToBranchProtectionOutputWithContext(ctx context.Context) BranchProtectionOutput
+}
+
+func (BranchProtection) ElementType() reflect.Type {
+	return reflect.TypeOf((*BranchProtection)(nil)).Elem()
+}
+
+func (i BranchProtection) ToBranchProtectionOutput() BranchProtectionOutput {
+	return i.ToBranchProtectionOutputWithContext(context.Background())
+}
+
+func (i BranchProtection) ToBranchProtectionOutputWithContext(ctx context.Context) BranchProtectionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BranchProtectionOutput)
+}
+
+type BranchProtectionOutput struct {
+	*pulumi.OutputState
+}
+
+func (BranchProtectionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BranchProtectionOutput)(nil)).Elem()
+}
+
+func (o BranchProtectionOutput) ToBranchProtectionOutput() BranchProtectionOutput {
+	return o
+}
+
+func (o BranchProtectionOutput) ToBranchProtectionOutputWithContext(ctx context.Context) BranchProtectionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(BranchProtectionOutput{})
 }

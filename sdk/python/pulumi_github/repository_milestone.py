@@ -42,6 +42,14 @@ class RepositoryMilestone(pulumi.CustomResource):
             title="v1.1.0")
         ```
 
+        ## Import
+
+        A GitHub Repository Milestone can be imported using an ID made up of `owner/repository/number`, e.g.
+
+        ```sh
+         $ pulumi import github:index/repositoryMilestone:RepositoryMilestone example example-owner/example-repository/1
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: A description of the milestone.

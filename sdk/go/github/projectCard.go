@@ -4,6 +4,7 @@
 package github
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -46,6 +47,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// A GitHub Project Card can be imported using its [Card ID](https://developer.github.com/v3/projects/cards/#get-a-project-card)
+//
+// ```sh
+//  $ pulumi import github:index/projectCard:ProjectCard card 01234567
 // ```
 type ProjectCard struct {
 	pulumi.CustomResourceState
@@ -130,4 +139,43 @@ type ProjectCardArgs struct {
 
 func (ProjectCardArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*projectCardArgs)(nil)).Elem()
+}
+
+type ProjectCardInput interface {
+	pulumi.Input
+
+	ToProjectCardOutput() ProjectCardOutput
+	ToProjectCardOutputWithContext(ctx context.Context) ProjectCardOutput
+}
+
+func (ProjectCard) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectCard)(nil)).Elem()
+}
+
+func (i ProjectCard) ToProjectCardOutput() ProjectCardOutput {
+	return i.ToProjectCardOutputWithContext(context.Background())
+}
+
+func (i ProjectCard) ToProjectCardOutputWithContext(ctx context.Context) ProjectCardOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectCardOutput)
+}
+
+type ProjectCardOutput struct {
+	*pulumi.OutputState
+}
+
+func (ProjectCardOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectCardOutput)(nil)).Elem()
+}
+
+func (o ProjectCardOutput) ToProjectCardOutput() ProjectCardOutput {
+	return o
+}
+
+func (o ProjectCardOutput) ToProjectCardOutputWithContext(ctx context.Context) ProjectCardOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ProjectCardOutput{})
 }

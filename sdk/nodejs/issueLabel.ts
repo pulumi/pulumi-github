@@ -4,6 +4,15 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * ## Import
+ *
+ * GitHub Issue Labels can be imported using an ID made up of `repository:name`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import github:index/issueLabel:IssueLabel panic_label terraform:panic
+ * ```
+ */
 export class IssueLabel extends pulumi.CustomResource {
     /**
      * Get an existing IssueLabel resource's state with the given name, ID, and optional extra

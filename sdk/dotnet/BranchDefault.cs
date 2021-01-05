@@ -48,6 +48,14 @@ namespace Pulumi.Github
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// GitHub Branch Defaults can be imported using an ID made up of `repository`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import github:index/branchDefault:BranchDefault branch_default my-repo
+    /// ```
     /// </summary>
     public partial class BranchDefault : Pulumi.CustomResource
     {

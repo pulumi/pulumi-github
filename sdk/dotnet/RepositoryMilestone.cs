@@ -35,6 +35,14 @@ namespace Pulumi.Github
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// A GitHub Repository Milestone can be imported using an ID made up of `owner/repository/number`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import github:index/repositoryMilestone:RepositoryMilestone example example-owner/example-repository/1
+    /// ```
     /// </summary>
     public partial class RepositoryMilestone : Pulumi.CustomResource
     {

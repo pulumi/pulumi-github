@@ -4,6 +4,7 @@
 package github
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -45,6 +46,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Repository deploy keys can be imported using a colon-separated pair of repository name and GitHub's key id. The latter can be obtained by GitHub's SDKs and API.
+//
+// ```sh
+//  $ pulumi import github:index/repositoryDeployKey:RepositoryDeployKey foo test-repo:23824728
 // ```
 type RepositoryDeployKey struct {
 	pulumi.CustomResourceState
@@ -149,4 +158,43 @@ type RepositoryDeployKeyArgs struct {
 
 func (RepositoryDeployKeyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*repositoryDeployKeyArgs)(nil)).Elem()
+}
+
+type RepositoryDeployKeyInput interface {
+	pulumi.Input
+
+	ToRepositoryDeployKeyOutput() RepositoryDeployKeyOutput
+	ToRepositoryDeployKeyOutputWithContext(ctx context.Context) RepositoryDeployKeyOutput
+}
+
+func (RepositoryDeployKey) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositoryDeployKey)(nil)).Elem()
+}
+
+func (i RepositoryDeployKey) ToRepositoryDeployKeyOutput() RepositoryDeployKeyOutput {
+	return i.ToRepositoryDeployKeyOutputWithContext(context.Background())
+}
+
+func (i RepositoryDeployKey) ToRepositoryDeployKeyOutputWithContext(ctx context.Context) RepositoryDeployKeyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryDeployKeyOutput)
+}
+
+type RepositoryDeployKeyOutput struct {
+	*pulumi.OutputState
+}
+
+func (RepositoryDeployKeyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositoryDeployKeyOutput)(nil)).Elem()
+}
+
+func (o RepositoryDeployKeyOutput) ToRepositoryDeployKeyOutput() RepositoryDeployKeyOutput {
+	return o
+}
+
+func (o RepositoryDeployKeyOutput) ToRepositoryDeployKeyOutputWithContext(ctx context.Context) RepositoryDeployKeyOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(RepositoryDeployKeyOutput{})
 }

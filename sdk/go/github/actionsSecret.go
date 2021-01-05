@@ -4,6 +4,7 @@
 package github
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -112,4 +113,43 @@ type ActionsSecretArgs struct {
 
 func (ActionsSecretArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*actionsSecretArgs)(nil)).Elem()
+}
+
+type ActionsSecretInput interface {
+	pulumi.Input
+
+	ToActionsSecretOutput() ActionsSecretOutput
+	ToActionsSecretOutputWithContext(ctx context.Context) ActionsSecretOutput
+}
+
+func (ActionsSecret) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionsSecret)(nil)).Elem()
+}
+
+func (i ActionsSecret) ToActionsSecretOutput() ActionsSecretOutput {
+	return i.ToActionsSecretOutputWithContext(context.Background())
+}
+
+func (i ActionsSecret) ToActionsSecretOutputWithContext(ctx context.Context) ActionsSecretOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionsSecretOutput)
+}
+
+type ActionsSecretOutput struct {
+	*pulumi.OutputState
+}
+
+func (ActionsSecretOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionsSecretOutput)(nil)).Elem()
+}
+
+func (o ActionsSecretOutput) ToActionsSecretOutput() ActionsSecretOutput {
+	return o
+}
+
+func (o ActionsSecretOutput) ToActionsSecretOutputWithContext(ctx context.Context) ActionsSecretOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ActionsSecretOutput{})
 }

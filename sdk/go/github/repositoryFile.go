@@ -4,6 +4,7 @@
 package github
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -47,6 +48,20 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Repository files can be imported using a combination of the `repo` and `file`, e.g.
+//
+// ```sh
+//  $ pulumi import github:index/repositoryFile:RepositoryFile gitignore example/.gitignore
+// ```
+//
+//  To import a file from a branch other than master, append `:` and the branch name, e.g.
+//
+// ```sh
+//  $ pulumi import github:index/repositoryFile:RepositoryFile gitignore example/.gitignore:dev
 // ```
 type RepositoryFile struct {
 	pulumi.CustomResourceState
@@ -199,4 +214,43 @@ type RepositoryFileArgs struct {
 
 func (RepositoryFileArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*repositoryFileArgs)(nil)).Elem()
+}
+
+type RepositoryFileInput interface {
+	pulumi.Input
+
+	ToRepositoryFileOutput() RepositoryFileOutput
+	ToRepositoryFileOutputWithContext(ctx context.Context) RepositoryFileOutput
+}
+
+func (RepositoryFile) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositoryFile)(nil)).Elem()
+}
+
+func (i RepositoryFile) ToRepositoryFileOutput() RepositoryFileOutput {
+	return i.ToRepositoryFileOutputWithContext(context.Background())
+}
+
+func (i RepositoryFile) ToRepositoryFileOutputWithContext(ctx context.Context) RepositoryFileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryFileOutput)
+}
+
+type RepositoryFileOutput struct {
+	*pulumi.OutputState
+}
+
+func (RepositoryFileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositoryFileOutput)(nil)).Elem()
+}
+
+func (o RepositoryFileOutput) ToRepositoryFileOutput() RepositoryFileOutput {
+	return o
+}
+
+func (o RepositoryFileOutput) ToRepositoryFileOutputWithContext(ctx context.Context) RepositoryFileOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(RepositoryFileOutput{})
 }

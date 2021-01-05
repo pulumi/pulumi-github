@@ -4,6 +4,7 @@
 package github
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
@@ -113,4 +114,43 @@ type OrganizationProjectArgs struct {
 
 func (OrganizationProjectArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*organizationProjectArgs)(nil)).Elem()
+}
+
+type OrganizationProjectInput interface {
+	pulumi.Input
+
+	ToOrganizationProjectOutput() OrganizationProjectOutput
+	ToOrganizationProjectOutputWithContext(ctx context.Context) OrganizationProjectOutput
+}
+
+func (OrganizationProject) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationProject)(nil)).Elem()
+}
+
+func (i OrganizationProject) ToOrganizationProjectOutput() OrganizationProjectOutput {
+	return i.ToOrganizationProjectOutputWithContext(context.Background())
+}
+
+func (i OrganizationProject) ToOrganizationProjectOutputWithContext(ctx context.Context) OrganizationProjectOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationProjectOutput)
+}
+
+type OrganizationProjectOutput struct {
+	*pulumi.OutputState
+}
+
+func (OrganizationProjectOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationProjectOutput)(nil)).Elem()
+}
+
+func (o OrganizationProjectOutput) ToOrganizationProjectOutput() OrganizationProjectOutput {
+	return o
+}
+
+func (o OrganizationProjectOutput) ToOrganizationProjectOutputWithContext(ctx context.Context) OrganizationProjectOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(OrganizationProjectOutput{})
 }

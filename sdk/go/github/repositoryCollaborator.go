@@ -4,6 +4,7 @@
 package github
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -52,6 +53,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// GitHub Repository Collaborators can be imported using an ID made up of `repository:username`, e.g.
+//
+// ```sh
+//  $ pulumi import github:index/repositoryCollaborator:RepositoryCollaborator collaborator terraform:someuser
 // ```
 type RepositoryCollaborator struct {
 	pulumi.CustomResourceState
@@ -156,4 +165,43 @@ type RepositoryCollaboratorArgs struct {
 
 func (RepositoryCollaboratorArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*repositoryCollaboratorArgs)(nil)).Elem()
+}
+
+type RepositoryCollaboratorInput interface {
+	pulumi.Input
+
+	ToRepositoryCollaboratorOutput() RepositoryCollaboratorOutput
+	ToRepositoryCollaboratorOutputWithContext(ctx context.Context) RepositoryCollaboratorOutput
+}
+
+func (RepositoryCollaborator) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositoryCollaborator)(nil)).Elem()
+}
+
+func (i RepositoryCollaborator) ToRepositoryCollaboratorOutput() RepositoryCollaboratorOutput {
+	return i.ToRepositoryCollaboratorOutputWithContext(context.Background())
+}
+
+func (i RepositoryCollaborator) ToRepositoryCollaboratorOutputWithContext(ctx context.Context) RepositoryCollaboratorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryCollaboratorOutput)
+}
+
+type RepositoryCollaboratorOutput struct {
+	*pulumi.OutputState
+}
+
+func (RepositoryCollaboratorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositoryCollaboratorOutput)(nil)).Elem()
+}
+
+func (o RepositoryCollaboratorOutput) ToRepositoryCollaboratorOutput() RepositoryCollaboratorOutput {
+	return o
+}
+
+func (o RepositoryCollaboratorOutput) ToRepositoryCollaboratorOutputWithContext(ctx context.Context) RepositoryCollaboratorOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(RepositoryCollaboratorOutput{})
 }

@@ -32,6 +32,14 @@ import * as utilities from "./utilities";
  *     username: "SomeUser",
  * });
  * ```
+ *
+ * ## Import
+ *
+ * GitHub Team Membership can be imported using an ID made up of `teamid:username`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import github:index/teamMembership:TeamMembership member 1234567:someuser
+ * ```
  */
 export class TeamMembership extends pulumi.CustomResource {
     /**

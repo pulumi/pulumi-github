@@ -4,6 +4,7 @@
 package github
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -37,6 +38,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// A GitHub Repository Milestone can be imported using an ID made up of `owner/repository/number`, e.g.
+//
+// ```sh
+//  $ pulumi import github:index/repositoryMilestone:RepositoryMilestone example example-owner/example-repository/1
 // ```
 type RepositoryMilestone struct {
 	pulumi.CustomResourceState
@@ -164,4 +173,43 @@ type RepositoryMilestoneArgs struct {
 
 func (RepositoryMilestoneArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*repositoryMilestoneArgs)(nil)).Elem()
+}
+
+type RepositoryMilestoneInput interface {
+	pulumi.Input
+
+	ToRepositoryMilestoneOutput() RepositoryMilestoneOutput
+	ToRepositoryMilestoneOutputWithContext(ctx context.Context) RepositoryMilestoneOutput
+}
+
+func (RepositoryMilestone) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositoryMilestone)(nil)).Elem()
+}
+
+func (i RepositoryMilestone) ToRepositoryMilestoneOutput() RepositoryMilestoneOutput {
+	return i.ToRepositoryMilestoneOutputWithContext(context.Background())
+}
+
+func (i RepositoryMilestone) ToRepositoryMilestoneOutputWithContext(ctx context.Context) RepositoryMilestoneOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryMilestoneOutput)
+}
+
+type RepositoryMilestoneOutput struct {
+	*pulumi.OutputState
+}
+
+func (RepositoryMilestoneOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositoryMilestoneOutput)(nil)).Elem()
+}
+
+func (o RepositoryMilestoneOutput) ToRepositoryMilestoneOutput() RepositoryMilestoneOutput {
+	return o
+}
+
+func (o RepositoryMilestoneOutput) ToRepositoryMilestoneOutputWithContext(ctx context.Context) RepositoryMilestoneOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(RepositoryMilestoneOutput{})
 }

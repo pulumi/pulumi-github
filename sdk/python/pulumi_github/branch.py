@@ -39,6 +39,20 @@ class Branch(pulumi.CustomResource):
             repository="example")
         ```
 
+        ## Import
+
+        GitHub Branch can be imported using an ID made up of `repository:branch`, e.g.
+
+        ```sh
+         $ pulumi import github:index/branch:Branch terraform terraform:master
+        ```
+
+         Optionally, a source branch may be specified using an ID of `repository:branch:source_branch`. This is useful for importing branches that do not branch directly off master.
+
+        ```sh
+         $ pulumi import github:index/branch:Branch terraform terraform:feature-branch:dev
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] branch: The repository branch to create.

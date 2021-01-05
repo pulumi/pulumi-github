@@ -48,6 +48,14 @@ class RepositoryDeployKey(pulumi.CustomResource):
             title="Repository test key")
         ```
 
+        ## Import
+
+        Repository deploy keys can be imported using a colon-separated pair of repository name and GitHub's key id. The latter can be obtained by GitHub's SDKs and API.
+
+        ```sh
+         $ pulumi import github:index/repositoryDeployKey:RepositoryDeployKey foo test-repo:23824728
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] key: A SSH key.

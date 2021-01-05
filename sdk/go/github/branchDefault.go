@@ -4,6 +4,7 @@
 package github
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -54,6 +55,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// GitHub Branch Defaults can be imported using an ID made up of `repository`, e.g.
+//
+// ```sh
+//  $ pulumi import github:index/branchDefault:BranchDefault branch_default my-repo
 // ```
 type BranchDefault struct {
 	pulumi.CustomResourceState
@@ -132,4 +141,43 @@ type BranchDefaultArgs struct {
 
 func (BranchDefaultArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*branchDefaultArgs)(nil)).Elem()
+}
+
+type BranchDefaultInput interface {
+	pulumi.Input
+
+	ToBranchDefaultOutput() BranchDefaultOutput
+	ToBranchDefaultOutputWithContext(ctx context.Context) BranchDefaultOutput
+}
+
+func (BranchDefault) ElementType() reflect.Type {
+	return reflect.TypeOf((*BranchDefault)(nil)).Elem()
+}
+
+func (i BranchDefault) ToBranchDefaultOutput() BranchDefaultOutput {
+	return i.ToBranchDefaultOutputWithContext(context.Background())
+}
+
+func (i BranchDefault) ToBranchDefaultOutputWithContext(ctx context.Context) BranchDefaultOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BranchDefaultOutput)
+}
+
+type BranchDefaultOutput struct {
+	*pulumi.OutputState
+}
+
+func (BranchDefaultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BranchDefaultOutput)(nil)).Elem()
+}
+
+func (o BranchDefaultOutput) ToBranchDefaultOutput() BranchDefaultOutput {
+	return o
+}
+
+func (o BranchDefaultOutput) ToBranchDefaultOutputWithContext(ctx context.Context) BranchDefaultOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(BranchDefaultOutput{})
 }

@@ -49,6 +49,16 @@ class RepositoryWebhook(pulumi.CustomResource):
             repository=repo.name)
         ```
 
+        ## Import
+
+        Repository webhooks can be imported using the `name` of the repository, combined with the `id` of the webhook, separated by a `/` character. The `id` of the webhook can be found in the URL of the webhook. For example`"https://github.com/foo-org/foo-repo/settings/hooks/14711452"`. Importing uses the name of the repository, as well as the ID of the webhook, e.g.
+
+        ```sh
+         $ pulumi import github:index/repositoryWebhook:RepositoryWebhook terraform terraform/11235813
+        ```
+
+         If secret is populated in the webhook's configuration, the value will be imported as "********".
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] active: Indicate of the webhook should receive events. Defaults to `true`.

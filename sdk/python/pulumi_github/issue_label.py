@@ -23,7 +23,14 @@ class IssueLabel(pulumi.CustomResource):
                  __name__=None,
                  __opts__=None):
         """
-        Create a IssueLabel resource with the given unique name, props, and options.
+        ## Import
+
+        GitHub Issue Labels can be imported using an ID made up of `repository:name`, e.g.
+
+        ```sh
+         $ pulumi import github:index/issueLabel:IssueLabel panic_label terraform:panic
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] color: A 6 character hex code, **without the leading #**, identifying the color of the label.

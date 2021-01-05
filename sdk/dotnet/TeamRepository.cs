@@ -48,6 +48,14 @@ namespace Pulumi.Github
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// GitHub Team Repository can be imported using an ID made up of `teamid:repository`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import github:index/teamRepository:TeamRepository terraform_repo 1234567:terraform
+    /// ```
     /// </summary>
     public partial class TeamRepository : Pulumi.CustomResource
     {

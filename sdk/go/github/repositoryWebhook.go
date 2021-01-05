@@ -4,6 +4,7 @@
 package github
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -52,6 +53,16 @@ import (
 // 	})
 // }
 // ```
+//
+// ## Import
+//
+// Repository webhooks can be imported using the `name` of the repository, combined with the `id` of the webhook, separated by a `/` character. The `id` of the webhook can be found in the URL of the webhook. For example`"https://github.com/foo-org/foo-repo/settings/hooks/14711452"`. Importing uses the name of the repository, as well as the ID of the webhook, e.g.
+//
+// ```sh
+//  $ pulumi import github:index/repositoryWebhook:RepositoryWebhook terraform terraform/11235813
+// ```
+//
+//  If secret is populated in the webhook's configuration, the value will be imported as "********".
 type RepositoryWebhook struct {
 	pulumi.CustomResourceState
 
@@ -158,4 +169,43 @@ type RepositoryWebhookArgs struct {
 
 func (RepositoryWebhookArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*repositoryWebhookArgs)(nil)).Elem()
+}
+
+type RepositoryWebhookInput interface {
+	pulumi.Input
+
+	ToRepositoryWebhookOutput() RepositoryWebhookOutput
+	ToRepositoryWebhookOutputWithContext(ctx context.Context) RepositoryWebhookOutput
+}
+
+func (RepositoryWebhook) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositoryWebhook)(nil)).Elem()
+}
+
+func (i RepositoryWebhook) ToRepositoryWebhookOutput() RepositoryWebhookOutput {
+	return i.ToRepositoryWebhookOutputWithContext(context.Background())
+}
+
+func (i RepositoryWebhook) ToRepositoryWebhookOutputWithContext(ctx context.Context) RepositoryWebhookOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryWebhookOutput)
+}
+
+type RepositoryWebhookOutput struct {
+	*pulumi.OutputState
+}
+
+func (RepositoryWebhookOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositoryWebhookOutput)(nil)).Elem()
+}
+
+func (o RepositoryWebhookOutput) ToRepositoryWebhookOutput() RepositoryWebhookOutput {
+	return o
+}
+
+func (o RepositoryWebhookOutput) ToRepositoryWebhookOutputWithContext(ctx context.Context) RepositoryWebhookOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(RepositoryWebhookOutput{})
 }

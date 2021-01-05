@@ -4,6 +4,7 @@
 package github
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -101,4 +102,43 @@ type OrganizationBlockArgs struct {
 
 func (OrganizationBlockArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*organizationBlockArgs)(nil)).Elem()
+}
+
+type OrganizationBlockInput interface {
+	pulumi.Input
+
+	ToOrganizationBlockOutput() OrganizationBlockOutput
+	ToOrganizationBlockOutputWithContext(ctx context.Context) OrganizationBlockOutput
+}
+
+func (OrganizationBlock) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationBlock)(nil)).Elem()
+}
+
+func (i OrganizationBlock) ToOrganizationBlockOutput() OrganizationBlockOutput {
+	return i.ToOrganizationBlockOutputWithContext(context.Background())
+}
+
+func (i OrganizationBlock) ToOrganizationBlockOutputWithContext(ctx context.Context) OrganizationBlockOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationBlockOutput)
+}
+
+type OrganizationBlockOutput struct {
+	*pulumi.OutputState
+}
+
+func (OrganizationBlockOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationBlockOutput)(nil)).Elem()
+}
+
+func (o OrganizationBlockOutput) ToOrganizationBlockOutput() OrganizationBlockOutput {
+	return o
+}
+
+func (o OrganizationBlockOutput) ToOrganizationBlockOutputWithContext(ctx context.Context) OrganizationBlockOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(OrganizationBlockOutput{})
 }

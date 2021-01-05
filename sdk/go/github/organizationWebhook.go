@@ -4,6 +4,7 @@
 package github
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -42,6 +43,16 @@ import (
 // 	})
 // }
 // ```
+//
+// ## Import
+//
+// Organization webhooks can be imported using the `id` of the webhook. The `id` of the webhook can be found in the URL of the webhook. For example, `"https://github.com/organizations/foo-org/settings/hooks/123456789"`.
+//
+// ```sh
+//  $ pulumi import github:index/organizationWebhook:OrganizationWebhook terraform 123456789
+// ```
+//
+//  If secret is populated in the webhook's configuration, the value will be imported as "********".
 type OrganizationWebhook struct {
 	pulumi.CustomResourceState
 
@@ -135,4 +146,43 @@ type OrganizationWebhookArgs struct {
 
 func (OrganizationWebhookArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*organizationWebhookArgs)(nil)).Elem()
+}
+
+type OrganizationWebhookInput interface {
+	pulumi.Input
+
+	ToOrganizationWebhookOutput() OrganizationWebhookOutput
+	ToOrganizationWebhookOutputWithContext(ctx context.Context) OrganizationWebhookOutput
+}
+
+func (OrganizationWebhook) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationWebhook)(nil)).Elem()
+}
+
+func (i OrganizationWebhook) ToOrganizationWebhookOutput() OrganizationWebhookOutput {
+	return i.ToOrganizationWebhookOutputWithContext(context.Background())
+}
+
+func (i OrganizationWebhook) ToOrganizationWebhookOutputWithContext(ctx context.Context) OrganizationWebhookOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationWebhookOutput)
+}
+
+type OrganizationWebhookOutput struct {
+	*pulumi.OutputState
+}
+
+func (OrganizationWebhookOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationWebhookOutput)(nil)).Elem()
+}
+
+func (o OrganizationWebhookOutput) ToOrganizationWebhookOutput() OrganizationWebhookOutput {
+	return o
+}
+
+func (o OrganizationWebhookOutput) ToOrganizationWebhookOutputWithContext(ctx context.Context) OrganizationWebhookOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(OrganizationWebhookOutput{})
 }

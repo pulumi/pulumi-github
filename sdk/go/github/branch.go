@@ -4,6 +4,7 @@
 package github
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -37,6 +38,20 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// GitHub Branch can be imported using an ID made up of `repository:branch`, e.g.
+//
+// ```sh
+//  $ pulumi import github:index/branch:Branch terraform terraform:master
+// ```
+//
+//  Optionally, a source branch may be specified using an ID of `repository:branch:source_branch`. This is useful for importing branches that do not branch directly off master.
+//
+// ```sh
+//  $ pulumi import github:index/branch:Branch terraform terraform:feature-branch:dev
 // ```
 type Branch struct {
 	pulumi.CustomResourceState
@@ -153,4 +168,43 @@ type BranchArgs struct {
 
 func (BranchArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*branchArgs)(nil)).Elem()
+}
+
+type BranchInput interface {
+	pulumi.Input
+
+	ToBranchOutput() BranchOutput
+	ToBranchOutputWithContext(ctx context.Context) BranchOutput
+}
+
+func (Branch) ElementType() reflect.Type {
+	return reflect.TypeOf((*Branch)(nil)).Elem()
+}
+
+func (i Branch) ToBranchOutput() BranchOutput {
+	return i.ToBranchOutputWithContext(context.Background())
+}
+
+func (i Branch) ToBranchOutputWithContext(ctx context.Context) BranchOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BranchOutput)
+}
+
+type BranchOutput struct {
+	*pulumi.OutputState
+}
+
+func (BranchOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BranchOutput)(nil)).Elem()
+}
+
+func (o BranchOutput) ToBranchOutput() BranchOutput {
+	return o
+}
+
+func (o BranchOutput) ToBranchOutputWithContext(ctx context.Context) BranchOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(BranchOutput{})
 }

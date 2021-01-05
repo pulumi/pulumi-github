@@ -23,6 +23,14 @@ import * as utilities from "./utilities";
  *     username: "SomeUser",
  * });
  * ```
+ *
+ * ## Import
+ *
+ * GitHub Membership can be imported using an ID made up of `organization:username`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import github:index/membership:Membership member hashicorp:someuser
+ * ```
  */
 export class Membership extends pulumi.CustomResource {
     /**

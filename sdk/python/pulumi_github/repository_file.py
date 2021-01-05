@@ -48,6 +48,20 @@ class RepositoryFile(pulumi.CustomResource):
             overwrite_on_create=True)
         ```
 
+        ## Import
+
+        Repository files can be imported using a combination of the `repo` and `file`, e.g.
+
+        ```sh
+         $ pulumi import github:index/repositoryFile:RepositoryFile gitignore example/.gitignore
+        ```
+
+         To import a file from a branch other than master, append `:` and the branch name, e.g.
+
+        ```sh
+         $ pulumi import github:index/repositoryFile:RepositoryFile gitignore example/.gitignore:dev
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] branch: Git branch (defaults to `master`).

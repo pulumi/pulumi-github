@@ -4,6 +4,7 @@
 package github
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -120,4 +121,43 @@ type ProjectColumnArgs struct {
 
 func (ProjectColumnArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*projectColumnArgs)(nil)).Elem()
+}
+
+type ProjectColumnInput interface {
+	pulumi.Input
+
+	ToProjectColumnOutput() ProjectColumnOutput
+	ToProjectColumnOutputWithContext(ctx context.Context) ProjectColumnOutput
+}
+
+func (ProjectColumn) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectColumn)(nil)).Elem()
+}
+
+func (i ProjectColumn) ToProjectColumnOutput() ProjectColumnOutput {
+	return i.ToProjectColumnOutputWithContext(context.Background())
+}
+
+func (i ProjectColumn) ToProjectColumnOutputWithContext(ctx context.Context) ProjectColumnOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectColumnOutput)
+}
+
+type ProjectColumnOutput struct {
+	*pulumi.OutputState
+}
+
+func (ProjectColumnOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectColumnOutput)(nil)).Elem()
+}
+
+func (o ProjectColumnOutput) ToProjectColumnOutput() ProjectColumnOutput {
+	return o
+}
+
+func (o ProjectColumnOutput) ToProjectColumnOutputWithContext(ctx context.Context) ProjectColumnOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ProjectColumnOutput{})
 }

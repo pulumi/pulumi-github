@@ -46,6 +46,14 @@ class TeamMembership(pulumi.CustomResource):
             username="SomeUser")
         ```
 
+        ## Import
+
+        GitHub Team Membership can be imported using an ID made up of `teamid:username`, e.g.
+
+        ```sh
+         $ pulumi import github:index/teamMembership:TeamMembership member 1234567:someuser
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] role: The role of the user within the team.

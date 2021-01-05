@@ -43,6 +43,14 @@ namespace Pulumi.Github
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Repository deploy keys can be imported using a colon-separated pair of repository name and GitHub's key id. The latter can be obtained by GitHub's SDKs and API.
+    /// 
+    /// ```sh
+    ///  $ pulumi import github:index/repositoryDeployKey:RepositoryDeployKey foo test-repo:23824728
+    /// ```
     /// </summary>
     public partial class RepositoryDeployKey : Pulumi.CustomResource
     {

@@ -4,12 +4,20 @@
 package github
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// ## Import
+//
+// GitHub Issue Labels can be imported using an ID made up of `repository:name`, e.g.
+//
+// ```sh
+//  $ pulumi import github:index/issueLabel:IssueLabel panic_label terraform:panic
+// ```
 type IssueLabel struct {
 	pulumi.CustomResourceState
 
@@ -116,4 +124,43 @@ type IssueLabelArgs struct {
 
 func (IssueLabelArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*issueLabelArgs)(nil)).Elem()
+}
+
+type IssueLabelInput interface {
+	pulumi.Input
+
+	ToIssueLabelOutput() IssueLabelOutput
+	ToIssueLabelOutputWithContext(ctx context.Context) IssueLabelOutput
+}
+
+func (IssueLabel) ElementType() reflect.Type {
+	return reflect.TypeOf((*IssueLabel)(nil)).Elem()
+}
+
+func (i IssueLabel) ToIssueLabelOutput() IssueLabelOutput {
+	return i.ToIssueLabelOutputWithContext(context.Background())
+}
+
+func (i IssueLabel) ToIssueLabelOutputWithContext(ctx context.Context) IssueLabelOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IssueLabelOutput)
+}
+
+type IssueLabelOutput struct {
+	*pulumi.OutputState
+}
+
+func (IssueLabelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IssueLabelOutput)(nil)).Elem()
+}
+
+func (o IssueLabelOutput) ToIssueLabelOutput() IssueLabelOutput {
+	return o
+}
+
+func (o IssueLabelOutput) ToIssueLabelOutputWithContext(ctx context.Context) IssueLabelOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(IssueLabelOutput{})
 }

@@ -39,6 +39,14 @@ class Membership(pulumi.CustomResource):
             username="SomeUser")
         ```
 
+        ## Import
+
+        GitHub Membership can be imported using an ID made up of `organization:username`, e.g.
+
+        ```sh
+         $ pulumi import github:index/membership:Membership member hashicorp:someuser
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] role: The role of the user within the organization.

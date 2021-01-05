@@ -9,6 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Github
 {
+    /// <summary>
+    /// ## Import
+    /// 
+    /// GitHub Issue Labels can be imported using an ID made up of `repository:name`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import github:index/issueLabel:IssueLabel panic_label terraform:panic
+    /// ```
+    /// </summary>
     public partial class IssueLabel : Pulumi.CustomResource
     {
         /// <summary>

@@ -62,6 +62,14 @@ class Repository(pulumi.CustomResource):
             visibility="public")
         ```
 
+        ## Import
+
+        Repositories can be imported using the `name`, e.g.
+
+        ```sh
+         $ pulumi import github:index/repository:Repository terraform terraform
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] allow_merge_commit: Set to `false` to disable merge commits on the repository.
@@ -117,7 +125,7 @@ class Repository(pulumi.CustomResource):
             __props__['archived'] = archived
             __props__['auto_init'] = auto_init
             if default_branch is not None:
-                warnings.warn("Use the github_branch_default resource instead", DeprecationWarning)
+                warnings.warn("""Use the github_branch_default resource instead""", DeprecationWarning)
                 pulumi.log.warn("default_branch is deprecated: Use the github_branch_default resource instead")
             __props__['default_branch'] = default_branch
             __props__['delete_branch_on_merge'] = delete_branch_on_merge
@@ -132,7 +140,7 @@ class Repository(pulumi.CustomResource):
             __props__['license_template'] = license_template
             __props__['name'] = name
             if private is not None:
-                warnings.warn("use visibility instead", DeprecationWarning)
+                warnings.warn("""use visibility instead""", DeprecationWarning)
                 pulumi.log.warn("private is deprecated: use visibility instead")
             __props__['private'] = private
             __props__['template'] = template

@@ -40,6 +40,16 @@ namespace Pulumi.Github
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Organization webhooks can be imported using the `id` of the webhook. The `id` of the webhook can be found in the URL of the webhook. For example, `"https://github.com/organizations/foo-org/settings/hooks/123456789"`.
+    /// 
+    /// ```sh
+    ///  $ pulumi import github:index/organizationWebhook:OrganizationWebhook terraform 123456789
+    /// ```
+    /// 
+    ///  If secret is populated in the webhook's configuration, the value will be imported as "********".
     /// </summary>
     public partial class OrganizationWebhook : Pulumi.CustomResource
     {

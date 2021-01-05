@@ -36,6 +36,14 @@ namespace Pulumi.Github
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// GitHub Membership can be imported using an ID made up of `organization:username`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import github:index/membership:Membership member hashicorp:someuser
+    /// ```
     /// </summary>
     public partial class Membership : Pulumi.CustomResource
     {

@@ -29,6 +29,14 @@ class TeamSyncGroupMapping(pulumi.CustomResource):
         To learn more about team synchronization between IdPs and Github, please refer to:
         https://help.github.com/en/github/setting-up-and-managing-organizations-and-teams/synchronizing-teams-between-your-identity-provider-and-github
 
+        ## Import
+
+        GitHub Team Sync Group Mappings can be imported using the GitHub team `slug` e.g.
+
+        ```sh
+         $ pulumi import github:index/teamSyncGroupMapping:TeamSyncGroupMapping example some_team
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TeamSyncGroupMappingGroupArgs']]]] groups: An Array of GitHub Identity Provider Groups (or empty []).  Each `group` block consists of the fields documented below.

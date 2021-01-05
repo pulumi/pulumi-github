@@ -4,6 +4,7 @@
 package github
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -38,6 +39,10 @@ import (
 // 	})
 // }
 // ```
+//
+// ## Import
+//
+// GPG keys are not importable due to the fact that [API](https://developer.github.com/v3/users/gpg_keys/#gpg-keys) does not return previously uploaded GPG key.
 type UserGpgKey struct {
 	pulumi.CustomResourceState
 
@@ -116,4 +121,43 @@ type UserGpgKeyArgs struct {
 
 func (UserGpgKeyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*userGpgKeyArgs)(nil)).Elem()
+}
+
+type UserGpgKeyInput interface {
+	pulumi.Input
+
+	ToUserGpgKeyOutput() UserGpgKeyOutput
+	ToUserGpgKeyOutputWithContext(ctx context.Context) UserGpgKeyOutput
+}
+
+func (UserGpgKey) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserGpgKey)(nil)).Elem()
+}
+
+func (i UserGpgKey) ToUserGpgKeyOutput() UserGpgKeyOutput {
+	return i.ToUserGpgKeyOutputWithContext(context.Background())
+}
+
+func (i UserGpgKey) ToUserGpgKeyOutputWithContext(ctx context.Context) UserGpgKeyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserGpgKeyOutput)
+}
+
+type UserGpgKeyOutput struct {
+	*pulumi.OutputState
+}
+
+func (UserGpgKeyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserGpgKeyOutput)(nil)).Elem()
+}
+
+func (o UserGpgKeyOutput) ToUserGpgKeyOutput() UserGpgKeyOutput {
+	return o
+}
+
+func (o UserGpgKeyOutput) ToUserGpgKeyOutputWithContext(ctx context.Context) UserGpgKeyOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(UserGpgKeyOutput{})
 }

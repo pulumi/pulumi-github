@@ -4,6 +4,7 @@
 package github
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -135,4 +136,43 @@ type RepositoryProjectArgs struct {
 
 func (RepositoryProjectArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*repositoryProjectArgs)(nil)).Elem()
+}
+
+type RepositoryProjectInput interface {
+	pulumi.Input
+
+	ToRepositoryProjectOutput() RepositoryProjectOutput
+	ToRepositoryProjectOutputWithContext(ctx context.Context) RepositoryProjectOutput
+}
+
+func (RepositoryProject) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositoryProject)(nil)).Elem()
+}
+
+func (i RepositoryProject) ToRepositoryProjectOutput() RepositoryProjectOutput {
+	return i.ToRepositoryProjectOutputWithContext(context.Background())
+}
+
+func (i RepositoryProject) ToRepositoryProjectOutputWithContext(ctx context.Context) RepositoryProjectOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryProjectOutput)
+}
+
+type RepositoryProjectOutput struct {
+	*pulumi.OutputState
+}
+
+func (RepositoryProjectOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositoryProjectOutput)(nil)).Elem()
+}
+
+func (o RepositoryProjectOutput) ToRepositoryProjectOutput() RepositoryProjectOutput {
+	return o
+}
+
+func (o RepositoryProjectOutput) ToRepositoryProjectOutputWithContext(ctx context.Context) RepositoryProjectOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(RepositoryProjectOutput{})
 }

@@ -4,6 +4,7 @@
 package github
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -53,6 +54,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// GitHub Team Repository can be imported using an ID made up of `teamid:repository`, e.g.
+//
+// ```sh
+//  $ pulumi import github:index/teamRepository:TeamRepository terraform_repo 1234567:terraform
 // ```
 type TeamRepository struct {
 	pulumi.CustomResourceState
@@ -149,4 +158,43 @@ type TeamRepositoryArgs struct {
 
 func (TeamRepositoryArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*teamRepositoryArgs)(nil)).Elem()
+}
+
+type TeamRepositoryInput interface {
+	pulumi.Input
+
+	ToTeamRepositoryOutput() TeamRepositoryOutput
+	ToTeamRepositoryOutputWithContext(ctx context.Context) TeamRepositoryOutput
+}
+
+func (TeamRepository) ElementType() reflect.Type {
+	return reflect.TypeOf((*TeamRepository)(nil)).Elem()
+}
+
+func (i TeamRepository) ToTeamRepositoryOutput() TeamRepositoryOutput {
+	return i.ToTeamRepositoryOutputWithContext(context.Background())
+}
+
+func (i TeamRepository) ToTeamRepositoryOutputWithContext(ctx context.Context) TeamRepositoryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TeamRepositoryOutput)
+}
+
+type TeamRepositoryOutput struct {
+	*pulumi.OutputState
+}
+
+func (TeamRepositoryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TeamRepositoryOutput)(nil)).Elem()
+}
+
+func (o TeamRepositoryOutput) ToTeamRepositoryOutput() TeamRepositoryOutput {
+	return o
+}
+
+func (o TeamRepositoryOutput) ToTeamRepositoryOutputWithContext(ctx context.Context) TeamRepositoryOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(TeamRepositoryOutput{})
 }
