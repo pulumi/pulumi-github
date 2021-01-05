@@ -2,10 +2,13 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Upgrade to pulumi-terraform-bridge v2.13.2
-  * This adds support for import specific examples in documentation
+_(none)_
 
 ---
+
+## 2.4.1 (2021-01-05)
+* Upgrade to pulumi-terraform-bridge v2.13.2
+  * This adds support for import specific examples in documentation
 
 ## 2.4.0 (2020-12-08)
 * Upgrade to v4.1.0 of the GitHub Terraform Provider
