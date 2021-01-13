@@ -66,10 +66,10 @@ class UserSshKey(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if key is None:
+            if key is None and not opts.urn:
                 raise TypeError("Missing required property 'key'")
             __props__['key'] = key
-            if title is None:
+            if title is None and not opts.urn:
                 raise TypeError("Missing required property 'title'")
             __props__['title'] = title
             __props__['etag'] = None

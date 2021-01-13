@@ -124,7 +124,7 @@ class Repository(pulumi.CustomResource):
             __props__['archive_on_destroy'] = archive_on_destroy
             __props__['archived'] = archived
             __props__['auto_init'] = auto_init
-            if default_branch is not None:
+            if default_branch is not None and not opts.urn:
                 warnings.warn("""Use the github_branch_default resource instead""", DeprecationWarning)
                 pulumi.log.warn("default_branch is deprecated: Use the github_branch_default resource instead")
             __props__['default_branch'] = default_branch
@@ -139,7 +139,7 @@ class Repository(pulumi.CustomResource):
             __props__['is_template'] = is_template
             __props__['license_template'] = license_template
             __props__['name'] = name
-            if private is not None:
+            if private is not None and not opts.urn:
                 warnings.warn("""use visibility instead""", DeprecationWarning)
                 pulumi.log.warn("private is deprecated: use visibility instead")
             __props__['private'] = private

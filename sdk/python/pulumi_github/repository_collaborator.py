@@ -88,10 +88,10 @@ class RepositoryCollaborator(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['permission'] = permission
-            if repository is None:
+            if repository is None and not opts.urn:
                 raise TypeError("Missing required property 'repository'")
             __props__['repository'] = repository
-            if username is None:
+            if username is None and not opts.urn:
                 raise TypeError("Missing required property 'username'")
             __props__['username'] = username
             __props__['invitation_id'] = None

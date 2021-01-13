@@ -38,11 +38,12 @@ type TeamSyncGroupMapping struct {
 // NewTeamSyncGroupMapping registers a new resource with the given unique name, arguments, and options.
 func NewTeamSyncGroupMapping(ctx *pulumi.Context,
 	name string, args *TeamSyncGroupMappingArgs, opts ...pulumi.ResourceOption) (*TeamSyncGroupMapping, error) {
-	if args == nil || args.TeamSlug == nil {
-		return nil, errors.New("missing required argument 'TeamSlug'")
-	}
 	if args == nil {
-		args = &TeamSyncGroupMappingArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.TeamSlug == nil {
+		return nil, errors.New("invalid value for required argument 'TeamSlug'")
 	}
 	var resource TeamSyncGroupMapping
 	err := ctx.RegisterResource("github:index/teamSyncGroupMapping:TeamSyncGroupMapping", name, args, &resource, opts...)

@@ -72,13 +72,13 @@ export class ActionsSecret extends pulumi.CustomResource {
             inputs["updatedAt"] = state ? state.updatedAt : undefined;
         } else {
             const args = argsOrState as ActionsSecretArgs | undefined;
-            if (!args || args.plaintextValue === undefined) {
+            if ((!args || args.plaintextValue === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'plaintextValue'");
             }
-            if (!args || args.repository === undefined) {
+            if ((!args || args.repository === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'repository'");
             }
-            if (!args || args.secretName === undefined) {
+            if ((!args || args.secretName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'secretName'");
             }
             inputs["plaintextValue"] = args ? args.plaintextValue : undefined;

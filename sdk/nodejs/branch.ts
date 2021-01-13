@@ -114,10 +114,10 @@ export class Branch extends pulumi.CustomResource {
             inputs["sourceSha"] = state ? state.sourceSha : undefined;
         } else {
             const args = argsOrState as BranchArgs | undefined;
-            if (!args || args.branch === undefined) {
+            if ((!args || args.branch === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'branch'");
             }
-            if (!args || args.repository === undefined) {
+            if ((!args || args.repository === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'repository'");
             }
             inputs["branch"] = args ? args.branch : undefined;

@@ -96,7 +96,7 @@ export class TeamSyncGroupMapping extends pulumi.CustomResource {
             inputs["teamSlug"] = state ? state.teamSlug : undefined;
         } else {
             const args = argsOrState as TeamSyncGroupMappingArgs | undefined;
-            if (!args || args.teamSlug === undefined) {
+            if ((!args || args.teamSlug === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'teamSlug'");
             }
             inputs["groups"] = args ? args.groups : undefined;

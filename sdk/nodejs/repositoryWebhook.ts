@@ -112,10 +112,10 @@ export class RepositoryWebhook extends pulumi.CustomResource {
             inputs["url"] = state ? state.url : undefined;
         } else {
             const args = argsOrState as RepositoryWebhookArgs | undefined;
-            if (!args || args.events === undefined) {
+            if ((!args || args.events === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'events'");
             }
-            if (!args || args.repository === undefined) {
+            if ((!args || args.repository === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'repository'");
             }
             inputs["active"] = args ? args.active : undefined;

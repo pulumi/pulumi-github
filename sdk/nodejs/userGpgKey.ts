@@ -82,7 +82,7 @@ export class UserGpgKey extends pulumi.CustomResource {
             inputs["keyId"] = state ? state.keyId : undefined;
         } else {
             const args = argsOrState as UserGpgKeyArgs | undefined;
-            if (!args || args.armoredPublicKey === undefined) {
+            if ((!args || args.armoredPublicKey === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'armoredPublicKey'");
             }
             inputs["armoredPublicKey"] = args ? args.armoredPublicKey : undefined;

@@ -130,13 +130,13 @@ export class RepositoryFile extends pulumi.CustomResource {
             inputs["sha"] = state ? state.sha : undefined;
         } else {
             const args = argsOrState as RepositoryFileArgs | undefined;
-            if (!args || args.content === undefined) {
+            if ((!args || args.content === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'content'");
             }
-            if (!args || args.file === undefined) {
+            if ((!args || args.file === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'file'");
             }
-            if (!args || args.repository === undefined) {
+            if ((!args || args.repository === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'repository'");
             }
             inputs["branch"] = args ? args.branch : undefined;

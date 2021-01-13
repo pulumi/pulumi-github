@@ -82,14 +82,15 @@ type RepositoryWebhook struct {
 // NewRepositoryWebhook registers a new resource with the given unique name, arguments, and options.
 func NewRepositoryWebhook(ctx *pulumi.Context,
 	name string, args *RepositoryWebhookArgs, opts ...pulumi.ResourceOption) (*RepositoryWebhook, error) {
-	if args == nil || args.Events == nil {
-		return nil, errors.New("missing required argument 'Events'")
-	}
-	if args == nil || args.Repository == nil {
-		return nil, errors.New("missing required argument 'Repository'")
-	}
 	if args == nil {
-		args = &RepositoryWebhookArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Events == nil {
+		return nil, errors.New("invalid value for required argument 'Events'")
+	}
+	if args.Repository == nil {
+		return nil, errors.New("invalid value for required argument 'Repository'")
 	}
 	var resource RepositoryWebhook
 	err := ctx.RegisterResource("github:index/repositoryWebhook:RepositoryWebhook", name, args, &resource, opts...)

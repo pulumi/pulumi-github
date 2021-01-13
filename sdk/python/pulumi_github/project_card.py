@@ -66,10 +66,10 @@ class ProjectCard(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if column_id is None:
+            if column_id is None and not opts.urn:
                 raise TypeError("Missing required property 'column_id'")
             __props__['column_id'] = column_id
-            if note is None:
+            if note is None and not opts.urn:
                 raise TypeError("Missing required property 'note'")
             __props__['note'] = note
             __props__['card_id'] = None

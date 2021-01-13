@@ -109,13 +109,13 @@ export class RepositoryMilestone extends pulumi.CustomResource {
             inputs["title"] = state ? state.title : undefined;
         } else {
             const args = argsOrState as RepositoryMilestoneArgs | undefined;
-            if (!args || args.owner === undefined) {
+            if ((!args || args.owner === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'owner'");
             }
-            if (!args || args.repository === undefined) {
+            if ((!args || args.repository === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'repository'");
             }
-            if (!args || args.title === undefined) {
+            if ((!args || args.title === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'title'");
             }
             inputs["description"] = args ? args.description : undefined;

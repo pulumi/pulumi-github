@@ -100,7 +100,7 @@ export class OrganizationWebhook extends pulumi.CustomResource {
             inputs["url"] = state ? state.url : undefined;
         } else {
             const args = argsOrState as OrganizationWebhookArgs | undefined;
-            if (!args || args.events === undefined) {
+            if ((!args || args.events === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'events'");
             }
             inputs["active"] = args ? args.active : undefined;

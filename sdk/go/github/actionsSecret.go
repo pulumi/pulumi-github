@@ -29,17 +29,18 @@ type ActionsSecret struct {
 // NewActionsSecret registers a new resource with the given unique name, arguments, and options.
 func NewActionsSecret(ctx *pulumi.Context,
 	name string, args *ActionsSecretArgs, opts ...pulumi.ResourceOption) (*ActionsSecret, error) {
-	if args == nil || args.PlaintextValue == nil {
-		return nil, errors.New("missing required argument 'PlaintextValue'")
-	}
-	if args == nil || args.Repository == nil {
-		return nil, errors.New("missing required argument 'Repository'")
-	}
-	if args == nil || args.SecretName == nil {
-		return nil, errors.New("missing required argument 'SecretName'")
-	}
 	if args == nil {
-		args = &ActionsSecretArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.PlaintextValue == nil {
+		return nil, errors.New("invalid value for required argument 'PlaintextValue'")
+	}
+	if args.Repository == nil {
+		return nil, errors.New("invalid value for required argument 'Repository'")
+	}
+	if args.SecretName == nil {
+		return nil, errors.New("invalid value for required argument 'SecretName'")
 	}
 	var resource ActionsSecret
 	err := ctx.RegisterResource("github:index/actionsSecret:ActionsSecret", name, args, &resource, opts...)

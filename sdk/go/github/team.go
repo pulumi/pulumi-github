@@ -75,6 +75,7 @@ func NewTeam(ctx *pulumi.Context,
 	if args == nil {
 		args = &TeamArgs{}
 	}
+
 	var resource Team
 	err := ctx.RegisterResource("github:index/team:Team", name, args, &resource, opts...)
 	if err != nil {

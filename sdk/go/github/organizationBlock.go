@@ -46,11 +46,12 @@ type OrganizationBlock struct {
 // NewOrganizationBlock registers a new resource with the given unique name, arguments, and options.
 func NewOrganizationBlock(ctx *pulumi.Context,
 	name string, args *OrganizationBlockArgs, opts ...pulumi.ResourceOption) (*OrganizationBlock, error) {
-	if args == nil || args.Username == nil {
-		return nil, errors.New("missing required argument 'Username'")
-	}
 	if args == nil {
-		args = &OrganizationBlockArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Username == nil {
+		return nil, errors.New("invalid value for required argument 'Username'")
 	}
 	var resource OrganizationBlock
 	err := ctx.RegisterResource("github:index/organizationBlock:OrganizationBlock", name, args, &resource, opts...)

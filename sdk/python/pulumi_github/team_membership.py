@@ -79,10 +79,10 @@ class TeamMembership(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['role'] = role
-            if team_id is None:
+            if team_id is None and not opts.urn:
                 raise TypeError("Missing required property 'team_id'")
             __props__['team_id'] = team_id
-            if username is None:
+            if username is None and not opts.urn:
                 raise TypeError("Missing required property 'username'")
             __props__['username'] = username
             __props__['etag'] = None

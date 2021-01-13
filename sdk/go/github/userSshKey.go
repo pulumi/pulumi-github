@@ -37,14 +37,15 @@ type UserSshKey struct {
 // NewUserSshKey registers a new resource with the given unique name, arguments, and options.
 func NewUserSshKey(ctx *pulumi.Context,
 	name string, args *UserSshKeyArgs, opts ...pulumi.ResourceOption) (*UserSshKey, error) {
-	if args == nil || args.Key == nil {
-		return nil, errors.New("missing required argument 'Key'")
-	}
-	if args == nil || args.Title == nil {
-		return nil, errors.New("missing required argument 'Title'")
-	}
 	if args == nil {
-		args = &UserSshKeyArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Key == nil {
+		return nil, errors.New("invalid value for required argument 'Key'")
+	}
+	if args.Title == nil {
+		return nil, errors.New("invalid value for required argument 'Title'")
 	}
 	var resource UserSshKey
 	err := ctx.RegisterResource("github:index/userSshKey:UserSshKey", name, args, &resource, opts...)

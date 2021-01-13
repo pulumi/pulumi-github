@@ -46,13 +46,13 @@ class ActionsSecret(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if plaintext_value is None:
+            if plaintext_value is None and not opts.urn:
                 raise TypeError("Missing required property 'plaintext_value'")
             __props__['plaintext_value'] = plaintext_value
-            if repository is None:
+            if repository is None and not opts.urn:
                 raise TypeError("Missing required property 'repository'")
             __props__['repository'] = repository
-            if secret_name is None:
+            if secret_name is None and not opts.urn:
                 raise TypeError("Missing required property 'secret_name'")
             __props__['secret_name'] = secret_name
             __props__['created_at'] = None

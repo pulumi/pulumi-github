@@ -30,17 +30,18 @@ type ActionsOrganizationSecret struct {
 // NewActionsOrganizationSecret registers a new resource with the given unique name, arguments, and options.
 func NewActionsOrganizationSecret(ctx *pulumi.Context,
 	name string, args *ActionsOrganizationSecretArgs, opts ...pulumi.ResourceOption) (*ActionsOrganizationSecret, error) {
-	if args == nil || args.PlaintextValue == nil {
-		return nil, errors.New("missing required argument 'PlaintextValue'")
-	}
-	if args == nil || args.SecretName == nil {
-		return nil, errors.New("missing required argument 'SecretName'")
-	}
-	if args == nil || args.Visibility == nil {
-		return nil, errors.New("missing required argument 'Visibility'")
-	}
 	if args == nil {
-		args = &ActionsOrganizationSecretArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.PlaintextValue == nil {
+		return nil, errors.New("invalid value for required argument 'PlaintextValue'")
+	}
+	if args.SecretName == nil {
+		return nil, errors.New("invalid value for required argument 'SecretName'")
+	}
+	if args.Visibility == nil {
+		return nil, errors.New("invalid value for required argument 'Visibility'")
 	}
 	var resource ActionsOrganizationSecret
 	err := ctx.RegisterResource("github:index/actionsOrganizationSecret:ActionsOrganizationSecret", name, args, &resource, opts...)

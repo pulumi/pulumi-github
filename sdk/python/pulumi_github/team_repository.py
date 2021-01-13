@@ -80,10 +80,10 @@ class TeamRepository(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['permission'] = permission
-            if repository is None:
+            if repository is None and not opts.urn:
                 raise TypeError("Missing required property 'repository'")
             __props__['repository'] = repository
-            if team_id is None:
+            if team_id is None and not opts.urn:
                 raise TypeError("Missing required property 'team_id'")
             __props__['team_id'] = team_id
             __props__['etag'] = None

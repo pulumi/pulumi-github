@@ -52,6 +52,7 @@ func NewOrganizationProject(ctx *pulumi.Context,
 	if args == nil {
 		args = &OrganizationProjectArgs{}
 	}
+
 	var resource OrganizationProject
 	err := ctx.RegisterResource("github:index/organizationProject:OrganizationProject", name, args, &resource, opts...)
 	if err != nil {

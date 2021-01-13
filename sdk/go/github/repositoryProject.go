@@ -60,11 +60,12 @@ type RepositoryProject struct {
 // NewRepositoryProject registers a new resource with the given unique name, arguments, and options.
 func NewRepositoryProject(ctx *pulumi.Context,
 	name string, args *RepositoryProjectArgs, opts ...pulumi.ResourceOption) (*RepositoryProject, error) {
-	if args == nil || args.Repository == nil {
-		return nil, errors.New("missing required argument 'Repository'")
-	}
 	if args == nil {
-		args = &RepositoryProjectArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Repository == nil {
+		return nil, errors.New("invalid value for required argument 'Repository'")
 	}
 	var resource RepositoryProject
 	err := ctx.RegisterResource("github:index/repositoryProject:RepositoryProject", name, args, &resource, opts...)

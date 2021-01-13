@@ -86,10 +86,10 @@ export class ProjectCard extends pulumi.CustomResource {
             inputs["note"] = state ? state.note : undefined;
         } else {
             const args = argsOrState as ProjectCardArgs | undefined;
-            if (!args || args.columnId === undefined) {
+            if ((!args || args.columnId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'columnId'");
             }
-            if (!args || args.note === undefined) {
+            if ((!args || args.note === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'note'");
             }
             inputs["columnId"] = args ? args.columnId : undefined;

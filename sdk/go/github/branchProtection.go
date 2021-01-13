@@ -44,14 +44,15 @@ type BranchProtection struct {
 // NewBranchProtection registers a new resource with the given unique name, arguments, and options.
 func NewBranchProtection(ctx *pulumi.Context,
 	name string, args *BranchProtectionArgs, opts ...pulumi.ResourceOption) (*BranchProtection, error) {
-	if args == nil || args.Pattern == nil {
-		return nil, errors.New("missing required argument 'Pattern'")
-	}
-	if args == nil || args.RepositoryId == nil {
-		return nil, errors.New("missing required argument 'RepositoryId'")
-	}
 	if args == nil {
-		args = &BranchProtectionArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Pattern == nil {
+		return nil, errors.New("invalid value for required argument 'Pattern'")
+	}
+	if args.RepositoryId == nil {
+		return nil, errors.New("invalid value for required argument 'RepositoryId'")
 	}
 	var resource BranchProtection
 	err := ctx.RegisterResource("github:index/branchProtection:BranchProtection", name, args, &resource, opts...)

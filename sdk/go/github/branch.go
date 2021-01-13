@@ -75,14 +75,15 @@ type Branch struct {
 // NewBranch registers a new resource with the given unique name, arguments, and options.
 func NewBranch(ctx *pulumi.Context,
 	name string, args *BranchArgs, opts ...pulumi.ResourceOption) (*Branch, error) {
-	if args == nil || args.Branch == nil {
-		return nil, errors.New("missing required argument 'Branch'")
-	}
-	if args == nil || args.Repository == nil {
-		return nil, errors.New("missing required argument 'Repository'")
-	}
 	if args == nil {
-		args = &BranchArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Branch == nil {
+		return nil, errors.New("invalid value for required argument 'Branch'")
+	}
+	if args.Repository == nil {
+		return nil, errors.New("invalid value for required argument 'Repository'")
 	}
 	var resource Branch
 	err := ctx.RegisterResource("github:index/branch:Branch", name, args, &resource, opts...)

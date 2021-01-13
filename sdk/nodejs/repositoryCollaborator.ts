@@ -111,10 +111,10 @@ export class RepositoryCollaborator extends pulumi.CustomResource {
             inputs["username"] = state ? state.username : undefined;
         } else {
             const args = argsOrState as RepositoryCollaboratorArgs | undefined;
-            if (!args || args.repository === undefined) {
+            if ((!args || args.repository === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'repository'");
             }
-            if (!args || args.username === undefined) {
+            if ((!args || args.username === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'username'");
             }
             inputs["permission"] = args ? args.permission : undefined;

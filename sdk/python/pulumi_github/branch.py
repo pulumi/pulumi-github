@@ -77,10 +77,10 @@ class Branch(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if branch is None:
+            if branch is None and not opts.urn:
                 raise TypeError("Missing required property 'branch'")
             __props__['branch'] = branch
-            if repository is None:
+            if repository is None and not opts.urn:
                 raise TypeError("Missing required property 'repository'")
             __props__['repository'] = repository
             __props__['source_branch'] = source_branch
