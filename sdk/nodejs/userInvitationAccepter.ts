@@ -75,7 +75,7 @@ export class UserInvitationAccepter extends pulumi.CustomResource {
             inputs["invitationId"] = state ? state.invitationId : undefined;
         } else {
             const args = argsOrState as UserInvitationAccepterArgs | undefined;
-            if (!args || args.invitationId === undefined) {
+            if ((!args || args.invitationId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'invitationId'");
             }
             inputs["invitationId"] = args ? args.invitationId : undefined;

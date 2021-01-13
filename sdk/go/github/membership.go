@@ -62,11 +62,12 @@ type Membership struct {
 // NewMembership registers a new resource with the given unique name, arguments, and options.
 func NewMembership(ctx *pulumi.Context,
 	name string, args *MembershipArgs, opts ...pulumi.ResourceOption) (*Membership, error) {
-	if args == nil || args.Username == nil {
-		return nil, errors.New("missing required argument 'Username'")
-	}
 	if args == nil {
-		args = &MembershipArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Username == nil {
+		return nil, errors.New("invalid value for required argument 'Username'")
 	}
 	var resource Membership
 	err := ctx.RegisterResource("github:index/membership:Membership", name, args, &resource, opts...)

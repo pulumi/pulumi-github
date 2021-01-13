@@ -77,7 +77,7 @@ class OrganizationWebhook(pulumi.CustomResource):
 
             __props__['active'] = active
             __props__['configuration'] = configuration
-            if events is None:
+            if events is None and not opts.urn:
                 raise TypeError("Missing required property 'events'")
             __props__['events'] = events
             __props__['etag'] = None

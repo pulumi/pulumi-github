@@ -62,7 +62,7 @@ class UserGpgKey(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if armored_public_key is None:
+            if armored_public_key is None and not opts.urn:
                 raise TypeError("Missing required property 'armored_public_key'")
             __props__['armored_public_key'] = armored_public_key
             __props__['etag'] = None

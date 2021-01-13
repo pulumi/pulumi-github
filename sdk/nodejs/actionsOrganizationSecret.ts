@@ -74,13 +74,13 @@ export class ActionsOrganizationSecret extends pulumi.CustomResource {
             inputs["visibility"] = state ? state.visibility : undefined;
         } else {
             const args = argsOrState as ActionsOrganizationSecretArgs | undefined;
-            if (!args || args.plaintextValue === undefined) {
+            if ((!args || args.plaintextValue === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'plaintextValue'");
             }
-            if (!args || args.secretName === undefined) {
+            if ((!args || args.secretName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'secretName'");
             }
-            if (!args || args.visibility === undefined) {
+            if ((!args || args.visibility === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'visibility'");
             }
             inputs["plaintextValue"] = args ? args.plaintextValue : undefined;

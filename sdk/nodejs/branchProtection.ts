@@ -96,10 +96,10 @@ export class BranchProtection extends pulumi.CustomResource {
             inputs["requiredStatusChecks"] = state ? state.requiredStatusChecks : undefined;
         } else {
             const args = argsOrState as BranchProtectionArgs | undefined;
-            if (!args || args.pattern === undefined) {
+            if ((!args || args.pattern === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'pattern'");
             }
-            if (!args || args.repositoryId === undefined) {
+            if ((!args || args.repositoryId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'repositoryId'");
             }
             inputs["enforceAdmins"] = args ? args.enforceAdmins : undefined;

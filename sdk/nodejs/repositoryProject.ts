@@ -88,7 +88,7 @@ export class RepositoryProject extends pulumi.CustomResource {
             inputs["url"] = state ? state.url : undefined;
         } else {
             const args = argsOrState as RepositoryProjectArgs | undefined;
-            if (!args || args.repository === undefined) {
+            if ((!args || args.repository === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'repository'");
             }
             inputs["body"] = args ? args.body : undefined;

@@ -57,11 +57,12 @@ type UserGpgKey struct {
 // NewUserGpgKey registers a new resource with the given unique name, arguments, and options.
 func NewUserGpgKey(ctx *pulumi.Context,
 	name string, args *UserGpgKeyArgs, opts ...pulumi.ResourceOption) (*UserGpgKey, error) {
-	if args == nil || args.ArmoredPublicKey == nil {
-		return nil, errors.New("missing required argument 'ArmoredPublicKey'")
-	}
 	if args == nil {
-		args = &UserGpgKeyArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ArmoredPublicKey == nil {
+		return nil, errors.New("invalid value for required argument 'ArmoredPublicKey'")
 	}
 	var resource UserGpgKey
 	err := ctx.RegisterResource("github:index/userGpgKey:UserGpgKey", name, args, &resource, opts...)

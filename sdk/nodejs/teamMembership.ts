@@ -102,10 +102,10 @@ export class TeamMembership extends pulumi.CustomResource {
             inputs["username"] = state ? state.username : undefined;
         } else {
             const args = argsOrState as TeamMembershipArgs | undefined;
-            if (!args || args.teamId === undefined) {
+            if ((!args || args.teamId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'teamId'");
             }
-            if (!args || args.username === undefined) {
+            if ((!args || args.username === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'username'");
             }
             inputs["role"] = args ? args.role : undefined;

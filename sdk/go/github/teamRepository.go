@@ -79,14 +79,15 @@ type TeamRepository struct {
 // NewTeamRepository registers a new resource with the given unique name, arguments, and options.
 func NewTeamRepository(ctx *pulumi.Context,
 	name string, args *TeamRepositoryArgs, opts ...pulumi.ResourceOption) (*TeamRepository, error) {
-	if args == nil || args.Repository == nil {
-		return nil, errors.New("missing required argument 'Repository'")
-	}
-	if args == nil || args.TeamId == nil {
-		return nil, errors.New("missing required argument 'TeamId'")
-	}
 	if args == nil {
-		args = &TeamRepositoryArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Repository == nil {
+		return nil, errors.New("invalid value for required argument 'Repository'")
+	}
+	if args.TeamId == nil {
+		return nil, errors.New("invalid value for required argument 'TeamId'")
 	}
 	var resource TeamRepository
 	err := ctx.RegisterResource("github:index/teamRepository:TeamRepository", name, args, &resource, opts...)

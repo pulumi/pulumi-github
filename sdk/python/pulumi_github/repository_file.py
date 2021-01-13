@@ -95,14 +95,14 @@ class RepositoryFile(pulumi.CustomResource):
             __props__['commit_author'] = commit_author
             __props__['commit_email'] = commit_email
             __props__['commit_message'] = commit_message
-            if content is None:
+            if content is None and not opts.urn:
                 raise TypeError("Missing required property 'content'")
             __props__['content'] = content
-            if file is None:
+            if file is None and not opts.urn:
                 raise TypeError("Missing required property 'file'")
             __props__['file'] = file
             __props__['overwrite_on_create'] = overwrite_on_create
-            if repository is None:
+            if repository is None and not opts.urn:
                 raise TypeError("Missing required property 'repository'")
             __props__['repository'] = repository
             __props__['sha'] = None

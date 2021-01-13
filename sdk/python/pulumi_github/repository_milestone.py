@@ -78,14 +78,14 @@ class RepositoryMilestone(pulumi.CustomResource):
 
             __props__['description'] = description
             __props__['due_date'] = due_date
-            if owner is None:
+            if owner is None and not opts.urn:
                 raise TypeError("Missing required property 'owner'")
             __props__['owner'] = owner
-            if repository is None:
+            if repository is None and not opts.urn:
                 raise TypeError("Missing required property 'repository'")
             __props__['repository'] = repository
             __props__['state'] = state
-            if title is None:
+            if title is None and not opts.urn:
                 raise TypeError("Missing required property 'title'")
             __props__['title'] = title
             __props__['number'] = None

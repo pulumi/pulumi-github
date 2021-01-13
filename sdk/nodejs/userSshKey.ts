@@ -90,10 +90,10 @@ export class UserSshKey extends pulumi.CustomResource {
             inputs["url"] = state ? state.url : undefined;
         } else {
             const args = argsOrState as UserSshKeyArgs | undefined;
-            if (!args || args.key === undefined) {
+            if ((!args || args.key === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'key'");
             }
-            if (!args || args.title === undefined) {
+            if ((!args || args.title === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'title'");
             }
             inputs["key"] = args ? args.key : undefined;

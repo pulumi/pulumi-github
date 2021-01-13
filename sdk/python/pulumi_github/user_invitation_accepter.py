@@ -36,7 +36,7 @@ class UserInvitationAccepter(pulumi.CustomResource):
             username="example-username")
         invitee = pulumi.providers.Github("invitee", token=var["invitee_token"])
         example_user_invitation_accepter = github.UserInvitationAccepter("exampleUserInvitationAccepter", invitation_id=example_repository_collaborator.invitation_id,
-        opts=ResourceOptions(provider="github.invitee"))
+        opts=pulumi.ResourceOptions(provider="github.invitee"))
         ```
 
         :param str resource_name: The name of the resource.
@@ -60,7 +60,7 @@ class UserInvitationAccepter(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if invitation_id is None:
+            if invitation_id is None and not opts.urn:
                 raise TypeError("Missing required property 'invitation_id'")
             __props__['invitation_id'] = invitation_id
         super(UserInvitationAccepter, __self__).__init__(

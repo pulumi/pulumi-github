@@ -70,14 +70,15 @@ type ProjectCard struct {
 // NewProjectCard registers a new resource with the given unique name, arguments, and options.
 func NewProjectCard(ctx *pulumi.Context,
 	name string, args *ProjectCardArgs, opts ...pulumi.ResourceOption) (*ProjectCard, error) {
-	if args == nil || args.ColumnId == nil {
-		return nil, errors.New("missing required argument 'ColumnId'")
-	}
-	if args == nil || args.Note == nil {
-		return nil, errors.New("missing required argument 'Note'")
-	}
 	if args == nil {
-		args = &ProjectCardArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ColumnId == nil {
+		return nil, errors.New("invalid value for required argument 'ColumnId'")
+	}
+	if args.Note == nil {
+		return nil, errors.New("invalid value for required argument 'Note'")
 	}
 	var resource ProjectCard
 	err := ctx.RegisterResource("github:index/projectCard:ProjectCard", name, args, &resource, opts...)

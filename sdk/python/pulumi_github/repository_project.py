@@ -63,7 +63,7 @@ class RepositoryProject(pulumi.CustomResource):
 
             __props__['body'] = body
             __props__['name'] = name
-            if repository is None:
+            if repository is None and not opts.urn:
                 raise TypeError("Missing required property 'repository'")
             __props__['repository'] = repository
             __props__['etag'] = None

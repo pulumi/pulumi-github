@@ -56,7 +56,7 @@ class ProjectColumn(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['name'] = name
-            if project_id is None:
+            if project_id is None and not opts.urn:
                 raise TypeError("Missing required property 'project_id'")
             __props__['project_id'] = project_id
             __props__['column_id'] = None

@@ -61,7 +61,7 @@ class TeamSyncGroupMapping(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['groups'] = groups
-            if team_slug is None:
+            if team_slug is None and not opts.urn:
                 raise TypeError("Missing required property 'team_slug'")
             __props__['team_slug'] = team_slug
             __props__['etag'] = None

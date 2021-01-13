@@ -83,10 +83,10 @@ export class IssueLabel extends pulumi.CustomResource {
             inputs["url"] = state ? state.url : undefined;
         } else {
             const args = argsOrState as IssueLabelArgs | undefined;
-            if (!args || args.color === undefined) {
+            if ((!args || args.color === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'color'");
             }
-            if (!args || args.repository === undefined) {
+            if ((!args || args.repository === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'repository'");
             }
             inputs["color"] = args ? args.color : undefined;

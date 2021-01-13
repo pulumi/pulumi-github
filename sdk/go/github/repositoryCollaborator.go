@@ -80,14 +80,15 @@ type RepositoryCollaborator struct {
 // NewRepositoryCollaborator registers a new resource with the given unique name, arguments, and options.
 func NewRepositoryCollaborator(ctx *pulumi.Context,
 	name string, args *RepositoryCollaboratorArgs, opts ...pulumi.ResourceOption) (*RepositoryCollaborator, error) {
-	if args == nil || args.Repository == nil {
-		return nil, errors.New("missing required argument 'Repository'")
-	}
-	if args == nil || args.Username == nil {
-		return nil, errors.New("missing required argument 'Username'")
-	}
 	if args == nil {
-		args = &RepositoryCollaboratorArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Repository == nil {
+		return nil, errors.New("invalid value for required argument 'Repository'")
+	}
+	if args.Username == nil {
+		return nil, errors.New("invalid value for required argument 'Username'")
 	}
 	var resource RepositoryCollaborator
 	err := ctx.RegisterResource("github:index/repositoryCollaborator:RepositoryCollaborator", name, args, &resource, opts...)

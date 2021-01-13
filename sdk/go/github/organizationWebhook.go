@@ -70,11 +70,12 @@ type OrganizationWebhook struct {
 // NewOrganizationWebhook registers a new resource with the given unique name, arguments, and options.
 func NewOrganizationWebhook(ctx *pulumi.Context,
 	name string, args *OrganizationWebhookArgs, opts ...pulumi.ResourceOption) (*OrganizationWebhook, error) {
-	if args == nil || args.Events == nil {
-		return nil, errors.New("missing required argument 'Events'")
-	}
 	if args == nil {
-		args = &OrganizationWebhookArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Events == nil {
+		return nil, errors.New("invalid value for required argument 'Events'")
 	}
 	var resource OrganizationWebhook
 	err := ctx.RegisterResource("github:index/organizationWebhook:OrganizationWebhook", name, args, &resource, opts...)

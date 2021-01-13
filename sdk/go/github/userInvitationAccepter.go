@@ -64,11 +64,12 @@ type UserInvitationAccepter struct {
 // NewUserInvitationAccepter registers a new resource with the given unique name, arguments, and options.
 func NewUserInvitationAccepter(ctx *pulumi.Context,
 	name string, args *UserInvitationAccepterArgs, opts ...pulumi.ResourceOption) (*UserInvitationAccepter, error) {
-	if args == nil || args.InvitationId == nil {
-		return nil, errors.New("missing required argument 'InvitationId'")
-	}
 	if args == nil {
-		args = &UserInvitationAccepterArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.InvitationId == nil {
+		return nil, errors.New("invalid value for required argument 'InvitationId'")
 	}
 	var resource UserInvitationAccepter
 	err := ctx.RegisterResource("github:index/userInvitationAccepter:UserInvitationAccepter", name, args, &resource, opts...)

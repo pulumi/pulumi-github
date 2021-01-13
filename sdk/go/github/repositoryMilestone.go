@@ -69,17 +69,18 @@ type RepositoryMilestone struct {
 // NewRepositoryMilestone registers a new resource with the given unique name, arguments, and options.
 func NewRepositoryMilestone(ctx *pulumi.Context,
 	name string, args *RepositoryMilestoneArgs, opts ...pulumi.ResourceOption) (*RepositoryMilestone, error) {
-	if args == nil || args.Owner == nil {
-		return nil, errors.New("missing required argument 'Owner'")
-	}
-	if args == nil || args.Repository == nil {
-		return nil, errors.New("missing required argument 'Repository'")
-	}
-	if args == nil || args.Title == nil {
-		return nil, errors.New("missing required argument 'Title'")
-	}
 	if args == nil {
-		args = &RepositoryMilestoneArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Owner == nil {
+		return nil, errors.New("invalid value for required argument 'Owner'")
+	}
+	if args.Repository == nil {
+		return nil, errors.New("invalid value for required argument 'Repository'")
+	}
+	if args.Title == nil {
+		return nil, errors.New("invalid value for required argument 'Title'")
 	}
 	var resource RepositoryMilestone
 	err := ctx.RegisterResource("github:index/repositoryMilestone:RepositoryMilestone", name, args, &resource, opts...)

@@ -90,17 +90,18 @@ type RepositoryFile struct {
 // NewRepositoryFile registers a new resource with the given unique name, arguments, and options.
 func NewRepositoryFile(ctx *pulumi.Context,
 	name string, args *RepositoryFileArgs, opts ...pulumi.ResourceOption) (*RepositoryFile, error) {
-	if args == nil || args.Content == nil {
-		return nil, errors.New("missing required argument 'Content'")
-	}
-	if args == nil || args.File == nil {
-		return nil, errors.New("missing required argument 'File'")
-	}
-	if args == nil || args.Repository == nil {
-		return nil, errors.New("missing required argument 'Repository'")
-	}
 	if args == nil {
-		args = &RepositoryFileArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Content == nil {
+		return nil, errors.New("invalid value for required argument 'Content'")
+	}
+	if args.File == nil {
+		return nil, errors.New("invalid value for required argument 'File'")
+	}
+	if args.Repository == nil {
+		return nil, errors.New("invalid value for required argument 'Repository'")
 	}
 	var resource RepositoryFile
 	err := ctx.RegisterResource("github:index/repositoryFile:RepositoryFile", name, args, &resource, opts...)

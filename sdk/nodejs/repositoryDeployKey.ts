@@ -104,13 +104,13 @@ export class RepositoryDeployKey extends pulumi.CustomResource {
             inputs["title"] = state ? state.title : undefined;
         } else {
             const args = argsOrState as RepositoryDeployKeyArgs | undefined;
-            if (!args || args.key === undefined) {
+            if ((!args || args.key === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'key'");
             }
-            if (!args || args.repository === undefined) {
+            if ((!args || args.repository === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'repository'");
             }
-            if (!args || args.title === undefined) {
+            if ((!args || args.title === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'title'");
             }
             inputs["key"] = args ? args.key : undefined;

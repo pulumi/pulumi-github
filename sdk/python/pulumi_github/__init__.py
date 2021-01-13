@@ -50,3 +50,116 @@ from . import outputs
 from . import (
     config,
 )
+
+def _register_module():
+    import pulumi
+    from . import _utilities
+
+
+    class Module(pulumi.runtime.ResourceModule):
+        _version = _utilities.get_semver_version()
+
+        def version(self):
+            return Module._version
+
+        def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
+            if typ == "github:index/actionsOrganizationSecret:ActionsOrganizationSecret":
+                return ActionsOrganizationSecret(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "github:index/actionsSecret:ActionsSecret":
+                return ActionsSecret(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "github:index/branch:Branch":
+                return Branch(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "github:index/branchDefault:BranchDefault":
+                return BranchDefault(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "github:index/branchProtection:BranchProtection":
+                return BranchProtection(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "github:index/issueLabel:IssueLabel":
+                return IssueLabel(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "github:index/membership:Membership":
+                return Membership(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "github:index/organizationBlock:OrganizationBlock":
+                return OrganizationBlock(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "github:index/organizationProject:OrganizationProject":
+                return OrganizationProject(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "github:index/organizationWebhook:OrganizationWebhook":
+                return OrganizationWebhook(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "github:index/projectCard:ProjectCard":
+                return ProjectCard(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "github:index/projectColumn:ProjectColumn":
+                return ProjectColumn(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "github:index/repository:Repository":
+                return Repository(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "github:index/repositoryCollaborator:RepositoryCollaborator":
+                return RepositoryCollaborator(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "github:index/repositoryDeployKey:RepositoryDeployKey":
+                return RepositoryDeployKey(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "github:index/repositoryFile:RepositoryFile":
+                return RepositoryFile(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "github:index/repositoryMilestone:RepositoryMilestone":
+                return RepositoryMilestone(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "github:index/repositoryProject:RepositoryProject":
+                return RepositoryProject(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "github:index/repositoryWebhook:RepositoryWebhook":
+                return RepositoryWebhook(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "github:index/team:Team":
+                return Team(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "github:index/teamMembership:TeamMembership":
+                return TeamMembership(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "github:index/teamRepository:TeamRepository":
+                return TeamRepository(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "github:index/teamSyncGroupMapping:TeamSyncGroupMapping":
+                return TeamSyncGroupMapping(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "github:index/userGpgKey:UserGpgKey":
+                return UserGpgKey(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "github:index/userInvitationAccepter:UserInvitationAccepter":
+                return UserInvitationAccepter(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "github:index/userSshKey:UserSshKey":
+                return UserSshKey(name, pulumi.ResourceOptions(urn=urn))
+            else:
+                raise Exception(f"unknown resource type {typ}")
+
+
+    _module_instance = Module()
+    pulumi.runtime.register_resource_module("github", "index/actionsOrganizationSecret", _module_instance)
+    pulumi.runtime.register_resource_module("github", "index/actionsSecret", _module_instance)
+    pulumi.runtime.register_resource_module("github", "index/branch", _module_instance)
+    pulumi.runtime.register_resource_module("github", "index/branchDefault", _module_instance)
+    pulumi.runtime.register_resource_module("github", "index/branchProtection", _module_instance)
+    pulumi.runtime.register_resource_module("github", "index/issueLabel", _module_instance)
+    pulumi.runtime.register_resource_module("github", "index/membership", _module_instance)
+    pulumi.runtime.register_resource_module("github", "index/organizationBlock", _module_instance)
+    pulumi.runtime.register_resource_module("github", "index/organizationProject", _module_instance)
+    pulumi.runtime.register_resource_module("github", "index/organizationWebhook", _module_instance)
+    pulumi.runtime.register_resource_module("github", "index/projectCard", _module_instance)
+    pulumi.runtime.register_resource_module("github", "index/projectColumn", _module_instance)
+    pulumi.runtime.register_resource_module("github", "index/repository", _module_instance)
+    pulumi.runtime.register_resource_module("github", "index/repositoryCollaborator", _module_instance)
+    pulumi.runtime.register_resource_module("github", "index/repositoryDeployKey", _module_instance)
+    pulumi.runtime.register_resource_module("github", "index/repositoryFile", _module_instance)
+    pulumi.runtime.register_resource_module("github", "index/repositoryMilestone", _module_instance)
+    pulumi.runtime.register_resource_module("github", "index/repositoryProject", _module_instance)
+    pulumi.runtime.register_resource_module("github", "index/repositoryWebhook", _module_instance)
+    pulumi.runtime.register_resource_module("github", "index/team", _module_instance)
+    pulumi.runtime.register_resource_module("github", "index/teamMembership", _module_instance)
+    pulumi.runtime.register_resource_module("github", "index/teamRepository", _module_instance)
+    pulumi.runtime.register_resource_module("github", "index/teamSyncGroupMapping", _module_instance)
+    pulumi.runtime.register_resource_module("github", "index/userGpgKey", _module_instance)
+    pulumi.runtime.register_resource_module("github", "index/userInvitationAccepter", _module_instance)
+    pulumi.runtime.register_resource_module("github", "index/userSshKey", _module_instance)
+
+
+    class Package(pulumi.runtime.ResourcePackage):
+        _version = _utilities.get_semver_version()
+
+        def version(self):
+            return Package._version
+
+        def construct_provider(self, name: str, typ: str, urn: str) -> pulumi.ProviderResource:
+            if typ != "pulumi:providers:github":
+                raise Exception(f"unknown provider type {typ}")
+            return Provider(name, pulumi.ResourceOptions(urn=urn))
+
+
+    pulumi.runtime.register_resource_package("github", Package())
+
+_register_module()

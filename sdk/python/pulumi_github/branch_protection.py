@@ -68,11 +68,11 @@ class BranchProtection(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['enforce_admins'] = enforce_admins
-            if pattern is None:
+            if pattern is None and not opts.urn:
                 raise TypeError("Missing required property 'pattern'")
             __props__['pattern'] = pattern
             __props__['push_restrictions'] = push_restrictions
-            if repository_id is None:
+            if repository_id is None and not opts.urn:
                 raise TypeError("Missing required property 'repository_id'")
             __props__['repository_id'] = repository_id
             __props__['require_signed_commits'] = require_signed_commits

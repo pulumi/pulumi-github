@@ -102,10 +102,10 @@ export class TeamRepository extends pulumi.CustomResource {
             inputs["teamId"] = state ? state.teamId : undefined;
         } else {
             const args = argsOrState as TeamRepositoryArgs | undefined;
-            if (!args || args.repository === undefined) {
+            if ((!args || args.repository === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'repository'");
             }
-            if (!args || args.teamId === undefined) {
+            if ((!args || args.teamId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'teamId'");
             }
             inputs["permission"] = args ? args.permission : undefined;

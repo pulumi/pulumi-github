@@ -24,6 +24,7 @@ func NewProvider(ctx *pulumi.Context,
 	if args == nil {
 		args = &ProviderArgs{}
 	}
+
 	if args.BaseUrl == nil {
 		args.BaseUrl = pulumi.StringPtr(getEnvOrDefault("https://api.github.com/", nil, "GITHUB_BASE_URL").(string))
 	}

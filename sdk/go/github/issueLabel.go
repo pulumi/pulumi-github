@@ -37,14 +37,15 @@ type IssueLabel struct {
 // NewIssueLabel registers a new resource with the given unique name, arguments, and options.
 func NewIssueLabel(ctx *pulumi.Context,
 	name string, args *IssueLabelArgs, opts ...pulumi.ResourceOption) (*IssueLabel, error) {
-	if args == nil || args.Color == nil {
-		return nil, errors.New("missing required argument 'Color'")
-	}
-	if args == nil || args.Repository == nil {
-		return nil, errors.New("missing required argument 'Repository'")
-	}
 	if args == nil {
-		args = &IssueLabelArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Color == nil {
+		return nil, errors.New("invalid value for required argument 'Color'")
+	}
+	if args.Repository == nil {
+		return nil, errors.New("invalid value for required argument 'Repository'")
 	}
 	var resource IssueLabel
 	err := ctx.RegisterResource("github:index/issueLabel:IssueLabel", name, args, &resource, opts...)

@@ -55,11 +55,12 @@ type ProjectColumn struct {
 // NewProjectColumn registers a new resource with the given unique name, arguments, and options.
 func NewProjectColumn(ctx *pulumi.Context,
 	name string, args *ProjectColumnArgs, opts ...pulumi.ResourceOption) (*ProjectColumn, error) {
-	if args == nil || args.ProjectId == nil {
-		return nil, errors.New("missing required argument 'ProjectId'")
-	}
 	if args == nil {
-		args = &ProjectColumnArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ProjectId == nil {
+		return nil, errors.New("invalid value for required argument 'ProjectId'")
 	}
 	var resource ProjectColumn
 	err := ctx.RegisterResource("github:index/projectColumn:ProjectColumn", name, args, &resource, opts...)

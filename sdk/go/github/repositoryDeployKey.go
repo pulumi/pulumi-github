@@ -72,17 +72,18 @@ type RepositoryDeployKey struct {
 // NewRepositoryDeployKey registers a new resource with the given unique name, arguments, and options.
 func NewRepositoryDeployKey(ctx *pulumi.Context,
 	name string, args *RepositoryDeployKeyArgs, opts ...pulumi.ResourceOption) (*RepositoryDeployKey, error) {
-	if args == nil || args.Key == nil {
-		return nil, errors.New("missing required argument 'Key'")
-	}
-	if args == nil || args.Repository == nil {
-		return nil, errors.New("missing required argument 'Repository'")
-	}
-	if args == nil || args.Title == nil {
-		return nil, errors.New("missing required argument 'Title'")
-	}
 	if args == nil {
-		args = &RepositoryDeployKeyArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Key == nil {
+		return nil, errors.New("invalid value for required argument 'Key'")
+	}
+	if args.Repository == nil {
+		return nil, errors.New("invalid value for required argument 'Repository'")
+	}
+	if args.Title == nil {
+		return nil, errors.New("invalid value for required argument 'Title'")
 	}
 	var resource RepositoryDeployKey
 	err := ctx.RegisterResource("github:index/repositoryDeployKey:RepositoryDeployKey", name, args, &resource, opts...)
