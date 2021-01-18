@@ -68,7 +68,7 @@ namespace Pulumi.Github
         public Output<bool?> Active { get; private set; } = null!;
 
         /// <summary>
-        /// key/value pair of configuration for this webhook. Available keys are `url`, `content_type`, `secret` and `insecure_ssl`. `secret` is [the shared secret, see API documentation](https://developer.github.com/v3/repos/hooks/#create-a-hook).
+        /// key/value pair of configuration for this webhook. Available keys are `url`, `content_type`, `secret` and `insecure_ssl`. `secret` is [the shared secret, see API documentation](https://developer.github.com/v3/repos/hooks/#create-a-hook). `content_type` may be either form or json.
         /// </summary>
         [Output("configuration")]
         public Output<Outputs.RepositoryWebhookConfiguration?> Configuration { get; private set; } = null!;
@@ -147,7 +147,7 @@ namespace Pulumi.Github
         public Input<bool>? Active { get; set; }
 
         /// <summary>
-        /// key/value pair of configuration for this webhook. Available keys are `url`, `content_type`, `secret` and `insecure_ssl`. `secret` is [the shared secret, see API documentation](https://developer.github.com/v3/repos/hooks/#create-a-hook).
+        /// key/value pair of configuration for this webhook. Available keys are `url`, `content_type`, `secret` and `insecure_ssl`. `secret` is [the shared secret, see API documentation](https://developer.github.com/v3/repos/hooks/#create-a-hook). `content_type` may be either form or json.
         /// </summary>
         [Input("configuration")]
         public Input<Inputs.RepositoryWebhookConfigurationArgs>? Configuration { get; set; }
@@ -184,7 +184,7 @@ namespace Pulumi.Github
         public Input<bool>? Active { get; set; }
 
         /// <summary>
-        /// key/value pair of configuration for this webhook. Available keys are `url`, `content_type`, `secret` and `insecure_ssl`. `secret` is [the shared secret, see API documentation](https://developer.github.com/v3/repos/hooks/#create-a-hook).
+        /// key/value pair of configuration for this webhook. Available keys are `url`, `content_type`, `secret` and `insecure_ssl`. `secret` is [the shared secret, see API documentation](https://developer.github.com/v3/repos/hooks/#create-a-hook). `content_type` may be either form or json.
         /// </summary>
         [Input("configuration")]
         public Input<Inputs.RepositoryWebhookConfigurationGetArgs>? Configuration { get; set; }

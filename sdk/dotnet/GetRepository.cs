@@ -132,6 +132,10 @@ namespace Pulumi.Github
         /// </summary>
         public readonly string NodeId;
         /// <summary>
+        /// The repository's GitHub Pages configuration.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetRepositoryPageResult> Pages;
+        /// <summary>
         /// Whether the repository is private.
         /// </summary>
         public readonly bool Private;
@@ -194,6 +198,8 @@ namespace Pulumi.Github
 
             string nodeId,
 
+            ImmutableArray<Outputs.GetRepositoryPageResult> pages,
+
             bool @private,
 
             int repoId,
@@ -224,6 +230,7 @@ namespace Pulumi.Github
             Id = id;
             Name = name;
             NodeId = nodeId;
+            Pages = pages;
             Private = @private;
             RepoId = repoId;
             SshCloneUrl = sshCloneUrl;

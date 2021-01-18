@@ -35,6 +35,7 @@ class Repository(pulumi.CustomResource):
                  is_template: Optional[pulumi.Input[bool]] = None,
                  license_template: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 pages: Optional[pulumi.Input[pulumi.InputType['RepositoryPagesArgs']]] = None,
                  private: Optional[pulumi.Input[bool]] = None,
                  template: Optional[pulumi.Input[pulumi.InputType['RepositoryTemplateArgs']]] = None,
                  topics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -60,6 +61,22 @@ class Repository(pulumi.CustomResource):
                 repository="terraform-module-template",
             ),
             visibility="public")
+        ```
+        ### With Github Pages Enabled
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        example = github.Repository("example",
+            description="My awesome web page",
+            pages=github.RepositoryPagesArgs(
+                source=github.RepositoryPagesSourceArgs(
+                    branch="master",
+                    path="/docs",
+                ),
+            ),
+            private=False)
         ```
 
         ## Import
@@ -94,6 +111,7 @@ class Repository(pulumi.CustomResource):
         :param pulumi.Input[bool] is_template: Set to `true` to tell GitHub that this is a template repository.
         :param pulumi.Input[str] license_template: Use the [name of the template](https://github.com/github/choosealicense.com/tree/gh-pages/_licenses) without the extension. For example, "mit" or "mpl-2.0".
         :param pulumi.Input[str] name: The name of the repository.
+        :param pulumi.Input[pulumi.InputType['RepositoryPagesArgs']] pages: The repository's Github Pages configuration. See Github Pages Configuration below for details.
         :param pulumi.Input[bool] private: Set to `true` to create a private repository.
                Repositories are created as public (e.g. open source) by default.
         :param pulumi.Input[pulumi.InputType['RepositoryTemplateArgs']] template: Use a template repository to create this resource. See Template Repositories below for details.
@@ -139,6 +157,7 @@ class Repository(pulumi.CustomResource):
             __props__['is_template'] = is_template
             __props__['license_template'] = license_template
             __props__['name'] = name
+            __props__['pages'] = pages
             if private is not None and not opts.urn:
                 warnings.warn("""use visibility instead""", DeprecationWarning)
                 pulumi.log.warn("private is deprecated: use visibility instead")
@@ -190,6 +209,7 @@ class Repository(pulumi.CustomResource):
             license_template: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             node_id: Optional[pulumi.Input[str]] = None,
+            pages: Optional[pulumi.Input[pulumi.InputType['RepositoryPagesArgs']]] = None,
             private: Optional[pulumi.Input[bool]] = None,
             repo_id: Optional[pulumi.Input[int]] = None,
             ssh_clone_url: Optional[pulumi.Input[str]] = None,
@@ -226,12 +246,13 @@ class Repository(pulumi.CustomResource):
         :param pulumi.Input[bool] has_wiki: Set to `true` to enable the GitHub Wiki features on
                the repository.
         :param pulumi.Input[str] homepage_url: URL of a page describing the project.
-        :param pulumi.Input[str] html_url: URL to the repository on the web.
+        :param pulumi.Input[str] html_url: The absolute URL (including scheme) of the rendered Github Pages site e.g. `https://username.github.io`.
         :param pulumi.Input[str] http_clone_url: URL that can be provided to `git clone` to clone the repository via HTTPS.
         :param pulumi.Input[bool] is_template: Set to `true` to tell GitHub that this is a template repository.
         :param pulumi.Input[str] license_template: Use the [name of the template](https://github.com/github/choosealicense.com/tree/gh-pages/_licenses) without the extension. For example, "mit" or "mpl-2.0".
         :param pulumi.Input[str] name: The name of the repository.
         :param pulumi.Input[str] node_id: GraphQL global node id for use with v4 API
+        :param pulumi.Input[pulumi.InputType['RepositoryPagesArgs']] pages: The repository's Github Pages configuration. See Github Pages Configuration below for details.
         :param pulumi.Input[bool] private: Set to `true` to create a private repository.
                Repositories are created as public (e.g. open source) by default.
         :param pulumi.Input[int] repo_id: Github ID for the repository
@@ -270,6 +291,7 @@ class Repository(pulumi.CustomResource):
         __props__["license_template"] = license_template
         __props__["name"] = name
         __props__["node_id"] = node_id
+        __props__["pages"] = pages
         __props__["private"] = private
         __props__["repo_id"] = repo_id
         __props__["ssh_clone_url"] = ssh_clone_url
@@ -429,7 +451,7 @@ class Repository(pulumi.CustomResource):
     @pulumi.getter(name="htmlUrl")
     def html_url(self) -> pulumi.Output[str]:
         """
-        URL to the repository on the web.
+        The absolute URL (including scheme) of the rendered Github Pages site e.g. `https://username.github.io`.
         """
         return pulumi.get(self, "html_url")
 
@@ -472,6 +494,14 @@ class Repository(pulumi.CustomResource):
         GraphQL global node id for use with v4 API
         """
         return pulumi.get(self, "node_id")
+
+    @property
+    @pulumi.getter
+    def pages(self) -> pulumi.Output[Optional['outputs.RepositoryPages']]:
+        """
+        The repository's Github Pages configuration. See Github Pages Configuration below for details.
+        """
+        return pulumi.get(self, "pages")
 
     @property
     @pulumi.getter

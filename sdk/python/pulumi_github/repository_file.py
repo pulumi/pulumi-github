@@ -56,7 +56,7 @@ class RepositoryFile(pulumi.CustomResource):
          $ pulumi import github:index/repositoryFile:RepositoryFile gitignore example/.gitignore
         ```
 
-         To import a file from a branch other than master, append `:` and the branch name, e.g.
+         To import a file from a branch other than main, append `:` and the branch name, e.g.
 
         ```sh
          $ pulumi import github:index/repositoryFile:RepositoryFile gitignore example/.gitignore:dev
@@ -64,7 +64,7 @@ class RepositoryFile(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] branch: Git branch (defaults to `master`).
+        :param pulumi.Input[str] branch: Git branch (defaults to `main`).
                The branch must already exist, it will not be created if it does not already exist.
         :param pulumi.Input[str] commit_author: Committer author name to use.
         :param pulumi.Input[str] commit_email: Committer email address to use.
@@ -105,6 +105,7 @@ class RepositoryFile(pulumi.CustomResource):
             if repository is None and not opts.urn:
                 raise TypeError("Missing required property 'repository'")
             __props__['repository'] = repository
+            __props__['commit_sha'] = None
             __props__['sha'] = None
         super(RepositoryFile, __self__).__init__(
             'github:index/repositoryFile:RepositoryFile',
@@ -120,6 +121,7 @@ class RepositoryFile(pulumi.CustomResource):
             commit_author: Optional[pulumi.Input[str]] = None,
             commit_email: Optional[pulumi.Input[str]] = None,
             commit_message: Optional[pulumi.Input[str]] = None,
+            commit_sha: Optional[pulumi.Input[str]] = None,
             content: Optional[pulumi.Input[str]] = None,
             file: Optional[pulumi.Input[str]] = None,
             overwrite_on_create: Optional[pulumi.Input[bool]] = None,
@@ -132,11 +134,12 @@ class RepositoryFile(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] branch: Git branch (defaults to `master`).
+        :param pulumi.Input[str] branch: Git branch (defaults to `main`).
                The branch must already exist, it will not be created if it does not already exist.
         :param pulumi.Input[str] commit_author: Committer author name to use.
         :param pulumi.Input[str] commit_email: Committer email address to use.
         :param pulumi.Input[str] commit_message: Commit message when adding or updating the managed file.
+        :param pulumi.Input[str] commit_sha: The SHA of the commit that modified the file.
         :param pulumi.Input[str] content: The file content.
         :param pulumi.Input[str] file: The path of the file to manage.
         :param pulumi.Input[bool] overwrite_on_create: Enable overwriting existing files
@@ -151,6 +154,7 @@ class RepositoryFile(pulumi.CustomResource):
         __props__["commit_author"] = commit_author
         __props__["commit_email"] = commit_email
         __props__["commit_message"] = commit_message
+        __props__["commit_sha"] = commit_sha
         __props__["content"] = content
         __props__["file"] = file
         __props__["overwrite_on_create"] = overwrite_on_create
@@ -162,7 +166,7 @@ class RepositoryFile(pulumi.CustomResource):
     @pulumi.getter
     def branch(self) -> pulumi.Output[Optional[str]]:
         """
-        Git branch (defaults to `master`).
+        Git branch (defaults to `main`).
         The branch must already exist, it will not be created if it does not already exist.
         """
         return pulumi.get(self, "branch")
@@ -190,6 +194,14 @@ class RepositoryFile(pulumi.CustomResource):
         Commit message when adding or updating the managed file.
         """
         return pulumi.get(self, "commit_message")
+
+    @property
+    @pulumi.getter(name="commitSha")
+    def commit_sha(self) -> pulumi.Output[str]:
+        """
+        The SHA of the commit that modified the file.
+        """
+        return pulumi.get(self, "commit_sha")
 
     @property
     @pulumi.getter

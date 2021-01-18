@@ -114,6 +114,7 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			"github_branch_default":           {Tok: makeResource(mainMod, "BranchDefault")},
 			"github_branch_protection":        {Tok: makeResource(mainMod, "BranchProtection")},
+			"github_branch_protection_v3":     {Tok: makeResource(mainMod, "BranchProtectionV3")},
 			"github_issue_label":              {Tok: makeResource(mainMod, "IssueLabel")},
 			"github_membership":               {Tok: makeResource(mainMod, "Membership")},
 			"github_organization_block":       {Tok: makeResource(mainMod, "OrganizationBlock")},

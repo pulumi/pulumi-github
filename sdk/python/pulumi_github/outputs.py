@@ -7,16 +7,24 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from . import _utilities, _tables
+from . import outputs
 
 __all__ = [
     'BranchProtectionRequiredPullRequestReview',
     'BranchProtectionRequiredStatusCheck',
+    'BranchProtectionV3RequiredPullRequestReviews',
+    'BranchProtectionV3RequiredStatusChecks',
+    'BranchProtectionV3Restrictions',
     'OrganizationWebhookConfiguration',
+    'RepositoryPages',
+    'RepositoryPagesSource',
     'RepositoryTemplate',
     'RepositoryWebhookConfiguration',
     'TeamSyncGroupMappingGroup',
     'GetCollaboratorsCollaboratorResult',
     'GetOrganizationTeamSyncGroupsGroupResult',
+    'GetRepositoryPageResult',
+    'GetRepositoryPageSourceResult',
 ]
 
 @pulumi.output_type
@@ -84,6 +92,126 @@ class BranchProtectionRequiredStatusCheck(dict):
 
 
 @pulumi.output_type
+class BranchProtectionV3RequiredPullRequestReviews(dict):
+    def __init__(__self__, *,
+                 dismiss_stale_reviews: Optional[bool] = None,
+                 dismissal_teams: Optional[Sequence[str]] = None,
+                 dismissal_users: Optional[Sequence[str]] = None,
+                 include_admins: Optional[bool] = None,
+                 require_code_owner_reviews: Optional[bool] = None,
+                 required_approving_review_count: Optional[int] = None):
+        if dismiss_stale_reviews is not None:
+            pulumi.set(__self__, "dismiss_stale_reviews", dismiss_stale_reviews)
+        if dismissal_teams is not None:
+            pulumi.set(__self__, "dismissal_teams", dismissal_teams)
+        if dismissal_users is not None:
+            pulumi.set(__self__, "dismissal_users", dismissal_users)
+        if include_admins is not None:
+            pulumi.set(__self__, "include_admins", include_admins)
+        if require_code_owner_reviews is not None:
+            pulumi.set(__self__, "require_code_owner_reviews", require_code_owner_reviews)
+        if required_approving_review_count is not None:
+            pulumi.set(__self__, "required_approving_review_count", required_approving_review_count)
+
+    @property
+    @pulumi.getter(name="dismissStaleReviews")
+    def dismiss_stale_reviews(self) -> Optional[bool]:
+        return pulumi.get(self, "dismiss_stale_reviews")
+
+    @property
+    @pulumi.getter(name="dismissalTeams")
+    def dismissal_teams(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "dismissal_teams")
+
+    @property
+    @pulumi.getter(name="dismissalUsers")
+    def dismissal_users(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "dismissal_users")
+
+    @property
+    @pulumi.getter(name="includeAdmins")
+    def include_admins(self) -> Optional[bool]:
+        return pulumi.get(self, "include_admins")
+
+    @property
+    @pulumi.getter(name="requireCodeOwnerReviews")
+    def require_code_owner_reviews(self) -> Optional[bool]:
+        return pulumi.get(self, "require_code_owner_reviews")
+
+    @property
+    @pulumi.getter(name="requiredApprovingReviewCount")
+    def required_approving_review_count(self) -> Optional[int]:
+        return pulumi.get(self, "required_approving_review_count")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class BranchProtectionV3RequiredStatusChecks(dict):
+    def __init__(__self__, *,
+                 contexts: Optional[Sequence[str]] = None,
+                 include_admins: Optional[bool] = None,
+                 strict: Optional[bool] = None):
+        if contexts is not None:
+            pulumi.set(__self__, "contexts", contexts)
+        if include_admins is not None:
+            pulumi.set(__self__, "include_admins", include_admins)
+        if strict is not None:
+            pulumi.set(__self__, "strict", strict)
+
+    @property
+    @pulumi.getter
+    def contexts(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "contexts")
+
+    @property
+    @pulumi.getter(name="includeAdmins")
+    def include_admins(self) -> Optional[bool]:
+        return pulumi.get(self, "include_admins")
+
+    @property
+    @pulumi.getter
+    def strict(self) -> Optional[bool]:
+        return pulumi.get(self, "strict")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class BranchProtectionV3Restrictions(dict):
+    def __init__(__self__, *,
+                 apps: Optional[Sequence[str]] = None,
+                 teams: Optional[Sequence[str]] = None,
+                 users: Optional[Sequence[str]] = None):
+        if apps is not None:
+            pulumi.set(__self__, "apps", apps)
+        if teams is not None:
+            pulumi.set(__self__, "teams", teams)
+        if users is not None:
+            pulumi.set(__self__, "users", users)
+
+    @property
+    @pulumi.getter
+    def apps(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "apps")
+
+    @property
+    @pulumi.getter
+    def teams(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "teams")
+
+    @property
+    @pulumi.getter
+    def users(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "users")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class OrganizationWebhookConfiguration(dict):
     def __init__(__self__, *,
                  url: str,
@@ -123,6 +251,116 @@ class OrganizationWebhookConfiguration(dict):
     @pulumi.getter
     def secret(self) -> Optional[str]:
         return pulumi.get(self, "secret")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class RepositoryPages(dict):
+    def __init__(__self__, *,
+                 source: 'outputs.RepositoryPagesSource',
+                 cname: Optional[str] = None,
+                 custom404: Optional[bool] = None,
+                 html_url: Optional[str] = None,
+                 status: Optional[str] = None,
+                 url: Optional[str] = None):
+        """
+        :param 'RepositoryPagesSourceArgs' source: The source branch and directory for the rendered Pages site. See Github Pages Source below for details.
+        :param str cname: The custom domain for the repository. This can only be set after the repository has been created.
+        :param bool custom404: Whether the rendered Github Pages site has a custom 404 page.
+        :param str html_url: The absolute URL (including scheme) of the rendered Github Pages site e.g. `https://username.github.io`.
+        :param str status: The Github Pages site's build status e.g. `building` or `built`.
+        """
+        pulumi.set(__self__, "source", source)
+        if cname is not None:
+            pulumi.set(__self__, "cname", cname)
+        if custom404 is not None:
+            pulumi.set(__self__, "custom404", custom404)
+        if html_url is not None:
+            pulumi.set(__self__, "html_url", html_url)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+        if url is not None:
+            pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter
+    def source(self) -> 'outputs.RepositoryPagesSource':
+        """
+        The source branch and directory for the rendered Pages site. See Github Pages Source below for details.
+        """
+        return pulumi.get(self, "source")
+
+    @property
+    @pulumi.getter
+    def cname(self) -> Optional[str]:
+        """
+        The custom domain for the repository. This can only be set after the repository has been created.
+        """
+        return pulumi.get(self, "cname")
+
+    @property
+    @pulumi.getter
+    def custom404(self) -> Optional[bool]:
+        """
+        Whether the rendered Github Pages site has a custom 404 page.
+        """
+        return pulumi.get(self, "custom404")
+
+    @property
+    @pulumi.getter(name="htmlUrl")
+    def html_url(self) -> Optional[str]:
+        """
+        The absolute URL (including scheme) of the rendered Github Pages site e.g. `https://username.github.io`.
+        """
+        return pulumi.get(self, "html_url")
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[str]:
+        """
+        The Github Pages site's build status e.g. `building` or `built`.
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter
+    def url(self) -> Optional[str]:
+        return pulumi.get(self, "url")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class RepositoryPagesSource(dict):
+    def __init__(__self__, *,
+                 branch: str,
+                 path: Optional[str] = None):
+        """
+        :param str branch: The repository branch used to publish the site's source files. (i.e. `main` or `gh-pages`.
+        :param str path: The repository directory from which the site publishes (Default: `/`).
+        """
+        pulumi.set(__self__, "branch", branch)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+
+    @property
+    @pulumi.getter
+    def branch(self) -> str:
+        """
+        The repository branch used to publish the site's source files. (i.e. `main` or `gh-pages`.
+        """
+        return pulumi.get(self, "branch")
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[str]:
+        """
+        The repository directory from which the site publishes (Default: `/`).
+        """
+        return pulumi.get(self, "path")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -459,5 +697,77 @@ class GetOrganizationTeamSyncGroupsGroupResult(dict):
         The name of the IdP group.
         """
         return pulumi.get(self, "group_name")
+
+
+@pulumi.output_type
+class GetRepositoryPageResult(dict):
+    def __init__(__self__, *,
+                 cname: str,
+                 custom404: bool,
+                 html_url: str,
+                 sources: Sequence['outputs.GetRepositoryPageSourceResult'],
+                 status: str,
+                 url: str):
+        """
+        :param str html_url: URL to the repository on the web.
+        """
+        pulumi.set(__self__, "cname", cname)
+        pulumi.set(__self__, "custom404", custom404)
+        pulumi.set(__self__, "html_url", html_url)
+        pulumi.set(__self__, "sources", sources)
+        pulumi.set(__self__, "status", status)
+        pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter
+    def cname(self) -> str:
+        return pulumi.get(self, "cname")
+
+    @property
+    @pulumi.getter
+    def custom404(self) -> bool:
+        return pulumi.get(self, "custom404")
+
+    @property
+    @pulumi.getter(name="htmlUrl")
+    def html_url(self) -> str:
+        """
+        URL to the repository on the web.
+        """
+        return pulumi.get(self, "html_url")
+
+    @property
+    @pulumi.getter
+    def sources(self) -> Sequence['outputs.GetRepositoryPageSourceResult']:
+        return pulumi.get(self, "sources")
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter
+    def url(self) -> str:
+        return pulumi.get(self, "url")
+
+
+@pulumi.output_type
+class GetRepositoryPageSourceResult(dict):
+    def __init__(__self__, *,
+                 branch: str,
+                 path: str):
+        pulumi.set(__self__, "branch", branch)
+        pulumi.set(__self__, "path", path)
+
+    @property
+    @pulumi.getter
+    def branch(self) -> str:
+        return pulumi.get(self, "branch")
+
+    @property
+    @pulumi.getter
+    def path(self) -> str:
+        return pulumi.get(self, "path")
 
 

@@ -16,6 +16,33 @@ export interface BranchProtectionRequiredStatusCheck {
     strict?: boolean;
 }
 
+export interface BranchProtectionV3RequiredPullRequestReviews {
+    dismissStaleReviews?: boolean;
+    dismissalTeams?: string[];
+    dismissalUsers?: string[];
+    /**
+     * @deprecated Use enforce_admins instead
+     */
+    includeAdmins?: boolean;
+    requireCodeOwnerReviews?: boolean;
+    requiredApprovingReviewCount?: number;
+}
+
+export interface BranchProtectionV3RequiredStatusChecks {
+    contexts?: string[];
+    /**
+     * @deprecated Use enforce_admins instead
+     */
+    includeAdmins?: boolean;
+    strict?: boolean;
+}
+
+export interface BranchProtectionV3Restrictions {
+    apps?: string[];
+    teams?: string[];
+    users?: string[];
+}
+
 export interface GetCollaboratorsCollaborator {
     /**
      * The GitHub API URL for the collaborator's events.
@@ -98,6 +125,23 @@ export interface GetOrganizationTeamSyncGroupsGroup {
     groupName: string;
 }
 
+export interface GetRepositoryPage {
+    cname: string;
+    custom404: boolean;
+    /**
+     * URL to the repository on the web.
+     */
+    htmlUrl: string;
+    sources: outputs.GetRepositoryPageSource[];
+    status: string;
+    url: string;
+}
+
+export interface GetRepositoryPageSource {
+    branch: string;
+    path: string;
+}
+
 export interface OrganizationWebhookConfiguration {
     contentType?: string;
     insecureSsl?: boolean;
@@ -106,6 +150,41 @@ export interface OrganizationWebhookConfiguration {
      * URL of the webhook
      */
     url: string;
+}
+
+export interface RepositoryPages {
+    /**
+     * The custom domain for the repository. This can only be set after the repository has been created.
+     */
+    cname?: string;
+    /**
+     * Whether the rendered Github Pages site has a custom 404 page.
+     */
+    custom404: boolean;
+    /**
+     * The absolute URL (including scheme) of the rendered Github Pages site e.g. `https://username.github.io`.
+     */
+    htmlUrl: string;
+    /**
+     * The source branch and directory for the rendered Pages site. See Github Pages Source below for details.
+     */
+    source: outputs.RepositoryPagesSource;
+    /**
+     * The Github Pages site's build status e.g. `building` or `built`.
+     */
+    status: string;
+    url: string;
+}
+
+export interface RepositoryPagesSource {
+    /**
+     * The repository branch used to publish the site's source files. (i.e. `main` or `gh-pages`.
+     */
+    branch: string;
+    /**
+     * The repository directory from which the site publishes (Default: `/`).
+     */
+    path?: string;
 }
 
 export interface RepositoryTemplate {

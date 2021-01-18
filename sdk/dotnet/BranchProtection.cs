@@ -25,6 +25,18 @@ namespace Pulumi.Github
     public partial class BranchProtection : Pulumi.CustomResource
     {
         /// <summary>
+        /// Boolean, setting this to `true` to allow the branch to be deleted.
+        /// </summary>
+        [Output("allowsDeletions")]
+        public Output<bool?> AllowsDeletions { get; private set; } = null!;
+
+        /// <summary>
+        /// Boolean, setting this to `true` to allow force pushes on the branch.
+        /// </summary>
+        [Output("allowsForcePushes")]
+        public Output<bool?> AllowsForcePushes { get; private set; } = null!;
+
+        /// <summary>
         /// Boolean, setting this to `true` enforces status checks for repository administrators.
         /// </summary>
         [Output("enforceAdmins")]
@@ -113,6 +125,18 @@ namespace Pulumi.Github
     public sealed class BranchProtectionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Boolean, setting this to `true` to allow the branch to be deleted.
+        /// </summary>
+        [Input("allowsDeletions")]
+        public Input<bool>? AllowsDeletions { get; set; }
+
+        /// <summary>
+        /// Boolean, setting this to `true` to allow force pushes on the branch.
+        /// </summary>
+        [Input("allowsForcePushes")]
+        public Input<bool>? AllowsForcePushes { get; set; }
+
+        /// <summary>
         /// Boolean, setting this to `true` enforces status checks for repository administrators.
         /// </summary>
         [Input("enforceAdmins")]
@@ -179,6 +203,18 @@ namespace Pulumi.Github
 
     public sealed class BranchProtectionState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Boolean, setting this to `true` to allow the branch to be deleted.
+        /// </summary>
+        [Input("allowsDeletions")]
+        public Input<bool>? AllowsDeletions { get; set; }
+
+        /// <summary>
+        /// Boolean, setting this to `true` to allow force pushes on the branch.
+        /// </summary>
+        [Input("allowsForcePushes")]
+        public Input<bool>? AllowsForcePushes { get; set; }
+
         /// <summary>
         /// Boolean, setting this to `true` enforces status checks for repository administrators.
         /// </summary>

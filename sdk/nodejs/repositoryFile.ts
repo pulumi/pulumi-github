@@ -35,7 +35,7 @@ import * as utilities from "./utilities";
  *  $ pulumi import github:index/repositoryFile:RepositoryFile gitignore example/.gitignore
  * ```
  *
- *  To import a file from a branch other than master, append `:` and the branch name, e.g.
+ *  To import a file from a branch other than main, append `:` and the branch name, e.g.
  *
  * ```sh
  *  $ pulumi import github:index/repositoryFile:RepositoryFile gitignore example/.gitignore:dev
@@ -70,7 +70,7 @@ export class RepositoryFile extends pulumi.CustomResource {
     }
 
     /**
-     * Git branch (defaults to `master`).
+     * Git branch (defaults to `main`).
      * The branch must already exist, it will not be created if it does not already exist.
      */
     public readonly branch!: pulumi.Output<string | undefined>;
@@ -86,6 +86,10 @@ export class RepositoryFile extends pulumi.CustomResource {
      * Commit message when adding or updating the managed file.
      */
     public readonly commitMessage!: pulumi.Output<string>;
+    /**
+     * The SHA of the commit that modified the file.
+     */
+    public /*out*/ readonly commitSha!: pulumi.Output<string>;
     /**
      * The file content.
      */
@@ -123,6 +127,7 @@ export class RepositoryFile extends pulumi.CustomResource {
             inputs["commitAuthor"] = state ? state.commitAuthor : undefined;
             inputs["commitEmail"] = state ? state.commitEmail : undefined;
             inputs["commitMessage"] = state ? state.commitMessage : undefined;
+            inputs["commitSha"] = state ? state.commitSha : undefined;
             inputs["content"] = state ? state.content : undefined;
             inputs["file"] = state ? state.file : undefined;
             inputs["overwriteOnCreate"] = state ? state.overwriteOnCreate : undefined;
@@ -147,6 +152,7 @@ export class RepositoryFile extends pulumi.CustomResource {
             inputs["file"] = args ? args.file : undefined;
             inputs["overwriteOnCreate"] = args ? args.overwriteOnCreate : undefined;
             inputs["repository"] = args ? args.repository : undefined;
+            inputs["commitSha"] = undefined /*out*/;
             inputs["sha"] = undefined /*out*/;
         }
         if (!opts) {
@@ -165,7 +171,7 @@ export class RepositoryFile extends pulumi.CustomResource {
  */
 export interface RepositoryFileState {
     /**
-     * Git branch (defaults to `master`).
+     * Git branch (defaults to `main`).
      * The branch must already exist, it will not be created if it does not already exist.
      */
     readonly branch?: pulumi.Input<string>;
@@ -181,6 +187,10 @@ export interface RepositoryFileState {
      * Commit message when adding or updating the managed file.
      */
     readonly commitMessage?: pulumi.Input<string>;
+    /**
+     * The SHA of the commit that modified the file.
+     */
+    readonly commitSha?: pulumi.Input<string>;
     /**
      * The file content.
      */
@@ -208,7 +218,7 @@ export interface RepositoryFileState {
  */
 export interface RepositoryFileArgs {
     /**
-     * Git branch (defaults to `master`).
+     * Git branch (defaults to `main`).
      * The branch must already exist, it will not be created if it does not already exist.
      */
     readonly branch?: pulumi.Input<string>;
