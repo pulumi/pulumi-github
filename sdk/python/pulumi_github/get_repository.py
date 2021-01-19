@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from . import _utilities, _tables
+from . import outputs
 
 __all__ = [
     'GetRepositoryResult',
@@ -19,7 +20,7 @@ class GetRepositoryResult:
     """
     A collection of values returned by getRepository.
     """
-    def __init__(__self__, allow_merge_commit=None, allow_rebase_merge=None, allow_squash_merge=None, archived=None, default_branch=None, description=None, full_name=None, git_clone_url=None, has_downloads=None, has_issues=None, has_projects=None, has_wiki=None, homepage_url=None, html_url=None, http_clone_url=None, id=None, name=None, node_id=None, private=None, repo_id=None, ssh_clone_url=None, svn_url=None, topics=None, visibility=None):
+    def __init__(__self__, allow_merge_commit=None, allow_rebase_merge=None, allow_squash_merge=None, archived=None, default_branch=None, description=None, full_name=None, git_clone_url=None, has_downloads=None, has_issues=None, has_projects=None, has_wiki=None, homepage_url=None, html_url=None, http_clone_url=None, id=None, name=None, node_id=None, pages=None, private=None, repo_id=None, ssh_clone_url=None, svn_url=None, topics=None, visibility=None):
         if allow_merge_commit and not isinstance(allow_merge_commit, bool):
             raise TypeError("Expected argument 'allow_merge_commit' to be a bool")
         pulumi.set(__self__, "allow_merge_commit", allow_merge_commit)
@@ -74,6 +75,9 @@ class GetRepositoryResult:
         if node_id and not isinstance(node_id, str):
             raise TypeError("Expected argument 'node_id' to be a str")
         pulumi.set(__self__, "node_id", node_id)
+        if pages and not isinstance(pages, list):
+            raise TypeError("Expected argument 'pages' to be a list")
+        pulumi.set(__self__, "pages", pages)
         if private and not isinstance(private, bool):
             raise TypeError("Expected argument 'private' to be a bool")
         pulumi.set(__self__, "private", private)
@@ -233,6 +237,14 @@ class GetRepositoryResult:
 
     @property
     @pulumi.getter
+    def pages(self) -> Sequence['outputs.GetRepositoryPageResult']:
+        """
+        The repository's GitHub Pages configuration.
+        """
+        return pulumi.get(self, "pages")
+
+    @property
+    @pulumi.getter
     def private(self) -> bool:
         """
         Whether the repository is private.
@@ -304,6 +316,7 @@ class AwaitableGetRepositoryResult(GetRepositoryResult):
             id=self.id,
             name=self.name,
             node_id=self.node_id,
+            pages=self.pages,
             private=self.private,
             repo_id=self.repo_id,
             ssh_clone_url=self.ssh_clone_url,
@@ -359,6 +372,7 @@ def get_repository(full_name: Optional[str] = None,
         id=__ret__.id,
         name=__ret__.name,
         node_id=__ret__.node_id,
+        pages=__ret__.pages,
         private=__ret__.private,
         repo_id=__ret__.repo_id,
         ssh_clone_url=__ret__.ssh_clone_url,

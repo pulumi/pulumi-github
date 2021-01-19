@@ -29,7 +29,7 @@ import (
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		example, err := github.NewRepository(ctx, "example", &github.RepositoryArgs{
 // 			Description: pulumi.String("My awesome codebase"),
-// 			Private:     pulumi.Bool(true),
+// 			Visibility:  pulumi.String("private"),
 // 			Template: &github.RepositoryTemplateArgs{
 // 				Owner:      pulumi.String("github"),
 // 				Repository: pulumi.String("terraform-module-template"),

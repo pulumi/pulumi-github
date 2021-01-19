@@ -33,7 +33,7 @@ class BranchDefault(pulumi.CustomResource):
 
         example = github.Repository("example",
             description="My awesome codebase",
-            private=True,
+            visibility="private",
             template=github.RepositoryTemplateArgs(
                 owner="github",
                 repository="terraform-module-template",

@@ -47,6 +47,14 @@ export class BranchProtection extends pulumi.CustomResource {
     }
 
     /**
+     * Boolean, setting this to `true` to allow the branch to be deleted.
+     */
+    public readonly allowsDeletions!: pulumi.Output<boolean | undefined>;
+    /**
+     * Boolean, setting this to `true` to allow force pushes on the branch.
+     */
+    public readonly allowsForcePushes!: pulumi.Output<boolean | undefined>;
+    /**
      * Boolean, setting this to `true` enforces status checks for repository administrators.
      */
     public readonly enforceAdmins!: pulumi.Output<boolean | undefined>;
@@ -87,6 +95,8 @@ export class BranchProtection extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as BranchProtectionState | undefined;
+            inputs["allowsDeletions"] = state ? state.allowsDeletions : undefined;
+            inputs["allowsForcePushes"] = state ? state.allowsForcePushes : undefined;
             inputs["enforceAdmins"] = state ? state.enforceAdmins : undefined;
             inputs["pattern"] = state ? state.pattern : undefined;
             inputs["pushRestrictions"] = state ? state.pushRestrictions : undefined;
@@ -102,6 +112,8 @@ export class BranchProtection extends pulumi.CustomResource {
             if ((!args || args.repositoryId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'repositoryId'");
             }
+            inputs["allowsDeletions"] = args ? args.allowsDeletions : undefined;
+            inputs["allowsForcePushes"] = args ? args.allowsForcePushes : undefined;
             inputs["enforceAdmins"] = args ? args.enforceAdmins : undefined;
             inputs["pattern"] = args ? args.pattern : undefined;
             inputs["pushRestrictions"] = args ? args.pushRestrictions : undefined;
@@ -125,6 +137,14 @@ export class BranchProtection extends pulumi.CustomResource {
  * Input properties used for looking up and filtering BranchProtection resources.
  */
 export interface BranchProtectionState {
+    /**
+     * Boolean, setting this to `true` to allow the branch to be deleted.
+     */
+    readonly allowsDeletions?: pulumi.Input<boolean>;
+    /**
+     * Boolean, setting this to `true` to allow force pushes on the branch.
+     */
+    readonly allowsForcePushes?: pulumi.Input<boolean>;
     /**
      * Boolean, setting this to `true` enforces status checks for repository administrators.
      */
@@ -159,6 +179,14 @@ export interface BranchProtectionState {
  * The set of arguments for constructing a BranchProtection resource.
  */
 export interface BranchProtectionArgs {
+    /**
+     * Boolean, setting this to `true` to allow the branch to be deleted.
+     */
+    readonly allowsDeletions?: pulumi.Input<boolean>;
+    /**
+     * Boolean, setting this to `true` to allow force pushes on the branch.
+     */
+    readonly allowsForcePushes?: pulumi.Input<boolean>;
     /**
      * Boolean, setting this to `true` enforces status checks for repository administrators.
      */

@@ -11,7 +11,12 @@ from . import _utilities, _tables
 __all__ = [
     'BranchProtectionRequiredPullRequestReviewArgs',
     'BranchProtectionRequiredStatusCheckArgs',
+    'BranchProtectionV3RequiredPullRequestReviewsArgs',
+    'BranchProtectionV3RequiredStatusChecksArgs',
+    'BranchProtectionV3RestrictionsArgs',
     'OrganizationWebhookConfigurationArgs',
+    'RepositoryPagesArgs',
+    'RepositoryPagesSourceArgs',
     'RepositoryTemplateArgs',
     'RepositoryWebhookConfigurationArgs',
     'TeamSyncGroupMappingGroupArgs',
@@ -100,6 +105,171 @@ class BranchProtectionRequiredStatusCheckArgs:
 
 
 @pulumi.input_type
+class BranchProtectionV3RequiredPullRequestReviewsArgs:
+    def __init__(__self__, *,
+                 dismiss_stale_reviews: Optional[pulumi.Input[bool]] = None,
+                 dismissal_teams: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 dismissal_users: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 include_admins: Optional[pulumi.Input[bool]] = None,
+                 require_code_owner_reviews: Optional[pulumi.Input[bool]] = None,
+                 required_approving_review_count: Optional[pulumi.Input[int]] = None):
+        if dismiss_stale_reviews is not None:
+            pulumi.set(__self__, "dismiss_stale_reviews", dismiss_stale_reviews)
+        if dismissal_teams is not None:
+            pulumi.set(__self__, "dismissal_teams", dismissal_teams)
+        if dismissal_users is not None:
+            pulumi.set(__self__, "dismissal_users", dismissal_users)
+        if include_admins is not None:
+            warnings.warn("""Use enforce_admins instead""", DeprecationWarning)
+            pulumi.log.warn("include_admins is deprecated: Use enforce_admins instead")
+        if include_admins is not None:
+            pulumi.set(__self__, "include_admins", include_admins)
+        if require_code_owner_reviews is not None:
+            pulumi.set(__self__, "require_code_owner_reviews", require_code_owner_reviews)
+        if required_approving_review_count is not None:
+            pulumi.set(__self__, "required_approving_review_count", required_approving_review_count)
+
+    @property
+    @pulumi.getter(name="dismissStaleReviews")
+    def dismiss_stale_reviews(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "dismiss_stale_reviews")
+
+    @dismiss_stale_reviews.setter
+    def dismiss_stale_reviews(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "dismiss_stale_reviews", value)
+
+    @property
+    @pulumi.getter(name="dismissalTeams")
+    def dismissal_teams(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "dismissal_teams")
+
+    @dismissal_teams.setter
+    def dismissal_teams(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "dismissal_teams", value)
+
+    @property
+    @pulumi.getter(name="dismissalUsers")
+    def dismissal_users(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "dismissal_users")
+
+    @dismissal_users.setter
+    def dismissal_users(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "dismissal_users", value)
+
+    @property
+    @pulumi.getter(name="includeAdmins")
+    def include_admins(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "include_admins")
+
+    @include_admins.setter
+    def include_admins(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "include_admins", value)
+
+    @property
+    @pulumi.getter(name="requireCodeOwnerReviews")
+    def require_code_owner_reviews(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "require_code_owner_reviews")
+
+    @require_code_owner_reviews.setter
+    def require_code_owner_reviews(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "require_code_owner_reviews", value)
+
+    @property
+    @pulumi.getter(name="requiredApprovingReviewCount")
+    def required_approving_review_count(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "required_approving_review_count")
+
+    @required_approving_review_count.setter
+    def required_approving_review_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "required_approving_review_count", value)
+
+
+@pulumi.input_type
+class BranchProtectionV3RequiredStatusChecksArgs:
+    def __init__(__self__, *,
+                 contexts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 include_admins: Optional[pulumi.Input[bool]] = None,
+                 strict: Optional[pulumi.Input[bool]] = None):
+        if contexts is not None:
+            pulumi.set(__self__, "contexts", contexts)
+        if include_admins is not None:
+            warnings.warn("""Use enforce_admins instead""", DeprecationWarning)
+            pulumi.log.warn("include_admins is deprecated: Use enforce_admins instead")
+        if include_admins is not None:
+            pulumi.set(__self__, "include_admins", include_admins)
+        if strict is not None:
+            pulumi.set(__self__, "strict", strict)
+
+    @property
+    @pulumi.getter
+    def contexts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "contexts")
+
+    @contexts.setter
+    def contexts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "contexts", value)
+
+    @property
+    @pulumi.getter(name="includeAdmins")
+    def include_admins(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "include_admins")
+
+    @include_admins.setter
+    def include_admins(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "include_admins", value)
+
+    @property
+    @pulumi.getter
+    def strict(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "strict")
+
+    @strict.setter
+    def strict(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "strict", value)
+
+
+@pulumi.input_type
+class BranchProtectionV3RestrictionsArgs:
+    def __init__(__self__, *,
+                 apps: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 teams: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 users: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        if apps is not None:
+            pulumi.set(__self__, "apps", apps)
+        if teams is not None:
+            pulumi.set(__self__, "teams", teams)
+        if users is not None:
+            pulumi.set(__self__, "users", users)
+
+    @property
+    @pulumi.getter
+    def apps(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "apps")
+
+    @apps.setter
+    def apps(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "apps", value)
+
+    @property
+    @pulumi.getter
+    def teams(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "teams")
+
+    @teams.setter
+    def teams(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "teams", value)
+
+    @property
+    @pulumi.getter
+    def users(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "users")
+
+    @users.setter
+    def users(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "users", value)
+
+
+@pulumi.input_type
 class OrganizationWebhookConfigurationArgs:
     def __init__(__self__, *,
                  url: pulumi.Input[str],
@@ -155,6 +325,142 @@ class OrganizationWebhookConfigurationArgs:
     @secret.setter
     def secret(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "secret", value)
+
+
+@pulumi.input_type
+class RepositoryPagesArgs:
+    def __init__(__self__, *,
+                 source: pulumi.Input['RepositoryPagesSourceArgs'],
+                 cname: Optional[pulumi.Input[str]] = None,
+                 custom404: Optional[pulumi.Input[bool]] = None,
+                 html_url: Optional[pulumi.Input[str]] = None,
+                 status: Optional[pulumi.Input[str]] = None,
+                 url: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input['RepositoryPagesSourceArgs'] source: The source branch and directory for the rendered Pages site. See Github Pages Source below for details.
+        :param pulumi.Input[str] cname: The custom domain for the repository. This can only be set after the repository has been created.
+        :param pulumi.Input[bool] custom404: Whether the rendered Github Pages site has a custom 404 page.
+        :param pulumi.Input[str] html_url: The absolute URL (including scheme) of the rendered Github Pages site e.g. `https://username.github.io`.
+        :param pulumi.Input[str] status: The Github Pages site's build status e.g. `building` or `built`.
+        """
+        pulumi.set(__self__, "source", source)
+        if cname is not None:
+            pulumi.set(__self__, "cname", cname)
+        if custom404 is not None:
+            pulumi.set(__self__, "custom404", custom404)
+        if html_url is not None:
+            pulumi.set(__self__, "html_url", html_url)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+        if url is not None:
+            pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter
+    def source(self) -> pulumi.Input['RepositoryPagesSourceArgs']:
+        """
+        The source branch and directory for the rendered Pages site. See Github Pages Source below for details.
+        """
+        return pulumi.get(self, "source")
+
+    @source.setter
+    def source(self, value: pulumi.Input['RepositoryPagesSourceArgs']):
+        pulumi.set(self, "source", value)
+
+    @property
+    @pulumi.getter
+    def cname(self) -> Optional[pulumi.Input[str]]:
+        """
+        The custom domain for the repository. This can only be set after the repository has been created.
+        """
+        return pulumi.get(self, "cname")
+
+    @cname.setter
+    def cname(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cname", value)
+
+    @property
+    @pulumi.getter
+    def custom404(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether the rendered Github Pages site has a custom 404 page.
+        """
+        return pulumi.get(self, "custom404")
+
+    @custom404.setter
+    def custom404(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "custom404", value)
+
+    @property
+    @pulumi.getter(name="htmlUrl")
+    def html_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        The absolute URL (including scheme) of the rendered Github Pages site e.g. `https://username.github.io`.
+        """
+        return pulumi.get(self, "html_url")
+
+    @html_url.setter
+    def html_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "html_url", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Github Pages site's build status e.g. `building` or `built`.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "status", value)
+
+    @property
+    @pulumi.getter
+    def url(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "url")
+
+    @url.setter
+    def url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "url", value)
+
+
+@pulumi.input_type
+class RepositoryPagesSourceArgs:
+    def __init__(__self__, *,
+                 branch: pulumi.Input[str],
+                 path: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] branch: The repository branch used to publish the site's source files. (i.e. `main` or `gh-pages`.
+        :param pulumi.Input[str] path: The repository directory from which the site publishes (Default: `/`).
+        """
+        pulumi.set(__self__, "branch", branch)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+
+    @property
+    @pulumi.getter
+    def branch(self) -> pulumi.Input[str]:
+        """
+        The repository branch used to publish the site's source files. (i.e. `main` or `gh-pages`.
+        """
+        return pulumi.get(self, "branch")
+
+    @branch.setter
+    def branch(self, value: pulumi.Input[str]):
+        pulumi.set(self, "branch", value)
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The repository directory from which the site publishes (Default: `/`).
+        """
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "path", value)
 
 
 @pulumi.input_type

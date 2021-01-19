@@ -25,6 +25,10 @@ import (
 type BranchProtection struct {
 	pulumi.CustomResourceState
 
+	// Boolean, setting this to `true` to allow the branch to be deleted.
+	AllowsDeletions pulumi.BoolPtrOutput `pulumi:"allowsDeletions"`
+	// Boolean, setting this to `true` to allow force pushes on the branch.
+	AllowsForcePushes pulumi.BoolPtrOutput `pulumi:"allowsForcePushes"`
 	// Boolean, setting this to `true` enforces status checks for repository administrators.
 	EnforceAdmins pulumi.BoolPtrOutput `pulumi:"enforceAdmins"`
 	// Identifies the protection rule pattern.
@@ -76,6 +80,10 @@ func GetBranchProtection(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering BranchProtection resources.
 type branchProtectionState struct {
+	// Boolean, setting this to `true` to allow the branch to be deleted.
+	AllowsDeletions *bool `pulumi:"allowsDeletions"`
+	// Boolean, setting this to `true` to allow force pushes on the branch.
+	AllowsForcePushes *bool `pulumi:"allowsForcePushes"`
 	// Boolean, setting this to `true` enforces status checks for repository administrators.
 	EnforceAdmins *bool `pulumi:"enforceAdmins"`
 	// Identifies the protection rule pattern.
@@ -93,6 +101,10 @@ type branchProtectionState struct {
 }
 
 type BranchProtectionState struct {
+	// Boolean, setting this to `true` to allow the branch to be deleted.
+	AllowsDeletions pulumi.BoolPtrInput
+	// Boolean, setting this to `true` to allow force pushes on the branch.
+	AllowsForcePushes pulumi.BoolPtrInput
 	// Boolean, setting this to `true` enforces status checks for repository administrators.
 	EnforceAdmins pulumi.BoolPtrInput
 	// Identifies the protection rule pattern.
@@ -114,6 +126,10 @@ func (BranchProtectionState) ElementType() reflect.Type {
 }
 
 type branchProtectionArgs struct {
+	// Boolean, setting this to `true` to allow the branch to be deleted.
+	AllowsDeletions *bool `pulumi:"allowsDeletions"`
+	// Boolean, setting this to `true` to allow force pushes on the branch.
+	AllowsForcePushes *bool `pulumi:"allowsForcePushes"`
 	// Boolean, setting this to `true` enforces status checks for repository administrators.
 	EnforceAdmins *bool `pulumi:"enforceAdmins"`
 	// Identifies the protection rule pattern.
@@ -132,6 +148,10 @@ type branchProtectionArgs struct {
 
 // The set of arguments for constructing a BranchProtection resource.
 type BranchProtectionArgs struct {
+	// Boolean, setting this to `true` to allow the branch to be deleted.
+	AllowsDeletions pulumi.BoolPtrInput
+	// Boolean, setting this to `true` to allow force pushes on the branch.
+	AllowsForcePushes pulumi.BoolPtrInput
 	// Boolean, setting this to `true` enforces status checks for repository administrators.
 	EnforceAdmins pulumi.BoolPtrInput
 	// Identifies the protection rule pattern.

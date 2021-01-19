@@ -119,6 +119,10 @@ export interface GetRepositoryResult {
      */
     readonly nodeId: string;
     /**
+     * The repository's GitHub Pages configuration.
+     */
+    readonly pages: outputs.GetRepositoryPage[];
+    /**
      * Whether the repository is private.
      */
     readonly private: boolean;

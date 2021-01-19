@@ -27,7 +27,7 @@ namespace Pulumi.Github
     ///         var example = new Github.Repository("example", new Github.RepositoryArgs
     ///         {
     ///             Description = "My awesome codebase",
-    ///             Private = true,
+    ///             Visibility = "private",
     ///             Template = new Github.Inputs.RepositoryTemplateArgs
     ///             {
     ///                 Owner = "github",

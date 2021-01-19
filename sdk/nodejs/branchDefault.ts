@@ -17,7 +17,7 @@ import * as utilities from "./utilities";
  *
  * const example = new github.Repository("example", {
  *     description: "My awesome codebase",
- *     "private": true,
+ *     visibility: "private",
  *     template: {
  *         owner: "github",
  *         repository: "terraform-module-template",

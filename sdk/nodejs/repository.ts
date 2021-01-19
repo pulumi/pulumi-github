@@ -24,6 +24,23 @@ import * as utilities from "./utilities";
  *     visibility: "public",
  * });
  * ```
+ * ### With Github Pages Enabled
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const example = new github.Repository("example", {
+ *     description: "My awesome web page",
+ *     pages: {
+ *         source: {
+ *             branch: "master",
+ *             path: "/docs",
+ *         },
+ *     },
+ *     private: false,
+ * });
+ * ```
  *
  * ## Import
  *
@@ -137,7 +154,7 @@ export class Repository extends pulumi.CustomResource {
      */
     public readonly homepageUrl!: pulumi.Output<string | undefined>;
     /**
-     * URL to the repository on the web.
+     * The absolute URL (including scheme) of the rendered Github Pages site e.g. `https://username.github.io`.
      */
     public /*out*/ readonly htmlUrl!: pulumi.Output<string>;
     /**
@@ -160,6 +177,10 @@ export class Repository extends pulumi.CustomResource {
      * GraphQL global node id for use with v4 API
      */
     public /*out*/ readonly nodeId!: pulumi.Output<string>;
+    /**
+     * The repository's Github Pages configuration. See Github Pages Configuration below for details.
+     */
+    public readonly pages!: pulumi.Output<outputs.RepositoryPages | undefined>;
     /**
      * Set to `true` to create a private repository.
      * Repositories are created as public (e.g. open source) by default.
@@ -232,6 +253,7 @@ export class Repository extends pulumi.CustomResource {
             inputs["licenseTemplate"] = state ? state.licenseTemplate : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["nodeId"] = state ? state.nodeId : undefined;
+            inputs["pages"] = state ? state.pages : undefined;
             inputs["private"] = state ? state.private : undefined;
             inputs["repoId"] = state ? state.repoId : undefined;
             inputs["sshCloneUrl"] = state ? state.sshCloneUrl : undefined;
@@ -260,6 +282,7 @@ export class Repository extends pulumi.CustomResource {
             inputs["isTemplate"] = args ? args.isTemplate : undefined;
             inputs["licenseTemplate"] = args ? args.licenseTemplate : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["pages"] = args ? args.pages : undefined;
             inputs["private"] = args ? args.private : undefined;
             inputs["template"] = args ? args.template : undefined;
             inputs["topics"] = args ? args.topics : undefined;
@@ -366,7 +389,7 @@ export interface RepositoryState {
      */
     readonly homepageUrl?: pulumi.Input<string>;
     /**
-     * URL to the repository on the web.
+     * The absolute URL (including scheme) of the rendered Github Pages site e.g. `https://username.github.io`.
      */
     readonly htmlUrl?: pulumi.Input<string>;
     /**
@@ -389,6 +412,10 @@ export interface RepositoryState {
      * GraphQL global node id for use with v4 API
      */
     readonly nodeId?: pulumi.Input<string>;
+    /**
+     * The repository's Github Pages configuration. See Github Pages Configuration below for details.
+     */
+    readonly pages?: pulumi.Input<inputs.RepositoryPages>;
     /**
      * Set to `true` to create a private repository.
      * Repositories are created as public (e.g. open source) by default.
@@ -508,6 +535,10 @@ export interface RepositoryArgs {
      * The name of the repository.
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * The repository's Github Pages configuration. See Github Pages Configuration below for details.
+     */
+    readonly pages?: pulumi.Input<inputs.RepositoryPages>;
     /**
      * Set to `true` to create a private repository.
      * Repositories are created as public (e.g. open source) by default.

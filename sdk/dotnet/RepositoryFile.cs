@@ -51,7 +51,7 @@ namespace Pulumi.Github
     ///  $ pulumi import github:index/repositoryFile:RepositoryFile gitignore example/.gitignore
     /// ```
     /// 
-    ///  To import a file from a branch other than master, append `:` and the branch name, e.g.
+    ///  To import a file from a branch other than main, append `:` and the branch name, e.g.
     /// 
     /// ```sh
     ///  $ pulumi import github:index/repositoryFile:RepositoryFile gitignore example/.gitignore:dev
@@ -60,7 +60,7 @@ namespace Pulumi.Github
     public partial class RepositoryFile : Pulumi.CustomResource
     {
         /// <summary>
-        /// Git branch (defaults to `master`).
+        /// Git branch (defaults to `main`).
         /// The branch must already exist, it will not be created if it does not already exist.
         /// </summary>
         [Output("branch")]
@@ -83,6 +83,12 @@ namespace Pulumi.Github
         /// </summary>
         [Output("commitMessage")]
         public Output<string> CommitMessage { get; private set; } = null!;
+
+        /// <summary>
+        /// The SHA of the commit that modified the file.
+        /// </summary>
+        [Output("commitSha")]
+        public Output<string> CommitSha { get; private set; } = null!;
 
         /// <summary>
         /// The file content.
@@ -161,7 +167,7 @@ namespace Pulumi.Github
     public sealed class RepositoryFileArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Git branch (defaults to `master`).
+        /// Git branch (defaults to `main`).
         /// The branch must already exist, it will not be created if it does not already exist.
         /// </summary>
         [Input("branch")]
@@ -217,7 +223,7 @@ namespace Pulumi.Github
     public sealed class RepositoryFileState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Git branch (defaults to `master`).
+        /// Git branch (defaults to `main`).
         /// The branch must already exist, it will not be created if it does not already exist.
         /// </summary>
         [Input("branch")]
@@ -240,6 +246,12 @@ namespace Pulumi.Github
         /// </summary>
         [Input("commitMessage")]
         public Input<string>? CommitMessage { get; set; }
+
+        /// <summary>
+        /// The SHA of the commit that modified the file.
+        /// </summary>
+        [Input("commitSha")]
+        public Input<string>? CommitSha { get; set; }
 
         /// <summary>
         /// The file content.

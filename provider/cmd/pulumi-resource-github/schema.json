@@ -117,6 +117,137 @@
             },
             "type": "object"
         },
+        "github:index/BranchProtectionV3RequiredPullRequestReviews:BranchProtectionV3RequiredPullRequestReviews": {
+            "properties": {
+                "dismissStaleReviews": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "dismissalTeams": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "dismissalUsers": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "includeAdmins": {
+                    "type": "boolean",
+                    "deprecationMessage": "Use enforce_admins instead",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "requireCodeOwnerReviews": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "requiredApprovingReviewCount": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "github:index/BranchProtectionV3RequiredStatusChecks:BranchProtectionV3RequiredStatusChecks": {
+            "properties": {
+                "contexts": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "includeAdmins": {
+                    "type": "boolean",
+                    "deprecationMessage": "Use enforce_admins instead",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "strict": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "github:index/BranchProtectionV3Restrictions:BranchProtectionV3Restrictions": {
+            "properties": {
+                "apps": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "teams": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "users": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
         "github:index/OrganizationWebhookConfiguration:OrganizationWebhookConfiguration": {
             "properties": {
                 "contentType": {
@@ -156,6 +287,104 @@
             "type": "object",
             "required": [
                 "url"
+            ]
+        },
+        "github:index/RepositoryPages:RepositoryPages": {
+            "properties": {
+                "cname": {
+                    "type": "string",
+                    "description": "The custom domain for the repository. This can only be set after the repository has been created.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "custom404": {
+                    "type": "boolean",
+                    "description": "Whether the rendered Github Pages site has a custom 404 page.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "htmlUrl": {
+                    "type": "string",
+                    "description": "The absolute URL (including scheme) of the rendered Github Pages site e.g. `https://username.github.io`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "source": {
+                    "$ref": "#/types/github:index/RepositoryPagesSource:RepositoryPagesSource",
+                    "description": "The source branch and directory for the rendered Pages site. See Github Pages Source below for details.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "status": {
+                    "type": "string",
+                    "description": "The Github Pages site's build status e.g. `building` or `built`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "url": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "source"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "custom404",
+                        "htmlUrl",
+                        "source",
+                        "status",
+                        "url"
+                    ]
+                }
+            }
+        },
+        "github:index/RepositoryPagesSource:RepositoryPagesSource": {
+            "properties": {
+                "branch": {
+                    "type": "string",
+                    "description": "The repository branch used to publish the site's source files. (i.e. `main` or `gh-pages`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "path": {
+                    "type": "string",
+                    "description": "The repository directory from which the site publishes (Default: `/`).\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "branch"
             ]
         },
         "github:index/RepositoryTemplate:RepositoryTemplate": {
@@ -468,6 +697,106 @@
                 "groupDescription",
                 "groupId",
                 "groupName"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "github:index/getRepositoryPage:getRepositoryPage": {
+            "properties": {
+                "cname": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "custom404": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "htmlUrl": {
+                    "type": "string",
+                    "description": "URL to the repository on the web.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "sources": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/github:index/getRepositoryPageSource:getRepositoryPageSource"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "status": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "url": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "cname",
+                "custom404",
+                "htmlUrl",
+                "sources",
+                "status",
+                "url"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "github:index/getRepositoryPageSource:getRepositoryPageSource": {
+            "properties": {
+                "branch": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "path": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "branch",
+                "path"
             ],
             "language": {
                 "nodejs": {
@@ -801,7 +1130,7 @@
             }
         },
         "github:index/branchDefault:BranchDefault": {
-            "description": "Provides a GitHub branch default resource.\n\nThis resource allows you to set the default branch for a given repository. \n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\nconst example = new github.Repository(\"example\", {\n    description: \"My awesome codebase\",\n    \"private\": true,\n    template: {\n        owner: \"github\",\n        repository: \"terraform-module-template\",\n    },\n});\nconst development = new github.Branch(\"development\", {\n    repository: example.name,\n    branch: \"development\",\n});\nconst _default = new github.BranchDefault(\"default\", {\n    repository: example.name,\n    branch: development.branch,\n});\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\nexample = github.Repository(\"example\",\n    description=\"My awesome codebase\",\n    private=True,\n    template=github.RepositoryTemplateArgs(\n        owner=\"github\",\n        repository=\"terraform-module-template\",\n    ))\ndevelopment = github.Branch(\"development\",\n    repository=example.name,\n    branch=\"development\")\ndefault = github.BranchDefault(\"default\",\n    repository=example.name,\n    branch=development.branch)\n```\n```csharp\nusing Pulumi;\nusing Github = Pulumi.Github;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var example = new Github.Repository(\"example\", new Github.RepositoryArgs\n        {\n            Description = \"My awesome codebase\",\n            Private = true,\n            Template = new Github.Inputs.RepositoryTemplateArgs\n            {\n                Owner = \"github\",\n                Repository = \"terraform-module-template\",\n            },\n        });\n        var development = new Github.Branch(\"development\", new Github.BranchArgs\n        {\n            Repository = example.Name,\n            Branch = \"development\",\n        });\n        var @default = new Github.BranchDefault(\"default\", new Github.BranchDefaultArgs\n        {\n            Repository = example.Name,\n            Branch = development.BranchName,\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-github/sdk/v2/go/github\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\texample, err := github.NewRepository(ctx, \"example\", \u0026github.RepositoryArgs{\n\t\t\tDescription: pulumi.String(\"My awesome codebase\"),\n\t\t\tPrivate:     pulumi.Bool(true),\n\t\t\tTemplate: \u0026github.RepositoryTemplateArgs{\n\t\t\t\tOwner:      pulumi.String(\"github\"),\n\t\t\t\tRepository: pulumi.String(\"terraform-module-template\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tdevelopment, err := github.NewBranch(ctx, \"development\", \u0026github.BranchArgs{\n\t\t\tRepository: example.Name,\n\t\t\tBranch:     pulumi.String(\"development\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = github.NewBranchDefault(ctx, \"_default\", \u0026github.BranchDefaultArgs{\n\t\t\tRepository: example.Name,\n\t\t\tBranch:     development.Branch,\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nGitHub Branch Defaults can be imported using an ID made up of `repository`, e.g.\n\n```sh\n $ pulumi import github:index/branchDefault:BranchDefault branch_default my-repo\n```\n\n ",
+            "description": "Provides a GitHub branch default resource.\n\nThis resource allows you to set the default branch for a given repository. \n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\nconst example = new github.Repository(\"example\", {\n    description: \"My awesome codebase\",\n    visibility: \"private\",\n    template: {\n        owner: \"github\",\n        repository: \"terraform-module-template\",\n    },\n});\nconst development = new github.Branch(\"development\", {\n    repository: example.name,\n    branch: \"development\",\n});\nconst _default = new github.BranchDefault(\"default\", {\n    repository: example.name,\n    branch: development.branch,\n});\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\nexample = github.Repository(\"example\",\n    description=\"My awesome codebase\",\n    visibility=\"private\",\n    template=github.RepositoryTemplateArgs(\n        owner=\"github\",\n        repository=\"terraform-module-template\",\n    ))\ndevelopment = github.Branch(\"development\",\n    repository=example.name,\n    branch=\"development\")\ndefault = github.BranchDefault(\"default\",\n    repository=example.name,\n    branch=development.branch)\n```\n```csharp\nusing Pulumi;\nusing Github = Pulumi.Github;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var example = new Github.Repository(\"example\", new Github.RepositoryArgs\n        {\n            Description = \"My awesome codebase\",\n            Visibility = \"private\",\n            Template = new Github.Inputs.RepositoryTemplateArgs\n            {\n                Owner = \"github\",\n                Repository = \"terraform-module-template\",\n            },\n        });\n        var development = new Github.Branch(\"development\", new Github.BranchArgs\n        {\n            Repository = example.Name,\n            Branch = \"development\",\n        });\n        var @default = new Github.BranchDefault(\"default\", new Github.BranchDefaultArgs\n        {\n            Repository = example.Name,\n            Branch = development.BranchName,\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-github/sdk/v2/go/github\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\texample, err := github.NewRepository(ctx, \"example\", \u0026github.RepositoryArgs{\n\t\t\tDescription: pulumi.String(\"My awesome codebase\"),\n\t\t\tVisibility:  pulumi.String(\"private\"),\n\t\t\tTemplate: \u0026github.RepositoryTemplateArgs{\n\t\t\t\tOwner:      pulumi.String(\"github\"),\n\t\t\t\tRepository: pulumi.String(\"terraform-module-template\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tdevelopment, err := github.NewBranch(ctx, \"development\", \u0026github.BranchArgs{\n\t\t\tRepository: example.Name,\n\t\t\tBranch:     pulumi.String(\"development\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = github.NewBranchDefault(ctx, \"_default\", \u0026github.BranchDefaultArgs{\n\t\t\tRepository: example.Name,\n\t\t\tBranch:     development.Branch,\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nGitHub Branch Defaults can be imported using an ID made up of `repository`, e.g.\n\n```sh\n $ pulumi import github:index/branchDefault:BranchDefault branch_default my-repo\n```\n\n ",
             "properties": {
                 "branch": {
                     "type": "string",
@@ -848,6 +1177,14 @@
         "github:index/branchProtection:BranchProtection": {
             "description": "Protects a GitHub branch.\n\nThis resource allows you to configure branch protection for repositories in your organization. When applied, the branch will be protected from forced pushes and deletion. Additional constraints, such as required status checks or restrictions on users, teams, and apps, can also be configured.\n\n\n## Import\n\nGitHub Branch Protection can be imported using an ID made up of `repository:pattern`, e.g.\n\n```sh\n $ pulumi import github:index/branchProtection:BranchProtection terraform terraform:main\n```\n\n ",
             "properties": {
+                "allowsDeletions": {
+                    "type": "boolean",
+                    "description": "Boolean, setting this to `true` to allow the branch to be deleted.\n"
+                },
+                "allowsForcePushes": {
+                    "type": "boolean",
+                    "description": "Boolean, setting this to `true` to allow force pushes on the branch.\n"
+                },
                 "enforceAdmins": {
                     "type": "boolean",
                     "description": "Boolean, setting this to `true` enforces status checks for repository administrators.\n"
@@ -891,6 +1228,14 @@
                 "repositoryId"
             ],
             "inputProperties": {
+                "allowsDeletions": {
+                    "type": "boolean",
+                    "description": "Boolean, setting this to `true` to allow the branch to be deleted.\n"
+                },
+                "allowsForcePushes": {
+                    "type": "boolean",
+                    "description": "Boolean, setting this to `true` to allow force pushes on the branch.\n"
+                },
                 "enforceAdmins": {
                     "type": "boolean",
                     "description": "Boolean, setting this to `true` enforces status checks for repository administrators.\n"
@@ -936,6 +1281,14 @@
             "stateInputs": {
                 "description": "Input properties used for looking up and filtering BranchProtection resources.\n",
                 "properties": {
+                    "allowsDeletions": {
+                        "type": "boolean",
+                        "description": "Boolean, setting this to `true` to allow the branch to be deleted.\n"
+                    },
+                    "allowsForcePushes": {
+                        "type": "boolean",
+                        "description": "Boolean, setting this to `true` to allow force pushes on the branch.\n"
+                    },
                     "enforceAdmins": {
                         "type": "boolean",
                         "description": "Boolean, setting this to `true` enforces status checks for repository administrators.\n"
@@ -972,6 +1325,118 @@
                             "$ref": "#/types/github:index/BranchProtectionRequiredStatusCheck:BranchProtectionRequiredStatusCheck"
                         },
                         "description": "Enforce restrictions for required status checks. See Required Status Checks below for details.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "github:index/branchProtectionV3:BranchProtectionV3": {
+            "description": "Protects a GitHub branch. \n\nThe `github.BranchProtection` resource has moved to the GraphQL API, while this resource will continue to leverage the REST API.\n\nThis resource allows you to configure branch protection for repositories in your organization. When applied, the branch will be protected from forced pushes and deletion. Additional constraints, such as required status checks or restrictions on users, teams, and apps, can also be configured.\n\n\n## Import\n\nGitHub Branch Protection can be imported using an ID made up of `repository:branch`, e.g.\n\n```sh\n $ pulumi import github:index/branchProtectionV3:BranchProtectionV3 github_branch_protection_v3.terraform terraform:main\n```\n\n ",
+            "properties": {
+                "branch": {
+                    "type": "string",
+                    "description": "The Git branch to protect.\n"
+                },
+                "enforceAdmins": {
+                    "type": "boolean",
+                    "description": "Boolean, setting this to `true` enforces status checks for repository administrators.\n"
+                },
+                "etag": {
+                    "type": "string"
+                },
+                "repository": {
+                    "type": "string",
+                    "description": "The GitHub repository name.\n"
+                },
+                "requireSignedCommits": {
+                    "type": "boolean",
+                    "description": "Boolean, setting this to `true` requires all commits to be signed with GPG.\n"
+                },
+                "requiredPullRequestReviews": {
+                    "$ref": "#/types/github:index/BranchProtectionV3RequiredPullRequestReviews:BranchProtectionV3RequiredPullRequestReviews",
+                    "description": "Enforce restrictions for pull request reviews. See Required Pull Request Reviews below for details.\n"
+                },
+                "requiredStatusChecks": {
+                    "$ref": "#/types/github:index/BranchProtectionV3RequiredStatusChecks:BranchProtectionV3RequiredStatusChecks",
+                    "description": "Enforce restrictions for required status checks. See Required Status Checks below for details.\n"
+                },
+                "restrictions": {
+                    "$ref": "#/types/github:index/BranchProtectionV3Restrictions:BranchProtectionV3Restrictions",
+                    "description": "Enforce restrictions for the users and teams that may push to the branch. See Restrictions below for details.\n"
+                }
+            },
+            "required": [
+                "branch",
+                "etag",
+                "repository"
+            ],
+            "inputProperties": {
+                "branch": {
+                    "type": "string",
+                    "description": "The Git branch to protect.\n"
+                },
+                "enforceAdmins": {
+                    "type": "boolean",
+                    "description": "Boolean, setting this to `true` enforces status checks for repository administrators.\n"
+                },
+                "repository": {
+                    "type": "string",
+                    "description": "The GitHub repository name.\n"
+                },
+                "requireSignedCommits": {
+                    "type": "boolean",
+                    "description": "Boolean, setting this to `true` requires all commits to be signed with GPG.\n"
+                },
+                "requiredPullRequestReviews": {
+                    "$ref": "#/types/github:index/BranchProtectionV3RequiredPullRequestReviews:BranchProtectionV3RequiredPullRequestReviews",
+                    "description": "Enforce restrictions for pull request reviews. See Required Pull Request Reviews below for details.\n"
+                },
+                "requiredStatusChecks": {
+                    "$ref": "#/types/github:index/BranchProtectionV3RequiredStatusChecks:BranchProtectionV3RequiredStatusChecks",
+                    "description": "Enforce restrictions for required status checks. See Required Status Checks below for details.\n"
+                },
+                "restrictions": {
+                    "$ref": "#/types/github:index/BranchProtectionV3Restrictions:BranchProtectionV3Restrictions",
+                    "description": "Enforce restrictions for the users and teams that may push to the branch. See Restrictions below for details.\n"
+                }
+            },
+            "requiredInputs": [
+                "branch",
+                "repository"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering BranchProtectionV3 resources.\n",
+                "properties": {
+                    "branch": {
+                        "type": "string",
+                        "description": "The Git branch to protect.\n"
+                    },
+                    "enforceAdmins": {
+                        "type": "boolean",
+                        "description": "Boolean, setting this to `true` enforces status checks for repository administrators.\n"
+                    },
+                    "etag": {
+                        "type": "string"
+                    },
+                    "repository": {
+                        "type": "string",
+                        "description": "The GitHub repository name.\n"
+                    },
+                    "requireSignedCommits": {
+                        "type": "boolean",
+                        "description": "Boolean, setting this to `true` requires all commits to be signed with GPG.\n"
+                    },
+                    "requiredPullRequestReviews": {
+                        "$ref": "#/types/github:index/BranchProtectionV3RequiredPullRequestReviews:BranchProtectionV3RequiredPullRequestReviews",
+                        "description": "Enforce restrictions for pull request reviews. See Required Pull Request Reviews below for details.\n"
+                    },
+                    "requiredStatusChecks": {
+                        "$ref": "#/types/github:index/BranchProtectionV3RequiredStatusChecks:BranchProtectionV3RequiredStatusChecks",
+                        "description": "Enforce restrictions for required status checks. See Required Status Checks below for details.\n"
+                    },
+                    "restrictions": {
+                        "$ref": "#/types/github:index/BranchProtectionV3Restrictions:BranchProtectionV3Restrictions",
+                        "description": "Enforce restrictions for the users and teams that may push to the branch. See Restrictions below for details.\n"
                     }
                 },
                 "type": "object"
@@ -1405,7 +1870,7 @@
             }
         },
         "github:index/repository:Repository": {
-            "description": "This resource allows you to create and manage repositories within your\nGitHub organization or personal account.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\nconst example = new github.Repository(\"example\", {\n    description: \"My awesome codebase\",\n    template: {\n        owner: \"github\",\n        repository: \"terraform-module-template\",\n    },\n    visibility: \"public\",\n});\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\nexample = github.Repository(\"example\",\n    description=\"My awesome codebase\",\n    template=github.RepositoryTemplateArgs(\n        owner=\"github\",\n        repository=\"terraform-module-template\",\n    ),\n    visibility=\"public\")\n```\n```csharp\nusing Pulumi;\nusing Github = Pulumi.Github;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var example = new Github.Repository(\"example\", new Github.RepositoryArgs\n        {\n            Description = \"My awesome codebase\",\n            Template = new Github.Inputs.RepositoryTemplateArgs\n            {\n                Owner = \"github\",\n                Repository = \"terraform-module-template\",\n            },\n            Visibility = \"public\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-github/sdk/v2/go/github\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := github.NewRepository(ctx, \"example\", \u0026github.RepositoryArgs{\n\t\t\tDescription: pulumi.String(\"My awesome codebase\"),\n\t\t\tTemplate: \u0026github.RepositoryTemplateArgs{\n\t\t\t\tOwner:      pulumi.String(\"github\"),\n\t\t\t\tRepository: pulumi.String(\"terraform-module-template\"),\n\t\t\t},\n\t\t\tVisibility: pulumi.String(\"public\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nRepositories can be imported using the `name`, e.g.\n\n```sh\n $ pulumi import github:index/repository:Repository terraform terraform\n```\n\n ",
+            "description": "This resource allows you to create and manage repositories within your\nGitHub organization or personal account.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\nconst example = new github.Repository(\"example\", {\n    description: \"My awesome codebase\",\n    template: {\n        owner: \"github\",\n        repository: \"terraform-module-template\",\n    },\n    visibility: \"public\",\n});\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\nexample = github.Repository(\"example\",\n    description=\"My awesome codebase\",\n    template=github.RepositoryTemplateArgs(\n        owner=\"github\",\n        repository=\"terraform-module-template\",\n    ),\n    visibility=\"public\")\n```\n```csharp\nusing Pulumi;\nusing Github = Pulumi.Github;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var example = new Github.Repository(\"example\", new Github.RepositoryArgs\n        {\n            Description = \"My awesome codebase\",\n            Template = new Github.Inputs.RepositoryTemplateArgs\n            {\n                Owner = \"github\",\n                Repository = \"terraform-module-template\",\n            },\n            Visibility = \"public\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-github/sdk/v2/go/github\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := github.NewRepository(ctx, \"example\", \u0026github.RepositoryArgs{\n\t\t\tDescription: pulumi.String(\"My awesome codebase\"),\n\t\t\tTemplate: \u0026github.RepositoryTemplateArgs{\n\t\t\t\tOwner:      pulumi.String(\"github\"),\n\t\t\t\tRepository: pulumi.String(\"terraform-module-template\"),\n\t\t\t},\n\t\t\tVisibility: pulumi.String(\"public\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n\n{{% /example %}}\n{{% example %}}\n### With Github Pages Enabled\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\nconst example = new github.Repository(\"example\", {\n    description: \"My awesome web page\",\n    pages: {\n        source: {\n            branch: \"master\",\n            path: \"/docs\",\n        },\n    },\n    private: false,\n});\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\nexample = github.Repository(\"example\",\n    description=\"My awesome web page\",\n    pages=github.RepositoryPagesArgs(\n        source=github.RepositoryPagesSourceArgs(\n            branch=\"master\",\n            path=\"/docs\",\n        ),\n    ),\n    private=False)\n```\n```csharp\nusing Pulumi;\nusing Github = Pulumi.Github;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var example = new Github.Repository(\"example\", new Github.RepositoryArgs\n        {\n            Description = \"My awesome web page\",\n            Pages = new Github.Inputs.RepositoryPagesArgs\n            {\n                Source = new Github.Inputs.RepositoryPagesSourceArgs\n                {\n                    Branch = \"master\",\n                    Path = \"/docs\",\n                },\n            },\n            Private = false,\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-github/sdk/v2/go/github\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := github.NewRepository(ctx, \"example\", \u0026github.RepositoryArgs{\n\t\t\tDescription: pulumi.String(\"My awesome web page\"),\n\t\t\tPages: \u0026github.RepositoryPagesArgs{\n\t\t\t\tSource: \u0026github.RepositoryPagesSourceArgs{\n\t\t\t\t\tBranch: pulumi.String(\"master\"),\n\t\t\t\t\tPath:   pulumi.String(\"/docs\"),\n\t\t\t\t},\n\t\t\t},\n\t\t\tPrivate: pulumi.Bool(false),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nRepositories can be imported using the `name`, e.g.\n\n```sh\n $ pulumi import github:index/repository:Repository terraform terraform\n```\n\n ",
             "properties": {
                 "allowMergeCommit": {
                     "type": "boolean",
@@ -1481,7 +1946,7 @@
                 },
                 "htmlUrl": {
                     "type": "string",
-                    "description": "URL to the repository on the web.\n"
+                    "description": "The absolute URL (including scheme) of the rendered Github Pages site e.g. `https://username.github.io`.\n"
                 },
                 "httpCloneUrl": {
                     "type": "string",
@@ -1502,6 +1967,10 @@
                 "nodeId": {
                     "type": "string",
                     "description": "GraphQL global node id for use with v4 API\n"
+                },
+                "pages": {
+                    "$ref": "#/types/github:index/RepositoryPages:RepositoryPages",
+                    "description": "The repository's Github Pages configuration. See Github Pages Configuration below for details.\n"
                 },
                 "private": {
                     "type": "boolean",
@@ -1629,6 +2098,10 @@
                     "type": "string",
                     "description": "The name of the repository.\n"
                 },
+                "pages": {
+                    "$ref": "#/types/github:index/RepositoryPages:RepositoryPages",
+                    "description": "The repository's Github Pages configuration. See Github Pages Configuration below for details.\n"
+                },
                 "private": {
                     "type": "boolean",
                     "description": "Set to `true` to create a private repository.\nRepositories are created as public (e.g. open source) by default.\n",
@@ -1731,7 +2204,7 @@
                     },
                     "htmlUrl": {
                         "type": "string",
-                        "description": "URL to the repository on the web.\n"
+                        "description": "The absolute URL (including scheme) of the rendered Github Pages site e.g. `https://username.github.io`.\n"
                     },
                     "httpCloneUrl": {
                         "type": "string",
@@ -1752,6 +2225,10 @@
                     "nodeId": {
                         "type": "string",
                         "description": "GraphQL global node id for use with v4 API\n"
+                    },
+                    "pages": {
+                        "$ref": "#/types/github:index/RepositoryPages:RepositoryPages",
+                        "description": "The repository's Github Pages configuration. See Github Pages Configuration below for details.\n"
                     },
                     "private": {
                         "type": "boolean",
@@ -1938,11 +2415,11 @@
             }
         },
         "github:index/repositoryFile:RepositoryFile": {
-            "description": "This resource allows you to create and manage files within a\nGitHub repository.\n\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\nconst fooRepository = new github.Repository(\"fooRepository\", {autoInit: true});\nconst fooRepositoryFile = new github.RepositoryFile(\"fooRepositoryFile\", {\n    repository: fooRepository.name,\n    branch: \"main\",\n    file: \".gitignore\",\n    content: \"**/*.tfstate\",\n    commitMessage: \"Managed by Terraform\",\n    commitAuthor: \"Terraform User\",\n    commitEmail: \"terraform@example.com\",\n    overwriteOnCreate: true,\n});\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\nfoo_repository = github.Repository(\"fooRepository\", auto_init=True)\nfoo_repository_file = github.RepositoryFile(\"fooRepositoryFile\",\n    repository=foo_repository.name,\n    branch=\"main\",\n    file=\".gitignore\",\n    content=\"**/*.tfstate\",\n    commit_message=\"Managed by Terraform\",\n    commit_author=\"Terraform User\",\n    commit_email=\"terraform@example.com\",\n    overwrite_on_create=True)\n```\n```csharp\nusing Pulumi;\nusing Github = Pulumi.Github;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var fooRepository = new Github.Repository(\"fooRepository\", new Github.RepositoryArgs\n        {\n            AutoInit = true,\n        });\n        var fooRepositoryFile = new Github.RepositoryFile(\"fooRepositoryFile\", new Github.RepositoryFileArgs\n        {\n            Repository = fooRepository.Name,\n            Branch = \"main\",\n            File = \".gitignore\",\n            Content = \"**/*.tfstate\",\n            CommitMessage = \"Managed by Terraform\",\n            CommitAuthor = \"Terraform User\",\n            CommitEmail = \"terraform@example.com\",\n            OverwriteOnCreate = true,\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-github/sdk/v2/go/github\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tfooRepository, err := github.NewRepository(ctx, \"fooRepository\", \u0026github.RepositoryArgs{\n\t\t\tAutoInit: pulumi.Bool(true),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = github.NewRepositoryFile(ctx, \"fooRepositoryFile\", \u0026github.RepositoryFileArgs{\n\t\t\tRepository:        fooRepository.Name,\n\t\t\tBranch:            pulumi.String(\"main\"),\n\t\t\tFile:              pulumi.String(\".gitignore\"),\n\t\t\tContent:           pulumi.String(\"**/*.tfstate\"),\n\t\t\tCommitMessage:     pulumi.String(\"Managed by Terraform\"),\n\t\t\tCommitAuthor:      pulumi.String(\"Terraform User\"),\n\t\t\tCommitEmail:       pulumi.String(\"terraform@example.com\"),\n\t\t\tOverwriteOnCreate: pulumi.Bool(true),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nRepository files can be imported using a combination of the `repo` and `file`, e.g.\n\n```sh\n $ pulumi import github:index/repositoryFile:RepositoryFile gitignore example/.gitignore\n```\n\n To import a file from a branch other than master, append `:` and the branch name, e.g.\n\n```sh\n $ pulumi import github:index/repositoryFile:RepositoryFile gitignore example/.gitignore:dev\n```\n\n ",
+            "description": "This resource allows you to create and manage files within a\nGitHub repository.\n\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\nconst fooRepository = new github.Repository(\"fooRepository\", {autoInit: true});\nconst fooRepositoryFile = new github.RepositoryFile(\"fooRepositoryFile\", {\n    repository: fooRepository.name,\n    branch: \"main\",\n    file: \".gitignore\",\n    content: \"**/*.tfstate\",\n    commitMessage: \"Managed by Terraform\",\n    commitAuthor: \"Terraform User\",\n    commitEmail: \"terraform@example.com\",\n    overwriteOnCreate: true,\n});\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\nfoo_repository = github.Repository(\"fooRepository\", auto_init=True)\nfoo_repository_file = github.RepositoryFile(\"fooRepositoryFile\",\n    repository=foo_repository.name,\n    branch=\"main\",\n    file=\".gitignore\",\n    content=\"**/*.tfstate\",\n    commit_message=\"Managed by Terraform\",\n    commit_author=\"Terraform User\",\n    commit_email=\"terraform@example.com\",\n    overwrite_on_create=True)\n```\n```csharp\nusing Pulumi;\nusing Github = Pulumi.Github;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var fooRepository = new Github.Repository(\"fooRepository\", new Github.RepositoryArgs\n        {\n            AutoInit = true,\n        });\n        var fooRepositoryFile = new Github.RepositoryFile(\"fooRepositoryFile\", new Github.RepositoryFileArgs\n        {\n            Repository = fooRepository.Name,\n            Branch = \"main\",\n            File = \".gitignore\",\n            Content = \"**/*.tfstate\",\n            CommitMessage = \"Managed by Terraform\",\n            CommitAuthor = \"Terraform User\",\n            CommitEmail = \"terraform@example.com\",\n            OverwriteOnCreate = true,\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-github/sdk/v2/go/github\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tfooRepository, err := github.NewRepository(ctx, \"fooRepository\", \u0026github.RepositoryArgs{\n\t\t\tAutoInit: pulumi.Bool(true),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = github.NewRepositoryFile(ctx, \"fooRepositoryFile\", \u0026github.RepositoryFileArgs{\n\t\t\tRepository:        fooRepository.Name,\n\t\t\tBranch:            pulumi.String(\"main\"),\n\t\t\tFile:              pulumi.String(\".gitignore\"),\n\t\t\tContent:           pulumi.String(\"**/*.tfstate\"),\n\t\t\tCommitMessage:     pulumi.String(\"Managed by Terraform\"),\n\t\t\tCommitAuthor:      pulumi.String(\"Terraform User\"),\n\t\t\tCommitEmail:       pulumi.String(\"terraform@example.com\"),\n\t\t\tOverwriteOnCreate: pulumi.Bool(true),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nRepository files can be imported using a combination of the `repo` and `file`, e.g.\n\n```sh\n $ pulumi import github:index/repositoryFile:RepositoryFile gitignore example/.gitignore\n```\n\n To import a file from a branch other than main, append `:` and the branch name, e.g.\n\n```sh\n $ pulumi import github:index/repositoryFile:RepositoryFile gitignore example/.gitignore:dev\n```\n\n ",
             "properties": {
                 "branch": {
                     "type": "string",
-                    "description": "Git branch (defaults to `master`).\nThe branch must already exist, it will not be created if it does not already exist.\n"
+                    "description": "Git branch (defaults to `main`).\nThe branch must already exist, it will not be created if it does not already exist.\n"
                 },
                 "commitAuthor": {
                     "type": "string",
@@ -1955,6 +2432,10 @@
                 "commitMessage": {
                     "type": "string",
                     "description": "Commit message when adding or updating the managed file.\n"
+                },
+                "commitSha": {
+                    "type": "string",
+                    "description": "The SHA of the commit that modified the file.\n"
                 },
                 "content": {
                     "type": "string",
@@ -1981,6 +2462,7 @@
                 "commitAuthor",
                 "commitEmail",
                 "commitMessage",
+                "commitSha",
                 "content",
                 "file",
                 "repository",
@@ -1989,7 +2471,7 @@
             "inputProperties": {
                 "branch": {
                     "type": "string",
-                    "description": "Git branch (defaults to `master`).\nThe branch must already exist, it will not be created if it does not already exist.\n"
+                    "description": "Git branch (defaults to `main`).\nThe branch must already exist, it will not be created if it does not already exist.\n"
                 },
                 "commitAuthor": {
                     "type": "string",
@@ -2030,7 +2512,7 @@
                 "properties": {
                     "branch": {
                         "type": "string",
-                        "description": "Git branch (defaults to `master`).\nThe branch must already exist, it will not be created if it does not already exist.\n"
+                        "description": "Git branch (defaults to `main`).\nThe branch must already exist, it will not be created if it does not already exist.\n"
                     },
                     "commitAuthor": {
                         "type": "string",
@@ -2043,6 +2525,10 @@
                     "commitMessage": {
                         "type": "string",
                         "description": "Commit message when adding or updating the managed file.\n"
+                    },
+                    "commitSha": {
+                        "type": "string",
+                        "description": "The SHA of the commit that modified the file.\n"
                     },
                     "content": {
                         "type": "string",
@@ -2253,7 +2739,7 @@
                 },
                 "configuration": {
                     "$ref": "#/types/github:index/RepositoryWebhookConfiguration:RepositoryWebhookConfiguration",
-                    "description": "key/value pair of configuration for this webhook. Available keys are `url`, `content_type`, `secret` and `insecure_ssl`. `secret` is [the shared secret, see API documentation](https://developer.github.com/v3/repos/hooks/#create-a-hook).\n"
+                    "description": "key/value pair of configuration for this webhook. Available keys are `url`, `content_type`, `secret` and `insecure_ssl`. `secret` is [the shared secret, see API documentation](https://developer.github.com/v3/repos/hooks/#create-a-hook). `content_type` may be either form or json.\n"
                 },
                 "etag": {
                     "type": "string"
@@ -2287,7 +2773,7 @@
                 },
                 "configuration": {
                     "$ref": "#/types/github:index/RepositoryWebhookConfiguration:RepositoryWebhookConfiguration",
-                    "description": "key/value pair of configuration for this webhook. Available keys are `url`, `content_type`, `secret` and `insecure_ssl`. `secret` is [the shared secret, see API documentation](https://developer.github.com/v3/repos/hooks/#create-a-hook).\n"
+                    "description": "key/value pair of configuration for this webhook. Available keys are `url`, `content_type`, `secret` and `insecure_ssl`. `secret` is [the shared secret, see API documentation](https://developer.github.com/v3/repos/hooks/#create-a-hook). `content_type` may be either form or json.\n"
                 },
                 "events": {
                     "type": "array",
@@ -2314,7 +2800,7 @@
                     },
                     "configuration": {
                         "$ref": "#/types/github:index/RepositoryWebhookConfiguration:RepositoryWebhookConfiguration",
-                        "description": "key/value pair of configuration for this webhook. Available keys are `url`, `content_type`, `secret` and `insecure_ssl`. `secret` is [the shared secret, see API documentation](https://developer.github.com/v3/repos/hooks/#create-a-hook).\n"
+                        "description": "key/value pair of configuration for this webhook. Available keys are `url`, `content_type`, `secret` and `insecure_ssl`. `secret` is [the shared secret, see API documentation](https://developer.github.com/v3/repos/hooks/#create-a-hook). `content_type` may be either form or json.\n"
                     },
                     "etag": {
                         "type": "string"
@@ -3371,6 +3857,13 @@
                         "type": "string",
                         "description": "GraphQL global node id for use with v4 API\n"
                     },
+                    "pages": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/github:index/getRepositoryPage:getRepositoryPage"
+                        },
+                        "description": "The repository's GitHub Pages configuration.\n"
+                    },
                     "private": {
                         "type": "boolean",
                         "description": "Whether the repository is private.\n"
@@ -3416,6 +3909,7 @@
                     "htmlUrl",
                     "httpCloneUrl",
                     "nodeId",
+                    "pages",
                     "private",
                     "repoId",
                     "sshCloneUrl",

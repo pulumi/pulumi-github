@@ -37,6 +37,33 @@ namespace Pulumi.Github
     /// 
     /// }
     /// ```
+    /// ### With Github Pages Enabled
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Github = Pulumi.Github;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Github.Repository("example", new Github.RepositoryArgs
+    ///         {
+    ///             Description = "My awesome web page",
+    ///             Pages = new Github.Inputs.RepositoryPagesArgs
+    ///             {
+    ///                 Source = new Github.Inputs.RepositoryPagesSourceArgs
+    ///                 {
+    ///                     Branch = "master",
+    ///                     Path = "/docs",
+    ///                 },
+    ///             },
+    ///             Private = false,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// 
     /// ## Import
     /// 
@@ -158,7 +185,7 @@ namespace Pulumi.Github
         public Output<string?> HomepageUrl { get; private set; } = null!;
 
         /// <summary>
-        /// URL to the repository on the web.
+        /// The absolute URL (including scheme) of the rendered Github Pages site e.g. `https://username.github.io`.
         /// </summary>
         [Output("htmlUrl")]
         public Output<string> HtmlUrl { get; private set; } = null!;
@@ -192,6 +219,12 @@ namespace Pulumi.Github
         /// </summary>
         [Output("nodeId")]
         public Output<string> NodeId { get; private set; } = null!;
+
+        /// <summary>
+        /// The repository's Github Pages configuration. See Github Pages Configuration below for details.
+        /// </summary>
+        [Output("pages")]
+        public Output<Outputs.RepositoryPages?> Pages { get; private set; } = null!;
 
         /// <summary>
         /// Set to `true` to create a private repository.
@@ -401,6 +434,12 @@ namespace Pulumi.Github
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// The repository's Github Pages configuration. See Github Pages Configuration below for details.
+        /// </summary>
+        [Input("pages")]
+        public Input<Inputs.RepositoryPagesArgs>? Pages { get; set; }
+
+        /// <summary>
         /// Set to `true` to create a private repository.
         /// Repositories are created as public (e.g. open source) by default.
         /// </summary>
@@ -554,7 +593,7 @@ namespace Pulumi.Github
         public Input<string>? HomepageUrl { get; set; }
 
         /// <summary>
-        /// URL to the repository on the web.
+        /// The absolute URL (including scheme) of the rendered Github Pages site e.g. `https://username.github.io`.
         /// </summary>
         [Input("htmlUrl")]
         public Input<string>? HtmlUrl { get; set; }
@@ -588,6 +627,12 @@ namespace Pulumi.Github
         /// </summary>
         [Input("nodeId")]
         public Input<string>? NodeId { get; set; }
+
+        /// <summary>
+        /// The repository's Github Pages configuration. See Github Pages Configuration below for details.
+        /// </summary>
+        [Input("pages")]
+        public Input<Inputs.RepositoryPagesGetArgs>? Pages { get; set; }
 
         /// <summary>
         /// Set to `true` to create a private repository.

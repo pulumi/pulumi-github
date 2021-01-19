@@ -58,7 +58,7 @@ import (
 //  $ pulumi import github:index/repositoryFile:RepositoryFile gitignore example/.gitignore
 // ```
 //
-//  To import a file from a branch other than master, append `:` and the branch name, e.g.
+//  To import a file from a branch other than main, append `:` and the branch name, e.g.
 //
 // ```sh
 //  $ pulumi import github:index/repositoryFile:RepositoryFile gitignore example/.gitignore:dev
@@ -66,7 +66,7 @@ import (
 type RepositoryFile struct {
 	pulumi.CustomResourceState
 
-	// Git branch (defaults to `master`).
+	// Git branch (defaults to `main`).
 	// The branch must already exist, it will not be created if it does not already exist.
 	Branch pulumi.StringPtrOutput `pulumi:"branch"`
 	// Committer author name to use.
@@ -75,6 +75,8 @@ type RepositoryFile struct {
 	CommitEmail pulumi.StringOutput `pulumi:"commitEmail"`
 	// Commit message when adding or updating the managed file.
 	CommitMessage pulumi.StringOutput `pulumi:"commitMessage"`
+	// The SHA of the commit that modified the file.
+	CommitSha pulumi.StringOutput `pulumi:"commitSha"`
 	// The file content.
 	Content pulumi.StringOutput `pulumi:"content"`
 	// The path of the file to manage.
@@ -125,7 +127,7 @@ func GetRepositoryFile(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RepositoryFile resources.
 type repositoryFileState struct {
-	// Git branch (defaults to `master`).
+	// Git branch (defaults to `main`).
 	// The branch must already exist, it will not be created if it does not already exist.
 	Branch *string `pulumi:"branch"`
 	// Committer author name to use.
@@ -134,6 +136,8 @@ type repositoryFileState struct {
 	CommitEmail *string `pulumi:"commitEmail"`
 	// Commit message when adding or updating the managed file.
 	CommitMessage *string `pulumi:"commitMessage"`
+	// The SHA of the commit that modified the file.
+	CommitSha *string `pulumi:"commitSha"`
 	// The file content.
 	Content *string `pulumi:"content"`
 	// The path of the file to manage.
@@ -147,7 +151,7 @@ type repositoryFileState struct {
 }
 
 type RepositoryFileState struct {
-	// Git branch (defaults to `master`).
+	// Git branch (defaults to `main`).
 	// The branch must already exist, it will not be created if it does not already exist.
 	Branch pulumi.StringPtrInput
 	// Committer author name to use.
@@ -156,6 +160,8 @@ type RepositoryFileState struct {
 	CommitEmail pulumi.StringPtrInput
 	// Commit message when adding or updating the managed file.
 	CommitMessage pulumi.StringPtrInput
+	// The SHA of the commit that modified the file.
+	CommitSha pulumi.StringPtrInput
 	// The file content.
 	Content pulumi.StringPtrInput
 	// The path of the file to manage.
@@ -173,7 +179,7 @@ func (RepositoryFileState) ElementType() reflect.Type {
 }
 
 type repositoryFileArgs struct {
-	// Git branch (defaults to `master`).
+	// Git branch (defaults to `main`).
 	// The branch must already exist, it will not be created if it does not already exist.
 	Branch *string `pulumi:"branch"`
 	// Committer author name to use.
@@ -194,7 +200,7 @@ type repositoryFileArgs struct {
 
 // The set of arguments for constructing a RepositoryFile resource.
 type RepositoryFileArgs struct {
-	// Git branch (defaults to `master`).
+	// Git branch (defaults to `main`).
 	// The branch must already exist, it will not be created if it does not already exist.
 	Branch pulumi.StringPtrInput
 	// Committer author name to use.

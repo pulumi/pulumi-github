@@ -85,6 +85,8 @@ type LookupRepositoryResult struct {
 	Name *string `pulumi:"name"`
 	// GraphQL global node id for use with v4 API
 	NodeId string `pulumi:"nodeId"`
+	// The repository's GitHub Pages configuration.
+	Pages []GetRepositoryPage `pulumi:"pages"`
 	// Whether the repository is private.
 	Private bool `pulumi:"private"`
 	// Github ID for the repository

@@ -18,6 +18,7 @@
         "branch.ts",
         "branchDefault.ts",
         "branchProtection.ts",
+        "branchProtectionV3.ts",
         "config/index.ts",
         "config/vars.ts",
         "getActionsPublicKey.ts",

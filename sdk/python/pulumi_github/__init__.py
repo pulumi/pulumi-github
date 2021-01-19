@@ -8,6 +8,7 @@ from .actions_secret import *
 from .branch import *
 from .branch_default import *
 from .branch_protection import *
+from .branch_protection_v3 import *
 from .get_actions_public_key import *
 from .get_branch import *
 from .get_collaborators import *
@@ -73,6 +74,8 @@ def _register_module():
                 return BranchDefault(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "github:index/branchProtection:BranchProtection":
                 return BranchProtection(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "github:index/branchProtectionV3:BranchProtectionV3":
+                return BranchProtectionV3(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "github:index/issueLabel:IssueLabel":
                 return IssueLabel(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "github:index/membership:Membership":
@@ -125,6 +128,7 @@ def _register_module():
     pulumi.runtime.register_resource_module("github", "index/branch", _module_instance)
     pulumi.runtime.register_resource_module("github", "index/branchDefault", _module_instance)
     pulumi.runtime.register_resource_module("github", "index/branchProtection", _module_instance)
+    pulumi.runtime.register_resource_module("github", "index/branchProtectionV3", _module_instance)
     pulumi.runtime.register_resource_module("github", "index/issueLabel", _module_instance)
     pulumi.runtime.register_resource_module("github", "index/membership", _module_instance)
     pulumi.runtime.register_resource_module("github", "index/organizationBlock", _module_instance)

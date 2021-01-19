@@ -16,6 +16,33 @@ export interface BranchProtectionRequiredStatusCheck {
     strict?: pulumi.Input<boolean>;
 }
 
+export interface BranchProtectionV3RequiredPullRequestReviews {
+    dismissStaleReviews?: pulumi.Input<boolean>;
+    dismissalTeams?: pulumi.Input<pulumi.Input<string>[]>;
+    dismissalUsers?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * @deprecated Use enforce_admins instead
+     */
+    includeAdmins?: pulumi.Input<boolean>;
+    requireCodeOwnerReviews?: pulumi.Input<boolean>;
+    requiredApprovingReviewCount?: pulumi.Input<number>;
+}
+
+export interface BranchProtectionV3RequiredStatusChecks {
+    contexts?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * @deprecated Use enforce_admins instead
+     */
+    includeAdmins?: pulumi.Input<boolean>;
+    strict?: pulumi.Input<boolean>;
+}
+
+export interface BranchProtectionV3Restrictions {
+    apps?: pulumi.Input<pulumi.Input<string>[]>;
+    teams?: pulumi.Input<pulumi.Input<string>[]>;
+    users?: pulumi.Input<pulumi.Input<string>[]>;
+}
+
 export interface OrganizationWebhookConfiguration {
     contentType?: pulumi.Input<string>;
     insecureSsl?: pulumi.Input<boolean>;
@@ -24,6 +51,41 @@ export interface OrganizationWebhookConfiguration {
      * URL of the webhook
      */
     url: pulumi.Input<string>;
+}
+
+export interface RepositoryPages {
+    /**
+     * The custom domain for the repository. This can only be set after the repository has been created.
+     */
+    cname?: pulumi.Input<string>;
+    /**
+     * Whether the rendered Github Pages site has a custom 404 page.
+     */
+    custom404?: pulumi.Input<boolean>;
+    /**
+     * The absolute URL (including scheme) of the rendered Github Pages site e.g. `https://username.github.io`.
+     */
+    htmlUrl?: pulumi.Input<string>;
+    /**
+     * The source branch and directory for the rendered Pages site. See Github Pages Source below for details.
+     */
+    source: pulumi.Input<inputs.RepositoryPagesSource>;
+    /**
+     * The Github Pages site's build status e.g. `building` or `built`.
+     */
+    status?: pulumi.Input<string>;
+    url?: pulumi.Input<string>;
+}
+
+export interface RepositoryPagesSource {
+    /**
+     * The repository branch used to publish the site's source files. (i.e. `main` or `gh-pages`.
+     */
+    branch: pulumi.Input<string>;
+    /**
+     * The repository directory from which the site publishes (Default: `/`).
+     */
+    path?: pulumi.Input<string>;
 }
 
 export interface RepositoryTemplate {

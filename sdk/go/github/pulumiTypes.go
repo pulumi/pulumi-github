@@ -222,6 +222,529 @@ func (o BranchProtectionRequiredStatusCheckArrayOutput) Index(i pulumi.IntInput)
 	}).(BranchProtectionRequiredStatusCheckOutput)
 }
 
+type BranchProtectionV3RequiredPullRequestReviews struct {
+	DismissStaleReviews *bool    `pulumi:"dismissStaleReviews"`
+	DismissalTeams      []string `pulumi:"dismissalTeams"`
+	DismissalUsers      []string `pulumi:"dismissalUsers"`
+	// Deprecated: Use enforce_admins instead
+	IncludeAdmins                *bool `pulumi:"includeAdmins"`
+	RequireCodeOwnerReviews      *bool `pulumi:"requireCodeOwnerReviews"`
+	RequiredApprovingReviewCount *int  `pulumi:"requiredApprovingReviewCount"`
+}
+
+// BranchProtectionV3RequiredPullRequestReviewsInput is an input type that accepts BranchProtectionV3RequiredPullRequestReviewsArgs and BranchProtectionV3RequiredPullRequestReviewsOutput values.
+// You can construct a concrete instance of `BranchProtectionV3RequiredPullRequestReviewsInput` via:
+//
+//          BranchProtectionV3RequiredPullRequestReviewsArgs{...}
+type BranchProtectionV3RequiredPullRequestReviewsInput interface {
+	pulumi.Input
+
+	ToBranchProtectionV3RequiredPullRequestReviewsOutput() BranchProtectionV3RequiredPullRequestReviewsOutput
+	ToBranchProtectionV3RequiredPullRequestReviewsOutputWithContext(context.Context) BranchProtectionV3RequiredPullRequestReviewsOutput
+}
+
+type BranchProtectionV3RequiredPullRequestReviewsArgs struct {
+	DismissStaleReviews pulumi.BoolPtrInput     `pulumi:"dismissStaleReviews"`
+	DismissalTeams      pulumi.StringArrayInput `pulumi:"dismissalTeams"`
+	DismissalUsers      pulumi.StringArrayInput `pulumi:"dismissalUsers"`
+	// Deprecated: Use enforce_admins instead
+	IncludeAdmins                pulumi.BoolPtrInput `pulumi:"includeAdmins"`
+	RequireCodeOwnerReviews      pulumi.BoolPtrInput `pulumi:"requireCodeOwnerReviews"`
+	RequiredApprovingReviewCount pulumi.IntPtrInput  `pulumi:"requiredApprovingReviewCount"`
+}
+
+func (BranchProtectionV3RequiredPullRequestReviewsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BranchProtectionV3RequiredPullRequestReviews)(nil)).Elem()
+}
+
+func (i BranchProtectionV3RequiredPullRequestReviewsArgs) ToBranchProtectionV3RequiredPullRequestReviewsOutput() BranchProtectionV3RequiredPullRequestReviewsOutput {
+	return i.ToBranchProtectionV3RequiredPullRequestReviewsOutputWithContext(context.Background())
+}
+
+func (i BranchProtectionV3RequiredPullRequestReviewsArgs) ToBranchProtectionV3RequiredPullRequestReviewsOutputWithContext(ctx context.Context) BranchProtectionV3RequiredPullRequestReviewsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BranchProtectionV3RequiredPullRequestReviewsOutput)
+}
+
+func (i BranchProtectionV3RequiredPullRequestReviewsArgs) ToBranchProtectionV3RequiredPullRequestReviewsPtrOutput() BranchProtectionV3RequiredPullRequestReviewsPtrOutput {
+	return i.ToBranchProtectionV3RequiredPullRequestReviewsPtrOutputWithContext(context.Background())
+}
+
+func (i BranchProtectionV3RequiredPullRequestReviewsArgs) ToBranchProtectionV3RequiredPullRequestReviewsPtrOutputWithContext(ctx context.Context) BranchProtectionV3RequiredPullRequestReviewsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BranchProtectionV3RequiredPullRequestReviewsOutput).ToBranchProtectionV3RequiredPullRequestReviewsPtrOutputWithContext(ctx)
+}
+
+// BranchProtectionV3RequiredPullRequestReviewsPtrInput is an input type that accepts BranchProtectionV3RequiredPullRequestReviewsArgs, BranchProtectionV3RequiredPullRequestReviewsPtr and BranchProtectionV3RequiredPullRequestReviewsPtrOutput values.
+// You can construct a concrete instance of `BranchProtectionV3RequiredPullRequestReviewsPtrInput` via:
+//
+//          BranchProtectionV3RequiredPullRequestReviewsArgs{...}
+//
+//  or:
+//
+//          nil
+type BranchProtectionV3RequiredPullRequestReviewsPtrInput interface {
+	pulumi.Input
+
+	ToBranchProtectionV3RequiredPullRequestReviewsPtrOutput() BranchProtectionV3RequiredPullRequestReviewsPtrOutput
+	ToBranchProtectionV3RequiredPullRequestReviewsPtrOutputWithContext(context.Context) BranchProtectionV3RequiredPullRequestReviewsPtrOutput
+}
+
+type branchProtectionV3RequiredPullRequestReviewsPtrType BranchProtectionV3RequiredPullRequestReviewsArgs
+
+func BranchProtectionV3RequiredPullRequestReviewsPtr(v *BranchProtectionV3RequiredPullRequestReviewsArgs) BranchProtectionV3RequiredPullRequestReviewsPtrInput {
+	return (*branchProtectionV3RequiredPullRequestReviewsPtrType)(v)
+}
+
+func (*branchProtectionV3RequiredPullRequestReviewsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BranchProtectionV3RequiredPullRequestReviews)(nil)).Elem()
+}
+
+func (i *branchProtectionV3RequiredPullRequestReviewsPtrType) ToBranchProtectionV3RequiredPullRequestReviewsPtrOutput() BranchProtectionV3RequiredPullRequestReviewsPtrOutput {
+	return i.ToBranchProtectionV3RequiredPullRequestReviewsPtrOutputWithContext(context.Background())
+}
+
+func (i *branchProtectionV3RequiredPullRequestReviewsPtrType) ToBranchProtectionV3RequiredPullRequestReviewsPtrOutputWithContext(ctx context.Context) BranchProtectionV3RequiredPullRequestReviewsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BranchProtectionV3RequiredPullRequestReviewsPtrOutput)
+}
+
+type BranchProtectionV3RequiredPullRequestReviewsOutput struct{ *pulumi.OutputState }
+
+func (BranchProtectionV3RequiredPullRequestReviewsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BranchProtectionV3RequiredPullRequestReviews)(nil)).Elem()
+}
+
+func (o BranchProtectionV3RequiredPullRequestReviewsOutput) ToBranchProtectionV3RequiredPullRequestReviewsOutput() BranchProtectionV3RequiredPullRequestReviewsOutput {
+	return o
+}
+
+func (o BranchProtectionV3RequiredPullRequestReviewsOutput) ToBranchProtectionV3RequiredPullRequestReviewsOutputWithContext(ctx context.Context) BranchProtectionV3RequiredPullRequestReviewsOutput {
+	return o
+}
+
+func (o BranchProtectionV3RequiredPullRequestReviewsOutput) ToBranchProtectionV3RequiredPullRequestReviewsPtrOutput() BranchProtectionV3RequiredPullRequestReviewsPtrOutput {
+	return o.ToBranchProtectionV3RequiredPullRequestReviewsPtrOutputWithContext(context.Background())
+}
+
+func (o BranchProtectionV3RequiredPullRequestReviewsOutput) ToBranchProtectionV3RequiredPullRequestReviewsPtrOutputWithContext(ctx context.Context) BranchProtectionV3RequiredPullRequestReviewsPtrOutput {
+	return o.ApplyT(func(v BranchProtectionV3RequiredPullRequestReviews) *BranchProtectionV3RequiredPullRequestReviews {
+		return &v
+	}).(BranchProtectionV3RequiredPullRequestReviewsPtrOutput)
+}
+func (o BranchProtectionV3RequiredPullRequestReviewsOutput) DismissStaleReviews() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v BranchProtectionV3RequiredPullRequestReviews) *bool { return v.DismissStaleReviews }).(pulumi.BoolPtrOutput)
+}
+
+func (o BranchProtectionV3RequiredPullRequestReviewsOutput) DismissalTeams() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BranchProtectionV3RequiredPullRequestReviews) []string { return v.DismissalTeams }).(pulumi.StringArrayOutput)
+}
+
+func (o BranchProtectionV3RequiredPullRequestReviewsOutput) DismissalUsers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BranchProtectionV3RequiredPullRequestReviews) []string { return v.DismissalUsers }).(pulumi.StringArrayOutput)
+}
+
+// Deprecated: Use enforce_admins instead
+func (o BranchProtectionV3RequiredPullRequestReviewsOutput) IncludeAdmins() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v BranchProtectionV3RequiredPullRequestReviews) *bool { return v.IncludeAdmins }).(pulumi.BoolPtrOutput)
+}
+
+func (o BranchProtectionV3RequiredPullRequestReviewsOutput) RequireCodeOwnerReviews() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v BranchProtectionV3RequiredPullRequestReviews) *bool { return v.RequireCodeOwnerReviews }).(pulumi.BoolPtrOutput)
+}
+
+func (o BranchProtectionV3RequiredPullRequestReviewsOutput) RequiredApprovingReviewCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v BranchProtectionV3RequiredPullRequestReviews) *int { return v.RequiredApprovingReviewCount }).(pulumi.IntPtrOutput)
+}
+
+type BranchProtectionV3RequiredPullRequestReviewsPtrOutput struct{ *pulumi.OutputState }
+
+func (BranchProtectionV3RequiredPullRequestReviewsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BranchProtectionV3RequiredPullRequestReviews)(nil)).Elem()
+}
+
+func (o BranchProtectionV3RequiredPullRequestReviewsPtrOutput) ToBranchProtectionV3RequiredPullRequestReviewsPtrOutput() BranchProtectionV3RequiredPullRequestReviewsPtrOutput {
+	return o
+}
+
+func (o BranchProtectionV3RequiredPullRequestReviewsPtrOutput) ToBranchProtectionV3RequiredPullRequestReviewsPtrOutputWithContext(ctx context.Context) BranchProtectionV3RequiredPullRequestReviewsPtrOutput {
+	return o
+}
+
+func (o BranchProtectionV3RequiredPullRequestReviewsPtrOutput) Elem() BranchProtectionV3RequiredPullRequestReviewsOutput {
+	return o.ApplyT(func(v *BranchProtectionV3RequiredPullRequestReviews) BranchProtectionV3RequiredPullRequestReviews {
+		return *v
+	}).(BranchProtectionV3RequiredPullRequestReviewsOutput)
+}
+
+func (o BranchProtectionV3RequiredPullRequestReviewsPtrOutput) DismissStaleReviews() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BranchProtectionV3RequiredPullRequestReviews) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DismissStaleReviews
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o BranchProtectionV3RequiredPullRequestReviewsPtrOutput) DismissalTeams() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BranchProtectionV3RequiredPullRequestReviews) []string {
+		if v == nil {
+			return nil
+		}
+		return v.DismissalTeams
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o BranchProtectionV3RequiredPullRequestReviewsPtrOutput) DismissalUsers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BranchProtectionV3RequiredPullRequestReviews) []string {
+		if v == nil {
+			return nil
+		}
+		return v.DismissalUsers
+	}).(pulumi.StringArrayOutput)
+}
+
+// Deprecated: Use enforce_admins instead
+func (o BranchProtectionV3RequiredPullRequestReviewsPtrOutput) IncludeAdmins() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BranchProtectionV3RequiredPullRequestReviews) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IncludeAdmins
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o BranchProtectionV3RequiredPullRequestReviewsPtrOutput) RequireCodeOwnerReviews() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BranchProtectionV3RequiredPullRequestReviews) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.RequireCodeOwnerReviews
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o BranchProtectionV3RequiredPullRequestReviewsPtrOutput) RequiredApprovingReviewCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *BranchProtectionV3RequiredPullRequestReviews) *int {
+		if v == nil {
+			return nil
+		}
+		return v.RequiredApprovingReviewCount
+	}).(pulumi.IntPtrOutput)
+}
+
+type BranchProtectionV3RequiredStatusChecks struct {
+	Contexts []string `pulumi:"contexts"`
+	// Deprecated: Use enforce_admins instead
+	IncludeAdmins *bool `pulumi:"includeAdmins"`
+	Strict        *bool `pulumi:"strict"`
+}
+
+// BranchProtectionV3RequiredStatusChecksInput is an input type that accepts BranchProtectionV3RequiredStatusChecksArgs and BranchProtectionV3RequiredStatusChecksOutput values.
+// You can construct a concrete instance of `BranchProtectionV3RequiredStatusChecksInput` via:
+//
+//          BranchProtectionV3RequiredStatusChecksArgs{...}
+type BranchProtectionV3RequiredStatusChecksInput interface {
+	pulumi.Input
+
+	ToBranchProtectionV3RequiredStatusChecksOutput() BranchProtectionV3RequiredStatusChecksOutput
+	ToBranchProtectionV3RequiredStatusChecksOutputWithContext(context.Context) BranchProtectionV3RequiredStatusChecksOutput
+}
+
+type BranchProtectionV3RequiredStatusChecksArgs struct {
+	Contexts pulumi.StringArrayInput `pulumi:"contexts"`
+	// Deprecated: Use enforce_admins instead
+	IncludeAdmins pulumi.BoolPtrInput `pulumi:"includeAdmins"`
+	Strict        pulumi.BoolPtrInput `pulumi:"strict"`
+}
+
+func (BranchProtectionV3RequiredStatusChecksArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BranchProtectionV3RequiredStatusChecks)(nil)).Elem()
+}
+
+func (i BranchProtectionV3RequiredStatusChecksArgs) ToBranchProtectionV3RequiredStatusChecksOutput() BranchProtectionV3RequiredStatusChecksOutput {
+	return i.ToBranchProtectionV3RequiredStatusChecksOutputWithContext(context.Background())
+}
+
+func (i BranchProtectionV3RequiredStatusChecksArgs) ToBranchProtectionV3RequiredStatusChecksOutputWithContext(ctx context.Context) BranchProtectionV3RequiredStatusChecksOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BranchProtectionV3RequiredStatusChecksOutput)
+}
+
+func (i BranchProtectionV3RequiredStatusChecksArgs) ToBranchProtectionV3RequiredStatusChecksPtrOutput() BranchProtectionV3RequiredStatusChecksPtrOutput {
+	return i.ToBranchProtectionV3RequiredStatusChecksPtrOutputWithContext(context.Background())
+}
+
+func (i BranchProtectionV3RequiredStatusChecksArgs) ToBranchProtectionV3RequiredStatusChecksPtrOutputWithContext(ctx context.Context) BranchProtectionV3RequiredStatusChecksPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BranchProtectionV3RequiredStatusChecksOutput).ToBranchProtectionV3RequiredStatusChecksPtrOutputWithContext(ctx)
+}
+
+// BranchProtectionV3RequiredStatusChecksPtrInput is an input type that accepts BranchProtectionV3RequiredStatusChecksArgs, BranchProtectionV3RequiredStatusChecksPtr and BranchProtectionV3RequiredStatusChecksPtrOutput values.
+// You can construct a concrete instance of `BranchProtectionV3RequiredStatusChecksPtrInput` via:
+//
+//          BranchProtectionV3RequiredStatusChecksArgs{...}
+//
+//  or:
+//
+//          nil
+type BranchProtectionV3RequiredStatusChecksPtrInput interface {
+	pulumi.Input
+
+	ToBranchProtectionV3RequiredStatusChecksPtrOutput() BranchProtectionV3RequiredStatusChecksPtrOutput
+	ToBranchProtectionV3RequiredStatusChecksPtrOutputWithContext(context.Context) BranchProtectionV3RequiredStatusChecksPtrOutput
+}
+
+type branchProtectionV3RequiredStatusChecksPtrType BranchProtectionV3RequiredStatusChecksArgs
+
+func BranchProtectionV3RequiredStatusChecksPtr(v *BranchProtectionV3RequiredStatusChecksArgs) BranchProtectionV3RequiredStatusChecksPtrInput {
+	return (*branchProtectionV3RequiredStatusChecksPtrType)(v)
+}
+
+func (*branchProtectionV3RequiredStatusChecksPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BranchProtectionV3RequiredStatusChecks)(nil)).Elem()
+}
+
+func (i *branchProtectionV3RequiredStatusChecksPtrType) ToBranchProtectionV3RequiredStatusChecksPtrOutput() BranchProtectionV3RequiredStatusChecksPtrOutput {
+	return i.ToBranchProtectionV3RequiredStatusChecksPtrOutputWithContext(context.Background())
+}
+
+func (i *branchProtectionV3RequiredStatusChecksPtrType) ToBranchProtectionV3RequiredStatusChecksPtrOutputWithContext(ctx context.Context) BranchProtectionV3RequiredStatusChecksPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BranchProtectionV3RequiredStatusChecksPtrOutput)
+}
+
+type BranchProtectionV3RequiredStatusChecksOutput struct{ *pulumi.OutputState }
+
+func (BranchProtectionV3RequiredStatusChecksOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BranchProtectionV3RequiredStatusChecks)(nil)).Elem()
+}
+
+func (o BranchProtectionV3RequiredStatusChecksOutput) ToBranchProtectionV3RequiredStatusChecksOutput() BranchProtectionV3RequiredStatusChecksOutput {
+	return o
+}
+
+func (o BranchProtectionV3RequiredStatusChecksOutput) ToBranchProtectionV3RequiredStatusChecksOutputWithContext(ctx context.Context) BranchProtectionV3RequiredStatusChecksOutput {
+	return o
+}
+
+func (o BranchProtectionV3RequiredStatusChecksOutput) ToBranchProtectionV3RequiredStatusChecksPtrOutput() BranchProtectionV3RequiredStatusChecksPtrOutput {
+	return o.ToBranchProtectionV3RequiredStatusChecksPtrOutputWithContext(context.Background())
+}
+
+func (o BranchProtectionV3RequiredStatusChecksOutput) ToBranchProtectionV3RequiredStatusChecksPtrOutputWithContext(ctx context.Context) BranchProtectionV3RequiredStatusChecksPtrOutput {
+	return o.ApplyT(func(v BranchProtectionV3RequiredStatusChecks) *BranchProtectionV3RequiredStatusChecks {
+		return &v
+	}).(BranchProtectionV3RequiredStatusChecksPtrOutput)
+}
+func (o BranchProtectionV3RequiredStatusChecksOutput) Contexts() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BranchProtectionV3RequiredStatusChecks) []string { return v.Contexts }).(pulumi.StringArrayOutput)
+}
+
+// Deprecated: Use enforce_admins instead
+func (o BranchProtectionV3RequiredStatusChecksOutput) IncludeAdmins() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v BranchProtectionV3RequiredStatusChecks) *bool { return v.IncludeAdmins }).(pulumi.BoolPtrOutput)
+}
+
+func (o BranchProtectionV3RequiredStatusChecksOutput) Strict() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v BranchProtectionV3RequiredStatusChecks) *bool { return v.Strict }).(pulumi.BoolPtrOutput)
+}
+
+type BranchProtectionV3RequiredStatusChecksPtrOutput struct{ *pulumi.OutputState }
+
+func (BranchProtectionV3RequiredStatusChecksPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BranchProtectionV3RequiredStatusChecks)(nil)).Elem()
+}
+
+func (o BranchProtectionV3RequiredStatusChecksPtrOutput) ToBranchProtectionV3RequiredStatusChecksPtrOutput() BranchProtectionV3RequiredStatusChecksPtrOutput {
+	return o
+}
+
+func (o BranchProtectionV3RequiredStatusChecksPtrOutput) ToBranchProtectionV3RequiredStatusChecksPtrOutputWithContext(ctx context.Context) BranchProtectionV3RequiredStatusChecksPtrOutput {
+	return o
+}
+
+func (o BranchProtectionV3RequiredStatusChecksPtrOutput) Elem() BranchProtectionV3RequiredStatusChecksOutput {
+	return o.ApplyT(func(v *BranchProtectionV3RequiredStatusChecks) BranchProtectionV3RequiredStatusChecks { return *v }).(BranchProtectionV3RequiredStatusChecksOutput)
+}
+
+func (o BranchProtectionV3RequiredStatusChecksPtrOutput) Contexts() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BranchProtectionV3RequiredStatusChecks) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Contexts
+	}).(pulumi.StringArrayOutput)
+}
+
+// Deprecated: Use enforce_admins instead
+func (o BranchProtectionV3RequiredStatusChecksPtrOutput) IncludeAdmins() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BranchProtectionV3RequiredStatusChecks) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IncludeAdmins
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o BranchProtectionV3RequiredStatusChecksPtrOutput) Strict() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BranchProtectionV3RequiredStatusChecks) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Strict
+	}).(pulumi.BoolPtrOutput)
+}
+
+type BranchProtectionV3Restrictions struct {
+	Apps  []string `pulumi:"apps"`
+	Teams []string `pulumi:"teams"`
+	Users []string `pulumi:"users"`
+}
+
+// BranchProtectionV3RestrictionsInput is an input type that accepts BranchProtectionV3RestrictionsArgs and BranchProtectionV3RestrictionsOutput values.
+// You can construct a concrete instance of `BranchProtectionV3RestrictionsInput` via:
+//
+//          BranchProtectionV3RestrictionsArgs{...}
+type BranchProtectionV3RestrictionsInput interface {
+	pulumi.Input
+
+	ToBranchProtectionV3RestrictionsOutput() BranchProtectionV3RestrictionsOutput
+	ToBranchProtectionV3RestrictionsOutputWithContext(context.Context) BranchProtectionV3RestrictionsOutput
+}
+
+type BranchProtectionV3RestrictionsArgs struct {
+	Apps  pulumi.StringArrayInput `pulumi:"apps"`
+	Teams pulumi.StringArrayInput `pulumi:"teams"`
+	Users pulumi.StringArrayInput `pulumi:"users"`
+}
+
+func (BranchProtectionV3RestrictionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BranchProtectionV3Restrictions)(nil)).Elem()
+}
+
+func (i BranchProtectionV3RestrictionsArgs) ToBranchProtectionV3RestrictionsOutput() BranchProtectionV3RestrictionsOutput {
+	return i.ToBranchProtectionV3RestrictionsOutputWithContext(context.Background())
+}
+
+func (i BranchProtectionV3RestrictionsArgs) ToBranchProtectionV3RestrictionsOutputWithContext(ctx context.Context) BranchProtectionV3RestrictionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BranchProtectionV3RestrictionsOutput)
+}
+
+func (i BranchProtectionV3RestrictionsArgs) ToBranchProtectionV3RestrictionsPtrOutput() BranchProtectionV3RestrictionsPtrOutput {
+	return i.ToBranchProtectionV3RestrictionsPtrOutputWithContext(context.Background())
+}
+
+func (i BranchProtectionV3RestrictionsArgs) ToBranchProtectionV3RestrictionsPtrOutputWithContext(ctx context.Context) BranchProtectionV3RestrictionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BranchProtectionV3RestrictionsOutput).ToBranchProtectionV3RestrictionsPtrOutputWithContext(ctx)
+}
+
+// BranchProtectionV3RestrictionsPtrInput is an input type that accepts BranchProtectionV3RestrictionsArgs, BranchProtectionV3RestrictionsPtr and BranchProtectionV3RestrictionsPtrOutput values.
+// You can construct a concrete instance of `BranchProtectionV3RestrictionsPtrInput` via:
+//
+//          BranchProtectionV3RestrictionsArgs{...}
+//
+//  or:
+//
+//          nil
+type BranchProtectionV3RestrictionsPtrInput interface {
+	pulumi.Input
+
+	ToBranchProtectionV3RestrictionsPtrOutput() BranchProtectionV3RestrictionsPtrOutput
+	ToBranchProtectionV3RestrictionsPtrOutputWithContext(context.Context) BranchProtectionV3RestrictionsPtrOutput
+}
+
+type branchProtectionV3RestrictionsPtrType BranchProtectionV3RestrictionsArgs
+
+func BranchProtectionV3RestrictionsPtr(v *BranchProtectionV3RestrictionsArgs) BranchProtectionV3RestrictionsPtrInput {
+	return (*branchProtectionV3RestrictionsPtrType)(v)
+}
+
+func (*branchProtectionV3RestrictionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BranchProtectionV3Restrictions)(nil)).Elem()
+}
+
+func (i *branchProtectionV3RestrictionsPtrType) ToBranchProtectionV3RestrictionsPtrOutput() BranchProtectionV3RestrictionsPtrOutput {
+	return i.ToBranchProtectionV3RestrictionsPtrOutputWithContext(context.Background())
+}
+
+func (i *branchProtectionV3RestrictionsPtrType) ToBranchProtectionV3RestrictionsPtrOutputWithContext(ctx context.Context) BranchProtectionV3RestrictionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BranchProtectionV3RestrictionsPtrOutput)
+}
+
+type BranchProtectionV3RestrictionsOutput struct{ *pulumi.OutputState }
+
+func (BranchProtectionV3RestrictionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BranchProtectionV3Restrictions)(nil)).Elem()
+}
+
+func (o BranchProtectionV3RestrictionsOutput) ToBranchProtectionV3RestrictionsOutput() BranchProtectionV3RestrictionsOutput {
+	return o
+}
+
+func (o BranchProtectionV3RestrictionsOutput) ToBranchProtectionV3RestrictionsOutputWithContext(ctx context.Context) BranchProtectionV3RestrictionsOutput {
+	return o
+}
+
+func (o BranchProtectionV3RestrictionsOutput) ToBranchProtectionV3RestrictionsPtrOutput() BranchProtectionV3RestrictionsPtrOutput {
+	return o.ToBranchProtectionV3RestrictionsPtrOutputWithContext(context.Background())
+}
+
+func (o BranchProtectionV3RestrictionsOutput) ToBranchProtectionV3RestrictionsPtrOutputWithContext(ctx context.Context) BranchProtectionV3RestrictionsPtrOutput {
+	return o.ApplyT(func(v BranchProtectionV3Restrictions) *BranchProtectionV3Restrictions {
+		return &v
+	}).(BranchProtectionV3RestrictionsPtrOutput)
+}
+func (o BranchProtectionV3RestrictionsOutput) Apps() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BranchProtectionV3Restrictions) []string { return v.Apps }).(pulumi.StringArrayOutput)
+}
+
+func (o BranchProtectionV3RestrictionsOutput) Teams() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BranchProtectionV3Restrictions) []string { return v.Teams }).(pulumi.StringArrayOutput)
+}
+
+func (o BranchProtectionV3RestrictionsOutput) Users() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BranchProtectionV3Restrictions) []string { return v.Users }).(pulumi.StringArrayOutput)
+}
+
+type BranchProtectionV3RestrictionsPtrOutput struct{ *pulumi.OutputState }
+
+func (BranchProtectionV3RestrictionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BranchProtectionV3Restrictions)(nil)).Elem()
+}
+
+func (o BranchProtectionV3RestrictionsPtrOutput) ToBranchProtectionV3RestrictionsPtrOutput() BranchProtectionV3RestrictionsPtrOutput {
+	return o
+}
+
+func (o BranchProtectionV3RestrictionsPtrOutput) ToBranchProtectionV3RestrictionsPtrOutputWithContext(ctx context.Context) BranchProtectionV3RestrictionsPtrOutput {
+	return o
+}
+
+func (o BranchProtectionV3RestrictionsPtrOutput) Elem() BranchProtectionV3RestrictionsOutput {
+	return o.ApplyT(func(v *BranchProtectionV3Restrictions) BranchProtectionV3Restrictions { return *v }).(BranchProtectionV3RestrictionsOutput)
+}
+
+func (o BranchProtectionV3RestrictionsPtrOutput) Apps() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BranchProtectionV3Restrictions) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Apps
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o BranchProtectionV3RestrictionsPtrOutput) Teams() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BranchProtectionV3Restrictions) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Teams
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o BranchProtectionV3RestrictionsPtrOutput) Users() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BranchProtectionV3Restrictions) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Users
+	}).(pulumi.StringArrayOutput)
+}
+
 type OrganizationWebhookConfiguration struct {
 	ContentType *string `pulumi:"contentType"`
 	InsecureSsl *bool   `pulumi:"insecureSsl"`
@@ -394,6 +917,378 @@ func (o OrganizationWebhookConfigurationPtrOutput) Url() pulumi.StringPtrOutput 
 			return nil
 		}
 		return &v.Url
+	}).(pulumi.StringPtrOutput)
+}
+
+type RepositoryPages struct {
+	// The custom domain for the repository. This can only be set after the repository has been created.
+	Cname *string `pulumi:"cname"`
+	// Whether the rendered Github Pages site has a custom 404 page.
+	Custom404 *bool `pulumi:"custom404"`
+	// The absolute URL (including scheme) of the rendered Github Pages site e.g. `https://username.github.io`.
+	HtmlUrl *string `pulumi:"htmlUrl"`
+	// The source branch and directory for the rendered Pages site. See Github Pages Source below for details.
+	Source RepositoryPagesSource `pulumi:"source"`
+	// The Github Pages site's build status e.g. `building` or `built`.
+	Status *string `pulumi:"status"`
+	Url    *string `pulumi:"url"`
+}
+
+// RepositoryPagesInput is an input type that accepts RepositoryPagesArgs and RepositoryPagesOutput values.
+// You can construct a concrete instance of `RepositoryPagesInput` via:
+//
+//          RepositoryPagesArgs{...}
+type RepositoryPagesInput interface {
+	pulumi.Input
+
+	ToRepositoryPagesOutput() RepositoryPagesOutput
+	ToRepositoryPagesOutputWithContext(context.Context) RepositoryPagesOutput
+}
+
+type RepositoryPagesArgs struct {
+	// The custom domain for the repository. This can only be set after the repository has been created.
+	Cname pulumi.StringPtrInput `pulumi:"cname"`
+	// Whether the rendered Github Pages site has a custom 404 page.
+	Custom404 pulumi.BoolPtrInput `pulumi:"custom404"`
+	// The absolute URL (including scheme) of the rendered Github Pages site e.g. `https://username.github.io`.
+	HtmlUrl pulumi.StringPtrInput `pulumi:"htmlUrl"`
+	// The source branch and directory for the rendered Pages site. See Github Pages Source below for details.
+	Source RepositoryPagesSourceInput `pulumi:"source"`
+	// The Github Pages site's build status e.g. `building` or `built`.
+	Status pulumi.StringPtrInput `pulumi:"status"`
+	Url    pulumi.StringPtrInput `pulumi:"url"`
+}
+
+func (RepositoryPagesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositoryPages)(nil)).Elem()
+}
+
+func (i RepositoryPagesArgs) ToRepositoryPagesOutput() RepositoryPagesOutput {
+	return i.ToRepositoryPagesOutputWithContext(context.Background())
+}
+
+func (i RepositoryPagesArgs) ToRepositoryPagesOutputWithContext(ctx context.Context) RepositoryPagesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryPagesOutput)
+}
+
+func (i RepositoryPagesArgs) ToRepositoryPagesPtrOutput() RepositoryPagesPtrOutput {
+	return i.ToRepositoryPagesPtrOutputWithContext(context.Background())
+}
+
+func (i RepositoryPagesArgs) ToRepositoryPagesPtrOutputWithContext(ctx context.Context) RepositoryPagesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryPagesOutput).ToRepositoryPagesPtrOutputWithContext(ctx)
+}
+
+// RepositoryPagesPtrInput is an input type that accepts RepositoryPagesArgs, RepositoryPagesPtr and RepositoryPagesPtrOutput values.
+// You can construct a concrete instance of `RepositoryPagesPtrInput` via:
+//
+//          RepositoryPagesArgs{...}
+//
+//  or:
+//
+//          nil
+type RepositoryPagesPtrInput interface {
+	pulumi.Input
+
+	ToRepositoryPagesPtrOutput() RepositoryPagesPtrOutput
+	ToRepositoryPagesPtrOutputWithContext(context.Context) RepositoryPagesPtrOutput
+}
+
+type repositoryPagesPtrType RepositoryPagesArgs
+
+func RepositoryPagesPtr(v *RepositoryPagesArgs) RepositoryPagesPtrInput {
+	return (*repositoryPagesPtrType)(v)
+}
+
+func (*repositoryPagesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RepositoryPages)(nil)).Elem()
+}
+
+func (i *repositoryPagesPtrType) ToRepositoryPagesPtrOutput() RepositoryPagesPtrOutput {
+	return i.ToRepositoryPagesPtrOutputWithContext(context.Background())
+}
+
+func (i *repositoryPagesPtrType) ToRepositoryPagesPtrOutputWithContext(ctx context.Context) RepositoryPagesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryPagesPtrOutput)
+}
+
+type RepositoryPagesOutput struct{ *pulumi.OutputState }
+
+func (RepositoryPagesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositoryPages)(nil)).Elem()
+}
+
+func (o RepositoryPagesOutput) ToRepositoryPagesOutput() RepositoryPagesOutput {
+	return o
+}
+
+func (o RepositoryPagesOutput) ToRepositoryPagesOutputWithContext(ctx context.Context) RepositoryPagesOutput {
+	return o
+}
+
+func (o RepositoryPagesOutput) ToRepositoryPagesPtrOutput() RepositoryPagesPtrOutput {
+	return o.ToRepositoryPagesPtrOutputWithContext(context.Background())
+}
+
+func (o RepositoryPagesOutput) ToRepositoryPagesPtrOutputWithContext(ctx context.Context) RepositoryPagesPtrOutput {
+	return o.ApplyT(func(v RepositoryPages) *RepositoryPages {
+		return &v
+	}).(RepositoryPagesPtrOutput)
+}
+
+// The custom domain for the repository. This can only be set after the repository has been created.
+func (o RepositoryPagesOutput) Cname() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RepositoryPages) *string { return v.Cname }).(pulumi.StringPtrOutput)
+}
+
+// Whether the rendered Github Pages site has a custom 404 page.
+func (o RepositoryPagesOutput) Custom404() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RepositoryPages) *bool { return v.Custom404 }).(pulumi.BoolPtrOutput)
+}
+
+// The absolute URL (including scheme) of the rendered Github Pages site e.g. `https://username.github.io`.
+func (o RepositoryPagesOutput) HtmlUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RepositoryPages) *string { return v.HtmlUrl }).(pulumi.StringPtrOutput)
+}
+
+// The source branch and directory for the rendered Pages site. See Github Pages Source below for details.
+func (o RepositoryPagesOutput) Source() RepositoryPagesSourceOutput {
+	return o.ApplyT(func(v RepositoryPages) RepositoryPagesSource { return v.Source }).(RepositoryPagesSourceOutput)
+}
+
+// The Github Pages site's build status e.g. `building` or `built`.
+func (o RepositoryPagesOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RepositoryPages) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+func (o RepositoryPagesOutput) Url() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RepositoryPages) *string { return v.Url }).(pulumi.StringPtrOutput)
+}
+
+type RepositoryPagesPtrOutput struct{ *pulumi.OutputState }
+
+func (RepositoryPagesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RepositoryPages)(nil)).Elem()
+}
+
+func (o RepositoryPagesPtrOutput) ToRepositoryPagesPtrOutput() RepositoryPagesPtrOutput {
+	return o
+}
+
+func (o RepositoryPagesPtrOutput) ToRepositoryPagesPtrOutputWithContext(ctx context.Context) RepositoryPagesPtrOutput {
+	return o
+}
+
+func (o RepositoryPagesPtrOutput) Elem() RepositoryPagesOutput {
+	return o.ApplyT(func(v *RepositoryPages) RepositoryPages { return *v }).(RepositoryPagesOutput)
+}
+
+// The custom domain for the repository. This can only be set after the repository has been created.
+func (o RepositoryPagesPtrOutput) Cname() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RepositoryPages) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Cname
+	}).(pulumi.StringPtrOutput)
+}
+
+// Whether the rendered Github Pages site has a custom 404 page.
+func (o RepositoryPagesPtrOutput) Custom404() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RepositoryPages) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Custom404
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The absolute URL (including scheme) of the rendered Github Pages site e.g. `https://username.github.io`.
+func (o RepositoryPagesPtrOutput) HtmlUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RepositoryPages) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HtmlUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+// The source branch and directory for the rendered Pages site. See Github Pages Source below for details.
+func (o RepositoryPagesPtrOutput) Source() RepositoryPagesSourcePtrOutput {
+	return o.ApplyT(func(v *RepositoryPages) *RepositoryPagesSource {
+		if v == nil {
+			return nil
+		}
+		return &v.Source
+	}).(RepositoryPagesSourcePtrOutput)
+}
+
+// The Github Pages site's build status e.g. `building` or `built`.
+func (o RepositoryPagesPtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RepositoryPages) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Status
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o RepositoryPagesPtrOutput) Url() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RepositoryPages) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Url
+	}).(pulumi.StringPtrOutput)
+}
+
+type RepositoryPagesSource struct {
+	// The repository branch used to publish the site's source files. (i.e. `main` or `gh-pages`.
+	Branch string `pulumi:"branch"`
+	// The repository directory from which the site publishes (Default: `/`).
+	Path *string `pulumi:"path"`
+}
+
+// RepositoryPagesSourceInput is an input type that accepts RepositoryPagesSourceArgs and RepositoryPagesSourceOutput values.
+// You can construct a concrete instance of `RepositoryPagesSourceInput` via:
+//
+//          RepositoryPagesSourceArgs{...}
+type RepositoryPagesSourceInput interface {
+	pulumi.Input
+
+	ToRepositoryPagesSourceOutput() RepositoryPagesSourceOutput
+	ToRepositoryPagesSourceOutputWithContext(context.Context) RepositoryPagesSourceOutput
+}
+
+type RepositoryPagesSourceArgs struct {
+	// The repository branch used to publish the site's source files. (i.e. `main` or `gh-pages`.
+	Branch pulumi.StringInput `pulumi:"branch"`
+	// The repository directory from which the site publishes (Default: `/`).
+	Path pulumi.StringPtrInput `pulumi:"path"`
+}
+
+func (RepositoryPagesSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositoryPagesSource)(nil)).Elem()
+}
+
+func (i RepositoryPagesSourceArgs) ToRepositoryPagesSourceOutput() RepositoryPagesSourceOutput {
+	return i.ToRepositoryPagesSourceOutputWithContext(context.Background())
+}
+
+func (i RepositoryPagesSourceArgs) ToRepositoryPagesSourceOutputWithContext(ctx context.Context) RepositoryPagesSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryPagesSourceOutput)
+}
+
+func (i RepositoryPagesSourceArgs) ToRepositoryPagesSourcePtrOutput() RepositoryPagesSourcePtrOutput {
+	return i.ToRepositoryPagesSourcePtrOutputWithContext(context.Background())
+}
+
+func (i RepositoryPagesSourceArgs) ToRepositoryPagesSourcePtrOutputWithContext(ctx context.Context) RepositoryPagesSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryPagesSourceOutput).ToRepositoryPagesSourcePtrOutputWithContext(ctx)
+}
+
+// RepositoryPagesSourcePtrInput is an input type that accepts RepositoryPagesSourceArgs, RepositoryPagesSourcePtr and RepositoryPagesSourcePtrOutput values.
+// You can construct a concrete instance of `RepositoryPagesSourcePtrInput` via:
+//
+//          RepositoryPagesSourceArgs{...}
+//
+//  or:
+//
+//          nil
+type RepositoryPagesSourcePtrInput interface {
+	pulumi.Input
+
+	ToRepositoryPagesSourcePtrOutput() RepositoryPagesSourcePtrOutput
+	ToRepositoryPagesSourcePtrOutputWithContext(context.Context) RepositoryPagesSourcePtrOutput
+}
+
+type repositoryPagesSourcePtrType RepositoryPagesSourceArgs
+
+func RepositoryPagesSourcePtr(v *RepositoryPagesSourceArgs) RepositoryPagesSourcePtrInput {
+	return (*repositoryPagesSourcePtrType)(v)
+}
+
+func (*repositoryPagesSourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RepositoryPagesSource)(nil)).Elem()
+}
+
+func (i *repositoryPagesSourcePtrType) ToRepositoryPagesSourcePtrOutput() RepositoryPagesSourcePtrOutput {
+	return i.ToRepositoryPagesSourcePtrOutputWithContext(context.Background())
+}
+
+func (i *repositoryPagesSourcePtrType) ToRepositoryPagesSourcePtrOutputWithContext(ctx context.Context) RepositoryPagesSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryPagesSourcePtrOutput)
+}
+
+type RepositoryPagesSourceOutput struct{ *pulumi.OutputState }
+
+func (RepositoryPagesSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositoryPagesSource)(nil)).Elem()
+}
+
+func (o RepositoryPagesSourceOutput) ToRepositoryPagesSourceOutput() RepositoryPagesSourceOutput {
+	return o
+}
+
+func (o RepositoryPagesSourceOutput) ToRepositoryPagesSourceOutputWithContext(ctx context.Context) RepositoryPagesSourceOutput {
+	return o
+}
+
+func (o RepositoryPagesSourceOutput) ToRepositoryPagesSourcePtrOutput() RepositoryPagesSourcePtrOutput {
+	return o.ToRepositoryPagesSourcePtrOutputWithContext(context.Background())
+}
+
+func (o RepositoryPagesSourceOutput) ToRepositoryPagesSourcePtrOutputWithContext(ctx context.Context) RepositoryPagesSourcePtrOutput {
+	return o.ApplyT(func(v RepositoryPagesSource) *RepositoryPagesSource {
+		return &v
+	}).(RepositoryPagesSourcePtrOutput)
+}
+
+// The repository branch used to publish the site's source files. (i.e. `main` or `gh-pages`.
+func (o RepositoryPagesSourceOutput) Branch() pulumi.StringOutput {
+	return o.ApplyT(func(v RepositoryPagesSource) string { return v.Branch }).(pulumi.StringOutput)
+}
+
+// The repository directory from which the site publishes (Default: `/`).
+func (o RepositoryPagesSourceOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RepositoryPagesSource) *string { return v.Path }).(pulumi.StringPtrOutput)
+}
+
+type RepositoryPagesSourcePtrOutput struct{ *pulumi.OutputState }
+
+func (RepositoryPagesSourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RepositoryPagesSource)(nil)).Elem()
+}
+
+func (o RepositoryPagesSourcePtrOutput) ToRepositoryPagesSourcePtrOutput() RepositoryPagesSourcePtrOutput {
+	return o
+}
+
+func (o RepositoryPagesSourcePtrOutput) ToRepositoryPagesSourcePtrOutputWithContext(ctx context.Context) RepositoryPagesSourcePtrOutput {
+	return o
+}
+
+func (o RepositoryPagesSourcePtrOutput) Elem() RepositoryPagesSourceOutput {
+	return o.ApplyT(func(v *RepositoryPagesSource) RepositoryPagesSource { return *v }).(RepositoryPagesSourceOutput)
+}
+
+// The repository branch used to publish the site's source files. (i.e. `main` or `gh-pages`.
+func (o RepositoryPagesSourcePtrOutput) Branch() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RepositoryPagesSource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Branch
+	}).(pulumi.StringPtrOutput)
+}
+
+// The repository directory from which the site publishes (Default: `/`).
+func (o RepositoryPagesSourcePtrOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RepositoryPagesSource) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Path
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -1175,13 +2070,250 @@ func (o GetOrganizationTeamSyncGroupsGroupArrayOutput) Index(i pulumi.IntInput) 
 	}).(GetOrganizationTeamSyncGroupsGroupOutput)
 }
 
+type GetRepositoryPage struct {
+	Cname     string `pulumi:"cname"`
+	Custom404 bool   `pulumi:"custom404"`
+	// URL to the repository on the web.
+	HtmlUrl string                    `pulumi:"htmlUrl"`
+	Sources []GetRepositoryPageSource `pulumi:"sources"`
+	Status  string                    `pulumi:"status"`
+	Url     string                    `pulumi:"url"`
+}
+
+// GetRepositoryPageInput is an input type that accepts GetRepositoryPageArgs and GetRepositoryPageOutput values.
+// You can construct a concrete instance of `GetRepositoryPageInput` via:
+//
+//          GetRepositoryPageArgs{...}
+type GetRepositoryPageInput interface {
+	pulumi.Input
+
+	ToGetRepositoryPageOutput() GetRepositoryPageOutput
+	ToGetRepositoryPageOutputWithContext(context.Context) GetRepositoryPageOutput
+}
+
+type GetRepositoryPageArgs struct {
+	Cname     pulumi.StringInput `pulumi:"cname"`
+	Custom404 pulumi.BoolInput   `pulumi:"custom404"`
+	// URL to the repository on the web.
+	HtmlUrl pulumi.StringInput                `pulumi:"htmlUrl"`
+	Sources GetRepositoryPageSourceArrayInput `pulumi:"sources"`
+	Status  pulumi.StringInput                `pulumi:"status"`
+	Url     pulumi.StringInput                `pulumi:"url"`
+}
+
+func (GetRepositoryPageArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRepositoryPage)(nil)).Elem()
+}
+
+func (i GetRepositoryPageArgs) ToGetRepositoryPageOutput() GetRepositoryPageOutput {
+	return i.ToGetRepositoryPageOutputWithContext(context.Background())
+}
+
+func (i GetRepositoryPageArgs) ToGetRepositoryPageOutputWithContext(ctx context.Context) GetRepositoryPageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRepositoryPageOutput)
+}
+
+// GetRepositoryPageArrayInput is an input type that accepts GetRepositoryPageArray and GetRepositoryPageArrayOutput values.
+// You can construct a concrete instance of `GetRepositoryPageArrayInput` via:
+//
+//          GetRepositoryPageArray{ GetRepositoryPageArgs{...} }
+type GetRepositoryPageArrayInput interface {
+	pulumi.Input
+
+	ToGetRepositoryPageArrayOutput() GetRepositoryPageArrayOutput
+	ToGetRepositoryPageArrayOutputWithContext(context.Context) GetRepositoryPageArrayOutput
+}
+
+type GetRepositoryPageArray []GetRepositoryPageInput
+
+func (GetRepositoryPageArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRepositoryPage)(nil)).Elem()
+}
+
+func (i GetRepositoryPageArray) ToGetRepositoryPageArrayOutput() GetRepositoryPageArrayOutput {
+	return i.ToGetRepositoryPageArrayOutputWithContext(context.Background())
+}
+
+func (i GetRepositoryPageArray) ToGetRepositoryPageArrayOutputWithContext(ctx context.Context) GetRepositoryPageArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRepositoryPageArrayOutput)
+}
+
+type GetRepositoryPageOutput struct{ *pulumi.OutputState }
+
+func (GetRepositoryPageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRepositoryPage)(nil)).Elem()
+}
+
+func (o GetRepositoryPageOutput) ToGetRepositoryPageOutput() GetRepositoryPageOutput {
+	return o
+}
+
+func (o GetRepositoryPageOutput) ToGetRepositoryPageOutputWithContext(ctx context.Context) GetRepositoryPageOutput {
+	return o
+}
+
+func (o GetRepositoryPageOutput) Cname() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRepositoryPage) string { return v.Cname }).(pulumi.StringOutput)
+}
+
+func (o GetRepositoryPageOutput) Custom404() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetRepositoryPage) bool { return v.Custom404 }).(pulumi.BoolOutput)
+}
+
+// URL to the repository on the web.
+func (o GetRepositoryPageOutput) HtmlUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRepositoryPage) string { return v.HtmlUrl }).(pulumi.StringOutput)
+}
+
+func (o GetRepositoryPageOutput) Sources() GetRepositoryPageSourceArrayOutput {
+	return o.ApplyT(func(v GetRepositoryPage) []GetRepositoryPageSource { return v.Sources }).(GetRepositoryPageSourceArrayOutput)
+}
+
+func (o GetRepositoryPageOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRepositoryPage) string { return v.Status }).(pulumi.StringOutput)
+}
+
+func (o GetRepositoryPageOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRepositoryPage) string { return v.Url }).(pulumi.StringOutput)
+}
+
+type GetRepositoryPageArrayOutput struct{ *pulumi.OutputState }
+
+func (GetRepositoryPageArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRepositoryPage)(nil)).Elem()
+}
+
+func (o GetRepositoryPageArrayOutput) ToGetRepositoryPageArrayOutput() GetRepositoryPageArrayOutput {
+	return o
+}
+
+func (o GetRepositoryPageArrayOutput) ToGetRepositoryPageArrayOutputWithContext(ctx context.Context) GetRepositoryPageArrayOutput {
+	return o
+}
+
+func (o GetRepositoryPageArrayOutput) Index(i pulumi.IntInput) GetRepositoryPageOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRepositoryPage {
+		return vs[0].([]GetRepositoryPage)[vs[1].(int)]
+	}).(GetRepositoryPageOutput)
+}
+
+type GetRepositoryPageSource struct {
+	Branch string `pulumi:"branch"`
+	Path   string `pulumi:"path"`
+}
+
+// GetRepositoryPageSourceInput is an input type that accepts GetRepositoryPageSourceArgs and GetRepositoryPageSourceOutput values.
+// You can construct a concrete instance of `GetRepositoryPageSourceInput` via:
+//
+//          GetRepositoryPageSourceArgs{...}
+type GetRepositoryPageSourceInput interface {
+	pulumi.Input
+
+	ToGetRepositoryPageSourceOutput() GetRepositoryPageSourceOutput
+	ToGetRepositoryPageSourceOutputWithContext(context.Context) GetRepositoryPageSourceOutput
+}
+
+type GetRepositoryPageSourceArgs struct {
+	Branch pulumi.StringInput `pulumi:"branch"`
+	Path   pulumi.StringInput `pulumi:"path"`
+}
+
+func (GetRepositoryPageSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRepositoryPageSource)(nil)).Elem()
+}
+
+func (i GetRepositoryPageSourceArgs) ToGetRepositoryPageSourceOutput() GetRepositoryPageSourceOutput {
+	return i.ToGetRepositoryPageSourceOutputWithContext(context.Background())
+}
+
+func (i GetRepositoryPageSourceArgs) ToGetRepositoryPageSourceOutputWithContext(ctx context.Context) GetRepositoryPageSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRepositoryPageSourceOutput)
+}
+
+// GetRepositoryPageSourceArrayInput is an input type that accepts GetRepositoryPageSourceArray and GetRepositoryPageSourceArrayOutput values.
+// You can construct a concrete instance of `GetRepositoryPageSourceArrayInput` via:
+//
+//          GetRepositoryPageSourceArray{ GetRepositoryPageSourceArgs{...} }
+type GetRepositoryPageSourceArrayInput interface {
+	pulumi.Input
+
+	ToGetRepositoryPageSourceArrayOutput() GetRepositoryPageSourceArrayOutput
+	ToGetRepositoryPageSourceArrayOutputWithContext(context.Context) GetRepositoryPageSourceArrayOutput
+}
+
+type GetRepositoryPageSourceArray []GetRepositoryPageSourceInput
+
+func (GetRepositoryPageSourceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRepositoryPageSource)(nil)).Elem()
+}
+
+func (i GetRepositoryPageSourceArray) ToGetRepositoryPageSourceArrayOutput() GetRepositoryPageSourceArrayOutput {
+	return i.ToGetRepositoryPageSourceArrayOutputWithContext(context.Background())
+}
+
+func (i GetRepositoryPageSourceArray) ToGetRepositoryPageSourceArrayOutputWithContext(ctx context.Context) GetRepositoryPageSourceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRepositoryPageSourceArrayOutput)
+}
+
+type GetRepositoryPageSourceOutput struct{ *pulumi.OutputState }
+
+func (GetRepositoryPageSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRepositoryPageSource)(nil)).Elem()
+}
+
+func (o GetRepositoryPageSourceOutput) ToGetRepositoryPageSourceOutput() GetRepositoryPageSourceOutput {
+	return o
+}
+
+func (o GetRepositoryPageSourceOutput) ToGetRepositoryPageSourceOutputWithContext(ctx context.Context) GetRepositoryPageSourceOutput {
+	return o
+}
+
+func (o GetRepositoryPageSourceOutput) Branch() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRepositoryPageSource) string { return v.Branch }).(pulumi.StringOutput)
+}
+
+func (o GetRepositoryPageSourceOutput) Path() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRepositoryPageSource) string { return v.Path }).(pulumi.StringOutput)
+}
+
+type GetRepositoryPageSourceArrayOutput struct{ *pulumi.OutputState }
+
+func (GetRepositoryPageSourceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRepositoryPageSource)(nil)).Elem()
+}
+
+func (o GetRepositoryPageSourceArrayOutput) ToGetRepositoryPageSourceArrayOutput() GetRepositoryPageSourceArrayOutput {
+	return o
+}
+
+func (o GetRepositoryPageSourceArrayOutput) ToGetRepositoryPageSourceArrayOutputWithContext(ctx context.Context) GetRepositoryPageSourceArrayOutput {
+	return o
+}
+
+func (o GetRepositoryPageSourceArrayOutput) Index(i pulumi.IntInput) GetRepositoryPageSourceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRepositoryPageSource {
+		return vs[0].([]GetRepositoryPageSource)[vs[1].(int)]
+	}).(GetRepositoryPageSourceOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(BranchProtectionRequiredPullRequestReviewOutput{})
 	pulumi.RegisterOutputType(BranchProtectionRequiredPullRequestReviewArrayOutput{})
 	pulumi.RegisterOutputType(BranchProtectionRequiredStatusCheckOutput{})
 	pulumi.RegisterOutputType(BranchProtectionRequiredStatusCheckArrayOutput{})
+	pulumi.RegisterOutputType(BranchProtectionV3RequiredPullRequestReviewsOutput{})
+	pulumi.RegisterOutputType(BranchProtectionV3RequiredPullRequestReviewsPtrOutput{})
+	pulumi.RegisterOutputType(BranchProtectionV3RequiredStatusChecksOutput{})
+	pulumi.RegisterOutputType(BranchProtectionV3RequiredStatusChecksPtrOutput{})
+	pulumi.RegisterOutputType(BranchProtectionV3RestrictionsOutput{})
+	pulumi.RegisterOutputType(BranchProtectionV3RestrictionsPtrOutput{})
 	pulumi.RegisterOutputType(OrganizationWebhookConfigurationOutput{})
 	pulumi.RegisterOutputType(OrganizationWebhookConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(RepositoryPagesOutput{})
+	pulumi.RegisterOutputType(RepositoryPagesPtrOutput{})
+	pulumi.RegisterOutputType(RepositoryPagesSourceOutput{})
+	pulumi.RegisterOutputType(RepositoryPagesSourcePtrOutput{})
 	pulumi.RegisterOutputType(RepositoryTemplateOutput{})
 	pulumi.RegisterOutputType(RepositoryTemplatePtrOutput{})
 	pulumi.RegisterOutputType(RepositoryWebhookConfigurationOutput{})
@@ -1192,4 +2324,8 @@ func init() {
 	pulumi.RegisterOutputType(GetCollaboratorsCollaboratorArrayOutput{})
 	pulumi.RegisterOutputType(GetOrganizationTeamSyncGroupsGroupOutput{})
 	pulumi.RegisterOutputType(GetOrganizationTeamSyncGroupsGroupArrayOutput{})
+	pulumi.RegisterOutputType(GetRepositoryPageOutput{})
+	pulumi.RegisterOutputType(GetRepositoryPageArrayOutput{})
+	pulumi.RegisterOutputType(GetRepositoryPageSourceOutput{})
+	pulumi.RegisterOutputType(GetRepositoryPageSourceArrayOutput{})
 }

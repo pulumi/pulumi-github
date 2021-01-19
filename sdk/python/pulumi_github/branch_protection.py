@@ -17,6 +17,8 @@ class BranchProtection(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 allows_deletions: Optional[pulumi.Input[bool]] = None,
+                 allows_force_pushes: Optional[pulumi.Input[bool]] = None,
                  enforce_admins: Optional[pulumi.Input[bool]] = None,
                  pattern: Optional[pulumi.Input[str]] = None,
                  push_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -42,6 +44,8 @@ class BranchProtection(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] allows_deletions: Boolean, setting this to `true` to allow the branch to be deleted.
+        :param pulumi.Input[bool] allows_force_pushes: Boolean, setting this to `true` to allow force pushes on the branch.
         :param pulumi.Input[bool] enforce_admins: Boolean, setting this to `true` enforces status checks for repository administrators.
         :param pulumi.Input[str] pattern: Identifies the protection rule pattern.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] push_restrictions: The list of actor IDs that may push to the branch.
@@ -67,6 +71,8 @@ class BranchProtection(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['allows_deletions'] = allows_deletions
+            __props__['allows_force_pushes'] = allows_force_pushes
             __props__['enforce_admins'] = enforce_admins
             if pattern is None and not opts.urn:
                 raise TypeError("Missing required property 'pattern'")
@@ -88,6 +94,8 @@ class BranchProtection(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            allows_deletions: Optional[pulumi.Input[bool]] = None,
+            allows_force_pushes: Optional[pulumi.Input[bool]] = None,
             enforce_admins: Optional[pulumi.Input[bool]] = None,
             pattern: Optional[pulumi.Input[str]] = None,
             push_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -102,6 +110,8 @@ class BranchProtection(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] allows_deletions: Boolean, setting this to `true` to allow the branch to be deleted.
+        :param pulumi.Input[bool] allows_force_pushes: Boolean, setting this to `true` to allow force pushes on the branch.
         :param pulumi.Input[bool] enforce_admins: Boolean, setting this to `true` enforces status checks for repository administrators.
         :param pulumi.Input[str] pattern: Identifies the protection rule pattern.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] push_restrictions: The list of actor IDs that may push to the branch.
@@ -114,6 +124,8 @@ class BranchProtection(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["allows_deletions"] = allows_deletions
+        __props__["allows_force_pushes"] = allows_force_pushes
         __props__["enforce_admins"] = enforce_admins
         __props__["pattern"] = pattern
         __props__["push_restrictions"] = push_restrictions
@@ -122,6 +134,22 @@ class BranchProtection(pulumi.CustomResource):
         __props__["required_pull_request_reviews"] = required_pull_request_reviews
         __props__["required_status_checks"] = required_status_checks
         return BranchProtection(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="allowsDeletions")
+    def allows_deletions(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Boolean, setting this to `true` to allow the branch to be deleted.
+        """
+        return pulumi.get(self, "allows_deletions")
+
+    @property
+    @pulumi.getter(name="allowsForcePushes")
+    def allows_force_pushes(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Boolean, setting this to `true` to allow force pushes on the branch.
+        """
+        return pulumi.get(self, "allows_force_pushes")
 
     @property
     @pulumi.getter(name="enforceAdmins")

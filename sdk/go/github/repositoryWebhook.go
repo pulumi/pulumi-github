@@ -68,7 +68,7 @@ type RepositoryWebhook struct {
 
 	// Indicate of the webhook should receive events. Defaults to `true`.
 	Active pulumi.BoolPtrOutput `pulumi:"active"`
-	// key/value pair of configuration for this webhook. Available keys are `url`, `contentType`, `secret` and `insecureSsl`. `secret` is [the shared secret, see API documentation](https://developer.github.com/v3/repos/hooks/#create-a-hook).
+	// key/value pair of configuration for this webhook. Available keys are `url`, `contentType`, `secret` and `insecureSsl`. `secret` is [the shared secret, see API documentation](https://developer.github.com/v3/repos/hooks/#create-a-hook). `contentType` may be either form or json.
 	Configuration RepositoryWebhookConfigurationPtrOutput `pulumi:"configuration"`
 	Etag          pulumi.StringOutput                     `pulumi:"etag"`
 	// A list of events which should trigger the webhook. See a list of [available events](https://developer.github.com/v3/activity/events/types/).
@@ -116,7 +116,7 @@ func GetRepositoryWebhook(ctx *pulumi.Context,
 type repositoryWebhookState struct {
 	// Indicate of the webhook should receive events. Defaults to `true`.
 	Active *bool `pulumi:"active"`
-	// key/value pair of configuration for this webhook. Available keys are `url`, `contentType`, `secret` and `insecureSsl`. `secret` is [the shared secret, see API documentation](https://developer.github.com/v3/repos/hooks/#create-a-hook).
+	// key/value pair of configuration for this webhook. Available keys are `url`, `contentType`, `secret` and `insecureSsl`. `secret` is [the shared secret, see API documentation](https://developer.github.com/v3/repos/hooks/#create-a-hook). `contentType` may be either form or json.
 	Configuration *RepositoryWebhookConfiguration `pulumi:"configuration"`
 	Etag          *string                         `pulumi:"etag"`
 	// A list of events which should trigger the webhook. See a list of [available events](https://developer.github.com/v3/activity/events/types/).
@@ -130,7 +130,7 @@ type repositoryWebhookState struct {
 type RepositoryWebhookState struct {
 	// Indicate of the webhook should receive events. Defaults to `true`.
 	Active pulumi.BoolPtrInput
-	// key/value pair of configuration for this webhook. Available keys are `url`, `contentType`, `secret` and `insecureSsl`. `secret` is [the shared secret, see API documentation](https://developer.github.com/v3/repos/hooks/#create-a-hook).
+	// key/value pair of configuration for this webhook. Available keys are `url`, `contentType`, `secret` and `insecureSsl`. `secret` is [the shared secret, see API documentation](https://developer.github.com/v3/repos/hooks/#create-a-hook). `contentType` may be either form or json.
 	Configuration RepositoryWebhookConfigurationPtrInput
 	Etag          pulumi.StringPtrInput
 	// A list of events which should trigger the webhook. See a list of [available events](https://developer.github.com/v3/activity/events/types/).
@@ -148,7 +148,7 @@ func (RepositoryWebhookState) ElementType() reflect.Type {
 type repositoryWebhookArgs struct {
 	// Indicate of the webhook should receive events. Defaults to `true`.
 	Active *bool `pulumi:"active"`
-	// key/value pair of configuration for this webhook. Available keys are `url`, `contentType`, `secret` and `insecureSsl`. `secret` is [the shared secret, see API documentation](https://developer.github.com/v3/repos/hooks/#create-a-hook).
+	// key/value pair of configuration for this webhook. Available keys are `url`, `contentType`, `secret` and `insecureSsl`. `secret` is [the shared secret, see API documentation](https://developer.github.com/v3/repos/hooks/#create-a-hook). `contentType` may be either form or json.
 	Configuration *RepositoryWebhookConfiguration `pulumi:"configuration"`
 	// A list of events which should trigger the webhook. See a list of [available events](https://developer.github.com/v3/activity/events/types/).
 	Events []string `pulumi:"events"`
@@ -160,7 +160,7 @@ type repositoryWebhookArgs struct {
 type RepositoryWebhookArgs struct {
 	// Indicate of the webhook should receive events. Defaults to `true`.
 	Active pulumi.BoolPtrInput
-	// key/value pair of configuration for this webhook. Available keys are `url`, `contentType`, `secret` and `insecureSsl`. `secret` is [the shared secret, see API documentation](https://developer.github.com/v3/repos/hooks/#create-a-hook).
+	// key/value pair of configuration for this webhook. Available keys are `url`, `contentType`, `secret` and `insecureSsl`. `secret` is [the shared secret, see API documentation](https://developer.github.com/v3/repos/hooks/#create-a-hook). `contentType` may be either form or json.
 	Configuration RepositoryWebhookConfigurationPtrInput
 	// A list of events which should trigger the webhook. See a list of [available events](https://developer.github.com/v3/activity/events/types/).
 	Events pulumi.StringArrayInput
