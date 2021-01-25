@@ -52,6 +52,10 @@ export class ActionsOrganizationSecret extends pulumi.CustomResource {
      * Date of actionsSecret update.
      */
     public /*out*/ readonly updatedAt!: pulumi.Output<string>;
+    /**
+     * Configures the access that repositories have to the organization secret.
+     * Must be one of `all`, `private`, `selected`. `selectedRepositoryIds` is required if set to `selected`.
+     */
     public readonly visibility!: pulumi.Output<string>;
 
     /**
@@ -125,6 +129,10 @@ export interface ActionsOrganizationSecretState {
      * Date of actionsSecret update.
      */
     readonly updatedAt?: pulumi.Input<string>;
+    /**
+     * Configures the access that repositories have to the organization secret.
+     * Must be one of `all`, `private`, `selected`. `selectedRepositoryIds` is required if set to `selected`.
+     */
     readonly visibility?: pulumi.Input<string>;
 }
 
@@ -144,5 +152,9 @@ export interface ActionsOrganizationSecretArgs {
      * An array of repository ids that can access the organization secret.
      */
     readonly selectedRepositoryIds?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * Configures the access that repositories have to the organization secret.
+     * Must be one of `all`, `private`, `selected`. `selectedRepositoryIds` is required if set to `selected`.
+     */
     readonly visibility: pulumi.Input<string>;
 }

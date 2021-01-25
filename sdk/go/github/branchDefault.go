@@ -15,6 +15,8 @@ import (
 //
 // This resource allows you to set the default branch for a given repository.
 //
+// Note that use of this resource is incompatible with the `defaultBranch` option of the `Repository` resource.  Using both will result in plans always showing a diff.
+//
 // ## Example Usage
 //
 // ```go
@@ -29,11 +31,7 @@ import (
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		example, err := github.NewRepository(ctx, "example", &github.RepositoryArgs{
 // 			Description: pulumi.String("My awesome codebase"),
-// 			Visibility:  pulumi.String("private"),
-// 			Template: &github.RepositoryTemplateArgs{
-// 				Owner:      pulumi.String("github"),
-// 				Repository: pulumi.String("terraform-module-template"),
-// 			},
+// 			AutoInit:    pulumi.Bool(true),
 // 		})
 // 		if err != nil {
 // 			return err

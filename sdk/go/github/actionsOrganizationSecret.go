@@ -23,7 +23,9 @@ type ActionsOrganizationSecret struct {
 	// An array of repository ids that can access the organization secret.
 	SelectedRepositoryIds pulumi.IntArrayOutput `pulumi:"selectedRepositoryIds"`
 	// Date of actionsSecret update.
-	UpdatedAt  pulumi.StringOutput `pulumi:"updatedAt"`
+	UpdatedAt pulumi.StringOutput `pulumi:"updatedAt"`
+	// Configures the access that repositories have to the organization secret.
+	// Must be one of `all`, `private`, `selected`. `selectedRepositoryIds` is required if set to `selected`.
 	Visibility pulumi.StringOutput `pulumi:"visibility"`
 }
 
@@ -74,7 +76,9 @@ type actionsOrganizationSecretState struct {
 	// An array of repository ids that can access the organization secret.
 	SelectedRepositoryIds []int `pulumi:"selectedRepositoryIds"`
 	// Date of actionsSecret update.
-	UpdatedAt  *string `pulumi:"updatedAt"`
+	UpdatedAt *string `pulumi:"updatedAt"`
+	// Configures the access that repositories have to the organization secret.
+	// Must be one of `all`, `private`, `selected`. `selectedRepositoryIds` is required if set to `selected`.
 	Visibility *string `pulumi:"visibility"`
 }
 
@@ -88,7 +92,9 @@ type ActionsOrganizationSecretState struct {
 	// An array of repository ids that can access the organization secret.
 	SelectedRepositoryIds pulumi.IntArrayInput
 	// Date of actionsSecret update.
-	UpdatedAt  pulumi.StringPtrInput
+	UpdatedAt pulumi.StringPtrInput
+	// Configures the access that repositories have to the organization secret.
+	// Must be one of `all`, `private`, `selected`. `selectedRepositoryIds` is required if set to `selected`.
 	Visibility pulumi.StringPtrInput
 }
 
@@ -102,8 +108,10 @@ type actionsOrganizationSecretArgs struct {
 	// Name of the secret
 	SecretName string `pulumi:"secretName"`
 	// An array of repository ids that can access the organization secret.
-	SelectedRepositoryIds []int  `pulumi:"selectedRepositoryIds"`
-	Visibility            string `pulumi:"visibility"`
+	SelectedRepositoryIds []int `pulumi:"selectedRepositoryIds"`
+	// Configures the access that repositories have to the organization secret.
+	// Must be one of `all`, `private`, `selected`. `selectedRepositoryIds` is required if set to `selected`.
+	Visibility string `pulumi:"visibility"`
 }
 
 // The set of arguments for constructing a ActionsOrganizationSecret resource.
@@ -114,7 +122,9 @@ type ActionsOrganizationSecretArgs struct {
 	SecretName pulumi.StringInput
 	// An array of repository ids that can access the organization secret.
 	SelectedRepositoryIds pulumi.IntArrayInput
-	Visibility            pulumi.StringInput
+	// Configures the access that repositories have to the organization secret.
+	// Must be one of `all`, `private`, `selected`. `selectedRepositoryIds` is required if set to `selected`.
+	Visibility pulumi.StringInput
 }
 
 func (ActionsOrganizationSecretArgs) ElementType() reflect.Type {

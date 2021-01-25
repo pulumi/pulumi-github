@@ -29,6 +29,8 @@ class ActionsOrganizationSecret(pulumi.CustomResource):
         :param pulumi.Input[str] plaintext_value: Plaintext value of the secret to be encrypted
         :param pulumi.Input[str] secret_name: Name of the secret
         :param pulumi.Input[Sequence[pulumi.Input[int]]] selected_repository_ids: An array of repository ids that can access the organization secret.
+        :param pulumi.Input[str] visibility: Configures the access that repositories have to the organization secret.
+               Must be one of `all`, `private`, `selected`. `selected_repository_ids` is required if set to `selected`.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -87,6 +89,8 @@ class ActionsOrganizationSecret(pulumi.CustomResource):
         :param pulumi.Input[str] secret_name: Name of the secret
         :param pulumi.Input[Sequence[pulumi.Input[int]]] selected_repository_ids: An array of repository ids that can access the organization secret.
         :param pulumi.Input[str] updated_at: Date of actions_secret update.
+        :param pulumi.Input[str] visibility: Configures the access that repositories have to the organization secret.
+               Must be one of `all`, `private`, `selected`. `selected_repository_ids` is required if set to `selected`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -143,6 +147,10 @@ class ActionsOrganizationSecret(pulumi.CustomResource):
     @property
     @pulumi.getter
     def visibility(self) -> pulumi.Output[str]:
+        """
+        Configures the access that repositories have to the organization secret.
+        Must be one of `all`, `private`, `selected`. `selected_repository_ids` is required if set to `selected`.
+        """
         return pulumi.get(self, "visibility")
 
     def translate_output_property(self, prop):
