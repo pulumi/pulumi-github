@@ -2,9 +2,12 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Upgrade to v4.3.1 of the GitHub Terraform Provider
+_(none)_
 
 ---
+
+## 2.5.1 (2021-01-27)
+* Upgrade to v4.3.1 of the GitHub Terraform Provider
 
 ## 2.5.0 (2021-01-19)
 * Upgrade to v4.3.0 of the GitHub Terraform Provider
