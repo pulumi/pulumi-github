@@ -14,6 +14,8 @@ namespace Pulumi.Github
     /// 
     /// This resource allows you to set the default branch for a given repository.
     /// 
+    /// Note that use of this resource is incompatible with the `default_branch` option of the `github.Repository` resource.  Using both will result in plans always showing a diff.
+    /// 
     /// ## Example Usage
     /// 
     /// ```csharp
@@ -27,12 +29,7 @@ namespace Pulumi.Github
     ///         var example = new Github.Repository("example", new Github.RepositoryArgs
     ///         {
     ///             Description = "My awesome codebase",
-    ///             Visibility = "private",
-    ///             Template = new Github.Inputs.RepositoryTemplateArgs
-    ///             {
-    ///                 Owner = "github",
-    ///                 Repository = "terraform-module-template",
-    ///             },
+    ///             AutoInit = true,
     ///         });
     ///         var development = new Github.Branch("development", new Github.BranchArgs
     ///         {

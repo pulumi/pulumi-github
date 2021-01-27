@@ -4,7 +4,7 @@ go 1.14
 
 replace (
 	github.com/Azure/go-autorest => github.com/Azure/go-autorest v12.4.3+incompatible
-	github.com/terraform-providers/terraform-provider-github => github.com/integrations/terraform-provider-github v1.3.1-0.20210116231816-872bb967b7a1
+	github.com/terraform-providers/terraform-provider-github => github.com/pulumi/terraform-provider-github v0.0.0-20210126170520-9fed364c5088
 )
 
 require (

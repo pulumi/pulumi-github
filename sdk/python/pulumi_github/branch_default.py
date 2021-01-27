@@ -25,6 +25,8 @@ class BranchDefault(pulumi.CustomResource):
 
         This resource allows you to set the default branch for a given repository.
 
+        Note that use of this resource is incompatible with the `default_branch` option of the `Repository` resource.  Using both will result in plans always showing a diff.
+
         ## Example Usage
 
         ```python
@@ -33,11 +35,7 @@ class BranchDefault(pulumi.CustomResource):
 
         example = github.Repository("example",
             description="My awesome codebase",
-            visibility="private",
-            template=github.RepositoryTemplateArgs(
-                owner="github",
-                repository="terraform-module-template",
-            ))
+            auto_init=True)
         development = github.Branch("development",
             repository=example.name,
             branch="development")

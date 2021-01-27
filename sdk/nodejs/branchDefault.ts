@@ -9,6 +9,8 @@ import * as utilities from "./utilities";
  *
  * This resource allows you to set the default branch for a given repository.
  *
+ * Note that use of this resource is incompatible with the `defaultBranch` option of the `github.Repository` resource.  Using both will result in plans always showing a diff.
+ *
  * ## Example Usage
  *
  * ```typescript
@@ -17,11 +19,7 @@ import * as utilities from "./utilities";
  *
  * const example = new github.Repository("example", {
  *     description: "My awesome codebase",
- *     visibility: "private",
- *     template: {
- *         owner: "github",
- *         repository: "terraform-module-template",
- *     },
+ *     autoInit: true,
  * });
  * const development = new github.Branch("development", {
  *     repository: example.name,
