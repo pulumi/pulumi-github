@@ -24,6 +24,7 @@ namespace Pulumi.Github
     ///  $ pulumi import github:index/teamSyncGroupMapping:TeamSyncGroupMapping example some_team
     /// ```
     /// </summary>
+    [GithubResourceType("github:index/teamSyncGroupMapping:TeamSyncGroupMapping")]
     public partial class TeamSyncGroupMapping : Pulumi.CustomResource
     {
         [Output("etag")]

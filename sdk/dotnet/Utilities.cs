@@ -77,4 +77,11 @@ namespace Pulumi.Github
             }
         }
     }
+
+    internal sealed class GithubResourceTypeAttribute : Pulumi.ResourceTypeAttribute
+    {
+        public GithubResourceTypeAttribute(string type) : base(type, Utilities.Version)
+        {
+        }
+    }
 }

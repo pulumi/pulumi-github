@@ -19,7 +19,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-github/sdk/v2/go/github"
+// 	"github.com/pulumi/pulumi-github/sdk/v2/go/github/"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -146,15 +146,15 @@ type RepositoryProjectInput interface {
 	ToRepositoryProjectOutputWithContext(ctx context.Context) RepositoryProjectOutput
 }
 
-func (RepositoryProject) ElementType() reflect.Type {
-	return reflect.TypeOf((*RepositoryProject)(nil)).Elem()
+func (*RepositoryProject) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositoryProject)(nil))
 }
 
-func (i RepositoryProject) ToRepositoryProjectOutput() RepositoryProjectOutput {
+func (i *RepositoryProject) ToRepositoryProjectOutput() RepositoryProjectOutput {
 	return i.ToRepositoryProjectOutputWithContext(context.Background())
 }
 
-func (i RepositoryProject) ToRepositoryProjectOutputWithContext(ctx context.Context) RepositoryProjectOutput {
+func (i *RepositoryProject) ToRepositoryProjectOutputWithContext(ctx context.Context) RepositoryProjectOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryProjectOutput)
 }
 
@@ -163,7 +163,7 @@ type RepositoryProjectOutput struct {
 }
 
 func (RepositoryProjectOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RepositoryProjectOutput)(nil)).Elem()
+	return reflect.TypeOf((*RepositoryProject)(nil))
 }
 
 func (o RepositoryProjectOutput) ToRepositoryProjectOutput() RepositoryProjectOutput {

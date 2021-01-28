@@ -56,6 +56,7 @@ namespace Pulumi.Github
     ///  $ pulumi import github:index/teamMembership:TeamMembership member 1234567:someuser
     /// ```
     /// </summary>
+    [GithubResourceType("github:index/teamMembership:TeamMembership")]
     public partial class TeamMembership : Pulumi.CustomResource
     {
         [Output("etag")]

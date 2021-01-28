@@ -57,6 +57,7 @@ namespace Pulumi.Github
     ///  $ pulumi import github:index/repositoryFile:RepositoryFile gitignore example/.gitignore:dev
     /// ```
     /// </summary>
+    [GithubResourceType("github:index/repositoryFile:RepositoryFile")]
     public partial class RepositoryFile : Pulumi.CustomResource
     {
         /// <summary>

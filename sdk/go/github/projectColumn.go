@@ -19,7 +19,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-github/sdk/v2/go/github"
+// 	"github.com/pulumi/pulumi-github/sdk/v2/go/github/"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -131,15 +131,15 @@ type ProjectColumnInput interface {
 	ToProjectColumnOutputWithContext(ctx context.Context) ProjectColumnOutput
 }
 
-func (ProjectColumn) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProjectColumn)(nil)).Elem()
+func (*ProjectColumn) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectColumn)(nil))
 }
 
-func (i ProjectColumn) ToProjectColumnOutput() ProjectColumnOutput {
+func (i *ProjectColumn) ToProjectColumnOutput() ProjectColumnOutput {
 	return i.ToProjectColumnOutputWithContext(context.Background())
 }
 
-func (i ProjectColumn) ToProjectColumnOutputWithContext(ctx context.Context) ProjectColumnOutput {
+func (i *ProjectColumn) ToProjectColumnOutputWithContext(ctx context.Context) ProjectColumnOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ProjectColumnOutput)
 }
 
@@ -148,7 +148,7 @@ type ProjectColumnOutput struct {
 }
 
 func (ProjectColumnOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProjectColumnOutput)(nil)).Elem()
+	return reflect.TypeOf((*ProjectColumn)(nil))
 }
 
 func (o ProjectColumnOutput) ToProjectColumnOutput() ProjectColumnOutput {

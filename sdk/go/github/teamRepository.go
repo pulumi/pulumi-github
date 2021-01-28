@@ -27,7 +27,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-github/sdk/v2/go/github"
+// 	"github.com/pulumi/pulumi-github/sdk/v2/go/github/"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -168,15 +168,15 @@ type TeamRepositoryInput interface {
 	ToTeamRepositoryOutputWithContext(ctx context.Context) TeamRepositoryOutput
 }
 
-func (TeamRepository) ElementType() reflect.Type {
-	return reflect.TypeOf((*TeamRepository)(nil)).Elem()
+func (*TeamRepository) ElementType() reflect.Type {
+	return reflect.TypeOf((*TeamRepository)(nil))
 }
 
-func (i TeamRepository) ToTeamRepositoryOutput() TeamRepositoryOutput {
+func (i *TeamRepository) ToTeamRepositoryOutput() TeamRepositoryOutput {
 	return i.ToTeamRepositoryOutputWithContext(context.Background())
 }
 
-func (i TeamRepository) ToTeamRepositoryOutputWithContext(ctx context.Context) TeamRepositoryOutput {
+func (i *TeamRepository) ToTeamRepositoryOutputWithContext(ctx context.Context) TeamRepositoryOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TeamRepositoryOutput)
 }
 
@@ -185,7 +185,7 @@ type TeamRepositoryOutput struct {
 }
 
 func (TeamRepositoryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TeamRepositoryOutput)(nil)).Elem()
+	return reflect.TypeOf((*TeamRepository)(nil))
 }
 
 func (o TeamRepositoryOutput) ToTeamRepositoryOutput() TeamRepositoryOutput {

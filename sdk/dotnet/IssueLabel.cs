@@ -18,6 +18,7 @@ namespace Pulumi.Github
     ///  $ pulumi import github:index/issueLabel:IssueLabel panic_label terraform:panic
     /// ```
     /// </summary>
+    [GithubResourceType("github:index/issueLabel:IssueLabel")]
     public partial class IssueLabel : Pulumi.CustomResource
     {
         /// <summary>

@@ -44,6 +44,7 @@ namespace Pulumi.Github
     ///  $ pulumi import github:index/team:Team core 1234567
     /// ```
     /// </summary>
+    [GithubResourceType("github:index/team:Team")]
     public partial class Team : Pulumi.CustomResource
     {
         /// <summary>

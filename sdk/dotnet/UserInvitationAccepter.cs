@@ -47,6 +47,7 @@ namespace Pulumi.Github
     /// }
     /// ```
     /// </summary>
+    [GithubResourceType("github:index/userInvitationAccepter:UserInvitationAccepter")]
     public partial class UserInvitationAccepter : Pulumi.CustomResource
     {
         /// <summary>

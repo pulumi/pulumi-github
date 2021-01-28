@@ -31,6 +31,7 @@ namespace Pulumi.Github
     /// }
     /// ```
     /// </summary>
+    [GithubResourceType("github:index/organizationBlock:OrganizationBlock")]
     public partial class OrganizationBlock : Pulumi.CustomResource
     {
         [Output("etag")]

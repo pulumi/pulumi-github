@@ -19,7 +19,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-github/sdk/v2/go/github"
+// 	"github.com/pulumi/pulumi-github/sdk/v2/go/github/"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -112,15 +112,15 @@ type OrganizationBlockInput interface {
 	ToOrganizationBlockOutputWithContext(ctx context.Context) OrganizationBlockOutput
 }
 
-func (OrganizationBlock) ElementType() reflect.Type {
-	return reflect.TypeOf((*OrganizationBlock)(nil)).Elem()
+func (*OrganizationBlock) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationBlock)(nil))
 }
 
-func (i OrganizationBlock) ToOrganizationBlockOutput() OrganizationBlockOutput {
+func (i *OrganizationBlock) ToOrganizationBlockOutput() OrganizationBlockOutput {
 	return i.ToOrganizationBlockOutputWithContext(context.Background())
 }
 
-func (i OrganizationBlock) ToOrganizationBlockOutputWithContext(ctx context.Context) OrganizationBlockOutput {
+func (i *OrganizationBlock) ToOrganizationBlockOutputWithContext(ctx context.Context) OrganizationBlockOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationBlockOutput)
 }
 
@@ -129,7 +129,7 @@ type OrganizationBlockOutput struct {
 }
 
 func (OrganizationBlockOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*OrganizationBlockOutput)(nil)).Elem()
+	return reflect.TypeOf((*OrganizationBlock)(nil))
 }
 
 func (o OrganizationBlockOutput) ToOrganizationBlockOutput() OrganizationBlockOutput {

@@ -23,7 +23,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-github/sdk/v2/go/github"
+// 	"github.com/pulumi/pulumi-github/sdk/v2/go/github/"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -149,15 +149,15 @@ type BranchDefaultInput interface {
 	ToBranchDefaultOutputWithContext(ctx context.Context) BranchDefaultOutput
 }
 
-func (BranchDefault) ElementType() reflect.Type {
-	return reflect.TypeOf((*BranchDefault)(nil)).Elem()
+func (*BranchDefault) ElementType() reflect.Type {
+	return reflect.TypeOf((*BranchDefault)(nil))
 }
 
-func (i BranchDefault) ToBranchDefaultOutput() BranchDefaultOutput {
+func (i *BranchDefault) ToBranchDefaultOutput() BranchDefaultOutput {
 	return i.ToBranchDefaultOutputWithContext(context.Background())
 }
 
-func (i BranchDefault) ToBranchDefaultOutputWithContext(ctx context.Context) BranchDefaultOutput {
+func (i *BranchDefault) ToBranchDefaultOutputWithContext(ctx context.Context) BranchDefaultOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BranchDefaultOutput)
 }
 
@@ -166,7 +166,7 @@ type BranchDefaultOutput struct {
 }
 
 func (BranchDefaultOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BranchDefaultOutput)(nil)).Elem()
+	return reflect.TypeOf((*BranchDefault)(nil))
 }
 
 func (o BranchDefaultOutput) ToBranchDefaultOutput() BranchDefaultOutput {

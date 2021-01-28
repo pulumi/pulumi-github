@@ -20,6 +20,7 @@ import (
 //
 // import (
 // 	"github.com/pulumi/pulumi-github/sdk/v2/go/github"
+// 	"github.com/pulumi/pulumi-github/sdk/v2/go/github/"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -156,15 +157,15 @@ type OrganizationWebhookInput interface {
 	ToOrganizationWebhookOutputWithContext(ctx context.Context) OrganizationWebhookOutput
 }
 
-func (OrganizationWebhook) ElementType() reflect.Type {
-	return reflect.TypeOf((*OrganizationWebhook)(nil)).Elem()
+func (*OrganizationWebhook) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationWebhook)(nil))
 }
 
-func (i OrganizationWebhook) ToOrganizationWebhookOutput() OrganizationWebhookOutput {
+func (i *OrganizationWebhook) ToOrganizationWebhookOutput() OrganizationWebhookOutput {
 	return i.ToOrganizationWebhookOutputWithContext(context.Background())
 }
 
-func (i OrganizationWebhook) ToOrganizationWebhookOutputWithContext(ctx context.Context) OrganizationWebhookOutput {
+func (i *OrganizationWebhook) ToOrganizationWebhookOutputWithContext(ctx context.Context) OrganizationWebhookOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationWebhookOutput)
 }
 
@@ -173,7 +174,7 @@ type OrganizationWebhookOutput struct {
 }
 
 func (OrganizationWebhookOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*OrganizationWebhookOutput)(nil)).Elem()
+	return reflect.TypeOf((*OrganizationWebhook)(nil))
 }
 
 func (o OrganizationWebhookOutput) ToOrganizationWebhookOutput() OrganizationWebhookOutput {

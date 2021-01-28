@@ -20,7 +20,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-github/sdk/v2/go/github"
+// 	"github.com/pulumi/pulumi-github/sdk/v2/go/github/"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -230,15 +230,15 @@ type RepositoryFileInput interface {
 	ToRepositoryFileOutputWithContext(ctx context.Context) RepositoryFileOutput
 }
 
-func (RepositoryFile) ElementType() reflect.Type {
-	return reflect.TypeOf((*RepositoryFile)(nil)).Elem()
+func (*RepositoryFile) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositoryFile)(nil))
 }
 
-func (i RepositoryFile) ToRepositoryFileOutput() RepositoryFileOutput {
+func (i *RepositoryFile) ToRepositoryFileOutput() RepositoryFileOutput {
 	return i.ToRepositoryFileOutputWithContext(context.Background())
 }
 
-func (i RepositoryFile) ToRepositoryFileOutputWithContext(ctx context.Context) RepositoryFileOutput {
+func (i *RepositoryFile) ToRepositoryFileOutputWithContext(ctx context.Context) RepositoryFileOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryFileOutput)
 }
 
@@ -247,7 +247,7 @@ type RepositoryFileOutput struct {
 }
 
 func (RepositoryFileOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RepositoryFileOutput)(nil)).Elem()
+	return reflect.TypeOf((*RepositoryFile)(nil))
 }
 
 func (o RepositoryFileOutput) ToRepositoryFileOutput() RepositoryFileOutput {

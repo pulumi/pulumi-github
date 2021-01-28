@@ -116,15 +116,15 @@ type TeamSyncGroupMappingInput interface {
 	ToTeamSyncGroupMappingOutputWithContext(ctx context.Context) TeamSyncGroupMappingOutput
 }
 
-func (TeamSyncGroupMapping) ElementType() reflect.Type {
-	return reflect.TypeOf((*TeamSyncGroupMapping)(nil)).Elem()
+func (*TeamSyncGroupMapping) ElementType() reflect.Type {
+	return reflect.TypeOf((*TeamSyncGroupMapping)(nil))
 }
 
-func (i TeamSyncGroupMapping) ToTeamSyncGroupMappingOutput() TeamSyncGroupMappingOutput {
+func (i *TeamSyncGroupMapping) ToTeamSyncGroupMappingOutput() TeamSyncGroupMappingOutput {
 	return i.ToTeamSyncGroupMappingOutputWithContext(context.Background())
 }
 
-func (i TeamSyncGroupMapping) ToTeamSyncGroupMappingOutputWithContext(ctx context.Context) TeamSyncGroupMappingOutput {
+func (i *TeamSyncGroupMapping) ToTeamSyncGroupMappingOutputWithContext(ctx context.Context) TeamSyncGroupMappingOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TeamSyncGroupMappingOutput)
 }
 
@@ -133,7 +133,7 @@ type TeamSyncGroupMappingOutput struct {
 }
 
 func (TeamSyncGroupMappingOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TeamSyncGroupMappingOutput)(nil)).Elem()
+	return reflect.TypeOf((*TeamSyncGroupMapping)(nil))
 }
 
 func (o TeamSyncGroupMappingOutput) ToTeamSyncGroupMappingOutput() TeamSyncGroupMappingOutput {

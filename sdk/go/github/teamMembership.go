@@ -24,7 +24,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-github/sdk/v2/go/github"
+// 	"github.com/pulumi/pulumi-github/sdk/v2/go/github/"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -168,15 +168,15 @@ type TeamMembershipInput interface {
 	ToTeamMembershipOutputWithContext(ctx context.Context) TeamMembershipOutput
 }
 
-func (TeamMembership) ElementType() reflect.Type {
-	return reflect.TypeOf((*TeamMembership)(nil)).Elem()
+func (*TeamMembership) ElementType() reflect.Type {
+	return reflect.TypeOf((*TeamMembership)(nil))
 }
 
-func (i TeamMembership) ToTeamMembershipOutput() TeamMembershipOutput {
+func (i *TeamMembership) ToTeamMembershipOutput() TeamMembershipOutput {
 	return i.ToTeamMembershipOutputWithContext(context.Background())
 }
 
-func (i TeamMembership) ToTeamMembershipOutputWithContext(ctx context.Context) TeamMembershipOutput {
+func (i *TeamMembership) ToTeamMembershipOutputWithContext(ctx context.Context) TeamMembershipOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TeamMembershipOutput)
 }
 
@@ -185,7 +185,7 @@ type TeamMembershipOutput struct {
 }
 
 func (TeamMembershipOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TeamMembershipOutput)(nil)).Elem()
+	return reflect.TypeOf((*TeamMembership)(nil))
 }
 
 func (o TeamMembershipOutput) ToTeamMembershipOutput() TeamMembershipOutput {

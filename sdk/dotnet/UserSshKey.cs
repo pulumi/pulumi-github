@@ -43,6 +43,7 @@ namespace Pulumi.Github
     ///  $ pulumi import github:index/userSshKey:UserSshKey example 1234567
     /// ```
     /// </summary>
+    [GithubResourceType("github:index/userSshKey:UserSshKey")]
     public partial class UserSshKey : Pulumi.CustomResource
     {
         [Output("etag")]

@@ -164,15 +164,15 @@ type BranchProtectionV3Input interface {
 	ToBranchProtectionV3OutputWithContext(ctx context.Context) BranchProtectionV3Output
 }
 
-func (BranchProtectionV3) ElementType() reflect.Type {
-	return reflect.TypeOf((*BranchProtectionV3)(nil)).Elem()
+func (*BranchProtectionV3) ElementType() reflect.Type {
+	return reflect.TypeOf((*BranchProtectionV3)(nil))
 }
 
-func (i BranchProtectionV3) ToBranchProtectionV3Output() BranchProtectionV3Output {
+func (i *BranchProtectionV3) ToBranchProtectionV3Output() BranchProtectionV3Output {
 	return i.ToBranchProtectionV3OutputWithContext(context.Background())
 }
 
-func (i BranchProtectionV3) ToBranchProtectionV3OutputWithContext(ctx context.Context) BranchProtectionV3Output {
+func (i *BranchProtectionV3) ToBranchProtectionV3OutputWithContext(ctx context.Context) BranchProtectionV3Output {
 	return pulumi.ToOutputWithContext(ctx, i).(BranchProtectionV3Output)
 }
 
@@ -181,7 +181,7 @@ type BranchProtectionV3Output struct {
 }
 
 func (BranchProtectionV3Output) ElementType() reflect.Type {
-	return reflect.TypeOf((*BranchProtectionV3Output)(nil)).Elem()
+	return reflect.TypeOf((*BranchProtectionV3)(nil))
 }
 
 func (o BranchProtectionV3Output) ToBranchProtectionV3Output() BranchProtectionV3Output {

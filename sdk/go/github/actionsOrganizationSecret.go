@@ -138,15 +138,15 @@ type ActionsOrganizationSecretInput interface {
 	ToActionsOrganizationSecretOutputWithContext(ctx context.Context) ActionsOrganizationSecretOutput
 }
 
-func (ActionsOrganizationSecret) ElementType() reflect.Type {
-	return reflect.TypeOf((*ActionsOrganizationSecret)(nil)).Elem()
+func (*ActionsOrganizationSecret) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionsOrganizationSecret)(nil))
 }
 
-func (i ActionsOrganizationSecret) ToActionsOrganizationSecretOutput() ActionsOrganizationSecretOutput {
+func (i *ActionsOrganizationSecret) ToActionsOrganizationSecretOutput() ActionsOrganizationSecretOutput {
 	return i.ToActionsOrganizationSecretOutputWithContext(context.Background())
 }
 
-func (i ActionsOrganizationSecret) ToActionsOrganizationSecretOutputWithContext(ctx context.Context) ActionsOrganizationSecretOutput {
+func (i *ActionsOrganizationSecret) ToActionsOrganizationSecretOutputWithContext(ctx context.Context) ActionsOrganizationSecretOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ActionsOrganizationSecretOutput)
 }
 
@@ -155,7 +155,7 @@ type ActionsOrganizationSecretOutput struct {
 }
 
 func (ActionsOrganizationSecretOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ActionsOrganizationSecretOutput)(nil)).Elem()
+	return reflect.TypeOf((*ActionsOrganizationSecret)(nil))
 }
 
 func (o ActionsOrganizationSecretOutput) ToActionsOrganizationSecretOutput() ActionsOrganizationSecretOutput {

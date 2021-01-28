@@ -21,7 +21,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-github/sdk/v2/go/github"
+// 	"github.com/pulumi/pulumi-github/sdk/v2/go/github/"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -183,15 +183,15 @@ type RepositoryMilestoneInput interface {
 	ToRepositoryMilestoneOutputWithContext(ctx context.Context) RepositoryMilestoneOutput
 }
 
-func (RepositoryMilestone) ElementType() reflect.Type {
-	return reflect.TypeOf((*RepositoryMilestone)(nil)).Elem()
+func (*RepositoryMilestone) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositoryMilestone)(nil))
 }
 
-func (i RepositoryMilestone) ToRepositoryMilestoneOutput() RepositoryMilestoneOutput {
+func (i *RepositoryMilestone) ToRepositoryMilestoneOutput() RepositoryMilestoneOutput {
 	return i.ToRepositoryMilestoneOutputWithContext(context.Background())
 }
 
-func (i RepositoryMilestone) ToRepositoryMilestoneOutputWithContext(ctx context.Context) RepositoryMilestoneOutput {
+func (i *RepositoryMilestone) ToRepositoryMilestoneOutputWithContext(ctx context.Context) RepositoryMilestoneOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryMilestoneOutput)
 }
 
@@ -200,7 +200,7 @@ type RepositoryMilestoneOutput struct {
 }
 
 func (RepositoryMilestoneOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RepositoryMilestoneOutput)(nil)).Elem()
+	return reflect.TypeOf((*RepositoryMilestone)(nil))
 }
 
 func (o RepositoryMilestoneOutput) ToRepositoryMilestoneOutput() RepositoryMilestoneOutput {

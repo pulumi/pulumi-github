@@ -36,7 +36,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-github/sdk/v2/go/github"
+// 	"github.com/pulumi/pulumi-github/sdk/v2/go/github/"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -175,15 +175,15 @@ type RepositoryCollaboratorInput interface {
 	ToRepositoryCollaboratorOutputWithContext(ctx context.Context) RepositoryCollaboratorOutput
 }
 
-func (RepositoryCollaborator) ElementType() reflect.Type {
-	return reflect.TypeOf((*RepositoryCollaborator)(nil)).Elem()
+func (*RepositoryCollaborator) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositoryCollaborator)(nil))
 }
 
-func (i RepositoryCollaborator) ToRepositoryCollaboratorOutput() RepositoryCollaboratorOutput {
+func (i *RepositoryCollaborator) ToRepositoryCollaboratorOutput() RepositoryCollaboratorOutput {
 	return i.ToRepositoryCollaboratorOutputWithContext(context.Background())
 }
 
-func (i RepositoryCollaborator) ToRepositoryCollaboratorOutputWithContext(ctx context.Context) RepositoryCollaboratorOutput {
+func (i *RepositoryCollaborator) ToRepositoryCollaboratorOutputWithContext(ctx context.Context) RepositoryCollaboratorOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryCollaboratorOutput)
 }
 
@@ -192,7 +192,7 @@ type RepositoryCollaboratorOutput struct {
 }
 
 func (RepositoryCollaboratorOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RepositoryCollaboratorOutput)(nil)).Elem()
+	return reflect.TypeOf((*RepositoryCollaborator)(nil))
 }
 
 func (o RepositoryCollaboratorOutput) ToRepositoryCollaboratorOutput() RepositoryCollaboratorOutput {

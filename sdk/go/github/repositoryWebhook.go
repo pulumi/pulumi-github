@@ -21,6 +21,7 @@ import (
 //
 // import (
 // 	"github.com/pulumi/pulumi-github/sdk/v2/go/github"
+// 	"github.com/pulumi/pulumi-github/sdk/v2/go/github/"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -179,15 +180,15 @@ type RepositoryWebhookInput interface {
 	ToRepositoryWebhookOutputWithContext(ctx context.Context) RepositoryWebhookOutput
 }
 
-func (RepositoryWebhook) ElementType() reflect.Type {
-	return reflect.TypeOf((*RepositoryWebhook)(nil)).Elem()
+func (*RepositoryWebhook) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositoryWebhook)(nil))
 }
 
-func (i RepositoryWebhook) ToRepositoryWebhookOutput() RepositoryWebhookOutput {
+func (i *RepositoryWebhook) ToRepositoryWebhookOutput() RepositoryWebhookOutput {
 	return i.ToRepositoryWebhookOutputWithContext(context.Background())
 }
 
-func (i RepositoryWebhook) ToRepositoryWebhookOutputWithContext(ctx context.Context) RepositoryWebhookOutput {
+func (i *RepositoryWebhook) ToRepositoryWebhookOutputWithContext(ctx context.Context) RepositoryWebhookOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryWebhookOutput)
 }
 
@@ -196,7 +197,7 @@ type RepositoryWebhookOutput struct {
 }
 
 func (RepositoryWebhookOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RepositoryWebhookOutput)(nil)).Elem()
+	return reflect.TypeOf((*RepositoryWebhook)(nil))
 }
 
 func (o RepositoryWebhookOutput) ToRepositoryWebhookOutput() RepositoryWebhookOutput {

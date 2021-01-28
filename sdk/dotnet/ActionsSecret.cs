@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Github
 {
+    [GithubResourceType("github:index/actionsSecret:ActionsSecret")]
     public partial class ActionsSecret : Pulumi.CustomResource
     {
         /// <summary>

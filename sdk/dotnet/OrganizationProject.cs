@@ -31,6 +31,7 @@ namespace Pulumi.Github
     /// }
     /// ```
     /// </summary>
+    [GithubResourceType("github:index/organizationProject:OrganizationProject")]
     public partial class OrganizationProject : Pulumi.CustomResource
     {
         /// <summary>
