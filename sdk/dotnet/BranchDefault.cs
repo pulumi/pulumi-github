@@ -54,6 +54,7 @@ namespace Pulumi.Github
     ///  $ pulumi import github:index/branchDefault:BranchDefault branch_default my-repo
     /// ```
     /// </summary>
+    [GithubResourceType("github:index/branchDefault:BranchDefault")]
     public partial class BranchDefault : Pulumi.CustomResource
     {
         /// <summary>

@@ -23,7 +23,7 @@ import (
 // import (
 // 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-github/sdk/v2/go/github"
+// 	"github.com/pulumi/pulumi-github/sdk/v2/go/github/"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -131,15 +131,15 @@ type UserGpgKeyInput interface {
 	ToUserGpgKeyOutputWithContext(ctx context.Context) UserGpgKeyOutput
 }
 
-func (UserGpgKey) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserGpgKey)(nil)).Elem()
+func (*UserGpgKey) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserGpgKey)(nil))
 }
 
-func (i UserGpgKey) ToUserGpgKeyOutput() UserGpgKeyOutput {
+func (i *UserGpgKey) ToUserGpgKeyOutput() UserGpgKeyOutput {
 	return i.ToUserGpgKeyOutputWithContext(context.Background())
 }
 
-func (i UserGpgKey) ToUserGpgKeyOutputWithContext(ctx context.Context) UserGpgKeyOutput {
+func (i *UserGpgKey) ToUserGpgKeyOutputWithContext(ctx context.Context) UserGpgKeyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(UserGpgKeyOutput)
 }
 
@@ -148,7 +148,7 @@ type UserGpgKeyOutput struct {
 }
 
 func (UserGpgKeyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserGpgKeyOutput)(nil)).Elem()
+	return reflect.TypeOf((*UserGpgKey)(nil))
 }
 
 func (o UserGpgKeyOutput) ToUserGpgKeyOutput() UserGpgKeyOutput {

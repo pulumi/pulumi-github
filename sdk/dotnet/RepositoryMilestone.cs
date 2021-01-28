@@ -44,6 +44,7 @@ namespace Pulumi.Github
     ///  $ pulumi import github:index/repositoryMilestone:RepositoryMilestone example example-owner/example-repository/1
     /// ```
     /// </summary>
+    [GithubResourceType("github:index/repositoryMilestone:RepositoryMilestone")]
     public partial class RepositoryMilestone : Pulumi.CustomResource
     {
         /// <summary>

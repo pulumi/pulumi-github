@@ -118,15 +118,15 @@ type UserSshKeyInput interface {
 	ToUserSshKeyOutputWithContext(ctx context.Context) UserSshKeyOutput
 }
 
-func (UserSshKey) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserSshKey)(nil)).Elem()
+func (*UserSshKey) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserSshKey)(nil))
 }
 
-func (i UserSshKey) ToUserSshKeyOutput() UserSshKeyOutput {
+func (i *UserSshKey) ToUserSshKeyOutput() UserSshKeyOutput {
 	return i.ToUserSshKeyOutputWithContext(context.Background())
 }
 
-func (i UserSshKey) ToUserSshKeyOutputWithContext(ctx context.Context) UserSshKeyOutput {
+func (i *UserSshKey) ToUserSshKeyOutputWithContext(ctx context.Context) UserSshKeyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(UserSshKeyOutput)
 }
 
@@ -135,7 +135,7 @@ type UserSshKeyOutput struct {
 }
 
 func (UserSshKeyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserSshKeyOutput)(nil)).Elem()
+	return reflect.TypeOf((*UserSshKey)(nil))
 }
 
 func (o UserSshKeyOutput) ToUserSshKeyOutput() UserSshKeyOutput {

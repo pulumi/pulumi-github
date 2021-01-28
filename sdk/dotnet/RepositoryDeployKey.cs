@@ -52,6 +52,7 @@ namespace Pulumi.Github
     ///  $ pulumi import github:index/repositoryDeployKey:RepositoryDeployKey foo test-repo:23824728
     /// ```
     /// </summary>
+    [GithubResourceType("github:index/repositoryDeployKey:RepositoryDeployKey")]
     public partial class RepositoryDeployKey : Pulumi.CustomResource
     {
         [Output("etag")]

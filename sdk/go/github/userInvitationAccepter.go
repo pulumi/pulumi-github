@@ -19,7 +19,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-github/sdk/v2/go/github"
+// 	"github.com/pulumi/pulumi-github/sdk/v2/go/github/"
 // 	"github.com/pulumi/pulumi-github/sdk/v2/go/github/providers"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
@@ -128,15 +128,15 @@ type UserInvitationAccepterInput interface {
 	ToUserInvitationAccepterOutputWithContext(ctx context.Context) UserInvitationAccepterOutput
 }
 
-func (UserInvitationAccepter) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserInvitationAccepter)(nil)).Elem()
+func (*UserInvitationAccepter) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserInvitationAccepter)(nil))
 }
 
-func (i UserInvitationAccepter) ToUserInvitationAccepterOutput() UserInvitationAccepterOutput {
+func (i *UserInvitationAccepter) ToUserInvitationAccepterOutput() UserInvitationAccepterOutput {
 	return i.ToUserInvitationAccepterOutputWithContext(context.Background())
 }
 
-func (i UserInvitationAccepter) ToUserInvitationAccepterOutputWithContext(ctx context.Context) UserInvitationAccepterOutput {
+func (i *UserInvitationAccepter) ToUserInvitationAccepterOutputWithContext(ctx context.Context) UserInvitationAccepterOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(UserInvitationAccepterOutput)
 }
 
@@ -145,7 +145,7 @@ type UserInvitationAccepterOutput struct {
 }
 
 func (UserInvitationAccepterOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserInvitationAccepterOutput)(nil)).Elem()
+	return reflect.TypeOf((*UserInvitationAccepter)(nil))
 }
 
 func (o UserInvitationAccepterOutput) ToUserInvitationAccepterOutput() UserInvitationAccepterOutput {

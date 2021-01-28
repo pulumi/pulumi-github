@@ -51,6 +51,7 @@ namespace Pulumi.Github
     /// 
     ///  If secret is populated in the webhook's configuration, the value will be imported as "********".
     /// </summary>
+    [GithubResourceType("github:index/organizationWebhook:OrganizationWebhook")]
     public partial class OrganizationWebhook : Pulumi.CustomResource
     {
         /// <summary>

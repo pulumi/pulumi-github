@@ -19,7 +19,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-github/sdk/v2/go/github"
+// 	"github.com/pulumi/pulumi-github/sdk/v2/go/github/"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -149,15 +149,15 @@ type ProjectCardInput interface {
 	ToProjectCardOutputWithContext(ctx context.Context) ProjectCardOutput
 }
 
-func (ProjectCard) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProjectCard)(nil)).Elem()
+func (*ProjectCard) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectCard)(nil))
 }
 
-func (i ProjectCard) ToProjectCardOutput() ProjectCardOutput {
+func (i *ProjectCard) ToProjectCardOutput() ProjectCardOutput {
 	return i.ToProjectCardOutputWithContext(context.Background())
 }
 
-func (i ProjectCard) ToProjectCardOutputWithContext(ctx context.Context) ProjectCardOutput {
+func (i *ProjectCard) ToProjectCardOutputWithContext(ctx context.Context) ProjectCardOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ProjectCardOutput)
 }
 
@@ -166,7 +166,7 @@ type ProjectCardOutput struct {
 }
 
 func (ProjectCardOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProjectCardOutput)(nil)).Elem()
+	return reflect.TypeOf((*ProjectCard)(nil))
 }
 
 func (o ProjectCardOutput) ToProjectCardOutput() ProjectCardOutput {

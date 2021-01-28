@@ -45,6 +45,7 @@ namespace Pulumi.Github
     ///  $ pulumi import github:index/membership:Membership member hashicorp:someuser
     /// ```
     /// </summary>
+    [GithubResourceType("github:index/membership:Membership")]
     public partial class Membership : Pulumi.CustomResource
     {
         [Output("etag")]

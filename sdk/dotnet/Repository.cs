@@ -73,6 +73,7 @@ namespace Pulumi.Github
     ///  $ pulumi import github:index/repository:Repository terraform terraform
     /// ```
     /// </summary>
+    [GithubResourceType("github:index/repository:Repository")]
     public partial class Repository : Pulumi.CustomResource
     {
         /// <summary>

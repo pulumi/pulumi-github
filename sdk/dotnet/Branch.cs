@@ -49,6 +49,7 @@ namespace Pulumi.Github
     ///  $ pulumi import github:index/branch:Branch terraform terraform:feature-branch:dev
     /// ```
     /// </summary>
+    [GithubResourceType("github:index/branch:Branch")]
     public partial class Branch : Pulumi.CustomResource
     {
         /// <summary>

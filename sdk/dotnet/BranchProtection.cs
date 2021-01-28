@@ -22,6 +22,7 @@ namespace Pulumi.Github
     ///  $ pulumi import github:index/branchProtection:BranchProtection terraform terraform:main
     /// ```
     /// </summary>
+    [GithubResourceType("github:index/branchProtection:BranchProtection")]
     public partial class BranchProtection : Pulumi.CustomResource
     {
         /// <summary>

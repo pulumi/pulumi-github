@@ -48,6 +48,7 @@ namespace Pulumi.Github
     ///  $ pulumi import github:index/projectCard:ProjectCard card 01234567
     /// ```
     /// </summary>
+    [GithubResourceType("github:index/projectCard:ProjectCard")]
     public partial class ProjectCard : Pulumi.CustomResource
     {
         [Output("cardId")]

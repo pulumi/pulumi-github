@@ -28,7 +28,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-github/sdk/v2/go/github"
+// 	"github.com/pulumi/pulumi-github/sdk/v2/go/github/"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -168,15 +168,15 @@ type RepositoryDeployKeyInput interface {
 	ToRepositoryDeployKeyOutputWithContext(ctx context.Context) RepositoryDeployKeyOutput
 }
 
-func (RepositoryDeployKey) ElementType() reflect.Type {
-	return reflect.TypeOf((*RepositoryDeployKey)(nil)).Elem()
+func (*RepositoryDeployKey) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositoryDeployKey)(nil))
 }
 
-func (i RepositoryDeployKey) ToRepositoryDeployKeyOutput() RepositoryDeployKeyOutput {
+func (i *RepositoryDeployKey) ToRepositoryDeployKeyOutput() RepositoryDeployKeyOutput {
 	return i.ToRepositoryDeployKeyOutputWithContext(context.Background())
 }
 
-func (i RepositoryDeployKey) ToRepositoryDeployKeyOutputWithContext(ctx context.Context) RepositoryDeployKeyOutput {
+func (i *RepositoryDeployKey) ToRepositoryDeployKeyOutputWithContext(ctx context.Context) RepositoryDeployKeyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryDeployKeyOutput)
 }
 
@@ -185,7 +185,7 @@ type RepositoryDeployKeyOutput struct {
 }
 
 func (RepositoryDeployKeyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RepositoryDeployKeyOutput)(nil)).Elem()
+	return reflect.TypeOf((*RepositoryDeployKey)(nil))
 }
 
 func (o RepositoryDeployKeyOutput) ToRepositoryDeployKeyOutput() RepositoryDeployKeyOutput {

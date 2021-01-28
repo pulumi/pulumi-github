@@ -23,7 +23,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-github/sdk/v2/go/github"
+// 	"github.com/pulumi/pulumi-github/sdk/v2/go/github/"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -140,15 +140,15 @@ type MembershipInput interface {
 	ToMembershipOutputWithContext(ctx context.Context) MembershipOutput
 }
 
-func (Membership) ElementType() reflect.Type {
-	return reflect.TypeOf((*Membership)(nil)).Elem()
+func (*Membership) ElementType() reflect.Type {
+	return reflect.TypeOf((*Membership)(nil))
 }
 
-func (i Membership) ToMembershipOutput() MembershipOutput {
+func (i *Membership) ToMembershipOutput() MembershipOutput {
 	return i.ToMembershipOutputWithContext(context.Background())
 }
 
-func (i Membership) ToMembershipOutputWithContext(ctx context.Context) MembershipOutput {
+func (i *Membership) ToMembershipOutputWithContext(ctx context.Context) MembershipOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MembershipOutput)
 }
 
@@ -157,7 +157,7 @@ type MembershipOutput struct {
 }
 
 func (MembershipOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MembershipOutput)(nil)).Elem()
+	return reflect.TypeOf((*Membership)(nil))
 }
 
 func (o MembershipOutput) ToMembershipOutput() MembershipOutput {

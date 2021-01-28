@@ -22,7 +22,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-github/sdk/v2/go/github"
+// 	"github.com/pulumi/pulumi-github/sdk/v2/go/github/"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -178,15 +178,15 @@ type BranchInput interface {
 	ToBranchOutputWithContext(ctx context.Context) BranchOutput
 }
 
-func (Branch) ElementType() reflect.Type {
-	return reflect.TypeOf((*Branch)(nil)).Elem()
+func (*Branch) ElementType() reflect.Type {
+	return reflect.TypeOf((*Branch)(nil))
 }
 
-func (i Branch) ToBranchOutput() BranchOutput {
+func (i *Branch) ToBranchOutput() BranchOutput {
 	return i.ToBranchOutputWithContext(context.Background())
 }
 
-func (i Branch) ToBranchOutputWithContext(ctx context.Context) BranchOutput {
+func (i *Branch) ToBranchOutputWithContext(ctx context.Context) BranchOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BranchOutput)
 }
 
@@ -195,7 +195,7 @@ type BranchOutput struct {
 }
 
 func (BranchOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BranchOutput)(nil)).Elem()
+	return reflect.TypeOf((*Branch)(nil))
 }
 
 func (o BranchOutput) ToBranchOutput() BranchOutput {

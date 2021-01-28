@@ -35,6 +35,7 @@ namespace Pulumi.Github
     /// }
     /// ```
     /// </summary>
+    [GithubResourceType("github:index/projectColumn:ProjectColumn")]
     public partial class ProjectColumn : Pulumi.CustomResource
     {
         [Output("columnId")]

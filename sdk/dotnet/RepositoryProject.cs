@@ -37,6 +37,7 @@ namespace Pulumi.Github
     /// }
     /// ```
     /// </summary>
+    [GithubResourceType("github:index/repositoryProject:RepositoryProject")]
     public partial class RepositoryProject : Pulumi.CustomResource
     {
         /// <summary>

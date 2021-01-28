@@ -59,6 +59,7 @@ namespace Pulumi.Github
     ///  $ pulumi import github:index/repositoryCollaborator:RepositoryCollaborator collaborator terraform:someuser
     /// ```
     /// </summary>
+    [GithubResourceType("github:index/repositoryCollaborator:RepositoryCollaborator")]
     public partial class RepositoryCollaborator : Pulumi.CustomResource
     {
         /// <summary>

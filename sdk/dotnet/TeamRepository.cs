@@ -57,6 +57,7 @@ namespace Pulumi.Github
     ///  $ pulumi import github:index/teamRepository:TeamRepository terraform_repo 1234567:terraform
     /// ```
     /// </summary>
+    [GithubResourceType("github:index/teamRepository:TeamRepository")]
     public partial class TeamRepository : Pulumi.CustomResource
     {
         [Output("etag")]

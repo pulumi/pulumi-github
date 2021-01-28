@@ -134,15 +134,15 @@ type IssueLabelInput interface {
 	ToIssueLabelOutputWithContext(ctx context.Context) IssueLabelOutput
 }
 
-func (IssueLabel) ElementType() reflect.Type {
-	return reflect.TypeOf((*IssueLabel)(nil)).Elem()
+func (*IssueLabel) ElementType() reflect.Type {
+	return reflect.TypeOf((*IssueLabel)(nil))
 }
 
-func (i IssueLabel) ToIssueLabelOutput() IssueLabelOutput {
+func (i *IssueLabel) ToIssueLabelOutput() IssueLabelOutput {
 	return i.ToIssueLabelOutputWithContext(context.Background())
 }
 
-func (i IssueLabel) ToIssueLabelOutputWithContext(ctx context.Context) IssueLabelOutput {
+func (i *IssueLabel) ToIssueLabelOutputWithContext(ctx context.Context) IssueLabelOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IssueLabelOutput)
 }
 
@@ -151,7 +151,7 @@ type IssueLabelOutput struct {
 }
 
 func (IssueLabelOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IssueLabelOutput)(nil)).Elem()
+	return reflect.TypeOf((*IssueLabel)(nil))
 }
 
 func (o IssueLabelOutput) ToIssueLabelOutput() IssueLabelOutput {
