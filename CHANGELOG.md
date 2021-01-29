@@ -2,7 +2,9 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Upgrading pulumi-terraform-bridge to v2.18.1
+* Upgrading pulumi-terraform-bridge to v2.18.1  
+  *PLEASE NOTE:* An earlier version of this package was tagged as a v3 go module incorrectly. There are no breaking  
+  changes in this module, this major version release fixes that error
 
 ---
 
