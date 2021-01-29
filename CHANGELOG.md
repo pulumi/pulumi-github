@@ -2,11 +2,14 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
+_(none)_
+
+---
+
+## v3.0.0 (2021-01-29)
 * Upgrading pulumi-terraform-bridge to v2.18.1  
   *PLEASE NOTE:* An earlier version of this package was tagged as a v3 go module incorrectly. There are no breaking  
   changes in this module, this major version release fixes that error
-
----
 
 ## 2.5.1 (2021-01-27)
 * Upgrade to v4.3.1 of the GitHub Terraform Provider
