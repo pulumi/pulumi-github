@@ -2,11 +2,14 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Avoid storing config from the environment into the state
+_(none)_
 
 ---
 
-## v3.0.0 (2021-01-29)
+## 3.0.1 (2021-02-01)
+* Avoid storing config from the environment into the state
+
+## 3.0.0 (2021-01-29)
 * Upgrading pulumi-terraform-bridge to v2.18.1  
   *PLEASE NOTE:* An earlier version of this package was tagged as a v3 go module incorrectly. There are no breaking  
   changes in this module, this major version release fixes that error
