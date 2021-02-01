@@ -28,7 +28,7 @@ insecure = __config__.get('insecure')
 Enable `insecure` mode for testing purposes
 """
 
-organization = __config__.get('organization') or _utilities.get_env('GITHUB_ORGANIZATION')
+organization = __config__.get('organization')
 """
 The GitHub organization name to manage. Use this field instead of `owner` when managing organization accounts.
 """
@@ -38,7 +38,7 @@ owner = __config__.get('owner')
 The GitHub owner name to manage. Use this field instead of `organization` when managing individual accounts.
 """
 
-token = __config__.get('token') or _utilities.get_env('GITHUB_TOKEN')
+token = __config__.get('token')
 """
 The OAuth token used to connect to GitHub. `anonymous` mode is enabled if `token` is not configured.
 """

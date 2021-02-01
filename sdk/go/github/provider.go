@@ -28,12 +28,6 @@ func NewProvider(ctx *pulumi.Context,
 	if args.BaseUrl == nil {
 		args.BaseUrl = pulumi.StringPtr(getEnvOrDefault("https://api.github.com/", nil, "GITHUB_BASE_URL").(string))
 	}
-	if args.Organization == nil {
-		args.Organization = pulumi.StringPtr(getEnvOrDefault("", nil, "GITHUB_ORGANIZATION").(string))
-	}
-	if args.Token == nil {
-		args.Token = pulumi.StringPtr(getEnvOrDefault("", nil, "GITHUB_TOKEN").(string))
-	}
 	var resource Provider
 	err := ctx.RegisterResource("pulumi:providers:github", name, args, &resource, opts...)
 	if err != nil {

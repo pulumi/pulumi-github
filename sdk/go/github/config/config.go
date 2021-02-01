@@ -24,11 +24,7 @@ func GetInsecure(ctx *pulumi.Context) bool {
 
 // The GitHub organization name to manage. Use this field instead of `owner` when managing organization accounts.
 func GetOrganization(ctx *pulumi.Context) string {
-	v, err := config.Try(ctx, "github:organization")
-	if err == nil {
-		return v
-	}
-	return getEnvOrDefault("", nil, "GITHUB_ORGANIZATION").(string)
+	return config.Get(ctx, "github:organization")
 }
 
 // The GitHub owner name to manage. Use this field instead of `organization` when managing individual accounts.
@@ -38,9 +34,5 @@ func GetOwner(ctx *pulumi.Context) string {
 
 // The OAuth token used to connect to GitHub. `anonymous` mode is enabled if `token` is not configured.
 func GetToken(ctx *pulumi.Context) string {
-	v, err := config.Try(ctx, "github:token")
-	if err == nil {
-		return v
-	}
-	return getEnvOrDefault("", nil, "GITHUB_TOKEN").(string)
+	return config.Get(ctx, "github:token")
 }

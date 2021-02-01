@@ -30,12 +30,7 @@
             },
             "organization": {
                 "type": "string",
-                "description": "The GitHub organization name to manage. Use this field instead of `owner` when managing organization accounts.\n",
-                "defaultInfo": {
-                    "environment": [
-                        "GITHUB_ORGANIZATION"
-                    ]
-                }
+                "description": "The GitHub organization name to manage. Use this field instead of `owner` when managing organization accounts.\n"
             },
             "owner": {
                 "type": "string",
@@ -43,12 +38,7 @@
             },
             "token": {
                 "type": "string",
-                "description": "The OAuth token used to connect to GitHub. `anonymous` mode is enabled if `token` is not configured.\n",
-                "defaultInfo": {
-                    "environment": [
-                        "GITHUB_TOKEN"
-                    ]
-                }
+                "description": "The OAuth token used to connect to GitHub. `anonymous` mode is enabled if `token` is not configured.\n"
             }
         }
     },
@@ -824,12 +814,7 @@
             },
             "organization": {
                 "type": "string",
-                "description": "The GitHub organization name to manage. Use this field instead of `owner` when managing organization accounts.\n",
-                "defaultInfo": {
-                    "environment": [
-                        "GITHUB_ORGANIZATION"
-                    ]
-                }
+                "description": "The GitHub organization name to manage. Use this field instead of `owner` when managing organization accounts.\n"
             },
             "owner": {
                 "type": "string",
@@ -837,12 +822,7 @@
             },
             "token": {
                 "type": "string",
-                "description": "The OAuth token used to connect to GitHub. `anonymous` mode is enabled if `token` is not configured.\n",
-                "defaultInfo": {
-                    "environment": [
-                        "GITHUB_TOKEN"
-                    ]
-                }
+                "description": "The OAuth token used to connect to GitHub. `anonymous` mode is enabled if `token` is not configured.\n"
             }
         }
     },

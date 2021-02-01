@@ -21,7 +21,7 @@ namespace Pulumi.Github
         /// <summary>
         /// The GitHub organization name to manage. Use this field instead of `owner` when managing organization accounts.
         /// </summary>
-        public static string? Organization { get; set; } = __config.Get("organization") ?? Utilities.GetEnv("GITHUB_ORGANIZATION");
+        public static string? Organization { get; set; } = __config.Get("organization");
 
         /// <summary>
         /// The GitHub owner name to manage. Use this field instead of `organization` when managing individual accounts.
@@ -31,7 +31,7 @@ namespace Pulumi.Github
         /// <summary>
         /// The OAuth token used to connect to GitHub. `anonymous` mode is enabled if `token` is not configured.
         /// </summary>
-        public static string? Token { get; set; } = __config.Get("token") ?? Utilities.GetEnv("GITHUB_TOKEN");
+        public static string? Token { get; set; } = __config.Get("token");
 
     }
 }
