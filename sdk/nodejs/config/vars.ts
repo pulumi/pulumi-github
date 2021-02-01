@@ -17,7 +17,7 @@ export let insecure: boolean | undefined = __config.getObject<boolean>("insecure
 /**
  * The GitHub organization name to manage. Use this field instead of `owner` when managing organization accounts.
  */
-export let organization: string | undefined = __config.get("organization") || utilities.getEnv("GITHUB_ORGANIZATION");
+export let organization: string | undefined = __config.get("organization");
 /**
  * The GitHub owner name to manage. Use this field instead of `organization` when managing individual accounts.
  */
@@ -25,4 +25,4 @@ export let owner: string | undefined = __config.get("owner");
 /**
  * The OAuth token used to connect to GitHub. `anonymous` mode is enabled if `token` is not configured.
  */
-export let token: string | undefined = __config.get("token") || utilities.getEnv("GITHUB_TOKEN");
+export let token: string | undefined = __config.get("token");

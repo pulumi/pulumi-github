@@ -78,8 +78,6 @@ namespace Pulumi.Github
         public ProviderArgs()
         {
             BaseUrl = Utilities.GetEnv("GITHUB_BASE_URL") ?? "https://api.github.com/";
-            Organization = Utilities.GetEnv("GITHUB_ORGANIZATION");
-            Token = Utilities.GetEnv("GITHUB_TOKEN");
         }
     }
 }

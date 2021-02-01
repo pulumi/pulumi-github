@@ -86,16 +86,6 @@ func Provider() tfbridge.ProviderInfo {
 		Homepage:    "https://pulumi.io",
 		Repository:  "https://github.com/pulumi/pulumi-github",
 		Config: map[string]*tfbridge.SchemaInfo{
-			"token": {
-				Default: &tfbridge.DefaultInfo{
-					EnvVars: []string{"GITHUB_TOKEN"},
-				},
-			},
-			"organization": {
-				Default: &tfbridge.DefaultInfo{
-					EnvVars: []string{"GITHUB_ORGANIZATION"},
-				},
-			},
 			"base_url": {
 				Default: &tfbridge.DefaultInfo{
 					EnvVars: []string{"GITHUB_BASE_URL"},
