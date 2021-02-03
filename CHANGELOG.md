@@ -2,9 +2,12 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Upgrade to v4.3.2 of the GitHub Terraform Provider
+_(none)_
 
 ---
+
+## 3.0.2 (2021-02-03)
+* Upgrade to v4.3.2 of the GitHub Terraform Provider
 
 ## 3.0.1 (2021-02-01)
 * Avoid storing config from the environment into the state
