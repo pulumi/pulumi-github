@@ -2264,6 +2264,10 @@
                     "type": "string",
                     "description": "The permission of the outside collaborator for the repository.\nMust be one of `pull`, `push`, `maintain`, `triage` or `admin` for organization-owned repositories.\nMust be `push` for personal repositories. Defaults to `push`.\n"
                 },
+                "permissionDiffSuppression": {
+                    "type": "boolean",
+                    "description": "Suppress plan diffs for `triage` and `maintain`.  Defaults to `false`.\n"
+                },
                 "repository": {
                     "type": "string",
                     "description": "The GitHub repository\n"
@@ -2282,6 +2286,10 @@
                 "permission": {
                     "type": "string",
                     "description": "The permission of the outside collaborator for the repository.\nMust be one of `pull`, `push`, `maintain`, `triage` or `admin` for organization-owned repositories.\nMust be `push` for personal repositories. Defaults to `push`.\n"
+                },
+                "permissionDiffSuppression": {
+                    "type": "boolean",
+                    "description": "Suppress plan diffs for `triage` and `maintain`.  Defaults to `false`.\n"
                 },
                 "repository": {
                     "type": "string",
@@ -2306,6 +2314,10 @@
                     "permission": {
                         "type": "string",
                         "description": "The permission of the outside collaborator for the repository.\nMust be one of `pull`, `push`, `maintain`, `triage` or `admin` for organization-owned repositories.\nMust be `push` for personal repositories. Defaults to `push`.\n"
+                    },
+                    "permissionDiffSuppression": {
+                        "type": "boolean",
+                        "description": "Suppress plan diffs for `triage` and `maintain`.  Defaults to `false`.\n"
                     },
                     "repository": {
                         "type": "string",
@@ -2810,6 +2822,10 @@
         "github:index/team:Team": {
             "description": "Provides a GitHub team resource.\n\nThis resource allows you to add/remove teams from your organization. When applied,\na new team will be created. When destroyed, that team will be removed.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\n// Add a team to the organization\nconst someTeam = new github.Team(\"some_team\", {\n    description: \"Some cool team\",\n    privacy: \"closed\",\n});\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\n# Add a team to the organization\nsome_team = github.Team(\"someTeam\",\n    description=\"Some cool team\",\n    privacy=\"closed\")\n```\n```csharp\nusing Pulumi;\nusing Github = Pulumi.Github;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        // Add a team to the organization\n        var someTeam = new Github.Team(\"someTeam\", new Github.TeamArgs\n        {\n            Description = \"Some cool team\",\n            Privacy = \"closed\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-github/sdk/v3/go/github/\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := github.NewTeam(ctx, \"someTeam\", \u0026github.TeamArgs{\n\t\t\tDescription: pulumi.String(\"Some cool team\"),\n\t\t\tPrivacy:     pulumi.String(\"closed\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nGitHub Teams can be imported using the GitHub team ID e.g.\n\n```sh\n $ pulumi import github:index/team:Team core 1234567\n```\n\n ",
             "properties": {
+                "createDefaultMaintainer": {
+                    "type": "boolean",
+                    "description": "Adds a default maintainer to the team. Defaults to `true` and removes the default maintaner when `false`.\n"
+                },
                 "description": {
                     "type": "string",
                     "description": "A description of the team.\n"
@@ -2820,6 +2836,9 @@
                 "ldapDn": {
                     "type": "string",
                     "description": "The LDAP Distinguished Name of the group where membership will be synchronized. Only available in GitHub Enterprise Server.\n"
+                },
+                "membersCount": {
+                    "type": "integer"
                 },
                 "name": {
                     "type": "string",
@@ -2844,11 +2863,16 @@
             },
             "required": [
                 "etag",
+                "membersCount",
                 "name",
                 "nodeId",
                 "slug"
             ],
             "inputProperties": {
+                "createDefaultMaintainer": {
+                    "type": "boolean",
+                    "description": "Adds a default maintainer to the team. Defaults to `true` and removes the default maintaner when `false`.\n"
+                },
                 "description": {
                     "type": "string",
                     "description": "A description of the team.\n"
@@ -2873,6 +2897,10 @@
             "stateInputs": {
                 "description": "Input properties used for looking up and filtering Team resources.\n",
                 "properties": {
+                    "createDefaultMaintainer": {
+                        "type": "boolean",
+                        "description": "Adds a default maintainer to the team. Defaults to `true` and removes the default maintaner when `false`.\n"
+                    },
                     "description": {
                         "type": "string",
                         "description": "A description of the team.\n"
@@ -2883,6 +2911,9 @@
                     "ldapDn": {
                         "type": "string",
                         "description": "The LDAP Distinguished Name of the group where membership will be synchronized. Only available in GitHub Enterprise Server.\n"
+                    },
+                    "membersCount": {
+                        "type": "integer"
                     },
                     "name": {
                         "type": "string",

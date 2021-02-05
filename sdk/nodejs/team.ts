@@ -60,6 +60,10 @@ export class Team extends pulumi.CustomResource {
     }
 
     /**
+     * Adds a default maintainer to the team. Defaults to `true` and removes the default maintaner when `false`.
+     */
+    public readonly createDefaultMaintainer!: pulumi.Output<boolean | undefined>;
+    /**
      * A description of the team.
      */
     public readonly description!: pulumi.Output<string | undefined>;
@@ -68,6 +72,7 @@ export class Team extends pulumi.CustomResource {
      * The LDAP Distinguished Name of the group where membership will be synchronized. Only available in GitHub Enterprise Server.
      */
     public readonly ldapDn!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly membersCount!: pulumi.Output<number>;
     /**
      * The name of the team.
      */
@@ -104,9 +109,11 @@ export class Team extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as TeamState | undefined;
+            inputs["createDefaultMaintainer"] = state ? state.createDefaultMaintainer : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["etag"] = state ? state.etag : undefined;
             inputs["ldapDn"] = state ? state.ldapDn : undefined;
+            inputs["membersCount"] = state ? state.membersCount : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["nodeId"] = state ? state.nodeId : undefined;
             inputs["parentTeamId"] = state ? state.parentTeamId : undefined;
@@ -114,12 +121,14 @@ export class Team extends pulumi.CustomResource {
             inputs["slug"] = state ? state.slug : undefined;
         } else {
             const args = argsOrState as TeamArgs | undefined;
+            inputs["createDefaultMaintainer"] = args ? args.createDefaultMaintainer : undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["ldapDn"] = args ? args.ldapDn : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["parentTeamId"] = args ? args.parentTeamId : undefined;
             inputs["privacy"] = args ? args.privacy : undefined;
             inputs["etag"] = undefined /*out*/;
+            inputs["membersCount"] = undefined /*out*/;
             inputs["nodeId"] = undefined /*out*/;
             inputs["slug"] = undefined /*out*/;
         }
@@ -139,6 +148,10 @@ export class Team extends pulumi.CustomResource {
  */
 export interface TeamState {
     /**
+     * Adds a default maintainer to the team. Defaults to `true` and removes the default maintaner when `false`.
+     */
+    readonly createDefaultMaintainer?: pulumi.Input<boolean>;
+    /**
      * A description of the team.
      */
     readonly description?: pulumi.Input<string>;
@@ -147,6 +160,7 @@ export interface TeamState {
      * The LDAP Distinguished Name of the group where membership will be synchronized. Only available in GitHub Enterprise Server.
      */
     readonly ldapDn?: pulumi.Input<string>;
+    readonly membersCount?: pulumi.Input<number>;
     /**
      * The name of the team.
      */
@@ -176,6 +190,10 @@ export interface TeamState {
  * The set of arguments for constructing a Team resource.
  */
 export interface TeamArgs {
+    /**
+     * Adds a default maintainer to the team. Defaults to `true` and removes the default maintaner when `false`.
+     */
+    readonly createDefaultMaintainer?: pulumi.Input<boolean>;
     /**
      * A description of the team.
      */

@@ -85,6 +85,10 @@ export class RepositoryCollaborator extends pulumi.CustomResource {
      */
     public readonly permission!: pulumi.Output<string | undefined>;
     /**
+     * Suppress plan diffs for `triage` and `maintain`.  Defaults to `false`.
+     */
+    public readonly permissionDiffSuppression!: pulumi.Output<boolean | undefined>;
+    /**
      * The GitHub repository
      */
     public readonly repository!: pulumi.Output<string>;
@@ -107,6 +111,7 @@ export class RepositoryCollaborator extends pulumi.CustomResource {
             const state = argsOrState as RepositoryCollaboratorState | undefined;
             inputs["invitationId"] = state ? state.invitationId : undefined;
             inputs["permission"] = state ? state.permission : undefined;
+            inputs["permissionDiffSuppression"] = state ? state.permissionDiffSuppression : undefined;
             inputs["repository"] = state ? state.repository : undefined;
             inputs["username"] = state ? state.username : undefined;
         } else {
@@ -118,6 +123,7 @@ export class RepositoryCollaborator extends pulumi.CustomResource {
                 throw new Error("Missing required property 'username'");
             }
             inputs["permission"] = args ? args.permission : undefined;
+            inputs["permissionDiffSuppression"] = args ? args.permissionDiffSuppression : undefined;
             inputs["repository"] = args ? args.repository : undefined;
             inputs["username"] = args ? args.username : undefined;
             inputs["invitationId"] = undefined /*out*/;
@@ -148,6 +154,10 @@ export interface RepositoryCollaboratorState {
      */
     readonly permission?: pulumi.Input<string>;
     /**
+     * Suppress plan diffs for `triage` and `maintain`.  Defaults to `false`.
+     */
+    readonly permissionDiffSuppression?: pulumi.Input<boolean>;
+    /**
      * The GitHub repository
      */
     readonly repository?: pulumi.Input<string>;
@@ -167,6 +177,10 @@ export interface RepositoryCollaboratorArgs {
      * Must be `push` for personal repositories. Defaults to `push`.
      */
     readonly permission?: pulumi.Input<string>;
+    /**
+     * Suppress plan diffs for `triage` and `maintain`.  Defaults to `false`.
+     */
+    readonly permissionDiffSuppression?: pulumi.Input<boolean>;
     /**
      * The GitHub repository
      */

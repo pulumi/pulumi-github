@@ -71,6 +71,8 @@ type RepositoryCollaborator struct {
 	// Must be one of `pull`, `push`, `maintain`, `triage` or `admin` for organization-owned repositories.
 	// Must be `push` for personal repositories. Defaults to `push`.
 	Permission pulumi.StringPtrOutput `pulumi:"permission"`
+	// Suppress plan diffs for `triage` and `maintain`.  Defaults to `false`.
+	PermissionDiffSuppression pulumi.BoolPtrOutput `pulumi:"permissionDiffSuppression"`
 	// The GitHub repository
 	Repository pulumi.StringOutput `pulumi:"repository"`
 	// The user to add to the repository as a collaborator.
@@ -118,6 +120,8 @@ type repositoryCollaboratorState struct {
 	// Must be one of `pull`, `push`, `maintain`, `triage` or `admin` for organization-owned repositories.
 	// Must be `push` for personal repositories. Defaults to `push`.
 	Permission *string `pulumi:"permission"`
+	// Suppress plan diffs for `triage` and `maintain`.  Defaults to `false`.
+	PermissionDiffSuppression *bool `pulumi:"permissionDiffSuppression"`
 	// The GitHub repository
 	Repository *string `pulumi:"repository"`
 	// The user to add to the repository as a collaborator.
@@ -131,6 +135,8 @@ type RepositoryCollaboratorState struct {
 	// Must be one of `pull`, `push`, `maintain`, `triage` or `admin` for organization-owned repositories.
 	// Must be `push` for personal repositories. Defaults to `push`.
 	Permission pulumi.StringPtrInput
+	// Suppress plan diffs for `triage` and `maintain`.  Defaults to `false`.
+	PermissionDiffSuppression pulumi.BoolPtrInput
 	// The GitHub repository
 	Repository pulumi.StringPtrInput
 	// The user to add to the repository as a collaborator.
@@ -146,6 +152,8 @@ type repositoryCollaboratorArgs struct {
 	// Must be one of `pull`, `push`, `maintain`, `triage` or `admin` for organization-owned repositories.
 	// Must be `push` for personal repositories. Defaults to `push`.
 	Permission *string `pulumi:"permission"`
+	// Suppress plan diffs for `triage` and `maintain`.  Defaults to `false`.
+	PermissionDiffSuppression *bool `pulumi:"permissionDiffSuppression"`
 	// The GitHub repository
 	Repository string `pulumi:"repository"`
 	// The user to add to the repository as a collaborator.
@@ -158,6 +166,8 @@ type RepositoryCollaboratorArgs struct {
 	// Must be one of `pull`, `push`, `maintain`, `triage` or `admin` for organization-owned repositories.
 	// Must be `push` for personal repositories. Defaults to `push`.
 	Permission pulumi.StringPtrInput
+	// Suppress plan diffs for `triage` and `maintain`.  Defaults to `false`.
+	PermissionDiffSuppression pulumi.BoolPtrInput
 	// The GitHub repository
 	Repository pulumi.StringInput
 	// The user to add to the repository as a collaborator.

@@ -49,11 +49,14 @@ import (
 type Team struct {
 	pulumi.CustomResourceState
 
+	// Adds a default maintainer to the team. Defaults to `true` and removes the default maintaner when `false`.
+	CreateDefaultMaintainer pulumi.BoolPtrOutput `pulumi:"createDefaultMaintainer"`
 	// A description of the team.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	Etag        pulumi.StringOutput    `pulumi:"etag"`
 	// The LDAP Distinguished Name of the group where membership will be synchronized. Only available in GitHub Enterprise Server.
-	LdapDn pulumi.StringPtrOutput `pulumi:"ldapDn"`
+	LdapDn       pulumi.StringPtrOutput `pulumi:"ldapDn"`
+	MembersCount pulumi.IntOutput       `pulumi:"membersCount"`
 	// The name of the team.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The Node ID of the created team.
@@ -98,11 +101,14 @@ func GetTeam(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Team resources.
 type teamState struct {
+	// Adds a default maintainer to the team. Defaults to `true` and removes the default maintaner when `false`.
+	CreateDefaultMaintainer *bool `pulumi:"createDefaultMaintainer"`
 	// A description of the team.
 	Description *string `pulumi:"description"`
 	Etag        *string `pulumi:"etag"`
 	// The LDAP Distinguished Name of the group where membership will be synchronized. Only available in GitHub Enterprise Server.
-	LdapDn *string `pulumi:"ldapDn"`
+	LdapDn       *string `pulumi:"ldapDn"`
+	MembersCount *int    `pulumi:"membersCount"`
 	// The name of the team.
 	Name *string `pulumi:"name"`
 	// The Node ID of the created team.
@@ -119,11 +125,14 @@ type teamState struct {
 }
 
 type TeamState struct {
+	// Adds a default maintainer to the team. Defaults to `true` and removes the default maintaner when `false`.
+	CreateDefaultMaintainer pulumi.BoolPtrInput
 	// A description of the team.
 	Description pulumi.StringPtrInput
 	Etag        pulumi.StringPtrInput
 	// The LDAP Distinguished Name of the group where membership will be synchronized. Only available in GitHub Enterprise Server.
-	LdapDn pulumi.StringPtrInput
+	LdapDn       pulumi.StringPtrInput
+	MembersCount pulumi.IntPtrInput
 	// The name of the team.
 	Name pulumi.StringPtrInput
 	// The Node ID of the created team.
@@ -144,6 +153,8 @@ func (TeamState) ElementType() reflect.Type {
 }
 
 type teamArgs struct {
+	// Adds a default maintainer to the team. Defaults to `true` and removes the default maintaner when `false`.
+	CreateDefaultMaintainer *bool `pulumi:"createDefaultMaintainer"`
 	// A description of the team.
 	Description *string `pulumi:"description"`
 	// The LDAP Distinguished Name of the group where membership will be synchronized. Only available in GitHub Enterprise Server.
@@ -159,6 +170,8 @@ type teamArgs struct {
 
 // The set of arguments for constructing a Team resource.
 type TeamArgs struct {
+	// Adds a default maintainer to the team. Defaults to `true` and removes the default maintaner when `false`.
+	CreateDefaultMaintainer pulumi.BoolPtrInput
 	// A description of the team.
 	Description pulumi.StringPtrInput
 	// The LDAP Distinguished Name of the group where membership will be synchronized. Only available in GitHub Enterprise Server.

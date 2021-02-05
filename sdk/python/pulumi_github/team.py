@@ -15,6 +15,7 @@ class Team(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 create_default_maintainer: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  ldap_dn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -51,6 +52,7 @@ class Team(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] create_default_maintainer: Adds a default maintainer to the team. Defaults to `true` and removes the default maintaner when `false`.
         :param pulumi.Input[str] description: A description of the team.
         :param pulumi.Input[str] ldap_dn: The LDAP Distinguished Name of the group where membership will be synchronized. Only available in GitHub Enterprise Server.
         :param pulumi.Input[str] name: The name of the team.
@@ -75,12 +77,14 @@ class Team(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['create_default_maintainer'] = create_default_maintainer
             __props__['description'] = description
             __props__['ldap_dn'] = ldap_dn
             __props__['name'] = name
             __props__['parent_team_id'] = parent_team_id
             __props__['privacy'] = privacy
             __props__['etag'] = None
+            __props__['members_count'] = None
             __props__['node_id'] = None
             __props__['slug'] = None
         super(Team, __self__).__init__(
@@ -93,9 +97,11 @@ class Team(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            create_default_maintainer: Optional[pulumi.Input[bool]] = None,
             description: Optional[pulumi.Input[str]] = None,
             etag: Optional[pulumi.Input[str]] = None,
             ldap_dn: Optional[pulumi.Input[str]] = None,
+            members_count: Optional[pulumi.Input[int]] = None,
             name: Optional[pulumi.Input[str]] = None,
             node_id: Optional[pulumi.Input[str]] = None,
             parent_team_id: Optional[pulumi.Input[int]] = None,
@@ -108,6 +114,7 @@ class Team(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] create_default_maintainer: Adds a default maintainer to the team. Defaults to `true` and removes the default maintaner when `false`.
         :param pulumi.Input[str] description: A description of the team.
         :param pulumi.Input[str] ldap_dn: The LDAP Distinguished Name of the group where membership will be synchronized. Only available in GitHub Enterprise Server.
         :param pulumi.Input[str] name: The name of the team.
@@ -123,15 +130,25 @@ class Team(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["create_default_maintainer"] = create_default_maintainer
         __props__["description"] = description
         __props__["etag"] = etag
         __props__["ldap_dn"] = ldap_dn
+        __props__["members_count"] = members_count
         __props__["name"] = name
         __props__["node_id"] = node_id
         __props__["parent_team_id"] = parent_team_id
         __props__["privacy"] = privacy
         __props__["slug"] = slug
         return Team(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="createDefaultMaintainer")
+    def create_default_maintainer(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Adds a default maintainer to the team. Defaults to `true` and removes the default maintaner when `false`.
+        """
+        return pulumi.get(self, "create_default_maintainer")
 
     @property
     @pulumi.getter
@@ -153,6 +170,11 @@ class Team(pulumi.CustomResource):
         The LDAP Distinguished Name of the group where membership will be synchronized. Only available in GitHub Enterprise Server.
         """
         return pulumi.get(self, "ldap_dn")
+
+    @property
+    @pulumi.getter(name="membersCount")
+    def members_count(self) -> pulumi.Output[int]:
+        return pulumi.get(self, "members_count")
 
     @property
     @pulumi.getter
