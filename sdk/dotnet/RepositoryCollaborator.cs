@@ -77,6 +77,12 @@ namespace Pulumi.Github
         public Output<string?> Permission { get; private set; } = null!;
 
         /// <summary>
+        /// Suppress plan diffs for `triage` and `maintain`.  Defaults to `false`.
+        /// </summary>
+        [Output("permissionDiffSuppression")]
+        public Output<bool?> PermissionDiffSuppression { get; private set; } = null!;
+
+        /// <summary>
         /// The GitHub repository
         /// </summary>
         [Output("repository")]
@@ -143,6 +149,12 @@ namespace Pulumi.Github
         public Input<string>? Permission { get; set; }
 
         /// <summary>
+        /// Suppress plan diffs for `triage` and `maintain`.  Defaults to `false`.
+        /// </summary>
+        [Input("permissionDiffSuppression")]
+        public Input<bool>? PermissionDiffSuppression { get; set; }
+
+        /// <summary>
         /// The GitHub repository
         /// </summary>
         [Input("repository", required: true)]
@@ -174,6 +186,12 @@ namespace Pulumi.Github
         /// </summary>
         [Input("permission")]
         public Input<string>? Permission { get; set; }
+
+        /// <summary>
+        /// Suppress plan diffs for `triage` and `maintain`.  Defaults to `false`.
+        /// </summary>
+        [Input("permissionDiffSuppression")]
+        public Input<bool>? PermissionDiffSuppression { get; set; }
 
         /// <summary>
         /// The GitHub repository

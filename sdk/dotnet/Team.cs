@@ -48,6 +48,12 @@ namespace Pulumi.Github
     public partial class Team : Pulumi.CustomResource
     {
         /// <summary>
+        /// Adds a default maintainer to the team. Defaults to `true` and removes the default maintaner when `false`.
+        /// </summary>
+        [Output("createDefaultMaintainer")]
+        public Output<bool?> CreateDefaultMaintainer { get; private set; } = null!;
+
+        /// <summary>
         /// A description of the team.
         /// </summary>
         [Output("description")]
@@ -61,6 +67,9 @@ namespace Pulumi.Github
         /// </summary>
         [Output("ldapDn")]
         public Output<string?> LdapDn { get; private set; } = null!;
+
+        [Output("membersCount")]
+        public Output<int> MembersCount { get; private set; } = null!;
 
         /// <summary>
         /// The name of the team.
@@ -142,6 +151,12 @@ namespace Pulumi.Github
     public sealed class TeamArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Adds a default maintainer to the team. Defaults to `true` and removes the default maintaner when `false`.
+        /// </summary>
+        [Input("createDefaultMaintainer")]
+        public Input<bool>? CreateDefaultMaintainer { get; set; }
+
+        /// <summary>
         /// A description of the team.
         /// </summary>
         [Input("description")]
@@ -180,6 +195,12 @@ namespace Pulumi.Github
     public sealed class TeamState : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Adds a default maintainer to the team. Defaults to `true` and removes the default maintaner when `false`.
+        /// </summary>
+        [Input("createDefaultMaintainer")]
+        public Input<bool>? CreateDefaultMaintainer { get; set; }
+
+        /// <summary>
         /// A description of the team.
         /// </summary>
         [Input("description")]
@@ -193,6 +214,9 @@ namespace Pulumi.Github
         /// </summary>
         [Input("ldapDn")]
         public Input<string>? LdapDn { get; set; }
+
+        [Input("membersCount")]
+        public Input<int>? MembersCount { get; set; }
 
         /// <summary>
         /// The name of the team.
