@@ -23,7 +23,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-github/sdk/v3/go/github/"
+// 	"github.com/pulumi/pulumi-github/sdk/v3/go/github"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -161,6 +161,85 @@ func (i *BranchDefault) ToBranchDefaultOutputWithContext(ctx context.Context) Br
 	return pulumi.ToOutputWithContext(ctx, i).(BranchDefaultOutput)
 }
 
+func (i *BranchDefault) ToBranchDefaultPtrOutput() BranchDefaultPtrOutput {
+	return i.ToBranchDefaultPtrOutputWithContext(context.Background())
+}
+
+func (i *BranchDefault) ToBranchDefaultPtrOutputWithContext(ctx context.Context) BranchDefaultPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BranchDefaultPtrOutput)
+}
+
+type BranchDefaultPtrInput interface {
+	pulumi.Input
+
+	ToBranchDefaultPtrOutput() BranchDefaultPtrOutput
+	ToBranchDefaultPtrOutputWithContext(ctx context.Context) BranchDefaultPtrOutput
+}
+
+type branchDefaultPtrType BranchDefaultArgs
+
+func (*branchDefaultPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BranchDefault)(nil))
+}
+
+func (i *branchDefaultPtrType) ToBranchDefaultPtrOutput() BranchDefaultPtrOutput {
+	return i.ToBranchDefaultPtrOutputWithContext(context.Background())
+}
+
+func (i *branchDefaultPtrType) ToBranchDefaultPtrOutputWithContext(ctx context.Context) BranchDefaultPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BranchDefaultPtrOutput)
+}
+
+// BranchDefaultArrayInput is an input type that accepts BranchDefaultArray and BranchDefaultArrayOutput values.
+// You can construct a concrete instance of `BranchDefaultArrayInput` via:
+//
+//          BranchDefaultArray{ BranchDefaultArgs{...} }
+type BranchDefaultArrayInput interface {
+	pulumi.Input
+
+	ToBranchDefaultArrayOutput() BranchDefaultArrayOutput
+	ToBranchDefaultArrayOutputWithContext(context.Context) BranchDefaultArrayOutput
+}
+
+type BranchDefaultArray []BranchDefaultInput
+
+func (BranchDefaultArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*BranchDefault)(nil))
+}
+
+func (i BranchDefaultArray) ToBranchDefaultArrayOutput() BranchDefaultArrayOutput {
+	return i.ToBranchDefaultArrayOutputWithContext(context.Background())
+}
+
+func (i BranchDefaultArray) ToBranchDefaultArrayOutputWithContext(ctx context.Context) BranchDefaultArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BranchDefaultArrayOutput)
+}
+
+// BranchDefaultMapInput is an input type that accepts BranchDefaultMap and BranchDefaultMapOutput values.
+// You can construct a concrete instance of `BranchDefaultMapInput` via:
+//
+//          BranchDefaultMap{ "key": BranchDefaultArgs{...} }
+type BranchDefaultMapInput interface {
+	pulumi.Input
+
+	ToBranchDefaultMapOutput() BranchDefaultMapOutput
+	ToBranchDefaultMapOutputWithContext(context.Context) BranchDefaultMapOutput
+}
+
+type BranchDefaultMap map[string]BranchDefaultInput
+
+func (BranchDefaultMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*BranchDefault)(nil))
+}
+
+func (i BranchDefaultMap) ToBranchDefaultMapOutput() BranchDefaultMapOutput {
+	return i.ToBranchDefaultMapOutputWithContext(context.Background())
+}
+
+func (i BranchDefaultMap) ToBranchDefaultMapOutputWithContext(ctx context.Context) BranchDefaultMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BranchDefaultMapOutput)
+}
+
 type BranchDefaultOutput struct {
 	*pulumi.OutputState
 }
@@ -177,6 +256,75 @@ func (o BranchDefaultOutput) ToBranchDefaultOutputWithContext(ctx context.Contex
 	return o
 }
 
+func (o BranchDefaultOutput) ToBranchDefaultPtrOutput() BranchDefaultPtrOutput {
+	return o.ToBranchDefaultPtrOutputWithContext(context.Background())
+}
+
+func (o BranchDefaultOutput) ToBranchDefaultPtrOutputWithContext(ctx context.Context) BranchDefaultPtrOutput {
+	return o.ApplyT(func(v BranchDefault) *BranchDefault {
+		return &v
+	}).(BranchDefaultPtrOutput)
+}
+
+type BranchDefaultPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (BranchDefaultPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BranchDefault)(nil))
+}
+
+func (o BranchDefaultPtrOutput) ToBranchDefaultPtrOutput() BranchDefaultPtrOutput {
+	return o
+}
+
+func (o BranchDefaultPtrOutput) ToBranchDefaultPtrOutputWithContext(ctx context.Context) BranchDefaultPtrOutput {
+	return o
+}
+
+type BranchDefaultArrayOutput struct{ *pulumi.OutputState }
+
+func (BranchDefaultArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BranchDefault)(nil))
+}
+
+func (o BranchDefaultArrayOutput) ToBranchDefaultArrayOutput() BranchDefaultArrayOutput {
+	return o
+}
+
+func (o BranchDefaultArrayOutput) ToBranchDefaultArrayOutputWithContext(ctx context.Context) BranchDefaultArrayOutput {
+	return o
+}
+
+func (o BranchDefaultArrayOutput) Index(i pulumi.IntInput) BranchDefaultOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BranchDefault {
+		return vs[0].([]BranchDefault)[vs[1].(int)]
+	}).(BranchDefaultOutput)
+}
+
+type BranchDefaultMapOutput struct{ *pulumi.OutputState }
+
+func (BranchDefaultMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]BranchDefault)(nil))
+}
+
+func (o BranchDefaultMapOutput) ToBranchDefaultMapOutput() BranchDefaultMapOutput {
+	return o
+}
+
+func (o BranchDefaultMapOutput) ToBranchDefaultMapOutputWithContext(ctx context.Context) BranchDefaultMapOutput {
+	return o
+}
+
+func (o BranchDefaultMapOutput) MapIndex(k pulumi.StringInput) BranchDefaultOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) BranchDefault {
+		return vs[0].(map[string]BranchDefault)[vs[1].(string)]
+	}).(BranchDefaultOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(BranchDefaultOutput{})
+	pulumi.RegisterOutputType(BranchDefaultPtrOutput{})
+	pulumi.RegisterOutputType(BranchDefaultArrayOutput{})
+	pulumi.RegisterOutputType(BranchDefaultMapOutput{})
 }

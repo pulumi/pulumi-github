@@ -73,7 +73,8 @@ export class IssueLabel extends pulumi.CustomResource {
     constructor(name: string, args: IssueLabelArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: IssueLabelArgs | IssueLabelState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as IssueLabelState | undefined;
             inputs["color"] = state ? state.color : undefined;
             inputs["description"] = state ? state.description : undefined;
@@ -83,10 +84,10 @@ export class IssueLabel extends pulumi.CustomResource {
             inputs["url"] = state ? state.url : undefined;
         } else {
             const args = argsOrState as IssueLabelArgs | undefined;
-            if ((!args || args.color === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.color === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'color'");
             }
-            if ((!args || args.repository === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.repository === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'repository'");
             }
             inputs["color"] = args ? args.color : undefined;
@@ -96,12 +97,8 @@ export class IssueLabel extends pulumi.CustomResource {
             inputs["etag"] = undefined /*out*/;
             inputs["url"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(IssueLabel.__pulumiType, name, inputs, opts);
     }

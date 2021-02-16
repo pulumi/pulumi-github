@@ -27,7 +27,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-github/sdk/v3/go/github/"
+// 	"github.com/pulumi/pulumi-github/sdk/v3/go/github"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -180,6 +180,85 @@ func (i *TeamRepository) ToTeamRepositoryOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(TeamRepositoryOutput)
 }
 
+func (i *TeamRepository) ToTeamRepositoryPtrOutput() TeamRepositoryPtrOutput {
+	return i.ToTeamRepositoryPtrOutputWithContext(context.Background())
+}
+
+func (i *TeamRepository) ToTeamRepositoryPtrOutputWithContext(ctx context.Context) TeamRepositoryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TeamRepositoryPtrOutput)
+}
+
+type TeamRepositoryPtrInput interface {
+	pulumi.Input
+
+	ToTeamRepositoryPtrOutput() TeamRepositoryPtrOutput
+	ToTeamRepositoryPtrOutputWithContext(ctx context.Context) TeamRepositoryPtrOutput
+}
+
+type teamRepositoryPtrType TeamRepositoryArgs
+
+func (*teamRepositoryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TeamRepository)(nil))
+}
+
+func (i *teamRepositoryPtrType) ToTeamRepositoryPtrOutput() TeamRepositoryPtrOutput {
+	return i.ToTeamRepositoryPtrOutputWithContext(context.Background())
+}
+
+func (i *teamRepositoryPtrType) ToTeamRepositoryPtrOutputWithContext(ctx context.Context) TeamRepositoryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TeamRepositoryPtrOutput)
+}
+
+// TeamRepositoryArrayInput is an input type that accepts TeamRepositoryArray and TeamRepositoryArrayOutput values.
+// You can construct a concrete instance of `TeamRepositoryArrayInput` via:
+//
+//          TeamRepositoryArray{ TeamRepositoryArgs{...} }
+type TeamRepositoryArrayInput interface {
+	pulumi.Input
+
+	ToTeamRepositoryArrayOutput() TeamRepositoryArrayOutput
+	ToTeamRepositoryArrayOutputWithContext(context.Context) TeamRepositoryArrayOutput
+}
+
+type TeamRepositoryArray []TeamRepositoryInput
+
+func (TeamRepositoryArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*TeamRepository)(nil))
+}
+
+func (i TeamRepositoryArray) ToTeamRepositoryArrayOutput() TeamRepositoryArrayOutput {
+	return i.ToTeamRepositoryArrayOutputWithContext(context.Background())
+}
+
+func (i TeamRepositoryArray) ToTeamRepositoryArrayOutputWithContext(ctx context.Context) TeamRepositoryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TeamRepositoryArrayOutput)
+}
+
+// TeamRepositoryMapInput is an input type that accepts TeamRepositoryMap and TeamRepositoryMapOutput values.
+// You can construct a concrete instance of `TeamRepositoryMapInput` via:
+//
+//          TeamRepositoryMap{ "key": TeamRepositoryArgs{...} }
+type TeamRepositoryMapInput interface {
+	pulumi.Input
+
+	ToTeamRepositoryMapOutput() TeamRepositoryMapOutput
+	ToTeamRepositoryMapOutputWithContext(context.Context) TeamRepositoryMapOutput
+}
+
+type TeamRepositoryMap map[string]TeamRepositoryInput
+
+func (TeamRepositoryMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*TeamRepository)(nil))
+}
+
+func (i TeamRepositoryMap) ToTeamRepositoryMapOutput() TeamRepositoryMapOutput {
+	return i.ToTeamRepositoryMapOutputWithContext(context.Background())
+}
+
+func (i TeamRepositoryMap) ToTeamRepositoryMapOutputWithContext(ctx context.Context) TeamRepositoryMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TeamRepositoryMapOutput)
+}
+
 type TeamRepositoryOutput struct {
 	*pulumi.OutputState
 }
@@ -196,6 +275,75 @@ func (o TeamRepositoryOutput) ToTeamRepositoryOutputWithContext(ctx context.Cont
 	return o
 }
 
+func (o TeamRepositoryOutput) ToTeamRepositoryPtrOutput() TeamRepositoryPtrOutput {
+	return o.ToTeamRepositoryPtrOutputWithContext(context.Background())
+}
+
+func (o TeamRepositoryOutput) ToTeamRepositoryPtrOutputWithContext(ctx context.Context) TeamRepositoryPtrOutput {
+	return o.ApplyT(func(v TeamRepository) *TeamRepository {
+		return &v
+	}).(TeamRepositoryPtrOutput)
+}
+
+type TeamRepositoryPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (TeamRepositoryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TeamRepository)(nil))
+}
+
+func (o TeamRepositoryPtrOutput) ToTeamRepositoryPtrOutput() TeamRepositoryPtrOutput {
+	return o
+}
+
+func (o TeamRepositoryPtrOutput) ToTeamRepositoryPtrOutputWithContext(ctx context.Context) TeamRepositoryPtrOutput {
+	return o
+}
+
+type TeamRepositoryArrayOutput struct{ *pulumi.OutputState }
+
+func (TeamRepositoryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TeamRepository)(nil))
+}
+
+func (o TeamRepositoryArrayOutput) ToTeamRepositoryArrayOutput() TeamRepositoryArrayOutput {
+	return o
+}
+
+func (o TeamRepositoryArrayOutput) ToTeamRepositoryArrayOutputWithContext(ctx context.Context) TeamRepositoryArrayOutput {
+	return o
+}
+
+func (o TeamRepositoryArrayOutput) Index(i pulumi.IntInput) TeamRepositoryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TeamRepository {
+		return vs[0].([]TeamRepository)[vs[1].(int)]
+	}).(TeamRepositoryOutput)
+}
+
+type TeamRepositoryMapOutput struct{ *pulumi.OutputState }
+
+func (TeamRepositoryMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]TeamRepository)(nil))
+}
+
+func (o TeamRepositoryMapOutput) ToTeamRepositoryMapOutput() TeamRepositoryMapOutput {
+	return o
+}
+
+func (o TeamRepositoryMapOutput) ToTeamRepositoryMapOutputWithContext(ctx context.Context) TeamRepositoryMapOutput {
+	return o
+}
+
+func (o TeamRepositoryMapOutput) MapIndex(k pulumi.StringInput) TeamRepositoryOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) TeamRepository {
+		return vs[0].(map[string]TeamRepository)[vs[1].(string)]
+	}).(TeamRepositoryOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(TeamRepositoryOutput{})
+	pulumi.RegisterOutputType(TeamRepositoryPtrOutput{})
+	pulumi.RegisterOutputType(TeamRepositoryArrayOutput{})
+	pulumi.RegisterOutputType(TeamRepositoryMapOutput{})
 }

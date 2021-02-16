@@ -95,7 +95,8 @@ export class RepositoryDeployKey extends pulumi.CustomResource {
     constructor(name: string, args: RepositoryDeployKeyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: RepositoryDeployKeyArgs | RepositoryDeployKeyState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as RepositoryDeployKeyState | undefined;
             inputs["etag"] = state ? state.etag : undefined;
             inputs["key"] = state ? state.key : undefined;
@@ -104,13 +105,13 @@ export class RepositoryDeployKey extends pulumi.CustomResource {
             inputs["title"] = state ? state.title : undefined;
         } else {
             const args = argsOrState as RepositoryDeployKeyArgs | undefined;
-            if ((!args || args.key === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.key === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'key'");
             }
-            if ((!args || args.repository === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.repository === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'repository'");
             }
-            if ((!args || args.title === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.title === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'title'");
             }
             inputs["key"] = args ? args.key : undefined;
@@ -119,12 +120,8 @@ export class RepositoryDeployKey extends pulumi.CustomResource {
             inputs["title"] = args ? args.title : undefined;
             inputs["etag"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(RepositoryDeployKey.__pulumiType, name, inputs, opts);
     }

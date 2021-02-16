@@ -28,7 +28,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-github/sdk/v3/go/github/"
+// 	"github.com/pulumi/pulumi-github/sdk/v3/go/github"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -180,6 +180,85 @@ func (i *RepositoryDeployKey) ToRepositoryDeployKeyOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryDeployKeyOutput)
 }
 
+func (i *RepositoryDeployKey) ToRepositoryDeployKeyPtrOutput() RepositoryDeployKeyPtrOutput {
+	return i.ToRepositoryDeployKeyPtrOutputWithContext(context.Background())
+}
+
+func (i *RepositoryDeployKey) ToRepositoryDeployKeyPtrOutputWithContext(ctx context.Context) RepositoryDeployKeyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryDeployKeyPtrOutput)
+}
+
+type RepositoryDeployKeyPtrInput interface {
+	pulumi.Input
+
+	ToRepositoryDeployKeyPtrOutput() RepositoryDeployKeyPtrOutput
+	ToRepositoryDeployKeyPtrOutputWithContext(ctx context.Context) RepositoryDeployKeyPtrOutput
+}
+
+type repositoryDeployKeyPtrType RepositoryDeployKeyArgs
+
+func (*repositoryDeployKeyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RepositoryDeployKey)(nil))
+}
+
+func (i *repositoryDeployKeyPtrType) ToRepositoryDeployKeyPtrOutput() RepositoryDeployKeyPtrOutput {
+	return i.ToRepositoryDeployKeyPtrOutputWithContext(context.Background())
+}
+
+func (i *repositoryDeployKeyPtrType) ToRepositoryDeployKeyPtrOutputWithContext(ctx context.Context) RepositoryDeployKeyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryDeployKeyPtrOutput)
+}
+
+// RepositoryDeployKeyArrayInput is an input type that accepts RepositoryDeployKeyArray and RepositoryDeployKeyArrayOutput values.
+// You can construct a concrete instance of `RepositoryDeployKeyArrayInput` via:
+//
+//          RepositoryDeployKeyArray{ RepositoryDeployKeyArgs{...} }
+type RepositoryDeployKeyArrayInput interface {
+	pulumi.Input
+
+	ToRepositoryDeployKeyArrayOutput() RepositoryDeployKeyArrayOutput
+	ToRepositoryDeployKeyArrayOutputWithContext(context.Context) RepositoryDeployKeyArrayOutput
+}
+
+type RepositoryDeployKeyArray []RepositoryDeployKeyInput
+
+func (RepositoryDeployKeyArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*RepositoryDeployKey)(nil))
+}
+
+func (i RepositoryDeployKeyArray) ToRepositoryDeployKeyArrayOutput() RepositoryDeployKeyArrayOutput {
+	return i.ToRepositoryDeployKeyArrayOutputWithContext(context.Background())
+}
+
+func (i RepositoryDeployKeyArray) ToRepositoryDeployKeyArrayOutputWithContext(ctx context.Context) RepositoryDeployKeyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryDeployKeyArrayOutput)
+}
+
+// RepositoryDeployKeyMapInput is an input type that accepts RepositoryDeployKeyMap and RepositoryDeployKeyMapOutput values.
+// You can construct a concrete instance of `RepositoryDeployKeyMapInput` via:
+//
+//          RepositoryDeployKeyMap{ "key": RepositoryDeployKeyArgs{...} }
+type RepositoryDeployKeyMapInput interface {
+	pulumi.Input
+
+	ToRepositoryDeployKeyMapOutput() RepositoryDeployKeyMapOutput
+	ToRepositoryDeployKeyMapOutputWithContext(context.Context) RepositoryDeployKeyMapOutput
+}
+
+type RepositoryDeployKeyMap map[string]RepositoryDeployKeyInput
+
+func (RepositoryDeployKeyMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*RepositoryDeployKey)(nil))
+}
+
+func (i RepositoryDeployKeyMap) ToRepositoryDeployKeyMapOutput() RepositoryDeployKeyMapOutput {
+	return i.ToRepositoryDeployKeyMapOutputWithContext(context.Background())
+}
+
+func (i RepositoryDeployKeyMap) ToRepositoryDeployKeyMapOutputWithContext(ctx context.Context) RepositoryDeployKeyMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryDeployKeyMapOutput)
+}
+
 type RepositoryDeployKeyOutput struct {
 	*pulumi.OutputState
 }
@@ -196,6 +275,75 @@ func (o RepositoryDeployKeyOutput) ToRepositoryDeployKeyOutputWithContext(ctx co
 	return o
 }
 
+func (o RepositoryDeployKeyOutput) ToRepositoryDeployKeyPtrOutput() RepositoryDeployKeyPtrOutput {
+	return o.ToRepositoryDeployKeyPtrOutputWithContext(context.Background())
+}
+
+func (o RepositoryDeployKeyOutput) ToRepositoryDeployKeyPtrOutputWithContext(ctx context.Context) RepositoryDeployKeyPtrOutput {
+	return o.ApplyT(func(v RepositoryDeployKey) *RepositoryDeployKey {
+		return &v
+	}).(RepositoryDeployKeyPtrOutput)
+}
+
+type RepositoryDeployKeyPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (RepositoryDeployKeyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RepositoryDeployKey)(nil))
+}
+
+func (o RepositoryDeployKeyPtrOutput) ToRepositoryDeployKeyPtrOutput() RepositoryDeployKeyPtrOutput {
+	return o
+}
+
+func (o RepositoryDeployKeyPtrOutput) ToRepositoryDeployKeyPtrOutputWithContext(ctx context.Context) RepositoryDeployKeyPtrOutput {
+	return o
+}
+
+type RepositoryDeployKeyArrayOutput struct{ *pulumi.OutputState }
+
+func (RepositoryDeployKeyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RepositoryDeployKey)(nil))
+}
+
+func (o RepositoryDeployKeyArrayOutput) ToRepositoryDeployKeyArrayOutput() RepositoryDeployKeyArrayOutput {
+	return o
+}
+
+func (o RepositoryDeployKeyArrayOutput) ToRepositoryDeployKeyArrayOutputWithContext(ctx context.Context) RepositoryDeployKeyArrayOutput {
+	return o
+}
+
+func (o RepositoryDeployKeyArrayOutput) Index(i pulumi.IntInput) RepositoryDeployKeyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RepositoryDeployKey {
+		return vs[0].([]RepositoryDeployKey)[vs[1].(int)]
+	}).(RepositoryDeployKeyOutput)
+}
+
+type RepositoryDeployKeyMapOutput struct{ *pulumi.OutputState }
+
+func (RepositoryDeployKeyMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]RepositoryDeployKey)(nil))
+}
+
+func (o RepositoryDeployKeyMapOutput) ToRepositoryDeployKeyMapOutput() RepositoryDeployKeyMapOutput {
+	return o
+}
+
+func (o RepositoryDeployKeyMapOutput) ToRepositoryDeployKeyMapOutputWithContext(ctx context.Context) RepositoryDeployKeyMapOutput {
+	return o
+}
+
+func (o RepositoryDeployKeyMapOutput) MapIndex(k pulumi.StringInput) RepositoryDeployKeyOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) RepositoryDeployKey {
+		return vs[0].(map[string]RepositoryDeployKey)[vs[1].(string)]
+	}).(RepositoryDeployKeyOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(RepositoryDeployKeyOutput{})
+	pulumi.RegisterOutputType(RepositoryDeployKeyPtrOutput{})
+	pulumi.RegisterOutputType(RepositoryDeployKeyArrayOutput{})
+	pulumi.RegisterOutputType(RepositoryDeployKeyMapOutput{})
 }

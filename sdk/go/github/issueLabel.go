@@ -146,6 +146,85 @@ func (i *IssueLabel) ToIssueLabelOutputWithContext(ctx context.Context) IssueLab
 	return pulumi.ToOutputWithContext(ctx, i).(IssueLabelOutput)
 }
 
+func (i *IssueLabel) ToIssueLabelPtrOutput() IssueLabelPtrOutput {
+	return i.ToIssueLabelPtrOutputWithContext(context.Background())
+}
+
+func (i *IssueLabel) ToIssueLabelPtrOutputWithContext(ctx context.Context) IssueLabelPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IssueLabelPtrOutput)
+}
+
+type IssueLabelPtrInput interface {
+	pulumi.Input
+
+	ToIssueLabelPtrOutput() IssueLabelPtrOutput
+	ToIssueLabelPtrOutputWithContext(ctx context.Context) IssueLabelPtrOutput
+}
+
+type issueLabelPtrType IssueLabelArgs
+
+func (*issueLabelPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IssueLabel)(nil))
+}
+
+func (i *issueLabelPtrType) ToIssueLabelPtrOutput() IssueLabelPtrOutput {
+	return i.ToIssueLabelPtrOutputWithContext(context.Background())
+}
+
+func (i *issueLabelPtrType) ToIssueLabelPtrOutputWithContext(ctx context.Context) IssueLabelPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IssueLabelPtrOutput)
+}
+
+// IssueLabelArrayInput is an input type that accepts IssueLabelArray and IssueLabelArrayOutput values.
+// You can construct a concrete instance of `IssueLabelArrayInput` via:
+//
+//          IssueLabelArray{ IssueLabelArgs{...} }
+type IssueLabelArrayInput interface {
+	pulumi.Input
+
+	ToIssueLabelArrayOutput() IssueLabelArrayOutput
+	ToIssueLabelArrayOutputWithContext(context.Context) IssueLabelArrayOutput
+}
+
+type IssueLabelArray []IssueLabelInput
+
+func (IssueLabelArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*IssueLabel)(nil))
+}
+
+func (i IssueLabelArray) ToIssueLabelArrayOutput() IssueLabelArrayOutput {
+	return i.ToIssueLabelArrayOutputWithContext(context.Background())
+}
+
+func (i IssueLabelArray) ToIssueLabelArrayOutputWithContext(ctx context.Context) IssueLabelArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IssueLabelArrayOutput)
+}
+
+// IssueLabelMapInput is an input type that accepts IssueLabelMap and IssueLabelMapOutput values.
+// You can construct a concrete instance of `IssueLabelMapInput` via:
+//
+//          IssueLabelMap{ "key": IssueLabelArgs{...} }
+type IssueLabelMapInput interface {
+	pulumi.Input
+
+	ToIssueLabelMapOutput() IssueLabelMapOutput
+	ToIssueLabelMapOutputWithContext(context.Context) IssueLabelMapOutput
+}
+
+type IssueLabelMap map[string]IssueLabelInput
+
+func (IssueLabelMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*IssueLabel)(nil))
+}
+
+func (i IssueLabelMap) ToIssueLabelMapOutput() IssueLabelMapOutput {
+	return i.ToIssueLabelMapOutputWithContext(context.Background())
+}
+
+func (i IssueLabelMap) ToIssueLabelMapOutputWithContext(ctx context.Context) IssueLabelMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IssueLabelMapOutput)
+}
+
 type IssueLabelOutput struct {
 	*pulumi.OutputState
 }
@@ -162,6 +241,75 @@ func (o IssueLabelOutput) ToIssueLabelOutputWithContext(ctx context.Context) Iss
 	return o
 }
 
+func (o IssueLabelOutput) ToIssueLabelPtrOutput() IssueLabelPtrOutput {
+	return o.ToIssueLabelPtrOutputWithContext(context.Background())
+}
+
+func (o IssueLabelOutput) ToIssueLabelPtrOutputWithContext(ctx context.Context) IssueLabelPtrOutput {
+	return o.ApplyT(func(v IssueLabel) *IssueLabel {
+		return &v
+	}).(IssueLabelPtrOutput)
+}
+
+type IssueLabelPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (IssueLabelPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IssueLabel)(nil))
+}
+
+func (o IssueLabelPtrOutput) ToIssueLabelPtrOutput() IssueLabelPtrOutput {
+	return o
+}
+
+func (o IssueLabelPtrOutput) ToIssueLabelPtrOutputWithContext(ctx context.Context) IssueLabelPtrOutput {
+	return o
+}
+
+type IssueLabelArrayOutput struct{ *pulumi.OutputState }
+
+func (IssueLabelArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IssueLabel)(nil))
+}
+
+func (o IssueLabelArrayOutput) ToIssueLabelArrayOutput() IssueLabelArrayOutput {
+	return o
+}
+
+func (o IssueLabelArrayOutput) ToIssueLabelArrayOutputWithContext(ctx context.Context) IssueLabelArrayOutput {
+	return o
+}
+
+func (o IssueLabelArrayOutput) Index(i pulumi.IntInput) IssueLabelOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IssueLabel {
+		return vs[0].([]IssueLabel)[vs[1].(int)]
+	}).(IssueLabelOutput)
+}
+
+type IssueLabelMapOutput struct{ *pulumi.OutputState }
+
+func (IssueLabelMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]IssueLabel)(nil))
+}
+
+func (o IssueLabelMapOutput) ToIssueLabelMapOutput() IssueLabelMapOutput {
+	return o
+}
+
+func (o IssueLabelMapOutput) ToIssueLabelMapOutputWithContext(ctx context.Context) IssueLabelMapOutput {
+	return o
+}
+
+func (o IssueLabelMapOutput) MapIndex(k pulumi.StringInput) IssueLabelOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) IssueLabel {
+		return vs[0].(map[string]IssueLabel)[vs[1].(string)]
+	}).(IssueLabelOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(IssueLabelOutput{})
+	pulumi.RegisterOutputType(IssueLabelPtrOutput{})
+	pulumi.RegisterOutputType(IssueLabelArrayOutput{})
+	pulumi.RegisterOutputType(IssueLabelMapOutput{})
 }

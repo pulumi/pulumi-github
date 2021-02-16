@@ -88,7 +88,8 @@ export class BranchProtectionV3 extends pulumi.CustomResource {
     constructor(name: string, args: BranchProtectionV3Args, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: BranchProtectionV3Args | BranchProtectionV3State, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as BranchProtectionV3State | undefined;
             inputs["branch"] = state ? state.branch : undefined;
             inputs["enforceAdmins"] = state ? state.enforceAdmins : undefined;
@@ -100,10 +101,10 @@ export class BranchProtectionV3 extends pulumi.CustomResource {
             inputs["restrictions"] = state ? state.restrictions : undefined;
         } else {
             const args = argsOrState as BranchProtectionV3Args | undefined;
-            if ((!args || args.branch === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.branch === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'branch'");
             }
-            if ((!args || args.repository === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.repository === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'repository'");
             }
             inputs["branch"] = args ? args.branch : undefined;
@@ -115,12 +116,8 @@ export class BranchProtectionV3 extends pulumi.CustomResource {
             inputs["restrictions"] = args ? args.restrictions : undefined;
             inputs["etag"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(BranchProtectionV3.__pulumiType, name, inputs, opts);
     }

@@ -150,6 +150,85 @@ func (i *ActionsOrganizationSecret) ToActionsOrganizationSecretOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(ActionsOrganizationSecretOutput)
 }
 
+func (i *ActionsOrganizationSecret) ToActionsOrganizationSecretPtrOutput() ActionsOrganizationSecretPtrOutput {
+	return i.ToActionsOrganizationSecretPtrOutputWithContext(context.Background())
+}
+
+func (i *ActionsOrganizationSecret) ToActionsOrganizationSecretPtrOutputWithContext(ctx context.Context) ActionsOrganizationSecretPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionsOrganizationSecretPtrOutput)
+}
+
+type ActionsOrganizationSecretPtrInput interface {
+	pulumi.Input
+
+	ToActionsOrganizationSecretPtrOutput() ActionsOrganizationSecretPtrOutput
+	ToActionsOrganizationSecretPtrOutputWithContext(ctx context.Context) ActionsOrganizationSecretPtrOutput
+}
+
+type actionsOrganizationSecretPtrType ActionsOrganizationSecretArgs
+
+func (*actionsOrganizationSecretPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionsOrganizationSecret)(nil))
+}
+
+func (i *actionsOrganizationSecretPtrType) ToActionsOrganizationSecretPtrOutput() ActionsOrganizationSecretPtrOutput {
+	return i.ToActionsOrganizationSecretPtrOutputWithContext(context.Background())
+}
+
+func (i *actionsOrganizationSecretPtrType) ToActionsOrganizationSecretPtrOutputWithContext(ctx context.Context) ActionsOrganizationSecretPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionsOrganizationSecretPtrOutput)
+}
+
+// ActionsOrganizationSecretArrayInput is an input type that accepts ActionsOrganizationSecretArray and ActionsOrganizationSecretArrayOutput values.
+// You can construct a concrete instance of `ActionsOrganizationSecretArrayInput` via:
+//
+//          ActionsOrganizationSecretArray{ ActionsOrganizationSecretArgs{...} }
+type ActionsOrganizationSecretArrayInput interface {
+	pulumi.Input
+
+	ToActionsOrganizationSecretArrayOutput() ActionsOrganizationSecretArrayOutput
+	ToActionsOrganizationSecretArrayOutputWithContext(context.Context) ActionsOrganizationSecretArrayOutput
+}
+
+type ActionsOrganizationSecretArray []ActionsOrganizationSecretInput
+
+func (ActionsOrganizationSecretArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*ActionsOrganizationSecret)(nil))
+}
+
+func (i ActionsOrganizationSecretArray) ToActionsOrganizationSecretArrayOutput() ActionsOrganizationSecretArrayOutput {
+	return i.ToActionsOrganizationSecretArrayOutputWithContext(context.Background())
+}
+
+func (i ActionsOrganizationSecretArray) ToActionsOrganizationSecretArrayOutputWithContext(ctx context.Context) ActionsOrganizationSecretArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionsOrganizationSecretArrayOutput)
+}
+
+// ActionsOrganizationSecretMapInput is an input type that accepts ActionsOrganizationSecretMap and ActionsOrganizationSecretMapOutput values.
+// You can construct a concrete instance of `ActionsOrganizationSecretMapInput` via:
+//
+//          ActionsOrganizationSecretMap{ "key": ActionsOrganizationSecretArgs{...} }
+type ActionsOrganizationSecretMapInput interface {
+	pulumi.Input
+
+	ToActionsOrganizationSecretMapOutput() ActionsOrganizationSecretMapOutput
+	ToActionsOrganizationSecretMapOutputWithContext(context.Context) ActionsOrganizationSecretMapOutput
+}
+
+type ActionsOrganizationSecretMap map[string]ActionsOrganizationSecretInput
+
+func (ActionsOrganizationSecretMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*ActionsOrganizationSecret)(nil))
+}
+
+func (i ActionsOrganizationSecretMap) ToActionsOrganizationSecretMapOutput() ActionsOrganizationSecretMapOutput {
+	return i.ToActionsOrganizationSecretMapOutputWithContext(context.Background())
+}
+
+func (i ActionsOrganizationSecretMap) ToActionsOrganizationSecretMapOutputWithContext(ctx context.Context) ActionsOrganizationSecretMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionsOrganizationSecretMapOutput)
+}
+
 type ActionsOrganizationSecretOutput struct {
 	*pulumi.OutputState
 }
@@ -166,6 +245,75 @@ func (o ActionsOrganizationSecretOutput) ToActionsOrganizationSecretOutputWithCo
 	return o
 }
 
+func (o ActionsOrganizationSecretOutput) ToActionsOrganizationSecretPtrOutput() ActionsOrganizationSecretPtrOutput {
+	return o.ToActionsOrganizationSecretPtrOutputWithContext(context.Background())
+}
+
+func (o ActionsOrganizationSecretOutput) ToActionsOrganizationSecretPtrOutputWithContext(ctx context.Context) ActionsOrganizationSecretPtrOutput {
+	return o.ApplyT(func(v ActionsOrganizationSecret) *ActionsOrganizationSecret {
+		return &v
+	}).(ActionsOrganizationSecretPtrOutput)
+}
+
+type ActionsOrganizationSecretPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (ActionsOrganizationSecretPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionsOrganizationSecret)(nil))
+}
+
+func (o ActionsOrganizationSecretPtrOutput) ToActionsOrganizationSecretPtrOutput() ActionsOrganizationSecretPtrOutput {
+	return o
+}
+
+func (o ActionsOrganizationSecretPtrOutput) ToActionsOrganizationSecretPtrOutputWithContext(ctx context.Context) ActionsOrganizationSecretPtrOutput {
+	return o
+}
+
+type ActionsOrganizationSecretArrayOutput struct{ *pulumi.OutputState }
+
+func (ActionsOrganizationSecretArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ActionsOrganizationSecret)(nil))
+}
+
+func (o ActionsOrganizationSecretArrayOutput) ToActionsOrganizationSecretArrayOutput() ActionsOrganizationSecretArrayOutput {
+	return o
+}
+
+func (o ActionsOrganizationSecretArrayOutput) ToActionsOrganizationSecretArrayOutputWithContext(ctx context.Context) ActionsOrganizationSecretArrayOutput {
+	return o
+}
+
+func (o ActionsOrganizationSecretArrayOutput) Index(i pulumi.IntInput) ActionsOrganizationSecretOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ActionsOrganizationSecret {
+		return vs[0].([]ActionsOrganizationSecret)[vs[1].(int)]
+	}).(ActionsOrganizationSecretOutput)
+}
+
+type ActionsOrganizationSecretMapOutput struct{ *pulumi.OutputState }
+
+func (ActionsOrganizationSecretMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ActionsOrganizationSecret)(nil))
+}
+
+func (o ActionsOrganizationSecretMapOutput) ToActionsOrganizationSecretMapOutput() ActionsOrganizationSecretMapOutput {
+	return o
+}
+
+func (o ActionsOrganizationSecretMapOutput) ToActionsOrganizationSecretMapOutputWithContext(ctx context.Context) ActionsOrganizationSecretMapOutput {
+	return o
+}
+
+func (o ActionsOrganizationSecretMapOutput) MapIndex(k pulumi.StringInput) ActionsOrganizationSecretOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ActionsOrganizationSecret {
+		return vs[0].(map[string]ActionsOrganizationSecret)[vs[1].(string)]
+	}).(ActionsOrganizationSecretOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ActionsOrganizationSecretOutput{})
+	pulumi.RegisterOutputType(ActionsOrganizationSecretPtrOutput{})
+	pulumi.RegisterOutputType(ActionsOrganizationSecretArrayOutput{})
+	pulumi.RegisterOutputType(ActionsOrganizationSecretMapOutput{})
 }

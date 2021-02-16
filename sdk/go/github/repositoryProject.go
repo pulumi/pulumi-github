@@ -19,7 +19,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-github/sdk/v3/go/github/"
+// 	"github.com/pulumi/pulumi-github/sdk/v3/go/github"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -158,6 +158,85 @@ func (i *RepositoryProject) ToRepositoryProjectOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryProjectOutput)
 }
 
+func (i *RepositoryProject) ToRepositoryProjectPtrOutput() RepositoryProjectPtrOutput {
+	return i.ToRepositoryProjectPtrOutputWithContext(context.Background())
+}
+
+func (i *RepositoryProject) ToRepositoryProjectPtrOutputWithContext(ctx context.Context) RepositoryProjectPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryProjectPtrOutput)
+}
+
+type RepositoryProjectPtrInput interface {
+	pulumi.Input
+
+	ToRepositoryProjectPtrOutput() RepositoryProjectPtrOutput
+	ToRepositoryProjectPtrOutputWithContext(ctx context.Context) RepositoryProjectPtrOutput
+}
+
+type repositoryProjectPtrType RepositoryProjectArgs
+
+func (*repositoryProjectPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RepositoryProject)(nil))
+}
+
+func (i *repositoryProjectPtrType) ToRepositoryProjectPtrOutput() RepositoryProjectPtrOutput {
+	return i.ToRepositoryProjectPtrOutputWithContext(context.Background())
+}
+
+func (i *repositoryProjectPtrType) ToRepositoryProjectPtrOutputWithContext(ctx context.Context) RepositoryProjectPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryProjectPtrOutput)
+}
+
+// RepositoryProjectArrayInput is an input type that accepts RepositoryProjectArray and RepositoryProjectArrayOutput values.
+// You can construct a concrete instance of `RepositoryProjectArrayInput` via:
+//
+//          RepositoryProjectArray{ RepositoryProjectArgs{...} }
+type RepositoryProjectArrayInput interface {
+	pulumi.Input
+
+	ToRepositoryProjectArrayOutput() RepositoryProjectArrayOutput
+	ToRepositoryProjectArrayOutputWithContext(context.Context) RepositoryProjectArrayOutput
+}
+
+type RepositoryProjectArray []RepositoryProjectInput
+
+func (RepositoryProjectArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*RepositoryProject)(nil))
+}
+
+func (i RepositoryProjectArray) ToRepositoryProjectArrayOutput() RepositoryProjectArrayOutput {
+	return i.ToRepositoryProjectArrayOutputWithContext(context.Background())
+}
+
+func (i RepositoryProjectArray) ToRepositoryProjectArrayOutputWithContext(ctx context.Context) RepositoryProjectArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryProjectArrayOutput)
+}
+
+// RepositoryProjectMapInput is an input type that accepts RepositoryProjectMap and RepositoryProjectMapOutput values.
+// You can construct a concrete instance of `RepositoryProjectMapInput` via:
+//
+//          RepositoryProjectMap{ "key": RepositoryProjectArgs{...} }
+type RepositoryProjectMapInput interface {
+	pulumi.Input
+
+	ToRepositoryProjectMapOutput() RepositoryProjectMapOutput
+	ToRepositoryProjectMapOutputWithContext(context.Context) RepositoryProjectMapOutput
+}
+
+type RepositoryProjectMap map[string]RepositoryProjectInput
+
+func (RepositoryProjectMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*RepositoryProject)(nil))
+}
+
+func (i RepositoryProjectMap) ToRepositoryProjectMapOutput() RepositoryProjectMapOutput {
+	return i.ToRepositoryProjectMapOutputWithContext(context.Background())
+}
+
+func (i RepositoryProjectMap) ToRepositoryProjectMapOutputWithContext(ctx context.Context) RepositoryProjectMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryProjectMapOutput)
+}
+
 type RepositoryProjectOutput struct {
 	*pulumi.OutputState
 }
@@ -174,6 +253,75 @@ func (o RepositoryProjectOutput) ToRepositoryProjectOutputWithContext(ctx contex
 	return o
 }
 
+func (o RepositoryProjectOutput) ToRepositoryProjectPtrOutput() RepositoryProjectPtrOutput {
+	return o.ToRepositoryProjectPtrOutputWithContext(context.Background())
+}
+
+func (o RepositoryProjectOutput) ToRepositoryProjectPtrOutputWithContext(ctx context.Context) RepositoryProjectPtrOutput {
+	return o.ApplyT(func(v RepositoryProject) *RepositoryProject {
+		return &v
+	}).(RepositoryProjectPtrOutput)
+}
+
+type RepositoryProjectPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (RepositoryProjectPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RepositoryProject)(nil))
+}
+
+func (o RepositoryProjectPtrOutput) ToRepositoryProjectPtrOutput() RepositoryProjectPtrOutput {
+	return o
+}
+
+func (o RepositoryProjectPtrOutput) ToRepositoryProjectPtrOutputWithContext(ctx context.Context) RepositoryProjectPtrOutput {
+	return o
+}
+
+type RepositoryProjectArrayOutput struct{ *pulumi.OutputState }
+
+func (RepositoryProjectArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RepositoryProject)(nil))
+}
+
+func (o RepositoryProjectArrayOutput) ToRepositoryProjectArrayOutput() RepositoryProjectArrayOutput {
+	return o
+}
+
+func (o RepositoryProjectArrayOutput) ToRepositoryProjectArrayOutputWithContext(ctx context.Context) RepositoryProjectArrayOutput {
+	return o
+}
+
+func (o RepositoryProjectArrayOutput) Index(i pulumi.IntInput) RepositoryProjectOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RepositoryProject {
+		return vs[0].([]RepositoryProject)[vs[1].(int)]
+	}).(RepositoryProjectOutput)
+}
+
+type RepositoryProjectMapOutput struct{ *pulumi.OutputState }
+
+func (RepositoryProjectMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]RepositoryProject)(nil))
+}
+
+func (o RepositoryProjectMapOutput) ToRepositoryProjectMapOutput() RepositoryProjectMapOutput {
+	return o
+}
+
+func (o RepositoryProjectMapOutput) ToRepositoryProjectMapOutputWithContext(ctx context.Context) RepositoryProjectMapOutput {
+	return o
+}
+
+func (o RepositoryProjectMapOutput) MapIndex(k pulumi.StringInput) RepositoryProjectOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) RepositoryProject {
+		return vs[0].(map[string]RepositoryProject)[vs[1].(string)]
+	}).(RepositoryProjectOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(RepositoryProjectOutput{})
+	pulumi.RegisterOutputType(RepositoryProjectPtrOutput{})
+	pulumi.RegisterOutputType(RepositoryProjectArrayOutput{})
+	pulumi.RegisterOutputType(RepositoryProjectMapOutput{})
 }

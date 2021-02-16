@@ -19,7 +19,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-github/sdk/v3/go/github/"
+// 	"github.com/pulumi/pulumi-github/sdk/v3/go/github"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -124,6 +124,85 @@ func (i *OrganizationBlock) ToOrganizationBlockOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationBlockOutput)
 }
 
+func (i *OrganizationBlock) ToOrganizationBlockPtrOutput() OrganizationBlockPtrOutput {
+	return i.ToOrganizationBlockPtrOutputWithContext(context.Background())
+}
+
+func (i *OrganizationBlock) ToOrganizationBlockPtrOutputWithContext(ctx context.Context) OrganizationBlockPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationBlockPtrOutput)
+}
+
+type OrganizationBlockPtrInput interface {
+	pulumi.Input
+
+	ToOrganizationBlockPtrOutput() OrganizationBlockPtrOutput
+	ToOrganizationBlockPtrOutputWithContext(ctx context.Context) OrganizationBlockPtrOutput
+}
+
+type organizationBlockPtrType OrganizationBlockArgs
+
+func (*organizationBlockPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrganizationBlock)(nil))
+}
+
+func (i *organizationBlockPtrType) ToOrganizationBlockPtrOutput() OrganizationBlockPtrOutput {
+	return i.ToOrganizationBlockPtrOutputWithContext(context.Background())
+}
+
+func (i *organizationBlockPtrType) ToOrganizationBlockPtrOutputWithContext(ctx context.Context) OrganizationBlockPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationBlockPtrOutput)
+}
+
+// OrganizationBlockArrayInput is an input type that accepts OrganizationBlockArray and OrganizationBlockArrayOutput values.
+// You can construct a concrete instance of `OrganizationBlockArrayInput` via:
+//
+//          OrganizationBlockArray{ OrganizationBlockArgs{...} }
+type OrganizationBlockArrayInput interface {
+	pulumi.Input
+
+	ToOrganizationBlockArrayOutput() OrganizationBlockArrayOutput
+	ToOrganizationBlockArrayOutputWithContext(context.Context) OrganizationBlockArrayOutput
+}
+
+type OrganizationBlockArray []OrganizationBlockInput
+
+func (OrganizationBlockArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*OrganizationBlock)(nil))
+}
+
+func (i OrganizationBlockArray) ToOrganizationBlockArrayOutput() OrganizationBlockArrayOutput {
+	return i.ToOrganizationBlockArrayOutputWithContext(context.Background())
+}
+
+func (i OrganizationBlockArray) ToOrganizationBlockArrayOutputWithContext(ctx context.Context) OrganizationBlockArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationBlockArrayOutput)
+}
+
+// OrganizationBlockMapInput is an input type that accepts OrganizationBlockMap and OrganizationBlockMapOutput values.
+// You can construct a concrete instance of `OrganizationBlockMapInput` via:
+//
+//          OrganizationBlockMap{ "key": OrganizationBlockArgs{...} }
+type OrganizationBlockMapInput interface {
+	pulumi.Input
+
+	ToOrganizationBlockMapOutput() OrganizationBlockMapOutput
+	ToOrganizationBlockMapOutputWithContext(context.Context) OrganizationBlockMapOutput
+}
+
+type OrganizationBlockMap map[string]OrganizationBlockInput
+
+func (OrganizationBlockMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*OrganizationBlock)(nil))
+}
+
+func (i OrganizationBlockMap) ToOrganizationBlockMapOutput() OrganizationBlockMapOutput {
+	return i.ToOrganizationBlockMapOutputWithContext(context.Background())
+}
+
+func (i OrganizationBlockMap) ToOrganizationBlockMapOutputWithContext(ctx context.Context) OrganizationBlockMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationBlockMapOutput)
+}
+
 type OrganizationBlockOutput struct {
 	*pulumi.OutputState
 }
@@ -140,6 +219,75 @@ func (o OrganizationBlockOutput) ToOrganizationBlockOutputWithContext(ctx contex
 	return o
 }
 
+func (o OrganizationBlockOutput) ToOrganizationBlockPtrOutput() OrganizationBlockPtrOutput {
+	return o.ToOrganizationBlockPtrOutputWithContext(context.Background())
+}
+
+func (o OrganizationBlockOutput) ToOrganizationBlockPtrOutputWithContext(ctx context.Context) OrganizationBlockPtrOutput {
+	return o.ApplyT(func(v OrganizationBlock) *OrganizationBlock {
+		return &v
+	}).(OrganizationBlockPtrOutput)
+}
+
+type OrganizationBlockPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (OrganizationBlockPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrganizationBlock)(nil))
+}
+
+func (o OrganizationBlockPtrOutput) ToOrganizationBlockPtrOutput() OrganizationBlockPtrOutput {
+	return o
+}
+
+func (o OrganizationBlockPtrOutput) ToOrganizationBlockPtrOutputWithContext(ctx context.Context) OrganizationBlockPtrOutput {
+	return o
+}
+
+type OrganizationBlockArrayOutput struct{ *pulumi.OutputState }
+
+func (OrganizationBlockArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OrganizationBlock)(nil))
+}
+
+func (o OrganizationBlockArrayOutput) ToOrganizationBlockArrayOutput() OrganizationBlockArrayOutput {
+	return o
+}
+
+func (o OrganizationBlockArrayOutput) ToOrganizationBlockArrayOutputWithContext(ctx context.Context) OrganizationBlockArrayOutput {
+	return o
+}
+
+func (o OrganizationBlockArrayOutput) Index(i pulumi.IntInput) OrganizationBlockOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OrganizationBlock {
+		return vs[0].([]OrganizationBlock)[vs[1].(int)]
+	}).(OrganizationBlockOutput)
+}
+
+type OrganizationBlockMapOutput struct{ *pulumi.OutputState }
+
+func (OrganizationBlockMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]OrganizationBlock)(nil))
+}
+
+func (o OrganizationBlockMapOutput) ToOrganizationBlockMapOutput() OrganizationBlockMapOutput {
+	return o
+}
+
+func (o OrganizationBlockMapOutput) ToOrganizationBlockMapOutputWithContext(ctx context.Context) OrganizationBlockMapOutput {
+	return o
+}
+
+func (o OrganizationBlockMapOutput) MapIndex(k pulumi.StringInput) OrganizationBlockOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) OrganizationBlock {
+		return vs[0].(map[string]OrganizationBlock)[vs[1].(string)]
+	}).(OrganizationBlockOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(OrganizationBlockOutput{})
+	pulumi.RegisterOutputType(OrganizationBlockPtrOutput{})
+	pulumi.RegisterOutputType(OrganizationBlockArrayOutput{})
+	pulumi.RegisterOutputType(OrganizationBlockMapOutput{})
 }

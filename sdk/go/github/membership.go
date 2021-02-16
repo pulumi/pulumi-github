@@ -23,7 +23,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-github/sdk/v3/go/github/"
+// 	"github.com/pulumi/pulumi-github/sdk/v3/go/github"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -152,6 +152,85 @@ func (i *Membership) ToMembershipOutputWithContext(ctx context.Context) Membersh
 	return pulumi.ToOutputWithContext(ctx, i).(MembershipOutput)
 }
 
+func (i *Membership) ToMembershipPtrOutput() MembershipPtrOutput {
+	return i.ToMembershipPtrOutputWithContext(context.Background())
+}
+
+func (i *Membership) ToMembershipPtrOutputWithContext(ctx context.Context) MembershipPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MembershipPtrOutput)
+}
+
+type MembershipPtrInput interface {
+	pulumi.Input
+
+	ToMembershipPtrOutput() MembershipPtrOutput
+	ToMembershipPtrOutputWithContext(ctx context.Context) MembershipPtrOutput
+}
+
+type membershipPtrType MembershipArgs
+
+func (*membershipPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Membership)(nil))
+}
+
+func (i *membershipPtrType) ToMembershipPtrOutput() MembershipPtrOutput {
+	return i.ToMembershipPtrOutputWithContext(context.Background())
+}
+
+func (i *membershipPtrType) ToMembershipPtrOutputWithContext(ctx context.Context) MembershipPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MembershipPtrOutput)
+}
+
+// MembershipArrayInput is an input type that accepts MembershipArray and MembershipArrayOutput values.
+// You can construct a concrete instance of `MembershipArrayInput` via:
+//
+//          MembershipArray{ MembershipArgs{...} }
+type MembershipArrayInput interface {
+	pulumi.Input
+
+	ToMembershipArrayOutput() MembershipArrayOutput
+	ToMembershipArrayOutputWithContext(context.Context) MembershipArrayOutput
+}
+
+type MembershipArray []MembershipInput
+
+func (MembershipArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*Membership)(nil))
+}
+
+func (i MembershipArray) ToMembershipArrayOutput() MembershipArrayOutput {
+	return i.ToMembershipArrayOutputWithContext(context.Background())
+}
+
+func (i MembershipArray) ToMembershipArrayOutputWithContext(ctx context.Context) MembershipArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MembershipArrayOutput)
+}
+
+// MembershipMapInput is an input type that accepts MembershipMap and MembershipMapOutput values.
+// You can construct a concrete instance of `MembershipMapInput` via:
+//
+//          MembershipMap{ "key": MembershipArgs{...} }
+type MembershipMapInput interface {
+	pulumi.Input
+
+	ToMembershipMapOutput() MembershipMapOutput
+	ToMembershipMapOutputWithContext(context.Context) MembershipMapOutput
+}
+
+type MembershipMap map[string]MembershipInput
+
+func (MembershipMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*Membership)(nil))
+}
+
+func (i MembershipMap) ToMembershipMapOutput() MembershipMapOutput {
+	return i.ToMembershipMapOutputWithContext(context.Background())
+}
+
+func (i MembershipMap) ToMembershipMapOutputWithContext(ctx context.Context) MembershipMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MembershipMapOutput)
+}
+
 type MembershipOutput struct {
 	*pulumi.OutputState
 }
@@ -168,6 +247,75 @@ func (o MembershipOutput) ToMembershipOutputWithContext(ctx context.Context) Mem
 	return o
 }
 
+func (o MembershipOutput) ToMembershipPtrOutput() MembershipPtrOutput {
+	return o.ToMembershipPtrOutputWithContext(context.Background())
+}
+
+func (o MembershipOutput) ToMembershipPtrOutputWithContext(ctx context.Context) MembershipPtrOutput {
+	return o.ApplyT(func(v Membership) *Membership {
+		return &v
+	}).(MembershipPtrOutput)
+}
+
+type MembershipPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (MembershipPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Membership)(nil))
+}
+
+func (o MembershipPtrOutput) ToMembershipPtrOutput() MembershipPtrOutput {
+	return o
+}
+
+func (o MembershipPtrOutput) ToMembershipPtrOutputWithContext(ctx context.Context) MembershipPtrOutput {
+	return o
+}
+
+type MembershipArrayOutput struct{ *pulumi.OutputState }
+
+func (MembershipArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Membership)(nil))
+}
+
+func (o MembershipArrayOutput) ToMembershipArrayOutput() MembershipArrayOutput {
+	return o
+}
+
+func (o MembershipArrayOutput) ToMembershipArrayOutputWithContext(ctx context.Context) MembershipArrayOutput {
+	return o
+}
+
+func (o MembershipArrayOutput) Index(i pulumi.IntInput) MembershipOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Membership {
+		return vs[0].([]Membership)[vs[1].(int)]
+	}).(MembershipOutput)
+}
+
+type MembershipMapOutput struct{ *pulumi.OutputState }
+
+func (MembershipMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]Membership)(nil))
+}
+
+func (o MembershipMapOutput) ToMembershipMapOutput() MembershipMapOutput {
+	return o
+}
+
+func (o MembershipMapOutput) ToMembershipMapOutputWithContext(ctx context.Context) MembershipMapOutput {
+	return o
+}
+
+func (o MembershipMapOutput) MapIndex(k pulumi.StringInput) MembershipOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Membership {
+		return vs[0].(map[string]Membership)[vs[1].(string)]
+	}).(MembershipOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(MembershipOutput{})
+	pulumi.RegisterOutputType(MembershipPtrOutput{})
+	pulumi.RegisterOutputType(MembershipArrayOutput{})
+	pulumi.RegisterOutputType(MembershipMapOutput{})
 }

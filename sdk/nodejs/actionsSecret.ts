@@ -63,7 +63,8 @@ export class ActionsSecret extends pulumi.CustomResource {
     constructor(name: string, args: ActionsSecretArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ActionsSecretArgs | ActionsSecretState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ActionsSecretState | undefined;
             inputs["createdAt"] = state ? state.createdAt : undefined;
             inputs["plaintextValue"] = state ? state.plaintextValue : undefined;
@@ -72,13 +73,13 @@ export class ActionsSecret extends pulumi.CustomResource {
             inputs["updatedAt"] = state ? state.updatedAt : undefined;
         } else {
             const args = argsOrState as ActionsSecretArgs | undefined;
-            if ((!args || args.plaintextValue === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.plaintextValue === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'plaintextValue'");
             }
-            if ((!args || args.repository === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.repository === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'repository'");
             }
-            if ((!args || args.secretName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.secretName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'secretName'");
             }
             inputs["plaintextValue"] = args ? args.plaintextValue : undefined;
@@ -87,12 +88,8 @@ export class ActionsSecret extends pulumi.CustomResource {
             inputs["createdAt"] = undefined /*out*/;
             inputs["updatedAt"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(ActionsSecret.__pulumiType, name, inputs, opts);
     }

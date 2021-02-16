@@ -176,6 +176,85 @@ func (i *BranchProtectionV3) ToBranchProtectionV3OutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(BranchProtectionV3Output)
 }
 
+func (i *BranchProtectionV3) ToBranchProtectionV3PtrOutput() BranchProtectionV3PtrOutput {
+	return i.ToBranchProtectionV3PtrOutputWithContext(context.Background())
+}
+
+func (i *BranchProtectionV3) ToBranchProtectionV3PtrOutputWithContext(ctx context.Context) BranchProtectionV3PtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BranchProtectionV3PtrOutput)
+}
+
+type BranchProtectionV3PtrInput interface {
+	pulumi.Input
+
+	ToBranchProtectionV3PtrOutput() BranchProtectionV3PtrOutput
+	ToBranchProtectionV3PtrOutputWithContext(ctx context.Context) BranchProtectionV3PtrOutput
+}
+
+type branchProtectionV3PtrType BranchProtectionV3Args
+
+func (*branchProtectionV3PtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BranchProtectionV3)(nil))
+}
+
+func (i *branchProtectionV3PtrType) ToBranchProtectionV3PtrOutput() BranchProtectionV3PtrOutput {
+	return i.ToBranchProtectionV3PtrOutputWithContext(context.Background())
+}
+
+func (i *branchProtectionV3PtrType) ToBranchProtectionV3PtrOutputWithContext(ctx context.Context) BranchProtectionV3PtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BranchProtectionV3PtrOutput)
+}
+
+// BranchProtectionV3ArrayInput is an input type that accepts BranchProtectionV3Array and BranchProtectionV3ArrayOutput values.
+// You can construct a concrete instance of `BranchProtectionV3ArrayInput` via:
+//
+//          BranchProtectionV3Array{ BranchProtectionV3Args{...} }
+type BranchProtectionV3ArrayInput interface {
+	pulumi.Input
+
+	ToBranchProtectionV3ArrayOutput() BranchProtectionV3ArrayOutput
+	ToBranchProtectionV3ArrayOutputWithContext(context.Context) BranchProtectionV3ArrayOutput
+}
+
+type BranchProtectionV3Array []BranchProtectionV3Input
+
+func (BranchProtectionV3Array) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*BranchProtectionV3)(nil))
+}
+
+func (i BranchProtectionV3Array) ToBranchProtectionV3ArrayOutput() BranchProtectionV3ArrayOutput {
+	return i.ToBranchProtectionV3ArrayOutputWithContext(context.Background())
+}
+
+func (i BranchProtectionV3Array) ToBranchProtectionV3ArrayOutputWithContext(ctx context.Context) BranchProtectionV3ArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BranchProtectionV3ArrayOutput)
+}
+
+// BranchProtectionV3MapInput is an input type that accepts BranchProtectionV3Map and BranchProtectionV3MapOutput values.
+// You can construct a concrete instance of `BranchProtectionV3MapInput` via:
+//
+//          BranchProtectionV3Map{ "key": BranchProtectionV3Args{...} }
+type BranchProtectionV3MapInput interface {
+	pulumi.Input
+
+	ToBranchProtectionV3MapOutput() BranchProtectionV3MapOutput
+	ToBranchProtectionV3MapOutputWithContext(context.Context) BranchProtectionV3MapOutput
+}
+
+type BranchProtectionV3Map map[string]BranchProtectionV3Input
+
+func (BranchProtectionV3Map) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*BranchProtectionV3)(nil))
+}
+
+func (i BranchProtectionV3Map) ToBranchProtectionV3MapOutput() BranchProtectionV3MapOutput {
+	return i.ToBranchProtectionV3MapOutputWithContext(context.Background())
+}
+
+func (i BranchProtectionV3Map) ToBranchProtectionV3MapOutputWithContext(ctx context.Context) BranchProtectionV3MapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BranchProtectionV3MapOutput)
+}
+
 type BranchProtectionV3Output struct {
 	*pulumi.OutputState
 }
@@ -192,6 +271,75 @@ func (o BranchProtectionV3Output) ToBranchProtectionV3OutputWithContext(ctx cont
 	return o
 }
 
+func (o BranchProtectionV3Output) ToBranchProtectionV3PtrOutput() BranchProtectionV3PtrOutput {
+	return o.ToBranchProtectionV3PtrOutputWithContext(context.Background())
+}
+
+func (o BranchProtectionV3Output) ToBranchProtectionV3PtrOutputWithContext(ctx context.Context) BranchProtectionV3PtrOutput {
+	return o.ApplyT(func(v BranchProtectionV3) *BranchProtectionV3 {
+		return &v
+	}).(BranchProtectionV3PtrOutput)
+}
+
+type BranchProtectionV3PtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (BranchProtectionV3PtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BranchProtectionV3)(nil))
+}
+
+func (o BranchProtectionV3PtrOutput) ToBranchProtectionV3PtrOutput() BranchProtectionV3PtrOutput {
+	return o
+}
+
+func (o BranchProtectionV3PtrOutput) ToBranchProtectionV3PtrOutputWithContext(ctx context.Context) BranchProtectionV3PtrOutput {
+	return o
+}
+
+type BranchProtectionV3ArrayOutput struct{ *pulumi.OutputState }
+
+func (BranchProtectionV3ArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BranchProtectionV3)(nil))
+}
+
+func (o BranchProtectionV3ArrayOutput) ToBranchProtectionV3ArrayOutput() BranchProtectionV3ArrayOutput {
+	return o
+}
+
+func (o BranchProtectionV3ArrayOutput) ToBranchProtectionV3ArrayOutputWithContext(ctx context.Context) BranchProtectionV3ArrayOutput {
+	return o
+}
+
+func (o BranchProtectionV3ArrayOutput) Index(i pulumi.IntInput) BranchProtectionV3Output {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BranchProtectionV3 {
+		return vs[0].([]BranchProtectionV3)[vs[1].(int)]
+	}).(BranchProtectionV3Output)
+}
+
+type BranchProtectionV3MapOutput struct{ *pulumi.OutputState }
+
+func (BranchProtectionV3MapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]BranchProtectionV3)(nil))
+}
+
+func (o BranchProtectionV3MapOutput) ToBranchProtectionV3MapOutput() BranchProtectionV3MapOutput {
+	return o
+}
+
+func (o BranchProtectionV3MapOutput) ToBranchProtectionV3MapOutputWithContext(ctx context.Context) BranchProtectionV3MapOutput {
+	return o
+}
+
+func (o BranchProtectionV3MapOutput) MapIndex(k pulumi.StringInput) BranchProtectionV3Output {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) BranchProtectionV3 {
+		return vs[0].(map[string]BranchProtectionV3)[vs[1].(string)]
+	}).(BranchProtectionV3Output)
+}
+
 func init() {
 	pulumi.RegisterOutputType(BranchProtectionV3Output{})
+	pulumi.RegisterOutputType(BranchProtectionV3PtrOutput{})
+	pulumi.RegisterOutputType(BranchProtectionV3ArrayOutput{})
+	pulumi.RegisterOutputType(BranchProtectionV3MapOutput{})
 }

@@ -70,7 +70,8 @@ export class ProjectColumn extends pulumi.CustomResource {
     constructor(name: string, args: ProjectColumnArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ProjectColumnArgs | ProjectColumnState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ProjectColumnState | undefined;
             inputs["columnId"] = state ? state.columnId : undefined;
             inputs["etag"] = state ? state.etag : undefined;
@@ -78,7 +79,7 @@ export class ProjectColumn extends pulumi.CustomResource {
             inputs["projectId"] = state ? state.projectId : undefined;
         } else {
             const args = argsOrState as ProjectColumnArgs | undefined;
-            if ((!args || args.projectId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.projectId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'projectId'");
             }
             inputs["name"] = args ? args.name : undefined;
@@ -86,12 +87,8 @@ export class ProjectColumn extends pulumi.CustomResource {
             inputs["columnId"] = undefined /*out*/;
             inputs["etag"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(ProjectColumn.__pulumiType, name, inputs, opts);
     }

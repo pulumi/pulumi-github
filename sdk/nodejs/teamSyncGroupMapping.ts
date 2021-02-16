@@ -89,26 +89,23 @@ export class TeamSyncGroupMapping extends pulumi.CustomResource {
     constructor(name: string, args: TeamSyncGroupMappingArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: TeamSyncGroupMappingArgs | TeamSyncGroupMappingState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as TeamSyncGroupMappingState | undefined;
             inputs["etag"] = state ? state.etag : undefined;
             inputs["groups"] = state ? state.groups : undefined;
             inputs["teamSlug"] = state ? state.teamSlug : undefined;
         } else {
             const args = argsOrState as TeamSyncGroupMappingArgs | undefined;
-            if ((!args || args.teamSlug === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.teamSlug === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'teamSlug'");
             }
             inputs["groups"] = args ? args.groups : undefined;
             inputs["teamSlug"] = args ? args.teamSlug : undefined;
             inputs["etag"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(TeamSyncGroupMapping.__pulumiType, name, inputs, opts);
     }
