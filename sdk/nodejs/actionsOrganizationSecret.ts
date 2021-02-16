@@ -68,7 +68,8 @@ export class ActionsOrganizationSecret extends pulumi.CustomResource {
     constructor(name: string, args: ActionsOrganizationSecretArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ActionsOrganizationSecretArgs | ActionsOrganizationSecretState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ActionsOrganizationSecretState | undefined;
             inputs["createdAt"] = state ? state.createdAt : undefined;
             inputs["plaintextValue"] = state ? state.plaintextValue : undefined;
@@ -78,13 +79,13 @@ export class ActionsOrganizationSecret extends pulumi.CustomResource {
             inputs["visibility"] = state ? state.visibility : undefined;
         } else {
             const args = argsOrState as ActionsOrganizationSecretArgs | undefined;
-            if ((!args || args.plaintextValue === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.plaintextValue === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'plaintextValue'");
             }
-            if ((!args || args.secretName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.secretName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'secretName'");
             }
-            if ((!args || args.visibility === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.visibility === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'visibility'");
             }
             inputs["plaintextValue"] = args ? args.plaintextValue : undefined;
@@ -94,12 +95,8 @@ export class ActionsOrganizationSecret extends pulumi.CustomResource {
             inputs["createdAt"] = undefined /*out*/;
             inputs["updatedAt"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(ActionsOrganizationSecret.__pulumiType, name, inputs, opts);
     }

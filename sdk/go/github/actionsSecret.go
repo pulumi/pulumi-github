@@ -135,6 +135,85 @@ func (i *ActionsSecret) ToActionsSecretOutputWithContext(ctx context.Context) Ac
 	return pulumi.ToOutputWithContext(ctx, i).(ActionsSecretOutput)
 }
 
+func (i *ActionsSecret) ToActionsSecretPtrOutput() ActionsSecretPtrOutput {
+	return i.ToActionsSecretPtrOutputWithContext(context.Background())
+}
+
+func (i *ActionsSecret) ToActionsSecretPtrOutputWithContext(ctx context.Context) ActionsSecretPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionsSecretPtrOutput)
+}
+
+type ActionsSecretPtrInput interface {
+	pulumi.Input
+
+	ToActionsSecretPtrOutput() ActionsSecretPtrOutput
+	ToActionsSecretPtrOutputWithContext(ctx context.Context) ActionsSecretPtrOutput
+}
+
+type actionsSecretPtrType ActionsSecretArgs
+
+func (*actionsSecretPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionsSecret)(nil))
+}
+
+func (i *actionsSecretPtrType) ToActionsSecretPtrOutput() ActionsSecretPtrOutput {
+	return i.ToActionsSecretPtrOutputWithContext(context.Background())
+}
+
+func (i *actionsSecretPtrType) ToActionsSecretPtrOutputWithContext(ctx context.Context) ActionsSecretPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionsSecretPtrOutput)
+}
+
+// ActionsSecretArrayInput is an input type that accepts ActionsSecretArray and ActionsSecretArrayOutput values.
+// You can construct a concrete instance of `ActionsSecretArrayInput` via:
+//
+//          ActionsSecretArray{ ActionsSecretArgs{...} }
+type ActionsSecretArrayInput interface {
+	pulumi.Input
+
+	ToActionsSecretArrayOutput() ActionsSecretArrayOutput
+	ToActionsSecretArrayOutputWithContext(context.Context) ActionsSecretArrayOutput
+}
+
+type ActionsSecretArray []ActionsSecretInput
+
+func (ActionsSecretArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*ActionsSecret)(nil))
+}
+
+func (i ActionsSecretArray) ToActionsSecretArrayOutput() ActionsSecretArrayOutput {
+	return i.ToActionsSecretArrayOutputWithContext(context.Background())
+}
+
+func (i ActionsSecretArray) ToActionsSecretArrayOutputWithContext(ctx context.Context) ActionsSecretArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionsSecretArrayOutput)
+}
+
+// ActionsSecretMapInput is an input type that accepts ActionsSecretMap and ActionsSecretMapOutput values.
+// You can construct a concrete instance of `ActionsSecretMapInput` via:
+//
+//          ActionsSecretMap{ "key": ActionsSecretArgs{...} }
+type ActionsSecretMapInput interface {
+	pulumi.Input
+
+	ToActionsSecretMapOutput() ActionsSecretMapOutput
+	ToActionsSecretMapOutputWithContext(context.Context) ActionsSecretMapOutput
+}
+
+type ActionsSecretMap map[string]ActionsSecretInput
+
+func (ActionsSecretMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*ActionsSecret)(nil))
+}
+
+func (i ActionsSecretMap) ToActionsSecretMapOutput() ActionsSecretMapOutput {
+	return i.ToActionsSecretMapOutputWithContext(context.Background())
+}
+
+func (i ActionsSecretMap) ToActionsSecretMapOutputWithContext(ctx context.Context) ActionsSecretMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionsSecretMapOutput)
+}
+
 type ActionsSecretOutput struct {
 	*pulumi.OutputState
 }
@@ -151,6 +230,75 @@ func (o ActionsSecretOutput) ToActionsSecretOutputWithContext(ctx context.Contex
 	return o
 }
 
+func (o ActionsSecretOutput) ToActionsSecretPtrOutput() ActionsSecretPtrOutput {
+	return o.ToActionsSecretPtrOutputWithContext(context.Background())
+}
+
+func (o ActionsSecretOutput) ToActionsSecretPtrOutputWithContext(ctx context.Context) ActionsSecretPtrOutput {
+	return o.ApplyT(func(v ActionsSecret) *ActionsSecret {
+		return &v
+	}).(ActionsSecretPtrOutput)
+}
+
+type ActionsSecretPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (ActionsSecretPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionsSecret)(nil))
+}
+
+func (o ActionsSecretPtrOutput) ToActionsSecretPtrOutput() ActionsSecretPtrOutput {
+	return o
+}
+
+func (o ActionsSecretPtrOutput) ToActionsSecretPtrOutputWithContext(ctx context.Context) ActionsSecretPtrOutput {
+	return o
+}
+
+type ActionsSecretArrayOutput struct{ *pulumi.OutputState }
+
+func (ActionsSecretArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ActionsSecret)(nil))
+}
+
+func (o ActionsSecretArrayOutput) ToActionsSecretArrayOutput() ActionsSecretArrayOutput {
+	return o
+}
+
+func (o ActionsSecretArrayOutput) ToActionsSecretArrayOutputWithContext(ctx context.Context) ActionsSecretArrayOutput {
+	return o
+}
+
+func (o ActionsSecretArrayOutput) Index(i pulumi.IntInput) ActionsSecretOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ActionsSecret {
+		return vs[0].([]ActionsSecret)[vs[1].(int)]
+	}).(ActionsSecretOutput)
+}
+
+type ActionsSecretMapOutput struct{ *pulumi.OutputState }
+
+func (ActionsSecretMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ActionsSecret)(nil))
+}
+
+func (o ActionsSecretMapOutput) ToActionsSecretMapOutput() ActionsSecretMapOutput {
+	return o
+}
+
+func (o ActionsSecretMapOutput) ToActionsSecretMapOutputWithContext(ctx context.Context) ActionsSecretMapOutput {
+	return o
+}
+
+func (o ActionsSecretMapOutput) MapIndex(k pulumi.StringInput) ActionsSecretOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ActionsSecret {
+		return vs[0].(map[string]ActionsSecret)[vs[1].(string)]
+	}).(ActionsSecretOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ActionsSecretOutput{})
+	pulumi.RegisterOutputType(ActionsSecretPtrOutput{})
+	pulumi.RegisterOutputType(ActionsSecretArrayOutput{})
+	pulumi.RegisterOutputType(ActionsSecretMapOutput{})
 }

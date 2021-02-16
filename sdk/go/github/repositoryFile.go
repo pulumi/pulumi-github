@@ -20,7 +20,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-github/sdk/v3/go/github/"
+// 	"github.com/pulumi/pulumi-github/sdk/v3/go/github"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -242,6 +242,85 @@ func (i *RepositoryFile) ToRepositoryFileOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryFileOutput)
 }
 
+func (i *RepositoryFile) ToRepositoryFilePtrOutput() RepositoryFilePtrOutput {
+	return i.ToRepositoryFilePtrOutputWithContext(context.Background())
+}
+
+func (i *RepositoryFile) ToRepositoryFilePtrOutputWithContext(ctx context.Context) RepositoryFilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryFilePtrOutput)
+}
+
+type RepositoryFilePtrInput interface {
+	pulumi.Input
+
+	ToRepositoryFilePtrOutput() RepositoryFilePtrOutput
+	ToRepositoryFilePtrOutputWithContext(ctx context.Context) RepositoryFilePtrOutput
+}
+
+type repositoryFilePtrType RepositoryFileArgs
+
+func (*repositoryFilePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RepositoryFile)(nil))
+}
+
+func (i *repositoryFilePtrType) ToRepositoryFilePtrOutput() RepositoryFilePtrOutput {
+	return i.ToRepositoryFilePtrOutputWithContext(context.Background())
+}
+
+func (i *repositoryFilePtrType) ToRepositoryFilePtrOutputWithContext(ctx context.Context) RepositoryFilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryFilePtrOutput)
+}
+
+// RepositoryFileArrayInput is an input type that accepts RepositoryFileArray and RepositoryFileArrayOutput values.
+// You can construct a concrete instance of `RepositoryFileArrayInput` via:
+//
+//          RepositoryFileArray{ RepositoryFileArgs{...} }
+type RepositoryFileArrayInput interface {
+	pulumi.Input
+
+	ToRepositoryFileArrayOutput() RepositoryFileArrayOutput
+	ToRepositoryFileArrayOutputWithContext(context.Context) RepositoryFileArrayOutput
+}
+
+type RepositoryFileArray []RepositoryFileInput
+
+func (RepositoryFileArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*RepositoryFile)(nil))
+}
+
+func (i RepositoryFileArray) ToRepositoryFileArrayOutput() RepositoryFileArrayOutput {
+	return i.ToRepositoryFileArrayOutputWithContext(context.Background())
+}
+
+func (i RepositoryFileArray) ToRepositoryFileArrayOutputWithContext(ctx context.Context) RepositoryFileArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryFileArrayOutput)
+}
+
+// RepositoryFileMapInput is an input type that accepts RepositoryFileMap and RepositoryFileMapOutput values.
+// You can construct a concrete instance of `RepositoryFileMapInput` via:
+//
+//          RepositoryFileMap{ "key": RepositoryFileArgs{...} }
+type RepositoryFileMapInput interface {
+	pulumi.Input
+
+	ToRepositoryFileMapOutput() RepositoryFileMapOutput
+	ToRepositoryFileMapOutputWithContext(context.Context) RepositoryFileMapOutput
+}
+
+type RepositoryFileMap map[string]RepositoryFileInput
+
+func (RepositoryFileMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*RepositoryFile)(nil))
+}
+
+func (i RepositoryFileMap) ToRepositoryFileMapOutput() RepositoryFileMapOutput {
+	return i.ToRepositoryFileMapOutputWithContext(context.Background())
+}
+
+func (i RepositoryFileMap) ToRepositoryFileMapOutputWithContext(ctx context.Context) RepositoryFileMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryFileMapOutput)
+}
+
 type RepositoryFileOutput struct {
 	*pulumi.OutputState
 }
@@ -258,6 +337,75 @@ func (o RepositoryFileOutput) ToRepositoryFileOutputWithContext(ctx context.Cont
 	return o
 }
 
+func (o RepositoryFileOutput) ToRepositoryFilePtrOutput() RepositoryFilePtrOutput {
+	return o.ToRepositoryFilePtrOutputWithContext(context.Background())
+}
+
+func (o RepositoryFileOutput) ToRepositoryFilePtrOutputWithContext(ctx context.Context) RepositoryFilePtrOutput {
+	return o.ApplyT(func(v RepositoryFile) *RepositoryFile {
+		return &v
+	}).(RepositoryFilePtrOutput)
+}
+
+type RepositoryFilePtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (RepositoryFilePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RepositoryFile)(nil))
+}
+
+func (o RepositoryFilePtrOutput) ToRepositoryFilePtrOutput() RepositoryFilePtrOutput {
+	return o
+}
+
+func (o RepositoryFilePtrOutput) ToRepositoryFilePtrOutputWithContext(ctx context.Context) RepositoryFilePtrOutput {
+	return o
+}
+
+type RepositoryFileArrayOutput struct{ *pulumi.OutputState }
+
+func (RepositoryFileArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RepositoryFile)(nil))
+}
+
+func (o RepositoryFileArrayOutput) ToRepositoryFileArrayOutput() RepositoryFileArrayOutput {
+	return o
+}
+
+func (o RepositoryFileArrayOutput) ToRepositoryFileArrayOutputWithContext(ctx context.Context) RepositoryFileArrayOutput {
+	return o
+}
+
+func (o RepositoryFileArrayOutput) Index(i pulumi.IntInput) RepositoryFileOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RepositoryFile {
+		return vs[0].([]RepositoryFile)[vs[1].(int)]
+	}).(RepositoryFileOutput)
+}
+
+type RepositoryFileMapOutput struct{ *pulumi.OutputState }
+
+func (RepositoryFileMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]RepositoryFile)(nil))
+}
+
+func (o RepositoryFileMapOutput) ToRepositoryFileMapOutput() RepositoryFileMapOutput {
+	return o
+}
+
+func (o RepositoryFileMapOutput) ToRepositoryFileMapOutputWithContext(ctx context.Context) RepositoryFileMapOutput {
+	return o
+}
+
+func (o RepositoryFileMapOutput) MapIndex(k pulumi.StringInput) RepositoryFileOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) RepositoryFile {
+		return vs[0].(map[string]RepositoryFile)[vs[1].(string)]
+	}).(RepositoryFileOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(RepositoryFileOutput{})
+	pulumi.RegisterOutputType(RepositoryFilePtrOutput{})
+	pulumi.RegisterOutputType(RepositoryFileArrayOutput{})
+	pulumi.RegisterOutputType(RepositoryFileMapOutput{})
 }

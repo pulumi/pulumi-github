@@ -98,7 +98,8 @@ export class RepositoryMilestone extends pulumi.CustomResource {
     constructor(name: string, args: RepositoryMilestoneArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: RepositoryMilestoneArgs | RepositoryMilestoneState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as RepositoryMilestoneState | undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["dueDate"] = state ? state.dueDate : undefined;
@@ -109,13 +110,13 @@ export class RepositoryMilestone extends pulumi.CustomResource {
             inputs["title"] = state ? state.title : undefined;
         } else {
             const args = argsOrState as RepositoryMilestoneArgs | undefined;
-            if ((!args || args.owner === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.owner === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'owner'");
             }
-            if ((!args || args.repository === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.repository === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'repository'");
             }
-            if ((!args || args.title === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.title === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'title'");
             }
             inputs["description"] = args ? args.description : undefined;
@@ -126,12 +127,8 @@ export class RepositoryMilestone extends pulumi.CustomResource {
             inputs["title"] = args ? args.title : undefined;
             inputs["number"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(RepositoryMilestone.__pulumiType, name, inputs, opts);
     }

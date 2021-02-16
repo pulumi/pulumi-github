@@ -35,6 +35,7 @@ export class Provider extends pulumi.ProviderResource {
      */
     constructor(name: string, args?: ProviderArgs, opts?: pulumi.ResourceOptions) {
         let inputs: pulumi.Inputs = {};
+        opts = opts || {};
         {
             inputs["baseUrl"] = (args ? args.baseUrl : undefined) || (utilities.getEnv("GITHUB_BASE_URL") || "https://api.github.com/");
             inputs["insecure"] = pulumi.output(args ? args.insecure : undefined).apply(JSON.stringify);
@@ -42,12 +43,8 @@ export class Provider extends pulumi.ProviderResource {
             inputs["owner"] = args ? args.owner : undefined;
             inputs["token"] = args ? args.token : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Provider.__pulumiType, name, inputs, opts);
     }

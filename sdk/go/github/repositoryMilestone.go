@@ -21,7 +21,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-github/sdk/v3/go/github/"
+// 	"github.com/pulumi/pulumi-github/sdk/v3/go/github"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -195,6 +195,85 @@ func (i *RepositoryMilestone) ToRepositoryMilestoneOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryMilestoneOutput)
 }
 
+func (i *RepositoryMilestone) ToRepositoryMilestonePtrOutput() RepositoryMilestonePtrOutput {
+	return i.ToRepositoryMilestonePtrOutputWithContext(context.Background())
+}
+
+func (i *RepositoryMilestone) ToRepositoryMilestonePtrOutputWithContext(ctx context.Context) RepositoryMilestonePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryMilestonePtrOutput)
+}
+
+type RepositoryMilestonePtrInput interface {
+	pulumi.Input
+
+	ToRepositoryMilestonePtrOutput() RepositoryMilestonePtrOutput
+	ToRepositoryMilestonePtrOutputWithContext(ctx context.Context) RepositoryMilestonePtrOutput
+}
+
+type repositoryMilestonePtrType RepositoryMilestoneArgs
+
+func (*repositoryMilestonePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RepositoryMilestone)(nil))
+}
+
+func (i *repositoryMilestonePtrType) ToRepositoryMilestonePtrOutput() RepositoryMilestonePtrOutput {
+	return i.ToRepositoryMilestonePtrOutputWithContext(context.Background())
+}
+
+func (i *repositoryMilestonePtrType) ToRepositoryMilestonePtrOutputWithContext(ctx context.Context) RepositoryMilestonePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryMilestonePtrOutput)
+}
+
+// RepositoryMilestoneArrayInput is an input type that accepts RepositoryMilestoneArray and RepositoryMilestoneArrayOutput values.
+// You can construct a concrete instance of `RepositoryMilestoneArrayInput` via:
+//
+//          RepositoryMilestoneArray{ RepositoryMilestoneArgs{...} }
+type RepositoryMilestoneArrayInput interface {
+	pulumi.Input
+
+	ToRepositoryMilestoneArrayOutput() RepositoryMilestoneArrayOutput
+	ToRepositoryMilestoneArrayOutputWithContext(context.Context) RepositoryMilestoneArrayOutput
+}
+
+type RepositoryMilestoneArray []RepositoryMilestoneInput
+
+func (RepositoryMilestoneArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*RepositoryMilestone)(nil))
+}
+
+func (i RepositoryMilestoneArray) ToRepositoryMilestoneArrayOutput() RepositoryMilestoneArrayOutput {
+	return i.ToRepositoryMilestoneArrayOutputWithContext(context.Background())
+}
+
+func (i RepositoryMilestoneArray) ToRepositoryMilestoneArrayOutputWithContext(ctx context.Context) RepositoryMilestoneArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryMilestoneArrayOutput)
+}
+
+// RepositoryMilestoneMapInput is an input type that accepts RepositoryMilestoneMap and RepositoryMilestoneMapOutput values.
+// You can construct a concrete instance of `RepositoryMilestoneMapInput` via:
+//
+//          RepositoryMilestoneMap{ "key": RepositoryMilestoneArgs{...} }
+type RepositoryMilestoneMapInput interface {
+	pulumi.Input
+
+	ToRepositoryMilestoneMapOutput() RepositoryMilestoneMapOutput
+	ToRepositoryMilestoneMapOutputWithContext(context.Context) RepositoryMilestoneMapOutput
+}
+
+type RepositoryMilestoneMap map[string]RepositoryMilestoneInput
+
+func (RepositoryMilestoneMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*RepositoryMilestone)(nil))
+}
+
+func (i RepositoryMilestoneMap) ToRepositoryMilestoneMapOutput() RepositoryMilestoneMapOutput {
+	return i.ToRepositoryMilestoneMapOutputWithContext(context.Background())
+}
+
+func (i RepositoryMilestoneMap) ToRepositoryMilestoneMapOutputWithContext(ctx context.Context) RepositoryMilestoneMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryMilestoneMapOutput)
+}
+
 type RepositoryMilestoneOutput struct {
 	*pulumi.OutputState
 }
@@ -211,6 +290,75 @@ func (o RepositoryMilestoneOutput) ToRepositoryMilestoneOutputWithContext(ctx co
 	return o
 }
 
+func (o RepositoryMilestoneOutput) ToRepositoryMilestonePtrOutput() RepositoryMilestonePtrOutput {
+	return o.ToRepositoryMilestonePtrOutputWithContext(context.Background())
+}
+
+func (o RepositoryMilestoneOutput) ToRepositoryMilestonePtrOutputWithContext(ctx context.Context) RepositoryMilestonePtrOutput {
+	return o.ApplyT(func(v RepositoryMilestone) *RepositoryMilestone {
+		return &v
+	}).(RepositoryMilestonePtrOutput)
+}
+
+type RepositoryMilestonePtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (RepositoryMilestonePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RepositoryMilestone)(nil))
+}
+
+func (o RepositoryMilestonePtrOutput) ToRepositoryMilestonePtrOutput() RepositoryMilestonePtrOutput {
+	return o
+}
+
+func (o RepositoryMilestonePtrOutput) ToRepositoryMilestonePtrOutputWithContext(ctx context.Context) RepositoryMilestonePtrOutput {
+	return o
+}
+
+type RepositoryMilestoneArrayOutput struct{ *pulumi.OutputState }
+
+func (RepositoryMilestoneArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RepositoryMilestone)(nil))
+}
+
+func (o RepositoryMilestoneArrayOutput) ToRepositoryMilestoneArrayOutput() RepositoryMilestoneArrayOutput {
+	return o
+}
+
+func (o RepositoryMilestoneArrayOutput) ToRepositoryMilestoneArrayOutputWithContext(ctx context.Context) RepositoryMilestoneArrayOutput {
+	return o
+}
+
+func (o RepositoryMilestoneArrayOutput) Index(i pulumi.IntInput) RepositoryMilestoneOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RepositoryMilestone {
+		return vs[0].([]RepositoryMilestone)[vs[1].(int)]
+	}).(RepositoryMilestoneOutput)
+}
+
+type RepositoryMilestoneMapOutput struct{ *pulumi.OutputState }
+
+func (RepositoryMilestoneMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]RepositoryMilestone)(nil))
+}
+
+func (o RepositoryMilestoneMapOutput) ToRepositoryMilestoneMapOutput() RepositoryMilestoneMapOutput {
+	return o
+}
+
+func (o RepositoryMilestoneMapOutput) ToRepositoryMilestoneMapOutputWithContext(ctx context.Context) RepositoryMilestoneMapOutput {
+	return o
+}
+
+func (o RepositoryMilestoneMapOutput) MapIndex(k pulumi.StringInput) RepositoryMilestoneOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) RepositoryMilestone {
+		return vs[0].(map[string]RepositoryMilestone)[vs[1].(string)]
+	}).(RepositoryMilestoneOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(RepositoryMilestoneOutput{})
+	pulumi.RegisterOutputType(RepositoryMilestonePtrOutput{})
+	pulumi.RegisterOutputType(RepositoryMilestoneArrayOutput{})
+	pulumi.RegisterOutputType(RepositoryMilestoneMapOutput{})
 }

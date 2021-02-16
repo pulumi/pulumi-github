@@ -191,6 +191,85 @@ func (i *BranchProtection) ToBranchProtectionOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(BranchProtectionOutput)
 }
 
+func (i *BranchProtection) ToBranchProtectionPtrOutput() BranchProtectionPtrOutput {
+	return i.ToBranchProtectionPtrOutputWithContext(context.Background())
+}
+
+func (i *BranchProtection) ToBranchProtectionPtrOutputWithContext(ctx context.Context) BranchProtectionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BranchProtectionPtrOutput)
+}
+
+type BranchProtectionPtrInput interface {
+	pulumi.Input
+
+	ToBranchProtectionPtrOutput() BranchProtectionPtrOutput
+	ToBranchProtectionPtrOutputWithContext(ctx context.Context) BranchProtectionPtrOutput
+}
+
+type branchProtectionPtrType BranchProtectionArgs
+
+func (*branchProtectionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BranchProtection)(nil))
+}
+
+func (i *branchProtectionPtrType) ToBranchProtectionPtrOutput() BranchProtectionPtrOutput {
+	return i.ToBranchProtectionPtrOutputWithContext(context.Background())
+}
+
+func (i *branchProtectionPtrType) ToBranchProtectionPtrOutputWithContext(ctx context.Context) BranchProtectionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BranchProtectionPtrOutput)
+}
+
+// BranchProtectionArrayInput is an input type that accepts BranchProtectionArray and BranchProtectionArrayOutput values.
+// You can construct a concrete instance of `BranchProtectionArrayInput` via:
+//
+//          BranchProtectionArray{ BranchProtectionArgs{...} }
+type BranchProtectionArrayInput interface {
+	pulumi.Input
+
+	ToBranchProtectionArrayOutput() BranchProtectionArrayOutput
+	ToBranchProtectionArrayOutputWithContext(context.Context) BranchProtectionArrayOutput
+}
+
+type BranchProtectionArray []BranchProtectionInput
+
+func (BranchProtectionArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*BranchProtection)(nil))
+}
+
+func (i BranchProtectionArray) ToBranchProtectionArrayOutput() BranchProtectionArrayOutput {
+	return i.ToBranchProtectionArrayOutputWithContext(context.Background())
+}
+
+func (i BranchProtectionArray) ToBranchProtectionArrayOutputWithContext(ctx context.Context) BranchProtectionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BranchProtectionArrayOutput)
+}
+
+// BranchProtectionMapInput is an input type that accepts BranchProtectionMap and BranchProtectionMapOutput values.
+// You can construct a concrete instance of `BranchProtectionMapInput` via:
+//
+//          BranchProtectionMap{ "key": BranchProtectionArgs{...} }
+type BranchProtectionMapInput interface {
+	pulumi.Input
+
+	ToBranchProtectionMapOutput() BranchProtectionMapOutput
+	ToBranchProtectionMapOutputWithContext(context.Context) BranchProtectionMapOutput
+}
+
+type BranchProtectionMap map[string]BranchProtectionInput
+
+func (BranchProtectionMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*BranchProtection)(nil))
+}
+
+func (i BranchProtectionMap) ToBranchProtectionMapOutput() BranchProtectionMapOutput {
+	return i.ToBranchProtectionMapOutputWithContext(context.Background())
+}
+
+func (i BranchProtectionMap) ToBranchProtectionMapOutputWithContext(ctx context.Context) BranchProtectionMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BranchProtectionMapOutput)
+}
+
 type BranchProtectionOutput struct {
 	*pulumi.OutputState
 }
@@ -207,6 +286,75 @@ func (o BranchProtectionOutput) ToBranchProtectionOutputWithContext(ctx context.
 	return o
 }
 
+func (o BranchProtectionOutput) ToBranchProtectionPtrOutput() BranchProtectionPtrOutput {
+	return o.ToBranchProtectionPtrOutputWithContext(context.Background())
+}
+
+func (o BranchProtectionOutput) ToBranchProtectionPtrOutputWithContext(ctx context.Context) BranchProtectionPtrOutput {
+	return o.ApplyT(func(v BranchProtection) *BranchProtection {
+		return &v
+	}).(BranchProtectionPtrOutput)
+}
+
+type BranchProtectionPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (BranchProtectionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BranchProtection)(nil))
+}
+
+func (o BranchProtectionPtrOutput) ToBranchProtectionPtrOutput() BranchProtectionPtrOutput {
+	return o
+}
+
+func (o BranchProtectionPtrOutput) ToBranchProtectionPtrOutputWithContext(ctx context.Context) BranchProtectionPtrOutput {
+	return o
+}
+
+type BranchProtectionArrayOutput struct{ *pulumi.OutputState }
+
+func (BranchProtectionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BranchProtection)(nil))
+}
+
+func (o BranchProtectionArrayOutput) ToBranchProtectionArrayOutput() BranchProtectionArrayOutput {
+	return o
+}
+
+func (o BranchProtectionArrayOutput) ToBranchProtectionArrayOutputWithContext(ctx context.Context) BranchProtectionArrayOutput {
+	return o
+}
+
+func (o BranchProtectionArrayOutput) Index(i pulumi.IntInput) BranchProtectionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BranchProtection {
+		return vs[0].([]BranchProtection)[vs[1].(int)]
+	}).(BranchProtectionOutput)
+}
+
+type BranchProtectionMapOutput struct{ *pulumi.OutputState }
+
+func (BranchProtectionMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]BranchProtection)(nil))
+}
+
+func (o BranchProtectionMapOutput) ToBranchProtectionMapOutput() BranchProtectionMapOutput {
+	return o
+}
+
+func (o BranchProtectionMapOutput) ToBranchProtectionMapOutputWithContext(ctx context.Context) BranchProtectionMapOutput {
+	return o
+}
+
+func (o BranchProtectionMapOutput) MapIndex(k pulumi.StringInput) BranchProtectionOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) BranchProtection {
+		return vs[0].(map[string]BranchProtection)[vs[1].(string)]
+	}).(BranchProtectionOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(BranchProtectionOutput{})
+	pulumi.RegisterOutputType(BranchProtectionPtrOutput{})
+	pulumi.RegisterOutputType(BranchProtectionArrayOutput{})
+	pulumi.RegisterOutputType(BranchProtectionMapOutput{})
 }

@@ -93,7 +93,8 @@ export class BranchProtection extends pulumi.CustomResource {
     constructor(name: string, args: BranchProtectionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: BranchProtectionArgs | BranchProtectionState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as BranchProtectionState | undefined;
             inputs["allowsDeletions"] = state ? state.allowsDeletions : undefined;
             inputs["allowsForcePushes"] = state ? state.allowsForcePushes : undefined;
@@ -106,10 +107,10 @@ export class BranchProtection extends pulumi.CustomResource {
             inputs["requiredStatusChecks"] = state ? state.requiredStatusChecks : undefined;
         } else {
             const args = argsOrState as BranchProtectionArgs | undefined;
-            if ((!args || args.pattern === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.pattern === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'pattern'");
             }
-            if ((!args || args.repositoryId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.repositoryId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'repositoryId'");
             }
             inputs["allowsDeletions"] = args ? args.allowsDeletions : undefined;
@@ -122,12 +123,8 @@ export class BranchProtection extends pulumi.CustomResource {
             inputs["requiredPullRequestReviews"] = args ? args.requiredPullRequestReviews : undefined;
             inputs["requiredStatusChecks"] = args ? args.requiredStatusChecks : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(BranchProtection.__pulumiType, name, inputs, opts);
     }

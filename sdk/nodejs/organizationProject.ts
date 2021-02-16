@@ -70,7 +70,8 @@ export class OrganizationProject extends pulumi.CustomResource {
     constructor(name: string, args?: OrganizationProjectArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: OrganizationProjectArgs | OrganizationProjectState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as OrganizationProjectState | undefined;
             inputs["body"] = state ? state.body : undefined;
             inputs["etag"] = state ? state.etag : undefined;
@@ -83,12 +84,8 @@ export class OrganizationProject extends pulumi.CustomResource {
             inputs["etag"] = undefined /*out*/;
             inputs["url"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(OrganizationProject.__pulumiType, name, inputs, opts);
     }

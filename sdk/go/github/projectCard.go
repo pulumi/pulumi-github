@@ -19,7 +19,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-github/sdk/v3/go/github/"
+// 	"github.com/pulumi/pulumi-github/sdk/v3/go/github"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -161,6 +161,85 @@ func (i *ProjectCard) ToProjectCardOutputWithContext(ctx context.Context) Projec
 	return pulumi.ToOutputWithContext(ctx, i).(ProjectCardOutput)
 }
 
+func (i *ProjectCard) ToProjectCardPtrOutput() ProjectCardPtrOutput {
+	return i.ToProjectCardPtrOutputWithContext(context.Background())
+}
+
+func (i *ProjectCard) ToProjectCardPtrOutputWithContext(ctx context.Context) ProjectCardPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectCardPtrOutput)
+}
+
+type ProjectCardPtrInput interface {
+	pulumi.Input
+
+	ToProjectCardPtrOutput() ProjectCardPtrOutput
+	ToProjectCardPtrOutputWithContext(ctx context.Context) ProjectCardPtrOutput
+}
+
+type projectCardPtrType ProjectCardArgs
+
+func (*projectCardPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProjectCard)(nil))
+}
+
+func (i *projectCardPtrType) ToProjectCardPtrOutput() ProjectCardPtrOutput {
+	return i.ToProjectCardPtrOutputWithContext(context.Background())
+}
+
+func (i *projectCardPtrType) ToProjectCardPtrOutputWithContext(ctx context.Context) ProjectCardPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectCardPtrOutput)
+}
+
+// ProjectCardArrayInput is an input type that accepts ProjectCardArray and ProjectCardArrayOutput values.
+// You can construct a concrete instance of `ProjectCardArrayInput` via:
+//
+//          ProjectCardArray{ ProjectCardArgs{...} }
+type ProjectCardArrayInput interface {
+	pulumi.Input
+
+	ToProjectCardArrayOutput() ProjectCardArrayOutput
+	ToProjectCardArrayOutputWithContext(context.Context) ProjectCardArrayOutput
+}
+
+type ProjectCardArray []ProjectCardInput
+
+func (ProjectCardArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*ProjectCard)(nil))
+}
+
+func (i ProjectCardArray) ToProjectCardArrayOutput() ProjectCardArrayOutput {
+	return i.ToProjectCardArrayOutputWithContext(context.Background())
+}
+
+func (i ProjectCardArray) ToProjectCardArrayOutputWithContext(ctx context.Context) ProjectCardArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectCardArrayOutput)
+}
+
+// ProjectCardMapInput is an input type that accepts ProjectCardMap and ProjectCardMapOutput values.
+// You can construct a concrete instance of `ProjectCardMapInput` via:
+//
+//          ProjectCardMap{ "key": ProjectCardArgs{...} }
+type ProjectCardMapInput interface {
+	pulumi.Input
+
+	ToProjectCardMapOutput() ProjectCardMapOutput
+	ToProjectCardMapOutputWithContext(context.Context) ProjectCardMapOutput
+}
+
+type ProjectCardMap map[string]ProjectCardInput
+
+func (ProjectCardMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*ProjectCard)(nil))
+}
+
+func (i ProjectCardMap) ToProjectCardMapOutput() ProjectCardMapOutput {
+	return i.ToProjectCardMapOutputWithContext(context.Background())
+}
+
+func (i ProjectCardMap) ToProjectCardMapOutputWithContext(ctx context.Context) ProjectCardMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectCardMapOutput)
+}
+
 type ProjectCardOutput struct {
 	*pulumi.OutputState
 }
@@ -177,6 +256,75 @@ func (o ProjectCardOutput) ToProjectCardOutputWithContext(ctx context.Context) P
 	return o
 }
 
+func (o ProjectCardOutput) ToProjectCardPtrOutput() ProjectCardPtrOutput {
+	return o.ToProjectCardPtrOutputWithContext(context.Background())
+}
+
+func (o ProjectCardOutput) ToProjectCardPtrOutputWithContext(ctx context.Context) ProjectCardPtrOutput {
+	return o.ApplyT(func(v ProjectCard) *ProjectCard {
+		return &v
+	}).(ProjectCardPtrOutput)
+}
+
+type ProjectCardPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (ProjectCardPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProjectCard)(nil))
+}
+
+func (o ProjectCardPtrOutput) ToProjectCardPtrOutput() ProjectCardPtrOutput {
+	return o
+}
+
+func (o ProjectCardPtrOutput) ToProjectCardPtrOutputWithContext(ctx context.Context) ProjectCardPtrOutput {
+	return o
+}
+
+type ProjectCardArrayOutput struct{ *pulumi.OutputState }
+
+func (ProjectCardArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProjectCard)(nil))
+}
+
+func (o ProjectCardArrayOutput) ToProjectCardArrayOutput() ProjectCardArrayOutput {
+	return o
+}
+
+func (o ProjectCardArrayOutput) ToProjectCardArrayOutputWithContext(ctx context.Context) ProjectCardArrayOutput {
+	return o
+}
+
+func (o ProjectCardArrayOutput) Index(i pulumi.IntInput) ProjectCardOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProjectCard {
+		return vs[0].([]ProjectCard)[vs[1].(int)]
+	}).(ProjectCardOutput)
+}
+
+type ProjectCardMapOutput struct{ *pulumi.OutputState }
+
+func (ProjectCardMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ProjectCard)(nil))
+}
+
+func (o ProjectCardMapOutput) ToProjectCardMapOutput() ProjectCardMapOutput {
+	return o
+}
+
+func (o ProjectCardMapOutput) ToProjectCardMapOutputWithContext(ctx context.Context) ProjectCardMapOutput {
+	return o
+}
+
+func (o ProjectCardMapOutput) MapIndex(k pulumi.StringInput) ProjectCardOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ProjectCard {
+		return vs[0].(map[string]ProjectCard)[vs[1].(string)]
+	}).(ProjectCardOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ProjectCardOutput{})
+	pulumi.RegisterOutputType(ProjectCardPtrOutput{})
+	pulumi.RegisterOutputType(ProjectCardArrayOutput{})
+	pulumi.RegisterOutputType(ProjectCardMapOutput{})
 }

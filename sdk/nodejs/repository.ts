@@ -227,7 +227,8 @@ export class Repository extends pulumi.CustomResource {
     constructor(name: string, args?: RepositoryArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: RepositoryArgs | RepositoryState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as RepositoryState | undefined;
             inputs["allowMergeCommit"] = state ? state.allowMergeCommit : undefined;
             inputs["allowRebaseMerge"] = state ? state.allowRebaseMerge : undefined;
@@ -298,12 +299,8 @@ export class Repository extends pulumi.CustomResource {
             inputs["sshCloneUrl"] = undefined /*out*/;
             inputs["svnUrl"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Repository.__pulumiType, name, inputs, opts);
     }

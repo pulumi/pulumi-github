@@ -91,7 +91,8 @@ export class OrganizationWebhook extends pulumi.CustomResource {
     constructor(name: string, args: OrganizationWebhookArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: OrganizationWebhookArgs | OrganizationWebhookState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as OrganizationWebhookState | undefined;
             inputs["active"] = state ? state.active : undefined;
             inputs["configuration"] = state ? state.configuration : undefined;
@@ -100,7 +101,7 @@ export class OrganizationWebhook extends pulumi.CustomResource {
             inputs["url"] = state ? state.url : undefined;
         } else {
             const args = argsOrState as OrganizationWebhookArgs | undefined;
-            if ((!args || args.events === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.events === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'events'");
             }
             inputs["active"] = args ? args.active : undefined;
@@ -109,12 +110,8 @@ export class OrganizationWebhook extends pulumi.CustomResource {
             inputs["etag"] = undefined /*out*/;
             inputs["url"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(OrganizationWebhook.__pulumiType, name, inputs, opts);
     }

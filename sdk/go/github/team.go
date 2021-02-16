@@ -21,7 +21,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-github/sdk/v3/go/github/"
+// 	"github.com/pulumi/pulumi-github/sdk/v3/go/github"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -208,6 +208,85 @@ func (i *Team) ToTeamOutputWithContext(ctx context.Context) TeamOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TeamOutput)
 }
 
+func (i *Team) ToTeamPtrOutput() TeamPtrOutput {
+	return i.ToTeamPtrOutputWithContext(context.Background())
+}
+
+func (i *Team) ToTeamPtrOutputWithContext(ctx context.Context) TeamPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TeamPtrOutput)
+}
+
+type TeamPtrInput interface {
+	pulumi.Input
+
+	ToTeamPtrOutput() TeamPtrOutput
+	ToTeamPtrOutputWithContext(ctx context.Context) TeamPtrOutput
+}
+
+type teamPtrType TeamArgs
+
+func (*teamPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Team)(nil))
+}
+
+func (i *teamPtrType) ToTeamPtrOutput() TeamPtrOutput {
+	return i.ToTeamPtrOutputWithContext(context.Background())
+}
+
+func (i *teamPtrType) ToTeamPtrOutputWithContext(ctx context.Context) TeamPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TeamPtrOutput)
+}
+
+// TeamArrayInput is an input type that accepts TeamArray and TeamArrayOutput values.
+// You can construct a concrete instance of `TeamArrayInput` via:
+//
+//          TeamArray{ TeamArgs{...} }
+type TeamArrayInput interface {
+	pulumi.Input
+
+	ToTeamArrayOutput() TeamArrayOutput
+	ToTeamArrayOutputWithContext(context.Context) TeamArrayOutput
+}
+
+type TeamArray []TeamInput
+
+func (TeamArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*Team)(nil))
+}
+
+func (i TeamArray) ToTeamArrayOutput() TeamArrayOutput {
+	return i.ToTeamArrayOutputWithContext(context.Background())
+}
+
+func (i TeamArray) ToTeamArrayOutputWithContext(ctx context.Context) TeamArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TeamArrayOutput)
+}
+
+// TeamMapInput is an input type that accepts TeamMap and TeamMapOutput values.
+// You can construct a concrete instance of `TeamMapInput` via:
+//
+//          TeamMap{ "key": TeamArgs{...} }
+type TeamMapInput interface {
+	pulumi.Input
+
+	ToTeamMapOutput() TeamMapOutput
+	ToTeamMapOutputWithContext(context.Context) TeamMapOutput
+}
+
+type TeamMap map[string]TeamInput
+
+func (TeamMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*Team)(nil))
+}
+
+func (i TeamMap) ToTeamMapOutput() TeamMapOutput {
+	return i.ToTeamMapOutputWithContext(context.Background())
+}
+
+func (i TeamMap) ToTeamMapOutputWithContext(ctx context.Context) TeamMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TeamMapOutput)
+}
+
 type TeamOutput struct {
 	*pulumi.OutputState
 }
@@ -224,6 +303,75 @@ func (o TeamOutput) ToTeamOutputWithContext(ctx context.Context) TeamOutput {
 	return o
 }
 
+func (o TeamOutput) ToTeamPtrOutput() TeamPtrOutput {
+	return o.ToTeamPtrOutputWithContext(context.Background())
+}
+
+func (o TeamOutput) ToTeamPtrOutputWithContext(ctx context.Context) TeamPtrOutput {
+	return o.ApplyT(func(v Team) *Team {
+		return &v
+	}).(TeamPtrOutput)
+}
+
+type TeamPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (TeamPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Team)(nil))
+}
+
+func (o TeamPtrOutput) ToTeamPtrOutput() TeamPtrOutput {
+	return o
+}
+
+func (o TeamPtrOutput) ToTeamPtrOutputWithContext(ctx context.Context) TeamPtrOutput {
+	return o
+}
+
+type TeamArrayOutput struct{ *pulumi.OutputState }
+
+func (TeamArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Team)(nil))
+}
+
+func (o TeamArrayOutput) ToTeamArrayOutput() TeamArrayOutput {
+	return o
+}
+
+func (o TeamArrayOutput) ToTeamArrayOutputWithContext(ctx context.Context) TeamArrayOutput {
+	return o
+}
+
+func (o TeamArrayOutput) Index(i pulumi.IntInput) TeamOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Team {
+		return vs[0].([]Team)[vs[1].(int)]
+	}).(TeamOutput)
+}
+
+type TeamMapOutput struct{ *pulumi.OutputState }
+
+func (TeamMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]Team)(nil))
+}
+
+func (o TeamMapOutput) ToTeamMapOutput() TeamMapOutput {
+	return o
+}
+
+func (o TeamMapOutput) ToTeamMapOutputWithContext(ctx context.Context) TeamMapOutput {
+	return o
+}
+
+func (o TeamMapOutput) MapIndex(k pulumi.StringInput) TeamOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Team {
+		return vs[0].(map[string]Team)[vs[1].(string)]
+	}).(TeamOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(TeamOutput{})
+	pulumi.RegisterOutputType(TeamPtrOutput{})
+	pulumi.RegisterOutputType(TeamArrayOutput{})
+	pulumi.RegisterOutputType(TeamMapOutput{})
 }

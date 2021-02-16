@@ -86,27 +86,24 @@ export class BranchDefault extends pulumi.CustomResource {
     constructor(name: string, args: BranchDefaultArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: BranchDefaultArgs | BranchDefaultState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as BranchDefaultState | undefined;
             inputs["branch"] = state ? state.branch : undefined;
             inputs["repository"] = state ? state.repository : undefined;
         } else {
             const args = argsOrState as BranchDefaultArgs | undefined;
-            if ((!args || args.branch === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.branch === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'branch'");
             }
-            if ((!args || args.repository === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.repository === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'repository'");
             }
             inputs["branch"] = args ? args.branch : undefined;
             inputs["repository"] = args ? args.repository : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(BranchDefault.__pulumiType, name, inputs, opts);
     }

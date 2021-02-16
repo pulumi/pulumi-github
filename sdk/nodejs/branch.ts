@@ -103,7 +103,8 @@ export class Branch extends pulumi.CustomResource {
     constructor(name: string, args: BranchArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: BranchArgs | BranchState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as BranchState | undefined;
             inputs["branch"] = state ? state.branch : undefined;
             inputs["etag"] = state ? state.etag : undefined;
@@ -114,10 +115,10 @@ export class Branch extends pulumi.CustomResource {
             inputs["sourceSha"] = state ? state.sourceSha : undefined;
         } else {
             const args = argsOrState as BranchArgs | undefined;
-            if ((!args || args.branch === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.branch === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'branch'");
             }
-            if ((!args || args.repository === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.repository === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'repository'");
             }
             inputs["branch"] = args ? args.branch : undefined;
@@ -128,12 +129,8 @@ export class Branch extends pulumi.CustomResource {
             inputs["ref"] = undefined /*out*/;
             inputs["sha"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Branch.__pulumiType, name, inputs, opts);
     }

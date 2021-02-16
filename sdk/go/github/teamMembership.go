@@ -24,7 +24,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-github/sdk/v3/go/github/"
+// 	"github.com/pulumi/pulumi-github/sdk/v3/go/github"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -180,6 +180,85 @@ func (i *TeamMembership) ToTeamMembershipOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(TeamMembershipOutput)
 }
 
+func (i *TeamMembership) ToTeamMembershipPtrOutput() TeamMembershipPtrOutput {
+	return i.ToTeamMembershipPtrOutputWithContext(context.Background())
+}
+
+func (i *TeamMembership) ToTeamMembershipPtrOutputWithContext(ctx context.Context) TeamMembershipPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TeamMembershipPtrOutput)
+}
+
+type TeamMembershipPtrInput interface {
+	pulumi.Input
+
+	ToTeamMembershipPtrOutput() TeamMembershipPtrOutput
+	ToTeamMembershipPtrOutputWithContext(ctx context.Context) TeamMembershipPtrOutput
+}
+
+type teamMembershipPtrType TeamMembershipArgs
+
+func (*teamMembershipPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TeamMembership)(nil))
+}
+
+func (i *teamMembershipPtrType) ToTeamMembershipPtrOutput() TeamMembershipPtrOutput {
+	return i.ToTeamMembershipPtrOutputWithContext(context.Background())
+}
+
+func (i *teamMembershipPtrType) ToTeamMembershipPtrOutputWithContext(ctx context.Context) TeamMembershipPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TeamMembershipPtrOutput)
+}
+
+// TeamMembershipArrayInput is an input type that accepts TeamMembershipArray and TeamMembershipArrayOutput values.
+// You can construct a concrete instance of `TeamMembershipArrayInput` via:
+//
+//          TeamMembershipArray{ TeamMembershipArgs{...} }
+type TeamMembershipArrayInput interface {
+	pulumi.Input
+
+	ToTeamMembershipArrayOutput() TeamMembershipArrayOutput
+	ToTeamMembershipArrayOutputWithContext(context.Context) TeamMembershipArrayOutput
+}
+
+type TeamMembershipArray []TeamMembershipInput
+
+func (TeamMembershipArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*TeamMembership)(nil))
+}
+
+func (i TeamMembershipArray) ToTeamMembershipArrayOutput() TeamMembershipArrayOutput {
+	return i.ToTeamMembershipArrayOutputWithContext(context.Background())
+}
+
+func (i TeamMembershipArray) ToTeamMembershipArrayOutputWithContext(ctx context.Context) TeamMembershipArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TeamMembershipArrayOutput)
+}
+
+// TeamMembershipMapInput is an input type that accepts TeamMembershipMap and TeamMembershipMapOutput values.
+// You can construct a concrete instance of `TeamMembershipMapInput` via:
+//
+//          TeamMembershipMap{ "key": TeamMembershipArgs{...} }
+type TeamMembershipMapInput interface {
+	pulumi.Input
+
+	ToTeamMembershipMapOutput() TeamMembershipMapOutput
+	ToTeamMembershipMapOutputWithContext(context.Context) TeamMembershipMapOutput
+}
+
+type TeamMembershipMap map[string]TeamMembershipInput
+
+func (TeamMembershipMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*TeamMembership)(nil))
+}
+
+func (i TeamMembershipMap) ToTeamMembershipMapOutput() TeamMembershipMapOutput {
+	return i.ToTeamMembershipMapOutputWithContext(context.Background())
+}
+
+func (i TeamMembershipMap) ToTeamMembershipMapOutputWithContext(ctx context.Context) TeamMembershipMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TeamMembershipMapOutput)
+}
+
 type TeamMembershipOutput struct {
 	*pulumi.OutputState
 }
@@ -196,6 +275,75 @@ func (o TeamMembershipOutput) ToTeamMembershipOutputWithContext(ctx context.Cont
 	return o
 }
 
+func (o TeamMembershipOutput) ToTeamMembershipPtrOutput() TeamMembershipPtrOutput {
+	return o.ToTeamMembershipPtrOutputWithContext(context.Background())
+}
+
+func (o TeamMembershipOutput) ToTeamMembershipPtrOutputWithContext(ctx context.Context) TeamMembershipPtrOutput {
+	return o.ApplyT(func(v TeamMembership) *TeamMembership {
+		return &v
+	}).(TeamMembershipPtrOutput)
+}
+
+type TeamMembershipPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (TeamMembershipPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TeamMembership)(nil))
+}
+
+func (o TeamMembershipPtrOutput) ToTeamMembershipPtrOutput() TeamMembershipPtrOutput {
+	return o
+}
+
+func (o TeamMembershipPtrOutput) ToTeamMembershipPtrOutputWithContext(ctx context.Context) TeamMembershipPtrOutput {
+	return o
+}
+
+type TeamMembershipArrayOutput struct{ *pulumi.OutputState }
+
+func (TeamMembershipArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TeamMembership)(nil))
+}
+
+func (o TeamMembershipArrayOutput) ToTeamMembershipArrayOutput() TeamMembershipArrayOutput {
+	return o
+}
+
+func (o TeamMembershipArrayOutput) ToTeamMembershipArrayOutputWithContext(ctx context.Context) TeamMembershipArrayOutput {
+	return o
+}
+
+func (o TeamMembershipArrayOutput) Index(i pulumi.IntInput) TeamMembershipOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TeamMembership {
+		return vs[0].([]TeamMembership)[vs[1].(int)]
+	}).(TeamMembershipOutput)
+}
+
+type TeamMembershipMapOutput struct{ *pulumi.OutputState }
+
+func (TeamMembershipMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]TeamMembership)(nil))
+}
+
+func (o TeamMembershipMapOutput) ToTeamMembershipMapOutput() TeamMembershipMapOutput {
+	return o
+}
+
+func (o TeamMembershipMapOutput) ToTeamMembershipMapOutputWithContext(ctx context.Context) TeamMembershipMapOutput {
+	return o
+}
+
+func (o TeamMembershipMapOutput) MapIndex(k pulumi.StringInput) TeamMembershipOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) TeamMembership {
+		return vs[0].(map[string]TeamMembership)[vs[1].(string)]
+	}).(TeamMembershipOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(TeamMembershipOutput{})
+	pulumi.RegisterOutputType(TeamMembershipPtrOutput{})
+	pulumi.RegisterOutputType(TeamMembershipArrayOutput{})
+	pulumi.RegisterOutputType(TeamMembershipMapOutput{})
 }

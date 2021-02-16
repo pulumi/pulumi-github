@@ -21,7 +21,6 @@ import (
 //
 // import (
 // 	"github.com/pulumi/pulumi-github/sdk/v3/go/github"
-// 	"github.com/pulumi/pulumi-github/sdk/v3/go/github/"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -192,6 +191,85 @@ func (i *RepositoryWebhook) ToRepositoryWebhookOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryWebhookOutput)
 }
 
+func (i *RepositoryWebhook) ToRepositoryWebhookPtrOutput() RepositoryWebhookPtrOutput {
+	return i.ToRepositoryWebhookPtrOutputWithContext(context.Background())
+}
+
+func (i *RepositoryWebhook) ToRepositoryWebhookPtrOutputWithContext(ctx context.Context) RepositoryWebhookPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryWebhookPtrOutput)
+}
+
+type RepositoryWebhookPtrInput interface {
+	pulumi.Input
+
+	ToRepositoryWebhookPtrOutput() RepositoryWebhookPtrOutput
+	ToRepositoryWebhookPtrOutputWithContext(ctx context.Context) RepositoryWebhookPtrOutput
+}
+
+type repositoryWebhookPtrType RepositoryWebhookArgs
+
+func (*repositoryWebhookPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RepositoryWebhook)(nil))
+}
+
+func (i *repositoryWebhookPtrType) ToRepositoryWebhookPtrOutput() RepositoryWebhookPtrOutput {
+	return i.ToRepositoryWebhookPtrOutputWithContext(context.Background())
+}
+
+func (i *repositoryWebhookPtrType) ToRepositoryWebhookPtrOutputWithContext(ctx context.Context) RepositoryWebhookPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryWebhookPtrOutput)
+}
+
+// RepositoryWebhookArrayInput is an input type that accepts RepositoryWebhookArray and RepositoryWebhookArrayOutput values.
+// You can construct a concrete instance of `RepositoryWebhookArrayInput` via:
+//
+//          RepositoryWebhookArray{ RepositoryWebhookArgs{...} }
+type RepositoryWebhookArrayInput interface {
+	pulumi.Input
+
+	ToRepositoryWebhookArrayOutput() RepositoryWebhookArrayOutput
+	ToRepositoryWebhookArrayOutputWithContext(context.Context) RepositoryWebhookArrayOutput
+}
+
+type RepositoryWebhookArray []RepositoryWebhookInput
+
+func (RepositoryWebhookArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*RepositoryWebhook)(nil))
+}
+
+func (i RepositoryWebhookArray) ToRepositoryWebhookArrayOutput() RepositoryWebhookArrayOutput {
+	return i.ToRepositoryWebhookArrayOutputWithContext(context.Background())
+}
+
+func (i RepositoryWebhookArray) ToRepositoryWebhookArrayOutputWithContext(ctx context.Context) RepositoryWebhookArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryWebhookArrayOutput)
+}
+
+// RepositoryWebhookMapInput is an input type that accepts RepositoryWebhookMap and RepositoryWebhookMapOutput values.
+// You can construct a concrete instance of `RepositoryWebhookMapInput` via:
+//
+//          RepositoryWebhookMap{ "key": RepositoryWebhookArgs{...} }
+type RepositoryWebhookMapInput interface {
+	pulumi.Input
+
+	ToRepositoryWebhookMapOutput() RepositoryWebhookMapOutput
+	ToRepositoryWebhookMapOutputWithContext(context.Context) RepositoryWebhookMapOutput
+}
+
+type RepositoryWebhookMap map[string]RepositoryWebhookInput
+
+func (RepositoryWebhookMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*RepositoryWebhook)(nil))
+}
+
+func (i RepositoryWebhookMap) ToRepositoryWebhookMapOutput() RepositoryWebhookMapOutput {
+	return i.ToRepositoryWebhookMapOutputWithContext(context.Background())
+}
+
+func (i RepositoryWebhookMap) ToRepositoryWebhookMapOutputWithContext(ctx context.Context) RepositoryWebhookMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryWebhookMapOutput)
+}
+
 type RepositoryWebhookOutput struct {
 	*pulumi.OutputState
 }
@@ -208,6 +286,75 @@ func (o RepositoryWebhookOutput) ToRepositoryWebhookOutputWithContext(ctx contex
 	return o
 }
 
+func (o RepositoryWebhookOutput) ToRepositoryWebhookPtrOutput() RepositoryWebhookPtrOutput {
+	return o.ToRepositoryWebhookPtrOutputWithContext(context.Background())
+}
+
+func (o RepositoryWebhookOutput) ToRepositoryWebhookPtrOutputWithContext(ctx context.Context) RepositoryWebhookPtrOutput {
+	return o.ApplyT(func(v RepositoryWebhook) *RepositoryWebhook {
+		return &v
+	}).(RepositoryWebhookPtrOutput)
+}
+
+type RepositoryWebhookPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (RepositoryWebhookPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RepositoryWebhook)(nil))
+}
+
+func (o RepositoryWebhookPtrOutput) ToRepositoryWebhookPtrOutput() RepositoryWebhookPtrOutput {
+	return o
+}
+
+func (o RepositoryWebhookPtrOutput) ToRepositoryWebhookPtrOutputWithContext(ctx context.Context) RepositoryWebhookPtrOutput {
+	return o
+}
+
+type RepositoryWebhookArrayOutput struct{ *pulumi.OutputState }
+
+func (RepositoryWebhookArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RepositoryWebhook)(nil))
+}
+
+func (o RepositoryWebhookArrayOutput) ToRepositoryWebhookArrayOutput() RepositoryWebhookArrayOutput {
+	return o
+}
+
+func (o RepositoryWebhookArrayOutput) ToRepositoryWebhookArrayOutputWithContext(ctx context.Context) RepositoryWebhookArrayOutput {
+	return o
+}
+
+func (o RepositoryWebhookArrayOutput) Index(i pulumi.IntInput) RepositoryWebhookOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RepositoryWebhook {
+		return vs[0].([]RepositoryWebhook)[vs[1].(int)]
+	}).(RepositoryWebhookOutput)
+}
+
+type RepositoryWebhookMapOutput struct{ *pulumi.OutputState }
+
+func (RepositoryWebhookMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]RepositoryWebhook)(nil))
+}
+
+func (o RepositoryWebhookMapOutput) ToRepositoryWebhookMapOutput() RepositoryWebhookMapOutput {
+	return o
+}
+
+func (o RepositoryWebhookMapOutput) ToRepositoryWebhookMapOutputWithContext(ctx context.Context) RepositoryWebhookMapOutput {
+	return o
+}
+
+func (o RepositoryWebhookMapOutput) MapIndex(k pulumi.StringInput) RepositoryWebhookOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) RepositoryWebhook {
+		return vs[0].(map[string]RepositoryWebhook)[vs[1].(string)]
+	}).(RepositoryWebhookOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(RepositoryWebhookOutput{})
+	pulumi.RegisterOutputType(RepositoryWebhookPtrOutput{})
+	pulumi.RegisterOutputType(RepositoryWebhookArrayOutput{})
+	pulumi.RegisterOutputType(RepositoryWebhookMapOutput{})
 }

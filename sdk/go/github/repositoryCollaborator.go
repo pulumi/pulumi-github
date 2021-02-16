@@ -36,7 +36,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-github/sdk/v3/go/github/"
+// 	"github.com/pulumi/pulumi-github/sdk/v3/go/github"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -197,6 +197,85 @@ func (i *RepositoryCollaborator) ToRepositoryCollaboratorOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryCollaboratorOutput)
 }
 
+func (i *RepositoryCollaborator) ToRepositoryCollaboratorPtrOutput() RepositoryCollaboratorPtrOutput {
+	return i.ToRepositoryCollaboratorPtrOutputWithContext(context.Background())
+}
+
+func (i *RepositoryCollaborator) ToRepositoryCollaboratorPtrOutputWithContext(ctx context.Context) RepositoryCollaboratorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryCollaboratorPtrOutput)
+}
+
+type RepositoryCollaboratorPtrInput interface {
+	pulumi.Input
+
+	ToRepositoryCollaboratorPtrOutput() RepositoryCollaboratorPtrOutput
+	ToRepositoryCollaboratorPtrOutputWithContext(ctx context.Context) RepositoryCollaboratorPtrOutput
+}
+
+type repositoryCollaboratorPtrType RepositoryCollaboratorArgs
+
+func (*repositoryCollaboratorPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RepositoryCollaborator)(nil))
+}
+
+func (i *repositoryCollaboratorPtrType) ToRepositoryCollaboratorPtrOutput() RepositoryCollaboratorPtrOutput {
+	return i.ToRepositoryCollaboratorPtrOutputWithContext(context.Background())
+}
+
+func (i *repositoryCollaboratorPtrType) ToRepositoryCollaboratorPtrOutputWithContext(ctx context.Context) RepositoryCollaboratorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryCollaboratorPtrOutput)
+}
+
+// RepositoryCollaboratorArrayInput is an input type that accepts RepositoryCollaboratorArray and RepositoryCollaboratorArrayOutput values.
+// You can construct a concrete instance of `RepositoryCollaboratorArrayInput` via:
+//
+//          RepositoryCollaboratorArray{ RepositoryCollaboratorArgs{...} }
+type RepositoryCollaboratorArrayInput interface {
+	pulumi.Input
+
+	ToRepositoryCollaboratorArrayOutput() RepositoryCollaboratorArrayOutput
+	ToRepositoryCollaboratorArrayOutputWithContext(context.Context) RepositoryCollaboratorArrayOutput
+}
+
+type RepositoryCollaboratorArray []RepositoryCollaboratorInput
+
+func (RepositoryCollaboratorArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*RepositoryCollaborator)(nil))
+}
+
+func (i RepositoryCollaboratorArray) ToRepositoryCollaboratorArrayOutput() RepositoryCollaboratorArrayOutput {
+	return i.ToRepositoryCollaboratorArrayOutputWithContext(context.Background())
+}
+
+func (i RepositoryCollaboratorArray) ToRepositoryCollaboratorArrayOutputWithContext(ctx context.Context) RepositoryCollaboratorArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryCollaboratorArrayOutput)
+}
+
+// RepositoryCollaboratorMapInput is an input type that accepts RepositoryCollaboratorMap and RepositoryCollaboratorMapOutput values.
+// You can construct a concrete instance of `RepositoryCollaboratorMapInput` via:
+//
+//          RepositoryCollaboratorMap{ "key": RepositoryCollaboratorArgs{...} }
+type RepositoryCollaboratorMapInput interface {
+	pulumi.Input
+
+	ToRepositoryCollaboratorMapOutput() RepositoryCollaboratorMapOutput
+	ToRepositoryCollaboratorMapOutputWithContext(context.Context) RepositoryCollaboratorMapOutput
+}
+
+type RepositoryCollaboratorMap map[string]RepositoryCollaboratorInput
+
+func (RepositoryCollaboratorMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*RepositoryCollaborator)(nil))
+}
+
+func (i RepositoryCollaboratorMap) ToRepositoryCollaboratorMapOutput() RepositoryCollaboratorMapOutput {
+	return i.ToRepositoryCollaboratorMapOutputWithContext(context.Background())
+}
+
+func (i RepositoryCollaboratorMap) ToRepositoryCollaboratorMapOutputWithContext(ctx context.Context) RepositoryCollaboratorMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryCollaboratorMapOutput)
+}
+
 type RepositoryCollaboratorOutput struct {
 	*pulumi.OutputState
 }
@@ -213,6 +292,75 @@ func (o RepositoryCollaboratorOutput) ToRepositoryCollaboratorOutputWithContext(
 	return o
 }
 
+func (o RepositoryCollaboratorOutput) ToRepositoryCollaboratorPtrOutput() RepositoryCollaboratorPtrOutput {
+	return o.ToRepositoryCollaboratorPtrOutputWithContext(context.Background())
+}
+
+func (o RepositoryCollaboratorOutput) ToRepositoryCollaboratorPtrOutputWithContext(ctx context.Context) RepositoryCollaboratorPtrOutput {
+	return o.ApplyT(func(v RepositoryCollaborator) *RepositoryCollaborator {
+		return &v
+	}).(RepositoryCollaboratorPtrOutput)
+}
+
+type RepositoryCollaboratorPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (RepositoryCollaboratorPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RepositoryCollaborator)(nil))
+}
+
+func (o RepositoryCollaboratorPtrOutput) ToRepositoryCollaboratorPtrOutput() RepositoryCollaboratorPtrOutput {
+	return o
+}
+
+func (o RepositoryCollaboratorPtrOutput) ToRepositoryCollaboratorPtrOutputWithContext(ctx context.Context) RepositoryCollaboratorPtrOutput {
+	return o
+}
+
+type RepositoryCollaboratorArrayOutput struct{ *pulumi.OutputState }
+
+func (RepositoryCollaboratorArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RepositoryCollaborator)(nil))
+}
+
+func (o RepositoryCollaboratorArrayOutput) ToRepositoryCollaboratorArrayOutput() RepositoryCollaboratorArrayOutput {
+	return o
+}
+
+func (o RepositoryCollaboratorArrayOutput) ToRepositoryCollaboratorArrayOutputWithContext(ctx context.Context) RepositoryCollaboratorArrayOutput {
+	return o
+}
+
+func (o RepositoryCollaboratorArrayOutput) Index(i pulumi.IntInput) RepositoryCollaboratorOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RepositoryCollaborator {
+		return vs[0].([]RepositoryCollaborator)[vs[1].(int)]
+	}).(RepositoryCollaboratorOutput)
+}
+
+type RepositoryCollaboratorMapOutput struct{ *pulumi.OutputState }
+
+func (RepositoryCollaboratorMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]RepositoryCollaborator)(nil))
+}
+
+func (o RepositoryCollaboratorMapOutput) ToRepositoryCollaboratorMapOutput() RepositoryCollaboratorMapOutput {
+	return o
+}
+
+func (o RepositoryCollaboratorMapOutput) ToRepositoryCollaboratorMapOutputWithContext(ctx context.Context) RepositoryCollaboratorMapOutput {
+	return o
+}
+
+func (o RepositoryCollaboratorMapOutput) MapIndex(k pulumi.StringInput) RepositoryCollaboratorOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) RepositoryCollaborator {
+		return vs[0].(map[string]RepositoryCollaborator)[vs[1].(string)]
+	}).(RepositoryCollaboratorOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(RepositoryCollaboratorOutput{})
+	pulumi.RegisterOutputType(RepositoryCollaboratorPtrOutput{})
+	pulumi.RegisterOutputType(RepositoryCollaboratorArrayOutput{})
+	pulumi.RegisterOutputType(RepositoryCollaboratorMapOutput{})
 }

@@ -75,26 +75,23 @@ export class UserGpgKey extends pulumi.CustomResource {
     constructor(name: string, args: UserGpgKeyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: UserGpgKeyArgs | UserGpgKeyState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as UserGpgKeyState | undefined;
             inputs["armoredPublicKey"] = state ? state.armoredPublicKey : undefined;
             inputs["etag"] = state ? state.etag : undefined;
             inputs["keyId"] = state ? state.keyId : undefined;
         } else {
             const args = argsOrState as UserGpgKeyArgs | undefined;
-            if ((!args || args.armoredPublicKey === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.armoredPublicKey === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'armoredPublicKey'");
             }
             inputs["armoredPublicKey"] = args ? args.armoredPublicKey : undefined;
             inputs["etag"] = undefined /*out*/;
             inputs["keyId"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(UserGpgKey.__pulumiType, name, inputs, opts);
     }

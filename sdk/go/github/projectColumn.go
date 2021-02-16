@@ -19,7 +19,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-github/sdk/v3/go/github/"
+// 	"github.com/pulumi/pulumi-github/sdk/v3/go/github"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -143,6 +143,85 @@ func (i *ProjectColumn) ToProjectColumnOutputWithContext(ctx context.Context) Pr
 	return pulumi.ToOutputWithContext(ctx, i).(ProjectColumnOutput)
 }
 
+func (i *ProjectColumn) ToProjectColumnPtrOutput() ProjectColumnPtrOutput {
+	return i.ToProjectColumnPtrOutputWithContext(context.Background())
+}
+
+func (i *ProjectColumn) ToProjectColumnPtrOutputWithContext(ctx context.Context) ProjectColumnPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectColumnPtrOutput)
+}
+
+type ProjectColumnPtrInput interface {
+	pulumi.Input
+
+	ToProjectColumnPtrOutput() ProjectColumnPtrOutput
+	ToProjectColumnPtrOutputWithContext(ctx context.Context) ProjectColumnPtrOutput
+}
+
+type projectColumnPtrType ProjectColumnArgs
+
+func (*projectColumnPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProjectColumn)(nil))
+}
+
+func (i *projectColumnPtrType) ToProjectColumnPtrOutput() ProjectColumnPtrOutput {
+	return i.ToProjectColumnPtrOutputWithContext(context.Background())
+}
+
+func (i *projectColumnPtrType) ToProjectColumnPtrOutputWithContext(ctx context.Context) ProjectColumnPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectColumnPtrOutput)
+}
+
+// ProjectColumnArrayInput is an input type that accepts ProjectColumnArray and ProjectColumnArrayOutput values.
+// You can construct a concrete instance of `ProjectColumnArrayInput` via:
+//
+//          ProjectColumnArray{ ProjectColumnArgs{...} }
+type ProjectColumnArrayInput interface {
+	pulumi.Input
+
+	ToProjectColumnArrayOutput() ProjectColumnArrayOutput
+	ToProjectColumnArrayOutputWithContext(context.Context) ProjectColumnArrayOutput
+}
+
+type ProjectColumnArray []ProjectColumnInput
+
+func (ProjectColumnArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*ProjectColumn)(nil))
+}
+
+func (i ProjectColumnArray) ToProjectColumnArrayOutput() ProjectColumnArrayOutput {
+	return i.ToProjectColumnArrayOutputWithContext(context.Background())
+}
+
+func (i ProjectColumnArray) ToProjectColumnArrayOutputWithContext(ctx context.Context) ProjectColumnArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectColumnArrayOutput)
+}
+
+// ProjectColumnMapInput is an input type that accepts ProjectColumnMap and ProjectColumnMapOutput values.
+// You can construct a concrete instance of `ProjectColumnMapInput` via:
+//
+//          ProjectColumnMap{ "key": ProjectColumnArgs{...} }
+type ProjectColumnMapInput interface {
+	pulumi.Input
+
+	ToProjectColumnMapOutput() ProjectColumnMapOutput
+	ToProjectColumnMapOutputWithContext(context.Context) ProjectColumnMapOutput
+}
+
+type ProjectColumnMap map[string]ProjectColumnInput
+
+func (ProjectColumnMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*ProjectColumn)(nil))
+}
+
+func (i ProjectColumnMap) ToProjectColumnMapOutput() ProjectColumnMapOutput {
+	return i.ToProjectColumnMapOutputWithContext(context.Background())
+}
+
+func (i ProjectColumnMap) ToProjectColumnMapOutputWithContext(ctx context.Context) ProjectColumnMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectColumnMapOutput)
+}
+
 type ProjectColumnOutput struct {
 	*pulumi.OutputState
 }
@@ -159,6 +238,75 @@ func (o ProjectColumnOutput) ToProjectColumnOutputWithContext(ctx context.Contex
 	return o
 }
 
+func (o ProjectColumnOutput) ToProjectColumnPtrOutput() ProjectColumnPtrOutput {
+	return o.ToProjectColumnPtrOutputWithContext(context.Background())
+}
+
+func (o ProjectColumnOutput) ToProjectColumnPtrOutputWithContext(ctx context.Context) ProjectColumnPtrOutput {
+	return o.ApplyT(func(v ProjectColumn) *ProjectColumn {
+		return &v
+	}).(ProjectColumnPtrOutput)
+}
+
+type ProjectColumnPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (ProjectColumnPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProjectColumn)(nil))
+}
+
+func (o ProjectColumnPtrOutput) ToProjectColumnPtrOutput() ProjectColumnPtrOutput {
+	return o
+}
+
+func (o ProjectColumnPtrOutput) ToProjectColumnPtrOutputWithContext(ctx context.Context) ProjectColumnPtrOutput {
+	return o
+}
+
+type ProjectColumnArrayOutput struct{ *pulumi.OutputState }
+
+func (ProjectColumnArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProjectColumn)(nil))
+}
+
+func (o ProjectColumnArrayOutput) ToProjectColumnArrayOutput() ProjectColumnArrayOutput {
+	return o
+}
+
+func (o ProjectColumnArrayOutput) ToProjectColumnArrayOutputWithContext(ctx context.Context) ProjectColumnArrayOutput {
+	return o
+}
+
+func (o ProjectColumnArrayOutput) Index(i pulumi.IntInput) ProjectColumnOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProjectColumn {
+		return vs[0].([]ProjectColumn)[vs[1].(int)]
+	}).(ProjectColumnOutput)
+}
+
+type ProjectColumnMapOutput struct{ *pulumi.OutputState }
+
+func (ProjectColumnMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ProjectColumn)(nil))
+}
+
+func (o ProjectColumnMapOutput) ToProjectColumnMapOutput() ProjectColumnMapOutput {
+	return o
+}
+
+func (o ProjectColumnMapOutput) ToProjectColumnMapOutputWithContext(ctx context.Context) ProjectColumnMapOutput {
+	return o
+}
+
+func (o ProjectColumnMapOutput) MapIndex(k pulumi.StringInput) ProjectColumnOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ProjectColumn {
+		return vs[0].(map[string]ProjectColumn)[vs[1].(string)]
+	}).(ProjectColumnOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ProjectColumnOutput{})
+	pulumi.RegisterOutputType(ProjectColumnPtrOutput{})
+	pulumi.RegisterOutputType(ProjectColumnArrayOutput{})
+	pulumi.RegisterOutputType(ProjectColumnMapOutput{})
 }

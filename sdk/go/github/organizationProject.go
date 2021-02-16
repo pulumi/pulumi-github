@@ -18,7 +18,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-github/sdk/v3/go/github/"
+// 	"github.com/pulumi/pulumi-github/sdk/v3/go/github"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -136,6 +136,85 @@ func (i *OrganizationProject) ToOrganizationProjectOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationProjectOutput)
 }
 
+func (i *OrganizationProject) ToOrganizationProjectPtrOutput() OrganizationProjectPtrOutput {
+	return i.ToOrganizationProjectPtrOutputWithContext(context.Background())
+}
+
+func (i *OrganizationProject) ToOrganizationProjectPtrOutputWithContext(ctx context.Context) OrganizationProjectPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationProjectPtrOutput)
+}
+
+type OrganizationProjectPtrInput interface {
+	pulumi.Input
+
+	ToOrganizationProjectPtrOutput() OrganizationProjectPtrOutput
+	ToOrganizationProjectPtrOutputWithContext(ctx context.Context) OrganizationProjectPtrOutput
+}
+
+type organizationProjectPtrType OrganizationProjectArgs
+
+func (*organizationProjectPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrganizationProject)(nil))
+}
+
+func (i *organizationProjectPtrType) ToOrganizationProjectPtrOutput() OrganizationProjectPtrOutput {
+	return i.ToOrganizationProjectPtrOutputWithContext(context.Background())
+}
+
+func (i *organizationProjectPtrType) ToOrganizationProjectPtrOutputWithContext(ctx context.Context) OrganizationProjectPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationProjectPtrOutput)
+}
+
+// OrganizationProjectArrayInput is an input type that accepts OrganizationProjectArray and OrganizationProjectArrayOutput values.
+// You can construct a concrete instance of `OrganizationProjectArrayInput` via:
+//
+//          OrganizationProjectArray{ OrganizationProjectArgs{...} }
+type OrganizationProjectArrayInput interface {
+	pulumi.Input
+
+	ToOrganizationProjectArrayOutput() OrganizationProjectArrayOutput
+	ToOrganizationProjectArrayOutputWithContext(context.Context) OrganizationProjectArrayOutput
+}
+
+type OrganizationProjectArray []OrganizationProjectInput
+
+func (OrganizationProjectArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*OrganizationProject)(nil))
+}
+
+func (i OrganizationProjectArray) ToOrganizationProjectArrayOutput() OrganizationProjectArrayOutput {
+	return i.ToOrganizationProjectArrayOutputWithContext(context.Background())
+}
+
+func (i OrganizationProjectArray) ToOrganizationProjectArrayOutputWithContext(ctx context.Context) OrganizationProjectArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationProjectArrayOutput)
+}
+
+// OrganizationProjectMapInput is an input type that accepts OrganizationProjectMap and OrganizationProjectMapOutput values.
+// You can construct a concrete instance of `OrganizationProjectMapInput` via:
+//
+//          OrganizationProjectMap{ "key": OrganizationProjectArgs{...} }
+type OrganizationProjectMapInput interface {
+	pulumi.Input
+
+	ToOrganizationProjectMapOutput() OrganizationProjectMapOutput
+	ToOrganizationProjectMapOutputWithContext(context.Context) OrganizationProjectMapOutput
+}
+
+type OrganizationProjectMap map[string]OrganizationProjectInput
+
+func (OrganizationProjectMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*OrganizationProject)(nil))
+}
+
+func (i OrganizationProjectMap) ToOrganizationProjectMapOutput() OrganizationProjectMapOutput {
+	return i.ToOrganizationProjectMapOutputWithContext(context.Background())
+}
+
+func (i OrganizationProjectMap) ToOrganizationProjectMapOutputWithContext(ctx context.Context) OrganizationProjectMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationProjectMapOutput)
+}
+
 type OrganizationProjectOutput struct {
 	*pulumi.OutputState
 }
@@ -152,6 +231,75 @@ func (o OrganizationProjectOutput) ToOrganizationProjectOutputWithContext(ctx co
 	return o
 }
 
+func (o OrganizationProjectOutput) ToOrganizationProjectPtrOutput() OrganizationProjectPtrOutput {
+	return o.ToOrganizationProjectPtrOutputWithContext(context.Background())
+}
+
+func (o OrganizationProjectOutput) ToOrganizationProjectPtrOutputWithContext(ctx context.Context) OrganizationProjectPtrOutput {
+	return o.ApplyT(func(v OrganizationProject) *OrganizationProject {
+		return &v
+	}).(OrganizationProjectPtrOutput)
+}
+
+type OrganizationProjectPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (OrganizationProjectPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrganizationProject)(nil))
+}
+
+func (o OrganizationProjectPtrOutput) ToOrganizationProjectPtrOutput() OrganizationProjectPtrOutput {
+	return o
+}
+
+func (o OrganizationProjectPtrOutput) ToOrganizationProjectPtrOutputWithContext(ctx context.Context) OrganizationProjectPtrOutput {
+	return o
+}
+
+type OrganizationProjectArrayOutput struct{ *pulumi.OutputState }
+
+func (OrganizationProjectArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OrganizationProject)(nil))
+}
+
+func (o OrganizationProjectArrayOutput) ToOrganizationProjectArrayOutput() OrganizationProjectArrayOutput {
+	return o
+}
+
+func (o OrganizationProjectArrayOutput) ToOrganizationProjectArrayOutputWithContext(ctx context.Context) OrganizationProjectArrayOutput {
+	return o
+}
+
+func (o OrganizationProjectArrayOutput) Index(i pulumi.IntInput) OrganizationProjectOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OrganizationProject {
+		return vs[0].([]OrganizationProject)[vs[1].(int)]
+	}).(OrganizationProjectOutput)
+}
+
+type OrganizationProjectMapOutput struct{ *pulumi.OutputState }
+
+func (OrganizationProjectMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]OrganizationProject)(nil))
+}
+
+func (o OrganizationProjectMapOutput) ToOrganizationProjectMapOutput() OrganizationProjectMapOutput {
+	return o
+}
+
+func (o OrganizationProjectMapOutput) ToOrganizationProjectMapOutputWithContext(ctx context.Context) OrganizationProjectMapOutput {
+	return o
+}
+
+func (o OrganizationProjectMapOutput) MapIndex(k pulumi.StringInput) OrganizationProjectOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) OrganizationProject {
+		return vs[0].(map[string]OrganizationProject)[vs[1].(string)]
+	}).(OrganizationProjectOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(OrganizationProjectOutput{})
+	pulumi.RegisterOutputType(OrganizationProjectPtrOutput{})
+	pulumi.RegisterOutputType(OrganizationProjectArrayOutput{})
+	pulumi.RegisterOutputType(OrganizationProjectMapOutput{})
 }

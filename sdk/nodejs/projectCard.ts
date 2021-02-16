@@ -78,7 +78,8 @@ export class ProjectCard extends pulumi.CustomResource {
     constructor(name: string, args: ProjectCardArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ProjectCardArgs | ProjectCardState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ProjectCardState | undefined;
             inputs["cardId"] = state ? state.cardId : undefined;
             inputs["columnId"] = state ? state.columnId : undefined;
@@ -86,10 +87,10 @@ export class ProjectCard extends pulumi.CustomResource {
             inputs["note"] = state ? state.note : undefined;
         } else {
             const args = argsOrState as ProjectCardArgs | undefined;
-            if ((!args || args.columnId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.columnId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'columnId'");
             }
-            if ((!args || args.note === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.note === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'note'");
             }
             inputs["columnId"] = args ? args.columnId : undefined;
@@ -97,12 +98,8 @@ export class ProjectCard extends pulumi.CustomResource {
             inputs["cardId"] = undefined /*out*/;
             inputs["etag"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(ProjectCard.__pulumiType, name, inputs, opts);
     }
