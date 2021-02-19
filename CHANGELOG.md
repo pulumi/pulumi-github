@@ -2,9 +2,12 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Upgrade to v4.5.0 of the GitHub Terraform Provider
+_(none)_
 
 ---
+
+## 3.2.0 (2021-02-19)
+* Upgrade to v4.5.0 of the GitHub Terraform Provider
 
 ## 3.1.1 (2021-02-16)
 * Upgrade to pulumi-terraform-bridge v2.19.0  
