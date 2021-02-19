@@ -3019,7 +3019,7 @@
                 },
                 "teamId": {
                     "type": "string",
-                    "description": "The GitHub team id\n"
+                    "description": "The GitHub team id or the GitHub team slug\n"
                 }
             },
             "required": [
@@ -3038,7 +3038,7 @@
                 },
                 "teamId": {
                     "type": "string",
-                    "description": "The GitHub team id\n"
+                    "description": "The GitHub team id or the GitHub team slug\n"
                 }
             },
             "requiredInputs": [
@@ -3061,7 +3061,7 @@
                     },
                     "teamId": {
                         "type": "string",
-                        "description": "The GitHub team id\n"
+                        "description": "The GitHub team id or the GitHub team slug\n"
                     }
                 },
                 "type": "object"

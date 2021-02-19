@@ -72,7 +72,7 @@ type TeamRepository struct {
 	Permission pulumi.StringPtrOutput `pulumi:"permission"`
 	// The repository to add to the team.
 	Repository pulumi.StringOutput `pulumi:"repository"`
-	// The GitHub team id
+	// The GitHub team id or the GitHub team slug
 	TeamId pulumi.StringOutput `pulumi:"teamId"`
 }
 
@@ -117,7 +117,7 @@ type teamRepositoryState struct {
 	Permission *string `pulumi:"permission"`
 	// The repository to add to the team.
 	Repository *string `pulumi:"repository"`
-	// The GitHub team id
+	// The GitHub team id or the GitHub team slug
 	TeamId *string `pulumi:"teamId"`
 }
 
@@ -128,7 +128,7 @@ type TeamRepositoryState struct {
 	Permission pulumi.StringPtrInput
 	// The repository to add to the team.
 	Repository pulumi.StringPtrInput
-	// The GitHub team id
+	// The GitHub team id or the GitHub team slug
 	TeamId pulumi.StringPtrInput
 }
 
@@ -142,7 +142,7 @@ type teamRepositoryArgs struct {
 	Permission *string `pulumi:"permission"`
 	// The repository to add to the team.
 	Repository string `pulumi:"repository"`
-	// The GitHub team id
+	// The GitHub team id or the GitHub team slug
 	TeamId string `pulumi:"teamId"`
 }
 
@@ -153,7 +153,7 @@ type TeamRepositoryArgs struct {
 	Permission pulumi.StringPtrInput
 	// The repository to add to the team.
 	Repository pulumi.StringInput
-	// The GitHub team id
+	// The GitHub team id or the GitHub team slug
 	TeamId pulumi.StringInput
 }
 

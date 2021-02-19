@@ -80,7 +80,7 @@ export class TeamRepository extends pulumi.CustomResource {
      */
     public readonly repository!: pulumi.Output<string>;
     /**
-     * The GitHub team id
+     * The GitHub team id or the GitHub team slug
      */
     public readonly teamId!: pulumi.Output<string>;
 
@@ -136,7 +136,7 @@ export interface TeamRepositoryState {
      */
     readonly repository?: pulumi.Input<string>;
     /**
-     * The GitHub team id
+     * The GitHub team id or the GitHub team slug
      */
     readonly teamId?: pulumi.Input<string>;
 }
@@ -155,7 +155,7 @@ export interface TeamRepositoryArgs {
      */
     readonly repository: pulumi.Input<string>;
     /**
-     * The GitHub team id
+     * The GitHub team id or the GitHub team slug
      */
     readonly teamId: pulumi.Input<string>;
 }

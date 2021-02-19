@@ -60,7 +60,7 @@ class TeamRepository(pulumi.CustomResource):
         :param pulumi.Input[str] permission: The permissions of team members regarding the repository.
                Must be one of `pull`, `triage`, `push`, `maintain`, or `admin`. Defaults to `pull`.
         :param pulumi.Input[str] repository: The repository to add to the team.
-        :param pulumi.Input[str] team_id: The GitHub team id
+        :param pulumi.Input[str] team_id: The GitHub team id or the GitHub team slug
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -111,7 +111,7 @@ class TeamRepository(pulumi.CustomResource):
         :param pulumi.Input[str] permission: The permissions of team members regarding the repository.
                Must be one of `pull`, `triage`, `push`, `maintain`, or `admin`. Defaults to `pull`.
         :param pulumi.Input[str] repository: The repository to add to the team.
-        :param pulumi.Input[str] team_id: The GitHub team id
+        :param pulumi.Input[str] team_id: The GitHub team id or the GitHub team slug
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -149,7 +149,7 @@ class TeamRepository(pulumi.CustomResource):
     @pulumi.getter(name="teamId")
     def team_id(self) -> pulumi.Output[str]:
         """
-        The GitHub team id
+        The GitHub team id or the GitHub team slug
         """
         return pulumi.get(self, "team_id")
 

@@ -77,7 +77,7 @@ namespace Pulumi.Github
         public Output<string> Repository { get; private set; } = null!;
 
         /// <summary>
-        /// The GitHub team id
+        /// The GitHub team id or the GitHub team slug
         /// </summary>
         [Output("teamId")]
         public Output<string> TeamId { get; private set; } = null!;
@@ -142,7 +142,7 @@ namespace Pulumi.Github
         public Input<string> Repository { get; set; } = null!;
 
         /// <summary>
-        /// The GitHub team id
+        /// The GitHub team id or the GitHub team slug
         /// </summary>
         [Input("teamId", required: true)]
         public Input<string> TeamId { get; set; } = null!;
@@ -171,7 +171,7 @@ namespace Pulumi.Github
         public Input<string>? Repository { get; set; }
 
         /// <summary>
-        /// The GitHub team id
+        /// The GitHub team id or the GitHub team slug
         /// </summary>
         [Input("teamId")]
         public Input<string>? TeamId { get; set; }
