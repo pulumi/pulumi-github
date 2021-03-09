@@ -34,6 +34,53 @@ class BranchProtectionV3(pulumi.CustomResource):
 
         This resource allows you to configure branch protection for repositories in your organization. When applied, the branch will be protected from forced pushes and deletion. Additional constraints, such as required status checks or restrictions on users, teams, and apps, can also be configured.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        # Protect the main branch of the foo repository. Only allow a specific user to merge to the branch.
+        example = github.BranchProtectionV3("example",
+            branch="main",
+            repository=github_repository["example"]["name"],
+            restrictions=github.BranchProtectionV3RestrictionsArgs(
+                users=["foo-user"],
+            ))
+        ```
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        example_team = github.Team("exampleTeam")
+        example_branch_protection_v3 = github.BranchProtectionV3("exampleBranchProtectionV3",
+            branch="main",
+            enforce_admins=True,
+            repository=github_repository["example"]["name"],
+            required_pull_request_reviews=github.BranchProtectionV3RequiredPullRequestReviewsArgs(
+                dismiss_stale_reviews=True,
+                dismissal_teams=[
+                    example_team.slug,
+                    github_team["second"]["slug"],
+                ],
+                dismissal_users=["foo-user"],
+            ),
+            required_status_checks=github.BranchProtectionV3RequiredStatusChecksArgs(
+                contexts=["ci/travis"],
+                strict=False,
+            ),
+            restrictions=github.BranchProtectionV3RestrictionsArgs(
+                apps=["foo-app"],
+                teams=[example_team.slug],
+                users=["foo-user"],
+            ))
+        example_team_repository = github.TeamRepository("exampleTeamRepository",
+            permission="pull",
+            repository=github_repository["example"]["name"],
+            team_id=example_team.id)
+        ```
+
         ## Import
 
         GitHub Branch Protection can be imported using an ID made up of `repository:branch`, e.g.

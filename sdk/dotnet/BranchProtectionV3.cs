@@ -16,6 +16,98 @@ namespace Pulumi.Github
     /// 
     /// This resource allows you to configure branch protection for repositories in your organization. When applied, the branch will be protected from forced pushes and deletion. Additional constraints, such as required status checks or restrictions on users, teams, and apps, can also be configured.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Github = Pulumi.Github;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         // Protect the main branch of the foo repository. Only allow a specific user to merge to the branch.
+    ///         var example = new Github.BranchProtectionV3("example", new Github.BranchProtectionV3Args
+    ///         {
+    ///             Branch = "main",
+    ///             Repository = github_repository.Example.Name,
+    ///             Restrictions = new Github.Inputs.BranchProtectionV3RestrictionsArgs
+    ///             {
+    ///                 Users = 
+    ///                 {
+    ///                     "foo-user",
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Github = Pulumi.Github;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleTeam = new Github.Team("exampleTeam", new Github.TeamArgs
+    ///         {
+    ///         });
+    ///         var exampleBranchProtectionV3 = new Github.BranchProtectionV3("exampleBranchProtectionV3", new Github.BranchProtectionV3Args
+    ///         {
+    ///             Branch = "main",
+    ///             EnforceAdmins = true,
+    ///             Repository = github_repository.Example.Name,
+    ///             RequiredPullRequestReviews = new Github.Inputs.BranchProtectionV3RequiredPullRequestReviewsArgs
+    ///             {
+    ///                 DismissStaleReviews = true,
+    ///                 DismissalTeams = 
+    ///                 {
+    ///                     exampleTeam.Slug,
+    ///                     github_team.Second.Slug,
+    ///                 },
+    ///                 DismissalUsers = 
+    ///                 {
+    ///                     "foo-user",
+    ///                 },
+    ///             },
+    ///             RequiredStatusChecks = new Github.Inputs.BranchProtectionV3RequiredStatusChecksArgs
+    ///             {
+    ///                 Contexts = 
+    ///                 {
+    ///                     "ci/travis",
+    ///                 },
+    ///                 Strict = false,
+    ///             },
+    ///             Restrictions = new Github.Inputs.BranchProtectionV3RestrictionsArgs
+    ///             {
+    ///                 Apps = 
+    ///                 {
+    ///                     "foo-app",
+    ///                 },
+    ///                 Teams = 
+    ///                 {
+    ///                     exampleTeam.Slug,
+    ///                 },
+    ///                 Users = 
+    ///                 {
+    ///                     "foo-user",
+    ///                 },
+    ///             },
+    ///         });
+    ///         var exampleTeamRepository = new Github.TeamRepository("exampleTeamRepository", new Github.TeamRepositoryArgs
+    ///         {
+    ///             Permission = "pull",
+    ///             Repository = github_repository.Example.Name,
+    ///             TeamId = exampleTeam.Id,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// GitHub Branch Protection can be imported using an ID made up of `repository:branch`, e.g.
