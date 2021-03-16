@@ -121,7 +121,7 @@ class BranchProtectionV3RequiredPullRequestReviewsArgs:
             pulumi.set(__self__, "dismissal_users", dismissal_users)
         if include_admins is not None:
             warnings.warn("""Use enforce_admins instead""", DeprecationWarning)
-            pulumi.log.warn("include_admins is deprecated: Use enforce_admins instead")
+            pulumi.log.warn("""include_admins is deprecated: Use enforce_admins instead""")
         if include_admins is not None:
             pulumi.set(__self__, "include_admins", include_admins)
         if require_code_owner_reviews is not None:
@@ -194,7 +194,7 @@ class BranchProtectionV3RequiredStatusChecksArgs:
             pulumi.set(__self__, "contexts", contexts)
         if include_admins is not None:
             warnings.warn("""Use enforce_admins instead""", DeprecationWarning)
-            pulumi.log.warn("include_admins is deprecated: Use enforce_admins instead")
+            pulumi.log.warn("""include_admins is deprecated: Use enforce_admins instead""")
         if include_admins is not None:
             pulumi.set(__self__, "include_admins", include_admins)
         if strict is not None:

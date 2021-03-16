@@ -37,7 +37,7 @@ export class Provider extends pulumi.ProviderResource {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         {
-            inputs["baseUrl"] = (args ? args.baseUrl : undefined) || (utilities.getEnv("GITHUB_BASE_URL") || "https://api.github.com/");
+            inputs["baseUrl"] = (args ? args.baseUrl : undefined) ?? (utilities.getEnv("GITHUB_BASE_URL") || "https://api.github.com/");
             inputs["insecure"] = pulumi.output(args ? args.insecure : undefined).apply(JSON.stringify);
             inputs["organization"] = args ? args.organization : undefined;
             inputs["owner"] = args ? args.owner : undefined;
