@@ -144,7 +144,7 @@ class Repository(pulumi.CustomResource):
             __props__['auto_init'] = auto_init
             if default_branch is not None and not opts.urn:
                 warnings.warn("""Use the github_branch_default resource instead""", DeprecationWarning)
-                pulumi.log.warn("default_branch is deprecated: Use the github_branch_default resource instead")
+                pulumi.log.warn("""default_branch is deprecated: Use the github_branch_default resource instead""")
             __props__['default_branch'] = default_branch
             __props__['delete_branch_on_merge'] = delete_branch_on_merge
             __props__['description'] = description
@@ -160,7 +160,7 @@ class Repository(pulumi.CustomResource):
             __props__['pages'] = pages
             if private is not None and not opts.urn:
                 warnings.warn("""use visibility instead""", DeprecationWarning)
-                pulumi.log.warn("private is deprecated: use visibility instead")
+                pulumi.log.warn("""private is deprecated: use visibility instead""")
             __props__['private'] = private
             __props__['template'] = template
             __props__['topics'] = topics
