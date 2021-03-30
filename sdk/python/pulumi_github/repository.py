@@ -62,7 +62,7 @@ class Repository(pulumi.CustomResource):
             ),
             visibility="public")
         ```
-        ### With Github Pages Enabled
+        ### With GitHub Pages Enabled
 
         ```python
         import pulumi
@@ -111,7 +111,7 @@ class Repository(pulumi.CustomResource):
         :param pulumi.Input[bool] is_template: Set to `true` to tell GitHub that this is a template repository.
         :param pulumi.Input[str] license_template: Use the [name of the template](https://github.com/github/choosealicense.com/tree/gh-pages/_licenses) without the extension. For example, "mit" or "mpl-2.0".
         :param pulumi.Input[str] name: The name of the repository.
-        :param pulumi.Input[pulumi.InputType['RepositoryPagesArgs']] pages: The repository's Github Pages configuration. See Github Pages Configuration below for details.
+        :param pulumi.Input[pulumi.InputType['RepositoryPagesArgs']] pages: The repository's GitHub Pages configuration. See GitHub Pages Configuration below for details.
         :param pulumi.Input[bool] private: Set to `true` to create a private repository.
                Repositories are created as public (e.g. open source) by default.
         :param pulumi.Input[pulumi.InputType['RepositoryTemplateArgs']] template: Use a template repository to create this resource. See Template Repositories below for details.
@@ -246,16 +246,16 @@ class Repository(pulumi.CustomResource):
         :param pulumi.Input[bool] has_wiki: Set to `true` to enable the GitHub Wiki features on
                the repository.
         :param pulumi.Input[str] homepage_url: URL of a page describing the project.
-        :param pulumi.Input[str] html_url: The absolute URL (including scheme) of the rendered Github Pages site e.g. `https://username.github.io`.
+        :param pulumi.Input[str] html_url: The absolute URL (including scheme) of the rendered GitHub Pages site e.g. `https://username.github.io`.
         :param pulumi.Input[str] http_clone_url: URL that can be provided to `git clone` to clone the repository via HTTPS.
         :param pulumi.Input[bool] is_template: Set to `true` to tell GitHub that this is a template repository.
         :param pulumi.Input[str] license_template: Use the [name of the template](https://github.com/github/choosealicense.com/tree/gh-pages/_licenses) without the extension. For example, "mit" or "mpl-2.0".
         :param pulumi.Input[str] name: The name of the repository.
         :param pulumi.Input[str] node_id: GraphQL global node id for use with v4 API
-        :param pulumi.Input[pulumi.InputType['RepositoryPagesArgs']] pages: The repository's Github Pages configuration. See Github Pages Configuration below for details.
+        :param pulumi.Input[pulumi.InputType['RepositoryPagesArgs']] pages: The repository's GitHub Pages configuration. See GitHub Pages Configuration below for details.
         :param pulumi.Input[bool] private: Set to `true` to create a private repository.
                Repositories are created as public (e.g. open source) by default.
-        :param pulumi.Input[int] repo_id: Github ID for the repository
+        :param pulumi.Input[int] repo_id: GitHub ID for the repository
         :param pulumi.Input[str] ssh_clone_url: URL that can be provided to `git clone` to clone the repository via SSH.
         :param pulumi.Input[str] svn_url: URL that can be provided to `svn checkout` to check out the repository via GitHub's Subversion protocol emulation.
         :param pulumi.Input[pulumi.InputType['RepositoryTemplateArgs']] template: Use a template repository to create this resource. See Template Repositories below for details.
@@ -451,7 +451,7 @@ class Repository(pulumi.CustomResource):
     @pulumi.getter(name="htmlUrl")
     def html_url(self) -> pulumi.Output[str]:
         """
-        The absolute URL (including scheme) of the rendered Github Pages site e.g. `https://username.github.io`.
+        The absolute URL (including scheme) of the rendered GitHub Pages site e.g. `https://username.github.io`.
         """
         return pulumi.get(self, "html_url")
 
@@ -499,7 +499,7 @@ class Repository(pulumi.CustomResource):
     @pulumi.getter
     def pages(self) -> pulumi.Output[Optional['outputs.RepositoryPages']]:
         """
-        The repository's Github Pages configuration. See Github Pages Configuration below for details.
+        The repository's GitHub Pages configuration. See GitHub Pages Configuration below for details.
         """
         return pulumi.get(self, "pages")
 
@@ -516,7 +516,7 @@ class Repository(pulumi.CustomResource):
     @pulumi.getter(name="repoId")
     def repo_id(self) -> pulumi.Output[int]:
         """
-        Github ID for the repository
+        GitHub ID for the repository
         """
         return pulumi.get(self, "repo_id")
 

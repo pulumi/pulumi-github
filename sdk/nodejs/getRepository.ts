@@ -127,7 +127,7 @@ export interface GetRepositoryResult {
      */
     readonly private: boolean;
     /**
-     * Github ID for the repository
+     * GitHub ID for the repository
      */
     readonly repoId: number;
     /**

@@ -26,7 +26,7 @@ class TeamSyncGroupMapping(pulumi.CustomResource):
         This resource allows you to create and manage Identity Provider (IdP) group connections within your GitHub teams.
         You must have team synchronization enabled for organizations owned by enterprise accounts.
 
-        To learn more about team synchronization between IdPs and Github, please refer to:
+        To learn more about team synchronization between IdPs and GitHub, please refer to:
         https://help.github.com/en/github/setting-up-and-managing-organizations-and-teams/synchronizing-teams-between-your-identity-provider-and-github
 
         ## Import

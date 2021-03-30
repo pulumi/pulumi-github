@@ -83,7 +83,7 @@ namespace Pulumi.Github
         public Output<string> Sha { get; private set; } = null!;
 
         /// <summary>
-        /// The branch name to start from. Defaults to `master`.
+        /// The branch name to start from. Defaults to `main`.
         /// </summary>
         [Output("sourceBranch")]
         public Output<string?> SourceBranch { get; private set; } = null!;
@@ -153,7 +153,7 @@ namespace Pulumi.Github
         public Input<string> Repository { get; set; } = null!;
 
         /// <summary>
-        /// The branch name to start from. Defaults to `master`.
+        /// The branch name to start from. Defaults to `main`.
         /// </summary>
         [Input("sourceBranch")]
         public Input<string>? SourceBranch { get; set; }
@@ -202,7 +202,7 @@ namespace Pulumi.Github
         public Input<string>? Sha { get; set; }
 
         /// <summary>
-        /// The branch name to start from. Defaults to `master`.
+        /// The branch name to start from. Defaults to `main`.
         /// </summary>
         [Input("sourceBranch")]
         public Input<string>? SourceBranch { get; set; }

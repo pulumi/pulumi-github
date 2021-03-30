@@ -66,7 +66,7 @@ type Branch struct {
 	Repository pulumi.StringOutput `pulumi:"repository"`
 	// A string storing the reference's `HEAD` commit's SHA1.
 	Sha pulumi.StringOutput `pulumi:"sha"`
-	// The branch name to start from. Defaults to `master`.
+	// The branch name to start from. Defaults to `main`.
 	SourceBranch pulumi.StringPtrOutput `pulumi:"sourceBranch"`
 	// The commit hash to start from. Defaults to the tip of `sourceBranch`. If provided, `sourceBranch` is ignored.
 	SourceSha pulumi.StringOutput `pulumi:"sourceSha"`
@@ -117,7 +117,7 @@ type branchState struct {
 	Repository *string `pulumi:"repository"`
 	// A string storing the reference's `HEAD` commit's SHA1.
 	Sha *string `pulumi:"sha"`
-	// The branch name to start from. Defaults to `master`.
+	// The branch name to start from. Defaults to `main`.
 	SourceBranch *string `pulumi:"sourceBranch"`
 	// The commit hash to start from. Defaults to the tip of `sourceBranch`. If provided, `sourceBranch` is ignored.
 	SourceSha *string `pulumi:"sourceSha"`
@@ -134,7 +134,7 @@ type BranchState struct {
 	Repository pulumi.StringPtrInput
 	// A string storing the reference's `HEAD` commit's SHA1.
 	Sha pulumi.StringPtrInput
-	// The branch name to start from. Defaults to `master`.
+	// The branch name to start from. Defaults to `main`.
 	SourceBranch pulumi.StringPtrInput
 	// The commit hash to start from. Defaults to the tip of `sourceBranch`. If provided, `sourceBranch` is ignored.
 	SourceSha pulumi.StringPtrInput
@@ -149,7 +149,7 @@ type branchArgs struct {
 	Branch string `pulumi:"branch"`
 	// The GitHub repository name.
 	Repository string `pulumi:"repository"`
-	// The branch name to start from. Defaults to `master`.
+	// The branch name to start from. Defaults to `main`.
 	SourceBranch *string `pulumi:"sourceBranch"`
 	// The commit hash to start from. Defaults to the tip of `sourceBranch`. If provided, `sourceBranch` is ignored.
 	SourceSha *string `pulumi:"sourceSha"`
@@ -161,7 +161,7 @@ type BranchArgs struct {
 	Branch pulumi.StringInput
 	// The GitHub repository name.
 	Repository pulumi.StringInput
-	// The branch name to start from. Defaults to `master`.
+	// The branch name to start from. Defaults to `main`.
 	SourceBranch pulumi.StringPtrInput
 	// The commit hash to start from. Defaults to the tip of `sourceBranch`. If provided, `sourceBranch` is ignored.
 	SourceSha pulumi.StringPtrInput

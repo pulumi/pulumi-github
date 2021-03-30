@@ -37,7 +37,7 @@ namespace Pulumi.Github
     /// 
     /// }
     /// ```
-    /// ### With Github Pages Enabled
+    /// ### With GitHub Pages Enabled
     /// 
     /// ```csharp
     /// using Pulumi;
@@ -186,7 +186,7 @@ namespace Pulumi.Github
         public Output<string?> HomepageUrl { get; private set; } = null!;
 
         /// <summary>
-        /// The absolute URL (including scheme) of the rendered Github Pages site e.g. `https://username.github.io`.
+        /// The absolute URL (including scheme) of the rendered GitHub Pages site e.g. `https://username.github.io`.
         /// </summary>
         [Output("htmlUrl")]
         public Output<string> HtmlUrl { get; private set; } = null!;
@@ -222,7 +222,7 @@ namespace Pulumi.Github
         public Output<string> NodeId { get; private set; } = null!;
 
         /// <summary>
-        /// The repository's Github Pages configuration. See Github Pages Configuration below for details.
+        /// The repository's GitHub Pages configuration. See GitHub Pages Configuration below for details.
         /// </summary>
         [Output("pages")]
         public Output<Outputs.RepositoryPages?> Pages { get; private set; } = null!;
@@ -235,7 +235,7 @@ namespace Pulumi.Github
         public Output<bool> Private { get; private set; } = null!;
 
         /// <summary>
-        /// Github ID for the repository
+        /// GitHub ID for the repository
         /// </summary>
         [Output("repoId")]
         public Output<int> RepoId { get; private set; } = null!;
@@ -435,7 +435,7 @@ namespace Pulumi.Github
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The repository's Github Pages configuration. See Github Pages Configuration below for details.
+        /// The repository's GitHub Pages configuration. See GitHub Pages Configuration below for details.
         /// </summary>
         [Input("pages")]
         public Input<Inputs.RepositoryPagesArgs>? Pages { get; set; }
@@ -594,7 +594,7 @@ namespace Pulumi.Github
         public Input<string>? HomepageUrl { get; set; }
 
         /// <summary>
-        /// The absolute URL (including scheme) of the rendered Github Pages site e.g. `https://username.github.io`.
+        /// The absolute URL (including scheme) of the rendered GitHub Pages site e.g. `https://username.github.io`.
         /// </summary>
         [Input("htmlUrl")]
         public Input<string>? HtmlUrl { get; set; }
@@ -630,7 +630,7 @@ namespace Pulumi.Github
         public Input<string>? NodeId { get; set; }
 
         /// <summary>
-        /// The repository's Github Pages configuration. See Github Pages Configuration below for details.
+        /// The repository's GitHub Pages configuration. See GitHub Pages Configuration below for details.
         /// </summary>
         [Input("pages")]
         public Input<Inputs.RepositoryPagesGetArgs>? Pages { get; set; }
@@ -643,7 +643,7 @@ namespace Pulumi.Github
         public Input<bool>? Private { get; set; }
 
         /// <summary>
-        /// Github ID for the repository
+        /// GitHub ID for the repository
         /// </summary>
         [Input("repoId")]
         public Input<int>? RepoId { get; set; }

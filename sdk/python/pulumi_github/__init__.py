@@ -5,6 +5,7 @@
 # Export this package's modules as members:
 from .actions_organization_secret import *
 from .actions_secret import *
+from .app_installation_repository import *
 from .branch import *
 from .branch_default import *
 from .branch_protection import *
@@ -68,6 +69,8 @@ def _register_module():
                 return ActionsOrganizationSecret(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "github:index/actionsSecret:ActionsSecret":
                 return ActionsSecret(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "github:index/appInstallationRepository:AppInstallationRepository":
+                return AppInstallationRepository(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "github:index/branch:Branch":
                 return Branch(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "github:index/branchDefault:BranchDefault":
@@ -125,6 +128,7 @@ def _register_module():
     _module_instance = Module()
     pulumi.runtime.register_resource_module("github", "index/actionsOrganizationSecret", _module_instance)
     pulumi.runtime.register_resource_module("github", "index/actionsSecret", _module_instance)
+    pulumi.runtime.register_resource_module("github", "index/appInstallationRepository", _module_instance)
     pulumi.runtime.register_resource_module("github", "index/branch", _module_instance)
     pulumi.runtime.register_resource_module("github", "index/branchDefault", _module_instance)
     pulumi.runtime.register_resource_module("github", "index/branchProtection", _module_instance)

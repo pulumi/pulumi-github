@@ -923,13 +923,13 @@ func (o OrganizationWebhookConfigurationPtrOutput) Url() pulumi.StringPtrOutput 
 type RepositoryPages struct {
 	// The custom domain for the repository. This can only be set after the repository has been created.
 	Cname *string `pulumi:"cname"`
-	// Whether the rendered Github Pages site has a custom 404 page.
+	// Whether the rendered GitHub Pages site has a custom 404 page.
 	Custom404 *bool `pulumi:"custom404"`
-	// The absolute URL (including scheme) of the rendered Github Pages site e.g. `https://username.github.io`.
+	// The absolute URL (including scheme) of the rendered GitHub Pages site e.g. `https://username.github.io`.
 	HtmlUrl *string `pulumi:"htmlUrl"`
-	// The source branch and directory for the rendered Pages site. See Github Pages Source below for details.
+	// The source branch and directory for the rendered Pages site. See GitHub Pages Source below for details.
 	Source RepositoryPagesSource `pulumi:"source"`
-	// The Github Pages site's build status e.g. `building` or `built`.
+	// The GitHub Pages site's build status e.g. `building` or `built`.
 	Status *string `pulumi:"status"`
 	Url    *string `pulumi:"url"`
 }
@@ -948,13 +948,13 @@ type RepositoryPagesInput interface {
 type RepositoryPagesArgs struct {
 	// The custom domain for the repository. This can only be set after the repository has been created.
 	Cname pulumi.StringPtrInput `pulumi:"cname"`
-	// Whether the rendered Github Pages site has a custom 404 page.
+	// Whether the rendered GitHub Pages site has a custom 404 page.
 	Custom404 pulumi.BoolPtrInput `pulumi:"custom404"`
-	// The absolute URL (including scheme) of the rendered Github Pages site e.g. `https://username.github.io`.
+	// The absolute URL (including scheme) of the rendered GitHub Pages site e.g. `https://username.github.io`.
 	HtmlUrl pulumi.StringPtrInput `pulumi:"htmlUrl"`
-	// The source branch and directory for the rendered Pages site. See Github Pages Source below for details.
+	// The source branch and directory for the rendered Pages site. See GitHub Pages Source below for details.
 	Source RepositoryPagesSourceInput `pulumi:"source"`
-	// The Github Pages site's build status e.g. `building` or `built`.
+	// The GitHub Pages site's build status e.g. `building` or `built`.
 	Status pulumi.StringPtrInput `pulumi:"status"`
 	Url    pulumi.StringPtrInput `pulumi:"url"`
 }
@@ -1041,22 +1041,22 @@ func (o RepositoryPagesOutput) Cname() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RepositoryPages) *string { return v.Cname }).(pulumi.StringPtrOutput)
 }
 
-// Whether the rendered Github Pages site has a custom 404 page.
+// Whether the rendered GitHub Pages site has a custom 404 page.
 func (o RepositoryPagesOutput) Custom404() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RepositoryPages) *bool { return v.Custom404 }).(pulumi.BoolPtrOutput)
 }
 
-// The absolute URL (including scheme) of the rendered Github Pages site e.g. `https://username.github.io`.
+// The absolute URL (including scheme) of the rendered GitHub Pages site e.g. `https://username.github.io`.
 func (o RepositoryPagesOutput) HtmlUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RepositoryPages) *string { return v.HtmlUrl }).(pulumi.StringPtrOutput)
 }
 
-// The source branch and directory for the rendered Pages site. See Github Pages Source below for details.
+// The source branch and directory for the rendered Pages site. See GitHub Pages Source below for details.
 func (o RepositoryPagesOutput) Source() RepositoryPagesSourceOutput {
 	return o.ApplyT(func(v RepositoryPages) RepositoryPagesSource { return v.Source }).(RepositoryPagesSourceOutput)
 }
 
-// The Github Pages site's build status e.g. `building` or `built`.
+// The GitHub Pages site's build status e.g. `building` or `built`.
 func (o RepositoryPagesOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RepositoryPages) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
@@ -1093,7 +1093,7 @@ func (o RepositoryPagesPtrOutput) Cname() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Whether the rendered Github Pages site has a custom 404 page.
+// Whether the rendered GitHub Pages site has a custom 404 page.
 func (o RepositoryPagesPtrOutput) Custom404() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RepositoryPages) *bool {
 		if v == nil {
@@ -1103,7 +1103,7 @@ func (o RepositoryPagesPtrOutput) Custom404() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The absolute URL (including scheme) of the rendered Github Pages site e.g. `https://username.github.io`.
+// The absolute URL (including scheme) of the rendered GitHub Pages site e.g. `https://username.github.io`.
 func (o RepositoryPagesPtrOutput) HtmlUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RepositoryPages) *string {
 		if v == nil {
@@ -1113,7 +1113,7 @@ func (o RepositoryPagesPtrOutput) HtmlUrl() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The source branch and directory for the rendered Pages site. See Github Pages Source below for details.
+// The source branch and directory for the rendered Pages site. See GitHub Pages Source below for details.
 func (o RepositoryPagesPtrOutput) Source() RepositoryPagesSourcePtrOutput {
 	return o.ApplyT(func(v *RepositoryPages) *RepositoryPagesSource {
 		if v == nil {
@@ -1123,7 +1123,7 @@ func (o RepositoryPagesPtrOutput) Source() RepositoryPagesSourcePtrOutput {
 	}).(RepositoryPagesSourcePtrOutput)
 }
 
-// The Github Pages site's build status e.g. `building` or `built`.
+// The GitHub Pages site's build status e.g. `building` or `built`.
 func (o RepositoryPagesPtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RepositoryPages) *string {
 		if v == nil {

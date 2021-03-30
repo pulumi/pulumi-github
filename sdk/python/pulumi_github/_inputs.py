@@ -337,11 +337,11 @@ class RepositoryPagesArgs:
                  status: Optional[pulumi.Input[str]] = None,
                  url: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input['RepositoryPagesSourceArgs'] source: The source branch and directory for the rendered Pages site. See Github Pages Source below for details.
+        :param pulumi.Input['RepositoryPagesSourceArgs'] source: The source branch and directory for the rendered Pages site. See GitHub Pages Source below for details.
         :param pulumi.Input[str] cname: The custom domain for the repository. This can only be set after the repository has been created.
-        :param pulumi.Input[bool] custom404: Whether the rendered Github Pages site has a custom 404 page.
-        :param pulumi.Input[str] html_url: The absolute URL (including scheme) of the rendered Github Pages site e.g. `https://username.github.io`.
-        :param pulumi.Input[str] status: The Github Pages site's build status e.g. `building` or `built`.
+        :param pulumi.Input[bool] custom404: Whether the rendered GitHub Pages site has a custom 404 page.
+        :param pulumi.Input[str] html_url: The absolute URL (including scheme) of the rendered GitHub Pages site e.g. `https://username.github.io`.
+        :param pulumi.Input[str] status: The GitHub Pages site's build status e.g. `building` or `built`.
         """
         pulumi.set(__self__, "source", source)
         if cname is not None:
@@ -359,7 +359,7 @@ class RepositoryPagesArgs:
     @pulumi.getter
     def source(self) -> pulumi.Input['RepositoryPagesSourceArgs']:
         """
-        The source branch and directory for the rendered Pages site. See Github Pages Source below for details.
+        The source branch and directory for the rendered Pages site. See GitHub Pages Source below for details.
         """
         return pulumi.get(self, "source")
 
@@ -383,7 +383,7 @@ class RepositoryPagesArgs:
     @pulumi.getter
     def custom404(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether the rendered Github Pages site has a custom 404 page.
+        Whether the rendered GitHub Pages site has a custom 404 page.
         """
         return pulumi.get(self, "custom404")
 
@@ -395,7 +395,7 @@ class RepositoryPagesArgs:
     @pulumi.getter(name="htmlUrl")
     def html_url(self) -> Optional[pulumi.Input[str]]:
         """
-        The absolute URL (including scheme) of the rendered Github Pages site e.g. `https://username.github.io`.
+        The absolute URL (including scheme) of the rendered GitHub Pages site e.g. `https://username.github.io`.
         """
         return pulumi.get(self, "html_url")
 
@@ -407,7 +407,7 @@ class RepositoryPagesArgs:
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
         """
-        The Github Pages site's build status e.g. `building` or `built`.
+        The GitHub Pages site's build status e.g. `building` or `built`.
         """
         return pulumi.get(self, "status")
 

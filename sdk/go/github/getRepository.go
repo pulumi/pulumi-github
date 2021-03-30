@@ -89,7 +89,7 @@ type LookupRepositoryResult struct {
 	Pages []GetRepositoryPage `pulumi:"pages"`
 	// Whether the repository is private.
 	Private bool `pulumi:"private"`
-	// Github ID for the repository
+	// GitHub ID for the repository
 	RepoId int `pulumi:"repoId"`
 	// URL that can be provided to `git clone` to clone the repository via SSH.
 	SshCloneUrl string `pulumi:"sshCloneUrl"`

@@ -7,7 +7,7 @@ import * as utilities from "./utilities";
 /**
  * Provides a GitHub repository milestone resource.
  *
- * This resource allows you to create and manage milestones for a Github Repository within an organization or user account.
+ * This resource allows you to create and manage milestones for a GitHub Repository within an organization or user account.
  *
  * ## Example Usage
  *
@@ -72,11 +72,11 @@ export class RepositoryMilestone extends pulumi.CustomResource {
      */
     public /*out*/ readonly number!: pulumi.Output<number>;
     /**
-     * The owner of the Github Repository.
+     * The owner of the GitHub Repository.
      */
     public readonly owner!: pulumi.Output<string>;
     /**
-     * The name of the Github Repository.
+     * The name of the GitHub Repository.
      */
     public readonly repository!: pulumi.Output<string>;
     /**
@@ -151,11 +151,11 @@ export interface RepositoryMilestoneState {
      */
     readonly number?: pulumi.Input<number>;
     /**
-     * The owner of the Github Repository.
+     * The owner of the GitHub Repository.
      */
     readonly owner?: pulumi.Input<string>;
     /**
-     * The name of the Github Repository.
+     * The name of the GitHub Repository.
      */
     readonly repository?: pulumi.Input<string>;
     /**
@@ -181,11 +181,11 @@ export interface RepositoryMilestoneArgs {
      */
     readonly dueDate?: pulumi.Input<string>;
     /**
-     * The owner of the Github Repository.
+     * The owner of the GitHub Repository.
      */
     readonly owner: pulumi.Input<string>;
     /**
-     * The name of the Github Repository.
+     * The name of the GitHub Repository.
      */
     readonly repository: pulumi.Input<string>;
     /**

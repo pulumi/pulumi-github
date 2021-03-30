@@ -24,7 +24,7 @@ import * as utilities from "./utilities";
  *     visibility: "public",
  * });
  * ```
- * ### With Github Pages Enabled
+ * ### With GitHub Pages Enabled
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -154,7 +154,7 @@ export class Repository extends pulumi.CustomResource {
      */
     public readonly homepageUrl!: pulumi.Output<string | undefined>;
     /**
-     * The absolute URL (including scheme) of the rendered Github Pages site e.g. `https://username.github.io`.
+     * The absolute URL (including scheme) of the rendered GitHub Pages site e.g. `https://username.github.io`.
      */
     public /*out*/ readonly htmlUrl!: pulumi.Output<string>;
     /**
@@ -178,7 +178,7 @@ export class Repository extends pulumi.CustomResource {
      */
     public /*out*/ readonly nodeId!: pulumi.Output<string>;
     /**
-     * The repository's Github Pages configuration. See Github Pages Configuration below for details.
+     * The repository's GitHub Pages configuration. See GitHub Pages Configuration below for details.
      */
     public readonly pages!: pulumi.Output<outputs.RepositoryPages | undefined>;
     /**
@@ -189,7 +189,7 @@ export class Repository extends pulumi.CustomResource {
      */
     public readonly private!: pulumi.Output<boolean>;
     /**
-     * Github ID for the repository
+     * GitHub ID for the repository
      */
     public /*out*/ readonly repoId!: pulumi.Output<number>;
     /**
@@ -386,7 +386,7 @@ export interface RepositoryState {
      */
     readonly homepageUrl?: pulumi.Input<string>;
     /**
-     * The absolute URL (including scheme) of the rendered Github Pages site e.g. `https://username.github.io`.
+     * The absolute URL (including scheme) of the rendered GitHub Pages site e.g. `https://username.github.io`.
      */
     readonly htmlUrl?: pulumi.Input<string>;
     /**
@@ -410,7 +410,7 @@ export interface RepositoryState {
      */
     readonly nodeId?: pulumi.Input<string>;
     /**
-     * The repository's Github Pages configuration. See Github Pages Configuration below for details.
+     * The repository's GitHub Pages configuration. See GitHub Pages Configuration below for details.
      */
     readonly pages?: pulumi.Input<inputs.RepositoryPages>;
     /**
@@ -421,7 +421,7 @@ export interface RepositoryState {
      */
     readonly private?: pulumi.Input<boolean>;
     /**
-     * Github ID for the repository
+     * GitHub ID for the repository
      */
     readonly repoId?: pulumi.Input<number>;
     /**
@@ -533,7 +533,7 @@ export interface RepositoryArgs {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * The repository's Github Pages configuration. See Github Pages Configuration below for details.
+     * The repository's GitHub Pages configuration. See GitHub Pages Configuration below for details.
      */
     readonly pages?: pulumi.Input<inputs.RepositoryPages>;
     /**

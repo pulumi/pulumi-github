@@ -18,19 +18,19 @@ namespace Pulumi.Github.Outputs
         /// </summary>
         public readonly string? Cname;
         /// <summary>
-        /// Whether the rendered Github Pages site has a custom 404 page.
+        /// Whether the rendered GitHub Pages site has a custom 404 page.
         /// </summary>
         public readonly bool? Custom404;
         /// <summary>
-        /// The absolute URL (including scheme) of the rendered Github Pages site e.g. `https://username.github.io`.
+        /// The absolute URL (including scheme) of the rendered GitHub Pages site e.g. `https://username.github.io`.
         /// </summary>
         public readonly string? HtmlUrl;
         /// <summary>
-        /// The source branch and directory for the rendered Pages site. See Github Pages Source below for details.
+        /// The source branch and directory for the rendered Pages site. See GitHub Pages Source below for details.
         /// </summary>
         public readonly Outputs.RepositoryPagesSource Source;
         /// <summary>
-        /// The Github Pages site's build status e.g. `building` or `built`.
+        /// The GitHub Pages site's build status e.g. `building` or `built`.
         /// </summary>
         public readonly string? Status;
         public readonly string? Url;
