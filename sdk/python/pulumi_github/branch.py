@@ -57,7 +57,7 @@ class Branch(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] branch: The repository branch to create.
         :param pulumi.Input[str] repository: The GitHub repository name.
-        :param pulumi.Input[str] source_branch: The branch name to start from. Defaults to `master`.
+        :param pulumi.Input[str] source_branch: The branch name to start from. Defaults to `main`.
         :param pulumi.Input[str] source_sha: The commit hash to start from. Defaults to the tip of `source_branch`. If provided, `source_branch` is ignored.
         """
         if __name__ is not None:
@@ -117,7 +117,7 @@ class Branch(pulumi.CustomResource):
         :param pulumi.Input[str] ref: A string representing a branch reference, in the form of `refs/heads/<branch>`.
         :param pulumi.Input[str] repository: The GitHub repository name.
         :param pulumi.Input[str] sha: A string storing the reference's `HEAD` commit's SHA1.
-        :param pulumi.Input[str] source_branch: The branch name to start from. Defaults to `master`.
+        :param pulumi.Input[str] source_branch: The branch name to start from. Defaults to `main`.
         :param pulumi.Input[str] source_sha: The commit hash to start from. Defaults to the tip of `source_branch`. If provided, `source_branch` is ignored.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -177,7 +177,7 @@ class Branch(pulumi.CustomResource):
     @pulumi.getter(name="sourceBranch")
     def source_branch(self) -> pulumi.Output[Optional[str]]:
         """
-        The branch name to start from. Defaults to `master`.
+        The branch name to start from. Defaults to `main`.
         """
         return pulumi.get(self, "source_branch")
 

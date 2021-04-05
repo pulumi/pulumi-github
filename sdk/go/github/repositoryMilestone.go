@@ -13,7 +13,7 @@ import (
 
 // Provides a GitHub repository milestone resource.
 //
-// This resource allows you to create and manage milestones for a Github Repository within an organization or user account.
+// This resource allows you to create and manage milestones for a GitHub Repository within an organization or user account.
 //
 // ## Example Usage
 //
@@ -56,9 +56,9 @@ type RepositoryMilestone struct {
 	DueDate pulumi.StringPtrOutput `pulumi:"dueDate"`
 	// The number of the milestone.
 	Number pulumi.IntOutput `pulumi:"number"`
-	// The owner of the Github Repository.
+	// The owner of the GitHub Repository.
 	Owner pulumi.StringOutput `pulumi:"owner"`
-	// The name of the Github Repository.
+	// The name of the GitHub Repository.
 	Repository pulumi.StringOutput `pulumi:"repository"`
 	// The state of the milestone. Either `open` or `closed`. Default: `open`
 	State pulumi.StringPtrOutput `pulumi:"state"`
@@ -110,9 +110,9 @@ type repositoryMilestoneState struct {
 	DueDate *string `pulumi:"dueDate"`
 	// The number of the milestone.
 	Number *int `pulumi:"number"`
-	// The owner of the Github Repository.
+	// The owner of the GitHub Repository.
 	Owner *string `pulumi:"owner"`
-	// The name of the Github Repository.
+	// The name of the GitHub Repository.
 	Repository *string `pulumi:"repository"`
 	// The state of the milestone. Either `open` or `closed`. Default: `open`
 	State *string `pulumi:"state"`
@@ -127,9 +127,9 @@ type RepositoryMilestoneState struct {
 	DueDate pulumi.StringPtrInput
 	// The number of the milestone.
 	Number pulumi.IntPtrInput
-	// The owner of the Github Repository.
+	// The owner of the GitHub Repository.
 	Owner pulumi.StringPtrInput
-	// The name of the Github Repository.
+	// The name of the GitHub Repository.
 	Repository pulumi.StringPtrInput
 	// The state of the milestone. Either `open` or `closed`. Default: `open`
 	State pulumi.StringPtrInput
@@ -146,9 +146,9 @@ type repositoryMilestoneArgs struct {
 	Description *string `pulumi:"description"`
 	// The milestone due date. In `yyyy-mm-dd` format.
 	DueDate *string `pulumi:"dueDate"`
-	// The owner of the Github Repository.
+	// The owner of the GitHub Repository.
 	Owner string `pulumi:"owner"`
-	// The name of the Github Repository.
+	// The name of the GitHub Repository.
 	Repository string `pulumi:"repository"`
 	// The state of the milestone. Either `open` or `closed`. Default: `open`
 	State *string `pulumi:"state"`
@@ -162,9 +162,9 @@ type RepositoryMilestoneArgs struct {
 	Description pulumi.StringPtrInput
 	// The milestone due date. In `yyyy-mm-dd` format.
 	DueDate pulumi.StringPtrInput
-	// The owner of the Github Repository.
+	// The owner of the GitHub Repository.
 	Owner pulumi.StringInput
-	// The name of the Github Repository.
+	// The name of the GitHub Repository.
 	Repository pulumi.StringInput
 	// The state of the milestone. Either `open` or `closed`. Default: `open`
 	State pulumi.StringPtrInput

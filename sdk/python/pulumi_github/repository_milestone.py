@@ -27,7 +27,7 @@ class RepositoryMilestone(pulumi.CustomResource):
         """
         Provides a GitHub repository milestone resource.
 
-        This resource allows you to create and manage milestones for a Github Repository within an organization or user account.
+        This resource allows you to create and manage milestones for a GitHub Repository within an organization or user account.
 
         ## Example Usage
 
@@ -54,8 +54,8 @@ class RepositoryMilestone(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: A description of the milestone.
         :param pulumi.Input[str] due_date: The milestone due date. In `yyyy-mm-dd` format.
-        :param pulumi.Input[str] owner: The owner of the Github Repository.
-        :param pulumi.Input[str] repository: The name of the Github Repository.
+        :param pulumi.Input[str] owner: The owner of the GitHub Repository.
+        :param pulumi.Input[str] repository: The name of the GitHub Repository.
         :param pulumi.Input[str] state: The state of the milestone. Either `open` or `closed`. Default: `open`
         :param pulumi.Input[str] title: The title of the milestone.
         """
@@ -116,8 +116,8 @@ class RepositoryMilestone(pulumi.CustomResource):
         :param pulumi.Input[str] description: A description of the milestone.
         :param pulumi.Input[str] due_date: The milestone due date. In `yyyy-mm-dd` format.
         :param pulumi.Input[int] number: The number of the milestone.
-        :param pulumi.Input[str] owner: The owner of the Github Repository.
-        :param pulumi.Input[str] repository: The name of the Github Repository.
+        :param pulumi.Input[str] owner: The owner of the GitHub Repository.
+        :param pulumi.Input[str] repository: The name of the GitHub Repository.
         :param pulumi.Input[str] state: The state of the milestone. Either `open` or `closed`. Default: `open`
         :param pulumi.Input[str] title: The title of the milestone.
         """
@@ -162,7 +162,7 @@ class RepositoryMilestone(pulumi.CustomResource):
     @pulumi.getter
     def owner(self) -> pulumi.Output[str]:
         """
-        The owner of the Github Repository.
+        The owner of the GitHub Repository.
         """
         return pulumi.get(self, "owner")
 
@@ -170,7 +170,7 @@ class RepositoryMilestone(pulumi.CustomResource):
     @pulumi.getter
     def repository(self) -> pulumi.Output[str]:
         """
-        The name of the Github Repository.
+        The name of the GitHub Repository.
         """
         return pulumi.get(self, "repository")
 

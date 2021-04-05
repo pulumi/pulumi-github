@@ -12,7 +12,7 @@ namespace Pulumi.Github
     /// <summary>
     /// Provides a GitHub repository milestone resource.
     /// 
-    /// This resource allows you to create and manage milestones for a Github Repository within an organization or user account.
+    /// This resource allows you to create and manage milestones for a GitHub Repository within an organization or user account.
     /// 
     /// ## Example Usage
     /// 
@@ -66,13 +66,13 @@ namespace Pulumi.Github
         public Output<int> Number { get; private set; } = null!;
 
         /// <summary>
-        /// The owner of the Github Repository.
+        /// The owner of the GitHub Repository.
         /// </summary>
         [Output("owner")]
         public Output<string> Owner { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the Github Repository.
+        /// The name of the GitHub Repository.
         /// </summary>
         [Output("repository")]
         public Output<string> Repository { get; private set; } = null!;
@@ -148,13 +148,13 @@ namespace Pulumi.Github
         public Input<string>? DueDate { get; set; }
 
         /// <summary>
-        /// The owner of the Github Repository.
+        /// The owner of the GitHub Repository.
         /// </summary>
         [Input("owner", required: true)]
         public Input<string> Owner { get; set; } = null!;
 
         /// <summary>
-        /// The name of the Github Repository.
+        /// The name of the GitHub Repository.
         /// </summary>
         [Input("repository", required: true)]
         public Input<string> Repository { get; set; } = null!;
@@ -197,13 +197,13 @@ namespace Pulumi.Github
         public Input<int>? Number { get; set; }
 
         /// <summary>
-        /// The owner of the Github Repository.
+        /// The owner of the GitHub Repository.
         /// </summary>
         [Input("owner")]
         public Input<string>? Owner { get; set; }
 
         /// <summary>
-        /// The name of the Github Repository.
+        /// The name of the GitHub Repository.
         /// </summary>
         [Input("repository")]
         public Input<string>? Repository { get; set; }

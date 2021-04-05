@@ -59,19 +59,19 @@ export interface RepositoryPages {
      */
     cname?: pulumi.Input<string>;
     /**
-     * Whether the rendered Github Pages site has a custom 404 page.
+     * Whether the rendered GitHub Pages site has a custom 404 page.
      */
     custom404?: pulumi.Input<boolean>;
     /**
-     * The absolute URL (including scheme) of the rendered Github Pages site e.g. `https://username.github.io`.
+     * The absolute URL (including scheme) of the rendered GitHub Pages site e.g. `https://username.github.io`.
      */
     htmlUrl?: pulumi.Input<string>;
     /**
-     * The source branch and directory for the rendered Pages site. See Github Pages Source below for details.
+     * The source branch and directory for the rendered Pages site. See GitHub Pages Source below for details.
      */
     source: pulumi.Input<inputs.RepositoryPagesSource>;
     /**
-     * The Github Pages site's build status e.g. `building` or `built`.
+     * The GitHub Pages site's build status e.g. `building` or `built`.
      */
     status?: pulumi.Input<string>;
     url?: pulumi.Input<string>;

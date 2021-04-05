@@ -15,6 +15,7 @@
     "files": [
         "actionsOrganizationSecret.ts",
         "actionsSecret.ts",
+        "appInstallationRepository.ts",
         "branch.ts",
         "branchDefault.ts",
         "branchProtection.ts",

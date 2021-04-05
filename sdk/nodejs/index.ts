@@ -7,6 +7,7 @@ import * as utilities from "./utilities";
 // Export members:
 export * from "./actionsOrganizationSecret";
 export * from "./actionsSecret";
+export * from "./appInstallationRepository";
 export * from "./branch";
 export * from "./branchDefault";
 export * from "./branchProtection";
@@ -59,6 +60,7 @@ export {
 // Import resources to register:
 import { ActionsOrganizationSecret } from "./actionsOrganizationSecret";
 import { ActionsSecret } from "./actionsSecret";
+import { AppInstallationRepository } from "./appInstallationRepository";
 import { Branch } from "./branch";
 import { BranchDefault } from "./branchDefault";
 import { BranchProtection } from "./branchProtection";
@@ -93,6 +95,8 @@ const _module = {
                 return new ActionsOrganizationSecret(name, <any>undefined, { urn })
             case "github:index/actionsSecret:ActionsSecret":
                 return new ActionsSecret(name, <any>undefined, { urn })
+            case "github:index/appInstallationRepository:AppInstallationRepository":
+                return new AppInstallationRepository(name, <any>undefined, { urn })
             case "github:index/branch:Branch":
                 return new Branch(name, <any>undefined, { urn })
             case "github:index/branchDefault:BranchDefault":
@@ -150,6 +154,7 @@ const _module = {
 };
 pulumi.runtime.registerResourceModule("github", "index/actionsOrganizationSecret", _module)
 pulumi.runtime.registerResourceModule("github", "index/actionsSecret", _module)
+pulumi.runtime.registerResourceModule("github", "index/appInstallationRepository", _module)
 pulumi.runtime.registerResourceModule("github", "index/branch", _module)
 pulumi.runtime.registerResourceModule("github", "index/branchDefault", _module)
 pulumi.runtime.registerResourceModule("github", "index/branchProtection", _module)

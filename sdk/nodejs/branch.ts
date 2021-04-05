@@ -85,7 +85,7 @@ export class Branch extends pulumi.CustomResource {
      */
     public /*out*/ readonly sha!: pulumi.Output<string>;
     /**
-     * The branch name to start from. Defaults to `master`.
+     * The branch name to start from. Defaults to `main`.
      */
     public readonly sourceBranch!: pulumi.Output<string | undefined>;
     /**
@@ -161,7 +161,7 @@ export interface BranchState {
      */
     readonly sha?: pulumi.Input<string>;
     /**
-     * The branch name to start from. Defaults to `master`.
+     * The branch name to start from. Defaults to `main`.
      */
     readonly sourceBranch?: pulumi.Input<string>;
     /**
@@ -183,7 +183,7 @@ export interface BranchArgs {
      */
     readonly repository: pulumi.Input<string>;
     /**
-     * The branch name to start from. Defaults to `master`.
+     * The branch name to start from. Defaults to `main`.
      */
     readonly sourceBranch?: pulumi.Input<string>;
     /**

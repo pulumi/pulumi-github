@@ -140,7 +140,7 @@ namespace Pulumi.Github
         /// </summary>
         public readonly bool Private;
         /// <summary>
-        /// Github ID for the repository
+        /// GitHub ID for the repository
         /// </summary>
         public readonly int RepoId;
         /// <summary>

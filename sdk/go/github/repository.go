@@ -40,7 +40,7 @@ import (
 // 	})
 // }
 // ```
-// ### With Github Pages Enabled
+// ### With GitHub Pages Enabled
 //
 // ```go
 // package main
@@ -121,7 +121,7 @@ type Repository struct {
 	HasWiki pulumi.BoolPtrOutput `pulumi:"hasWiki"`
 	// URL of a page describing the project.
 	HomepageUrl pulumi.StringPtrOutput `pulumi:"homepageUrl"`
-	// The absolute URL (including scheme) of the rendered Github Pages site e.g. `https://username.github.io`.
+	// The absolute URL (including scheme) of the rendered GitHub Pages site e.g. `https://username.github.io`.
 	HtmlUrl pulumi.StringOutput `pulumi:"htmlUrl"`
 	// URL that can be provided to `git clone` to clone the repository via HTTPS.
 	HttpCloneUrl pulumi.StringOutput `pulumi:"httpCloneUrl"`
@@ -133,14 +133,14 @@ type Repository struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// GraphQL global node id for use with v4 API
 	NodeId pulumi.StringOutput `pulumi:"nodeId"`
-	// The repository's Github Pages configuration. See Github Pages Configuration below for details.
+	// The repository's GitHub Pages configuration. See GitHub Pages Configuration below for details.
 	Pages RepositoryPagesPtrOutput `pulumi:"pages"`
 	// Set to `true` to create a private repository.
 	// Repositories are created as public (e.g. open source) by default.
 	//
 	// Deprecated: use visibility instead
 	Private pulumi.BoolOutput `pulumi:"private"`
-	// Github ID for the repository
+	// GitHub ID for the repository
 	RepoId pulumi.IntOutput `pulumi:"repoId"`
 	// URL that can be provided to `git clone` to clone the repository via SSH.
 	SshCloneUrl pulumi.StringOutput `pulumi:"sshCloneUrl"`
@@ -226,7 +226,7 @@ type repositoryState struct {
 	HasWiki *bool `pulumi:"hasWiki"`
 	// URL of a page describing the project.
 	HomepageUrl *string `pulumi:"homepageUrl"`
-	// The absolute URL (including scheme) of the rendered Github Pages site e.g. `https://username.github.io`.
+	// The absolute URL (including scheme) of the rendered GitHub Pages site e.g. `https://username.github.io`.
 	HtmlUrl *string `pulumi:"htmlUrl"`
 	// URL that can be provided to `git clone` to clone the repository via HTTPS.
 	HttpCloneUrl *string `pulumi:"httpCloneUrl"`
@@ -238,14 +238,14 @@ type repositoryState struct {
 	Name *string `pulumi:"name"`
 	// GraphQL global node id for use with v4 API
 	NodeId *string `pulumi:"nodeId"`
-	// The repository's Github Pages configuration. See Github Pages Configuration below for details.
+	// The repository's GitHub Pages configuration. See GitHub Pages Configuration below for details.
 	Pages *RepositoryPages `pulumi:"pages"`
 	// Set to `true` to create a private repository.
 	// Repositories are created as public (e.g. open source) by default.
 	//
 	// Deprecated: use visibility instead
 	Private *bool `pulumi:"private"`
-	// Github ID for the repository
+	// GitHub ID for the repository
 	RepoId *int `pulumi:"repoId"`
 	// URL that can be provided to `git clone` to clone the repository via SSH.
 	SshCloneUrl *string `pulumi:"sshCloneUrl"`
@@ -303,7 +303,7 @@ type RepositoryState struct {
 	HasWiki pulumi.BoolPtrInput
 	// URL of a page describing the project.
 	HomepageUrl pulumi.StringPtrInput
-	// The absolute URL (including scheme) of the rendered Github Pages site e.g. `https://username.github.io`.
+	// The absolute URL (including scheme) of the rendered GitHub Pages site e.g. `https://username.github.io`.
 	HtmlUrl pulumi.StringPtrInput
 	// URL that can be provided to `git clone` to clone the repository via HTTPS.
 	HttpCloneUrl pulumi.StringPtrInput
@@ -315,14 +315,14 @@ type RepositoryState struct {
 	Name pulumi.StringPtrInput
 	// GraphQL global node id for use with v4 API
 	NodeId pulumi.StringPtrInput
-	// The repository's Github Pages configuration. See Github Pages Configuration below for details.
+	// The repository's GitHub Pages configuration. See GitHub Pages Configuration below for details.
 	Pages RepositoryPagesPtrInput
 	// Set to `true` to create a private repository.
 	// Repositories are created as public (e.g. open source) by default.
 	//
 	// Deprecated: use visibility instead
 	Private pulumi.BoolPtrInput
-	// Github ID for the repository
+	// GitHub ID for the repository
 	RepoId pulumi.IntPtrInput
 	// URL that can be provided to `git clone` to clone the repository via SSH.
 	SshCloneUrl pulumi.StringPtrInput
@@ -385,7 +385,7 @@ type repositoryArgs struct {
 	LicenseTemplate *string `pulumi:"licenseTemplate"`
 	// The name of the repository.
 	Name *string `pulumi:"name"`
-	// The repository's Github Pages configuration. See Github Pages Configuration below for details.
+	// The repository's GitHub Pages configuration. See GitHub Pages Configuration below for details.
 	Pages *RepositoryPages `pulumi:"pages"`
 	// Set to `true` to create a private repository.
 	// Repositories are created as public (e.g. open source) by default.
@@ -446,7 +446,7 @@ type RepositoryArgs struct {
 	LicenseTemplate pulumi.StringPtrInput
 	// The name of the repository.
 	Name pulumi.StringPtrInput
-	// The repository's Github Pages configuration. See Github Pages Configuration below for details.
+	// The repository's GitHub Pages configuration. See GitHub Pages Configuration below for details.
 	Pages RepositoryPagesPtrInput
 	// Set to `true` to create a private repository.
 	// Repositories are created as public (e.g. open source) by default.

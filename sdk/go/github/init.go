@@ -24,6 +24,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r, err = NewActionsOrganizationSecret(ctx, name, nil, pulumi.URN_(urn))
 	case "github:index/actionsSecret:ActionsSecret":
 		r, err = NewActionsSecret(ctx, name, nil, pulumi.URN_(urn))
+	case "github:index/appInstallationRepository:AppInstallationRepository":
+		r, err = NewAppInstallationRepository(ctx, name, nil, pulumi.URN_(urn))
 	case "github:index/branch:Branch":
 		r, err = NewBranch(ctx, name, nil, pulumi.URN_(urn))
 	case "github:index/branchDefault:BranchDefault":
@@ -110,6 +112,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"github",
 		"index/actionsSecret",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"github",
+		"index/appInstallationRepository",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

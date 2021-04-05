@@ -255,7 +255,7 @@ class GetRepositoryResult:
     @pulumi.getter(name="repoId")
     def repo_id(self) -> int:
         """
-        Github ID for the repository
+        GitHub ID for the repository
         """
         return pulumi.get(self, "repo_id")
 

@@ -292,7 +292,7 @@
                 },
                 "custom404": {
                     "type": "boolean",
-                    "description": "Whether the rendered Github Pages site has a custom 404 page.\n",
+                    "description": "Whether the rendered GitHub Pages site has a custom 404 page.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -301,7 +301,7 @@
                 },
                 "htmlUrl": {
                     "type": "string",
-                    "description": "The absolute URL (including scheme) of the rendered Github Pages site e.g. `https://username.github.io`.\n",
+                    "description": "The absolute URL (including scheme) of the rendered GitHub Pages site e.g. `https://username.github.io`.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -310,7 +310,7 @@
                 },
                 "source": {
                     "$ref": "#/types/github:index/RepositoryPagesSource:RepositoryPagesSource",
-                    "description": "The source branch and directory for the rendered Pages site. See Github Pages Source below for details.\n",
+                    "description": "The source branch and directory for the rendered Pages site. See GitHub Pages Source below for details.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -319,7 +319,7 @@
                 },
                 "status": {
                     "type": "string",
-                    "description": "The Github Pages site's build status e.g. `building` or `built`.\n",
+                    "description": "The GitHub Pages site's build status e.g. `building` or `built`.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -1000,6 +1000,58 @@
                 "type": "object"
             }
         },
+        "github:index/appInstallationRepository:AppInstallationRepository": {
+            "description": "This resource manages relationships between app installations and repositories\nin your GitHub organization.\n\nCreating this resource installs a particular app on a particular repository.\n\nThe app installation and the repository must both belong to the same\norganization on GitHub. Note: you can review your organization's installations\nby the following the instructions at this\n[link](https://docs.github.com/en/github/setting-up-and-managing-organizations-and-teams/reviewing-your-organizations-installed-integrations).\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\n// Create a repository.\nconst someRepo = new github.Repository(\"some_repo\", {});\nconst someAppRepo = new github.AppInstallationRepository(\"some_app_repo\", {\n    // The installation id of the app (in the organization).\n    installationId: \"1234567\",\n    repository: someRepo.name,\n});\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\n# Create a repository.\nsome_repo = github.Repository(\"someRepo\")\nsome_app_repo = github.AppInstallationRepository(\"someAppRepo\",\n    installation_id=\"1234567\",\n    repository=some_repo.name)\n```\n```csharp\nusing Pulumi;\nusing Github = Pulumi.Github;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        // Create a repository.\n        var someRepo = new Github.Repository(\"someRepo\", new Github.RepositoryArgs\n        {\n        });\n        var someAppRepo = new Github.AppInstallationRepository(\"someAppRepo\", new Github.AppInstallationRepositoryArgs\n        {\n            InstallationId = \"1234567\",\n            Repository = someRepo.Name,\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-github/sdk/v3/go/github\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tsomeRepo, err := github.NewRepository(ctx, \"someRepo\", nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = github.NewAppInstallationRepository(ctx, \"someAppRepo\", \u0026github.AppInstallationRepositoryArgs{\n\t\t\tInstallationId: pulumi.String(\"1234567\"),\n\t\t\tRepository:     someRepo.Name,\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nGitHub App Installation Repository can be imported using an ID made up of `installation_id:repository`, e.g.\n\n```sh\n $ pulumi import github:index/appInstallationRepository:AppInstallationRepository terraform_repo 1234567:terraform\n```\n\n ",
+            "properties": {
+                "installationId": {
+                    "type": "string",
+                    "description": "The GitHub app installation id.\n"
+                },
+                "repoId": {
+                    "type": "integer"
+                },
+                "repository": {
+                    "type": "string",
+                    "description": "The repository to install the app on.\n"
+                }
+            },
+            "required": [
+                "installationId",
+                "repoId",
+                "repository"
+            ],
+            "inputProperties": {
+                "installationId": {
+                    "type": "string",
+                    "description": "The GitHub app installation id.\n"
+                },
+                "repository": {
+                    "type": "string",
+                    "description": "The repository to install the app on.\n"
+                }
+            },
+            "requiredInputs": [
+                "installationId",
+                "repository"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering AppInstallationRepository resources.\n",
+                "properties": {
+                    "installationId": {
+                        "type": "string",
+                        "description": "The GitHub app installation id.\n"
+                    },
+                    "repoId": {
+                        "type": "integer"
+                    },
+                    "repository": {
+                        "type": "string",
+                        "description": "The repository to install the app on.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
         "github:index/branch:Branch": {
             "description": "This resource allows you to create and manage branches within your repository.\n\nAdditional constraints can be applied to ensure your branch is created from\nanother branch or commit.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\nconst development = new github.Branch(\"development\", {\n    branch: \"development\",\n    repository: \"example\",\n});\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\ndevelopment = github.Branch(\"development\",\n    branch=\"development\",\n    repository=\"example\")\n```\n```csharp\nusing Pulumi;\nusing Github = Pulumi.Github;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var development = new Github.Branch(\"development\", new Github.BranchArgs\n        {\n            Branch = \"development\",\n            Repository = \"example\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-github/sdk/v3/go/github\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := github.NewBranch(ctx, \"development\", \u0026github.BranchArgs{\n\t\t\tBranch:     pulumi.String(\"development\"),\n\t\t\tRepository: pulumi.String(\"example\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nGitHub Branch can be imported using an ID made up of `repository:branch`, e.g.\n\n```sh\n $ pulumi import github:index/branch:Branch terraform terraform:master\n```\n\n Optionally, a source branch may be specified using an ID of `repository:branch:source_branch`. This is useful for importing branches that do not branch directly off master.\n\n```sh\n $ pulumi import github:index/branch:Branch terraform terraform:feature-branch:dev\n```\n\n ",
             "properties": {
@@ -1030,7 +1082,7 @@
                 },
                 "sourceBranch": {
                     "type": "string",
-                    "description": "The branch name to start from. Defaults to `master`.\n"
+                    "description": "The branch name to start from. Defaults to `main`.\n"
                 },
                 "sourceSha": {
                     "type": "string",
@@ -1061,7 +1113,7 @@
                 },
                 "sourceBranch": {
                     "type": "string",
-                    "description": "The branch name to start from. Defaults to `master`.\n"
+                    "description": "The branch name to start from. Defaults to `main`.\n"
                 },
                 "sourceSha": {
                     "type": "string",
@@ -1102,7 +1154,7 @@
                     },
                     "sourceBranch": {
                         "type": "string",
-                        "description": "The branch name to start from. Defaults to `master`.\n"
+                        "description": "The branch name to start from. Defaults to `main`.\n"
                     },
                     "sourceSha": {
                         "type": "string",
@@ -1314,7 +1366,7 @@
             }
         },
         "github:index/branchProtectionV3:BranchProtectionV3": {
-            "description": "Protects a GitHub branch. \n\nThe `github.BranchProtection` resource has moved to the GraphQL API, while this resource will continue to leverage the REST API.\n\nThis resource allows you to configure branch protection for repositories in your organization. When applied, the branch will be protected from forced pushes and deletion. Additional constraints, such as required status checks or restrictions on users, teams, and apps, can also be configured.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\n// Protect the main branch of the foo repository. Only allow a specific user to merge to the branch.\nconst example = new github.BranchProtectionV3(\"example\", {\n    branch: \"main\",\n    repository: github_repository_example.name,\n    restrictions: {\n        users: [\"foo-user\"],\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\n# Protect the main branch of the foo repository. Only allow a specific user to merge to the branch.\nexample = github.BranchProtectionV3(\"example\",\n    branch=\"main\",\n    repository=github_repository[\"example\"][\"name\"],\n    restrictions=github.BranchProtectionV3RestrictionsArgs(\n        users=[\"foo-user\"],\n    ))\n```\n```csharp\nusing Pulumi;\nusing Github = Pulumi.Github;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        // Protect the main branch of the foo repository. Only allow a specific user to merge to the branch.\n        var example = new Github.BranchProtectionV3(\"example\", new Github.BranchProtectionV3Args\n        {\n            Branch = \"main\",\n            Repository = github_repository.Example.Name,\n            Restrictions = new Github.Inputs.BranchProtectionV3RestrictionsArgs\n            {\n                Users = \n                {\n                    \"foo-user\",\n                },\n            },\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-github/sdk/v3/go/github\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := github.NewBranchProtectionV3(ctx, \"example\", \u0026github.BranchProtectionV3Args{\n\t\t\tBranch:     pulumi.String(\"main\"),\n\t\t\tRepository: pulumi.Any(github_repository.Example.Name),\n\t\t\tRestrictions: \u0026github.BranchProtectionV3RestrictionsArgs{\n\t\t\t\tUsers: pulumi.StringArray{\n\t\t\t\t\tpulumi.String(\"foo-user\"),\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\nconst exampleTeam = new github.Team(\"example\", {});\nconst exampleBranchProtectionV3 = new github.BranchProtectionV3(\"example\", {\n    branch: \"main\",\n    enforceAdmins: true,\n    repository: github_repository_example.name,\n    requiredPullRequestReviews: {\n        dismissStaleReviews: true,\n        dismissalTeams: [\n            exampleTeam.slug,\n            github_team_second.slug,\n        ],\n        dismissalUsers: [\"foo-user\"],\n    },\n    requiredStatusChecks: {\n        contexts: [\"ci/travis\"],\n        strict: false,\n    },\n    restrictions: {\n        apps: [\"foo-app\"],\n        teams: [exampleTeam.slug],\n        users: [\"foo-user\"],\n    },\n});\nconst exampleTeamRepository = new github.TeamRepository(\"example\", {\n    permission: \"pull\",\n    repository: github_repository_example.name,\n    teamId: exampleTeam.id,\n});\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\nexample_team = github.Team(\"exampleTeam\")\nexample_branch_protection_v3 = github.BranchProtectionV3(\"exampleBranchProtectionV3\",\n    branch=\"main\",\n    enforce_admins=True,\n    repository=github_repository[\"example\"][\"name\"],\n    required_pull_request_reviews=github.BranchProtectionV3RequiredPullRequestReviewsArgs(\n        dismiss_stale_reviews=True,\n        dismissal_teams=[\n            example_team.slug,\n            github_team[\"second\"][\"slug\"],\n        ],\n        dismissal_users=[\"foo-user\"],\n    ),\n    required_status_checks=github.BranchProtectionV3RequiredStatusChecksArgs(\n        contexts=[\"ci/travis\"],\n        strict=False,\n    ),\n    restrictions=github.BranchProtectionV3RestrictionsArgs(\n        apps=[\"foo-app\"],\n        teams=[example_team.slug],\n        users=[\"foo-user\"],\n    ))\nexample_team_repository = github.TeamRepository(\"exampleTeamRepository\",\n    permission=\"pull\",\n    repository=github_repository[\"example\"][\"name\"],\n    team_id=example_team.id)\n```\n```csharp\nusing Pulumi;\nusing Github = Pulumi.Github;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var exampleTeam = new Github.Team(\"exampleTeam\", new Github.TeamArgs\n        {\n        });\n        var exampleBranchProtectionV3 = new Github.BranchProtectionV3(\"exampleBranchProtectionV3\", new Github.BranchProtectionV3Args\n        {\n            Branch = \"main\",\n            EnforceAdmins = true,\n            Repository = github_repository.Example.Name,\n            RequiredPullRequestReviews = new Github.Inputs.BranchProtectionV3RequiredPullRequestReviewsArgs\n            {\n                DismissStaleReviews = true,\n                DismissalTeams = \n                {\n                    exampleTeam.Slug,\n                    github_team.Second.Slug,\n                },\n                DismissalUsers = \n                {\n                    \"foo-user\",\n                },\n            },\n            RequiredStatusChecks = new Github.Inputs.BranchProtectionV3RequiredStatusChecksArgs\n            {\n                Contexts = \n                {\n                    \"ci/travis\",\n                },\n                Strict = false,\n            },\n            Restrictions = new Github.Inputs.BranchProtectionV3RestrictionsArgs\n            {\n                Apps = \n                {\n                    \"foo-app\",\n                },\n                Teams = \n                {\n                    exampleTeam.Slug,\n                },\n                Users = \n                {\n                    \"foo-user\",\n                },\n            },\n        });\n        var exampleTeamRepository = new Github.TeamRepository(\"exampleTeamRepository\", new Github.TeamRepositoryArgs\n        {\n            Permission = \"pull\",\n            Repository = github_repository.Example.Name,\n            TeamId = exampleTeam.Id,\n        });\n    }\n\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nGitHub Branch Protection can be imported using an ID made up of `repository:branch`, e.g.\n\n```sh\n $ pulumi import github:index/branchProtectionV3:BranchProtectionV3 github_branch_protection_v3.terraform terraform:main\n```\n\n ",
+            "description": "Protects a GitHub branch.\n\nThe `github.BranchProtection` resource has moved to the GraphQL API, while this resource will continue to leverage the REST API.\n\nThis resource allows you to configure branch protection for repositories in your organization. When applied, the branch will be protected from forced pushes and deletion. Additional constraints, such as required status checks or restrictions on users, teams, and apps, can also be configured.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\n// Protect the main branch of the foo repository. Only allow a specific user to merge to the branch.\nconst example = new github.BranchProtectionV3(\"example\", {\n    branch: \"main\",\n    repository: github_repository_example.name,\n    restrictions: {\n        users: [\"foo-user\"],\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\n# Protect the main branch of the foo repository. Only allow a specific user to merge to the branch.\nexample = github.BranchProtectionV3(\"example\",\n    branch=\"main\",\n    repository=github_repository[\"example\"][\"name\"],\n    restrictions=github.BranchProtectionV3RestrictionsArgs(\n        users=[\"foo-user\"],\n    ))\n```\n```csharp\nusing Pulumi;\nusing Github = Pulumi.Github;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        // Protect the main branch of the foo repository. Only allow a specific user to merge to the branch.\n        var example = new Github.BranchProtectionV3(\"example\", new Github.BranchProtectionV3Args\n        {\n            Branch = \"main\",\n            Repository = github_repository.Example.Name,\n            Restrictions = new Github.Inputs.BranchProtectionV3RestrictionsArgs\n            {\n                Users = \n                {\n                    \"foo-user\",\n                },\n            },\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-github/sdk/v3/go/github\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := github.NewBranchProtectionV3(ctx, \"example\", \u0026github.BranchProtectionV3Args{\n\t\t\tBranch:     pulumi.String(\"main\"),\n\t\t\tRepository: pulumi.Any(github_repository.Example.Name),\n\t\t\tRestrictions: \u0026github.BranchProtectionV3RestrictionsArgs{\n\t\t\t\tUsers: pulumi.StringArray{\n\t\t\t\t\tpulumi.String(\"foo-user\"),\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\nconst exampleTeam = new github.Team(\"example\", {});\nconst exampleBranchProtectionV3 = new github.BranchProtectionV3(\"example\", {\n    branch: \"main\",\n    enforceAdmins: true,\n    repository: github_repository_example.name,\n    requiredPullRequestReviews: {\n        dismissStaleReviews: true,\n        dismissalTeams: [\n            exampleTeam.slug,\n            github_team_second.slug,\n        ],\n        dismissalUsers: [\"foo-user\"],\n    },\n    requiredStatusChecks: {\n        contexts: [\"ci/travis\"],\n        strict: false,\n    },\n    restrictions: {\n        apps: [\"foo-app\"],\n        teams: [exampleTeam.slug],\n        users: [\"foo-user\"],\n    },\n});\nconst exampleTeamRepository = new github.TeamRepository(\"example\", {\n    permission: \"pull\",\n    repository: github_repository_example.name,\n    teamId: exampleTeam.id,\n});\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\nexample_team = github.Team(\"exampleTeam\")\nexample_branch_protection_v3 = github.BranchProtectionV3(\"exampleBranchProtectionV3\",\n    branch=\"main\",\n    enforce_admins=True,\n    repository=github_repository[\"example\"][\"name\"],\n    required_pull_request_reviews=github.BranchProtectionV3RequiredPullRequestReviewsArgs(\n        dismiss_stale_reviews=True,\n        dismissal_teams=[\n            example_team.slug,\n            github_team[\"second\"][\"slug\"],\n        ],\n        dismissal_users=[\"foo-user\"],\n    ),\n    required_status_checks=github.BranchProtectionV3RequiredStatusChecksArgs(\n        contexts=[\"ci/travis\"],\n        strict=False,\n    ),\n    restrictions=github.BranchProtectionV3RestrictionsArgs(\n        apps=[\"foo-app\"],\n        teams=[example_team.slug],\n        users=[\"foo-user\"],\n    ))\nexample_team_repository = github.TeamRepository(\"exampleTeamRepository\",\n    permission=\"pull\",\n    repository=github_repository[\"example\"][\"name\"],\n    team_id=example_team.id)\n```\n```csharp\nusing Pulumi;\nusing Github = Pulumi.Github;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var exampleTeam = new Github.Team(\"exampleTeam\", new Github.TeamArgs\n        {\n        });\n        var exampleBranchProtectionV3 = new Github.BranchProtectionV3(\"exampleBranchProtectionV3\", new Github.BranchProtectionV3Args\n        {\n            Branch = \"main\",\n            EnforceAdmins = true,\n            Repository = github_repository.Example.Name,\n            RequiredPullRequestReviews = new Github.Inputs.BranchProtectionV3RequiredPullRequestReviewsArgs\n            {\n                DismissStaleReviews = true,\n                DismissalTeams = \n                {\n                    exampleTeam.Slug,\n                    github_team.Second.Slug,\n                },\n                DismissalUsers = \n                {\n                    \"foo-user\",\n                },\n            },\n            RequiredStatusChecks = new Github.Inputs.BranchProtectionV3RequiredStatusChecksArgs\n            {\n                Contexts = \n                {\n                    \"ci/travis\",\n                },\n                Strict = false,\n            },\n            Restrictions = new Github.Inputs.BranchProtectionV3RestrictionsArgs\n            {\n                Apps = \n                {\n                    \"foo-app\",\n                },\n                Teams = \n                {\n                    exampleTeam.Slug,\n                },\n                Users = \n                {\n                    \"foo-user\",\n                },\n            },\n        });\n        var exampleTeamRepository = new Github.TeamRepository(\"exampleTeamRepository\", new Github.TeamRepositoryArgs\n        {\n            Permission = \"pull\",\n            Repository = github_repository.Example.Name,\n            TeamId = exampleTeam.Id,\n        });\n    }\n\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nGitHub Branch Protection can be imported using an ID made up of `repository:branch`, e.g.\n\n```sh\n $ pulumi import github:index/branchProtectionV3:BranchProtectionV3 github_branch_protection_v3.terraform terraform:main\n```\n\n ",
             "properties": {
                 "branch": {
                     "type": "string",
@@ -1853,7 +1905,7 @@
             }
         },
         "github:index/repository:Repository": {
-            "description": "This resource allows you to create and manage repositories within your\nGitHub organization or personal account.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\nconst example = new github.Repository(\"example\", {\n    description: \"My awesome codebase\",\n    template: {\n        owner: \"github\",\n        repository: \"terraform-module-template\",\n    },\n    visibility: \"public\",\n});\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\nexample = github.Repository(\"example\",\n    description=\"My awesome codebase\",\n    template=github.RepositoryTemplateArgs(\n        owner=\"github\",\n        repository=\"terraform-module-template\",\n    ),\n    visibility=\"public\")\n```\n```csharp\nusing Pulumi;\nusing Github = Pulumi.Github;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var example = new Github.Repository(\"example\", new Github.RepositoryArgs\n        {\n            Description = \"My awesome codebase\",\n            Template = new Github.Inputs.RepositoryTemplateArgs\n            {\n                Owner = \"github\",\n                Repository = \"terraform-module-template\",\n            },\n            Visibility = \"public\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-github/sdk/v3/go/github\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := github.NewRepository(ctx, \"example\", \u0026github.RepositoryArgs{\n\t\t\tDescription: pulumi.String(\"My awesome codebase\"),\n\t\t\tTemplate: \u0026github.RepositoryTemplateArgs{\n\t\t\t\tOwner:      pulumi.String(\"github\"),\n\t\t\t\tRepository: pulumi.String(\"terraform-module-template\"),\n\t\t\t},\n\t\t\tVisibility: pulumi.String(\"public\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n\n{{% /example %}}\n{{% example %}}\n### With Github Pages Enabled\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\nconst example = new github.Repository(\"example\", {\n    description: \"My awesome web page\",\n    pages: {\n        source: {\n            branch: \"master\",\n            path: \"/docs\",\n        },\n    },\n    private: false,\n});\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\nexample = github.Repository(\"example\",\n    description=\"My awesome web page\",\n    pages=github.RepositoryPagesArgs(\n        source=github.RepositoryPagesSourceArgs(\n            branch=\"master\",\n            path=\"/docs\",\n        ),\n    ),\n    private=False)\n```\n```csharp\nusing Pulumi;\nusing Github = Pulumi.Github;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var example = new Github.Repository(\"example\", new Github.RepositoryArgs\n        {\n            Description = \"My awesome web page\",\n            Pages = new Github.Inputs.RepositoryPagesArgs\n            {\n                Source = new Github.Inputs.RepositoryPagesSourceArgs\n                {\n                    Branch = \"master\",\n                    Path = \"/docs\",\n                },\n            },\n            Private = false,\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-github/sdk/v3/go/github\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := github.NewRepository(ctx, \"example\", \u0026github.RepositoryArgs{\n\t\t\tDescription: pulumi.String(\"My awesome web page\"),\n\t\t\tPages: \u0026github.RepositoryPagesArgs{\n\t\t\t\tSource: \u0026github.RepositoryPagesSourceArgs{\n\t\t\t\t\tBranch: pulumi.String(\"master\"),\n\t\t\t\t\tPath:   pulumi.String(\"/docs\"),\n\t\t\t\t},\n\t\t\t},\n\t\t\tPrivate: pulumi.Bool(false),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nRepositories can be imported using the `name`, e.g.\n\n```sh\n $ pulumi import github:index/repository:Repository terraform terraform\n```\n\n ",
+            "description": "This resource allows you to create and manage repositories within your\nGitHub organization or personal account.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\nconst example = new github.Repository(\"example\", {\n    description: \"My awesome codebase\",\n    template: {\n        owner: \"github\",\n        repository: \"terraform-module-template\",\n    },\n    visibility: \"public\",\n});\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\nexample = github.Repository(\"example\",\n    description=\"My awesome codebase\",\n    template=github.RepositoryTemplateArgs(\n        owner=\"github\",\n        repository=\"terraform-module-template\",\n    ),\n    visibility=\"public\")\n```\n```csharp\nusing Pulumi;\nusing Github = Pulumi.Github;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var example = new Github.Repository(\"example\", new Github.RepositoryArgs\n        {\n            Description = \"My awesome codebase\",\n            Template = new Github.Inputs.RepositoryTemplateArgs\n            {\n                Owner = \"github\",\n                Repository = \"terraform-module-template\",\n            },\n            Visibility = \"public\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-github/sdk/v3/go/github\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := github.NewRepository(ctx, \"example\", \u0026github.RepositoryArgs{\n\t\t\tDescription: pulumi.String(\"My awesome codebase\"),\n\t\t\tTemplate: \u0026github.RepositoryTemplateArgs{\n\t\t\t\tOwner:      pulumi.String(\"github\"),\n\t\t\t\tRepository: pulumi.String(\"terraform-module-template\"),\n\t\t\t},\n\t\t\tVisibility: pulumi.String(\"public\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n\n{{% /example %}}\n{{% example %}}\n### With GitHub Pages Enabled\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\nconst example = new github.Repository(\"example\", {\n    description: \"My awesome web page\",\n    pages: {\n        source: {\n            branch: \"master\",\n            path: \"/docs\",\n        },\n    },\n    private: false,\n});\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\nexample = github.Repository(\"example\",\n    description=\"My awesome web page\",\n    pages=github.RepositoryPagesArgs(\n        source=github.RepositoryPagesSourceArgs(\n            branch=\"master\",\n            path=\"/docs\",\n        ),\n    ),\n    private=False)\n```\n```csharp\nusing Pulumi;\nusing Github = Pulumi.Github;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var example = new Github.Repository(\"example\", new Github.RepositoryArgs\n        {\n            Description = \"My awesome web page\",\n            Pages = new Github.Inputs.RepositoryPagesArgs\n            {\n                Source = new Github.Inputs.RepositoryPagesSourceArgs\n                {\n                    Branch = \"master\",\n                    Path = \"/docs\",\n                },\n            },\n            Private = false,\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-github/sdk/v3/go/github\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := github.NewRepository(ctx, \"example\", \u0026github.RepositoryArgs{\n\t\t\tDescription: pulumi.String(\"My awesome web page\"),\n\t\t\tPages: \u0026github.RepositoryPagesArgs{\n\t\t\t\tSource: \u0026github.RepositoryPagesSourceArgs{\n\t\t\t\t\tBranch: pulumi.String(\"master\"),\n\t\t\t\t\tPath:   pulumi.String(\"/docs\"),\n\t\t\t\t},\n\t\t\t},\n\t\t\tPrivate: pulumi.Bool(false),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nRepositories can be imported using the `name`, e.g.\n\n```sh\n $ pulumi import github:index/repository:Repository terraform terraform\n```\n\n ",
             "properties": {
                 "allowMergeCommit": {
                     "type": "boolean",
@@ -1929,7 +1981,7 @@
                 },
                 "htmlUrl": {
                     "type": "string",
-                    "description": "The absolute URL (including scheme) of the rendered Github Pages site e.g. `https://username.github.io`.\n"
+                    "description": "The absolute URL (including scheme) of the rendered GitHub Pages site e.g. `https://username.github.io`.\n"
                 },
                 "httpCloneUrl": {
                     "type": "string",
@@ -1953,7 +2005,7 @@
                 },
                 "pages": {
                     "$ref": "#/types/github:index/RepositoryPages:RepositoryPages",
-                    "description": "The repository's Github Pages configuration. See Github Pages Configuration below for details.\n"
+                    "description": "The repository's GitHub Pages configuration. See GitHub Pages Configuration below for details.\n"
                 },
                 "private": {
                     "type": "boolean",
@@ -1962,7 +2014,7 @@
                 },
                 "repoId": {
                     "type": "integer",
-                    "description": "Github ID for the repository\n"
+                    "description": "GitHub ID for the repository\n"
                 },
                 "sshCloneUrl": {
                     "type": "string",
@@ -2083,7 +2135,7 @@
                 },
                 "pages": {
                     "$ref": "#/types/github:index/RepositoryPages:RepositoryPages",
-                    "description": "The repository's Github Pages configuration. See Github Pages Configuration below for details.\n"
+                    "description": "The repository's GitHub Pages configuration. See GitHub Pages Configuration below for details.\n"
                 },
                 "private": {
                     "type": "boolean",
@@ -2187,7 +2239,7 @@
                     },
                     "htmlUrl": {
                         "type": "string",
-                        "description": "The absolute URL (including scheme) of the rendered Github Pages site e.g. `https://username.github.io`.\n"
+                        "description": "The absolute URL (including scheme) of the rendered GitHub Pages site e.g. `https://username.github.io`.\n"
                     },
                     "httpCloneUrl": {
                         "type": "string",
@@ -2211,7 +2263,7 @@
                     },
                     "pages": {
                         "$ref": "#/types/github:index/RepositoryPages:RepositoryPages",
-                        "description": "The repository's Github Pages configuration. See Github Pages Configuration below for details.\n"
+                        "description": "The repository's GitHub Pages configuration. See GitHub Pages Configuration below for details.\n"
                     },
                     "private": {
                         "type": "boolean",
@@ -2220,7 +2272,7 @@
                     },
                     "repoId": {
                         "type": "integer",
-                        "description": "Github ID for the repository\n"
+                        "description": "GitHub ID for the repository\n"
                     },
                     "sshCloneUrl": {
                         "type": "string",
@@ -2550,7 +2602,7 @@
             }
         },
         "github:index/repositoryMilestone:RepositoryMilestone": {
-            "description": "Provides a GitHub repository milestone resource.\n\nThis resource allows you to create and manage milestones for a Github Repository within an organization or user account.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\n// Create a milestone for a repository\nconst example = new github.RepositoryMilestone(\"example\", {\n    owner: \"example-owner\",\n    repository: \"example-repository\",\n    title: \"v1.1.0\",\n});\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\n# Create a milestone for a repository\nexample = github.RepositoryMilestone(\"example\",\n    owner=\"example-owner\",\n    repository=\"example-repository\",\n    title=\"v1.1.0\")\n```\n```csharp\nusing Pulumi;\nusing Github = Pulumi.Github;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        // Create a milestone for a repository\n        var example = new Github.RepositoryMilestone(\"example\", new Github.RepositoryMilestoneArgs\n        {\n            Owner = \"example-owner\",\n            Repository = \"example-repository\",\n            Title = \"v1.1.0\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-github/sdk/v3/go/github\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := github.NewRepositoryMilestone(ctx, \"example\", \u0026github.RepositoryMilestoneArgs{\n\t\t\tOwner:      pulumi.String(\"example-owner\"),\n\t\t\tRepository: pulumi.String(\"example-repository\"),\n\t\t\tTitle:      pulumi.String(\"v1.1.0\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nA GitHub Repository Milestone can be imported using an ID made up of `owner/repository/number`, e.g.\n\n```sh\n $ pulumi import github:index/repositoryMilestone:RepositoryMilestone example example-owner/example-repository/1\n```\n\n ",
+            "description": "Provides a GitHub repository milestone resource.\n\nThis resource allows you to create and manage milestones for a GitHub Repository within an organization or user account.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\n// Create a milestone for a repository\nconst example = new github.RepositoryMilestone(\"example\", {\n    owner: \"example-owner\",\n    repository: \"example-repository\",\n    title: \"v1.1.0\",\n});\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\n# Create a milestone for a repository\nexample = github.RepositoryMilestone(\"example\",\n    owner=\"example-owner\",\n    repository=\"example-repository\",\n    title=\"v1.1.0\")\n```\n```csharp\nusing Pulumi;\nusing Github = Pulumi.Github;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        // Create a milestone for a repository\n        var example = new Github.RepositoryMilestone(\"example\", new Github.RepositoryMilestoneArgs\n        {\n            Owner = \"example-owner\",\n            Repository = \"example-repository\",\n            Title = \"v1.1.0\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-github/sdk/v3/go/github\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := github.NewRepositoryMilestone(ctx, \"example\", \u0026github.RepositoryMilestoneArgs{\n\t\t\tOwner:      pulumi.String(\"example-owner\"),\n\t\t\tRepository: pulumi.String(\"example-repository\"),\n\t\t\tTitle:      pulumi.String(\"v1.1.0\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nA GitHub Repository Milestone can be imported using an ID made up of `owner/repository/number`, e.g.\n\n```sh\n $ pulumi import github:index/repositoryMilestone:RepositoryMilestone example example-owner/example-repository/1\n```\n\n ",
             "properties": {
                 "description": {
                     "type": "string",
@@ -2566,11 +2618,11 @@
                 },
                 "owner": {
                     "type": "string",
-                    "description": "The owner of the Github Repository.\n"
+                    "description": "The owner of the GitHub Repository.\n"
                 },
                 "repository": {
                     "type": "string",
-                    "description": "The name of the Github Repository.\n"
+                    "description": "The name of the GitHub Repository.\n"
                 },
                 "state": {
                     "type": "string",
@@ -2598,11 +2650,11 @@
                 },
                 "owner": {
                     "type": "string",
-                    "description": "The owner of the Github Repository.\n"
+                    "description": "The owner of the GitHub Repository.\n"
                 },
                 "repository": {
                     "type": "string",
-                    "description": "The name of the Github Repository.\n"
+                    "description": "The name of the GitHub Repository.\n"
                 },
                 "state": {
                     "type": "string",
@@ -2635,11 +2687,11 @@
                     },
                     "owner": {
                         "type": "string",
-                        "description": "The owner of the Github Repository.\n"
+                        "description": "The owner of the GitHub Repository.\n"
                     },
                     "repository": {
                         "type": "string",
-                        "description": "The name of the Github Repository.\n"
+                        "description": "The name of the GitHub Repository.\n"
                     },
                     "state": {
                         "type": "string",
@@ -3068,7 +3120,7 @@
             }
         },
         "github:index/teamSyncGroupMapping:TeamSyncGroupMapping": {
-            "description": "This resource allows you to create and manage Identity Provider (IdP) group connections within your GitHub teams.\nYou must have team synchronization enabled for organizations owned by enterprise accounts.\n\nTo learn more about team synchronization between IdPs and Github, please refer to:\nhttps://help.github.com/en/github/setting-up-and-managing-organizations-and-teams/synchronizing-teams-between-your-identity-provider-and-github\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\nconst exampleGroups = github.getOrganizationTeamSyncGroups({});\nconst exampleGroupMapping = new github.TeamSyncGroupMapping(\"exampleGroupMapping\", {\n    teamSlug: \"example\",\n    dynamic: [{\n        forEach: exampleGroups.then(exampleGroups =\u003e exampleGroups.groups.filter(g =\u003e g.groupName == \"some_team_group\").map(g =\u003e g)),\n        content: [{\n            groupId: group.value.group_id,\n            groupName: group.value.group_name,\n            groupDescription: group.value.group_description,\n        }],\n    }],\n});\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nGitHub Team Sync Group Mappings can be imported using the GitHub team `slug` e.g.\n\n```sh\n $ pulumi import github:index/teamSyncGroupMapping:TeamSyncGroupMapping example some_team\n```\n\n ",
+            "description": "This resource allows you to create and manage Identity Provider (IdP) group connections within your GitHub teams.\nYou must have team synchronization enabled for organizations owned by enterprise accounts.\n\nTo learn more about team synchronization between IdPs and GitHub, please refer to:\nhttps://help.github.com/en/github/setting-up-and-managing-organizations-and-teams/synchronizing-teams-between-your-identity-provider-and-github\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\nconst exampleGroups = github.getOrganizationTeamSyncGroups({});\nconst exampleGroupMapping = new github.TeamSyncGroupMapping(\"exampleGroupMapping\", {\n    teamSlug: \"example\",\n    dynamic: [{\n        forEach: exampleGroups.then(exampleGroups =\u003e exampleGroups.groups.filter(g =\u003e g.groupName == \"some_team_group\").map(g =\u003e g)),\n        content: [{\n            groupId: group.value.group_id,\n            groupName: group.value.group_name,\n            groupDescription: group.value.group_description,\n        }],\n    }],\n});\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nGitHub Team Sync Group Mappings can be imported using the GitHub team `slug` e.g.\n\n```sh\n $ pulumi import github:index/teamSyncGroupMapping:TeamSyncGroupMapping example some_team\n```\n\n ",
             "properties": {
                 "etag": {
                     "type": "string"
@@ -3884,7 +3936,7 @@
                     },
                     "repoId": {
                         "type": "integer",
-                        "description": "Github ID for the repository\n"
+                        "description": "GitHub ID for the repository\n"
                     },
                     "sshCloneUrl": {
                         "type": "string",
