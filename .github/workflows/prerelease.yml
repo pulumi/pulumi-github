@@ -2,7 +2,6 @@ env:
   GH_ORGANIZATION: ${{ secrets.GH_ORGANIZATION }}
   GH_TESTING_TOKEN: ${{ secrets.GH_TESTING_TOKEN }}
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  GO111MODULE: "on"
   NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
   NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
   NUGET_PUBLISH_KEY: ${{ secrets.NUGET_PUBLISH_KEY }}
