@@ -5,13 +5,82 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities, _tables
 
-__all__ = ['RepositoryDeployKey']
+__all__ = ['RepositoryDeployKeyArgs', 'RepositoryDeployKey']
+
+@pulumi.input_type
+class RepositoryDeployKeyArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 repository: pulumi.Input[str],
+                 title: pulumi.Input[str],
+                 read_only: Optional[pulumi.Input[bool]] = None):
+        """
+        The set of arguments for constructing a RepositoryDeployKey resource.
+        :param pulumi.Input[str] key: A SSH key.
+        :param pulumi.Input[str] repository: Name of the GitHub repository.
+        :param pulumi.Input[str] title: A title.
+        :param pulumi.Input[bool] read_only: A boolean qualifying the key to be either read only or read/write.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "repository", repository)
+        pulumi.set(__self__, "title", title)
+        if read_only is not None:
+            pulumi.set(__self__, "read_only", read_only)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        """
+        A SSH key.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def repository(self) -> pulumi.Input[str]:
+        """
+        Name of the GitHub repository.
+        """
+        return pulumi.get(self, "repository")
+
+    @repository.setter
+    def repository(self, value: pulumi.Input[str]):
+        pulumi.set(self, "repository", value)
+
+    @property
+    @pulumi.getter
+    def title(self) -> pulumi.Input[str]:
+        """
+        A title.
+        """
+        return pulumi.get(self, "title")
+
+    @title.setter
+    def title(self, value: pulumi.Input[str]):
+        pulumi.set(self, "title", value)
+
+    @property
+    @pulumi.getter(name="readOnly")
+    def read_only(self) -> Optional[pulumi.Input[bool]]:
+        """
+        A boolean qualifying the key to be either read only or read/write.
+        """
+        return pulumi.get(self, "read_only")
+
+    @read_only.setter
+    def read_only(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "read_only", value)
 
 
 class RepositoryDeployKey(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -63,6 +132,68 @@ class RepositoryDeployKey(pulumi.CustomResource):
         :param pulumi.Input[str] repository: Name of the GitHub repository.
         :param pulumi.Input[str] title: A title.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: RepositoryDeployKeyArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides a GitHub repository deploy key resource.
+
+        A deploy key is an SSH key that is stored on your server and grants
+        access to a single GitHub repository. This key is attached directly to the repository instead of to a personal user
+        account.
+
+        This resource allows you to add/remove repository deploy keys.
+
+        Further documentation on GitHub repository deploy keys:
+        - [About deploy keys](https://developer.github.com/guides/managing-deploy-keys/#deploy-keys)
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        # Add a deploy key
+        example_repository_deploy_key = github.RepositoryDeployKey("exampleRepositoryDeployKey",
+            key="ssh-rsa AAA...",
+            read_only=False,
+            repository="test-repo",
+            title="Repository test key")
+        ```
+
+        ## Import
+
+        Repository deploy keys can be imported using a colon-separated pair of repository name and GitHub's key id. The latter can be obtained by GitHub's SDKs and API.
+
+        ```sh
+         $ pulumi import github:index/repositoryDeployKey:RepositoryDeployKey foo test-repo:23824728
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param RepositoryDeployKeyArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(RepositoryDeployKeyArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 key: Optional[pulumi.Input[str]] = None,
+                 read_only: Optional[pulumi.Input[bool]] = None,
+                 repository: Optional[pulumi.Input[str]] = None,
+                 title: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

@@ -5,13 +5,38 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities, _tables
 
-__all__ = ['UserGpgKey']
+__all__ = ['UserGpgKeyArgs', 'UserGpgKey']
+
+@pulumi.input_type
+class UserGpgKeyArgs:
+    def __init__(__self__, *,
+                 armored_public_key: pulumi.Input[str]):
+        """
+        The set of arguments for constructing a UserGpgKey resource.
+        :param pulumi.Input[str] armored_public_key: Your public GPG key, generated in ASCII-armored format.
+               See [Generating a new GPG key](https://help.github.com/articles/generating-a-new-gpg-key/) for help on creating a GPG key.
+        """
+        pulumi.set(__self__, "armored_public_key", armored_public_key)
+
+    @property
+    @pulumi.getter(name="armoredPublicKey")
+    def armored_public_key(self) -> pulumi.Input[str]:
+        """
+        Your public GPG key, generated in ASCII-armored format.
+        See [Generating a new GPG key](https://help.github.com/articles/generating-a-new-gpg-key/) for help on creating a GPG key.
+        """
+        return pulumi.get(self, "armored_public_key")
+
+    @armored_public_key.setter
+    def armored_public_key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "armored_public_key", value)
 
 
 class UserGpgKey(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -45,6 +70,52 @@ class UserGpgKey(pulumi.CustomResource):
         :param pulumi.Input[str] armored_public_key: Your public GPG key, generated in ASCII-armored format.
                See [Generating a new GPG key](https://help.github.com/articles/generating-a-new-gpg-key/) for help on creating a GPG key.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: UserGpgKeyArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides a GitHub user's GPG key resource.
+
+        This resource allows you to add/remove GPG keys from your user account.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        example = github.UserGpgKey("example", armored_public_key=\"\"\"-----BEGIN PGP PUBLIC KEY BLOCK-----
+        ...
+        -----END PGP PUBLIC KEY BLOCK-----
+        \"\"\")
+        ```
+
+        ## Import
+
+        GPG keys are not importable due to the fact that [API](https://developer.github.com/v3/users/gpg_keys/#gpg-keys) does not return previously uploaded GPG key.
+
+        :param str resource_name: The name of the resource.
+        :param UserGpgKeyArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(UserGpgKeyArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 armored_public_key: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

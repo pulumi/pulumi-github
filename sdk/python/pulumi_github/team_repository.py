@@ -5,13 +5,69 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities, _tables
 
-__all__ = ['TeamRepository']
+__all__ = ['TeamRepositoryArgs', 'TeamRepository']
+
+@pulumi.input_type
+class TeamRepositoryArgs:
+    def __init__(__self__, *,
+                 repository: pulumi.Input[str],
+                 team_id: pulumi.Input[str],
+                 permission: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a TeamRepository resource.
+        :param pulumi.Input[str] repository: The repository to add to the team.
+        :param pulumi.Input[str] team_id: The GitHub team id or the GitHub team slug
+        :param pulumi.Input[str] permission: The permissions of team members regarding the repository.
+               Must be one of `pull`, `triage`, `push`, `maintain`, or `admin`. Defaults to `pull`.
+        """
+        pulumi.set(__self__, "repository", repository)
+        pulumi.set(__self__, "team_id", team_id)
+        if permission is not None:
+            pulumi.set(__self__, "permission", permission)
+
+    @property
+    @pulumi.getter
+    def repository(self) -> pulumi.Input[str]:
+        """
+        The repository to add to the team.
+        """
+        return pulumi.get(self, "repository")
+
+    @repository.setter
+    def repository(self, value: pulumi.Input[str]):
+        pulumi.set(self, "repository", value)
+
+    @property
+    @pulumi.getter(name="teamId")
+    def team_id(self) -> pulumi.Input[str]:
+        """
+        The GitHub team id or the GitHub team slug
+        """
+        return pulumi.get(self, "team_id")
+
+    @team_id.setter
+    def team_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "team_id", value)
+
+    @property
+    @pulumi.getter
+    def permission(self) -> Optional[pulumi.Input[str]]:
+        """
+        The permissions of team members regarding the repository.
+        Must be one of `pull`, `triage`, `push`, `maintain`, or `admin`. Defaults to `pull`.
+        """
+        return pulumi.get(self, "permission")
+
+    @permission.setter
+    def permission(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "permission", value)
 
 
 class TeamRepository(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -62,6 +118,67 @@ class TeamRepository(pulumi.CustomResource):
         :param pulumi.Input[str] repository: The repository to add to the team.
         :param pulumi.Input[str] team_id: The GitHub team id or the GitHub team slug
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: TeamRepositoryArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        This resource manages relationships between teams and repositories
+        in your GitHub organization.
+
+        Creating this resource grants a particular team permissions on a
+        particular repository.
+
+        The repository and the team must both belong to the same organization
+        on GitHub. This resource does not actually *create* any repositories;
+        to do that, see `Repository`.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        # Add a repository to the team
+        some_team = github.Team("someTeam", description="Some cool team")
+        some_repo = github.Repository("someRepo")
+        some_team_repo = github.TeamRepository("someTeamRepo",
+            permission="pull",
+            repository=some_repo.name,
+            team_id=some_team.id)
+        ```
+
+        ## Import
+
+        GitHub Team Repository can be imported using an ID made up of `teamid:repository`, e.g.
+
+        ```sh
+         $ pulumi import github:index/teamRepository:TeamRepository terraform_repo 1234567:terraform
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param TeamRepositoryArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(TeamRepositoryArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 permission: Optional[pulumi.Input[str]] = None,
+                 repository: Optional[pulumi.Input[str]] = None,
+                 team_id: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

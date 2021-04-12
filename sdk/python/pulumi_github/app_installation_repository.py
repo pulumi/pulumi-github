@@ -5,13 +5,51 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities, _tables
 
-__all__ = ['AppInstallationRepository']
+__all__ = ['AppInstallationRepositoryArgs', 'AppInstallationRepository']
+
+@pulumi.input_type
+class AppInstallationRepositoryArgs:
+    def __init__(__self__, *,
+                 installation_id: pulumi.Input[str],
+                 repository: pulumi.Input[str]):
+        """
+        The set of arguments for constructing a AppInstallationRepository resource.
+        :param pulumi.Input[str] installation_id: The GitHub app installation id.
+        :param pulumi.Input[str] repository: The repository to install the app on.
+        """
+        pulumi.set(__self__, "installation_id", installation_id)
+        pulumi.set(__self__, "repository", repository)
+
+    @property
+    @pulumi.getter(name="installationId")
+    def installation_id(self) -> pulumi.Input[str]:
+        """
+        The GitHub app installation id.
+        """
+        return pulumi.get(self, "installation_id")
+
+    @installation_id.setter
+    def installation_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "installation_id", value)
+
+    @property
+    @pulumi.getter
+    def repository(self) -> pulumi.Input[str]:
+        """
+        The repository to install the app on.
+        """
+        return pulumi.get(self, "repository")
+
+    @repository.setter
+    def repository(self, value: pulumi.Input[str]):
+        pulumi.set(self, "repository", value)
 
 
 class AppInstallationRepository(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -57,6 +95,64 @@ class AppInstallationRepository(pulumi.CustomResource):
         :param pulumi.Input[str] installation_id: The GitHub app installation id.
         :param pulumi.Input[str] repository: The repository to install the app on.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: AppInstallationRepositoryArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        This resource manages relationships between app installations and repositories
+        in your GitHub organization.
+
+        Creating this resource installs a particular app on a particular repository.
+
+        The app installation and the repository must both belong to the same
+        organization on GitHub. Note: you can review your organization's installations
+        by the following the instructions at this
+        [link](https://docs.github.com/en/github/setting-up-and-managing-organizations-and-teams/reviewing-your-organizations-installed-integrations).
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        # Create a repository.
+        some_repo = github.Repository("someRepo")
+        some_app_repo = github.AppInstallationRepository("someAppRepo",
+            installation_id="1234567",
+            repository=some_repo.name)
+        ```
+
+        ## Import
+
+        GitHub App Installation Repository can be imported using an ID made up of `installation_id:repository`, e.g.
+
+        ```sh
+         $ pulumi import github:index/appInstallationRepository:AppInstallationRepository terraform_repo 1234567:terraform
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param AppInstallationRepositoryArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(AppInstallationRepositoryArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 installation_id: Optional[pulumi.Input[str]] = None,
+                 repository: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

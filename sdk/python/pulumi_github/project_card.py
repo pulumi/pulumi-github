@@ -5,13 +5,51 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities, _tables
 
-__all__ = ['ProjectCard']
+__all__ = ['ProjectCardArgs', 'ProjectCard']
+
+@pulumi.input_type
+class ProjectCardArgs:
+    def __init__(__self__, *,
+                 column_id: pulumi.Input[str],
+                 note: pulumi.Input[str]):
+        """
+        The set of arguments for constructing a ProjectCard resource.
+        :param pulumi.Input[str] column_id: The ID of the card.
+        :param pulumi.Input[str] note: The note contents of the card. Markdown supported.
+        """
+        pulumi.set(__self__, "column_id", column_id)
+        pulumi.set(__self__, "note", note)
+
+    @property
+    @pulumi.getter(name="columnId")
+    def column_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the card.
+        """
+        return pulumi.get(self, "column_id")
+
+    @column_id.setter
+    def column_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "column_id", value)
+
+    @property
+    @pulumi.getter
+    def note(self) -> pulumi.Input[str]:
+        """
+        The note contents of the card. Markdown supported.
+        """
+        return pulumi.get(self, "note")
+
+    @note.setter
+    def note(self, value: pulumi.Input[str]):
+        pulumi.set(self, "note", value)
 
 
 class ProjectCard(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -49,6 +87,56 @@ class ProjectCard(pulumi.CustomResource):
         :param pulumi.Input[str] column_id: The ID of the card.
         :param pulumi.Input[str] note: The note contents of the card. Markdown supported.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ProjectCardArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        This resource allows you to create and manage cards for GitHub projects.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        project = github.OrganizationProject("project", body="This is an organization project.")
+        column = github.ProjectColumn("column", project_id=project.id)
+        card = github.ProjectCard("card",
+            column_id=column.column_id,
+            note="## Unaccepted 👇")
+        ```
+
+        ## Import
+
+        A GitHub Project Card can be imported using its [Card ID](https://developer.github.com/v3/projects/cards/#get-a-project-card)
+
+        ```sh
+         $ pulumi import github:index/projectCard:ProjectCard card 01234567
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param ProjectCardArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ProjectCardArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 column_id: Optional[pulumi.Input[str]] = None,
+                 note: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

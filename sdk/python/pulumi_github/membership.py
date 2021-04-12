@@ -5,13 +5,54 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities, _tables
 
-__all__ = ['Membership']
+__all__ = ['MembershipArgs', 'Membership']
+
+@pulumi.input_type
+class MembershipArgs:
+    def __init__(__self__, *,
+                 username: pulumi.Input[str],
+                 role: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a Membership resource.
+        :param pulumi.Input[str] username: The user to add to the organization.
+        :param pulumi.Input[str] role: The role of the user within the organization.
+               Must be one of `member` or `admin`. Defaults to `member`.
+        """
+        pulumi.set(__self__, "username", username)
+        if role is not None:
+            pulumi.set(__self__, "role", role)
+
+    @property
+    @pulumi.getter
+    def username(self) -> pulumi.Input[str]:
+        """
+        The user to add to the organization.
+        """
+        return pulumi.get(self, "username")
+
+    @username.setter
+    def username(self, value: pulumi.Input[str]):
+        pulumi.set(self, "username", value)
+
+    @property
+    @pulumi.getter
+    def role(self) -> Optional[pulumi.Input[str]]:
+        """
+        The role of the user within the organization.
+        Must be one of `member` or `admin`. Defaults to `member`.
+        """
+        return pulumi.get(self, "role")
+
+    @role.setter
+    def role(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "role", value)
 
 
 class Membership(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -53,6 +94,59 @@ class Membership(pulumi.CustomResource):
                Must be one of `member` or `admin`. Defaults to `member`.
         :param pulumi.Input[str] username: The user to add to the organization.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: MembershipArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides a GitHub membership resource.
+
+        This resource allows you to add/remove users from your organization. When applied,
+        an invitation will be sent to the user to become part of the organization. When
+        destroyed, either the invitation will be cancelled or the user will be removed.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        # Add a user to the organization
+        membership_for_some_user = github.Membership("membershipForSomeUser",
+            role="member",
+            username="SomeUser")
+        ```
+
+        ## Import
+
+        GitHub Membership can be imported using an ID made up of `organization:username`, e.g.
+
+        ```sh
+         $ pulumi import github:index/membership:Membership member hashicorp:someuser
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param MembershipArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(MembershipArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 role: Optional[pulumi.Input[str]] = None,
+                 username: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

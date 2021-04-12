@@ -5,13 +5,51 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities, _tables
 
-__all__ = ['UserSshKey']
+__all__ = ['UserSshKeyArgs', 'UserSshKey']
+
+@pulumi.input_type
+class UserSshKeyArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 title: pulumi.Input[str]):
+        """
+        The set of arguments for constructing a UserSshKey resource.
+        :param pulumi.Input[str] key: The public SSH key to add to your GitHub account.
+        :param pulumi.Input[str] title: A descriptive name for the new key. e.g. `Personal MacBook Air`
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "title", title)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        """
+        The public SSH key to add to your GitHub account.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def title(self) -> pulumi.Input[str]:
+        """
+        A descriptive name for the new key. e.g. `Personal MacBook Air`
+        """
+        return pulumi.get(self, "title")
+
+    @title.setter
+    def title(self, value: pulumi.Input[str]):
+        pulumi.set(self, "title", value)
 
 
 class UserSshKey(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -49,6 +87,56 @@ class UserSshKey(pulumi.CustomResource):
         :param pulumi.Input[str] key: The public SSH key to add to your GitHub account.
         :param pulumi.Input[str] title: A descriptive name for the new key. e.g. `Personal MacBook Air`
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: UserSshKeyArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides a GitHub user's SSH key resource.
+
+        This resource allows you to add/remove SSH keys from your user account.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        example = github.UserSshKey("example",
+            key=(lambda path: open(path).read())("~/.ssh/id_rsa.pub"),
+            title="example title")
+        ```
+
+        ## Import
+
+        SSH keys can be imported using their ID e.g.
+
+        ```sh
+         $ pulumi import github:index/userSshKey:UserSshKey example 1234567
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param UserSshKeyArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(UserSshKeyArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 key: Optional[pulumi.Input[str]] = None,
+                 title: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

@@ -5,13 +5,36 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities, _tables
 
-__all__ = ['UserInvitationAccepter']
+__all__ = ['UserInvitationAccepterArgs', 'UserInvitationAccepter']
+
+@pulumi.input_type
+class UserInvitationAccepterArgs:
+    def __init__(__self__, *,
+                 invitation_id: pulumi.Input[str]):
+        """
+        The set of arguments for constructing a UserInvitationAccepter resource.
+        :param pulumi.Input[str] invitation_id: ID of the invitation to accept
+        """
+        pulumi.set(__self__, "invitation_id", invitation_id)
+
+    @property
+    @pulumi.getter(name="invitationId")
+    def invitation_id(self) -> pulumi.Input[str]:
+        """
+        ID of the invitation to accept
+        """
+        return pulumi.get(self, "invitation_id")
+
+    @invitation_id.setter
+    def invitation_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "invitation_id", value)
 
 
 class UserInvitationAccepter(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -43,6 +66,51 @@ class UserInvitationAccepter(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] invitation_id: ID of the invitation to accept
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: UserInvitationAccepterArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides a resource to manage GitHub repository collaborator invitations.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+        import pulumi_pulumi as pulumi
+
+        example_repository = github.Repository("exampleRepository")
+        example_repository_collaborator = github.RepositoryCollaborator("exampleRepositoryCollaborator",
+            permission="push",
+            repository=example_repository.name,
+            username="example-username")
+        invitee = pulumi.providers.Github("invitee", token=var["invitee_token"])
+        example_user_invitation_accepter = github.UserInvitationAccepter("exampleUserInvitationAccepter", invitation_id=example_repository_collaborator.invitation_id,
+        opts=pulumi.ResourceOptions(provider="github.invitee"))
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param UserInvitationAccepterArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(UserInvitationAccepterArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 invitation_id: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

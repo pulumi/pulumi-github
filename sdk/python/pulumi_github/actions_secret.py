@@ -5,13 +5,66 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities, _tables
 
-__all__ = ['ActionsSecret']
+__all__ = ['ActionsSecretArgs', 'ActionsSecret']
+
+@pulumi.input_type
+class ActionsSecretArgs:
+    def __init__(__self__, *,
+                 plaintext_value: pulumi.Input[str],
+                 repository: pulumi.Input[str],
+                 secret_name: pulumi.Input[str]):
+        """
+        The set of arguments for constructing a ActionsSecret resource.
+        :param pulumi.Input[str] plaintext_value: Plaintext value of the secret to be encrypted
+        :param pulumi.Input[str] repository: Name of the repository
+        :param pulumi.Input[str] secret_name: Name of the secret
+        """
+        pulumi.set(__self__, "plaintext_value", plaintext_value)
+        pulumi.set(__self__, "repository", repository)
+        pulumi.set(__self__, "secret_name", secret_name)
+
+    @property
+    @pulumi.getter(name="plaintextValue")
+    def plaintext_value(self) -> pulumi.Input[str]:
+        """
+        Plaintext value of the secret to be encrypted
+        """
+        return pulumi.get(self, "plaintext_value")
+
+    @plaintext_value.setter
+    def plaintext_value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "plaintext_value", value)
+
+    @property
+    @pulumi.getter
+    def repository(self) -> pulumi.Input[str]:
+        """
+        Name of the repository
+        """
+        return pulumi.get(self, "repository")
+
+    @repository.setter
+    def repository(self, value: pulumi.Input[str]):
+        pulumi.set(self, "repository", value)
+
+    @property
+    @pulumi.getter(name="secretName")
+    def secret_name(self) -> pulumi.Input[str]:
+        """
+        Name of the secret
+        """
+        return pulumi.get(self, "secret_name")
+
+    @secret_name.setter
+    def secret_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "secret_name", value)
 
 
 class ActionsSecret(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -29,6 +82,35 @@ class ActionsSecret(pulumi.CustomResource):
         :param pulumi.Input[str] repository: Name of the repository
         :param pulumi.Input[str] secret_name: Name of the secret
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ActionsSecretArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Create a ActionsSecret resource with the given unique name, props, and options.
+        :param str resource_name: The name of the resource.
+        :param ActionsSecretArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ActionsSecretArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 plaintext_value: Optional[pulumi.Input[str]] = None,
+                 repository: Optional[pulumi.Input[str]] = None,
+                 secret_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
