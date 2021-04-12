@@ -5,13 +5,84 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities, _tables
 
-__all__ = ['ActionsOrganizationSecret']
+__all__ = ['ActionsOrganizationSecretArgs', 'ActionsOrganizationSecret']
+
+@pulumi.input_type
+class ActionsOrganizationSecretArgs:
+    def __init__(__self__, *,
+                 plaintext_value: pulumi.Input[str],
+                 secret_name: pulumi.Input[str],
+                 visibility: pulumi.Input[str],
+                 selected_repository_ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None):
+        """
+        The set of arguments for constructing a ActionsOrganizationSecret resource.
+        :param pulumi.Input[str] plaintext_value: Plaintext value of the secret to be encrypted
+        :param pulumi.Input[str] secret_name: Name of the secret
+        :param pulumi.Input[str] visibility: Configures the access that repositories have to the organization secret.
+               Must be one of `all`, `private`, `selected`. `selected_repository_ids` is required if set to `selected`.
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] selected_repository_ids: An array of repository ids that can access the organization secret.
+        """
+        pulumi.set(__self__, "plaintext_value", plaintext_value)
+        pulumi.set(__self__, "secret_name", secret_name)
+        pulumi.set(__self__, "visibility", visibility)
+        if selected_repository_ids is not None:
+            pulumi.set(__self__, "selected_repository_ids", selected_repository_ids)
+
+    @property
+    @pulumi.getter(name="plaintextValue")
+    def plaintext_value(self) -> pulumi.Input[str]:
+        """
+        Plaintext value of the secret to be encrypted
+        """
+        return pulumi.get(self, "plaintext_value")
+
+    @plaintext_value.setter
+    def plaintext_value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "plaintext_value", value)
+
+    @property
+    @pulumi.getter(name="secretName")
+    def secret_name(self) -> pulumi.Input[str]:
+        """
+        Name of the secret
+        """
+        return pulumi.get(self, "secret_name")
+
+    @secret_name.setter
+    def secret_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "secret_name", value)
+
+    @property
+    @pulumi.getter
+    def visibility(self) -> pulumi.Input[str]:
+        """
+        Configures the access that repositories have to the organization secret.
+        Must be one of `all`, `private`, `selected`. `selected_repository_ids` is required if set to `selected`.
+        """
+        return pulumi.get(self, "visibility")
+
+    @visibility.setter
+    def visibility(self, value: pulumi.Input[str]):
+        pulumi.set(self, "visibility", value)
+
+    @property
+    @pulumi.getter(name="selectedRepositoryIds")
+    def selected_repository_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
+        """
+        An array of repository ids that can access the organization secret.
+        """
+        return pulumi.get(self, "selected_repository_ids")
+
+    @selected_repository_ids.setter
+    def selected_repository_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
+        pulumi.set(self, "selected_repository_ids", value)
 
 
 class ActionsOrganizationSecret(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -32,6 +103,36 @@ class ActionsOrganizationSecret(pulumi.CustomResource):
         :param pulumi.Input[str] visibility: Configures the access that repositories have to the organization secret.
                Must be one of `all`, `private`, `selected`. `selected_repository_ids` is required if set to `selected`.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ActionsOrganizationSecretArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Create a ActionsOrganizationSecret resource with the given unique name, props, and options.
+        :param str resource_name: The name of the resource.
+        :param ActionsOrganizationSecretArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ActionsOrganizationSecretArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 plaintext_value: Optional[pulumi.Input[str]] = None,
+                 secret_name: Optional[pulumi.Input[str]] = None,
+                 selected_repository_ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+                 visibility: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

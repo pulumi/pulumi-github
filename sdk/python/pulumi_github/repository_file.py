@@ -5,13 +5,148 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities, _tables
 
-__all__ = ['RepositoryFile']
+__all__ = ['RepositoryFileArgs', 'RepositoryFile']
+
+@pulumi.input_type
+class RepositoryFileArgs:
+    def __init__(__self__, *,
+                 content: pulumi.Input[str],
+                 file: pulumi.Input[str],
+                 repository: pulumi.Input[str],
+                 branch: Optional[pulumi.Input[str]] = None,
+                 commit_author: Optional[pulumi.Input[str]] = None,
+                 commit_email: Optional[pulumi.Input[str]] = None,
+                 commit_message: Optional[pulumi.Input[str]] = None,
+                 overwrite_on_create: Optional[pulumi.Input[bool]] = None):
+        """
+        The set of arguments for constructing a RepositoryFile resource.
+        :param pulumi.Input[str] content: The file content.
+        :param pulumi.Input[str] file: The path of the file to manage.
+        :param pulumi.Input[str] repository: The repository name
+        :param pulumi.Input[str] branch: Git branch (defaults to `main`).
+               The branch must already exist, it will not be created if it does not already exist.
+        :param pulumi.Input[str] commit_author: Committer author name to use.
+        :param pulumi.Input[str] commit_email: Committer email address to use.
+        :param pulumi.Input[str] commit_message: Commit message when adding or updating the managed file.
+        :param pulumi.Input[bool] overwrite_on_create: Enable overwriting existing files
+        """
+        pulumi.set(__self__, "content", content)
+        pulumi.set(__self__, "file", file)
+        pulumi.set(__self__, "repository", repository)
+        if branch is not None:
+            pulumi.set(__self__, "branch", branch)
+        if commit_author is not None:
+            pulumi.set(__self__, "commit_author", commit_author)
+        if commit_email is not None:
+            pulumi.set(__self__, "commit_email", commit_email)
+        if commit_message is not None:
+            pulumi.set(__self__, "commit_message", commit_message)
+        if overwrite_on_create is not None:
+            pulumi.set(__self__, "overwrite_on_create", overwrite_on_create)
+
+    @property
+    @pulumi.getter
+    def content(self) -> pulumi.Input[str]:
+        """
+        The file content.
+        """
+        return pulumi.get(self, "content")
+
+    @content.setter
+    def content(self, value: pulumi.Input[str]):
+        pulumi.set(self, "content", value)
+
+    @property
+    @pulumi.getter
+    def file(self) -> pulumi.Input[str]:
+        """
+        The path of the file to manage.
+        """
+        return pulumi.get(self, "file")
+
+    @file.setter
+    def file(self, value: pulumi.Input[str]):
+        pulumi.set(self, "file", value)
+
+    @property
+    @pulumi.getter
+    def repository(self) -> pulumi.Input[str]:
+        """
+        The repository name
+        """
+        return pulumi.get(self, "repository")
+
+    @repository.setter
+    def repository(self, value: pulumi.Input[str]):
+        pulumi.set(self, "repository", value)
+
+    @property
+    @pulumi.getter
+    def branch(self) -> Optional[pulumi.Input[str]]:
+        """
+        Git branch (defaults to `main`).
+        The branch must already exist, it will not be created if it does not already exist.
+        """
+        return pulumi.get(self, "branch")
+
+    @branch.setter
+    def branch(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "branch", value)
+
+    @property
+    @pulumi.getter(name="commitAuthor")
+    def commit_author(self) -> Optional[pulumi.Input[str]]:
+        """
+        Committer author name to use.
+        """
+        return pulumi.get(self, "commit_author")
+
+    @commit_author.setter
+    def commit_author(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "commit_author", value)
+
+    @property
+    @pulumi.getter(name="commitEmail")
+    def commit_email(self) -> Optional[pulumi.Input[str]]:
+        """
+        Committer email address to use.
+        """
+        return pulumi.get(self, "commit_email")
+
+    @commit_email.setter
+    def commit_email(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "commit_email", value)
+
+    @property
+    @pulumi.getter(name="commitMessage")
+    def commit_message(self) -> Optional[pulumi.Input[str]]:
+        """
+        Commit message when adding or updating the managed file.
+        """
+        return pulumi.get(self, "commit_message")
+
+    @commit_message.setter
+    def commit_message(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "commit_message", value)
+
+    @property
+    @pulumi.getter(name="overwriteOnCreate")
+    def overwrite_on_create(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable overwriting existing files
+        """
+        return pulumi.get(self, "overwrite_on_create")
+
+    @overwrite_on_create.setter
+    def overwrite_on_create(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "overwrite_on_create", value)
 
 
 class RepositoryFile(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -74,6 +209,74 @@ class RepositoryFile(pulumi.CustomResource):
         :param pulumi.Input[bool] overwrite_on_create: Enable overwriting existing files
         :param pulumi.Input[str] repository: The repository name
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: RepositoryFileArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        This resource allows you to create and manage files within a
+        GitHub repository.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        foo_repository = github.Repository("fooRepository", auto_init=True)
+        foo_repository_file = github.RepositoryFile("fooRepositoryFile",
+            repository=foo_repository.name,
+            branch="main",
+            file=".gitignore",
+            content="**/*.tfstate",
+            commit_message="Managed by Terraform",
+            commit_author="Terraform User",
+            commit_email="terraform@example.com",
+            overwrite_on_create=True)
+        ```
+
+        ## Import
+
+        Repository files can be imported using a combination of the `repo` and `file`, e.g.
+
+        ```sh
+         $ pulumi import github:index/repositoryFile:RepositoryFile gitignore example/.gitignore
+        ```
+
+         To import a file from a branch other than main, append `:` and the branch name, e.g.
+
+        ```sh
+         $ pulumi import github:index/repositoryFile:RepositoryFile gitignore example/.gitignore:dev
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param RepositoryFileArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(RepositoryFileArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 branch: Optional[pulumi.Input[str]] = None,
+                 commit_author: Optional[pulumi.Input[str]] = None,
+                 commit_email: Optional[pulumi.Input[str]] = None,
+                 commit_message: Optional[pulumi.Input[str]] = None,
+                 content: Optional[pulumi.Input[str]] = None,
+                 file: Optional[pulumi.Input[str]] = None,
+                 overwrite_on_create: Optional[pulumi.Input[bool]] = None,
+                 repository: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

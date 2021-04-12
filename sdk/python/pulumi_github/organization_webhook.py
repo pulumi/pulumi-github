@@ -5,15 +5,70 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['OrganizationWebhook']
+__all__ = ['OrganizationWebhookArgs', 'OrganizationWebhook']
+
+@pulumi.input_type
+class OrganizationWebhookArgs:
+    def __init__(__self__, *,
+                 events: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 active: Optional[pulumi.Input[bool]] = None,
+                 configuration: Optional[pulumi.Input['OrganizationWebhookConfigurationArgs']] = None):
+        """
+        The set of arguments for constructing a OrganizationWebhook resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] events: A list of events which should trigger the webhook. See a list of [available events](https://developer.github.com/v3/activity/events/types/)
+        :param pulumi.Input[bool] active: Indicate of the webhook should receive events. Defaults to `true`.
+        :param pulumi.Input['OrganizationWebhookConfigurationArgs'] configuration: key/value pair of configuration for this webhook. Available keys are `url`, `content_type`, `secret` and `insecure_ssl`.
+        """
+        pulumi.set(__self__, "events", events)
+        if active is not None:
+            pulumi.set(__self__, "active", active)
+        if configuration is not None:
+            pulumi.set(__self__, "configuration", configuration)
+
+    @property
+    @pulumi.getter
+    def events(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        A list of events which should trigger the webhook. See a list of [available events](https://developer.github.com/v3/activity/events/types/)
+        """
+        return pulumi.get(self, "events")
+
+    @events.setter
+    def events(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "events", value)
+
+    @property
+    @pulumi.getter
+    def active(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicate of the webhook should receive events. Defaults to `true`.
+        """
+        return pulumi.get(self, "active")
+
+    @active.setter
+    def active(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "active", value)
+
+    @property
+    @pulumi.getter
+    def configuration(self) -> Optional[pulumi.Input['OrganizationWebhookConfigurationArgs']]:
+        """
+        key/value pair of configuration for this webhook. Available keys are `url`, `content_type`, `secret` and `insecure_ssl`.
+        """
+        return pulumi.get(self, "configuration")
+
+    @configuration.setter
+    def configuration(self, value: Optional[pulumi.Input['OrganizationWebhookConfigurationArgs']]):
+        pulumi.set(self, "configuration", value)
 
 
 class OrganizationWebhook(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -58,6 +113,62 @@ class OrganizationWebhook(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['OrganizationWebhookConfigurationArgs']] configuration: key/value pair of configuration for this webhook. Available keys are `url`, `content_type`, `secret` and `insecure_ssl`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] events: A list of events which should trigger the webhook. See a list of [available events](https://developer.github.com/v3/activity/events/types/)
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: OrganizationWebhookArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        This resource allows you to create and manage webhooks for GitHub organization.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        foo = github.OrganizationWebhook("foo",
+            active=False,
+            configuration=github.OrganizationWebhookConfigurationArgs(
+                content_type="form",
+                insecure_ssl=False,
+                url="https://google.de/",
+            ),
+            events=["issues"])
+        ```
+
+        ## Import
+
+        Organization webhooks can be imported using the `id` of the webhook. The `id` of the webhook can be found in the URL of the webhook. For example, `"https://github.com/organizations/foo-org/settings/hooks/123456789"`.
+
+        ```sh
+         $ pulumi import github:index/organizationWebhook:OrganizationWebhook terraform 123456789
+        ```
+
+         If secret is populated in the webhook's configuration, the value will be imported as "********".
+
+        :param str resource_name: The name of the resource.
+        :param OrganizationWebhookArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(OrganizationWebhookArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 active: Optional[pulumi.Input[bool]] = None,
+                 configuration: Optional[pulumi.Input[pulumi.InputType['OrganizationWebhookConfigurationArgs']]] = None,
+                 events: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

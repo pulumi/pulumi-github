@@ -5,13 +5,69 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities, _tables
 
-__all__ = ['TeamMembership']
+__all__ = ['TeamMembershipArgs', 'TeamMembership']
+
+@pulumi.input_type
+class TeamMembershipArgs:
+    def __init__(__self__, *,
+                 team_id: pulumi.Input[str],
+                 username: pulumi.Input[str],
+                 role: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a TeamMembership resource.
+        :param pulumi.Input[str] team_id: The GitHub team id
+        :param pulumi.Input[str] username: The user to add to the team.
+        :param pulumi.Input[str] role: The role of the user within the team.
+               Must be one of `member` or `maintainer`. Defaults to `member`.
+        """
+        pulumi.set(__self__, "team_id", team_id)
+        pulumi.set(__self__, "username", username)
+        if role is not None:
+            pulumi.set(__self__, "role", role)
+
+    @property
+    @pulumi.getter(name="teamId")
+    def team_id(self) -> pulumi.Input[str]:
+        """
+        The GitHub team id
+        """
+        return pulumi.get(self, "team_id")
+
+    @team_id.setter
+    def team_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "team_id", value)
+
+    @property
+    @pulumi.getter
+    def username(self) -> pulumi.Input[str]:
+        """
+        The user to add to the team.
+        """
+        return pulumi.get(self, "username")
+
+    @username.setter
+    def username(self, value: pulumi.Input[str]):
+        pulumi.set(self, "username", value)
+
+    @property
+    @pulumi.getter
+    def role(self) -> Optional[pulumi.Input[str]]:
+        """
+        The role of the user within the team.
+        Must be one of `member` or `maintainer`. Defaults to `member`.
+        """
+        return pulumi.get(self, "role")
+
+    @role.setter
+    def role(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "role", value)
 
 
 class TeamMembership(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -61,6 +117,66 @@ class TeamMembership(pulumi.CustomResource):
         :param pulumi.Input[str] team_id: The GitHub team id
         :param pulumi.Input[str] username: The user to add to the team.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: TeamMembershipArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides a GitHub team membership resource.
+
+        This resource allows you to add/remove users from teams in your organization. When applied,
+        the user will be added to the team. If the user hasn't accepted their invitation to the
+        organization, they won't be part of the team until they do. When
+        destroyed, the user will be removed from the team.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        # Add a user to the organization
+        membership_for_some_user = github.Membership("membershipForSomeUser",
+            role="member",
+            username="SomeUser")
+        some_team = github.Team("someTeam", description="Some cool team")
+        some_team_membership = github.TeamMembership("someTeamMembership",
+            role="member",
+            team_id=some_team.id,
+            username="SomeUser")
+        ```
+
+        ## Import
+
+        GitHub Team Membership can be imported using an ID made up of `teamid:username`, e.g.
+
+        ```sh
+         $ pulumi import github:index/teamMembership:TeamMembership member 1234567:someuser
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param TeamMembershipArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(TeamMembershipArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 role: Optional[pulumi.Input[str]] = None,
+                 team_id: Optional[pulumi.Input[str]] = None,
+                 username: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

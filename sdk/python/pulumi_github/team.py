@@ -5,13 +5,119 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities, _tables
 
-__all__ = ['Team']
+__all__ = ['TeamArgs', 'Team']
+
+@pulumi.input_type
+class TeamArgs:
+    def __init__(__self__, *,
+                 create_default_maintainer: Optional[pulumi.Input[bool]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 ldap_dn: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 parent_team_id: Optional[pulumi.Input[int]] = None,
+                 privacy: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a Team resource.
+        :param pulumi.Input[bool] create_default_maintainer: Adds a default maintainer to the team. Defaults to `true` and removes the default maintaner when `false`.
+        :param pulumi.Input[str] description: A description of the team.
+        :param pulumi.Input[str] ldap_dn: The LDAP Distinguished Name of the group where membership will be synchronized. Only available in GitHub Enterprise Server.
+        :param pulumi.Input[str] name: The name of the team.
+        :param pulumi.Input[int] parent_team_id: The ID of the parent team, if this is a nested team.
+        :param pulumi.Input[str] privacy: The level of privacy for the team. Must be one of `secret` or `closed`.
+               Defaults to `secret`.
+        """
+        if create_default_maintainer is not None:
+            pulumi.set(__self__, "create_default_maintainer", create_default_maintainer)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if ldap_dn is not None:
+            pulumi.set(__self__, "ldap_dn", ldap_dn)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if parent_team_id is not None:
+            pulumi.set(__self__, "parent_team_id", parent_team_id)
+        if privacy is not None:
+            pulumi.set(__self__, "privacy", privacy)
+
+    @property
+    @pulumi.getter(name="createDefaultMaintainer")
+    def create_default_maintainer(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Adds a default maintainer to the team. Defaults to `true` and removes the default maintaner when `false`.
+        """
+        return pulumi.get(self, "create_default_maintainer")
+
+    @create_default_maintainer.setter
+    def create_default_maintainer(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "create_default_maintainer", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A description of the team.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="ldapDn")
+    def ldap_dn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The LDAP Distinguished Name of the group where membership will be synchronized. Only available in GitHub Enterprise Server.
+        """
+        return pulumi.get(self, "ldap_dn")
+
+    @ldap_dn.setter
+    def ldap_dn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ldap_dn", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the team.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="parentTeamId")
+    def parent_team_id(self) -> Optional[pulumi.Input[int]]:
+        """
+        The ID of the parent team, if this is a nested team.
+        """
+        return pulumi.get(self, "parent_team_id")
+
+    @parent_team_id.setter
+    def parent_team_id(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "parent_team_id", value)
+
+    @property
+    @pulumi.getter
+    def privacy(self) -> Optional[pulumi.Input[str]]:
+        """
+        The level of privacy for the team. Must be one of `secret` or `closed`.
+        Defaults to `secret`.
+        """
+        return pulumi.get(self, "privacy")
+
+    @privacy.setter
+    def privacy(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "privacy", value)
 
 
 class Team(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -60,6 +166,62 @@ class Team(pulumi.CustomResource):
         :param pulumi.Input[str] privacy: The level of privacy for the team. Must be one of `secret` or `closed`.
                Defaults to `secret`.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: Optional[TeamArgs] = None,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides a GitHub team resource.
+
+        This resource allows you to add/remove teams from your organization. When applied,
+        a new team will be created. When destroyed, that team will be removed.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        # Add a team to the organization
+        some_team = github.Team("someTeam",
+            description="Some cool team",
+            privacy="closed")
+        ```
+
+        ## Import
+
+        GitHub Teams can be imported using the GitHub team ID e.g.
+
+        ```sh
+         $ pulumi import github:index/team:Team core 1234567
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param TeamArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(TeamArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 create_default_maintainer: Optional[pulumi.Input[bool]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 ldap_dn: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 parent_team_id: Optional[pulumi.Input[int]] = None,
+                 privacy: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

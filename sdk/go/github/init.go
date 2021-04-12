@@ -21,65 +21,66 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "github:index/actionsOrganizationSecret:ActionsOrganizationSecret":
-		r, err = NewActionsOrganizationSecret(ctx, name, nil, pulumi.URN_(urn))
+		r = &ActionsOrganizationSecret{}
 	case "github:index/actionsSecret:ActionsSecret":
-		r, err = NewActionsSecret(ctx, name, nil, pulumi.URN_(urn))
+		r = &ActionsSecret{}
 	case "github:index/appInstallationRepository:AppInstallationRepository":
-		r, err = NewAppInstallationRepository(ctx, name, nil, pulumi.URN_(urn))
+		r = &AppInstallationRepository{}
 	case "github:index/branch:Branch":
-		r, err = NewBranch(ctx, name, nil, pulumi.URN_(urn))
+		r = &Branch{}
 	case "github:index/branchDefault:BranchDefault":
-		r, err = NewBranchDefault(ctx, name, nil, pulumi.URN_(urn))
+		r = &BranchDefault{}
 	case "github:index/branchProtection:BranchProtection":
-		r, err = NewBranchProtection(ctx, name, nil, pulumi.URN_(urn))
+		r = &BranchProtection{}
 	case "github:index/branchProtectionV3:BranchProtectionV3":
-		r, err = NewBranchProtectionV3(ctx, name, nil, pulumi.URN_(urn))
+		r = &BranchProtectionV3{}
 	case "github:index/issueLabel:IssueLabel":
-		r, err = NewIssueLabel(ctx, name, nil, pulumi.URN_(urn))
+		r = &IssueLabel{}
 	case "github:index/membership:Membership":
-		r, err = NewMembership(ctx, name, nil, pulumi.URN_(urn))
+		r = &Membership{}
 	case "github:index/organizationBlock:OrganizationBlock":
-		r, err = NewOrganizationBlock(ctx, name, nil, pulumi.URN_(urn))
+		r = &OrganizationBlock{}
 	case "github:index/organizationProject:OrganizationProject":
-		r, err = NewOrganizationProject(ctx, name, nil, pulumi.URN_(urn))
+		r = &OrganizationProject{}
 	case "github:index/organizationWebhook:OrganizationWebhook":
-		r, err = NewOrganizationWebhook(ctx, name, nil, pulumi.URN_(urn))
+		r = &OrganizationWebhook{}
 	case "github:index/projectCard:ProjectCard":
-		r, err = NewProjectCard(ctx, name, nil, pulumi.URN_(urn))
+		r = &ProjectCard{}
 	case "github:index/projectColumn:ProjectColumn":
-		r, err = NewProjectColumn(ctx, name, nil, pulumi.URN_(urn))
+		r = &ProjectColumn{}
 	case "github:index/repository:Repository":
-		r, err = NewRepository(ctx, name, nil, pulumi.URN_(urn))
+		r = &Repository{}
 	case "github:index/repositoryCollaborator:RepositoryCollaborator":
-		r, err = NewRepositoryCollaborator(ctx, name, nil, pulumi.URN_(urn))
+		r = &RepositoryCollaborator{}
 	case "github:index/repositoryDeployKey:RepositoryDeployKey":
-		r, err = NewRepositoryDeployKey(ctx, name, nil, pulumi.URN_(urn))
+		r = &RepositoryDeployKey{}
 	case "github:index/repositoryFile:RepositoryFile":
-		r, err = NewRepositoryFile(ctx, name, nil, pulumi.URN_(urn))
+		r = &RepositoryFile{}
 	case "github:index/repositoryMilestone:RepositoryMilestone":
-		r, err = NewRepositoryMilestone(ctx, name, nil, pulumi.URN_(urn))
+		r = &RepositoryMilestone{}
 	case "github:index/repositoryProject:RepositoryProject":
-		r, err = NewRepositoryProject(ctx, name, nil, pulumi.URN_(urn))
+		r = &RepositoryProject{}
 	case "github:index/repositoryWebhook:RepositoryWebhook":
-		r, err = NewRepositoryWebhook(ctx, name, nil, pulumi.URN_(urn))
+		r = &RepositoryWebhook{}
 	case "github:index/team:Team":
-		r, err = NewTeam(ctx, name, nil, pulumi.URN_(urn))
+		r = &Team{}
 	case "github:index/teamMembership:TeamMembership":
-		r, err = NewTeamMembership(ctx, name, nil, pulumi.URN_(urn))
+		r = &TeamMembership{}
 	case "github:index/teamRepository:TeamRepository":
-		r, err = NewTeamRepository(ctx, name, nil, pulumi.URN_(urn))
+		r = &TeamRepository{}
 	case "github:index/teamSyncGroupMapping:TeamSyncGroupMapping":
-		r, err = NewTeamSyncGroupMapping(ctx, name, nil, pulumi.URN_(urn))
+		r = &TeamSyncGroupMapping{}
 	case "github:index/userGpgKey:UserGpgKey":
-		r, err = NewUserGpgKey(ctx, name, nil, pulumi.URN_(urn))
+		r = &UserGpgKey{}
 	case "github:index/userInvitationAccepter:UserInvitationAccepter":
-		r, err = NewUserInvitationAccepter(ctx, name, nil, pulumi.URN_(urn))
+		r = &UserInvitationAccepter{}
 	case "github:index/userSshKey:UserSshKey":
-		r, err = NewUserSshKey(ctx, name, nil, pulumi.URN_(urn))
+		r = &UserSshKey{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 
@@ -96,7 +97,9 @@ func (p *pkg) ConstructProvider(ctx *pulumi.Context, name, typ, urn string) (pul
 		return nil, fmt.Errorf("unknown provider type: %s", typ)
 	}
 
-	return NewProvider(ctx, name, nil, pulumi.URN_(urn))
+	r := &Provider{}
+	err := ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
+	return r, err
 }
 
 func init() {

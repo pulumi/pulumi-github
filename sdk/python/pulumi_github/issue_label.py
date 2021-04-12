@@ -5,13 +5,83 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities, _tables
 
-__all__ = ['IssueLabel']
+__all__ = ['IssueLabelArgs', 'IssueLabel']
+
+@pulumi.input_type
+class IssueLabelArgs:
+    def __init__(__self__, *,
+                 color: pulumi.Input[str],
+                 repository: pulumi.Input[str],
+                 description: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a IssueLabel resource.
+        :param pulumi.Input[str] color: A 6 character hex code, **without the leading #**, identifying the color of the label.
+        :param pulumi.Input[str] repository: The GitHub repository
+        :param pulumi.Input[str] description: A short description of the label.
+        :param pulumi.Input[str] name: The name of the label.
+        """
+        pulumi.set(__self__, "color", color)
+        pulumi.set(__self__, "repository", repository)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def color(self) -> pulumi.Input[str]:
+        """
+        A 6 character hex code, **without the leading #**, identifying the color of the label.
+        """
+        return pulumi.get(self, "color")
+
+    @color.setter
+    def color(self, value: pulumi.Input[str]):
+        pulumi.set(self, "color", value)
+
+    @property
+    @pulumi.getter
+    def repository(self) -> pulumi.Input[str]:
+        """
+        The GitHub repository
+        """
+        return pulumi.get(self, "repository")
+
+    @repository.setter
+    def repository(self, value: pulumi.Input[str]):
+        pulumi.set(self, "repository", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A short description of the label.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the label.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
 
 class IssueLabel(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -38,6 +108,43 @@ class IssueLabel(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the label.
         :param pulumi.Input[str] repository: The GitHub repository
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: IssueLabelArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        ## Import
+
+        GitHub Issue Labels can be imported using an ID made up of `repository:name`, e.g.
+
+        ```sh
+         $ pulumi import github:index/issueLabel:IssueLabel panic_label terraform:panic
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param IssueLabelArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(IssueLabelArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 color: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 repository: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

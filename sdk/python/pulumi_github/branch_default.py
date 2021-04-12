@@ -5,13 +5,51 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities, _tables
 
-__all__ = ['BranchDefault']
+__all__ = ['BranchDefaultArgs', 'BranchDefault']
+
+@pulumi.input_type
+class BranchDefaultArgs:
+    def __init__(__self__, *,
+                 branch: pulumi.Input[str],
+                 repository: pulumi.Input[str]):
+        """
+        The set of arguments for constructing a BranchDefault resource.
+        :param pulumi.Input[str] branch: The branch (e.g. `main`)
+        :param pulumi.Input[str] repository: The GitHub repository
+        """
+        pulumi.set(__self__, "branch", branch)
+        pulumi.set(__self__, "repository", repository)
+
+    @property
+    @pulumi.getter
+    def branch(self) -> pulumi.Input[str]:
+        """
+        The branch (e.g. `main`)
+        """
+        return pulumi.get(self, "branch")
+
+    @branch.setter
+    def branch(self, value: pulumi.Input[str]):
+        pulumi.set(self, "branch", value)
+
+    @property
+    @pulumi.getter
+    def repository(self) -> pulumi.Input[str]:
+        """
+        The GitHub repository
+        """
+        return pulumi.get(self, "repository")
+
+    @repository.setter
+    def repository(self, value: pulumi.Input[str]):
+        pulumi.set(self, "repository", value)
 
 
 class BranchDefault(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -57,6 +95,64 @@ class BranchDefault(pulumi.CustomResource):
         :param pulumi.Input[str] branch: The branch (e.g. `main`)
         :param pulumi.Input[str] repository: The GitHub repository
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: BranchDefaultArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides a GitHub branch default resource.
+
+        This resource allows you to set the default branch for a given repository.
+
+        Note that use of this resource is incompatible with the `default_branch` option of the `Repository` resource.  Using both will result in plans always showing a diff.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        example = github.Repository("example",
+            description="My awesome codebase",
+            auto_init=True)
+        development = github.Branch("development",
+            repository=example.name,
+            branch="development")
+        default = github.BranchDefault("default",
+            repository=example.name,
+            branch=development.branch)
+        ```
+
+        ## Import
+
+        GitHub Branch Defaults can be imported using an ID made up of `repository`, e.g.
+
+        ```sh
+         $ pulumi import github:index/branchDefault:BranchDefault branch_default my-repo
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param BranchDefaultArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(BranchDefaultArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 branch: Optional[pulumi.Input[str]] = None,
+                 repository: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

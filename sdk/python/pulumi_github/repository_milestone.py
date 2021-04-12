@@ -5,13 +5,114 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities, _tables
 
-__all__ = ['RepositoryMilestone']
+__all__ = ['RepositoryMilestoneArgs', 'RepositoryMilestone']
+
+@pulumi.input_type
+class RepositoryMilestoneArgs:
+    def __init__(__self__, *,
+                 owner: pulumi.Input[str],
+                 repository: pulumi.Input[str],
+                 title: pulumi.Input[str],
+                 description: Optional[pulumi.Input[str]] = None,
+                 due_date: Optional[pulumi.Input[str]] = None,
+                 state: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a RepositoryMilestone resource.
+        :param pulumi.Input[str] owner: The owner of the GitHub Repository.
+        :param pulumi.Input[str] repository: The name of the GitHub Repository.
+        :param pulumi.Input[str] title: The title of the milestone.
+        :param pulumi.Input[str] description: A description of the milestone.
+        :param pulumi.Input[str] due_date: The milestone due date. In `yyyy-mm-dd` format.
+        :param pulumi.Input[str] state: The state of the milestone. Either `open` or `closed`. Default: `open`
+        """
+        pulumi.set(__self__, "owner", owner)
+        pulumi.set(__self__, "repository", repository)
+        pulumi.set(__self__, "title", title)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if due_date is not None:
+            pulumi.set(__self__, "due_date", due_date)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+
+    @property
+    @pulumi.getter
+    def owner(self) -> pulumi.Input[str]:
+        """
+        The owner of the GitHub Repository.
+        """
+        return pulumi.get(self, "owner")
+
+    @owner.setter
+    def owner(self, value: pulumi.Input[str]):
+        pulumi.set(self, "owner", value)
+
+    @property
+    @pulumi.getter
+    def repository(self) -> pulumi.Input[str]:
+        """
+        The name of the GitHub Repository.
+        """
+        return pulumi.get(self, "repository")
+
+    @repository.setter
+    def repository(self, value: pulumi.Input[str]):
+        pulumi.set(self, "repository", value)
+
+    @property
+    @pulumi.getter
+    def title(self) -> pulumi.Input[str]:
+        """
+        The title of the milestone.
+        """
+        return pulumi.get(self, "title")
+
+    @title.setter
+    def title(self, value: pulumi.Input[str]):
+        pulumi.set(self, "title", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A description of the milestone.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="dueDate")
+    def due_date(self) -> Optional[pulumi.Input[str]]:
+        """
+        The milestone due date. In `yyyy-mm-dd` format.
+        """
+        return pulumi.get(self, "due_date")
+
+    @due_date.setter
+    def due_date(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "due_date", value)
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[pulumi.Input[str]]:
+        """
+        The state of the milestone. Either `open` or `closed`. Default: `open`
+        """
+        return pulumi.get(self, "state")
+
+    @state.setter
+    def state(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "state", value)
 
 
 class RepositoryMilestone(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -59,6 +160,62 @@ class RepositoryMilestone(pulumi.CustomResource):
         :param pulumi.Input[str] state: The state of the milestone. Either `open` or `closed`. Default: `open`
         :param pulumi.Input[str] title: The title of the milestone.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: RepositoryMilestoneArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides a GitHub repository milestone resource.
+
+        This resource allows you to create and manage milestones for a GitHub Repository within an organization or user account.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        # Create a milestone for a repository
+        example = github.RepositoryMilestone("example",
+            owner="example-owner",
+            repository="example-repository",
+            title="v1.1.0")
+        ```
+
+        ## Import
+
+        A GitHub Repository Milestone can be imported using an ID made up of `owner/repository/number`, e.g.
+
+        ```sh
+         $ pulumi import github:index/repositoryMilestone:RepositoryMilestone example example-owner/example-repository/1
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param RepositoryMilestoneArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(RepositoryMilestoneArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 due_date: Optional[pulumi.Input[str]] = None,
+                 owner: Optional[pulumi.Input[str]] = None,
+                 repository: Optional[pulumi.Input[str]] = None,
+                 state: Optional[pulumi.Input[str]] = None,
+                 title: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

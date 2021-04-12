@@ -5,15 +5,56 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['TeamSyncGroupMapping']
+__all__ = ['TeamSyncGroupMappingArgs', 'TeamSyncGroupMapping']
+
+@pulumi.input_type
+class TeamSyncGroupMappingArgs:
+    def __init__(__self__, *,
+                 team_slug: pulumi.Input[str],
+                 groups: Optional[pulumi.Input[Sequence[pulumi.Input['TeamSyncGroupMappingGroupArgs']]]] = None):
+        """
+        The set of arguments for constructing a TeamSyncGroupMapping resource.
+        :param pulumi.Input[str] team_slug: Slug of the team
+        :param pulumi.Input[Sequence[pulumi.Input['TeamSyncGroupMappingGroupArgs']]] groups: An Array of GitHub Identity Provider Groups (or empty []).  Each `group` block consists of the fields documented below.
+               ___
+        """
+        pulumi.set(__self__, "team_slug", team_slug)
+        if groups is not None:
+            pulumi.set(__self__, "groups", groups)
+
+    @property
+    @pulumi.getter(name="teamSlug")
+    def team_slug(self) -> pulumi.Input[str]:
+        """
+        Slug of the team
+        """
+        return pulumi.get(self, "team_slug")
+
+    @team_slug.setter
+    def team_slug(self, value: pulumi.Input[str]):
+        pulumi.set(self, "team_slug", value)
+
+    @property
+    @pulumi.getter
+    def groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TeamSyncGroupMappingGroupArgs']]]]:
+        """
+        An Array of GitHub Identity Provider Groups (or empty []).  Each `group` block consists of the fields documented below.
+        ___
+        """
+        return pulumi.get(self, "groups")
+
+    @groups.setter
+    def groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TeamSyncGroupMappingGroupArgs']]]]):
+        pulumi.set(self, "groups", value)
 
 
 class TeamSyncGroupMapping(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -43,6 +84,47 @@ class TeamSyncGroupMapping(pulumi.CustomResource):
                ___
         :param pulumi.Input[str] team_slug: Slug of the team
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: TeamSyncGroupMappingArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        This resource allows you to create and manage Identity Provider (IdP) group connections within your GitHub teams.
+        You must have team synchronization enabled for organizations owned by enterprise accounts.
+
+        To learn more about team synchronization between IdPs and GitHub, please refer to:
+        https://help.github.com/en/github/setting-up-and-managing-organizations-and-teams/synchronizing-teams-between-your-identity-provider-and-github
+
+        ## Import
+
+        GitHub Team Sync Group Mappings can be imported using the GitHub team `slug` e.g.
+
+        ```sh
+         $ pulumi import github:index/teamSyncGroupMapping:TeamSyncGroupMapping example some_team
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param TeamSyncGroupMappingArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(TeamSyncGroupMappingArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 groups: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TeamSyncGroupMappingGroupArgs']]]]] = None,
+                 team_slug: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
