@@ -18,17 +18,17 @@ import * as utilities from "./utilities";
  * const repo = new github.Repository("repo", {
  *     description: "Terraform acceptance tests",
  *     homepageUrl: "http://example.com/",
- *     private: false,
+ *     "private": false,
  * });
  * const foo = new github.RepositoryWebhook("foo", {
- *     active: false,
+ *     repository: repo.name,
  *     configuration: {
+ *         url: "https://google.de/",
  *         contentType: "form",
  *         insecureSsl: false,
- *         url: "https://google.de/",
  *     },
+ *     active: false,
  *     events: ["issues"],
- *     repository: repo.name,
  * });
  * ```
  *

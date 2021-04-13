@@ -22,14 +22,12 @@ import * as utilities from "./utilities";
  * import * as github from "@pulumi/github";
  *
  * // Add a repository to the team
- * const someTeam = new github.Team("some_team", {
- *     description: "Some cool team",
- * });
- * const someRepo = new github.Repository("some_repo", {});
- * const someTeamRepo = new github.TeamRepository("some_team_repo", {
- *     permission: "pull",
- *     repository: someRepo.name,
+ * const someTeam = new github.Team("someTeam", {description: "Some cool team"});
+ * const someRepo = new github.Repository("someRepo", {});
+ * const someTeamRepo = new github.TeamRepository("someTeamRepo", {
  *     teamId: someTeam.id,
+ *     repository: someRepo.name,
+ *     permission: "pull",
  * });
  * ```
  *

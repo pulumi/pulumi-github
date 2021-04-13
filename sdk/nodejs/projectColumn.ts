@@ -13,12 +13,8 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
  *
- * const project = new github.OrganizationProject("project", {
- *     body: "This is an organization project.",
- * });
- * const column = new github.ProjectColumn("column", {
- *     projectId: project.id,
- * });
+ * const project = new github.OrganizationProject("project", {body: "This is an organization project."});
+ * const column = new github.ProjectColumn("column", {projectId: project.id});
  * ```
  */
 export class ProjectColumn extends pulumi.CustomResource {

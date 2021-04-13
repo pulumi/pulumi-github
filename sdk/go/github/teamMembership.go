@@ -31,8 +31,8 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := github.NewMembership(ctx, "membershipForSomeUser", &github.MembershipArgs{
-// 			Role:     pulumi.String("member"),
 // 			Username: pulumi.String("SomeUser"),
+// 			Role:     pulumi.String("member"),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -44,9 +44,9 @@ import (
 // 			return err
 // 		}
 // 		_, err = github.NewTeamMembership(ctx, "someTeamMembership", &github.TeamMembershipArgs{
-// 			Role:     pulumi.String("member"),
 // 			TeamId:   someTeam.ID(),
 // 			Username: pulumi.String("SomeUser"),
+// 			Role:     pulumi.String("member"),
 // 		})
 // 		if err != nil {
 // 			return err

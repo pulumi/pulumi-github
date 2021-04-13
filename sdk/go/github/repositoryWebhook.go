@@ -35,16 +35,16 @@ import (
 // 			return err
 // 		}
 // 		_, err = github.NewRepositoryWebhook(ctx, "foo", &github.RepositoryWebhookArgs{
-// 			Active: pulumi.Bool(false),
+// 			Repository: repo.Name,
 // 			Configuration: &github.RepositoryWebhookConfigurationArgs{
+// 				Url:         pulumi.String("https://google.de/"),
 // 				ContentType: pulumi.String("form"),
 // 				InsecureSsl: pulumi.Bool(false),
-// 				Url:         pulumi.String("https://google.de/"),
 // 			},
+// 			Active: pulumi.Bool(false),
 // 			Events: pulumi.StringArray{
 // 				pulumi.String("issues"),
 // 			},
-// 			Repository: repo.Name,
 // 		})
 // 		if err != nil {
 // 			return err

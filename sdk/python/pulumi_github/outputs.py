@@ -23,6 +23,7 @@ __all__ = [
     'TeamSyncGroupMappingGroup',
     'GetCollaboratorsCollaboratorResult',
     'GetOrganizationTeamSyncGroupsGroupResult',
+    'GetOrganizationTeamsTeamResult',
     'GetRepositoryPageResult',
     'GetRepositoryPageSourceResult',
 ]
@@ -697,6 +698,90 @@ class GetOrganizationTeamSyncGroupsGroupResult(dict):
         The name of the IdP group.
         """
         return pulumi.get(self, "group_name")
+
+
+@pulumi.output_type
+class GetOrganizationTeamsTeamResult(dict):
+    def __init__(__self__, *,
+                 description: str,
+                 id: int,
+                 members: Sequence[str],
+                 name: str,
+                 node_id: str,
+                 privacy: str,
+                 slug: str):
+        """
+        :param str description: the team's description.
+        :param int id: the ID of the team.
+        :param Sequence[str] members: List of team members.
+        :param str name: the team's full name.
+        :param str node_id: the Node ID of the team.
+        :param str privacy: the team's privacy type.
+        :param str slug: the slug of the team.
+        """
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "members", members)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "node_id", node_id)
+        pulumi.set(__self__, "privacy", privacy)
+        pulumi.set(__self__, "slug", slug)
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        """
+        the team's description.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def id(self) -> int:
+        """
+        the ID of the team.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def members(self) -> Sequence[str]:
+        """
+        List of team members.
+        """
+        return pulumi.get(self, "members")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        the team's full name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="nodeId")
+    def node_id(self) -> str:
+        """
+        the Node ID of the team.
+        """
+        return pulumi.get(self, "node_id")
+
+    @property
+    @pulumi.getter
+    def privacy(self) -> str:
+        """
+        the team's privacy type.
+        """
+        return pulumi.get(self, "privacy")
+
+    @property
+    @pulumi.getter
+    def slug(self) -> str:
+        """
+        the slug of the team.
+        """
+        return pulumi.get(self, "slug")
 
 
 @pulumi.output_type

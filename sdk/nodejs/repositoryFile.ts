@@ -103,7 +103,7 @@ export class RepositoryFile extends pulumi.CustomResource {
      */
     public readonly overwriteOnCreate!: pulumi.Output<boolean | undefined>;
     /**
-     * The repository name
+     * The repository to create the file in.
      */
     public readonly repository!: pulumi.Output<string>;
     /**
@@ -201,7 +201,7 @@ export interface RepositoryFileState {
      */
     readonly overwriteOnCreate?: pulumi.Input<boolean>;
     /**
-     * The repository name
+     * The repository to create the file in.
      */
     readonly repository?: pulumi.Input<string>;
     /**
@@ -244,7 +244,7 @@ export interface RepositoryFileArgs {
      */
     readonly overwriteOnCreate?: pulumi.Input<boolean>;
     /**
-     * The repository name
+     * The repository to create the file in.
      */
     readonly repository: pulumi.Input<string>;
 }

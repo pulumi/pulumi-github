@@ -29,8 +29,8 @@ namespace Pulumi.Github
     ///         // Protect the main branch of the foo repository. Only allow a specific user to merge to the branch.
     ///         var example = new Github.BranchProtectionV3("example", new Github.BranchProtectionV3Args
     ///         {
-    ///             Branch = "main",
     ///             Repository = github_repository.Example.Name,
+    ///             Branch = "main",
     ///             Restrictions = new Github.Inputs.BranchProtectionV3RestrictionsArgs
     ///             {
     ///                 Users = 
@@ -52,56 +52,61 @@ namespace Pulumi.Github
     /// {
     ///     public MyStack()
     ///     {
+    ///         var exampleRepository = new Github.Repository("exampleRepository", new Github.RepositoryArgs
+    ///         {
+    ///         });
     ///         var exampleTeam = new Github.Team("exampleTeam", new Github.TeamArgs
     ///         {
     ///         });
+    ///         // Protect the main branch of the foo repository. Additionally, require that
+    ///         // the "ci/travis" context to be passing and only allow the engineers team merge
+    ///         // to the branch.
     ///         var exampleBranchProtectionV3 = new Github.BranchProtectionV3("exampleBranchProtectionV3", new Github.BranchProtectionV3Args
     ///         {
+    ///             Repository = exampleRepository.Name,
     ///             Branch = "main",
     ///             EnforceAdmins = true,
-    ///             Repository = github_repository.Example.Name,
-    ///             RequiredPullRequestReviews = new Github.Inputs.BranchProtectionV3RequiredPullRequestReviewsArgs
-    ///             {
-    ///                 DismissStaleReviews = true,
-    ///                 DismissalTeams = 
-    ///                 {
-    ///                     exampleTeam.Slug,
-    ///                     github_team.Second.Slug,
-    ///                 },
-    ///                 DismissalUsers = 
-    ///                 {
-    ///                     "foo-user",
-    ///                 },
-    ///             },
     ///             RequiredStatusChecks = new Github.Inputs.BranchProtectionV3RequiredStatusChecksArgs
     ///             {
+    ///                 Strict = false,
     ///                 Contexts = 
     ///                 {
     ///                     "ci/travis",
     ///                 },
-    ///                 Strict = false,
+    ///             },
+    ///             RequiredPullRequestReviews = new Github.Inputs.BranchProtectionV3RequiredPullRequestReviewsArgs
+    ///             {
+    ///                 DismissStaleReviews = true,
+    ///                 DismissalUsers = 
+    ///                 {
+    ///                     "foo-user",
+    ///                 },
+    ///                 DismissalTeams = 
+    ///                 {
+    ///                     exampleTeam.Slug,
+    ///                 },
     ///             },
     ///             Restrictions = new Github.Inputs.BranchProtectionV3RestrictionsArgs
     ///             {
-    ///                 Apps = 
+    ///                 Users = 
     ///                 {
-    ///                     "foo-app",
+    ///                     "foo-user",
     ///                 },
     ///                 Teams = 
     ///                 {
     ///                     exampleTeam.Slug,
     ///                 },
-    ///                 Users = 
+    ///                 Apps = 
     ///                 {
-    ///                     "foo-user",
+    ///                     "foo-app",
     ///                 },
     ///             },
     ///         });
     ///         var exampleTeamRepository = new Github.TeamRepository("exampleTeamRepository", new Github.TeamRepositoryArgs
     ///         {
-    ///             Permission = "pull",
-    ///             Repository = github_repository.Example.Name,
     ///             TeamId = exampleTeam.Id,
+    ///             Repository = exampleRepository.Name,
+    ///             Permission = "pull",
     ///         });
     ///     }
     /// 

@@ -98,9 +98,9 @@ class TeamRepository(pulumi.CustomResource):
         some_team = github.Team("someTeam", description="Some cool team")
         some_repo = github.Repository("someRepo")
         some_team_repo = github.TeamRepository("someTeamRepo",
-            permission="pull",
+            team_id=some_team.id,
             repository=some_repo.name,
-            team_id=some_team.id)
+            permission="pull")
         ```
 
         ## Import
@@ -145,9 +145,9 @@ class TeamRepository(pulumi.CustomResource):
         some_team = github.Team("someTeam", description="Some cool team")
         some_repo = github.Repository("someRepo")
         some_team_repo = github.TeamRepository("someTeamRepo",
-            permission="pull",
+            team_id=some_team.id,
             repository=some_repo.name,
-            team_id=some_team.id)
+            permission="pull")
         ```
 
         ## Import

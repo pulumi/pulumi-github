@@ -44,9 +44,9 @@ import (
 // 			return err
 // 		}
 // 		_, err = github.NewTeamRepository(ctx, "someTeamRepo", &github.TeamRepositoryArgs{
-// 			Permission: pulumi.String("pull"),
-// 			Repository: someRepo.Name,
 // 			TeamId:     someTeam.ID(),
+// 			Repository: someRepo.Name,
+// 			Permission: pulumi.String("pull"),
 // 		})
 // 		if err != nil {
 // 			return err

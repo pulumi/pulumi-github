@@ -31,9 +31,9 @@ import (
 // 			return err
 // 		}
 // 		exampleRepositoryCollaborator, err := github.NewRepositoryCollaborator(ctx, "exampleRepositoryCollaborator", &github.RepositoryCollaboratorArgs{
-// 			Permission: pulumi.String("push"),
 // 			Repository: exampleRepository.Name,
 // 			Username:   pulumi.String("example-username"),
+// 			Permission: pulumi.String("push"),
 // 		})
 // 		if err != nil {
 // 			return err

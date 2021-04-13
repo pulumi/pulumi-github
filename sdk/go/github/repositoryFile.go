@@ -83,7 +83,7 @@ type RepositoryFile struct {
 	File pulumi.StringOutput `pulumi:"file"`
 	// Enable overwriting existing files
 	OverwriteOnCreate pulumi.BoolPtrOutput `pulumi:"overwriteOnCreate"`
-	// The repository name
+	// The repository to create the file in.
 	Repository pulumi.StringOutput `pulumi:"repository"`
 	// The SHA blob of the file.
 	Sha pulumi.StringOutput `pulumi:"sha"`
@@ -144,7 +144,7 @@ type repositoryFileState struct {
 	File *string `pulumi:"file"`
 	// Enable overwriting existing files
 	OverwriteOnCreate *bool `pulumi:"overwriteOnCreate"`
-	// The repository name
+	// The repository to create the file in.
 	Repository *string `pulumi:"repository"`
 	// The SHA blob of the file.
 	Sha *string `pulumi:"sha"`
@@ -168,7 +168,7 @@ type RepositoryFileState struct {
 	File pulumi.StringPtrInput
 	// Enable overwriting existing files
 	OverwriteOnCreate pulumi.BoolPtrInput
-	// The repository name
+	// The repository to create the file in.
 	Repository pulumi.StringPtrInput
 	// The SHA blob of the file.
 	Sha pulumi.StringPtrInput
@@ -194,7 +194,7 @@ type repositoryFileArgs struct {
 	File string `pulumi:"file"`
 	// Enable overwriting existing files
 	OverwriteOnCreate *bool `pulumi:"overwriteOnCreate"`
-	// The repository name
+	// The repository to create the file in.
 	Repository string `pulumi:"repository"`
 }
 
@@ -215,7 +215,7 @@ type RepositoryFileArgs struct {
 	File pulumi.StringInput
 	// Enable overwriting existing files
 	OverwriteOnCreate pulumi.BoolPtrInput
-	// The repository name
+	// The repository to create the file in.
 	Repository pulumi.StringInput
 }
 

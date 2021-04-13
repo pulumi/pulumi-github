@@ -70,8 +70,8 @@ class UserSshKey(pulumi.CustomResource):
         import pulumi_github as github
 
         example = github.UserSshKey("example",
-            key=(lambda path: open(path).read())("~/.ssh/id_rsa.pub"),
-            title="example title")
+            title="example title",
+            key=(lambda path: open(path).read())("~/.ssh/id_rsa.pub"))
         ```
 
         ## Import
@@ -105,8 +105,8 @@ class UserSshKey(pulumi.CustomResource):
         import pulumi_github as github
 
         example = github.UserSshKey("example",
-            key=(lambda path: open(path).read())("~/.ssh/id_rsa.pub"),
-            title="example title")
+            title="example title",
+            key=(lambda path: open(path).read())("~/.ssh/id_rsa.pub"))
         ```
 
         ## Import

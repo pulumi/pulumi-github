@@ -42,6 +42,8 @@ type providerArgs struct {
 	// Enable `insecure` mode for testing purposes
 	Insecure *bool `pulumi:"insecure"`
 	// The GitHub organization name to manage. Use this field instead of `owner` when managing organization accounts.
+	//
+	// Deprecated: Use owner (or GITHUB_OWNER) instead of organization (or GITHUB_ORGANIZATION)
 	Organization *string `pulumi:"organization"`
 	// The GitHub owner name to manage. Use this field instead of `organization` when managing individual accounts.
 	Owner *string `pulumi:"owner"`
@@ -56,6 +58,8 @@ type ProviderArgs struct {
 	// Enable `insecure` mode for testing purposes
 	Insecure pulumi.BoolPtrInput
 	// The GitHub organization name to manage. Use this field instead of `owner` when managing organization accounts.
+	//
+	// Deprecated: Use owner (or GITHUB_OWNER) instead of organization (or GITHUB_ORGANIZATION)
 	Organization pulumi.StringPtrInput
 	// The GitHub owner name to manage. Use this field instead of `organization` when managing individual accounts.
 	Owner pulumi.StringPtrInput

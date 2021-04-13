@@ -29,6 +29,7 @@
         "getMembership.ts",
         "getOrganization.ts",
         "getOrganizationTeamSyncGroups.ts",
+        "getOrganizationTeams.ts",
         "getRelease.ts",
         "getRepositories.ts",
         "getRepository.ts",

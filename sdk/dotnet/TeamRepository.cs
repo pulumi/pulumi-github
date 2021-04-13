@@ -40,9 +40,9 @@ namespace Pulumi.Github
     ///         });
     ///         var someTeamRepo = new Github.TeamRepository("someTeamRepo", new Github.TeamRepositoryArgs
     ///         {
-    ///             Permission = "pull",
-    ///             Repository = someRepo.Name,
     ///             TeamId = someTeam.Id,
+    ///             Repository = someRepo.Name,
+    ///             Permission = "pull",
     ///         });
     ///     }
     /// 

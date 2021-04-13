@@ -23,6 +23,8 @@ func GetInsecure(ctx *pulumi.Context) bool {
 }
 
 // The GitHub organization name to manage. Use this field instead of `owner` when managing organization accounts.
+//
+// Deprecated: Use owner (or GITHUB_OWNER) instead of organization (or GITHUB_ORGANIZATION)
 func GetOrganization(ctx *pulumi.Context) string {
 	return config.Get(ctx, "github:organization")
 }

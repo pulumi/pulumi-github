@@ -33,6 +33,9 @@ class ProviderArgs:
         if insecure is not None:
             pulumi.set(__self__, "insecure", insecure)
         if organization is not None:
+            warnings.warn("""Use owner (or GITHUB_OWNER) instead of organization (or GITHUB_ORGANIZATION)""", DeprecationWarning)
+            pulumi.log.warn("""organization is deprecated: Use owner (or GITHUB_OWNER) instead of organization (or GITHUB_ORGANIZATION)""")
+        if organization is not None:
             pulumi.set(__self__, "organization", organization)
         if owner is not None:
             pulumi.set(__self__, "owner", owner)
@@ -183,6 +186,9 @@ class Provider(pulumi.ProviderResource):
                 base_url = (_utilities.get_env('GITHUB_BASE_URL') or 'https://api.github.com/')
             __props__['base_url'] = base_url
             __props__['insecure'] = pulumi.Output.from_input(insecure).apply(pulumi.runtime.to_json) if insecure is not None else None
+            if organization is not None and not opts.urn:
+                warnings.warn("""Use owner (or GITHUB_OWNER) instead of organization (or GITHUB_ORGANIZATION)""", DeprecationWarning)
+                pulumi.log.warn("""organization is deprecated: Use owner (or GITHUB_OWNER) instead of organization (or GITHUB_ORGANIZATION)""")
             __props__['organization'] = organization
             __props__['owner'] = owner
             __props__['token'] = token

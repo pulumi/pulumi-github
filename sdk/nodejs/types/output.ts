@@ -125,6 +125,37 @@ export interface GetOrganizationTeamSyncGroupsGroup {
     groupName: string;
 }
 
+export interface GetOrganizationTeamsTeam {
+    /**
+     * the team's description.
+     */
+    description: string;
+    /**
+     * the ID of the team.
+     */
+    id: number;
+    /**
+     * List of team members.
+     */
+    members: string[];
+    /**
+     * the team's full name.
+     */
+    name: string;
+    /**
+     * the Node ID of the team.
+     */
+    nodeId: string;
+    /**
+     * the team's privacy type.
+     */
+    privacy: string;
+    /**
+     * the slug of the team.
+     */
+    slug: string;
+}
+
 export interface GetRepositoryPage {
     cname: string;
     custom404: boolean;

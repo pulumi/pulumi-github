@@ -25,7 +25,7 @@ class RepositoryFileArgs:
         The set of arguments for constructing a RepositoryFile resource.
         :param pulumi.Input[str] content: The file content.
         :param pulumi.Input[str] file: The path of the file to manage.
-        :param pulumi.Input[str] repository: The repository name
+        :param pulumi.Input[str] repository: The repository to create the file in.
         :param pulumi.Input[str] branch: Git branch (defaults to `main`).
                The branch must already exist, it will not be created if it does not already exist.
         :param pulumi.Input[str] commit_author: Committer author name to use.
@@ -75,7 +75,7 @@ class RepositoryFileArgs:
     @pulumi.getter
     def repository(self) -> pulumi.Input[str]:
         """
-        The repository name
+        The repository to create the file in.
         """
         return pulumi.get(self, "repository")
 
@@ -207,7 +207,7 @@ class RepositoryFile(pulumi.CustomResource):
         :param pulumi.Input[str] content: The file content.
         :param pulumi.Input[str] file: The path of the file to manage.
         :param pulumi.Input[bool] overwrite_on_create: Enable overwriting existing files
-        :param pulumi.Input[str] repository: The repository name
+        :param pulumi.Input[str] repository: The repository to create the file in.
         """
         ...
     @overload
@@ -346,7 +346,7 @@ class RepositoryFile(pulumi.CustomResource):
         :param pulumi.Input[str] content: The file content.
         :param pulumi.Input[str] file: The path of the file to manage.
         :param pulumi.Input[bool] overwrite_on_create: Enable overwriting existing files
-        :param pulumi.Input[str] repository: The repository name
+        :param pulumi.Input[str] repository: The repository to create the file in.
         :param pulumi.Input[str] sha: The SHA blob of the file.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -434,7 +434,7 @@ class RepositoryFile(pulumi.CustomResource):
     @pulumi.getter
     def repository(self) -> pulumi.Output[str]:
         """
-        The repository name
+        The repository to create the file in.
         """
         return pulumi.get(self, "repository")
 

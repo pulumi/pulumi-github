@@ -109,14 +109,14 @@ class RepositoryWebhook(pulumi.CustomResource):
             homepage_url="http://example.com/",
             private=False)
         foo = github.RepositoryWebhook("foo",
-            active=False,
+            repository=repo.name,
             configuration=github.RepositoryWebhookConfigurationArgs(
+                url="https://google.de/",
                 content_type="form",
                 insecure_ssl=False,
-                url="https://google.de/",
             ),
-            events=["issues"],
-            repository=repo.name)
+            active=False,
+            events=["issues"])
         ```
 
         ## Import
@@ -157,14 +157,14 @@ class RepositoryWebhook(pulumi.CustomResource):
             homepage_url="http://example.com/",
             private=False)
         foo = github.RepositoryWebhook("foo",
-            active=False,
+            repository=repo.name,
             configuration=github.RepositoryWebhookConfigurationArgs(
+                url="https://google.de/",
                 content_type="form",
                 insecure_ssl=False,
-                url="https://google.de/",
             ),
-            events=["issues"],
-            repository=repo.name)
+            active=False,
+            events=["issues"])
         ```
 
         ## Import
