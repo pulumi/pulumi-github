@@ -31,18 +31,18 @@ namespace Pulumi.Github
     ///         });
     ///         var foo = new Github.RepositoryWebhook("foo", new Github.RepositoryWebhookArgs
     ///         {
-    ///             Active = false,
+    ///             Repository = repo.Name,
     ///             Configuration = new Github.Inputs.RepositoryWebhookConfigurationArgs
     ///             {
+    ///                 Url = "https://google.de/",
     ///                 ContentType = "form",
     ///                 InsecureSsl = false,
-    ///                 Url = "https://google.de/",
     ///             },
+    ///             Active = false,
     ///             Events = 
     ///             {
     ///                 "issues",
     ///             },
-    ///             Repository = repo.Name,
     ///         });
     ///     }
     /// 

@@ -64,6 +64,8 @@ export interface ProviderArgs {
     readonly insecure?: pulumi.Input<boolean>;
     /**
      * The GitHub organization name to manage. Use this field instead of `owner` when managing organization accounts.
+     *
+     * @deprecated Use owner (or GITHUB_OWNER) instead of organization (or GITHUB_ORGANIZATION)
      */
     readonly organization?: pulumi.Input<string>;
     /**

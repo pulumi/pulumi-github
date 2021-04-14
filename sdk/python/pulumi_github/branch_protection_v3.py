@@ -160,8 +160,8 @@ class BranchProtectionV3(pulumi.CustomResource):
 
         # Protect the main branch of the foo repository. Only allow a specific user to merge to the branch.
         example = github.BranchProtectionV3("example",
-            branch="main",
             repository=github_repository["example"]["name"],
+            branch="main",
             restrictions=github.BranchProtectionV3RestrictionsArgs(
                 users=["foo-user"],
             ))
@@ -171,32 +171,33 @@ class BranchProtectionV3(pulumi.CustomResource):
         import pulumi
         import pulumi_github as github
 
+        example_repository = github.Repository("exampleRepository")
         example_team = github.Team("exampleTeam")
+        # Protect the main branch of the foo repository. Additionally, require that
+        # the "ci/travis" context to be passing and only allow the engineers team merge
+        # to the branch.
         example_branch_protection_v3 = github.BranchProtectionV3("exampleBranchProtectionV3",
+            repository=example_repository.name,
             branch="main",
             enforce_admins=True,
-            repository=github_repository["example"]["name"],
+            required_status_checks=github.BranchProtectionV3RequiredStatusChecksArgs(
+                strict=False,
+                contexts=["ci/travis"],
+            ),
             required_pull_request_reviews=github.BranchProtectionV3RequiredPullRequestReviewsArgs(
                 dismiss_stale_reviews=True,
-                dismissal_teams=[
-                    example_team.slug,
-                    github_team["second"]["slug"],
-                ],
                 dismissal_users=["foo-user"],
-            ),
-            required_status_checks=github.BranchProtectionV3RequiredStatusChecksArgs(
-                contexts=["ci/travis"],
-                strict=False,
+                dismissal_teams=[example_team.slug],
             ),
             restrictions=github.BranchProtectionV3RestrictionsArgs(
-                apps=["foo-app"],
-                teams=[example_team.slug],
                 users=["foo-user"],
+                teams=[example_team.slug],
+                apps=["foo-app"],
             ))
         example_team_repository = github.TeamRepository("exampleTeamRepository",
-            permission="pull",
-            repository=github_repository["example"]["name"],
-            team_id=example_team.id)
+            team_id=example_team.id,
+            repository=example_repository.name,
+            permission="pull")
         ```
 
         ## Import
@@ -238,8 +239,8 @@ class BranchProtectionV3(pulumi.CustomResource):
 
         # Protect the main branch of the foo repository. Only allow a specific user to merge to the branch.
         example = github.BranchProtectionV3("example",
-            branch="main",
             repository=github_repository["example"]["name"],
+            branch="main",
             restrictions=github.BranchProtectionV3RestrictionsArgs(
                 users=["foo-user"],
             ))
@@ -249,32 +250,33 @@ class BranchProtectionV3(pulumi.CustomResource):
         import pulumi
         import pulumi_github as github
 
+        example_repository = github.Repository("exampleRepository")
         example_team = github.Team("exampleTeam")
+        # Protect the main branch of the foo repository. Additionally, require that
+        # the "ci/travis" context to be passing and only allow the engineers team merge
+        # to the branch.
         example_branch_protection_v3 = github.BranchProtectionV3("exampleBranchProtectionV3",
+            repository=example_repository.name,
             branch="main",
             enforce_admins=True,
-            repository=github_repository["example"]["name"],
+            required_status_checks=github.BranchProtectionV3RequiredStatusChecksArgs(
+                strict=False,
+                contexts=["ci/travis"],
+            ),
             required_pull_request_reviews=github.BranchProtectionV3RequiredPullRequestReviewsArgs(
                 dismiss_stale_reviews=True,
-                dismissal_teams=[
-                    example_team.slug,
-                    github_team["second"]["slug"],
-                ],
                 dismissal_users=["foo-user"],
-            ),
-            required_status_checks=github.BranchProtectionV3RequiredStatusChecksArgs(
-                contexts=["ci/travis"],
-                strict=False,
+                dismissal_teams=[example_team.slug],
             ),
             restrictions=github.BranchProtectionV3RestrictionsArgs(
-                apps=["foo-app"],
-                teams=[example_team.slug],
                 users=["foo-user"],
+                teams=[example_team.slug],
+                apps=["foo-app"],
             ))
         example_team_repository = github.TeamRepository("exampleTeamRepository",
-            permission="pull",
-            repository=github_repository["example"]["name"],
-            team_id=example_team.id)
+            team_id=example_team.id,
+            repository=example_repository.name,
+            permission="pull")
         ```
 
         ## Import

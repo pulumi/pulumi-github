@@ -20,8 +20,8 @@ import * as utilities from "./utilities";
  *
  * // Protect the main branch of the foo repository. Only allow a specific user to merge to the branch.
  * const example = new github.BranchProtectionV3("example", {
+ *     repository: github_repository.example.name,
  *     branch: "main",
- *     repository: github_repository_example.name,
  *     restrictions: {
  *         users: ["foo-user"],
  *     },
@@ -32,33 +32,34 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
  *
- * const exampleTeam = new github.Team("example", {});
- * const exampleBranchProtectionV3 = new github.BranchProtectionV3("example", {
+ * const exampleRepository = new github.Repository("exampleRepository", {});
+ * const exampleTeam = new github.Team("exampleTeam", {});
+ * // Protect the main branch of the foo repository. Additionally, require that
+ * // the "ci/travis" context to be passing and only allow the engineers team merge
+ * // to the branch.
+ * const exampleBranchProtectionV3 = new github.BranchProtectionV3("exampleBranchProtectionV3", {
+ *     repository: exampleRepository.name,
  *     branch: "main",
  *     enforceAdmins: true,
- *     repository: github_repository_example.name,
+ *     requiredStatusChecks: {
+ *         strict: false,
+ *         contexts: ["ci/travis"],
+ *     },
  *     requiredPullRequestReviews: {
  *         dismissStaleReviews: true,
- *         dismissalTeams: [
- *             exampleTeam.slug,
- *             github_team_second.slug,
- *         ],
  *         dismissalUsers: ["foo-user"],
- *     },
- *     requiredStatusChecks: {
- *         contexts: ["ci/travis"],
- *         strict: false,
+ *         dismissalTeams: [exampleTeam.slug],
  *     },
  *     restrictions: {
- *         apps: ["foo-app"],
- *         teams: [exampleTeam.slug],
  *         users: ["foo-user"],
+ *         teams: [exampleTeam.slug],
+ *         apps: ["foo-app"],
  *     },
  * });
- * const exampleTeamRepository = new github.TeamRepository("example", {
- *     permission: "pull",
- *     repository: github_repository_example.name,
+ * const exampleTeamRepository = new github.TeamRepository("exampleTeamRepository", {
  *     teamId: exampleTeam.id,
+ *     repository: exampleRepository.name,
+ *     permission: "pull",
  * });
  * ```
  *

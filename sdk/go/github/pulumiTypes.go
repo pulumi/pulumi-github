@@ -2070,6 +2070,157 @@ func (o GetOrganizationTeamSyncGroupsGroupArrayOutput) Index(i pulumi.IntInput) 
 	}).(GetOrganizationTeamSyncGroupsGroupOutput)
 }
 
+type GetOrganizationTeamsTeam struct {
+	// the team's description.
+	Description string `pulumi:"description"`
+	// the ID of the team.
+	Id int `pulumi:"id"`
+	// List of team members.
+	Members []string `pulumi:"members"`
+	// the team's full name.
+	Name string `pulumi:"name"`
+	// the Node ID of the team.
+	NodeId string `pulumi:"nodeId"`
+	// the team's privacy type.
+	Privacy string `pulumi:"privacy"`
+	// the slug of the team.
+	Slug string `pulumi:"slug"`
+}
+
+// GetOrganizationTeamsTeamInput is an input type that accepts GetOrganizationTeamsTeamArgs and GetOrganizationTeamsTeamOutput values.
+// You can construct a concrete instance of `GetOrganizationTeamsTeamInput` via:
+//
+//          GetOrganizationTeamsTeamArgs{...}
+type GetOrganizationTeamsTeamInput interface {
+	pulumi.Input
+
+	ToGetOrganizationTeamsTeamOutput() GetOrganizationTeamsTeamOutput
+	ToGetOrganizationTeamsTeamOutputWithContext(context.Context) GetOrganizationTeamsTeamOutput
+}
+
+type GetOrganizationTeamsTeamArgs struct {
+	// the team's description.
+	Description pulumi.StringInput `pulumi:"description"`
+	// the ID of the team.
+	Id pulumi.IntInput `pulumi:"id"`
+	// List of team members.
+	Members pulumi.StringArrayInput `pulumi:"members"`
+	// the team's full name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// the Node ID of the team.
+	NodeId pulumi.StringInput `pulumi:"nodeId"`
+	// the team's privacy type.
+	Privacy pulumi.StringInput `pulumi:"privacy"`
+	// the slug of the team.
+	Slug pulumi.StringInput `pulumi:"slug"`
+}
+
+func (GetOrganizationTeamsTeamArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetOrganizationTeamsTeam)(nil)).Elem()
+}
+
+func (i GetOrganizationTeamsTeamArgs) ToGetOrganizationTeamsTeamOutput() GetOrganizationTeamsTeamOutput {
+	return i.ToGetOrganizationTeamsTeamOutputWithContext(context.Background())
+}
+
+func (i GetOrganizationTeamsTeamArgs) ToGetOrganizationTeamsTeamOutputWithContext(ctx context.Context) GetOrganizationTeamsTeamOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetOrganizationTeamsTeamOutput)
+}
+
+// GetOrganizationTeamsTeamArrayInput is an input type that accepts GetOrganizationTeamsTeamArray and GetOrganizationTeamsTeamArrayOutput values.
+// You can construct a concrete instance of `GetOrganizationTeamsTeamArrayInput` via:
+//
+//          GetOrganizationTeamsTeamArray{ GetOrganizationTeamsTeamArgs{...} }
+type GetOrganizationTeamsTeamArrayInput interface {
+	pulumi.Input
+
+	ToGetOrganizationTeamsTeamArrayOutput() GetOrganizationTeamsTeamArrayOutput
+	ToGetOrganizationTeamsTeamArrayOutputWithContext(context.Context) GetOrganizationTeamsTeamArrayOutput
+}
+
+type GetOrganizationTeamsTeamArray []GetOrganizationTeamsTeamInput
+
+func (GetOrganizationTeamsTeamArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetOrganizationTeamsTeam)(nil)).Elem()
+}
+
+func (i GetOrganizationTeamsTeamArray) ToGetOrganizationTeamsTeamArrayOutput() GetOrganizationTeamsTeamArrayOutput {
+	return i.ToGetOrganizationTeamsTeamArrayOutputWithContext(context.Background())
+}
+
+func (i GetOrganizationTeamsTeamArray) ToGetOrganizationTeamsTeamArrayOutputWithContext(ctx context.Context) GetOrganizationTeamsTeamArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetOrganizationTeamsTeamArrayOutput)
+}
+
+type GetOrganizationTeamsTeamOutput struct{ *pulumi.OutputState }
+
+func (GetOrganizationTeamsTeamOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetOrganizationTeamsTeam)(nil)).Elem()
+}
+
+func (o GetOrganizationTeamsTeamOutput) ToGetOrganizationTeamsTeamOutput() GetOrganizationTeamsTeamOutput {
+	return o
+}
+
+func (o GetOrganizationTeamsTeamOutput) ToGetOrganizationTeamsTeamOutputWithContext(ctx context.Context) GetOrganizationTeamsTeamOutput {
+	return o
+}
+
+// the team's description.
+func (o GetOrganizationTeamsTeamOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOrganizationTeamsTeam) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// the ID of the team.
+func (o GetOrganizationTeamsTeamOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetOrganizationTeamsTeam) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// List of team members.
+func (o GetOrganizationTeamsTeamOutput) Members() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetOrganizationTeamsTeam) []string { return v.Members }).(pulumi.StringArrayOutput)
+}
+
+// the team's full name.
+func (o GetOrganizationTeamsTeamOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOrganizationTeamsTeam) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// the Node ID of the team.
+func (o GetOrganizationTeamsTeamOutput) NodeId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOrganizationTeamsTeam) string { return v.NodeId }).(pulumi.StringOutput)
+}
+
+// the team's privacy type.
+func (o GetOrganizationTeamsTeamOutput) Privacy() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOrganizationTeamsTeam) string { return v.Privacy }).(pulumi.StringOutput)
+}
+
+// the slug of the team.
+func (o GetOrganizationTeamsTeamOutput) Slug() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOrganizationTeamsTeam) string { return v.Slug }).(pulumi.StringOutput)
+}
+
+type GetOrganizationTeamsTeamArrayOutput struct{ *pulumi.OutputState }
+
+func (GetOrganizationTeamsTeamArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetOrganizationTeamsTeam)(nil)).Elem()
+}
+
+func (o GetOrganizationTeamsTeamArrayOutput) ToGetOrganizationTeamsTeamArrayOutput() GetOrganizationTeamsTeamArrayOutput {
+	return o
+}
+
+func (o GetOrganizationTeamsTeamArrayOutput) ToGetOrganizationTeamsTeamArrayOutputWithContext(ctx context.Context) GetOrganizationTeamsTeamArrayOutput {
+	return o
+}
+
+func (o GetOrganizationTeamsTeamArrayOutput) Index(i pulumi.IntInput) GetOrganizationTeamsTeamOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetOrganizationTeamsTeam {
+		return vs[0].([]GetOrganizationTeamsTeam)[vs[1].(int)]
+	}).(GetOrganizationTeamsTeamOutput)
+}
+
 type GetRepositoryPage struct {
 	Cname     string `pulumi:"cname"`
 	Custom404 bool   `pulumi:"custom404"`
@@ -2324,6 +2475,8 @@ func init() {
 	pulumi.RegisterOutputType(GetCollaboratorsCollaboratorArrayOutput{})
 	pulumi.RegisterOutputType(GetOrganizationTeamSyncGroupsGroupOutput{})
 	pulumi.RegisterOutputType(GetOrganizationTeamSyncGroupsGroupArrayOutput{})
+	pulumi.RegisterOutputType(GetOrganizationTeamsTeamOutput{})
+	pulumi.RegisterOutputType(GetOrganizationTeamsTeamArrayOutput{})
 	pulumi.RegisterOutputType(GetRepositoryPageOutput{})
 	pulumi.RegisterOutputType(GetRepositoryPageArrayOutput{})
 	pulumi.RegisterOutputType(GetRepositoryPageSourceOutput{})

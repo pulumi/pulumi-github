@@ -17,6 +17,100 @@ import (
 //
 // This resource allows you to configure branch protection for repositories in your organization. When applied, the branch will be protected from forced pushes and deletion. Additional constraints, such as required status checks or restrictions on users, teams, and apps, can also be configured.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-github/sdk/v3/go/github"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := github.NewBranchProtectionV3(ctx, "example", &github.BranchProtectionV3Args{
+// 			Repository: pulumi.Any(github_repository.Example.Name),
+// 			Branch:     pulumi.String("main"),
+// 			Restrictions: &github.BranchProtectionV3RestrictionsArgs{
+// 				Users: pulumi.StringArray{
+// 					pulumi.String("foo-user"),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-github/sdk/v3/go/github"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleRepository, err := github.NewRepository(ctx, "exampleRepository", nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleTeam, err := github.NewTeam(ctx, "exampleTeam", nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = github.NewBranchProtectionV3(ctx, "exampleBranchProtectionV3", &github.BranchProtectionV3Args{
+// 			Repository:    exampleRepository.Name,
+// 			Branch:        pulumi.String("main"),
+// 			EnforceAdmins: pulumi.Bool(true),
+// 			RequiredStatusChecks: &github.BranchProtectionV3RequiredStatusChecksArgs{
+// 				Strict: pulumi.Bool(false),
+// 				Contexts: pulumi.StringArray{
+// 					pulumi.String("ci/travis"),
+// 				},
+// 			},
+// 			RequiredPullRequestReviews: &github.BranchProtectionV3RequiredPullRequestReviewsArgs{
+// 				DismissStaleReviews: pulumi.Bool(true),
+// 				DismissalUsers: pulumi.StringArray{
+// 					pulumi.String("foo-user"),
+// 				},
+// 				DismissalTeams: pulumi.StringArray{
+// 					exampleTeam.Slug,
+// 				},
+// 			},
+// 			Restrictions: &github.BranchProtectionV3RestrictionsArgs{
+// 				Users: pulumi.StringArray{
+// 					pulumi.String("foo-user"),
+// 				},
+// 				Teams: pulumi.StringArray{
+// 					exampleTeam.Slug,
+// 				},
+// 				Apps: pulumi.StringArray{
+// 					pulumi.String("foo-app"),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = github.NewTeamRepository(ctx, "exampleTeamRepository", &github.TeamRepositoryArgs{
+// 			TeamId:     exampleTeam.ID(),
+// 			Repository: exampleRepository.Name,
+// 			Permission: pulumi.String("pull"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
 // ## Import
 //
 // GitHub Branch Protection can be imported using an ID made up of `repository:branch`, e.g.

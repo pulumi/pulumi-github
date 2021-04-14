@@ -13,12 +13,12 @@ import * as utilities from "./utilities";
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
- * import * as fs from "fs";
  * import * as github from "@pulumi/github";
+ * import * from "fs";
  *
  * const example = new github.UserSshKey("example", {
- *     key: fs.readFileSync("~/.ssh/id_rsa.pub", "utf-8"),
  *     title: "example title",
+ *     key: fs.readFileSync("~/.ssh/id_rsa.pub"),
  * });
  * ```
  *

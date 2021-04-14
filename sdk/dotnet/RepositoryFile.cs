@@ -110,7 +110,7 @@ namespace Pulumi.Github
         public Output<bool?> OverwriteOnCreate { get; private set; } = null!;
 
         /// <summary>
-        /// The repository name
+        /// The repository to create the file in.
         /// </summary>
         [Output("repository")]
         public Output<string> Repository { get; private set; } = null!;
@@ -211,7 +211,7 @@ namespace Pulumi.Github
         public Input<bool>? OverwriteOnCreate { get; set; }
 
         /// <summary>
-        /// The repository name
+        /// The repository to create the file in.
         /// </summary>
         [Input("repository", required: true)]
         public Input<string> Repository { get; set; } = null!;
@@ -273,7 +273,7 @@ namespace Pulumi.Github
         public Input<bool>? OverwriteOnCreate { get; set; }
 
         /// <summary>
-        /// The repository name
+        /// The repository to create the file in.
         /// </summary>
         [Input("repository")]
         public Input<string>? Repository { get; set; }

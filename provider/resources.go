@@ -145,6 +145,7 @@ func Provider() tfbridge.ProviderInfo {
 			"github_user":                          {Tok: makeDataSource(mainMod, "getUser")},
 			"github_organization_team_sync_groups": {Tok: makeDataSource(mainMod, "getOrganizationTeamSyncGroups")},
 			"github_organization":                  {Tok: makeDataSource(mainMod, "getOrganization")},
+			"github_organization_teams":            {Tok: makeDataSource(mainMod, "getOrganizationTeams")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			// List any npm dependencies and their versions

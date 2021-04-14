@@ -93,13 +93,13 @@ class TeamMembership(pulumi.CustomResource):
 
         # Add a user to the organization
         membership_for_some_user = github.Membership("membershipForSomeUser",
-            role="member",
-            username="SomeUser")
+            username="SomeUser",
+            role="member")
         some_team = github.Team("someTeam", description="Some cool team")
         some_team_membership = github.TeamMembership("someTeamMembership",
-            role="member",
             team_id=some_team.id,
-            username="SomeUser")
+            username="SomeUser",
+            role="member")
         ```
 
         ## Import
@@ -139,13 +139,13 @@ class TeamMembership(pulumi.CustomResource):
 
         # Add a user to the organization
         membership_for_some_user = github.Membership("membershipForSomeUser",
-            role="member",
-            username="SomeUser")
+            username="SomeUser",
+            role="member")
         some_team = github.Team("someTeam", description="Some cool team")
         some_team_membership = github.TeamMembership("someTeamMembership",
-            role="member",
             team_id=some_team.id,
-            username="SomeUser")
+            username="SomeUser",
+            role="member")
         ```
 
         ## Import

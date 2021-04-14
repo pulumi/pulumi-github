@@ -27,9 +27,9 @@ namespace Pulumi.Github
     ///         });
     ///         var exampleRepositoryCollaborator = new Github.RepositoryCollaborator("exampleRepositoryCollaborator", new Github.RepositoryCollaboratorArgs
     ///         {
-    ///             Permission = "push",
     ///             Repository = exampleRepository.Name,
     ///             Username = "example-username",
+    ///             Permission = "push",
     ///         });
     ///         var invitee = new Github.Provider("invitee", new Github.ProviderArgs
     ///         {

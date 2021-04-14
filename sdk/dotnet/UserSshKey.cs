@@ -27,8 +27,8 @@ namespace Pulumi.Github
     ///     {
     ///         var example = new Github.UserSshKey("example", new Github.UserSshKeyArgs
     ///         {
-    ///             Key = File.ReadAllText("~/.ssh/id_rsa.pub"),
     ///             Title = "example title",
+    ///             Key = File.ReadAllText("~/.ssh/id_rsa.pub"),
     ///         });
     ///     }
     /// 

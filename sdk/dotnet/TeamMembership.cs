@@ -30,8 +30,8 @@ namespace Pulumi.Github
     ///         // Add a user to the organization
     ///         var membershipForSomeUser = new Github.Membership("membershipForSomeUser", new Github.MembershipArgs
     ///         {
-    ///             Role = "member",
     ///             Username = "SomeUser",
+    ///             Role = "member",
     ///         });
     ///         var someTeam = new Github.Team("someTeam", new Github.TeamArgs
     ///         {
@@ -39,9 +39,9 @@ namespace Pulumi.Github
     ///         });
     ///         var someTeamMembership = new Github.TeamMembership("someTeamMembership", new Github.TeamMembershipArgs
     ///         {
-    ///             Role = "member",
     ///             TeamId = someTeam.Id,
     ///             Username = "SomeUser",
+    ///             Role = "member",
     ///         });
     ///     }
     /// 

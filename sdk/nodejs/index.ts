@@ -19,6 +19,7 @@ export * from "./getIpRanges";
 export * from "./getMembership";
 export * from "./getOrganization";
 export * from "./getOrganizationTeamSyncGroups";
+export * from "./getOrganizationTeams";
 export * from "./getRelease";
 export * from "./getRepositories";
 export * from "./getRepository";

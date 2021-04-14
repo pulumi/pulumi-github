@@ -2,7 +2,8 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-_(none)_
+* Upgrade to v4.8.0 of the GitHub Terraform Provider.  
+  **Please Note:** `GITHUB_ORGANIZATION` has been deprecated and the suggestion is to use `GITHUB_OWNER` insteam.
 
 ---
 
