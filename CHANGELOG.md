@@ -2,10 +2,13 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Upgrade to v4.8.0 of the GitHub Terraform Provider.  
-  **Please Note:** `GITHUB_ORGANIZATION` has been deprecated and the suggestion is to use `GITHUB_OWNER` insteam.
+_(none)_
 
 ---
+
+## 3.6.0 (2021-04-14)
+* Upgrade to v4.8.0 of the GitHub Terraform Provider.  
+  **Please Note:** `GITHUB_ORGANIZATION` has been deprecated and the suggestion is to use `GITHUB_OWNER` insteam.
 
 ## 3.5.0 (2021-04-12)
 * Upgrade to pulumi-terraform-bridge v2.23.0
