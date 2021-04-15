@@ -4,7 +4,7 @@
 package github
 
 import (
-	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Use this data source to retrieve information about a GitHub release in a specific repository.
@@ -17,8 +17,8 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-github/sdk/v3/go/github"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// 	"github.com/pulumi/pulumi-github/sdk/v4/go/github"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
 // func main() {
@@ -42,8 +42,8 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-github/sdk/v3/go/github"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// 	"github.com/pulumi/pulumi-github/sdk/v4/go/github"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
 // func main() {
@@ -68,8 +68,8 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-github/sdk/v3/go/github"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// 	"github.com/pulumi/pulumi-github/sdk/v4/go/github"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
 // func main() {

@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from . import _utilities, _tables
+from . import _utilities
 
 __all__ = ['RepositoryMilestoneArgs', 'RepositoryMilestone']
 
@@ -109,6 +109,126 @@ class RepositoryMilestoneArgs:
     @state.setter
     def state(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "state", value)
+
+
+@pulumi.input_type
+class _RepositoryMilestoneState:
+    def __init__(__self__, *,
+                 description: Optional[pulumi.Input[str]] = None,
+                 due_date: Optional[pulumi.Input[str]] = None,
+                 number: Optional[pulumi.Input[int]] = None,
+                 owner: Optional[pulumi.Input[str]] = None,
+                 repository: Optional[pulumi.Input[str]] = None,
+                 state: Optional[pulumi.Input[str]] = None,
+                 title: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering RepositoryMilestone resources.
+        :param pulumi.Input[str] description: A description of the milestone.
+        :param pulumi.Input[str] due_date: The milestone due date. In `yyyy-mm-dd` format.
+        :param pulumi.Input[int] number: The number of the milestone.
+        :param pulumi.Input[str] owner: The owner of the GitHub Repository.
+        :param pulumi.Input[str] repository: The name of the GitHub Repository.
+        :param pulumi.Input[str] state: The state of the milestone. Either `open` or `closed`. Default: `open`
+        :param pulumi.Input[str] title: The title of the milestone.
+        """
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if due_date is not None:
+            pulumi.set(__self__, "due_date", due_date)
+        if number is not None:
+            pulumi.set(__self__, "number", number)
+        if owner is not None:
+            pulumi.set(__self__, "owner", owner)
+        if repository is not None:
+            pulumi.set(__self__, "repository", repository)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+        if title is not None:
+            pulumi.set(__self__, "title", title)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A description of the milestone.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="dueDate")
+    def due_date(self) -> Optional[pulumi.Input[str]]:
+        """
+        The milestone due date. In `yyyy-mm-dd` format.
+        """
+        return pulumi.get(self, "due_date")
+
+    @due_date.setter
+    def due_date(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "due_date", value)
+
+    @property
+    @pulumi.getter
+    def number(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of the milestone.
+        """
+        return pulumi.get(self, "number")
+
+    @number.setter
+    def number(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "number", value)
+
+    @property
+    @pulumi.getter
+    def owner(self) -> Optional[pulumi.Input[str]]:
+        """
+        The owner of the GitHub Repository.
+        """
+        return pulumi.get(self, "owner")
+
+    @owner.setter
+    def owner(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "owner", value)
+
+    @property
+    @pulumi.getter
+    def repository(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the GitHub Repository.
+        """
+        return pulumi.get(self, "repository")
+
+    @repository.setter
+    def repository(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "repository", value)
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[pulumi.Input[str]]:
+        """
+        The state of the milestone. Either `open` or `closed`. Default: `open`
+        """
+        return pulumi.get(self, "state")
+
+    @state.setter
+    def state(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "state", value)
+
+    @property
+    @pulumi.getter
+    def title(self) -> Optional[pulumi.Input[str]]:
+        """
+        The title of the milestone.
+        """
+        return pulumi.get(self, "title")
+
+    @title.setter
+    def title(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "title", value)
 
 
 class RepositoryMilestone(pulumi.CustomResource):
@@ -231,21 +351,21 @@ class RepositoryMilestone(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = RepositoryMilestoneArgs.__new__(RepositoryMilestoneArgs)
 
-            __props__['description'] = description
-            __props__['due_date'] = due_date
+            __props__.__dict__["description"] = description
+            __props__.__dict__["due_date"] = due_date
             if owner is None and not opts.urn:
                 raise TypeError("Missing required property 'owner'")
-            __props__['owner'] = owner
+            __props__.__dict__["owner"] = owner
             if repository is None and not opts.urn:
                 raise TypeError("Missing required property 'repository'")
-            __props__['repository'] = repository
-            __props__['state'] = state
+            __props__.__dict__["repository"] = repository
+            __props__.__dict__["state"] = state
             if title is None and not opts.urn:
                 raise TypeError("Missing required property 'title'")
-            __props__['title'] = title
-            __props__['number'] = None
+            __props__.__dict__["title"] = title
+            __props__.__dict__["number"] = None
         super(RepositoryMilestone, __self__).__init__(
             'github:index/repositoryMilestone:RepositoryMilestone',
             resource_name,
@@ -280,15 +400,15 @@ class RepositoryMilestone(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _RepositoryMilestoneState.__new__(_RepositoryMilestoneState)
 
-        __props__["description"] = description
-        __props__["due_date"] = due_date
-        __props__["number"] = number
-        __props__["owner"] = owner
-        __props__["repository"] = repository
-        __props__["state"] = state
-        __props__["title"] = title
+        __props__.__dict__["description"] = description
+        __props__.__dict__["due_date"] = due_date
+        __props__.__dict__["number"] = number
+        __props__.__dict__["owner"] = owner
+        __props__.__dict__["repository"] = repository
+        __props__.__dict__["state"] = state
+        __props__.__dict__["title"] = title
         return RepositoryMilestone(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -346,10 +466,4 @@ class RepositoryMilestone(pulumi.CustomResource):
         The title of the milestone.
         """
         return pulumi.get(self, "title")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

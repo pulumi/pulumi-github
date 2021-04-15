@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from . import _utilities, _tables
+from . import _utilities
 
 __all__ = ['TeamArgs', 'Team']
 
@@ -114,6 +114,172 @@ class TeamArgs:
     @privacy.setter
     def privacy(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "privacy", value)
+
+
+@pulumi.input_type
+class _TeamState:
+    def __init__(__self__, *,
+                 create_default_maintainer: Optional[pulumi.Input[bool]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 etag: Optional[pulumi.Input[str]] = None,
+                 ldap_dn: Optional[pulumi.Input[str]] = None,
+                 members_count: Optional[pulumi.Input[int]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 node_id: Optional[pulumi.Input[str]] = None,
+                 parent_team_id: Optional[pulumi.Input[int]] = None,
+                 privacy: Optional[pulumi.Input[str]] = None,
+                 slug: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering Team resources.
+        :param pulumi.Input[bool] create_default_maintainer: Adds a default maintainer to the team. Defaults to `true` and removes the default maintaner when `false`.
+        :param pulumi.Input[str] description: A description of the team.
+        :param pulumi.Input[str] ldap_dn: The LDAP Distinguished Name of the group where membership will be synchronized. Only available in GitHub Enterprise Server.
+        :param pulumi.Input[str] name: The name of the team.
+        :param pulumi.Input[str] node_id: The Node ID of the created team.
+        :param pulumi.Input[int] parent_team_id: The ID of the parent team, if this is a nested team.
+        :param pulumi.Input[str] privacy: The level of privacy for the team. Must be one of `secret` or `closed`.
+               Defaults to `secret`.
+        :param pulumi.Input[str] slug: The slug of the created team, which may or may not differ from `name`,
+               depending on whether `name` contains "URL-unsafe" characters.
+               Useful when referencing the team in [`BranchProtection`](https://www.terraform.io/docs/providers/github/r/branch_protection.html).
+        """
+        if create_default_maintainer is not None:
+            pulumi.set(__self__, "create_default_maintainer", create_default_maintainer)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if etag is not None:
+            pulumi.set(__self__, "etag", etag)
+        if ldap_dn is not None:
+            pulumi.set(__self__, "ldap_dn", ldap_dn)
+        if members_count is not None:
+            pulumi.set(__self__, "members_count", members_count)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if node_id is not None:
+            pulumi.set(__self__, "node_id", node_id)
+        if parent_team_id is not None:
+            pulumi.set(__self__, "parent_team_id", parent_team_id)
+        if privacy is not None:
+            pulumi.set(__self__, "privacy", privacy)
+        if slug is not None:
+            pulumi.set(__self__, "slug", slug)
+
+    @property
+    @pulumi.getter(name="createDefaultMaintainer")
+    def create_default_maintainer(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Adds a default maintainer to the team. Defaults to `true` and removes the default maintaner when `false`.
+        """
+        return pulumi.get(self, "create_default_maintainer")
+
+    @create_default_maintainer.setter
+    def create_default_maintainer(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "create_default_maintainer", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A description of the team.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def etag(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "etag")
+
+    @etag.setter
+    def etag(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "etag", value)
+
+    @property
+    @pulumi.getter(name="ldapDn")
+    def ldap_dn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The LDAP Distinguished Name of the group where membership will be synchronized. Only available in GitHub Enterprise Server.
+        """
+        return pulumi.get(self, "ldap_dn")
+
+    @ldap_dn.setter
+    def ldap_dn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ldap_dn", value)
+
+    @property
+    @pulumi.getter(name="membersCount")
+    def members_count(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "members_count")
+
+    @members_count.setter
+    def members_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "members_count", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the team.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="nodeId")
+    def node_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Node ID of the created team.
+        """
+        return pulumi.get(self, "node_id")
+
+    @node_id.setter
+    def node_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "node_id", value)
+
+    @property
+    @pulumi.getter(name="parentTeamId")
+    def parent_team_id(self) -> Optional[pulumi.Input[int]]:
+        """
+        The ID of the parent team, if this is a nested team.
+        """
+        return pulumi.get(self, "parent_team_id")
+
+    @parent_team_id.setter
+    def parent_team_id(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "parent_team_id", value)
+
+    @property
+    @pulumi.getter
+    def privacy(self) -> Optional[pulumi.Input[str]]:
+        """
+        The level of privacy for the team. Must be one of `secret` or `closed`.
+        Defaults to `secret`.
+        """
+        return pulumi.get(self, "privacy")
+
+    @privacy.setter
+    def privacy(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "privacy", value)
+
+    @property
+    @pulumi.getter
+    def slug(self) -> Optional[pulumi.Input[str]]:
+        """
+        The slug of the created team, which may or may not differ from `name`,
+        depending on whether `name` contains "URL-unsafe" characters.
+        Useful when referencing the team in [`BranchProtection`](https://www.terraform.io/docs/providers/github/r/branch_protection.html).
+        """
+        return pulumi.get(self, "slug")
+
+    @slug.setter
+    def slug(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "slug", value)
 
 
 class Team(pulumi.CustomResource):
@@ -237,18 +403,18 @@ class Team(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = TeamArgs.__new__(TeamArgs)
 
-            __props__['create_default_maintainer'] = create_default_maintainer
-            __props__['description'] = description
-            __props__['ldap_dn'] = ldap_dn
-            __props__['name'] = name
-            __props__['parent_team_id'] = parent_team_id
-            __props__['privacy'] = privacy
-            __props__['etag'] = None
-            __props__['members_count'] = None
-            __props__['node_id'] = None
-            __props__['slug'] = None
+            __props__.__dict__["create_default_maintainer"] = create_default_maintainer
+            __props__.__dict__["description"] = description
+            __props__.__dict__["ldap_dn"] = ldap_dn
+            __props__.__dict__["name"] = name
+            __props__.__dict__["parent_team_id"] = parent_team_id
+            __props__.__dict__["privacy"] = privacy
+            __props__.__dict__["etag"] = None
+            __props__.__dict__["members_count"] = None
+            __props__.__dict__["node_id"] = None
+            __props__.__dict__["slug"] = None
         super(Team, __self__).__init__(
             'github:index/team:Team',
             resource_name,
@@ -290,18 +456,18 @@ class Team(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _TeamState.__new__(_TeamState)
 
-        __props__["create_default_maintainer"] = create_default_maintainer
-        __props__["description"] = description
-        __props__["etag"] = etag
-        __props__["ldap_dn"] = ldap_dn
-        __props__["members_count"] = members_count
-        __props__["name"] = name
-        __props__["node_id"] = node_id
-        __props__["parent_team_id"] = parent_team_id
-        __props__["privacy"] = privacy
-        __props__["slug"] = slug
+        __props__.__dict__["create_default_maintainer"] = create_default_maintainer
+        __props__.__dict__["description"] = description
+        __props__.__dict__["etag"] = etag
+        __props__.__dict__["ldap_dn"] = ldap_dn
+        __props__.__dict__["members_count"] = members_count
+        __props__.__dict__["name"] = name
+        __props__.__dict__["node_id"] = node_id
+        __props__.__dict__["parent_team_id"] = parent_team_id
+        __props__.__dict__["privacy"] = privacy
+        __props__.__dict__["slug"] = slug
         return Team(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -380,10 +546,4 @@ class Team(pulumi.CustomResource):
         Useful when referencing the team in [`BranchProtection`](https://www.terraform.io/docs/providers/github/r/branch_protection.html).
         """
         return pulumi.get(self, "slug")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from . import _utilities, _tables
+from . import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -80,6 +80,106 @@ class RepositoryWebhookArgs:
     @configuration.setter
     def configuration(self, value: Optional[pulumi.Input['RepositoryWebhookConfigurationArgs']]):
         pulumi.set(self, "configuration", value)
+
+
+@pulumi.input_type
+class _RepositoryWebhookState:
+    def __init__(__self__, *,
+                 active: Optional[pulumi.Input[bool]] = None,
+                 configuration: Optional[pulumi.Input['RepositoryWebhookConfigurationArgs']] = None,
+                 etag: Optional[pulumi.Input[str]] = None,
+                 events: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 repository: Optional[pulumi.Input[str]] = None,
+                 url: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering RepositoryWebhook resources.
+        :param pulumi.Input[bool] active: Indicate of the webhook should receive events. Defaults to `true`.
+        :param pulumi.Input['RepositoryWebhookConfigurationArgs'] configuration: key/value pair of configuration for this webhook. Available keys are `url`, `content_type`, `secret` and `insecure_ssl`. `secret` is [the shared secret, see API documentation](https://developer.github.com/v3/repos/hooks/#create-a-hook). `content_type` may be either form or json.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] events: A list of events which should trigger the webhook. See a list of [available events](https://developer.github.com/v3/activity/events/types/).
+        :param pulumi.Input[str] repository: The repository of the webhook.
+        :param pulumi.Input[str] url: URL of the webhook.  This is a sensitive attribute because it may include basic auth credentials.
+        """
+        if active is not None:
+            pulumi.set(__self__, "active", active)
+        if configuration is not None:
+            pulumi.set(__self__, "configuration", configuration)
+        if etag is not None:
+            pulumi.set(__self__, "etag", etag)
+        if events is not None:
+            pulumi.set(__self__, "events", events)
+        if repository is not None:
+            pulumi.set(__self__, "repository", repository)
+        if url is not None:
+            pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter
+    def active(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicate of the webhook should receive events. Defaults to `true`.
+        """
+        return pulumi.get(self, "active")
+
+    @active.setter
+    def active(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "active", value)
+
+    @property
+    @pulumi.getter
+    def configuration(self) -> Optional[pulumi.Input['RepositoryWebhookConfigurationArgs']]:
+        """
+        key/value pair of configuration for this webhook. Available keys are `url`, `content_type`, `secret` and `insecure_ssl`. `secret` is [the shared secret, see API documentation](https://developer.github.com/v3/repos/hooks/#create-a-hook). `content_type` may be either form or json.
+        """
+        return pulumi.get(self, "configuration")
+
+    @configuration.setter
+    def configuration(self, value: Optional[pulumi.Input['RepositoryWebhookConfigurationArgs']]):
+        pulumi.set(self, "configuration", value)
+
+    @property
+    @pulumi.getter
+    def etag(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "etag")
+
+    @etag.setter
+    def etag(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "etag", value)
+
+    @property
+    @pulumi.getter
+    def events(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of events which should trigger the webhook. See a list of [available events](https://developer.github.com/v3/activity/events/types/).
+        """
+        return pulumi.get(self, "events")
+
+    @events.setter
+    def events(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "events", value)
+
+    @property
+    @pulumi.getter
+    def repository(self) -> Optional[pulumi.Input[str]]:
+        """
+        The repository of the webhook.
+        """
+        return pulumi.get(self, "repository")
+
+    @repository.setter
+    def repository(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "repository", value)
+
+    @property
+    @pulumi.getter
+    def url(self) -> Optional[pulumi.Input[str]]:
+        """
+        URL of the webhook.  This is a sensitive attribute because it may include basic auth credentials.
+        """
+        return pulumi.get(self, "url")
+
+    @url.setter
+    def url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "url", value)
 
 
 class RepositoryWebhook(pulumi.CustomResource):
@@ -214,18 +314,18 @@ class RepositoryWebhook(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = RepositoryWebhookArgs.__new__(RepositoryWebhookArgs)
 
-            __props__['active'] = active
-            __props__['configuration'] = configuration
+            __props__.__dict__["active"] = active
+            __props__.__dict__["configuration"] = configuration
             if events is None and not opts.urn:
                 raise TypeError("Missing required property 'events'")
-            __props__['events'] = events
+            __props__.__dict__["events"] = events
             if repository is None and not opts.urn:
                 raise TypeError("Missing required property 'repository'")
-            __props__['repository'] = repository
-            __props__['etag'] = None
-            __props__['url'] = None
+            __props__.__dict__["repository"] = repository
+            __props__.__dict__["etag"] = None
+            __props__.__dict__["url"] = None
         super(RepositoryWebhook, __self__).__init__(
             'github:index/repositoryWebhook:RepositoryWebhook',
             resource_name,
@@ -257,14 +357,14 @@ class RepositoryWebhook(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _RepositoryWebhookState.__new__(_RepositoryWebhookState)
 
-        __props__["active"] = active
-        __props__["configuration"] = configuration
-        __props__["etag"] = etag
-        __props__["events"] = events
-        __props__["repository"] = repository
-        __props__["url"] = url
+        __props__.__dict__["active"] = active
+        __props__.__dict__["configuration"] = configuration
+        __props__.__dict__["etag"] = etag
+        __props__.__dict__["events"] = events
+        __props__.__dict__["repository"] = repository
+        __props__.__dict__["url"] = url
         return RepositoryWebhook(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -311,10 +411,4 @@ class RepositoryWebhook(pulumi.CustomResource):
         URL of the webhook.  This is a sensitive attribute because it may include basic auth credentials.
         """
         return pulumi.get(self, "url")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

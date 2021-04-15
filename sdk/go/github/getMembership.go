@@ -4,7 +4,7 @@
 package github
 
 import (
-	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Use this data source to find out if a user is a member of your organization, as well
@@ -18,8 +18,8 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-github/sdk/v3/go/github"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// 	"github.com/pulumi/pulumi-github/sdk/v4/go/github"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
 // func main() {

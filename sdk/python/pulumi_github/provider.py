@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from . import _utilities, _tables
+from . import _utilities
 
 __all__ = ['ProviderArgs', 'Provider']
 
@@ -180,27 +180,21 @@ class Provider(pulumi.ProviderResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ProviderArgs.__new__(ProviderArgs)
 
             if base_url is None:
                 base_url = (_utilities.get_env('GITHUB_BASE_URL') or 'https://api.github.com/')
-            __props__['base_url'] = base_url
-            __props__['insecure'] = pulumi.Output.from_input(insecure).apply(pulumi.runtime.to_json) if insecure is not None else None
+            __props__.__dict__["base_url"] = base_url
+            __props__.__dict__["insecure"] = pulumi.Output.from_input(insecure).apply(pulumi.runtime.to_json) if insecure is not None else None
             if organization is not None and not opts.urn:
                 warnings.warn("""Use owner (or GITHUB_OWNER) instead of organization (or GITHUB_ORGANIZATION)""", DeprecationWarning)
                 pulumi.log.warn("""organization is deprecated: Use owner (or GITHUB_OWNER) instead of organization (or GITHUB_ORGANIZATION)""")
-            __props__['organization'] = organization
-            __props__['owner'] = owner
-            __props__['token'] = token
+            __props__.__dict__["organization"] = organization
+            __props__.__dict__["owner"] = owner
+            __props__.__dict__["token"] = token
         super(Provider, __self__).__init__(
             'github',
             resource_name,
             __props__,
             opts)
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

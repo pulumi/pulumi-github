@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // This resource allows you to create and manage webhooks for repositories within your
@@ -20,8 +20,8 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-github/sdk/v3/go/github"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// 	"github.com/pulumi/pulumi-github/sdk/v4/go/github"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
 // func main() {

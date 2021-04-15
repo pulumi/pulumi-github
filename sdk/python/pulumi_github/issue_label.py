@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from . import _utilities, _tables
+from . import _utilities
 
 __all__ = ['IssueLabelArgs', 'IssueLabel']
 
@@ -78,6 +78,106 @@ class IssueLabelArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class _IssueLabelState:
+    def __init__(__self__, *,
+                 color: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 etag: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 repository: Optional[pulumi.Input[str]] = None,
+                 url: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering IssueLabel resources.
+        :param pulumi.Input[str] color: A 6 character hex code, **without the leading #**, identifying the color of the label.
+        :param pulumi.Input[str] description: A short description of the label.
+        :param pulumi.Input[str] name: The name of the label.
+        :param pulumi.Input[str] repository: The GitHub repository
+        :param pulumi.Input[str] url: The URL to the issue label
+        """
+        if color is not None:
+            pulumi.set(__self__, "color", color)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if etag is not None:
+            pulumi.set(__self__, "etag", etag)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if repository is not None:
+            pulumi.set(__self__, "repository", repository)
+        if url is not None:
+            pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter
+    def color(self) -> Optional[pulumi.Input[str]]:
+        """
+        A 6 character hex code, **without the leading #**, identifying the color of the label.
+        """
+        return pulumi.get(self, "color")
+
+    @color.setter
+    def color(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "color", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A short description of the label.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def etag(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "etag")
+
+    @etag.setter
+    def etag(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "etag", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the label.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def repository(self) -> Optional[pulumi.Input[str]]:
+        """
+        The GitHub repository
+        """
+        return pulumi.get(self, "repository")
+
+    @repository.setter
+    def repository(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "repository", value)
+
+    @property
+    @pulumi.getter
+    def url(self) -> Optional[pulumi.Input[str]]:
+        """
+        The URL to the issue label
+        """
+        return pulumi.get(self, "url")
+
+    @url.setter
+    def url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "url", value)
 
 
 class IssueLabel(pulumi.CustomResource):
@@ -160,18 +260,18 @@ class IssueLabel(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = IssueLabelArgs.__new__(IssueLabelArgs)
 
             if color is None and not opts.urn:
                 raise TypeError("Missing required property 'color'")
-            __props__['color'] = color
-            __props__['description'] = description
-            __props__['name'] = name
+            __props__.__dict__["color"] = color
+            __props__.__dict__["description"] = description
+            __props__.__dict__["name"] = name
             if repository is None and not opts.urn:
                 raise TypeError("Missing required property 'repository'")
-            __props__['repository'] = repository
-            __props__['etag'] = None
-            __props__['url'] = None
+            __props__.__dict__["repository"] = repository
+            __props__.__dict__["etag"] = None
+            __props__.__dict__["url"] = None
         super(IssueLabel, __self__).__init__(
             'github:index/issueLabel:IssueLabel',
             resource_name,
@@ -203,14 +303,14 @@ class IssueLabel(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _IssueLabelState.__new__(_IssueLabelState)
 
-        __props__["color"] = color
-        __props__["description"] = description
-        __props__["etag"] = etag
-        __props__["name"] = name
-        __props__["repository"] = repository
-        __props__["url"] = url
+        __props__.__dict__["color"] = color
+        __props__.__dict__["description"] = description
+        __props__.__dict__["etag"] = etag
+        __props__.__dict__["name"] = name
+        __props__.__dict__["repository"] = repository
+        __props__.__dict__["url"] = url
         return IssueLabel(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -257,10 +357,4 @@ class IssueLabel(pulumi.CustomResource):
         The URL to the issue label
         """
         return pulumi.get(self, "url")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

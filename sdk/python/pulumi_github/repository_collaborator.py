@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from . import _utilities, _tables
+from . import _utilities
 
 __all__ = ['RepositoryCollaboratorArgs', 'RepositoryCollaborator']
 
@@ -82,6 +82,98 @@ class RepositoryCollaboratorArgs:
     @permission_diff_suppression.setter
     def permission_diff_suppression(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "permission_diff_suppression", value)
+
+
+@pulumi.input_type
+class _RepositoryCollaboratorState:
+    def __init__(__self__, *,
+                 invitation_id: Optional[pulumi.Input[str]] = None,
+                 permission: Optional[pulumi.Input[str]] = None,
+                 permission_diff_suppression: Optional[pulumi.Input[bool]] = None,
+                 repository: Optional[pulumi.Input[str]] = None,
+                 username: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering RepositoryCollaborator resources.
+        :param pulumi.Input[str] invitation_id: ID of the invitation to be used in `UserInvitationAccepter`
+        :param pulumi.Input[str] permission: The permission of the outside collaborator for the repository.
+               Must be one of `pull`, `push`, `maintain`, `triage` or `admin` for organization-owned repositories.
+               Must be `push` for personal repositories. Defaults to `push`.
+        :param pulumi.Input[bool] permission_diff_suppression: Suppress plan diffs for `triage` and `maintain`.  Defaults to `false`.
+        :param pulumi.Input[str] repository: The GitHub repository
+        :param pulumi.Input[str] username: The user to add to the repository as a collaborator.
+        """
+        if invitation_id is not None:
+            pulumi.set(__self__, "invitation_id", invitation_id)
+        if permission is not None:
+            pulumi.set(__self__, "permission", permission)
+        if permission_diff_suppression is not None:
+            pulumi.set(__self__, "permission_diff_suppression", permission_diff_suppression)
+        if repository is not None:
+            pulumi.set(__self__, "repository", repository)
+        if username is not None:
+            pulumi.set(__self__, "username", username)
+
+    @property
+    @pulumi.getter(name="invitationId")
+    def invitation_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID of the invitation to be used in `UserInvitationAccepter`
+        """
+        return pulumi.get(self, "invitation_id")
+
+    @invitation_id.setter
+    def invitation_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "invitation_id", value)
+
+    @property
+    @pulumi.getter
+    def permission(self) -> Optional[pulumi.Input[str]]:
+        """
+        The permission of the outside collaborator for the repository.
+        Must be one of `pull`, `push`, `maintain`, `triage` or `admin` for organization-owned repositories.
+        Must be `push` for personal repositories. Defaults to `push`.
+        """
+        return pulumi.get(self, "permission")
+
+    @permission.setter
+    def permission(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "permission", value)
+
+    @property
+    @pulumi.getter(name="permissionDiffSuppression")
+    def permission_diff_suppression(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Suppress plan diffs for `triage` and `maintain`.  Defaults to `false`.
+        """
+        return pulumi.get(self, "permission_diff_suppression")
+
+    @permission_diff_suppression.setter
+    def permission_diff_suppression(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "permission_diff_suppression", value)
+
+    @property
+    @pulumi.getter
+    def repository(self) -> Optional[pulumi.Input[str]]:
+        """
+        The GitHub repository
+        """
+        return pulumi.get(self, "repository")
+
+    @repository.setter
+    def repository(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "repository", value)
+
+    @property
+    @pulumi.getter
+    def username(self) -> Optional[pulumi.Input[str]]:
+        """
+        The user to add to the repository as a collaborator.
+        """
+        return pulumi.get(self, "username")
+
+    @username.setter
+    def username(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "username", value)
 
 
 class RepositoryCollaborator(pulumi.CustomResource):
@@ -230,17 +322,17 @@ class RepositoryCollaborator(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = RepositoryCollaboratorArgs.__new__(RepositoryCollaboratorArgs)
 
-            __props__['permission'] = permission
-            __props__['permission_diff_suppression'] = permission_diff_suppression
+            __props__.__dict__["permission"] = permission
+            __props__.__dict__["permission_diff_suppression"] = permission_diff_suppression
             if repository is None and not opts.urn:
                 raise TypeError("Missing required property 'repository'")
-            __props__['repository'] = repository
+            __props__.__dict__["repository"] = repository
             if username is None and not opts.urn:
                 raise TypeError("Missing required property 'username'")
-            __props__['username'] = username
-            __props__['invitation_id'] = None
+            __props__.__dict__["username"] = username
+            __props__.__dict__["invitation_id"] = None
         super(RepositoryCollaborator, __self__).__init__(
             'github:index/repositoryCollaborator:RepositoryCollaborator',
             resource_name,
@@ -273,13 +365,13 @@ class RepositoryCollaborator(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _RepositoryCollaboratorState.__new__(_RepositoryCollaboratorState)
 
-        __props__["invitation_id"] = invitation_id
-        __props__["permission"] = permission
-        __props__["permission_diff_suppression"] = permission_diff_suppression
-        __props__["repository"] = repository
-        __props__["username"] = username
+        __props__.__dict__["invitation_id"] = invitation_id
+        __props__.__dict__["permission"] = permission
+        __props__.__dict__["permission_diff_suppression"] = permission_diff_suppression
+        __props__.__dict__["repository"] = repository
+        __props__.__dict__["username"] = username
         return RepositoryCollaborator(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -323,10 +415,4 @@ class RepositoryCollaborator(pulumi.CustomResource):
         The user to add to the repository as a collaborator.
         """
         return pulumi.get(self, "username")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 
