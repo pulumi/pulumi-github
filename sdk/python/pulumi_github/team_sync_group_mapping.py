@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from . import _utilities, _tables
+from . import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -51,6 +51,60 @@ class TeamSyncGroupMappingArgs:
     @groups.setter
     def groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TeamSyncGroupMappingGroupArgs']]]]):
         pulumi.set(self, "groups", value)
+
+
+@pulumi.input_type
+class _TeamSyncGroupMappingState:
+    def __init__(__self__, *,
+                 etag: Optional[pulumi.Input[str]] = None,
+                 groups: Optional[pulumi.Input[Sequence[pulumi.Input['TeamSyncGroupMappingGroupArgs']]]] = None,
+                 team_slug: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering TeamSyncGroupMapping resources.
+        :param pulumi.Input[Sequence[pulumi.Input['TeamSyncGroupMappingGroupArgs']]] groups: An Array of GitHub Identity Provider Groups (or empty []).  Each `group` block consists of the fields documented below.
+               ___
+        :param pulumi.Input[str] team_slug: Slug of the team
+        """
+        if etag is not None:
+            pulumi.set(__self__, "etag", etag)
+        if groups is not None:
+            pulumi.set(__self__, "groups", groups)
+        if team_slug is not None:
+            pulumi.set(__self__, "team_slug", team_slug)
+
+    @property
+    @pulumi.getter
+    def etag(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "etag")
+
+    @etag.setter
+    def etag(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "etag", value)
+
+    @property
+    @pulumi.getter
+    def groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TeamSyncGroupMappingGroupArgs']]]]:
+        """
+        An Array of GitHub Identity Provider Groups (or empty []).  Each `group` block consists of the fields documented below.
+        ___
+        """
+        return pulumi.get(self, "groups")
+
+    @groups.setter
+    def groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TeamSyncGroupMappingGroupArgs']]]]):
+        pulumi.set(self, "groups", value)
+
+    @property
+    @pulumi.getter(name="teamSlug")
+    def team_slug(self) -> Optional[pulumi.Input[str]]:
+        """
+        Slug of the team
+        """
+        return pulumi.get(self, "team_slug")
+
+    @team_slug.setter
+    def team_slug(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "team_slug", value)
 
 
 class TeamSyncGroupMapping(pulumi.CustomResource):
@@ -140,13 +194,13 @@ class TeamSyncGroupMapping(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = TeamSyncGroupMappingArgs.__new__(TeamSyncGroupMappingArgs)
 
-            __props__['groups'] = groups
+            __props__.__dict__["groups"] = groups
             if team_slug is None and not opts.urn:
                 raise TypeError("Missing required property 'team_slug'")
-            __props__['team_slug'] = team_slug
-            __props__['etag'] = None
+            __props__.__dict__["team_slug"] = team_slug
+            __props__.__dict__["etag"] = None
         super(TeamSyncGroupMapping, __self__).__init__(
             'github:index/teamSyncGroupMapping:TeamSyncGroupMapping',
             resource_name,
@@ -173,11 +227,11 @@ class TeamSyncGroupMapping(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _TeamSyncGroupMappingState.__new__(_TeamSyncGroupMappingState)
 
-        __props__["etag"] = etag
-        __props__["groups"] = groups
-        __props__["team_slug"] = team_slug
+        __props__.__dict__["etag"] = etag
+        __props__.__dict__["groups"] = groups
+        __props__.__dict__["team_slug"] = team_slug
         return TeamSyncGroupMapping(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -201,10 +255,4 @@ class TeamSyncGroupMapping(pulumi.CustomResource):
         Slug of the team
         """
         return pulumi.get(self, "team_slug")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

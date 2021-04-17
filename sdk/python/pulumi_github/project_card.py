@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from . import _utilities, _tables
+from . import _utilities
 
 __all__ = ['ProjectCardArgs', 'ProjectCard']
 
@@ -45,6 +45,70 @@ class ProjectCardArgs:
 
     @note.setter
     def note(self, value: pulumi.Input[str]):
+        pulumi.set(self, "note", value)
+
+
+@pulumi.input_type
+class _ProjectCardState:
+    def __init__(__self__, *,
+                 card_id: Optional[pulumi.Input[int]] = None,
+                 column_id: Optional[pulumi.Input[str]] = None,
+                 etag: Optional[pulumi.Input[str]] = None,
+                 note: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering ProjectCard resources.
+        :param pulumi.Input[str] column_id: The ID of the card.
+        :param pulumi.Input[str] note: The note contents of the card. Markdown supported.
+        """
+        if card_id is not None:
+            pulumi.set(__self__, "card_id", card_id)
+        if column_id is not None:
+            pulumi.set(__self__, "column_id", column_id)
+        if etag is not None:
+            pulumi.set(__self__, "etag", etag)
+        if note is not None:
+            pulumi.set(__self__, "note", note)
+
+    @property
+    @pulumi.getter(name="cardId")
+    def card_id(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "card_id")
+
+    @card_id.setter
+    def card_id(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "card_id", value)
+
+    @property
+    @pulumi.getter(name="columnId")
+    def column_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the card.
+        """
+        return pulumi.get(self, "column_id")
+
+    @column_id.setter
+    def column_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "column_id", value)
+
+    @property
+    @pulumi.getter
+    def etag(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "etag")
+
+    @etag.setter
+    def etag(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "etag", value)
+
+    @property
+    @pulumi.getter
+    def note(self) -> Optional[pulumi.Input[str]]:
+        """
+        The note contents of the card. Markdown supported.
+        """
+        return pulumi.get(self, "note")
+
+    @note.setter
+    def note(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "note", value)
 
 
@@ -152,16 +216,16 @@ class ProjectCard(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ProjectCardArgs.__new__(ProjectCardArgs)
 
             if column_id is None and not opts.urn:
                 raise TypeError("Missing required property 'column_id'")
-            __props__['column_id'] = column_id
+            __props__.__dict__["column_id"] = column_id
             if note is None and not opts.urn:
                 raise TypeError("Missing required property 'note'")
-            __props__['note'] = note
-            __props__['card_id'] = None
-            __props__['etag'] = None
+            __props__.__dict__["note"] = note
+            __props__.__dict__["card_id"] = None
+            __props__.__dict__["etag"] = None
         super(ProjectCard, __self__).__init__(
             'github:index/projectCard:ProjectCard',
             resource_name,
@@ -188,12 +252,12 @@ class ProjectCard(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _ProjectCardState.__new__(_ProjectCardState)
 
-        __props__["card_id"] = card_id
-        __props__["column_id"] = column_id
-        __props__["etag"] = etag
-        __props__["note"] = note
+        __props__.__dict__["card_id"] = card_id
+        __props__.__dict__["column_id"] = column_id
+        __props__.__dict__["etag"] = etag
+        __props__.__dict__["note"] = note
         return ProjectCard(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -221,10 +285,4 @@ class ProjectCard(pulumi.CustomResource):
         The note contents of the card. Markdown supported.
         """
         return pulumi.get(self, "note")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

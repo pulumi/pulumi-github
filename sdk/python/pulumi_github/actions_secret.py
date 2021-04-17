@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from . import _utilities, _tables
+from . import _utilities
 
 __all__ = ['ActionsSecretArgs', 'ActionsSecret']
 
@@ -61,6 +61,94 @@ class ActionsSecretArgs:
     @secret_name.setter
     def secret_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "secret_name", value)
+
+
+@pulumi.input_type
+class _ActionsSecretState:
+    def __init__(__self__, *,
+                 created_at: Optional[pulumi.Input[str]] = None,
+                 plaintext_value: Optional[pulumi.Input[str]] = None,
+                 repository: Optional[pulumi.Input[str]] = None,
+                 secret_name: Optional[pulumi.Input[str]] = None,
+                 updated_at: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering ActionsSecret resources.
+        :param pulumi.Input[str] created_at: Date of actions_secret creation.
+        :param pulumi.Input[str] plaintext_value: Plaintext value of the secret to be encrypted
+        :param pulumi.Input[str] repository: Name of the repository
+        :param pulumi.Input[str] secret_name: Name of the secret
+        :param pulumi.Input[str] updated_at: Date of actions_secret update.
+        """
+        if created_at is not None:
+            pulumi.set(__self__, "created_at", created_at)
+        if plaintext_value is not None:
+            pulumi.set(__self__, "plaintext_value", plaintext_value)
+        if repository is not None:
+            pulumi.set(__self__, "repository", repository)
+        if secret_name is not None:
+            pulumi.set(__self__, "secret_name", secret_name)
+        if updated_at is not None:
+            pulumi.set(__self__, "updated_at", updated_at)
+
+    @property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> Optional[pulumi.Input[str]]:
+        """
+        Date of actions_secret creation.
+        """
+        return pulumi.get(self, "created_at")
+
+    @created_at.setter
+    def created_at(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "created_at", value)
+
+    @property
+    @pulumi.getter(name="plaintextValue")
+    def plaintext_value(self) -> Optional[pulumi.Input[str]]:
+        """
+        Plaintext value of the secret to be encrypted
+        """
+        return pulumi.get(self, "plaintext_value")
+
+    @plaintext_value.setter
+    def plaintext_value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "plaintext_value", value)
+
+    @property
+    @pulumi.getter
+    def repository(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the repository
+        """
+        return pulumi.get(self, "repository")
+
+    @repository.setter
+    def repository(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "repository", value)
+
+    @property
+    @pulumi.getter(name="secretName")
+    def secret_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the secret
+        """
+        return pulumi.get(self, "secret_name")
+
+    @secret_name.setter
+    def secret_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "secret_name", value)
+
+    @property
+    @pulumi.getter(name="updatedAt")
+    def updated_at(self) -> Optional[pulumi.Input[str]]:
+        """
+        Date of actions_secret update.
+        """
+        return pulumi.get(self, "updated_at")
+
+    @updated_at.setter
+    def updated_at(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "updated_at", value)
 
 
 class ActionsSecret(pulumi.CustomResource):
@@ -126,19 +214,19 @@ class ActionsSecret(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ActionsSecretArgs.__new__(ActionsSecretArgs)
 
             if plaintext_value is None and not opts.urn:
                 raise TypeError("Missing required property 'plaintext_value'")
-            __props__['plaintext_value'] = plaintext_value
+            __props__.__dict__["plaintext_value"] = plaintext_value
             if repository is None and not opts.urn:
                 raise TypeError("Missing required property 'repository'")
-            __props__['repository'] = repository
+            __props__.__dict__["repository"] = repository
             if secret_name is None and not opts.urn:
                 raise TypeError("Missing required property 'secret_name'")
-            __props__['secret_name'] = secret_name
-            __props__['created_at'] = None
-            __props__['updated_at'] = None
+            __props__.__dict__["secret_name"] = secret_name
+            __props__.__dict__["created_at"] = None
+            __props__.__dict__["updated_at"] = None
         super(ActionsSecret, __self__).__init__(
             'github:index/actionsSecret:ActionsSecret',
             resource_name,
@@ -169,13 +257,13 @@ class ActionsSecret(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _ActionsSecretState.__new__(_ActionsSecretState)
 
-        __props__["created_at"] = created_at
-        __props__["plaintext_value"] = plaintext_value
-        __props__["repository"] = repository
-        __props__["secret_name"] = secret_name
-        __props__["updated_at"] = updated_at
+        __props__.__dict__["created_at"] = created_at
+        __props__.__dict__["plaintext_value"] = plaintext_value
+        __props__.__dict__["repository"] = repository
+        __props__.__dict__["secret_name"] = secret_name
+        __props__.__dict__["updated_at"] = updated_at
         return ActionsSecret(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -217,10 +305,4 @@ class ActionsSecret(pulumi.CustomResource):
         Date of actions_secret update.
         """
         return pulumi.get(self, "updated_at")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

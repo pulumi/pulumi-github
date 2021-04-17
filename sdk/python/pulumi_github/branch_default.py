@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from . import _utilities, _tables
+from . import _utilities
 
 __all__ = ['BranchDefaultArgs', 'BranchDefault']
 
@@ -45,6 +45,46 @@ class BranchDefaultArgs:
 
     @repository.setter
     def repository(self, value: pulumi.Input[str]):
+        pulumi.set(self, "repository", value)
+
+
+@pulumi.input_type
+class _BranchDefaultState:
+    def __init__(__self__, *,
+                 branch: Optional[pulumi.Input[str]] = None,
+                 repository: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering BranchDefault resources.
+        :param pulumi.Input[str] branch: The branch (e.g. `main`)
+        :param pulumi.Input[str] repository: The GitHub repository
+        """
+        if branch is not None:
+            pulumi.set(__self__, "branch", branch)
+        if repository is not None:
+            pulumi.set(__self__, "repository", repository)
+
+    @property
+    @pulumi.getter
+    def branch(self) -> Optional[pulumi.Input[str]]:
+        """
+        The branch (e.g. `main`)
+        """
+        return pulumi.get(self, "branch")
+
+    @branch.setter
+    def branch(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "branch", value)
+
+    @property
+    @pulumi.getter
+    def repository(self) -> Optional[pulumi.Input[str]]:
+        """
+        The GitHub repository
+        """
+        return pulumi.get(self, "repository")
+
+    @repository.setter
+    def repository(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "repository", value)
 
 
@@ -168,14 +208,14 @@ class BranchDefault(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = BranchDefaultArgs.__new__(BranchDefaultArgs)
 
             if branch is None and not opts.urn:
                 raise TypeError("Missing required property 'branch'")
-            __props__['branch'] = branch
+            __props__.__dict__["branch"] = branch
             if repository is None and not opts.urn:
                 raise TypeError("Missing required property 'repository'")
-            __props__['repository'] = repository
+            __props__.__dict__["repository"] = repository
         super(BranchDefault, __self__).__init__(
             'github:index/branchDefault:BranchDefault',
             resource_name,
@@ -200,10 +240,10 @@ class BranchDefault(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _BranchDefaultState.__new__(_BranchDefaultState)
 
-        __props__["branch"] = branch
-        __props__["repository"] = repository
+        __props__.__dict__["branch"] = branch
+        __props__.__dict__["repository"] = repository
         return BranchDefault(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -221,10 +261,4 @@ class BranchDefault(pulumi.CustomResource):
         The GitHub repository
         """
         return pulumi.get(self, "repository")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

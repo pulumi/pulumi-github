@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from . import _utilities, _tables
+from . import _utilities
 
 __all__ = ['RepositoryDeployKeyArgs', 'RepositoryDeployKey']
 
@@ -77,6 +77,90 @@ class RepositoryDeployKeyArgs:
     @read_only.setter
     def read_only(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "read_only", value)
+
+
+@pulumi.input_type
+class _RepositoryDeployKeyState:
+    def __init__(__self__, *,
+                 etag: Optional[pulumi.Input[str]] = None,
+                 key: Optional[pulumi.Input[str]] = None,
+                 read_only: Optional[pulumi.Input[bool]] = None,
+                 repository: Optional[pulumi.Input[str]] = None,
+                 title: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering RepositoryDeployKey resources.
+        :param pulumi.Input[str] key: A SSH key.
+        :param pulumi.Input[bool] read_only: A boolean qualifying the key to be either read only or read/write.
+        :param pulumi.Input[str] repository: Name of the GitHub repository.
+        :param pulumi.Input[str] title: A title.
+        """
+        if etag is not None:
+            pulumi.set(__self__, "etag", etag)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if read_only is not None:
+            pulumi.set(__self__, "read_only", read_only)
+        if repository is not None:
+            pulumi.set(__self__, "repository", repository)
+        if title is not None:
+            pulumi.set(__self__, "title", title)
+
+    @property
+    @pulumi.getter
+    def etag(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "etag")
+
+    @etag.setter
+    def etag(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "etag", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        """
+        A SSH key.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter(name="readOnly")
+    def read_only(self) -> Optional[pulumi.Input[bool]]:
+        """
+        A boolean qualifying the key to be either read only or read/write.
+        """
+        return pulumi.get(self, "read_only")
+
+    @read_only.setter
+    def read_only(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "read_only", value)
+
+    @property
+    @pulumi.getter
+    def repository(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the GitHub repository.
+        """
+        return pulumi.get(self, "repository")
+
+    @repository.setter
+    def repository(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "repository", value)
+
+    @property
+    @pulumi.getter
+    def title(self) -> Optional[pulumi.Input[str]]:
+        """
+        A title.
+        """
+        return pulumi.get(self, "title")
+
+    @title.setter
+    def title(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "title", value)
 
 
 class RepositoryDeployKey(pulumi.CustomResource):
@@ -209,19 +293,19 @@ class RepositoryDeployKey(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = RepositoryDeployKeyArgs.__new__(RepositoryDeployKeyArgs)
 
             if key is None and not opts.urn:
                 raise TypeError("Missing required property 'key'")
-            __props__['key'] = key
-            __props__['read_only'] = read_only
+            __props__.__dict__["key"] = key
+            __props__.__dict__["read_only"] = read_only
             if repository is None and not opts.urn:
                 raise TypeError("Missing required property 'repository'")
-            __props__['repository'] = repository
+            __props__.__dict__["repository"] = repository
             if title is None and not opts.urn:
                 raise TypeError("Missing required property 'title'")
-            __props__['title'] = title
-            __props__['etag'] = None
+            __props__.__dict__["title"] = title
+            __props__.__dict__["etag"] = None
         super(RepositoryDeployKey, __self__).__init__(
             'github:index/repositoryDeployKey:RepositoryDeployKey',
             resource_name,
@@ -251,13 +335,13 @@ class RepositoryDeployKey(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _RepositoryDeployKeyState.__new__(_RepositoryDeployKeyState)
 
-        __props__["etag"] = etag
-        __props__["key"] = key
-        __props__["read_only"] = read_only
-        __props__["repository"] = repository
-        __props__["title"] = title
+        __props__.__dict__["etag"] = etag
+        __props__.__dict__["key"] = key
+        __props__.__dict__["read_only"] = read_only
+        __props__.__dict__["repository"] = repository
+        __props__.__dict__["title"] = title
         return RepositoryDeployKey(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -296,10 +380,4 @@ class RepositoryDeployKey(pulumi.CustomResource):
         A title.
         """
         return pulumi.get(self, "title")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

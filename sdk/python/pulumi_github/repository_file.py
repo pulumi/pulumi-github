@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from . import _utilities, _tables
+from . import _utilities
 
 __all__ = ['RepositoryFileArgs', 'RepositoryFile']
 
@@ -143,6 +143,176 @@ class RepositoryFileArgs:
     @overwrite_on_create.setter
     def overwrite_on_create(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "overwrite_on_create", value)
+
+
+@pulumi.input_type
+class _RepositoryFileState:
+    def __init__(__self__, *,
+                 branch: Optional[pulumi.Input[str]] = None,
+                 commit_author: Optional[pulumi.Input[str]] = None,
+                 commit_email: Optional[pulumi.Input[str]] = None,
+                 commit_message: Optional[pulumi.Input[str]] = None,
+                 commit_sha: Optional[pulumi.Input[str]] = None,
+                 content: Optional[pulumi.Input[str]] = None,
+                 file: Optional[pulumi.Input[str]] = None,
+                 overwrite_on_create: Optional[pulumi.Input[bool]] = None,
+                 repository: Optional[pulumi.Input[str]] = None,
+                 sha: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering RepositoryFile resources.
+        :param pulumi.Input[str] branch: Git branch (defaults to `main`).
+               The branch must already exist, it will not be created if it does not already exist.
+        :param pulumi.Input[str] commit_author: Committer author name to use.
+        :param pulumi.Input[str] commit_email: Committer email address to use.
+        :param pulumi.Input[str] commit_message: Commit message when adding or updating the managed file.
+        :param pulumi.Input[str] commit_sha: The SHA of the commit that modified the file.
+        :param pulumi.Input[str] content: The file content.
+        :param pulumi.Input[str] file: The path of the file to manage.
+        :param pulumi.Input[bool] overwrite_on_create: Enable overwriting existing files
+        :param pulumi.Input[str] repository: The repository to create the file in.
+        :param pulumi.Input[str] sha: The SHA blob of the file.
+        """
+        if branch is not None:
+            pulumi.set(__self__, "branch", branch)
+        if commit_author is not None:
+            pulumi.set(__self__, "commit_author", commit_author)
+        if commit_email is not None:
+            pulumi.set(__self__, "commit_email", commit_email)
+        if commit_message is not None:
+            pulumi.set(__self__, "commit_message", commit_message)
+        if commit_sha is not None:
+            pulumi.set(__self__, "commit_sha", commit_sha)
+        if content is not None:
+            pulumi.set(__self__, "content", content)
+        if file is not None:
+            pulumi.set(__self__, "file", file)
+        if overwrite_on_create is not None:
+            pulumi.set(__self__, "overwrite_on_create", overwrite_on_create)
+        if repository is not None:
+            pulumi.set(__self__, "repository", repository)
+        if sha is not None:
+            pulumi.set(__self__, "sha", sha)
+
+    @property
+    @pulumi.getter
+    def branch(self) -> Optional[pulumi.Input[str]]:
+        """
+        Git branch (defaults to `main`).
+        The branch must already exist, it will not be created if it does not already exist.
+        """
+        return pulumi.get(self, "branch")
+
+    @branch.setter
+    def branch(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "branch", value)
+
+    @property
+    @pulumi.getter(name="commitAuthor")
+    def commit_author(self) -> Optional[pulumi.Input[str]]:
+        """
+        Committer author name to use.
+        """
+        return pulumi.get(self, "commit_author")
+
+    @commit_author.setter
+    def commit_author(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "commit_author", value)
+
+    @property
+    @pulumi.getter(name="commitEmail")
+    def commit_email(self) -> Optional[pulumi.Input[str]]:
+        """
+        Committer email address to use.
+        """
+        return pulumi.get(self, "commit_email")
+
+    @commit_email.setter
+    def commit_email(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "commit_email", value)
+
+    @property
+    @pulumi.getter(name="commitMessage")
+    def commit_message(self) -> Optional[pulumi.Input[str]]:
+        """
+        Commit message when adding or updating the managed file.
+        """
+        return pulumi.get(self, "commit_message")
+
+    @commit_message.setter
+    def commit_message(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "commit_message", value)
+
+    @property
+    @pulumi.getter(name="commitSha")
+    def commit_sha(self) -> Optional[pulumi.Input[str]]:
+        """
+        The SHA of the commit that modified the file.
+        """
+        return pulumi.get(self, "commit_sha")
+
+    @commit_sha.setter
+    def commit_sha(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "commit_sha", value)
+
+    @property
+    @pulumi.getter
+    def content(self) -> Optional[pulumi.Input[str]]:
+        """
+        The file content.
+        """
+        return pulumi.get(self, "content")
+
+    @content.setter
+    def content(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "content", value)
+
+    @property
+    @pulumi.getter
+    def file(self) -> Optional[pulumi.Input[str]]:
+        """
+        The path of the file to manage.
+        """
+        return pulumi.get(self, "file")
+
+    @file.setter
+    def file(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "file", value)
+
+    @property
+    @pulumi.getter(name="overwriteOnCreate")
+    def overwrite_on_create(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable overwriting existing files
+        """
+        return pulumi.get(self, "overwrite_on_create")
+
+    @overwrite_on_create.setter
+    def overwrite_on_create(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "overwrite_on_create", value)
+
+    @property
+    @pulumi.getter
+    def repository(self) -> Optional[pulumi.Input[str]]:
+        """
+        The repository to create the file in.
+        """
+        return pulumi.get(self, "repository")
+
+    @repository.setter
+    def repository(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "repository", value)
+
+    @property
+    @pulumi.getter
+    def sha(self) -> Optional[pulumi.Input[str]]:
+        """
+        The SHA blob of the file.
+        """
+        return pulumi.get(self, "sha")
+
+    @sha.setter
+    def sha(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sha", value)
 
 
 class RepositoryFile(pulumi.CustomResource):
@@ -292,24 +462,24 @@ class RepositoryFile(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = RepositoryFileArgs.__new__(RepositoryFileArgs)
 
-            __props__['branch'] = branch
-            __props__['commit_author'] = commit_author
-            __props__['commit_email'] = commit_email
-            __props__['commit_message'] = commit_message
+            __props__.__dict__["branch"] = branch
+            __props__.__dict__["commit_author"] = commit_author
+            __props__.__dict__["commit_email"] = commit_email
+            __props__.__dict__["commit_message"] = commit_message
             if content is None and not opts.urn:
                 raise TypeError("Missing required property 'content'")
-            __props__['content'] = content
+            __props__.__dict__["content"] = content
             if file is None and not opts.urn:
                 raise TypeError("Missing required property 'file'")
-            __props__['file'] = file
-            __props__['overwrite_on_create'] = overwrite_on_create
+            __props__.__dict__["file"] = file
+            __props__.__dict__["overwrite_on_create"] = overwrite_on_create
             if repository is None and not opts.urn:
                 raise TypeError("Missing required property 'repository'")
-            __props__['repository'] = repository
-            __props__['commit_sha'] = None
-            __props__['sha'] = None
+            __props__.__dict__["repository"] = repository
+            __props__.__dict__["commit_sha"] = None
+            __props__.__dict__["sha"] = None
         super(RepositoryFile, __self__).__init__(
             'github:index/repositoryFile:RepositoryFile',
             resource_name,
@@ -351,18 +521,18 @@ class RepositoryFile(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _RepositoryFileState.__new__(_RepositoryFileState)
 
-        __props__["branch"] = branch
-        __props__["commit_author"] = commit_author
-        __props__["commit_email"] = commit_email
-        __props__["commit_message"] = commit_message
-        __props__["commit_sha"] = commit_sha
-        __props__["content"] = content
-        __props__["file"] = file
-        __props__["overwrite_on_create"] = overwrite_on_create
-        __props__["repository"] = repository
-        __props__["sha"] = sha
+        __props__.__dict__["branch"] = branch
+        __props__.__dict__["commit_author"] = commit_author
+        __props__.__dict__["commit_email"] = commit_email
+        __props__.__dict__["commit_message"] = commit_message
+        __props__.__dict__["commit_sha"] = commit_sha
+        __props__.__dict__["content"] = content
+        __props__.__dict__["file"] = file
+        __props__.__dict__["overwrite_on_create"] = overwrite_on_create
+        __props__.__dict__["repository"] = repository
+        __props__.__dict__["sha"] = sha
         return RepositoryFile(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -445,10 +615,4 @@ class RepositoryFile(pulumi.CustomResource):
         The SHA blob of the file.
         """
         return pulumi.get(self, "sha")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

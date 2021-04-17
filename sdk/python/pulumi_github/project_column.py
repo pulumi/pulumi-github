@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from . import _utilities, _tables
+from . import _utilities
 
 __all__ = ['ProjectColumnArgs', 'ProjectColumn']
 
@@ -47,6 +47,70 @@ class ProjectColumnArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class _ProjectColumnState:
+    def __init__(__self__, *,
+                 column_id: Optional[pulumi.Input[int]] = None,
+                 etag: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 project_id: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering ProjectColumn resources.
+        :param pulumi.Input[str] name: The name of the column.
+        :param pulumi.Input[str] project_id: The ID of an existing project that the column will be created in.
+        """
+        if column_id is not None:
+            pulumi.set(__self__, "column_id", column_id)
+        if etag is not None:
+            pulumi.set(__self__, "etag", etag)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if project_id is not None:
+            pulumi.set(__self__, "project_id", project_id)
+
+    @property
+    @pulumi.getter(name="columnId")
+    def column_id(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "column_id")
+
+    @column_id.setter
+    def column_id(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "column_id", value)
+
+    @property
+    @pulumi.getter
+    def etag(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "etag")
+
+    @etag.setter
+    def etag(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "etag", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the column.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="projectId")
+    def project_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of an existing project that the column will be created in.
+        """
+        return pulumi.get(self, "project_id")
+
+    @project_id.setter
+    def project_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "project_id", value)
 
 
 class ProjectColumn(pulumi.CustomResource):
@@ -131,14 +195,14 @@ class ProjectColumn(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ProjectColumnArgs.__new__(ProjectColumnArgs)
 
-            __props__['name'] = name
+            __props__.__dict__["name"] = name
             if project_id is None and not opts.urn:
                 raise TypeError("Missing required property 'project_id'")
-            __props__['project_id'] = project_id
-            __props__['column_id'] = None
-            __props__['etag'] = None
+            __props__.__dict__["project_id"] = project_id
+            __props__.__dict__["column_id"] = None
+            __props__.__dict__["etag"] = None
         super(ProjectColumn, __self__).__init__(
             'github:index/projectColumn:ProjectColumn',
             resource_name,
@@ -165,12 +229,12 @@ class ProjectColumn(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _ProjectColumnState.__new__(_ProjectColumnState)
 
-        __props__["column_id"] = column_id
-        __props__["etag"] = etag
-        __props__["name"] = name
-        __props__["project_id"] = project_id
+        __props__.__dict__["column_id"] = column_id
+        __props__.__dict__["etag"] = etag
+        __props__.__dict__["name"] = name
+        __props__.__dict__["project_id"] = project_id
         return ProjectColumn(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -198,10 +262,4 @@ class ProjectColumn(pulumi.CustomResource):
         The ID of an existing project that the column will be created in.
         """
         return pulumi.get(self, "project_id")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

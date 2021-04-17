@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from . import _utilities, _tables
+from . import _utilities
 from . import outputs
 
 __all__ = [
@@ -30,6 +30,29 @@ __all__ = [
 
 @pulumi.output_type
 class BranchProtectionRequiredPullRequestReview(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dismissStaleReviews":
+            suggest = "dismiss_stale_reviews"
+        elif key == "dismissalRestrictions":
+            suggest = "dismissal_restrictions"
+        elif key == "requireCodeOwnerReviews":
+            suggest = "require_code_owner_reviews"
+        elif key == "requiredApprovingReviewCount":
+            suggest = "required_approving_review_count"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BranchProtectionRequiredPullRequestReview. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BranchProtectionRequiredPullRequestReview.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BranchProtectionRequiredPullRequestReview.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  dismiss_stale_reviews: Optional[bool] = None,
                  dismissal_restrictions: Optional[Sequence[str]] = None,
@@ -64,9 +87,6 @@ class BranchProtectionRequiredPullRequestReview(dict):
     def required_approving_review_count(self) -> Optional[int]:
         return pulumi.get(self, "required_approving_review_count")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class BranchProtectionRequiredStatusCheck(dict):
@@ -88,12 +108,36 @@ class BranchProtectionRequiredStatusCheck(dict):
     def strict(self) -> Optional[bool]:
         return pulumi.get(self, "strict")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class BranchProtectionV3RequiredPullRequestReviews(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dismissStaleReviews":
+            suggest = "dismiss_stale_reviews"
+        elif key == "dismissalTeams":
+            suggest = "dismissal_teams"
+        elif key == "dismissalUsers":
+            suggest = "dismissal_users"
+        elif key == "includeAdmins":
+            suggest = "include_admins"
+        elif key == "requireCodeOwnerReviews":
+            suggest = "require_code_owner_reviews"
+        elif key == "requiredApprovingReviewCount":
+            suggest = "required_approving_review_count"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BranchProtectionV3RequiredPullRequestReviews. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BranchProtectionV3RequiredPullRequestReviews.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BranchProtectionV3RequiredPullRequestReviews.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  dismiss_stale_reviews: Optional[bool] = None,
                  dismissal_teams: Optional[Sequence[str]] = None,
@@ -144,12 +188,26 @@ class BranchProtectionV3RequiredPullRequestReviews(dict):
     def required_approving_review_count(self) -> Optional[int]:
         return pulumi.get(self, "required_approving_review_count")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class BranchProtectionV3RequiredStatusChecks(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "includeAdmins":
+            suggest = "include_admins"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BranchProtectionV3RequiredStatusChecks. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BranchProtectionV3RequiredStatusChecks.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BranchProtectionV3RequiredStatusChecks.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  contexts: Optional[Sequence[str]] = None,
                  include_admins: Optional[bool] = None,
@@ -175,9 +233,6 @@ class BranchProtectionV3RequiredStatusChecks(dict):
     @pulumi.getter
     def strict(self) -> Optional[bool]:
         return pulumi.get(self, "strict")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -208,12 +263,28 @@ class BranchProtectionV3Restrictions(dict):
     def users(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "users")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class OrganizationWebhookConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "contentType":
+            suggest = "content_type"
+        elif key == "insecureSsl":
+            suggest = "insecure_ssl"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OrganizationWebhookConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OrganizationWebhookConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OrganizationWebhookConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  url: str,
                  content_type: Optional[str] = None,
@@ -253,12 +324,26 @@ class OrganizationWebhookConfiguration(dict):
     def secret(self) -> Optional[str]:
         return pulumi.get(self, "secret")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RepositoryPages(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "htmlUrl":
+            suggest = "html_url"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RepositoryPages. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RepositoryPages.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RepositoryPages.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  source: 'outputs.RepositoryPagesSource',
                  cname: Optional[str] = None,
@@ -330,9 +415,6 @@ class RepositoryPages(dict):
     def url(self) -> Optional[str]:
         return pulumi.get(self, "url")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RepositoryPagesSource(dict):
@@ -363,9 +445,6 @@ class RepositoryPagesSource(dict):
         """
         return pulumi.get(self, "path")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RepositoryTemplate(dict):
@@ -385,12 +464,28 @@ class RepositoryTemplate(dict):
     def repository(self) -> str:
         return pulumi.get(self, "repository")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RepositoryWebhookConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "contentType":
+            suggest = "content_type"
+        elif key == "insecureSsl":
+            suggest = "insecure_ssl"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RepositoryWebhookConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RepositoryWebhookConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RepositoryWebhookConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  url: str,
                  content_type: Optional[str] = None,
@@ -430,12 +525,30 @@ class RepositoryWebhookConfiguration(dict):
     def secret(self) -> Optional[str]:
         return pulumi.get(self, "secret")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TeamSyncGroupMappingGroup(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupDescription":
+            suggest = "group_description"
+        elif key == "groupId":
+            suggest = "group_id"
+        elif key == "groupName":
+            suggest = "group_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TeamSyncGroupMappingGroup. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TeamSyncGroupMappingGroup.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TeamSyncGroupMappingGroup.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  group_description: str,
                  group_id: str,
@@ -472,9 +585,6 @@ class TeamSyncGroupMappingGroup(dict):
         The name of the IdP group.
         """
         return pulumi.get(self, "group_name")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type

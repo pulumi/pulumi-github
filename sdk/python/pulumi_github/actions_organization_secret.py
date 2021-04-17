@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from . import _utilities, _tables
+from . import _utilities
 
 __all__ = ['ActionsOrganizationSecretArgs', 'ActionsOrganizationSecret']
 
@@ -81,6 +81,112 @@ class ActionsOrganizationSecretArgs:
         pulumi.set(self, "selected_repository_ids", value)
 
 
+@pulumi.input_type
+class _ActionsOrganizationSecretState:
+    def __init__(__self__, *,
+                 created_at: Optional[pulumi.Input[str]] = None,
+                 plaintext_value: Optional[pulumi.Input[str]] = None,
+                 secret_name: Optional[pulumi.Input[str]] = None,
+                 selected_repository_ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+                 updated_at: Optional[pulumi.Input[str]] = None,
+                 visibility: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering ActionsOrganizationSecret resources.
+        :param pulumi.Input[str] created_at: Date of actions_secret creation.
+        :param pulumi.Input[str] plaintext_value: Plaintext value of the secret to be encrypted
+        :param pulumi.Input[str] secret_name: Name of the secret
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] selected_repository_ids: An array of repository ids that can access the organization secret.
+        :param pulumi.Input[str] updated_at: Date of actions_secret update.
+        :param pulumi.Input[str] visibility: Configures the access that repositories have to the organization secret.
+               Must be one of `all`, `private`, `selected`. `selected_repository_ids` is required if set to `selected`.
+        """
+        if created_at is not None:
+            pulumi.set(__self__, "created_at", created_at)
+        if plaintext_value is not None:
+            pulumi.set(__self__, "plaintext_value", plaintext_value)
+        if secret_name is not None:
+            pulumi.set(__self__, "secret_name", secret_name)
+        if selected_repository_ids is not None:
+            pulumi.set(__self__, "selected_repository_ids", selected_repository_ids)
+        if updated_at is not None:
+            pulumi.set(__self__, "updated_at", updated_at)
+        if visibility is not None:
+            pulumi.set(__self__, "visibility", visibility)
+
+    @property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> Optional[pulumi.Input[str]]:
+        """
+        Date of actions_secret creation.
+        """
+        return pulumi.get(self, "created_at")
+
+    @created_at.setter
+    def created_at(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "created_at", value)
+
+    @property
+    @pulumi.getter(name="plaintextValue")
+    def plaintext_value(self) -> Optional[pulumi.Input[str]]:
+        """
+        Plaintext value of the secret to be encrypted
+        """
+        return pulumi.get(self, "plaintext_value")
+
+    @plaintext_value.setter
+    def plaintext_value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "plaintext_value", value)
+
+    @property
+    @pulumi.getter(name="secretName")
+    def secret_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the secret
+        """
+        return pulumi.get(self, "secret_name")
+
+    @secret_name.setter
+    def secret_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "secret_name", value)
+
+    @property
+    @pulumi.getter(name="selectedRepositoryIds")
+    def selected_repository_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
+        """
+        An array of repository ids that can access the organization secret.
+        """
+        return pulumi.get(self, "selected_repository_ids")
+
+    @selected_repository_ids.setter
+    def selected_repository_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
+        pulumi.set(self, "selected_repository_ids", value)
+
+    @property
+    @pulumi.getter(name="updatedAt")
+    def updated_at(self) -> Optional[pulumi.Input[str]]:
+        """
+        Date of actions_secret update.
+        """
+        return pulumi.get(self, "updated_at")
+
+    @updated_at.setter
+    def updated_at(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "updated_at", value)
+
+    @property
+    @pulumi.getter
+    def visibility(self) -> Optional[pulumi.Input[str]]:
+        """
+        Configures the access that repositories have to the organization secret.
+        Must be one of `all`, `private`, `selected`. `selected_repository_ids` is required if set to `selected`.
+        """
+        return pulumi.get(self, "visibility")
+
+    @visibility.setter
+    def visibility(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "visibility", value)
+
+
 class ActionsOrganizationSecret(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -148,20 +254,20 @@ class ActionsOrganizationSecret(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ActionsOrganizationSecretArgs.__new__(ActionsOrganizationSecretArgs)
 
             if plaintext_value is None and not opts.urn:
                 raise TypeError("Missing required property 'plaintext_value'")
-            __props__['plaintext_value'] = plaintext_value
+            __props__.__dict__["plaintext_value"] = plaintext_value
             if secret_name is None and not opts.urn:
                 raise TypeError("Missing required property 'secret_name'")
-            __props__['secret_name'] = secret_name
-            __props__['selected_repository_ids'] = selected_repository_ids
+            __props__.__dict__["secret_name"] = secret_name
+            __props__.__dict__["selected_repository_ids"] = selected_repository_ids
             if visibility is None and not opts.urn:
                 raise TypeError("Missing required property 'visibility'")
-            __props__['visibility'] = visibility
-            __props__['created_at'] = None
-            __props__['updated_at'] = None
+            __props__.__dict__["visibility"] = visibility
+            __props__.__dict__["created_at"] = None
+            __props__.__dict__["updated_at"] = None
         super(ActionsOrganizationSecret, __self__).__init__(
             'github:index/actionsOrganizationSecret:ActionsOrganizationSecret',
             resource_name,
@@ -195,14 +301,14 @@ class ActionsOrganizationSecret(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _ActionsOrganizationSecretState.__new__(_ActionsOrganizationSecretState)
 
-        __props__["created_at"] = created_at
-        __props__["plaintext_value"] = plaintext_value
-        __props__["secret_name"] = secret_name
-        __props__["selected_repository_ids"] = selected_repository_ids
-        __props__["updated_at"] = updated_at
-        __props__["visibility"] = visibility
+        __props__.__dict__["created_at"] = created_at
+        __props__.__dict__["plaintext_value"] = plaintext_value
+        __props__.__dict__["secret_name"] = secret_name
+        __props__.__dict__["selected_repository_ids"] = selected_repository_ids
+        __props__.__dict__["updated_at"] = updated_at
+        __props__.__dict__["visibility"] = visibility
         return ActionsOrganizationSecret(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -253,10 +359,4 @@ class ActionsOrganizationSecret(pulumi.CustomResource):
         Must be one of `all`, `private`, `selected`. `selected_repository_ids` is required if set to `selected`.
         """
         return pulumi.get(self, "visibility")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

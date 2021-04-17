@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from . import _utilities, _tables
+from . import _utilities
 
 __all__ = ['UserGpgKeyArgs', 'UserGpgKey']
 
@@ -33,6 +33,60 @@ class UserGpgKeyArgs:
     @armored_public_key.setter
     def armored_public_key(self, value: pulumi.Input[str]):
         pulumi.set(self, "armored_public_key", value)
+
+
+@pulumi.input_type
+class _UserGpgKeyState:
+    def __init__(__self__, *,
+                 armored_public_key: Optional[pulumi.Input[str]] = None,
+                 etag: Optional[pulumi.Input[str]] = None,
+                 key_id: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering UserGpgKey resources.
+        :param pulumi.Input[str] armored_public_key: Your public GPG key, generated in ASCII-armored format.
+               See [Generating a new GPG key](https://help.github.com/articles/generating-a-new-gpg-key/) for help on creating a GPG key.
+        :param pulumi.Input[str] key_id: The key ID of the GPG key, e.g. `3262EFF25BA0D270`
+        """
+        if armored_public_key is not None:
+            pulumi.set(__self__, "armored_public_key", armored_public_key)
+        if etag is not None:
+            pulumi.set(__self__, "etag", etag)
+        if key_id is not None:
+            pulumi.set(__self__, "key_id", key_id)
+
+    @property
+    @pulumi.getter(name="armoredPublicKey")
+    def armored_public_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        Your public GPG key, generated in ASCII-armored format.
+        See [Generating a new GPG key](https://help.github.com/articles/generating-a-new-gpg-key/) for help on creating a GPG key.
+        """
+        return pulumi.get(self, "armored_public_key")
+
+    @armored_public_key.setter
+    def armored_public_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "armored_public_key", value)
+
+    @property
+    @pulumi.getter
+    def etag(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "etag")
+
+    @etag.setter
+    def etag(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "etag", value)
+
+    @property
+    @pulumi.getter(name="keyId")
+    def key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The key ID of the GPG key, e.g. `3262EFF25BA0D270`
+        """
+        return pulumi.get(self, "key_id")
+
+    @key_id.setter
+    def key_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_id", value)
 
 
 class UserGpgKey(pulumi.CustomResource):
@@ -131,13 +185,13 @@ class UserGpgKey(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = UserGpgKeyArgs.__new__(UserGpgKeyArgs)
 
             if armored_public_key is None and not opts.urn:
                 raise TypeError("Missing required property 'armored_public_key'")
-            __props__['armored_public_key'] = armored_public_key
-            __props__['etag'] = None
-            __props__['key_id'] = None
+            __props__.__dict__["armored_public_key"] = armored_public_key
+            __props__.__dict__["etag"] = None
+            __props__.__dict__["key_id"] = None
         super(UserGpgKey, __self__).__init__(
             'github:index/userGpgKey:UserGpgKey',
             resource_name,
@@ -164,11 +218,11 @@ class UserGpgKey(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _UserGpgKeyState.__new__(_UserGpgKeyState)
 
-        __props__["armored_public_key"] = armored_public_key
-        __props__["etag"] = etag
-        __props__["key_id"] = key_id
+        __props__.__dict__["armored_public_key"] = armored_public_key
+        __props__.__dict__["etag"] = etag
+        __props__.__dict__["key_id"] = key_id
         return UserGpgKey(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -192,10 +246,4 @@ class UserGpgKey(pulumi.CustomResource):
         The key ID of the GPG key, e.g. `3262EFF25BA0D270`
         """
         return pulumi.get(self, "key_id")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

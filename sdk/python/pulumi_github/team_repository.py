@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from . import _utilities, _tables
+from . import _utilities
 
 __all__ = ['TeamRepositoryArgs', 'TeamRepository']
 
@@ -64,6 +64,76 @@ class TeamRepositoryArgs:
     @permission.setter
     def permission(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "permission", value)
+
+
+@pulumi.input_type
+class _TeamRepositoryState:
+    def __init__(__self__, *,
+                 etag: Optional[pulumi.Input[str]] = None,
+                 permission: Optional[pulumi.Input[str]] = None,
+                 repository: Optional[pulumi.Input[str]] = None,
+                 team_id: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering TeamRepository resources.
+        :param pulumi.Input[str] permission: The permissions of team members regarding the repository.
+               Must be one of `pull`, `triage`, `push`, `maintain`, or `admin`. Defaults to `pull`.
+        :param pulumi.Input[str] repository: The repository to add to the team.
+        :param pulumi.Input[str] team_id: The GitHub team id or the GitHub team slug
+        """
+        if etag is not None:
+            pulumi.set(__self__, "etag", etag)
+        if permission is not None:
+            pulumi.set(__self__, "permission", permission)
+        if repository is not None:
+            pulumi.set(__self__, "repository", repository)
+        if team_id is not None:
+            pulumi.set(__self__, "team_id", team_id)
+
+    @property
+    @pulumi.getter
+    def etag(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "etag")
+
+    @etag.setter
+    def etag(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "etag", value)
+
+    @property
+    @pulumi.getter
+    def permission(self) -> Optional[pulumi.Input[str]]:
+        """
+        The permissions of team members regarding the repository.
+        Must be one of `pull`, `triage`, `push`, `maintain`, or `admin`. Defaults to `pull`.
+        """
+        return pulumi.get(self, "permission")
+
+    @permission.setter
+    def permission(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "permission", value)
+
+    @property
+    @pulumi.getter
+    def repository(self) -> Optional[pulumi.Input[str]]:
+        """
+        The repository to add to the team.
+        """
+        return pulumi.get(self, "repository")
+
+    @repository.setter
+    def repository(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "repository", value)
+
+    @property
+    @pulumi.getter(name="teamId")
+    def team_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The GitHub team id or the GitHub team slug
+        """
+        return pulumi.get(self, "team_id")
+
+    @team_id.setter
+    def team_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "team_id", value)
 
 
 class TeamRepository(pulumi.CustomResource):
@@ -194,16 +264,16 @@ class TeamRepository(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = TeamRepositoryArgs.__new__(TeamRepositoryArgs)
 
-            __props__['permission'] = permission
+            __props__.__dict__["permission"] = permission
             if repository is None and not opts.urn:
                 raise TypeError("Missing required property 'repository'")
-            __props__['repository'] = repository
+            __props__.__dict__["repository"] = repository
             if team_id is None and not opts.urn:
                 raise TypeError("Missing required property 'team_id'")
-            __props__['team_id'] = team_id
-            __props__['etag'] = None
+            __props__.__dict__["team_id"] = team_id
+            __props__.__dict__["etag"] = None
         super(TeamRepository, __self__).__init__(
             'github:index/teamRepository:TeamRepository',
             resource_name,
@@ -232,12 +302,12 @@ class TeamRepository(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _TeamRepositoryState.__new__(_TeamRepositoryState)
 
-        __props__["etag"] = etag
-        __props__["permission"] = permission
-        __props__["repository"] = repository
-        __props__["team_id"] = team_id
+        __props__.__dict__["etag"] = etag
+        __props__.__dict__["permission"] = permission
+        __props__.__dict__["repository"] = repository
+        __props__.__dict__["team_id"] = team_id
         return TeamRepository(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -269,10 +339,4 @@ class TeamRepository(pulumi.CustomResource):
         The GitHub team id or the GitHub team slug
         """
         return pulumi.get(self, "team_id")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 
