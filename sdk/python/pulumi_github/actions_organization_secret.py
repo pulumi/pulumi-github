@@ -200,7 +200,16 @@ class ActionsOrganizationSecret(pulumi.CustomResource):
                  __name__=None,
                  __opts__=None):
         """
-        Create a ActionsOrganizationSecret resource with the given unique name, props, and options.
+        ## Import
+
+        This resource can be imported using an ID made up of the secret name
+
+        ```sh
+         $ pulumi import github:index/actionsOrganizationSecret:ActionsOrganizationSecret test_secret test_secret_name
+        ```
+
+         NOTEthe implementation is limited in that it won't fetch the value of the `plaintext_value` field when importing. You may need to ignore changes for the `plaintext_value` as a workaround.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] plaintext_value: Plaintext value of the secret to be encrypted
@@ -216,7 +225,16 @@ class ActionsOrganizationSecret(pulumi.CustomResource):
                  args: ActionsOrganizationSecretArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a ActionsOrganizationSecret resource with the given unique name, props, and options.
+        ## Import
+
+        This resource can be imported using an ID made up of the secret name
+
+        ```sh
+         $ pulumi import github:index/actionsOrganizationSecret:ActionsOrganizationSecret test_secret test_secret_name
+        ```
+
+         NOTEthe implementation is limited in that it won't fetch the value of the `plaintext_value` field when importing. You may need to ignore changes for the `plaintext_value` as a workaround.
+
         :param str resource_name: The name of the resource.
         :param ActionsOrganizationSecretArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.

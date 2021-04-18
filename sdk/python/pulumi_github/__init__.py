@@ -22,6 +22,8 @@ from .get_release import *
 from .get_repositories import *
 from .get_repository import *
 from .get_repository_milestone import *
+from .get_repository_pull_request import *
+from .get_repository_pull_requests import *
 from .get_team import *
 from .get_user import *
 from .issue_label import *
@@ -38,6 +40,7 @@ from .repository_deploy_key import *
 from .repository_file import *
 from .repository_milestone import *
 from .repository_project import *
+from .repository_pull_request import *
 from .repository_webhook import *
 from .team import *
 from .team_membership import *
@@ -106,6 +109,8 @@ def _register_module():
                 return RepositoryMilestone(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "github:index/repositoryProject:RepositoryProject":
                 return RepositoryProject(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "github:index/repositoryPullRequest:RepositoryPullRequest":
+                return RepositoryPullRequest(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "github:index/repositoryWebhook:RepositoryWebhook":
                 return RepositoryWebhook(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "github:index/team:Team":
@@ -147,6 +152,7 @@ def _register_module():
     pulumi.runtime.register_resource_module("github", "index/repositoryFile", _module_instance)
     pulumi.runtime.register_resource_module("github", "index/repositoryMilestone", _module_instance)
     pulumi.runtime.register_resource_module("github", "index/repositoryProject", _module_instance)
+    pulumi.runtime.register_resource_module("github", "index/repositoryPullRequest", _module_instance)
     pulumi.runtime.register_resource_module("github", "index/repositoryWebhook", _module_instance)
     pulumi.runtime.register_resource_module("github", "index/team", _module_instance)
     pulumi.runtime.register_resource_module("github", "index/teamMembership", _module_instance)

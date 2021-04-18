@@ -11,6 +11,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## Import
+//
+// This resource can be imported using an ID made up of the secret name
+//
+// ```sh
+//  $ pulumi import github:index/actionsOrganizationSecret:ActionsOrganizationSecret test_secret test_secret_name
+// ```
+//
+//  NOTEthe implementation is limited in that it won't fetch the value of the `plaintext_value` field when importing. You may need to ignore changes for the `plaintext_value` as a workaround.
 type ActionsOrganizationSecret struct {
 	pulumi.CustomResourceState
 

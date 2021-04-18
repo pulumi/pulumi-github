@@ -2448,6 +2448,238 @@ func (o GetRepositoryPageSourceArrayOutput) Index(i pulumi.IntInput) GetReposito
 	}).(GetRepositoryPageSourceOutput)
 }
 
+type GetRepositoryPullRequestsResultType struct {
+	// If set, filters Pull Requests by base branch name.
+	BaseRef string `pulumi:"baseRef"`
+	// Head commit SHA of the Pull Request base.
+	BaseSha string `pulumi:"baseSha"`
+	// Body of the Pull Request.
+	Body string `pulumi:"body"`
+	// Indicates Whether this Pull Request is a draft.
+	Draft bool `pulumi:"draft"`
+	// Owner of the Pull Request head repository.
+	HeadOwner string `pulumi:"headOwner"`
+	// If set, filters Pull Requests by head user or head organization and branch name in the format of "user:ref-name" or "organization:ref-name". For example: "github:new-script-format" or "octocat:test-branch".
+	HeadRef string `pulumi:"headRef"`
+	// Name of the Pull Request head repository.
+	HeadRepository string `pulumi:"headRepository"`
+	// Head commit SHA of the Pull Request head.
+	HeadSha string `pulumi:"headSha"`
+	// List of label names set on the Pull Request.
+	Labels []string `pulumi:"labels"`
+	// Indicates whether the base repository maintainers can modify the Pull Request.
+	MaintainerCanModify bool `pulumi:"maintainerCanModify"`
+	// The number of the Pull Request within the repository.
+	Number int `pulumi:"number"`
+	// Unix timestamp indicating the Pull Request creation time.
+	OpenedAt int `pulumi:"openedAt"`
+	// GitHub login of the user who opened the Pull Request.
+	OpenedBy string `pulumi:"openedBy"`
+	// If set, filters Pull Requests by state. Can be "open", "closed", or "all". Default: "open".
+	State string `pulumi:"state"`
+	// The title of the Pull Request.
+	Title string `pulumi:"title"`
+	// The timestamp of the last Pull Request update.
+	UpdatedAt int `pulumi:"updatedAt"`
+}
+
+// GetRepositoryPullRequestsResultTypeInput is an input type that accepts GetRepositoryPullRequestsResultTypeArgs and GetRepositoryPullRequestsResultTypeOutput values.
+// You can construct a concrete instance of `GetRepositoryPullRequestsResultTypeInput` via:
+//
+//          GetRepositoryPullRequestsResultTypeArgs{...}
+type GetRepositoryPullRequestsResultTypeInput interface {
+	pulumi.Input
+
+	ToGetRepositoryPullRequestsResultTypeOutput() GetRepositoryPullRequestsResultTypeOutput
+	ToGetRepositoryPullRequestsResultTypeOutputWithContext(context.Context) GetRepositoryPullRequestsResultTypeOutput
+}
+
+type GetRepositoryPullRequestsResultTypeArgs struct {
+	// If set, filters Pull Requests by base branch name.
+	BaseRef pulumi.StringInput `pulumi:"baseRef"`
+	// Head commit SHA of the Pull Request base.
+	BaseSha pulumi.StringInput `pulumi:"baseSha"`
+	// Body of the Pull Request.
+	Body pulumi.StringInput `pulumi:"body"`
+	// Indicates Whether this Pull Request is a draft.
+	Draft pulumi.BoolInput `pulumi:"draft"`
+	// Owner of the Pull Request head repository.
+	HeadOwner pulumi.StringInput `pulumi:"headOwner"`
+	// If set, filters Pull Requests by head user or head organization and branch name in the format of "user:ref-name" or "organization:ref-name". For example: "github:new-script-format" or "octocat:test-branch".
+	HeadRef pulumi.StringInput `pulumi:"headRef"`
+	// Name of the Pull Request head repository.
+	HeadRepository pulumi.StringInput `pulumi:"headRepository"`
+	// Head commit SHA of the Pull Request head.
+	HeadSha pulumi.StringInput `pulumi:"headSha"`
+	// List of label names set on the Pull Request.
+	Labels pulumi.StringArrayInput `pulumi:"labels"`
+	// Indicates whether the base repository maintainers can modify the Pull Request.
+	MaintainerCanModify pulumi.BoolInput `pulumi:"maintainerCanModify"`
+	// The number of the Pull Request within the repository.
+	Number pulumi.IntInput `pulumi:"number"`
+	// Unix timestamp indicating the Pull Request creation time.
+	OpenedAt pulumi.IntInput `pulumi:"openedAt"`
+	// GitHub login of the user who opened the Pull Request.
+	OpenedBy pulumi.StringInput `pulumi:"openedBy"`
+	// If set, filters Pull Requests by state. Can be "open", "closed", or "all". Default: "open".
+	State pulumi.StringInput `pulumi:"state"`
+	// The title of the Pull Request.
+	Title pulumi.StringInput `pulumi:"title"`
+	// The timestamp of the last Pull Request update.
+	UpdatedAt pulumi.IntInput `pulumi:"updatedAt"`
+}
+
+func (GetRepositoryPullRequestsResultTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRepositoryPullRequestsResultType)(nil)).Elem()
+}
+
+func (i GetRepositoryPullRequestsResultTypeArgs) ToGetRepositoryPullRequestsResultTypeOutput() GetRepositoryPullRequestsResultTypeOutput {
+	return i.ToGetRepositoryPullRequestsResultTypeOutputWithContext(context.Background())
+}
+
+func (i GetRepositoryPullRequestsResultTypeArgs) ToGetRepositoryPullRequestsResultTypeOutputWithContext(ctx context.Context) GetRepositoryPullRequestsResultTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRepositoryPullRequestsResultTypeOutput)
+}
+
+// GetRepositoryPullRequestsResultTypeArrayInput is an input type that accepts GetRepositoryPullRequestsResultTypeArray and GetRepositoryPullRequestsResultTypeArrayOutput values.
+// You can construct a concrete instance of `GetRepositoryPullRequestsResultTypeArrayInput` via:
+//
+//          GetRepositoryPullRequestsResultTypeArray{ GetRepositoryPullRequestsResultTypeArgs{...} }
+type GetRepositoryPullRequestsResultTypeArrayInput interface {
+	pulumi.Input
+
+	ToGetRepositoryPullRequestsResultTypeArrayOutput() GetRepositoryPullRequestsResultTypeArrayOutput
+	ToGetRepositoryPullRequestsResultTypeArrayOutputWithContext(context.Context) GetRepositoryPullRequestsResultTypeArrayOutput
+}
+
+type GetRepositoryPullRequestsResultTypeArray []GetRepositoryPullRequestsResultTypeInput
+
+func (GetRepositoryPullRequestsResultTypeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRepositoryPullRequestsResultType)(nil)).Elem()
+}
+
+func (i GetRepositoryPullRequestsResultTypeArray) ToGetRepositoryPullRequestsResultTypeArrayOutput() GetRepositoryPullRequestsResultTypeArrayOutput {
+	return i.ToGetRepositoryPullRequestsResultTypeArrayOutputWithContext(context.Background())
+}
+
+func (i GetRepositoryPullRequestsResultTypeArray) ToGetRepositoryPullRequestsResultTypeArrayOutputWithContext(ctx context.Context) GetRepositoryPullRequestsResultTypeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRepositoryPullRequestsResultTypeArrayOutput)
+}
+
+type GetRepositoryPullRequestsResultTypeOutput struct{ *pulumi.OutputState }
+
+func (GetRepositoryPullRequestsResultTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRepositoryPullRequestsResultType)(nil)).Elem()
+}
+
+func (o GetRepositoryPullRequestsResultTypeOutput) ToGetRepositoryPullRequestsResultTypeOutput() GetRepositoryPullRequestsResultTypeOutput {
+	return o
+}
+
+func (o GetRepositoryPullRequestsResultTypeOutput) ToGetRepositoryPullRequestsResultTypeOutputWithContext(ctx context.Context) GetRepositoryPullRequestsResultTypeOutput {
+	return o
+}
+
+// If set, filters Pull Requests by base branch name.
+func (o GetRepositoryPullRequestsResultTypeOutput) BaseRef() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRepositoryPullRequestsResultType) string { return v.BaseRef }).(pulumi.StringOutput)
+}
+
+// Head commit SHA of the Pull Request base.
+func (o GetRepositoryPullRequestsResultTypeOutput) BaseSha() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRepositoryPullRequestsResultType) string { return v.BaseSha }).(pulumi.StringOutput)
+}
+
+// Body of the Pull Request.
+func (o GetRepositoryPullRequestsResultTypeOutput) Body() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRepositoryPullRequestsResultType) string { return v.Body }).(pulumi.StringOutput)
+}
+
+// Indicates Whether this Pull Request is a draft.
+func (o GetRepositoryPullRequestsResultTypeOutput) Draft() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetRepositoryPullRequestsResultType) bool { return v.Draft }).(pulumi.BoolOutput)
+}
+
+// Owner of the Pull Request head repository.
+func (o GetRepositoryPullRequestsResultTypeOutput) HeadOwner() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRepositoryPullRequestsResultType) string { return v.HeadOwner }).(pulumi.StringOutput)
+}
+
+// If set, filters Pull Requests by head user or head organization and branch name in the format of "user:ref-name" or "organization:ref-name". For example: "github:new-script-format" or "octocat:test-branch".
+func (o GetRepositoryPullRequestsResultTypeOutput) HeadRef() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRepositoryPullRequestsResultType) string { return v.HeadRef }).(pulumi.StringOutput)
+}
+
+// Name of the Pull Request head repository.
+func (o GetRepositoryPullRequestsResultTypeOutput) HeadRepository() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRepositoryPullRequestsResultType) string { return v.HeadRepository }).(pulumi.StringOutput)
+}
+
+// Head commit SHA of the Pull Request head.
+func (o GetRepositoryPullRequestsResultTypeOutput) HeadSha() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRepositoryPullRequestsResultType) string { return v.HeadSha }).(pulumi.StringOutput)
+}
+
+// List of label names set on the Pull Request.
+func (o GetRepositoryPullRequestsResultTypeOutput) Labels() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetRepositoryPullRequestsResultType) []string { return v.Labels }).(pulumi.StringArrayOutput)
+}
+
+// Indicates whether the base repository maintainers can modify the Pull Request.
+func (o GetRepositoryPullRequestsResultTypeOutput) MaintainerCanModify() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetRepositoryPullRequestsResultType) bool { return v.MaintainerCanModify }).(pulumi.BoolOutput)
+}
+
+// The number of the Pull Request within the repository.
+func (o GetRepositoryPullRequestsResultTypeOutput) Number() pulumi.IntOutput {
+	return o.ApplyT(func(v GetRepositoryPullRequestsResultType) int { return v.Number }).(pulumi.IntOutput)
+}
+
+// Unix timestamp indicating the Pull Request creation time.
+func (o GetRepositoryPullRequestsResultTypeOutput) OpenedAt() pulumi.IntOutput {
+	return o.ApplyT(func(v GetRepositoryPullRequestsResultType) int { return v.OpenedAt }).(pulumi.IntOutput)
+}
+
+// GitHub login of the user who opened the Pull Request.
+func (o GetRepositoryPullRequestsResultTypeOutput) OpenedBy() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRepositoryPullRequestsResultType) string { return v.OpenedBy }).(pulumi.StringOutput)
+}
+
+// If set, filters Pull Requests by state. Can be "open", "closed", or "all". Default: "open".
+func (o GetRepositoryPullRequestsResultTypeOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRepositoryPullRequestsResultType) string { return v.State }).(pulumi.StringOutput)
+}
+
+// The title of the Pull Request.
+func (o GetRepositoryPullRequestsResultTypeOutput) Title() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRepositoryPullRequestsResultType) string { return v.Title }).(pulumi.StringOutput)
+}
+
+// The timestamp of the last Pull Request update.
+func (o GetRepositoryPullRequestsResultTypeOutput) UpdatedAt() pulumi.IntOutput {
+	return o.ApplyT(func(v GetRepositoryPullRequestsResultType) int { return v.UpdatedAt }).(pulumi.IntOutput)
+}
+
+type GetRepositoryPullRequestsResultTypeArrayOutput struct{ *pulumi.OutputState }
+
+func (GetRepositoryPullRequestsResultTypeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRepositoryPullRequestsResultType)(nil)).Elem()
+}
+
+func (o GetRepositoryPullRequestsResultTypeArrayOutput) ToGetRepositoryPullRequestsResultTypeArrayOutput() GetRepositoryPullRequestsResultTypeArrayOutput {
+	return o
+}
+
+func (o GetRepositoryPullRequestsResultTypeArrayOutput) ToGetRepositoryPullRequestsResultTypeArrayOutputWithContext(ctx context.Context) GetRepositoryPullRequestsResultTypeArrayOutput {
+	return o
+}
+
+func (o GetRepositoryPullRequestsResultTypeArrayOutput) Index(i pulumi.IntInput) GetRepositoryPullRequestsResultTypeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRepositoryPullRequestsResultType {
+		return vs[0].([]GetRepositoryPullRequestsResultType)[vs[1].(int)]
+	}).(GetRepositoryPullRequestsResultTypeOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(BranchProtectionRequiredPullRequestReviewOutput{})
 	pulumi.RegisterOutputType(BranchProtectionRequiredPullRequestReviewArrayOutput{})
@@ -2481,4 +2713,6 @@ func init() {
 	pulumi.RegisterOutputType(GetRepositoryPageArrayOutput{})
 	pulumi.RegisterOutputType(GetRepositoryPageSourceOutput{})
 	pulumi.RegisterOutputType(GetRepositoryPageSourceArrayOutput{})
+	pulumi.RegisterOutputType(GetRepositoryPullRequestsResultTypeOutput{})
+	pulumi.RegisterOutputType(GetRepositoryPullRequestsResultTypeArrayOutput{})
 }

@@ -68,6 +68,10 @@ namespace Pulumi.Github
         /// The plan name for the organization account
         /// </summary>
         public readonly string Plan;
+        /// <summary>
+        /// (`list`) A list with the repositories on the organization
+        /// </summary>
+        public readonly ImmutableArray<string> Repositories;
 
         [OutputConstructor]
         private GetOrganizationResult(
@@ -81,7 +85,9 @@ namespace Pulumi.Github
 
             string nodeId,
 
-            string plan)
+            string plan,
+
+            ImmutableArray<string> repositories)
         {
             Description = description;
             Id = id;
@@ -89,6 +95,7 @@ namespace Pulumi.Github
             Name = name;
             NodeId = nodeId;
             Plan = plan;
+            Repositories = repositories;
         }
     }
 }

@@ -60,6 +60,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &RepositoryMilestone{}
 	case "github:index/repositoryProject:RepositoryProject":
 		r = &RepositoryProject{}
+	case "github:index/repositoryPullRequest:RepositoryPullRequest":
+		r = &RepositoryPullRequest{}
 	case "github:index/repositoryWebhook:RepositoryWebhook":
 		r = &RepositoryWebhook{}
 	case "github:index/team:Team":
@@ -205,6 +207,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"github",
 		"index/repositoryProject",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"github",
+		"index/repositoryPullRequest",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

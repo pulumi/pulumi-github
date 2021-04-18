@@ -9,6 +9,17 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Github
 {
+    /// <summary>
+    /// ## Import
+    /// 
+    /// This resource can be imported using an ID made up of the secret name
+    /// 
+    /// ```sh
+    ///  $ pulumi import github:index/actionsOrganizationSecret:ActionsOrganizationSecret test_secret test_secret_name
+    /// ```
+    /// 
+    ///  NOTEthe implementation is limited in that it won't fetch the value of the `plaintext_value` field when importing. You may need to ignore changes for the `plaintext_value` as a workaround.
+    /// </summary>
     [GithubResourceType("github:index/actionsOrganizationSecret:ActionsOrganizationSecret")]
     public partial class ActionsOrganizationSecret : Pulumi.CustomResource
     {

@@ -55,4 +55,6 @@ type GetOrganizationResult struct {
 	NodeId string `pulumi:"nodeId"`
 	// The plan name for the organization account
 	Plan string `pulumi:"plan"`
+	// (`list`) A list with the repositories on the organization
+	Repositories []string `pulumi:"repositories"`
 }

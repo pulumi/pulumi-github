@@ -173,6 +173,73 @@ export interface GetRepositoryPageSource {
     path: string;
 }
 
+export interface GetRepositoryPullRequestsResult {
+    /**
+     * If set, filters Pull Requests by base branch name.
+     */
+    baseRef: string;
+    /**
+     * Head commit SHA of the Pull Request base.
+     */
+    baseSha: string;
+    /**
+     * Body of the Pull Request.
+     */
+    body: string;
+    /**
+     * Indicates Whether this Pull Request is a draft.
+     */
+    draft: boolean;
+    /**
+     * Owner of the Pull Request head repository.
+     */
+    headOwner: string;
+    /**
+     * If set, filters Pull Requests by head user or head organization and branch name in the format of "user:ref-name" or "organization:ref-name". For example: "github:new-script-format" or "octocat:test-branch".
+     */
+    headRef: string;
+    /**
+     * Name of the Pull Request head repository.
+     */
+    headRepository: string;
+    /**
+     * Head commit SHA of the Pull Request head.
+     */
+    headSha: string;
+    /**
+     * List of label names set on the Pull Request.
+     */
+    labels: string[];
+    /**
+     * Indicates whether the base repository maintainers can modify the Pull Request.
+     */
+    maintainerCanModify: boolean;
+    /**
+     * The number of the Pull Request within the repository.
+     */
+    number: number;
+    /**
+     * Unix timestamp indicating the Pull Request creation time.
+     */
+    openedAt: number;
+    /**
+     * GitHub login of the user who opened the Pull Request.
+     */
+    openedBy: string;
+    /**
+     * If set, filters Pull Requests by state. Can be "open", "closed", or "all". Default: "open".
+     */
+    state: string;
+    /**
+     * The title of the Pull Request.
+     */
+    title: string;
+    /**
+     * The timestamp of the last Pull Request update.
+     */
+    updatedAt: number;
+}
+
 export interface OrganizationWebhookConfiguration {
     contentType?: string;
     insecureSsl?: boolean;
