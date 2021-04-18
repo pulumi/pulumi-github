@@ -26,6 +26,7 @@ __all__ = [
     'GetOrganizationTeamsTeamResult',
     'GetRepositoryPageResult',
     'GetRepositoryPageSourceResult',
+    'GetRepositoryPullRequestsResultResult',
 ]
 
 @pulumi.output_type
@@ -964,5 +965,188 @@ class GetRepositoryPageSourceResult(dict):
     @pulumi.getter
     def path(self) -> str:
         return pulumi.get(self, "path")
+
+
+@pulumi.output_type
+class GetRepositoryPullRequestsResultResult(dict):
+    def __init__(__self__, *,
+                 base_ref: str,
+                 base_sha: str,
+                 body: str,
+                 draft: bool,
+                 head_owner: str,
+                 head_ref: str,
+                 head_repository: str,
+                 head_sha: str,
+                 labels: Sequence[str],
+                 maintainer_can_modify: bool,
+                 number: int,
+                 opened_at: int,
+                 opened_by: str,
+                 state: str,
+                 title: str,
+                 updated_at: int):
+        """
+        :param str base_ref: If set, filters Pull Requests by base branch name.
+        :param str base_sha: Head commit SHA of the Pull Request base.
+        :param str body: Body of the Pull Request.
+        :param bool draft: Indicates Whether this Pull Request is a draft.
+        :param str head_owner: Owner of the Pull Request head repository.
+        :param str head_ref: If set, filters Pull Requests by head user or head organization and branch name in the format of "user:ref-name" or "organization:ref-name". For example: "github:new-script-format" or "octocat:test-branch".
+        :param str head_repository: Name of the Pull Request head repository.
+        :param str head_sha: Head commit SHA of the Pull Request head.
+        :param Sequence[str] labels: List of label names set on the Pull Request.
+        :param bool maintainer_can_modify: Indicates whether the base repository maintainers can modify the Pull Request.
+        :param int number: The number of the Pull Request within the repository.
+        :param int opened_at: Unix timestamp indicating the Pull Request creation time.
+        :param str opened_by: GitHub login of the user who opened the Pull Request.
+        :param str state: If set, filters Pull Requests by state. Can be "open", "closed", or "all". Default: "open".
+        :param str title: The title of the Pull Request.
+        :param int updated_at: The timestamp of the last Pull Request update.
+        """
+        pulumi.set(__self__, "base_ref", base_ref)
+        pulumi.set(__self__, "base_sha", base_sha)
+        pulumi.set(__self__, "body", body)
+        pulumi.set(__self__, "draft", draft)
+        pulumi.set(__self__, "head_owner", head_owner)
+        pulumi.set(__self__, "head_ref", head_ref)
+        pulumi.set(__self__, "head_repository", head_repository)
+        pulumi.set(__self__, "head_sha", head_sha)
+        pulumi.set(__self__, "labels", labels)
+        pulumi.set(__self__, "maintainer_can_modify", maintainer_can_modify)
+        pulumi.set(__self__, "number", number)
+        pulumi.set(__self__, "opened_at", opened_at)
+        pulumi.set(__self__, "opened_by", opened_by)
+        pulumi.set(__self__, "state", state)
+        pulumi.set(__self__, "title", title)
+        pulumi.set(__self__, "updated_at", updated_at)
+
+    @property
+    @pulumi.getter(name="baseRef")
+    def base_ref(self) -> str:
+        """
+        If set, filters Pull Requests by base branch name.
+        """
+        return pulumi.get(self, "base_ref")
+
+    @property
+    @pulumi.getter(name="baseSha")
+    def base_sha(self) -> str:
+        """
+        Head commit SHA of the Pull Request base.
+        """
+        return pulumi.get(self, "base_sha")
+
+    @property
+    @pulumi.getter
+    def body(self) -> str:
+        """
+        Body of the Pull Request.
+        """
+        return pulumi.get(self, "body")
+
+    @property
+    @pulumi.getter
+    def draft(self) -> bool:
+        """
+        Indicates Whether this Pull Request is a draft.
+        """
+        return pulumi.get(self, "draft")
+
+    @property
+    @pulumi.getter(name="headOwner")
+    def head_owner(self) -> str:
+        """
+        Owner of the Pull Request head repository.
+        """
+        return pulumi.get(self, "head_owner")
+
+    @property
+    @pulumi.getter(name="headRef")
+    def head_ref(self) -> str:
+        """
+        If set, filters Pull Requests by head user or head organization and branch name in the format of "user:ref-name" or "organization:ref-name". For example: "github:new-script-format" or "octocat:test-branch".
+        """
+        return pulumi.get(self, "head_ref")
+
+    @property
+    @pulumi.getter(name="headRepository")
+    def head_repository(self) -> str:
+        """
+        Name of the Pull Request head repository.
+        """
+        return pulumi.get(self, "head_repository")
+
+    @property
+    @pulumi.getter(name="headSha")
+    def head_sha(self) -> str:
+        """
+        Head commit SHA of the Pull Request head.
+        """
+        return pulumi.get(self, "head_sha")
+
+    @property
+    @pulumi.getter
+    def labels(self) -> Sequence[str]:
+        """
+        List of label names set on the Pull Request.
+        """
+        return pulumi.get(self, "labels")
+
+    @property
+    @pulumi.getter(name="maintainerCanModify")
+    def maintainer_can_modify(self) -> bool:
+        """
+        Indicates whether the base repository maintainers can modify the Pull Request.
+        """
+        return pulumi.get(self, "maintainer_can_modify")
+
+    @property
+    @pulumi.getter
+    def number(self) -> int:
+        """
+        The number of the Pull Request within the repository.
+        """
+        return pulumi.get(self, "number")
+
+    @property
+    @pulumi.getter(name="openedAt")
+    def opened_at(self) -> int:
+        """
+        Unix timestamp indicating the Pull Request creation time.
+        """
+        return pulumi.get(self, "opened_at")
+
+    @property
+    @pulumi.getter(name="openedBy")
+    def opened_by(self) -> str:
+        """
+        GitHub login of the user who opened the Pull Request.
+        """
+        return pulumi.get(self, "opened_by")
+
+    @property
+    @pulumi.getter
+    def state(self) -> str:
+        """
+        If set, filters Pull Requests by state. Can be "open", "closed", or "all". Default: "open".
+        """
+        return pulumi.get(self, "state")
+
+    @property
+    @pulumi.getter
+    def title(self) -> str:
+        """
+        The title of the Pull Request.
+        """
+        return pulumi.get(self, "title")
+
+    @property
+    @pulumi.getter(name="updatedAt")
+    def updated_at(self) -> int:
+        """
+        The timestamp of the last Pull Request update.
+        """
+        return pulumi.get(self, "updated_at")
 
 

@@ -24,6 +24,8 @@ export * from "./getRelease";
 export * from "./getRepositories";
 export * from "./getRepository";
 export * from "./getRepositoryMilestone";
+export * from "./getRepositoryPullRequest";
+export * from "./getRepositoryPullRequests";
 export * from "./getTeam";
 export * from "./getUser";
 export * from "./issueLabel";
@@ -40,6 +42,7 @@ export * from "./repositoryDeployKey";
 export * from "./repositoryFile";
 export * from "./repositoryMilestone";
 export * from "./repositoryProject";
+export * from "./repositoryPullRequest";
 export * from "./repositoryWebhook";
 export * from "./team";
 export * from "./teamMembership";
@@ -79,6 +82,7 @@ import { RepositoryDeployKey } from "./repositoryDeployKey";
 import { RepositoryFile } from "./repositoryFile";
 import { RepositoryMilestone } from "./repositoryMilestone";
 import { RepositoryProject } from "./repositoryProject";
+import { RepositoryPullRequest } from "./repositoryPullRequest";
 import { RepositoryWebhook } from "./repositoryWebhook";
 import { Team } from "./team";
 import { TeamMembership } from "./teamMembership";
@@ -132,6 +136,8 @@ const _module = {
                 return new RepositoryMilestone(name, <any>undefined, { urn })
             case "github:index/repositoryProject:RepositoryProject":
                 return new RepositoryProject(name, <any>undefined, { urn })
+            case "github:index/repositoryPullRequest:RepositoryPullRequest":
+                return new RepositoryPullRequest(name, <any>undefined, { urn })
             case "github:index/repositoryWebhook:RepositoryWebhook":
                 return new RepositoryWebhook(name, <any>undefined, { urn })
             case "github:index/team:Team":
@@ -173,6 +179,7 @@ pulumi.runtime.registerResourceModule("github", "index/repositoryDeployKey", _mo
 pulumi.runtime.registerResourceModule("github", "index/repositoryFile", _module)
 pulumi.runtime.registerResourceModule("github", "index/repositoryMilestone", _module)
 pulumi.runtime.registerResourceModule("github", "index/repositoryProject", _module)
+pulumi.runtime.registerResourceModule("github", "index/repositoryPullRequest", _module)
 pulumi.runtime.registerResourceModule("github", "index/repositoryWebhook", _module)
 pulumi.runtime.registerResourceModule("github", "index/team", _module)
 pulumi.runtime.registerResourceModule("github", "index/teamMembership", _module)

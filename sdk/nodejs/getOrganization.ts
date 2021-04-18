@@ -55,4 +55,8 @@ export interface GetOrganizationResult {
      * The plan name for the organization account
      */
     readonly plan: string;
+    /**
+     * (`list`) A list with the repositories on the organization
+     */
+    readonly repositories: string[];
 }
