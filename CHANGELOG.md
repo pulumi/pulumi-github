@@ -2,9 +2,14 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Upgrade to v4.9.2 of the GitHub Terraform Provider.
+_(none)_
 
 ---
+
+## 4.0.0 (2021-04-19)
+* Upgrade to v4.9.2 of the GitHub Terraform Provider.
+* Depend on Pulumi 3.0, which includes improvements to Python resource arguments and key translation, Go SDK performance,
+  Node SDK performance, general availability of Automation API, and more.
 
 ## 3.6.0 (2021-04-14)
 * Upgrade to v4.8.0 of the GitHub Terraform Provider.  
