@@ -2,7 +2,7 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Upgrade to v4.9.3 of the GitHub Terraform Provider.
+* Upgrade to v4.9.4 of the GitHub Terraform Provider.
 
 ---
 
