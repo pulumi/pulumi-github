@@ -16,6 +16,7 @@ builds:
   dir: provider
   env:
   - CGO_ENABLED=0
+  - GO111MODULE=on
   goarch:
   - amd64
   - arm64
