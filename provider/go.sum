@@ -840,6 +840,8 @@ github.com/pulumi/terraform-provider-github v0.0.0-20210510155342-fd7224dc2ada h
 github.com/pulumi/terraform-provider-github v0.0.0-20210510155342-fd7224dc2ada/go.mod h1:f5cKk0N7e+tXbR4cdZzE2tSpyQyJ0Jshol8cMLoGQyE=
 github.com/pulumi/terraform-provider-github v0.0.0-20210511114523-88a2db738f55 h1:08HQNTXrbRwvzwmMJ1R84ilEtaNPSVZVsAMPzK4+I0I=
 github.com/pulumi/terraform-provider-github v0.0.0-20210511114523-88a2db738f55/go.mod h1:yql9OA3WDUgQA59iicDkeaOwp/CtnuNNl8ifUv1UFuU=
+github.com/pulumi/terraform-provider-github v0.0.0-20210519110153-4179d5e21eb9 h1:nDLiMAvM2YuYiwDoGJI+EyokRSyq+XFosgvegVFbx4A=
+github.com/pulumi/terraform-provider-github v0.0.0-20210519110153-4179d5e21eb9/go.mod h1:yql9OA3WDUgQA59iicDkeaOwp/CtnuNNl8ifUv1UFuU=
 github.com/quasilyte/go-consistent v0.0.0-20190521200055-c6f3937de18c h1:JoUA0uz9U0FVFq5p4LjEq4C0VgQ0El320s3Ms0V4eww=
 github.com/quasilyte/go-consistent v0.0.0-20190521200055-c6f3937de18c/go.mod h1:5STLWrekHfjyYwxBRVRXNOSewLJ3PWfDJd1VyTS21fI=
 github.com/rjeczalik/notify v0.9.2 h1:MiTWrPj55mNDHEiIX5YUSKefw/+lCQVoAFmD6oQm5w8=
@@ -852,12 +854,16 @@ github.com/russross/blackfriday v1.5.2 h1:HyvC0ARfnZBqnXwABFeSZHpKvJHJJfPz81GNue
 github.com/russross/blackfriday v1.5.2/go.mod h1:JO/DiYxRf+HjHt06OyowR9PTA263kcR/rfWxYHBV53g=
 github.com/russross/blackfriday/v2 v2.0.1 h1:lPqVAte+HuHNfhJ/0LC98ESWRz8afy9tM/0RK8m9o+Q=
 github.com/russross/blackfriday/v2 v2.0.1/go.mod h1:+Rmxgy9KzJVeS9/2gXHxylqXiyQDYRxCVz55jmeOWTM=
+github.com/russross/blackfriday/v2 v2.1.0 h1:JIOH55/0cWyOuilr9/qlrm0BSXldqnqwMsf35Ld67mk=
+github.com/russross/blackfriday/v2 v2.1.0/go.mod h1:+Rmxgy9KzJVeS9/2gXHxylqXiyQDYRxCVz55jmeOWTM=
 github.com/ryancurrah/gomodguard v1.0.4 h1:oCreMAt9GuFXDe9jW4HBpc3GjdX3R/sUEcLAGh1zPx8=
 github.com/ryancurrah/gomodguard v1.0.4/go.mod h1:9T/Cfuxs5StfsocWr4WzDL36HqnX0fVb9d5fSEaLhoE=
 github.com/ryanuber/columnize v2.1.0+incompatible h1:j1Wcmh8OrK4Q7GXY+V7SVSY8nUWQxHW5TkBe7YUl+2s=
 github.com/ryanuber/columnize v2.1.0+incompatible/go.mod h1:sm1tb6uqfes/u+d4ooFouqFdy9/2g9QGwK3SQygK0Ts=
 github.com/ryanuber/go-glob v1.0.0 h1:iQh3xXAumdQ+4Ufa5b25cRpC5TYKlno6hsv6Cb3pkBk=
 github.com/ryanuber/go-glob v1.0.0/go.mod h1:807d1WSdnB0XRJzKNil9Om6lcp/3a0v4qIHxIXzX/Yc=
+github.com/ryboe/q v1.0.13 h1:A7lqkemc1+OmnhjH5wSrrJZZdVwEiLisOoP9QAEEAQk=
+github.com/ryboe/q v1.0.13/go.mod h1:ISWUxiBpZfTx3deLPD3TWaP4R8ZUw98Ki1IUVCo2Mjc=
 github.com/sabhiram/go-gitignore v0.0.0-20180611051255-d3107576ba94 h1:G04eS0JkAIVZfaJLjla9dNxkJCPiKIGZlw9AfOhzOD0=
 github.com/sabhiram/go-gitignore v0.0.0-20180611051255-d3107576ba94/go.mod h1:b18R55ulyQ/h3RaWyloPyER7fWQVZvimKKhnI5OfrJQ=
 github.com/securego/gosec v0.0.0-20200316084457-7da9f46445fd h1:qB+l4fYZsH78xORC1aqVS0zNmgkQp4rkj2rvfxQMtzc=
