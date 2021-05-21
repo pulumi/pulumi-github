@@ -2,9 +2,12 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* ensure adding a new repository to an organisation secret doesn't panic
+_(none)_
 
 ---
+
+## 4.0.2 (2021-05-21)
+* ensure adding a new repository to an organisation secret doesn't panic
 
 ## 4.0.1 (2021-05-12)
 * Upgrade to v4.9.4 of the GitHub Terraform Provider.
