@@ -2,7 +2,7 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-_(none)_
+* ensure adding a new repository to an organisation secret doesn't panic
 
 ---
 
