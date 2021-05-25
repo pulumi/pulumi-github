@@ -43,8 +43,12 @@ func LookupRepository(ctx *pulumi.Context, args *LookupRepositoryArgs, opts ...p
 
 // A collection of arguments for invoking getRepository.
 type LookupRepositoryArgs struct {
+	// A description of the repository.
+	Description *string `pulumi:"description"`
 	// Full name of the repository (in `org/name` format).
 	FullName *string `pulumi:"fullName"`
+	// URL of a page describing the project.
+	HomepageUrl *string `pulumi:"homepageUrl"`
 	// The name of the repository.
 	Name *string `pulumi:"name"`
 }
@@ -62,7 +66,7 @@ type LookupRepositoryResult struct {
 	// The name of the default branch of the repository.
 	DefaultBranch string `pulumi:"defaultBranch"`
 	// A description of the repository.
-	Description string  `pulumi:"description"`
+	Description *string `pulumi:"description"`
 	FullName    *string `pulumi:"fullName"`
 	// URL that can be provided to `git clone` to clone the repository anonymously via the git protocol.
 	GitCloneUrl string `pulumi:"gitCloneUrl"`
@@ -75,7 +79,7 @@ type LookupRepositoryResult struct {
 	// Whether the repository has the GitHub Wiki enabled.
 	HasWiki bool `pulumi:"hasWiki"`
 	// URL of a page describing the project.
-	HomepageUrl string `pulumi:"homepageUrl"`
+	HomepageUrl *string `pulumi:"homepageUrl"`
 	// URL to the repository on the web.
 	HtmlUrl string `pulumi:"htmlUrl"`
 	// URL that can be provided to `git clone` to clone the repository via HTTPS.

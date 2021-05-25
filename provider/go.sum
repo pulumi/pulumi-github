@@ -842,6 +842,8 @@ github.com/pulumi/terraform-provider-github v0.0.0-20210511114523-88a2db738f55 h
 github.com/pulumi/terraform-provider-github v0.0.0-20210511114523-88a2db738f55/go.mod h1:yql9OA3WDUgQA59iicDkeaOwp/CtnuNNl8ifUv1UFuU=
 github.com/pulumi/terraform-provider-github v0.0.0-20210519110153-4179d5e21eb9 h1:nDLiMAvM2YuYiwDoGJI+EyokRSyq+XFosgvegVFbx4A=
 github.com/pulumi/terraform-provider-github v0.0.0-20210519110153-4179d5e21eb9/go.mod h1:yql9OA3WDUgQA59iicDkeaOwp/CtnuNNl8ifUv1UFuU=
+github.com/pulumi/terraform-provider-github v0.0.0-20210525104639-a432a2d1d9ea h1:WnhPhvnCrrCIH3JMf2b7amuasiTwxMhD7zYebu6EjQI=
+github.com/pulumi/terraform-provider-github v0.0.0-20210525104639-a432a2d1d9ea/go.mod h1:1iUBAipRp8zMP2Vwh/85rEeAIilL3Pqel+XENVuwkaQ=
 github.com/quasilyte/go-consistent v0.0.0-20190521200055-c6f3937de18c h1:JoUA0uz9U0FVFq5p4LjEq4C0VgQ0El320s3Ms0V4eww=
 github.com/quasilyte/go-consistent v0.0.0-20190521200055-c6f3937de18c/go.mod h1:5STLWrekHfjyYwxBRVRXNOSewLJ3PWfDJd1VyTS21fI=
 github.com/rjeczalik/notify v0.9.2 h1:MiTWrPj55mNDHEiIX5YUSKefw/+lCQVoAFmD6oQm5w8=

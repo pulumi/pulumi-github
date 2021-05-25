@@ -15,6 +15,7 @@ __all__ = [
     'BranchProtectionV3RequiredStatusChecksArgs',
     'BranchProtectionV3RestrictionsArgs',
     'OrganizationWebhookConfigurationArgs',
+    'ProviderAppAuthArgs',
     'RepositoryPagesArgs',
     'RepositoryPagesSourceArgs',
     'RepositoryTemplateArgs',
@@ -325,6 +326,44 @@ class OrganizationWebhookConfigurationArgs:
     @secret.setter
     def secret(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "secret", value)
+
+
+@pulumi.input_type
+class ProviderAppAuthArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[str],
+                 installation_id: pulumi.Input[str],
+                 pem_file: pulumi.Input[str]):
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "installation_id", installation_id)
+        pulumi.set(__self__, "pem_file", pem_file)
+
+    @property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter(name="installationId")
+    def installation_id(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "installation_id")
+
+    @installation_id.setter
+    def installation_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "installation_id", value)
+
+    @property
+    @pulumi.getter(name="pemFile")
+    def pem_file(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "pem_file")
+
+    @pem_file.setter
+    def pem_file(self, value: pulumi.Input[str]):
+        pulumi.set(self, "pem_file", value)
 
 
 @pulumi.input_type

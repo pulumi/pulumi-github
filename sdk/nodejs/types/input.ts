@@ -53,6 +53,12 @@ export interface OrganizationWebhookConfiguration {
     url: pulumi.Input<string>;
 }
 
+export interface ProviderAppAuth {
+    id: pulumi.Input<string>;
+    installationId: pulumi.Input<string>;
+    pemFile: pulumi.Input<string>;
+}
+
 export interface RepositoryPages {
     /**
      * The custom domain for the repository. This can only be set after the repository has been created.
@@ -116,4 +122,6 @@ export interface TeamSyncGroupMappingGroup {
      * The name of the IdP group.
      */
     groupName: pulumi.Input<string>;
+}
+export namespace config {
 }

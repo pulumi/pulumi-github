@@ -42,6 +42,8 @@ namespace Pulumi.Github
     [OutputType]
     public sealed class GetIpRangesResult
     {
+        public readonly ImmutableArray<string> Actions;
+        public readonly ImmutableArray<string> Dependabots;
         /// <summary>
         /// An Array of IP addresses in CIDR format specifying the Git servers.
         /// </summary>
@@ -65,6 +67,10 @@ namespace Pulumi.Github
 
         [OutputConstructor]
         private GetIpRangesResult(
+            ImmutableArray<string> actions,
+
+            ImmutableArray<string> dependabots,
+
             ImmutableArray<string> gits,
 
             ImmutableArray<string> hooks,
@@ -75,6 +81,8 @@ namespace Pulumi.Github
 
             ImmutableArray<string> pages)
         {
+            Actions = actions;
+            Dependabots = dependabots;
             Gits = gits;
             Hooks = hooks;
             Id = id;

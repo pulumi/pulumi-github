@@ -29,7 +29,9 @@ export function getRepository(args?: GetRepositoryArgs, opts?: pulumi.InvokeOpti
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("github:index/getRepository:getRepository", {
+        "description": args.description,
         "fullName": args.fullName,
+        "homepageUrl": args.homepageUrl,
         "name": args.name,
     }, opts);
 }
@@ -39,9 +41,17 @@ export function getRepository(args?: GetRepositoryArgs, opts?: pulumi.InvokeOpti
  */
 export interface GetRepositoryArgs {
     /**
+     * A description of the repository.
+     */
+    readonly description?: string;
+    /**
      * Full name of the repository (in `org/name` format).
      */
     readonly fullName?: string;
+    /**
+     * URL of a page describing the project.
+     */
+    readonly homepageUrl?: string;
     /**
      * The name of the repository.
      */
@@ -75,7 +85,7 @@ export interface GetRepositoryResult {
     /**
      * A description of the repository.
      */
-    readonly description: string;
+    readonly description?: string;
     readonly fullName?: string;
     /**
      * URL that can be provided to `git clone` to clone the repository anonymously via the git protocol.
@@ -100,7 +110,7 @@ export interface GetRepositoryResult {
     /**
      * URL of a page describing the project.
      */
-    readonly homepageUrl: string;
+    readonly homepageUrl?: string;
     /**
      * URL to the repository on the web.
      */

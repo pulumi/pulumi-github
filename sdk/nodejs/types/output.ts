@@ -250,6 +250,12 @@ export interface OrganizationWebhookConfiguration {
     url: string;
 }
 
+export interface ProviderAppAuth {
+    id?: string;
+    installationId?: string;
+    pemFile?: string;
+}
+
 export interface RepositoryPages {
     /**
      * The custom domain for the repository. This can only be set after the repository has been created.
@@ -313,4 +319,11 @@ export interface TeamSyncGroupMappingGroup {
      * The name of the IdP group.
      */
     groupName: string;
+}
+export namespace config {
+    export interface AppAuth {
+        id: string;
+        installationId: string;
+        pemFile: string;
+    }
 }

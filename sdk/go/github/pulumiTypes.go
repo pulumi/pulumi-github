@@ -920,6 +920,162 @@ func (o OrganizationWebhookConfigurationPtrOutput) Url() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
+type ProviderAppAuth struct {
+	Id             string `pulumi:"id"`
+	InstallationId string `pulumi:"installationId"`
+	PemFile        string `pulumi:"pemFile"`
+}
+
+// ProviderAppAuthInput is an input type that accepts ProviderAppAuthArgs and ProviderAppAuthOutput values.
+// You can construct a concrete instance of `ProviderAppAuthInput` via:
+//
+//          ProviderAppAuthArgs{...}
+type ProviderAppAuthInput interface {
+	pulumi.Input
+
+	ToProviderAppAuthOutput() ProviderAppAuthOutput
+	ToProviderAppAuthOutputWithContext(context.Context) ProviderAppAuthOutput
+}
+
+type ProviderAppAuthArgs struct {
+	Id             pulumi.StringInput `pulumi:"id"`
+	InstallationId pulumi.StringInput `pulumi:"installationId"`
+	PemFile        pulumi.StringInput `pulumi:"pemFile"`
+}
+
+func (ProviderAppAuthArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProviderAppAuth)(nil)).Elem()
+}
+
+func (i ProviderAppAuthArgs) ToProviderAppAuthOutput() ProviderAppAuthOutput {
+	return i.ToProviderAppAuthOutputWithContext(context.Background())
+}
+
+func (i ProviderAppAuthArgs) ToProviderAppAuthOutputWithContext(ctx context.Context) ProviderAppAuthOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProviderAppAuthOutput)
+}
+
+func (i ProviderAppAuthArgs) ToProviderAppAuthPtrOutput() ProviderAppAuthPtrOutput {
+	return i.ToProviderAppAuthPtrOutputWithContext(context.Background())
+}
+
+func (i ProviderAppAuthArgs) ToProviderAppAuthPtrOutputWithContext(ctx context.Context) ProviderAppAuthPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProviderAppAuthOutput).ToProviderAppAuthPtrOutputWithContext(ctx)
+}
+
+// ProviderAppAuthPtrInput is an input type that accepts ProviderAppAuthArgs, ProviderAppAuthPtr and ProviderAppAuthPtrOutput values.
+// You can construct a concrete instance of `ProviderAppAuthPtrInput` via:
+//
+//          ProviderAppAuthArgs{...}
+//
+//  or:
+//
+//          nil
+type ProviderAppAuthPtrInput interface {
+	pulumi.Input
+
+	ToProviderAppAuthPtrOutput() ProviderAppAuthPtrOutput
+	ToProviderAppAuthPtrOutputWithContext(context.Context) ProviderAppAuthPtrOutput
+}
+
+type providerAppAuthPtrType ProviderAppAuthArgs
+
+func ProviderAppAuthPtr(v *ProviderAppAuthArgs) ProviderAppAuthPtrInput {
+	return (*providerAppAuthPtrType)(v)
+}
+
+func (*providerAppAuthPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProviderAppAuth)(nil)).Elem()
+}
+
+func (i *providerAppAuthPtrType) ToProviderAppAuthPtrOutput() ProviderAppAuthPtrOutput {
+	return i.ToProviderAppAuthPtrOutputWithContext(context.Background())
+}
+
+func (i *providerAppAuthPtrType) ToProviderAppAuthPtrOutputWithContext(ctx context.Context) ProviderAppAuthPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProviderAppAuthPtrOutput)
+}
+
+type ProviderAppAuthOutput struct{ *pulumi.OutputState }
+
+func (ProviderAppAuthOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProviderAppAuth)(nil)).Elem()
+}
+
+func (o ProviderAppAuthOutput) ToProviderAppAuthOutput() ProviderAppAuthOutput {
+	return o
+}
+
+func (o ProviderAppAuthOutput) ToProviderAppAuthOutputWithContext(ctx context.Context) ProviderAppAuthOutput {
+	return o
+}
+
+func (o ProviderAppAuthOutput) ToProviderAppAuthPtrOutput() ProviderAppAuthPtrOutput {
+	return o.ToProviderAppAuthPtrOutputWithContext(context.Background())
+}
+
+func (o ProviderAppAuthOutput) ToProviderAppAuthPtrOutputWithContext(ctx context.Context) ProviderAppAuthPtrOutput {
+	return o.ApplyT(func(v ProviderAppAuth) *ProviderAppAuth {
+		return &v
+	}).(ProviderAppAuthPtrOutput)
+}
+func (o ProviderAppAuthOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v ProviderAppAuth) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o ProviderAppAuthOutput) InstallationId() pulumi.StringOutput {
+	return o.ApplyT(func(v ProviderAppAuth) string { return v.InstallationId }).(pulumi.StringOutput)
+}
+
+func (o ProviderAppAuthOutput) PemFile() pulumi.StringOutput {
+	return o.ApplyT(func(v ProviderAppAuth) string { return v.PemFile }).(pulumi.StringOutput)
+}
+
+type ProviderAppAuthPtrOutput struct{ *pulumi.OutputState }
+
+func (ProviderAppAuthPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProviderAppAuth)(nil)).Elem()
+}
+
+func (o ProviderAppAuthPtrOutput) ToProviderAppAuthPtrOutput() ProviderAppAuthPtrOutput {
+	return o
+}
+
+func (o ProviderAppAuthPtrOutput) ToProviderAppAuthPtrOutputWithContext(ctx context.Context) ProviderAppAuthPtrOutput {
+	return o
+}
+
+func (o ProviderAppAuthPtrOutput) Elem() ProviderAppAuthOutput {
+	return o.ApplyT(func(v *ProviderAppAuth) ProviderAppAuth { return *v }).(ProviderAppAuthOutput)
+}
+
+func (o ProviderAppAuthPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProviderAppAuth) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ProviderAppAuthPtrOutput) InstallationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProviderAppAuth) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.InstallationId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ProviderAppAuthPtrOutput) PemFile() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProviderAppAuth) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PemFile
+	}).(pulumi.StringPtrOutput)
+}
+
 type RepositoryPages struct {
 	// The custom domain for the repository. This can only be set after the repository has been created.
 	Cname *string `pulumi:"cname"`
@@ -2693,6 +2849,8 @@ func init() {
 	pulumi.RegisterOutputType(BranchProtectionV3RestrictionsPtrOutput{})
 	pulumi.RegisterOutputType(OrganizationWebhookConfigurationOutput{})
 	pulumi.RegisterOutputType(OrganizationWebhookConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ProviderAppAuthOutput{})
+	pulumi.RegisterOutputType(ProviderAppAuthPtrOutput{})
 	pulumi.RegisterOutputType(RepositoryPagesOutput{})
 	pulumi.RegisterOutputType(RepositoryPagesPtrOutput{})
 	pulumi.RegisterOutputType(RepositoryPagesSourceOutput{})

@@ -7,12 +7,14 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
+from ._inputs import *
 
 __all__ = ['ProviderArgs', 'Provider']
 
 @pulumi.input_type
 class ProviderArgs:
     def __init__(__self__, *,
+                 app_auth: Optional[pulumi.Input['ProviderAppAuthArgs']] = None,
                  base_url: Optional[pulumi.Input[str]] = None,
                  insecure: Optional[pulumi.Input[bool]] = None,
                  organization: Optional[pulumi.Input[str]] = None,
@@ -20,12 +22,16 @@ class ProviderArgs:
                  token: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Provider resource.
+        :param pulumi.Input['ProviderAppAuthArgs'] app_auth: The GitHub App credentials used to connect to GitHub. Conflicts with `token`. Anonymous mode is enabled if both `token`
+               and `app_auth` are not set.
         :param pulumi.Input[str] base_url: The GitHub Base API URL
         :param pulumi.Input[bool] insecure: Enable `insecure` mode for testing purposes
         :param pulumi.Input[str] organization: The GitHub organization name to manage. Use this field instead of `owner` when managing organization accounts.
         :param pulumi.Input[str] owner: The GitHub owner name to manage. Use this field instead of `organization` when managing individual accounts.
-        :param pulumi.Input[str] token: The OAuth token used to connect to GitHub. `anonymous` mode is enabled if `token` is not configured.
+        :param pulumi.Input[str] token: The OAuth token used to connect to GitHub. Anonymous mode is enabled if both `token` and `app_auth` are not set.
         """
+        if app_auth is not None:
+            pulumi.set(__self__, "app_auth", app_auth)
         if base_url is None:
             base_url = (_utilities.get_env('GITHUB_BASE_URL') or 'https://api.github.com/')
         if base_url is not None:
@@ -41,6 +47,19 @@ class ProviderArgs:
             pulumi.set(__self__, "owner", owner)
         if token is not None:
             pulumi.set(__self__, "token", token)
+
+    @property
+    @pulumi.getter(name="appAuth")
+    def app_auth(self) -> Optional[pulumi.Input['ProviderAppAuthArgs']]:
+        """
+        The GitHub App credentials used to connect to GitHub. Conflicts with `token`. Anonymous mode is enabled if both `token`
+        and `app_auth` are not set.
+        """
+        return pulumi.get(self, "app_auth")
+
+    @app_auth.setter
+    def app_auth(self, value: Optional[pulumi.Input['ProviderAppAuthArgs']]):
+        pulumi.set(self, "app_auth", value)
 
     @property
     @pulumi.getter(name="baseUrl")
@@ -94,7 +113,7 @@ class ProviderArgs:
     @pulumi.getter
     def token(self) -> Optional[pulumi.Input[str]]:
         """
-        The OAuth token used to connect to GitHub. `anonymous` mode is enabled if `token` is not configured.
+        The OAuth token used to connect to GitHub. Anonymous mode is enabled if both `token` and `app_auth` are not set.
         """
         return pulumi.get(self, "token")
 
@@ -108,6 +127,7 @@ class Provider(pulumi.ProviderResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 app_auth: Optional[pulumi.Input[pulumi.InputType['ProviderAppAuthArgs']]] = None,
                  base_url: Optional[pulumi.Input[str]] = None,
                  insecure: Optional[pulumi.Input[bool]] = None,
                  organization: Optional[pulumi.Input[str]] = None,
@@ -122,11 +142,13 @@ class Provider(pulumi.ProviderResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['ProviderAppAuthArgs']] app_auth: The GitHub App credentials used to connect to GitHub. Conflicts with `token`. Anonymous mode is enabled if both `token`
+               and `app_auth` are not set.
         :param pulumi.Input[str] base_url: The GitHub Base API URL
         :param pulumi.Input[bool] insecure: Enable `insecure` mode for testing purposes
         :param pulumi.Input[str] organization: The GitHub organization name to manage. Use this field instead of `owner` when managing organization accounts.
         :param pulumi.Input[str] owner: The GitHub owner name to manage. Use this field instead of `organization` when managing individual accounts.
-        :param pulumi.Input[str] token: The OAuth token used to connect to GitHub. `anonymous` mode is enabled if `token` is not configured.
+        :param pulumi.Input[str] token: The OAuth token used to connect to GitHub. Anonymous mode is enabled if both `token` and `app_auth` are not set.
         """
         ...
     @overload
@@ -155,6 +177,7 @@ class Provider(pulumi.ProviderResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 app_auth: Optional[pulumi.Input[pulumi.InputType['ProviderAppAuthArgs']]] = None,
                  base_url: Optional[pulumi.Input[str]] = None,
                  insecure: Optional[pulumi.Input[bool]] = None,
                  organization: Optional[pulumi.Input[str]] = None,
@@ -172,6 +195,7 @@ class Provider(pulumi.ProviderResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ProviderArgs.__new__(ProviderArgs)
 
+            __props__.__dict__["app_auth"] = pulumi.Output.from_input(app_auth).apply(pulumi.runtime.to_json) if app_auth is not None else None
             if base_url is None:
                 base_url = (_utilities.get_env('GITHUB_BASE_URL') or 'https://api.github.com/')
             __props__.__dict__["base_url"] = base_url

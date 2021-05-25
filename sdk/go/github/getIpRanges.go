@@ -40,6 +40,8 @@ func GetIpRanges(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetIpRanges
 
 // A collection of values returned by getIpRanges.
 type GetIpRangesResult struct {
+	Actions     []string `pulumi:"actions"`
+	Dependabots []string `pulumi:"dependabots"`
 	// An Array of IP addresses in CIDR format specifying the Git servers.
 	Gits []string `pulumi:"gits"`
 	// An Array of IP addresses in CIDR format specifying the addresses that incoming service hooks will originate from.
