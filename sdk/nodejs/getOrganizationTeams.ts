@@ -16,7 +16,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
  *
- * const all = pulumi.output(github.getOrganizationTeams({ async: true }));
+ * const all = pulumi.output(github.getOrganizationTeams());
  * ```
  *
  * To retrieve only the team's at the root of the organization:
@@ -27,7 +27,7 @@ import * as utilities from "./utilities";
  *
  * const rootTeams = pulumi.output(github.getOrganizationTeams({
  *     rootTeamsOnly: true,
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getOrganizationTeams(args?: GetOrganizationTeamsArgs, opts?: pulumi.InvokeOptions): Promise<GetOrganizationTeamsResult> {
@@ -51,7 +51,7 @@ export interface GetOrganizationTeamsArgs {
     /**
      * Only return teams that are at the organization's root, i.e. no nested teams. Defaults to `false`.
      */
-    readonly rootTeamsOnly?: boolean;
+    rootTeamsOnly?: boolean;
 }
 
 /**

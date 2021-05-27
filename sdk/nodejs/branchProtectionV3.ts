@@ -181,32 +181,32 @@ export interface BranchProtectionV3State {
     /**
      * The Git branch to protect.
      */
-    readonly branch?: pulumi.Input<string>;
+    branch?: pulumi.Input<string>;
     /**
      * Boolean, setting this to `true` enforces status checks for repository administrators.
      */
-    readonly enforceAdmins?: pulumi.Input<boolean>;
-    readonly etag?: pulumi.Input<string>;
+    enforceAdmins?: pulumi.Input<boolean>;
+    etag?: pulumi.Input<string>;
     /**
      * The GitHub repository name.
      */
-    readonly repository?: pulumi.Input<string>;
+    repository?: pulumi.Input<string>;
     /**
      * Boolean, setting this to `true` requires all commits to be signed with GPG.
      */
-    readonly requireSignedCommits?: pulumi.Input<boolean>;
+    requireSignedCommits?: pulumi.Input<boolean>;
     /**
      * Enforce restrictions for pull request reviews. See Required Pull Request Reviews below for details.
      */
-    readonly requiredPullRequestReviews?: pulumi.Input<inputs.BranchProtectionV3RequiredPullRequestReviews>;
+    requiredPullRequestReviews?: pulumi.Input<inputs.BranchProtectionV3RequiredPullRequestReviews>;
     /**
      * Enforce restrictions for required status checks. See Required Status Checks below for details.
      */
-    readonly requiredStatusChecks?: pulumi.Input<inputs.BranchProtectionV3RequiredStatusChecks>;
+    requiredStatusChecks?: pulumi.Input<inputs.BranchProtectionV3RequiredStatusChecks>;
     /**
      * Enforce restrictions for the users and teams that may push to the branch. See Restrictions below for details.
      */
-    readonly restrictions?: pulumi.Input<inputs.BranchProtectionV3Restrictions>;
+    restrictions?: pulumi.Input<inputs.BranchProtectionV3Restrictions>;
 }
 
 /**
@@ -216,29 +216,29 @@ export interface BranchProtectionV3Args {
     /**
      * The Git branch to protect.
      */
-    readonly branch: pulumi.Input<string>;
+    branch: pulumi.Input<string>;
     /**
      * Boolean, setting this to `true` enforces status checks for repository administrators.
      */
-    readonly enforceAdmins?: pulumi.Input<boolean>;
+    enforceAdmins?: pulumi.Input<boolean>;
     /**
      * The GitHub repository name.
      */
-    readonly repository: pulumi.Input<string>;
+    repository: pulumi.Input<string>;
     /**
      * Boolean, setting this to `true` requires all commits to be signed with GPG.
      */
-    readonly requireSignedCommits?: pulumi.Input<boolean>;
+    requireSignedCommits?: pulumi.Input<boolean>;
     /**
      * Enforce restrictions for pull request reviews. See Required Pull Request Reviews below for details.
      */
-    readonly requiredPullRequestReviews?: pulumi.Input<inputs.BranchProtectionV3RequiredPullRequestReviews>;
+    requiredPullRequestReviews?: pulumi.Input<inputs.BranchProtectionV3RequiredPullRequestReviews>;
     /**
      * Enforce restrictions for required status checks. See Required Status Checks below for details.
      */
-    readonly requiredStatusChecks?: pulumi.Input<inputs.BranchProtectionV3RequiredStatusChecks>;
+    requiredStatusChecks?: pulumi.Input<inputs.BranchProtectionV3RequiredStatusChecks>;
     /**
      * Enforce restrictions for the users and teams that may push to the branch. See Restrictions below for details.
      */
-    readonly restrictions?: pulumi.Input<inputs.BranchProtectionV3Restrictions>;
+    restrictions?: pulumi.Input<inputs.BranchProtectionV3Restrictions>;
 }

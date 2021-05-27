@@ -17,7 +17,7 @@ import * as utilities from "./utilities";
  * const example = pulumi.output(github.getRepositoryPullRequest({
  *     baseRepository: "example_repository",
  *     number: 1,
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getRepositoryPullRequest(args: GetRepositoryPullRequestArgs, opts?: pulumi.InvokeOptions): Promise<GetRepositoryPullRequestResult> {
@@ -42,15 +42,15 @@ export interface GetRepositoryPullRequestArgs {
     /**
      * Name of the base repository to retrieve the Pull Request from.
      */
-    readonly baseRepository: string;
+    baseRepository: string;
     /**
      * The number of the Pull Request within the repository.
      */
-    readonly number: number;
+    number: number;
     /**
      * Owner of the repository. If not provided, the provider's default owner is used.
      */
-    readonly owner?: string;
+    owner?: string;
 }
 
 /**

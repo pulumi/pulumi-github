@@ -147,40 +147,40 @@ export interface TeamState {
     /**
      * Adds a default maintainer to the team. Defaults to `true` and removes the default maintaner when `false`.
      */
-    readonly createDefaultMaintainer?: pulumi.Input<boolean>;
+    createDefaultMaintainer?: pulumi.Input<boolean>;
     /**
      * A description of the team.
      */
-    readonly description?: pulumi.Input<string>;
-    readonly etag?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    etag?: pulumi.Input<string>;
     /**
      * The LDAP Distinguished Name of the group where membership will be synchronized. Only available in GitHub Enterprise Server.
      */
-    readonly ldapDn?: pulumi.Input<string>;
-    readonly membersCount?: pulumi.Input<number>;
+    ldapDn?: pulumi.Input<string>;
+    membersCount?: pulumi.Input<number>;
     /**
      * The name of the team.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The Node ID of the created team.
      */
-    readonly nodeId?: pulumi.Input<string>;
+    nodeId?: pulumi.Input<string>;
     /**
      * The ID of the parent team, if this is a nested team.
      */
-    readonly parentTeamId?: pulumi.Input<number>;
+    parentTeamId?: pulumi.Input<number>;
     /**
      * The level of privacy for the team. Must be one of `secret` or `closed`.
      * Defaults to `secret`.
      */
-    readonly privacy?: pulumi.Input<string>;
+    privacy?: pulumi.Input<string>;
     /**
      * The slug of the created team, which may or may not differ from `name`,
      * depending on whether `name` contains "URL-unsafe" characters.
      * Useful when referencing the team in [`github.BranchProtection`](https://www.terraform.io/docs/providers/github/r/branch_protection.html).
      */
-    readonly slug?: pulumi.Input<string>;
+    slug?: pulumi.Input<string>;
 }
 
 /**
@@ -190,26 +190,26 @@ export interface TeamArgs {
     /**
      * Adds a default maintainer to the team. Defaults to `true` and removes the default maintaner when `false`.
      */
-    readonly createDefaultMaintainer?: pulumi.Input<boolean>;
+    createDefaultMaintainer?: pulumi.Input<boolean>;
     /**
      * A description of the team.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The LDAP Distinguished Name of the group where membership will be synchronized. Only available in GitHub Enterprise Server.
      */
-    readonly ldapDn?: pulumi.Input<string>;
+    ldapDn?: pulumi.Input<string>;
     /**
      * The name of the team.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The ID of the parent team, if this is a nested team.
      */
-    readonly parentTeamId?: pulumi.Input<number>;
+    parentTeamId?: pulumi.Input<number>;
     /**
      * The level of privacy for the team. Must be one of `secret` or `closed`.
      * Defaults to `secret`.
      */
-    readonly privacy?: pulumi.Input<string>;
+    privacy?: pulumi.Input<string>;
 }

@@ -124,20 +124,20 @@ export interface OrganizationWebhookState {
     /**
      * Indicate of the webhook should receive events. Defaults to `true`.
      */
-    readonly active?: pulumi.Input<boolean>;
+    active?: pulumi.Input<boolean>;
     /**
      * key/value pair of configuration for this webhook. Available keys are `url`, `contentType`, `secret` and `insecureSsl`.
      */
-    readonly configuration?: pulumi.Input<inputs.OrganizationWebhookConfiguration>;
-    readonly etag?: pulumi.Input<string>;
+    configuration?: pulumi.Input<inputs.OrganizationWebhookConfiguration>;
+    etag?: pulumi.Input<string>;
     /**
      * A list of events which should trigger the webhook. See a list of [available events](https://developer.github.com/v3/activity/events/types/)
      */
-    readonly events?: pulumi.Input<pulumi.Input<string>[]>;
+    events?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * URL of the webhook
      */
-    readonly url?: pulumi.Input<string>;
+    url?: pulumi.Input<string>;
 }
 
 /**
@@ -147,13 +147,13 @@ export interface OrganizationWebhookArgs {
     /**
      * Indicate of the webhook should receive events. Defaults to `true`.
      */
-    readonly active?: pulumi.Input<boolean>;
+    active?: pulumi.Input<boolean>;
     /**
      * key/value pair of configuration for this webhook. Available keys are `url`, `contentType`, `secret` and `insecureSsl`.
      */
-    readonly configuration?: pulumi.Input<inputs.OrganizationWebhookConfiguration>;
+    configuration?: pulumi.Input<inputs.OrganizationWebhookConfiguration>;
     /**
      * A list of events which should trigger the webhook. See a list of [available events](https://developer.github.com/v3/activity/events/types/)
      */
-    readonly events: pulumi.Input<pulumi.Input<string>[]>;
+    events: pulumi.Input<pulumi.Input<string>[]>;
 }

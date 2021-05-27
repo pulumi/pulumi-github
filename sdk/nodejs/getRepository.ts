@@ -16,7 +16,7 @@ import * as utilities from "./utilities";
  *
  * const example = pulumi.output(github.getRepository({
  *     fullName: "hashicorp/terraform",
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getRepository(args?: GetRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetRepositoryResult> {
@@ -43,19 +43,19 @@ export interface GetRepositoryArgs {
     /**
      * A description of the repository.
      */
-    readonly description?: string;
+    description?: string;
     /**
      * Full name of the repository (in `org/name` format).
      */
-    readonly fullName?: string;
+    fullName?: string;
     /**
      * URL of a page describing the project.
      */
-    readonly homepageUrl?: string;
+    homepageUrl?: string;
     /**
      * The name of the repository.
      */
-    readonly name?: string;
+    name?: string;
 }
 
 /**

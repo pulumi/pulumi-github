@@ -14,7 +14,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
  *
- * const test = pulumi.output(github.getOrganizationTeamSyncGroups({ async: true }));
+ * const test = pulumi.output(github.getOrganizationTeamSyncGroups());
  * ```
  */
 export function getOrganizationTeamSyncGroups(opts?: pulumi.InvokeOptions): Promise<GetOrganizationTeamSyncGroupsResult> {

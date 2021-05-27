@@ -20,7 +20,7 @@ import * as utilities from "./utilities";
  *     owner: "example-owner",
  *     repository: "example-repository",
  *     retrieveBy: "latest",
- * }, { async: true }));
+ * }));
  * ```
  *
  * To retrieve a specific release from a repository based on it's ID:
@@ -34,7 +34,7 @@ import * as utilities from "./utilities";
  *     owner: "example-owner",
  *     repository: "example-repository",
  *     retrieveBy: "id",
- * }, { async: true }));
+ * }));
  * ```
  *
  * Finally, to retrieve a release based on it's tag:
@@ -48,7 +48,7 @@ import * as utilities from "./utilities";
  *     releaseTag: "v1.0.0",
  *     repository: "example-repository",
  *     retrieveBy: "tag",
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getRelease(args: GetReleaseArgs, opts?: pulumi.InvokeOptions): Promise<GetReleaseResult> {
@@ -75,23 +75,23 @@ export interface GetReleaseArgs {
     /**
      * Owner of the repository.
      */
-    readonly owner: string;
+    owner: string;
     /**
      * ID of the release to retrieve. Must be specified when `retrieveBy` = `id`.
      */
-    readonly releaseId?: number;
+    releaseId?: number;
     /**
      * Tag of the release to retrieve. Must be specified when `retrieveBy` = `tag`.
      */
-    readonly releaseTag?: string;
+    releaseTag?: string;
     /**
      * Name of the repository to retrieve the release from.
      */
-    readonly repository: string;
+    repository: string;
     /**
      * Describes how to fetch the release. Valid values are `id`, `tag`, `latest`.
      */
-    readonly retrieveBy: string;
+    retrieveBy: string;
 }
 
 /**

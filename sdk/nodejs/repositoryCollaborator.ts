@@ -143,25 +143,25 @@ export interface RepositoryCollaboratorState {
     /**
      * ID of the invitation to be used in `github.UserInvitationAccepter`
      */
-    readonly invitationId?: pulumi.Input<string>;
+    invitationId?: pulumi.Input<string>;
     /**
      * The permission of the outside collaborator for the repository.
      * Must be one of `pull`, `push`, `maintain`, `triage` or `admin` for organization-owned repositories.
      * Must be `push` for personal repositories. Defaults to `push`.
      */
-    readonly permission?: pulumi.Input<string>;
+    permission?: pulumi.Input<string>;
     /**
      * Suppress plan diffs for `triage` and `maintain`.  Defaults to `false`.
      */
-    readonly permissionDiffSuppression?: pulumi.Input<boolean>;
+    permissionDiffSuppression?: pulumi.Input<boolean>;
     /**
      * The GitHub repository
      */
-    readonly repository?: pulumi.Input<string>;
+    repository?: pulumi.Input<string>;
     /**
      * The user to add to the repository as a collaborator.
      */
-    readonly username?: pulumi.Input<string>;
+    username?: pulumi.Input<string>;
 }
 
 /**
@@ -173,17 +173,17 @@ export interface RepositoryCollaboratorArgs {
      * Must be one of `pull`, `push`, `maintain`, `triage` or `admin` for organization-owned repositories.
      * Must be `push` for personal repositories. Defaults to `push`.
      */
-    readonly permission?: pulumi.Input<string>;
+    permission?: pulumi.Input<string>;
     /**
      * Suppress plan diffs for `triage` and `maintain`.  Defaults to `false`.
      */
-    readonly permissionDiffSuppression?: pulumi.Input<boolean>;
+    permissionDiffSuppression?: pulumi.Input<boolean>;
     /**
      * The GitHub repository
      */
-    readonly repository: pulumi.Input<string>;
+    repository: pulumi.Input<string>;
     /**
      * The user to add to the repository as a collaborator.
      */
-    readonly username: pulumi.Input<string>;
+    username: pulumi.Input<string>;
 }

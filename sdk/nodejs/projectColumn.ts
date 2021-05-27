@@ -94,16 +94,16 @@ export class ProjectColumn extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ProjectColumn resources.
  */
 export interface ProjectColumnState {
-    readonly columnId?: pulumi.Input<number>;
-    readonly etag?: pulumi.Input<string>;
+    columnId?: pulumi.Input<number>;
+    etag?: pulumi.Input<string>;
     /**
      * The name of the column.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The ID of an existing project that the column will be created in.
      */
-    readonly projectId?: pulumi.Input<string>;
+    projectId?: pulumi.Input<string>;
 }
 
 /**
@@ -113,9 +113,9 @@ export interface ProjectColumnArgs {
     /**
      * The name of the column.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The ID of an existing project that the column will be created in.
      */
-    readonly projectId: pulumi.Input<string>;
+    projectId: pulumi.Input<string>;
 }

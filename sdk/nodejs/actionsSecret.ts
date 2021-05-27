@@ -102,23 +102,23 @@ export interface ActionsSecretState {
     /**
      * Date of actionsSecret creation.
      */
-    readonly createdAt?: pulumi.Input<string>;
+    createdAt?: pulumi.Input<string>;
     /**
      * Plaintext value of the secret to be encrypted
      */
-    readonly plaintextValue?: pulumi.Input<string>;
+    plaintextValue?: pulumi.Input<string>;
     /**
      * Name of the repository
      */
-    readonly repository?: pulumi.Input<string>;
+    repository?: pulumi.Input<string>;
     /**
      * Name of the secret
      */
-    readonly secretName?: pulumi.Input<string>;
+    secretName?: pulumi.Input<string>;
     /**
      * Date of actionsSecret update.
      */
-    readonly updatedAt?: pulumi.Input<string>;
+    updatedAt?: pulumi.Input<string>;
 }
 
 /**
@@ -128,13 +128,13 @@ export interface ActionsSecretArgs {
     /**
      * Plaintext value of the secret to be encrypted
      */
-    readonly plaintextValue: pulumi.Input<string>;
+    plaintextValue: pulumi.Input<string>;
     /**
      * Name of the repository
      */
-    readonly repository: pulumi.Input<string>;
+    repository: pulumi.Input<string>;
     /**
      * Name of the secret
      */
-    readonly secretName: pulumi.Input<string>;
+    secretName: pulumi.Input<string>;
 }

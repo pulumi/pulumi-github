@@ -98,16 +98,16 @@ export interface OrganizationProjectState {
     /**
      * The body of the project.
      */
-    readonly body?: pulumi.Input<string>;
-    readonly etag?: pulumi.Input<string>;
+    body?: pulumi.Input<string>;
+    etag?: pulumi.Input<string>;
     /**
      * The name of the project.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * URL of the project
      */
-    readonly url?: pulumi.Input<string>;
+    url?: pulumi.Input<string>;
 }
 
 /**
@@ -117,9 +117,9 @@ export interface OrganizationProjectArgs {
     /**
      * The body of the project.
      */
-    readonly body?: pulumi.Input<string>;
+    body?: pulumi.Input<string>;
     /**
      * The name of the project.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
 }

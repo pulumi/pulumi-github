@@ -123,20 +123,20 @@ export class TeamRepository extends pulumi.CustomResource {
  * Input properties used for looking up and filtering TeamRepository resources.
  */
 export interface TeamRepositoryState {
-    readonly etag?: pulumi.Input<string>;
+    etag?: pulumi.Input<string>;
     /**
      * The permissions of team members regarding the repository.
      * Must be one of `pull`, `triage`, `push`, `maintain`, or `admin`. Defaults to `pull`.
      */
-    readonly permission?: pulumi.Input<string>;
+    permission?: pulumi.Input<string>;
     /**
      * The repository to add to the team.
      */
-    readonly repository?: pulumi.Input<string>;
+    repository?: pulumi.Input<string>;
     /**
      * The GitHub team id or the GitHub team slug
      */
-    readonly teamId?: pulumi.Input<string>;
+    teamId?: pulumi.Input<string>;
 }
 
 /**
@@ -147,13 +147,13 @@ export interface TeamRepositoryArgs {
      * The permissions of team members regarding the repository.
      * Must be one of `pull`, `triage`, `push`, `maintain`, or `admin`. Defaults to `pull`.
      */
-    readonly permission?: pulumi.Input<string>;
+    permission?: pulumi.Input<string>;
     /**
      * The repository to add to the team.
      */
-    readonly repository: pulumi.Input<string>;
+    repository: pulumi.Input<string>;
     /**
      * The GitHub team id or the GitHub team slug
      */
-    readonly teamId: pulumi.Input<string>;
+    teamId: pulumi.Input<string>;
 }

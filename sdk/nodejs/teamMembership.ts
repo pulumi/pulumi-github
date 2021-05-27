@@ -123,20 +123,20 @@ export class TeamMembership extends pulumi.CustomResource {
  * Input properties used for looking up and filtering TeamMembership resources.
  */
 export interface TeamMembershipState {
-    readonly etag?: pulumi.Input<string>;
+    etag?: pulumi.Input<string>;
     /**
      * The role of the user within the team.
      * Must be one of `member` or `maintainer`. Defaults to `member`.
      */
-    readonly role?: pulumi.Input<string>;
+    role?: pulumi.Input<string>;
     /**
      * The GitHub team id
      */
-    readonly teamId?: pulumi.Input<string>;
+    teamId?: pulumi.Input<string>;
     /**
      * The user to add to the team.
      */
-    readonly username?: pulumi.Input<string>;
+    username?: pulumi.Input<string>;
 }
 
 /**
@@ -147,13 +147,13 @@ export interface TeamMembershipArgs {
      * The role of the user within the team.
      * Must be one of `member` or `maintainer`. Defaults to `member`.
      */
-    readonly role?: pulumi.Input<string>;
+    role?: pulumi.Input<string>;
     /**
      * The GitHub team id
      */
-    readonly teamId: pulumi.Input<string>;
+    teamId: pulumi.Input<string>;
     /**
      * The user to add to the team.
      */
-    readonly username: pulumi.Input<string>;
+    username: pulumi.Input<string>;
 }

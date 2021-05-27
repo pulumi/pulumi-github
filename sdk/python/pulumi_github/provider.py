@@ -212,3 +212,35 @@ class Provider(pulumi.ProviderResource):
             __props__,
             opts)
 
+    @property
+    @pulumi.getter(name="baseUrl")
+    def base_url(self) -> pulumi.Output[Optional[str]]:
+        """
+        The GitHub Base API URL
+        """
+        return pulumi.get(self, "base_url")
+
+    @property
+    @pulumi.getter
+    def organization(self) -> pulumi.Output[Optional[str]]:
+        """
+        The GitHub organization name to manage. Use this field instead of `owner` when managing organization accounts.
+        """
+        return pulumi.get(self, "organization")
+
+    @property
+    @pulumi.getter
+    def owner(self) -> pulumi.Output[Optional[str]]:
+        """
+        The GitHub owner name to manage. Use this field instead of `organization` when managing individual accounts.
+        """
+        return pulumi.get(self, "owner")
+
+    @property
+    @pulumi.getter
+    def token(self) -> pulumi.Output[Optional[str]]:
+        """
+        The OAuth token used to connect to GitHub. Anonymous mode is enabled if both `token` and `app_auth` are not set.
+        """
+        return pulumi.get(self, "token")
+

@@ -20,7 +20,7 @@ import * as utilities from "./utilities";
  *     sortBy: "updated",
  *     sortDirection: "desc",
  *     state: "open",
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getRepositoryPullRequests(args: GetRepositoryPullRequestsArgs, opts?: pulumi.InvokeOptions): Promise<GetRepositoryPullRequestsResult> {
@@ -49,31 +49,31 @@ export interface GetRepositoryPullRequestsArgs {
     /**
      * If set, filters Pull Requests by base branch name.
      */
-    readonly baseRef?: string;
+    baseRef?: string;
     /**
      * Name of the base repository to retrieve the Pull Requests from.
      */
-    readonly baseRepository: string;
+    baseRepository: string;
     /**
      * If set, filters Pull Requests by head user or head organization and branch name in the format of "user:ref-name" or "organization:ref-name". For example: "github:new-script-format" or "octocat:test-branch".
      */
-    readonly headRef?: string;
+    headRef?: string;
     /**
      * Owner of the repository. If not provided, the provider's default owner is used.
      */
-    readonly owner?: string;
+    owner?: string;
     /**
      * If set, indicates what to sort results by. Can be either "created", "updated", "popularity" (comment count) or "long-running" (age, filtering by pulls updated in the last month). Default: "created".
      */
-    readonly sortBy?: string;
+    sortBy?: string;
     /**
      * If set, controls the direction of the sort. Can be either "asc" or "desc". Default: "asc".
      */
-    readonly sortDirection?: string;
+    sortDirection?: string;
     /**
      * If set, filters Pull Requests by state. Can be "open", "closed", or "all". Default: "open".
      */
-    readonly state?: string;
+    state?: string;
 }
 
 /**

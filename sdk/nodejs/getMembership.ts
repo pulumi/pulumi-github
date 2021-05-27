@@ -19,7 +19,7 @@ import * as utilities from "./utilities";
  *
  * const membershipForSomeUser = pulumi.output(github.getMembership({
  *     username: "SomeUser",
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getMembership(args: GetMembershipArgs, opts?: pulumi.InvokeOptions): Promise<GetMembershipResult> {
@@ -43,11 +43,11 @@ export interface GetMembershipArgs {
     /**
      * The organization to check for the above username.
      */
-    readonly organization?: string;
+    organization?: string;
     /**
      * The username to lookup in the organization.
      */
-    readonly username: string;
+    username: string;
 }
 
 /**
