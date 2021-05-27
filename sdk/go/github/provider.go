@@ -37,6 +37,9 @@ func NewProvider(ctx *pulumi.Context,
 }
 
 type providerArgs struct {
+	// The GitHub App credentials used to connect to GitHub. Conflicts with `token`. Anonymous mode is enabled if both `token`
+	// and `app_auth` are not set.
+	AppAuth *ProviderAppAuth `pulumi:"appAuth"`
 	// The GitHub Base API URL
 	BaseUrl *string `pulumi:"baseUrl"`
 	// Enable `insecure` mode for testing purposes
@@ -47,12 +50,15 @@ type providerArgs struct {
 	Organization *string `pulumi:"organization"`
 	// The GitHub owner name to manage. Use this field instead of `organization` when managing individual accounts.
 	Owner *string `pulumi:"owner"`
-	// The OAuth token used to connect to GitHub. `anonymous` mode is enabled if `token` is not configured.
+	// The OAuth token used to connect to GitHub. Anonymous mode is enabled if both `token` and `app_auth` are not set.
 	Token *string `pulumi:"token"`
 }
 
 // The set of arguments for constructing a Provider resource.
 type ProviderArgs struct {
+	// The GitHub App credentials used to connect to GitHub. Conflicts with `token`. Anonymous mode is enabled if both `token`
+	// and `app_auth` are not set.
+	AppAuth ProviderAppAuthPtrInput
 	// The GitHub Base API URL
 	BaseUrl pulumi.StringPtrInput
 	// Enable `insecure` mode for testing purposes
@@ -63,7 +69,7 @@ type ProviderArgs struct {
 	Organization pulumi.StringPtrInput
 	// The GitHub owner name to manage. Use this field instead of `organization` when managing individual accounts.
 	Owner pulumi.StringPtrInput
-	// The OAuth token used to connect to GitHub. `anonymous` mode is enabled if `token` is not configured.
+	// The OAuth token used to connect to GitHub. Anonymous mode is enabled if both `token` and `app_auth` are not set.
 	Token pulumi.StringPtrInput
 }
 

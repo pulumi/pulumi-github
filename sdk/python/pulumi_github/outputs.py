@@ -16,6 +16,7 @@ __all__ = [
     'BranchProtectionV3RequiredStatusChecks',
     'BranchProtectionV3Restrictions',
     'OrganizationWebhookConfiguration',
+    'ProviderAppAuth',
     'RepositoryPages',
     'RepositoryPagesSource',
     'RepositoryTemplate',
@@ -324,6 +325,51 @@ class OrganizationWebhookConfiguration(dict):
     @pulumi.getter
     def secret(self) -> Optional[str]:
         return pulumi.get(self, "secret")
+
+
+@pulumi.output_type
+class ProviderAppAuth(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "installationId":
+            suggest = "installation_id"
+        elif key == "pemFile":
+            suggest = "pem_file"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ProviderAppAuth. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ProviderAppAuth.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ProviderAppAuth.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 id: str,
+                 installation_id: str,
+                 pem_file: str):
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "installation_id", installation_id)
+        pulumi.set(__self__, "pem_file", pem_file)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="installationId")
+    def installation_id(self) -> str:
+        return pulumi.get(self, "installation_id")
+
+    @property
+    @pulumi.getter(name="pemFile")
+    def pem_file(self) -> str:
+        return pulumi.get(self, "pem_file")
 
 
 @pulumi.output_type

@@ -45,10 +45,22 @@ namespace Pulumi.Github
     public sealed class GetRepositoryArgs : Pulumi.InvokeArgs
     {
         /// <summary>
+        /// A description of the repository.
+        /// </summary>
+        [Input("description")]
+        public string? Description { get; set; }
+
+        /// <summary>
         /// Full name of the repository (in `org/name` format).
         /// </summary>
         [Input("fullName")]
         public string? FullName { get; set; }
+
+        /// <summary>
+        /// URL of a page describing the project.
+        /// </summary>
+        [Input("homepageUrl")]
+        public string? HomepageUrl { get; set; }
 
         /// <summary>
         /// The name of the repository.
@@ -88,7 +100,7 @@ namespace Pulumi.Github
         /// <summary>
         /// A description of the repository.
         /// </summary>
-        public readonly string Description;
+        public readonly string? Description;
         public readonly string? FullName;
         /// <summary>
         /// URL that can be provided to `git clone` to clone the repository anonymously via the git protocol.
@@ -113,7 +125,7 @@ namespace Pulumi.Github
         /// <summary>
         /// URL of a page describing the project.
         /// </summary>
-        public readonly string HomepageUrl;
+        public readonly string? HomepageUrl;
         /// <summary>
         /// URL to the repository on the web.
         /// </summary>
@@ -172,7 +184,7 @@ namespace Pulumi.Github
 
             string defaultBranch,
 
-            string description,
+            string? description,
 
             string? fullName,
 
@@ -186,7 +198,7 @@ namespace Pulumi.Github
 
             bool hasWiki,
 
-            string homepageUrl,
+            string? homepageUrl,
 
             string htmlUrl,
 

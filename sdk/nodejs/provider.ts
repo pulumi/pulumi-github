@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
 /**
@@ -37,6 +38,7 @@ export class Provider extends pulumi.ProviderResource {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         {
+            inputs["appAuth"] = pulumi.output(args ? args.appAuth : undefined).apply(JSON.stringify);
             inputs["baseUrl"] = (args ? args.baseUrl : undefined) ?? (utilities.getEnv("GITHUB_BASE_URL") || "https://api.github.com/");
             inputs["insecure"] = pulumi.output(args ? args.insecure : undefined).apply(JSON.stringify);
             inputs["organization"] = args ? args.organization : undefined;
@@ -54,6 +56,11 @@ export class Provider extends pulumi.ProviderResource {
  * The set of arguments for constructing a Provider resource.
  */
 export interface ProviderArgs {
+    /**
+     * The GitHub App credentials used to connect to GitHub. Conflicts with `token`. Anonymous mode is enabled if both `token`
+     * and `app_auth` are not set.
+     */
+    readonly appAuth?: pulumi.Input<inputs.ProviderAppAuth>;
     /**
      * The GitHub Base API URL
      */
@@ -73,7 +80,7 @@ export interface ProviderArgs {
      */
     readonly owner?: pulumi.Input<string>;
     /**
-     * The OAuth token used to connect to GitHub. `anonymous` mode is enabled if `token` is not configured.
+     * The OAuth token used to connect to GitHub. Anonymous mode is enabled if both `token` and `app_auth` are not set.
      */
     readonly token?: pulumi.Input<string>;
 }

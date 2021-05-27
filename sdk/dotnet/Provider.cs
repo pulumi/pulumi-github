@@ -46,6 +46,13 @@ namespace Pulumi.Github
     public sealed class ProviderArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The GitHub App credentials used to connect to GitHub. Conflicts with `token`. Anonymous mode is enabled if both `token`
+        /// and `app_auth` are not set.
+        /// </summary>
+        [Input("appAuth", json: true)]
+        public Input<Inputs.ProviderAppAuthArgs>? AppAuth { get; set; }
+
+        /// <summary>
         /// The GitHub Base API URL
         /// </summary>
         [Input("baseUrl")]
@@ -70,7 +77,7 @@ namespace Pulumi.Github
         public Input<string>? Owner { get; set; }
 
         /// <summary>
-        /// The OAuth token used to connect to GitHub. `anonymous` mode is enabled if `token` is not configured.
+        /// The OAuth token used to connect to GitHub. Anonymous mode is enabled if both `token` and `app_auth` are not set.
         /// </summary>
         [Input("token")]
         public Input<string>? Token { get; set; }

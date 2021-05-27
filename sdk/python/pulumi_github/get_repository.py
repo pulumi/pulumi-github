@@ -139,7 +139,7 @@ class GetRepositoryResult:
 
     @property
     @pulumi.getter
-    def description(self) -> str:
+    def description(self) -> Optional[str]:
         """
         A description of the repository.
         """
@@ -192,7 +192,7 @@ class GetRepositoryResult:
 
     @property
     @pulumi.getter(name="homepageUrl")
-    def homepage_url(self) -> str:
+    def homepage_url(self) -> Optional[str]:
         """
         URL of a page describing the project.
         """
@@ -325,7 +325,9 @@ class AwaitableGetRepositoryResult(GetRepositoryResult):
             visibility=self.visibility)
 
 
-def get_repository(full_name: Optional[str] = None,
+def get_repository(description: Optional[str] = None,
+                   full_name: Optional[str] = None,
+                   homepage_url: Optional[str] = None,
                    name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRepositoryResult:
     """
@@ -341,11 +343,15 @@ def get_repository(full_name: Optional[str] = None,
     ```
 
 
+    :param str description: A description of the repository.
     :param str full_name: Full name of the repository (in `org/name` format).
+    :param str homepage_url: URL of a page describing the project.
     :param str name: The name of the repository.
     """
     __args__ = dict()
+    __args__['description'] = description
     __args__['fullName'] = full_name
+    __args__['homepageUrl'] = homepage_url
     __args__['name'] = name
     if opts is None:
         opts = pulumi.InvokeOptions()

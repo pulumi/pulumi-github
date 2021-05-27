@@ -7,8 +7,10 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 
 __all__ = [
+    'app_auth',
     'base_url',
     'insecure',
     'organization',
@@ -17,6 +19,12 @@ __all__ = [
 ]
 
 __config__ = pulumi.Config('github')
+
+app_auth = __config__.get('appAuth')
+"""
+The GitHub App credentials used to connect to GitHub. Conflicts with `token`. Anonymous mode is enabled if both `token`
+and `app_auth` are not set.
+"""
 
 base_url = __config__.get('baseUrl') or (_utilities.get_env('GITHUB_BASE_URL') or 'https://api.github.com/')
 """
@@ -40,6 +48,6 @@ The GitHub owner name to manage. Use this field instead of `organization` when m
 
 token = __config__.get('token')
 """
-The OAuth token used to connect to GitHub. `anonymous` mode is enabled if `token` is not configured.
+The OAuth token used to connect to GitHub. Anonymous mode is enabled if both `token` and `app_auth` are not set.
 """
 

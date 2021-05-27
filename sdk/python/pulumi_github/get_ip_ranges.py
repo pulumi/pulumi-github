@@ -19,7 +19,13 @@ class GetIpRangesResult:
     """
     A collection of values returned by getIpRanges.
     """
-    def __init__(__self__, gits=None, hooks=None, id=None, importers=None, pages=None):
+    def __init__(__self__, actions=None, dependabots=None, gits=None, hooks=None, id=None, importers=None, pages=None):
+        if actions and not isinstance(actions, list):
+            raise TypeError("Expected argument 'actions' to be a list")
+        pulumi.set(__self__, "actions", actions)
+        if dependabots and not isinstance(dependabots, list):
+            raise TypeError("Expected argument 'dependabots' to be a list")
+        pulumi.set(__self__, "dependabots", dependabots)
         if gits and not isinstance(gits, list):
             raise TypeError("Expected argument 'gits' to be a list")
         pulumi.set(__self__, "gits", gits)
@@ -35,6 +41,16 @@ class GetIpRangesResult:
         if pages and not isinstance(pages, list):
             raise TypeError("Expected argument 'pages' to be a list")
         pulumi.set(__self__, "pages", pages)
+
+    @property
+    @pulumi.getter
+    def actions(self) -> Sequence[str]:
+        return pulumi.get(self, "actions")
+
+    @property
+    @pulumi.getter
+    def dependabots(self) -> Sequence[str]:
+        return pulumi.get(self, "dependabots")
 
     @property
     @pulumi.getter
@@ -83,6 +99,8 @@ class AwaitableGetIpRangesResult(GetIpRangesResult):
         if False:
             yield self
         return GetIpRangesResult(
+            actions=self.actions,
+            dependabots=self.dependabots,
             gits=self.gits,
             hooks=self.hooks,
             id=self.id,
@@ -111,6 +129,8 @@ def get_ip_ranges(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIp
     __ret__ = pulumi.runtime.invoke('github:index/getIpRanges:getIpRanges', __args__, opts=opts, typ=GetIpRangesResult).value
 
     return AwaitableGetIpRangesResult(
+        actions=__ret__.actions,
+        dependabots=__ret__.dependabots,
         gits=__ret__.gits,
         hooks=__ret__.hooks,
         id=__ret__.id,

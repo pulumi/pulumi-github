@@ -8,6 +8,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
 )
 
+// The GitHub App credentials used to connect to GitHub. Conflicts with `token`. Anonymous mode is enabled if both `token`
+// and `app_auth` are not set.
+func GetAppAuth(ctx *pulumi.Context) string {
+	return config.Get(ctx, "github:appAuth")
+}
+
 // The GitHub Base API URL
 func GetBaseUrl(ctx *pulumi.Context) string {
 	v, err := config.Try(ctx, "github:baseUrl")
@@ -34,7 +40,7 @@ func GetOwner(ctx *pulumi.Context) string {
 	return config.Get(ctx, "github:owner")
 }
 
-// The OAuth token used to connect to GitHub. `anonymous` mode is enabled if `token` is not configured.
+// The OAuth token used to connect to GitHub. Anonymous mode is enabled if both `token` and `app_auth` are not set.
 func GetToken(ctx *pulumi.Context) string {
 	return config.Get(ctx, "github:token")
 }

@@ -14,6 +14,10 @@
     },
     "config": {
         "variables": {
+            "appAuth": {
+                "$ref": "#/types/github:config/appAuth:appAuth",
+                "description": "The GitHub App credentials used to connect to GitHub. Conflicts with `token`. Anonymous mode is enabled if both `token`\nand `app_auth` are not set.\n"
+            },
             "baseUrl": {
                 "type": "string",
                 "description": "The GitHub Base API URL\n",
@@ -39,11 +43,35 @@
             },
             "token": {
                 "type": "string",
-                "description": "The OAuth token used to connect to GitHub. `anonymous` mode is enabled if `token` is not configured.\n"
+                "description": "The OAuth token used to connect to GitHub. Anonymous mode is enabled if both `token` and `app_auth` are not set.\n"
             }
         }
     },
     "types": {
+        "github:config/appAuth:appAuth": {
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "installationId": {
+                    "type": "string"
+                },
+                "pemFile": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "id",
+                "installationId",
+                "pemFile"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
         "github:index/BranchProtectionRequiredPullRequestReview:BranchProtectionRequiredPullRequestReview": {
             "properties": {
                 "dismissStaleReviews": {
@@ -279,6 +307,45 @@
             "required": [
                 "url"
             ]
+        },
+        "github:index/ProviderAppAuth:ProviderAppAuth": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "installationId": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "pemFile": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "id",
+                "installationId",
+                "pemFile"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": []
+                }
+            }
         },
         "github:index/RepositoryPages:RepositoryPages": {
             "properties": {
@@ -1059,6 +1126,10 @@
     "provider": {
         "description": "The provider type for the github package. By default, resources use package-wide configuration\nsettings, however an explicit `Provider` instance may be created and passed during resource\nconstruction to achieve fine-grained programmatic control over provider settings. See the\n[documentation](https://www.pulumi.com/docs/reference/programming-model/#providers) for more information.\n",
         "inputProperties": {
+            "appAuth": {
+                "$ref": "#/types/github:index/ProviderAppAuth:ProviderAppAuth",
+                "description": "The GitHub App credentials used to connect to GitHub. Conflicts with `token`. Anonymous mode is enabled if both `token`\nand `app_auth` are not set.\n"
+            },
             "baseUrl": {
                 "type": "string",
                 "description": "The GitHub Base API URL\n",
@@ -1084,7 +1155,7 @@
             },
             "token": {
                 "type": "string",
-                "description": "The OAuth token used to connect to GitHub. `anonymous` mode is enabled if `token` is not configured.\n"
+                "description": "The OAuth token used to connect to GitHub. Anonymous mode is enabled if both `token` and `app_auth` are not set.\n"
             }
         }
     },
@@ -3940,6 +4011,18 @@
             "outputs": {
                 "description": "A collection of values returned by getIpRanges.\n",
                 "properties": {
+                    "actions": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "dependabots": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
                     "gits": {
                         "type": "array",
                         "items": {
@@ -3975,6 +4058,8 @@
                 },
                 "type": "object",
                 "required": [
+                    "actions",
+                    "dependabots",
                     "gits",
                     "hooks",
                     "importers",
@@ -4344,9 +4429,17 @@
             "inputs": {
                 "description": "A collection of arguments for invoking getRepository.\n",
                 "properties": {
+                    "description": {
+                        "type": "string",
+                        "description": "A description of the repository.\n"
+                    },
                     "fullName": {
                         "type": "string",
                         "description": "Full name of the repository (in `org/name` format).\n"
+                    },
+                    "homepageUrl": {
+                        "type": "string",
+                        "description": "URL of a page describing the project.\n"
                     },
                     "name": {
                         "type": "string",
@@ -4470,13 +4563,11 @@
                     "allowSquashMerge",
                     "archived",
                     "defaultBranch",
-                    "description",
                     "gitCloneUrl",
                     "hasDownloads",
                     "hasIssues",
                     "hasProjects",
                     "hasWiki",
-                    "homepageUrl",
                     "htmlUrl",
                     "httpCloneUrl",
                     "nodeId",

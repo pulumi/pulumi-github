@@ -2,10 +2,16 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 let __config = new pulumi.Config("github");
 
+/**
+ * The GitHub App credentials used to connect to GitHub. Conflicts with `token`. Anonymous mode is enabled if both `token`
+ * and `app_auth` are not set.
+ */
+export let appAuth: outputs.config.AppAuth | undefined = __config.getObject<outputs.config.AppAuth>("appAuth");
 /**
  * The GitHub Base API URL
  */
@@ -23,6 +29,6 @@ export let organization: string | undefined = __config.get("organization");
  */
 export let owner: string | undefined = __config.get("owner");
 /**
- * The OAuth token used to connect to GitHub. `anonymous` mode is enabled if `token` is not configured.
+ * The OAuth token used to connect to GitHub. Anonymous mode is enabled if both `token` and `app_auth` are not set.
  */
 export let token: string | undefined = __config.get("token");

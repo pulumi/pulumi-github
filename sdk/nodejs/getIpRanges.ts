@@ -33,6 +33,8 @@ export function getIpRanges(opts?: pulumi.InvokeOptions): Promise<GetIpRangesRes
  * A collection of values returned by getIpRanges.
  */
 export interface GetIpRangesResult {
+    readonly actions: string[];
+    readonly dependabots: string[];
     /**
      * An Array of IP addresses in CIDR format specifying the Git servers.
      */
