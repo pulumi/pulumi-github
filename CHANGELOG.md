@@ -2,10 +2,13 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Upgrade to v4.10.1 of the GitHub Terraform Provider.
-* Upgrade to v3.2.1 of the pulumi-terraform-bridge
+_(none)_
 
 ---
+
+## 4.1.0 (2021-05-27)
+* Upgrade to v4.10.1 of the GitHub Terraform Provider.
+* Upgrade to v3.2.1 of the pulumi-terraform-bridge
 
 ## 4.0.2 (2021-05-21)
 * ensure adding a new repository to an organisation secret doesn't panic
