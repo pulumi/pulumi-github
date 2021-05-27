@@ -19,7 +19,7 @@ import * as utilities from "./utilities";
  *
  * const example = pulumi.output(github.getRepositories({
  *     query: "org:hashicorp language:Go",
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getRepositories(args: GetRepositoriesArgs, opts?: pulumi.InvokeOptions): Promise<GetRepositoriesResult> {
@@ -43,11 +43,11 @@ export interface GetRepositoriesArgs {
     /**
      * Search query. See [documentation for the search syntax](https://help.github.com/articles/understanding-the-search-syntax/).
      */
-    readonly query: string;
+    query: string;
     /**
      * Sorts the repositories returned by the specified attribute. Valid values include `stars`, `fork`, and `updated`. Defaults to `updated`.
      */
-    readonly sort?: string;
+    sort?: string;
 }
 
 /**

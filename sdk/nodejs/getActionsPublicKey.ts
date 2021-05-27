@@ -17,7 +17,7 @@ import * as utilities from "./utilities";
  *
  * const example = pulumi.output(github.getActionsPublicKey({
  *     repository: "example_repo",
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getActionsPublicKey(args: GetActionsPublicKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetActionsPublicKeyResult> {
@@ -40,7 +40,7 @@ export interface GetActionsPublicKeyArgs {
     /**
      * Name of the repository to get public key from.
      */
-    readonly repository: string;
+    repository: string;
 }
 
 /**

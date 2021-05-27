@@ -16,7 +16,7 @@ import * as utilities from "./utilities";
  *
  * const example = pulumi.output(github.getTeam({
  *     slug: "example",
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getTeam(args: GetTeamArgs, opts?: pulumi.InvokeOptions): Promise<GetTeamResult> {
@@ -39,7 +39,7 @@ export interface GetTeamArgs {
     /**
      * The team slug.
      */
-    readonly slug: string;
+    slug: string;
 }
 
 /**

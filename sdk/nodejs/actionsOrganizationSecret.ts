@@ -120,28 +120,28 @@ export interface ActionsOrganizationSecretState {
     /**
      * Date of actionsSecret creation.
      */
-    readonly createdAt?: pulumi.Input<string>;
+    createdAt?: pulumi.Input<string>;
     /**
      * Plaintext value of the secret to be encrypted
      */
-    readonly plaintextValue?: pulumi.Input<string>;
+    plaintextValue?: pulumi.Input<string>;
     /**
      * Name of the secret
      */
-    readonly secretName?: pulumi.Input<string>;
+    secretName?: pulumi.Input<string>;
     /**
      * An array of repository ids that can access the organization secret.
      */
-    readonly selectedRepositoryIds?: pulumi.Input<pulumi.Input<number>[]>;
+    selectedRepositoryIds?: pulumi.Input<pulumi.Input<number>[]>;
     /**
      * Date of actionsSecret update.
      */
-    readonly updatedAt?: pulumi.Input<string>;
+    updatedAt?: pulumi.Input<string>;
     /**
      * Configures the access that repositories have to the organization secret.
      * Must be one of `all`, `private`, `selected`. `selectedRepositoryIds` is required if set to `selected`.
      */
-    readonly visibility?: pulumi.Input<string>;
+    visibility?: pulumi.Input<string>;
 }
 
 /**
@@ -151,18 +151,18 @@ export interface ActionsOrganizationSecretArgs {
     /**
      * Plaintext value of the secret to be encrypted
      */
-    readonly plaintextValue: pulumi.Input<string>;
+    plaintextValue: pulumi.Input<string>;
     /**
      * Name of the secret
      */
-    readonly secretName: pulumi.Input<string>;
+    secretName: pulumi.Input<string>;
     /**
      * An array of repository ids that can access the organization secret.
      */
-    readonly selectedRepositoryIds?: pulumi.Input<pulumi.Input<number>[]>;
+    selectedRepositoryIds?: pulumi.Input<pulumi.Input<number>[]>;
     /**
      * Configures the access that repositories have to the organization secret.
      * Must be one of `all`, `private`, `selected`. `selectedRepositoryIds` is required if set to `selected`.
      */
-    readonly visibility: pulumi.Input<string>;
+    visibility: pulumi.Input<string>;
 }

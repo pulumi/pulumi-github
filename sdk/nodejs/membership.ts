@@ -107,16 +107,16 @@ export class Membership extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Membership resources.
  */
 export interface MembershipState {
-    readonly etag?: pulumi.Input<string>;
+    etag?: pulumi.Input<string>;
     /**
      * The role of the user within the organization.
      * Must be one of `member` or `admin`. Defaults to `member`.
      */
-    readonly role?: pulumi.Input<string>;
+    role?: pulumi.Input<string>;
     /**
      * The user to add to the organization.
      */
-    readonly username?: pulumi.Input<string>;
+    username?: pulumi.Input<string>;
 }
 
 /**
@@ -127,9 +127,9 @@ export interface MembershipArgs {
      * The role of the user within the organization.
      * Must be one of `member` or `admin`. Defaults to `member`.
      */
-    readonly role?: pulumi.Input<string>;
+    role?: pulumi.Input<string>;
     /**
      * The user to add to the organization.
      */
-    readonly username: pulumi.Input<string>;
+    username: pulumi.Input<string>;
 }

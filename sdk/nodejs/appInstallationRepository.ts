@@ -118,12 +118,12 @@ export interface AppInstallationRepositoryState {
     /**
      * The GitHub app installation id.
      */
-    readonly installationId?: pulumi.Input<string>;
-    readonly repoId?: pulumi.Input<number>;
+    installationId?: pulumi.Input<string>;
+    repoId?: pulumi.Input<number>;
     /**
      * The repository to install the app on.
      */
-    readonly repository?: pulumi.Input<string>;
+    repository?: pulumi.Input<string>;
 }
 
 /**
@@ -133,9 +133,9 @@ export interface AppInstallationRepositoryArgs {
     /**
      * The GitHub app installation id.
      */
-    readonly installationId: pulumi.Input<string>;
+    installationId: pulumi.Input<string>;
     /**
      * The repository to install the app on.
      */
-    readonly repository: pulumi.Input<string>;
+    repository: pulumi.Input<string>;
 }

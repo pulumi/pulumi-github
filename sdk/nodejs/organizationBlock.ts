@@ -86,11 +86,11 @@ export class OrganizationBlock extends pulumi.CustomResource {
  * Input properties used for looking up and filtering OrganizationBlock resources.
  */
 export interface OrganizationBlockState {
-    readonly etag?: pulumi.Input<string>;
+    etag?: pulumi.Input<string>;
     /**
      * The name of the user to block.
      */
-    readonly username?: pulumi.Input<string>;
+    username?: pulumi.Input<string>;
 }
 
 /**
@@ -100,5 +100,5 @@ export interface OrganizationBlockArgs {
     /**
      * The name of the user to block.
      */
-    readonly username: pulumi.Input<string>;
+    username: pulumi.Input<string>;
 }

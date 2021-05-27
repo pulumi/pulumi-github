@@ -109,16 +109,16 @@ export class ProjectCard extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ProjectCard resources.
  */
 export interface ProjectCardState {
-    readonly cardId?: pulumi.Input<number>;
+    cardId?: pulumi.Input<number>;
     /**
      * The ID of the card.
      */
-    readonly columnId?: pulumi.Input<string>;
-    readonly etag?: pulumi.Input<string>;
+    columnId?: pulumi.Input<string>;
+    etag?: pulumi.Input<string>;
     /**
      * The note contents of the card. Markdown supported.
      */
-    readonly note?: pulumi.Input<string>;
+    note?: pulumi.Input<string>;
 }
 
 /**
@@ -128,9 +128,9 @@ export interface ProjectCardArgs {
     /**
      * The ID of the card.
      */
-    readonly columnId: pulumi.Input<string>;
+    columnId: pulumi.Input<string>;
     /**
      * The note contents of the card. Markdown supported.
      */
-    readonly note: pulumi.Input<string>;
+    note: pulumi.Input<string>;
 }

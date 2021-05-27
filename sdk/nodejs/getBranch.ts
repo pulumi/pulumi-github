@@ -17,7 +17,7 @@ import * as utilities from "./utilities";
  * const development = pulumi.output(github.getBranch({
  *     branch: "development",
  *     repository: "example",
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getBranch(args: GetBranchArgs, opts?: pulumi.InvokeOptions): Promise<GetBranchResult> {
@@ -41,11 +41,11 @@ export interface GetBranchArgs {
     /**
      * The repository branch to create.
      */
-    readonly branch: string;
+    branch: string;
     /**
      * The GitHub repository name.
      */
-    readonly repository: string;
+    repository: string;
 }
 
 /**

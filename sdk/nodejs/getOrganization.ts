@@ -16,7 +16,7 @@ import * as utilities from "./utilities";
  *
  * const test = pulumi.output(github.getOrganization({
  *     name: "github",
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getOrganization(args: GetOrganizationArgs, opts?: pulumi.InvokeOptions): Promise<GetOrganizationResult> {
@@ -36,7 +36,7 @@ export function getOrganization(args: GetOrganizationArgs, opts?: pulumi.InvokeO
  * A collection of arguments for invoking getOrganization.
  */
 export interface GetOrganizationArgs {
-    readonly name: string;
+    name: string;
 }
 
 /**

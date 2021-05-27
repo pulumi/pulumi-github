@@ -171,43 +171,43 @@ export interface RepositoryFileState {
      * Git branch (defaults to `main`).
      * The branch must already exist, it will not be created if it does not already exist.
      */
-    readonly branch?: pulumi.Input<string>;
+    branch?: pulumi.Input<string>;
     /**
      * Committer author name to use.
      */
-    readonly commitAuthor?: pulumi.Input<string>;
+    commitAuthor?: pulumi.Input<string>;
     /**
      * Committer email address to use.
      */
-    readonly commitEmail?: pulumi.Input<string>;
+    commitEmail?: pulumi.Input<string>;
     /**
      * Commit message when adding or updating the managed file.
      */
-    readonly commitMessage?: pulumi.Input<string>;
+    commitMessage?: pulumi.Input<string>;
     /**
      * The SHA of the commit that modified the file.
      */
-    readonly commitSha?: pulumi.Input<string>;
+    commitSha?: pulumi.Input<string>;
     /**
      * The file content.
      */
-    readonly content?: pulumi.Input<string>;
+    content?: pulumi.Input<string>;
     /**
      * The path of the file to manage.
      */
-    readonly file?: pulumi.Input<string>;
+    file?: pulumi.Input<string>;
     /**
      * Enable overwriting existing files
      */
-    readonly overwriteOnCreate?: pulumi.Input<boolean>;
+    overwriteOnCreate?: pulumi.Input<boolean>;
     /**
      * The repository to create the file in.
      */
-    readonly repository?: pulumi.Input<string>;
+    repository?: pulumi.Input<string>;
     /**
      * The SHA blob of the file.
      */
-    readonly sha?: pulumi.Input<string>;
+    sha?: pulumi.Input<string>;
 }
 
 /**
@@ -218,33 +218,33 @@ export interface RepositoryFileArgs {
      * Git branch (defaults to `main`).
      * The branch must already exist, it will not be created if it does not already exist.
      */
-    readonly branch?: pulumi.Input<string>;
+    branch?: pulumi.Input<string>;
     /**
      * Committer author name to use.
      */
-    readonly commitAuthor?: pulumi.Input<string>;
+    commitAuthor?: pulumi.Input<string>;
     /**
      * Committer email address to use.
      */
-    readonly commitEmail?: pulumi.Input<string>;
+    commitEmail?: pulumi.Input<string>;
     /**
      * Commit message when adding or updating the managed file.
      */
-    readonly commitMessage?: pulumi.Input<string>;
+    commitMessage?: pulumi.Input<string>;
     /**
      * The file content.
      */
-    readonly content: pulumi.Input<string>;
+    content: pulumi.Input<string>;
     /**
      * The path of the file to manage.
      */
-    readonly file: pulumi.Input<string>;
+    file: pulumi.Input<string>;
     /**
      * Enable overwriting existing files
      */
-    readonly overwriteOnCreate?: pulumi.Input<boolean>;
+    overwriteOnCreate?: pulumi.Input<boolean>;
     /**
      * The repository to create the file in.
      */
-    readonly repository: pulumi.Input<string>;
+    repository: pulumi.Input<string>;
 }

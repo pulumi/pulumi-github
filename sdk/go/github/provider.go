@@ -16,6 +16,17 @@ import (
 // [documentation](https://www.pulumi.com/docs/reference/programming-model/#providers) for more information.
 type Provider struct {
 	pulumi.ProviderResourceState
+
+	// The GitHub Base API URL
+	BaseUrl pulumi.StringPtrOutput `pulumi:"baseUrl"`
+	// The GitHub organization name to manage. Use this field instead of `owner` when managing organization accounts.
+	//
+	// Deprecated: Use owner (or GITHUB_OWNER) instead of organization (or GITHUB_ORGANIZATION)
+	Organization pulumi.StringPtrOutput `pulumi:"organization"`
+	// The GitHub owner name to manage. Use this field instead of `organization` when managing individual accounts.
+	Owner pulumi.StringPtrOutput `pulumi:"owner"`
+	// The OAuth token used to connect to GitHub. Anonymous mode is enabled if both `token` and `app_auth` are not set.
+	Token pulumi.StringPtrOutput `pulumi:"token"`
 }
 
 // NewProvider registers a new resource with the given unique name, arguments, and options.

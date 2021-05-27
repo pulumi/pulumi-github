@@ -116,11 +116,11 @@ export interface BranchDefaultState {
     /**
      * The branch (e.g. `main`)
      */
-    readonly branch?: pulumi.Input<string>;
+    branch?: pulumi.Input<string>;
     /**
      * The GitHub repository
      */
-    readonly repository?: pulumi.Input<string>;
+    repository?: pulumi.Input<string>;
 }
 
 /**
@@ -130,9 +130,9 @@ export interface BranchDefaultArgs {
     /**
      * The branch (e.g. `main`)
      */
-    readonly branch: pulumi.Input<string>;
+    branch: pulumi.Input<string>;
     /**
      * The GitHub repository
      */
-    readonly repository: pulumi.Input<string>;
+    repository: pulumi.Input<string>;
 }

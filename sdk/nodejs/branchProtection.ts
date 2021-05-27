@@ -176,39 +176,39 @@ export interface BranchProtectionState {
     /**
      * Boolean, setting this to `true` to allow the branch to be deleted.
      */
-    readonly allowsDeletions?: pulumi.Input<boolean>;
+    allowsDeletions?: pulumi.Input<boolean>;
     /**
      * Boolean, setting this to `true` to allow force pushes on the branch.
      */
-    readonly allowsForcePushes?: pulumi.Input<boolean>;
+    allowsForcePushes?: pulumi.Input<boolean>;
     /**
      * Boolean, setting this to `true` enforces status checks for repository administrators.
      */
-    readonly enforceAdmins?: pulumi.Input<boolean>;
+    enforceAdmins?: pulumi.Input<boolean>;
     /**
      * Identifies the protection rule pattern.
      */
-    readonly pattern?: pulumi.Input<string>;
+    pattern?: pulumi.Input<string>;
     /**
      * The list of actor IDs that may push to the branch.
      */
-    readonly pushRestrictions?: pulumi.Input<pulumi.Input<string>[]>;
+    pushRestrictions?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The name or node ID of the repository associated with this branch protection rule.
      */
-    readonly repositoryId?: pulumi.Input<string>;
+    repositoryId?: pulumi.Input<string>;
     /**
      * Boolean, setting this to `true` requires all commits to be signed with GPG.
      */
-    readonly requireSignedCommits?: pulumi.Input<boolean>;
+    requireSignedCommits?: pulumi.Input<boolean>;
     /**
      * Enforce restrictions for pull request reviews. See Required Pull Request Reviews below for details.
      */
-    readonly requiredPullRequestReviews?: pulumi.Input<pulumi.Input<inputs.BranchProtectionRequiredPullRequestReview>[]>;
+    requiredPullRequestReviews?: pulumi.Input<pulumi.Input<inputs.BranchProtectionRequiredPullRequestReview>[]>;
     /**
      * Enforce restrictions for required status checks. See Required Status Checks below for details.
      */
-    readonly requiredStatusChecks?: pulumi.Input<pulumi.Input<inputs.BranchProtectionRequiredStatusCheck>[]>;
+    requiredStatusChecks?: pulumi.Input<pulumi.Input<inputs.BranchProtectionRequiredStatusCheck>[]>;
 }
 
 /**
@@ -218,37 +218,37 @@ export interface BranchProtectionArgs {
     /**
      * Boolean, setting this to `true` to allow the branch to be deleted.
      */
-    readonly allowsDeletions?: pulumi.Input<boolean>;
+    allowsDeletions?: pulumi.Input<boolean>;
     /**
      * Boolean, setting this to `true` to allow force pushes on the branch.
      */
-    readonly allowsForcePushes?: pulumi.Input<boolean>;
+    allowsForcePushes?: pulumi.Input<boolean>;
     /**
      * Boolean, setting this to `true` enforces status checks for repository administrators.
      */
-    readonly enforceAdmins?: pulumi.Input<boolean>;
+    enforceAdmins?: pulumi.Input<boolean>;
     /**
      * Identifies the protection rule pattern.
      */
-    readonly pattern: pulumi.Input<string>;
+    pattern: pulumi.Input<string>;
     /**
      * The list of actor IDs that may push to the branch.
      */
-    readonly pushRestrictions?: pulumi.Input<pulumi.Input<string>[]>;
+    pushRestrictions?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The name or node ID of the repository associated with this branch protection rule.
      */
-    readonly repositoryId: pulumi.Input<string>;
+    repositoryId: pulumi.Input<string>;
     /**
      * Boolean, setting this to `true` requires all commits to be signed with GPG.
      */
-    readonly requireSignedCommits?: pulumi.Input<boolean>;
+    requireSignedCommits?: pulumi.Input<boolean>;
     /**
      * Enforce restrictions for pull request reviews. See Required Pull Request Reviews below for details.
      */
-    readonly requiredPullRequestReviews?: pulumi.Input<pulumi.Input<inputs.BranchProtectionRequiredPullRequestReview>[]>;
+    requiredPullRequestReviews?: pulumi.Input<pulumi.Input<inputs.BranchProtectionRequiredPullRequestReview>[]>;
     /**
      * Enforce restrictions for required status checks. See Required Status Checks below for details.
      */
-    readonly requiredStatusChecks?: pulumi.Input<pulumi.Input<inputs.BranchProtectionRequiredStatusCheck>[]>;
+    requiredStatusChecks?: pulumi.Input<pulumi.Input<inputs.BranchProtectionRequiredStatusCheck>[]>;
 }

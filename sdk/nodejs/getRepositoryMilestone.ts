@@ -18,7 +18,7 @@ import * as utilities from "./utilities";
  *     number: 1,
  *     owner: "example-owner",
  *     repository: "example-repository",
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getRepositoryMilestone(args: GetRepositoryMilestoneArgs, opts?: pulumi.InvokeOptions): Promise<GetRepositoryMilestoneResult> {
@@ -43,15 +43,15 @@ export interface GetRepositoryMilestoneArgs {
     /**
      * The number of the milestone.
      */
-    readonly number: number;
+    number: number;
     /**
      * Owner of the repository.
      */
-    readonly owner: string;
+    owner: string;
     /**
      * Name of the repository to retrieve the milestone from.
      */
-    readonly repository: string;
+    repository: string;
 }
 
 /**

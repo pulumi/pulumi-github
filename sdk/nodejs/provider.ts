@@ -26,6 +26,24 @@ export class Provider extends pulumi.ProviderResource {
         return obj['__pulumiType'] === Provider.__pulumiType;
     }
 
+    /**
+     * The GitHub Base API URL
+     */
+    public readonly baseUrl!: pulumi.Output<string | undefined>;
+    /**
+     * The GitHub organization name to manage. Use this field instead of `owner` when managing organization accounts.
+     *
+     * @deprecated Use owner (or GITHUB_OWNER) instead of organization (or GITHUB_ORGANIZATION)
+     */
+    public readonly organization!: pulumi.Output<string | undefined>;
+    /**
+     * The GitHub owner name to manage. Use this field instead of `organization` when managing individual accounts.
+     */
+    public readonly owner!: pulumi.Output<string | undefined>;
+    /**
+     * The OAuth token used to connect to GitHub. Anonymous mode is enabled if both `token` and `app_auth` are not set.
+     */
+    public readonly token!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Provider resource with the given unique name, arguments, and options.
@@ -60,27 +78,27 @@ export interface ProviderArgs {
      * The GitHub App credentials used to connect to GitHub. Conflicts with `token`. Anonymous mode is enabled if both `token`
      * and `app_auth` are not set.
      */
-    readonly appAuth?: pulumi.Input<inputs.ProviderAppAuth>;
+    appAuth?: pulumi.Input<inputs.ProviderAppAuth>;
     /**
      * The GitHub Base API URL
      */
-    readonly baseUrl?: pulumi.Input<string>;
+    baseUrl?: pulumi.Input<string>;
     /**
      * Enable `insecure` mode for testing purposes
      */
-    readonly insecure?: pulumi.Input<boolean>;
+    insecure?: pulumi.Input<boolean>;
     /**
      * The GitHub organization name to manage. Use this field instead of `owner` when managing organization accounts.
      *
      * @deprecated Use owner (or GITHUB_OWNER) instead of organization (or GITHUB_ORGANIZATION)
      */
-    readonly organization?: pulumi.Input<string>;
+    organization?: pulumi.Input<string>;
     /**
      * The GitHub owner name to manage. Use this field instead of `organization` when managing individual accounts.
      */
-    readonly owner?: pulumi.Input<string>;
+    owner?: pulumi.Input<string>;
     /**
      * The OAuth token used to connect to GitHub. Anonymous mode is enabled if both `token` and `app_auth` are not set.
      */
-    readonly token?: pulumi.Input<string>;
+    token?: pulumi.Input<string>;
 }

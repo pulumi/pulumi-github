@@ -131,23 +131,23 @@ export class RepositoryDeployKey extends pulumi.CustomResource {
  * Input properties used for looking up and filtering RepositoryDeployKey resources.
  */
 export interface RepositoryDeployKeyState {
-    readonly etag?: pulumi.Input<string>;
+    etag?: pulumi.Input<string>;
     /**
      * A SSH key.
      */
-    readonly key?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
     /**
      * A boolean qualifying the key to be either read only or read/write.
      */
-    readonly readOnly?: pulumi.Input<boolean>;
+    readOnly?: pulumi.Input<boolean>;
     /**
      * Name of the GitHub repository.
      */
-    readonly repository?: pulumi.Input<string>;
+    repository?: pulumi.Input<string>;
     /**
      * A title.
      */
-    readonly title?: pulumi.Input<string>;
+    title?: pulumi.Input<string>;
 }
 
 /**
@@ -157,17 +157,17 @@ export interface RepositoryDeployKeyArgs {
     /**
      * A SSH key.
      */
-    readonly key: pulumi.Input<string>;
+    key: pulumi.Input<string>;
     /**
      * A boolean qualifying the key to be either read only or read/write.
      */
-    readonly readOnly?: pulumi.Input<boolean>;
+    readOnly?: pulumi.Input<boolean>;
     /**
      * Name of the GitHub repository.
      */
-    readonly repository: pulumi.Input<string>;
+    repository: pulumi.Input<string>;
     /**
      * A title.
      */
-    readonly title: pulumi.Input<string>;
+    title: pulumi.Input<string>;
 }

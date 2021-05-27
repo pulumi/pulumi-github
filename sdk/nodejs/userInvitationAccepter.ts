@@ -93,7 +93,7 @@ export interface UserInvitationAccepterState {
     /**
      * ID of the invitation to accept
      */
-    readonly invitationId?: pulumi.Input<string>;
+    invitationId?: pulumi.Input<string>;
 }
 
 /**
@@ -103,5 +103,5 @@ export interface UserInvitationAccepterArgs {
     /**
      * ID of the invitation to accept
      */
-    readonly invitationId: pulumi.Input<string>;
+    invitationId: pulumi.Input<string>;
 }

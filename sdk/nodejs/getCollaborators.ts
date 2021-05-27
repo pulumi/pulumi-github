@@ -17,7 +17,7 @@ import * as utilities from "./utilities";
  * const test = pulumi.output(github.getCollaborators({
  *     owner: "example_owner",
  *     repository: "example_repository",
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getCollaborators(args: GetCollaboratorsArgs, opts?: pulumi.InvokeOptions): Promise<GetCollaboratorsResult> {
@@ -42,15 +42,15 @@ export interface GetCollaboratorsArgs {
     /**
      * Filter collaborators returned by their affiliation. Can be one of: `outside`, `direct`, `all`.  Defaults to `all`.
      */
-    readonly affiliation?: string;
+    affiliation?: string;
     /**
      * The organization that owns the repository.
      */
-    readonly owner: string;
+    owner: string;
     /**
      * The name of the repository.
      */
-    readonly repository: string;
+    repository: string;
 }
 
 /**

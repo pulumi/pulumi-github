@@ -140,24 +140,24 @@ export interface RepositoryWebhookState {
     /**
      * Indicate of the webhook should receive events. Defaults to `true`.
      */
-    readonly active?: pulumi.Input<boolean>;
+    active?: pulumi.Input<boolean>;
     /**
      * key/value pair of configuration for this webhook. Available keys are `url`, `contentType`, `secret` and `insecureSsl`. `secret` is [the shared secret, see API documentation](https://developer.github.com/v3/repos/hooks/#create-a-hook). `contentType` may be either form or json.
      */
-    readonly configuration?: pulumi.Input<inputs.RepositoryWebhookConfiguration>;
-    readonly etag?: pulumi.Input<string>;
+    configuration?: pulumi.Input<inputs.RepositoryWebhookConfiguration>;
+    etag?: pulumi.Input<string>;
     /**
      * A list of events which should trigger the webhook. See a list of [available events](https://developer.github.com/v3/activity/events/types/).
      */
-    readonly events?: pulumi.Input<pulumi.Input<string>[]>;
+    events?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The repository of the webhook.
      */
-    readonly repository?: pulumi.Input<string>;
+    repository?: pulumi.Input<string>;
     /**
      * URL of the webhook.  This is a sensitive attribute because it may include basic auth credentials.
      */
-    readonly url?: pulumi.Input<string>;
+    url?: pulumi.Input<string>;
 }
 
 /**
@@ -167,17 +167,17 @@ export interface RepositoryWebhookArgs {
     /**
      * Indicate of the webhook should receive events. Defaults to `true`.
      */
-    readonly active?: pulumi.Input<boolean>;
+    active?: pulumi.Input<boolean>;
     /**
      * key/value pair of configuration for this webhook. Available keys are `url`, `contentType`, `secret` and `insecureSsl`. `secret` is [the shared secret, see API documentation](https://developer.github.com/v3/repos/hooks/#create-a-hook). `contentType` may be either form or json.
      */
-    readonly configuration?: pulumi.Input<inputs.RepositoryWebhookConfiguration>;
+    configuration?: pulumi.Input<inputs.RepositoryWebhookConfiguration>;
     /**
      * A list of events which should trigger the webhook. See a list of [available events](https://developer.github.com/v3/activity/events/types/).
      */
-    readonly events: pulumi.Input<pulumi.Input<string>[]>;
+    events: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The repository of the webhook.
      */
-    readonly repository: pulumi.Input<string>;
+    repository: pulumi.Input<string>;
 }

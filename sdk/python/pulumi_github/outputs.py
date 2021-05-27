@@ -329,25 +329,6 @@ class OrganizationWebhookConfiguration(dict):
 
 @pulumi.output_type
 class ProviderAppAuth(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "installationId":
-            suggest = "installation_id"
-        elif key == "pemFile":
-            suggest = "pem_file"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ProviderAppAuth. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ProviderAppAuth.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ProviderAppAuth.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  id: str,
                  installation_id: str,

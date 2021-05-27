@@ -19,6 +19,31 @@ namespace Pulumi.Github
     public partial class Provider : Pulumi.ProviderResource
     {
         /// <summary>
+        /// The GitHub Base API URL
+        /// </summary>
+        [Output("baseUrl")]
+        public Output<string?> BaseUrl { get; private set; } = null!;
+
+        /// <summary>
+        /// The GitHub organization name to manage. Use this field instead of `owner` when managing organization accounts.
+        /// </summary>
+        [Output("organization")]
+        public Output<string?> Organization { get; private set; } = null!;
+
+        /// <summary>
+        /// The GitHub owner name to manage. Use this field instead of `organization` when managing individual accounts.
+        /// </summary>
+        [Output("owner")]
+        public Output<string?> Owner { get; private set; } = null!;
+
+        /// <summary>
+        /// The OAuth token used to connect to GitHub. Anonymous mode is enabled if both `token` and `app_auth` are not set.
+        /// </summary>
+        [Output("token")]
+        public Output<string?> Token { get; private set; } = null!;
+
+
+        /// <summary>
         /// Create a Provider resource with the given unique name, arguments, and options.
         /// </summary>
         ///

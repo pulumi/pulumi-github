@@ -141,31 +141,31 @@ export interface RepositoryMilestoneState {
     /**
      * A description of the milestone.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The milestone due date. In `yyyy-mm-dd` format.
      */
-    readonly dueDate?: pulumi.Input<string>;
+    dueDate?: pulumi.Input<string>;
     /**
      * The number of the milestone.
      */
-    readonly number?: pulumi.Input<number>;
+    number?: pulumi.Input<number>;
     /**
      * The owner of the GitHub Repository.
      */
-    readonly owner?: pulumi.Input<string>;
+    owner?: pulumi.Input<string>;
     /**
      * The name of the GitHub Repository.
      */
-    readonly repository?: pulumi.Input<string>;
+    repository?: pulumi.Input<string>;
     /**
      * The state of the milestone. Either `open` or `closed`. Default: `open`
      */
-    readonly state?: pulumi.Input<string>;
+    state?: pulumi.Input<string>;
     /**
      * The title of the milestone.
      */
-    readonly title?: pulumi.Input<string>;
+    title?: pulumi.Input<string>;
 }
 
 /**
@@ -175,25 +175,25 @@ export interface RepositoryMilestoneArgs {
     /**
      * A description of the milestone.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The milestone due date. In `yyyy-mm-dd` format.
      */
-    readonly dueDate?: pulumi.Input<string>;
+    dueDate?: pulumi.Input<string>;
     /**
      * The owner of the GitHub Repository.
      */
-    readonly owner: pulumi.Input<string>;
+    owner: pulumi.Input<string>;
     /**
      * The name of the GitHub Repository.
      */
-    readonly repository: pulumi.Input<string>;
+    repository: pulumi.Input<string>;
     /**
      * The state of the milestone. Either `open` or `closed`. Default: `open`
      */
-    readonly state?: pulumi.Input<string>;
+    state?: pulumi.Input<string>;
     /**
      * The title of the milestone.
      */
-    readonly title: pulumi.Input<string>;
+    title: pulumi.Input<string>;
 }

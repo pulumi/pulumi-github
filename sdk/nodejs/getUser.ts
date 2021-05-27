@@ -17,11 +17,11 @@ import * as utilities from "./utilities";
  * // Retrieve information about a GitHub user.
  * const example = pulumi.output(github.getUser({
  *     username: "example",
- * }, { async: true }));
+ * }));
  * // Retrieve information about the currently authenticated user.
  * const current = pulumi.output(github.getUser({
  *     username: "",
- * }, { async: true }));
+ * }));
  *
  * export const currentGithubLogin = current.login;
  * ```
@@ -46,7 +46,7 @@ export interface GetUserArgs {
     /**
      * The username. Use an empty string `""` to retrieve information about the currently authenticated user.
      */
-    readonly username: string;
+    username: string;
 }
 
 /**

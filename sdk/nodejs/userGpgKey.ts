@@ -105,12 +105,12 @@ export interface UserGpgKeyState {
      * Your public GPG key, generated in ASCII-armored format.
      * See [Generating a new GPG key](https://help.github.com/articles/generating-a-new-gpg-key/) for help on creating a GPG key.
      */
-    readonly armoredPublicKey?: pulumi.Input<string>;
-    readonly etag?: pulumi.Input<string>;
+    armoredPublicKey?: pulumi.Input<string>;
+    etag?: pulumi.Input<string>;
     /**
      * The key ID of the GPG key, e.g. `3262EFF25BA0D270`
      */
-    readonly keyId?: pulumi.Input<string>;
+    keyId?: pulumi.Input<string>;
 }
 
 /**
@@ -121,5 +121,5 @@ export interface UserGpgKeyArgs {
      * Your public GPG key, generated in ASCII-armored format.
      * See [Generating a new GPG key](https://help.github.com/articles/generating-a-new-gpg-key/) for help on creating a GPG key.
      */
-    readonly armoredPublicKey: pulumi.Input<string>;
+    armoredPublicKey: pulumi.Input<string>;
 }

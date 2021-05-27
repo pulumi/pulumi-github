@@ -313,27 +313,27 @@ export interface RepositoryState {
     /**
      * Set to `false` to disable merge commits on the repository.
      */
-    readonly allowMergeCommit?: pulumi.Input<boolean>;
+    allowMergeCommit?: pulumi.Input<boolean>;
     /**
      * Set to `false` to disable rebase merges on the repository.
      */
-    readonly allowRebaseMerge?: pulumi.Input<boolean>;
+    allowRebaseMerge?: pulumi.Input<boolean>;
     /**
      * Set to `false` to disable squash merges on the repository.
      */
-    readonly allowSquashMerge?: pulumi.Input<boolean>;
+    allowSquashMerge?: pulumi.Input<boolean>;
     /**
      * Set to `true` to archive the repository instead of deleting on destroy.
      */
-    readonly archiveOnDestroy?: pulumi.Input<boolean>;
+    archiveOnDestroy?: pulumi.Input<boolean>;
     /**
      * Specifies if the repository should be archived. Defaults to `false`. **NOTE** Currently, the API does not support unarchiving.
      */
-    readonly archived?: pulumi.Input<boolean>;
+    archived?: pulumi.Input<boolean>;
     /**
      * Set to `true` to produce an initial commit in the repository.
      */
-    readonly autoInit?: pulumi.Input<boolean>;
+    autoInit?: pulumi.Input<boolean>;
     /**
      * (Deprecated: Use `github.BranchDefault` resource instead) The name of the default branch of the repository. **NOTE:** This can only be set after a repository has already been created,
      * and after a correct reference has been created for the target branch inside the repository. This means a user will have to omit this parameter from the
@@ -341,113 +341,113 @@ export interface RepositoryState {
      *
      * @deprecated Use the github_branch_default resource instead
      */
-    readonly defaultBranch?: pulumi.Input<string>;
+    defaultBranch?: pulumi.Input<string>;
     /**
      * Automatically delete head branch after a pull request is merged. Defaults to `false`.
      */
-    readonly deleteBranchOnMerge?: pulumi.Input<boolean>;
+    deleteBranchOnMerge?: pulumi.Input<boolean>;
     /**
      * A description of the repository.
      */
-    readonly description?: pulumi.Input<string>;
-    readonly etag?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    etag?: pulumi.Input<string>;
     /**
      * A string of the form "orgname/reponame".
      */
-    readonly fullName?: pulumi.Input<string>;
+    fullName?: pulumi.Input<string>;
     /**
      * URL that can be provided to `git clone` to clone the repository anonymously via the git protocol.
      */
-    readonly gitCloneUrl?: pulumi.Input<string>;
+    gitCloneUrl?: pulumi.Input<string>;
     /**
      * Use the [name of the template](https://github.com/github/gitignore) without the extension. For example, "Haskell".
      */
-    readonly gitignoreTemplate?: pulumi.Input<string>;
+    gitignoreTemplate?: pulumi.Input<string>;
     /**
      * Set to `true` to enable the (deprecated) downloads features on the repository.
      */
-    readonly hasDownloads?: pulumi.Input<boolean>;
+    hasDownloads?: pulumi.Input<boolean>;
     /**
      * Set to `true` to enable the GitHub Issues features
      * on the repository.
      */
-    readonly hasIssues?: pulumi.Input<boolean>;
+    hasIssues?: pulumi.Input<boolean>;
     /**
      * Set to `true` to enable the GitHub Projects features on the repository. Per the GitHub [documentation](https://developer.github.com/v3/repos/#create) when in an organization that has disabled repository projects it will default to `false` and will otherwise default to `true`. If you specify `true` when it has been disabled it will return an error.
      */
-    readonly hasProjects?: pulumi.Input<boolean>;
+    hasProjects?: pulumi.Input<boolean>;
     /**
      * Set to `true` to enable the GitHub Wiki features on
      * the repository.
      */
-    readonly hasWiki?: pulumi.Input<boolean>;
+    hasWiki?: pulumi.Input<boolean>;
     /**
      * URL of a page describing the project.
      */
-    readonly homepageUrl?: pulumi.Input<string>;
+    homepageUrl?: pulumi.Input<string>;
     /**
      * The absolute URL (including scheme) of the rendered GitHub Pages site e.g. `https://username.github.io`.
      */
-    readonly htmlUrl?: pulumi.Input<string>;
+    htmlUrl?: pulumi.Input<string>;
     /**
      * URL that can be provided to `git clone` to clone the repository via HTTPS.
      */
-    readonly httpCloneUrl?: pulumi.Input<string>;
+    httpCloneUrl?: pulumi.Input<string>;
     /**
      * Set to `true` to tell GitHub that this is a template repository.
      */
-    readonly isTemplate?: pulumi.Input<boolean>;
+    isTemplate?: pulumi.Input<boolean>;
     /**
      * Use the [name of the template](https://github.com/github/choosealicense.com/tree/gh-pages/_licenses) without the extension. For example, "mit" or "mpl-2.0".
      */
-    readonly licenseTemplate?: pulumi.Input<string>;
+    licenseTemplate?: pulumi.Input<string>;
     /**
      * The name of the repository.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * GraphQL global node id for use with v4 API
      */
-    readonly nodeId?: pulumi.Input<string>;
+    nodeId?: pulumi.Input<string>;
     /**
      * The repository's GitHub Pages configuration. See GitHub Pages Configuration below for details.
      */
-    readonly pages?: pulumi.Input<inputs.RepositoryPages>;
+    pages?: pulumi.Input<inputs.RepositoryPages>;
     /**
      * Set to `true` to create a private repository.
      * Repositories are created as public (e.g. open source) by default.
      *
      * @deprecated use visibility instead
      */
-    readonly private?: pulumi.Input<boolean>;
+    private?: pulumi.Input<boolean>;
     /**
      * GitHub ID for the repository
      */
-    readonly repoId?: pulumi.Input<number>;
+    repoId?: pulumi.Input<number>;
     /**
      * URL that can be provided to `git clone` to clone the repository via SSH.
      */
-    readonly sshCloneUrl?: pulumi.Input<string>;
+    sshCloneUrl?: pulumi.Input<string>;
     /**
      * URL that can be provided to `svn checkout` to check out the repository via GitHub's Subversion protocol emulation.
      */
-    readonly svnUrl?: pulumi.Input<string>;
+    svnUrl?: pulumi.Input<string>;
     /**
      * Use a template repository to create this resource. See Template Repositories below for details.
      */
-    readonly template?: pulumi.Input<inputs.RepositoryTemplate>;
+    template?: pulumi.Input<inputs.RepositoryTemplate>;
     /**
      * The list of topics of the repository.
      */
-    readonly topics?: pulumi.Input<pulumi.Input<string>[]>;
+    topics?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Can be `public` or `private`. If your organization is associated with an enterprise account using GitHub Enterprise Cloud or GitHub Enterprise Server 2.20+, visibility can also be `internal`. The `visibility` parameter overrides the `private` parameter.
      */
-    readonly visibility?: pulumi.Input<string>;
+    visibility?: pulumi.Input<string>;
     /**
      * Set to `true` to enable security alerts for vulnerable dependencies. Enabling requires alerts to be enabled on the owner level. (Note for importing: GitHub enables the alerts on public repos but disables them on private repos by default.) See [GitHub Documentation](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for details.
      */
-    readonly vulnerabilityAlerts?: pulumi.Input<boolean>;
+    vulnerabilityAlerts?: pulumi.Input<boolean>;
 }
 
 /**
@@ -457,27 +457,27 @@ export interface RepositoryArgs {
     /**
      * Set to `false` to disable merge commits on the repository.
      */
-    readonly allowMergeCommit?: pulumi.Input<boolean>;
+    allowMergeCommit?: pulumi.Input<boolean>;
     /**
      * Set to `false` to disable rebase merges on the repository.
      */
-    readonly allowRebaseMerge?: pulumi.Input<boolean>;
+    allowRebaseMerge?: pulumi.Input<boolean>;
     /**
      * Set to `false` to disable squash merges on the repository.
      */
-    readonly allowSquashMerge?: pulumi.Input<boolean>;
+    allowSquashMerge?: pulumi.Input<boolean>;
     /**
      * Set to `true` to archive the repository instead of deleting on destroy.
      */
-    readonly archiveOnDestroy?: pulumi.Input<boolean>;
+    archiveOnDestroy?: pulumi.Input<boolean>;
     /**
      * Specifies if the repository should be archived. Defaults to `false`. **NOTE** Currently, the API does not support unarchiving.
      */
-    readonly archived?: pulumi.Input<boolean>;
+    archived?: pulumi.Input<boolean>;
     /**
      * Set to `true` to produce an initial commit in the repository.
      */
-    readonly autoInit?: pulumi.Input<boolean>;
+    autoInit?: pulumi.Input<boolean>;
     /**
      * (Deprecated: Use `github.BranchDefault` resource instead) The name of the default branch of the repository. **NOTE:** This can only be set after a repository has already been created,
      * and after a correct reference has been created for the target branch inside the repository. This means a user will have to omit this parameter from the
@@ -485,78 +485,78 @@ export interface RepositoryArgs {
      *
      * @deprecated Use the github_branch_default resource instead
      */
-    readonly defaultBranch?: pulumi.Input<string>;
+    defaultBranch?: pulumi.Input<string>;
     /**
      * Automatically delete head branch after a pull request is merged. Defaults to `false`.
      */
-    readonly deleteBranchOnMerge?: pulumi.Input<boolean>;
+    deleteBranchOnMerge?: pulumi.Input<boolean>;
     /**
      * A description of the repository.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Use the [name of the template](https://github.com/github/gitignore) without the extension. For example, "Haskell".
      */
-    readonly gitignoreTemplate?: pulumi.Input<string>;
+    gitignoreTemplate?: pulumi.Input<string>;
     /**
      * Set to `true` to enable the (deprecated) downloads features on the repository.
      */
-    readonly hasDownloads?: pulumi.Input<boolean>;
+    hasDownloads?: pulumi.Input<boolean>;
     /**
      * Set to `true` to enable the GitHub Issues features
      * on the repository.
      */
-    readonly hasIssues?: pulumi.Input<boolean>;
+    hasIssues?: pulumi.Input<boolean>;
     /**
      * Set to `true` to enable the GitHub Projects features on the repository. Per the GitHub [documentation](https://developer.github.com/v3/repos/#create) when in an organization that has disabled repository projects it will default to `false` and will otherwise default to `true`. If you specify `true` when it has been disabled it will return an error.
      */
-    readonly hasProjects?: pulumi.Input<boolean>;
+    hasProjects?: pulumi.Input<boolean>;
     /**
      * Set to `true` to enable the GitHub Wiki features on
      * the repository.
      */
-    readonly hasWiki?: pulumi.Input<boolean>;
+    hasWiki?: pulumi.Input<boolean>;
     /**
      * URL of a page describing the project.
      */
-    readonly homepageUrl?: pulumi.Input<string>;
+    homepageUrl?: pulumi.Input<string>;
     /**
      * Set to `true` to tell GitHub that this is a template repository.
      */
-    readonly isTemplate?: pulumi.Input<boolean>;
+    isTemplate?: pulumi.Input<boolean>;
     /**
      * Use the [name of the template](https://github.com/github/choosealicense.com/tree/gh-pages/_licenses) without the extension. For example, "mit" or "mpl-2.0".
      */
-    readonly licenseTemplate?: pulumi.Input<string>;
+    licenseTemplate?: pulumi.Input<string>;
     /**
      * The name of the repository.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The repository's GitHub Pages configuration. See GitHub Pages Configuration below for details.
      */
-    readonly pages?: pulumi.Input<inputs.RepositoryPages>;
+    pages?: pulumi.Input<inputs.RepositoryPages>;
     /**
      * Set to `true` to create a private repository.
      * Repositories are created as public (e.g. open source) by default.
      *
      * @deprecated use visibility instead
      */
-    readonly private?: pulumi.Input<boolean>;
+    private?: pulumi.Input<boolean>;
     /**
      * Use a template repository to create this resource. See Template Repositories below for details.
      */
-    readonly template?: pulumi.Input<inputs.RepositoryTemplate>;
+    template?: pulumi.Input<inputs.RepositoryTemplate>;
     /**
      * The list of topics of the repository.
      */
-    readonly topics?: pulumi.Input<pulumi.Input<string>[]>;
+    topics?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Can be `public` or `private`. If your organization is associated with an enterprise account using GitHub Enterprise Cloud or GitHub Enterprise Server 2.20+, visibility can also be `internal`. The `visibility` parameter overrides the `private` parameter.
      */
-    readonly visibility?: pulumi.Input<string>;
+    visibility?: pulumi.Input<string>;
     /**
      * Set to `true` to enable security alerts for vulnerable dependencies. Enabling requires alerts to be enabled on the owner level. (Note for importing: GitHub enables the alerts on public repos but disables them on private repos by default.) See [GitHub Documentation](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for details.
      */
-    readonly vulnerabilityAlerts?: pulumi.Input<boolean>;
+    vulnerabilityAlerts?: pulumi.Input<boolean>;
 }
