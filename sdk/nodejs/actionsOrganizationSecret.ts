@@ -13,7 +13,7 @@ import * as utilities from "./utilities";
  *  $ pulumi import github:index/actionsOrganizationSecret:ActionsOrganizationSecret test_secret test_secret_name
  * ```
  *
- *  NOTEthe implementation is limited in that it won't fetch the value of the `plaintext_value` field when importing. You may need to ignore changes for the `plaintext_value` as a workaround.
+ *  NOTEthe implementation is limited in that it won't fetch the value of the `plaintext_value` or `encrypted_value` fields when importing. You may need to ignore changes for these as a workaround.
  */
 export class ActionsOrganizationSecret extends pulumi.CustomResource {
     /**
@@ -48,9 +48,13 @@ export class ActionsOrganizationSecret extends pulumi.CustomResource {
      */
     public /*out*/ readonly createdAt!: pulumi.Output<string>;
     /**
+     * Encrypted value of the secret using the Github public key in Base64 format.
+     */
+    public readonly encryptedValue!: pulumi.Output<string | undefined>;
+    /**
      * Plaintext value of the secret to be encrypted
      */
-    public readonly plaintextValue!: pulumi.Output<string>;
+    public readonly plaintextValue!: pulumi.Output<string | undefined>;
     /**
      * Name of the secret
      */
@@ -63,10 +67,6 @@ export class ActionsOrganizationSecret extends pulumi.CustomResource {
      * Date of actionsSecret update.
      */
     public /*out*/ readonly updatedAt!: pulumi.Output<string>;
-    /**
-     * Configures the access that repositories have to the organization secret.
-     * Must be one of `all`, `private`, `selected`. `selectedRepositoryIds` is required if set to `selected`.
-     */
     public readonly visibility!: pulumi.Output<string>;
 
     /**
@@ -83,6 +83,7 @@ export class ActionsOrganizationSecret extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as ActionsOrganizationSecretState | undefined;
             inputs["createdAt"] = state ? state.createdAt : undefined;
+            inputs["encryptedValue"] = state ? state.encryptedValue : undefined;
             inputs["plaintextValue"] = state ? state.plaintextValue : undefined;
             inputs["secretName"] = state ? state.secretName : undefined;
             inputs["selectedRepositoryIds"] = state ? state.selectedRepositoryIds : undefined;
@@ -90,15 +91,13 @@ export class ActionsOrganizationSecret extends pulumi.CustomResource {
             inputs["visibility"] = state ? state.visibility : undefined;
         } else {
             const args = argsOrState as ActionsOrganizationSecretArgs | undefined;
-            if ((!args || args.plaintextValue === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'plaintextValue'");
-            }
             if ((!args || args.secretName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'secretName'");
             }
             if ((!args || args.visibility === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'visibility'");
             }
+            inputs["encryptedValue"] = args ? args.encryptedValue : undefined;
             inputs["plaintextValue"] = args ? args.plaintextValue : undefined;
             inputs["secretName"] = args ? args.secretName : undefined;
             inputs["selectedRepositoryIds"] = args ? args.selectedRepositoryIds : undefined;
@@ -122,6 +121,10 @@ export interface ActionsOrganizationSecretState {
      */
     createdAt?: pulumi.Input<string>;
     /**
+     * Encrypted value of the secret using the Github public key in Base64 format.
+     */
+    encryptedValue?: pulumi.Input<string>;
+    /**
      * Plaintext value of the secret to be encrypted
      */
     plaintextValue?: pulumi.Input<string>;
@@ -137,10 +140,6 @@ export interface ActionsOrganizationSecretState {
      * Date of actionsSecret update.
      */
     updatedAt?: pulumi.Input<string>;
-    /**
-     * Configures the access that repositories have to the organization secret.
-     * Must be one of `all`, `private`, `selected`. `selectedRepositoryIds` is required if set to `selected`.
-     */
     visibility?: pulumi.Input<string>;
 }
 
@@ -149,9 +148,13 @@ export interface ActionsOrganizationSecretState {
  */
 export interface ActionsOrganizationSecretArgs {
     /**
+     * Encrypted value of the secret using the Github public key in Base64 format.
+     */
+    encryptedValue?: pulumi.Input<string>;
+    /**
      * Plaintext value of the secret to be encrypted
      */
-    plaintextValue: pulumi.Input<string>;
+    plaintextValue?: pulumi.Input<string>;
     /**
      * Name of the secret
      */
@@ -160,9 +163,5 @@ export interface ActionsOrganizationSecretArgs {
      * An array of repository ids that can access the organization secret.
      */
     selectedRepositoryIds?: pulumi.Input<pulumi.Input<number>[]>;
-    /**
-     * Configures the access that repositories have to the organization secret.
-     * Must be one of `all`, `private`, `selected`. `selectedRepositoryIds` is required if set to `selected`.
-     */
     visibility: pulumi.Input<string>;
 }

@@ -18,7 +18,7 @@ namespace Pulumi.Github
     ///  $ pulumi import github:index/actionsOrganizationSecret:ActionsOrganizationSecret test_secret test_secret_name
     /// ```
     /// 
-    ///  NOTEthe implementation is limited in that it won't fetch the value of the `plaintext_value` field when importing. You may need to ignore changes for the `plaintext_value` as a workaround.
+    ///  NOTEthe implementation is limited in that it won't fetch the value of the `plaintext_value` or `encrypted_value` fields when importing. You may need to ignore changes for these as a workaround.
     /// </summary>
     [GithubResourceType("github:index/actionsOrganizationSecret:ActionsOrganizationSecret")]
     public partial class ActionsOrganizationSecret : Pulumi.CustomResource
@@ -30,10 +30,16 @@ namespace Pulumi.Github
         public Output<string> CreatedAt { get; private set; } = null!;
 
         /// <summary>
+        /// Encrypted value of the secret using the Github public key in Base64 format.
+        /// </summary>
+        [Output("encryptedValue")]
+        public Output<string?> EncryptedValue { get; private set; } = null!;
+
+        /// <summary>
         /// Plaintext value of the secret to be encrypted
         /// </summary>
         [Output("plaintextValue")]
-        public Output<string> PlaintextValue { get; private set; } = null!;
+        public Output<string?> PlaintextValue { get; private set; } = null!;
 
         /// <summary>
         /// Name of the secret
@@ -53,10 +59,6 @@ namespace Pulumi.Github
         [Output("updatedAt")]
         public Output<string> UpdatedAt { get; private set; } = null!;
 
-        /// <summary>
-        /// Configures the access that repositories have to the organization secret.
-        /// Must be one of `all`, `private`, `selected`. `selected_repository_ids` is required if set to `selected`.
-        /// </summary>
         [Output("visibility")]
         public Output<string> Visibility { get; private set; } = null!;
 
@@ -107,10 +109,16 @@ namespace Pulumi.Github
     public sealed class ActionsOrganizationSecretArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Encrypted value of the secret using the Github public key in Base64 format.
+        /// </summary>
+        [Input("encryptedValue")]
+        public Input<string>? EncryptedValue { get; set; }
+
+        /// <summary>
         /// Plaintext value of the secret to be encrypted
         /// </summary>
-        [Input("plaintextValue", required: true)]
-        public Input<string> PlaintextValue { get; set; } = null!;
+        [Input("plaintextValue")]
+        public Input<string>? PlaintextValue { get; set; }
 
         /// <summary>
         /// Name of the secret
@@ -130,10 +138,6 @@ namespace Pulumi.Github
             set => _selectedRepositoryIds = value;
         }
 
-        /// <summary>
-        /// Configures the access that repositories have to the organization secret.
-        /// Must be one of `all`, `private`, `selected`. `selected_repository_ids` is required if set to `selected`.
-        /// </summary>
         [Input("visibility", required: true)]
         public Input<string> Visibility { get; set; } = null!;
 
@@ -149,6 +153,12 @@ namespace Pulumi.Github
         /// </summary>
         [Input("createdAt")]
         public Input<string>? CreatedAt { get; set; }
+
+        /// <summary>
+        /// Encrypted value of the secret using the Github public key in Base64 format.
+        /// </summary>
+        [Input("encryptedValue")]
+        public Input<string>? EncryptedValue { get; set; }
 
         /// <summary>
         /// Plaintext value of the secret to be encrypted
@@ -180,10 +190,6 @@ namespace Pulumi.Github
         [Input("updatedAt")]
         public Input<string>? UpdatedAt { get; set; }
 
-        /// <summary>
-        /// Configures the access that repositories have to the organization secret.
-        /// Must be one of `all`, `private`, `selected`. `selected_repository_ids` is required if set to `selected`.
-        /// </summary>
         [Input("visibility")]
         public Input<string>? Visibility { get; set; }
 
