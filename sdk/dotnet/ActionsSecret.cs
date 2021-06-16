@@ -19,10 +19,16 @@ namespace Pulumi.Github
         public Output<string> CreatedAt { get; private set; } = null!;
 
         /// <summary>
+        /// Encrypted value of the secret using the Github public key in Base64 format.
+        /// </summary>
+        [Output("encryptedValue")]
+        public Output<string?> EncryptedValue { get; private set; } = null!;
+
+        /// <summary>
         /// Plaintext value of the secret to be encrypted
         /// </summary>
         [Output("plaintextValue")]
-        public Output<string> PlaintextValue { get; private set; } = null!;
+        public Output<string?> PlaintextValue { get; private set; } = null!;
 
         /// <summary>
         /// Name of the repository
@@ -89,10 +95,16 @@ namespace Pulumi.Github
     public sealed class ActionsSecretArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Encrypted value of the secret using the Github public key in Base64 format.
+        /// </summary>
+        [Input("encryptedValue")]
+        public Input<string>? EncryptedValue { get; set; }
+
+        /// <summary>
         /// Plaintext value of the secret to be encrypted
         /// </summary>
-        [Input("plaintextValue", required: true)]
-        public Input<string> PlaintextValue { get; set; } = null!;
+        [Input("plaintextValue")]
+        public Input<string>? PlaintextValue { get; set; }
 
         /// <summary>
         /// Name of the repository
@@ -118,6 +130,12 @@ namespace Pulumi.Github
         /// </summary>
         [Input("createdAt")]
         public Input<string>? CreatedAt { get; set; }
+
+        /// <summary>
+        /// Encrypted value of the secret using the Github public key in Base64 format.
+        /// </summary>
+        [Input("encryptedValue")]
+        public Input<string>? EncryptedValue { get; set; }
 
         /// <summary>
         /// Plaintext value of the secret to be encrypted

@@ -13,30 +13,23 @@ __all__ = ['ActionsSecretArgs', 'ActionsSecret']
 @pulumi.input_type
 class ActionsSecretArgs:
     def __init__(__self__, *,
-                 plaintext_value: pulumi.Input[str],
                  repository: pulumi.Input[str],
-                 secret_name: pulumi.Input[str]):
+                 secret_name: pulumi.Input[str],
+                 encrypted_value: Optional[pulumi.Input[str]] = None,
+                 plaintext_value: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ActionsSecret resource.
-        :param pulumi.Input[str] plaintext_value: Plaintext value of the secret to be encrypted
         :param pulumi.Input[str] repository: Name of the repository
         :param pulumi.Input[str] secret_name: Name of the secret
+        :param pulumi.Input[str] encrypted_value: Encrypted value of the secret using the Github public key in Base64 format.
+        :param pulumi.Input[str] plaintext_value: Plaintext value of the secret to be encrypted
         """
-        pulumi.set(__self__, "plaintext_value", plaintext_value)
         pulumi.set(__self__, "repository", repository)
         pulumi.set(__self__, "secret_name", secret_name)
-
-    @property
-    @pulumi.getter(name="plaintextValue")
-    def plaintext_value(self) -> pulumi.Input[str]:
-        """
-        Plaintext value of the secret to be encrypted
-        """
-        return pulumi.get(self, "plaintext_value")
-
-    @plaintext_value.setter
-    def plaintext_value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "plaintext_value", value)
+        if encrypted_value is not None:
+            pulumi.set(__self__, "encrypted_value", encrypted_value)
+        if plaintext_value is not None:
+            pulumi.set(__self__, "plaintext_value", plaintext_value)
 
     @property
     @pulumi.getter
@@ -62,11 +55,36 @@ class ActionsSecretArgs:
     def secret_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "secret_name", value)
 
+    @property
+    @pulumi.getter(name="encryptedValue")
+    def encrypted_value(self) -> Optional[pulumi.Input[str]]:
+        """
+        Encrypted value of the secret using the Github public key in Base64 format.
+        """
+        return pulumi.get(self, "encrypted_value")
+
+    @encrypted_value.setter
+    def encrypted_value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "encrypted_value", value)
+
+    @property
+    @pulumi.getter(name="plaintextValue")
+    def plaintext_value(self) -> Optional[pulumi.Input[str]]:
+        """
+        Plaintext value of the secret to be encrypted
+        """
+        return pulumi.get(self, "plaintext_value")
+
+    @plaintext_value.setter
+    def plaintext_value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "plaintext_value", value)
+
 
 @pulumi.input_type
 class _ActionsSecretState:
     def __init__(__self__, *,
                  created_at: Optional[pulumi.Input[str]] = None,
+                 encrypted_value: Optional[pulumi.Input[str]] = None,
                  plaintext_value: Optional[pulumi.Input[str]] = None,
                  repository: Optional[pulumi.Input[str]] = None,
                  secret_name: Optional[pulumi.Input[str]] = None,
@@ -74,6 +92,7 @@ class _ActionsSecretState:
         """
         Input properties used for looking up and filtering ActionsSecret resources.
         :param pulumi.Input[str] created_at: Date of actions_secret creation.
+        :param pulumi.Input[str] encrypted_value: Encrypted value of the secret using the Github public key in Base64 format.
         :param pulumi.Input[str] plaintext_value: Plaintext value of the secret to be encrypted
         :param pulumi.Input[str] repository: Name of the repository
         :param pulumi.Input[str] secret_name: Name of the secret
@@ -81,6 +100,8 @@ class _ActionsSecretState:
         """
         if created_at is not None:
             pulumi.set(__self__, "created_at", created_at)
+        if encrypted_value is not None:
+            pulumi.set(__self__, "encrypted_value", encrypted_value)
         if plaintext_value is not None:
             pulumi.set(__self__, "plaintext_value", plaintext_value)
         if repository is not None:
@@ -101,6 +122,18 @@ class _ActionsSecretState:
     @created_at.setter
     def created_at(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "created_at", value)
+
+    @property
+    @pulumi.getter(name="encryptedValue")
+    def encrypted_value(self) -> Optional[pulumi.Input[str]]:
+        """
+        Encrypted value of the secret using the Github public key in Base64 format.
+        """
+        return pulumi.get(self, "encrypted_value")
+
+    @encrypted_value.setter
+    def encrypted_value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "encrypted_value", value)
 
     @property
     @pulumi.getter(name="plaintextValue")
@@ -156,6 +189,7 @@ class ActionsSecret(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 encrypted_value: Optional[pulumi.Input[str]] = None,
                  plaintext_value: Optional[pulumi.Input[str]] = None,
                  repository: Optional[pulumi.Input[str]] = None,
                  secret_name: Optional[pulumi.Input[str]] = None,
@@ -164,6 +198,7 @@ class ActionsSecret(pulumi.CustomResource):
         Create a ActionsSecret resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] encrypted_value: Encrypted value of the secret using the Github public key in Base64 format.
         :param pulumi.Input[str] plaintext_value: Plaintext value of the secret to be encrypted
         :param pulumi.Input[str] repository: Name of the repository
         :param pulumi.Input[str] secret_name: Name of the secret
@@ -191,6 +226,7 @@ class ActionsSecret(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 encrypted_value: Optional[pulumi.Input[str]] = None,
                  plaintext_value: Optional[pulumi.Input[str]] = None,
                  repository: Optional[pulumi.Input[str]] = None,
                  secret_name: Optional[pulumi.Input[str]] = None,
@@ -206,8 +242,7 @@ class ActionsSecret(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ActionsSecretArgs.__new__(ActionsSecretArgs)
 
-            if plaintext_value is None and not opts.urn:
-                raise TypeError("Missing required property 'plaintext_value'")
+            __props__.__dict__["encrypted_value"] = encrypted_value
             __props__.__dict__["plaintext_value"] = plaintext_value
             if repository is None and not opts.urn:
                 raise TypeError("Missing required property 'repository'")
@@ -228,6 +263,7 @@ class ActionsSecret(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             created_at: Optional[pulumi.Input[str]] = None,
+            encrypted_value: Optional[pulumi.Input[str]] = None,
             plaintext_value: Optional[pulumi.Input[str]] = None,
             repository: Optional[pulumi.Input[str]] = None,
             secret_name: Optional[pulumi.Input[str]] = None,
@@ -240,6 +276,7 @@ class ActionsSecret(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] created_at: Date of actions_secret creation.
+        :param pulumi.Input[str] encrypted_value: Encrypted value of the secret using the Github public key in Base64 format.
         :param pulumi.Input[str] plaintext_value: Plaintext value of the secret to be encrypted
         :param pulumi.Input[str] repository: Name of the repository
         :param pulumi.Input[str] secret_name: Name of the secret
@@ -250,6 +287,7 @@ class ActionsSecret(pulumi.CustomResource):
         __props__ = _ActionsSecretState.__new__(_ActionsSecretState)
 
         __props__.__dict__["created_at"] = created_at
+        __props__.__dict__["encrypted_value"] = encrypted_value
         __props__.__dict__["plaintext_value"] = plaintext_value
         __props__.__dict__["repository"] = repository
         __props__.__dict__["secret_name"] = secret_name
@@ -265,8 +303,16 @@ class ActionsSecret(pulumi.CustomResource):
         return pulumi.get(self, "created_at")
 
     @property
+    @pulumi.getter(name="encryptedValue")
+    def encrypted_value(self) -> pulumi.Output[Optional[str]]:
+        """
+        Encrypted value of the secret using the Github public key in Base64 format.
+        """
+        return pulumi.get(self, "encrypted_value")
+
+    @property
     @pulumi.getter(name="plaintextValue")
-    def plaintext_value(self) -> pulumi.Output[str]:
+    def plaintext_value(self) -> pulumi.Output[Optional[str]]:
         """
         Plaintext value of the secret to be encrypted
         """

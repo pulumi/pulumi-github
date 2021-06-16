@@ -16,8 +16,10 @@ type ActionsSecret struct {
 
 	// Date of actionsSecret creation.
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
+	// Encrypted value of the secret using the Github public key in Base64 format.
+	EncryptedValue pulumi.StringPtrOutput `pulumi:"encryptedValue"`
 	// Plaintext value of the secret to be encrypted
-	PlaintextValue pulumi.StringOutput `pulumi:"plaintextValue"`
+	PlaintextValue pulumi.StringPtrOutput `pulumi:"plaintextValue"`
 	// Name of the repository
 	Repository pulumi.StringOutput `pulumi:"repository"`
 	// Name of the secret
@@ -33,9 +35,6 @@ func NewActionsSecret(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.PlaintextValue == nil {
-		return nil, errors.New("invalid value for required argument 'PlaintextValue'")
-	}
 	if args.Repository == nil {
 		return nil, errors.New("invalid value for required argument 'Repository'")
 	}
@@ -66,6 +65,8 @@ func GetActionsSecret(ctx *pulumi.Context,
 type actionsSecretState struct {
 	// Date of actionsSecret creation.
 	CreatedAt *string `pulumi:"createdAt"`
+	// Encrypted value of the secret using the Github public key in Base64 format.
+	EncryptedValue *string `pulumi:"encryptedValue"`
 	// Plaintext value of the secret to be encrypted
 	PlaintextValue *string `pulumi:"plaintextValue"`
 	// Name of the repository
@@ -79,6 +80,8 @@ type actionsSecretState struct {
 type ActionsSecretState struct {
 	// Date of actionsSecret creation.
 	CreatedAt pulumi.StringPtrInput
+	// Encrypted value of the secret using the Github public key in Base64 format.
+	EncryptedValue pulumi.StringPtrInput
 	// Plaintext value of the secret to be encrypted
 	PlaintextValue pulumi.StringPtrInput
 	// Name of the repository
@@ -94,8 +97,10 @@ func (ActionsSecretState) ElementType() reflect.Type {
 }
 
 type actionsSecretArgs struct {
+	// Encrypted value of the secret using the Github public key in Base64 format.
+	EncryptedValue *string `pulumi:"encryptedValue"`
 	// Plaintext value of the secret to be encrypted
-	PlaintextValue string `pulumi:"plaintextValue"`
+	PlaintextValue *string `pulumi:"plaintextValue"`
 	// Name of the repository
 	Repository string `pulumi:"repository"`
 	// Name of the secret
@@ -104,8 +109,10 @@ type actionsSecretArgs struct {
 
 // The set of arguments for constructing a ActionsSecret resource.
 type ActionsSecretArgs struct {
+	// Encrypted value of the secret using the Github public key in Base64 format.
+	EncryptedValue pulumi.StringPtrInput
 	// Plaintext value of the secret to be encrypted
-	PlaintextValue pulumi.StringInput
+	PlaintextValue pulumi.StringPtrInput
 	// Name of the repository
 	Repository pulumi.StringInput
 	// Name of the secret

@@ -13,35 +13,26 @@ __all__ = ['ActionsOrganizationSecretArgs', 'ActionsOrganizationSecret']
 @pulumi.input_type
 class ActionsOrganizationSecretArgs:
     def __init__(__self__, *,
-                 plaintext_value: pulumi.Input[str],
                  secret_name: pulumi.Input[str],
                  visibility: pulumi.Input[str],
+                 encrypted_value: Optional[pulumi.Input[str]] = None,
+                 plaintext_value: Optional[pulumi.Input[str]] = None,
                  selected_repository_ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None):
         """
         The set of arguments for constructing a ActionsOrganizationSecret resource.
-        :param pulumi.Input[str] plaintext_value: Plaintext value of the secret to be encrypted
         :param pulumi.Input[str] secret_name: Name of the secret
-        :param pulumi.Input[str] visibility: Configures the access that repositories have to the organization secret.
-               Must be one of `all`, `private`, `selected`. `selected_repository_ids` is required if set to `selected`.
+        :param pulumi.Input[str] encrypted_value: Encrypted value of the secret using the Github public key in Base64 format.
+        :param pulumi.Input[str] plaintext_value: Plaintext value of the secret to be encrypted
         :param pulumi.Input[Sequence[pulumi.Input[int]]] selected_repository_ids: An array of repository ids that can access the organization secret.
         """
-        pulumi.set(__self__, "plaintext_value", plaintext_value)
         pulumi.set(__self__, "secret_name", secret_name)
         pulumi.set(__self__, "visibility", visibility)
+        if encrypted_value is not None:
+            pulumi.set(__self__, "encrypted_value", encrypted_value)
+        if plaintext_value is not None:
+            pulumi.set(__self__, "plaintext_value", plaintext_value)
         if selected_repository_ids is not None:
             pulumi.set(__self__, "selected_repository_ids", selected_repository_ids)
-
-    @property
-    @pulumi.getter(name="plaintextValue")
-    def plaintext_value(self) -> pulumi.Input[str]:
-        """
-        Plaintext value of the secret to be encrypted
-        """
-        return pulumi.get(self, "plaintext_value")
-
-    @plaintext_value.setter
-    def plaintext_value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "plaintext_value", value)
 
     @property
     @pulumi.getter(name="secretName")
@@ -58,15 +49,35 @@ class ActionsOrganizationSecretArgs:
     @property
     @pulumi.getter
     def visibility(self) -> pulumi.Input[str]:
-        """
-        Configures the access that repositories have to the organization secret.
-        Must be one of `all`, `private`, `selected`. `selected_repository_ids` is required if set to `selected`.
-        """
         return pulumi.get(self, "visibility")
 
     @visibility.setter
     def visibility(self, value: pulumi.Input[str]):
         pulumi.set(self, "visibility", value)
+
+    @property
+    @pulumi.getter(name="encryptedValue")
+    def encrypted_value(self) -> Optional[pulumi.Input[str]]:
+        """
+        Encrypted value of the secret using the Github public key in Base64 format.
+        """
+        return pulumi.get(self, "encrypted_value")
+
+    @encrypted_value.setter
+    def encrypted_value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "encrypted_value", value)
+
+    @property
+    @pulumi.getter(name="plaintextValue")
+    def plaintext_value(self) -> Optional[pulumi.Input[str]]:
+        """
+        Plaintext value of the secret to be encrypted
+        """
+        return pulumi.get(self, "plaintext_value")
+
+    @plaintext_value.setter
+    def plaintext_value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "plaintext_value", value)
 
     @property
     @pulumi.getter(name="selectedRepositoryIds")
@@ -85,6 +96,7 @@ class ActionsOrganizationSecretArgs:
 class _ActionsOrganizationSecretState:
     def __init__(__self__, *,
                  created_at: Optional[pulumi.Input[str]] = None,
+                 encrypted_value: Optional[pulumi.Input[str]] = None,
                  plaintext_value: Optional[pulumi.Input[str]] = None,
                  secret_name: Optional[pulumi.Input[str]] = None,
                  selected_repository_ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
@@ -93,15 +105,16 @@ class _ActionsOrganizationSecretState:
         """
         Input properties used for looking up and filtering ActionsOrganizationSecret resources.
         :param pulumi.Input[str] created_at: Date of actions_secret creation.
+        :param pulumi.Input[str] encrypted_value: Encrypted value of the secret using the Github public key in Base64 format.
         :param pulumi.Input[str] plaintext_value: Plaintext value of the secret to be encrypted
         :param pulumi.Input[str] secret_name: Name of the secret
         :param pulumi.Input[Sequence[pulumi.Input[int]]] selected_repository_ids: An array of repository ids that can access the organization secret.
         :param pulumi.Input[str] updated_at: Date of actions_secret update.
-        :param pulumi.Input[str] visibility: Configures the access that repositories have to the organization secret.
-               Must be one of `all`, `private`, `selected`. `selected_repository_ids` is required if set to `selected`.
         """
         if created_at is not None:
             pulumi.set(__self__, "created_at", created_at)
+        if encrypted_value is not None:
+            pulumi.set(__self__, "encrypted_value", encrypted_value)
         if plaintext_value is not None:
             pulumi.set(__self__, "plaintext_value", plaintext_value)
         if secret_name is not None:
@@ -124,6 +137,18 @@ class _ActionsOrganizationSecretState:
     @created_at.setter
     def created_at(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "created_at", value)
+
+    @property
+    @pulumi.getter(name="encryptedValue")
+    def encrypted_value(self) -> Optional[pulumi.Input[str]]:
+        """
+        Encrypted value of the secret using the Github public key in Base64 format.
+        """
+        return pulumi.get(self, "encrypted_value")
+
+    @encrypted_value.setter
+    def encrypted_value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "encrypted_value", value)
 
     @property
     @pulumi.getter(name="plaintextValue")
@@ -176,10 +201,6 @@ class _ActionsOrganizationSecretState:
     @property
     @pulumi.getter
     def visibility(self) -> Optional[pulumi.Input[str]]:
-        """
-        Configures the access that repositories have to the organization secret.
-        Must be one of `all`, `private`, `selected`. `selected_repository_ids` is required if set to `selected`.
-        """
         return pulumi.get(self, "visibility")
 
     @visibility.setter
@@ -192,6 +213,7 @@ class ActionsOrganizationSecret(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 encrypted_value: Optional[pulumi.Input[str]] = None,
                  plaintext_value: Optional[pulumi.Input[str]] = None,
                  secret_name: Optional[pulumi.Input[str]] = None,
                  selected_repository_ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
@@ -206,15 +228,14 @@ class ActionsOrganizationSecret(pulumi.CustomResource):
          $ pulumi import github:index/actionsOrganizationSecret:ActionsOrganizationSecret test_secret test_secret_name
         ```
 
-         NOTEthe implementation is limited in that it won't fetch the value of the `plaintext_value` field when importing. You may need to ignore changes for the `plaintext_value` as a workaround.
+         NOTEthe implementation is limited in that it won't fetch the value of the `plaintext_value` or `encrypted_value` fields when importing. You may need to ignore changes for these as a workaround.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] encrypted_value: Encrypted value of the secret using the Github public key in Base64 format.
         :param pulumi.Input[str] plaintext_value: Plaintext value of the secret to be encrypted
         :param pulumi.Input[str] secret_name: Name of the secret
         :param pulumi.Input[Sequence[pulumi.Input[int]]] selected_repository_ids: An array of repository ids that can access the organization secret.
-        :param pulumi.Input[str] visibility: Configures the access that repositories have to the organization secret.
-               Must be one of `all`, `private`, `selected`. `selected_repository_ids` is required if set to `selected`.
         """
         ...
     @overload
@@ -231,7 +252,7 @@ class ActionsOrganizationSecret(pulumi.CustomResource):
          $ pulumi import github:index/actionsOrganizationSecret:ActionsOrganizationSecret test_secret test_secret_name
         ```
 
-         NOTEthe implementation is limited in that it won't fetch the value of the `plaintext_value` field when importing. You may need to ignore changes for the `plaintext_value` as a workaround.
+         NOTEthe implementation is limited in that it won't fetch the value of the `plaintext_value` or `encrypted_value` fields when importing. You may need to ignore changes for these as a workaround.
 
         :param str resource_name: The name of the resource.
         :param ActionsOrganizationSecretArgs args: The arguments to use to populate this resource's properties.
@@ -248,6 +269,7 @@ class ActionsOrganizationSecret(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 encrypted_value: Optional[pulumi.Input[str]] = None,
                  plaintext_value: Optional[pulumi.Input[str]] = None,
                  secret_name: Optional[pulumi.Input[str]] = None,
                  selected_repository_ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
@@ -264,8 +286,7 @@ class ActionsOrganizationSecret(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ActionsOrganizationSecretArgs.__new__(ActionsOrganizationSecretArgs)
 
-            if plaintext_value is None and not opts.urn:
-                raise TypeError("Missing required property 'plaintext_value'")
+            __props__.__dict__["encrypted_value"] = encrypted_value
             __props__.__dict__["plaintext_value"] = plaintext_value
             if secret_name is None and not opts.urn:
                 raise TypeError("Missing required property 'secret_name'")
@@ -287,6 +308,7 @@ class ActionsOrganizationSecret(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             created_at: Optional[pulumi.Input[str]] = None,
+            encrypted_value: Optional[pulumi.Input[str]] = None,
             plaintext_value: Optional[pulumi.Input[str]] = None,
             secret_name: Optional[pulumi.Input[str]] = None,
             selected_repository_ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
@@ -300,18 +322,18 @@ class ActionsOrganizationSecret(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] created_at: Date of actions_secret creation.
+        :param pulumi.Input[str] encrypted_value: Encrypted value of the secret using the Github public key in Base64 format.
         :param pulumi.Input[str] plaintext_value: Plaintext value of the secret to be encrypted
         :param pulumi.Input[str] secret_name: Name of the secret
         :param pulumi.Input[Sequence[pulumi.Input[int]]] selected_repository_ids: An array of repository ids that can access the organization secret.
         :param pulumi.Input[str] updated_at: Date of actions_secret update.
-        :param pulumi.Input[str] visibility: Configures the access that repositories have to the organization secret.
-               Must be one of `all`, `private`, `selected`. `selected_repository_ids` is required if set to `selected`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = _ActionsOrganizationSecretState.__new__(_ActionsOrganizationSecretState)
 
         __props__.__dict__["created_at"] = created_at
+        __props__.__dict__["encrypted_value"] = encrypted_value
         __props__.__dict__["plaintext_value"] = plaintext_value
         __props__.__dict__["secret_name"] = secret_name
         __props__.__dict__["selected_repository_ids"] = selected_repository_ids
@@ -328,8 +350,16 @@ class ActionsOrganizationSecret(pulumi.CustomResource):
         return pulumi.get(self, "created_at")
 
     @property
+    @pulumi.getter(name="encryptedValue")
+    def encrypted_value(self) -> pulumi.Output[Optional[str]]:
+        """
+        Encrypted value of the secret using the Github public key in Base64 format.
+        """
+        return pulumi.get(self, "encrypted_value")
+
+    @property
     @pulumi.getter(name="plaintextValue")
-    def plaintext_value(self) -> pulumi.Output[str]:
+    def plaintext_value(self) -> pulumi.Output[Optional[str]]:
         """
         Plaintext value of the secret to be encrypted
         """
@@ -362,9 +392,5 @@ class ActionsOrganizationSecret(pulumi.CustomResource):
     @property
     @pulumi.getter
     def visibility(self) -> pulumi.Output[str]:
-        """
-        Configures the access that repositories have to the organization secret.
-        Must be one of `all`, `private`, `selected`. `selected_repository_ids` is required if set to `selected`.
-        """
         return pulumi.get(self, "visibility")
 

@@ -37,9 +37,13 @@ export class ActionsSecret extends pulumi.CustomResource {
      */
     public /*out*/ readonly createdAt!: pulumi.Output<string>;
     /**
+     * Encrypted value of the secret using the Github public key in Base64 format.
+     */
+    public readonly encryptedValue!: pulumi.Output<string | undefined>;
+    /**
      * Plaintext value of the secret to be encrypted
      */
-    public readonly plaintextValue!: pulumi.Output<string>;
+    public readonly plaintextValue!: pulumi.Output<string | undefined>;
     /**
      * Name of the repository
      */
@@ -67,21 +71,20 @@ export class ActionsSecret extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as ActionsSecretState | undefined;
             inputs["createdAt"] = state ? state.createdAt : undefined;
+            inputs["encryptedValue"] = state ? state.encryptedValue : undefined;
             inputs["plaintextValue"] = state ? state.plaintextValue : undefined;
             inputs["repository"] = state ? state.repository : undefined;
             inputs["secretName"] = state ? state.secretName : undefined;
             inputs["updatedAt"] = state ? state.updatedAt : undefined;
         } else {
             const args = argsOrState as ActionsSecretArgs | undefined;
-            if ((!args || args.plaintextValue === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'plaintextValue'");
-            }
             if ((!args || args.repository === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'repository'");
             }
             if ((!args || args.secretName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'secretName'");
             }
+            inputs["encryptedValue"] = args ? args.encryptedValue : undefined;
             inputs["plaintextValue"] = args ? args.plaintextValue : undefined;
             inputs["repository"] = args ? args.repository : undefined;
             inputs["secretName"] = args ? args.secretName : undefined;
@@ -103,6 +106,10 @@ export interface ActionsSecretState {
      * Date of actionsSecret creation.
      */
     createdAt?: pulumi.Input<string>;
+    /**
+     * Encrypted value of the secret using the Github public key in Base64 format.
+     */
+    encryptedValue?: pulumi.Input<string>;
     /**
      * Plaintext value of the secret to be encrypted
      */
@@ -126,9 +133,13 @@ export interface ActionsSecretState {
  */
 export interface ActionsSecretArgs {
     /**
+     * Encrypted value of the secret using the Github public key in Base64 format.
+     */
+    encryptedValue?: pulumi.Input<string>;
+    /**
      * Plaintext value of the secret to be encrypted
      */
-    plaintextValue: pulumi.Input<string>;
+    plaintextValue?: pulumi.Input<string>;
     /**
      * Name of the repository
      */

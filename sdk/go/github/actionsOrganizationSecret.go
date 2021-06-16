@@ -19,22 +19,22 @@ import (
 //  $ pulumi import github:index/actionsOrganizationSecret:ActionsOrganizationSecret test_secret test_secret_name
 // ```
 //
-//  NOTEthe implementation is limited in that it won't fetch the value of the `plaintext_value` field when importing. You may need to ignore changes for the `plaintext_value` as a workaround.
+//  NOTEthe implementation is limited in that it won't fetch the value of the `plaintext_value` or `encrypted_value` fields when importing. You may need to ignore changes for these as a workaround.
 type ActionsOrganizationSecret struct {
 	pulumi.CustomResourceState
 
 	// Date of actionsSecret creation.
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
+	// Encrypted value of the secret using the Github public key in Base64 format.
+	EncryptedValue pulumi.StringPtrOutput `pulumi:"encryptedValue"`
 	// Plaintext value of the secret to be encrypted
-	PlaintextValue pulumi.StringOutput `pulumi:"plaintextValue"`
+	PlaintextValue pulumi.StringPtrOutput `pulumi:"plaintextValue"`
 	// Name of the secret
 	SecretName pulumi.StringOutput `pulumi:"secretName"`
 	// An array of repository ids that can access the organization secret.
 	SelectedRepositoryIds pulumi.IntArrayOutput `pulumi:"selectedRepositoryIds"`
 	// Date of actionsSecret update.
-	UpdatedAt pulumi.StringOutput `pulumi:"updatedAt"`
-	// Configures the access that repositories have to the organization secret.
-	// Must be one of `all`, `private`, `selected`. `selectedRepositoryIds` is required if set to `selected`.
+	UpdatedAt  pulumi.StringOutput `pulumi:"updatedAt"`
 	Visibility pulumi.StringOutput `pulumi:"visibility"`
 }
 
@@ -45,9 +45,6 @@ func NewActionsOrganizationSecret(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.PlaintextValue == nil {
-		return nil, errors.New("invalid value for required argument 'PlaintextValue'")
-	}
 	if args.SecretName == nil {
 		return nil, errors.New("invalid value for required argument 'SecretName'")
 	}
@@ -78,6 +75,8 @@ func GetActionsOrganizationSecret(ctx *pulumi.Context,
 type actionsOrganizationSecretState struct {
 	// Date of actionsSecret creation.
 	CreatedAt *string `pulumi:"createdAt"`
+	// Encrypted value of the secret using the Github public key in Base64 format.
+	EncryptedValue *string `pulumi:"encryptedValue"`
 	// Plaintext value of the secret to be encrypted
 	PlaintextValue *string `pulumi:"plaintextValue"`
 	// Name of the secret
@@ -85,15 +84,15 @@ type actionsOrganizationSecretState struct {
 	// An array of repository ids that can access the organization secret.
 	SelectedRepositoryIds []int `pulumi:"selectedRepositoryIds"`
 	// Date of actionsSecret update.
-	UpdatedAt *string `pulumi:"updatedAt"`
-	// Configures the access that repositories have to the organization secret.
-	// Must be one of `all`, `private`, `selected`. `selectedRepositoryIds` is required if set to `selected`.
+	UpdatedAt  *string `pulumi:"updatedAt"`
 	Visibility *string `pulumi:"visibility"`
 }
 
 type ActionsOrganizationSecretState struct {
 	// Date of actionsSecret creation.
 	CreatedAt pulumi.StringPtrInput
+	// Encrypted value of the secret using the Github public key in Base64 format.
+	EncryptedValue pulumi.StringPtrInput
 	// Plaintext value of the secret to be encrypted
 	PlaintextValue pulumi.StringPtrInput
 	// Name of the secret
@@ -101,9 +100,7 @@ type ActionsOrganizationSecretState struct {
 	// An array of repository ids that can access the organization secret.
 	SelectedRepositoryIds pulumi.IntArrayInput
 	// Date of actionsSecret update.
-	UpdatedAt pulumi.StringPtrInput
-	// Configures the access that repositories have to the organization secret.
-	// Must be one of `all`, `private`, `selected`. `selectedRepositoryIds` is required if set to `selected`.
+	UpdatedAt  pulumi.StringPtrInput
 	Visibility pulumi.StringPtrInput
 }
 
@@ -112,28 +109,28 @@ func (ActionsOrganizationSecretState) ElementType() reflect.Type {
 }
 
 type actionsOrganizationSecretArgs struct {
+	// Encrypted value of the secret using the Github public key in Base64 format.
+	EncryptedValue *string `pulumi:"encryptedValue"`
 	// Plaintext value of the secret to be encrypted
-	PlaintextValue string `pulumi:"plaintextValue"`
+	PlaintextValue *string `pulumi:"plaintextValue"`
 	// Name of the secret
 	SecretName string `pulumi:"secretName"`
 	// An array of repository ids that can access the organization secret.
-	SelectedRepositoryIds []int `pulumi:"selectedRepositoryIds"`
-	// Configures the access that repositories have to the organization secret.
-	// Must be one of `all`, `private`, `selected`. `selectedRepositoryIds` is required if set to `selected`.
-	Visibility string `pulumi:"visibility"`
+	SelectedRepositoryIds []int  `pulumi:"selectedRepositoryIds"`
+	Visibility            string `pulumi:"visibility"`
 }
 
 // The set of arguments for constructing a ActionsOrganizationSecret resource.
 type ActionsOrganizationSecretArgs struct {
+	// Encrypted value of the secret using the Github public key in Base64 format.
+	EncryptedValue pulumi.StringPtrInput
 	// Plaintext value of the secret to be encrypted
-	PlaintextValue pulumi.StringInput
+	PlaintextValue pulumi.StringPtrInput
 	// Name of the secret
 	SecretName pulumi.StringInput
 	// An array of repository ids that can access the organization secret.
 	SelectedRepositoryIds pulumi.IntArrayInput
-	// Configures the access that repositories have to the organization secret.
-	// Must be one of `all`, `private`, `selected`. `selectedRepositoryIds` is required if set to `selected`.
-	Visibility pulumi.StringInput
+	Visibility            pulumi.StringInput
 }
 
 func (ActionsOrganizationSecretArgs) ElementType() reflect.Type {

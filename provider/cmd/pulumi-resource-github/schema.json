@@ -1188,11 +1188,15 @@
     },
     "resources": {
         "github:index/actionsOrganizationSecret:ActionsOrganizationSecret": {
-            "description": "\n\n\n## Import\n\nThis resource can be imported using an ID made up of the secret name\n\n```sh\n $ pulumi import github:index/actionsOrganizationSecret:ActionsOrganizationSecret test_secret test_secret_name\n```\n\n NOTEthe implementation is limited in that it won't fetch the value of the `plaintext_value` field when importing. You may need to ignore changes for the `plaintext_value` as a workaround. ",
+            "description": "\n\n\n## Import\n\nThis resource can be imported using an ID made up of the secret name\n\n```sh\n $ pulumi import github:index/actionsOrganizationSecret:ActionsOrganizationSecret test_secret test_secret_name\n```\n\n NOTEthe implementation is limited in that it won't fetch the value of the `plaintext_value` or `encrypted_value` fields when importing. You may need to ignore changes for these as a workaround. ",
             "properties": {
                 "createdAt": {
                     "type": "string",
                     "description": "Date of actions_secret creation.\n"
+                },
+                "encryptedValue": {
+                    "type": "string",
+                    "description": "Encrypted value of the secret using the Github public key in Base64 format.\n"
                 },
                 "plaintextValue": {
                     "type": "string",
@@ -1214,18 +1218,20 @@
                     "description": "Date of actions_secret update.\n"
                 },
                 "visibility": {
-                    "type": "string",
-                    "description": "Configures the access that repositories have to the organization secret.\nMust be one of `all`, `private`, `selected`. `selected_repository_ids` is required if set to `selected`.\n"
+                    "type": "string"
                 }
             },
             "required": [
                 "createdAt",
-                "plaintextValue",
                 "secretName",
                 "updatedAt",
                 "visibility"
             ],
             "inputProperties": {
+                "encryptedValue": {
+                    "type": "string",
+                    "description": "Encrypted value of the secret using the Github public key in Base64 format.\n"
+                },
                 "plaintextValue": {
                     "type": "string",
                     "description": "Plaintext value of the secret to be encrypted\n"
@@ -1242,12 +1248,10 @@
                     "description": "An array of repository ids that can access the organization secret.\n"
                 },
                 "visibility": {
-                    "type": "string",
-                    "description": "Configures the access that repositories have to the organization secret.\nMust be one of `all`, `private`, `selected`. `selected_repository_ids` is required if set to `selected`.\n"
+                    "type": "string"
                 }
             },
             "requiredInputs": [
-                "plaintextValue",
                 "secretName",
                 "visibility"
             ],
@@ -1257,6 +1261,10 @@
                     "createdAt": {
                         "type": "string",
                         "description": "Date of actions_secret creation.\n"
+                    },
+                    "encryptedValue": {
+                        "type": "string",
+                        "description": "Encrypted value of the secret using the Github public key in Base64 format.\n"
                     },
                     "plaintextValue": {
                         "type": "string",
@@ -1278,8 +1286,7 @@
                         "description": "Date of actions_secret update.\n"
                     },
                     "visibility": {
-                        "type": "string",
-                        "description": "Configures the access that repositories have to the organization secret.\nMust be one of `all`, `private`, `selected`. `selected_repository_ids` is required if set to `selected`.\n"
+                        "type": "string"
                     }
                 },
                 "type": "object"
@@ -1290,6 +1297,10 @@
                 "createdAt": {
                     "type": "string",
                     "description": "Date of actions_secret creation.\n"
+                },
+                "encryptedValue": {
+                    "type": "string",
+                    "description": "Encrypted value of the secret using the Github public key in Base64 format.\n"
                 },
                 "plaintextValue": {
                     "type": "string",
@@ -1310,12 +1321,15 @@
             },
             "required": [
                 "createdAt",
-                "plaintextValue",
                 "repository",
                 "secretName",
                 "updatedAt"
             ],
             "inputProperties": {
+                "encryptedValue": {
+                    "type": "string",
+                    "description": "Encrypted value of the secret using the Github public key in Base64 format.\n"
+                },
                 "plaintextValue": {
                     "type": "string",
                     "description": "Plaintext value of the secret to be encrypted\n"
@@ -1330,7 +1344,6 @@
                 }
             },
             "requiredInputs": [
-                "plaintextValue",
                 "repository",
                 "secretName"
             ],
@@ -1340,6 +1353,10 @@
                     "createdAt": {
                         "type": "string",
                         "description": "Date of actions_secret creation.\n"
+                    },
+                    "encryptedValue": {
+                        "type": "string",
+                        "description": "Encrypted value of the secret using the Github public key in Base64 format.\n"
                     },
                     "plaintextValue": {
                         "type": "string",
