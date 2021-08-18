@@ -120,6 +120,8 @@ func Provider() tfbridge.ProviderInfo {
 			"github_team_sync_group_mapping":     {Tok: makeResource(mainMod, "TeamSyncGroupMapping")},
 			"github_app_installation_repository": {Tok: makeResource(mainMod, "AppInstallationRepository")},
 			"github_repository_pull_request":     {Tok: makeResource(mainMod, "RepositoryPullRequest")},
+			"github_actions_environment_secret":  {Tok: makeResource(mainMod, "ActionsEnvironmentSecret")},
+			"github_repository_environment":      {Tok: makeResource(mainMod, "RepositoryEnvironment")},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			"github_actions_public_key":            {Tok: makeDataSource(mainMod, "getActionsPublicKey")},
@@ -166,8 +168,7 @@ func Provider() tfbridge.ProviderInfo {
 		},
 		CSharp: &tfbridge.CSharpInfo{
 			PackageReferences: map[string]string{
-				"Pulumi":                       "3.*",
-				"System.Collections.Immutable": "1.6.0",
+				"Pulumi": "3.*",
 			},
 		},
 	}

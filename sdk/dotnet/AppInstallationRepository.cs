@@ -10,6 +10,8 @@ using Pulumi.Serialization;
 namespace Pulumi.Github
 {
     /// <summary>
+    /// &gt; **Note**: This resource is not compatible with the GitHub App Installation authentication method.
+    /// 
     /// This resource manages relationships between app installations and repositories
     /// in your GitHub organization.
     /// 

@@ -101,7 +101,7 @@ namespace Pulumi.Github
         /// A description of the repository.
         /// </summary>
         public readonly string? Description;
-        public readonly string? FullName;
+        public readonly string FullName;
         /// <summary>
         /// URL that can be provided to `git clone` to clone the repository anonymously via the git protocol.
         /// </summary>
@@ -138,7 +138,7 @@ namespace Pulumi.Github
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        public readonly string? Name;
+        public readonly string Name;
         /// <summary>
         /// GraphQL global node id for use with v4 API
         /// </summary>
@@ -186,7 +186,7 @@ namespace Pulumi.Github
 
             string? description,
 
-            string? fullName,
+            string fullName,
 
             string gitCloneUrl,
 
@@ -206,7 +206,7 @@ namespace Pulumi.Github
 
             string id,
 
-            string? name,
+            string name,
 
             string nodeId,
 

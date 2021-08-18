@@ -5,6 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 // Export members:
+export * from "./actionsEnvironmentSecret";
 export * from "./actionsOrganizationSecret";
 export * from "./actionsSecret";
 export * from "./appInstallationRepository";
@@ -39,6 +40,7 @@ export * from "./provider";
 export * from "./repository";
 export * from "./repositoryCollaborator";
 export * from "./repositoryDeployKey";
+export * from "./repositoryEnvironment";
 export * from "./repositoryFile";
 export * from "./repositoryMilestone";
 export * from "./repositoryProject";
@@ -62,6 +64,7 @@ export {
 };
 
 // Import resources to register:
+import { ActionsEnvironmentSecret } from "./actionsEnvironmentSecret";
 import { ActionsOrganizationSecret } from "./actionsOrganizationSecret";
 import { ActionsSecret } from "./actionsSecret";
 import { AppInstallationRepository } from "./appInstallationRepository";
@@ -79,6 +82,7 @@ import { ProjectColumn } from "./projectColumn";
 import { Repository } from "./repository";
 import { RepositoryCollaborator } from "./repositoryCollaborator";
 import { RepositoryDeployKey } from "./repositoryDeployKey";
+import { RepositoryEnvironment } from "./repositoryEnvironment";
 import { RepositoryFile } from "./repositoryFile";
 import { RepositoryMilestone } from "./repositoryMilestone";
 import { RepositoryProject } from "./repositoryProject";
@@ -96,6 +100,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "github:index/actionsEnvironmentSecret:ActionsEnvironmentSecret":
+                return new ActionsEnvironmentSecret(name, <any>undefined, { urn })
             case "github:index/actionsOrganizationSecret:ActionsOrganizationSecret":
                 return new ActionsOrganizationSecret(name, <any>undefined, { urn })
             case "github:index/actionsSecret:ActionsSecret":
@@ -130,6 +136,8 @@ const _module = {
                 return new RepositoryCollaborator(name, <any>undefined, { urn })
             case "github:index/repositoryDeployKey:RepositoryDeployKey":
                 return new RepositoryDeployKey(name, <any>undefined, { urn })
+            case "github:index/repositoryEnvironment:RepositoryEnvironment":
+                return new RepositoryEnvironment(name, <any>undefined, { urn })
             case "github:index/repositoryFile:RepositoryFile":
                 return new RepositoryFile(name, <any>undefined, { urn })
             case "github:index/repositoryMilestone:RepositoryMilestone":
@@ -159,6 +167,7 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("github", "index/actionsEnvironmentSecret", _module)
 pulumi.runtime.registerResourceModule("github", "index/actionsOrganizationSecret", _module)
 pulumi.runtime.registerResourceModule("github", "index/actionsSecret", _module)
 pulumi.runtime.registerResourceModule("github", "index/appInstallationRepository", _module)
@@ -176,6 +185,7 @@ pulumi.runtime.registerResourceModule("github", "index/projectColumn", _module)
 pulumi.runtime.registerResourceModule("github", "index/repository", _module)
 pulumi.runtime.registerResourceModule("github", "index/repositoryCollaborator", _module)
 pulumi.runtime.registerResourceModule("github", "index/repositoryDeployKey", _module)
+pulumi.runtime.registerResourceModule("github", "index/repositoryEnvironment", _module)
 pulumi.runtime.registerResourceModule("github", "index/repositoryFile", _module)
 pulumi.runtime.registerResourceModule("github", "index/repositoryMilestone", _module)
 pulumi.runtime.registerResourceModule("github", "index/repositoryProject", _module)

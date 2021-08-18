@@ -147,7 +147,7 @@ class GetRepositoryResult:
 
     @property
     @pulumi.getter(name="fullName")
-    def full_name(self) -> Optional[str]:
+    def full_name(self) -> str:
         return pulumi.get(self, "full_name")
 
     @property
@@ -224,7 +224,7 @@ class GetRepositoryResult:
 
     @property
     @pulumi.getter
-    def name(self) -> Optional[str]:
+    def name(self) -> str:
         return pulumi.get(self, "name")
 
     @property

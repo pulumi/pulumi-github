@@ -9,6 +9,7 @@ export interface BranchProtectionRequiredPullRequestReview {
     dismissalRestrictions?: string[];
     requireCodeOwnerReviews?: boolean;
     requiredApprovingReviewCount?: number;
+    restrictDismissals?: boolean;
 }
 
 export interface BranchProtectionRequiredStatusCheck {
@@ -151,6 +152,10 @@ export interface GetOrganizationTeamsTeam {
      */
     privacy: string;
     /**
+     * List of team repositories.
+     */
+    repositories: string[];
+    /**
      * the slug of the team.
      */
     slug: string;
@@ -254,6 +259,28 @@ export interface ProviderAppAuth {
     id?: string;
     installationId?: string;
     pemFile?: string;
+}
+
+export interface RepositoryEnvironmentDeploymentBranchPolicy {
+    /**
+     * Whether only branches that match the specified name patterns can deploy to this environment.
+     */
+    customBranchPolicies: boolean;
+    /**
+     * Whether only branches with branch protection rules can deploy to this environment.
+     */
+    protectedBranches: boolean;
+}
+
+export interface RepositoryEnvironmentReviewer {
+    /**
+     * Up to 6 IDs for teams who may review jobs that reference the environment. Reviewers must have at least read access to the repository. Only one of the required reviewers needs to approve the job for it to proceed.
+     */
+    teams?: number[];
+    /**
+     * Up to 6 IDs for users who may review jobs that reference the environment. Reviewers must have at least read access to the repository. Only one of the required reviewers needs to approve the job for it to proceed.
+     */
+    users?: number[];
 }
 
 export interface RepositoryPages {

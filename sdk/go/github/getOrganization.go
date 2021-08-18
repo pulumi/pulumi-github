@@ -42,15 +42,21 @@ func GetOrganization(ctx *pulumi.Context, args *GetOrganizationArgs, opts ...pul
 
 // A collection of arguments for invoking getOrganization.
 type GetOrganizationArgs struct {
+	// The name of the organization account
 	Name string `pulumi:"name"`
 }
 
 // A collection of values returned by getOrganization.
 type GetOrganizationResult struct {
+	// The description the organization account
 	Description string `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
-	Id     string `pulumi:"id"`
-	Login  string `pulumi:"login"`
+	Id string `pulumi:"id"`
+	// The login of the organization account
+	Login string `pulumi:"login"`
+	// (`list`) A list with the members of the organization
+	Members []string `pulumi:"members"`
+	// The name of the organization account
 	Name   string `pulumi:"name"`
 	NodeId string `pulumi:"nodeId"`
 	// The plan name for the organization account

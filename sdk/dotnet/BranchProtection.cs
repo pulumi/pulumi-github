@@ -59,6 +59,7 @@ namespace Pulumi.Github
     ///                 new Github.Inputs.BranchProtectionRequiredPullRequestReviewArgs
     ///                 {
     ///                     DismissStaleReviews = true,
+    ///                     RestrictDismissals = true,
     ///                     DismissalRestrictions = 
     ///                     {
     ///                         exampleUser.Apply(exampleUser =&gt; exampleUser.NodeId),

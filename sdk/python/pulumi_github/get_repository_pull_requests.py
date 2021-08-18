@@ -65,6 +65,9 @@ class GetRepositoryPullRequestsResult:
     @property
     @pulumi.getter(name="headRef")
     def head_ref(self) -> Optional[str]:
+        """
+        Value of the Pull Request `HEAD` reference.
+        """
         return pulumi.get(self, "head_ref")
 
     @property

@@ -109,6 +109,8 @@ class AppInstallationRepository(pulumi.CustomResource):
                  repository: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
+        > **Note**: This resource is not compatible with the GitHub App Installation authentication method.
+
         This resource manages relationships between app installations and repositories
         in your GitHub organization.
 
@@ -152,6 +154,8 @@ class AppInstallationRepository(pulumi.CustomResource):
                  args: AppInstallationRepositoryArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        > **Note**: This resource is not compatible with the GitHub App Installation authentication method.
+
         This resource manages relationships between app installations and repositories
         in your GitHub organization.
 

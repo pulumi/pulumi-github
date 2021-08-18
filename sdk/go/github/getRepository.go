@@ -67,7 +67,7 @@ type LookupRepositoryResult struct {
 	DefaultBranch string `pulumi:"defaultBranch"`
 	// A description of the repository.
 	Description *string `pulumi:"description"`
-	FullName    *string `pulumi:"fullName"`
+	FullName    string  `pulumi:"fullName"`
 	// URL that can be provided to `git clone` to clone the repository anonymously via the git protocol.
 	GitCloneUrl string `pulumi:"gitCloneUrl"`
 	// Whether the repository has Downloads feature enabled.
@@ -85,8 +85,8 @@ type LookupRepositoryResult struct {
 	// URL that can be provided to `git clone` to clone the repository via HTTPS.
 	HttpCloneUrl string `pulumi:"httpCloneUrl"`
 	// The provider-assigned unique ID for this managed resource.
-	Id   string  `pulumi:"id"`
-	Name *string `pulumi:"name"`
+	Id   string `pulumi:"id"`
+	Name string `pulumi:"name"`
 	// GraphQL global node id for use with v4 API
 	NodeId string `pulumi:"nodeId"`
 	// The repository's GitHub Pages configuration.

@@ -36,6 +36,9 @@ export function getOrganization(args: GetOrganizationArgs, opts?: pulumi.InvokeO
  * A collection of arguments for invoking getOrganization.
  */
 export interface GetOrganizationArgs {
+    /**
+     * The name of the organization account
+     */
     name: string;
 }
 
@@ -43,12 +46,25 @@ export interface GetOrganizationArgs {
  * A collection of values returned by getOrganization.
  */
 export interface GetOrganizationResult {
+    /**
+     * The description the organization account
+     */
     readonly description: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * The login of the organization account
+     */
     readonly login: string;
+    /**
+     * (`list`) A list with the members of the organization
+     */
+    readonly members: string[];
+    /**
+     * The name of the organization account
+     */
     readonly name: string;
     readonly nodeId: string;
     /**

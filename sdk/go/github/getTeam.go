@@ -62,5 +62,7 @@ type LookupTeamResult struct {
 	Permission string `pulumi:"permission"`
 	// the team's privacy type.
 	Privacy string `pulumi:"privacy"`
-	Slug    string `pulumi:"slug"`
+	// List of team repositories
+	Repositories []string `pulumi:"repositories"`
+	Slug         string   `pulumi:"slug"`
 }

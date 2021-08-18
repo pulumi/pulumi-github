@@ -357,6 +357,7 @@ class BranchProtection(pulumi.CustomResource):
             )],
             required_pull_request_reviews=[github.BranchProtectionRequiredPullRequestReviewArgs(
                 dismiss_stale_reviews=True,
+                restrict_dismissals=True,
                 dismissal_restrictions=[
                     example_user.node_id,
                     example_team.node_id,
@@ -423,6 +424,7 @@ class BranchProtection(pulumi.CustomResource):
             )],
             required_pull_request_reviews=[github.BranchProtectionRequiredPullRequestReviewArgs(
                 dismiss_stale_reviews=True,
+                restrict_dismissals=True,
                 dismissal_restrictions=[
                     example_user.node_id,
                     example_team.node_id,

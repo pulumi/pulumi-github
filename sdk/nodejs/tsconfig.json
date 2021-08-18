@@ -13,6 +13,7 @@
         "strict": true
     },
     "files": [
+        "actionsEnvironmentSecret.ts",
         "actionsOrganizationSecret.ts",
         "actionsSecret.ts",
         "appInstallationRepository.ts",
@@ -50,6 +51,7 @@
         "repository.ts",
         "repositoryCollaborator.ts",
         "repositoryDeployKey.ts",
+        "repositoryEnvironment.ts",
         "repositoryFile.ts",
         "repositoryMilestone.ts",
         "repositoryProject.ts",

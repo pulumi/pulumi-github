@@ -44,6 +44,9 @@ namespace Pulumi.Github
 
     public sealed class GetOrganizationArgs : Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The name of the organization account
+        /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
@@ -56,12 +59,25 @@ namespace Pulumi.Github
     [OutputType]
     public sealed class GetOrganizationResult
     {
+        /// <summary>
+        /// The description the organization account
+        /// </summary>
         public readonly string Description;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// The login of the organization account
+        /// </summary>
         public readonly string Login;
+        /// <summary>
+        /// (`list`) A list with the members of the organization
+        /// </summary>
+        public readonly ImmutableArray<string> Members;
+        /// <summary>
+        /// The name of the organization account
+        /// </summary>
         public readonly string Name;
         public readonly string NodeId;
         /// <summary>
@@ -81,6 +97,8 @@ namespace Pulumi.Github
 
             string login,
 
+            ImmutableArray<string> members,
+
             string name,
 
             string nodeId,
@@ -92,6 +110,7 @@ namespace Pulumi.Github
             Description = description;
             Id = id;
             Login = login;
+            Members = members;
             Name = name;
             NodeId = nodeId;
             Plan = plan;

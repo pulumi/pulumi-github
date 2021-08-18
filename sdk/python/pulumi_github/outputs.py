@@ -17,6 +17,8 @@ __all__ = [
     'BranchProtectionV3Restrictions',
     'OrganizationWebhookConfiguration',
     'ProviderAppAuth',
+    'RepositoryEnvironmentDeploymentBranchPolicy',
+    'RepositoryEnvironmentReviewer',
     'RepositoryPages',
     'RepositoryPagesSource',
     'RepositoryTemplate',
@@ -43,6 +45,8 @@ class BranchProtectionRequiredPullRequestReview(dict):
             suggest = "require_code_owner_reviews"
         elif key == "requiredApprovingReviewCount":
             suggest = "required_approving_review_count"
+        elif key == "restrictDismissals":
+            suggest = "restrict_dismissals"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in BranchProtectionRequiredPullRequestReview. Access the value via the '{suggest}' property getter instead.")
@@ -59,7 +63,8 @@ class BranchProtectionRequiredPullRequestReview(dict):
                  dismiss_stale_reviews: Optional[bool] = None,
                  dismissal_restrictions: Optional[Sequence[str]] = None,
                  require_code_owner_reviews: Optional[bool] = None,
-                 required_approving_review_count: Optional[int] = None):
+                 required_approving_review_count: Optional[int] = None,
+                 restrict_dismissals: Optional[bool] = None):
         if dismiss_stale_reviews is not None:
             pulumi.set(__self__, "dismiss_stale_reviews", dismiss_stale_reviews)
         if dismissal_restrictions is not None:
@@ -68,6 +73,8 @@ class BranchProtectionRequiredPullRequestReview(dict):
             pulumi.set(__self__, "require_code_owner_reviews", require_code_owner_reviews)
         if required_approving_review_count is not None:
             pulumi.set(__self__, "required_approving_review_count", required_approving_review_count)
+        if restrict_dismissals is not None:
+            pulumi.set(__self__, "restrict_dismissals", restrict_dismissals)
 
     @property
     @pulumi.getter(name="dismissStaleReviews")
@@ -88,6 +95,11 @@ class BranchProtectionRequiredPullRequestReview(dict):
     @pulumi.getter(name="requiredApprovingReviewCount")
     def required_approving_review_count(self) -> Optional[int]:
         return pulumi.get(self, "required_approving_review_count")
+
+    @property
+    @pulumi.getter(name="restrictDismissals")
+    def restrict_dismissals(self) -> Optional[bool]:
+        return pulumi.get(self, "restrict_dismissals")
 
 
 @pulumi.output_type
@@ -351,6 +363,85 @@ class ProviderAppAuth(dict):
     @pulumi.getter(name="pemFile")
     def pem_file(self) -> str:
         return pulumi.get(self, "pem_file")
+
+
+@pulumi.output_type
+class RepositoryEnvironmentDeploymentBranchPolicy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customBranchPolicies":
+            suggest = "custom_branch_policies"
+        elif key == "protectedBranches":
+            suggest = "protected_branches"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RepositoryEnvironmentDeploymentBranchPolicy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RepositoryEnvironmentDeploymentBranchPolicy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RepositoryEnvironmentDeploymentBranchPolicy.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 custom_branch_policies: bool,
+                 protected_branches: bool):
+        """
+        :param bool custom_branch_policies: Whether only branches that match the specified name patterns can deploy to this environment.
+        :param bool protected_branches: Whether only branches with branch protection rules can deploy to this environment.
+        """
+        pulumi.set(__self__, "custom_branch_policies", custom_branch_policies)
+        pulumi.set(__self__, "protected_branches", protected_branches)
+
+    @property
+    @pulumi.getter(name="customBranchPolicies")
+    def custom_branch_policies(self) -> bool:
+        """
+        Whether only branches that match the specified name patterns can deploy to this environment.
+        """
+        return pulumi.get(self, "custom_branch_policies")
+
+    @property
+    @pulumi.getter(name="protectedBranches")
+    def protected_branches(self) -> bool:
+        """
+        Whether only branches with branch protection rules can deploy to this environment.
+        """
+        return pulumi.get(self, "protected_branches")
+
+
+@pulumi.output_type
+class RepositoryEnvironmentReviewer(dict):
+    def __init__(__self__, *,
+                 teams: Optional[Sequence[int]] = None,
+                 users: Optional[Sequence[int]] = None):
+        """
+        :param Sequence[int] teams: Up to 6 IDs for teams who may review jobs that reference the environment. Reviewers must have at least read access to the repository. Only one of the required reviewers needs to approve the job for it to proceed.
+        :param Sequence[int] users: Up to 6 IDs for users who may review jobs that reference the environment. Reviewers must have at least read access to the repository. Only one of the required reviewers needs to approve the job for it to proceed.
+        """
+        if teams is not None:
+            pulumi.set(__self__, "teams", teams)
+        if users is not None:
+            pulumi.set(__self__, "users", users)
+
+    @property
+    @pulumi.getter
+    def teams(self) -> Optional[Sequence[int]]:
+        """
+        Up to 6 IDs for teams who may review jobs that reference the environment. Reviewers must have at least read access to the repository. Only one of the required reviewers needs to approve the job for it to proceed.
+        """
+        return pulumi.get(self, "teams")
+
+    @property
+    @pulumi.getter
+    def users(self) -> Optional[Sequence[int]]:
+        """
+        Up to 6 IDs for users who may review jobs that reference the environment. Reviewers must have at least read access to the repository. Only one of the required reviewers needs to approve the job for it to proceed.
+        """
+        return pulumi.get(self, "users")
 
 
 @pulumi.output_type
@@ -847,6 +938,7 @@ class GetOrganizationTeamsTeamResult(dict):
                  name: str,
                  node_id: str,
                  privacy: str,
+                 repositories: Sequence[str],
                  slug: str):
         """
         :param str description: the team's description.
@@ -855,6 +947,7 @@ class GetOrganizationTeamsTeamResult(dict):
         :param str name: the team's full name.
         :param str node_id: the Node ID of the team.
         :param str privacy: the team's privacy type.
+        :param Sequence[str] repositories: List of team repositories.
         :param str slug: the slug of the team.
         """
         pulumi.set(__self__, "description", description)
@@ -863,6 +956,7 @@ class GetOrganizationTeamsTeamResult(dict):
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "node_id", node_id)
         pulumi.set(__self__, "privacy", privacy)
+        pulumi.set(__self__, "repositories", repositories)
         pulumi.set(__self__, "slug", slug)
 
     @property
@@ -912,6 +1006,14 @@ class GetOrganizationTeamsTeamResult(dict):
         the team's privacy type.
         """
         return pulumi.get(self, "privacy")
+
+    @property
+    @pulumi.getter
+    def repositories(self) -> Sequence[str]:
+        """
+        List of team repositories.
+        """
+        return pulumi.get(self, "repositories")
 
     @property
     @pulumi.getter

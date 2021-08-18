@@ -57,6 +57,7 @@ import (
 // 			RequiredPullRequestReviews: github.BranchProtectionRequiredPullRequestReviewArray{
 // 				&github.BranchProtectionRequiredPullRequestReviewArgs{
 // 					DismissStaleReviews: pulumi.Bool(true),
+// 					RestrictDismissals:  pulumi.Bool(true),
 // 					DismissalRestrictions: pulumi.Array{
 // 						pulumi.String(exampleUser.NodeId),
 // 						exampleTeam.NodeId,

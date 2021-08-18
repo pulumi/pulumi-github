@@ -104,6 +104,9 @@ namespace Pulumi.Github
         /// </summary>
         public readonly string? BaseRef;
         public readonly string BaseRepository;
+        /// <summary>
+        /// Value of the Pull Request `HEAD` reference.
+        /// </summary>
         public readonly string? HeadRef;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.

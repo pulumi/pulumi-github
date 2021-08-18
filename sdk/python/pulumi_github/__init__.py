@@ -5,6 +5,7 @@
 from . import _utilities
 import typing
 # Export this package's modules as members:
+from .actions_environment_secret import *
 from .actions_organization_secret import *
 from .actions_secret import *
 from .app_installation_repository import *
@@ -39,6 +40,7 @@ from .provider import *
 from .repository import *
 from .repository_collaborator import *
 from .repository_deploy_key import *
+from .repository_environment import *
 from .repository_file import *
 from .repository_milestone import *
 from .repository_project import *
@@ -63,6 +65,14 @@ else:
 _utilities.register(
     resource_modules="""
 [
+ {
+  "pkg": "github",
+  "mod": "index/actionsEnvironmentSecret",
+  "fqn": "pulumi_github",
+  "classes": {
+   "github:index/actionsEnvironmentSecret:ActionsEnvironmentSecret": "ActionsEnvironmentSecret"
+  }
+ },
  {
   "pkg": "github",
   "mod": "index/actionsOrganizationSecret",
@@ -197,6 +207,14 @@ _utilities.register(
   "fqn": "pulumi_github",
   "classes": {
    "github:index/repositoryDeployKey:RepositoryDeployKey": "RepositoryDeployKey"
+  }
+ },
+ {
+  "pkg": "github",
+  "mod": "index/repositoryEnvironment",
+  "fqn": "pulumi_github",
+  "classes": {
+   "github:index/repositoryEnvironment:RepositoryEnvironment": "RepositoryEnvironment"
   }
  },
  {

@@ -74,5 +74,9 @@ export interface GetTeamResult {
      * the team's privacy type.
      */
     readonly privacy: string;
+    /**
+     * List of team repositories
+     */
+    readonly repositories: string[];
     readonly slug: string;
 }
