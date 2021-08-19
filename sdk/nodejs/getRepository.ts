@@ -86,7 +86,7 @@ export interface GetRepositoryResult {
      * A description of the repository.
      */
     readonly description?: string;
-    readonly fullName?: string;
+    readonly fullName: string;
     /**
      * URL that can be provided to `git clone` to clone the repository anonymously via the git protocol.
      */
@@ -123,7 +123,7 @@ export interface GetRepositoryResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    readonly name?: string;
+    readonly name: string;
     /**
      * GraphQL global node id for use with v4 API
      */

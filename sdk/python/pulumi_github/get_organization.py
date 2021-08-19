@@ -19,7 +19,7 @@ class GetOrganizationResult:
     """
     A collection of values returned by getOrganization.
     """
-    def __init__(__self__, description=None, id=None, login=None, name=None, node_id=None, plan=None, repositories=None):
+    def __init__(__self__, description=None, id=None, login=None, members=None, name=None, node_id=None, plan=None, repositories=None):
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -29,6 +29,9 @@ class GetOrganizationResult:
         if login and not isinstance(login, str):
             raise TypeError("Expected argument 'login' to be a str")
         pulumi.set(__self__, "login", login)
+        if members and not isinstance(members, list):
+            raise TypeError("Expected argument 'members' to be a list")
+        pulumi.set(__self__, "members", members)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -45,6 +48,9 @@ class GetOrganizationResult:
     @property
     @pulumi.getter
     def description(self) -> str:
+        """
+        The description the organization account
+        """
         return pulumi.get(self, "description")
 
     @property
@@ -58,11 +64,25 @@ class GetOrganizationResult:
     @property
     @pulumi.getter
     def login(self) -> str:
+        """
+        The login of the organization account
+        """
         return pulumi.get(self, "login")
 
     @property
     @pulumi.getter
+    def members(self) -> Sequence[str]:
+        """
+        (`list`) A list with the members of the organization
+        """
+        return pulumi.get(self, "members")
+
+    @property
+    @pulumi.getter
     def name(self) -> str:
+        """
+        The name of the organization account
+        """
         return pulumi.get(self, "name")
 
     @property
@@ -96,6 +116,7 @@ class AwaitableGetOrganizationResult(GetOrganizationResult):
             description=self.description,
             id=self.id,
             login=self.login,
+            members=self.members,
             name=self.name,
             node_id=self.node_id,
             plan=self.plan,
@@ -115,6 +136,9 @@ def get_organization(name: Optional[str] = None,
 
     test = github.get_organization(name="github")
     ```
+
+
+    :param str name: The name of the organization account
     """
     __args__ = dict()
     __args__['name'] = name
@@ -128,6 +152,7 @@ def get_organization(name: Optional[str] = None,
         description=__ret__.description,
         id=__ret__.id,
         login=__ret__.login,
+        members=__ret__.members,
         name=__ret__.name,
         node_id=__ret__.node_id,
         plan=__ret__.plan,

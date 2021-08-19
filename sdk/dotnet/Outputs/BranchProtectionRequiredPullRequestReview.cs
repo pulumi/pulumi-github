@@ -17,6 +17,7 @@ namespace Pulumi.Github.Outputs
         public readonly ImmutableArray<string> DismissalRestrictions;
         public readonly bool? RequireCodeOwnerReviews;
         public readonly int? RequiredApprovingReviewCount;
+        public readonly bool? RestrictDismissals;
 
         [OutputConstructor]
         private BranchProtectionRequiredPullRequestReview(
@@ -26,12 +27,15 @@ namespace Pulumi.Github.Outputs
 
             bool? requireCodeOwnerReviews,
 
-            int? requiredApprovingReviewCount)
+            int? requiredApprovingReviewCount,
+
+            bool? restrictDismissals)
         {
             DismissStaleReviews = dismissStaleReviews;
             DismissalRestrictions = dismissalRestrictions;
             RequireCodeOwnerReviews = requireCodeOwnerReviews;
             RequiredApprovingReviewCount = requiredApprovingReviewCount;
+            RestrictDismissals = restrictDismissals;
         }
     }
 }

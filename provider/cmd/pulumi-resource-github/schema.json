@@ -108,6 +108,14 @@
                             "mapCase": false
                         }
                     }
+                },
+                "restrictDismissals": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
                 }
             },
             "type": "object"
@@ -346,6 +354,62 @@
                     "requiredOutputs": []
                 }
             }
+        },
+        "github:index/RepositoryEnvironmentDeploymentBranchPolicy:RepositoryEnvironmentDeploymentBranchPolicy": {
+            "properties": {
+                "customBranchPolicies": {
+                    "type": "boolean",
+                    "description": "Whether only branches that match the specified name patterns can deploy to this environment.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "protectedBranches": {
+                    "type": "boolean",
+                    "description": "Whether only branches with branch protection rules can deploy to this environment.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "customBranchPolicies",
+                "protectedBranches"
+            ]
+        },
+        "github:index/RepositoryEnvironmentReviewer:RepositoryEnvironmentReviewer": {
+            "properties": {
+                "teams": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    },
+                    "description": "Up to 6 IDs for teams who may review jobs that reference the environment. Reviewers must have at least read access to the repository. Only one of the required reviewers needs to approve the job for it to proceed.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "users": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    },
+                    "description": "Up to 6 IDs for users who may review jobs that reference the environment. Reviewers must have at least read access to the repository. Only one of the required reviewers needs to approve the job for it to proceed.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
         },
         "github:index/RepositoryPages:RepositoryPages": {
             "properties": {
@@ -821,6 +885,18 @@
                         }
                     }
                 },
+                "repositories": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of team repositories.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
                 "slug": {
                     "type": "string",
                     "description": "the slug of the team.\n",
@@ -839,6 +915,7 @@
                 "name",
                 "nodeId",
                 "privacy",
+                "repositories",
                 "slug"
             ],
             "language": {
@@ -1187,6 +1264,107 @@
         }
     },
     "resources": {
+        "github:index/actionsEnvironmentSecret:ActionsEnvironmentSecret": {
+            "description": "\n\n\n## Import\n\nThis resource can be imported using an ID made up of the secret name\n\n```sh\n $ pulumi import github:index/actionsEnvironmentSecret:ActionsEnvironmentSecret test_secret test_secret_name\n```\n\n NOTEthe implementation is limited in that it won't fetch the value of the `plaintext_value` field when importing. You may need to ignore changes for the `plaintext_value` as a workaround. ",
+            "properties": {
+                "createdAt": {
+                    "type": "string",
+                    "description": "Date of actions_environment_secret creation.\n"
+                },
+                "encryptedValue": {
+                    "type": "string",
+                    "description": "Encrypted value of the secret using the Github public key in Base64 format.\n"
+                },
+                "environment": {
+                    "type": "string",
+                    "description": "Name of the environment.\n"
+                },
+                "plaintextValue": {
+                    "type": "string",
+                    "description": "Plaintext value of the secret to be encrypted.\n"
+                },
+                "repository": {
+                    "type": "string",
+                    "description": "Name of the repository.\n"
+                },
+                "secretName": {
+                    "type": "string",
+                    "description": "Name of the secret.\n"
+                },
+                "updatedAt": {
+                    "type": "string",
+                    "description": "Date of actions_environment_secret update.\n"
+                }
+            },
+            "required": [
+                "createdAt",
+                "environment",
+                "repository",
+                "secretName",
+                "updatedAt"
+            ],
+            "inputProperties": {
+                "encryptedValue": {
+                    "type": "string",
+                    "description": "Encrypted value of the secret using the Github public key in Base64 format.\n"
+                },
+                "environment": {
+                    "type": "string",
+                    "description": "Name of the environment.\n"
+                },
+                "plaintextValue": {
+                    "type": "string",
+                    "description": "Plaintext value of the secret to be encrypted.\n"
+                },
+                "repository": {
+                    "type": "string",
+                    "description": "Name of the repository.\n"
+                },
+                "secretName": {
+                    "type": "string",
+                    "description": "Name of the secret.\n"
+                }
+            },
+            "requiredInputs": [
+                "environment",
+                "repository",
+                "secretName"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering ActionsEnvironmentSecret resources.\n",
+                "properties": {
+                    "createdAt": {
+                        "type": "string",
+                        "description": "Date of actions_environment_secret creation.\n"
+                    },
+                    "encryptedValue": {
+                        "type": "string",
+                        "description": "Encrypted value of the secret using the Github public key in Base64 format.\n"
+                    },
+                    "environment": {
+                        "type": "string",
+                        "description": "Name of the environment.\n"
+                    },
+                    "plaintextValue": {
+                        "type": "string",
+                        "description": "Plaintext value of the secret to be encrypted.\n"
+                    },
+                    "repository": {
+                        "type": "string",
+                        "description": "Name of the repository.\n"
+                    },
+                    "secretName": {
+                        "type": "string",
+                        "description": "Name of the secret.\n"
+                    },
+                    "updatedAt": {
+                        "type": "string",
+                        "description": "Date of actions_environment_secret update.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
         "github:index/actionsOrganizationSecret:ActionsOrganizationSecret": {
             "description": "\n\n\n## Import\n\nThis resource can be imported using an ID made up of the secret name\n\n```sh\n $ pulumi import github:index/actionsOrganizationSecret:ActionsOrganizationSecret test_secret test_secret_name\n```\n\n NOTEthe implementation is limited in that it won't fetch the value of the `plaintext_value` or `encrypted_value` fields when importing. You may need to ignore changes for these as a workaround. ",
             "properties": {
@@ -1379,7 +1557,7 @@
             }
         },
         "github:index/appInstallationRepository:AppInstallationRepository": {
-            "description": "This resource manages relationships between app installations and repositories\nin your GitHub organization.\n\nCreating this resource installs a particular app on a particular repository.\n\nThe app installation and the repository must both belong to the same\norganization on GitHub. Note: you can review your organization's installations\nby the following the instructions at this\n[link](https://docs.github.com/en/github/setting-up-and-managing-organizations-and-teams/reviewing-your-organizations-installed-integrations).\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\n// Create a repository.\nconst someRepo = new github.Repository(\"some_repo\", {});\nconst someAppRepo = new github.AppInstallationRepository(\"some_app_repo\", {\n    // The installation id of the app (in the organization).\n    installationId: \"1234567\",\n    repository: someRepo.name,\n});\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\n# Create a repository.\nsome_repo = github.Repository(\"someRepo\")\nsome_app_repo = github.AppInstallationRepository(\"someAppRepo\",\n    installation_id=\"1234567\",\n    repository=some_repo.name)\n```\n```csharp\nusing Pulumi;\nusing Github = Pulumi.Github;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        // Create a repository.\n        var someRepo = new Github.Repository(\"someRepo\", new Github.RepositoryArgs\n        {\n        });\n        var someAppRepo = new Github.AppInstallationRepository(\"someAppRepo\", new Github.AppInstallationRepositoryArgs\n        {\n            InstallationId = \"1234567\",\n            Repository = someRepo.Name,\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-github/sdk/v4/go/github\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tsomeRepo, err := github.NewRepository(ctx, \"someRepo\", nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = github.NewAppInstallationRepository(ctx, \"someAppRepo\", \u0026github.AppInstallationRepositoryArgs{\n\t\t\tInstallationId: pulumi.String(\"1234567\"),\n\t\t\tRepository:     someRepo.Name,\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nGitHub App Installation Repository can be imported using an ID made up of `installation_id:repository`, e.g.\n\n```sh\n $ pulumi import github:index/appInstallationRepository:AppInstallationRepository terraform_repo 1234567:terraform\n```\n\n ",
+            "description": "\u003e **Note**: This resource is not compatible with the GitHub App Installation authentication method.\n\nThis resource manages relationships between app installations and repositories\nin your GitHub organization.\n\nCreating this resource installs a particular app on a particular repository.\n\nThe app installation and the repository must both belong to the same\norganization on GitHub. Note: you can review your organization's installations\nby the following the instructions at this\n[link](https://docs.github.com/en/github/setting-up-and-managing-organizations-and-teams/reviewing-your-organizations-installed-integrations).\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\n// Create a repository.\nconst someRepo = new github.Repository(\"some_repo\", {});\nconst someAppRepo = new github.AppInstallationRepository(\"some_app_repo\", {\n    // The installation id of the app (in the organization).\n    installationId: \"1234567\",\n    repository: someRepo.name,\n});\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\n# Create a repository.\nsome_repo = github.Repository(\"someRepo\")\nsome_app_repo = github.AppInstallationRepository(\"someAppRepo\",\n    installation_id=\"1234567\",\n    repository=some_repo.name)\n```\n```csharp\nusing Pulumi;\nusing Github = Pulumi.Github;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        // Create a repository.\n        var someRepo = new Github.Repository(\"someRepo\", new Github.RepositoryArgs\n        {\n        });\n        var someAppRepo = new Github.AppInstallationRepository(\"someAppRepo\", new Github.AppInstallationRepositoryArgs\n        {\n            InstallationId = \"1234567\",\n            Repository = someRepo.Name,\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-github/sdk/v4/go/github\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tsomeRepo, err := github.NewRepository(ctx, \"someRepo\", nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = github.NewAppInstallationRepository(ctx, \"someAppRepo\", \u0026github.AppInstallationRepositoryArgs{\n\t\t\tInstallationId: pulumi.String(\"1234567\"),\n\t\t\tRepository:     someRepo.Name,\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nGitHub App Installation Repository can be imported using an ID made up of `installation_id:repository`, e.g.\n\n```sh\n $ pulumi import github:index/appInstallationRepository:AppInstallationRepository terraform_repo 1234567:terraform\n```\n\n ",
             "properties": {
                 "installationId": {
                     "type": "string",
@@ -1588,7 +1766,7 @@
             }
         },
         "github:index/branchProtection:BranchProtection": {
-            "description": "Protects a GitHub branch.\n\nThis resource allows you to configure branch protection for repositories in your organization. When applied, the branch will be protected from forced pushes and deletion. Additional constraints, such as required status checks or restrictions on users, teams, and apps, can also be configured.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\nconst exampleRepository = new github.Repository(\"exampleRepository\", {});\nconst exampleUser = github.getUser({\n    username: \"example\",\n});\nconst exampleTeam = new github.Team(\"exampleTeam\", {});\n// Protect the master branch of the foo repository. Additionally, require that\n// the \"ci/travis\" context to be passing and only allow the engineers team merge\n// to the branch.\nconst exampleBranchProtection = new github.BranchProtection(\"exampleBranchProtection\", {\n    repositoryId: exampleRepository.nodeId,\n    pattern: \"main\",\n    enforceAdmins: true,\n    allowsDeletions: true,\n    requiredStatusChecks: [{\n        strict: false,\n        contexts: [\"ci/travis\"],\n    }],\n    requiredPullRequestReviews: [{\n        dismissStaleReviews: true,\n        dismissalRestrictions: [\n            exampleUser.then(exampleUser =\u003e exampleUser.nodeId),\n            exampleTeam.nodeId,\n        ],\n    }],\n    pushRestrictions: [exampleUser.then(exampleUser =\u003e exampleUser.nodeId)],\n});\nconst exampleTeamRepository = new github.TeamRepository(\"exampleTeamRepository\", {\n    teamId: exampleTeam.id,\n    repository: exampleRepository.name,\n    permission: \"pull\",\n});\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\nexample_repository = github.Repository(\"exampleRepository\")\nexample_user = github.get_user(username=\"example\")\nexample_team = github.Team(\"exampleTeam\")\n# Protect the master branch of the foo repository. Additionally, require that\n# the \"ci/travis\" context to be passing and only allow the engineers team merge\n# to the branch.\nexample_branch_protection = github.BranchProtection(\"exampleBranchProtection\",\n    repository_id=example_repository.node_id,\n    pattern=\"main\",\n    enforce_admins=True,\n    allows_deletions=True,\n    required_status_checks=[github.BranchProtectionRequiredStatusCheckArgs(\n        strict=False,\n        contexts=[\"ci/travis\"],\n    )],\n    required_pull_request_reviews=[github.BranchProtectionRequiredPullRequestReviewArgs(\n        dismiss_stale_reviews=True,\n        dismissal_restrictions=[\n            example_user.node_id,\n            example_team.node_id,\n        ],\n    )],\n    push_restrictions=[example_user.node_id])\nexample_team_repository = github.TeamRepository(\"exampleTeamRepository\",\n    team_id=example_team.id,\n    repository=example_repository.name,\n    permission=\"pull\")\n```\n```csharp\nusing Pulumi;\nusing Github = Pulumi.Github;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var exampleRepository = new Github.Repository(\"exampleRepository\", new Github.RepositoryArgs\n        {\n        });\n        var exampleUser = Output.Create(Github.GetUser.InvokeAsync(new Github.GetUserArgs\n        {\n            Username = \"example\",\n        }));\n        var exampleTeam = new Github.Team(\"exampleTeam\", new Github.TeamArgs\n        {\n        });\n        // Protect the master branch of the foo repository. Additionally, require that\n        // the \"ci/travis\" context to be passing and only allow the engineers team merge\n        // to the branch.\n        var exampleBranchProtection = new Github.BranchProtection(\"exampleBranchProtection\", new Github.BranchProtectionArgs\n        {\n            RepositoryId = exampleRepository.NodeId,\n            Pattern = \"main\",\n            EnforceAdmins = true,\n            AllowsDeletions = true,\n            RequiredStatusChecks = \n            {\n                new Github.Inputs.BranchProtectionRequiredStatusCheckArgs\n                {\n                    Strict = false,\n                    Contexts = \n                    {\n                        \"ci/travis\",\n                    },\n                },\n            },\n            RequiredPullRequestReviews = \n            {\n                new Github.Inputs.BranchProtectionRequiredPullRequestReviewArgs\n                {\n                    DismissStaleReviews = true,\n                    DismissalRestrictions = \n                    {\n                        exampleUser.Apply(exampleUser =\u003e exampleUser.NodeId),\n                        exampleTeam.NodeId,\n                    },\n                },\n            },\n            PushRestrictions = \n            {\n                exampleUser.Apply(exampleUser =\u003e exampleUser.NodeId),\n            },\n        });\n        var exampleTeamRepository = new Github.TeamRepository(\"exampleTeamRepository\", new Github.TeamRepositoryArgs\n        {\n            TeamId = exampleTeam.Id,\n            Repository = exampleRepository.Name,\n            Permission = \"pull\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-github/sdk/v4/go/github\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\texampleRepository, err := github.NewRepository(ctx, \"exampleRepository\", nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\texampleUser, err := github.GetUser(ctx, \u0026github.GetUserArgs{\n\t\t\tUsername: \"example\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\texampleTeam, err := github.NewTeam(ctx, \"exampleTeam\", nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = github.NewBranchProtection(ctx, \"exampleBranchProtection\", \u0026github.BranchProtectionArgs{\n\t\t\tRepositoryId:    exampleRepository.NodeId,\n\t\t\tPattern:         pulumi.String(\"main\"),\n\t\t\tEnforceAdmins:   pulumi.Bool(true),\n\t\t\tAllowsDeletions: pulumi.Bool(true),\n\t\t\tRequiredStatusChecks: github.BranchProtectionRequiredStatusCheckArray{\n\t\t\t\t\u0026github.BranchProtectionRequiredStatusCheckArgs{\n\t\t\t\t\tStrict: pulumi.Bool(false),\n\t\t\t\t\tContexts: pulumi.StringArray{\n\t\t\t\t\t\tpulumi.String(\"ci/travis\"),\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t},\n\t\t\tRequiredPullRequestReviews: github.BranchProtectionRequiredPullRequestReviewArray{\n\t\t\t\t\u0026github.BranchProtectionRequiredPullRequestReviewArgs{\n\t\t\t\t\tDismissStaleReviews: pulumi.Bool(true),\n\t\t\t\t\tDismissalRestrictions: pulumi.Array{\n\t\t\t\t\t\tpulumi.String(exampleUser.NodeId),\n\t\t\t\t\t\texampleTeam.NodeId,\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t},\n\t\t\tPushRestrictions: pulumi.StringArray{\n\t\t\t\tpulumi.String(exampleUser.NodeId),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = github.NewTeamRepository(ctx, \"exampleTeamRepository\", \u0026github.TeamRepositoryArgs{\n\t\t\tTeamId:     exampleTeam.ID(),\n\t\t\tRepository: exampleRepository.Name,\n\t\t\tPermission: pulumi.String(\"pull\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nGitHub Branch Protection can be imported using an ID made up of `repository:pattern`, e.g.\n\n```sh\n $ pulumi import github:index/branchProtection:BranchProtection terraform terraform:main\n```\n\n ",
+            "description": "Protects a GitHub branch.\n\nThis resource allows you to configure branch protection for repositories in your organization. When applied, the branch will be protected from forced pushes and deletion. Additional constraints, such as required status checks or restrictions on users, teams, and apps, can also be configured.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\nconst exampleRepository = new github.Repository(\"exampleRepository\", {});\nconst exampleUser = github.getUser({\n    username: \"example\",\n});\nconst exampleTeam = new github.Team(\"exampleTeam\", {});\n// Protect the master branch of the foo repository. Additionally, require that\n// the \"ci/travis\" context to be passing and only allow the engineers team merge\n// to the branch.\nconst exampleBranchProtection = new github.BranchProtection(\"exampleBranchProtection\", {\n    repositoryId: exampleRepository.nodeId,\n    pattern: \"main\",\n    enforceAdmins: true,\n    allowsDeletions: true,\n    requiredStatusChecks: [{\n        strict: false,\n        contexts: [\"ci/travis\"],\n    }],\n    requiredPullRequestReviews: [{\n        dismissStaleReviews: true,\n        restrictDismissals: true,\n        dismissalRestrictions: [\n            exampleUser.then(exampleUser =\u003e exampleUser.nodeId),\n            exampleTeam.nodeId,\n        ],\n    }],\n    pushRestrictions: [exampleUser.then(exampleUser =\u003e exampleUser.nodeId)],\n});\nconst exampleTeamRepository = new github.TeamRepository(\"exampleTeamRepository\", {\n    teamId: exampleTeam.id,\n    repository: exampleRepository.name,\n    permission: \"pull\",\n});\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\nexample_repository = github.Repository(\"exampleRepository\")\nexample_user = github.get_user(username=\"example\")\nexample_team = github.Team(\"exampleTeam\")\n# Protect the master branch of the foo repository. Additionally, require that\n# the \"ci/travis\" context to be passing and only allow the engineers team merge\n# to the branch.\nexample_branch_protection = github.BranchProtection(\"exampleBranchProtection\",\n    repository_id=example_repository.node_id,\n    pattern=\"main\",\n    enforce_admins=True,\n    allows_deletions=True,\n    required_status_checks=[github.BranchProtectionRequiredStatusCheckArgs(\n        strict=False,\n        contexts=[\"ci/travis\"],\n    )],\n    required_pull_request_reviews=[github.BranchProtectionRequiredPullRequestReviewArgs(\n        dismiss_stale_reviews=True,\n        restrict_dismissals=True,\n        dismissal_restrictions=[\n            example_user.node_id,\n            example_team.node_id,\n        ],\n    )],\n    push_restrictions=[example_user.node_id])\nexample_team_repository = github.TeamRepository(\"exampleTeamRepository\",\n    team_id=example_team.id,\n    repository=example_repository.name,\n    permission=\"pull\")\n```\n```csharp\nusing Pulumi;\nusing Github = Pulumi.Github;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var exampleRepository = new Github.Repository(\"exampleRepository\", new Github.RepositoryArgs\n        {\n        });\n        var exampleUser = Output.Create(Github.GetUser.InvokeAsync(new Github.GetUserArgs\n        {\n            Username = \"example\",\n        }));\n        var exampleTeam = new Github.Team(\"exampleTeam\", new Github.TeamArgs\n        {\n        });\n        // Protect the master branch of the foo repository. Additionally, require that\n        // the \"ci/travis\" context to be passing and only allow the engineers team merge\n        // to the branch.\n        var exampleBranchProtection = new Github.BranchProtection(\"exampleBranchProtection\", new Github.BranchProtectionArgs\n        {\n            RepositoryId = exampleRepository.NodeId,\n            Pattern = \"main\",\n            EnforceAdmins = true,\n            AllowsDeletions = true,\n            RequiredStatusChecks = \n            {\n                new Github.Inputs.BranchProtectionRequiredStatusCheckArgs\n                {\n                    Strict = false,\n                    Contexts = \n                    {\n                        \"ci/travis\",\n                    },\n                },\n            },\n            RequiredPullRequestReviews = \n            {\n                new Github.Inputs.BranchProtectionRequiredPullRequestReviewArgs\n                {\n                    DismissStaleReviews = true,\n                    RestrictDismissals = true,\n                    DismissalRestrictions = \n                    {\n                        exampleUser.Apply(exampleUser =\u003e exampleUser.NodeId),\n                        exampleTeam.NodeId,\n                    },\n                },\n            },\n            PushRestrictions = \n            {\n                exampleUser.Apply(exampleUser =\u003e exampleUser.NodeId),\n            },\n        });\n        var exampleTeamRepository = new Github.TeamRepository(\"exampleTeamRepository\", new Github.TeamRepositoryArgs\n        {\n            TeamId = exampleTeam.Id,\n            Repository = exampleRepository.Name,\n            Permission = \"pull\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-github/sdk/v4/go/github\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\texampleRepository, err := github.NewRepository(ctx, \"exampleRepository\", nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\texampleUser, err := github.GetUser(ctx, \u0026github.GetUserArgs{\n\t\t\tUsername: \"example\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\texampleTeam, err := github.NewTeam(ctx, \"exampleTeam\", nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = github.NewBranchProtection(ctx, \"exampleBranchProtection\", \u0026github.BranchProtectionArgs{\n\t\t\tRepositoryId:    exampleRepository.NodeId,\n\t\t\tPattern:         pulumi.String(\"main\"),\n\t\t\tEnforceAdmins:   pulumi.Bool(true),\n\t\t\tAllowsDeletions: pulumi.Bool(true),\n\t\t\tRequiredStatusChecks: github.BranchProtectionRequiredStatusCheckArray{\n\t\t\t\t\u0026github.BranchProtectionRequiredStatusCheckArgs{\n\t\t\t\t\tStrict: pulumi.Bool(false),\n\t\t\t\t\tContexts: pulumi.StringArray{\n\t\t\t\t\t\tpulumi.String(\"ci/travis\"),\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t},\n\t\t\tRequiredPullRequestReviews: github.BranchProtectionRequiredPullRequestReviewArray{\n\t\t\t\t\u0026github.BranchProtectionRequiredPullRequestReviewArgs{\n\t\t\t\t\tDismissStaleReviews: pulumi.Bool(true),\n\t\t\t\t\tRestrictDismissals:  pulumi.Bool(true),\n\t\t\t\t\tDismissalRestrictions: pulumi.Array{\n\t\t\t\t\t\tpulumi.String(exampleUser.NodeId),\n\t\t\t\t\t\texampleTeam.NodeId,\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t},\n\t\t\tPushRestrictions: pulumi.StringArray{\n\t\t\t\tpulumi.String(exampleUser.NodeId),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = github.NewTeamRepository(ctx, \"exampleTeamRepository\", \u0026github.TeamRepositoryArgs{\n\t\t\tTeamId:     exampleTeam.ID(),\n\t\t\tRepository: exampleRepository.Name,\n\t\t\tPermission: pulumi.String(\"pull\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nGitHub Branch Protection can be imported using an ID made up of `repository:pattern`, e.g.\n\n```sh\n $ pulumi import github:index/branchProtection:BranchProtection terraform terraform:main\n```\n\n ",
             "properties": {
                 "allowsDeletions": {
                     "type": "boolean",
@@ -2419,7 +2597,7 @@
                 },
                 "vulnerabilityAlerts": {
                     "type": "boolean",
-                    "description": "Set to `true` to enable security alerts for vulnerable dependencies. Enabling requires alerts to be enabled on the owner level. (Note for importing: GitHub enables the alerts on public repos but disables them on private repos by default.) See [GitHub Documentation](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for details.\n"
+                    "description": "Set to `true` to enable security alerts for vulnerable dependencies. Enabling requires alerts to be enabled on the owner level. (Note for importing: GitHub enables the alerts on public repos but disables them on private repos by default.) See [GitHub Documentation](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for details. Note that vulnerability alerts have not been successfully tested on any GitHub Enterprise instance and may be unavailable in those settings.\n"
                 }
             },
             "required": [
@@ -2537,7 +2715,7 @@
                 },
                 "vulnerabilityAlerts": {
                     "type": "boolean",
-                    "description": "Set to `true` to enable security alerts for vulnerable dependencies. Enabling requires alerts to be enabled on the owner level. (Note for importing: GitHub enables the alerts on public repos but disables them on private repos by default.) See [GitHub Documentation](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for details.\n"
+                    "description": "Set to `true` to enable security alerts for vulnerable dependencies. Enabling requires alerts to be enabled on the owner level. (Note for importing: GitHub enables the alerts on public repos but disables them on private repos by default.) See [GitHub Documentation](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for details. Note that vulnerability alerts have not been successfully tested on any GitHub Enterprise instance and may be unavailable in those settings.\n"
                 }
             },
             "stateInputs": {
@@ -2677,7 +2855,7 @@
                     },
                     "vulnerabilityAlerts": {
                         "type": "boolean",
-                        "description": "Set to `true` to enable security alerts for vulnerable dependencies. Enabling requires alerts to be enabled on the owner level. (Note for importing: GitHub enables the alerts on public repos but disables them on private repos by default.) See [GitHub Documentation](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for details.\n"
+                        "description": "Set to `true` to enable security alerts for vulnerable dependencies. Enabling requires alerts to be enabled on the owner level. (Note for importing: GitHub enables the alerts on public repos but disables them on private repos by default.) See [GitHub Documentation](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for details. Note that vulnerability alerts have not been successfully tested on any GitHub Enterprise instance and may be unavailable in those settings.\n"
                     }
                 },
                 "type": "object"
@@ -2834,6 +3012,90 @@
                     "title": {
                         "type": "string",
                         "description": "A title.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "github:index/repositoryEnvironment:RepositoryEnvironment": {
+            "description": "This resource allows you to create and manage environments for a GitHub repository.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\nconst current = github.getUser({\n    username: \"\",\n});\nconst exampleRepository = new github.Repository(\"exampleRepository\", {description: \"My awesome codebase\"});\nconst exampleRepositoryEnvironment = new github.RepositoryEnvironment(\"exampleRepositoryEnvironment\", {\n    environment: \"example\",\n    repository: exampleRepository.name,\n    reviewers: [{\n        users: [current.then(current =\u003e current.id)],\n    }],\n    deploymentBranchPolicy: {\n        protectedBranches: true,\n        customBranchPolicies: false,\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\ncurrent = github.get_user(username=\"\")\nexample_repository = github.Repository(\"exampleRepository\", description=\"My awesome codebase\")\nexample_repository_environment = github.RepositoryEnvironment(\"exampleRepositoryEnvironment\",\n    environment=\"example\",\n    repository=example_repository.name,\n    reviewers=[github.RepositoryEnvironmentReviewerArgs(\n        users=[current.id],\n    )],\n    deployment_branch_policy=github.RepositoryEnvironmentDeploymentBranchPolicyArgs(\n        protected_branches=True,\n        custom_branch_policies=False,\n    ))\n```\n```csharp\nusing Pulumi;\nusing Github = Pulumi.Github;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var current = Output.Create(Github.GetUser.InvokeAsync(new Github.GetUserArgs\n        {\n            Username = \"\",\n        }));\n        var exampleRepository = new Github.Repository(\"exampleRepository\", new Github.RepositoryArgs\n        {\n            Description = \"My awesome codebase\",\n        });\n        var exampleRepositoryEnvironment = new Github.RepositoryEnvironment(\"exampleRepositoryEnvironment\", new Github.RepositoryEnvironmentArgs\n        {\n            Environment = \"example\",\n            Repository = exampleRepository.Name,\n            Reviewers = \n            {\n                new Github.Inputs.RepositoryEnvironmentReviewerArgs\n                {\n                    Users = \n                    {\n                        current.Apply(current =\u003e current.Id),\n                    },\n                },\n            },\n            DeploymentBranchPolicy = new Github.Inputs.RepositoryEnvironmentDeploymentBranchPolicyArgs\n            {\n                ProtectedBranches = true,\n                CustomBranchPolicies = false,\n            },\n        });\n    }\n\n}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "properties": {
+                "deploymentBranchPolicy": {
+                    "$ref": "#/types/github:index/RepositoryEnvironmentDeploymentBranchPolicy:RepositoryEnvironmentDeploymentBranchPolicy"
+                },
+                "environment": {
+                    "type": "string",
+                    "description": "The name of the environment.\n"
+                },
+                "repository": {
+                    "type": "string",
+                    "description": "The repository of the environment.\n"
+                },
+                "reviewers": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/github:index/RepositoryEnvironmentReviewer:RepositoryEnvironmentReviewer"
+                    }
+                },
+                "waitTimer": {
+                    "type": "integer",
+                    "description": "Amount of time to delay a job after the job is initially triggered.\n"
+                }
+            },
+            "required": [
+                "environment",
+                "repository"
+            ],
+            "inputProperties": {
+                "deploymentBranchPolicy": {
+                    "$ref": "#/types/github:index/RepositoryEnvironmentDeploymentBranchPolicy:RepositoryEnvironmentDeploymentBranchPolicy"
+                },
+                "environment": {
+                    "type": "string",
+                    "description": "The name of the environment.\n"
+                },
+                "repository": {
+                    "type": "string",
+                    "description": "The repository of the environment.\n"
+                },
+                "reviewers": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/github:index/RepositoryEnvironmentReviewer:RepositoryEnvironmentReviewer"
+                    }
+                },
+                "waitTimer": {
+                    "type": "integer",
+                    "description": "Amount of time to delay a job after the job is initially triggered.\n"
+                }
+            },
+            "requiredInputs": [
+                "environment",
+                "repository"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering RepositoryEnvironment resources.\n",
+                "properties": {
+                    "deploymentBranchPolicy": {
+                        "$ref": "#/types/github:index/RepositoryEnvironmentDeploymentBranchPolicy:RepositoryEnvironmentDeploymentBranchPolicy"
+                    },
+                    "environment": {
+                        "type": "string",
+                        "description": "The name of the environment.\n"
+                    },
+                    "repository": {
+                        "type": "string",
+                        "description": "The repository of the environment.\n"
+                    },
+                    "reviewers": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/github:index/RepositoryEnvironmentReviewer:RepositoryEnvironmentReviewer"
+                        }
+                    },
+                    "waitTimer": {
+                        "type": "integer",
+                        "description": "Amount of time to delay a job after the job is initially triggered.\n"
                     }
                 },
                 "type": "object"
@@ -4169,7 +4431,8 @@
                 "description": "A collection of arguments for invoking getOrganization.\n",
                 "properties": {
                     "name": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "The name of the organization account\n"
                     }
                 },
                 "type": "object",
@@ -4181,17 +4444,27 @@
                 "description": "A collection of values returned by getOrganization.\n",
                 "properties": {
                     "description": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "The description the organization account\n"
                     },
                     "id": {
                         "type": "string",
                         "description": "The provider-assigned unique ID for this managed resource.\n"
                     },
                     "login": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "The login of the organization account\n"
+                    },
+                    "members": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "(`list`) A list with the members of the organization\n"
                     },
                     "name": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "The name of the organization account\n"
                     },
                     "nodeId": {
                         "type": "string"
@@ -4212,6 +4485,7 @@
                 "required": [
                     "description",
                     "login",
+                    "members",
                     "name",
                     "nodeId",
                     "plan",
@@ -4607,6 +4881,7 @@
                     "allowSquashMerge",
                     "archived",
                     "defaultBranch",
+                    "fullName",
                     "gitCloneUrl",
                     "hasDownloads",
                     "hasIssues",
@@ -4614,6 +4889,7 @@
                     "hasWiki",
                     "htmlUrl",
                     "httpCloneUrl",
+                    "name",
                     "nodeId",
                     "pages",
                     "private",
@@ -4873,7 +5149,8 @@
                         "type": "string"
                     },
                     "headRef": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Value of the Pull Request `HEAD` reference.\n"
                     },
                     "id": {
                         "type": "string",
@@ -4957,6 +5234,13 @@
                         "type": "string",
                         "description": "the team's privacy type.\n"
                     },
+                    "repositories": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "List of team repositories\n"
+                    },
                     "slug": {
                         "type": "string"
                     }
@@ -4969,6 +5253,7 @@
                     "nodeId",
                     "permission",
                     "privacy",
+                    "repositories",
                     "slug",
                     "id"
                 ]
@@ -5114,8 +5399,7 @@
             "compatibility": "tfbridge20",
             "namespaces": null,
             "packageReferences": {
-                "Pulumi": "3.*",
-                "System.Collections.Immutable": "1.6.0"
+                "Pulumi": "3.*"
             }
         },
         "go": {

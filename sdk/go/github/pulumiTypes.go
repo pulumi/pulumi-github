@@ -15,6 +15,7 @@ type BranchProtectionRequiredPullRequestReview struct {
 	DismissalRestrictions        []string `pulumi:"dismissalRestrictions"`
 	RequireCodeOwnerReviews      *bool    `pulumi:"requireCodeOwnerReviews"`
 	RequiredApprovingReviewCount *int     `pulumi:"requiredApprovingReviewCount"`
+	RestrictDismissals           *bool    `pulumi:"restrictDismissals"`
 }
 
 // BranchProtectionRequiredPullRequestReviewInput is an input type that accepts BranchProtectionRequiredPullRequestReviewArgs and BranchProtectionRequiredPullRequestReviewOutput values.
@@ -33,6 +34,7 @@ type BranchProtectionRequiredPullRequestReviewArgs struct {
 	DismissalRestrictions        pulumi.StringArrayInput `pulumi:"dismissalRestrictions"`
 	RequireCodeOwnerReviews      pulumi.BoolPtrInput     `pulumi:"requireCodeOwnerReviews"`
 	RequiredApprovingReviewCount pulumi.IntPtrInput      `pulumi:"requiredApprovingReviewCount"`
+	RestrictDismissals           pulumi.BoolPtrInput     `pulumi:"restrictDismissals"`
 }
 
 func (BranchProtectionRequiredPullRequestReviewArgs) ElementType() reflect.Type {
@@ -100,6 +102,10 @@ func (o BranchProtectionRequiredPullRequestReviewOutput) RequireCodeOwnerReviews
 
 func (o BranchProtectionRequiredPullRequestReviewOutput) RequiredApprovingReviewCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v BranchProtectionRequiredPullRequestReview) *int { return v.RequiredApprovingReviewCount }).(pulumi.IntPtrOutput)
+}
+
+func (o BranchProtectionRequiredPullRequestReviewOutput) RestrictDismissals() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v BranchProtectionRequiredPullRequestReview) *bool { return v.RestrictDismissals }).(pulumi.BoolPtrOutput)
 }
 
 type BranchProtectionRequiredPullRequestReviewArrayOutput struct{ *pulumi.OutputState }
@@ -1074,6 +1080,264 @@ func (o ProviderAppAuthPtrOutput) PemFile() pulumi.StringPtrOutput {
 		}
 		return &v.PemFile
 	}).(pulumi.StringPtrOutput)
+}
+
+type RepositoryEnvironmentDeploymentBranchPolicy struct {
+	// Whether only branches that match the specified name patterns can deploy to this environment.
+	CustomBranchPolicies bool `pulumi:"customBranchPolicies"`
+	// Whether only branches with branch protection rules can deploy to this environment.
+	ProtectedBranches bool `pulumi:"protectedBranches"`
+}
+
+// RepositoryEnvironmentDeploymentBranchPolicyInput is an input type that accepts RepositoryEnvironmentDeploymentBranchPolicyArgs and RepositoryEnvironmentDeploymentBranchPolicyOutput values.
+// You can construct a concrete instance of `RepositoryEnvironmentDeploymentBranchPolicyInput` via:
+//
+//          RepositoryEnvironmentDeploymentBranchPolicyArgs{...}
+type RepositoryEnvironmentDeploymentBranchPolicyInput interface {
+	pulumi.Input
+
+	ToRepositoryEnvironmentDeploymentBranchPolicyOutput() RepositoryEnvironmentDeploymentBranchPolicyOutput
+	ToRepositoryEnvironmentDeploymentBranchPolicyOutputWithContext(context.Context) RepositoryEnvironmentDeploymentBranchPolicyOutput
+}
+
+type RepositoryEnvironmentDeploymentBranchPolicyArgs struct {
+	// Whether only branches that match the specified name patterns can deploy to this environment.
+	CustomBranchPolicies pulumi.BoolInput `pulumi:"customBranchPolicies"`
+	// Whether only branches with branch protection rules can deploy to this environment.
+	ProtectedBranches pulumi.BoolInput `pulumi:"protectedBranches"`
+}
+
+func (RepositoryEnvironmentDeploymentBranchPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositoryEnvironmentDeploymentBranchPolicy)(nil)).Elem()
+}
+
+func (i RepositoryEnvironmentDeploymentBranchPolicyArgs) ToRepositoryEnvironmentDeploymentBranchPolicyOutput() RepositoryEnvironmentDeploymentBranchPolicyOutput {
+	return i.ToRepositoryEnvironmentDeploymentBranchPolicyOutputWithContext(context.Background())
+}
+
+func (i RepositoryEnvironmentDeploymentBranchPolicyArgs) ToRepositoryEnvironmentDeploymentBranchPolicyOutputWithContext(ctx context.Context) RepositoryEnvironmentDeploymentBranchPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryEnvironmentDeploymentBranchPolicyOutput)
+}
+
+func (i RepositoryEnvironmentDeploymentBranchPolicyArgs) ToRepositoryEnvironmentDeploymentBranchPolicyPtrOutput() RepositoryEnvironmentDeploymentBranchPolicyPtrOutput {
+	return i.ToRepositoryEnvironmentDeploymentBranchPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i RepositoryEnvironmentDeploymentBranchPolicyArgs) ToRepositoryEnvironmentDeploymentBranchPolicyPtrOutputWithContext(ctx context.Context) RepositoryEnvironmentDeploymentBranchPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryEnvironmentDeploymentBranchPolicyOutput).ToRepositoryEnvironmentDeploymentBranchPolicyPtrOutputWithContext(ctx)
+}
+
+// RepositoryEnvironmentDeploymentBranchPolicyPtrInput is an input type that accepts RepositoryEnvironmentDeploymentBranchPolicyArgs, RepositoryEnvironmentDeploymentBranchPolicyPtr and RepositoryEnvironmentDeploymentBranchPolicyPtrOutput values.
+// You can construct a concrete instance of `RepositoryEnvironmentDeploymentBranchPolicyPtrInput` via:
+//
+//          RepositoryEnvironmentDeploymentBranchPolicyArgs{...}
+//
+//  or:
+//
+//          nil
+type RepositoryEnvironmentDeploymentBranchPolicyPtrInput interface {
+	pulumi.Input
+
+	ToRepositoryEnvironmentDeploymentBranchPolicyPtrOutput() RepositoryEnvironmentDeploymentBranchPolicyPtrOutput
+	ToRepositoryEnvironmentDeploymentBranchPolicyPtrOutputWithContext(context.Context) RepositoryEnvironmentDeploymentBranchPolicyPtrOutput
+}
+
+type repositoryEnvironmentDeploymentBranchPolicyPtrType RepositoryEnvironmentDeploymentBranchPolicyArgs
+
+func RepositoryEnvironmentDeploymentBranchPolicyPtr(v *RepositoryEnvironmentDeploymentBranchPolicyArgs) RepositoryEnvironmentDeploymentBranchPolicyPtrInput {
+	return (*repositoryEnvironmentDeploymentBranchPolicyPtrType)(v)
+}
+
+func (*repositoryEnvironmentDeploymentBranchPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RepositoryEnvironmentDeploymentBranchPolicy)(nil)).Elem()
+}
+
+func (i *repositoryEnvironmentDeploymentBranchPolicyPtrType) ToRepositoryEnvironmentDeploymentBranchPolicyPtrOutput() RepositoryEnvironmentDeploymentBranchPolicyPtrOutput {
+	return i.ToRepositoryEnvironmentDeploymentBranchPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *repositoryEnvironmentDeploymentBranchPolicyPtrType) ToRepositoryEnvironmentDeploymentBranchPolicyPtrOutputWithContext(ctx context.Context) RepositoryEnvironmentDeploymentBranchPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryEnvironmentDeploymentBranchPolicyPtrOutput)
+}
+
+type RepositoryEnvironmentDeploymentBranchPolicyOutput struct{ *pulumi.OutputState }
+
+func (RepositoryEnvironmentDeploymentBranchPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositoryEnvironmentDeploymentBranchPolicy)(nil)).Elem()
+}
+
+func (o RepositoryEnvironmentDeploymentBranchPolicyOutput) ToRepositoryEnvironmentDeploymentBranchPolicyOutput() RepositoryEnvironmentDeploymentBranchPolicyOutput {
+	return o
+}
+
+func (o RepositoryEnvironmentDeploymentBranchPolicyOutput) ToRepositoryEnvironmentDeploymentBranchPolicyOutputWithContext(ctx context.Context) RepositoryEnvironmentDeploymentBranchPolicyOutput {
+	return o
+}
+
+func (o RepositoryEnvironmentDeploymentBranchPolicyOutput) ToRepositoryEnvironmentDeploymentBranchPolicyPtrOutput() RepositoryEnvironmentDeploymentBranchPolicyPtrOutput {
+	return o.ToRepositoryEnvironmentDeploymentBranchPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o RepositoryEnvironmentDeploymentBranchPolicyOutput) ToRepositoryEnvironmentDeploymentBranchPolicyPtrOutputWithContext(ctx context.Context) RepositoryEnvironmentDeploymentBranchPolicyPtrOutput {
+	return o.ApplyT(func(v RepositoryEnvironmentDeploymentBranchPolicy) *RepositoryEnvironmentDeploymentBranchPolicy {
+		return &v
+	}).(RepositoryEnvironmentDeploymentBranchPolicyPtrOutput)
+}
+
+// Whether only branches that match the specified name patterns can deploy to this environment.
+func (o RepositoryEnvironmentDeploymentBranchPolicyOutput) CustomBranchPolicies() pulumi.BoolOutput {
+	return o.ApplyT(func(v RepositoryEnvironmentDeploymentBranchPolicy) bool { return v.CustomBranchPolicies }).(pulumi.BoolOutput)
+}
+
+// Whether only branches with branch protection rules can deploy to this environment.
+func (o RepositoryEnvironmentDeploymentBranchPolicyOutput) ProtectedBranches() pulumi.BoolOutput {
+	return o.ApplyT(func(v RepositoryEnvironmentDeploymentBranchPolicy) bool { return v.ProtectedBranches }).(pulumi.BoolOutput)
+}
+
+type RepositoryEnvironmentDeploymentBranchPolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (RepositoryEnvironmentDeploymentBranchPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RepositoryEnvironmentDeploymentBranchPolicy)(nil)).Elem()
+}
+
+func (o RepositoryEnvironmentDeploymentBranchPolicyPtrOutput) ToRepositoryEnvironmentDeploymentBranchPolicyPtrOutput() RepositoryEnvironmentDeploymentBranchPolicyPtrOutput {
+	return o
+}
+
+func (o RepositoryEnvironmentDeploymentBranchPolicyPtrOutput) ToRepositoryEnvironmentDeploymentBranchPolicyPtrOutputWithContext(ctx context.Context) RepositoryEnvironmentDeploymentBranchPolicyPtrOutput {
+	return o
+}
+
+func (o RepositoryEnvironmentDeploymentBranchPolicyPtrOutput) Elem() RepositoryEnvironmentDeploymentBranchPolicyOutput {
+	return o.ApplyT(func(v *RepositoryEnvironmentDeploymentBranchPolicy) RepositoryEnvironmentDeploymentBranchPolicy {
+		return *v
+	}).(RepositoryEnvironmentDeploymentBranchPolicyOutput)
+}
+
+// Whether only branches that match the specified name patterns can deploy to this environment.
+func (o RepositoryEnvironmentDeploymentBranchPolicyPtrOutput) CustomBranchPolicies() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RepositoryEnvironmentDeploymentBranchPolicy) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.CustomBranchPolicies
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Whether only branches with branch protection rules can deploy to this environment.
+func (o RepositoryEnvironmentDeploymentBranchPolicyPtrOutput) ProtectedBranches() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RepositoryEnvironmentDeploymentBranchPolicy) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.ProtectedBranches
+	}).(pulumi.BoolPtrOutput)
+}
+
+type RepositoryEnvironmentReviewer struct {
+	// Up to 6 IDs for teams who may review jobs that reference the environment. Reviewers must have at least read access to the repository. Only one of the required reviewers needs to approve the job for it to proceed.
+	Teams []int `pulumi:"teams"`
+	// Up to 6 IDs for users who may review jobs that reference the environment. Reviewers must have at least read access to the repository. Only one of the required reviewers needs to approve the job for it to proceed.
+	Users []int `pulumi:"users"`
+}
+
+// RepositoryEnvironmentReviewerInput is an input type that accepts RepositoryEnvironmentReviewerArgs and RepositoryEnvironmentReviewerOutput values.
+// You can construct a concrete instance of `RepositoryEnvironmentReviewerInput` via:
+//
+//          RepositoryEnvironmentReviewerArgs{...}
+type RepositoryEnvironmentReviewerInput interface {
+	pulumi.Input
+
+	ToRepositoryEnvironmentReviewerOutput() RepositoryEnvironmentReviewerOutput
+	ToRepositoryEnvironmentReviewerOutputWithContext(context.Context) RepositoryEnvironmentReviewerOutput
+}
+
+type RepositoryEnvironmentReviewerArgs struct {
+	// Up to 6 IDs for teams who may review jobs that reference the environment. Reviewers must have at least read access to the repository. Only one of the required reviewers needs to approve the job for it to proceed.
+	Teams pulumi.IntArrayInput `pulumi:"teams"`
+	// Up to 6 IDs for users who may review jobs that reference the environment. Reviewers must have at least read access to the repository. Only one of the required reviewers needs to approve the job for it to proceed.
+	Users pulumi.IntArrayInput `pulumi:"users"`
+}
+
+func (RepositoryEnvironmentReviewerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositoryEnvironmentReviewer)(nil)).Elem()
+}
+
+func (i RepositoryEnvironmentReviewerArgs) ToRepositoryEnvironmentReviewerOutput() RepositoryEnvironmentReviewerOutput {
+	return i.ToRepositoryEnvironmentReviewerOutputWithContext(context.Background())
+}
+
+func (i RepositoryEnvironmentReviewerArgs) ToRepositoryEnvironmentReviewerOutputWithContext(ctx context.Context) RepositoryEnvironmentReviewerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryEnvironmentReviewerOutput)
+}
+
+// RepositoryEnvironmentReviewerArrayInput is an input type that accepts RepositoryEnvironmentReviewerArray and RepositoryEnvironmentReviewerArrayOutput values.
+// You can construct a concrete instance of `RepositoryEnvironmentReviewerArrayInput` via:
+//
+//          RepositoryEnvironmentReviewerArray{ RepositoryEnvironmentReviewerArgs{...} }
+type RepositoryEnvironmentReviewerArrayInput interface {
+	pulumi.Input
+
+	ToRepositoryEnvironmentReviewerArrayOutput() RepositoryEnvironmentReviewerArrayOutput
+	ToRepositoryEnvironmentReviewerArrayOutputWithContext(context.Context) RepositoryEnvironmentReviewerArrayOutput
+}
+
+type RepositoryEnvironmentReviewerArray []RepositoryEnvironmentReviewerInput
+
+func (RepositoryEnvironmentReviewerArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RepositoryEnvironmentReviewer)(nil)).Elem()
+}
+
+func (i RepositoryEnvironmentReviewerArray) ToRepositoryEnvironmentReviewerArrayOutput() RepositoryEnvironmentReviewerArrayOutput {
+	return i.ToRepositoryEnvironmentReviewerArrayOutputWithContext(context.Background())
+}
+
+func (i RepositoryEnvironmentReviewerArray) ToRepositoryEnvironmentReviewerArrayOutputWithContext(ctx context.Context) RepositoryEnvironmentReviewerArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryEnvironmentReviewerArrayOutput)
+}
+
+type RepositoryEnvironmentReviewerOutput struct{ *pulumi.OutputState }
+
+func (RepositoryEnvironmentReviewerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositoryEnvironmentReviewer)(nil)).Elem()
+}
+
+func (o RepositoryEnvironmentReviewerOutput) ToRepositoryEnvironmentReviewerOutput() RepositoryEnvironmentReviewerOutput {
+	return o
+}
+
+func (o RepositoryEnvironmentReviewerOutput) ToRepositoryEnvironmentReviewerOutputWithContext(ctx context.Context) RepositoryEnvironmentReviewerOutput {
+	return o
+}
+
+// Up to 6 IDs for teams who may review jobs that reference the environment. Reviewers must have at least read access to the repository. Only one of the required reviewers needs to approve the job for it to proceed.
+func (o RepositoryEnvironmentReviewerOutput) Teams() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v RepositoryEnvironmentReviewer) []int { return v.Teams }).(pulumi.IntArrayOutput)
+}
+
+// Up to 6 IDs for users who may review jobs that reference the environment. Reviewers must have at least read access to the repository. Only one of the required reviewers needs to approve the job for it to proceed.
+func (o RepositoryEnvironmentReviewerOutput) Users() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v RepositoryEnvironmentReviewer) []int { return v.Users }).(pulumi.IntArrayOutput)
+}
+
+type RepositoryEnvironmentReviewerArrayOutput struct{ *pulumi.OutputState }
+
+func (RepositoryEnvironmentReviewerArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RepositoryEnvironmentReviewer)(nil)).Elem()
+}
+
+func (o RepositoryEnvironmentReviewerArrayOutput) ToRepositoryEnvironmentReviewerArrayOutput() RepositoryEnvironmentReviewerArrayOutput {
+	return o
+}
+
+func (o RepositoryEnvironmentReviewerArrayOutput) ToRepositoryEnvironmentReviewerArrayOutputWithContext(ctx context.Context) RepositoryEnvironmentReviewerArrayOutput {
+	return o
+}
+
+func (o RepositoryEnvironmentReviewerArrayOutput) Index(i pulumi.IntInput) RepositoryEnvironmentReviewerOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RepositoryEnvironmentReviewer {
+		return vs[0].([]RepositoryEnvironmentReviewer)[vs[1].(int)]
+	}).(RepositoryEnvironmentReviewerOutput)
 }
 
 type RepositoryPages struct {
@@ -2239,6 +2503,8 @@ type GetOrganizationTeamsTeam struct {
 	NodeId string `pulumi:"nodeId"`
 	// the team's privacy type.
 	Privacy string `pulumi:"privacy"`
+	// List of team repositories.
+	Repositories []string `pulumi:"repositories"`
 	// the slug of the team.
 	Slug string `pulumi:"slug"`
 }
@@ -2267,6 +2533,8 @@ type GetOrganizationTeamsTeamArgs struct {
 	NodeId pulumi.StringInput `pulumi:"nodeId"`
 	// the team's privacy type.
 	Privacy pulumi.StringInput `pulumi:"privacy"`
+	// List of team repositories.
+	Repositories pulumi.StringArrayInput `pulumi:"repositories"`
 	// the slug of the team.
 	Slug pulumi.StringInput `pulumi:"slug"`
 }
@@ -2350,6 +2618,11 @@ func (o GetOrganizationTeamsTeamOutput) NodeId() pulumi.StringOutput {
 // the team's privacy type.
 func (o GetOrganizationTeamsTeamOutput) Privacy() pulumi.StringOutput {
 	return o.ApplyT(func(v GetOrganizationTeamsTeam) string { return v.Privacy }).(pulumi.StringOutput)
+}
+
+// List of team repositories.
+func (o GetOrganizationTeamsTeamOutput) Repositories() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetOrganizationTeamsTeam) []string { return v.Repositories }).(pulumi.StringArrayOutput)
 }
 
 // the slug of the team.
@@ -2851,6 +3124,10 @@ func init() {
 	pulumi.RegisterOutputType(OrganizationWebhookConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ProviderAppAuthOutput{})
 	pulumi.RegisterOutputType(ProviderAppAuthPtrOutput{})
+	pulumi.RegisterOutputType(RepositoryEnvironmentDeploymentBranchPolicyOutput{})
+	pulumi.RegisterOutputType(RepositoryEnvironmentDeploymentBranchPolicyPtrOutput{})
+	pulumi.RegisterOutputType(RepositoryEnvironmentReviewerOutput{})
+	pulumi.RegisterOutputType(RepositoryEnvironmentReviewerArrayOutput{})
 	pulumi.RegisterOutputType(RepositoryPagesOutput{})
 	pulumi.RegisterOutputType(RepositoryPagesPtrOutput{})
 	pulumi.RegisterOutputType(RepositoryPagesSourceOutput{})

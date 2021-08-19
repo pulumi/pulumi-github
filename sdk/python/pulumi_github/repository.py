@@ -69,7 +69,7 @@ class RepositoryArgs:
         :param pulumi.Input['RepositoryTemplateArgs'] template: Use a template repository to create this resource. See Template Repositories below for details.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] topics: The list of topics of the repository.
         :param pulumi.Input[str] visibility: Can be `public` or `private`. If your organization is associated with an enterprise account using GitHub Enterprise Cloud or GitHub Enterprise Server 2.20+, visibility can also be `internal`. The `visibility` parameter overrides the `private` parameter.
-        :param pulumi.Input[bool] vulnerability_alerts: Set to `true` to enable security alerts for vulnerable dependencies. Enabling requires alerts to be enabled on the owner level. (Note for importing: GitHub enables the alerts on public repos but disables them on private repos by default.) See [GitHub Documentation](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for details.
+        :param pulumi.Input[bool] vulnerability_alerts: Set to `true` to enable security alerts for vulnerable dependencies. Enabling requires alerts to be enabled on the owner level. (Note for importing: GitHub enables the alerts on public repos but disables them on private repos by default.) See [GitHub Documentation](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for details. Note that vulnerability alerts have not been successfully tested on any GitHub Enterprise instance and may be unavailable in those settings.
         """
         if allow_merge_commit is not None:
             pulumi.set(__self__, "allow_merge_commit", allow_merge_commit)
@@ -411,7 +411,7 @@ class RepositoryArgs:
     @pulumi.getter(name="vulnerabilityAlerts")
     def vulnerability_alerts(self) -> Optional[pulumi.Input[bool]]:
         """
-        Set to `true` to enable security alerts for vulnerable dependencies. Enabling requires alerts to be enabled on the owner level. (Note for importing: GitHub enables the alerts on public repos but disables them on private repos by default.) See [GitHub Documentation](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for details.
+        Set to `true` to enable security alerts for vulnerable dependencies. Enabling requires alerts to be enabled on the owner level. (Note for importing: GitHub enables the alerts on public repos but disables them on private repos by default.) See [GitHub Documentation](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for details. Note that vulnerability alerts have not been successfully tested on any GitHub Enterprise instance and may be unavailable in those settings.
         """
         return pulumi.get(self, "vulnerability_alerts")
 
@@ -494,7 +494,7 @@ class _RepositoryState:
         :param pulumi.Input['RepositoryTemplateArgs'] template: Use a template repository to create this resource. See Template Repositories below for details.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] topics: The list of topics of the repository.
         :param pulumi.Input[str] visibility: Can be `public` or `private`. If your organization is associated with an enterprise account using GitHub Enterprise Cloud or GitHub Enterprise Server 2.20+, visibility can also be `internal`. The `visibility` parameter overrides the `private` parameter.
-        :param pulumi.Input[bool] vulnerability_alerts: Set to `true` to enable security alerts for vulnerable dependencies. Enabling requires alerts to be enabled on the owner level. (Note for importing: GitHub enables the alerts on public repos but disables them on private repos by default.) See [GitHub Documentation](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for details.
+        :param pulumi.Input[bool] vulnerability_alerts: Set to `true` to enable security alerts for vulnerable dependencies. Enabling requires alerts to be enabled on the owner level. (Note for importing: GitHub enables the alerts on public repos but disables them on private repos by default.) See [GitHub Documentation](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for details. Note that vulnerability alerts have not been successfully tested on any GitHub Enterprise instance and may be unavailable in those settings.
         """
         if allow_merge_commit is not None:
             pulumi.set(__self__, "allow_merge_commit", allow_merge_commit)
@@ -959,7 +959,7 @@ class _RepositoryState:
     @pulumi.getter(name="vulnerabilityAlerts")
     def vulnerability_alerts(self) -> Optional[pulumi.Input[bool]]:
         """
-        Set to `true` to enable security alerts for vulnerable dependencies. Enabling requires alerts to be enabled on the owner level. (Note for importing: GitHub enables the alerts on public repos but disables them on private repos by default.) See [GitHub Documentation](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for details.
+        Set to `true` to enable security alerts for vulnerable dependencies. Enabling requires alerts to be enabled on the owner level. (Note for importing: GitHub enables the alerts on public repos but disables them on private repos by default.) See [GitHub Documentation](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for details. Note that vulnerability alerts have not been successfully tested on any GitHub Enterprise instance and may be unavailable in those settings.
         """
         return pulumi.get(self, "vulnerability_alerts")
 
@@ -1071,7 +1071,7 @@ class Repository(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['RepositoryTemplateArgs']] template: Use a template repository to create this resource. See Template Repositories below for details.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] topics: The list of topics of the repository.
         :param pulumi.Input[str] visibility: Can be `public` or `private`. If your organization is associated with an enterprise account using GitHub Enterprise Cloud or GitHub Enterprise Server 2.20+, visibility can also be `internal`. The `visibility` parameter overrides the `private` parameter.
-        :param pulumi.Input[bool] vulnerability_alerts: Set to `true` to enable security alerts for vulnerable dependencies. Enabling requires alerts to be enabled on the owner level. (Note for importing: GitHub enables the alerts on public repos but disables them on private repos by default.) See [GitHub Documentation](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for details.
+        :param pulumi.Input[bool] vulnerability_alerts: Set to `true` to enable security alerts for vulnerable dependencies. Enabling requires alerts to be enabled on the owner level. (Note for importing: GitHub enables the alerts on public repos but disables them on private repos by default.) See [GitHub Documentation](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for details. Note that vulnerability alerts have not been successfully tested on any GitHub Enterprise instance and may be unavailable in those settings.
         """
         ...
     @overload
@@ -1298,7 +1298,7 @@ class Repository(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['RepositoryTemplateArgs']] template: Use a template repository to create this resource. See Template Repositories below for details.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] topics: The list of topics of the repository.
         :param pulumi.Input[str] visibility: Can be `public` or `private`. If your organization is associated with an enterprise account using GitHub Enterprise Cloud or GitHub Enterprise Server 2.20+, visibility can also be `internal`. The `visibility` parameter overrides the `private` parameter.
-        :param pulumi.Input[bool] vulnerability_alerts: Set to `true` to enable security alerts for vulnerable dependencies. Enabling requires alerts to be enabled on the owner level. (Note for importing: GitHub enables the alerts on public repos but disables them on private repos by default.) See [GitHub Documentation](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for details.
+        :param pulumi.Input[bool] vulnerability_alerts: Set to `true` to enable security alerts for vulnerable dependencies. Enabling requires alerts to be enabled on the owner level. (Note for importing: GitHub enables the alerts on public repos but disables them on private repos by default.) See [GitHub Documentation](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for details. Note that vulnerability alerts have not been successfully tested on any GitHub Enterprise instance and may be unavailable in those settings.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1601,7 +1601,7 @@ class Repository(pulumi.CustomResource):
     @pulumi.getter(name="vulnerabilityAlerts")
     def vulnerability_alerts(self) -> pulumi.Output[Optional[bool]]:
         """
-        Set to `true` to enable security alerts for vulnerable dependencies. Enabling requires alerts to be enabled on the owner level. (Note for importing: GitHub enables the alerts on public repos but disables them on private repos by default.) See [GitHub Documentation](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for details.
+        Set to `true` to enable security alerts for vulnerable dependencies. Enabling requires alerts to be enabled on the owner level. (Note for importing: GitHub enables the alerts on public repos but disables them on private repos by default.) See [GitHub Documentation](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for details. Note that vulnerability alerts have not been successfully tested on any GitHub Enterprise instance and may be unavailable in those settings.
         """
         return pulumi.get(self, "vulnerability_alerts")
 

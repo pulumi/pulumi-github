@@ -85,6 +85,9 @@ export interface GetRepositoryPullRequestsResult {
      */
     readonly baseRef?: string;
     readonly baseRepository: string;
+    /**
+     * Value of the Pull Request `HEAD` reference.
+     */
     readonly headRef?: string;
     /**
      * The provider-assigned unique ID for this managed resource.

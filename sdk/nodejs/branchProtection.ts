@@ -35,6 +35,7 @@ import * as utilities from "./utilities";
  *     }],
  *     requiredPullRequestReviews: [{
  *         dismissStaleReviews: true,
+ *         restrictDismissals: true,
  *         dismissalRestrictions: [
  *             exampleUser.then(exampleUser => exampleUser.nodeId),
  *             exampleTeam.nodeId,

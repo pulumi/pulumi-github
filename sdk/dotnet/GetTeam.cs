@@ -87,6 +87,10 @@ namespace Pulumi.Github
         /// the team's privacy type.
         /// </summary>
         public readonly string Privacy;
+        /// <summary>
+        /// List of team repositories
+        /// </summary>
+        public readonly ImmutableArray<string> Repositories;
         public readonly string Slug;
 
         [OutputConstructor]
@@ -105,6 +109,8 @@ namespace Pulumi.Github
 
             string privacy,
 
+            ImmutableArray<string> repositories,
+
             string slug)
         {
             Description = description;
@@ -114,6 +120,7 @@ namespace Pulumi.Github
             NodeId = nodeId;
             Permission = permission;
             Privacy = privacy;
+            Repositories = repositories;
             Slug = slug;
         }
     }

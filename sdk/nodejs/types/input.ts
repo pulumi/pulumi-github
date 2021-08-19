@@ -9,6 +9,7 @@ export interface BranchProtectionRequiredPullRequestReview {
     dismissalRestrictions?: pulumi.Input<pulumi.Input<string>[]>;
     requireCodeOwnerReviews?: pulumi.Input<boolean>;
     requiredApprovingReviewCount?: pulumi.Input<number>;
+    restrictDismissals?: pulumi.Input<boolean>;
 }
 
 export interface BranchProtectionRequiredStatusCheck {
@@ -57,6 +58,28 @@ export interface ProviderAppAuth {
     id: pulumi.Input<string>;
     installationId: pulumi.Input<string>;
     pemFile: pulumi.Input<string>;
+}
+
+export interface RepositoryEnvironmentDeploymentBranchPolicy {
+    /**
+     * Whether only branches that match the specified name patterns can deploy to this environment.
+     */
+    customBranchPolicies: pulumi.Input<boolean>;
+    /**
+     * Whether only branches with branch protection rules can deploy to this environment.
+     */
+    protectedBranches: pulumi.Input<boolean>;
+}
+
+export interface RepositoryEnvironmentReviewer {
+    /**
+     * Up to 6 IDs for teams who may review jobs that reference the environment. Reviewers must have at least read access to the repository. Only one of the required reviewers needs to approve the job for it to proceed.
+     */
+    teams?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * Up to 6 IDs for users who may review jobs that reference the environment. Reviewers must have at least read access to the repository. Only one of the required reviewers needs to approve the job for it to proceed.
+     */
+    users?: pulumi.Input<pulumi.Input<number>[]>;
 }
 
 export interface RepositoryPages {

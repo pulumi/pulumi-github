@@ -38,6 +38,10 @@ namespace Pulumi.Github.Outputs
         /// </summary>
         public readonly string Privacy;
         /// <summary>
+        /// List of team repositories.
+        /// </summary>
+        public readonly ImmutableArray<string> Repositories;
+        /// <summary>
         /// the slug of the team.
         /// </summary>
         public readonly string Slug;
@@ -56,6 +60,8 @@ namespace Pulumi.Github.Outputs
 
             string privacy,
 
+            ImmutableArray<string> repositories,
+
             string slug)
         {
             Description = description;
@@ -64,6 +70,7 @@ namespace Pulumi.Github.Outputs
             Name = name;
             NodeId = nodeId;
             Privacy = privacy;
+            Repositories = repositories;
             Slug = slug;
         }
     }

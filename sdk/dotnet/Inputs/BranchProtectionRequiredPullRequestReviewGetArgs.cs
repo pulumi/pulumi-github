@@ -29,6 +29,9 @@ namespace Pulumi.Github.Inputs
         [Input("requiredApprovingReviewCount")]
         public Input<int>? RequiredApprovingReviewCount { get; set; }
 
+        [Input("restrictDismissals")]
+        public Input<bool>? RestrictDismissals { get; set; }
+
         public BranchProtectionRequiredPullRequestReviewGetArgs()
         {
         }

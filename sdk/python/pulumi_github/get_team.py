@@ -19,7 +19,7 @@ class GetTeamResult:
     """
     A collection of values returned by getTeam.
     """
-    def __init__(__self__, description=None, id=None, members=None, name=None, node_id=None, permission=None, privacy=None, slug=None):
+    def __init__(__self__, description=None, id=None, members=None, name=None, node_id=None, permission=None, privacy=None, repositories=None, slug=None):
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -41,6 +41,9 @@ class GetTeamResult:
         if privacy and not isinstance(privacy, str):
             raise TypeError("Expected argument 'privacy' to be a str")
         pulumi.set(__self__, "privacy", privacy)
+        if repositories and not isinstance(repositories, list):
+            raise TypeError("Expected argument 'repositories' to be a list")
+        pulumi.set(__self__, "repositories", repositories)
         if slug and not isinstance(slug, str):
             raise TypeError("Expected argument 'slug' to be a str")
         pulumi.set(__self__, "slug", slug)
@@ -103,6 +106,14 @@ class GetTeamResult:
 
     @property
     @pulumi.getter
+    def repositories(self) -> Sequence[str]:
+        """
+        List of team repositories
+        """
+        return pulumi.get(self, "repositories")
+
+    @property
+    @pulumi.getter
     def slug(self) -> str:
         return pulumi.get(self, "slug")
 
@@ -120,6 +131,7 @@ class AwaitableGetTeamResult(GetTeamResult):
             node_id=self.node_id,
             permission=self.permission,
             privacy=self.privacy,
+            repositories=self.repositories,
             slug=self.slug)
 
 
@@ -156,4 +168,5 @@ def get_team(slug: Optional[str] = None,
         node_id=__ret__.node_id,
         permission=__ret__.permission,
         privacy=__ret__.privacy,
+        repositories=__ret__.repositories,
         slug=__ret__.slug)

@@ -20,6 +20,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "github:index/actionsEnvironmentSecret:ActionsEnvironmentSecret":
+		r = &ActionsEnvironmentSecret{}
 	case "github:index/actionsOrganizationSecret:ActionsOrganizationSecret":
 		r = &ActionsOrganizationSecret{}
 	case "github:index/actionsSecret:ActionsSecret":
@@ -54,6 +56,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &RepositoryCollaborator{}
 	case "github:index/repositoryDeployKey:RepositoryDeployKey":
 		r = &RepositoryDeployKey{}
+	case "github:index/repositoryEnvironment:RepositoryEnvironment":
+		r = &RepositoryEnvironment{}
 	case "github:index/repositoryFile:RepositoryFile":
 		r = &RepositoryFile{}
 	case "github:index/repositoryMilestone:RepositoryMilestone":
@@ -109,6 +113,11 @@ func init() {
 	if err != nil {
 		fmt.Println("failed to determine package version. defaulting to v1: %v", err)
 	}
+	pulumi.RegisterResourceModule(
+		"github",
+		"index/actionsEnvironmentSecret",
+		&module{version},
+	)
 	pulumi.RegisterResourceModule(
 		"github",
 		"index/actionsOrganizationSecret",
@@ -192,6 +201,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"github",
 		"index/repositoryDeployKey",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"github",
+		"index/repositoryEnvironment",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

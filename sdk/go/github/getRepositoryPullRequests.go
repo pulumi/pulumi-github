@@ -71,7 +71,8 @@ type GetRepositoryPullRequestsResult struct {
 	// Name of the ref (branch) of the Pull Request base.
 	BaseRef        *string `pulumi:"baseRef"`
 	BaseRepository string  `pulumi:"baseRepository"`
-	HeadRef        *string `pulumi:"headRef"`
+	// Value of the Pull Request `HEAD` reference.
+	HeadRef *string `pulumi:"headRef"`
 	// The provider-assigned unique ID for this managed resource.
 	Id    string  `pulumi:"id"`
 	Owner *string `pulumi:"owner"`

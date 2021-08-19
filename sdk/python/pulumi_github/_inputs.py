@@ -16,6 +16,8 @@ __all__ = [
     'BranchProtectionV3RestrictionsArgs',
     'OrganizationWebhookConfigurationArgs',
     'ProviderAppAuthArgs',
+    'RepositoryEnvironmentDeploymentBranchPolicyArgs',
+    'RepositoryEnvironmentReviewerArgs',
     'RepositoryPagesArgs',
     'RepositoryPagesSourceArgs',
     'RepositoryTemplateArgs',
@@ -29,7 +31,8 @@ class BranchProtectionRequiredPullRequestReviewArgs:
                  dismiss_stale_reviews: Optional[pulumi.Input[bool]] = None,
                  dismissal_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  require_code_owner_reviews: Optional[pulumi.Input[bool]] = None,
-                 required_approving_review_count: Optional[pulumi.Input[int]] = None):
+                 required_approving_review_count: Optional[pulumi.Input[int]] = None,
+                 restrict_dismissals: Optional[pulumi.Input[bool]] = None):
         if dismiss_stale_reviews is not None:
             pulumi.set(__self__, "dismiss_stale_reviews", dismiss_stale_reviews)
         if dismissal_restrictions is not None:
@@ -38,6 +41,8 @@ class BranchProtectionRequiredPullRequestReviewArgs:
             pulumi.set(__self__, "require_code_owner_reviews", require_code_owner_reviews)
         if required_approving_review_count is not None:
             pulumi.set(__self__, "required_approving_review_count", required_approving_review_count)
+        if restrict_dismissals is not None:
+            pulumi.set(__self__, "restrict_dismissals", restrict_dismissals)
 
     @property
     @pulumi.getter(name="dismissStaleReviews")
@@ -74,6 +79,15 @@ class BranchProtectionRequiredPullRequestReviewArgs:
     @required_approving_review_count.setter
     def required_approving_review_count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "required_approving_review_count", value)
+
+    @property
+    @pulumi.getter(name="restrictDismissals")
+    def restrict_dismissals(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "restrict_dismissals")
+
+    @restrict_dismissals.setter
+    def restrict_dismissals(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "restrict_dismissals", value)
 
 
 @pulumi.input_type
@@ -364,6 +378,82 @@ class ProviderAppAuthArgs:
     @pem_file.setter
     def pem_file(self, value: pulumi.Input[str]):
         pulumi.set(self, "pem_file", value)
+
+
+@pulumi.input_type
+class RepositoryEnvironmentDeploymentBranchPolicyArgs:
+    def __init__(__self__, *,
+                 custom_branch_policies: pulumi.Input[bool],
+                 protected_branches: pulumi.Input[bool]):
+        """
+        :param pulumi.Input[bool] custom_branch_policies: Whether only branches that match the specified name patterns can deploy to this environment.
+        :param pulumi.Input[bool] protected_branches: Whether only branches with branch protection rules can deploy to this environment.
+        """
+        pulumi.set(__self__, "custom_branch_policies", custom_branch_policies)
+        pulumi.set(__self__, "protected_branches", protected_branches)
+
+    @property
+    @pulumi.getter(name="customBranchPolicies")
+    def custom_branch_policies(self) -> pulumi.Input[bool]:
+        """
+        Whether only branches that match the specified name patterns can deploy to this environment.
+        """
+        return pulumi.get(self, "custom_branch_policies")
+
+    @custom_branch_policies.setter
+    def custom_branch_policies(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "custom_branch_policies", value)
+
+    @property
+    @pulumi.getter(name="protectedBranches")
+    def protected_branches(self) -> pulumi.Input[bool]:
+        """
+        Whether only branches with branch protection rules can deploy to this environment.
+        """
+        return pulumi.get(self, "protected_branches")
+
+    @protected_branches.setter
+    def protected_branches(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "protected_branches", value)
+
+
+@pulumi.input_type
+class RepositoryEnvironmentReviewerArgs:
+    def __init__(__self__, *,
+                 teams: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+                 users: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] teams: Up to 6 IDs for teams who may review jobs that reference the environment. Reviewers must have at least read access to the repository. Only one of the required reviewers needs to approve the job for it to proceed.
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] users: Up to 6 IDs for users who may review jobs that reference the environment. Reviewers must have at least read access to the repository. Only one of the required reviewers needs to approve the job for it to proceed.
+        """
+        if teams is not None:
+            pulumi.set(__self__, "teams", teams)
+        if users is not None:
+            pulumi.set(__self__, "users", users)
+
+    @property
+    @pulumi.getter
+    def teams(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
+        """
+        Up to 6 IDs for teams who may review jobs that reference the environment. Reviewers must have at least read access to the repository. Only one of the required reviewers needs to approve the job for it to proceed.
+        """
+        return pulumi.get(self, "teams")
+
+    @teams.setter
+    def teams(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
+        pulumi.set(self, "teams", value)
+
+    @property
+    @pulumi.getter
+    def users(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
+        """
+        Up to 6 IDs for users who may review jobs that reference the environment. Reviewers must have at least read access to the repository. Only one of the required reviewers needs to approve the job for it to proceed.
+        """
+        return pulumi.get(self, "users")
+
+    @users.setter
+    def users(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
+        pulumi.set(self, "users", value)
 
 
 @pulumi.input_type
