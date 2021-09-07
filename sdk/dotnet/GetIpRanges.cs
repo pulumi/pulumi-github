@@ -42,8 +42,20 @@ namespace Pulumi.Github
     [OutputType]
     public sealed class GetIpRangesResult
     {
+        /// <summary>
+        /// An array of IP addresses in CIDR format specifying the addresses that incoming requests from GitHub actions will originate from.
+        /// </summary>
         public readonly ImmutableArray<string> Actions;
+        public readonly ImmutableArray<string> ActionsIpv4s;
+        public readonly ImmutableArray<string> ActionsIpv6s;
+        public readonly ImmutableArray<string> DependabotIpv4s;
+        public readonly ImmutableArray<string> DependabotIpv6s;
+        /// <summary>
+        /// An array of IP addresses in CIDR format specifying the A records for dependabot.
+        /// </summary>
         public readonly ImmutableArray<string> Dependabots;
+        public readonly ImmutableArray<string> GitIpv4s;
+        public readonly ImmutableArray<string> GitIpv6s;
         /// <summary>
         /// An Array of IP addresses in CIDR format specifying the Git servers.
         /// </summary>
@@ -52,10 +64,14 @@ namespace Pulumi.Github
         /// An Array of IP addresses in CIDR format specifying the addresses that incoming service hooks will originate from.
         /// </summary>
         public readonly ImmutableArray<string> Hooks;
+        public readonly ImmutableArray<string> HooksIpv4s;
+        public readonly ImmutableArray<string> HooksIpv6s;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        public readonly ImmutableArray<string> ImporterIpv4s;
+        public readonly ImmutableArray<string> ImporterIpv6s;
         /// <summary>
         /// An Array of IP addresses in CIDR format specifying the A records for GitHub Importer.
         /// </summary>
@@ -64,30 +80,68 @@ namespace Pulumi.Github
         /// An Array of IP addresses in CIDR format specifying the A records for GitHub Pages.
         /// </summary>
         public readonly ImmutableArray<string> Pages;
+        public readonly ImmutableArray<string> PagesIpv4s;
+        public readonly ImmutableArray<string> PagesIpv6s;
 
         [OutputConstructor]
         private GetIpRangesResult(
             ImmutableArray<string> actions,
 
+            ImmutableArray<string> actionsIpv4s,
+
+            ImmutableArray<string> actionsIpv6s,
+
+            ImmutableArray<string> dependabotIpv4s,
+
+            ImmutableArray<string> dependabotIpv6s,
+
             ImmutableArray<string> dependabots,
+
+            ImmutableArray<string> gitIpv4s,
+
+            ImmutableArray<string> gitIpv6s,
 
             ImmutableArray<string> gits,
 
             ImmutableArray<string> hooks,
 
+            ImmutableArray<string> hooksIpv4s,
+
+            ImmutableArray<string> hooksIpv6s,
+
             string id,
+
+            ImmutableArray<string> importerIpv4s,
+
+            ImmutableArray<string> importerIpv6s,
 
             ImmutableArray<string> importers,
 
-            ImmutableArray<string> pages)
+            ImmutableArray<string> pages,
+
+            ImmutableArray<string> pagesIpv4s,
+
+            ImmutableArray<string> pagesIpv6s)
         {
             Actions = actions;
+            ActionsIpv4s = actionsIpv4s;
+            ActionsIpv6s = actionsIpv6s;
+            DependabotIpv4s = dependabotIpv4s;
+            DependabotIpv6s = dependabotIpv6s;
             Dependabots = dependabots;
+            GitIpv4s = gitIpv4s;
+            GitIpv6s = gitIpv6s;
             Gits = gits;
             Hooks = hooks;
+            HooksIpv4s = hooksIpv4s;
+            HooksIpv6s = hooksIpv6s;
             Id = id;
+            ImporterIpv4s = importerIpv4s;
+            ImporterIpv6s = importerIpv6s;
             Importers = importers;
             Pages = pages;
+            PagesIpv4s = pagesIpv4s;
+            PagesIpv6s = pagesIpv6s;
         }
     }
 }

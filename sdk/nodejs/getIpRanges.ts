@@ -33,8 +33,20 @@ export function getIpRanges(opts?: pulumi.InvokeOptions): Promise<GetIpRangesRes
  * A collection of values returned by getIpRanges.
  */
 export interface GetIpRangesResult {
+    /**
+     * An array of IP addresses in CIDR format specifying the addresses that incoming requests from GitHub actions will originate from.
+     */
     readonly actions: string[];
+    readonly actionsIpv4s: string[];
+    readonly actionsIpv6s: string[];
+    readonly dependabotIpv4s: string[];
+    readonly dependabotIpv6s: string[];
+    /**
+     * An array of IP addresses in CIDR format specifying the A records for dependabot.
+     */
     readonly dependabots: string[];
+    readonly gitIpv4s: string[];
+    readonly gitIpv6s: string[];
     /**
      * An Array of IP addresses in CIDR format specifying the Git servers.
      */
@@ -43,10 +55,14 @@ export interface GetIpRangesResult {
      * An Array of IP addresses in CIDR format specifying the addresses that incoming service hooks will originate from.
      */
     readonly hooks: string[];
+    readonly hooksIpv4s: string[];
+    readonly hooksIpv6s: string[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly importerIpv4s: string[];
+    readonly importerIpv6s: string[];
     /**
      * An Array of IP addresses in CIDR format specifying the A records for GitHub Importer.
      */
@@ -55,4 +71,6 @@ export interface GetIpRangesResult {
      * An Array of IP addresses in CIDR format specifying the A records for GitHub Pages.
      */
     readonly pages: string[];
+    readonly pagesIpv4s: string[];
+    readonly pagesIpv6s: string[];
 }

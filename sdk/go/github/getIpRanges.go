@@ -40,16 +40,30 @@ func GetIpRanges(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetIpRanges
 
 // A collection of values returned by getIpRanges.
 type GetIpRangesResult struct {
-	Actions     []string `pulumi:"actions"`
+	// An array of IP addresses in CIDR format specifying the addresses that incoming requests from GitHub actions will originate from.
+	Actions         []string `pulumi:"actions"`
+	ActionsIpv4s    []string `pulumi:"actionsIpv4s"`
+	ActionsIpv6s    []string `pulumi:"actionsIpv6s"`
+	DependabotIpv4s []string `pulumi:"dependabotIpv4s"`
+	DependabotIpv6s []string `pulumi:"dependabotIpv6s"`
+	// An array of IP addresses in CIDR format specifying the A records for dependabot.
 	Dependabots []string `pulumi:"dependabots"`
+	GitIpv4s    []string `pulumi:"gitIpv4s"`
+	GitIpv6s    []string `pulumi:"gitIpv6s"`
 	// An Array of IP addresses in CIDR format specifying the Git servers.
 	Gits []string `pulumi:"gits"`
 	// An Array of IP addresses in CIDR format specifying the addresses that incoming service hooks will originate from.
-	Hooks []string `pulumi:"hooks"`
+	Hooks      []string `pulumi:"hooks"`
+	HooksIpv4s []string `pulumi:"hooksIpv4s"`
+	HooksIpv6s []string `pulumi:"hooksIpv6s"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id            string   `pulumi:"id"`
+	ImporterIpv4s []string `pulumi:"importerIpv4s"`
+	ImporterIpv6s []string `pulumi:"importerIpv6s"`
 	// An Array of IP addresses in CIDR format specifying the A records for GitHub Importer.
 	Importers []string `pulumi:"importers"`
 	// An Array of IP addresses in CIDR format specifying the A records for GitHub Pages.
-	Pages []string `pulumi:"pages"`
+	Pages      []string `pulumi:"pages"`
+	PagesIpv4s []string `pulumi:"pagesIpv4s"`
+	PagesIpv6s []string `pulumi:"pagesIpv6s"`
 }

@@ -4321,9 +4321,47 @@
                         "type": "array",
                         "items": {
                             "type": "string"
+                        },
+                        "description": "An array of IP addresses in CIDR format specifying the addresses that incoming requests from GitHub actions will originate from.\n"
+                    },
+                    "actionsIpv4s": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "actionsIpv6s": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "dependabotIpv4s": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "dependabotIpv6s": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
                         }
                     },
                     "dependabots": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "An array of IP addresses in CIDR format specifying the A records for dependabot.\n"
+                    },
+                    "gitIpv4s": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "gitIpv6s": {
                         "type": "array",
                         "items": {
                             "type": "string"
@@ -4343,9 +4381,33 @@
                         },
                         "description": "An Array of IP addresses in CIDR format specifying the addresses that incoming service hooks will originate from.\n"
                     },
+                    "hooksIpv4s": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "hooksIpv6s": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
                     "id": {
                         "type": "string",
                         "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "importerIpv4s": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "importerIpv6s": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
                     },
                     "importers": {
                         "type": "array",
@@ -4360,16 +4422,40 @@
                             "type": "string"
                         },
                         "description": "An Array of IP addresses in CIDR format specifying the A records for GitHub Pages.\n"
+                    },
+                    "pagesIpv4s": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "pagesIpv6s": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
                     }
                 },
                 "type": "object",
                 "required": [
                     "actions",
+                    "actionsIpv4s",
+                    "actionsIpv6s",
                     "dependabots",
+                    "dependabotIpv4s",
+                    "dependabotIpv6s",
                     "gits",
+                    "gitIpv4s",
+                    "gitIpv6s",
                     "hooks",
+                    "hooksIpv4s",
+                    "hooksIpv6s",
                     "importers",
+                    "importerIpv4s",
+                    "importerIpv6s",
                     "pages",
+                    "pagesIpv4s",
+                    "pagesIpv6s",
                     "id"
                 ]
             }
