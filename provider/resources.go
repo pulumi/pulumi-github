@@ -121,7 +121,11 @@ func Provider() tfbridge.ProviderInfo {
 			"github_app_installation_repository": {Tok: makeResource(mainMod, "AppInstallationRepository")},
 			"github_repository_pull_request":     {Tok: makeResource(mainMod, "RepositoryPullRequest")},
 			"github_actions_environment_secret":  {Tok: makeResource(mainMod, "ActionsEnvironmentSecret")},
-			"github_repository_environment":      {Tok: makeResource(mainMod, "RepositoryEnvironment")},
+			"github_actions_organization_secret_repositories": {
+				Tok: makeResource(mainMod, "ActionsOrganizationSecretRepositories"),
+			},
+			"github_actions_runner_group":   {Tok: makeResource(mainMod, "ActionsRunnerGroup")},
+			"github_repository_environment": {Tok: makeResource(mainMod, "RepositoryEnvironment")},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			"github_actions_public_key":            {Tok: makeDataSource(mainMod, "getActionsPublicKey")},

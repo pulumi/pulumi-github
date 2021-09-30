@@ -94,6 +94,10 @@ namespace Pulumi.Github
         /// </summary>
         public readonly bool Archived;
         /// <summary>
+        /// The list of this repository's branches. Each element of `branches` has the following attributes:
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetRepositoryBranchResult> Branches;
+        /// <summary>
         /// The name of the default branch of the repository.
         /// </summary>
         public readonly string DefaultBranch;
@@ -138,6 +142,9 @@ namespace Pulumi.Github
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// Name of the branch.
+        /// </summary>
         public readonly string Name;
         /// <summary>
         /// GraphQL global node id for use with v4 API
@@ -181,6 +188,8 @@ namespace Pulumi.Github
             bool allowSquashMerge,
 
             bool archived,
+
+            ImmutableArray<Outputs.GetRepositoryBranchResult> branches,
 
             string defaultBranch,
 
@@ -228,6 +237,7 @@ namespace Pulumi.Github
             AllowRebaseMerge = allowRebaseMerge;
             AllowSquashMerge = allowSquashMerge;
             Archived = archived;
+            Branches = branches;
             DefaultBranch = defaultBranch;
             Description = description;
             FullName = fullName;

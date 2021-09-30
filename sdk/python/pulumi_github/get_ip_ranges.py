@@ -89,21 +89,33 @@ class GetIpRangesResult:
     @property
     @pulumi.getter(name="actionsIpv4s")
     def actions_ipv4s(self) -> Sequence[str]:
+        """
+        A subset of the `actions` array that contains IP addresses in IPv4 CIDR format.
+        """
         return pulumi.get(self, "actions_ipv4s")
 
     @property
     @pulumi.getter(name="actionsIpv6s")
     def actions_ipv6s(self) -> Sequence[str]:
+        """
+        A subset of the `actions` array that contains IP addresses in IPv6 CIDR format.
+        """
         return pulumi.get(self, "actions_ipv6s")
 
     @property
     @pulumi.getter(name="dependabotIpv4s")
     def dependabot_ipv4s(self) -> Sequence[str]:
+        """
+        A subset of the `dependabot` array that contains IP addresses in IPv4 CIDR format.
+        """
         return pulumi.get(self, "dependabot_ipv4s")
 
     @property
     @pulumi.getter(name="dependabotIpv6s")
     def dependabot_ipv6s(self) -> Sequence[str]:
+        """
+        A subset of the `dependabot` array that contains IP addresses in IPv6 CIDR format.
+        """
         return pulumi.get(self, "dependabot_ipv6s")
 
     @property
@@ -117,11 +129,17 @@ class GetIpRangesResult:
     @property
     @pulumi.getter(name="gitIpv4s")
     def git_ipv4s(self) -> Sequence[str]:
+        """
+        A subset of the `git` array that contains IP addresses in IPv4 CIDR format.
+        """
         return pulumi.get(self, "git_ipv4s")
 
     @property
     @pulumi.getter(name="gitIpv6s")
     def git_ipv6s(self) -> Sequence[str]:
+        """
+        A subset of the `git` array that contains IP addresses in IPv6 CIDR format.
+        """
         return pulumi.get(self, "git_ipv6s")
 
     @property
@@ -143,11 +161,17 @@ class GetIpRangesResult:
     @property
     @pulumi.getter(name="hooksIpv4s")
     def hooks_ipv4s(self) -> Sequence[str]:
+        """
+        A subset of the `hooks` array that contains IP addresses in IPv4 CIDR format.
+        """
         return pulumi.get(self, "hooks_ipv4s")
 
     @property
     @pulumi.getter(name="hooksIpv6s")
     def hooks_ipv6s(self) -> Sequence[str]:
+        """
+        A subset of the `hooks` array that contains IP addresses in IPv6 CIDR format.
+        """
         return pulumi.get(self, "hooks_ipv6s")
 
     @property
@@ -161,11 +185,17 @@ class GetIpRangesResult:
     @property
     @pulumi.getter(name="importerIpv4s")
     def importer_ipv4s(self) -> Sequence[str]:
+        """
+        A subset of the `importer` array that contains IP addresses in IPv4 CIDR format.
+        """
         return pulumi.get(self, "importer_ipv4s")
 
     @property
     @pulumi.getter(name="importerIpv6s")
     def importer_ipv6s(self) -> Sequence[str]:
+        """
+        A subset of the `importer` array that contains IP addresses in IPv6 CIDR format.
+        """
         return pulumi.get(self, "importer_ipv6s")
 
     @property
@@ -187,11 +217,17 @@ class GetIpRangesResult:
     @property
     @pulumi.getter(name="pagesIpv4s")
     def pages_ipv4s(self) -> Sequence[str]:
+        """
+        A subset of the `pages` array that contains IP addresses in IPv4 CIDR format.
+        """
         return pulumi.get(self, "pages_ipv4s")
 
     @property
     @pulumi.getter(name="pagesIpv6s")
     def pages_ipv6s(self) -> Sequence[str]:
+        """
+        A subset of the `pages` array that contains IP addresses in IPv6 CIDR format.
+        """
         return pulumi.get(self, "pages_ipv6s")
 
 

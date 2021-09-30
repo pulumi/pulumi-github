@@ -108,6 +108,8 @@ type BranchProtection struct {
 	RepositoryId pulumi.StringOutput `pulumi:"repositoryId"`
 	// Boolean, setting this to `true` requires all commits to be signed with GPG.
 	RequireSignedCommits pulumi.BoolPtrOutput `pulumi:"requireSignedCommits"`
+	// Boolean, setting this to `true` enforces a linear commit Git history, which prevents anyone from pushing merge commits to a branch
+	RequiredLinearHistory pulumi.BoolPtrOutput `pulumi:"requiredLinearHistory"`
 	// Enforce restrictions for pull request reviews. See Required Pull Request Reviews below for details.
 	RequiredPullRequestReviews BranchProtectionRequiredPullRequestReviewArrayOutput `pulumi:"requiredPullRequestReviews"`
 	// Enforce restrictions for required status checks. See Required Status Checks below for details.
@@ -163,6 +165,8 @@ type branchProtectionState struct {
 	RepositoryId *string `pulumi:"repositoryId"`
 	// Boolean, setting this to `true` requires all commits to be signed with GPG.
 	RequireSignedCommits *bool `pulumi:"requireSignedCommits"`
+	// Boolean, setting this to `true` enforces a linear commit Git history, which prevents anyone from pushing merge commits to a branch
+	RequiredLinearHistory *bool `pulumi:"requiredLinearHistory"`
 	// Enforce restrictions for pull request reviews. See Required Pull Request Reviews below for details.
 	RequiredPullRequestReviews []BranchProtectionRequiredPullRequestReview `pulumi:"requiredPullRequestReviews"`
 	// Enforce restrictions for required status checks. See Required Status Checks below for details.
@@ -184,6 +188,8 @@ type BranchProtectionState struct {
 	RepositoryId pulumi.StringPtrInput
 	// Boolean, setting this to `true` requires all commits to be signed with GPG.
 	RequireSignedCommits pulumi.BoolPtrInput
+	// Boolean, setting this to `true` enforces a linear commit Git history, which prevents anyone from pushing merge commits to a branch
+	RequiredLinearHistory pulumi.BoolPtrInput
 	// Enforce restrictions for pull request reviews. See Required Pull Request Reviews below for details.
 	RequiredPullRequestReviews BranchProtectionRequiredPullRequestReviewArrayInput
 	// Enforce restrictions for required status checks. See Required Status Checks below for details.
@@ -209,6 +215,8 @@ type branchProtectionArgs struct {
 	RepositoryId string `pulumi:"repositoryId"`
 	// Boolean, setting this to `true` requires all commits to be signed with GPG.
 	RequireSignedCommits *bool `pulumi:"requireSignedCommits"`
+	// Boolean, setting this to `true` enforces a linear commit Git history, which prevents anyone from pushing merge commits to a branch
+	RequiredLinearHistory *bool `pulumi:"requiredLinearHistory"`
 	// Enforce restrictions for pull request reviews. See Required Pull Request Reviews below for details.
 	RequiredPullRequestReviews []BranchProtectionRequiredPullRequestReview `pulumi:"requiredPullRequestReviews"`
 	// Enforce restrictions for required status checks. See Required Status Checks below for details.
@@ -231,6 +239,8 @@ type BranchProtectionArgs struct {
 	RepositoryId pulumi.StringInput
 	// Boolean, setting this to `true` requires all commits to be signed with GPG.
 	RequireSignedCommits pulumi.BoolPtrInput
+	// Boolean, setting this to `true` enforces a linear commit Git history, which prevents anyone from pushing merge commits to a branch
+	RequiredLinearHistory pulumi.BoolPtrInput
 	// Enforce restrictions for pull request reviews. See Required Pull Request Reviews below for details.
 	RequiredPullRequestReviews BranchProtectionRequiredPullRequestReviewArrayInput
 	// Enforce restrictions for required status checks. See Required Status Checks below for details.

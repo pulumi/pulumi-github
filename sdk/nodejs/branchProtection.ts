@@ -115,6 +115,10 @@ export class BranchProtection extends pulumi.CustomResource {
      */
     public readonly requireSignedCommits!: pulumi.Output<boolean | undefined>;
     /**
+     * Boolean, setting this to `true` enforces a linear commit Git history, which prevents anyone from pushing merge commits to a branch
+     */
+    public readonly requiredLinearHistory!: pulumi.Output<boolean | undefined>;
+    /**
      * Enforce restrictions for pull request reviews. See Required Pull Request Reviews below for details.
      */
     public readonly requiredPullRequestReviews!: pulumi.Output<outputs.BranchProtectionRequiredPullRequestReview[] | undefined>;
@@ -143,6 +147,7 @@ export class BranchProtection extends pulumi.CustomResource {
             inputs["pushRestrictions"] = state ? state.pushRestrictions : undefined;
             inputs["repositoryId"] = state ? state.repositoryId : undefined;
             inputs["requireSignedCommits"] = state ? state.requireSignedCommits : undefined;
+            inputs["requiredLinearHistory"] = state ? state.requiredLinearHistory : undefined;
             inputs["requiredPullRequestReviews"] = state ? state.requiredPullRequestReviews : undefined;
             inputs["requiredStatusChecks"] = state ? state.requiredStatusChecks : undefined;
         } else {
@@ -160,6 +165,7 @@ export class BranchProtection extends pulumi.CustomResource {
             inputs["pushRestrictions"] = args ? args.pushRestrictions : undefined;
             inputs["repositoryId"] = args ? args.repositoryId : undefined;
             inputs["requireSignedCommits"] = args ? args.requireSignedCommits : undefined;
+            inputs["requiredLinearHistory"] = args ? args.requiredLinearHistory : undefined;
             inputs["requiredPullRequestReviews"] = args ? args.requiredPullRequestReviews : undefined;
             inputs["requiredStatusChecks"] = args ? args.requiredStatusChecks : undefined;
         }
@@ -203,6 +209,10 @@ export interface BranchProtectionState {
      */
     requireSignedCommits?: pulumi.Input<boolean>;
     /**
+     * Boolean, setting this to `true` enforces a linear commit Git history, which prevents anyone from pushing merge commits to a branch
+     */
+    requiredLinearHistory?: pulumi.Input<boolean>;
+    /**
      * Enforce restrictions for pull request reviews. See Required Pull Request Reviews below for details.
      */
     requiredPullRequestReviews?: pulumi.Input<pulumi.Input<inputs.BranchProtectionRequiredPullRequestReview>[]>;
@@ -244,6 +254,10 @@ export interface BranchProtectionArgs {
      * Boolean, setting this to `true` requires all commits to be signed with GPG.
      */
     requireSignedCommits?: pulumi.Input<boolean>;
+    /**
+     * Boolean, setting this to `true` enforces a linear commit Git history, which prevents anyone from pushing merge commits to a branch
+     */
+    requiredLinearHistory?: pulumi.Input<boolean>;
     /**
      * Enforce restrictions for pull request reviews. See Required Pull Request Reviews below for details.
      */

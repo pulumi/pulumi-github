@@ -161,6 +161,17 @@ export interface GetOrganizationTeamsTeam {
     slug: string;
 }
 
+export interface GetRepositoryBranch {
+    /**
+     * The name of the repository.
+     */
+    name: string;
+    /**
+     * Whether the branch is protected.
+     */
+    protected: boolean;
+}
+
 export interface GetRepositoryPage {
     cname: string;
     custom404: boolean;

@@ -63,6 +63,8 @@ type LookupRepositoryResult struct {
 	AllowSquashMerge bool `pulumi:"allowSquashMerge"`
 	// Whether the repository is archived.
 	Archived bool `pulumi:"archived"`
+	// The list of this repository's branches. Each element of `branches` has the following attributes:
+	Branches []GetRepositoryBranch `pulumi:"branches"`
 	// The name of the default branch of the repository.
 	DefaultBranch string `pulumi:"defaultBranch"`
 	// A description of the repository.
@@ -85,7 +87,8 @@ type LookupRepositoryResult struct {
 	// URL that can be provided to `git clone` to clone the repository via HTTPS.
 	HttpCloneUrl string `pulumi:"httpCloneUrl"`
 	// The provider-assigned unique ID for this managed resource.
-	Id   string `pulumi:"id"`
+	Id string `pulumi:"id"`
+	// Name of the branch.
 	Name string `pulumi:"name"`
 	// GraphQL global node id for use with v4 API
 	NodeId string `pulumi:"nodeId"`

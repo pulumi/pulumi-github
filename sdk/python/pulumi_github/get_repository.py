@@ -20,7 +20,7 @@ class GetRepositoryResult:
     """
     A collection of values returned by getRepository.
     """
-    def __init__(__self__, allow_merge_commit=None, allow_rebase_merge=None, allow_squash_merge=None, archived=None, default_branch=None, description=None, full_name=None, git_clone_url=None, has_downloads=None, has_issues=None, has_projects=None, has_wiki=None, homepage_url=None, html_url=None, http_clone_url=None, id=None, name=None, node_id=None, pages=None, private=None, repo_id=None, ssh_clone_url=None, svn_url=None, topics=None, visibility=None):
+    def __init__(__self__, allow_merge_commit=None, allow_rebase_merge=None, allow_squash_merge=None, archived=None, branches=None, default_branch=None, description=None, full_name=None, git_clone_url=None, has_downloads=None, has_issues=None, has_projects=None, has_wiki=None, homepage_url=None, html_url=None, http_clone_url=None, id=None, name=None, node_id=None, pages=None, private=None, repo_id=None, ssh_clone_url=None, svn_url=None, topics=None, visibility=None):
         if allow_merge_commit and not isinstance(allow_merge_commit, bool):
             raise TypeError("Expected argument 'allow_merge_commit' to be a bool")
         pulumi.set(__self__, "allow_merge_commit", allow_merge_commit)
@@ -33,6 +33,9 @@ class GetRepositoryResult:
         if archived and not isinstance(archived, bool):
             raise TypeError("Expected argument 'archived' to be a bool")
         pulumi.set(__self__, "archived", archived)
+        if branches and not isinstance(branches, list):
+            raise TypeError("Expected argument 'branches' to be a list")
+        pulumi.set(__self__, "branches", branches)
         if default_branch and not isinstance(default_branch, str):
             raise TypeError("Expected argument 'default_branch' to be a str")
         pulumi.set(__self__, "default_branch", default_branch)
@@ -130,6 +133,14 @@ class GetRepositoryResult:
         return pulumi.get(self, "archived")
 
     @property
+    @pulumi.getter
+    def branches(self) -> Sequence['outputs.GetRepositoryBranchResult']:
+        """
+        The list of this repository's branches. Each element of `branches` has the following attributes:
+        """
+        return pulumi.get(self, "branches")
+
+    @property
     @pulumi.getter(name="defaultBranch")
     def default_branch(self) -> str:
         """
@@ -225,6 +236,9 @@ class GetRepositoryResult:
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        Name of the branch.
+        """
         return pulumi.get(self, "name")
 
     @property
@@ -302,6 +316,7 @@ class AwaitableGetRepositoryResult(GetRepositoryResult):
             allow_rebase_merge=self.allow_rebase_merge,
             allow_squash_merge=self.allow_squash_merge,
             archived=self.archived,
+            branches=self.branches,
             default_branch=self.default_branch,
             description=self.description,
             full_name=self.full_name,
@@ -364,6 +379,7 @@ def get_repository(description: Optional[str] = None,
         allow_rebase_merge=__ret__.allow_rebase_merge,
         allow_squash_merge=__ret__.allow_squash_merge,
         archived=__ret__.archived,
+        branches=__ret__.branches,
         default_branch=__ret__.default_branch,
         description=__ret__.description,
         full_name=__ret__.full_name,
