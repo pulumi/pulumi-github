@@ -79,6 +79,10 @@ export interface GetRepositoryResult {
      */
     readonly archived: boolean;
     /**
+     * The list of this repository's branches. Each element of `branches` has the following attributes:
+     */
+    readonly branches: outputs.GetRepositoryBranch[];
+    /**
      * The name of the default branch of the repository.
      */
     readonly defaultBranch: string;
@@ -123,6 +127,9 @@ export interface GetRepositoryResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * Name of the branch.
+     */
     readonly name: string;
     /**
      * GraphQL global node id for use with v4 API

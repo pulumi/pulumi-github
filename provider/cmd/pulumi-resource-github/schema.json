@@ -924,6 +924,38 @@
                 }
             }
         },
+        "github:index/getRepositoryBranch:getRepositoryBranch": {
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "The name of the repository.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "protected": {
+                    "type": "boolean",
+                    "description": "Whether the branch is protected.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "name",
+                "protected"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
         "github:index/getRepositoryPage:getRepositoryPage": {
             "properties": {
                 "cname": {
@@ -1470,6 +1502,179 @@
                 "type": "object"
             }
         },
+        "github:index/actionsOrganizationSecretRepositories:ActionsOrganizationSecretRepositories": {
+            "description": "This resource allows you to manage repository allow list for existing GitHub Actions secrets within your GitHub organization.\nYou must have write access to an organization secret to use this resource.\n\nThis resource is only applicable when `visibility` of the existing organization secret has been set to `selected`.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\nconst repo = github.getRepository({\n    fullName: \"my-org/repo\",\n});\nconst orgSecretRepos = new github.ActionsOrganizationSecretRepositories(\"orgSecretRepos\", {\n    secretName: \"existing_secret_name\",\n    selectedRepositoryIds: [repo.then(repo =\u003e repo.repoId)],\n});\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\nrepo = github.get_repository(full_name=\"my-org/repo\")\norg_secret_repos = github.ActionsOrganizationSecretRepositories(\"orgSecretRepos\",\n    secret_name=\"existing_secret_name\",\n    selected_repository_ids=[repo.repo_id])\n```\n```csharp\nusing Pulumi;\nusing Github = Pulumi.Github;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var repo = Output.Create(Github.GetRepository.InvokeAsync(new Github.GetRepositoryArgs\n        {\n            FullName = \"my-org/repo\",\n        }));\n        var orgSecretRepos = new Github.ActionsOrganizationSecretRepositories(\"orgSecretRepos\", new Github.ActionsOrganizationSecretRepositoriesArgs\n        {\n            SecretName = \"existing_secret_name\",\n            SelectedRepositoryIds = \n            {\n                repo.Apply(repo =\u003e repo.RepoId),\n            },\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-github/sdk/v4/go/github\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\topt0 := \"my-org/repo\"\n\t\trepo, err := github.LookupRepository(ctx, \u0026github.LookupRepositoryArgs{\n\t\t\tFullName: \u0026opt0,\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = github.NewActionsOrganizationSecretRepositories(ctx, \"orgSecretRepos\", \u0026github.ActionsOrganizationSecretRepositoriesArgs{\n\t\t\tSecretName: pulumi.String(\"existing_secret_name\"),\n\t\t\tSelectedRepositoryIds: pulumi.IntArray{\n\t\t\t\tpulumi.Int(repo.RepoId),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nThis resource can be imported using an ID made up of the secret name\n\n```sh\n $ pulumi import github:index/actionsOrganizationSecretRepositories:ActionsOrganizationSecretRepositories test_secret_repos test_secret_name\n```\n\n ",
+            "properties": {
+                "secretName": {
+                    "type": "string",
+                    "description": "Name of the existing secret\n"
+                },
+                "selectedRepositoryIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    },
+                    "description": "An array of repository ids that can access the organization secret.\n"
+                }
+            },
+            "required": [
+                "secretName",
+                "selectedRepositoryIds"
+            ],
+            "inputProperties": {
+                "secretName": {
+                    "type": "string",
+                    "description": "Name of the existing secret\n"
+                },
+                "selectedRepositoryIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    },
+                    "description": "An array of repository ids that can access the organization secret.\n"
+                }
+            },
+            "requiredInputs": [
+                "secretName",
+                "selectedRepositoryIds"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering ActionsOrganizationSecretRepositories resources.\n",
+                "properties": {
+                    "secretName": {
+                        "type": "string",
+                        "description": "Name of the existing secret\n"
+                    },
+                    "selectedRepositoryIds": {
+                        "type": "array",
+                        "items": {
+                            "type": "integer"
+                        },
+                        "description": "An array of repository ids that can access the organization secret.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "github:index/actionsRunnerGroup:ActionsRunnerGroup": {
+            "description": "This resource allows you to create and manage GitHub Actions runner groups within your GitHub enterprise organizations.\nYou must have admin access to an organization to use this resource.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\nconst exampleRepository = new github.Repository(\"exampleRepository\", {});\nconst exampleActionsRunnerGroup = new github.ActionsRunnerGroup(\"exampleActionsRunnerGroup\", {\n    visibility: \"selected\",\n    selectedRepositoryIds: [exampleRepository.repoId],\n});\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\nexample_repository = github.Repository(\"exampleRepository\")\nexample_actions_runner_group = github.ActionsRunnerGroup(\"exampleActionsRunnerGroup\",\n    visibility=\"selected\",\n    selected_repository_ids=[example_repository.repo_id])\n```\n```csharp\nusing Pulumi;\nusing Github = Pulumi.Github;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var exampleRepository = new Github.Repository(\"exampleRepository\", new Github.RepositoryArgs\n        {\n        });\n        var exampleActionsRunnerGroup = new Github.ActionsRunnerGroup(\"exampleActionsRunnerGroup\", new Github.ActionsRunnerGroupArgs\n        {\n            Visibility = \"selected\",\n            SelectedRepositoryIds = \n            {\n                exampleRepository.RepoId,\n            },\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-github/sdk/v4/go/github\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\texampleRepository, err := github.NewRepository(ctx, \"exampleRepository\", nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = github.NewActionsRunnerGroup(ctx, \"exampleActionsRunnerGroup\", \u0026github.ActionsRunnerGroupArgs{\n\t\t\tVisibility: pulumi.String(\"selected\"),\n\t\t\tSelectedRepositoryIds: pulumi.IntArray{\n\t\t\t\texampleRepository.RepoId,\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nThis resource can be imported using the ID of the runner group\n\n```sh\n $ pulumi import github:index/actionsRunnerGroup:ActionsRunnerGroup test 7\n```\n\n ",
+            "properties": {
+                "allowsPublicRepositories": {
+                    "type": "boolean",
+                    "description": "Whether public repositories can be added to the runner group\n"
+                },
+                "default": {
+                    "type": "boolean",
+                    "description": "Whether this is the default runner group\n"
+                },
+                "etag": {
+                    "type": "string",
+                    "description": "An etag representing the runner group object\n"
+                },
+                "inherited": {
+                    "type": "boolean",
+                    "description": "Whether the runner group is inherited from the enterprise level\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the runner group\n"
+                },
+                "runnersUrl": {
+                    "type": "string",
+                    "description": "The GitHub API URL for the runner group's runners\n"
+                },
+                "selectedRepositoriesUrl": {
+                    "type": "string",
+                    "description": "Github API URL for the runner group's repositories\n"
+                },
+                "selectedRepositoryIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    },
+                    "description": "IDs of the repositories which should be added to the runner group\n"
+                },
+                "visibility": {
+                    "type": "string",
+                    "description": "Visibility of a runner group. Whether the runner group can include `all`, `selected`, or `private` repositories. A value of `private` is not currently supported due to limitations in the GitHub API.\n"
+                }
+            },
+            "required": [
+                "allowsPublicRepositories",
+                "default",
+                "etag",
+                "inherited",
+                "name",
+                "runnersUrl",
+                "selectedRepositoriesUrl",
+                "visibility"
+            ],
+            "inputProperties": {
+                "name": {
+                    "type": "string",
+                    "description": "Name of the runner group\n"
+                },
+                "selectedRepositoryIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    },
+                    "description": "IDs of the repositories which should be added to the runner group\n"
+                },
+                "visibility": {
+                    "type": "string",
+                    "description": "Visibility of a runner group. Whether the runner group can include `all`, `selected`, or `private` repositories. A value of `private` is not currently supported due to limitations in the GitHub API.\n"
+                }
+            },
+            "requiredInputs": [
+                "visibility"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering ActionsRunnerGroup resources.\n",
+                "properties": {
+                    "allowsPublicRepositories": {
+                        "type": "boolean",
+                        "description": "Whether public repositories can be added to the runner group\n"
+                    },
+                    "default": {
+                        "type": "boolean",
+                        "description": "Whether this is the default runner group\n"
+                    },
+                    "etag": {
+                        "type": "string",
+                        "description": "An etag representing the runner group object\n"
+                    },
+                    "inherited": {
+                        "type": "boolean",
+                        "description": "Whether the runner group is inherited from the enterprise level\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Name of the runner group\n"
+                    },
+                    "runnersUrl": {
+                        "type": "string",
+                        "description": "The GitHub API URL for the runner group's runners\n"
+                    },
+                    "selectedRepositoriesUrl": {
+                        "type": "string",
+                        "description": "Github API URL for the runner group's repositories\n"
+                    },
+                    "selectedRepositoryIds": {
+                        "type": "array",
+                        "items": {
+                            "type": "integer"
+                        },
+                        "description": "IDs of the repositories which should be added to the runner group\n"
+                    },
+                    "visibility": {
+                        "type": "string",
+                        "description": "Visibility of a runner group. Whether the runner group can include `all`, `selected`, or `private` repositories. A value of `private` is not currently supported due to limitations in the GitHub API.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
         "github:index/actionsSecret:ActionsSecret": {
             "properties": {
                 "createdAt": {
@@ -1799,6 +2004,10 @@
                     "type": "boolean",
                     "description": "Boolean, setting this to `true` requires all commits to be signed with GPG.\n"
                 },
+                "requiredLinearHistory": {
+                    "type": "boolean",
+                    "description": "Boolean, setting this to `true` enforces a linear commit Git history, which prevents anyone from pushing merge commits to a branch\n"
+                },
                 "requiredPullRequestReviews": {
                     "type": "array",
                     "items": {
@@ -1849,6 +2058,10 @@
                 "requireSignedCommits": {
                     "type": "boolean",
                     "description": "Boolean, setting this to `true` requires all commits to be signed with GPG.\n"
+                },
+                "requiredLinearHistory": {
+                    "type": "boolean",
+                    "description": "Boolean, setting this to `true` enforces a linear commit Git history, which prevents anyone from pushing merge commits to a branch\n"
                 },
                 "requiredPullRequestReviews": {
                     "type": "array",
@@ -1902,6 +2115,10 @@
                     "requireSignedCommits": {
                         "type": "boolean",
                         "description": "Boolean, setting this to `true` requires all commits to be signed with GPG.\n"
+                    },
+                    "requiredLinearHistory": {
+                        "type": "boolean",
+                        "description": "Boolean, setting this to `true` enforces a linear commit Git history, which prevents anyone from pushing merge commits to a branch\n"
                     },
                     "requiredPullRequestReviews": {
                         "type": "array",
@@ -4328,25 +4545,29 @@
                         "type": "array",
                         "items": {
                             "type": "string"
-                        }
+                        },
+                        "description": "A subset of the `actions` array that contains IP addresses in IPv4 CIDR format.\n"
                     },
                     "actionsIpv6s": {
                         "type": "array",
                         "items": {
                             "type": "string"
-                        }
+                        },
+                        "description": "A subset of the `actions` array that contains IP addresses in IPv6 CIDR format.\n"
                     },
                     "dependabotIpv4s": {
                         "type": "array",
                         "items": {
                             "type": "string"
-                        }
+                        },
+                        "description": "A subset of the `dependabot` array that contains IP addresses in IPv4 CIDR format.\n"
                     },
                     "dependabotIpv6s": {
                         "type": "array",
                         "items": {
                             "type": "string"
-                        }
+                        },
+                        "description": "A subset of the `dependabot` array that contains IP addresses in IPv6 CIDR format.\n"
                     },
                     "dependabots": {
                         "type": "array",
@@ -4359,13 +4580,15 @@
                         "type": "array",
                         "items": {
                             "type": "string"
-                        }
+                        },
+                        "description": "A subset of the `git` array that contains IP addresses in IPv4 CIDR format.\n"
                     },
                     "gitIpv6s": {
                         "type": "array",
                         "items": {
                             "type": "string"
-                        }
+                        },
+                        "description": "A subset of the `git` array that contains IP addresses in IPv6 CIDR format.\n"
                     },
                     "gits": {
                         "type": "array",
@@ -4385,13 +4608,15 @@
                         "type": "array",
                         "items": {
                             "type": "string"
-                        }
+                        },
+                        "description": "A subset of the `hooks` array that contains IP addresses in IPv4 CIDR format.\n"
                     },
                     "hooksIpv6s": {
                         "type": "array",
                         "items": {
                             "type": "string"
-                        }
+                        },
+                        "description": "A subset of the `hooks` array that contains IP addresses in IPv6 CIDR format.\n"
                     },
                     "id": {
                         "type": "string",
@@ -4401,13 +4626,15 @@
                         "type": "array",
                         "items": {
                             "type": "string"
-                        }
+                        },
+                        "description": "A subset of the `importer` array that contains IP addresses in IPv4 CIDR format.\n"
                     },
                     "importerIpv6s": {
                         "type": "array",
                         "items": {
                             "type": "string"
-                        }
+                        },
+                        "description": "A subset of the `importer` array that contains IP addresses in IPv6 CIDR format.\n"
                     },
                     "importers": {
                         "type": "array",
@@ -4427,13 +4654,15 @@
                         "type": "array",
                         "items": {
                             "type": "string"
-                        }
+                        },
+                        "description": "A subset of the `pages` array that contains IP addresses in IPv4 CIDR format.\n"
                     },
                     "pagesIpv6s": {
                         "type": "array",
                         "items": {
                             "type": "string"
-                        }
+                        },
+                        "description": "A subset of the `pages` array that contains IP addresses in IPv6 CIDR format.\n"
                     }
                 },
                 "type": "object",
@@ -4871,6 +5100,13 @@
                         "type": "boolean",
                         "description": "Whether the repository is archived.\n"
                     },
+                    "branches": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/github:index/getRepositoryBranch:getRepositoryBranch"
+                        },
+                        "description": "The list of this repository's branches. Each element of `branches` has the following attributes:\n"
+                    },
                     "defaultBranch": {
                         "type": "string",
                         "description": "The name of the default branch of the repository.\n"
@@ -4919,7 +5155,8 @@
                         "description": "The provider-assigned unique ID for this managed resource.\n"
                     },
                     "name": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Name of the branch.\n"
                     },
                     "nodeId": {
                         "type": "string",
@@ -4966,6 +5203,7 @@
                     "allowRebaseMerge",
                     "allowSquashMerge",
                     "archived",
+                    "branches",
                     "defaultBranch",
                     "fullName",
                     "gitCloneUrl",

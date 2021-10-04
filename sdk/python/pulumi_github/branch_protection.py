@@ -22,6 +22,7 @@ class BranchProtectionArgs:
                  enforce_admins: Optional[pulumi.Input[bool]] = None,
                  push_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  require_signed_commits: Optional[pulumi.Input[bool]] = None,
+                 required_linear_history: Optional[pulumi.Input[bool]] = None,
                  required_pull_request_reviews: Optional[pulumi.Input[Sequence[pulumi.Input['BranchProtectionRequiredPullRequestReviewArgs']]]] = None,
                  required_status_checks: Optional[pulumi.Input[Sequence[pulumi.Input['BranchProtectionRequiredStatusCheckArgs']]]] = None):
         """
@@ -33,6 +34,7 @@ class BranchProtectionArgs:
         :param pulumi.Input[bool] enforce_admins: Boolean, setting this to `true` enforces status checks for repository administrators.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] push_restrictions: The list of actor IDs that may push to the branch.
         :param pulumi.Input[bool] require_signed_commits: Boolean, setting this to `true` requires all commits to be signed with GPG.
+        :param pulumi.Input[bool] required_linear_history: Boolean, setting this to `true` enforces a linear commit Git history, which prevents anyone from pushing merge commits to a branch
         :param pulumi.Input[Sequence[pulumi.Input['BranchProtectionRequiredPullRequestReviewArgs']]] required_pull_request_reviews: Enforce restrictions for pull request reviews. See Required Pull Request Reviews below for details.
         :param pulumi.Input[Sequence[pulumi.Input['BranchProtectionRequiredStatusCheckArgs']]] required_status_checks: Enforce restrictions for required status checks. See Required Status Checks below for details.
         """
@@ -48,6 +50,8 @@ class BranchProtectionArgs:
             pulumi.set(__self__, "push_restrictions", push_restrictions)
         if require_signed_commits is not None:
             pulumi.set(__self__, "require_signed_commits", require_signed_commits)
+        if required_linear_history is not None:
+            pulumi.set(__self__, "required_linear_history", required_linear_history)
         if required_pull_request_reviews is not None:
             pulumi.set(__self__, "required_pull_request_reviews", required_pull_request_reviews)
         if required_status_checks is not None:
@@ -138,6 +142,18 @@ class BranchProtectionArgs:
         pulumi.set(self, "require_signed_commits", value)
 
     @property
+    @pulumi.getter(name="requiredLinearHistory")
+    def required_linear_history(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Boolean, setting this to `true` enforces a linear commit Git history, which prevents anyone from pushing merge commits to a branch
+        """
+        return pulumi.get(self, "required_linear_history")
+
+    @required_linear_history.setter
+    def required_linear_history(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "required_linear_history", value)
+
+    @property
     @pulumi.getter(name="requiredPullRequestReviews")
     def required_pull_request_reviews(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BranchProtectionRequiredPullRequestReviewArgs']]]]:
         """
@@ -172,6 +188,7 @@ class _BranchProtectionState:
                  push_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  repository_id: Optional[pulumi.Input[str]] = None,
                  require_signed_commits: Optional[pulumi.Input[bool]] = None,
+                 required_linear_history: Optional[pulumi.Input[bool]] = None,
                  required_pull_request_reviews: Optional[pulumi.Input[Sequence[pulumi.Input['BranchProtectionRequiredPullRequestReviewArgs']]]] = None,
                  required_status_checks: Optional[pulumi.Input[Sequence[pulumi.Input['BranchProtectionRequiredStatusCheckArgs']]]] = None):
         """
@@ -183,6 +200,7 @@ class _BranchProtectionState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] push_restrictions: The list of actor IDs that may push to the branch.
         :param pulumi.Input[str] repository_id: The name or node ID of the repository associated with this branch protection rule.
         :param pulumi.Input[bool] require_signed_commits: Boolean, setting this to `true` requires all commits to be signed with GPG.
+        :param pulumi.Input[bool] required_linear_history: Boolean, setting this to `true` enforces a linear commit Git history, which prevents anyone from pushing merge commits to a branch
         :param pulumi.Input[Sequence[pulumi.Input['BranchProtectionRequiredPullRequestReviewArgs']]] required_pull_request_reviews: Enforce restrictions for pull request reviews. See Required Pull Request Reviews below for details.
         :param pulumi.Input[Sequence[pulumi.Input['BranchProtectionRequiredStatusCheckArgs']]] required_status_checks: Enforce restrictions for required status checks. See Required Status Checks below for details.
         """
@@ -200,6 +218,8 @@ class _BranchProtectionState:
             pulumi.set(__self__, "repository_id", repository_id)
         if require_signed_commits is not None:
             pulumi.set(__self__, "require_signed_commits", require_signed_commits)
+        if required_linear_history is not None:
+            pulumi.set(__self__, "required_linear_history", required_linear_history)
         if required_pull_request_reviews is not None:
             pulumi.set(__self__, "required_pull_request_reviews", required_pull_request_reviews)
         if required_status_checks is not None:
@@ -290,6 +310,18 @@ class _BranchProtectionState:
         pulumi.set(self, "require_signed_commits", value)
 
     @property
+    @pulumi.getter(name="requiredLinearHistory")
+    def required_linear_history(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Boolean, setting this to `true` enforces a linear commit Git history, which prevents anyone from pushing merge commits to a branch
+        """
+        return pulumi.get(self, "required_linear_history")
+
+    @required_linear_history.setter
+    def required_linear_history(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "required_linear_history", value)
+
+    @property
     @pulumi.getter(name="requiredPullRequestReviews")
     def required_pull_request_reviews(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BranchProtectionRequiredPullRequestReviewArgs']]]]:
         """
@@ -326,6 +358,7 @@ class BranchProtection(pulumi.CustomResource):
                  push_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  repository_id: Optional[pulumi.Input[str]] = None,
                  require_signed_commits: Optional[pulumi.Input[bool]] = None,
+                 required_linear_history: Optional[pulumi.Input[bool]] = None,
                  required_pull_request_reviews: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BranchProtectionRequiredPullRequestReviewArgs']]]]] = None,
                  required_status_checks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BranchProtectionRequiredStatusCheckArgs']]]]] = None,
                  __props__=None):
@@ -387,6 +420,7 @@ class BranchProtection(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] push_restrictions: The list of actor IDs that may push to the branch.
         :param pulumi.Input[str] repository_id: The name or node ID of the repository associated with this branch protection rule.
         :param pulumi.Input[bool] require_signed_commits: Boolean, setting this to `true` requires all commits to be signed with GPG.
+        :param pulumi.Input[bool] required_linear_history: Boolean, setting this to `true` enforces a linear commit Git history, which prevents anyone from pushing merge commits to a branch
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BranchProtectionRequiredPullRequestReviewArgs']]]] required_pull_request_reviews: Enforce restrictions for pull request reviews. See Required Pull Request Reviews below for details.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BranchProtectionRequiredStatusCheckArgs']]]] required_status_checks: Enforce restrictions for required status checks. See Required Status Checks below for details.
         """
@@ -467,6 +501,7 @@ class BranchProtection(pulumi.CustomResource):
                  push_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  repository_id: Optional[pulumi.Input[str]] = None,
                  require_signed_commits: Optional[pulumi.Input[bool]] = None,
+                 required_linear_history: Optional[pulumi.Input[bool]] = None,
                  required_pull_request_reviews: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BranchProtectionRequiredPullRequestReviewArgs']]]]] = None,
                  required_status_checks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BranchProtectionRequiredStatusCheckArgs']]]]] = None,
                  __props__=None):
@@ -492,6 +527,7 @@ class BranchProtection(pulumi.CustomResource):
                 raise TypeError("Missing required property 'repository_id'")
             __props__.__dict__["repository_id"] = repository_id
             __props__.__dict__["require_signed_commits"] = require_signed_commits
+            __props__.__dict__["required_linear_history"] = required_linear_history
             __props__.__dict__["required_pull_request_reviews"] = required_pull_request_reviews
             __props__.__dict__["required_status_checks"] = required_status_checks
         super(BranchProtection, __self__).__init__(
@@ -511,6 +547,7 @@ class BranchProtection(pulumi.CustomResource):
             push_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             repository_id: Optional[pulumi.Input[str]] = None,
             require_signed_commits: Optional[pulumi.Input[bool]] = None,
+            required_linear_history: Optional[pulumi.Input[bool]] = None,
             required_pull_request_reviews: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BranchProtectionRequiredPullRequestReviewArgs']]]]] = None,
             required_status_checks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BranchProtectionRequiredStatusCheckArgs']]]]] = None) -> 'BranchProtection':
         """
@@ -527,6 +564,7 @@ class BranchProtection(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] push_restrictions: The list of actor IDs that may push to the branch.
         :param pulumi.Input[str] repository_id: The name or node ID of the repository associated with this branch protection rule.
         :param pulumi.Input[bool] require_signed_commits: Boolean, setting this to `true` requires all commits to be signed with GPG.
+        :param pulumi.Input[bool] required_linear_history: Boolean, setting this to `true` enforces a linear commit Git history, which prevents anyone from pushing merge commits to a branch
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BranchProtectionRequiredPullRequestReviewArgs']]]] required_pull_request_reviews: Enforce restrictions for pull request reviews. See Required Pull Request Reviews below for details.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BranchProtectionRequiredStatusCheckArgs']]]] required_status_checks: Enforce restrictions for required status checks. See Required Status Checks below for details.
         """
@@ -541,6 +579,7 @@ class BranchProtection(pulumi.CustomResource):
         __props__.__dict__["push_restrictions"] = push_restrictions
         __props__.__dict__["repository_id"] = repository_id
         __props__.__dict__["require_signed_commits"] = require_signed_commits
+        __props__.__dict__["required_linear_history"] = required_linear_history
         __props__.__dict__["required_pull_request_reviews"] = required_pull_request_reviews
         __props__.__dict__["required_status_checks"] = required_status_checks
         return BranchProtection(resource_name, opts=opts, __props__=__props__)
@@ -600,6 +639,14 @@ class BranchProtection(pulumi.CustomResource):
         Boolean, setting this to `true` requires all commits to be signed with GPG.
         """
         return pulumi.get(self, "require_signed_commits")
+
+    @property
+    @pulumi.getter(name="requiredLinearHistory")
+    def required_linear_history(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Boolean, setting this to `true` enforces a linear commit Git history, which prevents anyone from pushing merge commits to a branch
+        """
+        return pulumi.get(self, "required_linear_history")
 
     @property
     @pulumi.getter(name="requiredPullRequestReviews")

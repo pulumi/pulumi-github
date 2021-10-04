@@ -137,6 +137,12 @@ namespace Pulumi.Github
         public Output<bool?> RequireSignedCommits { get; private set; } = null!;
 
         /// <summary>
+        /// Boolean, setting this to `true` enforces a linear commit Git history, which prevents anyone from pushing merge commits to a branch
+        /// </summary>
+        [Output("requiredLinearHistory")]
+        public Output<bool?> RequiredLinearHistory { get; private set; } = null!;
+
+        /// <summary>
         /// Enforce restrictions for pull request reviews. See Required Pull Request Reviews below for details.
         /// </summary>
         [Output("requiredPullRequestReviews")]
@@ -242,6 +248,12 @@ namespace Pulumi.Github
         [Input("requireSignedCommits")]
         public Input<bool>? RequireSignedCommits { get; set; }
 
+        /// <summary>
+        /// Boolean, setting this to `true` enforces a linear commit Git history, which prevents anyone from pushing merge commits to a branch
+        /// </summary>
+        [Input("requiredLinearHistory")]
+        public Input<bool>? RequiredLinearHistory { get; set; }
+
         [Input("requiredPullRequestReviews")]
         private InputList<Inputs.BranchProtectionRequiredPullRequestReviewArgs>? _requiredPullRequestReviews;
 
@@ -320,6 +332,12 @@ namespace Pulumi.Github
         /// </summary>
         [Input("requireSignedCommits")]
         public Input<bool>? RequireSignedCommits { get; set; }
+
+        /// <summary>
+        /// Boolean, setting this to `true` enforces a linear commit Git history, which prevents anyone from pushing merge commits to a branch
+        /// </summary>
+        [Input("requiredLinearHistory")]
+        public Input<bool>? RequiredLinearHistory { get; set; }
 
         [Input("requiredPullRequestReviews")]
         private InputList<Inputs.BranchProtectionRequiredPullRequestReviewGetArgs>? _requiredPullRequestReviews;

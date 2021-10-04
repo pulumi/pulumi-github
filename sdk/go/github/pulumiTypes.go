@@ -2650,6 +2650,112 @@ func (o GetOrganizationTeamsTeamArrayOutput) Index(i pulumi.IntInput) GetOrganiz
 	}).(GetOrganizationTeamsTeamOutput)
 }
 
+type GetRepositoryBranch struct {
+	// The name of the repository.
+	Name string `pulumi:"name"`
+	// Whether the branch is protected.
+	Protected bool `pulumi:"protected"`
+}
+
+// GetRepositoryBranchInput is an input type that accepts GetRepositoryBranchArgs and GetRepositoryBranchOutput values.
+// You can construct a concrete instance of `GetRepositoryBranchInput` via:
+//
+//          GetRepositoryBranchArgs{...}
+type GetRepositoryBranchInput interface {
+	pulumi.Input
+
+	ToGetRepositoryBranchOutput() GetRepositoryBranchOutput
+	ToGetRepositoryBranchOutputWithContext(context.Context) GetRepositoryBranchOutput
+}
+
+type GetRepositoryBranchArgs struct {
+	// The name of the repository.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Whether the branch is protected.
+	Protected pulumi.BoolInput `pulumi:"protected"`
+}
+
+func (GetRepositoryBranchArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRepositoryBranch)(nil)).Elem()
+}
+
+func (i GetRepositoryBranchArgs) ToGetRepositoryBranchOutput() GetRepositoryBranchOutput {
+	return i.ToGetRepositoryBranchOutputWithContext(context.Background())
+}
+
+func (i GetRepositoryBranchArgs) ToGetRepositoryBranchOutputWithContext(ctx context.Context) GetRepositoryBranchOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRepositoryBranchOutput)
+}
+
+// GetRepositoryBranchArrayInput is an input type that accepts GetRepositoryBranchArray and GetRepositoryBranchArrayOutput values.
+// You can construct a concrete instance of `GetRepositoryBranchArrayInput` via:
+//
+//          GetRepositoryBranchArray{ GetRepositoryBranchArgs{...} }
+type GetRepositoryBranchArrayInput interface {
+	pulumi.Input
+
+	ToGetRepositoryBranchArrayOutput() GetRepositoryBranchArrayOutput
+	ToGetRepositoryBranchArrayOutputWithContext(context.Context) GetRepositoryBranchArrayOutput
+}
+
+type GetRepositoryBranchArray []GetRepositoryBranchInput
+
+func (GetRepositoryBranchArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRepositoryBranch)(nil)).Elem()
+}
+
+func (i GetRepositoryBranchArray) ToGetRepositoryBranchArrayOutput() GetRepositoryBranchArrayOutput {
+	return i.ToGetRepositoryBranchArrayOutputWithContext(context.Background())
+}
+
+func (i GetRepositoryBranchArray) ToGetRepositoryBranchArrayOutputWithContext(ctx context.Context) GetRepositoryBranchArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRepositoryBranchArrayOutput)
+}
+
+type GetRepositoryBranchOutput struct{ *pulumi.OutputState }
+
+func (GetRepositoryBranchOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRepositoryBranch)(nil)).Elem()
+}
+
+func (o GetRepositoryBranchOutput) ToGetRepositoryBranchOutput() GetRepositoryBranchOutput {
+	return o
+}
+
+func (o GetRepositoryBranchOutput) ToGetRepositoryBranchOutputWithContext(ctx context.Context) GetRepositoryBranchOutput {
+	return o
+}
+
+// The name of the repository.
+func (o GetRepositoryBranchOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRepositoryBranch) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Whether the branch is protected.
+func (o GetRepositoryBranchOutput) Protected() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetRepositoryBranch) bool { return v.Protected }).(pulumi.BoolOutput)
+}
+
+type GetRepositoryBranchArrayOutput struct{ *pulumi.OutputState }
+
+func (GetRepositoryBranchArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRepositoryBranch)(nil)).Elem()
+}
+
+func (o GetRepositoryBranchArrayOutput) ToGetRepositoryBranchArrayOutput() GetRepositoryBranchArrayOutput {
+	return o
+}
+
+func (o GetRepositoryBranchArrayOutput) ToGetRepositoryBranchArrayOutputWithContext(ctx context.Context) GetRepositoryBranchArrayOutput {
+	return o
+}
+
+func (o GetRepositoryBranchArrayOutput) Index(i pulumi.IntInput) GetRepositoryBranchOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRepositoryBranch {
+		return vs[0].([]GetRepositoryBranch)[vs[1].(int)]
+	}).(GetRepositoryBranchOutput)
+}
+
 type GetRepositoryPage struct {
 	Cname     string `pulumi:"cname"`
 	Custom404 bool   `pulumi:"custom404"`
@@ -3144,6 +3250,8 @@ func init() {
 	pulumi.RegisterOutputType(GetOrganizationTeamSyncGroupsGroupArrayOutput{})
 	pulumi.RegisterOutputType(GetOrganizationTeamsTeamOutput{})
 	pulumi.RegisterOutputType(GetOrganizationTeamsTeamArrayOutput{})
+	pulumi.RegisterOutputType(GetRepositoryBranchOutput{})
+	pulumi.RegisterOutputType(GetRepositoryBranchArrayOutput{})
 	pulumi.RegisterOutputType(GetRepositoryPageOutput{})
 	pulumi.RegisterOutputType(GetRepositoryPageArrayOutput{})
 	pulumi.RegisterOutputType(GetRepositoryPageSourceOutput{})

@@ -46,15 +46,33 @@ namespace Pulumi.Github
         /// An array of IP addresses in CIDR format specifying the addresses that incoming requests from GitHub actions will originate from.
         /// </summary>
         public readonly ImmutableArray<string> Actions;
+        /// <summary>
+        /// A subset of the `actions` array that contains IP addresses in IPv4 CIDR format.
+        /// </summary>
         public readonly ImmutableArray<string> ActionsIpv4s;
+        /// <summary>
+        /// A subset of the `actions` array that contains IP addresses in IPv6 CIDR format.
+        /// </summary>
         public readonly ImmutableArray<string> ActionsIpv6s;
+        /// <summary>
+        /// A subset of the `dependabot` array that contains IP addresses in IPv4 CIDR format.
+        /// </summary>
         public readonly ImmutableArray<string> DependabotIpv4s;
+        /// <summary>
+        /// A subset of the `dependabot` array that contains IP addresses in IPv6 CIDR format.
+        /// </summary>
         public readonly ImmutableArray<string> DependabotIpv6s;
         /// <summary>
         /// An array of IP addresses in CIDR format specifying the A records for dependabot.
         /// </summary>
         public readonly ImmutableArray<string> Dependabots;
+        /// <summary>
+        /// A subset of the `git` array that contains IP addresses in IPv4 CIDR format.
+        /// </summary>
         public readonly ImmutableArray<string> GitIpv4s;
+        /// <summary>
+        /// A subset of the `git` array that contains IP addresses in IPv6 CIDR format.
+        /// </summary>
         public readonly ImmutableArray<string> GitIpv6s;
         /// <summary>
         /// An Array of IP addresses in CIDR format specifying the Git servers.
@@ -64,13 +82,25 @@ namespace Pulumi.Github
         /// An Array of IP addresses in CIDR format specifying the addresses that incoming service hooks will originate from.
         /// </summary>
         public readonly ImmutableArray<string> Hooks;
+        /// <summary>
+        /// A subset of the `hooks` array that contains IP addresses in IPv4 CIDR format.
+        /// </summary>
         public readonly ImmutableArray<string> HooksIpv4s;
+        /// <summary>
+        /// A subset of the `hooks` array that contains IP addresses in IPv6 CIDR format.
+        /// </summary>
         public readonly ImmutableArray<string> HooksIpv6s;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// A subset of the `importer` array that contains IP addresses in IPv4 CIDR format.
+        /// </summary>
         public readonly ImmutableArray<string> ImporterIpv4s;
+        /// <summary>
+        /// A subset of the `importer` array that contains IP addresses in IPv6 CIDR format.
+        /// </summary>
         public readonly ImmutableArray<string> ImporterIpv6s;
         /// <summary>
         /// An Array of IP addresses in CIDR format specifying the A records for GitHub Importer.
@@ -80,7 +110,13 @@ namespace Pulumi.Github
         /// An Array of IP addresses in CIDR format specifying the A records for GitHub Pages.
         /// </summary>
         public readonly ImmutableArray<string> Pages;
+        /// <summary>
+        /// A subset of the `pages` array that contains IP addresses in IPv4 CIDR format.
+        /// </summary>
         public readonly ImmutableArray<string> PagesIpv4s;
+        /// <summary>
+        /// A subset of the `pages` array that contains IP addresses in IPv6 CIDR format.
+        /// </summary>
         public readonly ImmutableArray<string> PagesIpv6s;
 
         [OutputConstructor]

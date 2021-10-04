@@ -27,6 +27,7 @@ __all__ = [
     'GetCollaboratorsCollaboratorResult',
     'GetOrganizationTeamSyncGroupsGroupResult',
     'GetOrganizationTeamsTeamResult',
+    'GetRepositoryBranchResult',
     'GetRepositoryPageResult',
     'GetRepositoryPageSourceResult',
     'GetRepositoryPullRequestsResultResult',
@@ -1022,6 +1023,35 @@ class GetOrganizationTeamsTeamResult(dict):
         the slug of the team.
         """
         return pulumi.get(self, "slug")
+
+
+@pulumi.output_type
+class GetRepositoryBranchResult(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 protected: bool):
+        """
+        :param str name: The name of the repository.
+        :param bool protected: Whether the branch is protected.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "protected", protected)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the repository.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def protected(self) -> bool:
+        """
+        Whether the branch is protected.
+        """
+        return pulumi.get(self, "protected")
 
 
 @pulumi.output_type

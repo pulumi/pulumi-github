@@ -7,6 +7,8 @@ import * as utilities from "./utilities";
 // Export members:
 export * from "./actionsEnvironmentSecret";
 export * from "./actionsOrganizationSecret";
+export * from "./actionsOrganizationSecretRepositories";
+export * from "./actionsRunnerGroup";
 export * from "./actionsSecret";
 export * from "./appInstallationRepository";
 export * from "./branch";
@@ -66,6 +68,8 @@ export {
 // Import resources to register:
 import { ActionsEnvironmentSecret } from "./actionsEnvironmentSecret";
 import { ActionsOrganizationSecret } from "./actionsOrganizationSecret";
+import { ActionsOrganizationSecretRepositories } from "./actionsOrganizationSecretRepositories";
+import { ActionsRunnerGroup } from "./actionsRunnerGroup";
 import { ActionsSecret } from "./actionsSecret";
 import { AppInstallationRepository } from "./appInstallationRepository";
 import { Branch } from "./branch";
@@ -104,6 +108,10 @@ const _module = {
                 return new ActionsEnvironmentSecret(name, <any>undefined, { urn })
             case "github:index/actionsOrganizationSecret:ActionsOrganizationSecret":
                 return new ActionsOrganizationSecret(name, <any>undefined, { urn })
+            case "github:index/actionsOrganizationSecretRepositories:ActionsOrganizationSecretRepositories":
+                return new ActionsOrganizationSecretRepositories(name, <any>undefined, { urn })
+            case "github:index/actionsRunnerGroup:ActionsRunnerGroup":
+                return new ActionsRunnerGroup(name, <any>undefined, { urn })
             case "github:index/actionsSecret:ActionsSecret":
                 return new ActionsSecret(name, <any>undefined, { urn })
             case "github:index/appInstallationRepository:AppInstallationRepository":
@@ -169,6 +177,8 @@ const _module = {
 };
 pulumi.runtime.registerResourceModule("github", "index/actionsEnvironmentSecret", _module)
 pulumi.runtime.registerResourceModule("github", "index/actionsOrganizationSecret", _module)
+pulumi.runtime.registerResourceModule("github", "index/actionsOrganizationSecretRepositories", _module)
+pulumi.runtime.registerResourceModule("github", "index/actionsRunnerGroup", _module)
 pulumi.runtime.registerResourceModule("github", "index/actionsSecret", _module)
 pulumi.runtime.registerResourceModule("github", "index/appInstallationRepository", _module)
 pulumi.runtime.registerResourceModule("github", "index/branch", _module)

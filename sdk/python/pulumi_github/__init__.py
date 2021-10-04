@@ -7,6 +7,8 @@ import typing
 # Export this package's modules as members:
 from .actions_environment_secret import *
 from .actions_organization_secret import *
+from .actions_organization_secret_repositories import *
+from .actions_runner_group import *
 from .actions_secret import *
 from .app_installation_repository import *
 from .branch import *
@@ -79,6 +81,22 @@ _utilities.register(
   "fqn": "pulumi_github",
   "classes": {
    "github:index/actionsOrganizationSecret:ActionsOrganizationSecret": "ActionsOrganizationSecret"
+  }
+ },
+ {
+  "pkg": "github",
+  "mod": "index/actionsOrganizationSecretRepositories",
+  "fqn": "pulumi_github",
+  "classes": {
+   "github:index/actionsOrganizationSecretRepositories:ActionsOrganizationSecretRepositories": "ActionsOrganizationSecretRepositories"
+  }
+ },
+ {
+  "pkg": "github",
+  "mod": "index/actionsRunnerGroup",
+  "fqn": "pulumi_github",
+  "classes": {
+   "github:index/actionsRunnerGroup:ActionsRunnerGroup": "ActionsRunnerGroup"
   }
  },
  {

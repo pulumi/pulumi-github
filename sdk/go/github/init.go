@@ -24,6 +24,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ActionsEnvironmentSecret{}
 	case "github:index/actionsOrganizationSecret:ActionsOrganizationSecret":
 		r = &ActionsOrganizationSecret{}
+	case "github:index/actionsOrganizationSecretRepositories:ActionsOrganizationSecretRepositories":
+		r = &ActionsOrganizationSecretRepositories{}
+	case "github:index/actionsRunnerGroup:ActionsRunnerGroup":
+		r = &ActionsRunnerGroup{}
 	case "github:index/actionsSecret:ActionsSecret":
 		r = &ActionsSecret{}
 	case "github:index/appInstallationRepository:AppInstallationRepository":
@@ -121,6 +125,16 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"github",
 		"index/actionsOrganizationSecret",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"github",
+		"index/actionsOrganizationSecretRepositories",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"github",
+		"index/actionsRunnerGroup",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

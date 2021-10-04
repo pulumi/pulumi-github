@@ -37,15 +37,33 @@ export interface GetIpRangesResult {
      * An array of IP addresses in CIDR format specifying the addresses that incoming requests from GitHub actions will originate from.
      */
     readonly actions: string[];
+    /**
+     * A subset of the `actions` array that contains IP addresses in IPv4 CIDR format.
+     */
     readonly actionsIpv4s: string[];
+    /**
+     * A subset of the `actions` array that contains IP addresses in IPv6 CIDR format.
+     */
     readonly actionsIpv6s: string[];
+    /**
+     * A subset of the `dependabot` array that contains IP addresses in IPv4 CIDR format.
+     */
     readonly dependabotIpv4s: string[];
+    /**
+     * A subset of the `dependabot` array that contains IP addresses in IPv6 CIDR format.
+     */
     readonly dependabotIpv6s: string[];
     /**
      * An array of IP addresses in CIDR format specifying the A records for dependabot.
      */
     readonly dependabots: string[];
+    /**
+     * A subset of the `git` array that contains IP addresses in IPv4 CIDR format.
+     */
     readonly gitIpv4s: string[];
+    /**
+     * A subset of the `git` array that contains IP addresses in IPv6 CIDR format.
+     */
     readonly gitIpv6s: string[];
     /**
      * An Array of IP addresses in CIDR format specifying the Git servers.
@@ -55,13 +73,25 @@ export interface GetIpRangesResult {
      * An Array of IP addresses in CIDR format specifying the addresses that incoming service hooks will originate from.
      */
     readonly hooks: string[];
+    /**
+     * A subset of the `hooks` array that contains IP addresses in IPv4 CIDR format.
+     */
     readonly hooksIpv4s: string[];
+    /**
+     * A subset of the `hooks` array that contains IP addresses in IPv6 CIDR format.
+     */
     readonly hooksIpv6s: string[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * A subset of the `importer` array that contains IP addresses in IPv4 CIDR format.
+     */
     readonly importerIpv4s: string[];
+    /**
+     * A subset of the `importer` array that contains IP addresses in IPv6 CIDR format.
+     */
     readonly importerIpv6s: string[];
     /**
      * An Array of IP addresses in CIDR format specifying the A records for GitHub Importer.
@@ -71,6 +101,12 @@ export interface GetIpRangesResult {
      * An Array of IP addresses in CIDR format specifying the A records for GitHub Pages.
      */
     readonly pages: string[];
+    /**
+     * A subset of the `pages` array that contains IP addresses in IPv4 CIDR format.
+     */
     readonly pagesIpv4s: string[];
+    /**
+     * A subset of the `pages` array that contains IP addresses in IPv6 CIDR format.
+     */
     readonly pagesIpv6s: string[];
 }
