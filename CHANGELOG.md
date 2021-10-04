@@ -6,7 +6,7 @@ _(none)_
 
 ---
 
-## 4.15.0 (2021-10-04)
+## 4.5.0 (2021-10-04)
 * Upgrade to v4.15.1 of the GitHub Terraform Provider.
 
 ## 4.4.0 (2021-09-09)
