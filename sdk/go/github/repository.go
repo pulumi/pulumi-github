@@ -80,6 +80,8 @@ import (
 type Repository struct {
 	pulumi.CustomResourceState
 
+	// Set to `true` to allow auto-merging pull requests on the repository.
+	AllowAutoMerge pulumi.BoolPtrOutput `pulumi:"allowAutoMerge"`
 	// Set to `false` to disable merge commits on the repository.
 	AllowMergeCommit pulumi.BoolPtrOutput `pulumi:"allowMergeCommit"`
 	// Set to `false` to disable rebase merges on the repository.
@@ -185,6 +187,8 @@ func GetRepository(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Repository resources.
 type repositoryState struct {
+	// Set to `true` to allow auto-merging pull requests on the repository.
+	AllowAutoMerge *bool `pulumi:"allowAutoMerge"`
 	// Set to `false` to disable merge commits on the repository.
 	AllowMergeCommit *bool `pulumi:"allowMergeCommit"`
 	// Set to `false` to disable rebase merges on the repository.
@@ -262,6 +266,8 @@ type repositoryState struct {
 }
 
 type RepositoryState struct {
+	// Set to `true` to allow auto-merging pull requests on the repository.
+	AllowAutoMerge pulumi.BoolPtrInput
 	// Set to `false` to disable merge commits on the repository.
 	AllowMergeCommit pulumi.BoolPtrInput
 	// Set to `false` to disable rebase merges on the repository.
@@ -343,6 +349,8 @@ func (RepositoryState) ElementType() reflect.Type {
 }
 
 type repositoryArgs struct {
+	// Set to `true` to allow auto-merging pull requests on the repository.
+	AllowAutoMerge *bool `pulumi:"allowAutoMerge"`
 	// Set to `false` to disable merge commits on the repository.
 	AllowMergeCommit *bool `pulumi:"allowMergeCommit"`
 	// Set to `false` to disable rebase merges on the repository.
@@ -404,6 +412,8 @@ type repositoryArgs struct {
 
 // The set of arguments for constructing a Repository resource.
 type RepositoryArgs struct {
+	// Set to `true` to allow auto-merging pull requests on the repository.
+	AllowAutoMerge pulumi.BoolPtrInput
 	// Set to `false` to disable merge commits on the repository.
 	AllowMergeCommit pulumi.BoolPtrInput
 	// Set to `false` to disable rebase merges on the repository.

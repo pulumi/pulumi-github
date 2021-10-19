@@ -79,6 +79,10 @@ export class Repository extends pulumi.CustomResource {
     }
 
     /**
+     * Set to `true` to allow auto-merging pull requests on the repository.
+     */
+    public readonly allowAutoMerge!: pulumi.Output<boolean | undefined>;
+    /**
      * Set to `false` to disable merge commits on the repository.
      */
     public readonly allowMergeCommit!: pulumi.Output<boolean | undefined>;
@@ -230,6 +234,7 @@ export class Repository extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RepositoryState | undefined;
+            inputs["allowAutoMerge"] = state ? state.allowAutoMerge : undefined;
             inputs["allowMergeCommit"] = state ? state.allowMergeCommit : undefined;
             inputs["allowRebaseMerge"] = state ? state.allowRebaseMerge : undefined;
             inputs["allowSquashMerge"] = state ? state.allowSquashMerge : undefined;
@@ -265,6 +270,7 @@ export class Repository extends pulumi.CustomResource {
             inputs["vulnerabilityAlerts"] = state ? state.vulnerabilityAlerts : undefined;
         } else {
             const args = argsOrState as RepositoryArgs | undefined;
+            inputs["allowAutoMerge"] = args ? args.allowAutoMerge : undefined;
             inputs["allowMergeCommit"] = args ? args.allowMergeCommit : undefined;
             inputs["allowRebaseMerge"] = args ? args.allowRebaseMerge : undefined;
             inputs["allowSquashMerge"] = args ? args.allowSquashMerge : undefined;
@@ -310,6 +316,10 @@ export class Repository extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Repository resources.
  */
 export interface RepositoryState {
+    /**
+     * Set to `true` to allow auto-merging pull requests on the repository.
+     */
+    allowAutoMerge?: pulumi.Input<boolean>;
     /**
      * Set to `false` to disable merge commits on the repository.
      */
@@ -454,6 +464,10 @@ export interface RepositoryState {
  * The set of arguments for constructing a Repository resource.
  */
 export interface RepositoryArgs {
+    /**
+     * Set to `true` to allow auto-merging pull requests on the repository.
+     */
+    allowAutoMerge?: pulumi.Input<boolean>;
     /**
      * Set to `false` to disable merge commits on the repository.
      */

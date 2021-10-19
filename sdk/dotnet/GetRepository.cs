@@ -78,6 +78,10 @@ namespace Pulumi.Github
     public sealed class GetRepositoryResult
     {
         /// <summary>
+        /// Whether the repository allows auto-merging pull requests.
+        /// </summary>
+        public readonly bool AllowAutoMerge;
+        /// <summary>
         /// Whether the repository allows merge commits.
         /// </summary>
         public readonly bool AllowMergeCommit;
@@ -181,6 +185,8 @@ namespace Pulumi.Github
 
         [OutputConstructor]
         private GetRepositoryResult(
+            bool allowAutoMerge,
+
             bool allowMergeCommit,
 
             bool allowRebaseMerge,
@@ -233,6 +239,7 @@ namespace Pulumi.Github
 
             string visibility)
         {
+            AllowAutoMerge = allowAutoMerge;
             AllowMergeCommit = allowMergeCommit;
             AllowRebaseMerge = allowRebaseMerge;
             AllowSquashMerge = allowSquashMerge;

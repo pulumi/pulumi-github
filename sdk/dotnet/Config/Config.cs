@@ -39,6 +39,11 @@ namespace Pulumi.Github
         /// </summary>
         public static string? Token { get; set; } = __config.Get("token");
 
+        /// <summary>
+        /// Amount of time in milliseconds to sleep in between writes to GitHub API. Defaults to 1000ms or 1s if not set.
+        /// </summary>
+        public static int? WriteDelayMs { get; set; } = __config.GetInt32("writeDelayMs");
+
         public static class Types
         {
 

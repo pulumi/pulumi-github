@@ -12,6 +12,14 @@ import (
 )
 
 // This resource allows you to create and manage environments for a GitHub repository.
+//
+// ## Import
+//
+// GitHub Repository Environment can be imported using an ID made up of `name` of the repository combined with the `environment` name of the environment, separated by a `:` character, e.g.
+//
+// ```sh
+//  $ pulumi import github:index/repositoryEnvironment:RepositoryEnvironment daily terraform:daily
+// ```
 type RepositoryEnvironment struct {
 	pulumi.CustomResourceState
 

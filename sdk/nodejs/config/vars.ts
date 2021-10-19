@@ -32,3 +32,7 @@ export let owner: string | undefined = __config.get("owner");
  * The OAuth token used to connect to GitHub. Anonymous mode is enabled if both `token` and `app_auth` are not set.
  */
 export let token: string | undefined = __config.get("token");
+/**
+ * Amount of time in milliseconds to sleep in between writes to GitHub API. Defaults to 1000ms or 1s if not set.
+ */
+export let writeDelayMs: number | undefined = __config.getObject<number>("writeDelayMs");

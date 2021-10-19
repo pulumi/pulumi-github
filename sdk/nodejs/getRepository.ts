@@ -63,6 +63,10 @@ export interface GetRepositoryArgs {
  */
 export interface GetRepositoryResult {
     /**
+     * Whether the repository allows auto-merging pull requests.
+     */
+    readonly allowAutoMerge: boolean;
+    /**
      * Whether the repository allows merge commits.
      */
     readonly allowMergeCommit: boolean;
