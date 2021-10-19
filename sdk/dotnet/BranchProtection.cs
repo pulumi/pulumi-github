@@ -34,7 +34,7 @@ namespace Pulumi.Github
     ///         var exampleTeam = new Github.Team("exampleTeam", new Github.TeamArgs
     ///         {
     ///         });
-    ///         // Protect the master branch of the foo repository. Additionally, require that
+    ///         // Protect the main branch of the foo repository. Additionally, require that
     ///         // the "ci/travis" context to be passing and only allow the engineers team merge
     ///         // to the branch.
     ///         var exampleBranchProtection = new Github.BranchProtection("exampleBranchProtection", new Github.BranchProtectionArgs

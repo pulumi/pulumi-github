@@ -16,6 +16,7 @@ __all__ = [
     'organization',
     'owner',
     'token',
+    'write_delay_ms',
 ]
 
 __config__ = pulumi.Config('github')
@@ -49,5 +50,10 @@ The GitHub owner name to manage. Use this field instead of `organization` when m
 token = __config__.get('token')
 """
 The OAuth token used to connect to GitHub. Anonymous mode is enabled if both `token` and `app_auth` are not set.
+"""
+
+write_delay_ms = __config__.get('writeDelayMs')
+"""
+Amount of time in milliseconds to sleep in between writes to GitHub API. Defaults to 1000ms or 1s if not set.
 """
 

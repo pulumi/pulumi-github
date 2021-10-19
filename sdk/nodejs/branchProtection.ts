@@ -21,7 +21,7 @@ import * as utilities from "./utilities";
  *     username: "example",
  * });
  * const exampleTeam = new github.Team("exampleTeam", {});
- * // Protect the master branch of the foo repository. Additionally, require that
+ * // Protect the main branch of the foo repository. Additionally, require that
  * // the "ci/travis" context to be passing and only allow the engineers team merge
  * // to the branch.
  * const exampleBranchProtection = new github.BranchProtection("exampleBranchProtection", {

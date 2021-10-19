@@ -77,6 +77,12 @@ namespace Pulumi.Github
     public partial class Repository : Pulumi.CustomResource
     {
         /// <summary>
+        /// Set to `true` to allow auto-merging pull requests on the repository.
+        /// </summary>
+        [Output("allowAutoMerge")]
+        public Output<bool?> AllowAutoMerge { get; private set; } = null!;
+
+        /// <summary>
         /// Set to `false` to disable merge commits on the repository.
         /// </summary>
         [Output("allowMergeCommit")]
@@ -323,6 +329,12 @@ namespace Pulumi.Github
     public sealed class RepositoryArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Set to `true` to allow auto-merging pull requests on the repository.
+        /// </summary>
+        [Input("allowAutoMerge")]
+        public Input<bool>? AllowAutoMerge { get; set; }
+
+        /// <summary>
         /// Set to `false` to disable merge commits on the repository.
         /// </summary>
         [Input("allowMergeCommit")]
@@ -484,6 +496,12 @@ namespace Pulumi.Github
 
     public sealed class RepositoryState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Set to `true` to allow auto-merging pull requests on the repository.
+        /// </summary>
+        [Input("allowAutoMerge")]
+        public Input<bool>? AllowAutoMerge { get; set; }
+
         /// <summary>
         /// Set to `false` to disable merge commits on the repository.
         /// </summary>

@@ -19,7 +19,8 @@ class ProviderArgs:
                  insecure: Optional[pulumi.Input[bool]] = None,
                  organization: Optional[pulumi.Input[str]] = None,
                  owner: Optional[pulumi.Input[str]] = None,
-                 token: Optional[pulumi.Input[str]] = None):
+                 token: Optional[pulumi.Input[str]] = None,
+                 write_delay_ms: Optional[pulumi.Input[int]] = None):
         """
         The set of arguments for constructing a Provider resource.
         :param pulumi.Input['ProviderAppAuthArgs'] app_auth: The GitHub App credentials used to connect to GitHub. Conflicts with `token`. Anonymous mode is enabled if both `token`
@@ -29,6 +30,7 @@ class ProviderArgs:
         :param pulumi.Input[str] organization: The GitHub organization name to manage. Use this field instead of `owner` when managing organization accounts.
         :param pulumi.Input[str] owner: The GitHub owner name to manage. Use this field instead of `organization` when managing individual accounts.
         :param pulumi.Input[str] token: The OAuth token used to connect to GitHub. Anonymous mode is enabled if both `token` and `app_auth` are not set.
+        :param pulumi.Input[int] write_delay_ms: Amount of time in milliseconds to sleep in between writes to GitHub API. Defaults to 1000ms or 1s if not set.
         """
         if app_auth is not None:
             pulumi.set(__self__, "app_auth", app_auth)
@@ -47,6 +49,8 @@ class ProviderArgs:
             pulumi.set(__self__, "owner", owner)
         if token is not None:
             pulumi.set(__self__, "token", token)
+        if write_delay_ms is not None:
+            pulumi.set(__self__, "write_delay_ms", write_delay_ms)
 
     @property
     @pulumi.getter(name="appAuth")
@@ -121,6 +125,18 @@ class ProviderArgs:
     def token(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "token", value)
 
+    @property
+    @pulumi.getter(name="writeDelayMs")
+    def write_delay_ms(self) -> Optional[pulumi.Input[int]]:
+        """
+        Amount of time in milliseconds to sleep in between writes to GitHub API. Defaults to 1000ms or 1s if not set.
+        """
+        return pulumi.get(self, "write_delay_ms")
+
+    @write_delay_ms.setter
+    def write_delay_ms(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "write_delay_ms", value)
+
 
 class Provider(pulumi.ProviderResource):
     @overload
@@ -133,6 +149,7 @@ class Provider(pulumi.ProviderResource):
                  organization: Optional[pulumi.Input[str]] = None,
                  owner: Optional[pulumi.Input[str]] = None,
                  token: Optional[pulumi.Input[str]] = None,
+                 write_delay_ms: Optional[pulumi.Input[int]] = None,
                  __props__=None):
         """
         The provider type for the github package. By default, resources use package-wide configuration
@@ -149,6 +166,7 @@ class Provider(pulumi.ProviderResource):
         :param pulumi.Input[str] organization: The GitHub organization name to manage. Use this field instead of `owner` when managing organization accounts.
         :param pulumi.Input[str] owner: The GitHub owner name to manage. Use this field instead of `organization` when managing individual accounts.
         :param pulumi.Input[str] token: The OAuth token used to connect to GitHub. Anonymous mode is enabled if both `token` and `app_auth` are not set.
+        :param pulumi.Input[int] write_delay_ms: Amount of time in milliseconds to sleep in between writes to GitHub API. Defaults to 1000ms or 1s if not set.
         """
         ...
     @overload
@@ -183,6 +201,7 @@ class Provider(pulumi.ProviderResource):
                  organization: Optional[pulumi.Input[str]] = None,
                  owner: Optional[pulumi.Input[str]] = None,
                  token: Optional[pulumi.Input[str]] = None,
+                 write_delay_ms: Optional[pulumi.Input[int]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -206,6 +225,7 @@ class Provider(pulumi.ProviderResource):
             __props__.__dict__["organization"] = organization
             __props__.__dict__["owner"] = owner
             __props__.__dict__["token"] = token
+            __props__.__dict__["write_delay_ms"] = pulumi.Output.from_input(write_delay_ms).apply(pulumi.runtime.to_json) if write_delay_ms is not None else None
         super(Provider, __self__).__init__(
             'github',
             resource_name,

@@ -204,6 +204,14 @@ class RepositoryEnvironment(pulumi.CustomResource):
             ))
         ```
 
+        ## Import
+
+        GitHub Repository Environment can be imported using an ID made up of `name` of the repository combined with the `environment` name of the environment, separated by a `:` character, e.g.
+
+        ```sh
+         $ pulumi import github:index/repositoryEnvironment:RepositoryEnvironment daily terraform:daily
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] environment: The name of the environment.
@@ -237,6 +245,14 @@ class RepositoryEnvironment(pulumi.CustomResource):
                 protected_branches=True,
                 custom_branch_policies=False,
             ))
+        ```
+
+        ## Import
+
+        GitHub Repository Environment can be imported using an ID made up of `name` of the repository combined with the `environment` name of the environment, separated by a `:` character, e.g.
+
+        ```sh
+         $ pulumi import github:index/repositoryEnvironment:RepositoryEnvironment daily terraform:daily
         ```
 
         :param str resource_name: The name of the resource.

@@ -15,6 +15,7 @@ __all__ = ['RepositoryArgs', 'Repository']
 @pulumi.input_type
 class RepositoryArgs:
     def __init__(__self__, *,
+                 allow_auto_merge: Optional[pulumi.Input[bool]] = None,
                  allow_merge_commit: Optional[pulumi.Input[bool]] = None,
                  allow_rebase_merge: Optional[pulumi.Input[bool]] = None,
                  allow_squash_merge: Optional[pulumi.Input[bool]] = None,
@@ -41,6 +42,7 @@ class RepositoryArgs:
                  vulnerability_alerts: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a Repository resource.
+        :param pulumi.Input[bool] allow_auto_merge: Set to `true` to allow auto-merging pull requests on the repository.
         :param pulumi.Input[bool] allow_merge_commit: Set to `false` to disable merge commits on the repository.
         :param pulumi.Input[bool] allow_rebase_merge: Set to `false` to disable rebase merges on the repository.
         :param pulumi.Input[bool] allow_squash_merge: Set to `false` to disable squash merges on the repository.
@@ -71,6 +73,8 @@ class RepositoryArgs:
         :param pulumi.Input[str] visibility: Can be `public` or `private`. If your organization is associated with an enterprise account using GitHub Enterprise Cloud or GitHub Enterprise Server 2.20+, visibility can also be `internal`. The `visibility` parameter overrides the `private` parameter.
         :param pulumi.Input[bool] vulnerability_alerts: Set to `true` to enable security alerts for vulnerable dependencies. Enabling requires alerts to be enabled on the owner level. (Note for importing: GitHub enables the alerts on public repos but disables them on private repos by default.) See [GitHub Documentation](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for details. Note that vulnerability alerts have not been successfully tested on any GitHub Enterprise instance and may be unavailable in those settings.
         """
+        if allow_auto_merge is not None:
+            pulumi.set(__self__, "allow_auto_merge", allow_auto_merge)
         if allow_merge_commit is not None:
             pulumi.set(__self__, "allow_merge_commit", allow_merge_commit)
         if allow_rebase_merge is not None:
@@ -125,6 +129,18 @@ class RepositoryArgs:
             pulumi.set(__self__, "visibility", visibility)
         if vulnerability_alerts is not None:
             pulumi.set(__self__, "vulnerability_alerts", vulnerability_alerts)
+
+    @property
+    @pulumi.getter(name="allowAutoMerge")
+    def allow_auto_merge(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Set to `true` to allow auto-merging pull requests on the repository.
+        """
+        return pulumi.get(self, "allow_auto_merge")
+
+    @allow_auto_merge.setter
+    def allow_auto_merge(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "allow_auto_merge", value)
 
     @property
     @pulumi.getter(name="allowMergeCommit")
@@ -423,6 +439,7 @@ class RepositoryArgs:
 @pulumi.input_type
 class _RepositoryState:
     def __init__(__self__, *,
+                 allow_auto_merge: Optional[pulumi.Input[bool]] = None,
                  allow_merge_commit: Optional[pulumi.Input[bool]] = None,
                  allow_rebase_merge: Optional[pulumi.Input[bool]] = None,
                  allow_squash_merge: Optional[pulumi.Input[bool]] = None,
@@ -458,6 +475,7 @@ class _RepositoryState:
                  vulnerability_alerts: Optional[pulumi.Input[bool]] = None):
         """
         Input properties used for looking up and filtering Repository resources.
+        :param pulumi.Input[bool] allow_auto_merge: Set to `true` to allow auto-merging pull requests on the repository.
         :param pulumi.Input[bool] allow_merge_commit: Set to `false` to disable merge commits on the repository.
         :param pulumi.Input[bool] allow_rebase_merge: Set to `false` to disable rebase merges on the repository.
         :param pulumi.Input[bool] allow_squash_merge: Set to `false` to disable squash merges on the repository.
@@ -496,6 +514,8 @@ class _RepositoryState:
         :param pulumi.Input[str] visibility: Can be `public` or `private`. If your organization is associated with an enterprise account using GitHub Enterprise Cloud or GitHub Enterprise Server 2.20+, visibility can also be `internal`. The `visibility` parameter overrides the `private` parameter.
         :param pulumi.Input[bool] vulnerability_alerts: Set to `true` to enable security alerts for vulnerable dependencies. Enabling requires alerts to be enabled on the owner level. (Note for importing: GitHub enables the alerts on public repos but disables them on private repos by default.) See [GitHub Documentation](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for details. Note that vulnerability alerts have not been successfully tested on any GitHub Enterprise instance and may be unavailable in those settings.
         """
+        if allow_auto_merge is not None:
+            pulumi.set(__self__, "allow_auto_merge", allow_auto_merge)
         if allow_merge_commit is not None:
             pulumi.set(__self__, "allow_merge_commit", allow_merge_commit)
         if allow_rebase_merge is not None:
@@ -568,6 +588,18 @@ class _RepositoryState:
             pulumi.set(__self__, "visibility", visibility)
         if vulnerability_alerts is not None:
             pulumi.set(__self__, "vulnerability_alerts", vulnerability_alerts)
+
+    @property
+    @pulumi.getter(name="allowAutoMerge")
+    def allow_auto_merge(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Set to `true` to allow auto-merging pull requests on the repository.
+        """
+        return pulumi.get(self, "allow_auto_merge")
+
+    @allow_auto_merge.setter
+    def allow_auto_merge(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "allow_auto_merge", value)
 
     @property
     @pulumi.getter(name="allowMergeCommit")
@@ -973,6 +1005,7 @@ class Repository(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 allow_auto_merge: Optional[pulumi.Input[bool]] = None,
                  allow_merge_commit: Optional[pulumi.Input[bool]] = None,
                  allow_rebase_merge: Optional[pulumi.Input[bool]] = None,
                  allow_squash_merge: Optional[pulumi.Input[bool]] = None,
@@ -1043,6 +1076,7 @@ class Repository(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] allow_auto_merge: Set to `true` to allow auto-merging pull requests on the repository.
         :param pulumi.Input[bool] allow_merge_commit: Set to `false` to disable merge commits on the repository.
         :param pulumi.Input[bool] allow_rebase_merge: Set to `false` to disable rebase merges on the repository.
         :param pulumi.Input[bool] allow_squash_merge: Set to `false` to disable squash merges on the repository.
@@ -1137,6 +1171,7 @@ class Repository(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 allow_auto_merge: Optional[pulumi.Input[bool]] = None,
                  allow_merge_commit: Optional[pulumi.Input[bool]] = None,
                  allow_rebase_merge: Optional[pulumi.Input[bool]] = None,
                  allow_squash_merge: Optional[pulumi.Input[bool]] = None,
@@ -1173,6 +1208,7 @@ class Repository(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = RepositoryArgs.__new__(RepositoryArgs)
 
+            __props__.__dict__["allow_auto_merge"] = allow_auto_merge
             __props__.__dict__["allow_merge_commit"] = allow_merge_commit
             __props__.__dict__["allow_rebase_merge"] = allow_rebase_merge
             __props__.__dict__["allow_squash_merge"] = allow_squash_merge
@@ -1222,6 +1258,7 @@ class Repository(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            allow_auto_merge: Optional[pulumi.Input[bool]] = None,
             allow_merge_commit: Optional[pulumi.Input[bool]] = None,
             allow_rebase_merge: Optional[pulumi.Input[bool]] = None,
             allow_squash_merge: Optional[pulumi.Input[bool]] = None,
@@ -1262,6 +1299,7 @@ class Repository(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] allow_auto_merge: Set to `true` to allow auto-merging pull requests on the repository.
         :param pulumi.Input[bool] allow_merge_commit: Set to `false` to disable merge commits on the repository.
         :param pulumi.Input[bool] allow_rebase_merge: Set to `false` to disable rebase merges on the repository.
         :param pulumi.Input[bool] allow_squash_merge: Set to `false` to disable squash merges on the repository.
@@ -1304,6 +1342,7 @@ class Repository(pulumi.CustomResource):
 
         __props__ = _RepositoryState.__new__(_RepositoryState)
 
+        __props__.__dict__["allow_auto_merge"] = allow_auto_merge
         __props__.__dict__["allow_merge_commit"] = allow_merge_commit
         __props__.__dict__["allow_rebase_merge"] = allow_rebase_merge
         __props__.__dict__["allow_squash_merge"] = allow_squash_merge
@@ -1338,6 +1377,14 @@ class Repository(pulumi.CustomResource):
         __props__.__dict__["visibility"] = visibility
         __props__.__dict__["vulnerability_alerts"] = vulnerability_alerts
         return Repository(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="allowAutoMerge")
+    def allow_auto_merge(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Set to `true` to allow auto-merging pull requests on the repository.
+        """
+        return pulumi.get(self, "allow_auto_merge")
 
     @property
     @pulumi.getter(name="allowMergeCommit")

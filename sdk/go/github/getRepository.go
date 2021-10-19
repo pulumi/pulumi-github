@@ -55,6 +55,8 @@ type LookupRepositoryArgs struct {
 
 // A collection of values returned by getRepository.
 type LookupRepositoryResult struct {
+	// Whether the repository allows auto-merging pull requests.
+	AllowAutoMerge bool `pulumi:"allowAutoMerge"`
 	// Whether the repository allows merge commits.
 	AllowMergeCommit bool `pulumi:"allowMergeCommit"`
 	// Whether the repository allows rebase merges.

@@ -63,6 +63,8 @@ type providerArgs struct {
 	Owner *string `pulumi:"owner"`
 	// The OAuth token used to connect to GitHub. Anonymous mode is enabled if both `token` and `app_auth` are not set.
 	Token *string `pulumi:"token"`
+	// Amount of time in milliseconds to sleep in between writes to GitHub API. Defaults to 1000ms or 1s if not set.
+	WriteDelayMs *int `pulumi:"writeDelayMs"`
 }
 
 // The set of arguments for constructing a Provider resource.
@@ -82,6 +84,8 @@ type ProviderArgs struct {
 	Owner pulumi.StringPtrInput
 	// The OAuth token used to connect to GitHub. Anonymous mode is enabled if both `token` and `app_auth` are not set.
 	Token pulumi.StringPtrInput
+	// Amount of time in milliseconds to sleep in between writes to GitHub API. Defaults to 1000ms or 1s if not set.
+	WriteDelayMs pulumi.IntPtrInput
 }
 
 func (ProviderArgs) ElementType() reflect.Type {

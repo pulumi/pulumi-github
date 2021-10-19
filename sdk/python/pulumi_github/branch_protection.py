@@ -376,7 +376,7 @@ class BranchProtection(pulumi.CustomResource):
         example_repository = github.Repository("exampleRepository")
         example_user = github.get_user(username="example")
         example_team = github.Team("exampleTeam")
-        # Protect the master branch of the foo repository. Additionally, require that
+        # Protect the main branch of the foo repository. Additionally, require that
         # the "ci/travis" context to be passing and only allow the engineers team merge
         # to the branch.
         example_branch_protection = github.BranchProtection("exampleBranchProtection",
@@ -444,7 +444,7 @@ class BranchProtection(pulumi.CustomResource):
         example_repository = github.Repository("exampleRepository")
         example_user = github.get_user(username="example")
         example_team = github.Team("exampleTeam")
-        # Protect the master branch of the foo repository. Additionally, require that
+        # Protect the main branch of the foo repository. Additionally, require that
         # the "ci/travis" context to be passing and only allow the engineers team merge
         # to the branch.
         example_branch_protection = github.BranchProtection("exampleBranchProtection",

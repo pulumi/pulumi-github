@@ -107,6 +107,12 @@ namespace Pulumi.Github
         [Input("token")]
         public Input<string>? Token { get; set; }
 
+        /// <summary>
+        /// Amount of time in milliseconds to sleep in between writes to GitHub API. Defaults to 1000ms or 1s if not set.
+        /// </summary>
+        [Input("writeDelayMs", json: true)]
+        public Input<int>? WriteDelayMs { get; set; }
+
         public ProviderArgs()
         {
             BaseUrl = Utilities.GetEnv("GITHUB_BASE_URL") ?? "https://api.github.com/";

@@ -44,3 +44,8 @@ func GetOwner(ctx *pulumi.Context) string {
 func GetToken(ctx *pulumi.Context) string {
 	return config.Get(ctx, "github:token")
 }
+
+// Amount of time in milliseconds to sleep in between writes to GitHub API. Defaults to 1000ms or 1s if not set.
+func GetWriteDelayMs(ctx *pulumi.Context) int {
+	return config.GetInt(ctx, "github:writeDelayMs")
+}

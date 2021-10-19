@@ -62,6 +62,7 @@ export class Provider extends pulumi.ProviderResource {
             inputs["organization"] = args ? args.organization : undefined;
             inputs["owner"] = args ? args.owner : undefined;
             inputs["token"] = args ? args.token : undefined;
+            inputs["writeDelayMs"] = pulumi.output(args ? args.writeDelayMs : undefined).apply(JSON.stringify);
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -101,4 +102,8 @@ export interface ProviderArgs {
      * The OAuth token used to connect to GitHub. Anonymous mode is enabled if both `token` and `app_auth` are not set.
      */
     token?: pulumi.Input<string>;
+    /**
+     * Amount of time in milliseconds to sleep in between writes to GitHub API. Defaults to 1000ms or 1s if not set.
+     */
+    writeDelayMs?: pulumi.Input<number>;
 }

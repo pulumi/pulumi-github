@@ -20,7 +20,10 @@ class GetRepositoryResult:
     """
     A collection of values returned by getRepository.
     """
-    def __init__(__self__, allow_merge_commit=None, allow_rebase_merge=None, allow_squash_merge=None, archived=None, branches=None, default_branch=None, description=None, full_name=None, git_clone_url=None, has_downloads=None, has_issues=None, has_projects=None, has_wiki=None, homepage_url=None, html_url=None, http_clone_url=None, id=None, name=None, node_id=None, pages=None, private=None, repo_id=None, ssh_clone_url=None, svn_url=None, topics=None, visibility=None):
+    def __init__(__self__, allow_auto_merge=None, allow_merge_commit=None, allow_rebase_merge=None, allow_squash_merge=None, archived=None, branches=None, default_branch=None, description=None, full_name=None, git_clone_url=None, has_downloads=None, has_issues=None, has_projects=None, has_wiki=None, homepage_url=None, html_url=None, http_clone_url=None, id=None, name=None, node_id=None, pages=None, private=None, repo_id=None, ssh_clone_url=None, svn_url=None, topics=None, visibility=None):
+        if allow_auto_merge and not isinstance(allow_auto_merge, bool):
+            raise TypeError("Expected argument 'allow_auto_merge' to be a bool")
+        pulumi.set(__self__, "allow_auto_merge", allow_auto_merge)
         if allow_merge_commit and not isinstance(allow_merge_commit, bool):
             raise TypeError("Expected argument 'allow_merge_commit' to be a bool")
         pulumi.set(__self__, "allow_merge_commit", allow_merge_commit)
@@ -99,6 +102,14 @@ class GetRepositoryResult:
         if visibility and not isinstance(visibility, str):
             raise TypeError("Expected argument 'visibility' to be a str")
         pulumi.set(__self__, "visibility", visibility)
+
+    @property
+    @pulumi.getter(name="allowAutoMerge")
+    def allow_auto_merge(self) -> bool:
+        """
+        Whether the repository allows auto-merging pull requests.
+        """
+        return pulumi.get(self, "allow_auto_merge")
 
     @property
     @pulumi.getter(name="allowMergeCommit")
@@ -312,6 +323,7 @@ class AwaitableGetRepositoryResult(GetRepositoryResult):
         if False:
             yield self
         return GetRepositoryResult(
+            allow_auto_merge=self.allow_auto_merge,
             allow_merge_commit=self.allow_merge_commit,
             allow_rebase_merge=self.allow_rebase_merge,
             allow_squash_merge=self.allow_squash_merge,
@@ -375,6 +387,7 @@ def get_repository(description: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('github:index/getRepository:getRepository', __args__, opts=opts, typ=GetRepositoryResult).value
 
     return AwaitableGetRepositoryResult(
+        allow_auto_merge=__ret__.allow_auto_merge,
         allow_merge_commit=__ret__.allow_merge_commit,
         allow_rebase_merge=__ret__.allow_rebase_merge,
         allow_squash_merge=__ret__.allow_squash_merge,
