@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Github
 {
@@ -87,6 +88,83 @@ namespace Pulumi.Github
         /// </summary>
         public static Task<GetReleaseResult> InvokeAsync(GetReleaseArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetReleaseResult>("github:index/getRelease:getRelease", args ?? new GetReleaseArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to retrieve information about a GitHub release in a specific repository.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// To retrieve the latest release that is present in a repository:
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Github = Pulumi.Github;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Github.GetRelease.InvokeAsync(new Github.GetReleaseArgs
+        ///         {
+        ///             Owner = "example-owner",
+        ///             Repository = "example-repository",
+        ///             RetrieveBy = "latest",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// 
+        /// To retrieve a specific release from a repository based on it's ID:
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Github = Pulumi.Github;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Github.GetRelease.InvokeAsync(new Github.GetReleaseArgs
+        ///         {
+        ///             Id = 12345,
+        ///             Owner = "example-owner",
+        ///             Repository = "example-repository",
+        ///             RetrieveBy = "id",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// 
+        /// Finally, to retrieve a release based on it's tag:
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Github = Pulumi.Github;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Github.GetRelease.InvokeAsync(new Github.GetReleaseArgs
+        ///         {
+        ///             Owner = "example-owner",
+        ///             ReleaseTag = "v1.0.0",
+        ///             Repository = "example-repository",
+        ///             RetrieveBy = "tag",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetReleaseResult> Invoke(GetReleaseInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetReleaseResult>("github:index/getRelease:getRelease", args ?? new GetReleaseInvokeArgs(), options.WithVersion());
     }
 
 
@@ -123,6 +201,43 @@ namespace Pulumi.Github
         public string RetrieveBy { get; set; } = null!;
 
         public GetReleaseArgs()
+        {
+        }
+    }
+
+    public sealed class GetReleaseInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Owner of the repository.
+        /// </summary>
+        [Input("owner", required: true)]
+        public Input<string> Owner { get; set; } = null!;
+
+        /// <summary>
+        /// ID of the release to retrieve. Must be specified when `retrieve_by` = `id`.
+        /// </summary>
+        [Input("releaseId")]
+        public Input<int>? ReleaseId { get; set; }
+
+        /// <summary>
+        /// Tag of the release to retrieve. Must be specified when `retrieve_by` = `tag`.
+        /// </summary>
+        [Input("releaseTag")]
+        public Input<string>? ReleaseTag { get; set; }
+
+        /// <summary>
+        /// Name of the repository to retrieve the release from.
+        /// </summary>
+        [Input("repository", required: true)]
+        public Input<string> Repository { get; set; } = null!;
+
+        /// <summary>
+        /// Describes how to fetch the release. Valid values are `id`, `tag`, `latest`.
+        /// </summary>
+        [Input("retrieveBy", required: true)]
+        public Input<string> RetrieveBy { get; set; } = null!;
+
+        public GetReleaseInvokeArgs()
         {
         }
     }

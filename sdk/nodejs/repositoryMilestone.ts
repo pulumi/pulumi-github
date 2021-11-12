@@ -97,17 +97,17 @@ export class RepositoryMilestone extends pulumi.CustomResource {
      */
     constructor(name: string, args: RepositoryMilestoneArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: RepositoryMilestoneArgs | RepositoryMilestoneState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RepositoryMilestoneState | undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["dueDate"] = state ? state.dueDate : undefined;
-            inputs["number"] = state ? state.number : undefined;
-            inputs["owner"] = state ? state.owner : undefined;
-            inputs["repository"] = state ? state.repository : undefined;
-            inputs["state"] = state ? state.state : undefined;
-            inputs["title"] = state ? state.title : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["dueDate"] = state ? state.dueDate : undefined;
+            resourceInputs["number"] = state ? state.number : undefined;
+            resourceInputs["owner"] = state ? state.owner : undefined;
+            resourceInputs["repository"] = state ? state.repository : undefined;
+            resourceInputs["state"] = state ? state.state : undefined;
+            resourceInputs["title"] = state ? state.title : undefined;
         } else {
             const args = argsOrState as RepositoryMilestoneArgs | undefined;
             if ((!args || args.owner === undefined) && !opts.urn) {
@@ -119,18 +119,18 @@ export class RepositoryMilestone extends pulumi.CustomResource {
             if ((!args || args.title === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'title'");
             }
-            inputs["description"] = args ? args.description : undefined;
-            inputs["dueDate"] = args ? args.dueDate : undefined;
-            inputs["owner"] = args ? args.owner : undefined;
-            inputs["repository"] = args ? args.repository : undefined;
-            inputs["state"] = args ? args.state : undefined;
-            inputs["title"] = args ? args.title : undefined;
-            inputs["number"] = undefined /*out*/;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["dueDate"] = args ? args.dueDate : undefined;
+            resourceInputs["owner"] = args ? args.owner : undefined;
+            resourceInputs["repository"] = args ? args.repository : undefined;
+            resourceInputs["state"] = args ? args.state : undefined;
+            resourceInputs["title"] = args ? args.title : undefined;
+            resourceInputs["number"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(RepositoryMilestone.__pulumiType, name, inputs, opts);
+        super(RepositoryMilestone.__pulumiType, name, resourceInputs, opts);
     }
 }
 

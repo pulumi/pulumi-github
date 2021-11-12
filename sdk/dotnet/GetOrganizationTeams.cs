@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Github
 {
@@ -57,6 +58,53 @@ namespace Pulumi.Github
         /// </summary>
         public static Task<GetOrganizationTeamsResult> InvokeAsync(GetOrganizationTeamsArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetOrganizationTeamsResult>("github:index/getOrganizationTeams:getOrganizationTeams", args ?? new GetOrganizationTeamsArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to retrieve information about all GitHub teams in an organization.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// To retrieve *all* teams of the organization:
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Github = Pulumi.Github;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var all = Output.Create(Github.GetOrganizationTeams.InvokeAsync());
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// 
+        /// To retrieve only the team's at the root of the organization:
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Github = Pulumi.Github;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var rootTeams = Output.Create(Github.GetOrganizationTeams.InvokeAsync(new Github.GetOrganizationTeamsArgs
+        ///         {
+        ///             RootTeamsOnly = true,
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetOrganizationTeamsResult> Invoke(GetOrganizationTeamsInvokeArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetOrganizationTeamsResult>("github:index/getOrganizationTeams:getOrganizationTeams", args ?? new GetOrganizationTeamsInvokeArgs(), options.WithVersion());
     }
 
 
@@ -69,6 +117,19 @@ namespace Pulumi.Github
         public bool? RootTeamsOnly { get; set; }
 
         public GetOrganizationTeamsArgs()
+        {
+        }
+    }
+
+    public sealed class GetOrganizationTeamsInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Only return teams that are at the organization's root, i.e. no nested teams. Defaults to `false`.
+        /// </summary>
+        [Input("rootTeamsOnly")]
+        public Input<bool>? RootTeamsOnly { get; set; }
+
+        public GetOrganizationTeamsInvokeArgs()
         {
         }
     }

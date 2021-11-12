@@ -4,6 +4,9 @@
 package github
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -24,7 +27,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := github.GetRepositories(ctx, &github.GetRepositoriesArgs{
+// 		_, err := github.GetRepositories(ctx, &GetRepositoriesArgs{
 // 			Query: "org:hashicorp language:Go",
 // 		}, nil)
 // 		if err != nil {
@@ -59,4 +62,65 @@ type GetRepositoriesResult struct {
 	Names []string `pulumi:"names"`
 	Query string   `pulumi:"query"`
 	Sort  *string  `pulumi:"sort"`
+}
+
+func GetRepositoriesOutput(ctx *pulumi.Context, args GetRepositoriesOutputArgs, opts ...pulumi.InvokeOption) GetRepositoriesResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetRepositoriesResult, error) {
+			args := v.(GetRepositoriesArgs)
+			r, err := GetRepositories(ctx, &args, opts...)
+			return *r, err
+		}).(GetRepositoriesResultOutput)
+}
+
+// A collection of arguments for invoking getRepositories.
+type GetRepositoriesOutputArgs struct {
+	// Search query. See [documentation for the search syntax](https://help.github.com/articles/understanding-the-search-syntax/).
+	Query pulumi.StringInput `pulumi:"query"`
+	// Sorts the repositories returned by the specified attribute. Valid values include `stars`, `fork`, and `updated`. Defaults to `updated`.
+	Sort pulumi.StringPtrInput `pulumi:"sort"`
+}
+
+func (GetRepositoriesOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRepositoriesArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getRepositories.
+type GetRepositoriesResultOutput struct{ *pulumi.OutputState }
+
+func (GetRepositoriesResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRepositoriesResult)(nil)).Elem()
+}
+
+func (o GetRepositoriesResultOutput) ToGetRepositoriesResultOutput() GetRepositoriesResultOutput {
+	return o
+}
+
+func (o GetRepositoriesResultOutput) ToGetRepositoriesResultOutputWithContext(ctx context.Context) GetRepositoriesResultOutput {
+	return o
+}
+
+func (o GetRepositoriesResultOutput) FullNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetRepositoriesResult) []string { return v.FullNames }).(pulumi.StringArrayOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetRepositoriesResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRepositoriesResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetRepositoriesResultOutput) Names() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetRepositoriesResult) []string { return v.Names }).(pulumi.StringArrayOutput)
+}
+
+func (o GetRepositoriesResultOutput) Query() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRepositoriesResult) string { return v.Query }).(pulumi.StringOutput)
+}
+
+func (o GetRepositoriesResultOutput) Sort() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetRepositoriesResult) *string { return v.Sort }).(pulumi.StringPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetRepositoriesResultOutput{})
 }

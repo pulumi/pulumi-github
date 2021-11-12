@@ -90,30 +90,30 @@ export class OrganizationWebhook extends pulumi.CustomResource {
      */
     constructor(name: string, args: OrganizationWebhookArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: OrganizationWebhookArgs | OrganizationWebhookState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as OrganizationWebhookState | undefined;
-            inputs["active"] = state ? state.active : undefined;
-            inputs["configuration"] = state ? state.configuration : undefined;
-            inputs["etag"] = state ? state.etag : undefined;
-            inputs["events"] = state ? state.events : undefined;
-            inputs["url"] = state ? state.url : undefined;
+            resourceInputs["active"] = state ? state.active : undefined;
+            resourceInputs["configuration"] = state ? state.configuration : undefined;
+            resourceInputs["etag"] = state ? state.etag : undefined;
+            resourceInputs["events"] = state ? state.events : undefined;
+            resourceInputs["url"] = state ? state.url : undefined;
         } else {
             const args = argsOrState as OrganizationWebhookArgs | undefined;
             if ((!args || args.events === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'events'");
             }
-            inputs["active"] = args ? args.active : undefined;
-            inputs["configuration"] = args ? args.configuration : undefined;
-            inputs["events"] = args ? args.events : undefined;
-            inputs["etag"] = undefined /*out*/;
-            inputs["url"] = undefined /*out*/;
+            resourceInputs["active"] = args ? args.active : undefined;
+            resourceInputs["configuration"] = args ? args.configuration : undefined;
+            resourceInputs["events"] = args ? args.events : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["url"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(OrganizationWebhook.__pulumiType, name, inputs, opts);
+        super(OrganizationWebhook.__pulumiType, name, resourceInputs, opts);
     }
 }
 

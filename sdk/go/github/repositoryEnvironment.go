@@ -13,6 +13,53 @@ import (
 
 // This resource allows you to create and manage environments for a GitHub repository.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-github/sdk/v4/go/github"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		current, err := github.GetUser(ctx, &GetUserArgs{
+// 			Username: "",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleRepository, err := github.NewRepository(ctx, "exampleRepository", &github.RepositoryArgs{
+// 			Description: pulumi.String("My awesome codebase"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = github.NewRepositoryEnvironment(ctx, "exampleRepositoryEnvironment", &github.RepositoryEnvironmentArgs{
+// 			Environment: pulumi.String("example"),
+// 			Repository:  exampleRepository.Name,
+// 			Reviewers: RepositoryEnvironmentReviewerArray{
+// 				&RepositoryEnvironmentReviewerArgs{
+// 					Users: pulumi.IntArray{
+// 						pulumi.String(current.Id),
+// 					},
+// 				},
+// 			},
+// 			DeploymentBranchPolicy: &RepositoryEnvironmentDeploymentBranchPolicyArgs{
+// 				ProtectedBranches:    pulumi.Bool(true),
+// 				CustomBranchPolicies: pulumi.Bool(false),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
 // ## Import
 //
 // GitHub Repository Environment can be imported using an ID made up of `name` of the repository combined with the `environment` name of the environment, separated by a `:` character, e.g.
@@ -128,7 +175,7 @@ type RepositoryEnvironmentInput interface {
 }
 
 func (*RepositoryEnvironment) ElementType() reflect.Type {
-	return reflect.TypeOf((*RepositoryEnvironment)(nil))
+	return reflect.TypeOf((**RepositoryEnvironment)(nil)).Elem()
 }
 
 func (i *RepositoryEnvironment) ToRepositoryEnvironmentOutput() RepositoryEnvironmentOutput {
@@ -137,35 +184,6 @@ func (i *RepositoryEnvironment) ToRepositoryEnvironmentOutput() RepositoryEnviro
 
 func (i *RepositoryEnvironment) ToRepositoryEnvironmentOutputWithContext(ctx context.Context) RepositoryEnvironmentOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryEnvironmentOutput)
-}
-
-func (i *RepositoryEnvironment) ToRepositoryEnvironmentPtrOutput() RepositoryEnvironmentPtrOutput {
-	return i.ToRepositoryEnvironmentPtrOutputWithContext(context.Background())
-}
-
-func (i *RepositoryEnvironment) ToRepositoryEnvironmentPtrOutputWithContext(ctx context.Context) RepositoryEnvironmentPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RepositoryEnvironmentPtrOutput)
-}
-
-type RepositoryEnvironmentPtrInput interface {
-	pulumi.Input
-
-	ToRepositoryEnvironmentPtrOutput() RepositoryEnvironmentPtrOutput
-	ToRepositoryEnvironmentPtrOutputWithContext(ctx context.Context) RepositoryEnvironmentPtrOutput
-}
-
-type repositoryEnvironmentPtrType RepositoryEnvironmentArgs
-
-func (*repositoryEnvironmentPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**RepositoryEnvironment)(nil))
-}
-
-func (i *repositoryEnvironmentPtrType) ToRepositoryEnvironmentPtrOutput() RepositoryEnvironmentPtrOutput {
-	return i.ToRepositoryEnvironmentPtrOutputWithContext(context.Background())
-}
-
-func (i *repositoryEnvironmentPtrType) ToRepositoryEnvironmentPtrOutputWithContext(ctx context.Context) RepositoryEnvironmentPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RepositoryEnvironmentPtrOutput)
 }
 
 // RepositoryEnvironmentArrayInput is an input type that accepts RepositoryEnvironmentArray and RepositoryEnvironmentArrayOutput values.
@@ -182,7 +200,7 @@ type RepositoryEnvironmentArrayInput interface {
 type RepositoryEnvironmentArray []RepositoryEnvironmentInput
 
 func (RepositoryEnvironmentArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*RepositoryEnvironment)(nil))
+	return reflect.TypeOf((*[]*RepositoryEnvironment)(nil)).Elem()
 }
 
 func (i RepositoryEnvironmentArray) ToRepositoryEnvironmentArrayOutput() RepositoryEnvironmentArrayOutput {
@@ -207,7 +225,7 @@ type RepositoryEnvironmentMapInput interface {
 type RepositoryEnvironmentMap map[string]RepositoryEnvironmentInput
 
 func (RepositoryEnvironmentMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*RepositoryEnvironment)(nil))
+	return reflect.TypeOf((*map[string]*RepositoryEnvironment)(nil)).Elem()
 }
 
 func (i RepositoryEnvironmentMap) ToRepositoryEnvironmentMapOutput() RepositoryEnvironmentMapOutput {
@@ -218,12 +236,10 @@ func (i RepositoryEnvironmentMap) ToRepositoryEnvironmentMapOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryEnvironmentMapOutput)
 }
 
-type RepositoryEnvironmentOutput struct {
-	*pulumi.OutputState
-}
+type RepositoryEnvironmentOutput struct{ *pulumi.OutputState }
 
 func (RepositoryEnvironmentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RepositoryEnvironment)(nil))
+	return reflect.TypeOf((**RepositoryEnvironment)(nil)).Elem()
 }
 
 func (o RepositoryEnvironmentOutput) ToRepositoryEnvironmentOutput() RepositoryEnvironmentOutput {
@@ -234,36 +250,10 @@ func (o RepositoryEnvironmentOutput) ToRepositoryEnvironmentOutputWithContext(ct
 	return o
 }
 
-func (o RepositoryEnvironmentOutput) ToRepositoryEnvironmentPtrOutput() RepositoryEnvironmentPtrOutput {
-	return o.ToRepositoryEnvironmentPtrOutputWithContext(context.Background())
-}
-
-func (o RepositoryEnvironmentOutput) ToRepositoryEnvironmentPtrOutputWithContext(ctx context.Context) RepositoryEnvironmentPtrOutput {
-	return o.ApplyT(func(v RepositoryEnvironment) *RepositoryEnvironment {
-		return &v
-	}).(RepositoryEnvironmentPtrOutput)
-}
-
-type RepositoryEnvironmentPtrOutput struct {
-	*pulumi.OutputState
-}
-
-func (RepositoryEnvironmentPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**RepositoryEnvironment)(nil))
-}
-
-func (o RepositoryEnvironmentPtrOutput) ToRepositoryEnvironmentPtrOutput() RepositoryEnvironmentPtrOutput {
-	return o
-}
-
-func (o RepositoryEnvironmentPtrOutput) ToRepositoryEnvironmentPtrOutputWithContext(ctx context.Context) RepositoryEnvironmentPtrOutput {
-	return o
-}
-
 type RepositoryEnvironmentArrayOutput struct{ *pulumi.OutputState }
 
 func (RepositoryEnvironmentArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RepositoryEnvironment)(nil))
+	return reflect.TypeOf((*[]*RepositoryEnvironment)(nil)).Elem()
 }
 
 func (o RepositoryEnvironmentArrayOutput) ToRepositoryEnvironmentArrayOutput() RepositoryEnvironmentArrayOutput {
@@ -275,15 +265,15 @@ func (o RepositoryEnvironmentArrayOutput) ToRepositoryEnvironmentArrayOutputWith
 }
 
 func (o RepositoryEnvironmentArrayOutput) Index(i pulumi.IntInput) RepositoryEnvironmentOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RepositoryEnvironment {
-		return vs[0].([]RepositoryEnvironment)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RepositoryEnvironment {
+		return vs[0].([]*RepositoryEnvironment)[vs[1].(int)]
 	}).(RepositoryEnvironmentOutput)
 }
 
 type RepositoryEnvironmentMapOutput struct{ *pulumi.OutputState }
 
 func (RepositoryEnvironmentMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]RepositoryEnvironment)(nil))
+	return reflect.TypeOf((*map[string]*RepositoryEnvironment)(nil)).Elem()
 }
 
 func (o RepositoryEnvironmentMapOutput) ToRepositoryEnvironmentMapOutput() RepositoryEnvironmentMapOutput {
@@ -295,14 +285,16 @@ func (o RepositoryEnvironmentMapOutput) ToRepositoryEnvironmentMapOutputWithCont
 }
 
 func (o RepositoryEnvironmentMapOutput) MapIndex(k pulumi.StringInput) RepositoryEnvironmentOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) RepositoryEnvironment {
-		return vs[0].(map[string]RepositoryEnvironment)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *RepositoryEnvironment {
+		return vs[0].(map[string]*RepositoryEnvironment)[vs[1].(string)]
 	}).(RepositoryEnvironmentOutput)
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryEnvironmentInput)(nil)).Elem(), &RepositoryEnvironment{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryEnvironmentArrayInput)(nil)).Elem(), RepositoryEnvironmentArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryEnvironmentMapInput)(nil)).Elem(), RepositoryEnvironmentMap{})
 	pulumi.RegisterOutputType(RepositoryEnvironmentOutput{})
-	pulumi.RegisterOutputType(RepositoryEnvironmentPtrOutput{})
 	pulumi.RegisterOutputType(RepositoryEnvironmentArrayOutput{})
 	pulumi.RegisterOutputType(RepositoryEnvironmentMapOutput{})
 }

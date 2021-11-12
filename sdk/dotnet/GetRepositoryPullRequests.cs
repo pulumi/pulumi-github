@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Github
 {
@@ -43,6 +44,39 @@ namespace Pulumi.Github
         /// </summary>
         public static Task<GetRepositoryPullRequestsResult> InvokeAsync(GetRepositoryPullRequestsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRepositoryPullRequestsResult>("github:index/getRepositoryPullRequests:getRepositoryPullRequests", args ?? new GetRepositoryPullRequestsArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to retrieve information about multiple GitHub Pull Requests in a repository.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Github = Pulumi.Github;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Github.GetRepositoryPullRequests.InvokeAsync(new Github.GetRepositoryPullRequestsArgs
+        ///         {
+        ///             BaseRef = "main",
+        ///             BaseRepository = "example-repository",
+        ///             SortBy = "updated",
+        ///             SortDirection = "desc",
+        ///             State = "open",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetRepositoryPullRequestsResult> Invoke(GetRepositoryPullRequestsInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetRepositoryPullRequestsResult>("github:index/getRepositoryPullRequests:getRepositoryPullRequests", args ?? new GetRepositoryPullRequestsInvokeArgs(), options.WithVersion());
     }
 
 
@@ -91,6 +125,55 @@ namespace Pulumi.Github
         public string? State { get; set; }
 
         public GetRepositoryPullRequestsArgs()
+        {
+        }
+    }
+
+    public sealed class GetRepositoryPullRequestsInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// If set, filters Pull Requests by base branch name.
+        /// </summary>
+        [Input("baseRef")]
+        public Input<string>? BaseRef { get; set; }
+
+        /// <summary>
+        /// Name of the base repository to retrieve the Pull Requests from.
+        /// </summary>
+        [Input("baseRepository", required: true)]
+        public Input<string> BaseRepository { get; set; } = null!;
+
+        /// <summary>
+        /// If set, filters Pull Requests by head user or head organization and branch name in the format of "user:ref-name" or "organization:ref-name". For example: "github:new-script-format" or "octocat:test-branch".
+        /// </summary>
+        [Input("headRef")]
+        public Input<string>? HeadRef { get; set; }
+
+        /// <summary>
+        /// Owner of the repository. If not provided, the provider's default owner is used.
+        /// </summary>
+        [Input("owner")]
+        public Input<string>? Owner { get; set; }
+
+        /// <summary>
+        /// If set, indicates what to sort results by. Can be either "created", "updated", "popularity" (comment count) or "long-running" (age, filtering by pulls updated in the last month). Default: "created".
+        /// </summary>
+        [Input("sortBy")]
+        public Input<string>? SortBy { get; set; }
+
+        /// <summary>
+        /// If set, controls the direction of the sort. Can be either "asc" or "desc". Default: "asc".
+        /// </summary>
+        [Input("sortDirection")]
+        public Input<string>? SortDirection { get; set; }
+
+        /// <summary>
+        /// If set, filters Pull Requests by state. Can be "open", "closed", or "all". Default: "open".
+        /// </summary>
+        [Input("state")]
+        public Input<string>? State { get; set; }
+
+        public GetRepositoryPullRequestsInvokeArgs()
         {
         }
     }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Github
 {
@@ -40,6 +41,36 @@ namespace Pulumi.Github
         /// </summary>
         public static Task<GetBranchResult> InvokeAsync(GetBranchArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetBranchResult>("github:index/getBranch:getBranch", args ?? new GetBranchArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to retrieve information about a repository branch.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Github = Pulumi.Github;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var development = Output.Create(Github.GetBranch.InvokeAsync(new Github.GetBranchArgs
+        ///         {
+        ///             Branch = "development",
+        ///             Repository = "example",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetBranchResult> Invoke(GetBranchInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetBranchResult>("github:index/getBranch:getBranch", args ?? new GetBranchInvokeArgs(), options.WithVersion());
     }
 
 
@@ -58,6 +89,25 @@ namespace Pulumi.Github
         public string Repository { get; set; } = null!;
 
         public GetBranchArgs()
+        {
+        }
+    }
+
+    public sealed class GetBranchInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The repository branch to create.
+        /// </summary>
+        [Input("branch", required: true)]
+        public Input<string> Branch { get; set; } = null!;
+
+        /// <summary>
+        /// The GitHub repository name.
+        /// </summary>
+        [Input("repository", required: true)]
+        public Input<string> Repository { get; set; } = null!;
+
+        public GetBranchInvokeArgs()
         {
         }
     }

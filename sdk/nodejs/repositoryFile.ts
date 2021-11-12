@@ -120,20 +120,20 @@ export class RepositoryFile extends pulumi.CustomResource {
      */
     constructor(name: string, args: RepositoryFileArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: RepositoryFileArgs | RepositoryFileState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RepositoryFileState | undefined;
-            inputs["branch"] = state ? state.branch : undefined;
-            inputs["commitAuthor"] = state ? state.commitAuthor : undefined;
-            inputs["commitEmail"] = state ? state.commitEmail : undefined;
-            inputs["commitMessage"] = state ? state.commitMessage : undefined;
-            inputs["commitSha"] = state ? state.commitSha : undefined;
-            inputs["content"] = state ? state.content : undefined;
-            inputs["file"] = state ? state.file : undefined;
-            inputs["overwriteOnCreate"] = state ? state.overwriteOnCreate : undefined;
-            inputs["repository"] = state ? state.repository : undefined;
-            inputs["sha"] = state ? state.sha : undefined;
+            resourceInputs["branch"] = state ? state.branch : undefined;
+            resourceInputs["commitAuthor"] = state ? state.commitAuthor : undefined;
+            resourceInputs["commitEmail"] = state ? state.commitEmail : undefined;
+            resourceInputs["commitMessage"] = state ? state.commitMessage : undefined;
+            resourceInputs["commitSha"] = state ? state.commitSha : undefined;
+            resourceInputs["content"] = state ? state.content : undefined;
+            resourceInputs["file"] = state ? state.file : undefined;
+            resourceInputs["overwriteOnCreate"] = state ? state.overwriteOnCreate : undefined;
+            resourceInputs["repository"] = state ? state.repository : undefined;
+            resourceInputs["sha"] = state ? state.sha : undefined;
         } else {
             const args = argsOrState as RepositoryFileArgs | undefined;
             if ((!args || args.content === undefined) && !opts.urn) {
@@ -145,21 +145,21 @@ export class RepositoryFile extends pulumi.CustomResource {
             if ((!args || args.repository === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'repository'");
             }
-            inputs["branch"] = args ? args.branch : undefined;
-            inputs["commitAuthor"] = args ? args.commitAuthor : undefined;
-            inputs["commitEmail"] = args ? args.commitEmail : undefined;
-            inputs["commitMessage"] = args ? args.commitMessage : undefined;
-            inputs["content"] = args ? args.content : undefined;
-            inputs["file"] = args ? args.file : undefined;
-            inputs["overwriteOnCreate"] = args ? args.overwriteOnCreate : undefined;
-            inputs["repository"] = args ? args.repository : undefined;
-            inputs["commitSha"] = undefined /*out*/;
-            inputs["sha"] = undefined /*out*/;
+            resourceInputs["branch"] = args ? args.branch : undefined;
+            resourceInputs["commitAuthor"] = args ? args.commitAuthor : undefined;
+            resourceInputs["commitEmail"] = args ? args.commitEmail : undefined;
+            resourceInputs["commitMessage"] = args ? args.commitMessage : undefined;
+            resourceInputs["content"] = args ? args.content : undefined;
+            resourceInputs["file"] = args ? args.file : undefined;
+            resourceInputs["overwriteOnCreate"] = args ? args.overwriteOnCreate : undefined;
+            resourceInputs["repository"] = args ? args.repository : undefined;
+            resourceInputs["commitSha"] = undefined /*out*/;
+            resourceInputs["sha"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(RepositoryFile.__pulumiType, name, inputs, opts);
+        super(RepositoryFile.__pulumiType, name, resourceInputs, opts);
     }
 }
 

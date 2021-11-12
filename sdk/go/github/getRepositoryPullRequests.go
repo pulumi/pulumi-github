@@ -4,6 +4,9 @@
 package github
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -25,7 +28,7 @@ import (
 // 		opt1 := "updated"
 // 		opt2 := "desc"
 // 		opt3 := "open"
-// 		_, err := github.GetRepositoryPullRequests(ctx, &github.GetRepositoryPullRequestsArgs{
+// 		_, err := github.LookupRepositoryPullRequests(ctx, &GetRepositoryPullRequestsArgs{
 // 			BaseRef:        &opt0,
 // 			BaseRepository: "example-repository",
 // 			SortBy:         &opt1,
@@ -39,8 +42,8 @@ import (
 // 	})
 // }
 // ```
-func GetRepositoryPullRequests(ctx *pulumi.Context, args *GetRepositoryPullRequestsArgs, opts ...pulumi.InvokeOption) (*GetRepositoryPullRequestsResult, error) {
-	var rv GetRepositoryPullRequestsResult
+func LookupRepositoryPullRequests(ctx *pulumi.Context, args *LookupRepositoryPullRequestsArgs, opts ...pulumi.InvokeOption) (*LookupRepositoryPullRequestsResult, error) {
+	var rv LookupRepositoryPullRequestsResult
 	err := ctx.Invoke("github:index/getRepositoryPullRequests:getRepositoryPullRequests", args, &rv, opts...)
 	if err != nil {
 		return nil, err
@@ -49,7 +52,7 @@ func GetRepositoryPullRequests(ctx *pulumi.Context, args *GetRepositoryPullReque
 }
 
 // A collection of arguments for invoking getRepositoryPullRequests.
-type GetRepositoryPullRequestsArgs struct {
+type LookupRepositoryPullRequestsArgs struct {
 	// If set, filters Pull Requests by base branch name.
 	BaseRef *string `pulumi:"baseRef"`
 	// Name of the base repository to retrieve the Pull Requests from.
@@ -67,7 +70,7 @@ type GetRepositoryPullRequestsArgs struct {
 }
 
 // A collection of values returned by getRepositoryPullRequests.
-type GetRepositoryPullRequestsResult struct {
+type LookupRepositoryPullRequestsResult struct {
 	// Name of the ref (branch) of the Pull Request base.
 	BaseRef        *string `pulumi:"baseRef"`
 	BaseRepository string  `pulumi:"baseRepository"`
@@ -77,9 +80,100 @@ type GetRepositoryPullRequestsResult struct {
 	Id    string  `pulumi:"id"`
 	Owner *string `pulumi:"owner"`
 	// Collection of Pull Requests matching the filters. Each of the results conforms to the following scheme:
-	Results       []GetRepositoryPullRequestsResultType `pulumi:"results"`
-	SortBy        *string                               `pulumi:"sortBy"`
-	SortDirection *string                               `pulumi:"sortDirection"`
+	Results       []GetRepositoryPullRequestsResult `pulumi:"results"`
+	SortBy        *string                           `pulumi:"sortBy"`
+	SortDirection *string                           `pulumi:"sortDirection"`
 	// the current Pull Request state - can be "open", "closed" or "merged".
 	State *string `pulumi:"state"`
+}
+
+func LookupRepositoryPullRequestsOutput(ctx *pulumi.Context, args LookupRepositoryPullRequestsOutputArgs, opts ...pulumi.InvokeOption) LookupRepositoryPullRequestsResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupRepositoryPullRequestsResult, error) {
+			args := v.(LookupRepositoryPullRequestsArgs)
+			r, err := LookupRepositoryPullRequests(ctx, &args, opts...)
+			return *r, err
+		}).(LookupRepositoryPullRequestsResultOutput)
+}
+
+// A collection of arguments for invoking getRepositoryPullRequests.
+type LookupRepositoryPullRequestsOutputArgs struct {
+	// If set, filters Pull Requests by base branch name.
+	BaseRef pulumi.StringPtrInput `pulumi:"baseRef"`
+	// Name of the base repository to retrieve the Pull Requests from.
+	BaseRepository pulumi.StringInput `pulumi:"baseRepository"`
+	// If set, filters Pull Requests by head user or head organization and branch name in the format of "user:ref-name" or "organization:ref-name". For example: "github:new-script-format" or "octocat:test-branch".
+	HeadRef pulumi.StringPtrInput `pulumi:"headRef"`
+	// Owner of the repository. If not provided, the provider's default owner is used.
+	Owner pulumi.StringPtrInput `pulumi:"owner"`
+	// If set, indicates what to sort results by. Can be either "created", "updated", "popularity" (comment count) or "long-running" (age, filtering by pulls updated in the last month). Default: "created".
+	SortBy pulumi.StringPtrInput `pulumi:"sortBy"`
+	// If set, controls the direction of the sort. Can be either "asc" or "desc". Default: "asc".
+	SortDirection pulumi.StringPtrInput `pulumi:"sortDirection"`
+	// If set, filters Pull Requests by state. Can be "open", "closed", or "all". Default: "open".
+	State pulumi.StringPtrInput `pulumi:"state"`
+}
+
+func (LookupRepositoryPullRequestsOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupRepositoryPullRequestsArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getRepositoryPullRequests.
+type LookupRepositoryPullRequestsResultOutput struct{ *pulumi.OutputState }
+
+func (LookupRepositoryPullRequestsResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupRepositoryPullRequestsResult)(nil)).Elem()
+}
+
+func (o LookupRepositoryPullRequestsResultOutput) ToLookupRepositoryPullRequestsResultOutput() LookupRepositoryPullRequestsResultOutput {
+	return o
+}
+
+func (o LookupRepositoryPullRequestsResultOutput) ToLookupRepositoryPullRequestsResultOutputWithContext(ctx context.Context) LookupRepositoryPullRequestsResultOutput {
+	return o
+}
+
+// Name of the ref (branch) of the Pull Request base.
+func (o LookupRepositoryPullRequestsResultOutput) BaseRef() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupRepositoryPullRequestsResult) *string { return v.BaseRef }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupRepositoryPullRequestsResultOutput) BaseRepository() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRepositoryPullRequestsResult) string { return v.BaseRepository }).(pulumi.StringOutput)
+}
+
+// Value of the Pull Request `HEAD` reference.
+func (o LookupRepositoryPullRequestsResultOutput) HeadRef() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupRepositoryPullRequestsResult) *string { return v.HeadRef }).(pulumi.StringPtrOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupRepositoryPullRequestsResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRepositoryPullRequestsResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o LookupRepositoryPullRequestsResultOutput) Owner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupRepositoryPullRequestsResult) *string { return v.Owner }).(pulumi.StringPtrOutput)
+}
+
+// Collection of Pull Requests matching the filters. Each of the results conforms to the following scheme:
+func (o LookupRepositoryPullRequestsResultOutput) Results() GetRepositoryPullRequestsResultArrayOutput {
+	return o.ApplyT(func(v LookupRepositoryPullRequestsResult) []GetRepositoryPullRequestsResult { return v.Results }).(GetRepositoryPullRequestsResultArrayOutput)
+}
+
+func (o LookupRepositoryPullRequestsResultOutput) SortBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupRepositoryPullRequestsResult) *string { return v.SortBy }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupRepositoryPullRequestsResultOutput) SortDirection() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupRepositoryPullRequestsResult) *string { return v.SortDirection }).(pulumi.StringPtrOutput)
+}
+
+// the current Pull Request state - can be "open", "closed" or "merged".
+func (o LookupRepositoryPullRequestsResultOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupRepositoryPullRequestsResult) *string { return v.State }).(pulumi.StringPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupRepositoryPullRequestsResultOutput{})
 }

@@ -4,6 +4,9 @@
 package github
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +24,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := github.LookupTeam(ctx, &github.LookupTeamArgs{
+// 		_, err := github.LookupTeam(ctx, &GetTeamArgs{
 // 			Slug: "example",
 // 		}, nil)
 // 		if err != nil {
@@ -65,4 +68,86 @@ type LookupTeamResult struct {
 	// List of team repositories
 	Repositories []string `pulumi:"repositories"`
 	Slug         string   `pulumi:"slug"`
+}
+
+func LookupTeamOutput(ctx *pulumi.Context, args LookupTeamOutputArgs, opts ...pulumi.InvokeOption) LookupTeamResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupTeamResult, error) {
+			args := v.(LookupTeamArgs)
+			r, err := LookupTeam(ctx, &args, opts...)
+			return *r, err
+		}).(LookupTeamResultOutput)
+}
+
+// A collection of arguments for invoking getTeam.
+type LookupTeamOutputArgs struct {
+	// The team slug.
+	Slug pulumi.StringInput `pulumi:"slug"`
+}
+
+func (LookupTeamOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupTeamArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getTeam.
+type LookupTeamResultOutput struct{ *pulumi.OutputState }
+
+func (LookupTeamResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupTeamResult)(nil)).Elem()
+}
+
+func (o LookupTeamResultOutput) ToLookupTeamResultOutput() LookupTeamResultOutput {
+	return o
+}
+
+func (o LookupTeamResultOutput) ToLookupTeamResultOutputWithContext(ctx context.Context) LookupTeamResultOutput {
+	return o
+}
+
+// the team's description.
+func (o LookupTeamResultOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTeamResult) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupTeamResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTeamResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// List of team members
+func (o LookupTeamResultOutput) Members() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupTeamResult) []string { return v.Members }).(pulumi.StringArrayOutput)
+}
+
+// the team's full name.
+func (o LookupTeamResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTeamResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// the Node ID of the team.
+func (o LookupTeamResultOutput) NodeId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTeamResult) string { return v.NodeId }).(pulumi.StringOutput)
+}
+
+// the team's permission level.
+func (o LookupTeamResultOutput) Permission() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTeamResult) string { return v.Permission }).(pulumi.StringOutput)
+}
+
+// the team's privacy type.
+func (o LookupTeamResultOutput) Privacy() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTeamResult) string { return v.Privacy }).(pulumi.StringOutput)
+}
+
+// List of team repositories
+func (o LookupTeamResultOutput) Repositories() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupTeamResult) []string { return v.Repositories }).(pulumi.StringArrayOutput)
+}
+
+func (o LookupTeamResultOutput) Slug() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTeamResult) string { return v.Slug }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupTeamResultOutput{})
 }

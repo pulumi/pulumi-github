@@ -16,7 +16,6 @@ __all__ = [
     'BranchProtectionV3RequiredStatusChecks',
     'BranchProtectionV3Restrictions',
     'OrganizationWebhookConfiguration',
-    'ProviderAppAuth',
     'RepositoryEnvironmentDeploymentBranchPolicy',
     'RepositoryEnvironmentReviewer',
     'RepositoryPages',
@@ -338,32 +337,6 @@ class OrganizationWebhookConfiguration(dict):
     @pulumi.getter
     def secret(self) -> Optional[str]:
         return pulumi.get(self, "secret")
-
-
-@pulumi.output_type
-class ProviderAppAuth(dict):
-    def __init__(__self__, *,
-                 id: str,
-                 installation_id: str,
-                 pem_file: str):
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "installation_id", installation_id)
-        pulumi.set(__self__, "pem_file", pem_file)
-
-    @property
-    @pulumi.getter
-    def id(self) -> str:
-        return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter(name="installationId")
-    def installation_id(self) -> str:
-        return pulumi.get(self, "installation_id")
-
-    @property
-    @pulumi.getter(name="pemFile")
-    def pem_file(self) -> str:
-        return pulumi.get(self, "pem_file")
 
 
 @pulumi.output_type

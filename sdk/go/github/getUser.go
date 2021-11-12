@@ -4,6 +4,9 @@
 package github
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,13 +24,13 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := github.GetUser(ctx, &github.GetUserArgs{
+// 		_, err := github.GetUser(ctx, &GetUserArgs{
 // 			Username: "example",
 // 		}, nil)
 // 		if err != nil {
 // 			return err
 // 		}
-// 		current, err := github.GetUser(ctx, &github.GetUserArgs{
+// 		current, err := github.GetUser(ctx, &GetUserArgs{
 // 			Username: "",
 // 		}, nil)
 // 		if err != nil {
@@ -96,4 +99,146 @@ type GetUserResult struct {
 	// the update date.
 	UpdatedAt string `pulumi:"updatedAt"`
 	Username  string `pulumi:"username"`
+}
+
+func GetUserOutput(ctx *pulumi.Context, args GetUserOutputArgs, opts ...pulumi.InvokeOption) GetUserResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetUserResult, error) {
+			args := v.(GetUserArgs)
+			r, err := GetUser(ctx, &args, opts...)
+			return *r, err
+		}).(GetUserResultOutput)
+}
+
+// A collection of arguments for invoking getUser.
+type GetUserOutputArgs struct {
+	// The username. Use an empty string `""` to retrieve information about the currently authenticated user.
+	Username pulumi.StringInput `pulumi:"username"`
+}
+
+func (GetUserOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetUserArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getUser.
+type GetUserResultOutput struct{ *pulumi.OutputState }
+
+func (GetUserResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetUserResult)(nil)).Elem()
+}
+
+func (o GetUserResultOutput) ToGetUserResultOutput() GetUserResultOutput {
+	return o
+}
+
+func (o GetUserResultOutput) ToGetUserResultOutputWithContext(ctx context.Context) GetUserResultOutput {
+	return o
+}
+
+// the user's avatar URL.
+func (o GetUserResultOutput) AvatarUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUserResult) string { return v.AvatarUrl }).(pulumi.StringOutput)
+}
+
+// the user's bio.
+func (o GetUserResultOutput) Bio() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUserResult) string { return v.Bio }).(pulumi.StringOutput)
+}
+
+// the user's blog location.
+func (o GetUserResultOutput) Blog() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUserResult) string { return v.Blog }).(pulumi.StringOutput)
+}
+
+// the user's company name.
+func (o GetUserResultOutput) Company() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUserResult) string { return v.Company }).(pulumi.StringOutput)
+}
+
+// the creation date.
+func (o GetUserResultOutput) CreatedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUserResult) string { return v.CreatedAt }).(pulumi.StringOutput)
+}
+
+// the user's email.
+func (o GetUserResultOutput) Email() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUserResult) string { return v.Email }).(pulumi.StringOutput)
+}
+
+// the number of followers.
+func (o GetUserResultOutput) Followers() pulumi.IntOutput {
+	return o.ApplyT(func(v GetUserResult) int { return v.Followers }).(pulumi.IntOutput)
+}
+
+// the number of following users.
+func (o GetUserResultOutput) Following() pulumi.IntOutput {
+	return o.ApplyT(func(v GetUserResult) int { return v.Following }).(pulumi.IntOutput)
+}
+
+// list of user's GPG keys.
+func (o GetUserResultOutput) GpgKeys() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetUserResult) []string { return v.GpgKeys }).(pulumi.StringArrayOutput)
+}
+
+// the user's gravatar ID.
+func (o GetUserResultOutput) GravatarId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUserResult) string { return v.GravatarId }).(pulumi.StringOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetUserResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUserResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// the user's location.
+func (o GetUserResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUserResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// the user's login.
+func (o GetUserResultOutput) Login() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUserResult) string { return v.Login }).(pulumi.StringOutput)
+}
+
+// the user's full name.
+func (o GetUserResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUserResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// the Node ID of the user.
+func (o GetUserResultOutput) NodeId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUserResult) string { return v.NodeId }).(pulumi.StringOutput)
+}
+
+// the number of public gists.
+func (o GetUserResultOutput) PublicGists() pulumi.IntOutput {
+	return o.ApplyT(func(v GetUserResult) int { return v.PublicGists }).(pulumi.IntOutput)
+}
+
+// the number of public repositories.
+func (o GetUserResultOutput) PublicRepos() pulumi.IntOutput {
+	return o.ApplyT(func(v GetUserResult) int { return v.PublicRepos }).(pulumi.IntOutput)
+}
+
+// whether the user is a GitHub admin.
+func (o GetUserResultOutput) SiteAdmin() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetUserResult) bool { return v.SiteAdmin }).(pulumi.BoolOutput)
+}
+
+// list of user's SSH keys.
+func (o GetUserResultOutput) SshKeys() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetUserResult) []string { return v.SshKeys }).(pulumi.StringArrayOutput)
+}
+
+// the update date.
+func (o GetUserResultOutput) UpdatedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUserResult) string { return v.UpdatedAt }).(pulumi.StringOutput)
+}
+
+func (o GetUserResultOutput) Username() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUserResult) string { return v.Username }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetUserResultOutput{})
 }

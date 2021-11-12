@@ -168,3 +168,29 @@ export interface GetRepositoryResult {
      */
     readonly visibility: string;
 }
+
+export function getRepositoryOutput(args?: GetRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRepositoryResult> {
+    return pulumi.output(args).apply(a => getRepository(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getRepository.
+ */
+export interface GetRepositoryOutputArgs {
+    /**
+     * A description of the repository.
+     */
+    description?: pulumi.Input<string>;
+    /**
+     * Full name of the repository (in `org/name` format).
+     */
+    fullName?: pulumi.Input<string>;
+    /**
+     * URL of a page describing the project.
+     */
+    homepageUrl?: pulumi.Input<string>;
+    /**
+     * The name of the repository.
+     */
+    name?: pulumi.Input<string>;
+}

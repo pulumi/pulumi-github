@@ -4,6 +4,9 @@
 package github
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +24,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := github.LookupRepositoryMilestone(ctx, &github.LookupRepositoryMilestoneArgs{
+// 		_, err := github.LookupRepositoryMilestone(ctx, &GetRepositoryMilestoneArgs{
 // 			Number:     1,
 // 			Owner:      "example-owner",
 // 			Repository: "example-repository",
@@ -67,4 +70,83 @@ type LookupRepositoryMilestoneResult struct {
 	State string `pulumi:"state"`
 	// Title of the milestone.
 	Title string `pulumi:"title"`
+}
+
+func LookupRepositoryMilestoneOutput(ctx *pulumi.Context, args LookupRepositoryMilestoneOutputArgs, opts ...pulumi.InvokeOption) LookupRepositoryMilestoneResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupRepositoryMilestoneResult, error) {
+			args := v.(LookupRepositoryMilestoneArgs)
+			r, err := LookupRepositoryMilestone(ctx, &args, opts...)
+			return *r, err
+		}).(LookupRepositoryMilestoneResultOutput)
+}
+
+// A collection of arguments for invoking getRepositoryMilestone.
+type LookupRepositoryMilestoneOutputArgs struct {
+	// The number of the milestone.
+	Number pulumi.IntInput `pulumi:"number"`
+	// Owner of the repository.
+	Owner pulumi.StringInput `pulumi:"owner"`
+	// Name of the repository to retrieve the milestone from.
+	Repository pulumi.StringInput `pulumi:"repository"`
+}
+
+func (LookupRepositoryMilestoneOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupRepositoryMilestoneArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getRepositoryMilestone.
+type LookupRepositoryMilestoneResultOutput struct{ *pulumi.OutputState }
+
+func (LookupRepositoryMilestoneResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupRepositoryMilestoneResult)(nil)).Elem()
+}
+
+func (o LookupRepositoryMilestoneResultOutput) ToLookupRepositoryMilestoneResultOutput() LookupRepositoryMilestoneResultOutput {
+	return o
+}
+
+func (o LookupRepositoryMilestoneResultOutput) ToLookupRepositoryMilestoneResultOutputWithContext(ctx context.Context) LookupRepositoryMilestoneResultOutput {
+	return o
+}
+
+// Description of the milestone.
+func (o LookupRepositoryMilestoneResultOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRepositoryMilestoneResult) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// The milestone due date (in ISO-8601 `yyyy-mm-dd` format).
+func (o LookupRepositoryMilestoneResultOutput) DueDate() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRepositoryMilestoneResult) string { return v.DueDate }).(pulumi.StringOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupRepositoryMilestoneResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRepositoryMilestoneResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o LookupRepositoryMilestoneResultOutput) Number() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupRepositoryMilestoneResult) int { return v.Number }).(pulumi.IntOutput)
+}
+
+func (o LookupRepositoryMilestoneResultOutput) Owner() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRepositoryMilestoneResult) string { return v.Owner }).(pulumi.StringOutput)
+}
+
+func (o LookupRepositoryMilestoneResultOutput) Repository() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRepositoryMilestoneResult) string { return v.Repository }).(pulumi.StringOutput)
+}
+
+// State of the milestone.
+func (o LookupRepositoryMilestoneResultOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRepositoryMilestoneResult) string { return v.State }).(pulumi.StringOutput)
+}
+
+// Title of the milestone.
+func (o LookupRepositoryMilestoneResultOutput) Title() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRepositoryMilestoneResult) string { return v.Title }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupRepositoryMilestoneResultOutput{})
 }

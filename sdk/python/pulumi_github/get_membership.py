@@ -12,6 +12,7 @@ __all__ = [
     'GetMembershipResult',
     'AwaitableGetMembershipResult',
     'get_membership',
+    'get_membership_output',
 ]
 
 @pulumi.output_type
@@ -124,3 +125,29 @@ def get_membership(organization: Optional[str] = None,
         organization=__ret__.organization,
         role=__ret__.role,
         username=__ret__.username)
+
+
+@_utilities.lift_output_func(get_membership)
+def get_membership_output(organization: Optional[pulumi.Input[Optional[str]]] = None,
+                          username: Optional[pulumi.Input[str]] = None,
+                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMembershipResult]:
+    """
+    Use this data source to find out if a user is a member of your organization, as well
+    as what role they have within it.
+    If the user's membership in the organization is pending their acceptance of an invite,
+    the role they would have once they accept will be returned.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_github as github
+
+    membership_for_some_user = github.get_membership(username="SomeUser")
+    ```
+
+
+    :param str organization: The organization to check for the above username.
+    :param str username: The username to lookup in the organization.
+    """
+    ...

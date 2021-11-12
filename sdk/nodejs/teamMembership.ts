@@ -91,14 +91,14 @@ export class TeamMembership extends pulumi.CustomResource {
      */
     constructor(name: string, args: TeamMembershipArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: TeamMembershipArgs | TeamMembershipState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TeamMembershipState | undefined;
-            inputs["etag"] = state ? state.etag : undefined;
-            inputs["role"] = state ? state.role : undefined;
-            inputs["teamId"] = state ? state.teamId : undefined;
-            inputs["username"] = state ? state.username : undefined;
+            resourceInputs["etag"] = state ? state.etag : undefined;
+            resourceInputs["role"] = state ? state.role : undefined;
+            resourceInputs["teamId"] = state ? state.teamId : undefined;
+            resourceInputs["username"] = state ? state.username : undefined;
         } else {
             const args = argsOrState as TeamMembershipArgs | undefined;
             if ((!args || args.teamId === undefined) && !opts.urn) {
@@ -107,15 +107,15 @@ export class TeamMembership extends pulumi.CustomResource {
             if ((!args || args.username === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'username'");
             }
-            inputs["role"] = args ? args.role : undefined;
-            inputs["teamId"] = args ? args.teamId : undefined;
-            inputs["username"] = args ? args.username : undefined;
-            inputs["etag"] = undefined /*out*/;
+            resourceInputs["role"] = args ? args.role : undefined;
+            resourceInputs["teamId"] = args ? args.teamId : undefined;
+            resourceInputs["username"] = args ? args.username : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(TeamMembership.__pulumiType, name, inputs, opts);
+        super(TeamMembership.__pulumiType, name, resourceInputs, opts);
     }
 }
 

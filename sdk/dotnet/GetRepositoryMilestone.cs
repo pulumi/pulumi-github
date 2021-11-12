@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Github
 {
@@ -41,6 +42,37 @@ namespace Pulumi.Github
         /// </summary>
         public static Task<GetRepositoryMilestoneResult> InvokeAsync(GetRepositoryMilestoneArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRepositoryMilestoneResult>("github:index/getRepositoryMilestone:getRepositoryMilestone", args ?? new GetRepositoryMilestoneArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to retrieve information about a specific GitHub milestone in a repository.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Github = Pulumi.Github;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Github.GetRepositoryMilestone.InvokeAsync(new Github.GetRepositoryMilestoneArgs
+        ///         {
+        ///             Number = 1,
+        ///             Owner = "example-owner",
+        ///             Repository = "example-repository",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetRepositoryMilestoneResult> Invoke(GetRepositoryMilestoneInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetRepositoryMilestoneResult>("github:index/getRepositoryMilestone:getRepositoryMilestone", args ?? new GetRepositoryMilestoneInvokeArgs(), options.WithVersion());
     }
 
 
@@ -65,6 +97,31 @@ namespace Pulumi.Github
         public string Repository { get; set; } = null!;
 
         public GetRepositoryMilestoneArgs()
+        {
+        }
+    }
+
+    public sealed class GetRepositoryMilestoneInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The number of the milestone.
+        /// </summary>
+        [Input("number", required: true)]
+        public Input<int> Number { get; set; } = null!;
+
+        /// <summary>
+        /// Owner of the repository.
+        /// </summary>
+        [Input("owner", required: true)]
+        public Input<string> Owner { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the repository to retrieve the milestone from.
+        /// </summary>
+        [Input("repository", required: true)]
+        public Input<string> Repository { get; set; } = null!;
+
+        public GetRepositoryMilestoneInvokeArgs()
         {
         }
     }

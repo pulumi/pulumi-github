@@ -117,7 +117,7 @@ type TeamSyncGroupMappingInput interface {
 }
 
 func (*TeamSyncGroupMapping) ElementType() reflect.Type {
-	return reflect.TypeOf((*TeamSyncGroupMapping)(nil))
+	return reflect.TypeOf((**TeamSyncGroupMapping)(nil)).Elem()
 }
 
 func (i *TeamSyncGroupMapping) ToTeamSyncGroupMappingOutput() TeamSyncGroupMappingOutput {
@@ -126,35 +126,6 @@ func (i *TeamSyncGroupMapping) ToTeamSyncGroupMappingOutput() TeamSyncGroupMappi
 
 func (i *TeamSyncGroupMapping) ToTeamSyncGroupMappingOutputWithContext(ctx context.Context) TeamSyncGroupMappingOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TeamSyncGroupMappingOutput)
-}
-
-func (i *TeamSyncGroupMapping) ToTeamSyncGroupMappingPtrOutput() TeamSyncGroupMappingPtrOutput {
-	return i.ToTeamSyncGroupMappingPtrOutputWithContext(context.Background())
-}
-
-func (i *TeamSyncGroupMapping) ToTeamSyncGroupMappingPtrOutputWithContext(ctx context.Context) TeamSyncGroupMappingPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TeamSyncGroupMappingPtrOutput)
-}
-
-type TeamSyncGroupMappingPtrInput interface {
-	pulumi.Input
-
-	ToTeamSyncGroupMappingPtrOutput() TeamSyncGroupMappingPtrOutput
-	ToTeamSyncGroupMappingPtrOutputWithContext(ctx context.Context) TeamSyncGroupMappingPtrOutput
-}
-
-type teamSyncGroupMappingPtrType TeamSyncGroupMappingArgs
-
-func (*teamSyncGroupMappingPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**TeamSyncGroupMapping)(nil))
-}
-
-func (i *teamSyncGroupMappingPtrType) ToTeamSyncGroupMappingPtrOutput() TeamSyncGroupMappingPtrOutput {
-	return i.ToTeamSyncGroupMappingPtrOutputWithContext(context.Background())
-}
-
-func (i *teamSyncGroupMappingPtrType) ToTeamSyncGroupMappingPtrOutputWithContext(ctx context.Context) TeamSyncGroupMappingPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TeamSyncGroupMappingPtrOutput)
 }
 
 // TeamSyncGroupMappingArrayInput is an input type that accepts TeamSyncGroupMappingArray and TeamSyncGroupMappingArrayOutput values.
@@ -171,7 +142,7 @@ type TeamSyncGroupMappingArrayInput interface {
 type TeamSyncGroupMappingArray []TeamSyncGroupMappingInput
 
 func (TeamSyncGroupMappingArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*TeamSyncGroupMapping)(nil))
+	return reflect.TypeOf((*[]*TeamSyncGroupMapping)(nil)).Elem()
 }
 
 func (i TeamSyncGroupMappingArray) ToTeamSyncGroupMappingArrayOutput() TeamSyncGroupMappingArrayOutput {
@@ -196,7 +167,7 @@ type TeamSyncGroupMappingMapInput interface {
 type TeamSyncGroupMappingMap map[string]TeamSyncGroupMappingInput
 
 func (TeamSyncGroupMappingMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*TeamSyncGroupMapping)(nil))
+	return reflect.TypeOf((*map[string]*TeamSyncGroupMapping)(nil)).Elem()
 }
 
 func (i TeamSyncGroupMappingMap) ToTeamSyncGroupMappingMapOutput() TeamSyncGroupMappingMapOutput {
@@ -207,12 +178,10 @@ func (i TeamSyncGroupMappingMap) ToTeamSyncGroupMappingMapOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(TeamSyncGroupMappingMapOutput)
 }
 
-type TeamSyncGroupMappingOutput struct {
-	*pulumi.OutputState
-}
+type TeamSyncGroupMappingOutput struct{ *pulumi.OutputState }
 
 func (TeamSyncGroupMappingOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TeamSyncGroupMapping)(nil))
+	return reflect.TypeOf((**TeamSyncGroupMapping)(nil)).Elem()
 }
 
 func (o TeamSyncGroupMappingOutput) ToTeamSyncGroupMappingOutput() TeamSyncGroupMappingOutput {
@@ -223,36 +192,10 @@ func (o TeamSyncGroupMappingOutput) ToTeamSyncGroupMappingOutputWithContext(ctx 
 	return o
 }
 
-func (o TeamSyncGroupMappingOutput) ToTeamSyncGroupMappingPtrOutput() TeamSyncGroupMappingPtrOutput {
-	return o.ToTeamSyncGroupMappingPtrOutputWithContext(context.Background())
-}
-
-func (o TeamSyncGroupMappingOutput) ToTeamSyncGroupMappingPtrOutputWithContext(ctx context.Context) TeamSyncGroupMappingPtrOutput {
-	return o.ApplyT(func(v TeamSyncGroupMapping) *TeamSyncGroupMapping {
-		return &v
-	}).(TeamSyncGroupMappingPtrOutput)
-}
-
-type TeamSyncGroupMappingPtrOutput struct {
-	*pulumi.OutputState
-}
-
-func (TeamSyncGroupMappingPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**TeamSyncGroupMapping)(nil))
-}
-
-func (o TeamSyncGroupMappingPtrOutput) ToTeamSyncGroupMappingPtrOutput() TeamSyncGroupMappingPtrOutput {
-	return o
-}
-
-func (o TeamSyncGroupMappingPtrOutput) ToTeamSyncGroupMappingPtrOutputWithContext(ctx context.Context) TeamSyncGroupMappingPtrOutput {
-	return o
-}
-
 type TeamSyncGroupMappingArrayOutput struct{ *pulumi.OutputState }
 
 func (TeamSyncGroupMappingArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TeamSyncGroupMapping)(nil))
+	return reflect.TypeOf((*[]*TeamSyncGroupMapping)(nil)).Elem()
 }
 
 func (o TeamSyncGroupMappingArrayOutput) ToTeamSyncGroupMappingArrayOutput() TeamSyncGroupMappingArrayOutput {
@@ -264,15 +207,15 @@ func (o TeamSyncGroupMappingArrayOutput) ToTeamSyncGroupMappingArrayOutputWithCo
 }
 
 func (o TeamSyncGroupMappingArrayOutput) Index(i pulumi.IntInput) TeamSyncGroupMappingOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TeamSyncGroupMapping {
-		return vs[0].([]TeamSyncGroupMapping)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *TeamSyncGroupMapping {
+		return vs[0].([]*TeamSyncGroupMapping)[vs[1].(int)]
 	}).(TeamSyncGroupMappingOutput)
 }
 
 type TeamSyncGroupMappingMapOutput struct{ *pulumi.OutputState }
 
 func (TeamSyncGroupMappingMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]TeamSyncGroupMapping)(nil))
+	return reflect.TypeOf((*map[string]*TeamSyncGroupMapping)(nil)).Elem()
 }
 
 func (o TeamSyncGroupMappingMapOutput) ToTeamSyncGroupMappingMapOutput() TeamSyncGroupMappingMapOutput {
@@ -284,14 +227,16 @@ func (o TeamSyncGroupMappingMapOutput) ToTeamSyncGroupMappingMapOutputWithContex
 }
 
 func (o TeamSyncGroupMappingMapOutput) MapIndex(k pulumi.StringInput) TeamSyncGroupMappingOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) TeamSyncGroupMapping {
-		return vs[0].(map[string]TeamSyncGroupMapping)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *TeamSyncGroupMapping {
+		return vs[0].(map[string]*TeamSyncGroupMapping)[vs[1].(string)]
 	}).(TeamSyncGroupMappingOutput)
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*TeamSyncGroupMappingInput)(nil)).Elem(), &TeamSyncGroupMapping{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TeamSyncGroupMappingArrayInput)(nil)).Elem(), TeamSyncGroupMappingArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TeamSyncGroupMappingMapInput)(nil)).Elem(), TeamSyncGroupMappingMap{})
 	pulumi.RegisterOutputType(TeamSyncGroupMappingOutput{})
-	pulumi.RegisterOutputType(TeamSyncGroupMappingPtrOutput{})
 	pulumi.RegisterOutputType(TeamSyncGroupMappingArrayOutput{})
 	pulumi.RegisterOutputType(TeamSyncGroupMappingMapOutput{})
 }

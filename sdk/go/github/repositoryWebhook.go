@@ -36,7 +36,7 @@ import (
 // 		}
 // 		_, err = github.NewRepositoryWebhook(ctx, "foo", &github.RepositoryWebhookArgs{
 // 			Repository: repo.Name,
-// 			Configuration: &github.RepositoryWebhookConfigurationArgs{
+// 			Configuration: &RepositoryWebhookConfigurationArgs{
 // 				Url:         pulumi.String("https://google.de/"),
 // 				ContentType: pulumi.String("form"),
 // 				InsecureSsl: pulumi.Bool(false),
@@ -180,7 +180,7 @@ type RepositoryWebhookInput interface {
 }
 
 func (*RepositoryWebhook) ElementType() reflect.Type {
-	return reflect.TypeOf((*RepositoryWebhook)(nil))
+	return reflect.TypeOf((**RepositoryWebhook)(nil)).Elem()
 }
 
 func (i *RepositoryWebhook) ToRepositoryWebhookOutput() RepositoryWebhookOutput {
@@ -189,35 +189,6 @@ func (i *RepositoryWebhook) ToRepositoryWebhookOutput() RepositoryWebhookOutput 
 
 func (i *RepositoryWebhook) ToRepositoryWebhookOutputWithContext(ctx context.Context) RepositoryWebhookOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryWebhookOutput)
-}
-
-func (i *RepositoryWebhook) ToRepositoryWebhookPtrOutput() RepositoryWebhookPtrOutput {
-	return i.ToRepositoryWebhookPtrOutputWithContext(context.Background())
-}
-
-func (i *RepositoryWebhook) ToRepositoryWebhookPtrOutputWithContext(ctx context.Context) RepositoryWebhookPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RepositoryWebhookPtrOutput)
-}
-
-type RepositoryWebhookPtrInput interface {
-	pulumi.Input
-
-	ToRepositoryWebhookPtrOutput() RepositoryWebhookPtrOutput
-	ToRepositoryWebhookPtrOutputWithContext(ctx context.Context) RepositoryWebhookPtrOutput
-}
-
-type repositoryWebhookPtrType RepositoryWebhookArgs
-
-func (*repositoryWebhookPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**RepositoryWebhook)(nil))
-}
-
-func (i *repositoryWebhookPtrType) ToRepositoryWebhookPtrOutput() RepositoryWebhookPtrOutput {
-	return i.ToRepositoryWebhookPtrOutputWithContext(context.Background())
-}
-
-func (i *repositoryWebhookPtrType) ToRepositoryWebhookPtrOutputWithContext(ctx context.Context) RepositoryWebhookPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RepositoryWebhookPtrOutput)
 }
 
 // RepositoryWebhookArrayInput is an input type that accepts RepositoryWebhookArray and RepositoryWebhookArrayOutput values.
@@ -234,7 +205,7 @@ type RepositoryWebhookArrayInput interface {
 type RepositoryWebhookArray []RepositoryWebhookInput
 
 func (RepositoryWebhookArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*RepositoryWebhook)(nil))
+	return reflect.TypeOf((*[]*RepositoryWebhook)(nil)).Elem()
 }
 
 func (i RepositoryWebhookArray) ToRepositoryWebhookArrayOutput() RepositoryWebhookArrayOutput {
@@ -259,7 +230,7 @@ type RepositoryWebhookMapInput interface {
 type RepositoryWebhookMap map[string]RepositoryWebhookInput
 
 func (RepositoryWebhookMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*RepositoryWebhook)(nil))
+	return reflect.TypeOf((*map[string]*RepositoryWebhook)(nil)).Elem()
 }
 
 func (i RepositoryWebhookMap) ToRepositoryWebhookMapOutput() RepositoryWebhookMapOutput {
@@ -270,12 +241,10 @@ func (i RepositoryWebhookMap) ToRepositoryWebhookMapOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryWebhookMapOutput)
 }
 
-type RepositoryWebhookOutput struct {
-	*pulumi.OutputState
-}
+type RepositoryWebhookOutput struct{ *pulumi.OutputState }
 
 func (RepositoryWebhookOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RepositoryWebhook)(nil))
+	return reflect.TypeOf((**RepositoryWebhook)(nil)).Elem()
 }
 
 func (o RepositoryWebhookOutput) ToRepositoryWebhookOutput() RepositoryWebhookOutput {
@@ -286,36 +255,10 @@ func (o RepositoryWebhookOutput) ToRepositoryWebhookOutputWithContext(ctx contex
 	return o
 }
 
-func (o RepositoryWebhookOutput) ToRepositoryWebhookPtrOutput() RepositoryWebhookPtrOutput {
-	return o.ToRepositoryWebhookPtrOutputWithContext(context.Background())
-}
-
-func (o RepositoryWebhookOutput) ToRepositoryWebhookPtrOutputWithContext(ctx context.Context) RepositoryWebhookPtrOutput {
-	return o.ApplyT(func(v RepositoryWebhook) *RepositoryWebhook {
-		return &v
-	}).(RepositoryWebhookPtrOutput)
-}
-
-type RepositoryWebhookPtrOutput struct {
-	*pulumi.OutputState
-}
-
-func (RepositoryWebhookPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**RepositoryWebhook)(nil))
-}
-
-func (o RepositoryWebhookPtrOutput) ToRepositoryWebhookPtrOutput() RepositoryWebhookPtrOutput {
-	return o
-}
-
-func (o RepositoryWebhookPtrOutput) ToRepositoryWebhookPtrOutputWithContext(ctx context.Context) RepositoryWebhookPtrOutput {
-	return o
-}
-
 type RepositoryWebhookArrayOutput struct{ *pulumi.OutputState }
 
 func (RepositoryWebhookArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RepositoryWebhook)(nil))
+	return reflect.TypeOf((*[]*RepositoryWebhook)(nil)).Elem()
 }
 
 func (o RepositoryWebhookArrayOutput) ToRepositoryWebhookArrayOutput() RepositoryWebhookArrayOutput {
@@ -327,15 +270,15 @@ func (o RepositoryWebhookArrayOutput) ToRepositoryWebhookArrayOutputWithContext(
 }
 
 func (o RepositoryWebhookArrayOutput) Index(i pulumi.IntInput) RepositoryWebhookOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RepositoryWebhook {
-		return vs[0].([]RepositoryWebhook)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RepositoryWebhook {
+		return vs[0].([]*RepositoryWebhook)[vs[1].(int)]
 	}).(RepositoryWebhookOutput)
 }
 
 type RepositoryWebhookMapOutput struct{ *pulumi.OutputState }
 
 func (RepositoryWebhookMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]RepositoryWebhook)(nil))
+	return reflect.TypeOf((*map[string]*RepositoryWebhook)(nil)).Elem()
 }
 
 func (o RepositoryWebhookMapOutput) ToRepositoryWebhookMapOutput() RepositoryWebhookMapOutput {
@@ -347,14 +290,16 @@ func (o RepositoryWebhookMapOutput) ToRepositoryWebhookMapOutputWithContext(ctx 
 }
 
 func (o RepositoryWebhookMapOutput) MapIndex(k pulumi.StringInput) RepositoryWebhookOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) RepositoryWebhook {
-		return vs[0].(map[string]RepositoryWebhook)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *RepositoryWebhook {
+		return vs[0].(map[string]*RepositoryWebhook)[vs[1].(string)]
 	}).(RepositoryWebhookOutput)
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryWebhookInput)(nil)).Elem(), &RepositoryWebhook{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryWebhookArrayInput)(nil)).Elem(), RepositoryWebhookArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryWebhookMapInput)(nil)).Elem(), RepositoryWebhookMap{})
 	pulumi.RegisterOutputType(RepositoryWebhookOutput{})
-	pulumi.RegisterOutputType(RepositoryWebhookPtrOutput{})
 	pulumi.RegisterOutputType(RepositoryWebhookArrayOutput{})
 	pulumi.RegisterOutputType(RepositoryWebhookMapOutput{})
 }

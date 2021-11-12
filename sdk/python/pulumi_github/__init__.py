@@ -60,7 +60,8 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_github.config as config
+    import pulumi_github.config as __config
+    config = __config
 else:
     config = _utilities.lazy_import('pulumi_github.config')
 

@@ -72,16 +72,16 @@ export class IssueLabel extends pulumi.CustomResource {
      */
     constructor(name: string, args: IssueLabelArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: IssueLabelArgs | IssueLabelState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as IssueLabelState | undefined;
-            inputs["color"] = state ? state.color : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["etag"] = state ? state.etag : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["repository"] = state ? state.repository : undefined;
-            inputs["url"] = state ? state.url : undefined;
+            resourceInputs["color"] = state ? state.color : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["etag"] = state ? state.etag : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["repository"] = state ? state.repository : undefined;
+            resourceInputs["url"] = state ? state.url : undefined;
         } else {
             const args = argsOrState as IssueLabelArgs | undefined;
             if ((!args || args.color === undefined) && !opts.urn) {
@@ -90,17 +90,17 @@ export class IssueLabel extends pulumi.CustomResource {
             if ((!args || args.repository === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'repository'");
             }
-            inputs["color"] = args ? args.color : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["repository"] = args ? args.repository : undefined;
-            inputs["etag"] = undefined /*out*/;
-            inputs["url"] = undefined /*out*/;
+            resourceInputs["color"] = args ? args.color : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["repository"] = args ? args.repository : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["url"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(IssueLabel.__pulumiType, name, inputs, opts);
+        super(IssueLabel.__pulumiType, name, resourceInputs, opts);
     }
 }
 

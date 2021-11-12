@@ -69,3 +69,25 @@ export interface GetCollaboratorsResult {
     readonly owner: string;
     readonly repository: string;
 }
+
+export function getCollaboratorsOutput(args: GetCollaboratorsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCollaboratorsResult> {
+    return pulumi.output(args).apply(a => getCollaborators(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getCollaborators.
+ */
+export interface GetCollaboratorsOutputArgs {
+    /**
+     * Filter collaborators returned by their affiliation. Can be one of: `outside`, `direct`, `all`.  Defaults to `all`.
+     */
+    affiliation?: pulumi.Input<string>;
+    /**
+     * The organization that owns the repository.
+     */
+    owner: pulumi.Input<string>;
+    /**
+     * The name of the repository.
+     */
+    repository: pulumi.Input<string>;
+}

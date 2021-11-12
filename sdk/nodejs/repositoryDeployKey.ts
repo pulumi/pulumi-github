@@ -94,15 +94,15 @@ export class RepositoryDeployKey extends pulumi.CustomResource {
      */
     constructor(name: string, args: RepositoryDeployKeyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: RepositoryDeployKeyArgs | RepositoryDeployKeyState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RepositoryDeployKeyState | undefined;
-            inputs["etag"] = state ? state.etag : undefined;
-            inputs["key"] = state ? state.key : undefined;
-            inputs["readOnly"] = state ? state.readOnly : undefined;
-            inputs["repository"] = state ? state.repository : undefined;
-            inputs["title"] = state ? state.title : undefined;
+            resourceInputs["etag"] = state ? state.etag : undefined;
+            resourceInputs["key"] = state ? state.key : undefined;
+            resourceInputs["readOnly"] = state ? state.readOnly : undefined;
+            resourceInputs["repository"] = state ? state.repository : undefined;
+            resourceInputs["title"] = state ? state.title : undefined;
         } else {
             const args = argsOrState as RepositoryDeployKeyArgs | undefined;
             if ((!args || args.key === undefined) && !opts.urn) {
@@ -114,16 +114,16 @@ export class RepositoryDeployKey extends pulumi.CustomResource {
             if ((!args || args.title === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'title'");
             }
-            inputs["key"] = args ? args.key : undefined;
-            inputs["readOnly"] = args ? args.readOnly : undefined;
-            inputs["repository"] = args ? args.repository : undefined;
-            inputs["title"] = args ? args.title : undefined;
-            inputs["etag"] = undefined /*out*/;
+            resourceInputs["key"] = args ? args.key : undefined;
+            resourceInputs["readOnly"] = args ? args.readOnly : undefined;
+            resourceInputs["repository"] = args ? args.repository : undefined;
+            resourceInputs["title"] = args ? args.title : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(RepositoryDeployKey.__pulumiType, name, inputs, opts);
+        super(RepositoryDeployKey.__pulumiType, name, resourceInputs, opts);
     }
 }
 

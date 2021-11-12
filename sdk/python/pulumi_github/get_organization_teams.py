@@ -13,6 +13,7 @@ __all__ = [
     'GetOrganizationTeamsResult',
     'AwaitableGetOrganizationTeamsResult',
     'get_organization_teams',
+    'get_organization_teams_output',
 ]
 
 @pulumi.output_type
@@ -108,3 +109,35 @@ def get_organization_teams(root_teams_only: Optional[bool] = None,
         id=__ret__.id,
         root_teams_only=__ret__.root_teams_only,
         teams=__ret__.teams)
+
+
+@_utilities.lift_output_func(get_organization_teams)
+def get_organization_teams_output(root_teams_only: Optional[pulumi.Input[Optional[bool]]] = None,
+                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOrganizationTeamsResult]:
+    """
+    Use this data source to retrieve information about all GitHub teams in an organization.
+
+    ## Example Usage
+
+    To retrieve *all* teams of the organization:
+
+    ```python
+    import pulumi
+    import pulumi_github as github
+
+    all = github.get_organization_teams()
+    ```
+
+    To retrieve only the team's at the root of the organization:
+
+    ```python
+    import pulumi
+    import pulumi_github as github
+
+    root_teams = github.get_organization_teams(root_teams_only=True)
+    ```
+
+
+    :param bool root_teams_only: Only return teams that are at the organization's root, i.e. no nested teams. Defaults to `false`.
+    """
+    ...

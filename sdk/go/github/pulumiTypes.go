@@ -331,10 +331,11 @@ func (o BranchProtectionV3RequiredPullRequestReviewsOutput) ToBranchProtectionV3
 }
 
 func (o BranchProtectionV3RequiredPullRequestReviewsOutput) ToBranchProtectionV3RequiredPullRequestReviewsPtrOutputWithContext(ctx context.Context) BranchProtectionV3RequiredPullRequestReviewsPtrOutput {
-	return o.ApplyT(func(v BranchProtectionV3RequiredPullRequestReviews) *BranchProtectionV3RequiredPullRequestReviews {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BranchProtectionV3RequiredPullRequestReviews) *BranchProtectionV3RequiredPullRequestReviews {
 		return &v
 	}).(BranchProtectionV3RequiredPullRequestReviewsPtrOutput)
 }
+
 func (o BranchProtectionV3RequiredPullRequestReviewsOutput) DismissStaleReviews() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BranchProtectionV3RequiredPullRequestReviews) *bool { return v.DismissStaleReviews }).(pulumi.BoolPtrOutput)
 }
@@ -376,7 +377,11 @@ func (o BranchProtectionV3RequiredPullRequestReviewsPtrOutput) ToBranchProtectio
 
 func (o BranchProtectionV3RequiredPullRequestReviewsPtrOutput) Elem() BranchProtectionV3RequiredPullRequestReviewsOutput {
 	return o.ApplyT(func(v *BranchProtectionV3RequiredPullRequestReviews) BranchProtectionV3RequiredPullRequestReviews {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret BranchProtectionV3RequiredPullRequestReviews
+		return ret
 	}).(BranchProtectionV3RequiredPullRequestReviewsOutput)
 }
 
@@ -532,10 +537,11 @@ func (o BranchProtectionV3RequiredStatusChecksOutput) ToBranchProtectionV3Requir
 }
 
 func (o BranchProtectionV3RequiredStatusChecksOutput) ToBranchProtectionV3RequiredStatusChecksPtrOutputWithContext(ctx context.Context) BranchProtectionV3RequiredStatusChecksPtrOutput {
-	return o.ApplyT(func(v BranchProtectionV3RequiredStatusChecks) *BranchProtectionV3RequiredStatusChecks {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BranchProtectionV3RequiredStatusChecks) *BranchProtectionV3RequiredStatusChecks {
 		return &v
 	}).(BranchProtectionV3RequiredStatusChecksPtrOutput)
 }
+
 func (o BranchProtectionV3RequiredStatusChecksOutput) Contexts() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BranchProtectionV3RequiredStatusChecks) []string { return v.Contexts }).(pulumi.StringArrayOutput)
 }
@@ -564,7 +570,13 @@ func (o BranchProtectionV3RequiredStatusChecksPtrOutput) ToBranchProtectionV3Req
 }
 
 func (o BranchProtectionV3RequiredStatusChecksPtrOutput) Elem() BranchProtectionV3RequiredStatusChecksOutput {
-	return o.ApplyT(func(v *BranchProtectionV3RequiredStatusChecks) BranchProtectionV3RequiredStatusChecks { return *v }).(BranchProtectionV3RequiredStatusChecksOutput)
+	return o.ApplyT(func(v *BranchProtectionV3RequiredStatusChecks) BranchProtectionV3RequiredStatusChecks {
+		if v != nil {
+			return *v
+		}
+		var ret BranchProtectionV3RequiredStatusChecks
+		return ret
+	}).(BranchProtectionV3RequiredStatusChecksOutput)
 }
 
 func (o BranchProtectionV3RequiredStatusChecksPtrOutput) Contexts() pulumi.StringArrayOutput {
@@ -690,10 +702,11 @@ func (o BranchProtectionV3RestrictionsOutput) ToBranchProtectionV3RestrictionsPt
 }
 
 func (o BranchProtectionV3RestrictionsOutput) ToBranchProtectionV3RestrictionsPtrOutputWithContext(ctx context.Context) BranchProtectionV3RestrictionsPtrOutput {
-	return o.ApplyT(func(v BranchProtectionV3Restrictions) *BranchProtectionV3Restrictions {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BranchProtectionV3Restrictions) *BranchProtectionV3Restrictions {
 		return &v
 	}).(BranchProtectionV3RestrictionsPtrOutput)
 }
+
 func (o BranchProtectionV3RestrictionsOutput) Apps() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BranchProtectionV3Restrictions) []string { return v.Apps }).(pulumi.StringArrayOutput)
 }
@@ -721,7 +734,13 @@ func (o BranchProtectionV3RestrictionsPtrOutput) ToBranchProtectionV3Restriction
 }
 
 func (o BranchProtectionV3RestrictionsPtrOutput) Elem() BranchProtectionV3RestrictionsOutput {
-	return o.ApplyT(func(v *BranchProtectionV3Restrictions) BranchProtectionV3Restrictions { return *v }).(BranchProtectionV3RestrictionsOutput)
+	return o.ApplyT(func(v *BranchProtectionV3Restrictions) BranchProtectionV3Restrictions {
+		if v != nil {
+			return *v
+		}
+		var ret BranchProtectionV3Restrictions
+		return ret
+	}).(BranchProtectionV3RestrictionsOutput)
 }
 
 func (o BranchProtectionV3RestrictionsPtrOutput) Apps() pulumi.StringArrayOutput {
@@ -850,10 +869,11 @@ func (o OrganizationWebhookConfigurationOutput) ToOrganizationWebhookConfigurati
 }
 
 func (o OrganizationWebhookConfigurationOutput) ToOrganizationWebhookConfigurationPtrOutputWithContext(ctx context.Context) OrganizationWebhookConfigurationPtrOutput {
-	return o.ApplyT(func(v OrganizationWebhookConfiguration) *OrganizationWebhookConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OrganizationWebhookConfiguration) *OrganizationWebhookConfiguration {
 		return &v
 	}).(OrganizationWebhookConfigurationPtrOutput)
 }
+
 func (o OrganizationWebhookConfigurationOutput) ContentType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OrganizationWebhookConfiguration) *string { return v.ContentType }).(pulumi.StringPtrOutput)
 }
@@ -886,7 +906,13 @@ func (o OrganizationWebhookConfigurationPtrOutput) ToOrganizationWebhookConfigur
 }
 
 func (o OrganizationWebhookConfigurationPtrOutput) Elem() OrganizationWebhookConfigurationOutput {
-	return o.ApplyT(func(v *OrganizationWebhookConfiguration) OrganizationWebhookConfiguration { return *v }).(OrganizationWebhookConfigurationOutput)
+	return o.ApplyT(func(v *OrganizationWebhookConfiguration) OrganizationWebhookConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret OrganizationWebhookConfiguration
+		return ret
+	}).(OrganizationWebhookConfigurationOutput)
 }
 
 func (o OrganizationWebhookConfigurationPtrOutput) ContentType() pulumi.StringPtrOutput {
@@ -1021,10 +1047,11 @@ func (o ProviderAppAuthOutput) ToProviderAppAuthPtrOutput() ProviderAppAuthPtrOu
 }
 
 func (o ProviderAppAuthOutput) ToProviderAppAuthPtrOutputWithContext(ctx context.Context) ProviderAppAuthPtrOutput {
-	return o.ApplyT(func(v ProviderAppAuth) *ProviderAppAuth {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProviderAppAuth) *ProviderAppAuth {
 		return &v
 	}).(ProviderAppAuthPtrOutput)
 }
+
 func (o ProviderAppAuthOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v ProviderAppAuth) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -1052,7 +1079,13 @@ func (o ProviderAppAuthPtrOutput) ToProviderAppAuthPtrOutputWithContext(ctx cont
 }
 
 func (o ProviderAppAuthPtrOutput) Elem() ProviderAppAuthOutput {
-	return o.ApplyT(func(v *ProviderAppAuth) ProviderAppAuth { return *v }).(ProviderAppAuthOutput)
+	return o.ApplyT(func(v *ProviderAppAuth) ProviderAppAuth {
+		if v != nil {
+			return *v
+		}
+		var ret ProviderAppAuth
+		return ret
+	}).(ProviderAppAuthOutput)
 }
 
 func (o ProviderAppAuthPtrOutput) Id() pulumi.StringPtrOutput {
@@ -1179,7 +1212,7 @@ func (o RepositoryEnvironmentDeploymentBranchPolicyOutput) ToRepositoryEnvironme
 }
 
 func (o RepositoryEnvironmentDeploymentBranchPolicyOutput) ToRepositoryEnvironmentDeploymentBranchPolicyPtrOutputWithContext(ctx context.Context) RepositoryEnvironmentDeploymentBranchPolicyPtrOutput {
-	return o.ApplyT(func(v RepositoryEnvironmentDeploymentBranchPolicy) *RepositoryEnvironmentDeploymentBranchPolicy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RepositoryEnvironmentDeploymentBranchPolicy) *RepositoryEnvironmentDeploymentBranchPolicy {
 		return &v
 	}).(RepositoryEnvironmentDeploymentBranchPolicyPtrOutput)
 }
@@ -1210,7 +1243,11 @@ func (o RepositoryEnvironmentDeploymentBranchPolicyPtrOutput) ToRepositoryEnviro
 
 func (o RepositoryEnvironmentDeploymentBranchPolicyPtrOutput) Elem() RepositoryEnvironmentDeploymentBranchPolicyOutput {
 	return o.ApplyT(func(v *RepositoryEnvironmentDeploymentBranchPolicy) RepositoryEnvironmentDeploymentBranchPolicy {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret RepositoryEnvironmentDeploymentBranchPolicy
+		return ret
 	}).(RepositoryEnvironmentDeploymentBranchPolicyOutput)
 }
 
@@ -1451,7 +1488,7 @@ func (o RepositoryPagesOutput) ToRepositoryPagesPtrOutput() RepositoryPagesPtrOu
 }
 
 func (o RepositoryPagesOutput) ToRepositoryPagesPtrOutputWithContext(ctx context.Context) RepositoryPagesPtrOutput {
-	return o.ApplyT(func(v RepositoryPages) *RepositoryPages {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RepositoryPages) *RepositoryPages {
 		return &v
 	}).(RepositoryPagesPtrOutput)
 }
@@ -1500,7 +1537,13 @@ func (o RepositoryPagesPtrOutput) ToRepositoryPagesPtrOutputWithContext(ctx cont
 }
 
 func (o RepositoryPagesPtrOutput) Elem() RepositoryPagesOutput {
-	return o.ApplyT(func(v *RepositoryPages) RepositoryPages { return *v }).(RepositoryPagesOutput)
+	return o.ApplyT(func(v *RepositoryPages) RepositoryPages {
+		if v != nil {
+			return *v
+		}
+		var ret RepositoryPages
+		return ret
+	}).(RepositoryPagesOutput)
 }
 
 // The custom domain for the repository. This can only be set after the repository has been created.
@@ -1659,7 +1702,7 @@ func (o RepositoryPagesSourceOutput) ToRepositoryPagesSourcePtrOutput() Reposito
 }
 
 func (o RepositoryPagesSourceOutput) ToRepositoryPagesSourcePtrOutputWithContext(ctx context.Context) RepositoryPagesSourcePtrOutput {
-	return o.ApplyT(func(v RepositoryPagesSource) *RepositoryPagesSource {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RepositoryPagesSource) *RepositoryPagesSource {
 		return &v
 	}).(RepositoryPagesSourcePtrOutput)
 }
@@ -1689,7 +1732,13 @@ func (o RepositoryPagesSourcePtrOutput) ToRepositoryPagesSourcePtrOutputWithCont
 }
 
 func (o RepositoryPagesSourcePtrOutput) Elem() RepositoryPagesSourceOutput {
-	return o.ApplyT(func(v *RepositoryPagesSource) RepositoryPagesSource { return *v }).(RepositoryPagesSourceOutput)
+	return o.ApplyT(func(v *RepositoryPagesSource) RepositoryPagesSource {
+		if v != nil {
+			return *v
+		}
+		var ret RepositoryPagesSource
+		return ret
+	}).(RepositoryPagesSourceOutput)
 }
 
 // The repository branch used to publish the site's source files. (i.e. `main` or `gh-pages`.
@@ -1805,10 +1854,11 @@ func (o RepositoryTemplateOutput) ToRepositoryTemplatePtrOutput() RepositoryTemp
 }
 
 func (o RepositoryTemplateOutput) ToRepositoryTemplatePtrOutputWithContext(ctx context.Context) RepositoryTemplatePtrOutput {
-	return o.ApplyT(func(v RepositoryTemplate) *RepositoryTemplate {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RepositoryTemplate) *RepositoryTemplate {
 		return &v
 	}).(RepositoryTemplatePtrOutput)
 }
+
 func (o RepositoryTemplateOutput) Owner() pulumi.StringOutput {
 	return o.ApplyT(func(v RepositoryTemplate) string { return v.Owner }).(pulumi.StringOutput)
 }
@@ -1832,7 +1882,13 @@ func (o RepositoryTemplatePtrOutput) ToRepositoryTemplatePtrOutputWithContext(ct
 }
 
 func (o RepositoryTemplatePtrOutput) Elem() RepositoryTemplateOutput {
-	return o.ApplyT(func(v *RepositoryTemplate) RepositoryTemplate { return *v }).(RepositoryTemplateOutput)
+	return o.ApplyT(func(v *RepositoryTemplate) RepositoryTemplate {
+		if v != nil {
+			return *v
+		}
+		var ret RepositoryTemplate
+		return ret
+	}).(RepositoryTemplateOutput)
 }
 
 func (o RepositoryTemplatePtrOutput) Owner() pulumi.StringPtrOutput {
@@ -1952,10 +2008,11 @@ func (o RepositoryWebhookConfigurationOutput) ToRepositoryWebhookConfigurationPt
 }
 
 func (o RepositoryWebhookConfigurationOutput) ToRepositoryWebhookConfigurationPtrOutputWithContext(ctx context.Context) RepositoryWebhookConfigurationPtrOutput {
-	return o.ApplyT(func(v RepositoryWebhookConfiguration) *RepositoryWebhookConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RepositoryWebhookConfiguration) *RepositoryWebhookConfiguration {
 		return &v
 	}).(RepositoryWebhookConfigurationPtrOutput)
 }
+
 func (o RepositoryWebhookConfigurationOutput) ContentType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RepositoryWebhookConfiguration) *string { return v.ContentType }).(pulumi.StringPtrOutput)
 }
@@ -1988,7 +2045,13 @@ func (o RepositoryWebhookConfigurationPtrOutput) ToRepositoryWebhookConfiguratio
 }
 
 func (o RepositoryWebhookConfigurationPtrOutput) Elem() RepositoryWebhookConfigurationOutput {
-	return o.ApplyT(func(v *RepositoryWebhookConfiguration) RepositoryWebhookConfiguration { return *v }).(RepositoryWebhookConfigurationOutput)
+	return o.ApplyT(func(v *RepositoryWebhookConfiguration) RepositoryWebhookConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret RepositoryWebhookConfiguration
+		return ret
+	}).(RepositoryWebhookConfigurationOutput)
 }
 
 func (o RepositoryWebhookConfigurationPtrOutput) ContentType() pulumi.StringPtrOutput {
@@ -2983,7 +3046,7 @@ func (o GetRepositoryPageSourceArrayOutput) Index(i pulumi.IntInput) GetReposito
 	}).(GetRepositoryPageSourceOutput)
 }
 
-type GetRepositoryPullRequestsResultType struct {
+type GetRepositoryPullRequestsResult struct {
 	// If set, filters Pull Requests by base branch name.
 	BaseRef string `pulumi:"baseRef"`
 	// Head commit SHA of the Pull Request base.
@@ -3018,18 +3081,18 @@ type GetRepositoryPullRequestsResultType struct {
 	UpdatedAt int `pulumi:"updatedAt"`
 }
 
-// GetRepositoryPullRequestsResultTypeInput is an input type that accepts GetRepositoryPullRequestsResultTypeArgs and GetRepositoryPullRequestsResultTypeOutput values.
-// You can construct a concrete instance of `GetRepositoryPullRequestsResultTypeInput` via:
+// GetRepositoryPullRequestsResultInput is an input type that accepts GetRepositoryPullRequestsResultArgs and GetRepositoryPullRequestsResultOutput values.
+// You can construct a concrete instance of `GetRepositoryPullRequestsResultInput` via:
 //
-//          GetRepositoryPullRequestsResultTypeArgs{...}
-type GetRepositoryPullRequestsResultTypeInput interface {
+//          GetRepositoryPullRequestsResultArgs{...}
+type GetRepositoryPullRequestsResultInput interface {
 	pulumi.Input
 
-	ToGetRepositoryPullRequestsResultTypeOutput() GetRepositoryPullRequestsResultTypeOutput
-	ToGetRepositoryPullRequestsResultTypeOutputWithContext(context.Context) GetRepositoryPullRequestsResultTypeOutput
+	ToGetRepositoryPullRequestsResultOutput() GetRepositoryPullRequestsResultOutput
+	ToGetRepositoryPullRequestsResultOutputWithContext(context.Context) GetRepositoryPullRequestsResultOutput
 }
 
-type GetRepositoryPullRequestsResultTypeArgs struct {
+type GetRepositoryPullRequestsResultArgs struct {
 	// If set, filters Pull Requests by base branch name.
 	BaseRef pulumi.StringInput `pulumi:"baseRef"`
 	// Head commit SHA of the Pull Request base.
@@ -3064,158 +3127,200 @@ type GetRepositoryPullRequestsResultTypeArgs struct {
 	UpdatedAt pulumi.IntInput `pulumi:"updatedAt"`
 }
 
-func (GetRepositoryPullRequestsResultTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetRepositoryPullRequestsResultType)(nil)).Elem()
+func (GetRepositoryPullRequestsResultArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRepositoryPullRequestsResult)(nil)).Elem()
 }
 
-func (i GetRepositoryPullRequestsResultTypeArgs) ToGetRepositoryPullRequestsResultTypeOutput() GetRepositoryPullRequestsResultTypeOutput {
-	return i.ToGetRepositoryPullRequestsResultTypeOutputWithContext(context.Background())
+func (i GetRepositoryPullRequestsResultArgs) ToGetRepositoryPullRequestsResultOutput() GetRepositoryPullRequestsResultOutput {
+	return i.ToGetRepositoryPullRequestsResultOutputWithContext(context.Background())
 }
 
-func (i GetRepositoryPullRequestsResultTypeArgs) ToGetRepositoryPullRequestsResultTypeOutputWithContext(ctx context.Context) GetRepositoryPullRequestsResultTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetRepositoryPullRequestsResultTypeOutput)
+func (i GetRepositoryPullRequestsResultArgs) ToGetRepositoryPullRequestsResultOutputWithContext(ctx context.Context) GetRepositoryPullRequestsResultOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRepositoryPullRequestsResultOutput)
 }
 
-// GetRepositoryPullRequestsResultTypeArrayInput is an input type that accepts GetRepositoryPullRequestsResultTypeArray and GetRepositoryPullRequestsResultTypeArrayOutput values.
-// You can construct a concrete instance of `GetRepositoryPullRequestsResultTypeArrayInput` via:
+// GetRepositoryPullRequestsResultArrayInput is an input type that accepts GetRepositoryPullRequestsResultArray and GetRepositoryPullRequestsResultArrayOutput values.
+// You can construct a concrete instance of `GetRepositoryPullRequestsResultArrayInput` via:
 //
-//          GetRepositoryPullRequestsResultTypeArray{ GetRepositoryPullRequestsResultTypeArgs{...} }
-type GetRepositoryPullRequestsResultTypeArrayInput interface {
+//          GetRepositoryPullRequestsResultArray{ GetRepositoryPullRequestsResultArgs{...} }
+type GetRepositoryPullRequestsResultArrayInput interface {
 	pulumi.Input
 
-	ToGetRepositoryPullRequestsResultTypeArrayOutput() GetRepositoryPullRequestsResultTypeArrayOutput
-	ToGetRepositoryPullRequestsResultTypeArrayOutputWithContext(context.Context) GetRepositoryPullRequestsResultTypeArrayOutput
+	ToGetRepositoryPullRequestsResultArrayOutput() GetRepositoryPullRequestsResultArrayOutput
+	ToGetRepositoryPullRequestsResultArrayOutputWithContext(context.Context) GetRepositoryPullRequestsResultArrayOutput
 }
 
-type GetRepositoryPullRequestsResultTypeArray []GetRepositoryPullRequestsResultTypeInput
+type GetRepositoryPullRequestsResultArray []GetRepositoryPullRequestsResultInput
 
-func (GetRepositoryPullRequestsResultTypeArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetRepositoryPullRequestsResultType)(nil)).Elem()
+func (GetRepositoryPullRequestsResultArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRepositoryPullRequestsResult)(nil)).Elem()
 }
 
-func (i GetRepositoryPullRequestsResultTypeArray) ToGetRepositoryPullRequestsResultTypeArrayOutput() GetRepositoryPullRequestsResultTypeArrayOutput {
-	return i.ToGetRepositoryPullRequestsResultTypeArrayOutputWithContext(context.Background())
+func (i GetRepositoryPullRequestsResultArray) ToGetRepositoryPullRequestsResultArrayOutput() GetRepositoryPullRequestsResultArrayOutput {
+	return i.ToGetRepositoryPullRequestsResultArrayOutputWithContext(context.Background())
 }
 
-func (i GetRepositoryPullRequestsResultTypeArray) ToGetRepositoryPullRequestsResultTypeArrayOutputWithContext(ctx context.Context) GetRepositoryPullRequestsResultTypeArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetRepositoryPullRequestsResultTypeArrayOutput)
+func (i GetRepositoryPullRequestsResultArray) ToGetRepositoryPullRequestsResultArrayOutputWithContext(ctx context.Context) GetRepositoryPullRequestsResultArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRepositoryPullRequestsResultArrayOutput)
 }
 
-type GetRepositoryPullRequestsResultTypeOutput struct{ *pulumi.OutputState }
+type GetRepositoryPullRequestsResultOutput struct{ *pulumi.OutputState }
 
-func (GetRepositoryPullRequestsResultTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetRepositoryPullRequestsResultType)(nil)).Elem()
+func (GetRepositoryPullRequestsResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRepositoryPullRequestsResult)(nil)).Elem()
 }
 
-func (o GetRepositoryPullRequestsResultTypeOutput) ToGetRepositoryPullRequestsResultTypeOutput() GetRepositoryPullRequestsResultTypeOutput {
+func (o GetRepositoryPullRequestsResultOutput) ToGetRepositoryPullRequestsResultOutput() GetRepositoryPullRequestsResultOutput {
 	return o
 }
 
-func (o GetRepositoryPullRequestsResultTypeOutput) ToGetRepositoryPullRequestsResultTypeOutputWithContext(ctx context.Context) GetRepositoryPullRequestsResultTypeOutput {
+func (o GetRepositoryPullRequestsResultOutput) ToGetRepositoryPullRequestsResultOutputWithContext(ctx context.Context) GetRepositoryPullRequestsResultOutput {
 	return o
 }
 
 // If set, filters Pull Requests by base branch name.
-func (o GetRepositoryPullRequestsResultTypeOutput) BaseRef() pulumi.StringOutput {
-	return o.ApplyT(func(v GetRepositoryPullRequestsResultType) string { return v.BaseRef }).(pulumi.StringOutput)
+func (o GetRepositoryPullRequestsResultOutput) BaseRef() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRepositoryPullRequestsResult) string { return v.BaseRef }).(pulumi.StringOutput)
 }
 
 // Head commit SHA of the Pull Request base.
-func (o GetRepositoryPullRequestsResultTypeOutput) BaseSha() pulumi.StringOutput {
-	return o.ApplyT(func(v GetRepositoryPullRequestsResultType) string { return v.BaseSha }).(pulumi.StringOutput)
+func (o GetRepositoryPullRequestsResultOutput) BaseSha() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRepositoryPullRequestsResult) string { return v.BaseSha }).(pulumi.StringOutput)
 }
 
 // Body of the Pull Request.
-func (o GetRepositoryPullRequestsResultTypeOutput) Body() pulumi.StringOutput {
-	return o.ApplyT(func(v GetRepositoryPullRequestsResultType) string { return v.Body }).(pulumi.StringOutput)
+func (o GetRepositoryPullRequestsResultOutput) Body() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRepositoryPullRequestsResult) string { return v.Body }).(pulumi.StringOutput)
 }
 
 // Indicates Whether this Pull Request is a draft.
-func (o GetRepositoryPullRequestsResultTypeOutput) Draft() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetRepositoryPullRequestsResultType) bool { return v.Draft }).(pulumi.BoolOutput)
+func (o GetRepositoryPullRequestsResultOutput) Draft() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetRepositoryPullRequestsResult) bool { return v.Draft }).(pulumi.BoolOutput)
 }
 
 // Owner of the Pull Request head repository.
-func (o GetRepositoryPullRequestsResultTypeOutput) HeadOwner() pulumi.StringOutput {
-	return o.ApplyT(func(v GetRepositoryPullRequestsResultType) string { return v.HeadOwner }).(pulumi.StringOutput)
+func (o GetRepositoryPullRequestsResultOutput) HeadOwner() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRepositoryPullRequestsResult) string { return v.HeadOwner }).(pulumi.StringOutput)
 }
 
 // If set, filters Pull Requests by head user or head organization and branch name in the format of "user:ref-name" or "organization:ref-name". For example: "github:new-script-format" or "octocat:test-branch".
-func (o GetRepositoryPullRequestsResultTypeOutput) HeadRef() pulumi.StringOutput {
-	return o.ApplyT(func(v GetRepositoryPullRequestsResultType) string { return v.HeadRef }).(pulumi.StringOutput)
+func (o GetRepositoryPullRequestsResultOutput) HeadRef() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRepositoryPullRequestsResult) string { return v.HeadRef }).(pulumi.StringOutput)
 }
 
 // Name of the Pull Request head repository.
-func (o GetRepositoryPullRequestsResultTypeOutput) HeadRepository() pulumi.StringOutput {
-	return o.ApplyT(func(v GetRepositoryPullRequestsResultType) string { return v.HeadRepository }).(pulumi.StringOutput)
+func (o GetRepositoryPullRequestsResultOutput) HeadRepository() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRepositoryPullRequestsResult) string { return v.HeadRepository }).(pulumi.StringOutput)
 }
 
 // Head commit SHA of the Pull Request head.
-func (o GetRepositoryPullRequestsResultTypeOutput) HeadSha() pulumi.StringOutput {
-	return o.ApplyT(func(v GetRepositoryPullRequestsResultType) string { return v.HeadSha }).(pulumi.StringOutput)
+func (o GetRepositoryPullRequestsResultOutput) HeadSha() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRepositoryPullRequestsResult) string { return v.HeadSha }).(pulumi.StringOutput)
 }
 
 // List of label names set on the Pull Request.
-func (o GetRepositoryPullRequestsResultTypeOutput) Labels() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v GetRepositoryPullRequestsResultType) []string { return v.Labels }).(pulumi.StringArrayOutput)
+func (o GetRepositoryPullRequestsResultOutput) Labels() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetRepositoryPullRequestsResult) []string { return v.Labels }).(pulumi.StringArrayOutput)
 }
 
 // Indicates whether the base repository maintainers can modify the Pull Request.
-func (o GetRepositoryPullRequestsResultTypeOutput) MaintainerCanModify() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetRepositoryPullRequestsResultType) bool { return v.MaintainerCanModify }).(pulumi.BoolOutput)
+func (o GetRepositoryPullRequestsResultOutput) MaintainerCanModify() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetRepositoryPullRequestsResult) bool { return v.MaintainerCanModify }).(pulumi.BoolOutput)
 }
 
 // The number of the Pull Request within the repository.
-func (o GetRepositoryPullRequestsResultTypeOutput) Number() pulumi.IntOutput {
-	return o.ApplyT(func(v GetRepositoryPullRequestsResultType) int { return v.Number }).(pulumi.IntOutput)
+func (o GetRepositoryPullRequestsResultOutput) Number() pulumi.IntOutput {
+	return o.ApplyT(func(v GetRepositoryPullRequestsResult) int { return v.Number }).(pulumi.IntOutput)
 }
 
 // Unix timestamp indicating the Pull Request creation time.
-func (o GetRepositoryPullRequestsResultTypeOutput) OpenedAt() pulumi.IntOutput {
-	return o.ApplyT(func(v GetRepositoryPullRequestsResultType) int { return v.OpenedAt }).(pulumi.IntOutput)
+func (o GetRepositoryPullRequestsResultOutput) OpenedAt() pulumi.IntOutput {
+	return o.ApplyT(func(v GetRepositoryPullRequestsResult) int { return v.OpenedAt }).(pulumi.IntOutput)
 }
 
 // GitHub login of the user who opened the Pull Request.
-func (o GetRepositoryPullRequestsResultTypeOutput) OpenedBy() pulumi.StringOutput {
-	return o.ApplyT(func(v GetRepositoryPullRequestsResultType) string { return v.OpenedBy }).(pulumi.StringOutput)
+func (o GetRepositoryPullRequestsResultOutput) OpenedBy() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRepositoryPullRequestsResult) string { return v.OpenedBy }).(pulumi.StringOutput)
 }
 
 // If set, filters Pull Requests by state. Can be "open", "closed", or "all". Default: "open".
-func (o GetRepositoryPullRequestsResultTypeOutput) State() pulumi.StringOutput {
-	return o.ApplyT(func(v GetRepositoryPullRequestsResultType) string { return v.State }).(pulumi.StringOutput)
+func (o GetRepositoryPullRequestsResultOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRepositoryPullRequestsResult) string { return v.State }).(pulumi.StringOutput)
 }
 
 // The title of the Pull Request.
-func (o GetRepositoryPullRequestsResultTypeOutput) Title() pulumi.StringOutput {
-	return o.ApplyT(func(v GetRepositoryPullRequestsResultType) string { return v.Title }).(pulumi.StringOutput)
+func (o GetRepositoryPullRequestsResultOutput) Title() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRepositoryPullRequestsResult) string { return v.Title }).(pulumi.StringOutput)
 }
 
 // The timestamp of the last Pull Request update.
-func (o GetRepositoryPullRequestsResultTypeOutput) UpdatedAt() pulumi.IntOutput {
-	return o.ApplyT(func(v GetRepositoryPullRequestsResultType) int { return v.UpdatedAt }).(pulumi.IntOutput)
+func (o GetRepositoryPullRequestsResultOutput) UpdatedAt() pulumi.IntOutput {
+	return o.ApplyT(func(v GetRepositoryPullRequestsResult) int { return v.UpdatedAt }).(pulumi.IntOutput)
 }
 
-type GetRepositoryPullRequestsResultTypeArrayOutput struct{ *pulumi.OutputState }
+type GetRepositoryPullRequestsResultArrayOutput struct{ *pulumi.OutputState }
 
-func (GetRepositoryPullRequestsResultTypeArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetRepositoryPullRequestsResultType)(nil)).Elem()
+func (GetRepositoryPullRequestsResultArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRepositoryPullRequestsResult)(nil)).Elem()
 }
 
-func (o GetRepositoryPullRequestsResultTypeArrayOutput) ToGetRepositoryPullRequestsResultTypeArrayOutput() GetRepositoryPullRequestsResultTypeArrayOutput {
+func (o GetRepositoryPullRequestsResultArrayOutput) ToGetRepositoryPullRequestsResultArrayOutput() GetRepositoryPullRequestsResultArrayOutput {
 	return o
 }
 
-func (o GetRepositoryPullRequestsResultTypeArrayOutput) ToGetRepositoryPullRequestsResultTypeArrayOutputWithContext(ctx context.Context) GetRepositoryPullRequestsResultTypeArrayOutput {
+func (o GetRepositoryPullRequestsResultArrayOutput) ToGetRepositoryPullRequestsResultArrayOutputWithContext(ctx context.Context) GetRepositoryPullRequestsResultArrayOutput {
 	return o
 }
 
-func (o GetRepositoryPullRequestsResultTypeArrayOutput) Index(i pulumi.IntInput) GetRepositoryPullRequestsResultTypeOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRepositoryPullRequestsResultType {
-		return vs[0].([]GetRepositoryPullRequestsResultType)[vs[1].(int)]
-	}).(GetRepositoryPullRequestsResultTypeOutput)
+func (o GetRepositoryPullRequestsResultArrayOutput) Index(i pulumi.IntInput) GetRepositoryPullRequestsResultOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRepositoryPullRequestsResult {
+		return vs[0].([]GetRepositoryPullRequestsResult)[vs[1].(int)]
+	}).(GetRepositoryPullRequestsResultOutput)
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*BranchProtectionRequiredPullRequestReviewInput)(nil)).Elem(), BranchProtectionRequiredPullRequestReviewArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BranchProtectionRequiredPullRequestReviewArrayInput)(nil)).Elem(), BranchProtectionRequiredPullRequestReviewArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BranchProtectionRequiredStatusCheckInput)(nil)).Elem(), BranchProtectionRequiredStatusCheckArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BranchProtectionRequiredStatusCheckArrayInput)(nil)).Elem(), BranchProtectionRequiredStatusCheckArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BranchProtectionV3RequiredPullRequestReviewsInput)(nil)).Elem(), BranchProtectionV3RequiredPullRequestReviewsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BranchProtectionV3RequiredPullRequestReviewsPtrInput)(nil)).Elem(), BranchProtectionV3RequiredPullRequestReviewsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BranchProtectionV3RequiredStatusChecksInput)(nil)).Elem(), BranchProtectionV3RequiredStatusChecksArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BranchProtectionV3RequiredStatusChecksPtrInput)(nil)).Elem(), BranchProtectionV3RequiredStatusChecksArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BranchProtectionV3RestrictionsInput)(nil)).Elem(), BranchProtectionV3RestrictionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BranchProtectionV3RestrictionsPtrInput)(nil)).Elem(), BranchProtectionV3RestrictionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationWebhookConfigurationInput)(nil)).Elem(), OrganizationWebhookConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationWebhookConfigurationPtrInput)(nil)).Elem(), OrganizationWebhookConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProviderAppAuthInput)(nil)).Elem(), ProviderAppAuthArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProviderAppAuthPtrInput)(nil)).Elem(), ProviderAppAuthArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryEnvironmentDeploymentBranchPolicyInput)(nil)).Elem(), RepositoryEnvironmentDeploymentBranchPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryEnvironmentDeploymentBranchPolicyPtrInput)(nil)).Elem(), RepositoryEnvironmentDeploymentBranchPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryEnvironmentReviewerInput)(nil)).Elem(), RepositoryEnvironmentReviewerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryEnvironmentReviewerArrayInput)(nil)).Elem(), RepositoryEnvironmentReviewerArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryPagesInput)(nil)).Elem(), RepositoryPagesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryPagesPtrInput)(nil)).Elem(), RepositoryPagesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryPagesSourceInput)(nil)).Elem(), RepositoryPagesSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryPagesSourcePtrInput)(nil)).Elem(), RepositoryPagesSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryTemplateInput)(nil)).Elem(), RepositoryTemplateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryTemplatePtrInput)(nil)).Elem(), RepositoryTemplateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryWebhookConfigurationInput)(nil)).Elem(), RepositoryWebhookConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryWebhookConfigurationPtrInput)(nil)).Elem(), RepositoryWebhookConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TeamSyncGroupMappingGroupInput)(nil)).Elem(), TeamSyncGroupMappingGroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TeamSyncGroupMappingGroupArrayInput)(nil)).Elem(), TeamSyncGroupMappingGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCollaboratorsCollaboratorInput)(nil)).Elem(), GetCollaboratorsCollaboratorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCollaboratorsCollaboratorArrayInput)(nil)).Elem(), GetCollaboratorsCollaboratorArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetOrganizationTeamSyncGroupsGroupInput)(nil)).Elem(), GetOrganizationTeamSyncGroupsGroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetOrganizationTeamSyncGroupsGroupArrayInput)(nil)).Elem(), GetOrganizationTeamSyncGroupsGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetOrganizationTeamsTeamInput)(nil)).Elem(), GetOrganizationTeamsTeamArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetOrganizationTeamsTeamArrayInput)(nil)).Elem(), GetOrganizationTeamsTeamArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRepositoryBranchInput)(nil)).Elem(), GetRepositoryBranchArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRepositoryBranchArrayInput)(nil)).Elem(), GetRepositoryBranchArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRepositoryPageInput)(nil)).Elem(), GetRepositoryPageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRepositoryPageArrayInput)(nil)).Elem(), GetRepositoryPageArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRepositoryPageSourceInput)(nil)).Elem(), GetRepositoryPageSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRepositoryPageSourceArrayInput)(nil)).Elem(), GetRepositoryPageSourceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRepositoryPullRequestsResultInput)(nil)).Elem(), GetRepositoryPullRequestsResultArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRepositoryPullRequestsResultArrayInput)(nil)).Elem(), GetRepositoryPullRequestsResultArray{})
 	pulumi.RegisterOutputType(BranchProtectionRequiredPullRequestReviewOutput{})
 	pulumi.RegisterOutputType(BranchProtectionRequiredPullRequestReviewArrayOutput{})
 	pulumi.RegisterOutputType(BranchProtectionRequiredStatusCheckOutput{})
@@ -3256,6 +3361,6 @@ func init() {
 	pulumi.RegisterOutputType(GetRepositoryPageArrayOutput{})
 	pulumi.RegisterOutputType(GetRepositoryPageSourceOutput{})
 	pulumi.RegisterOutputType(GetRepositoryPageSourceArrayOutput{})
-	pulumi.RegisterOutputType(GetRepositoryPullRequestsResultTypeOutput{})
-	pulumi.RegisterOutputType(GetRepositoryPullRequestsResultTypeArrayOutput{})
+	pulumi.RegisterOutputType(GetRepositoryPullRequestsResultOutput{})
+	pulumi.RegisterOutputType(GetRepositoryPullRequestsResultArrayOutput{})
 }

@@ -15,6 +15,40 @@ import (
 //
 // This resource allows you to add/remove SSH keys from your user account.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"io/ioutil"
+//
+// 	"github.com/pulumi/pulumi-github/sdk/v4/go/github"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func readFileOrPanic(path string) pulumi.StringPtrInput {
+// 	data, err := ioutil.ReadFile(path)
+// 	if err != nil {
+// 		panic(err.Error())
+// 	}
+// 	return pulumi.String(string(data))
+// }
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := github.NewUserSshKey(ctx, "example", &github.UserSshKeyArgs{
+// 			Title: pulumi.String("example title"),
+// 			Key:   readFileOrPanic("~/.ssh/id_rsa.pub"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
 // ## Import
 //
 // SSH keys can be imported using their ID e.g.
@@ -119,7 +153,7 @@ type UserSshKeyInput interface {
 }
 
 func (*UserSshKey) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserSshKey)(nil))
+	return reflect.TypeOf((**UserSshKey)(nil)).Elem()
 }
 
 func (i *UserSshKey) ToUserSshKeyOutput() UserSshKeyOutput {
@@ -128,35 +162,6 @@ func (i *UserSshKey) ToUserSshKeyOutput() UserSshKeyOutput {
 
 func (i *UserSshKey) ToUserSshKeyOutputWithContext(ctx context.Context) UserSshKeyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(UserSshKeyOutput)
-}
-
-func (i *UserSshKey) ToUserSshKeyPtrOutput() UserSshKeyPtrOutput {
-	return i.ToUserSshKeyPtrOutputWithContext(context.Background())
-}
-
-func (i *UserSshKey) ToUserSshKeyPtrOutputWithContext(ctx context.Context) UserSshKeyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UserSshKeyPtrOutput)
-}
-
-type UserSshKeyPtrInput interface {
-	pulumi.Input
-
-	ToUserSshKeyPtrOutput() UserSshKeyPtrOutput
-	ToUserSshKeyPtrOutputWithContext(ctx context.Context) UserSshKeyPtrOutput
-}
-
-type userSshKeyPtrType UserSshKeyArgs
-
-func (*userSshKeyPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**UserSshKey)(nil))
-}
-
-func (i *userSshKeyPtrType) ToUserSshKeyPtrOutput() UserSshKeyPtrOutput {
-	return i.ToUserSshKeyPtrOutputWithContext(context.Background())
-}
-
-func (i *userSshKeyPtrType) ToUserSshKeyPtrOutputWithContext(ctx context.Context) UserSshKeyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UserSshKeyPtrOutput)
 }
 
 // UserSshKeyArrayInput is an input type that accepts UserSshKeyArray and UserSshKeyArrayOutput values.
@@ -173,7 +178,7 @@ type UserSshKeyArrayInput interface {
 type UserSshKeyArray []UserSshKeyInput
 
 func (UserSshKeyArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*UserSshKey)(nil))
+	return reflect.TypeOf((*[]*UserSshKey)(nil)).Elem()
 }
 
 func (i UserSshKeyArray) ToUserSshKeyArrayOutput() UserSshKeyArrayOutput {
@@ -198,7 +203,7 @@ type UserSshKeyMapInput interface {
 type UserSshKeyMap map[string]UserSshKeyInput
 
 func (UserSshKeyMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*UserSshKey)(nil))
+	return reflect.TypeOf((*map[string]*UserSshKey)(nil)).Elem()
 }
 
 func (i UserSshKeyMap) ToUserSshKeyMapOutput() UserSshKeyMapOutput {
@@ -209,12 +214,10 @@ func (i UserSshKeyMap) ToUserSshKeyMapOutputWithContext(ctx context.Context) Use
 	return pulumi.ToOutputWithContext(ctx, i).(UserSshKeyMapOutput)
 }
 
-type UserSshKeyOutput struct {
-	*pulumi.OutputState
-}
+type UserSshKeyOutput struct{ *pulumi.OutputState }
 
 func (UserSshKeyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserSshKey)(nil))
+	return reflect.TypeOf((**UserSshKey)(nil)).Elem()
 }
 
 func (o UserSshKeyOutput) ToUserSshKeyOutput() UserSshKeyOutput {
@@ -225,36 +228,10 @@ func (o UserSshKeyOutput) ToUserSshKeyOutputWithContext(ctx context.Context) Use
 	return o
 }
 
-func (o UserSshKeyOutput) ToUserSshKeyPtrOutput() UserSshKeyPtrOutput {
-	return o.ToUserSshKeyPtrOutputWithContext(context.Background())
-}
-
-func (o UserSshKeyOutput) ToUserSshKeyPtrOutputWithContext(ctx context.Context) UserSshKeyPtrOutput {
-	return o.ApplyT(func(v UserSshKey) *UserSshKey {
-		return &v
-	}).(UserSshKeyPtrOutput)
-}
-
-type UserSshKeyPtrOutput struct {
-	*pulumi.OutputState
-}
-
-func (UserSshKeyPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**UserSshKey)(nil))
-}
-
-func (o UserSshKeyPtrOutput) ToUserSshKeyPtrOutput() UserSshKeyPtrOutput {
-	return o
-}
-
-func (o UserSshKeyPtrOutput) ToUserSshKeyPtrOutputWithContext(ctx context.Context) UserSshKeyPtrOutput {
-	return o
-}
-
 type UserSshKeyArrayOutput struct{ *pulumi.OutputState }
 
 func (UserSshKeyArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]UserSshKey)(nil))
+	return reflect.TypeOf((*[]*UserSshKey)(nil)).Elem()
 }
 
 func (o UserSshKeyArrayOutput) ToUserSshKeyArrayOutput() UserSshKeyArrayOutput {
@@ -266,15 +243,15 @@ func (o UserSshKeyArrayOutput) ToUserSshKeyArrayOutputWithContext(ctx context.Co
 }
 
 func (o UserSshKeyArrayOutput) Index(i pulumi.IntInput) UserSshKeyOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) UserSshKey {
-		return vs[0].([]UserSshKey)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *UserSshKey {
+		return vs[0].([]*UserSshKey)[vs[1].(int)]
 	}).(UserSshKeyOutput)
 }
 
 type UserSshKeyMapOutput struct{ *pulumi.OutputState }
 
 func (UserSshKeyMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]UserSshKey)(nil))
+	return reflect.TypeOf((*map[string]*UserSshKey)(nil)).Elem()
 }
 
 func (o UserSshKeyMapOutput) ToUserSshKeyMapOutput() UserSshKeyMapOutput {
@@ -286,14 +263,16 @@ func (o UserSshKeyMapOutput) ToUserSshKeyMapOutputWithContext(ctx context.Contex
 }
 
 func (o UserSshKeyMapOutput) MapIndex(k pulumi.StringInput) UserSshKeyOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) UserSshKey {
-		return vs[0].(map[string]UserSshKey)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *UserSshKey {
+		return vs[0].(map[string]*UserSshKey)[vs[1].(string)]
 	}).(UserSshKeyOutput)
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*UserSshKeyInput)(nil)).Elem(), &UserSshKey{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserSshKeyArrayInput)(nil)).Elem(), UserSshKeyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserSshKeyMapInput)(nil)).Elem(), UserSshKeyMap{})
 	pulumi.RegisterOutputType(UserSshKeyOutput{})
-	pulumi.RegisterOutputType(UserSshKeyPtrOutput{})
 	pulumi.RegisterOutputType(UserSshKeyArrayOutput{})
 	pulumi.RegisterOutputType(UserSshKeyMapOutput{})
 }

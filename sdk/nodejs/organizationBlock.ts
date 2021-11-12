@@ -61,24 +61,24 @@ export class OrganizationBlock extends pulumi.CustomResource {
      */
     constructor(name: string, args: OrganizationBlockArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: OrganizationBlockArgs | OrganizationBlockState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as OrganizationBlockState | undefined;
-            inputs["etag"] = state ? state.etag : undefined;
-            inputs["username"] = state ? state.username : undefined;
+            resourceInputs["etag"] = state ? state.etag : undefined;
+            resourceInputs["username"] = state ? state.username : undefined;
         } else {
             const args = argsOrState as OrganizationBlockArgs | undefined;
             if ((!args || args.username === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'username'");
             }
-            inputs["username"] = args ? args.username : undefined;
-            inputs["etag"] = undefined /*out*/;
+            resourceInputs["username"] = args ? args.username : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(OrganizationBlock.__pulumiType, name, inputs, opts);
+        super(OrganizationBlock.__pulumiType, name, resourceInputs, opts);
     }
 }
 
