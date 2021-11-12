@@ -72,3 +72,17 @@ export interface GetOrganizationTeamsResult {
      */
     readonly teams: outputs.GetOrganizationTeamsTeam[];
 }
+
+export function getOrganizationTeamsOutput(args?: GetOrganizationTeamsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOrganizationTeamsResult> {
+    return pulumi.output(args).apply(a => getOrganizationTeams(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getOrganizationTeams.
+ */
+export interface GetOrganizationTeamsOutputArgs {
+    /**
+     * Only return teams that are at the organization's root, i.e. no nested teams. Defaults to `false`.
+     */
+    rootTeamsOnly?: pulumi.Input<boolean>;
+}

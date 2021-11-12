@@ -288,12 +288,6 @@ export interface OrganizationWebhookConfiguration {
     url: string;
 }
 
-export interface ProviderAppAuth {
-    id?: string;
-    installationId?: string;
-    pemFile?: string;
-}
-
 export interface RepositoryEnvironmentDeploymentBranchPolicy {
     /**
      * Whether only branches that match the specified name patterns can deploy to this environment.
@@ -395,4 +389,5 @@ export namespace config {
         installationId: string;
         pemFile: string;
     }
+
 }

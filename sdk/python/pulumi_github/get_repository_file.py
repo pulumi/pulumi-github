@@ -12,6 +12,7 @@ __all__ = [
     'GetRepositoryFileResult',
     'AwaitableGetRepositoryFileResult',
     'get_repository_file',
+    'get_repository_file_output',
 ]
 
 @pulumi.output_type
@@ -187,3 +188,32 @@ def get_repository_file(branch: Optional[str] = None,
         id=__ret__.id,
         repository=__ret__.repository,
         sha=__ret__.sha)
+
+
+@_utilities.lift_output_func(get_repository_file)
+def get_repository_file_output(branch: Optional[pulumi.Input[Optional[str]]] = None,
+                               file: Optional[pulumi.Input[str]] = None,
+                               repository: Optional[pulumi.Input[str]] = None,
+                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRepositoryFileResult]:
+    """
+    This data source allows you to read files within a
+    GitHub repository.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_github as github
+
+    foo = github.get_repository_file(repository=github_repository["foo"]["name"],
+        branch="main",
+        file=".gitignore")
+    ```
+
+
+    :param str branch: Git branch (defaults to `main`).
+           The branch must already exist, it will not be created if it does not already exist.
+    :param str file: The path of the file to manage.
+    :param str repository: The repository to create the file in.
+    """
+    ...

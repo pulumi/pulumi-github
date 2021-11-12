@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Github
 {
@@ -50,6 +51,46 @@ namespace Pulumi.Github
         /// </summary>
         public static Task<GetUsersResult> InvokeAsync(GetUsersArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetUsersResult>("github:index/getUsers:getUsers", args ?? new GetUsersArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to retrieve information about multiple GitHub users at once.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Github = Pulumi.Github;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Github.GetUsers.InvokeAsync(new Github.GetUsersArgs
+        ///         {
+        ///             Usernames = 
+        ///             {
+        ///                 "example1",
+        ///                 "example2",
+        ///                 "example3",
+        ///             },
+        ///         }));
+        ///         this.ValidUsers = data.Github_user.Example.Logins;
+        ///         this.InvalidUsers = data.Github_user.Example.Unknown_logins;
+        ///     }
+        /// 
+        ///     [Output("validUsers")]
+        ///     public Output&lt;string&gt; ValidUsers { get; set; }
+        ///     [Output("invalidUsers")]
+        ///     public Output&lt;string&gt; InvalidUsers { get; set; }
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetUsersResult> Invoke(GetUsersInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetUsersResult>("github:index/getUsers:getUsers", args ?? new GetUsersInvokeArgs(), options.WithVersion());
     }
 
 
@@ -68,6 +109,25 @@ namespace Pulumi.Github
         }
 
         public GetUsersArgs()
+        {
+        }
+    }
+
+    public sealed class GetUsersInvokeArgs : Pulumi.InvokeArgs
+    {
+        [Input("usernames", required: true)]
+        private InputList<string>? _usernames;
+
+        /// <summary>
+        /// List of usernames.
+        /// </summary>
+        public InputList<string> Usernames
+        {
+            get => _usernames ?? (_usernames = new InputList<string>());
+            set => _usernames = value;
+        }
+
+        public GetUsersInvokeArgs()
         {
         }
     }

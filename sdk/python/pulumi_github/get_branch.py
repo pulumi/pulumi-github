@@ -12,6 +12,7 @@ __all__ = [
     'GetBranchResult',
     'AwaitableGetBranchResult',
     'get_branch',
+    'get_branch_output',
 ]
 
 @pulumi.output_type
@@ -132,3 +133,27 @@ def get_branch(branch: Optional[str] = None,
         ref=__ret__.ref,
         repository=__ret__.repository,
         sha=__ret__.sha)
+
+
+@_utilities.lift_output_func(get_branch)
+def get_branch_output(branch: Optional[pulumi.Input[str]] = None,
+                      repository: Optional[pulumi.Input[str]] = None,
+                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBranchResult]:
+    """
+    Use this data source to retrieve information about a repository branch.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_github as github
+
+    development = github.get_branch(branch="development",
+        repository="example")
+    ```
+
+
+    :param str branch: The repository branch to create.
+    :param str repository: The GitHub repository name.
+    """
+    ...

@@ -72,5 +72,6 @@ func (o AppAuthOutput) PemFile() pulumi.StringOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AppAuthInput)(nil)).Elem(), AppAuthArgs{})
 	pulumi.RegisterOutputType(AppAuthOutput{})
 }

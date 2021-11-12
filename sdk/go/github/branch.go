@@ -179,7 +179,7 @@ type BranchInput interface {
 }
 
 func (*Branch) ElementType() reflect.Type {
-	return reflect.TypeOf((*Branch)(nil))
+	return reflect.TypeOf((**Branch)(nil)).Elem()
 }
 
 func (i *Branch) ToBranchOutput() BranchOutput {
@@ -188,35 +188,6 @@ func (i *Branch) ToBranchOutput() BranchOutput {
 
 func (i *Branch) ToBranchOutputWithContext(ctx context.Context) BranchOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BranchOutput)
-}
-
-func (i *Branch) ToBranchPtrOutput() BranchPtrOutput {
-	return i.ToBranchPtrOutputWithContext(context.Background())
-}
-
-func (i *Branch) ToBranchPtrOutputWithContext(ctx context.Context) BranchPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BranchPtrOutput)
-}
-
-type BranchPtrInput interface {
-	pulumi.Input
-
-	ToBranchPtrOutput() BranchPtrOutput
-	ToBranchPtrOutputWithContext(ctx context.Context) BranchPtrOutput
-}
-
-type branchPtrType BranchArgs
-
-func (*branchPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Branch)(nil))
-}
-
-func (i *branchPtrType) ToBranchPtrOutput() BranchPtrOutput {
-	return i.ToBranchPtrOutputWithContext(context.Background())
-}
-
-func (i *branchPtrType) ToBranchPtrOutputWithContext(ctx context.Context) BranchPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BranchPtrOutput)
 }
 
 // BranchArrayInput is an input type that accepts BranchArray and BranchArrayOutput values.
@@ -233,7 +204,7 @@ type BranchArrayInput interface {
 type BranchArray []BranchInput
 
 func (BranchArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Branch)(nil))
+	return reflect.TypeOf((*[]*Branch)(nil)).Elem()
 }
 
 func (i BranchArray) ToBranchArrayOutput() BranchArrayOutput {
@@ -258,7 +229,7 @@ type BranchMapInput interface {
 type BranchMap map[string]BranchInput
 
 func (BranchMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Branch)(nil))
+	return reflect.TypeOf((*map[string]*Branch)(nil)).Elem()
 }
 
 func (i BranchMap) ToBranchMapOutput() BranchMapOutput {
@@ -269,12 +240,10 @@ func (i BranchMap) ToBranchMapOutputWithContext(ctx context.Context) BranchMapOu
 	return pulumi.ToOutputWithContext(ctx, i).(BranchMapOutput)
 }
 
-type BranchOutput struct {
-	*pulumi.OutputState
-}
+type BranchOutput struct{ *pulumi.OutputState }
 
 func (BranchOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Branch)(nil))
+	return reflect.TypeOf((**Branch)(nil)).Elem()
 }
 
 func (o BranchOutput) ToBranchOutput() BranchOutput {
@@ -285,36 +254,10 @@ func (o BranchOutput) ToBranchOutputWithContext(ctx context.Context) BranchOutpu
 	return o
 }
 
-func (o BranchOutput) ToBranchPtrOutput() BranchPtrOutput {
-	return o.ToBranchPtrOutputWithContext(context.Background())
-}
-
-func (o BranchOutput) ToBranchPtrOutputWithContext(ctx context.Context) BranchPtrOutput {
-	return o.ApplyT(func(v Branch) *Branch {
-		return &v
-	}).(BranchPtrOutput)
-}
-
-type BranchPtrOutput struct {
-	*pulumi.OutputState
-}
-
-func (BranchPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Branch)(nil))
-}
-
-func (o BranchPtrOutput) ToBranchPtrOutput() BranchPtrOutput {
-	return o
-}
-
-func (o BranchPtrOutput) ToBranchPtrOutputWithContext(ctx context.Context) BranchPtrOutput {
-	return o
-}
-
 type BranchArrayOutput struct{ *pulumi.OutputState }
 
 func (BranchArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Branch)(nil))
+	return reflect.TypeOf((*[]*Branch)(nil)).Elem()
 }
 
 func (o BranchArrayOutput) ToBranchArrayOutput() BranchArrayOutput {
@@ -326,15 +269,15 @@ func (o BranchArrayOutput) ToBranchArrayOutputWithContext(ctx context.Context) B
 }
 
 func (o BranchArrayOutput) Index(i pulumi.IntInput) BranchOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Branch {
-		return vs[0].([]Branch)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Branch {
+		return vs[0].([]*Branch)[vs[1].(int)]
 	}).(BranchOutput)
 }
 
 type BranchMapOutput struct{ *pulumi.OutputState }
 
 func (BranchMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]Branch)(nil))
+	return reflect.TypeOf((*map[string]*Branch)(nil)).Elem()
 }
 
 func (o BranchMapOutput) ToBranchMapOutput() BranchMapOutput {
@@ -346,14 +289,16 @@ func (o BranchMapOutput) ToBranchMapOutputWithContext(ctx context.Context) Branc
 }
 
 func (o BranchMapOutput) MapIndex(k pulumi.StringInput) BranchOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Branch {
-		return vs[0].(map[string]Branch)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *Branch {
+		return vs[0].(map[string]*Branch)[vs[1].(string)]
 	}).(BranchOutput)
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*BranchInput)(nil)).Elem(), &Branch{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BranchArrayInput)(nil)).Elem(), BranchArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BranchMapInput)(nil)).Elem(), BranchMap{})
 	pulumi.RegisterOutputType(BranchOutput{})
-	pulumi.RegisterOutputType(BranchPtrOutput{})
 	pulumi.RegisterOutputType(BranchArrayOutput{})
 	pulumi.RegisterOutputType(BranchMapOutput{})
 }

@@ -2,7 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
 /**
@@ -79,4 +78,18 @@ export interface GetTeamResult {
      */
     readonly repositories: string[];
     readonly slug: string;
+}
+
+export function getTeamOutput(args: GetTeamOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTeamResult> {
+    return pulumi.output(args).apply(a => getTeam(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getTeam.
+ */
+export interface GetTeamOutputArgs {
+    /**
+     * The team slug.
+     */
+    slug: pulumi.Input<string>;
 }

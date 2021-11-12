@@ -132,7 +132,7 @@ type UserGpgKeyInput interface {
 }
 
 func (*UserGpgKey) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserGpgKey)(nil))
+	return reflect.TypeOf((**UserGpgKey)(nil)).Elem()
 }
 
 func (i *UserGpgKey) ToUserGpgKeyOutput() UserGpgKeyOutput {
@@ -141,35 +141,6 @@ func (i *UserGpgKey) ToUserGpgKeyOutput() UserGpgKeyOutput {
 
 func (i *UserGpgKey) ToUserGpgKeyOutputWithContext(ctx context.Context) UserGpgKeyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(UserGpgKeyOutput)
-}
-
-func (i *UserGpgKey) ToUserGpgKeyPtrOutput() UserGpgKeyPtrOutput {
-	return i.ToUserGpgKeyPtrOutputWithContext(context.Background())
-}
-
-func (i *UserGpgKey) ToUserGpgKeyPtrOutputWithContext(ctx context.Context) UserGpgKeyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UserGpgKeyPtrOutput)
-}
-
-type UserGpgKeyPtrInput interface {
-	pulumi.Input
-
-	ToUserGpgKeyPtrOutput() UserGpgKeyPtrOutput
-	ToUserGpgKeyPtrOutputWithContext(ctx context.Context) UserGpgKeyPtrOutput
-}
-
-type userGpgKeyPtrType UserGpgKeyArgs
-
-func (*userGpgKeyPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**UserGpgKey)(nil))
-}
-
-func (i *userGpgKeyPtrType) ToUserGpgKeyPtrOutput() UserGpgKeyPtrOutput {
-	return i.ToUserGpgKeyPtrOutputWithContext(context.Background())
-}
-
-func (i *userGpgKeyPtrType) ToUserGpgKeyPtrOutputWithContext(ctx context.Context) UserGpgKeyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UserGpgKeyPtrOutput)
 }
 
 // UserGpgKeyArrayInput is an input type that accepts UserGpgKeyArray and UserGpgKeyArrayOutput values.
@@ -186,7 +157,7 @@ type UserGpgKeyArrayInput interface {
 type UserGpgKeyArray []UserGpgKeyInput
 
 func (UserGpgKeyArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*UserGpgKey)(nil))
+	return reflect.TypeOf((*[]*UserGpgKey)(nil)).Elem()
 }
 
 func (i UserGpgKeyArray) ToUserGpgKeyArrayOutput() UserGpgKeyArrayOutput {
@@ -211,7 +182,7 @@ type UserGpgKeyMapInput interface {
 type UserGpgKeyMap map[string]UserGpgKeyInput
 
 func (UserGpgKeyMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*UserGpgKey)(nil))
+	return reflect.TypeOf((*map[string]*UserGpgKey)(nil)).Elem()
 }
 
 func (i UserGpgKeyMap) ToUserGpgKeyMapOutput() UserGpgKeyMapOutput {
@@ -222,12 +193,10 @@ func (i UserGpgKeyMap) ToUserGpgKeyMapOutputWithContext(ctx context.Context) Use
 	return pulumi.ToOutputWithContext(ctx, i).(UserGpgKeyMapOutput)
 }
 
-type UserGpgKeyOutput struct {
-	*pulumi.OutputState
-}
+type UserGpgKeyOutput struct{ *pulumi.OutputState }
 
 func (UserGpgKeyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserGpgKey)(nil))
+	return reflect.TypeOf((**UserGpgKey)(nil)).Elem()
 }
 
 func (o UserGpgKeyOutput) ToUserGpgKeyOutput() UserGpgKeyOutput {
@@ -238,36 +207,10 @@ func (o UserGpgKeyOutput) ToUserGpgKeyOutputWithContext(ctx context.Context) Use
 	return o
 }
 
-func (o UserGpgKeyOutput) ToUserGpgKeyPtrOutput() UserGpgKeyPtrOutput {
-	return o.ToUserGpgKeyPtrOutputWithContext(context.Background())
-}
-
-func (o UserGpgKeyOutput) ToUserGpgKeyPtrOutputWithContext(ctx context.Context) UserGpgKeyPtrOutput {
-	return o.ApplyT(func(v UserGpgKey) *UserGpgKey {
-		return &v
-	}).(UserGpgKeyPtrOutput)
-}
-
-type UserGpgKeyPtrOutput struct {
-	*pulumi.OutputState
-}
-
-func (UserGpgKeyPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**UserGpgKey)(nil))
-}
-
-func (o UserGpgKeyPtrOutput) ToUserGpgKeyPtrOutput() UserGpgKeyPtrOutput {
-	return o
-}
-
-func (o UserGpgKeyPtrOutput) ToUserGpgKeyPtrOutputWithContext(ctx context.Context) UserGpgKeyPtrOutput {
-	return o
-}
-
 type UserGpgKeyArrayOutput struct{ *pulumi.OutputState }
 
 func (UserGpgKeyArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]UserGpgKey)(nil))
+	return reflect.TypeOf((*[]*UserGpgKey)(nil)).Elem()
 }
 
 func (o UserGpgKeyArrayOutput) ToUserGpgKeyArrayOutput() UserGpgKeyArrayOutput {
@@ -279,15 +222,15 @@ func (o UserGpgKeyArrayOutput) ToUserGpgKeyArrayOutputWithContext(ctx context.Co
 }
 
 func (o UserGpgKeyArrayOutput) Index(i pulumi.IntInput) UserGpgKeyOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) UserGpgKey {
-		return vs[0].([]UserGpgKey)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *UserGpgKey {
+		return vs[0].([]*UserGpgKey)[vs[1].(int)]
 	}).(UserGpgKeyOutput)
 }
 
 type UserGpgKeyMapOutput struct{ *pulumi.OutputState }
 
 func (UserGpgKeyMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]UserGpgKey)(nil))
+	return reflect.TypeOf((*map[string]*UserGpgKey)(nil)).Elem()
 }
 
 func (o UserGpgKeyMapOutput) ToUserGpgKeyMapOutput() UserGpgKeyMapOutput {
@@ -299,14 +242,16 @@ func (o UserGpgKeyMapOutput) ToUserGpgKeyMapOutputWithContext(ctx context.Contex
 }
 
 func (o UserGpgKeyMapOutput) MapIndex(k pulumi.StringInput) UserGpgKeyOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) UserGpgKey {
-		return vs[0].(map[string]UserGpgKey)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *UserGpgKey {
+		return vs[0].(map[string]*UserGpgKey)[vs[1].(string)]
 	}).(UserGpgKeyOutput)
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*UserGpgKeyInput)(nil)).Elem(), &UserGpgKey{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserGpgKeyArrayInput)(nil)).Elem(), UserGpgKeyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserGpgKeyMapInput)(nil)).Elem(), UserGpgKeyMap{})
 	pulumi.RegisterOutputType(UserGpgKeyOutput{})
-	pulumi.RegisterOutputType(UserGpgKeyPtrOutput{})
 	pulumi.RegisterOutputType(UserGpgKeyArrayOutput{})
 	pulumi.RegisterOutputType(UserGpgKeyMapOutput{})
 }

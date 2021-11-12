@@ -12,6 +12,7 @@ __all__ = [
     'GetRepositoryMilestoneResult',
     'AwaitableGetRepositoryMilestoneResult',
     'get_repository_milestone',
+    'get_repository_milestone_output',
 ]
 
 @pulumi.output_type
@@ -159,3 +160,30 @@ def get_repository_milestone(number: Optional[int] = None,
         repository=__ret__.repository,
         state=__ret__.state,
         title=__ret__.title)
+
+
+@_utilities.lift_output_func(get_repository_milestone)
+def get_repository_milestone_output(number: Optional[pulumi.Input[int]] = None,
+                                    owner: Optional[pulumi.Input[str]] = None,
+                                    repository: Optional[pulumi.Input[str]] = None,
+                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRepositoryMilestoneResult]:
+    """
+    Use this data source to retrieve information about a specific GitHub milestone in a repository.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_github as github
+
+    example = github.get_repository_milestone(number=1,
+        owner="example-owner",
+        repository="example-repository")
+    ```
+
+
+    :param int number: The number of the milestone.
+    :param str owner: Owner of the repository.
+    :param str repository: Name of the repository to retrieve the milestone from.
+    """
+    ...

@@ -132,7 +132,7 @@ type ProjectColumnInput interface {
 }
 
 func (*ProjectColumn) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProjectColumn)(nil))
+	return reflect.TypeOf((**ProjectColumn)(nil)).Elem()
 }
 
 func (i *ProjectColumn) ToProjectColumnOutput() ProjectColumnOutput {
@@ -141,35 +141,6 @@ func (i *ProjectColumn) ToProjectColumnOutput() ProjectColumnOutput {
 
 func (i *ProjectColumn) ToProjectColumnOutputWithContext(ctx context.Context) ProjectColumnOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ProjectColumnOutput)
-}
-
-func (i *ProjectColumn) ToProjectColumnPtrOutput() ProjectColumnPtrOutput {
-	return i.ToProjectColumnPtrOutputWithContext(context.Background())
-}
-
-func (i *ProjectColumn) ToProjectColumnPtrOutputWithContext(ctx context.Context) ProjectColumnPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProjectColumnPtrOutput)
-}
-
-type ProjectColumnPtrInput interface {
-	pulumi.Input
-
-	ToProjectColumnPtrOutput() ProjectColumnPtrOutput
-	ToProjectColumnPtrOutputWithContext(ctx context.Context) ProjectColumnPtrOutput
-}
-
-type projectColumnPtrType ProjectColumnArgs
-
-func (*projectColumnPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ProjectColumn)(nil))
-}
-
-func (i *projectColumnPtrType) ToProjectColumnPtrOutput() ProjectColumnPtrOutput {
-	return i.ToProjectColumnPtrOutputWithContext(context.Background())
-}
-
-func (i *projectColumnPtrType) ToProjectColumnPtrOutputWithContext(ctx context.Context) ProjectColumnPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProjectColumnPtrOutput)
 }
 
 // ProjectColumnArrayInput is an input type that accepts ProjectColumnArray and ProjectColumnArrayOutput values.
@@ -186,7 +157,7 @@ type ProjectColumnArrayInput interface {
 type ProjectColumnArray []ProjectColumnInput
 
 func (ProjectColumnArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ProjectColumn)(nil))
+	return reflect.TypeOf((*[]*ProjectColumn)(nil)).Elem()
 }
 
 func (i ProjectColumnArray) ToProjectColumnArrayOutput() ProjectColumnArrayOutput {
@@ -211,7 +182,7 @@ type ProjectColumnMapInput interface {
 type ProjectColumnMap map[string]ProjectColumnInput
 
 func (ProjectColumnMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ProjectColumn)(nil))
+	return reflect.TypeOf((*map[string]*ProjectColumn)(nil)).Elem()
 }
 
 func (i ProjectColumnMap) ToProjectColumnMapOutput() ProjectColumnMapOutput {
@@ -222,12 +193,10 @@ func (i ProjectColumnMap) ToProjectColumnMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(ProjectColumnMapOutput)
 }
 
-type ProjectColumnOutput struct {
-	*pulumi.OutputState
-}
+type ProjectColumnOutput struct{ *pulumi.OutputState }
 
 func (ProjectColumnOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProjectColumn)(nil))
+	return reflect.TypeOf((**ProjectColumn)(nil)).Elem()
 }
 
 func (o ProjectColumnOutput) ToProjectColumnOutput() ProjectColumnOutput {
@@ -238,36 +207,10 @@ func (o ProjectColumnOutput) ToProjectColumnOutputWithContext(ctx context.Contex
 	return o
 }
 
-func (o ProjectColumnOutput) ToProjectColumnPtrOutput() ProjectColumnPtrOutput {
-	return o.ToProjectColumnPtrOutputWithContext(context.Background())
-}
-
-func (o ProjectColumnOutput) ToProjectColumnPtrOutputWithContext(ctx context.Context) ProjectColumnPtrOutput {
-	return o.ApplyT(func(v ProjectColumn) *ProjectColumn {
-		return &v
-	}).(ProjectColumnPtrOutput)
-}
-
-type ProjectColumnPtrOutput struct {
-	*pulumi.OutputState
-}
-
-func (ProjectColumnPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ProjectColumn)(nil))
-}
-
-func (o ProjectColumnPtrOutput) ToProjectColumnPtrOutput() ProjectColumnPtrOutput {
-	return o
-}
-
-func (o ProjectColumnPtrOutput) ToProjectColumnPtrOutputWithContext(ctx context.Context) ProjectColumnPtrOutput {
-	return o
-}
-
 type ProjectColumnArrayOutput struct{ *pulumi.OutputState }
 
 func (ProjectColumnArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ProjectColumn)(nil))
+	return reflect.TypeOf((*[]*ProjectColumn)(nil)).Elem()
 }
 
 func (o ProjectColumnArrayOutput) ToProjectColumnArrayOutput() ProjectColumnArrayOutput {
@@ -279,15 +222,15 @@ func (o ProjectColumnArrayOutput) ToProjectColumnArrayOutputWithContext(ctx cont
 }
 
 func (o ProjectColumnArrayOutput) Index(i pulumi.IntInput) ProjectColumnOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProjectColumn {
-		return vs[0].([]ProjectColumn)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ProjectColumn {
+		return vs[0].([]*ProjectColumn)[vs[1].(int)]
 	}).(ProjectColumnOutput)
 }
 
 type ProjectColumnMapOutput struct{ *pulumi.OutputState }
 
 func (ProjectColumnMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ProjectColumn)(nil))
+	return reflect.TypeOf((*map[string]*ProjectColumn)(nil)).Elem()
 }
 
 func (o ProjectColumnMapOutput) ToProjectColumnMapOutput() ProjectColumnMapOutput {
@@ -299,14 +242,16 @@ func (o ProjectColumnMapOutput) ToProjectColumnMapOutputWithContext(ctx context.
 }
 
 func (o ProjectColumnMapOutput) MapIndex(k pulumi.StringInput) ProjectColumnOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ProjectColumn {
-		return vs[0].(map[string]ProjectColumn)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ProjectColumn {
+		return vs[0].(map[string]*ProjectColumn)[vs[1].(string)]
 	}).(ProjectColumnOutput)
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectColumnInput)(nil)).Elem(), &ProjectColumn{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectColumnArrayInput)(nil)).Elem(), ProjectColumnArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectColumnMapInput)(nil)).Elem(), ProjectColumnMap{})
 	pulumi.RegisterOutputType(ProjectColumnOutput{})
-	pulumi.RegisterOutputType(ProjectColumnPtrOutput{})
 	pulumi.RegisterOutputType(ProjectColumnArrayOutput{})
 	pulumi.RegisterOutputType(ProjectColumnMapOutput{})
 }

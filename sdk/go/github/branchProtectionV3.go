@@ -32,7 +32,7 @@ import (
 // 		_, err := github.NewBranchProtectionV3(ctx, "example", &github.BranchProtectionV3Args{
 // 			Repository: pulumi.Any(github_repository.Example.Name),
 // 			Branch:     pulumi.String("main"),
-// 			Restrictions: &github.BranchProtectionV3RestrictionsArgs{
+// 			Restrictions: &BranchProtectionV3RestrictionsArgs{
 // 				Users: pulumi.StringArray{
 // 					pulumi.String("foo-user"),
 // 				},
@@ -68,13 +68,13 @@ import (
 // 			Repository:    exampleRepository.Name,
 // 			Branch:        pulumi.String("main"),
 // 			EnforceAdmins: pulumi.Bool(true),
-// 			RequiredStatusChecks: &github.BranchProtectionV3RequiredStatusChecksArgs{
+// 			RequiredStatusChecks: &BranchProtectionV3RequiredStatusChecksArgs{
 // 				Strict: pulumi.Bool(false),
 // 				Contexts: pulumi.StringArray{
 // 					pulumi.String("ci/travis"),
 // 				},
 // 			},
-// 			RequiredPullRequestReviews: &github.BranchProtectionV3RequiredPullRequestReviewsArgs{
+// 			RequiredPullRequestReviews: &BranchProtectionV3RequiredPullRequestReviewsArgs{
 // 				DismissStaleReviews: pulumi.Bool(true),
 // 				DismissalUsers: pulumi.StringArray{
 // 					pulumi.String("foo-user"),
@@ -83,7 +83,7 @@ import (
 // 					exampleTeam.Slug,
 // 				},
 // 			},
-// 			Restrictions: &github.BranchProtectionV3RestrictionsArgs{
+// 			Restrictions: &BranchProtectionV3RestrictionsArgs{
 // 				Users: pulumi.StringArray{
 // 					pulumi.String("foo-user"),
 // 				},
@@ -259,7 +259,7 @@ type BranchProtectionV3Input interface {
 }
 
 func (*BranchProtectionV3) ElementType() reflect.Type {
-	return reflect.TypeOf((*BranchProtectionV3)(nil))
+	return reflect.TypeOf((**BranchProtectionV3)(nil)).Elem()
 }
 
 func (i *BranchProtectionV3) ToBranchProtectionV3Output() BranchProtectionV3Output {
@@ -268,35 +268,6 @@ func (i *BranchProtectionV3) ToBranchProtectionV3Output() BranchProtectionV3Outp
 
 func (i *BranchProtectionV3) ToBranchProtectionV3OutputWithContext(ctx context.Context) BranchProtectionV3Output {
 	return pulumi.ToOutputWithContext(ctx, i).(BranchProtectionV3Output)
-}
-
-func (i *BranchProtectionV3) ToBranchProtectionV3PtrOutput() BranchProtectionV3PtrOutput {
-	return i.ToBranchProtectionV3PtrOutputWithContext(context.Background())
-}
-
-func (i *BranchProtectionV3) ToBranchProtectionV3PtrOutputWithContext(ctx context.Context) BranchProtectionV3PtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BranchProtectionV3PtrOutput)
-}
-
-type BranchProtectionV3PtrInput interface {
-	pulumi.Input
-
-	ToBranchProtectionV3PtrOutput() BranchProtectionV3PtrOutput
-	ToBranchProtectionV3PtrOutputWithContext(ctx context.Context) BranchProtectionV3PtrOutput
-}
-
-type branchProtectionV3PtrType BranchProtectionV3Args
-
-func (*branchProtectionV3PtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**BranchProtectionV3)(nil))
-}
-
-func (i *branchProtectionV3PtrType) ToBranchProtectionV3PtrOutput() BranchProtectionV3PtrOutput {
-	return i.ToBranchProtectionV3PtrOutputWithContext(context.Background())
-}
-
-func (i *branchProtectionV3PtrType) ToBranchProtectionV3PtrOutputWithContext(ctx context.Context) BranchProtectionV3PtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BranchProtectionV3PtrOutput)
 }
 
 // BranchProtectionV3ArrayInput is an input type that accepts BranchProtectionV3Array and BranchProtectionV3ArrayOutput values.
@@ -313,7 +284,7 @@ type BranchProtectionV3ArrayInput interface {
 type BranchProtectionV3Array []BranchProtectionV3Input
 
 func (BranchProtectionV3Array) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*BranchProtectionV3)(nil))
+	return reflect.TypeOf((*[]*BranchProtectionV3)(nil)).Elem()
 }
 
 func (i BranchProtectionV3Array) ToBranchProtectionV3ArrayOutput() BranchProtectionV3ArrayOutput {
@@ -338,7 +309,7 @@ type BranchProtectionV3MapInput interface {
 type BranchProtectionV3Map map[string]BranchProtectionV3Input
 
 func (BranchProtectionV3Map) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*BranchProtectionV3)(nil))
+	return reflect.TypeOf((*map[string]*BranchProtectionV3)(nil)).Elem()
 }
 
 func (i BranchProtectionV3Map) ToBranchProtectionV3MapOutput() BranchProtectionV3MapOutput {
@@ -349,12 +320,10 @@ func (i BranchProtectionV3Map) ToBranchProtectionV3MapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(BranchProtectionV3MapOutput)
 }
 
-type BranchProtectionV3Output struct {
-	*pulumi.OutputState
-}
+type BranchProtectionV3Output struct{ *pulumi.OutputState }
 
 func (BranchProtectionV3Output) ElementType() reflect.Type {
-	return reflect.TypeOf((*BranchProtectionV3)(nil))
+	return reflect.TypeOf((**BranchProtectionV3)(nil)).Elem()
 }
 
 func (o BranchProtectionV3Output) ToBranchProtectionV3Output() BranchProtectionV3Output {
@@ -365,36 +334,10 @@ func (o BranchProtectionV3Output) ToBranchProtectionV3OutputWithContext(ctx cont
 	return o
 }
 
-func (o BranchProtectionV3Output) ToBranchProtectionV3PtrOutput() BranchProtectionV3PtrOutput {
-	return o.ToBranchProtectionV3PtrOutputWithContext(context.Background())
-}
-
-func (o BranchProtectionV3Output) ToBranchProtectionV3PtrOutputWithContext(ctx context.Context) BranchProtectionV3PtrOutput {
-	return o.ApplyT(func(v BranchProtectionV3) *BranchProtectionV3 {
-		return &v
-	}).(BranchProtectionV3PtrOutput)
-}
-
-type BranchProtectionV3PtrOutput struct {
-	*pulumi.OutputState
-}
-
-func (BranchProtectionV3PtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**BranchProtectionV3)(nil))
-}
-
-func (o BranchProtectionV3PtrOutput) ToBranchProtectionV3PtrOutput() BranchProtectionV3PtrOutput {
-	return o
-}
-
-func (o BranchProtectionV3PtrOutput) ToBranchProtectionV3PtrOutputWithContext(ctx context.Context) BranchProtectionV3PtrOutput {
-	return o
-}
-
 type BranchProtectionV3ArrayOutput struct{ *pulumi.OutputState }
 
 func (BranchProtectionV3ArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]BranchProtectionV3)(nil))
+	return reflect.TypeOf((*[]*BranchProtectionV3)(nil)).Elem()
 }
 
 func (o BranchProtectionV3ArrayOutput) ToBranchProtectionV3ArrayOutput() BranchProtectionV3ArrayOutput {
@@ -406,15 +349,15 @@ func (o BranchProtectionV3ArrayOutput) ToBranchProtectionV3ArrayOutputWithContex
 }
 
 func (o BranchProtectionV3ArrayOutput) Index(i pulumi.IntInput) BranchProtectionV3Output {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BranchProtectionV3 {
-		return vs[0].([]BranchProtectionV3)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *BranchProtectionV3 {
+		return vs[0].([]*BranchProtectionV3)[vs[1].(int)]
 	}).(BranchProtectionV3Output)
 }
 
 type BranchProtectionV3MapOutput struct{ *pulumi.OutputState }
 
 func (BranchProtectionV3MapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]BranchProtectionV3)(nil))
+	return reflect.TypeOf((*map[string]*BranchProtectionV3)(nil)).Elem()
 }
 
 func (o BranchProtectionV3MapOutput) ToBranchProtectionV3MapOutput() BranchProtectionV3MapOutput {
@@ -426,14 +369,16 @@ func (o BranchProtectionV3MapOutput) ToBranchProtectionV3MapOutputWithContext(ct
 }
 
 func (o BranchProtectionV3MapOutput) MapIndex(k pulumi.StringInput) BranchProtectionV3Output {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) BranchProtectionV3 {
-		return vs[0].(map[string]BranchProtectionV3)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *BranchProtectionV3 {
+		return vs[0].(map[string]*BranchProtectionV3)[vs[1].(string)]
 	}).(BranchProtectionV3Output)
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*BranchProtectionV3Input)(nil)).Elem(), &BranchProtectionV3{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BranchProtectionV3ArrayInput)(nil)).Elem(), BranchProtectionV3Array{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BranchProtectionV3MapInput)(nil)).Elem(), BranchProtectionV3Map{})
 	pulumi.RegisterOutputType(BranchProtectionV3Output{})
-	pulumi.RegisterOutputType(BranchProtectionV3PtrOutput{})
 	pulumi.RegisterOutputType(BranchProtectionV3ArrayOutput{})
 	pulumi.RegisterOutputType(BranchProtectionV3MapOutput{})
 }

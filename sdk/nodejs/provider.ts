@@ -53,21 +53,21 @@ export class Provider extends pulumi.ProviderResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args?: ProviderArgs, opts?: pulumi.ResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         {
-            inputs["appAuth"] = pulumi.output(args ? args.appAuth : undefined).apply(JSON.stringify);
-            inputs["baseUrl"] = (args ? args.baseUrl : undefined) ?? (utilities.getEnv("GITHUB_BASE_URL") || "https://api.github.com/");
-            inputs["insecure"] = pulumi.output(args ? args.insecure : undefined).apply(JSON.stringify);
-            inputs["organization"] = args ? args.organization : undefined;
-            inputs["owner"] = args ? args.owner : undefined;
-            inputs["token"] = args ? args.token : undefined;
-            inputs["writeDelayMs"] = pulumi.output(args ? args.writeDelayMs : undefined).apply(JSON.stringify);
+            resourceInputs["appAuth"] = pulumi.output(args ? args.appAuth : undefined).apply(JSON.stringify);
+            resourceInputs["baseUrl"] = (args ? args.baseUrl : undefined) ?? (utilities.getEnv("GITHUB_BASE_URL") || "https://api.github.com/");
+            resourceInputs["insecure"] = pulumi.output(args ? args.insecure : undefined).apply(JSON.stringify);
+            resourceInputs["organization"] = args ? args.organization : undefined;
+            resourceInputs["owner"] = args ? args.owner : undefined;
+            resourceInputs["token"] = args ? args.token : undefined;
+            resourceInputs["writeDelayMs"] = pulumi.output(args ? args.writeDelayMs : undefined).apply(JSON.stringify);
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Provider.__pulumiType, name, inputs, opts);
+        super(Provider.__pulumiType, name, resourceInputs, opts);
     }
 }
 

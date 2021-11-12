@@ -91,14 +91,14 @@ export class TeamRepository extends pulumi.CustomResource {
      */
     constructor(name: string, args: TeamRepositoryArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: TeamRepositoryArgs | TeamRepositoryState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TeamRepositoryState | undefined;
-            inputs["etag"] = state ? state.etag : undefined;
-            inputs["permission"] = state ? state.permission : undefined;
-            inputs["repository"] = state ? state.repository : undefined;
-            inputs["teamId"] = state ? state.teamId : undefined;
+            resourceInputs["etag"] = state ? state.etag : undefined;
+            resourceInputs["permission"] = state ? state.permission : undefined;
+            resourceInputs["repository"] = state ? state.repository : undefined;
+            resourceInputs["teamId"] = state ? state.teamId : undefined;
         } else {
             const args = argsOrState as TeamRepositoryArgs | undefined;
             if ((!args || args.repository === undefined) && !opts.urn) {
@@ -107,15 +107,15 @@ export class TeamRepository extends pulumi.CustomResource {
             if ((!args || args.teamId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'teamId'");
             }
-            inputs["permission"] = args ? args.permission : undefined;
-            inputs["repository"] = args ? args.repository : undefined;
-            inputs["teamId"] = args ? args.teamId : undefined;
-            inputs["etag"] = undefined /*out*/;
+            resourceInputs["permission"] = args ? args.permission : undefined;
+            resourceInputs["repository"] = args ? args.repository : undefined;
+            resourceInputs["teamId"] = args ? args.teamId : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(TeamRepository.__pulumiType, name, inputs, opts);
+        super(TeamRepository.__pulumiType, name, resourceInputs, opts);
     }
 }
 

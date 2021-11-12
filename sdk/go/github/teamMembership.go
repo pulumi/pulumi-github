@@ -169,7 +169,7 @@ type TeamMembershipInput interface {
 }
 
 func (*TeamMembership) ElementType() reflect.Type {
-	return reflect.TypeOf((*TeamMembership)(nil))
+	return reflect.TypeOf((**TeamMembership)(nil)).Elem()
 }
 
 func (i *TeamMembership) ToTeamMembershipOutput() TeamMembershipOutput {
@@ -178,35 +178,6 @@ func (i *TeamMembership) ToTeamMembershipOutput() TeamMembershipOutput {
 
 func (i *TeamMembership) ToTeamMembershipOutputWithContext(ctx context.Context) TeamMembershipOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TeamMembershipOutput)
-}
-
-func (i *TeamMembership) ToTeamMembershipPtrOutput() TeamMembershipPtrOutput {
-	return i.ToTeamMembershipPtrOutputWithContext(context.Background())
-}
-
-func (i *TeamMembership) ToTeamMembershipPtrOutputWithContext(ctx context.Context) TeamMembershipPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TeamMembershipPtrOutput)
-}
-
-type TeamMembershipPtrInput interface {
-	pulumi.Input
-
-	ToTeamMembershipPtrOutput() TeamMembershipPtrOutput
-	ToTeamMembershipPtrOutputWithContext(ctx context.Context) TeamMembershipPtrOutput
-}
-
-type teamMembershipPtrType TeamMembershipArgs
-
-func (*teamMembershipPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**TeamMembership)(nil))
-}
-
-func (i *teamMembershipPtrType) ToTeamMembershipPtrOutput() TeamMembershipPtrOutput {
-	return i.ToTeamMembershipPtrOutputWithContext(context.Background())
-}
-
-func (i *teamMembershipPtrType) ToTeamMembershipPtrOutputWithContext(ctx context.Context) TeamMembershipPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TeamMembershipPtrOutput)
 }
 
 // TeamMembershipArrayInput is an input type that accepts TeamMembershipArray and TeamMembershipArrayOutput values.
@@ -223,7 +194,7 @@ type TeamMembershipArrayInput interface {
 type TeamMembershipArray []TeamMembershipInput
 
 func (TeamMembershipArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*TeamMembership)(nil))
+	return reflect.TypeOf((*[]*TeamMembership)(nil)).Elem()
 }
 
 func (i TeamMembershipArray) ToTeamMembershipArrayOutput() TeamMembershipArrayOutput {
@@ -248,7 +219,7 @@ type TeamMembershipMapInput interface {
 type TeamMembershipMap map[string]TeamMembershipInput
 
 func (TeamMembershipMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*TeamMembership)(nil))
+	return reflect.TypeOf((*map[string]*TeamMembership)(nil)).Elem()
 }
 
 func (i TeamMembershipMap) ToTeamMembershipMapOutput() TeamMembershipMapOutput {
@@ -259,12 +230,10 @@ func (i TeamMembershipMap) ToTeamMembershipMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(TeamMembershipMapOutput)
 }
 
-type TeamMembershipOutput struct {
-	*pulumi.OutputState
-}
+type TeamMembershipOutput struct{ *pulumi.OutputState }
 
 func (TeamMembershipOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TeamMembership)(nil))
+	return reflect.TypeOf((**TeamMembership)(nil)).Elem()
 }
 
 func (o TeamMembershipOutput) ToTeamMembershipOutput() TeamMembershipOutput {
@@ -275,36 +244,10 @@ func (o TeamMembershipOutput) ToTeamMembershipOutputWithContext(ctx context.Cont
 	return o
 }
 
-func (o TeamMembershipOutput) ToTeamMembershipPtrOutput() TeamMembershipPtrOutput {
-	return o.ToTeamMembershipPtrOutputWithContext(context.Background())
-}
-
-func (o TeamMembershipOutput) ToTeamMembershipPtrOutputWithContext(ctx context.Context) TeamMembershipPtrOutput {
-	return o.ApplyT(func(v TeamMembership) *TeamMembership {
-		return &v
-	}).(TeamMembershipPtrOutput)
-}
-
-type TeamMembershipPtrOutput struct {
-	*pulumi.OutputState
-}
-
-func (TeamMembershipPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**TeamMembership)(nil))
-}
-
-func (o TeamMembershipPtrOutput) ToTeamMembershipPtrOutput() TeamMembershipPtrOutput {
-	return o
-}
-
-func (o TeamMembershipPtrOutput) ToTeamMembershipPtrOutputWithContext(ctx context.Context) TeamMembershipPtrOutput {
-	return o
-}
-
 type TeamMembershipArrayOutput struct{ *pulumi.OutputState }
 
 func (TeamMembershipArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TeamMembership)(nil))
+	return reflect.TypeOf((*[]*TeamMembership)(nil)).Elem()
 }
 
 func (o TeamMembershipArrayOutput) ToTeamMembershipArrayOutput() TeamMembershipArrayOutput {
@@ -316,15 +259,15 @@ func (o TeamMembershipArrayOutput) ToTeamMembershipArrayOutputWithContext(ctx co
 }
 
 func (o TeamMembershipArrayOutput) Index(i pulumi.IntInput) TeamMembershipOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TeamMembership {
-		return vs[0].([]TeamMembership)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *TeamMembership {
+		return vs[0].([]*TeamMembership)[vs[1].(int)]
 	}).(TeamMembershipOutput)
 }
 
 type TeamMembershipMapOutput struct{ *pulumi.OutputState }
 
 func (TeamMembershipMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]TeamMembership)(nil))
+	return reflect.TypeOf((*map[string]*TeamMembership)(nil)).Elem()
 }
 
 func (o TeamMembershipMapOutput) ToTeamMembershipMapOutput() TeamMembershipMapOutput {
@@ -336,14 +279,16 @@ func (o TeamMembershipMapOutput) ToTeamMembershipMapOutputWithContext(ctx contex
 }
 
 func (o TeamMembershipMapOutput) MapIndex(k pulumi.StringInput) TeamMembershipOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) TeamMembership {
-		return vs[0].(map[string]TeamMembership)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *TeamMembership {
+		return vs[0].(map[string]*TeamMembership)[vs[1].(string)]
 	}).(TeamMembershipOutput)
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*TeamMembershipInput)(nil)).Elem(), &TeamMembership{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TeamMembershipArrayInput)(nil)).Elem(), TeamMembershipArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TeamMembershipMapInput)(nil)).Elem(), TeamMembershipMap{})
 	pulumi.RegisterOutputType(TeamMembershipOutput{})
-	pulumi.RegisterOutputType(TeamMembershipPtrOutput{})
 	pulumi.RegisterOutputType(TeamMembershipArrayOutput{})
 	pulumi.RegisterOutputType(TeamMembershipMapOutput{})
 }

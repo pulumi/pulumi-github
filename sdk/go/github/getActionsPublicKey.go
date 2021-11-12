@@ -4,6 +4,9 @@
 package github
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +25,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := github.GetActionsPublicKey(ctx, &github.GetActionsPublicKeyArgs{
+// 		_, err := github.GetActionsPublicKey(ctx, &GetActionsPublicKeyArgs{
 // 			Repository: "example_repo",
 // 		}, nil)
 // 		if err != nil {
@@ -56,4 +59,61 @@ type GetActionsPublicKeyResult struct {
 	// ID of the key that has been retrieved.
 	KeyId      string `pulumi:"keyId"`
 	Repository string `pulumi:"repository"`
+}
+
+func GetActionsPublicKeyOutput(ctx *pulumi.Context, args GetActionsPublicKeyOutputArgs, opts ...pulumi.InvokeOption) GetActionsPublicKeyResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetActionsPublicKeyResult, error) {
+			args := v.(GetActionsPublicKeyArgs)
+			r, err := GetActionsPublicKey(ctx, &args, opts...)
+			return *r, err
+		}).(GetActionsPublicKeyResultOutput)
+}
+
+// A collection of arguments for invoking getActionsPublicKey.
+type GetActionsPublicKeyOutputArgs struct {
+	// Name of the repository to get public key from.
+	Repository pulumi.StringInput `pulumi:"repository"`
+}
+
+func (GetActionsPublicKeyOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetActionsPublicKeyArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getActionsPublicKey.
+type GetActionsPublicKeyResultOutput struct{ *pulumi.OutputState }
+
+func (GetActionsPublicKeyResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetActionsPublicKeyResult)(nil)).Elem()
+}
+
+func (o GetActionsPublicKeyResultOutput) ToGetActionsPublicKeyResultOutput() GetActionsPublicKeyResultOutput {
+	return o
+}
+
+func (o GetActionsPublicKeyResultOutput) ToGetActionsPublicKeyResultOutputWithContext(ctx context.Context) GetActionsPublicKeyResultOutput {
+	return o
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetActionsPublicKeyResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetActionsPublicKeyResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Actual key retrieved.
+func (o GetActionsPublicKeyResultOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetActionsPublicKeyResult) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// ID of the key that has been retrieved.
+func (o GetActionsPublicKeyResultOutput) KeyId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetActionsPublicKeyResult) string { return v.KeyId }).(pulumi.StringOutput)
+}
+
+func (o GetActionsPublicKeyResultOutput) Repository() pulumi.StringOutput {
+	return o.ApplyT(func(v GetActionsPublicKeyResult) string { return v.Repository }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetActionsPublicKeyResultOutput{})
 }

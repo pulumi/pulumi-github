@@ -12,26 +12,6 @@ import * as utilities from "./utilities";
  * To learn more about team synchronization between IdPs and GitHub, please refer to:
  * https://help.github.com/en/github/setting-up-and-managing-organizations-and-teams/synchronizing-teams-between-your-identity-provider-and-github
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as github from "@pulumi/github";
- *
- * const exampleGroups = github.getOrganizationTeamSyncGroups({});
- * const exampleGroupMapping = new github.TeamSyncGroupMapping("exampleGroupMapping", {
- *     teamSlug: "example",
- *     dynamic: [{
- *         forEach: exampleGroups.then(exampleGroups => exampleGroups.groups.filter(g => g.groupName == "some_team_group").map(g => g)),
- *         content: [{
- *             groupId: group.value.group_id,
- *             groupName: group.value.group_name,
- *             groupDescription: group.value.group_description,
- *         }],
- *     }],
- * });
- * ```
- *
  * ## Import
  *
  * GitHub Team Sync Group Mappings can be imported using the GitHub team `slug` e.g.
@@ -88,26 +68,26 @@ export class TeamSyncGroupMapping extends pulumi.CustomResource {
      */
     constructor(name: string, args: TeamSyncGroupMappingArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: TeamSyncGroupMappingArgs | TeamSyncGroupMappingState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TeamSyncGroupMappingState | undefined;
-            inputs["etag"] = state ? state.etag : undefined;
-            inputs["groups"] = state ? state.groups : undefined;
-            inputs["teamSlug"] = state ? state.teamSlug : undefined;
+            resourceInputs["etag"] = state ? state.etag : undefined;
+            resourceInputs["groups"] = state ? state.groups : undefined;
+            resourceInputs["teamSlug"] = state ? state.teamSlug : undefined;
         } else {
             const args = argsOrState as TeamSyncGroupMappingArgs | undefined;
             if ((!args || args.teamSlug === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'teamSlug'");
             }
-            inputs["groups"] = args ? args.groups : undefined;
-            inputs["teamSlug"] = args ? args.teamSlug : undefined;
-            inputs["etag"] = undefined /*out*/;
+            resourceInputs["groups"] = args ? args.groups : undefined;
+            resourceInputs["teamSlug"] = args ? args.teamSlug : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(TeamSyncGroupMapping.__pulumiType, name, inputs, opts);
+        super(TeamSyncGroupMapping.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -13,6 +13,7 @@ __all__ = [
     'GetRepositoryResult',
     'AwaitableGetRepositoryResult',
     'get_repository',
+    'get_repository_output',
 ]
 
 @pulumi.output_type
@@ -414,3 +415,30 @@ def get_repository(description: Optional[str] = None,
         svn_url=__ret__.svn_url,
         topics=__ret__.topics,
         visibility=__ret__.visibility)
+
+
+@_utilities.lift_output_func(get_repository)
+def get_repository_output(description: Optional[pulumi.Input[Optional[str]]] = None,
+                          full_name: Optional[pulumi.Input[Optional[str]]] = None,
+                          homepage_url: Optional[pulumi.Input[Optional[str]]] = None,
+                          name: Optional[pulumi.Input[Optional[str]]] = None,
+                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRepositoryResult]:
+    """
+    Use this data source to retrieve information about a GitHub repository.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_github as github
+
+    example = github.get_repository(full_name="hashicorp/terraform")
+    ```
+
+
+    :param str description: A description of the repository.
+    :param str full_name: Full name of the repository (in `org/name` format).
+    :param str homepage_url: URL of a page describing the project.
+    :param str name: The name of the repository.
+    """
+    ...

@@ -145,7 +145,7 @@ type ActionsOrganizationSecretInput interface {
 }
 
 func (*ActionsOrganizationSecret) ElementType() reflect.Type {
-	return reflect.TypeOf((*ActionsOrganizationSecret)(nil))
+	return reflect.TypeOf((**ActionsOrganizationSecret)(nil)).Elem()
 }
 
 func (i *ActionsOrganizationSecret) ToActionsOrganizationSecretOutput() ActionsOrganizationSecretOutput {
@@ -154,35 +154,6 @@ func (i *ActionsOrganizationSecret) ToActionsOrganizationSecretOutput() ActionsO
 
 func (i *ActionsOrganizationSecret) ToActionsOrganizationSecretOutputWithContext(ctx context.Context) ActionsOrganizationSecretOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ActionsOrganizationSecretOutput)
-}
-
-func (i *ActionsOrganizationSecret) ToActionsOrganizationSecretPtrOutput() ActionsOrganizationSecretPtrOutput {
-	return i.ToActionsOrganizationSecretPtrOutputWithContext(context.Background())
-}
-
-func (i *ActionsOrganizationSecret) ToActionsOrganizationSecretPtrOutputWithContext(ctx context.Context) ActionsOrganizationSecretPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActionsOrganizationSecretPtrOutput)
-}
-
-type ActionsOrganizationSecretPtrInput interface {
-	pulumi.Input
-
-	ToActionsOrganizationSecretPtrOutput() ActionsOrganizationSecretPtrOutput
-	ToActionsOrganizationSecretPtrOutputWithContext(ctx context.Context) ActionsOrganizationSecretPtrOutput
-}
-
-type actionsOrganizationSecretPtrType ActionsOrganizationSecretArgs
-
-func (*actionsOrganizationSecretPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ActionsOrganizationSecret)(nil))
-}
-
-func (i *actionsOrganizationSecretPtrType) ToActionsOrganizationSecretPtrOutput() ActionsOrganizationSecretPtrOutput {
-	return i.ToActionsOrganizationSecretPtrOutputWithContext(context.Background())
-}
-
-func (i *actionsOrganizationSecretPtrType) ToActionsOrganizationSecretPtrOutputWithContext(ctx context.Context) ActionsOrganizationSecretPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActionsOrganizationSecretPtrOutput)
 }
 
 // ActionsOrganizationSecretArrayInput is an input type that accepts ActionsOrganizationSecretArray and ActionsOrganizationSecretArrayOutput values.
@@ -199,7 +170,7 @@ type ActionsOrganizationSecretArrayInput interface {
 type ActionsOrganizationSecretArray []ActionsOrganizationSecretInput
 
 func (ActionsOrganizationSecretArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ActionsOrganizationSecret)(nil))
+	return reflect.TypeOf((*[]*ActionsOrganizationSecret)(nil)).Elem()
 }
 
 func (i ActionsOrganizationSecretArray) ToActionsOrganizationSecretArrayOutput() ActionsOrganizationSecretArrayOutput {
@@ -224,7 +195,7 @@ type ActionsOrganizationSecretMapInput interface {
 type ActionsOrganizationSecretMap map[string]ActionsOrganizationSecretInput
 
 func (ActionsOrganizationSecretMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ActionsOrganizationSecret)(nil))
+	return reflect.TypeOf((*map[string]*ActionsOrganizationSecret)(nil)).Elem()
 }
 
 func (i ActionsOrganizationSecretMap) ToActionsOrganizationSecretMapOutput() ActionsOrganizationSecretMapOutput {
@@ -235,12 +206,10 @@ func (i ActionsOrganizationSecretMap) ToActionsOrganizationSecretMapOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(ActionsOrganizationSecretMapOutput)
 }
 
-type ActionsOrganizationSecretOutput struct {
-	*pulumi.OutputState
-}
+type ActionsOrganizationSecretOutput struct{ *pulumi.OutputState }
 
 func (ActionsOrganizationSecretOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ActionsOrganizationSecret)(nil))
+	return reflect.TypeOf((**ActionsOrganizationSecret)(nil)).Elem()
 }
 
 func (o ActionsOrganizationSecretOutput) ToActionsOrganizationSecretOutput() ActionsOrganizationSecretOutput {
@@ -251,36 +220,10 @@ func (o ActionsOrganizationSecretOutput) ToActionsOrganizationSecretOutputWithCo
 	return o
 }
 
-func (o ActionsOrganizationSecretOutput) ToActionsOrganizationSecretPtrOutput() ActionsOrganizationSecretPtrOutput {
-	return o.ToActionsOrganizationSecretPtrOutputWithContext(context.Background())
-}
-
-func (o ActionsOrganizationSecretOutput) ToActionsOrganizationSecretPtrOutputWithContext(ctx context.Context) ActionsOrganizationSecretPtrOutput {
-	return o.ApplyT(func(v ActionsOrganizationSecret) *ActionsOrganizationSecret {
-		return &v
-	}).(ActionsOrganizationSecretPtrOutput)
-}
-
-type ActionsOrganizationSecretPtrOutput struct {
-	*pulumi.OutputState
-}
-
-func (ActionsOrganizationSecretPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ActionsOrganizationSecret)(nil))
-}
-
-func (o ActionsOrganizationSecretPtrOutput) ToActionsOrganizationSecretPtrOutput() ActionsOrganizationSecretPtrOutput {
-	return o
-}
-
-func (o ActionsOrganizationSecretPtrOutput) ToActionsOrganizationSecretPtrOutputWithContext(ctx context.Context) ActionsOrganizationSecretPtrOutput {
-	return o
-}
-
 type ActionsOrganizationSecretArrayOutput struct{ *pulumi.OutputState }
 
 func (ActionsOrganizationSecretArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ActionsOrganizationSecret)(nil))
+	return reflect.TypeOf((*[]*ActionsOrganizationSecret)(nil)).Elem()
 }
 
 func (o ActionsOrganizationSecretArrayOutput) ToActionsOrganizationSecretArrayOutput() ActionsOrganizationSecretArrayOutput {
@@ -292,15 +235,15 @@ func (o ActionsOrganizationSecretArrayOutput) ToActionsOrganizationSecretArrayOu
 }
 
 func (o ActionsOrganizationSecretArrayOutput) Index(i pulumi.IntInput) ActionsOrganizationSecretOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ActionsOrganizationSecret {
-		return vs[0].([]ActionsOrganizationSecret)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ActionsOrganizationSecret {
+		return vs[0].([]*ActionsOrganizationSecret)[vs[1].(int)]
 	}).(ActionsOrganizationSecretOutput)
 }
 
 type ActionsOrganizationSecretMapOutput struct{ *pulumi.OutputState }
 
 func (ActionsOrganizationSecretMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ActionsOrganizationSecret)(nil))
+	return reflect.TypeOf((*map[string]*ActionsOrganizationSecret)(nil)).Elem()
 }
 
 func (o ActionsOrganizationSecretMapOutput) ToActionsOrganizationSecretMapOutput() ActionsOrganizationSecretMapOutput {
@@ -312,14 +255,16 @@ func (o ActionsOrganizationSecretMapOutput) ToActionsOrganizationSecretMapOutput
 }
 
 func (o ActionsOrganizationSecretMapOutput) MapIndex(k pulumi.StringInput) ActionsOrganizationSecretOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ActionsOrganizationSecret {
-		return vs[0].(map[string]ActionsOrganizationSecret)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ActionsOrganizationSecret {
+		return vs[0].(map[string]*ActionsOrganizationSecret)[vs[1].(string)]
 	}).(ActionsOrganizationSecretOutput)
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ActionsOrganizationSecretInput)(nil)).Elem(), &ActionsOrganizationSecret{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ActionsOrganizationSecretArrayInput)(nil)).Elem(), ActionsOrganizationSecretArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ActionsOrganizationSecretMapInput)(nil)).Elem(), ActionsOrganizationSecretMap{})
 	pulumi.RegisterOutputType(ActionsOrganizationSecretOutput{})
-	pulumi.RegisterOutputType(ActionsOrganizationSecretPtrOutput{})
 	pulumi.RegisterOutputType(ActionsOrganizationSecretArrayOutput{})
 	pulumi.RegisterOutputType(ActionsOrganizationSecretMapOutput{})
 }

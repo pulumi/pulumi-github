@@ -2,7 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
 /**
@@ -134,4 +133,18 @@ export interface GetUserResult {
      */
     readonly updatedAt: string;
     readonly username: string;
+}
+
+export function getUserOutput(args: GetUserOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserResult> {
+    return pulumi.output(args).apply(a => getUser(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getUser.
+ */
+export interface GetUserOutputArgs {
+    /**
+     * The username. Use an empty string `""` to retrieve information about the currently authenticated user.
+     */
+    username: pulumi.Input<string>;
 }

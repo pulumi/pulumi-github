@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Github
 {
@@ -40,6 +41,36 @@ namespace Pulumi.Github
         /// </summary>
         public static Task<GetCollaboratorsResult> InvokeAsync(GetCollaboratorsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCollaboratorsResult>("github:index/getCollaborators:getCollaborators", args ?? new GetCollaboratorsArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to retrieve the collaborators for a given repository.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Github = Pulumi.Github;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var test = Output.Create(Github.GetCollaborators.InvokeAsync(new Github.GetCollaboratorsArgs
+        ///         {
+        ///             Owner = "example_owner",
+        ///             Repository = "example_repository",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetCollaboratorsResult> Invoke(GetCollaboratorsInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetCollaboratorsResult>("github:index/getCollaborators:getCollaborators", args ?? new GetCollaboratorsInvokeArgs(), options.WithVersion());
     }
 
 
@@ -64,6 +95,31 @@ namespace Pulumi.Github
         public string Repository { get; set; } = null!;
 
         public GetCollaboratorsArgs()
+        {
+        }
+    }
+
+    public sealed class GetCollaboratorsInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Filter collaborators returned by their affiliation. Can be one of: `outside`, `direct`, `all`.  Defaults to `all`.
+        /// </summary>
+        [Input("affiliation")]
+        public Input<string>? Affiliation { get; set; }
+
+        /// <summary>
+        /// The organization that owns the repository.
+        /// </summary>
+        [Input("owner", required: true)]
+        public Input<string> Owner { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the repository.
+        /// </summary>
+        [Input("repository", required: true)]
+        public Input<string> Repository { get; set; } = null!;
+
+        public GetCollaboratorsInvokeArgs()
         {
         }
     }

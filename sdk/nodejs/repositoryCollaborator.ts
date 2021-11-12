@@ -106,15 +106,15 @@ export class RepositoryCollaborator extends pulumi.CustomResource {
      */
     constructor(name: string, args: RepositoryCollaboratorArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: RepositoryCollaboratorArgs | RepositoryCollaboratorState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RepositoryCollaboratorState | undefined;
-            inputs["invitationId"] = state ? state.invitationId : undefined;
-            inputs["permission"] = state ? state.permission : undefined;
-            inputs["permissionDiffSuppression"] = state ? state.permissionDiffSuppression : undefined;
-            inputs["repository"] = state ? state.repository : undefined;
-            inputs["username"] = state ? state.username : undefined;
+            resourceInputs["invitationId"] = state ? state.invitationId : undefined;
+            resourceInputs["permission"] = state ? state.permission : undefined;
+            resourceInputs["permissionDiffSuppression"] = state ? state.permissionDiffSuppression : undefined;
+            resourceInputs["repository"] = state ? state.repository : undefined;
+            resourceInputs["username"] = state ? state.username : undefined;
         } else {
             const args = argsOrState as RepositoryCollaboratorArgs | undefined;
             if ((!args || args.repository === undefined) && !opts.urn) {
@@ -123,16 +123,16 @@ export class RepositoryCollaborator extends pulumi.CustomResource {
             if ((!args || args.username === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'username'");
             }
-            inputs["permission"] = args ? args.permission : undefined;
-            inputs["permissionDiffSuppression"] = args ? args.permissionDiffSuppression : undefined;
-            inputs["repository"] = args ? args.repository : undefined;
-            inputs["username"] = args ? args.username : undefined;
-            inputs["invitationId"] = undefined /*out*/;
+            resourceInputs["permission"] = args ? args.permission : undefined;
+            resourceInputs["permissionDiffSuppression"] = args ? args.permissionDiffSuppression : undefined;
+            resourceInputs["repository"] = args ? args.repository : undefined;
+            resourceInputs["username"] = args ? args.username : undefined;
+            resourceInputs["invitationId"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(RepositoryCollaborator.__pulumiType, name, inputs, opts);
+        super(RepositoryCollaborator.__pulumiType, name, resourceInputs, opts);
     }
 }
 

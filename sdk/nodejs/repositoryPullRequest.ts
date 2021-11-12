@@ -124,26 +124,26 @@ export class RepositoryPullRequest extends pulumi.CustomResource {
      */
     constructor(name: string, args: RepositoryPullRequestArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: RepositoryPullRequestArgs | RepositoryPullRequestState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RepositoryPullRequestState | undefined;
-            inputs["baseRef"] = state ? state.baseRef : undefined;
-            inputs["baseRepository"] = state ? state.baseRepository : undefined;
-            inputs["baseSha"] = state ? state.baseSha : undefined;
-            inputs["body"] = state ? state.body : undefined;
-            inputs["draft"] = state ? state.draft : undefined;
-            inputs["headRef"] = state ? state.headRef : undefined;
-            inputs["headSha"] = state ? state.headSha : undefined;
-            inputs["labels"] = state ? state.labels : undefined;
-            inputs["maintainerCanModify"] = state ? state.maintainerCanModify : undefined;
-            inputs["number"] = state ? state.number : undefined;
-            inputs["openedAt"] = state ? state.openedAt : undefined;
-            inputs["openedBy"] = state ? state.openedBy : undefined;
-            inputs["owner"] = state ? state.owner : undefined;
-            inputs["state"] = state ? state.state : undefined;
-            inputs["title"] = state ? state.title : undefined;
-            inputs["updatedAt"] = state ? state.updatedAt : undefined;
+            resourceInputs["baseRef"] = state ? state.baseRef : undefined;
+            resourceInputs["baseRepository"] = state ? state.baseRepository : undefined;
+            resourceInputs["baseSha"] = state ? state.baseSha : undefined;
+            resourceInputs["body"] = state ? state.body : undefined;
+            resourceInputs["draft"] = state ? state.draft : undefined;
+            resourceInputs["headRef"] = state ? state.headRef : undefined;
+            resourceInputs["headSha"] = state ? state.headSha : undefined;
+            resourceInputs["labels"] = state ? state.labels : undefined;
+            resourceInputs["maintainerCanModify"] = state ? state.maintainerCanModify : undefined;
+            resourceInputs["number"] = state ? state.number : undefined;
+            resourceInputs["openedAt"] = state ? state.openedAt : undefined;
+            resourceInputs["openedBy"] = state ? state.openedBy : undefined;
+            resourceInputs["owner"] = state ? state.owner : undefined;
+            resourceInputs["state"] = state ? state.state : undefined;
+            resourceInputs["title"] = state ? state.title : undefined;
+            resourceInputs["updatedAt"] = state ? state.updatedAt : undefined;
         } else {
             const args = argsOrState as RepositoryPullRequestArgs | undefined;
             if ((!args || args.baseRef === undefined) && !opts.urn) {
@@ -158,27 +158,27 @@ export class RepositoryPullRequest extends pulumi.CustomResource {
             if ((!args || args.title === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'title'");
             }
-            inputs["baseRef"] = args ? args.baseRef : undefined;
-            inputs["baseRepository"] = args ? args.baseRepository : undefined;
-            inputs["body"] = args ? args.body : undefined;
-            inputs["headRef"] = args ? args.headRef : undefined;
-            inputs["maintainerCanModify"] = args ? args.maintainerCanModify : undefined;
-            inputs["owner"] = args ? args.owner : undefined;
-            inputs["title"] = args ? args.title : undefined;
-            inputs["baseSha"] = undefined /*out*/;
-            inputs["draft"] = undefined /*out*/;
-            inputs["headSha"] = undefined /*out*/;
-            inputs["labels"] = undefined /*out*/;
-            inputs["number"] = undefined /*out*/;
-            inputs["openedAt"] = undefined /*out*/;
-            inputs["openedBy"] = undefined /*out*/;
-            inputs["state"] = undefined /*out*/;
-            inputs["updatedAt"] = undefined /*out*/;
+            resourceInputs["baseRef"] = args ? args.baseRef : undefined;
+            resourceInputs["baseRepository"] = args ? args.baseRepository : undefined;
+            resourceInputs["body"] = args ? args.body : undefined;
+            resourceInputs["headRef"] = args ? args.headRef : undefined;
+            resourceInputs["maintainerCanModify"] = args ? args.maintainerCanModify : undefined;
+            resourceInputs["owner"] = args ? args.owner : undefined;
+            resourceInputs["title"] = args ? args.title : undefined;
+            resourceInputs["baseSha"] = undefined /*out*/;
+            resourceInputs["draft"] = undefined /*out*/;
+            resourceInputs["headSha"] = undefined /*out*/;
+            resourceInputs["labels"] = undefined /*out*/;
+            resourceInputs["number"] = undefined /*out*/;
+            resourceInputs["openedAt"] = undefined /*out*/;
+            resourceInputs["openedBy"] = undefined /*out*/;
+            resourceInputs["state"] = undefined /*out*/;
+            resourceInputs["updatedAt"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(RepositoryPullRequest.__pulumiType, name, inputs, opts);
+        super(RepositoryPullRequest.__pulumiType, name, resourceInputs, opts);
     }
 }
 

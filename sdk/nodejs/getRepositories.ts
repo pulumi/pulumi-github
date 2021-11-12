@@ -2,7 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
 /**
@@ -62,4 +61,22 @@ export interface GetRepositoriesResult {
     readonly names: string[];
     readonly query: string;
     readonly sort?: string;
+}
+
+export function getRepositoriesOutput(args: GetRepositoriesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRepositoriesResult> {
+    return pulumi.output(args).apply(a => getRepositories(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getRepositories.
+ */
+export interface GetRepositoriesOutputArgs {
+    /**
+     * Search query. See [documentation for the search syntax](https://help.github.com/articles/understanding-the-search-syntax/).
+     */
+    query: pulumi.Input<string>;
+    /**
+     * Sorts the repositories returned by the specified attribute. Valid values include `stars`, `fork`, and `updated`. Defaults to `updated`.
+     */
+    sort?: pulumi.Input<string>;
 }

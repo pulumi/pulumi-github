@@ -95,28 +95,28 @@ export class ActionsOrganizationPermissions extends pulumi.CustomResource {
      */
     constructor(name: string, args: ActionsOrganizationPermissionsArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ActionsOrganizationPermissionsArgs | ActionsOrganizationPermissionsState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ActionsOrganizationPermissionsState | undefined;
-            inputs["allowedActions"] = state ? state.allowedActions : undefined;
-            inputs["allowedActionsConfig"] = state ? state.allowedActionsConfig : undefined;
-            inputs["enabledRepositories"] = state ? state.enabledRepositories : undefined;
-            inputs["enabledRepositoriesConfig"] = state ? state.enabledRepositoriesConfig : undefined;
+            resourceInputs["allowedActions"] = state ? state.allowedActions : undefined;
+            resourceInputs["allowedActionsConfig"] = state ? state.allowedActionsConfig : undefined;
+            resourceInputs["enabledRepositories"] = state ? state.enabledRepositories : undefined;
+            resourceInputs["enabledRepositoriesConfig"] = state ? state.enabledRepositoriesConfig : undefined;
         } else {
             const args = argsOrState as ActionsOrganizationPermissionsArgs | undefined;
             if ((!args || args.enabledRepositories === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'enabledRepositories'");
             }
-            inputs["allowedActions"] = args ? args.allowedActions : undefined;
-            inputs["allowedActionsConfig"] = args ? args.allowedActionsConfig : undefined;
-            inputs["enabledRepositories"] = args ? args.enabledRepositories : undefined;
-            inputs["enabledRepositoriesConfig"] = args ? args.enabledRepositoriesConfig : undefined;
+            resourceInputs["allowedActions"] = args ? args.allowedActions : undefined;
+            resourceInputs["allowedActionsConfig"] = args ? args.allowedActionsConfig : undefined;
+            resourceInputs["enabledRepositories"] = args ? args.enabledRepositories : undefined;
+            resourceInputs["enabledRepositoriesConfig"] = args ? args.enabledRepositoriesConfig : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(ActionsOrganizationPermissions.__pulumiType, name, inputs, opts);
+        super(ActionsOrganizationPermissions.__pulumiType, name, resourceInputs, opts);
     }
 }
 

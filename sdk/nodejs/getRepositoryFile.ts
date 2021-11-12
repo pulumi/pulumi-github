@@ -2,7 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
 /**
@@ -91,4 +90,27 @@ export interface GetRepositoryFileResult {
      * The SHA blob of the file.
      */
     readonly sha: string;
+}
+
+export function getRepositoryFileOutput(args: GetRepositoryFileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRepositoryFileResult> {
+    return pulumi.output(args).apply(a => getRepositoryFile(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getRepositoryFile.
+ */
+export interface GetRepositoryFileOutputArgs {
+    /**
+     * Git branch (defaults to `main`).
+     * The branch must already exist, it will not be created if it does not already exist.
+     */
+    branch?: pulumi.Input<string>;
+    /**
+     * The path of the file to manage.
+     */
+    file: pulumi.Input<string>;
+    /**
+     * The repository to create the file in.
+     */
+    repository: pulumi.Input<string>;
 }

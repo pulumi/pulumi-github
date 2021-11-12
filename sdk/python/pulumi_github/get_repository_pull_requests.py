@@ -13,6 +13,7 @@ __all__ = [
     'GetRepositoryPullRequestsResult',
     'AwaitableGetRepositoryPullRequestsResult',
     'get_repository_pull_requests',
+    'get_repository_pull_requests_output',
 ]
 
 @pulumi.output_type
@@ -184,3 +185,40 @@ def get_repository_pull_requests(base_ref: Optional[str] = None,
         sort_by=__ret__.sort_by,
         sort_direction=__ret__.sort_direction,
         state=__ret__.state)
+
+
+@_utilities.lift_output_func(get_repository_pull_requests)
+def get_repository_pull_requests_output(base_ref: Optional[pulumi.Input[Optional[str]]] = None,
+                                        base_repository: Optional[pulumi.Input[str]] = None,
+                                        head_ref: Optional[pulumi.Input[Optional[str]]] = None,
+                                        owner: Optional[pulumi.Input[Optional[str]]] = None,
+                                        sort_by: Optional[pulumi.Input[Optional[str]]] = None,
+                                        sort_direction: Optional[pulumi.Input[Optional[str]]] = None,
+                                        state: Optional[pulumi.Input[Optional[str]]] = None,
+                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRepositoryPullRequestsResult]:
+    """
+    Use this data source to retrieve information about multiple GitHub Pull Requests in a repository.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_github as github
+
+    example = github.get_repository_pull_requests(base_ref="main",
+        base_repository="example-repository",
+        sort_by="updated",
+        sort_direction="desc",
+        state="open")
+    ```
+
+
+    :param str base_ref: If set, filters Pull Requests by base branch name.
+    :param str base_repository: Name of the base repository to retrieve the Pull Requests from.
+    :param str head_ref: If set, filters Pull Requests by head user or head organization and branch name in the format of "user:ref-name" or "organization:ref-name". For example: "github:new-script-format" or "octocat:test-branch".
+    :param str owner: Owner of the repository. If not provided, the provider's default owner is used.
+    :param str sort_by: If set, indicates what to sort results by. Can be either "created", "updated", "popularity" (comment count) or "long-running" (age, filtering by pulls updated in the last month). Default: "created".
+    :param str sort_direction: If set, controls the direction of the sort. Can be either "asc" or "desc". Default: "asc".
+    :param str state: If set, filters Pull Requests by state. Can be "open", "closed", or "all". Default: "open".
+    """
+    ...

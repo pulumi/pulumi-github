@@ -177,5 +177,6 @@ export interface TeamSyncGroupMappingGroup {
      */
     groupName: pulumi.Input<string>;
 }
+
 export namespace config {
 }

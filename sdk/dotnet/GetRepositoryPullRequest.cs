@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Github
 {
@@ -40,6 +41,36 @@ namespace Pulumi.Github
         /// </summary>
         public static Task<GetRepositoryPullRequestResult> InvokeAsync(GetRepositoryPullRequestArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRepositoryPullRequestResult>("github:index/getRepositoryPullRequest:getRepositoryPullRequest", args ?? new GetRepositoryPullRequestArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to retrieve information about a specific GitHub Pull Request in a repository.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Github = Pulumi.Github;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Github.GetRepositoryPullRequest.InvokeAsync(new Github.GetRepositoryPullRequestArgs
+        ///         {
+        ///             BaseRepository = "example_repository",
+        ///             Number = 1,
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetRepositoryPullRequestResult> Invoke(GetRepositoryPullRequestInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetRepositoryPullRequestResult>("github:index/getRepositoryPullRequest:getRepositoryPullRequest", args ?? new GetRepositoryPullRequestInvokeArgs(), options.WithVersion());
     }
 
 
@@ -64,6 +95,31 @@ namespace Pulumi.Github
         public string? Owner { get; set; }
 
         public GetRepositoryPullRequestArgs()
+        {
+        }
+    }
+
+    public sealed class GetRepositoryPullRequestInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of the base repository to retrieve the Pull Request from.
+        /// </summary>
+        [Input("baseRepository", required: true)]
+        public Input<string> BaseRepository { get; set; } = null!;
+
+        /// <summary>
+        /// The number of the Pull Request within the repository.
+        /// </summary>
+        [Input("number", required: true)]
+        public Input<int> Number { get; set; } = null!;
+
+        /// <summary>
+        /// Owner of the repository. If not provided, the provider's default owner is used.
+        /// </summary>
+        [Input("owner")]
+        public Input<string>? Owner { get; set; }
+
+        public GetRepositoryPullRequestInvokeArgs()
         {
         }
     }

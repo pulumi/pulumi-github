@@ -159,7 +159,7 @@ type RepositoryAutolinkReferenceInput interface {
 }
 
 func (*RepositoryAutolinkReference) ElementType() reflect.Type {
-	return reflect.TypeOf((*RepositoryAutolinkReference)(nil))
+	return reflect.TypeOf((**RepositoryAutolinkReference)(nil)).Elem()
 }
 
 func (i *RepositoryAutolinkReference) ToRepositoryAutolinkReferenceOutput() RepositoryAutolinkReferenceOutput {
@@ -168,35 +168,6 @@ func (i *RepositoryAutolinkReference) ToRepositoryAutolinkReferenceOutput() Repo
 
 func (i *RepositoryAutolinkReference) ToRepositoryAutolinkReferenceOutputWithContext(ctx context.Context) RepositoryAutolinkReferenceOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryAutolinkReferenceOutput)
-}
-
-func (i *RepositoryAutolinkReference) ToRepositoryAutolinkReferencePtrOutput() RepositoryAutolinkReferencePtrOutput {
-	return i.ToRepositoryAutolinkReferencePtrOutputWithContext(context.Background())
-}
-
-func (i *RepositoryAutolinkReference) ToRepositoryAutolinkReferencePtrOutputWithContext(ctx context.Context) RepositoryAutolinkReferencePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RepositoryAutolinkReferencePtrOutput)
-}
-
-type RepositoryAutolinkReferencePtrInput interface {
-	pulumi.Input
-
-	ToRepositoryAutolinkReferencePtrOutput() RepositoryAutolinkReferencePtrOutput
-	ToRepositoryAutolinkReferencePtrOutputWithContext(ctx context.Context) RepositoryAutolinkReferencePtrOutput
-}
-
-type repositoryAutolinkReferencePtrType RepositoryAutolinkReferenceArgs
-
-func (*repositoryAutolinkReferencePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**RepositoryAutolinkReference)(nil))
-}
-
-func (i *repositoryAutolinkReferencePtrType) ToRepositoryAutolinkReferencePtrOutput() RepositoryAutolinkReferencePtrOutput {
-	return i.ToRepositoryAutolinkReferencePtrOutputWithContext(context.Background())
-}
-
-func (i *repositoryAutolinkReferencePtrType) ToRepositoryAutolinkReferencePtrOutputWithContext(ctx context.Context) RepositoryAutolinkReferencePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RepositoryAutolinkReferencePtrOutput)
 }
 
 // RepositoryAutolinkReferenceArrayInput is an input type that accepts RepositoryAutolinkReferenceArray and RepositoryAutolinkReferenceArrayOutput values.
@@ -213,7 +184,7 @@ type RepositoryAutolinkReferenceArrayInput interface {
 type RepositoryAutolinkReferenceArray []RepositoryAutolinkReferenceInput
 
 func (RepositoryAutolinkReferenceArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*RepositoryAutolinkReference)(nil))
+	return reflect.TypeOf((*[]*RepositoryAutolinkReference)(nil)).Elem()
 }
 
 func (i RepositoryAutolinkReferenceArray) ToRepositoryAutolinkReferenceArrayOutput() RepositoryAutolinkReferenceArrayOutput {
@@ -238,7 +209,7 @@ type RepositoryAutolinkReferenceMapInput interface {
 type RepositoryAutolinkReferenceMap map[string]RepositoryAutolinkReferenceInput
 
 func (RepositoryAutolinkReferenceMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*RepositoryAutolinkReference)(nil))
+	return reflect.TypeOf((*map[string]*RepositoryAutolinkReference)(nil)).Elem()
 }
 
 func (i RepositoryAutolinkReferenceMap) ToRepositoryAutolinkReferenceMapOutput() RepositoryAutolinkReferenceMapOutput {
@@ -249,12 +220,10 @@ func (i RepositoryAutolinkReferenceMap) ToRepositoryAutolinkReferenceMapOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryAutolinkReferenceMapOutput)
 }
 
-type RepositoryAutolinkReferenceOutput struct {
-	*pulumi.OutputState
-}
+type RepositoryAutolinkReferenceOutput struct{ *pulumi.OutputState }
 
 func (RepositoryAutolinkReferenceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RepositoryAutolinkReference)(nil))
+	return reflect.TypeOf((**RepositoryAutolinkReference)(nil)).Elem()
 }
 
 func (o RepositoryAutolinkReferenceOutput) ToRepositoryAutolinkReferenceOutput() RepositoryAutolinkReferenceOutput {
@@ -265,36 +234,10 @@ func (o RepositoryAutolinkReferenceOutput) ToRepositoryAutolinkReferenceOutputWi
 	return o
 }
 
-func (o RepositoryAutolinkReferenceOutput) ToRepositoryAutolinkReferencePtrOutput() RepositoryAutolinkReferencePtrOutput {
-	return o.ToRepositoryAutolinkReferencePtrOutputWithContext(context.Background())
-}
-
-func (o RepositoryAutolinkReferenceOutput) ToRepositoryAutolinkReferencePtrOutputWithContext(ctx context.Context) RepositoryAutolinkReferencePtrOutput {
-	return o.ApplyT(func(v RepositoryAutolinkReference) *RepositoryAutolinkReference {
-		return &v
-	}).(RepositoryAutolinkReferencePtrOutput)
-}
-
-type RepositoryAutolinkReferencePtrOutput struct {
-	*pulumi.OutputState
-}
-
-func (RepositoryAutolinkReferencePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**RepositoryAutolinkReference)(nil))
-}
-
-func (o RepositoryAutolinkReferencePtrOutput) ToRepositoryAutolinkReferencePtrOutput() RepositoryAutolinkReferencePtrOutput {
-	return o
-}
-
-func (o RepositoryAutolinkReferencePtrOutput) ToRepositoryAutolinkReferencePtrOutputWithContext(ctx context.Context) RepositoryAutolinkReferencePtrOutput {
-	return o
-}
-
 type RepositoryAutolinkReferenceArrayOutput struct{ *pulumi.OutputState }
 
 func (RepositoryAutolinkReferenceArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RepositoryAutolinkReference)(nil))
+	return reflect.TypeOf((*[]*RepositoryAutolinkReference)(nil)).Elem()
 }
 
 func (o RepositoryAutolinkReferenceArrayOutput) ToRepositoryAutolinkReferenceArrayOutput() RepositoryAutolinkReferenceArrayOutput {
@@ -306,15 +249,15 @@ func (o RepositoryAutolinkReferenceArrayOutput) ToRepositoryAutolinkReferenceArr
 }
 
 func (o RepositoryAutolinkReferenceArrayOutput) Index(i pulumi.IntInput) RepositoryAutolinkReferenceOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RepositoryAutolinkReference {
-		return vs[0].([]RepositoryAutolinkReference)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RepositoryAutolinkReference {
+		return vs[0].([]*RepositoryAutolinkReference)[vs[1].(int)]
 	}).(RepositoryAutolinkReferenceOutput)
 }
 
 type RepositoryAutolinkReferenceMapOutput struct{ *pulumi.OutputState }
 
 func (RepositoryAutolinkReferenceMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]RepositoryAutolinkReference)(nil))
+	return reflect.TypeOf((*map[string]*RepositoryAutolinkReference)(nil)).Elem()
 }
 
 func (o RepositoryAutolinkReferenceMapOutput) ToRepositoryAutolinkReferenceMapOutput() RepositoryAutolinkReferenceMapOutput {
@@ -326,14 +269,16 @@ func (o RepositoryAutolinkReferenceMapOutput) ToRepositoryAutolinkReferenceMapOu
 }
 
 func (o RepositoryAutolinkReferenceMapOutput) MapIndex(k pulumi.StringInput) RepositoryAutolinkReferenceOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) RepositoryAutolinkReference {
-		return vs[0].(map[string]RepositoryAutolinkReference)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *RepositoryAutolinkReference {
+		return vs[0].(map[string]*RepositoryAutolinkReference)[vs[1].(string)]
 	}).(RepositoryAutolinkReferenceOutput)
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryAutolinkReferenceInput)(nil)).Elem(), &RepositoryAutolinkReference{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryAutolinkReferenceArrayInput)(nil)).Elem(), RepositoryAutolinkReferenceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryAutolinkReferenceMapInput)(nil)).Elem(), RepositoryAutolinkReferenceMap{})
 	pulumi.RegisterOutputType(RepositoryAutolinkReferenceOutput{})
-	pulumi.RegisterOutputType(RepositoryAutolinkReferencePtrOutput{})
 	pulumi.RegisterOutputType(RepositoryAutolinkReferenceArrayOutput{})
 	pulumi.RegisterOutputType(RepositoryAutolinkReferenceMapOutput{})
 }

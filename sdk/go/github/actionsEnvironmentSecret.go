@@ -153,7 +153,7 @@ type ActionsEnvironmentSecretInput interface {
 }
 
 func (*ActionsEnvironmentSecret) ElementType() reflect.Type {
-	return reflect.TypeOf((*ActionsEnvironmentSecret)(nil))
+	return reflect.TypeOf((**ActionsEnvironmentSecret)(nil)).Elem()
 }
 
 func (i *ActionsEnvironmentSecret) ToActionsEnvironmentSecretOutput() ActionsEnvironmentSecretOutput {
@@ -162,35 +162,6 @@ func (i *ActionsEnvironmentSecret) ToActionsEnvironmentSecretOutput() ActionsEnv
 
 func (i *ActionsEnvironmentSecret) ToActionsEnvironmentSecretOutputWithContext(ctx context.Context) ActionsEnvironmentSecretOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ActionsEnvironmentSecretOutput)
-}
-
-func (i *ActionsEnvironmentSecret) ToActionsEnvironmentSecretPtrOutput() ActionsEnvironmentSecretPtrOutput {
-	return i.ToActionsEnvironmentSecretPtrOutputWithContext(context.Background())
-}
-
-func (i *ActionsEnvironmentSecret) ToActionsEnvironmentSecretPtrOutputWithContext(ctx context.Context) ActionsEnvironmentSecretPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActionsEnvironmentSecretPtrOutput)
-}
-
-type ActionsEnvironmentSecretPtrInput interface {
-	pulumi.Input
-
-	ToActionsEnvironmentSecretPtrOutput() ActionsEnvironmentSecretPtrOutput
-	ToActionsEnvironmentSecretPtrOutputWithContext(ctx context.Context) ActionsEnvironmentSecretPtrOutput
-}
-
-type actionsEnvironmentSecretPtrType ActionsEnvironmentSecretArgs
-
-func (*actionsEnvironmentSecretPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ActionsEnvironmentSecret)(nil))
-}
-
-func (i *actionsEnvironmentSecretPtrType) ToActionsEnvironmentSecretPtrOutput() ActionsEnvironmentSecretPtrOutput {
-	return i.ToActionsEnvironmentSecretPtrOutputWithContext(context.Background())
-}
-
-func (i *actionsEnvironmentSecretPtrType) ToActionsEnvironmentSecretPtrOutputWithContext(ctx context.Context) ActionsEnvironmentSecretPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActionsEnvironmentSecretPtrOutput)
 }
 
 // ActionsEnvironmentSecretArrayInput is an input type that accepts ActionsEnvironmentSecretArray and ActionsEnvironmentSecretArrayOutput values.
@@ -207,7 +178,7 @@ type ActionsEnvironmentSecretArrayInput interface {
 type ActionsEnvironmentSecretArray []ActionsEnvironmentSecretInput
 
 func (ActionsEnvironmentSecretArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ActionsEnvironmentSecret)(nil))
+	return reflect.TypeOf((*[]*ActionsEnvironmentSecret)(nil)).Elem()
 }
 
 func (i ActionsEnvironmentSecretArray) ToActionsEnvironmentSecretArrayOutput() ActionsEnvironmentSecretArrayOutput {
@@ -232,7 +203,7 @@ type ActionsEnvironmentSecretMapInput interface {
 type ActionsEnvironmentSecretMap map[string]ActionsEnvironmentSecretInput
 
 func (ActionsEnvironmentSecretMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ActionsEnvironmentSecret)(nil))
+	return reflect.TypeOf((*map[string]*ActionsEnvironmentSecret)(nil)).Elem()
 }
 
 func (i ActionsEnvironmentSecretMap) ToActionsEnvironmentSecretMapOutput() ActionsEnvironmentSecretMapOutput {
@@ -243,12 +214,10 @@ func (i ActionsEnvironmentSecretMap) ToActionsEnvironmentSecretMapOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(ActionsEnvironmentSecretMapOutput)
 }
 
-type ActionsEnvironmentSecretOutput struct {
-	*pulumi.OutputState
-}
+type ActionsEnvironmentSecretOutput struct{ *pulumi.OutputState }
 
 func (ActionsEnvironmentSecretOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ActionsEnvironmentSecret)(nil))
+	return reflect.TypeOf((**ActionsEnvironmentSecret)(nil)).Elem()
 }
 
 func (o ActionsEnvironmentSecretOutput) ToActionsEnvironmentSecretOutput() ActionsEnvironmentSecretOutput {
@@ -259,36 +228,10 @@ func (o ActionsEnvironmentSecretOutput) ToActionsEnvironmentSecretOutputWithCont
 	return o
 }
 
-func (o ActionsEnvironmentSecretOutput) ToActionsEnvironmentSecretPtrOutput() ActionsEnvironmentSecretPtrOutput {
-	return o.ToActionsEnvironmentSecretPtrOutputWithContext(context.Background())
-}
-
-func (o ActionsEnvironmentSecretOutput) ToActionsEnvironmentSecretPtrOutputWithContext(ctx context.Context) ActionsEnvironmentSecretPtrOutput {
-	return o.ApplyT(func(v ActionsEnvironmentSecret) *ActionsEnvironmentSecret {
-		return &v
-	}).(ActionsEnvironmentSecretPtrOutput)
-}
-
-type ActionsEnvironmentSecretPtrOutput struct {
-	*pulumi.OutputState
-}
-
-func (ActionsEnvironmentSecretPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ActionsEnvironmentSecret)(nil))
-}
-
-func (o ActionsEnvironmentSecretPtrOutput) ToActionsEnvironmentSecretPtrOutput() ActionsEnvironmentSecretPtrOutput {
-	return o
-}
-
-func (o ActionsEnvironmentSecretPtrOutput) ToActionsEnvironmentSecretPtrOutputWithContext(ctx context.Context) ActionsEnvironmentSecretPtrOutput {
-	return o
-}
-
 type ActionsEnvironmentSecretArrayOutput struct{ *pulumi.OutputState }
 
 func (ActionsEnvironmentSecretArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ActionsEnvironmentSecret)(nil))
+	return reflect.TypeOf((*[]*ActionsEnvironmentSecret)(nil)).Elem()
 }
 
 func (o ActionsEnvironmentSecretArrayOutput) ToActionsEnvironmentSecretArrayOutput() ActionsEnvironmentSecretArrayOutput {
@@ -300,15 +243,15 @@ func (o ActionsEnvironmentSecretArrayOutput) ToActionsEnvironmentSecretArrayOutp
 }
 
 func (o ActionsEnvironmentSecretArrayOutput) Index(i pulumi.IntInput) ActionsEnvironmentSecretOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ActionsEnvironmentSecret {
-		return vs[0].([]ActionsEnvironmentSecret)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ActionsEnvironmentSecret {
+		return vs[0].([]*ActionsEnvironmentSecret)[vs[1].(int)]
 	}).(ActionsEnvironmentSecretOutput)
 }
 
 type ActionsEnvironmentSecretMapOutput struct{ *pulumi.OutputState }
 
 func (ActionsEnvironmentSecretMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ActionsEnvironmentSecret)(nil))
+	return reflect.TypeOf((*map[string]*ActionsEnvironmentSecret)(nil)).Elem()
 }
 
 func (o ActionsEnvironmentSecretMapOutput) ToActionsEnvironmentSecretMapOutput() ActionsEnvironmentSecretMapOutput {
@@ -320,14 +263,16 @@ func (o ActionsEnvironmentSecretMapOutput) ToActionsEnvironmentSecretMapOutputWi
 }
 
 func (o ActionsEnvironmentSecretMapOutput) MapIndex(k pulumi.StringInput) ActionsEnvironmentSecretOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ActionsEnvironmentSecret {
-		return vs[0].(map[string]ActionsEnvironmentSecret)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ActionsEnvironmentSecret {
+		return vs[0].(map[string]*ActionsEnvironmentSecret)[vs[1].(string)]
 	}).(ActionsEnvironmentSecretOutput)
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ActionsEnvironmentSecretInput)(nil)).Elem(), &ActionsEnvironmentSecret{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ActionsEnvironmentSecretArrayInput)(nil)).Elem(), ActionsEnvironmentSecretArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ActionsEnvironmentSecretMapInput)(nil)).Elem(), ActionsEnvironmentSecretMap{})
 	pulumi.RegisterOutputType(ActionsEnvironmentSecretOutput{})
-	pulumi.RegisterOutputType(ActionsEnvironmentSecretPtrOutput{})
 	pulumi.RegisterOutputType(ActionsEnvironmentSecretArrayOutput{})
 	pulumi.RegisterOutputType(ActionsEnvironmentSecretMapOutput{})
 }

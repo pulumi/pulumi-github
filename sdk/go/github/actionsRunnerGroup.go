@@ -182,7 +182,7 @@ type ActionsRunnerGroupInput interface {
 }
 
 func (*ActionsRunnerGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*ActionsRunnerGroup)(nil))
+	return reflect.TypeOf((**ActionsRunnerGroup)(nil)).Elem()
 }
 
 func (i *ActionsRunnerGroup) ToActionsRunnerGroupOutput() ActionsRunnerGroupOutput {
@@ -191,35 +191,6 @@ func (i *ActionsRunnerGroup) ToActionsRunnerGroupOutput() ActionsRunnerGroupOutp
 
 func (i *ActionsRunnerGroup) ToActionsRunnerGroupOutputWithContext(ctx context.Context) ActionsRunnerGroupOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ActionsRunnerGroupOutput)
-}
-
-func (i *ActionsRunnerGroup) ToActionsRunnerGroupPtrOutput() ActionsRunnerGroupPtrOutput {
-	return i.ToActionsRunnerGroupPtrOutputWithContext(context.Background())
-}
-
-func (i *ActionsRunnerGroup) ToActionsRunnerGroupPtrOutputWithContext(ctx context.Context) ActionsRunnerGroupPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActionsRunnerGroupPtrOutput)
-}
-
-type ActionsRunnerGroupPtrInput interface {
-	pulumi.Input
-
-	ToActionsRunnerGroupPtrOutput() ActionsRunnerGroupPtrOutput
-	ToActionsRunnerGroupPtrOutputWithContext(ctx context.Context) ActionsRunnerGroupPtrOutput
-}
-
-type actionsRunnerGroupPtrType ActionsRunnerGroupArgs
-
-func (*actionsRunnerGroupPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ActionsRunnerGroup)(nil))
-}
-
-func (i *actionsRunnerGroupPtrType) ToActionsRunnerGroupPtrOutput() ActionsRunnerGroupPtrOutput {
-	return i.ToActionsRunnerGroupPtrOutputWithContext(context.Background())
-}
-
-func (i *actionsRunnerGroupPtrType) ToActionsRunnerGroupPtrOutputWithContext(ctx context.Context) ActionsRunnerGroupPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActionsRunnerGroupPtrOutput)
 }
 
 // ActionsRunnerGroupArrayInput is an input type that accepts ActionsRunnerGroupArray and ActionsRunnerGroupArrayOutput values.
@@ -236,7 +207,7 @@ type ActionsRunnerGroupArrayInput interface {
 type ActionsRunnerGroupArray []ActionsRunnerGroupInput
 
 func (ActionsRunnerGroupArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ActionsRunnerGroup)(nil))
+	return reflect.TypeOf((*[]*ActionsRunnerGroup)(nil)).Elem()
 }
 
 func (i ActionsRunnerGroupArray) ToActionsRunnerGroupArrayOutput() ActionsRunnerGroupArrayOutput {
@@ -261,7 +232,7 @@ type ActionsRunnerGroupMapInput interface {
 type ActionsRunnerGroupMap map[string]ActionsRunnerGroupInput
 
 func (ActionsRunnerGroupMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ActionsRunnerGroup)(nil))
+	return reflect.TypeOf((*map[string]*ActionsRunnerGroup)(nil)).Elem()
 }
 
 func (i ActionsRunnerGroupMap) ToActionsRunnerGroupMapOutput() ActionsRunnerGroupMapOutput {
@@ -272,12 +243,10 @@ func (i ActionsRunnerGroupMap) ToActionsRunnerGroupMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(ActionsRunnerGroupMapOutput)
 }
 
-type ActionsRunnerGroupOutput struct {
-	*pulumi.OutputState
-}
+type ActionsRunnerGroupOutput struct{ *pulumi.OutputState }
 
 func (ActionsRunnerGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ActionsRunnerGroup)(nil))
+	return reflect.TypeOf((**ActionsRunnerGroup)(nil)).Elem()
 }
 
 func (o ActionsRunnerGroupOutput) ToActionsRunnerGroupOutput() ActionsRunnerGroupOutput {
@@ -288,36 +257,10 @@ func (o ActionsRunnerGroupOutput) ToActionsRunnerGroupOutputWithContext(ctx cont
 	return o
 }
 
-func (o ActionsRunnerGroupOutput) ToActionsRunnerGroupPtrOutput() ActionsRunnerGroupPtrOutput {
-	return o.ToActionsRunnerGroupPtrOutputWithContext(context.Background())
-}
-
-func (o ActionsRunnerGroupOutput) ToActionsRunnerGroupPtrOutputWithContext(ctx context.Context) ActionsRunnerGroupPtrOutput {
-	return o.ApplyT(func(v ActionsRunnerGroup) *ActionsRunnerGroup {
-		return &v
-	}).(ActionsRunnerGroupPtrOutput)
-}
-
-type ActionsRunnerGroupPtrOutput struct {
-	*pulumi.OutputState
-}
-
-func (ActionsRunnerGroupPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ActionsRunnerGroup)(nil))
-}
-
-func (o ActionsRunnerGroupPtrOutput) ToActionsRunnerGroupPtrOutput() ActionsRunnerGroupPtrOutput {
-	return o
-}
-
-func (o ActionsRunnerGroupPtrOutput) ToActionsRunnerGroupPtrOutputWithContext(ctx context.Context) ActionsRunnerGroupPtrOutput {
-	return o
-}
-
 type ActionsRunnerGroupArrayOutput struct{ *pulumi.OutputState }
 
 func (ActionsRunnerGroupArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ActionsRunnerGroup)(nil))
+	return reflect.TypeOf((*[]*ActionsRunnerGroup)(nil)).Elem()
 }
 
 func (o ActionsRunnerGroupArrayOutput) ToActionsRunnerGroupArrayOutput() ActionsRunnerGroupArrayOutput {
@@ -329,15 +272,15 @@ func (o ActionsRunnerGroupArrayOutput) ToActionsRunnerGroupArrayOutputWithContex
 }
 
 func (o ActionsRunnerGroupArrayOutput) Index(i pulumi.IntInput) ActionsRunnerGroupOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ActionsRunnerGroup {
-		return vs[0].([]ActionsRunnerGroup)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ActionsRunnerGroup {
+		return vs[0].([]*ActionsRunnerGroup)[vs[1].(int)]
 	}).(ActionsRunnerGroupOutput)
 }
 
 type ActionsRunnerGroupMapOutput struct{ *pulumi.OutputState }
 
 func (ActionsRunnerGroupMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ActionsRunnerGroup)(nil))
+	return reflect.TypeOf((*map[string]*ActionsRunnerGroup)(nil)).Elem()
 }
 
 func (o ActionsRunnerGroupMapOutput) ToActionsRunnerGroupMapOutput() ActionsRunnerGroupMapOutput {
@@ -349,14 +292,16 @@ func (o ActionsRunnerGroupMapOutput) ToActionsRunnerGroupMapOutputWithContext(ct
 }
 
 func (o ActionsRunnerGroupMapOutput) MapIndex(k pulumi.StringInput) ActionsRunnerGroupOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ActionsRunnerGroup {
-		return vs[0].(map[string]ActionsRunnerGroup)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ActionsRunnerGroup {
+		return vs[0].(map[string]*ActionsRunnerGroup)[vs[1].(string)]
 	}).(ActionsRunnerGroupOutput)
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ActionsRunnerGroupInput)(nil)).Elem(), &ActionsRunnerGroup{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ActionsRunnerGroupArrayInput)(nil)).Elem(), ActionsRunnerGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ActionsRunnerGroupMapInput)(nil)).Elem(), ActionsRunnerGroupMap{})
 	pulumi.RegisterOutputType(ActionsRunnerGroupOutput{})
-	pulumi.RegisterOutputType(ActionsRunnerGroupPtrOutput{})
 	pulumi.RegisterOutputType(ActionsRunnerGroupArrayOutput{})
 	pulumi.RegisterOutputType(ActionsRunnerGroupMapOutput{})
 }

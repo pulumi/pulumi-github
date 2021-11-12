@@ -136,20 +136,20 @@ export class BranchProtection extends pulumi.CustomResource {
      */
     constructor(name: string, args: BranchProtectionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: BranchProtectionArgs | BranchProtectionState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as BranchProtectionState | undefined;
-            inputs["allowsDeletions"] = state ? state.allowsDeletions : undefined;
-            inputs["allowsForcePushes"] = state ? state.allowsForcePushes : undefined;
-            inputs["enforceAdmins"] = state ? state.enforceAdmins : undefined;
-            inputs["pattern"] = state ? state.pattern : undefined;
-            inputs["pushRestrictions"] = state ? state.pushRestrictions : undefined;
-            inputs["repositoryId"] = state ? state.repositoryId : undefined;
-            inputs["requireSignedCommits"] = state ? state.requireSignedCommits : undefined;
-            inputs["requiredLinearHistory"] = state ? state.requiredLinearHistory : undefined;
-            inputs["requiredPullRequestReviews"] = state ? state.requiredPullRequestReviews : undefined;
-            inputs["requiredStatusChecks"] = state ? state.requiredStatusChecks : undefined;
+            resourceInputs["allowsDeletions"] = state ? state.allowsDeletions : undefined;
+            resourceInputs["allowsForcePushes"] = state ? state.allowsForcePushes : undefined;
+            resourceInputs["enforceAdmins"] = state ? state.enforceAdmins : undefined;
+            resourceInputs["pattern"] = state ? state.pattern : undefined;
+            resourceInputs["pushRestrictions"] = state ? state.pushRestrictions : undefined;
+            resourceInputs["repositoryId"] = state ? state.repositoryId : undefined;
+            resourceInputs["requireSignedCommits"] = state ? state.requireSignedCommits : undefined;
+            resourceInputs["requiredLinearHistory"] = state ? state.requiredLinearHistory : undefined;
+            resourceInputs["requiredPullRequestReviews"] = state ? state.requiredPullRequestReviews : undefined;
+            resourceInputs["requiredStatusChecks"] = state ? state.requiredStatusChecks : undefined;
         } else {
             const args = argsOrState as BranchProtectionArgs | undefined;
             if ((!args || args.pattern === undefined) && !opts.urn) {
@@ -158,21 +158,21 @@ export class BranchProtection extends pulumi.CustomResource {
             if ((!args || args.repositoryId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'repositoryId'");
             }
-            inputs["allowsDeletions"] = args ? args.allowsDeletions : undefined;
-            inputs["allowsForcePushes"] = args ? args.allowsForcePushes : undefined;
-            inputs["enforceAdmins"] = args ? args.enforceAdmins : undefined;
-            inputs["pattern"] = args ? args.pattern : undefined;
-            inputs["pushRestrictions"] = args ? args.pushRestrictions : undefined;
-            inputs["repositoryId"] = args ? args.repositoryId : undefined;
-            inputs["requireSignedCommits"] = args ? args.requireSignedCommits : undefined;
-            inputs["requiredLinearHistory"] = args ? args.requiredLinearHistory : undefined;
-            inputs["requiredPullRequestReviews"] = args ? args.requiredPullRequestReviews : undefined;
-            inputs["requiredStatusChecks"] = args ? args.requiredStatusChecks : undefined;
+            resourceInputs["allowsDeletions"] = args ? args.allowsDeletions : undefined;
+            resourceInputs["allowsForcePushes"] = args ? args.allowsForcePushes : undefined;
+            resourceInputs["enforceAdmins"] = args ? args.enforceAdmins : undefined;
+            resourceInputs["pattern"] = args ? args.pattern : undefined;
+            resourceInputs["pushRestrictions"] = args ? args.pushRestrictions : undefined;
+            resourceInputs["repositoryId"] = args ? args.repositoryId : undefined;
+            resourceInputs["requireSignedCommits"] = args ? args.requireSignedCommits : undefined;
+            resourceInputs["requiredLinearHistory"] = args ? args.requiredLinearHistory : undefined;
+            resourceInputs["requiredPullRequestReviews"] = args ? args.requiredPullRequestReviews : undefined;
+            resourceInputs["requiredStatusChecks"] = args ? args.requiredStatusChecks : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(BranchProtection.__pulumiType, name, inputs, opts);
+        super(BranchProtection.__pulumiType, name, resourceInputs, opts);
     }
 }
 

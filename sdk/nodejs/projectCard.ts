@@ -77,14 +77,14 @@ export class ProjectCard extends pulumi.CustomResource {
      */
     constructor(name: string, args: ProjectCardArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ProjectCardArgs | ProjectCardState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ProjectCardState | undefined;
-            inputs["cardId"] = state ? state.cardId : undefined;
-            inputs["columnId"] = state ? state.columnId : undefined;
-            inputs["etag"] = state ? state.etag : undefined;
-            inputs["note"] = state ? state.note : undefined;
+            resourceInputs["cardId"] = state ? state.cardId : undefined;
+            resourceInputs["columnId"] = state ? state.columnId : undefined;
+            resourceInputs["etag"] = state ? state.etag : undefined;
+            resourceInputs["note"] = state ? state.note : undefined;
         } else {
             const args = argsOrState as ProjectCardArgs | undefined;
             if ((!args || args.columnId === undefined) && !opts.urn) {
@@ -93,15 +93,15 @@ export class ProjectCard extends pulumi.CustomResource {
             if ((!args || args.note === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'note'");
             }
-            inputs["columnId"] = args ? args.columnId : undefined;
-            inputs["note"] = args ? args.note : undefined;
-            inputs["cardId"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
+            resourceInputs["columnId"] = args ? args.columnId : undefined;
+            resourceInputs["note"] = args ? args.note : undefined;
+            resourceInputs["cardId"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(ProjectCard.__pulumiType, name, inputs, opts);
+        super(ProjectCard.__pulumiType, name, resourceInputs, opts);
     }
 }
 

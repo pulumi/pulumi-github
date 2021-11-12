@@ -79,12 +79,12 @@ export class ActionsOrganizationSecretRepositories extends pulumi.CustomResource
      */
     constructor(name: string, args: ActionsOrganizationSecretRepositoriesArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ActionsOrganizationSecretRepositoriesArgs | ActionsOrganizationSecretRepositoriesState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ActionsOrganizationSecretRepositoriesState | undefined;
-            inputs["secretName"] = state ? state.secretName : undefined;
-            inputs["selectedRepositoryIds"] = state ? state.selectedRepositoryIds : undefined;
+            resourceInputs["secretName"] = state ? state.secretName : undefined;
+            resourceInputs["selectedRepositoryIds"] = state ? state.selectedRepositoryIds : undefined;
         } else {
             const args = argsOrState as ActionsOrganizationSecretRepositoriesArgs | undefined;
             if ((!args || args.secretName === undefined) && !opts.urn) {
@@ -93,13 +93,13 @@ export class ActionsOrganizationSecretRepositories extends pulumi.CustomResource
             if ((!args || args.selectedRepositoryIds === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'selectedRepositoryIds'");
             }
-            inputs["secretName"] = args ? args.secretName : undefined;
-            inputs["selectedRepositoryIds"] = args ? args.selectedRepositoryIds : undefined;
+            resourceInputs["secretName"] = args ? args.secretName : undefined;
+            resourceInputs["selectedRepositoryIds"] = args ? args.selectedRepositoryIds : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(ActionsOrganizationSecretRepositories.__pulumiType, name, inputs, opts);
+        super(ActionsOrganizationSecretRepositories.__pulumiType, name, resourceInputs, opts);
     }
 }
 

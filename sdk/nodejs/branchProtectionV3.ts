@@ -138,18 +138,18 @@ export class BranchProtectionV3 extends pulumi.CustomResource {
      */
     constructor(name: string, args: BranchProtectionV3Args, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: BranchProtectionV3Args | BranchProtectionV3State, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as BranchProtectionV3State | undefined;
-            inputs["branch"] = state ? state.branch : undefined;
-            inputs["enforceAdmins"] = state ? state.enforceAdmins : undefined;
-            inputs["etag"] = state ? state.etag : undefined;
-            inputs["repository"] = state ? state.repository : undefined;
-            inputs["requireSignedCommits"] = state ? state.requireSignedCommits : undefined;
-            inputs["requiredPullRequestReviews"] = state ? state.requiredPullRequestReviews : undefined;
-            inputs["requiredStatusChecks"] = state ? state.requiredStatusChecks : undefined;
-            inputs["restrictions"] = state ? state.restrictions : undefined;
+            resourceInputs["branch"] = state ? state.branch : undefined;
+            resourceInputs["enforceAdmins"] = state ? state.enforceAdmins : undefined;
+            resourceInputs["etag"] = state ? state.etag : undefined;
+            resourceInputs["repository"] = state ? state.repository : undefined;
+            resourceInputs["requireSignedCommits"] = state ? state.requireSignedCommits : undefined;
+            resourceInputs["requiredPullRequestReviews"] = state ? state.requiredPullRequestReviews : undefined;
+            resourceInputs["requiredStatusChecks"] = state ? state.requiredStatusChecks : undefined;
+            resourceInputs["restrictions"] = state ? state.restrictions : undefined;
         } else {
             const args = argsOrState as BranchProtectionV3Args | undefined;
             if ((!args || args.branch === undefined) && !opts.urn) {
@@ -158,19 +158,19 @@ export class BranchProtectionV3 extends pulumi.CustomResource {
             if ((!args || args.repository === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'repository'");
             }
-            inputs["branch"] = args ? args.branch : undefined;
-            inputs["enforceAdmins"] = args ? args.enforceAdmins : undefined;
-            inputs["repository"] = args ? args.repository : undefined;
-            inputs["requireSignedCommits"] = args ? args.requireSignedCommits : undefined;
-            inputs["requiredPullRequestReviews"] = args ? args.requiredPullRequestReviews : undefined;
-            inputs["requiredStatusChecks"] = args ? args.requiredStatusChecks : undefined;
-            inputs["restrictions"] = args ? args.restrictions : undefined;
-            inputs["etag"] = undefined /*out*/;
+            resourceInputs["branch"] = args ? args.branch : undefined;
+            resourceInputs["enforceAdmins"] = args ? args.enforceAdmins : undefined;
+            resourceInputs["repository"] = args ? args.repository : undefined;
+            resourceInputs["requireSignedCommits"] = args ? args.requireSignedCommits : undefined;
+            resourceInputs["requiredPullRequestReviews"] = args ? args.requiredPullRequestReviews : undefined;
+            resourceInputs["requiredStatusChecks"] = args ? args.requiredStatusChecks : undefined;
+            resourceInputs["restrictions"] = args ? args.restrictions : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(BranchProtectionV3.__pulumiType, name, inputs, opts);
+        super(BranchProtectionV3.__pulumiType, name, resourceInputs, opts);
     }
 }
 
