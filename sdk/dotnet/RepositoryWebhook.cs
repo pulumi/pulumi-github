@@ -63,13 +63,13 @@ namespace Pulumi.Github
     public partial class RepositoryWebhook : Pulumi.CustomResource
     {
         /// <summary>
-        /// Indicate of the webhook should receive events. Defaults to `true`.
+        /// Indicate if the webhook should receive events. Defaults to `true`.
         /// </summary>
         [Output("active")]
         public Output<bool?> Active { get; private set; } = null!;
 
         /// <summary>
-        /// key/value pair of configuration for this webhook. Available keys are `url`, `content_type`, `secret` and `insecure_ssl`. `secret` is [the shared secret, see API documentation](https://developer.github.com/v3/repos/hooks/#create-a-hook). `content_type` may be either form or json.
+        /// Configuration block for the webhook. Detailed below.
         /// </summary>
         [Output("configuration")]
         public Output<Outputs.RepositoryWebhookConfiguration?> Configuration { get; private set; } = null!;
@@ -90,7 +90,7 @@ namespace Pulumi.Github
         public Output<string> Repository { get; private set; } = null!;
 
         /// <summary>
-        /// URL of the webhook.  This is a sensitive attribute because it may include basic auth credentials.
+        /// The URL of the webhook.
         /// </summary>
         [Output("url")]
         public Output<string> Url { get; private set; } = null!;
@@ -142,13 +142,13 @@ namespace Pulumi.Github
     public sealed class RepositoryWebhookArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Indicate of the webhook should receive events. Defaults to `true`.
+        /// Indicate if the webhook should receive events. Defaults to `true`.
         /// </summary>
         [Input("active")]
         public Input<bool>? Active { get; set; }
 
         /// <summary>
-        /// key/value pair of configuration for this webhook. Available keys are `url`, `content_type`, `secret` and `insecure_ssl`. `secret` is [the shared secret, see API documentation](https://developer.github.com/v3/repos/hooks/#create-a-hook). `content_type` may be either form or json.
+        /// Configuration block for the webhook. Detailed below.
         /// </summary>
         [Input("configuration")]
         public Input<Inputs.RepositoryWebhookConfigurationArgs>? Configuration { get; set; }
@@ -179,13 +179,13 @@ namespace Pulumi.Github
     public sealed class RepositoryWebhookState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Indicate of the webhook should receive events. Defaults to `true`.
+        /// Indicate if the webhook should receive events. Defaults to `true`.
         /// </summary>
         [Input("active")]
         public Input<bool>? Active { get; set; }
 
         /// <summary>
-        /// key/value pair of configuration for this webhook. Available keys are `url`, `content_type`, `secret` and `insecure_ssl`. `secret` is [the shared secret, see API documentation](https://developer.github.com/v3/repos/hooks/#create-a-hook). `content_type` may be either form or json.
+        /// Configuration block for the webhook. Detailed below.
         /// </summary>
         [Input("configuration")]
         public Input<Inputs.RepositoryWebhookConfigurationGetArgs>? Configuration { get; set; }
@@ -212,7 +212,7 @@ namespace Pulumi.Github
         public Input<string>? Repository { get; set; }
 
         /// <summary>
-        /// URL of the webhook.  This is a sensitive attribute because it may include basic auth credentials.
+        /// The URL of the webhook.
         /// </summary>
         [Input("url")]
         public Input<string>? Url { get; set; }

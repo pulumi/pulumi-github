@@ -10,6 +10,310 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type ActionsOrganizationPermissionsAllowedActionsConfig struct {
+	// Whether GitHub-owned actions are allowed in the organization.
+	GithubOwnedAllowed bool `pulumi:"githubOwnedAllowed"`
+	// Specifies a list of string-matching patterns to allow specific action(s). Wildcards, tags, and SHAs are allowed. For example, monalisa/octocat@*, monalisa/octocat@v2, monalisa/*."
+	PatternsAlloweds []string `pulumi:"patternsAlloweds"`
+	// Whether actions in GitHub Marketplace from verified creators are allowed. Set to true to allow all GitHub Marketplace actions by verified creators.
+	VerifiedAllowed *bool `pulumi:"verifiedAllowed"`
+}
+
+// ActionsOrganizationPermissionsAllowedActionsConfigInput is an input type that accepts ActionsOrganizationPermissionsAllowedActionsConfigArgs and ActionsOrganizationPermissionsAllowedActionsConfigOutput values.
+// You can construct a concrete instance of `ActionsOrganizationPermissionsAllowedActionsConfigInput` via:
+//
+//          ActionsOrganizationPermissionsAllowedActionsConfigArgs{...}
+type ActionsOrganizationPermissionsAllowedActionsConfigInput interface {
+	pulumi.Input
+
+	ToActionsOrganizationPermissionsAllowedActionsConfigOutput() ActionsOrganizationPermissionsAllowedActionsConfigOutput
+	ToActionsOrganizationPermissionsAllowedActionsConfigOutputWithContext(context.Context) ActionsOrganizationPermissionsAllowedActionsConfigOutput
+}
+
+type ActionsOrganizationPermissionsAllowedActionsConfigArgs struct {
+	// Whether GitHub-owned actions are allowed in the organization.
+	GithubOwnedAllowed pulumi.BoolInput `pulumi:"githubOwnedAllowed"`
+	// Specifies a list of string-matching patterns to allow specific action(s). Wildcards, tags, and SHAs are allowed. For example, monalisa/octocat@*, monalisa/octocat@v2, monalisa/*."
+	PatternsAlloweds pulumi.StringArrayInput `pulumi:"patternsAlloweds"`
+	// Whether actions in GitHub Marketplace from verified creators are allowed. Set to true to allow all GitHub Marketplace actions by verified creators.
+	VerifiedAllowed pulumi.BoolPtrInput `pulumi:"verifiedAllowed"`
+}
+
+func (ActionsOrganizationPermissionsAllowedActionsConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionsOrganizationPermissionsAllowedActionsConfig)(nil)).Elem()
+}
+
+func (i ActionsOrganizationPermissionsAllowedActionsConfigArgs) ToActionsOrganizationPermissionsAllowedActionsConfigOutput() ActionsOrganizationPermissionsAllowedActionsConfigOutput {
+	return i.ToActionsOrganizationPermissionsAllowedActionsConfigOutputWithContext(context.Background())
+}
+
+func (i ActionsOrganizationPermissionsAllowedActionsConfigArgs) ToActionsOrganizationPermissionsAllowedActionsConfigOutputWithContext(ctx context.Context) ActionsOrganizationPermissionsAllowedActionsConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionsOrganizationPermissionsAllowedActionsConfigOutput)
+}
+
+func (i ActionsOrganizationPermissionsAllowedActionsConfigArgs) ToActionsOrganizationPermissionsAllowedActionsConfigPtrOutput() ActionsOrganizationPermissionsAllowedActionsConfigPtrOutput {
+	return i.ToActionsOrganizationPermissionsAllowedActionsConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ActionsOrganizationPermissionsAllowedActionsConfigArgs) ToActionsOrganizationPermissionsAllowedActionsConfigPtrOutputWithContext(ctx context.Context) ActionsOrganizationPermissionsAllowedActionsConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionsOrganizationPermissionsAllowedActionsConfigOutput).ToActionsOrganizationPermissionsAllowedActionsConfigPtrOutputWithContext(ctx)
+}
+
+// ActionsOrganizationPermissionsAllowedActionsConfigPtrInput is an input type that accepts ActionsOrganizationPermissionsAllowedActionsConfigArgs, ActionsOrganizationPermissionsAllowedActionsConfigPtr and ActionsOrganizationPermissionsAllowedActionsConfigPtrOutput values.
+// You can construct a concrete instance of `ActionsOrganizationPermissionsAllowedActionsConfigPtrInput` via:
+//
+//          ActionsOrganizationPermissionsAllowedActionsConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type ActionsOrganizationPermissionsAllowedActionsConfigPtrInput interface {
+	pulumi.Input
+
+	ToActionsOrganizationPermissionsAllowedActionsConfigPtrOutput() ActionsOrganizationPermissionsAllowedActionsConfigPtrOutput
+	ToActionsOrganizationPermissionsAllowedActionsConfigPtrOutputWithContext(context.Context) ActionsOrganizationPermissionsAllowedActionsConfigPtrOutput
+}
+
+type actionsOrganizationPermissionsAllowedActionsConfigPtrType ActionsOrganizationPermissionsAllowedActionsConfigArgs
+
+func ActionsOrganizationPermissionsAllowedActionsConfigPtr(v *ActionsOrganizationPermissionsAllowedActionsConfigArgs) ActionsOrganizationPermissionsAllowedActionsConfigPtrInput {
+	return (*actionsOrganizationPermissionsAllowedActionsConfigPtrType)(v)
+}
+
+func (*actionsOrganizationPermissionsAllowedActionsConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionsOrganizationPermissionsAllowedActionsConfig)(nil)).Elem()
+}
+
+func (i *actionsOrganizationPermissionsAllowedActionsConfigPtrType) ToActionsOrganizationPermissionsAllowedActionsConfigPtrOutput() ActionsOrganizationPermissionsAllowedActionsConfigPtrOutput {
+	return i.ToActionsOrganizationPermissionsAllowedActionsConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *actionsOrganizationPermissionsAllowedActionsConfigPtrType) ToActionsOrganizationPermissionsAllowedActionsConfigPtrOutputWithContext(ctx context.Context) ActionsOrganizationPermissionsAllowedActionsConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionsOrganizationPermissionsAllowedActionsConfigPtrOutput)
+}
+
+type ActionsOrganizationPermissionsAllowedActionsConfigOutput struct{ *pulumi.OutputState }
+
+func (ActionsOrganizationPermissionsAllowedActionsConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionsOrganizationPermissionsAllowedActionsConfig)(nil)).Elem()
+}
+
+func (o ActionsOrganizationPermissionsAllowedActionsConfigOutput) ToActionsOrganizationPermissionsAllowedActionsConfigOutput() ActionsOrganizationPermissionsAllowedActionsConfigOutput {
+	return o
+}
+
+func (o ActionsOrganizationPermissionsAllowedActionsConfigOutput) ToActionsOrganizationPermissionsAllowedActionsConfigOutputWithContext(ctx context.Context) ActionsOrganizationPermissionsAllowedActionsConfigOutput {
+	return o
+}
+
+func (o ActionsOrganizationPermissionsAllowedActionsConfigOutput) ToActionsOrganizationPermissionsAllowedActionsConfigPtrOutput() ActionsOrganizationPermissionsAllowedActionsConfigPtrOutput {
+	return o.ToActionsOrganizationPermissionsAllowedActionsConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ActionsOrganizationPermissionsAllowedActionsConfigOutput) ToActionsOrganizationPermissionsAllowedActionsConfigPtrOutputWithContext(ctx context.Context) ActionsOrganizationPermissionsAllowedActionsConfigPtrOutput {
+	return o.ApplyT(func(v ActionsOrganizationPermissionsAllowedActionsConfig) *ActionsOrganizationPermissionsAllowedActionsConfig {
+		return &v
+	}).(ActionsOrganizationPermissionsAllowedActionsConfigPtrOutput)
+}
+
+// Whether GitHub-owned actions are allowed in the organization.
+func (o ActionsOrganizationPermissionsAllowedActionsConfigOutput) GithubOwnedAllowed() pulumi.BoolOutput {
+	return o.ApplyT(func(v ActionsOrganizationPermissionsAllowedActionsConfig) bool { return v.GithubOwnedAllowed }).(pulumi.BoolOutput)
+}
+
+// Specifies a list of string-matching patterns to allow specific action(s). Wildcards, tags, and SHAs are allowed. For example, monalisa/octocat@*, monalisa/octocat@v2, monalisa/*."
+func (o ActionsOrganizationPermissionsAllowedActionsConfigOutput) PatternsAlloweds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ActionsOrganizationPermissionsAllowedActionsConfig) []string { return v.PatternsAlloweds }).(pulumi.StringArrayOutput)
+}
+
+// Whether actions in GitHub Marketplace from verified creators are allowed. Set to true to allow all GitHub Marketplace actions by verified creators.
+func (o ActionsOrganizationPermissionsAllowedActionsConfigOutput) VerifiedAllowed() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ActionsOrganizationPermissionsAllowedActionsConfig) *bool { return v.VerifiedAllowed }).(pulumi.BoolPtrOutput)
+}
+
+type ActionsOrganizationPermissionsAllowedActionsConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ActionsOrganizationPermissionsAllowedActionsConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionsOrganizationPermissionsAllowedActionsConfig)(nil)).Elem()
+}
+
+func (o ActionsOrganizationPermissionsAllowedActionsConfigPtrOutput) ToActionsOrganizationPermissionsAllowedActionsConfigPtrOutput() ActionsOrganizationPermissionsAllowedActionsConfigPtrOutput {
+	return o
+}
+
+func (o ActionsOrganizationPermissionsAllowedActionsConfigPtrOutput) ToActionsOrganizationPermissionsAllowedActionsConfigPtrOutputWithContext(ctx context.Context) ActionsOrganizationPermissionsAllowedActionsConfigPtrOutput {
+	return o
+}
+
+func (o ActionsOrganizationPermissionsAllowedActionsConfigPtrOutput) Elem() ActionsOrganizationPermissionsAllowedActionsConfigOutput {
+	return o.ApplyT(func(v *ActionsOrganizationPermissionsAllowedActionsConfig) ActionsOrganizationPermissionsAllowedActionsConfig {
+		return *v
+	}).(ActionsOrganizationPermissionsAllowedActionsConfigOutput)
+}
+
+// Whether GitHub-owned actions are allowed in the organization.
+func (o ActionsOrganizationPermissionsAllowedActionsConfigPtrOutput) GithubOwnedAllowed() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ActionsOrganizationPermissionsAllowedActionsConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.GithubOwnedAllowed
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Specifies a list of string-matching patterns to allow specific action(s). Wildcards, tags, and SHAs are allowed. For example, monalisa/octocat@*, monalisa/octocat@v2, monalisa/*."
+func (o ActionsOrganizationPermissionsAllowedActionsConfigPtrOutput) PatternsAlloweds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ActionsOrganizationPermissionsAllowedActionsConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.PatternsAlloweds
+	}).(pulumi.StringArrayOutput)
+}
+
+// Whether actions in GitHub Marketplace from verified creators are allowed. Set to true to allow all GitHub Marketplace actions by verified creators.
+func (o ActionsOrganizationPermissionsAllowedActionsConfigPtrOutput) VerifiedAllowed() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ActionsOrganizationPermissionsAllowedActionsConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.VerifiedAllowed
+	}).(pulumi.BoolPtrOutput)
+}
+
+type ActionsOrganizationPermissionsEnabledRepositoriesConfig struct {
+	// List of repository IDs to enable for GitHub Actions.
+	RepositoryIds []int `pulumi:"repositoryIds"`
+}
+
+// ActionsOrganizationPermissionsEnabledRepositoriesConfigInput is an input type that accepts ActionsOrganizationPermissionsEnabledRepositoriesConfigArgs and ActionsOrganizationPermissionsEnabledRepositoriesConfigOutput values.
+// You can construct a concrete instance of `ActionsOrganizationPermissionsEnabledRepositoriesConfigInput` via:
+//
+//          ActionsOrganizationPermissionsEnabledRepositoriesConfigArgs{...}
+type ActionsOrganizationPermissionsEnabledRepositoriesConfigInput interface {
+	pulumi.Input
+
+	ToActionsOrganizationPermissionsEnabledRepositoriesConfigOutput() ActionsOrganizationPermissionsEnabledRepositoriesConfigOutput
+	ToActionsOrganizationPermissionsEnabledRepositoriesConfigOutputWithContext(context.Context) ActionsOrganizationPermissionsEnabledRepositoriesConfigOutput
+}
+
+type ActionsOrganizationPermissionsEnabledRepositoriesConfigArgs struct {
+	// List of repository IDs to enable for GitHub Actions.
+	RepositoryIds pulumi.IntArrayInput `pulumi:"repositoryIds"`
+}
+
+func (ActionsOrganizationPermissionsEnabledRepositoriesConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionsOrganizationPermissionsEnabledRepositoriesConfig)(nil)).Elem()
+}
+
+func (i ActionsOrganizationPermissionsEnabledRepositoriesConfigArgs) ToActionsOrganizationPermissionsEnabledRepositoriesConfigOutput() ActionsOrganizationPermissionsEnabledRepositoriesConfigOutput {
+	return i.ToActionsOrganizationPermissionsEnabledRepositoriesConfigOutputWithContext(context.Background())
+}
+
+func (i ActionsOrganizationPermissionsEnabledRepositoriesConfigArgs) ToActionsOrganizationPermissionsEnabledRepositoriesConfigOutputWithContext(ctx context.Context) ActionsOrganizationPermissionsEnabledRepositoriesConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionsOrganizationPermissionsEnabledRepositoriesConfigOutput)
+}
+
+func (i ActionsOrganizationPermissionsEnabledRepositoriesConfigArgs) ToActionsOrganizationPermissionsEnabledRepositoriesConfigPtrOutput() ActionsOrganizationPermissionsEnabledRepositoriesConfigPtrOutput {
+	return i.ToActionsOrganizationPermissionsEnabledRepositoriesConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ActionsOrganizationPermissionsEnabledRepositoriesConfigArgs) ToActionsOrganizationPermissionsEnabledRepositoriesConfigPtrOutputWithContext(ctx context.Context) ActionsOrganizationPermissionsEnabledRepositoriesConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionsOrganizationPermissionsEnabledRepositoriesConfigOutput).ToActionsOrganizationPermissionsEnabledRepositoriesConfigPtrOutputWithContext(ctx)
+}
+
+// ActionsOrganizationPermissionsEnabledRepositoriesConfigPtrInput is an input type that accepts ActionsOrganizationPermissionsEnabledRepositoriesConfigArgs, ActionsOrganizationPermissionsEnabledRepositoriesConfigPtr and ActionsOrganizationPermissionsEnabledRepositoriesConfigPtrOutput values.
+// You can construct a concrete instance of `ActionsOrganizationPermissionsEnabledRepositoriesConfigPtrInput` via:
+//
+//          ActionsOrganizationPermissionsEnabledRepositoriesConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type ActionsOrganizationPermissionsEnabledRepositoriesConfigPtrInput interface {
+	pulumi.Input
+
+	ToActionsOrganizationPermissionsEnabledRepositoriesConfigPtrOutput() ActionsOrganizationPermissionsEnabledRepositoriesConfigPtrOutput
+	ToActionsOrganizationPermissionsEnabledRepositoriesConfigPtrOutputWithContext(context.Context) ActionsOrganizationPermissionsEnabledRepositoriesConfigPtrOutput
+}
+
+type actionsOrganizationPermissionsEnabledRepositoriesConfigPtrType ActionsOrganizationPermissionsEnabledRepositoriesConfigArgs
+
+func ActionsOrganizationPermissionsEnabledRepositoriesConfigPtr(v *ActionsOrganizationPermissionsEnabledRepositoriesConfigArgs) ActionsOrganizationPermissionsEnabledRepositoriesConfigPtrInput {
+	return (*actionsOrganizationPermissionsEnabledRepositoriesConfigPtrType)(v)
+}
+
+func (*actionsOrganizationPermissionsEnabledRepositoriesConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionsOrganizationPermissionsEnabledRepositoriesConfig)(nil)).Elem()
+}
+
+func (i *actionsOrganizationPermissionsEnabledRepositoriesConfigPtrType) ToActionsOrganizationPermissionsEnabledRepositoriesConfigPtrOutput() ActionsOrganizationPermissionsEnabledRepositoriesConfigPtrOutput {
+	return i.ToActionsOrganizationPermissionsEnabledRepositoriesConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *actionsOrganizationPermissionsEnabledRepositoriesConfigPtrType) ToActionsOrganizationPermissionsEnabledRepositoriesConfigPtrOutputWithContext(ctx context.Context) ActionsOrganizationPermissionsEnabledRepositoriesConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionsOrganizationPermissionsEnabledRepositoriesConfigPtrOutput)
+}
+
+type ActionsOrganizationPermissionsEnabledRepositoriesConfigOutput struct{ *pulumi.OutputState }
+
+func (ActionsOrganizationPermissionsEnabledRepositoriesConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionsOrganizationPermissionsEnabledRepositoriesConfig)(nil)).Elem()
+}
+
+func (o ActionsOrganizationPermissionsEnabledRepositoriesConfigOutput) ToActionsOrganizationPermissionsEnabledRepositoriesConfigOutput() ActionsOrganizationPermissionsEnabledRepositoriesConfigOutput {
+	return o
+}
+
+func (o ActionsOrganizationPermissionsEnabledRepositoriesConfigOutput) ToActionsOrganizationPermissionsEnabledRepositoriesConfigOutputWithContext(ctx context.Context) ActionsOrganizationPermissionsEnabledRepositoriesConfigOutput {
+	return o
+}
+
+func (o ActionsOrganizationPermissionsEnabledRepositoriesConfigOutput) ToActionsOrganizationPermissionsEnabledRepositoriesConfigPtrOutput() ActionsOrganizationPermissionsEnabledRepositoriesConfigPtrOutput {
+	return o.ToActionsOrganizationPermissionsEnabledRepositoriesConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ActionsOrganizationPermissionsEnabledRepositoriesConfigOutput) ToActionsOrganizationPermissionsEnabledRepositoriesConfigPtrOutputWithContext(ctx context.Context) ActionsOrganizationPermissionsEnabledRepositoriesConfigPtrOutput {
+	return o.ApplyT(func(v ActionsOrganizationPermissionsEnabledRepositoriesConfig) *ActionsOrganizationPermissionsEnabledRepositoriesConfig {
+		return &v
+	}).(ActionsOrganizationPermissionsEnabledRepositoriesConfigPtrOutput)
+}
+
+// List of repository IDs to enable for GitHub Actions.
+func (o ActionsOrganizationPermissionsEnabledRepositoriesConfigOutput) RepositoryIds() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v ActionsOrganizationPermissionsEnabledRepositoriesConfig) []int { return v.RepositoryIds }).(pulumi.IntArrayOutput)
+}
+
+type ActionsOrganizationPermissionsEnabledRepositoriesConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ActionsOrganizationPermissionsEnabledRepositoriesConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionsOrganizationPermissionsEnabledRepositoriesConfig)(nil)).Elem()
+}
+
+func (o ActionsOrganizationPermissionsEnabledRepositoriesConfigPtrOutput) ToActionsOrganizationPermissionsEnabledRepositoriesConfigPtrOutput() ActionsOrganizationPermissionsEnabledRepositoriesConfigPtrOutput {
+	return o
+}
+
+func (o ActionsOrganizationPermissionsEnabledRepositoriesConfigPtrOutput) ToActionsOrganizationPermissionsEnabledRepositoriesConfigPtrOutputWithContext(ctx context.Context) ActionsOrganizationPermissionsEnabledRepositoriesConfigPtrOutput {
+	return o
+}
+
+func (o ActionsOrganizationPermissionsEnabledRepositoriesConfigPtrOutput) Elem() ActionsOrganizationPermissionsEnabledRepositoriesConfigOutput {
+	return o.ApplyT(func(v *ActionsOrganizationPermissionsEnabledRepositoriesConfig) ActionsOrganizationPermissionsEnabledRepositoriesConfig {
+		return *v
+	}).(ActionsOrganizationPermissionsEnabledRepositoriesConfigOutput)
+}
+
+// List of repository IDs to enable for GitHub Actions.
+func (o ActionsOrganizationPermissionsEnabledRepositoriesConfigPtrOutput) RepositoryIds() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v *ActionsOrganizationPermissionsEnabledRepositoriesConfig) []int {
+		if v == nil {
+			return nil
+		}
+		return v.RepositoryIds
+	}).(pulumi.IntArrayOutput)
+}
+
 type BranchProtectionRequiredPullRequestReview struct {
 	DismissStaleReviews          *bool    `pulumi:"dismissStaleReviews"`
 	DismissalRestrictions        []string `pulumi:"dismissalRestrictions"`
@@ -1854,10 +2158,13 @@ func (o RepositoryTemplatePtrOutput) Repository() pulumi.StringPtrOutput {
 }
 
 type RepositoryWebhookConfiguration struct {
+	// The content type for the payload. Valid values are either `form` or `json`.
 	ContentType *string `pulumi:"contentType"`
-	InsecureSsl *bool   `pulumi:"insecureSsl"`
-	Secret      *string `pulumi:"secret"`
-	// URL of the webhook.  This is a sensitive attribute because it may include basic auth credentials.
+	// Insecure SSL boolean toggle. Defaults to `false`.
+	InsecureSsl *bool `pulumi:"insecureSsl"`
+	// The shared secret for the webhook. [See API documentation](https://developer.github.com/v3/repos/hooks/#create-a-hook).
+	Secret *string `pulumi:"secret"`
+	// The URL of the webhook.
 	Url string `pulumi:"url"`
 }
 
@@ -1873,10 +2180,13 @@ type RepositoryWebhookConfigurationInput interface {
 }
 
 type RepositoryWebhookConfigurationArgs struct {
+	// The content type for the payload. Valid values are either `form` or `json`.
 	ContentType pulumi.StringPtrInput `pulumi:"contentType"`
-	InsecureSsl pulumi.BoolPtrInput   `pulumi:"insecureSsl"`
-	Secret      pulumi.StringPtrInput `pulumi:"secret"`
-	// URL of the webhook.  This is a sensitive attribute because it may include basic auth credentials.
+	// Insecure SSL boolean toggle. Defaults to `false`.
+	InsecureSsl pulumi.BoolPtrInput `pulumi:"insecureSsl"`
+	// The shared secret for the webhook. [See API documentation](https://developer.github.com/v3/repos/hooks/#create-a-hook).
+	Secret pulumi.StringPtrInput `pulumi:"secret"`
+	// The URL of the webhook.
 	Url pulumi.StringInput `pulumi:"url"`
 }
 
@@ -1956,19 +2266,23 @@ func (o RepositoryWebhookConfigurationOutput) ToRepositoryWebhookConfigurationPt
 		return &v
 	}).(RepositoryWebhookConfigurationPtrOutput)
 }
+
+// The content type for the payload. Valid values are either `form` or `json`.
 func (o RepositoryWebhookConfigurationOutput) ContentType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RepositoryWebhookConfiguration) *string { return v.ContentType }).(pulumi.StringPtrOutput)
 }
 
+// Insecure SSL boolean toggle. Defaults to `false`.
 func (o RepositoryWebhookConfigurationOutput) InsecureSsl() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RepositoryWebhookConfiguration) *bool { return v.InsecureSsl }).(pulumi.BoolPtrOutput)
 }
 
+// The shared secret for the webhook. [See API documentation](https://developer.github.com/v3/repos/hooks/#create-a-hook).
 func (o RepositoryWebhookConfigurationOutput) Secret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RepositoryWebhookConfiguration) *string { return v.Secret }).(pulumi.StringPtrOutput)
 }
 
-// URL of the webhook.  This is a sensitive attribute because it may include basic auth credentials.
+// The URL of the webhook.
 func (o RepositoryWebhookConfigurationOutput) Url() pulumi.StringOutput {
 	return o.ApplyT(func(v RepositoryWebhookConfiguration) string { return v.Url }).(pulumi.StringOutput)
 }
@@ -1991,6 +2305,7 @@ func (o RepositoryWebhookConfigurationPtrOutput) Elem() RepositoryWebhookConfigu
 	return o.ApplyT(func(v *RepositoryWebhookConfiguration) RepositoryWebhookConfiguration { return *v }).(RepositoryWebhookConfigurationOutput)
 }
 
+// The content type for the payload. Valid values are either `form` or `json`.
 func (o RepositoryWebhookConfigurationPtrOutput) ContentType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RepositoryWebhookConfiguration) *string {
 		if v == nil {
@@ -2000,6 +2315,7 @@ func (o RepositoryWebhookConfigurationPtrOutput) ContentType() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
+// Insecure SSL boolean toggle. Defaults to `false`.
 func (o RepositoryWebhookConfigurationPtrOutput) InsecureSsl() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RepositoryWebhookConfiguration) *bool {
 		if v == nil {
@@ -2009,6 +2325,7 @@ func (o RepositoryWebhookConfigurationPtrOutput) InsecureSsl() pulumi.BoolPtrOut
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The shared secret for the webhook. [See API documentation](https://developer.github.com/v3/repos/hooks/#create-a-hook).
 func (o RepositoryWebhookConfigurationPtrOutput) Secret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RepositoryWebhookConfiguration) *string {
 		if v == nil {
@@ -2018,7 +2335,7 @@ func (o RepositoryWebhookConfigurationPtrOutput) Secret() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// URL of the webhook.  This is a sensitive attribute because it may include basic auth credentials.
+// The URL of the webhook.
 func (o RepositoryWebhookConfigurationPtrOutput) Url() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RepositoryWebhookConfiguration) *string {
 		if v == nil {
@@ -3216,6 +3533,10 @@ func (o GetRepositoryPullRequestsResultTypeArrayOutput) Index(i pulumi.IntInput)
 }
 
 func init() {
+	pulumi.RegisterOutputType(ActionsOrganizationPermissionsAllowedActionsConfigOutput{})
+	pulumi.RegisterOutputType(ActionsOrganizationPermissionsAllowedActionsConfigPtrOutput{})
+	pulumi.RegisterOutputType(ActionsOrganizationPermissionsEnabledRepositoriesConfigOutput{})
+	pulumi.RegisterOutputType(ActionsOrganizationPermissionsEnabledRepositoriesConfigPtrOutput{})
 	pulumi.RegisterOutputType(BranchProtectionRequiredPullRequestReviewOutput{})
 	pulumi.RegisterOutputType(BranchProtectionRequiredPullRequestReviewArrayOutput{})
 	pulumi.RegisterOutputType(BranchProtectionRequiredStatusCheckOutput{})

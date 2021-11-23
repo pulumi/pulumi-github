@@ -4,6 +4,28 @@
 import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs } from "../types";
 
+export interface ActionsOrganizationPermissionsAllowedActionsConfig {
+    /**
+     * Whether GitHub-owned actions are allowed in the organization.
+     */
+    githubOwnedAllowed: boolean;
+    /**
+     * Specifies a list of string-matching patterns to allow specific action(s). Wildcards, tags, and SHAs are allowed. For example, monalisa/octocat@*, monalisa/octocat@v2, monalisa/*."
+     */
+    patternsAlloweds?: string[];
+    /**
+     * Whether actions in GitHub Marketplace from verified creators are allowed. Set to true to allow all GitHub Marketplace actions by verified creators.
+     */
+    verifiedAllowed?: boolean;
+}
+
+export interface ActionsOrganizationPermissionsEnabledRepositoriesConfig {
+    /**
+     * List of repository IDs to enable for GitHub Actions.
+     */
+    repositoryIds: number[];
+}
+
 export interface BranchProtectionRequiredPullRequestReview {
     dismissStaleReviews?: boolean;
     dismissalRestrictions?: string[];
@@ -335,11 +357,20 @@ export interface RepositoryTemplate {
 }
 
 export interface RepositoryWebhookConfiguration {
+    /**
+     * The content type for the payload. Valid values are either `form` or `json`.
+     */
     contentType?: string;
+    /**
+     * Insecure SSL boolean toggle. Defaults to `false`.
+     */
     insecureSsl?: boolean;
+    /**
+     * The shared secret for the webhook. [See API documentation](https://developer.github.com/v3/repos/hooks/#create-a-hook).
+     */
     secret?: string;
     /**
-     * URL of the webhook.  This is a sensitive attribute because it may include basic auth credentials.
+     * The URL of the webhook.
      */
     url: string;
 }

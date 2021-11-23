@@ -6,6 +6,7 @@ import * as utilities from "./utilities";
 
 // Export members:
 export * from "./actionsEnvironmentSecret";
+export * from "./actionsOrganizationPermissions";
 export * from "./actionsOrganizationSecret";
 export * from "./actionsOrganizationSecretRepositories";
 export * from "./actionsRunnerGroup";
@@ -26,11 +27,13 @@ export * from "./getOrganizationTeams";
 export * from "./getRelease";
 export * from "./getRepositories";
 export * from "./getRepository";
+export * from "./getRepositoryFile";
 export * from "./getRepositoryMilestone";
 export * from "./getRepositoryPullRequest";
 export * from "./getRepositoryPullRequests";
 export * from "./getTeam";
 export * from "./getUser";
+export * from "./getUsers";
 export * from "./issueLabel";
 export * from "./membership";
 export * from "./organizationBlock";
@@ -40,6 +43,7 @@ export * from "./projectCard";
 export * from "./projectColumn";
 export * from "./provider";
 export * from "./repository";
+export * from "./repositoryAutolinkReference";
 export * from "./repositoryCollaborator";
 export * from "./repositoryDeployKey";
 export * from "./repositoryEnvironment";
@@ -67,6 +71,7 @@ export {
 
 // Import resources to register:
 import { ActionsEnvironmentSecret } from "./actionsEnvironmentSecret";
+import { ActionsOrganizationPermissions } from "./actionsOrganizationPermissions";
 import { ActionsOrganizationSecret } from "./actionsOrganizationSecret";
 import { ActionsOrganizationSecretRepositories } from "./actionsOrganizationSecretRepositories";
 import { ActionsRunnerGroup } from "./actionsRunnerGroup";
@@ -84,6 +89,7 @@ import { OrganizationWebhook } from "./organizationWebhook";
 import { ProjectCard } from "./projectCard";
 import { ProjectColumn } from "./projectColumn";
 import { Repository } from "./repository";
+import { RepositoryAutolinkReference } from "./repositoryAutolinkReference";
 import { RepositoryCollaborator } from "./repositoryCollaborator";
 import { RepositoryDeployKey } from "./repositoryDeployKey";
 import { RepositoryEnvironment } from "./repositoryEnvironment";
@@ -106,6 +112,8 @@ const _module = {
         switch (type) {
             case "github:index/actionsEnvironmentSecret:ActionsEnvironmentSecret":
                 return new ActionsEnvironmentSecret(name, <any>undefined, { urn })
+            case "github:index/actionsOrganizationPermissions:ActionsOrganizationPermissions":
+                return new ActionsOrganizationPermissions(name, <any>undefined, { urn })
             case "github:index/actionsOrganizationSecret:ActionsOrganizationSecret":
                 return new ActionsOrganizationSecret(name, <any>undefined, { urn })
             case "github:index/actionsOrganizationSecretRepositories:ActionsOrganizationSecretRepositories":
@@ -140,6 +148,8 @@ const _module = {
                 return new ProjectColumn(name, <any>undefined, { urn })
             case "github:index/repository:Repository":
                 return new Repository(name, <any>undefined, { urn })
+            case "github:index/repositoryAutolinkReference:RepositoryAutolinkReference":
+                return new RepositoryAutolinkReference(name, <any>undefined, { urn })
             case "github:index/repositoryCollaborator:RepositoryCollaborator":
                 return new RepositoryCollaborator(name, <any>undefined, { urn })
             case "github:index/repositoryDeployKey:RepositoryDeployKey":
@@ -176,6 +186,7 @@ const _module = {
     },
 };
 pulumi.runtime.registerResourceModule("github", "index/actionsEnvironmentSecret", _module)
+pulumi.runtime.registerResourceModule("github", "index/actionsOrganizationPermissions", _module)
 pulumi.runtime.registerResourceModule("github", "index/actionsOrganizationSecret", _module)
 pulumi.runtime.registerResourceModule("github", "index/actionsOrganizationSecretRepositories", _module)
 pulumi.runtime.registerResourceModule("github", "index/actionsRunnerGroup", _module)
@@ -193,6 +204,7 @@ pulumi.runtime.registerResourceModule("github", "index/organizationWebhook", _mo
 pulumi.runtime.registerResourceModule("github", "index/projectCard", _module)
 pulumi.runtime.registerResourceModule("github", "index/projectColumn", _module)
 pulumi.runtime.registerResourceModule("github", "index/repository", _module)
+pulumi.runtime.registerResourceModule("github", "index/repositoryAutolinkReference", _module)
 pulumi.runtime.registerResourceModule("github", "index/repositoryCollaborator", _module)
 pulumi.runtime.registerResourceModule("github", "index/repositoryDeployKey", _module)
 pulumi.runtime.registerResourceModule("github", "index/repositoryEnvironment", _module)

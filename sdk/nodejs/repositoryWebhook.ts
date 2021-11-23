@@ -71,11 +71,11 @@ export class RepositoryWebhook extends pulumi.CustomResource {
     }
 
     /**
-     * Indicate of the webhook should receive events. Defaults to `true`.
+     * Indicate if the webhook should receive events. Defaults to `true`.
      */
     public readonly active!: pulumi.Output<boolean | undefined>;
     /**
-     * key/value pair of configuration for this webhook. Available keys are `url`, `contentType`, `secret` and `insecureSsl`. `secret` is [the shared secret, see API documentation](https://developer.github.com/v3/repos/hooks/#create-a-hook). `contentType` may be either form or json.
+     * Configuration block for the webhook. Detailed below.
      */
     public readonly configuration!: pulumi.Output<outputs.RepositoryWebhookConfiguration | undefined>;
     public /*out*/ readonly etag!: pulumi.Output<string>;
@@ -88,7 +88,7 @@ export class RepositoryWebhook extends pulumi.CustomResource {
      */
     public readonly repository!: pulumi.Output<string>;
     /**
-     * URL of the webhook.  This is a sensitive attribute because it may include basic auth credentials.
+     * The URL of the webhook.
      */
     public /*out*/ readonly url!: pulumi.Output<string>;
 
@@ -138,11 +138,11 @@ export class RepositoryWebhook extends pulumi.CustomResource {
  */
 export interface RepositoryWebhookState {
     /**
-     * Indicate of the webhook should receive events. Defaults to `true`.
+     * Indicate if the webhook should receive events. Defaults to `true`.
      */
     active?: pulumi.Input<boolean>;
     /**
-     * key/value pair of configuration for this webhook. Available keys are `url`, `contentType`, `secret` and `insecureSsl`. `secret` is [the shared secret, see API documentation](https://developer.github.com/v3/repos/hooks/#create-a-hook). `contentType` may be either form or json.
+     * Configuration block for the webhook. Detailed below.
      */
     configuration?: pulumi.Input<inputs.RepositoryWebhookConfiguration>;
     etag?: pulumi.Input<string>;
@@ -155,7 +155,7 @@ export interface RepositoryWebhookState {
      */
     repository?: pulumi.Input<string>;
     /**
-     * URL of the webhook.  This is a sensitive attribute because it may include basic auth credentials.
+     * The URL of the webhook.
      */
     url?: pulumi.Input<string>;
 }
@@ -165,11 +165,11 @@ export interface RepositoryWebhookState {
  */
 export interface RepositoryWebhookArgs {
     /**
-     * Indicate of the webhook should receive events. Defaults to `true`.
+     * Indicate if the webhook should receive events. Defaults to `true`.
      */
     active?: pulumi.Input<boolean>;
     /**
-     * key/value pair of configuration for this webhook. Available keys are `url`, `contentType`, `secret` and `insecureSsl`. `secret` is [the shared secret, see API documentation](https://developer.github.com/v3/repos/hooks/#create-a-hook). `contentType` may be either form or json.
+     * Configuration block for the webhook. Detailed below.
      */
     configuration?: pulumi.Input<inputs.RepositoryWebhookConfiguration>;
     /**
