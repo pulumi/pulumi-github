@@ -76,6 +76,64 @@
                 }
             }
         },
+        "github:index/ActionsOrganizationPermissionsAllowedActionsConfig:ActionsOrganizationPermissionsAllowedActionsConfig": {
+            "properties": {
+                "githubOwnedAllowed": {
+                    "type": "boolean",
+                    "description": "Whether GitHub-owned actions are allowed in the organization.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "patternsAlloweds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Specifies a list of string-matching patterns to allow specific action(s). Wildcards, tags, and SHAs are allowed. For example, monalisa/octocat@*, monalisa/octocat@v2, monalisa/*.\"\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "verifiedAllowed": {
+                    "type": "boolean",
+                    "description": "Whether actions in GitHub Marketplace from verified creators are allowed. Set to true to allow all GitHub Marketplace actions by verified creators.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "githubOwnedAllowed"
+            ]
+        },
+        "github:index/ActionsOrganizationPermissionsEnabledRepositoriesConfig:ActionsOrganizationPermissionsEnabledRepositoriesConfig": {
+            "properties": {
+                "repositoryIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    },
+                    "description": "List of repository IDs to enable for GitHub Actions.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "repositoryIds"
+            ]
+        },
         "github:index/BranchProtectionRequiredPullRequestReview:BranchProtectionRequiredPullRequestReview": {
             "properties": {
                 "dismissStaleReviews": {
@@ -542,6 +600,7 @@
             "properties": {
                 "contentType": {
                     "type": "string",
+                    "description": "The content type for the payload. Valid values are either `form` or `json`.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -550,6 +609,7 @@
                 },
                 "insecureSsl": {
                     "type": "boolean",
+                    "description": "Insecure SSL boolean toggle. Defaults to `false`.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -558,6 +618,7 @@
                 },
                 "secret": {
                     "type": "string",
+                    "description": "The shared secret for the webhook. [See API documentation](https://developer.github.com/v3/repos/hooks/#create-a-hook).\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -566,7 +627,7 @@
                 },
                 "url": {
                     "type": "string",
-                    "description": "URL of the webhook.  This is a sensitive attribute because it may include basic auth credentials.\n",
+                    "description": "The URL of the webhook.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -1404,6 +1465,73 @@
                     "updatedAt": {
                         "type": "string",
                         "description": "Date of actions_environment_secret update.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "github:index/actionsOrganizationPermissions:ActionsOrganizationPermissions": {
+            "description": "This resource allows you to create and manage GitHub Actions permissions within your GitHub enterprise organizations.\nYou must have admin access to an organization to use this resource.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\nconst example = new github.Repository(\"example\", {});\nconst test = new github.ActionsOrganizationPermissions(\"test\", {\n    allowedActions: \"selected\",\n    enabledRepositories: \"selected\",\n    allowedActionsConfig: {\n        githubOwnedAllowed: true,\n        patternsAlloweds: [\n            \"actions/cache@*\",\n            \"actions/checkout@*\",\n        ],\n        verifiedAllowed: true,\n    },\n    enabledRepositoriesConfig: {\n        repositoryIds: [example.repoId],\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\nexample = github.Repository(\"example\")\ntest = github.ActionsOrganizationPermissions(\"test\",\n    allowed_actions=\"selected\",\n    enabled_repositories=\"selected\",\n    allowed_actions_config=github.ActionsOrganizationPermissionsAllowedActionsConfigArgs(\n        github_owned_allowed=True,\n        patterns_alloweds=[\n            \"actions/cache@*\",\n            \"actions/checkout@*\",\n        ],\n        verified_allowed=True,\n    ),\n    enabled_repositories_config=github.ActionsOrganizationPermissionsEnabledRepositoriesConfigArgs(\n        repository_ids=[example.repo_id],\n    ))\n```\n```csharp\nusing Pulumi;\nusing Github = Pulumi.Github;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var example = new Github.Repository(\"example\", new Github.RepositoryArgs\n        {\n        });\n        var test = new Github.ActionsOrganizationPermissions(\"test\", new Github.ActionsOrganizationPermissionsArgs\n        {\n            AllowedActions = \"selected\",\n            EnabledRepositories = \"selected\",\n            AllowedActionsConfig = new Github.Inputs.ActionsOrganizationPermissionsAllowedActionsConfigArgs\n            {\n                GithubOwnedAllowed = true,\n                PatternsAlloweds = \n                {\n                    \"actions/cache@*\",\n                    \"actions/checkout@*\",\n                },\n                VerifiedAllowed = true,\n            },\n            EnabledRepositoriesConfig = new Github.Inputs.ActionsOrganizationPermissionsEnabledRepositoriesConfigArgs\n            {\n                RepositoryIds = \n                {\n                    example.RepoId,\n                },\n            },\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-github/sdk/v4/go/github\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\texample, err := github.NewRepository(ctx, \"example\", nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = github.NewActionsOrganizationPermissions(ctx, \"test\", \u0026github.ActionsOrganizationPermissionsArgs{\n\t\t\tAllowedActions:      pulumi.String(\"selected\"),\n\t\t\tEnabledRepositories: pulumi.String(\"selected\"),\n\t\t\tAllowedActionsConfig: \u0026github.ActionsOrganizationPermissionsAllowedActionsConfigArgs{\n\t\t\t\tGithubOwnedAllowed: pulumi.Bool(true),\n\t\t\t\tPatternsAlloweds: pulumi.StringArray{\n\t\t\t\t\tpulumi.String(\"actions/cache@*\"),\n\t\t\t\t\tpulumi.String(\"actions/checkout@*\"),\n\t\t\t\t},\n\t\t\t\tVerifiedAllowed: pulumi.Bool(true),\n\t\t\t},\n\t\t\tEnabledRepositoriesConfig: \u0026github.ActionsOrganizationPermissionsEnabledRepositoriesConfigArgs{\n\t\t\t\tRepositoryIds: pulumi.IntArray{\n\t\t\t\t\texample.RepoId,\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nThis resource can be imported using the ID of the GitHub organization\n\n```sh\n $ pulumi import github:index/actionsOrganizationPermissions:ActionsOrganizationPermissions test \u003cgithub_organization_name\u003e\n```\n\n ",
+            "properties": {
+                "allowedActions": {
+                    "type": "string",
+                    "description": "The permissions policy that controls the actions that are allowed to run. Can be one of: `all`, `local_only`, or `selected`.\n"
+                },
+                "allowedActionsConfig": {
+                    "$ref": "#/types/github:index/ActionsOrganizationPermissionsAllowedActionsConfig:ActionsOrganizationPermissionsAllowedActionsConfig",
+                    "description": "Sets the actions that are allowed in an organization. Only available when `allowed_actions` = `selected`. See Allowed Actions Config below for details.\n"
+                },
+                "enabledRepositories": {
+                    "type": "string",
+                    "description": "The policy that controls the repositories in the organization that are allowed to run GitHub Actions. Can be one of: `all`, `none`, or `selected`.\n"
+                },
+                "enabledRepositoriesConfig": {
+                    "$ref": "#/types/github:index/ActionsOrganizationPermissionsEnabledRepositoriesConfig:ActionsOrganizationPermissionsEnabledRepositoriesConfig",
+                    "description": "Sets the list of selected repositories that are enabled for GitHub Actions in an organization. Only available when `enabled_repositories` = `selected`. See Enabled Repositories Config below for details.\n"
+                }
+            },
+            "required": [
+                "enabledRepositories"
+            ],
+            "inputProperties": {
+                "allowedActions": {
+                    "type": "string",
+                    "description": "The permissions policy that controls the actions that are allowed to run. Can be one of: `all`, `local_only`, or `selected`.\n"
+                },
+                "allowedActionsConfig": {
+                    "$ref": "#/types/github:index/ActionsOrganizationPermissionsAllowedActionsConfig:ActionsOrganizationPermissionsAllowedActionsConfig",
+                    "description": "Sets the actions that are allowed in an organization. Only available when `allowed_actions` = `selected`. See Allowed Actions Config below for details.\n"
+                },
+                "enabledRepositories": {
+                    "type": "string",
+                    "description": "The policy that controls the repositories in the organization that are allowed to run GitHub Actions. Can be one of: `all`, `none`, or `selected`.\n"
+                },
+                "enabledRepositoriesConfig": {
+                    "$ref": "#/types/github:index/ActionsOrganizationPermissionsEnabledRepositoriesConfig:ActionsOrganizationPermissionsEnabledRepositoriesConfig",
+                    "description": "Sets the list of selected repositories that are enabled for GitHub Actions in an organization. Only available when `enabled_repositories` = `selected`. See Enabled Repositories Config below for details.\n"
+                }
+            },
+            "requiredInputs": [
+                "enabledRepositories"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering ActionsOrganizationPermissions resources.\n",
+                "properties": {
+                    "allowedActions": {
+                        "type": "string",
+                        "description": "The permissions policy that controls the actions that are allowed to run. Can be one of: `all`, `local_only`, or `selected`.\n"
+                    },
+                    "allowedActionsConfig": {
+                        "$ref": "#/types/github:index/ActionsOrganizationPermissionsAllowedActionsConfig:ActionsOrganizationPermissionsAllowedActionsConfig",
+                        "description": "Sets the actions that are allowed in an organization. Only available when `allowed_actions` = `selected`. See Allowed Actions Config below for details.\n"
+                    },
+                    "enabledRepositories": {
+                        "type": "string",
+                        "description": "The policy that controls the repositories in the organization that are allowed to run GitHub Actions. Can be one of: `all`, `none`, or `selected`.\n"
+                    },
+                    "enabledRepositoriesConfig": {
+                        "$ref": "#/types/github:index/ActionsOrganizationPermissionsEnabledRepositoriesConfig:ActionsOrganizationPermissionsEnabledRepositoriesConfig",
+                        "description": "Sets the list of selected repositories that are enabled for GitHub Actions in an organization. Only available when `enabled_repositories` = `selected`. See Enabled Repositories Config below for details.\n"
                     }
                 },
                 "type": "object"
@@ -3102,6 +3230,74 @@
                 "type": "object"
             }
         },
+        "github:index/repositoryAutolinkReference:RepositoryAutolinkReference": {
+            "description": "This resource allows you to create and manage an autolink reference for a single repository.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\nconst repo = new github.Repository(\"repo\", {\n    description: \"GitHub repo managed by Terraform\",\n    \"private\": false,\n});\nconst auto = new github.RepositoryAutolinkReference(\"auto\", {\n    repository: repo.name,\n    keyPrefix: \"TICKET-\",\n    targetUrlTemplate: \"https://hello.there/TICKET?query=\u003cnum\u003e\",\n});\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\nrepo = github.Repository(\"repo\",\n    description=\"GitHub repo managed by Terraform\",\n    private=False)\nauto = github.RepositoryAutolinkReference(\"auto\",\n    repository=repo.name,\n    key_prefix=\"TICKET-\",\n    target_url_template=\"https://hello.there/TICKET?query=\u003cnum\u003e\")\n```\n```csharp\nusing Pulumi;\nusing Github = Pulumi.Github;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var repo = new Github.Repository(\"repo\", new Github.RepositoryArgs\n        {\n            Description = \"GitHub repo managed by Terraform\",\n            Private = false,\n        });\n        var auto = new Github.RepositoryAutolinkReference(\"auto\", new Github.RepositoryAutolinkReferenceArgs\n        {\n            Repository = repo.Name,\n            KeyPrefix = \"TICKET-\",\n            TargetUrlTemplate = \"https://hello.there/TICKET?query=\u003cnum\u003e\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-github/sdk/v4/go/github\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\trepo, err := github.NewRepository(ctx, \"repo\", \u0026github.RepositoryArgs{\n\t\t\tDescription: pulumi.String(\"GitHub repo managed by Terraform\"),\n\t\t\tPrivate:     pulumi.Bool(false),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = github.NewRepositoryAutolinkReference(ctx, \"auto\", \u0026github.RepositoryAutolinkReferenceArgs{\n\t\t\tRepository:        repo.Name,\n\t\t\tKeyPrefix:         pulumi.String(\"TICKET-\"),\n\t\t\tTargetUrlTemplate: pulumi.String(\"https://hello.there/TICKET?query=\u003cnum\u003e\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nAutolink references can be imported using the `name` of the repository, combined with the `id` of the autolink reference and a `/` character for separating components, e.g.\n\n```sh\n $ pulumi import github:index/repositoryAutolinkReference:RepositoryAutolinkReference auto oof/123\n```\n\n ",
+            "properties": {
+                "etag": {
+                    "type": "string",
+                    "description": "An etag representing the autolink reference object.\n"
+                },
+                "keyPrefix": {
+                    "type": "string",
+                    "description": "This prefix appended by a number will generate a link any time it is found in an issue, pull request, or commit.\n"
+                },
+                "repository": {
+                    "type": "string",
+                    "description": "The repository of the autolink reference.\n"
+                },
+                "targetUrlTemplate": {
+                    "type": "string",
+                    "description": "The template of the target URL used for the links; must be a valid URL and contain `\u003cnum\u003e` for the reference number\n"
+                }
+            },
+            "required": [
+                "etag",
+                "keyPrefix",
+                "repository",
+                "targetUrlTemplate"
+            ],
+            "inputProperties": {
+                "keyPrefix": {
+                    "type": "string",
+                    "description": "This prefix appended by a number will generate a link any time it is found in an issue, pull request, or commit.\n"
+                },
+                "repository": {
+                    "type": "string",
+                    "description": "The repository of the autolink reference.\n"
+                },
+                "targetUrlTemplate": {
+                    "type": "string",
+                    "description": "The template of the target URL used for the links; must be a valid URL and contain `\u003cnum\u003e` for the reference number\n"
+                }
+            },
+            "requiredInputs": [
+                "keyPrefix",
+                "repository",
+                "targetUrlTemplate"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering RepositoryAutolinkReference resources.\n",
+                "properties": {
+                    "etag": {
+                        "type": "string",
+                        "description": "An etag representing the autolink reference object.\n"
+                    },
+                    "keyPrefix": {
+                        "type": "string",
+                        "description": "This prefix appended by a number will generate a link any time it is found in an issue, pull request, or commit.\n"
+                    },
+                    "repository": {
+                        "type": "string",
+                        "description": "The repository of the autolink reference.\n"
+                    },
+                    "targetUrlTemplate": {
+                        "type": "string",
+                        "description": "The template of the target URL used for the links; must be a valid URL and contain `\u003cnum\u003e` for the reference number\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
         "github:index/repositoryCollaborator:RepositoryCollaborator": {
             "description": "Provides a GitHub repository collaborator resource.\n\nThis resource allows you to add/remove collaborators from repositories in your\norganization or personal account. For organization repositories, collaborators can\nhave explicit (and differing levels of) read, write, or administrator access to \nspecific repositories, without giving the user full organization membership. \nFor personal repositories, collaborators can only be granted write\n(implictly includes read) permission. \n\nWhen applied, an invitation will be sent to the user to become a collaborator\non a repository. When destroyed, either the invitation will be cancelled or the\ncollaborator will be removed from the repository.\n\nFurther documentation on GitHub collaborators:\n\n- [Adding outside collaborators to your personal repositories](https://help.github.com/en/github/setting-up-and-managing-your-github-user-account/managing-access-to-your-personal-repositories)\n- [Adding outside collaborators to repositories in your organization](https://help.github.com/articles/adding-outside-collaborators-to-repositories-in-your-organization/)\n- [Converting an organization member to an outside collaborator](https://help.github.com/articles/converting-an-organization-member-to-an-outside-collaborator/)\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\n// Add a collaborator to a repository\nconst aRepoCollaborator = new github.RepositoryCollaborator(\"a_repo_collaborator\", {\n    permission: \"admin\",\n    repository: \"our-cool-repo\",\n    username: \"SomeUser\",\n});\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\n# Add a collaborator to a repository\na_repo_collaborator = github.RepositoryCollaborator(\"aRepoCollaborator\",\n    permission=\"admin\",\n    repository=\"our-cool-repo\",\n    username=\"SomeUser\")\n```\n```csharp\nusing Pulumi;\nusing Github = Pulumi.Github;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        // Add a collaborator to a repository\n        var aRepoCollaborator = new Github.RepositoryCollaborator(\"aRepoCollaborator\", new Github.RepositoryCollaboratorArgs\n        {\n            Permission = \"admin\",\n            Repository = \"our-cool-repo\",\n            Username = \"SomeUser\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-github/sdk/v4/go/github\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := github.NewRepositoryCollaborator(ctx, \"aRepoCollaborator\", \u0026github.RepositoryCollaboratorArgs{\n\t\t\tPermission: pulumi.String(\"admin\"),\n\t\t\tRepository: pulumi.String(\"our-cool-repo\"),\n\t\t\tUsername:   pulumi.String(\"SomeUser\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nGitHub Repository Collaborators can be imported using an ID made up of `repository:username`, e.g.\n\n```sh\n $ pulumi import github:index/repositoryCollaborator:RepositoryCollaborator collaborator terraform:someuser\n```\n\n ",
             "properties": {
@@ -3859,11 +4055,11 @@
             "properties": {
                 "active": {
                     "type": "boolean",
-                    "description": "Indicate of the webhook should receive events. Defaults to `true`.\n"
+                    "description": "Indicate if the webhook should receive events. Defaults to `true`.\n"
                 },
                 "configuration": {
                     "$ref": "#/types/github:index/RepositoryWebhookConfiguration:RepositoryWebhookConfiguration",
-                    "description": "key/value pair of configuration for this webhook. Available keys are `url`, `content_type`, `secret` and `insecure_ssl`. `secret` is [the shared secret, see API documentation](https://developer.github.com/v3/repos/hooks/#create-a-hook). `content_type` may be either form or json.\n"
+                    "description": "Configuration block for the webhook. Detailed below.\n"
                 },
                 "etag": {
                     "type": "string"
@@ -3881,7 +4077,7 @@
                 },
                 "url": {
                     "type": "string",
-                    "description": "URL of the webhook.  This is a sensitive attribute because it may include basic auth credentials.\n"
+                    "description": "The URL of the webhook.\n"
                 }
             },
             "required": [
@@ -3893,11 +4089,11 @@
             "inputProperties": {
                 "active": {
                     "type": "boolean",
-                    "description": "Indicate of the webhook should receive events. Defaults to `true`.\n"
+                    "description": "Indicate if the webhook should receive events. Defaults to `true`.\n"
                 },
                 "configuration": {
                     "$ref": "#/types/github:index/RepositoryWebhookConfiguration:RepositoryWebhookConfiguration",
-                    "description": "key/value pair of configuration for this webhook. Available keys are `url`, `content_type`, `secret` and `insecure_ssl`. `secret` is [the shared secret, see API documentation](https://developer.github.com/v3/repos/hooks/#create-a-hook). `content_type` may be either form or json.\n"
+                    "description": "Configuration block for the webhook. Detailed below.\n"
                 },
                 "events": {
                     "type": "array",
@@ -3920,11 +4116,11 @@
                 "properties": {
                     "active": {
                         "type": "boolean",
-                        "description": "Indicate of the webhook should receive events. Defaults to `true`.\n"
+                        "description": "Indicate if the webhook should receive events. Defaults to `true`.\n"
                     },
                     "configuration": {
                         "$ref": "#/types/github:index/RepositoryWebhookConfiguration:RepositoryWebhookConfiguration",
-                        "description": "key/value pair of configuration for this webhook. Available keys are `url`, `content_type`, `secret` and `insecure_ssl`. `secret` is [the shared secret, see API documentation](https://developer.github.com/v3/repos/hooks/#create-a-hook). `content_type` may be either form or json.\n"
+                        "description": "Configuration block for the webhook. Detailed below.\n"
                     },
                     "etag": {
                         "type": "string"
@@ -3942,7 +4138,7 @@
                     },
                     "url": {
                         "type": "string",
-                        "description": "URL of the webhook.  This is a sensitive attribute because it may include basic auth credentials.\n"
+                        "description": "The URL of the webhook.\n"
                     }
                 },
                 "type": "object"
@@ -5255,6 +5451,85 @@
                 ]
             }
         },
+        "github:index/getRepositoryFile:getRepositoryFile": {
+            "description": "This data source allows you to read files within a\nGitHub repository.\n\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\nconst foo = github.getRepositoryFile({\n    repository: github_repository.foo.name,\n    branch: \"main\",\n    file: \".gitignore\",\n});\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\nfoo = github.get_repository_file(repository=github_repository[\"foo\"][\"name\"],\n    branch=\"main\",\n    file=\".gitignore\")\n```\n```csharp\nusing Pulumi;\nusing Github = Pulumi.Github;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var foo = Output.Create(Github.GetRepositoryFile.InvokeAsync(new Github.GetRepositoryFileArgs\n        {\n            Repository = github_repository.Foo.Name,\n            Branch = \"main\",\n            File = \".gitignore\",\n        }));\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-github/sdk/v4/go/github\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\topt0 := \"main\"\n\t\t_, err := github.LookupRepositoryFile(ctx, \u0026github.LookupRepositoryFileArgs{\n\t\t\tRepository: github_repository.Foo.Name,\n\t\t\tBranch:     \u0026opt0,\n\t\t\tFile:       \".gitignore\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "inputs": {
+                "description": "A collection of arguments for invoking getRepositoryFile.\n",
+                "properties": {
+                    "branch": {
+                        "type": "string",
+                        "description": "Git branch (defaults to `main`).\nThe branch must already exist, it will not be created if it does not already exist.\n"
+                    },
+                    "file": {
+                        "type": "string",
+                        "description": "The path of the file to manage.\n"
+                    },
+                    "repository": {
+                        "type": "string",
+                        "description": "The repository to create the file in.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "file",
+                    "repository"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getRepositoryFile.\n",
+                "properties": {
+                    "branch": {
+                        "type": "string"
+                    },
+                    "commitAuthor": {
+                        "type": "string",
+                        "description": "Committer author name.\n"
+                    },
+                    "commitEmail": {
+                        "type": "string",
+                        "description": "Committer email address.\n"
+                    },
+                    "commitMessage": {
+                        "type": "string",
+                        "description": "Commit message when file was last updated.\n"
+                    },
+                    "commitSha": {
+                        "type": "string",
+                        "description": "The SHA of the commit that modified the file.\n"
+                    },
+                    "content": {
+                        "type": "string",
+                        "description": "The file content.\n"
+                    },
+                    "file": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "repository": {
+                        "type": "string"
+                    },
+                    "sha": {
+                        "type": "string",
+                        "description": "The SHA blob of the file.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "commitAuthor",
+                    "commitEmail",
+                    "commitMessage",
+                    "commitSha",
+                    "content",
+                    "file",
+                    "repository",
+                    "sha",
+                    "id"
+                ]
+            }
+        },
         "github:index/getRepositoryMilestone:getRepositoryMilestone": {
             "description": "Use this data source to retrieve information about a specific GitHub milestone in a repository.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\nconst example = pulumi.output(github.getRepositoryMilestone({\n    number: 1,\n    owner: \"example-owner\",\n    repository: \"example-repository\",\n}));\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\nexample = github.get_repository_milestone(number=1,\n    owner=\"example-owner\",\n    repository=\"example-repository\")\n```\n```csharp\nusing Pulumi;\nusing Github = Pulumi.Github;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var example = Output.Create(Github.GetRepositoryMilestone.InvokeAsync(new Github.GetRepositoryMilestoneArgs\n        {\n            Number = 1,\n            Owner = \"example-owner\",\n            Repository = \"example-repository\",\n        }));\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-github/sdk/v4/go/github\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := github.LookupRepositoryMilestone(ctx, \u0026github.LookupRepositoryMilestoneArgs{\n\t\t\tNumber:     1,\n\t\t\tOwner:      \"example-owner\",\n\t\t\tRepository: \"example-repository\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
             "inputs": {
@@ -5742,6 +6017,69 @@
                     "sshKeys",
                     "updatedAt",
                     "username",
+                    "id"
+                ]
+            }
+        },
+        "github:index/getUsers:getUsers": {
+            "description": "Use this data source to retrieve information about multiple GitHub users at once.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\n// Retrieve information about multiple GitHub users.\nconst example = pulumi.output(github.getUsers({\n    usernames: [\n        \"example1\",\n        \"example2\",\n        \"example3\",\n    ],\n}));\n\nexport const validUsers = github_user_example.logins;\nexport const invalidUsers = github_user_example.unknownLogins;\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\nexample = github.get_users(usernames=[\n    \"example1\",\n    \"example2\",\n    \"example3\",\n])\npulumi.export(\"validUsers\", data[\"github_user\"][\"example\"][\"logins\"])\npulumi.export(\"invalidUsers\", data[\"github_user\"][\"example\"][\"unknown_logins\"])\n```\n```csharp\nusing Pulumi;\nusing Github = Pulumi.Github;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var example = Output.Create(Github.GetUsers.InvokeAsync(new Github.GetUsersArgs\n        {\n            Usernames = \n            {\n                \"example1\",\n                \"example2\",\n                \"example3\",\n            },\n        }));\n        this.ValidUsers = data.Github_user.Example.Logins;\n        this.InvalidUsers = data.Github_user.Example.Unknown_logins;\n    }\n\n    [Output(\"validUsers\")]\n    public Output\u003cstring\u003e ValidUsers { get; set; }\n    [Output(\"invalidUsers\")]\n    public Output\u003cstring\u003e InvalidUsers { get; set; }\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-github/sdk/v4/go/github\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := github.GetUsers(ctx, \u0026github.GetUsersArgs{\n\t\t\tUsernames: []string{\n\t\t\t\t\"example1\",\n\t\t\t\t\"example2\",\n\t\t\t\t\"example3\",\n\t\t\t},\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tctx.Export(\"validUsers\", data.Github_user.Example.Logins)\n\t\tctx.Export(\"invalidUsers\", data.Github_user.Example.Unknown_logins)\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "inputs": {
+                "description": "A collection of arguments for invoking getUsers.\n",
+                "properties": {
+                    "usernames": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "List of usernames.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "usernames"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getUsers.\n",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "logins": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "list of logins of users that could be found.\n"
+                    },
+                    "nodeIds": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "list of Node IDs of users that could be found.\n"
+                    },
+                    "unknownLogins": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "list of logins without matching user.\n"
+                    },
+                    "usernames": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "logins",
+                    "nodeIds",
+                    "unknownLogins",
+                    "usernames",
                     "id"
                 ]
             }

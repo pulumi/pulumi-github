@@ -6,6 +6,7 @@ from . import _utilities
 import typing
 # Export this package's modules as members:
 from .actions_environment_secret import *
+from .actions_organization_permissions import *
 from .actions_organization_secret import *
 from .actions_organization_secret_repositories import *
 from .actions_runner_group import *
@@ -26,11 +27,13 @@ from .get_organization_teams import *
 from .get_release import *
 from .get_repositories import *
 from .get_repository import *
+from .get_repository_file import *
 from .get_repository_milestone import *
 from .get_repository_pull_request import *
 from .get_repository_pull_requests import *
 from .get_team import *
 from .get_user import *
+from .get_users import *
 from .issue_label import *
 from .membership import *
 from .organization_block import *
@@ -40,6 +43,7 @@ from .project_card import *
 from .project_column import *
 from .provider import *
 from .repository import *
+from .repository_autolink_reference import *
 from .repository_collaborator import *
 from .repository_deploy_key import *
 from .repository_environment import *
@@ -73,6 +77,14 @@ _utilities.register(
   "fqn": "pulumi_github",
   "classes": {
    "github:index/actionsEnvironmentSecret:ActionsEnvironmentSecret": "ActionsEnvironmentSecret"
+  }
+ },
+ {
+  "pkg": "github",
+  "mod": "index/actionsOrganizationPermissions",
+  "fqn": "pulumi_github",
+  "classes": {
+   "github:index/actionsOrganizationPermissions:ActionsOrganizationPermissions": "ActionsOrganizationPermissions"
   }
  },
  {
@@ -209,6 +221,14 @@ _utilities.register(
   "fqn": "pulumi_github",
   "classes": {
    "github:index/repository:Repository": "Repository"
+  }
+ },
+ {
+  "pkg": "github",
+  "mod": "index/repositoryAutolinkReference",
+  "fqn": "pulumi_github",
+  "classes": {
+   "github:index/repositoryAutolinkReference:RepositoryAutolinkReference": "RepositoryAutolinkReference"
   }
  },
  {

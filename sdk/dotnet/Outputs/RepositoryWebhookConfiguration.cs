@@ -13,11 +13,20 @@ namespace Pulumi.Github.Outputs
     [OutputType]
     public sealed class RepositoryWebhookConfiguration
     {
+        /// <summary>
+        /// The content type for the payload. Valid values are either `form` or `json`.
+        /// </summary>
         public readonly string? ContentType;
+        /// <summary>
+        /// Insecure SSL boolean toggle. Defaults to `false`.
+        /// </summary>
         public readonly bool? InsecureSsl;
+        /// <summary>
+        /// The shared secret for the webhook. [See API documentation](https://developer.github.com/v3/repos/hooks/#create-a-hook).
+        /// </summary>
         public readonly string? Secret;
         /// <summary>
-        /// URL of the webhook.  This is a sensitive attribute because it may include basic auth credentials.
+        /// The URL of the webhook.
         /// </summary>
         public readonly string Url;
 

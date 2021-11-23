@@ -9,6 +9,8 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = [
+    'ActionsOrganizationPermissionsAllowedActionsConfigArgs',
+    'ActionsOrganizationPermissionsEnabledRepositoriesConfigArgs',
     'BranchProtectionRequiredPullRequestReviewArgs',
     'BranchProtectionRequiredStatusCheckArgs',
     'BranchProtectionV3RequiredPullRequestReviewsArgs',
@@ -24,6 +26,82 @@ __all__ = [
     'RepositoryWebhookConfigurationArgs',
     'TeamSyncGroupMappingGroupArgs',
 ]
+
+@pulumi.input_type
+class ActionsOrganizationPermissionsAllowedActionsConfigArgs:
+    def __init__(__self__, *,
+                 github_owned_allowed: pulumi.Input[bool],
+                 patterns_alloweds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 verified_allowed: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[bool] github_owned_allowed: Whether GitHub-owned actions are allowed in the organization.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] patterns_alloweds: Specifies a list of string-matching patterns to allow specific action(s). Wildcards, tags, and SHAs are allowed. For example, monalisa/octocat@*, monalisa/octocat@v2, monalisa/*."
+        :param pulumi.Input[bool] verified_allowed: Whether actions in GitHub Marketplace from verified creators are allowed. Set to true to allow all GitHub Marketplace actions by verified creators.
+        """
+        pulumi.set(__self__, "github_owned_allowed", github_owned_allowed)
+        if patterns_alloweds is not None:
+            pulumi.set(__self__, "patterns_alloweds", patterns_alloweds)
+        if verified_allowed is not None:
+            pulumi.set(__self__, "verified_allowed", verified_allowed)
+
+    @property
+    @pulumi.getter(name="githubOwnedAllowed")
+    def github_owned_allowed(self) -> pulumi.Input[bool]:
+        """
+        Whether GitHub-owned actions are allowed in the organization.
+        """
+        return pulumi.get(self, "github_owned_allowed")
+
+    @github_owned_allowed.setter
+    def github_owned_allowed(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "github_owned_allowed", value)
+
+    @property
+    @pulumi.getter(name="patternsAlloweds")
+    def patterns_alloweds(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of string-matching patterns to allow specific action(s). Wildcards, tags, and SHAs are allowed. For example, monalisa/octocat@*, monalisa/octocat@v2, monalisa/*."
+        """
+        return pulumi.get(self, "patterns_alloweds")
+
+    @patterns_alloweds.setter
+    def patterns_alloweds(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "patterns_alloweds", value)
+
+    @property
+    @pulumi.getter(name="verifiedAllowed")
+    def verified_allowed(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether actions in GitHub Marketplace from verified creators are allowed. Set to true to allow all GitHub Marketplace actions by verified creators.
+        """
+        return pulumi.get(self, "verified_allowed")
+
+    @verified_allowed.setter
+    def verified_allowed(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "verified_allowed", value)
+
+
+@pulumi.input_type
+class ActionsOrganizationPermissionsEnabledRepositoriesConfigArgs:
+    def __init__(__self__, *,
+                 repository_ids: pulumi.Input[Sequence[pulumi.Input[int]]]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] repository_ids: List of repository IDs to enable for GitHub Actions.
+        """
+        pulumi.set(__self__, "repository_ids", repository_ids)
+
+    @property
+    @pulumi.getter(name="repositoryIds")
+    def repository_ids(self) -> pulumi.Input[Sequence[pulumi.Input[int]]]:
+        """
+        List of repository IDs to enable for GitHub Actions.
+        """
+        return pulumi.get(self, "repository_ids")
+
+    @repository_ids.setter
+    def repository_ids(self, value: pulumi.Input[Sequence[pulumi.Input[int]]]):
+        pulumi.set(self, "repository_ids", value)
+
 
 @pulumi.input_type
 class BranchProtectionRequiredPullRequestReviewArgs:
@@ -627,7 +705,10 @@ class RepositoryWebhookConfigurationArgs:
                  insecure_ssl: Optional[pulumi.Input[bool]] = None,
                  secret: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] url: URL of the webhook.  This is a sensitive attribute because it may include basic auth credentials.
+        :param pulumi.Input[str] url: The URL of the webhook.
+        :param pulumi.Input[str] content_type: The content type for the payload. Valid values are either `form` or `json`.
+        :param pulumi.Input[bool] insecure_ssl: Insecure SSL boolean toggle. Defaults to `false`.
+        :param pulumi.Input[str] secret: The shared secret for the webhook. [See API documentation](https://developer.github.com/v3/repos/hooks/#create-a-hook).
         """
         pulumi.set(__self__, "url", url)
         if content_type is not None:
@@ -641,7 +722,7 @@ class RepositoryWebhookConfigurationArgs:
     @pulumi.getter
     def url(self) -> pulumi.Input[str]:
         """
-        URL of the webhook.  This is a sensitive attribute because it may include basic auth credentials.
+        The URL of the webhook.
         """
         return pulumi.get(self, "url")
 
@@ -652,6 +733,9 @@ class RepositoryWebhookConfigurationArgs:
     @property
     @pulumi.getter(name="contentType")
     def content_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The content type for the payload. Valid values are either `form` or `json`.
+        """
         return pulumi.get(self, "content_type")
 
     @content_type.setter
@@ -661,6 +745,9 @@ class RepositoryWebhookConfigurationArgs:
     @property
     @pulumi.getter(name="insecureSsl")
     def insecure_ssl(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Insecure SSL boolean toggle. Defaults to `false`.
+        """
         return pulumi.get(self, "insecure_ssl")
 
     @insecure_ssl.setter
@@ -670,6 +757,9 @@ class RepositoryWebhookConfigurationArgs:
     @property
     @pulumi.getter
     def secret(self) -> Optional[pulumi.Input[str]]:
+        """
+        The shared secret for the webhook. [See API documentation](https://developer.github.com/v3/repos/hooks/#create-a-hook).
+        """
         return pulumi.get(self, "secret")
 
     @secret.setter

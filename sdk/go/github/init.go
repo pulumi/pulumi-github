@@ -22,6 +22,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "github:index/actionsEnvironmentSecret:ActionsEnvironmentSecret":
 		r = &ActionsEnvironmentSecret{}
+	case "github:index/actionsOrganizationPermissions:ActionsOrganizationPermissions":
+		r = &ActionsOrganizationPermissions{}
 	case "github:index/actionsOrganizationSecret:ActionsOrganizationSecret":
 		r = &ActionsOrganizationSecret{}
 	case "github:index/actionsOrganizationSecretRepositories:ActionsOrganizationSecretRepositories":
@@ -56,6 +58,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ProjectColumn{}
 	case "github:index/repository:Repository":
 		r = &Repository{}
+	case "github:index/repositoryAutolinkReference:RepositoryAutolinkReference":
+		r = &RepositoryAutolinkReference{}
 	case "github:index/repositoryCollaborator:RepositoryCollaborator":
 		r = &RepositoryCollaborator{}
 	case "github:index/repositoryDeployKey:RepositoryDeployKey":
@@ -120,6 +124,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"github",
 		"index/actionsEnvironmentSecret",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"github",
+		"index/actionsOrganizationPermissions",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -205,6 +214,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"github",
 		"index/repository",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"github",
+		"index/repositoryAutolinkReference",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
