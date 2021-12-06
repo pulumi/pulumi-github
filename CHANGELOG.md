@@ -2,10 +2,13 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Upgrade to terraform-bridge 3.13.0
-* Upgrade to pulumi 3.19.0
+_(none)_
 
 ---
+
+## 4.8.0 (2021-12-06)
+* Upgrade to terraform-bridge 3.13.0
+* Upgrade to pulumi 3.19.0
 
 ## 4.7.0 (2021-11-24)
 * Upgrade to v4.18.1 of the GitHub Terraform Provider.
