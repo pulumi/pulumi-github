@@ -27,7 +27,7 @@ import (
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := github.NewOrganizationWebhook(ctx, "foo", &github.OrganizationWebhookArgs{
 // 			Active: pulumi.Bool(false),
-// 			Configuration: &github.OrganizationWebhookConfigurationArgs{
+// 			Configuration: &OrganizationWebhookConfigurationArgs{
 // 				ContentType: pulumi.String("form"),
 // 				InsecureSsl: pulumi.Bool(false),
 // 				Url:         pulumi.String("https://google.de/"),
@@ -157,7 +157,7 @@ type OrganizationWebhookInput interface {
 }
 
 func (*OrganizationWebhook) ElementType() reflect.Type {
-	return reflect.TypeOf((*OrganizationWebhook)(nil))
+	return reflect.TypeOf((**OrganizationWebhook)(nil)).Elem()
 }
 
 func (i *OrganizationWebhook) ToOrganizationWebhookOutput() OrganizationWebhookOutput {
@@ -166,35 +166,6 @@ func (i *OrganizationWebhook) ToOrganizationWebhookOutput() OrganizationWebhookO
 
 func (i *OrganizationWebhook) ToOrganizationWebhookOutputWithContext(ctx context.Context) OrganizationWebhookOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationWebhookOutput)
-}
-
-func (i *OrganizationWebhook) ToOrganizationWebhookPtrOutput() OrganizationWebhookPtrOutput {
-	return i.ToOrganizationWebhookPtrOutputWithContext(context.Background())
-}
-
-func (i *OrganizationWebhook) ToOrganizationWebhookPtrOutputWithContext(ctx context.Context) OrganizationWebhookPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OrganizationWebhookPtrOutput)
-}
-
-type OrganizationWebhookPtrInput interface {
-	pulumi.Input
-
-	ToOrganizationWebhookPtrOutput() OrganizationWebhookPtrOutput
-	ToOrganizationWebhookPtrOutputWithContext(ctx context.Context) OrganizationWebhookPtrOutput
-}
-
-type organizationWebhookPtrType OrganizationWebhookArgs
-
-func (*organizationWebhookPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**OrganizationWebhook)(nil))
-}
-
-func (i *organizationWebhookPtrType) ToOrganizationWebhookPtrOutput() OrganizationWebhookPtrOutput {
-	return i.ToOrganizationWebhookPtrOutputWithContext(context.Background())
-}
-
-func (i *organizationWebhookPtrType) ToOrganizationWebhookPtrOutputWithContext(ctx context.Context) OrganizationWebhookPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OrganizationWebhookPtrOutput)
 }
 
 // OrganizationWebhookArrayInput is an input type that accepts OrganizationWebhookArray and OrganizationWebhookArrayOutput values.
@@ -211,7 +182,7 @@ type OrganizationWebhookArrayInput interface {
 type OrganizationWebhookArray []OrganizationWebhookInput
 
 func (OrganizationWebhookArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*OrganizationWebhook)(nil))
+	return reflect.TypeOf((*[]*OrganizationWebhook)(nil)).Elem()
 }
 
 func (i OrganizationWebhookArray) ToOrganizationWebhookArrayOutput() OrganizationWebhookArrayOutput {
@@ -236,7 +207,7 @@ type OrganizationWebhookMapInput interface {
 type OrganizationWebhookMap map[string]OrganizationWebhookInput
 
 func (OrganizationWebhookMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*OrganizationWebhook)(nil))
+	return reflect.TypeOf((*map[string]*OrganizationWebhook)(nil)).Elem()
 }
 
 func (i OrganizationWebhookMap) ToOrganizationWebhookMapOutput() OrganizationWebhookMapOutput {
@@ -247,12 +218,10 @@ func (i OrganizationWebhookMap) ToOrganizationWebhookMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationWebhookMapOutput)
 }
 
-type OrganizationWebhookOutput struct {
-	*pulumi.OutputState
-}
+type OrganizationWebhookOutput struct{ *pulumi.OutputState }
 
 func (OrganizationWebhookOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*OrganizationWebhook)(nil))
+	return reflect.TypeOf((**OrganizationWebhook)(nil)).Elem()
 }
 
 func (o OrganizationWebhookOutput) ToOrganizationWebhookOutput() OrganizationWebhookOutput {
@@ -263,36 +232,10 @@ func (o OrganizationWebhookOutput) ToOrganizationWebhookOutputWithContext(ctx co
 	return o
 }
 
-func (o OrganizationWebhookOutput) ToOrganizationWebhookPtrOutput() OrganizationWebhookPtrOutput {
-	return o.ToOrganizationWebhookPtrOutputWithContext(context.Background())
-}
-
-func (o OrganizationWebhookOutput) ToOrganizationWebhookPtrOutputWithContext(ctx context.Context) OrganizationWebhookPtrOutput {
-	return o.ApplyT(func(v OrganizationWebhook) *OrganizationWebhook {
-		return &v
-	}).(OrganizationWebhookPtrOutput)
-}
-
-type OrganizationWebhookPtrOutput struct {
-	*pulumi.OutputState
-}
-
-func (OrganizationWebhookPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**OrganizationWebhook)(nil))
-}
-
-func (o OrganizationWebhookPtrOutput) ToOrganizationWebhookPtrOutput() OrganizationWebhookPtrOutput {
-	return o
-}
-
-func (o OrganizationWebhookPtrOutput) ToOrganizationWebhookPtrOutputWithContext(ctx context.Context) OrganizationWebhookPtrOutput {
-	return o
-}
-
 type OrganizationWebhookArrayOutput struct{ *pulumi.OutputState }
 
 func (OrganizationWebhookArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]OrganizationWebhook)(nil))
+	return reflect.TypeOf((*[]*OrganizationWebhook)(nil)).Elem()
 }
 
 func (o OrganizationWebhookArrayOutput) ToOrganizationWebhookArrayOutput() OrganizationWebhookArrayOutput {
@@ -304,15 +247,15 @@ func (o OrganizationWebhookArrayOutput) ToOrganizationWebhookArrayOutputWithCont
 }
 
 func (o OrganizationWebhookArrayOutput) Index(i pulumi.IntInput) OrganizationWebhookOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OrganizationWebhook {
-		return vs[0].([]OrganizationWebhook)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *OrganizationWebhook {
+		return vs[0].([]*OrganizationWebhook)[vs[1].(int)]
 	}).(OrganizationWebhookOutput)
 }
 
 type OrganizationWebhookMapOutput struct{ *pulumi.OutputState }
 
 func (OrganizationWebhookMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]OrganizationWebhook)(nil))
+	return reflect.TypeOf((*map[string]*OrganizationWebhook)(nil)).Elem()
 }
 
 func (o OrganizationWebhookMapOutput) ToOrganizationWebhookMapOutput() OrganizationWebhookMapOutput {
@@ -324,14 +267,16 @@ func (o OrganizationWebhookMapOutput) ToOrganizationWebhookMapOutputWithContext(
 }
 
 func (o OrganizationWebhookMapOutput) MapIndex(k pulumi.StringInput) OrganizationWebhookOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) OrganizationWebhook {
-		return vs[0].(map[string]OrganizationWebhook)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *OrganizationWebhook {
+		return vs[0].(map[string]*OrganizationWebhook)[vs[1].(string)]
 	}).(OrganizationWebhookOutput)
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationWebhookInput)(nil)).Elem(), &OrganizationWebhook{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationWebhookArrayInput)(nil)).Elem(), OrganizationWebhookArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationWebhookMapInput)(nil)).Elem(), OrganizationWebhookMap{})
 	pulumi.RegisterOutputType(OrganizationWebhookOutput{})
-	pulumi.RegisterOutputType(OrganizationWebhookPtrOutput{})
 	pulumi.RegisterOutputType(OrganizationWebhookArrayOutput{})
 	pulumi.RegisterOutputType(OrganizationWebhookMapOutput{})
 }

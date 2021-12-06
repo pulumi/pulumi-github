@@ -2,7 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
 /**
@@ -81,4 +80,26 @@ export interface GetRepositoryMilestoneResult {
      * Title of the milestone.
      */
     readonly title: string;
+}
+
+export function getRepositoryMilestoneOutput(args: GetRepositoryMilestoneOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRepositoryMilestoneResult> {
+    return pulumi.output(args).apply(a => getRepositoryMilestone(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getRepositoryMilestone.
+ */
+export interface GetRepositoryMilestoneOutputArgs {
+    /**
+     * The number of the milestone.
+     */
+    number: pulumi.Input<number>;
+    /**
+     * Owner of the repository.
+     */
+    owner: pulumi.Input<string>;
+    /**
+     * Name of the repository to retrieve the milestone from.
+     */
+    repository: pulumi.Input<string>;
 }

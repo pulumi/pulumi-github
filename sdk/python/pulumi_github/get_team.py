@@ -12,6 +12,7 @@ __all__ = [
     'GetTeamResult',
     'AwaitableGetTeamResult',
     'get_team',
+    'get_team_output',
 ]
 
 @pulumi.output_type
@@ -170,3 +171,24 @@ def get_team(slug: Optional[str] = None,
         privacy=__ret__.privacy,
         repositories=__ret__.repositories,
         slug=__ret__.slug)
+
+
+@_utilities.lift_output_func(get_team)
+def get_team_output(slug: Optional[pulumi.Input[str]] = None,
+                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTeamResult]:
+    """
+    Use this data source to retrieve information about a GitHub team.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_github as github
+
+    example = github.get_team(slug="example")
+    ```
+
+
+    :param str slug: The team slug.
+    """
+    ...

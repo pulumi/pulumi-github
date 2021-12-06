@@ -2,7 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
 /**
@@ -70,4 +69,22 @@ export interface GetBranchResult {
      * A string storing the reference's `HEAD` commit's SHA1.
      */
     readonly sha: string;
+}
+
+export function getBranchOutput(args: GetBranchOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBranchResult> {
+    return pulumi.output(args).apply(a => getBranch(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getBranch.
+ */
+export interface GetBranchOutputArgs {
+    /**
+     * The repository branch to create.
+     */
+    branch: pulumi.Input<string>;
+    /**
+     * The GitHub repository name.
+     */
+    repository: pulumi.Input<string>;
 }

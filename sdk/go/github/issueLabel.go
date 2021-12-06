@@ -135,7 +135,7 @@ type IssueLabelInput interface {
 }
 
 func (*IssueLabel) ElementType() reflect.Type {
-	return reflect.TypeOf((*IssueLabel)(nil))
+	return reflect.TypeOf((**IssueLabel)(nil)).Elem()
 }
 
 func (i *IssueLabel) ToIssueLabelOutput() IssueLabelOutput {
@@ -144,35 +144,6 @@ func (i *IssueLabel) ToIssueLabelOutput() IssueLabelOutput {
 
 func (i *IssueLabel) ToIssueLabelOutputWithContext(ctx context.Context) IssueLabelOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IssueLabelOutput)
-}
-
-func (i *IssueLabel) ToIssueLabelPtrOutput() IssueLabelPtrOutput {
-	return i.ToIssueLabelPtrOutputWithContext(context.Background())
-}
-
-func (i *IssueLabel) ToIssueLabelPtrOutputWithContext(ctx context.Context) IssueLabelPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IssueLabelPtrOutput)
-}
-
-type IssueLabelPtrInput interface {
-	pulumi.Input
-
-	ToIssueLabelPtrOutput() IssueLabelPtrOutput
-	ToIssueLabelPtrOutputWithContext(ctx context.Context) IssueLabelPtrOutput
-}
-
-type issueLabelPtrType IssueLabelArgs
-
-func (*issueLabelPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**IssueLabel)(nil))
-}
-
-func (i *issueLabelPtrType) ToIssueLabelPtrOutput() IssueLabelPtrOutput {
-	return i.ToIssueLabelPtrOutputWithContext(context.Background())
-}
-
-func (i *issueLabelPtrType) ToIssueLabelPtrOutputWithContext(ctx context.Context) IssueLabelPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IssueLabelPtrOutput)
 }
 
 // IssueLabelArrayInput is an input type that accepts IssueLabelArray and IssueLabelArrayOutput values.
@@ -189,7 +160,7 @@ type IssueLabelArrayInput interface {
 type IssueLabelArray []IssueLabelInput
 
 func (IssueLabelArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*IssueLabel)(nil))
+	return reflect.TypeOf((*[]*IssueLabel)(nil)).Elem()
 }
 
 func (i IssueLabelArray) ToIssueLabelArrayOutput() IssueLabelArrayOutput {
@@ -214,7 +185,7 @@ type IssueLabelMapInput interface {
 type IssueLabelMap map[string]IssueLabelInput
 
 func (IssueLabelMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*IssueLabel)(nil))
+	return reflect.TypeOf((*map[string]*IssueLabel)(nil)).Elem()
 }
 
 func (i IssueLabelMap) ToIssueLabelMapOutput() IssueLabelMapOutput {
@@ -225,12 +196,10 @@ func (i IssueLabelMap) ToIssueLabelMapOutputWithContext(ctx context.Context) Iss
 	return pulumi.ToOutputWithContext(ctx, i).(IssueLabelMapOutput)
 }
 
-type IssueLabelOutput struct {
-	*pulumi.OutputState
-}
+type IssueLabelOutput struct{ *pulumi.OutputState }
 
 func (IssueLabelOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IssueLabel)(nil))
+	return reflect.TypeOf((**IssueLabel)(nil)).Elem()
 }
 
 func (o IssueLabelOutput) ToIssueLabelOutput() IssueLabelOutput {
@@ -241,36 +210,10 @@ func (o IssueLabelOutput) ToIssueLabelOutputWithContext(ctx context.Context) Iss
 	return o
 }
 
-func (o IssueLabelOutput) ToIssueLabelPtrOutput() IssueLabelPtrOutput {
-	return o.ToIssueLabelPtrOutputWithContext(context.Background())
-}
-
-func (o IssueLabelOutput) ToIssueLabelPtrOutputWithContext(ctx context.Context) IssueLabelPtrOutput {
-	return o.ApplyT(func(v IssueLabel) *IssueLabel {
-		return &v
-	}).(IssueLabelPtrOutput)
-}
-
-type IssueLabelPtrOutput struct {
-	*pulumi.OutputState
-}
-
-func (IssueLabelPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**IssueLabel)(nil))
-}
-
-func (o IssueLabelPtrOutput) ToIssueLabelPtrOutput() IssueLabelPtrOutput {
-	return o
-}
-
-func (o IssueLabelPtrOutput) ToIssueLabelPtrOutputWithContext(ctx context.Context) IssueLabelPtrOutput {
-	return o
-}
-
 type IssueLabelArrayOutput struct{ *pulumi.OutputState }
 
 func (IssueLabelArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]IssueLabel)(nil))
+	return reflect.TypeOf((*[]*IssueLabel)(nil)).Elem()
 }
 
 func (o IssueLabelArrayOutput) ToIssueLabelArrayOutput() IssueLabelArrayOutput {
@@ -282,15 +225,15 @@ func (o IssueLabelArrayOutput) ToIssueLabelArrayOutputWithContext(ctx context.Co
 }
 
 func (o IssueLabelArrayOutput) Index(i pulumi.IntInput) IssueLabelOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IssueLabel {
-		return vs[0].([]IssueLabel)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *IssueLabel {
+		return vs[0].([]*IssueLabel)[vs[1].(int)]
 	}).(IssueLabelOutput)
 }
 
 type IssueLabelMapOutput struct{ *pulumi.OutputState }
 
 func (IssueLabelMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]IssueLabel)(nil))
+	return reflect.TypeOf((*map[string]*IssueLabel)(nil)).Elem()
 }
 
 func (o IssueLabelMapOutput) ToIssueLabelMapOutput() IssueLabelMapOutput {
@@ -302,14 +245,16 @@ func (o IssueLabelMapOutput) ToIssueLabelMapOutputWithContext(ctx context.Contex
 }
 
 func (o IssueLabelMapOutput) MapIndex(k pulumi.StringInput) IssueLabelOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) IssueLabel {
-		return vs[0].(map[string]IssueLabel)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *IssueLabel {
+		return vs[0].(map[string]*IssueLabel)[vs[1].(string)]
 	}).(IssueLabelOutput)
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*IssueLabelInput)(nil)).Elem(), &IssueLabel{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IssueLabelArrayInput)(nil)).Elem(), IssueLabelArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IssueLabelMapInput)(nil)).Elem(), IssueLabelMap{})
 	pulumi.RegisterOutputType(IssueLabelOutput{})
-	pulumi.RegisterOutputType(IssueLabelPtrOutput{})
 	pulumi.RegisterOutputType(IssueLabelArrayOutput{})
 	pulumi.RegisterOutputType(IssueLabelMapOutput{})
 }

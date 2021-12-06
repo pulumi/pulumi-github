@@ -2,7 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
 /**
@@ -165,4 +164,34 @@ export interface GetReleaseResult {
      * Download URL of a specific release in `zip` format
      */
     readonly zipballUrl: string;
+}
+
+export function getReleaseOutput(args: GetReleaseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReleaseResult> {
+    return pulumi.output(args).apply(a => getRelease(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getRelease.
+ */
+export interface GetReleaseOutputArgs {
+    /**
+     * Owner of the repository.
+     */
+    owner: pulumi.Input<string>;
+    /**
+     * ID of the release to retrieve. Must be specified when `retrieveBy` = `id`.
+     */
+    releaseId?: pulumi.Input<number>;
+    /**
+     * Tag of the release to retrieve. Must be specified when `retrieveBy` = `tag`.
+     */
+    releaseTag?: pulumi.Input<string>;
+    /**
+     * Name of the repository to retrieve the release from.
+     */
+    repository: pulumi.Input<string>;
+    /**
+     * Describes how to fetch the release. Valid values are `id`, `tag`, `latest`.
+     */
+    retrieveBy: pulumi.Input<string>;
 }

@@ -91,15 +91,15 @@ export class RepositoryEnvironment extends pulumi.CustomResource {
      */
     constructor(name: string, args: RepositoryEnvironmentArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: RepositoryEnvironmentArgs | RepositoryEnvironmentState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RepositoryEnvironmentState | undefined;
-            inputs["deploymentBranchPolicy"] = state ? state.deploymentBranchPolicy : undefined;
-            inputs["environment"] = state ? state.environment : undefined;
-            inputs["repository"] = state ? state.repository : undefined;
-            inputs["reviewers"] = state ? state.reviewers : undefined;
-            inputs["waitTimer"] = state ? state.waitTimer : undefined;
+            resourceInputs["deploymentBranchPolicy"] = state ? state.deploymentBranchPolicy : undefined;
+            resourceInputs["environment"] = state ? state.environment : undefined;
+            resourceInputs["repository"] = state ? state.repository : undefined;
+            resourceInputs["reviewers"] = state ? state.reviewers : undefined;
+            resourceInputs["waitTimer"] = state ? state.waitTimer : undefined;
         } else {
             const args = argsOrState as RepositoryEnvironmentArgs | undefined;
             if ((!args || args.environment === undefined) && !opts.urn) {
@@ -108,16 +108,16 @@ export class RepositoryEnvironment extends pulumi.CustomResource {
             if ((!args || args.repository === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'repository'");
             }
-            inputs["deploymentBranchPolicy"] = args ? args.deploymentBranchPolicy : undefined;
-            inputs["environment"] = args ? args.environment : undefined;
-            inputs["repository"] = args ? args.repository : undefined;
-            inputs["reviewers"] = args ? args.reviewers : undefined;
-            inputs["waitTimer"] = args ? args.waitTimer : undefined;
+            resourceInputs["deploymentBranchPolicy"] = args ? args.deploymentBranchPolicy : undefined;
+            resourceInputs["environment"] = args ? args.environment : undefined;
+            resourceInputs["repository"] = args ? args.repository : undefined;
+            resourceInputs["reviewers"] = args ? args.reviewers : undefined;
+            resourceInputs["waitTimer"] = args ? args.waitTimer : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(RepositoryEnvironment.__pulumiType, name, inputs, opts);
+        super(RepositoryEnvironment.__pulumiType, name, resourceInputs, opts);
     }
 }
 

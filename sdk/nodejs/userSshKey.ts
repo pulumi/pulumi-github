@@ -81,14 +81,14 @@ export class UserSshKey extends pulumi.CustomResource {
      */
     constructor(name: string, args: UserSshKeyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: UserSshKeyArgs | UserSshKeyState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as UserSshKeyState | undefined;
-            inputs["etag"] = state ? state.etag : undefined;
-            inputs["key"] = state ? state.key : undefined;
-            inputs["title"] = state ? state.title : undefined;
-            inputs["url"] = state ? state.url : undefined;
+            resourceInputs["etag"] = state ? state.etag : undefined;
+            resourceInputs["key"] = state ? state.key : undefined;
+            resourceInputs["title"] = state ? state.title : undefined;
+            resourceInputs["url"] = state ? state.url : undefined;
         } else {
             const args = argsOrState as UserSshKeyArgs | undefined;
             if ((!args || args.key === undefined) && !opts.urn) {
@@ -97,15 +97,15 @@ export class UserSshKey extends pulumi.CustomResource {
             if ((!args || args.title === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'title'");
             }
-            inputs["key"] = args ? args.key : undefined;
-            inputs["title"] = args ? args.title : undefined;
-            inputs["etag"] = undefined /*out*/;
-            inputs["url"] = undefined /*out*/;
+            resourceInputs["key"] = args ? args.key : undefined;
+            resourceInputs["title"] = args ? args.title : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["url"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(UserSshKey.__pulumiType, name, inputs, opts);
+        super(UserSshKey.__pulumiType, name, resourceInputs, opts);
     }
 }
 

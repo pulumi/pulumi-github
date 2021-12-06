@@ -2,7 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
 /**
@@ -121,4 +120,26 @@ export interface GetRepositoryPullRequestResult {
      * The timestamp of the last Pull Request update.
      */
     readonly updatedAt: number;
+}
+
+export function getRepositoryPullRequestOutput(args: GetRepositoryPullRequestOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRepositoryPullRequestResult> {
+    return pulumi.output(args).apply(a => getRepositoryPullRequest(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getRepositoryPullRequest.
+ */
+export interface GetRepositoryPullRequestOutputArgs {
+    /**
+     * Name of the base repository to retrieve the Pull Request from.
+     */
+    baseRepository: pulumi.Input<string>;
+    /**
+     * The number of the Pull Request within the repository.
+     */
+    number: pulumi.Input<number>;
+    /**
+     * Owner of the repository. If not provided, the provider's default owner is used.
+     */
+    owner?: pulumi.Input<string>;
 }

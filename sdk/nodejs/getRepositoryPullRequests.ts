@@ -105,3 +105,41 @@ export interface GetRepositoryPullRequestsResult {
      */
     readonly state?: string;
 }
+
+export function getRepositoryPullRequestsOutput(args: GetRepositoryPullRequestsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRepositoryPullRequestsResult> {
+    return pulumi.output(args).apply(a => getRepositoryPullRequests(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getRepositoryPullRequests.
+ */
+export interface GetRepositoryPullRequestsOutputArgs {
+    /**
+     * If set, filters Pull Requests by base branch name.
+     */
+    baseRef?: pulumi.Input<string>;
+    /**
+     * Name of the base repository to retrieve the Pull Requests from.
+     */
+    baseRepository: pulumi.Input<string>;
+    /**
+     * If set, filters Pull Requests by head user or head organization and branch name in the format of "user:ref-name" or "organization:ref-name". For example: "github:new-script-format" or "octocat:test-branch".
+     */
+    headRef?: pulumi.Input<string>;
+    /**
+     * Owner of the repository. If not provided, the provider's default owner is used.
+     */
+    owner?: pulumi.Input<string>;
+    /**
+     * If set, indicates what to sort results by. Can be either "created", "updated", "popularity" (comment count) or "long-running" (age, filtering by pulls updated in the last month). Default: "created".
+     */
+    sortBy?: pulumi.Input<string>;
+    /**
+     * If set, controls the direction of the sort. Can be either "asc" or "desc". Default: "asc".
+     */
+    sortDirection?: pulumi.Input<string>;
+    /**
+     * If set, filters Pull Requests by state. Can be "open", "closed", or "all". Default: "open".
+     */
+    state?: pulumi.Input<string>;
+}

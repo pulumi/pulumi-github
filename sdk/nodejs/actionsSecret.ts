@@ -66,16 +66,16 @@ export class ActionsSecret extends pulumi.CustomResource {
      */
     constructor(name: string, args: ActionsSecretArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ActionsSecretArgs | ActionsSecretState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ActionsSecretState | undefined;
-            inputs["createdAt"] = state ? state.createdAt : undefined;
-            inputs["encryptedValue"] = state ? state.encryptedValue : undefined;
-            inputs["plaintextValue"] = state ? state.plaintextValue : undefined;
-            inputs["repository"] = state ? state.repository : undefined;
-            inputs["secretName"] = state ? state.secretName : undefined;
-            inputs["updatedAt"] = state ? state.updatedAt : undefined;
+            resourceInputs["createdAt"] = state ? state.createdAt : undefined;
+            resourceInputs["encryptedValue"] = state ? state.encryptedValue : undefined;
+            resourceInputs["plaintextValue"] = state ? state.plaintextValue : undefined;
+            resourceInputs["repository"] = state ? state.repository : undefined;
+            resourceInputs["secretName"] = state ? state.secretName : undefined;
+            resourceInputs["updatedAt"] = state ? state.updatedAt : undefined;
         } else {
             const args = argsOrState as ActionsSecretArgs | undefined;
             if ((!args || args.repository === undefined) && !opts.urn) {
@@ -84,17 +84,17 @@ export class ActionsSecret extends pulumi.CustomResource {
             if ((!args || args.secretName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'secretName'");
             }
-            inputs["encryptedValue"] = args ? args.encryptedValue : undefined;
-            inputs["plaintextValue"] = args ? args.plaintextValue : undefined;
-            inputs["repository"] = args ? args.repository : undefined;
-            inputs["secretName"] = args ? args.secretName : undefined;
-            inputs["createdAt"] = undefined /*out*/;
-            inputs["updatedAt"] = undefined /*out*/;
+            resourceInputs["encryptedValue"] = args ? args.encryptedValue : undefined;
+            resourceInputs["plaintextValue"] = args ? args.plaintextValue : undefined;
+            resourceInputs["repository"] = args ? args.repository : undefined;
+            resourceInputs["secretName"] = args ? args.secretName : undefined;
+            resourceInputs["createdAt"] = undefined /*out*/;
+            resourceInputs["updatedAt"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(ActionsSecret.__pulumiType, name, inputs, opts);
+        super(ActionsSecret.__pulumiType, name, resourceInputs, opts);
     }
 }
 

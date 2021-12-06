@@ -2,7 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
 /**
@@ -71,4 +70,22 @@ export interface GetMembershipResult {
      * The username.
      */
     readonly username: string;
+}
+
+export function getMembershipOutput(args: GetMembershipOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMembershipResult> {
+    return pulumi.output(args).apply(a => getMembership(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getMembership.
+ */
+export interface GetMembershipOutputArgs {
+    /**
+     * The organization to check for the above username.
+     */
+    organization?: pulumi.Input<string>;
+    /**
+     * The username to lookup in the organization.
+     */
+    username: pulumi.Input<string>;
 }

@@ -169,7 +169,7 @@ type TeamRepositoryInput interface {
 }
 
 func (*TeamRepository) ElementType() reflect.Type {
-	return reflect.TypeOf((*TeamRepository)(nil))
+	return reflect.TypeOf((**TeamRepository)(nil)).Elem()
 }
 
 func (i *TeamRepository) ToTeamRepositoryOutput() TeamRepositoryOutput {
@@ -178,35 +178,6 @@ func (i *TeamRepository) ToTeamRepositoryOutput() TeamRepositoryOutput {
 
 func (i *TeamRepository) ToTeamRepositoryOutputWithContext(ctx context.Context) TeamRepositoryOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TeamRepositoryOutput)
-}
-
-func (i *TeamRepository) ToTeamRepositoryPtrOutput() TeamRepositoryPtrOutput {
-	return i.ToTeamRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (i *TeamRepository) ToTeamRepositoryPtrOutputWithContext(ctx context.Context) TeamRepositoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TeamRepositoryPtrOutput)
-}
-
-type TeamRepositoryPtrInput interface {
-	pulumi.Input
-
-	ToTeamRepositoryPtrOutput() TeamRepositoryPtrOutput
-	ToTeamRepositoryPtrOutputWithContext(ctx context.Context) TeamRepositoryPtrOutput
-}
-
-type teamRepositoryPtrType TeamRepositoryArgs
-
-func (*teamRepositoryPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**TeamRepository)(nil))
-}
-
-func (i *teamRepositoryPtrType) ToTeamRepositoryPtrOutput() TeamRepositoryPtrOutput {
-	return i.ToTeamRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (i *teamRepositoryPtrType) ToTeamRepositoryPtrOutputWithContext(ctx context.Context) TeamRepositoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TeamRepositoryPtrOutput)
 }
 
 // TeamRepositoryArrayInput is an input type that accepts TeamRepositoryArray and TeamRepositoryArrayOutput values.
@@ -223,7 +194,7 @@ type TeamRepositoryArrayInput interface {
 type TeamRepositoryArray []TeamRepositoryInput
 
 func (TeamRepositoryArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*TeamRepository)(nil))
+	return reflect.TypeOf((*[]*TeamRepository)(nil)).Elem()
 }
 
 func (i TeamRepositoryArray) ToTeamRepositoryArrayOutput() TeamRepositoryArrayOutput {
@@ -248,7 +219,7 @@ type TeamRepositoryMapInput interface {
 type TeamRepositoryMap map[string]TeamRepositoryInput
 
 func (TeamRepositoryMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*TeamRepository)(nil))
+	return reflect.TypeOf((*map[string]*TeamRepository)(nil)).Elem()
 }
 
 func (i TeamRepositoryMap) ToTeamRepositoryMapOutput() TeamRepositoryMapOutput {
@@ -259,12 +230,10 @@ func (i TeamRepositoryMap) ToTeamRepositoryMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(TeamRepositoryMapOutput)
 }
 
-type TeamRepositoryOutput struct {
-	*pulumi.OutputState
-}
+type TeamRepositoryOutput struct{ *pulumi.OutputState }
 
 func (TeamRepositoryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TeamRepository)(nil))
+	return reflect.TypeOf((**TeamRepository)(nil)).Elem()
 }
 
 func (o TeamRepositoryOutput) ToTeamRepositoryOutput() TeamRepositoryOutput {
@@ -275,36 +244,10 @@ func (o TeamRepositoryOutput) ToTeamRepositoryOutputWithContext(ctx context.Cont
 	return o
 }
 
-func (o TeamRepositoryOutput) ToTeamRepositoryPtrOutput() TeamRepositoryPtrOutput {
-	return o.ToTeamRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (o TeamRepositoryOutput) ToTeamRepositoryPtrOutputWithContext(ctx context.Context) TeamRepositoryPtrOutput {
-	return o.ApplyT(func(v TeamRepository) *TeamRepository {
-		return &v
-	}).(TeamRepositoryPtrOutput)
-}
-
-type TeamRepositoryPtrOutput struct {
-	*pulumi.OutputState
-}
-
-func (TeamRepositoryPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**TeamRepository)(nil))
-}
-
-func (o TeamRepositoryPtrOutput) ToTeamRepositoryPtrOutput() TeamRepositoryPtrOutput {
-	return o
-}
-
-func (o TeamRepositoryPtrOutput) ToTeamRepositoryPtrOutputWithContext(ctx context.Context) TeamRepositoryPtrOutput {
-	return o
-}
-
 type TeamRepositoryArrayOutput struct{ *pulumi.OutputState }
 
 func (TeamRepositoryArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TeamRepository)(nil))
+	return reflect.TypeOf((*[]*TeamRepository)(nil)).Elem()
 }
 
 func (o TeamRepositoryArrayOutput) ToTeamRepositoryArrayOutput() TeamRepositoryArrayOutput {
@@ -316,15 +259,15 @@ func (o TeamRepositoryArrayOutput) ToTeamRepositoryArrayOutputWithContext(ctx co
 }
 
 func (o TeamRepositoryArrayOutput) Index(i pulumi.IntInput) TeamRepositoryOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TeamRepository {
-		return vs[0].([]TeamRepository)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *TeamRepository {
+		return vs[0].([]*TeamRepository)[vs[1].(int)]
 	}).(TeamRepositoryOutput)
 }
 
 type TeamRepositoryMapOutput struct{ *pulumi.OutputState }
 
 func (TeamRepositoryMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]TeamRepository)(nil))
+	return reflect.TypeOf((*map[string]*TeamRepository)(nil)).Elem()
 }
 
 func (o TeamRepositoryMapOutput) ToTeamRepositoryMapOutput() TeamRepositoryMapOutput {
@@ -336,14 +279,16 @@ func (o TeamRepositoryMapOutput) ToTeamRepositoryMapOutputWithContext(ctx contex
 }
 
 func (o TeamRepositoryMapOutput) MapIndex(k pulumi.StringInput) TeamRepositoryOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) TeamRepository {
-		return vs[0].(map[string]TeamRepository)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *TeamRepository {
+		return vs[0].(map[string]*TeamRepository)[vs[1].(string)]
 	}).(TeamRepositoryOutput)
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*TeamRepositoryInput)(nil)).Elem(), &TeamRepository{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TeamRepositoryArrayInput)(nil)).Elem(), TeamRepositoryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TeamRepositoryMapInput)(nil)).Elem(), TeamRepositoryMap{})
 	pulumi.RegisterOutputType(TeamRepositoryOutput{})
-	pulumi.RegisterOutputType(TeamRepositoryPtrOutput{})
 	pulumi.RegisterOutputType(TeamRepositoryArrayOutput{})
 	pulumi.RegisterOutputType(TeamRepositoryMapOutput{})
 }

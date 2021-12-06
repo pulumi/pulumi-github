@@ -12,6 +12,7 @@ __all__ = [
     'GetRepositoriesResult',
     'AwaitableGetRepositoriesResult',
     'get_repositories',
+    'get_repositories_output',
 ]
 
 @pulumi.output_type
@@ -115,3 +116,29 @@ def get_repositories(query: Optional[str] = None,
         names=__ret__.names,
         query=__ret__.query,
         sort=__ret__.sort)
+
+
+@_utilities.lift_output_func(get_repositories)
+def get_repositories_output(query: Optional[pulumi.Input[str]] = None,
+                            sort: Optional[pulumi.Input[Optional[str]]] = None,
+                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRepositoriesResult]:
+    """
+    > **Note:** The data source will return a maximum of `1000` repositories
+    	[as documented in official API docs](https://developer.github.com/v3/search/#about-the-search-api).
+
+    Use this data source to retrieve a list of GitHub repositories using a search query.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_github as github
+
+    example = github.get_repositories(query="org:hashicorp language:Go")
+    ```
+
+
+    :param str query: Search query. See [documentation for the search syntax](https://help.github.com/articles/understanding-the-search-syntax/).
+    :param str sort: Sorts the repositories returned by the specified attribute. Valid values include `stars`, `fork`, and `updated`. Defaults to `updated`.
+    """
+    ...

@@ -149,7 +149,7 @@ type AppInstallationRepositoryInput interface {
 }
 
 func (*AppInstallationRepository) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppInstallationRepository)(nil))
+	return reflect.TypeOf((**AppInstallationRepository)(nil)).Elem()
 }
 
 func (i *AppInstallationRepository) ToAppInstallationRepositoryOutput() AppInstallationRepositoryOutput {
@@ -158,35 +158,6 @@ func (i *AppInstallationRepository) ToAppInstallationRepositoryOutput() AppInsta
 
 func (i *AppInstallationRepository) ToAppInstallationRepositoryOutputWithContext(ctx context.Context) AppInstallationRepositoryOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AppInstallationRepositoryOutput)
-}
-
-func (i *AppInstallationRepository) ToAppInstallationRepositoryPtrOutput() AppInstallationRepositoryPtrOutput {
-	return i.ToAppInstallationRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (i *AppInstallationRepository) ToAppInstallationRepositoryPtrOutputWithContext(ctx context.Context) AppInstallationRepositoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AppInstallationRepositoryPtrOutput)
-}
-
-type AppInstallationRepositoryPtrInput interface {
-	pulumi.Input
-
-	ToAppInstallationRepositoryPtrOutput() AppInstallationRepositoryPtrOutput
-	ToAppInstallationRepositoryPtrOutputWithContext(ctx context.Context) AppInstallationRepositoryPtrOutput
-}
-
-type appInstallationRepositoryPtrType AppInstallationRepositoryArgs
-
-func (*appInstallationRepositoryPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AppInstallationRepository)(nil))
-}
-
-func (i *appInstallationRepositoryPtrType) ToAppInstallationRepositoryPtrOutput() AppInstallationRepositoryPtrOutput {
-	return i.ToAppInstallationRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (i *appInstallationRepositoryPtrType) ToAppInstallationRepositoryPtrOutputWithContext(ctx context.Context) AppInstallationRepositoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AppInstallationRepositoryPtrOutput)
 }
 
 // AppInstallationRepositoryArrayInput is an input type that accepts AppInstallationRepositoryArray and AppInstallationRepositoryArrayOutput values.
@@ -203,7 +174,7 @@ type AppInstallationRepositoryArrayInput interface {
 type AppInstallationRepositoryArray []AppInstallationRepositoryInput
 
 func (AppInstallationRepositoryArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*AppInstallationRepository)(nil))
+	return reflect.TypeOf((*[]*AppInstallationRepository)(nil)).Elem()
 }
 
 func (i AppInstallationRepositoryArray) ToAppInstallationRepositoryArrayOutput() AppInstallationRepositoryArrayOutput {
@@ -228,7 +199,7 @@ type AppInstallationRepositoryMapInput interface {
 type AppInstallationRepositoryMap map[string]AppInstallationRepositoryInput
 
 func (AppInstallationRepositoryMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*AppInstallationRepository)(nil))
+	return reflect.TypeOf((*map[string]*AppInstallationRepository)(nil)).Elem()
 }
 
 func (i AppInstallationRepositoryMap) ToAppInstallationRepositoryMapOutput() AppInstallationRepositoryMapOutput {
@@ -239,12 +210,10 @@ func (i AppInstallationRepositoryMap) ToAppInstallationRepositoryMapOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(AppInstallationRepositoryMapOutput)
 }
 
-type AppInstallationRepositoryOutput struct {
-	*pulumi.OutputState
-}
+type AppInstallationRepositoryOutput struct{ *pulumi.OutputState }
 
 func (AppInstallationRepositoryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppInstallationRepository)(nil))
+	return reflect.TypeOf((**AppInstallationRepository)(nil)).Elem()
 }
 
 func (o AppInstallationRepositoryOutput) ToAppInstallationRepositoryOutput() AppInstallationRepositoryOutput {
@@ -255,36 +224,10 @@ func (o AppInstallationRepositoryOutput) ToAppInstallationRepositoryOutputWithCo
 	return o
 }
 
-func (o AppInstallationRepositoryOutput) ToAppInstallationRepositoryPtrOutput() AppInstallationRepositoryPtrOutput {
-	return o.ToAppInstallationRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (o AppInstallationRepositoryOutput) ToAppInstallationRepositoryPtrOutputWithContext(ctx context.Context) AppInstallationRepositoryPtrOutput {
-	return o.ApplyT(func(v AppInstallationRepository) *AppInstallationRepository {
-		return &v
-	}).(AppInstallationRepositoryPtrOutput)
-}
-
-type AppInstallationRepositoryPtrOutput struct {
-	*pulumi.OutputState
-}
-
-func (AppInstallationRepositoryPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AppInstallationRepository)(nil))
-}
-
-func (o AppInstallationRepositoryPtrOutput) ToAppInstallationRepositoryPtrOutput() AppInstallationRepositoryPtrOutput {
-	return o
-}
-
-func (o AppInstallationRepositoryPtrOutput) ToAppInstallationRepositoryPtrOutputWithContext(ctx context.Context) AppInstallationRepositoryPtrOutput {
-	return o
-}
-
 type AppInstallationRepositoryArrayOutput struct{ *pulumi.OutputState }
 
 func (AppInstallationRepositoryArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AppInstallationRepository)(nil))
+	return reflect.TypeOf((*[]*AppInstallationRepository)(nil)).Elem()
 }
 
 func (o AppInstallationRepositoryArrayOutput) ToAppInstallationRepositoryArrayOutput() AppInstallationRepositoryArrayOutput {
@@ -296,15 +239,15 @@ func (o AppInstallationRepositoryArrayOutput) ToAppInstallationRepositoryArrayOu
 }
 
 func (o AppInstallationRepositoryArrayOutput) Index(i pulumi.IntInput) AppInstallationRepositoryOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AppInstallationRepository {
-		return vs[0].([]AppInstallationRepository)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AppInstallationRepository {
+		return vs[0].([]*AppInstallationRepository)[vs[1].(int)]
 	}).(AppInstallationRepositoryOutput)
 }
 
 type AppInstallationRepositoryMapOutput struct{ *pulumi.OutputState }
 
 func (AppInstallationRepositoryMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]AppInstallationRepository)(nil))
+	return reflect.TypeOf((*map[string]*AppInstallationRepository)(nil)).Elem()
 }
 
 func (o AppInstallationRepositoryMapOutput) ToAppInstallationRepositoryMapOutput() AppInstallationRepositoryMapOutput {
@@ -316,14 +259,16 @@ func (o AppInstallationRepositoryMapOutput) ToAppInstallationRepositoryMapOutput
 }
 
 func (o AppInstallationRepositoryMapOutput) MapIndex(k pulumi.StringInput) AppInstallationRepositoryOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) AppInstallationRepository {
-		return vs[0].(map[string]AppInstallationRepository)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *AppInstallationRepository {
+		return vs[0].(map[string]*AppInstallationRepository)[vs[1].(string)]
 	}).(AppInstallationRepositoryOutput)
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AppInstallationRepositoryInput)(nil)).Elem(), &AppInstallationRepository{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AppInstallationRepositoryArrayInput)(nil)).Elem(), AppInstallationRepositoryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AppInstallationRepositoryMapInput)(nil)).Elem(), AppInstallationRepositoryMap{})
 	pulumi.RegisterOutputType(AppInstallationRepositoryOutput{})
-	pulumi.RegisterOutputType(AppInstallationRepositoryPtrOutput{})
 	pulumi.RegisterOutputType(AppInstallationRepositoryArrayOutput{})
 	pulumi.RegisterOutputType(AppInstallationRepositoryMapOutput{})
 }

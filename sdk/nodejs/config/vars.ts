@@ -5,34 +5,84 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
-let __config = new pulumi.Config("github");
+declare var exports: any;
+const __config = new pulumi.Config("github");
 
 /**
  * The GitHub App credentials used to connect to GitHub. Conflicts with `token`. Anonymous mode is enabled if both `token`
  * and `app_auth` are not set.
  */
-export let appAuth: outputs.config.AppAuth | undefined = __config.getObject<outputs.config.AppAuth>("appAuth");
+export declare const appAuth: outputs.config.AppAuth | undefined;
+Object.defineProperty(exports, "appAuth", {
+    get() {
+        return __config.getObject<outputs.config.AppAuth>("appAuth");
+    },
+    enumerable: true,
+});
+
 /**
  * The GitHub Base API URL
  */
-export let baseUrl: string | undefined = __config.get("baseUrl") || (utilities.getEnv("GITHUB_BASE_URL") || "https://api.github.com/");
+export declare const baseUrl: string;
+Object.defineProperty(exports, "baseUrl", {
+    get() {
+        return __config.get("baseUrl") ?? (utilities.getEnv("GITHUB_BASE_URL") || "https://api.github.com/");
+    },
+    enumerable: true,
+});
+
 /**
  * Enable `insecure` mode for testing purposes
  */
-export let insecure: boolean | undefined = __config.getObject<boolean>("insecure");
+export declare const insecure: boolean | undefined;
+Object.defineProperty(exports, "insecure", {
+    get() {
+        return __config.getObject<boolean>("insecure");
+    },
+    enumerable: true,
+});
+
 /**
  * The GitHub organization name to manage. Use this field instead of `owner` when managing organization accounts.
  */
-export let organization: string | undefined = __config.get("organization");
+export declare const organization: string | undefined;
+Object.defineProperty(exports, "organization", {
+    get() {
+        return __config.get("organization");
+    },
+    enumerable: true,
+});
+
 /**
  * The GitHub owner name to manage. Use this field instead of `organization` when managing individual accounts.
  */
-export let owner: string | undefined = __config.get("owner");
+export declare const owner: string | undefined;
+Object.defineProperty(exports, "owner", {
+    get() {
+        return __config.get("owner");
+    },
+    enumerable: true,
+});
+
 /**
  * The OAuth token used to connect to GitHub. Anonymous mode is enabled if both `token` and `app_auth` are not set.
  */
-export let token: string | undefined = __config.get("token");
+export declare const token: string | undefined;
+Object.defineProperty(exports, "token", {
+    get() {
+        return __config.get("token");
+    },
+    enumerable: true,
+});
+
 /**
  * Amount of time in milliseconds to sleep in between writes to GitHub API. Defaults to 1000ms or 1s if not set.
  */
-export let writeDelayMs: number | undefined = __config.getObject<number>("writeDelayMs");
+export declare const writeDelayMs: number | undefined;
+Object.defineProperty(exports, "writeDelayMs", {
+    get() {
+        return __config.getObject<number>("writeDelayMs");
+    },
+    enumerable: true,
+});
+

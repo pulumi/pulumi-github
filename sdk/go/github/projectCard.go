@@ -150,7 +150,7 @@ type ProjectCardInput interface {
 }
 
 func (*ProjectCard) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProjectCard)(nil))
+	return reflect.TypeOf((**ProjectCard)(nil)).Elem()
 }
 
 func (i *ProjectCard) ToProjectCardOutput() ProjectCardOutput {
@@ -159,35 +159,6 @@ func (i *ProjectCard) ToProjectCardOutput() ProjectCardOutput {
 
 func (i *ProjectCard) ToProjectCardOutputWithContext(ctx context.Context) ProjectCardOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ProjectCardOutput)
-}
-
-func (i *ProjectCard) ToProjectCardPtrOutput() ProjectCardPtrOutput {
-	return i.ToProjectCardPtrOutputWithContext(context.Background())
-}
-
-func (i *ProjectCard) ToProjectCardPtrOutputWithContext(ctx context.Context) ProjectCardPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProjectCardPtrOutput)
-}
-
-type ProjectCardPtrInput interface {
-	pulumi.Input
-
-	ToProjectCardPtrOutput() ProjectCardPtrOutput
-	ToProjectCardPtrOutputWithContext(ctx context.Context) ProjectCardPtrOutput
-}
-
-type projectCardPtrType ProjectCardArgs
-
-func (*projectCardPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ProjectCard)(nil))
-}
-
-func (i *projectCardPtrType) ToProjectCardPtrOutput() ProjectCardPtrOutput {
-	return i.ToProjectCardPtrOutputWithContext(context.Background())
-}
-
-func (i *projectCardPtrType) ToProjectCardPtrOutputWithContext(ctx context.Context) ProjectCardPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProjectCardPtrOutput)
 }
 
 // ProjectCardArrayInput is an input type that accepts ProjectCardArray and ProjectCardArrayOutput values.
@@ -204,7 +175,7 @@ type ProjectCardArrayInput interface {
 type ProjectCardArray []ProjectCardInput
 
 func (ProjectCardArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ProjectCard)(nil))
+	return reflect.TypeOf((*[]*ProjectCard)(nil)).Elem()
 }
 
 func (i ProjectCardArray) ToProjectCardArrayOutput() ProjectCardArrayOutput {
@@ -229,7 +200,7 @@ type ProjectCardMapInput interface {
 type ProjectCardMap map[string]ProjectCardInput
 
 func (ProjectCardMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ProjectCard)(nil))
+	return reflect.TypeOf((*map[string]*ProjectCard)(nil)).Elem()
 }
 
 func (i ProjectCardMap) ToProjectCardMapOutput() ProjectCardMapOutput {
@@ -240,12 +211,10 @@ func (i ProjectCardMap) ToProjectCardMapOutputWithContext(ctx context.Context) P
 	return pulumi.ToOutputWithContext(ctx, i).(ProjectCardMapOutput)
 }
 
-type ProjectCardOutput struct {
-	*pulumi.OutputState
-}
+type ProjectCardOutput struct{ *pulumi.OutputState }
 
 func (ProjectCardOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProjectCard)(nil))
+	return reflect.TypeOf((**ProjectCard)(nil)).Elem()
 }
 
 func (o ProjectCardOutput) ToProjectCardOutput() ProjectCardOutput {
@@ -256,36 +225,10 @@ func (o ProjectCardOutput) ToProjectCardOutputWithContext(ctx context.Context) P
 	return o
 }
 
-func (o ProjectCardOutput) ToProjectCardPtrOutput() ProjectCardPtrOutput {
-	return o.ToProjectCardPtrOutputWithContext(context.Background())
-}
-
-func (o ProjectCardOutput) ToProjectCardPtrOutputWithContext(ctx context.Context) ProjectCardPtrOutput {
-	return o.ApplyT(func(v ProjectCard) *ProjectCard {
-		return &v
-	}).(ProjectCardPtrOutput)
-}
-
-type ProjectCardPtrOutput struct {
-	*pulumi.OutputState
-}
-
-func (ProjectCardPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ProjectCard)(nil))
-}
-
-func (o ProjectCardPtrOutput) ToProjectCardPtrOutput() ProjectCardPtrOutput {
-	return o
-}
-
-func (o ProjectCardPtrOutput) ToProjectCardPtrOutputWithContext(ctx context.Context) ProjectCardPtrOutput {
-	return o
-}
-
 type ProjectCardArrayOutput struct{ *pulumi.OutputState }
 
 func (ProjectCardArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ProjectCard)(nil))
+	return reflect.TypeOf((*[]*ProjectCard)(nil)).Elem()
 }
 
 func (o ProjectCardArrayOutput) ToProjectCardArrayOutput() ProjectCardArrayOutput {
@@ -297,15 +240,15 @@ func (o ProjectCardArrayOutput) ToProjectCardArrayOutputWithContext(ctx context.
 }
 
 func (o ProjectCardArrayOutput) Index(i pulumi.IntInput) ProjectCardOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProjectCard {
-		return vs[0].([]ProjectCard)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ProjectCard {
+		return vs[0].([]*ProjectCard)[vs[1].(int)]
 	}).(ProjectCardOutput)
 }
 
 type ProjectCardMapOutput struct{ *pulumi.OutputState }
 
 func (ProjectCardMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ProjectCard)(nil))
+	return reflect.TypeOf((*map[string]*ProjectCard)(nil)).Elem()
 }
 
 func (o ProjectCardMapOutput) ToProjectCardMapOutput() ProjectCardMapOutput {
@@ -317,14 +260,16 @@ func (o ProjectCardMapOutput) ToProjectCardMapOutputWithContext(ctx context.Cont
 }
 
 func (o ProjectCardMapOutput) MapIndex(k pulumi.StringInput) ProjectCardOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ProjectCard {
-		return vs[0].(map[string]ProjectCard)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ProjectCard {
+		return vs[0].(map[string]*ProjectCard)[vs[1].(string)]
 	}).(ProjectCardOutput)
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectCardInput)(nil)).Elem(), &ProjectCard{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectCardArrayInput)(nil)).Elem(), ProjectCardArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectCardMapInput)(nil)).Elem(), ProjectCardMap{})
 	pulumi.RegisterOutputType(ProjectCardOutput{})
-	pulumi.RegisterOutputType(ProjectCardPtrOutput{})
 	pulumi.RegisterOutputType(ProjectCardArrayOutput{})
 	pulumi.RegisterOutputType(ProjectCardMapOutput{})
 }

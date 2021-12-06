@@ -231,7 +231,7 @@ type RepositoryFileInput interface {
 }
 
 func (*RepositoryFile) ElementType() reflect.Type {
-	return reflect.TypeOf((*RepositoryFile)(nil))
+	return reflect.TypeOf((**RepositoryFile)(nil)).Elem()
 }
 
 func (i *RepositoryFile) ToRepositoryFileOutput() RepositoryFileOutput {
@@ -240,35 +240,6 @@ func (i *RepositoryFile) ToRepositoryFileOutput() RepositoryFileOutput {
 
 func (i *RepositoryFile) ToRepositoryFileOutputWithContext(ctx context.Context) RepositoryFileOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryFileOutput)
-}
-
-func (i *RepositoryFile) ToRepositoryFilePtrOutput() RepositoryFilePtrOutput {
-	return i.ToRepositoryFilePtrOutputWithContext(context.Background())
-}
-
-func (i *RepositoryFile) ToRepositoryFilePtrOutputWithContext(ctx context.Context) RepositoryFilePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RepositoryFilePtrOutput)
-}
-
-type RepositoryFilePtrInput interface {
-	pulumi.Input
-
-	ToRepositoryFilePtrOutput() RepositoryFilePtrOutput
-	ToRepositoryFilePtrOutputWithContext(ctx context.Context) RepositoryFilePtrOutput
-}
-
-type repositoryFilePtrType RepositoryFileArgs
-
-func (*repositoryFilePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**RepositoryFile)(nil))
-}
-
-func (i *repositoryFilePtrType) ToRepositoryFilePtrOutput() RepositoryFilePtrOutput {
-	return i.ToRepositoryFilePtrOutputWithContext(context.Background())
-}
-
-func (i *repositoryFilePtrType) ToRepositoryFilePtrOutputWithContext(ctx context.Context) RepositoryFilePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RepositoryFilePtrOutput)
 }
 
 // RepositoryFileArrayInput is an input type that accepts RepositoryFileArray and RepositoryFileArrayOutput values.
@@ -285,7 +256,7 @@ type RepositoryFileArrayInput interface {
 type RepositoryFileArray []RepositoryFileInput
 
 func (RepositoryFileArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*RepositoryFile)(nil))
+	return reflect.TypeOf((*[]*RepositoryFile)(nil)).Elem()
 }
 
 func (i RepositoryFileArray) ToRepositoryFileArrayOutput() RepositoryFileArrayOutput {
@@ -310,7 +281,7 @@ type RepositoryFileMapInput interface {
 type RepositoryFileMap map[string]RepositoryFileInput
 
 func (RepositoryFileMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*RepositoryFile)(nil))
+	return reflect.TypeOf((*map[string]*RepositoryFile)(nil)).Elem()
 }
 
 func (i RepositoryFileMap) ToRepositoryFileMapOutput() RepositoryFileMapOutput {
@@ -321,12 +292,10 @@ func (i RepositoryFileMap) ToRepositoryFileMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryFileMapOutput)
 }
 
-type RepositoryFileOutput struct {
-	*pulumi.OutputState
-}
+type RepositoryFileOutput struct{ *pulumi.OutputState }
 
 func (RepositoryFileOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RepositoryFile)(nil))
+	return reflect.TypeOf((**RepositoryFile)(nil)).Elem()
 }
 
 func (o RepositoryFileOutput) ToRepositoryFileOutput() RepositoryFileOutput {
@@ -337,36 +306,10 @@ func (o RepositoryFileOutput) ToRepositoryFileOutputWithContext(ctx context.Cont
 	return o
 }
 
-func (o RepositoryFileOutput) ToRepositoryFilePtrOutput() RepositoryFilePtrOutput {
-	return o.ToRepositoryFilePtrOutputWithContext(context.Background())
-}
-
-func (o RepositoryFileOutput) ToRepositoryFilePtrOutputWithContext(ctx context.Context) RepositoryFilePtrOutput {
-	return o.ApplyT(func(v RepositoryFile) *RepositoryFile {
-		return &v
-	}).(RepositoryFilePtrOutput)
-}
-
-type RepositoryFilePtrOutput struct {
-	*pulumi.OutputState
-}
-
-func (RepositoryFilePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**RepositoryFile)(nil))
-}
-
-func (o RepositoryFilePtrOutput) ToRepositoryFilePtrOutput() RepositoryFilePtrOutput {
-	return o
-}
-
-func (o RepositoryFilePtrOutput) ToRepositoryFilePtrOutputWithContext(ctx context.Context) RepositoryFilePtrOutput {
-	return o
-}
-
 type RepositoryFileArrayOutput struct{ *pulumi.OutputState }
 
 func (RepositoryFileArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RepositoryFile)(nil))
+	return reflect.TypeOf((*[]*RepositoryFile)(nil)).Elem()
 }
 
 func (o RepositoryFileArrayOutput) ToRepositoryFileArrayOutput() RepositoryFileArrayOutput {
@@ -378,15 +321,15 @@ func (o RepositoryFileArrayOutput) ToRepositoryFileArrayOutputWithContext(ctx co
 }
 
 func (o RepositoryFileArrayOutput) Index(i pulumi.IntInput) RepositoryFileOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RepositoryFile {
-		return vs[0].([]RepositoryFile)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RepositoryFile {
+		return vs[0].([]*RepositoryFile)[vs[1].(int)]
 	}).(RepositoryFileOutput)
 }
 
 type RepositoryFileMapOutput struct{ *pulumi.OutputState }
 
 func (RepositoryFileMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]RepositoryFile)(nil))
+	return reflect.TypeOf((*map[string]*RepositoryFile)(nil)).Elem()
 }
 
 func (o RepositoryFileMapOutput) ToRepositoryFileMapOutput() RepositoryFileMapOutput {
@@ -398,14 +341,16 @@ func (o RepositoryFileMapOutput) ToRepositoryFileMapOutputWithContext(ctx contex
 }
 
 func (o RepositoryFileMapOutput) MapIndex(k pulumi.StringInput) RepositoryFileOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) RepositoryFile {
-		return vs[0].(map[string]RepositoryFile)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *RepositoryFile {
+		return vs[0].(map[string]*RepositoryFile)[vs[1].(string)]
 	}).(RepositoryFileOutput)
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryFileInput)(nil)).Elem(), &RepositoryFile{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryFileArrayInput)(nil)).Elem(), RepositoryFileArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryFileMapInput)(nil)).Elem(), RepositoryFileMap{})
 	pulumi.RegisterOutputType(RepositoryFileOutput{})
-	pulumi.RegisterOutputType(RepositoryFilePtrOutput{})
 	pulumi.RegisterOutputType(RepositoryFileArrayOutput{})
 	pulumi.RegisterOutputType(RepositoryFileMapOutput{})
 }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Github
 {
@@ -43,6 +44,39 @@ namespace Pulumi.Github
         /// </summary>
         public static Task<GetRepositoryFileResult> InvokeAsync(GetRepositoryFileArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRepositoryFileResult>("github:index/getRepositoryFile:getRepositoryFile", args ?? new GetRepositoryFileArgs(), options.WithVersion());
+
+        /// <summary>
+        /// This data source allows you to read files within a
+        /// GitHub repository.
+        /// 
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Github = Pulumi.Github;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var foo = Output.Create(Github.GetRepositoryFile.InvokeAsync(new Github.GetRepositoryFileArgs
+        ///         {
+        ///             Repository = github_repository.Foo.Name,
+        ///             Branch = "main",
+        ///             File = ".gitignore",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetRepositoryFileResult> Invoke(GetRepositoryFileInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetRepositoryFileResult>("github:index/getRepositoryFile:getRepositoryFile", args ?? new GetRepositoryFileInvokeArgs(), options.WithVersion());
     }
 
 
@@ -68,6 +102,32 @@ namespace Pulumi.Github
         public string Repository { get; set; } = null!;
 
         public GetRepositoryFileArgs()
+        {
+        }
+    }
+
+    public sealed class GetRepositoryFileInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Git branch (defaults to `main`).
+        /// The branch must already exist, it will not be created if it does not already exist.
+        /// </summary>
+        [Input("branch")]
+        public Input<string>? Branch { get; set; }
+
+        /// <summary>
+        /// The path of the file to manage.
+        /// </summary>
+        [Input("file", required: true)]
+        public Input<string> File { get; set; } = null!;
+
+        /// <summary>
+        /// The repository to create the file in.
+        /// </summary>
+        [Input("repository", required: true)]
+        public Input<string> Repository { get; set; } = null!;
+
+        public GetRepositoryFileInvokeArgs()
         {
         }
     }

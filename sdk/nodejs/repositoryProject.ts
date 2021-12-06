@@ -78,30 +78,30 @@ export class RepositoryProject extends pulumi.CustomResource {
      */
     constructor(name: string, args: RepositoryProjectArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: RepositoryProjectArgs | RepositoryProjectState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RepositoryProjectState | undefined;
-            inputs["body"] = state ? state.body : undefined;
-            inputs["etag"] = state ? state.etag : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["repository"] = state ? state.repository : undefined;
-            inputs["url"] = state ? state.url : undefined;
+            resourceInputs["body"] = state ? state.body : undefined;
+            resourceInputs["etag"] = state ? state.etag : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["repository"] = state ? state.repository : undefined;
+            resourceInputs["url"] = state ? state.url : undefined;
         } else {
             const args = argsOrState as RepositoryProjectArgs | undefined;
             if ((!args || args.repository === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'repository'");
             }
-            inputs["body"] = args ? args.body : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["repository"] = args ? args.repository : undefined;
-            inputs["etag"] = undefined /*out*/;
-            inputs["url"] = undefined /*out*/;
+            resourceInputs["body"] = args ? args.body : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["repository"] = args ? args.repository : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["url"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(RepositoryProject.__pulumiType, name, inputs, opts);
+        super(RepositoryProject.__pulumiType, name, resourceInputs, opts);
     }
 }
 

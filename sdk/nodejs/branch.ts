@@ -102,17 +102,17 @@ export class Branch extends pulumi.CustomResource {
      */
     constructor(name: string, args: BranchArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: BranchArgs | BranchState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as BranchState | undefined;
-            inputs["branch"] = state ? state.branch : undefined;
-            inputs["etag"] = state ? state.etag : undefined;
-            inputs["ref"] = state ? state.ref : undefined;
-            inputs["repository"] = state ? state.repository : undefined;
-            inputs["sha"] = state ? state.sha : undefined;
-            inputs["sourceBranch"] = state ? state.sourceBranch : undefined;
-            inputs["sourceSha"] = state ? state.sourceSha : undefined;
+            resourceInputs["branch"] = state ? state.branch : undefined;
+            resourceInputs["etag"] = state ? state.etag : undefined;
+            resourceInputs["ref"] = state ? state.ref : undefined;
+            resourceInputs["repository"] = state ? state.repository : undefined;
+            resourceInputs["sha"] = state ? state.sha : undefined;
+            resourceInputs["sourceBranch"] = state ? state.sourceBranch : undefined;
+            resourceInputs["sourceSha"] = state ? state.sourceSha : undefined;
         } else {
             const args = argsOrState as BranchArgs | undefined;
             if ((!args || args.branch === undefined) && !opts.urn) {
@@ -121,18 +121,18 @@ export class Branch extends pulumi.CustomResource {
             if ((!args || args.repository === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'repository'");
             }
-            inputs["branch"] = args ? args.branch : undefined;
-            inputs["repository"] = args ? args.repository : undefined;
-            inputs["sourceBranch"] = args ? args.sourceBranch : undefined;
-            inputs["sourceSha"] = args ? args.sourceSha : undefined;
-            inputs["etag"] = undefined /*out*/;
-            inputs["ref"] = undefined /*out*/;
-            inputs["sha"] = undefined /*out*/;
+            resourceInputs["branch"] = args ? args.branch : undefined;
+            resourceInputs["repository"] = args ? args.repository : undefined;
+            resourceInputs["sourceBranch"] = args ? args.sourceBranch : undefined;
+            resourceInputs["sourceSha"] = args ? args.sourceSha : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["ref"] = undefined /*out*/;
+            resourceInputs["sha"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Branch.__pulumiType, name, inputs, opts);
+        super(Branch.__pulumiType, name, resourceInputs, opts);
     }
 }
 

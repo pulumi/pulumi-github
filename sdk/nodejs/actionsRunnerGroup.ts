@@ -103,38 +103,38 @@ export class ActionsRunnerGroup extends pulumi.CustomResource {
      */
     constructor(name: string, args: ActionsRunnerGroupArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ActionsRunnerGroupArgs | ActionsRunnerGroupState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ActionsRunnerGroupState | undefined;
-            inputs["allowsPublicRepositories"] = state ? state.allowsPublicRepositories : undefined;
-            inputs["default"] = state ? state.default : undefined;
-            inputs["etag"] = state ? state.etag : undefined;
-            inputs["inherited"] = state ? state.inherited : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["runnersUrl"] = state ? state.runnersUrl : undefined;
-            inputs["selectedRepositoriesUrl"] = state ? state.selectedRepositoriesUrl : undefined;
-            inputs["selectedRepositoryIds"] = state ? state.selectedRepositoryIds : undefined;
-            inputs["visibility"] = state ? state.visibility : undefined;
+            resourceInputs["allowsPublicRepositories"] = state ? state.allowsPublicRepositories : undefined;
+            resourceInputs["default"] = state ? state.default : undefined;
+            resourceInputs["etag"] = state ? state.etag : undefined;
+            resourceInputs["inherited"] = state ? state.inherited : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["runnersUrl"] = state ? state.runnersUrl : undefined;
+            resourceInputs["selectedRepositoriesUrl"] = state ? state.selectedRepositoriesUrl : undefined;
+            resourceInputs["selectedRepositoryIds"] = state ? state.selectedRepositoryIds : undefined;
+            resourceInputs["visibility"] = state ? state.visibility : undefined;
         } else {
             const args = argsOrState as ActionsRunnerGroupArgs | undefined;
             if ((!args || args.visibility === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'visibility'");
             }
-            inputs["name"] = args ? args.name : undefined;
-            inputs["selectedRepositoryIds"] = args ? args.selectedRepositoryIds : undefined;
-            inputs["visibility"] = args ? args.visibility : undefined;
-            inputs["allowsPublicRepositories"] = undefined /*out*/;
-            inputs["default"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["inherited"] = undefined /*out*/;
-            inputs["runnersUrl"] = undefined /*out*/;
-            inputs["selectedRepositoriesUrl"] = undefined /*out*/;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["selectedRepositoryIds"] = args ? args.selectedRepositoryIds : undefined;
+            resourceInputs["visibility"] = args ? args.visibility : undefined;
+            resourceInputs["allowsPublicRepositories"] = undefined /*out*/;
+            resourceInputs["default"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["inherited"] = undefined /*out*/;
+            resourceInputs["runnersUrl"] = undefined /*out*/;
+            resourceInputs["selectedRepositoriesUrl"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(ActionsRunnerGroup.__pulumiType, name, inputs, opts);
+        super(ActionsRunnerGroup.__pulumiType, name, resourceInputs, opts);
     }
 }
 

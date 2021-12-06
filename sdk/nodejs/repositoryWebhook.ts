@@ -101,16 +101,16 @@ export class RepositoryWebhook extends pulumi.CustomResource {
      */
     constructor(name: string, args: RepositoryWebhookArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: RepositoryWebhookArgs | RepositoryWebhookState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RepositoryWebhookState | undefined;
-            inputs["active"] = state ? state.active : undefined;
-            inputs["configuration"] = state ? state.configuration : undefined;
-            inputs["etag"] = state ? state.etag : undefined;
-            inputs["events"] = state ? state.events : undefined;
-            inputs["repository"] = state ? state.repository : undefined;
-            inputs["url"] = state ? state.url : undefined;
+            resourceInputs["active"] = state ? state.active : undefined;
+            resourceInputs["configuration"] = state ? state.configuration : undefined;
+            resourceInputs["etag"] = state ? state.etag : undefined;
+            resourceInputs["events"] = state ? state.events : undefined;
+            resourceInputs["repository"] = state ? state.repository : undefined;
+            resourceInputs["url"] = state ? state.url : undefined;
         } else {
             const args = argsOrState as RepositoryWebhookArgs | undefined;
             if ((!args || args.events === undefined) && !opts.urn) {
@@ -119,17 +119,17 @@ export class RepositoryWebhook extends pulumi.CustomResource {
             if ((!args || args.repository === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'repository'");
             }
-            inputs["active"] = args ? args.active : undefined;
-            inputs["configuration"] = args ? args.configuration : undefined;
-            inputs["events"] = args ? args.events : undefined;
-            inputs["repository"] = args ? args.repository : undefined;
-            inputs["etag"] = undefined /*out*/;
-            inputs["url"] = undefined /*out*/;
+            resourceInputs["active"] = args ? args.active : undefined;
+            resourceInputs["configuration"] = args ? args.configuration : undefined;
+            resourceInputs["events"] = args ? args.events : undefined;
+            resourceInputs["repository"] = args ? args.repository : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["url"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(RepositoryWebhook.__pulumiType, name, inputs, opts);
+        super(RepositoryWebhook.__pulumiType, name, resourceInputs, opts);
     }
 }
 

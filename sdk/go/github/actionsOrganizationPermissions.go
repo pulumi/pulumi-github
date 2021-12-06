@@ -33,7 +33,7 @@ import (
 // 		_, err = github.NewActionsOrganizationPermissions(ctx, "test", &github.ActionsOrganizationPermissionsArgs{
 // 			AllowedActions:      pulumi.String("selected"),
 // 			EnabledRepositories: pulumi.String("selected"),
-// 			AllowedActionsConfig: &github.ActionsOrganizationPermissionsAllowedActionsConfigArgs{
+// 			AllowedActionsConfig: &ActionsOrganizationPermissionsAllowedActionsConfigArgs{
 // 				GithubOwnedAllowed: pulumi.Bool(true),
 // 				PatternsAlloweds: pulumi.StringArray{
 // 					pulumi.String("actions/cache@*"),
@@ -41,7 +41,7 @@ import (
 // 				},
 // 				VerifiedAllowed: pulumi.Bool(true),
 // 			},
-// 			EnabledRepositoriesConfig: &github.ActionsOrganizationPermissionsEnabledRepositoriesConfigArgs{
+// 			EnabledRepositoriesConfig: &ActionsOrganizationPermissionsEnabledRepositoriesConfigArgs{
 // 				RepositoryIds: pulumi.IntArray{
 // 					example.RepoId,
 // 				},
@@ -167,7 +167,7 @@ type ActionsOrganizationPermissionsInput interface {
 }
 
 func (*ActionsOrganizationPermissions) ElementType() reflect.Type {
-	return reflect.TypeOf((*ActionsOrganizationPermissions)(nil))
+	return reflect.TypeOf((**ActionsOrganizationPermissions)(nil)).Elem()
 }
 
 func (i *ActionsOrganizationPermissions) ToActionsOrganizationPermissionsOutput() ActionsOrganizationPermissionsOutput {
@@ -176,35 +176,6 @@ func (i *ActionsOrganizationPermissions) ToActionsOrganizationPermissionsOutput(
 
 func (i *ActionsOrganizationPermissions) ToActionsOrganizationPermissionsOutputWithContext(ctx context.Context) ActionsOrganizationPermissionsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ActionsOrganizationPermissionsOutput)
-}
-
-func (i *ActionsOrganizationPermissions) ToActionsOrganizationPermissionsPtrOutput() ActionsOrganizationPermissionsPtrOutput {
-	return i.ToActionsOrganizationPermissionsPtrOutputWithContext(context.Background())
-}
-
-func (i *ActionsOrganizationPermissions) ToActionsOrganizationPermissionsPtrOutputWithContext(ctx context.Context) ActionsOrganizationPermissionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActionsOrganizationPermissionsPtrOutput)
-}
-
-type ActionsOrganizationPermissionsPtrInput interface {
-	pulumi.Input
-
-	ToActionsOrganizationPermissionsPtrOutput() ActionsOrganizationPermissionsPtrOutput
-	ToActionsOrganizationPermissionsPtrOutputWithContext(ctx context.Context) ActionsOrganizationPermissionsPtrOutput
-}
-
-type actionsOrganizationPermissionsPtrType ActionsOrganizationPermissionsArgs
-
-func (*actionsOrganizationPermissionsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ActionsOrganizationPermissions)(nil))
-}
-
-func (i *actionsOrganizationPermissionsPtrType) ToActionsOrganizationPermissionsPtrOutput() ActionsOrganizationPermissionsPtrOutput {
-	return i.ToActionsOrganizationPermissionsPtrOutputWithContext(context.Background())
-}
-
-func (i *actionsOrganizationPermissionsPtrType) ToActionsOrganizationPermissionsPtrOutputWithContext(ctx context.Context) ActionsOrganizationPermissionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActionsOrganizationPermissionsPtrOutput)
 }
 
 // ActionsOrganizationPermissionsArrayInput is an input type that accepts ActionsOrganizationPermissionsArray and ActionsOrganizationPermissionsArrayOutput values.
@@ -221,7 +192,7 @@ type ActionsOrganizationPermissionsArrayInput interface {
 type ActionsOrganizationPermissionsArray []ActionsOrganizationPermissionsInput
 
 func (ActionsOrganizationPermissionsArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ActionsOrganizationPermissions)(nil))
+	return reflect.TypeOf((*[]*ActionsOrganizationPermissions)(nil)).Elem()
 }
 
 func (i ActionsOrganizationPermissionsArray) ToActionsOrganizationPermissionsArrayOutput() ActionsOrganizationPermissionsArrayOutput {
@@ -246,7 +217,7 @@ type ActionsOrganizationPermissionsMapInput interface {
 type ActionsOrganizationPermissionsMap map[string]ActionsOrganizationPermissionsInput
 
 func (ActionsOrganizationPermissionsMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ActionsOrganizationPermissions)(nil))
+	return reflect.TypeOf((*map[string]*ActionsOrganizationPermissions)(nil)).Elem()
 }
 
 func (i ActionsOrganizationPermissionsMap) ToActionsOrganizationPermissionsMapOutput() ActionsOrganizationPermissionsMapOutput {
@@ -257,12 +228,10 @@ func (i ActionsOrganizationPermissionsMap) ToActionsOrganizationPermissionsMapOu
 	return pulumi.ToOutputWithContext(ctx, i).(ActionsOrganizationPermissionsMapOutput)
 }
 
-type ActionsOrganizationPermissionsOutput struct {
-	*pulumi.OutputState
-}
+type ActionsOrganizationPermissionsOutput struct{ *pulumi.OutputState }
 
 func (ActionsOrganizationPermissionsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ActionsOrganizationPermissions)(nil))
+	return reflect.TypeOf((**ActionsOrganizationPermissions)(nil)).Elem()
 }
 
 func (o ActionsOrganizationPermissionsOutput) ToActionsOrganizationPermissionsOutput() ActionsOrganizationPermissionsOutput {
@@ -273,36 +242,10 @@ func (o ActionsOrganizationPermissionsOutput) ToActionsOrganizationPermissionsOu
 	return o
 }
 
-func (o ActionsOrganizationPermissionsOutput) ToActionsOrganizationPermissionsPtrOutput() ActionsOrganizationPermissionsPtrOutput {
-	return o.ToActionsOrganizationPermissionsPtrOutputWithContext(context.Background())
-}
-
-func (o ActionsOrganizationPermissionsOutput) ToActionsOrganizationPermissionsPtrOutputWithContext(ctx context.Context) ActionsOrganizationPermissionsPtrOutput {
-	return o.ApplyT(func(v ActionsOrganizationPermissions) *ActionsOrganizationPermissions {
-		return &v
-	}).(ActionsOrganizationPermissionsPtrOutput)
-}
-
-type ActionsOrganizationPermissionsPtrOutput struct {
-	*pulumi.OutputState
-}
-
-func (ActionsOrganizationPermissionsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ActionsOrganizationPermissions)(nil))
-}
-
-func (o ActionsOrganizationPermissionsPtrOutput) ToActionsOrganizationPermissionsPtrOutput() ActionsOrganizationPermissionsPtrOutput {
-	return o
-}
-
-func (o ActionsOrganizationPermissionsPtrOutput) ToActionsOrganizationPermissionsPtrOutputWithContext(ctx context.Context) ActionsOrganizationPermissionsPtrOutput {
-	return o
-}
-
 type ActionsOrganizationPermissionsArrayOutput struct{ *pulumi.OutputState }
 
 func (ActionsOrganizationPermissionsArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ActionsOrganizationPermissions)(nil))
+	return reflect.TypeOf((*[]*ActionsOrganizationPermissions)(nil)).Elem()
 }
 
 func (o ActionsOrganizationPermissionsArrayOutput) ToActionsOrganizationPermissionsArrayOutput() ActionsOrganizationPermissionsArrayOutput {
@@ -314,15 +257,15 @@ func (o ActionsOrganizationPermissionsArrayOutput) ToActionsOrganizationPermissi
 }
 
 func (o ActionsOrganizationPermissionsArrayOutput) Index(i pulumi.IntInput) ActionsOrganizationPermissionsOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ActionsOrganizationPermissions {
-		return vs[0].([]ActionsOrganizationPermissions)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ActionsOrganizationPermissions {
+		return vs[0].([]*ActionsOrganizationPermissions)[vs[1].(int)]
 	}).(ActionsOrganizationPermissionsOutput)
 }
 
 type ActionsOrganizationPermissionsMapOutput struct{ *pulumi.OutputState }
 
 func (ActionsOrganizationPermissionsMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ActionsOrganizationPermissions)(nil))
+	return reflect.TypeOf((*map[string]*ActionsOrganizationPermissions)(nil)).Elem()
 }
 
 func (o ActionsOrganizationPermissionsMapOutput) ToActionsOrganizationPermissionsMapOutput() ActionsOrganizationPermissionsMapOutput {
@@ -334,14 +277,16 @@ func (o ActionsOrganizationPermissionsMapOutput) ToActionsOrganizationPermission
 }
 
 func (o ActionsOrganizationPermissionsMapOutput) MapIndex(k pulumi.StringInput) ActionsOrganizationPermissionsOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ActionsOrganizationPermissions {
-		return vs[0].(map[string]ActionsOrganizationPermissions)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ActionsOrganizationPermissions {
+		return vs[0].(map[string]*ActionsOrganizationPermissions)[vs[1].(string)]
 	}).(ActionsOrganizationPermissionsOutput)
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ActionsOrganizationPermissionsInput)(nil)).Elem(), &ActionsOrganizationPermissions{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ActionsOrganizationPermissionsArrayInput)(nil)).Elem(), ActionsOrganizationPermissionsArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ActionsOrganizationPermissionsMapInput)(nil)).Elem(), ActionsOrganizationPermissionsMap{})
 	pulumi.RegisterOutputType(ActionsOrganizationPermissionsOutput{})
-	pulumi.RegisterOutputType(ActionsOrganizationPermissionsPtrOutput{})
 	pulumi.RegisterOutputType(ActionsOrganizationPermissionsArrayOutput{})
 	pulumi.RegisterOutputType(ActionsOrganizationPermissionsMapOutput{})
 }

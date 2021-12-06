@@ -87,13 +87,13 @@ export class AppInstallationRepository extends pulumi.CustomResource {
      */
     constructor(name: string, args: AppInstallationRepositoryArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AppInstallationRepositoryArgs | AppInstallationRepositoryState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AppInstallationRepositoryState | undefined;
-            inputs["installationId"] = state ? state.installationId : undefined;
-            inputs["repoId"] = state ? state.repoId : undefined;
-            inputs["repository"] = state ? state.repository : undefined;
+            resourceInputs["installationId"] = state ? state.installationId : undefined;
+            resourceInputs["repoId"] = state ? state.repoId : undefined;
+            resourceInputs["repository"] = state ? state.repository : undefined;
         } else {
             const args = argsOrState as AppInstallationRepositoryArgs | undefined;
             if ((!args || args.installationId === undefined) && !opts.urn) {
@@ -102,14 +102,14 @@ export class AppInstallationRepository extends pulumi.CustomResource {
             if ((!args || args.repository === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'repository'");
             }
-            inputs["installationId"] = args ? args.installationId : undefined;
-            inputs["repository"] = args ? args.repository : undefined;
-            inputs["repoId"] = undefined /*out*/;
+            resourceInputs["installationId"] = args ? args.installationId : undefined;
+            resourceInputs["repository"] = args ? args.repository : undefined;
+            resourceInputs["repoId"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(AppInstallationRepository.__pulumiType, name, inputs, opts);
+        super(AppInstallationRepository.__pulumiType, name, resourceInputs, opts);
     }
 }
 

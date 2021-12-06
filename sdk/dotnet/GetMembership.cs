@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Github
 {
@@ -42,6 +43,38 @@ namespace Pulumi.Github
         /// </summary>
         public static Task<GetMembershipResult> InvokeAsync(GetMembershipArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetMembershipResult>("github:index/getMembership:getMembership", args ?? new GetMembershipArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to find out if a user is a member of your organization, as well
+        /// as what role they have within it.
+        /// If the user's membership in the organization is pending their acceptance of an invite,
+        /// the role they would have once they accept will be returned.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Github = Pulumi.Github;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var membershipForSomeUser = Output.Create(Github.GetMembership.InvokeAsync(new Github.GetMembershipArgs
+        ///         {
+        ///             Username = "SomeUser",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetMembershipResult> Invoke(GetMembershipInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetMembershipResult>("github:index/getMembership:getMembership", args ?? new GetMembershipInvokeArgs(), options.WithVersion());
     }
 
 
@@ -60,6 +93,25 @@ namespace Pulumi.Github
         public string Username { get; set; } = null!;
 
         public GetMembershipArgs()
+        {
+        }
+    }
+
+    public sealed class GetMembershipInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The organization to check for the above username.
+        /// </summary>
+        [Input("organization")]
+        public Input<string>? Organization { get; set; }
+
+        /// <summary>
+        /// The username to lookup in the organization.
+        /// </summary>
+        [Input("username", required: true)]
+        public Input<string> Username { get; set; } = null!;
+
+        public GetMembershipInvokeArgs()
         {
         }
     }

@@ -184,7 +184,7 @@ type RepositoryMilestoneInput interface {
 }
 
 func (*RepositoryMilestone) ElementType() reflect.Type {
-	return reflect.TypeOf((*RepositoryMilestone)(nil))
+	return reflect.TypeOf((**RepositoryMilestone)(nil)).Elem()
 }
 
 func (i *RepositoryMilestone) ToRepositoryMilestoneOutput() RepositoryMilestoneOutput {
@@ -193,35 +193,6 @@ func (i *RepositoryMilestone) ToRepositoryMilestoneOutput() RepositoryMilestoneO
 
 func (i *RepositoryMilestone) ToRepositoryMilestoneOutputWithContext(ctx context.Context) RepositoryMilestoneOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryMilestoneOutput)
-}
-
-func (i *RepositoryMilestone) ToRepositoryMilestonePtrOutput() RepositoryMilestonePtrOutput {
-	return i.ToRepositoryMilestonePtrOutputWithContext(context.Background())
-}
-
-func (i *RepositoryMilestone) ToRepositoryMilestonePtrOutputWithContext(ctx context.Context) RepositoryMilestonePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RepositoryMilestonePtrOutput)
-}
-
-type RepositoryMilestonePtrInput interface {
-	pulumi.Input
-
-	ToRepositoryMilestonePtrOutput() RepositoryMilestonePtrOutput
-	ToRepositoryMilestonePtrOutputWithContext(ctx context.Context) RepositoryMilestonePtrOutput
-}
-
-type repositoryMilestonePtrType RepositoryMilestoneArgs
-
-func (*repositoryMilestonePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**RepositoryMilestone)(nil))
-}
-
-func (i *repositoryMilestonePtrType) ToRepositoryMilestonePtrOutput() RepositoryMilestonePtrOutput {
-	return i.ToRepositoryMilestonePtrOutputWithContext(context.Background())
-}
-
-func (i *repositoryMilestonePtrType) ToRepositoryMilestonePtrOutputWithContext(ctx context.Context) RepositoryMilestonePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RepositoryMilestonePtrOutput)
 }
 
 // RepositoryMilestoneArrayInput is an input type that accepts RepositoryMilestoneArray and RepositoryMilestoneArrayOutput values.
@@ -238,7 +209,7 @@ type RepositoryMilestoneArrayInput interface {
 type RepositoryMilestoneArray []RepositoryMilestoneInput
 
 func (RepositoryMilestoneArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*RepositoryMilestone)(nil))
+	return reflect.TypeOf((*[]*RepositoryMilestone)(nil)).Elem()
 }
 
 func (i RepositoryMilestoneArray) ToRepositoryMilestoneArrayOutput() RepositoryMilestoneArrayOutput {
@@ -263,7 +234,7 @@ type RepositoryMilestoneMapInput interface {
 type RepositoryMilestoneMap map[string]RepositoryMilestoneInput
 
 func (RepositoryMilestoneMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*RepositoryMilestone)(nil))
+	return reflect.TypeOf((*map[string]*RepositoryMilestone)(nil)).Elem()
 }
 
 func (i RepositoryMilestoneMap) ToRepositoryMilestoneMapOutput() RepositoryMilestoneMapOutput {
@@ -274,12 +245,10 @@ func (i RepositoryMilestoneMap) ToRepositoryMilestoneMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryMilestoneMapOutput)
 }
 
-type RepositoryMilestoneOutput struct {
-	*pulumi.OutputState
-}
+type RepositoryMilestoneOutput struct{ *pulumi.OutputState }
 
 func (RepositoryMilestoneOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RepositoryMilestone)(nil))
+	return reflect.TypeOf((**RepositoryMilestone)(nil)).Elem()
 }
 
 func (o RepositoryMilestoneOutput) ToRepositoryMilestoneOutput() RepositoryMilestoneOutput {
@@ -290,36 +259,10 @@ func (o RepositoryMilestoneOutput) ToRepositoryMilestoneOutputWithContext(ctx co
 	return o
 }
 
-func (o RepositoryMilestoneOutput) ToRepositoryMilestonePtrOutput() RepositoryMilestonePtrOutput {
-	return o.ToRepositoryMilestonePtrOutputWithContext(context.Background())
-}
-
-func (o RepositoryMilestoneOutput) ToRepositoryMilestonePtrOutputWithContext(ctx context.Context) RepositoryMilestonePtrOutput {
-	return o.ApplyT(func(v RepositoryMilestone) *RepositoryMilestone {
-		return &v
-	}).(RepositoryMilestonePtrOutput)
-}
-
-type RepositoryMilestonePtrOutput struct {
-	*pulumi.OutputState
-}
-
-func (RepositoryMilestonePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**RepositoryMilestone)(nil))
-}
-
-func (o RepositoryMilestonePtrOutput) ToRepositoryMilestonePtrOutput() RepositoryMilestonePtrOutput {
-	return o
-}
-
-func (o RepositoryMilestonePtrOutput) ToRepositoryMilestonePtrOutputWithContext(ctx context.Context) RepositoryMilestonePtrOutput {
-	return o
-}
-
 type RepositoryMilestoneArrayOutput struct{ *pulumi.OutputState }
 
 func (RepositoryMilestoneArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RepositoryMilestone)(nil))
+	return reflect.TypeOf((*[]*RepositoryMilestone)(nil)).Elem()
 }
 
 func (o RepositoryMilestoneArrayOutput) ToRepositoryMilestoneArrayOutput() RepositoryMilestoneArrayOutput {
@@ -331,15 +274,15 @@ func (o RepositoryMilestoneArrayOutput) ToRepositoryMilestoneArrayOutputWithCont
 }
 
 func (o RepositoryMilestoneArrayOutput) Index(i pulumi.IntInput) RepositoryMilestoneOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RepositoryMilestone {
-		return vs[0].([]RepositoryMilestone)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RepositoryMilestone {
+		return vs[0].([]*RepositoryMilestone)[vs[1].(int)]
 	}).(RepositoryMilestoneOutput)
 }
 
 type RepositoryMilestoneMapOutput struct{ *pulumi.OutputState }
 
 func (RepositoryMilestoneMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]RepositoryMilestone)(nil))
+	return reflect.TypeOf((*map[string]*RepositoryMilestone)(nil)).Elem()
 }
 
 func (o RepositoryMilestoneMapOutput) ToRepositoryMilestoneMapOutput() RepositoryMilestoneMapOutput {
@@ -351,14 +294,16 @@ func (o RepositoryMilestoneMapOutput) ToRepositoryMilestoneMapOutputWithContext(
 }
 
 func (o RepositoryMilestoneMapOutput) MapIndex(k pulumi.StringInput) RepositoryMilestoneOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) RepositoryMilestone {
-		return vs[0].(map[string]RepositoryMilestone)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *RepositoryMilestone {
+		return vs[0].(map[string]*RepositoryMilestone)[vs[1].(string)]
 	}).(RepositoryMilestoneOutput)
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryMilestoneInput)(nil)).Elem(), &RepositoryMilestone{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryMilestoneArrayInput)(nil)).Elem(), RepositoryMilestoneArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryMilestoneMapInput)(nil)).Elem(), RepositoryMilestoneMap{})
 	pulumi.RegisterOutputType(RepositoryMilestoneOutput{})
-	pulumi.RegisterOutputType(RepositoryMilestonePtrOutput{})
 	pulumi.RegisterOutputType(RepositoryMilestoneArrayOutput{})
 	pulumi.RegisterOutputType(RepositoryMilestoneMapOutput{})
 }

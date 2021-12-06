@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Github
 {
@@ -39,6 +40,35 @@ namespace Pulumi.Github
         /// </summary>
         public static Task<GetTeamResult> InvokeAsync(GetTeamArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetTeamResult>("github:index/getTeam:getTeam", args ?? new GetTeamArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to retrieve information about a GitHub team.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Github = Pulumi.Github;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Github.GetTeam.InvokeAsync(new Github.GetTeamArgs
+        ///         {
+        ///             Slug = "example",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetTeamResult> Invoke(GetTeamInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetTeamResult>("github:index/getTeam:getTeam", args ?? new GetTeamInvokeArgs(), options.WithVersion());
     }
 
 
@@ -51,6 +81,19 @@ namespace Pulumi.Github
         public string Slug { get; set; } = null!;
 
         public GetTeamArgs()
+        {
+        }
+    }
+
+    public sealed class GetTeamInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The team slug.
+        /// </summary>
+        [Input("slug", required: true)]
+        public Input<string> Slug { get; set; } = null!;
+
+        public GetTeamInvokeArgs()
         {
         }
     }

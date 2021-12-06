@@ -12,6 +12,7 @@ __all__ = [
     'GetUsersResult',
     'AwaitableGetUsersResult',
     'get_users',
+    'get_users_output',
 ]
 
 @pulumi.output_type
@@ -124,3 +125,30 @@ def get_users(usernames: Optional[Sequence[str]] = None,
         node_ids=__ret__.node_ids,
         unknown_logins=__ret__.unknown_logins,
         usernames=__ret__.usernames)
+
+
+@_utilities.lift_output_func(get_users)
+def get_users_output(usernames: Optional[pulumi.Input[Sequence[str]]] = None,
+                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUsersResult]:
+    """
+    Use this data source to retrieve information about multiple GitHub users at once.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_github as github
+
+    example = github.get_users(usernames=[
+        "example1",
+        "example2",
+        "example3",
+    ])
+    pulumi.export("validUsers", data["github_user"]["example"]["logins"])
+    pulumi.export("invalidUsers", data["github_user"]["example"]["unknown_logins"])
+    ```
+
+
+    :param Sequence[str] usernames: List of usernames.
+    """
+    ...

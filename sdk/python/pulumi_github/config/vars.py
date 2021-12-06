@@ -9,51 +9,59 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
-__all__ = [
-    'app_auth',
-    'base_url',
-    'insecure',
-    'organization',
-    'owner',
-    'token',
-    'write_delay_ms',
-]
+import types
 
 __config__ = pulumi.Config('github')
 
-app_auth = __config__.get('appAuth')
-"""
-The GitHub App credentials used to connect to GitHub. Conflicts with `token`. Anonymous mode is enabled if both `token`
-and `app_auth` are not set.
-"""
 
-base_url = __config__.get('baseUrl') or (_utilities.get_env('GITHUB_BASE_URL') or 'https://api.github.com/')
-"""
-The GitHub Base API URL
-"""
+class _ExportableConfig(types.ModuleType):
+    @property
+    def app_auth(self) -> Optional[str]:
+        """
+        The GitHub App credentials used to connect to GitHub. Conflicts with `token`. Anonymous mode is enabled if both `token`
+        and `app_auth` are not set.
+        """
+        return __config__.get('appAuth')
 
-insecure = __config__.get('insecure')
-"""
-Enable `insecure` mode for testing purposes
-"""
+    @property
+    def base_url(self) -> str:
+        """
+        The GitHub Base API URL
+        """
+        return __config__.get('baseUrl') or (_utilities.get_env('GITHUB_BASE_URL') or 'https://api.github.com/')
 
-organization = __config__.get('organization')
-"""
-The GitHub organization name to manage. Use this field instead of `owner` when managing organization accounts.
-"""
+    @property
+    def insecure(self) -> Optional[bool]:
+        """
+        Enable `insecure` mode for testing purposes
+        """
+        return __config__.get_bool('insecure')
 
-owner = __config__.get('owner')
-"""
-The GitHub owner name to manage. Use this field instead of `organization` when managing individual accounts.
-"""
+    @property
+    def organization(self) -> Optional[str]:
+        """
+        The GitHub organization name to manage. Use this field instead of `owner` when managing organization accounts.
+        """
+        return __config__.get('organization')
 
-token = __config__.get('token')
-"""
-The OAuth token used to connect to GitHub. Anonymous mode is enabled if both `token` and `app_auth` are not set.
-"""
+    @property
+    def owner(self) -> Optional[str]:
+        """
+        The GitHub owner name to manage. Use this field instead of `organization` when managing individual accounts.
+        """
+        return __config__.get('owner')
 
-write_delay_ms = __config__.get('writeDelayMs')
-"""
-Amount of time in milliseconds to sleep in between writes to GitHub API. Defaults to 1000ms or 1s if not set.
-"""
+    @property
+    def token(self) -> Optional[str]:
+        """
+        The OAuth token used to connect to GitHub. Anonymous mode is enabled if both `token` and `app_auth` are not set.
+        """
+        return __config__.get('token')
+
+    @property
+    def write_delay_ms(self) -> Optional[int]:
+        """
+        Amount of time in milliseconds to sleep in between writes to GitHub API. Defaults to 1000ms or 1s if not set.
+        """
+        return __config__.get_int('writeDelayMs')
 

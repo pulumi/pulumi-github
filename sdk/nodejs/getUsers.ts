@@ -2,7 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
 /**
@@ -71,4 +70,18 @@ export interface GetUsersResult {
      */
     readonly unknownLogins: string[];
     readonly usernames: string[];
+}
+
+export function getUsersOutput(args: GetUsersOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUsersResult> {
+    return pulumi.output(args).apply(a => getUsers(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getUsers.
+ */
+export interface GetUsersOutputArgs {
+    /**
+     * List of usernames.
+     */
+    usernames: pulumi.Input<pulumi.Input<string>[]>;
 }

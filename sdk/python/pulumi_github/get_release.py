@@ -12,6 +12,7 @@ __all__ = [
     'GetReleaseResult',
     'AwaitableGetReleaseResult',
     'get_release',
+    'get_release_output',
 ]
 
 @pulumi.output_type
@@ -334,3 +335,60 @@ def get_release(owner: Optional[str] = None,
         upload_url=__ret__.upload_url,
         url=__ret__.url,
         zipball_url=__ret__.zipball_url)
+
+
+@_utilities.lift_output_func(get_release)
+def get_release_output(owner: Optional[pulumi.Input[str]] = None,
+                       release_id: Optional[pulumi.Input[Optional[int]]] = None,
+                       release_tag: Optional[pulumi.Input[Optional[str]]] = None,
+                       repository: Optional[pulumi.Input[str]] = None,
+                       retrieve_by: Optional[pulumi.Input[str]] = None,
+                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetReleaseResult]:
+    """
+    Use this data source to retrieve information about a GitHub release in a specific repository.
+
+    ## Example Usage
+
+    To retrieve the latest release that is present in a repository:
+
+    ```python
+    import pulumi
+    import pulumi_github as github
+
+    example = github.get_release(owner="example-owner",
+        repository="example-repository",
+        retrieve_by="latest")
+    ```
+
+    To retrieve a specific release from a repository based on it's ID:
+
+    ```python
+    import pulumi
+    import pulumi_github as github
+
+    example = github.get_release(id=12345,
+        owner="example-owner",
+        repository="example-repository",
+        retrieve_by="id")
+    ```
+
+    Finally, to retrieve a release based on it's tag:
+
+    ```python
+    import pulumi
+    import pulumi_github as github
+
+    example = github.get_release(owner="example-owner",
+        release_tag="v1.0.0",
+        repository="example-repository",
+        retrieve_by="tag")
+    ```
+
+
+    :param str owner: Owner of the repository.
+    :param int release_id: ID of the release to retrieve. Must be specified when `retrieve_by` = `id`.
+    :param str release_tag: Tag of the release to retrieve. Must be specified when `retrieve_by` = `tag`.
+    :param str repository: Name of the repository to retrieve the release from.
+    :param str retrieve_by: Describes how to fetch the release. Valid values are `id`, `tag`, `latest`.
+    """
+    ...

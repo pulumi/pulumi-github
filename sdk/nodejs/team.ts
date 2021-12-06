@@ -106,37 +106,37 @@ export class Team extends pulumi.CustomResource {
      */
     constructor(name: string, args?: TeamArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: TeamArgs | TeamState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TeamState | undefined;
-            inputs["createDefaultMaintainer"] = state ? state.createDefaultMaintainer : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["etag"] = state ? state.etag : undefined;
-            inputs["ldapDn"] = state ? state.ldapDn : undefined;
-            inputs["membersCount"] = state ? state.membersCount : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["nodeId"] = state ? state.nodeId : undefined;
-            inputs["parentTeamId"] = state ? state.parentTeamId : undefined;
-            inputs["privacy"] = state ? state.privacy : undefined;
-            inputs["slug"] = state ? state.slug : undefined;
+            resourceInputs["createDefaultMaintainer"] = state ? state.createDefaultMaintainer : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["etag"] = state ? state.etag : undefined;
+            resourceInputs["ldapDn"] = state ? state.ldapDn : undefined;
+            resourceInputs["membersCount"] = state ? state.membersCount : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["nodeId"] = state ? state.nodeId : undefined;
+            resourceInputs["parentTeamId"] = state ? state.parentTeamId : undefined;
+            resourceInputs["privacy"] = state ? state.privacy : undefined;
+            resourceInputs["slug"] = state ? state.slug : undefined;
         } else {
             const args = argsOrState as TeamArgs | undefined;
-            inputs["createDefaultMaintainer"] = args ? args.createDefaultMaintainer : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["ldapDn"] = args ? args.ldapDn : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["parentTeamId"] = args ? args.parentTeamId : undefined;
-            inputs["privacy"] = args ? args.privacy : undefined;
-            inputs["etag"] = undefined /*out*/;
-            inputs["membersCount"] = undefined /*out*/;
-            inputs["nodeId"] = undefined /*out*/;
-            inputs["slug"] = undefined /*out*/;
+            resourceInputs["createDefaultMaintainer"] = args ? args.createDefaultMaintainer : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["ldapDn"] = args ? args.ldapDn : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["parentTeamId"] = args ? args.parentTeamId : undefined;
+            resourceInputs["privacy"] = args ? args.privacy : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["membersCount"] = undefined /*out*/;
+            resourceInputs["nodeId"] = undefined /*out*/;
+            resourceInputs["slug"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Team.__pulumiType, name, inputs, opts);
+        super(Team.__pulumiType, name, resourceInputs, opts);
     }
 }
 

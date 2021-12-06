@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Github
 {
@@ -40,6 +41,36 @@ namespace Pulumi.Github
         /// </summary>
         public static Task<GetActionsPublicKeyResult> InvokeAsync(GetActionsPublicKeyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetActionsPublicKeyResult>("github:index/getActionsPublicKey:getActionsPublicKey", args ?? new GetActionsPublicKeyArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to retrieve information about a GitHub Actions public key. This data source is required to be used with other GitHub secrets interactions.
+        /// Note that the provider `token` must have admin rights to a repository to retrieve it's action public key.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Github = Pulumi.Github;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Github.GetActionsPublicKey.InvokeAsync(new Github.GetActionsPublicKeyArgs
+        ///         {
+        ///             Repository = "example_repo",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetActionsPublicKeyResult> Invoke(GetActionsPublicKeyInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetActionsPublicKeyResult>("github:index/getActionsPublicKey:getActionsPublicKey", args ?? new GetActionsPublicKeyInvokeArgs(), options.WithVersion());
     }
 
 
@@ -52,6 +83,19 @@ namespace Pulumi.Github
         public string Repository { get; set; } = null!;
 
         public GetActionsPublicKeyArgs()
+        {
+        }
+    }
+
+    public sealed class GetActionsPublicKeyInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of the repository to get public key from.
+        /// </summary>
+        [Input("repository", required: true)]
+        public Input<string> Repository { get; set; } = null!;
+
+        public GetActionsPublicKeyInvokeArgs()
         {
         }
     }

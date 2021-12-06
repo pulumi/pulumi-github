@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Github
 {
@@ -46,6 +47,42 @@ namespace Pulumi.Github
         /// </summary>
         public static Task<GetUserResult> InvokeAsync(GetUserArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetUserResult>("github:index/getUser:getUser", args ?? new GetUserArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to retrieve information about a GitHub user.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Github = Pulumi.Github;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Github.GetUser.InvokeAsync(new Github.GetUserArgs
+        ///         {
+        ///             Username = "example",
+        ///         }));
+        ///         var current = Output.Create(Github.GetUser.InvokeAsync(new Github.GetUserArgs
+        ///         {
+        ///             Username = "",
+        ///         }));
+        ///         this.CurrentGithubLogin = current.Apply(current =&gt; current.Login);
+        ///     }
+        /// 
+        ///     [Output("currentGithubLogin")]
+        ///     public Output&lt;string&gt; CurrentGithubLogin { get; set; }
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetUserResult> Invoke(GetUserInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetUserResult>("github:index/getUser:getUser", args ?? new GetUserInvokeArgs(), options.WithVersion());
     }
 
 
@@ -58,6 +95,19 @@ namespace Pulumi.Github
         public string Username { get; set; } = null!;
 
         public GetUserArgs()
+        {
+        }
+    }
+
+    public sealed class GetUserInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The username. Use an empty string `""` to retrieve information about the currently authenticated user.
+        /// </summary>
+        [Input("username", required: true)]
+        public Input<string> Username { get; set; } = null!;
+
+        public GetUserInvokeArgs()
         {
         }
     }

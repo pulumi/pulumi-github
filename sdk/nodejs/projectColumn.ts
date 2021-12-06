@@ -65,28 +65,28 @@ export class ProjectColumn extends pulumi.CustomResource {
      */
     constructor(name: string, args: ProjectColumnArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ProjectColumnArgs | ProjectColumnState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ProjectColumnState | undefined;
-            inputs["columnId"] = state ? state.columnId : undefined;
-            inputs["etag"] = state ? state.etag : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["projectId"] = state ? state.projectId : undefined;
+            resourceInputs["columnId"] = state ? state.columnId : undefined;
+            resourceInputs["etag"] = state ? state.etag : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["projectId"] = state ? state.projectId : undefined;
         } else {
             const args = argsOrState as ProjectColumnArgs | undefined;
             if ((!args || args.projectId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'projectId'");
             }
-            inputs["name"] = args ? args.name : undefined;
-            inputs["projectId"] = args ? args.projectId : undefined;
-            inputs["columnId"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["projectId"] = args ? args.projectId : undefined;
+            resourceInputs["columnId"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(ProjectColumn.__pulumiType, name, inputs, opts);
+        super(ProjectColumn.__pulumiType, name, resourceInputs, opts);
     }
 }
 

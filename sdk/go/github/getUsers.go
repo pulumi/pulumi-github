@@ -4,6 +4,9 @@
 package github
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +24,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := github.GetUsers(ctx, &github.GetUsersArgs{
+// 		_, err := github.GetUsers(ctx, &GetUsersArgs{
 // 			Usernames: []string{
 // 				"example1",
 // 				"example2",
@@ -63,4 +66,66 @@ type GetUsersResult struct {
 	// list of logins without matching user.
 	UnknownLogins []string `pulumi:"unknownLogins"`
 	Usernames     []string `pulumi:"usernames"`
+}
+
+func GetUsersOutput(ctx *pulumi.Context, args GetUsersOutputArgs, opts ...pulumi.InvokeOption) GetUsersResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetUsersResult, error) {
+			args := v.(GetUsersArgs)
+			r, err := GetUsers(ctx, &args, opts...)
+			return *r, err
+		}).(GetUsersResultOutput)
+}
+
+// A collection of arguments for invoking getUsers.
+type GetUsersOutputArgs struct {
+	// List of usernames.
+	Usernames pulumi.StringArrayInput `pulumi:"usernames"`
+}
+
+func (GetUsersOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetUsersArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getUsers.
+type GetUsersResultOutput struct{ *pulumi.OutputState }
+
+func (GetUsersResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetUsersResult)(nil)).Elem()
+}
+
+func (o GetUsersResultOutput) ToGetUsersResultOutput() GetUsersResultOutput {
+	return o
+}
+
+func (o GetUsersResultOutput) ToGetUsersResultOutputWithContext(ctx context.Context) GetUsersResultOutput {
+	return o
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetUsersResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUsersResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// list of logins of users that could be found.
+func (o GetUsersResultOutput) Logins() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetUsersResult) []string { return v.Logins }).(pulumi.StringArrayOutput)
+}
+
+// list of Node IDs of users that could be found.
+func (o GetUsersResultOutput) NodeIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetUsersResult) []string { return v.NodeIds }).(pulumi.StringArrayOutput)
+}
+
+// list of logins without matching user.
+func (o GetUsersResultOutput) UnknownLogins() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetUsersResult) []string { return v.UnknownLogins }).(pulumi.StringArrayOutput)
+}
+
+func (o GetUsersResultOutput) Usernames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetUsersResult) []string { return v.Usernames }).(pulumi.StringArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetUsersResultOutput{})
 }

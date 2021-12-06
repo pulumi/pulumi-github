@@ -86,14 +86,14 @@ export class RepositoryAutolinkReference extends pulumi.CustomResource {
      */
     constructor(name: string, args: RepositoryAutolinkReferenceArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: RepositoryAutolinkReferenceArgs | RepositoryAutolinkReferenceState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RepositoryAutolinkReferenceState | undefined;
-            inputs["etag"] = state ? state.etag : undefined;
-            inputs["keyPrefix"] = state ? state.keyPrefix : undefined;
-            inputs["repository"] = state ? state.repository : undefined;
-            inputs["targetUrlTemplate"] = state ? state.targetUrlTemplate : undefined;
+            resourceInputs["etag"] = state ? state.etag : undefined;
+            resourceInputs["keyPrefix"] = state ? state.keyPrefix : undefined;
+            resourceInputs["repository"] = state ? state.repository : undefined;
+            resourceInputs["targetUrlTemplate"] = state ? state.targetUrlTemplate : undefined;
         } else {
             const args = argsOrState as RepositoryAutolinkReferenceArgs | undefined;
             if ((!args || args.keyPrefix === undefined) && !opts.urn) {
@@ -105,15 +105,15 @@ export class RepositoryAutolinkReference extends pulumi.CustomResource {
             if ((!args || args.targetUrlTemplate === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'targetUrlTemplate'");
             }
-            inputs["keyPrefix"] = args ? args.keyPrefix : undefined;
-            inputs["repository"] = args ? args.repository : undefined;
-            inputs["targetUrlTemplate"] = args ? args.targetUrlTemplate : undefined;
-            inputs["etag"] = undefined /*out*/;
+            resourceInputs["keyPrefix"] = args ? args.keyPrefix : undefined;
+            resourceInputs["repository"] = args ? args.repository : undefined;
+            resourceInputs["targetUrlTemplate"] = args ? args.targetUrlTemplate : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(RepositoryAutolinkReference.__pulumiType, name, inputs, opts);
+        super(RepositoryAutolinkReference.__pulumiType, name, resourceInputs, opts);
     }
 }
 

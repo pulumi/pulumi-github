@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Github
 {
@@ -39,6 +40,35 @@ namespace Pulumi.Github
         /// </summary>
         public static Task<GetRepositoryResult> InvokeAsync(GetRepositoryArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRepositoryResult>("github:index/getRepository:getRepository", args ?? new GetRepositoryArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to retrieve information about a GitHub repository.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Github = Pulumi.Github;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Github.GetRepository.InvokeAsync(new Github.GetRepositoryArgs
+        ///         {
+        ///             FullName = "hashicorp/terraform",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetRepositoryResult> Invoke(GetRepositoryInvokeArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetRepositoryResult>("github:index/getRepository:getRepository", args ?? new GetRepositoryInvokeArgs(), options.WithVersion());
     }
 
 
@@ -69,6 +99,37 @@ namespace Pulumi.Github
         public string? Name { get; set; }
 
         public GetRepositoryArgs()
+        {
+        }
+    }
+
+    public sealed class GetRepositoryInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// A description of the repository.
+        /// </summary>
+        [Input("description")]
+        public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// Full name of the repository (in `org/name` format).
+        /// </summary>
+        [Input("fullName")]
+        public Input<string>? FullName { get; set; }
+
+        /// <summary>
+        /// URL of a page describing the project.
+        /// </summary>
+        [Input("homepageUrl")]
+        public Input<string>? HomepageUrl { get; set; }
+
+        /// <summary>
+        /// The name of the repository.
+        /// </summary>
+        [Input("name")]
+        public Input<string>? Name { get; set; }
+
+        public GetRepositoryInvokeArgs()
         {
         }
     }

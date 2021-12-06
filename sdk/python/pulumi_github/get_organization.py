@@ -12,6 +12,7 @@ __all__ = [
     'GetOrganizationResult',
     'AwaitableGetOrganizationResult',
     'get_organization',
+    'get_organization_output',
 ]
 
 @pulumi.output_type
@@ -157,3 +158,24 @@ def get_organization(name: Optional[str] = None,
         node_id=__ret__.node_id,
         plan=__ret__.plan,
         repositories=__ret__.repositories)
+
+
+@_utilities.lift_output_func(get_organization)
+def get_organization_output(name: Optional[pulumi.Input[str]] = None,
+                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOrganizationResult]:
+    """
+    Use this data source to retrieve basic information about a GitHub Organization.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_github as github
+
+    test = github.get_organization(name="github")
+    ```
+
+
+    :param str name: The name of the organization account
+    """
+    ...

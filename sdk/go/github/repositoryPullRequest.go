@@ -237,7 +237,7 @@ type RepositoryPullRequestInput interface {
 }
 
 func (*RepositoryPullRequest) ElementType() reflect.Type {
-	return reflect.TypeOf((*RepositoryPullRequest)(nil))
+	return reflect.TypeOf((**RepositoryPullRequest)(nil)).Elem()
 }
 
 func (i *RepositoryPullRequest) ToRepositoryPullRequestOutput() RepositoryPullRequestOutput {
@@ -246,35 +246,6 @@ func (i *RepositoryPullRequest) ToRepositoryPullRequestOutput() RepositoryPullRe
 
 func (i *RepositoryPullRequest) ToRepositoryPullRequestOutputWithContext(ctx context.Context) RepositoryPullRequestOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryPullRequestOutput)
-}
-
-func (i *RepositoryPullRequest) ToRepositoryPullRequestPtrOutput() RepositoryPullRequestPtrOutput {
-	return i.ToRepositoryPullRequestPtrOutputWithContext(context.Background())
-}
-
-func (i *RepositoryPullRequest) ToRepositoryPullRequestPtrOutputWithContext(ctx context.Context) RepositoryPullRequestPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RepositoryPullRequestPtrOutput)
-}
-
-type RepositoryPullRequestPtrInput interface {
-	pulumi.Input
-
-	ToRepositoryPullRequestPtrOutput() RepositoryPullRequestPtrOutput
-	ToRepositoryPullRequestPtrOutputWithContext(ctx context.Context) RepositoryPullRequestPtrOutput
-}
-
-type repositoryPullRequestPtrType RepositoryPullRequestArgs
-
-func (*repositoryPullRequestPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**RepositoryPullRequest)(nil))
-}
-
-func (i *repositoryPullRequestPtrType) ToRepositoryPullRequestPtrOutput() RepositoryPullRequestPtrOutput {
-	return i.ToRepositoryPullRequestPtrOutputWithContext(context.Background())
-}
-
-func (i *repositoryPullRequestPtrType) ToRepositoryPullRequestPtrOutputWithContext(ctx context.Context) RepositoryPullRequestPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RepositoryPullRequestPtrOutput)
 }
 
 // RepositoryPullRequestArrayInput is an input type that accepts RepositoryPullRequestArray and RepositoryPullRequestArrayOutput values.
@@ -291,7 +262,7 @@ type RepositoryPullRequestArrayInput interface {
 type RepositoryPullRequestArray []RepositoryPullRequestInput
 
 func (RepositoryPullRequestArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*RepositoryPullRequest)(nil))
+	return reflect.TypeOf((*[]*RepositoryPullRequest)(nil)).Elem()
 }
 
 func (i RepositoryPullRequestArray) ToRepositoryPullRequestArrayOutput() RepositoryPullRequestArrayOutput {
@@ -316,7 +287,7 @@ type RepositoryPullRequestMapInput interface {
 type RepositoryPullRequestMap map[string]RepositoryPullRequestInput
 
 func (RepositoryPullRequestMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*RepositoryPullRequest)(nil))
+	return reflect.TypeOf((*map[string]*RepositoryPullRequest)(nil)).Elem()
 }
 
 func (i RepositoryPullRequestMap) ToRepositoryPullRequestMapOutput() RepositoryPullRequestMapOutput {
@@ -327,12 +298,10 @@ func (i RepositoryPullRequestMap) ToRepositoryPullRequestMapOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryPullRequestMapOutput)
 }
 
-type RepositoryPullRequestOutput struct {
-	*pulumi.OutputState
-}
+type RepositoryPullRequestOutput struct{ *pulumi.OutputState }
 
 func (RepositoryPullRequestOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RepositoryPullRequest)(nil))
+	return reflect.TypeOf((**RepositoryPullRequest)(nil)).Elem()
 }
 
 func (o RepositoryPullRequestOutput) ToRepositoryPullRequestOutput() RepositoryPullRequestOutput {
@@ -343,36 +312,10 @@ func (o RepositoryPullRequestOutput) ToRepositoryPullRequestOutputWithContext(ct
 	return o
 }
 
-func (o RepositoryPullRequestOutput) ToRepositoryPullRequestPtrOutput() RepositoryPullRequestPtrOutput {
-	return o.ToRepositoryPullRequestPtrOutputWithContext(context.Background())
-}
-
-func (o RepositoryPullRequestOutput) ToRepositoryPullRequestPtrOutputWithContext(ctx context.Context) RepositoryPullRequestPtrOutput {
-	return o.ApplyT(func(v RepositoryPullRequest) *RepositoryPullRequest {
-		return &v
-	}).(RepositoryPullRequestPtrOutput)
-}
-
-type RepositoryPullRequestPtrOutput struct {
-	*pulumi.OutputState
-}
-
-func (RepositoryPullRequestPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**RepositoryPullRequest)(nil))
-}
-
-func (o RepositoryPullRequestPtrOutput) ToRepositoryPullRequestPtrOutput() RepositoryPullRequestPtrOutput {
-	return o
-}
-
-func (o RepositoryPullRequestPtrOutput) ToRepositoryPullRequestPtrOutputWithContext(ctx context.Context) RepositoryPullRequestPtrOutput {
-	return o
-}
-
 type RepositoryPullRequestArrayOutput struct{ *pulumi.OutputState }
 
 func (RepositoryPullRequestArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RepositoryPullRequest)(nil))
+	return reflect.TypeOf((*[]*RepositoryPullRequest)(nil)).Elem()
 }
 
 func (o RepositoryPullRequestArrayOutput) ToRepositoryPullRequestArrayOutput() RepositoryPullRequestArrayOutput {
@@ -384,15 +327,15 @@ func (o RepositoryPullRequestArrayOutput) ToRepositoryPullRequestArrayOutputWith
 }
 
 func (o RepositoryPullRequestArrayOutput) Index(i pulumi.IntInput) RepositoryPullRequestOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RepositoryPullRequest {
-		return vs[0].([]RepositoryPullRequest)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RepositoryPullRequest {
+		return vs[0].([]*RepositoryPullRequest)[vs[1].(int)]
 	}).(RepositoryPullRequestOutput)
 }
 
 type RepositoryPullRequestMapOutput struct{ *pulumi.OutputState }
 
 func (RepositoryPullRequestMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]RepositoryPullRequest)(nil))
+	return reflect.TypeOf((*map[string]*RepositoryPullRequest)(nil)).Elem()
 }
 
 func (o RepositoryPullRequestMapOutput) ToRepositoryPullRequestMapOutput() RepositoryPullRequestMapOutput {
@@ -404,14 +347,16 @@ func (o RepositoryPullRequestMapOutput) ToRepositoryPullRequestMapOutputWithCont
 }
 
 func (o RepositoryPullRequestMapOutput) MapIndex(k pulumi.StringInput) RepositoryPullRequestOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) RepositoryPullRequest {
-		return vs[0].(map[string]RepositoryPullRequest)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *RepositoryPullRequest {
+		return vs[0].(map[string]*RepositoryPullRequest)[vs[1].(string)]
 	}).(RepositoryPullRequestOutput)
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryPullRequestInput)(nil)).Elem(), &RepositoryPullRequest{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryPullRequestArrayInput)(nil)).Elem(), RepositoryPullRequestArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryPullRequestMapInput)(nil)).Elem(), RepositoryPullRequestMap{})
 	pulumi.RegisterOutputType(RepositoryPullRequestOutput{})
-	pulumi.RegisterOutputType(RepositoryPullRequestPtrOutput{})
 	pulumi.RegisterOutputType(RepositoryPullRequestArrayOutput{})
 	pulumi.RegisterOutputType(RepositoryPullRequestMapOutput{})
 }

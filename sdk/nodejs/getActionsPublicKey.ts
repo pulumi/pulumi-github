@@ -2,7 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
 /**
@@ -60,4 +59,18 @@ export interface GetActionsPublicKeyResult {
      */
     readonly keyId: string;
     readonly repository: string;
+}
+
+export function getActionsPublicKeyOutput(args: GetActionsPublicKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetActionsPublicKeyResult> {
+    return pulumi.output(args).apply(a => getActionsPublicKey(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getActionsPublicKey.
+ */
+export interface GetActionsPublicKeyOutputArgs {
+    /**
+     * Name of the repository to get public key from.
+     */
+    repository: pulumi.Input<string>;
 }

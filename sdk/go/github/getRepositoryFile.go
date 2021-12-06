@@ -4,6 +4,9 @@
 package github
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +26,7 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		opt0 := "main"
-// 		_, err := github.LookupRepositoryFile(ctx, &github.LookupRepositoryFileArgs{
+// 		_, err := github.LookupRepositoryFile(ctx, &GetRepositoryFileArgs{
 // 			Repository: github_repository.Foo.Name,
 // 			Branch:     &opt0,
 // 			File:       ".gitignore",
@@ -74,4 +77,94 @@ type LookupRepositoryFileResult struct {
 	Repository string `pulumi:"repository"`
 	// The SHA blob of the file.
 	Sha string `pulumi:"sha"`
+}
+
+func LookupRepositoryFileOutput(ctx *pulumi.Context, args LookupRepositoryFileOutputArgs, opts ...pulumi.InvokeOption) LookupRepositoryFileResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupRepositoryFileResult, error) {
+			args := v.(LookupRepositoryFileArgs)
+			r, err := LookupRepositoryFile(ctx, &args, opts...)
+			return *r, err
+		}).(LookupRepositoryFileResultOutput)
+}
+
+// A collection of arguments for invoking getRepositoryFile.
+type LookupRepositoryFileOutputArgs struct {
+	// Git branch (defaults to `main`).
+	// The branch must already exist, it will not be created if it does not already exist.
+	Branch pulumi.StringPtrInput `pulumi:"branch"`
+	// The path of the file to manage.
+	File pulumi.StringInput `pulumi:"file"`
+	// The repository to create the file in.
+	Repository pulumi.StringInput `pulumi:"repository"`
+}
+
+func (LookupRepositoryFileOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupRepositoryFileArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getRepositoryFile.
+type LookupRepositoryFileResultOutput struct{ *pulumi.OutputState }
+
+func (LookupRepositoryFileResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupRepositoryFileResult)(nil)).Elem()
+}
+
+func (o LookupRepositoryFileResultOutput) ToLookupRepositoryFileResultOutput() LookupRepositoryFileResultOutput {
+	return o
+}
+
+func (o LookupRepositoryFileResultOutput) ToLookupRepositoryFileResultOutputWithContext(ctx context.Context) LookupRepositoryFileResultOutput {
+	return o
+}
+
+func (o LookupRepositoryFileResultOutput) Branch() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupRepositoryFileResult) *string { return v.Branch }).(pulumi.StringPtrOutput)
+}
+
+// Committer author name.
+func (o LookupRepositoryFileResultOutput) CommitAuthor() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRepositoryFileResult) string { return v.CommitAuthor }).(pulumi.StringOutput)
+}
+
+// Committer email address.
+func (o LookupRepositoryFileResultOutput) CommitEmail() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRepositoryFileResult) string { return v.CommitEmail }).(pulumi.StringOutput)
+}
+
+// Commit message when file was last updated.
+func (o LookupRepositoryFileResultOutput) CommitMessage() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRepositoryFileResult) string { return v.CommitMessage }).(pulumi.StringOutput)
+}
+
+// The SHA of the commit that modified the file.
+func (o LookupRepositoryFileResultOutput) CommitSha() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRepositoryFileResult) string { return v.CommitSha }).(pulumi.StringOutput)
+}
+
+// The file content.
+func (o LookupRepositoryFileResultOutput) Content() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRepositoryFileResult) string { return v.Content }).(pulumi.StringOutput)
+}
+
+func (o LookupRepositoryFileResultOutput) File() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRepositoryFileResult) string { return v.File }).(pulumi.StringOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupRepositoryFileResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRepositoryFileResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o LookupRepositoryFileResultOutput) Repository() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRepositoryFileResult) string { return v.Repository }).(pulumi.StringOutput)
+}
+
+// The SHA blob of the file.
+func (o LookupRepositoryFileResultOutput) Sha() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRepositoryFileResult) string { return v.Sha }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupRepositoryFileResultOutput{})
 }

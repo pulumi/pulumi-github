@@ -80,26 +80,26 @@ export class Membership extends pulumi.CustomResource {
      */
     constructor(name: string, args: MembershipArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: MembershipArgs | MembershipState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as MembershipState | undefined;
-            inputs["etag"] = state ? state.etag : undefined;
-            inputs["role"] = state ? state.role : undefined;
-            inputs["username"] = state ? state.username : undefined;
+            resourceInputs["etag"] = state ? state.etag : undefined;
+            resourceInputs["role"] = state ? state.role : undefined;
+            resourceInputs["username"] = state ? state.username : undefined;
         } else {
             const args = argsOrState as MembershipArgs | undefined;
             if ((!args || args.username === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'username'");
             }
-            inputs["role"] = args ? args.role : undefined;
-            inputs["username"] = args ? args.username : undefined;
-            inputs["etag"] = undefined /*out*/;
+            resourceInputs["role"] = args ? args.role : undefined;
+            resourceInputs["username"] = args ? args.username : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Membership.__pulumiType, name, inputs, opts);
+        super(Membership.__pulumiType, name, resourceInputs, opts);
     }
 }
 

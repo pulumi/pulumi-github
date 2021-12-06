@@ -69,25 +69,25 @@ export class OrganizationProject extends pulumi.CustomResource {
      */
     constructor(name: string, args?: OrganizationProjectArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: OrganizationProjectArgs | OrganizationProjectState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as OrganizationProjectState | undefined;
-            inputs["body"] = state ? state.body : undefined;
-            inputs["etag"] = state ? state.etag : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["url"] = state ? state.url : undefined;
+            resourceInputs["body"] = state ? state.body : undefined;
+            resourceInputs["etag"] = state ? state.etag : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["url"] = state ? state.url : undefined;
         } else {
             const args = argsOrState as OrganizationProjectArgs | undefined;
-            inputs["body"] = args ? args.body : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["etag"] = undefined /*out*/;
-            inputs["url"] = undefined /*out*/;
+            resourceInputs["body"] = args ? args.body : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["url"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(OrganizationProject.__pulumiType, name, inputs, opts);
+        super(OrganizationProject.__pulumiType, name, resourceInputs, opts);
     }
 }
 
