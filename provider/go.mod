@@ -2,7 +2,7 @@ module github.com/pulumi/pulumi-github/provider/v4
 
 go 1.16
 
-replace github.com/terraform-providers/terraform-provider-github => github.com/pulumi/terraform-provider-github v0.0.0-20211123151123-f9424f503bbf
+replace github.com/terraform-providers/terraform-provider-github => github.com/pulumi/terraform-provider-github v0.0.0-20211210142725-829017d27b30
 
 require (
 	github.com/hashicorp/terraform-plugin-sdk v1.9.1

@@ -1568,7 +1568,8 @@
                     "description": "Date of actions_secret update.\n"
                 },
                 "visibility": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Configures the access that repositories have to the organization secret.\nMust be one of `all`, `private`, `selected`. `selected_repository_ids` is required if set to `selected`.\n"
                 }
             },
             "required": [
@@ -1598,7 +1599,8 @@
                     "description": "An array of repository ids that can access the organization secret.\n"
                 },
                 "visibility": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Configures the access that repositories have to the organization secret.\nMust be one of `all`, `private`, `selected`. `selected_repository_ids` is required if set to `selected`.\n"
                 }
             },
             "requiredInputs": [
@@ -1636,7 +1638,8 @@
                         "description": "Date of actions_secret update.\n"
                     },
                     "visibility": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Configures the access that repositories have to the organization secret.\nMust be one of `all`, `private`, `selected`. `selected_repository_ids` is required if set to `selected`.\n"
                     }
                 },
                 "type": "object"
@@ -4149,7 +4152,7 @@
             "properties": {
                 "createDefaultMaintainer": {
                     "type": "boolean",
-                    "description": "Adds a default maintainer to the team. Defaults to `true` and removes the default maintaner when `false`.\n"
+                    "description": "Adds a default maintainer to the team. Defaults to `false` and adds the creating user to the team when `true`.\n"
                 },
                 "description": {
                     "type": "string",
@@ -4196,7 +4199,7 @@
             "inputProperties": {
                 "createDefaultMaintainer": {
                     "type": "boolean",
-                    "description": "Adds a default maintainer to the team. Defaults to `true` and removes the default maintaner when `false`.\n"
+                    "description": "Adds a default maintainer to the team. Defaults to `false` and adds the creating user to the team when `true`.\n"
                 },
                 "description": {
                     "type": "string",
@@ -4224,7 +4227,7 @@
                 "properties": {
                     "createDefaultMaintainer": {
                         "type": "boolean",
-                        "description": "Adds a default maintainer to the team. Defaults to `true` and removes the default maintaner when `false`.\n"
+                        "description": "Adds a default maintainer to the team. Defaults to `false` and adds the creating user to the team when `true`.\n"
                     },
                     "description": {
                         "type": "string",

@@ -21,6 +21,8 @@ class ActionsOrganizationSecretArgs:
         """
         The set of arguments for constructing a ActionsOrganizationSecret resource.
         :param pulumi.Input[str] secret_name: Name of the secret
+        :param pulumi.Input[str] visibility: Configures the access that repositories have to the organization secret.
+               Must be one of `all`, `private`, `selected`. `selected_repository_ids` is required if set to `selected`.
         :param pulumi.Input[str] encrypted_value: Encrypted value of the secret using the Github public key in Base64 format.
         :param pulumi.Input[str] plaintext_value: Plaintext value of the secret to be encrypted
         :param pulumi.Input[Sequence[pulumi.Input[int]]] selected_repository_ids: An array of repository ids that can access the organization secret.
@@ -49,6 +51,10 @@ class ActionsOrganizationSecretArgs:
     @property
     @pulumi.getter
     def visibility(self) -> pulumi.Input[str]:
+        """
+        Configures the access that repositories have to the organization secret.
+        Must be one of `all`, `private`, `selected`. `selected_repository_ids` is required if set to `selected`.
+        """
         return pulumi.get(self, "visibility")
 
     @visibility.setter
@@ -110,6 +116,8 @@ class _ActionsOrganizationSecretState:
         :param pulumi.Input[str] secret_name: Name of the secret
         :param pulumi.Input[Sequence[pulumi.Input[int]]] selected_repository_ids: An array of repository ids that can access the organization secret.
         :param pulumi.Input[str] updated_at: Date of actions_secret update.
+        :param pulumi.Input[str] visibility: Configures the access that repositories have to the organization secret.
+               Must be one of `all`, `private`, `selected`. `selected_repository_ids` is required if set to `selected`.
         """
         if created_at is not None:
             pulumi.set(__self__, "created_at", created_at)
@@ -201,6 +209,10 @@ class _ActionsOrganizationSecretState:
     @property
     @pulumi.getter
     def visibility(self) -> Optional[pulumi.Input[str]]:
+        """
+        Configures the access that repositories have to the organization secret.
+        Must be one of `all`, `private`, `selected`. `selected_repository_ids` is required if set to `selected`.
+        """
         return pulumi.get(self, "visibility")
 
     @visibility.setter
@@ -236,6 +248,8 @@ class ActionsOrganizationSecret(pulumi.CustomResource):
         :param pulumi.Input[str] plaintext_value: Plaintext value of the secret to be encrypted
         :param pulumi.Input[str] secret_name: Name of the secret
         :param pulumi.Input[Sequence[pulumi.Input[int]]] selected_repository_ids: An array of repository ids that can access the organization secret.
+        :param pulumi.Input[str] visibility: Configures the access that repositories have to the organization secret.
+               Must be one of `all`, `private`, `selected`. `selected_repository_ids` is required if set to `selected`.
         """
         ...
     @overload
@@ -327,6 +341,8 @@ class ActionsOrganizationSecret(pulumi.CustomResource):
         :param pulumi.Input[str] secret_name: Name of the secret
         :param pulumi.Input[Sequence[pulumi.Input[int]]] selected_repository_ids: An array of repository ids that can access the organization secret.
         :param pulumi.Input[str] updated_at: Date of actions_secret update.
+        :param pulumi.Input[str] visibility: Configures the access that repositories have to the organization secret.
+               Must be one of `all`, `private`, `selected`. `selected_repository_ids` is required if set to `selected`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -392,5 +408,9 @@ class ActionsOrganizationSecret(pulumi.CustomResource):
     @property
     @pulumi.getter
     def visibility(self) -> pulumi.Output[str]:
+        """
+        Configures the access that repositories have to the organization secret.
+        Must be one of `all`, `private`, `selected`. `selected_repository_ids` is required if set to `selected`.
+        """
         return pulumi.get(self, "visibility")
 

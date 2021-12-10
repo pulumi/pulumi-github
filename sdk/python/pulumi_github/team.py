@@ -21,7 +21,7 @@ class TeamArgs:
                  privacy: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Team resource.
-        :param pulumi.Input[bool] create_default_maintainer: Adds a default maintainer to the team. Defaults to `true` and removes the default maintaner when `false`.
+        :param pulumi.Input[bool] create_default_maintainer: Adds a default maintainer to the team. Defaults to `false` and adds the creating user to the team when `true`.
         :param pulumi.Input[str] description: A description of the team.
         :param pulumi.Input[str] ldap_dn: The LDAP Distinguished Name of the group where membership will be synchronized. Only available in GitHub Enterprise Server.
         :param pulumi.Input[str] name: The name of the team.
@@ -46,7 +46,7 @@ class TeamArgs:
     @pulumi.getter(name="createDefaultMaintainer")
     def create_default_maintainer(self) -> Optional[pulumi.Input[bool]]:
         """
-        Adds a default maintainer to the team. Defaults to `true` and removes the default maintaner when `false`.
+        Adds a default maintainer to the team. Defaults to `false` and adds the creating user to the team when `true`.
         """
         return pulumi.get(self, "create_default_maintainer")
 
@@ -131,7 +131,7 @@ class _TeamState:
                  slug: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Team resources.
-        :param pulumi.Input[bool] create_default_maintainer: Adds a default maintainer to the team. Defaults to `true` and removes the default maintaner when `false`.
+        :param pulumi.Input[bool] create_default_maintainer: Adds a default maintainer to the team. Defaults to `false` and adds the creating user to the team when `true`.
         :param pulumi.Input[str] description: A description of the team.
         :param pulumi.Input[str] ldap_dn: The LDAP Distinguished Name of the group where membership will be synchronized. Only available in GitHub Enterprise Server.
         :param pulumi.Input[str] name: The name of the team.
@@ -168,7 +168,7 @@ class _TeamState:
     @pulumi.getter(name="createDefaultMaintainer")
     def create_default_maintainer(self) -> Optional[pulumi.Input[bool]]:
         """
-        Adds a default maintainer to the team. Defaults to `true` and removes the default maintaner when `false`.
+        Adds a default maintainer to the team. Defaults to `false` and adds the creating user to the team when `true`.
         """
         return pulumi.get(self, "create_default_maintainer")
 
@@ -322,7 +322,7 @@ class Team(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] create_default_maintainer: Adds a default maintainer to the team. Defaults to `true` and removes the default maintaner when `false`.
+        :param pulumi.Input[bool] create_default_maintainer: Adds a default maintainer to the team. Defaults to `false` and adds the creating user to the team when `true`.
         :param pulumi.Input[str] description: A description of the team.
         :param pulumi.Input[str] ldap_dn: The LDAP Distinguished Name of the group where membership will be synchronized. Only available in GitHub Enterprise Server.
         :param pulumi.Input[str] name: The name of the team.
@@ -432,7 +432,7 @@ class Team(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] create_default_maintainer: Adds a default maintainer to the team. Defaults to `true` and removes the default maintaner when `false`.
+        :param pulumi.Input[bool] create_default_maintainer: Adds a default maintainer to the team. Defaults to `false` and adds the creating user to the team when `true`.
         :param pulumi.Input[str] description: A description of the team.
         :param pulumi.Input[str] ldap_dn: The LDAP Distinguished Name of the group where membership will be synchronized. Only available in GitHub Enterprise Server.
         :param pulumi.Input[str] name: The name of the team.
@@ -464,7 +464,7 @@ class Team(pulumi.CustomResource):
     @pulumi.getter(name="createDefaultMaintainer")
     def create_default_maintainer(self) -> pulumi.Output[Optional[bool]]:
         """
-        Adds a default maintainer to the team. Defaults to `true` and removes the default maintaner when `false`.
+        Adds a default maintainer to the team. Defaults to `false` and adds the creating user to the team when `true`.
         """
         return pulumi.get(self, "create_default_maintainer")
 
