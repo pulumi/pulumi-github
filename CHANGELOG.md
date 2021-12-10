@@ -2,9 +2,12 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Upgrade to v4.18.2 of the GitHub Terraform Provider.
+_(none)_
 
 ---
+
+## 4.8.1 (2021-12-10)
+* Upgrade to v4.18.2 of the GitHub Terraform Provider.
 
 ## 4.8.0 (2021-12-06)
 * Upgrade to terraform-bridge 3.13.0
