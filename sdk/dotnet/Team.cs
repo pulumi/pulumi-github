@@ -48,7 +48,7 @@ namespace Pulumi.Github
     public partial class Team : Pulumi.CustomResource
     {
         /// <summary>
-        /// Adds a default maintainer to the team. Defaults to `true` and removes the default maintaner when `false`.
+        /// Adds a default maintainer to the team. Defaults to `false` and adds the creating user to the team when `true`.
         /// </summary>
         [Output("createDefaultMaintainer")]
         public Output<bool?> CreateDefaultMaintainer { get; private set; } = null!;
@@ -151,7 +151,7 @@ namespace Pulumi.Github
     public sealed class TeamArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Adds a default maintainer to the team. Defaults to `true` and removes the default maintaner when `false`.
+        /// Adds a default maintainer to the team. Defaults to `false` and adds the creating user to the team when `true`.
         /// </summary>
         [Input("createDefaultMaintainer")]
         public Input<bool>? CreateDefaultMaintainer { get; set; }
@@ -195,7 +195,7 @@ namespace Pulumi.Github
     public sealed class TeamState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Adds a default maintainer to the team. Defaults to `true` and removes the default maintaner when `false`.
+        /// Adds a default maintainer to the team. Defaults to `false` and adds the creating user to the team when `true`.
         /// </summary>
         [Input("createDefaultMaintainer")]
         public Input<bool>? CreateDefaultMaintainer { get; set; }

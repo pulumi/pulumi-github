@@ -60,7 +60,7 @@ export class Team extends pulumi.CustomResource {
     }
 
     /**
-     * Adds a default maintainer to the team. Defaults to `true` and removes the default maintaner when `false`.
+     * Adds a default maintainer to the team. Defaults to `false` and adds the creating user to the team when `true`.
      */
     public readonly createDefaultMaintainer!: pulumi.Output<boolean | undefined>;
     /**
@@ -145,7 +145,7 @@ export class Team extends pulumi.CustomResource {
  */
 export interface TeamState {
     /**
-     * Adds a default maintainer to the team. Defaults to `true` and removes the default maintaner when `false`.
+     * Adds a default maintainer to the team. Defaults to `false` and adds the creating user to the team when `true`.
      */
     createDefaultMaintainer?: pulumi.Input<boolean>;
     /**
@@ -188,7 +188,7 @@ export interface TeamState {
  */
 export interface TeamArgs {
     /**
-     * Adds a default maintainer to the team. Defaults to `true` and removes the default maintaner when `false`.
+     * Adds a default maintainer to the team. Defaults to `false` and adds the creating user to the team when `true`.
      */
     createDefaultMaintainer?: pulumi.Input<boolean>;
     /**

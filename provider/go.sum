@@ -770,8 +770,8 @@ github.com/pulumi/pulumi/sdk/v3 v3.19.0 h1:nNJQQtXEK8rj/iM4mergHRneVl7GSHe0hK/2M
 github.com/pulumi/pulumi/sdk/v3 v3.19.0/go.mod h1:AnbQmAhp0ezO/MhcVjqkhvoQnxZ0+79Xb035NcuKrtM=
 github.com/pulumi/terraform-diff-reader v0.0.0-20201211191010-ad4715e9285e h1:Dik4Qe/+xguB8JagPyXNlbOnRiXGmq/PSPQTGunYnTk=
 github.com/pulumi/terraform-diff-reader v0.0.0-20201211191010-ad4715e9285e/go.mod h1:sZ9FUzGO+yM41hsQHs/yIcj/Y993qMdBxBU5mpDmAfQ=
-github.com/pulumi/terraform-provider-github v0.0.0-20211123151123-f9424f503bbf h1:lOKc2UfgLA3MOilLlDgdmZbc9UaE07qXUo9yc2q5qF4=
-github.com/pulumi/terraform-provider-github v0.0.0-20211123151123-f9424f503bbf/go.mod h1:v1uE6O1IY1BW+/dm9Yl9pNAcx3x39XAIQJ43O/Oicl4=
+github.com/pulumi/terraform-provider-github v0.0.0-20211210142725-829017d27b30 h1:jYCnGA/ovizvwSGDBj70AzVFEFYeHcBaJNYG062J+Q0=
+github.com/pulumi/terraform-provider-github v0.0.0-20211210142725-829017d27b30/go.mod h1:v1uE6O1IY1BW+/dm9Yl9pNAcx3x39XAIQJ43O/Oicl4=
 github.com/quasilyte/go-consistent v0.0.0-20190521200055-c6f3937de18c/go.mod h1:5STLWrekHfjyYwxBRVRXNOSewLJ3PWfDJd1VyTS21fI=
 github.com/rivo/uniseg v0.2.0 h1:S1pD9weZBuJdFmowNwbpi7BJ8TNftyUImj/0WQi72jY=
 github.com/rivo/uniseg v0.2.0/go.mod h1:J6wj4VEh+S6ZtnVlnTBMWIodfgj8LQOQFoIToxlJtxc=

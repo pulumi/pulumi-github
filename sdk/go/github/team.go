@@ -49,7 +49,7 @@ import (
 type Team struct {
 	pulumi.CustomResourceState
 
-	// Adds a default maintainer to the team. Defaults to `true` and removes the default maintaner when `false`.
+	// Adds a default maintainer to the team. Defaults to `false` and adds the creating user to the team when `true`.
 	CreateDefaultMaintainer pulumi.BoolPtrOutput `pulumi:"createDefaultMaintainer"`
 	// A description of the team.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -101,7 +101,7 @@ func GetTeam(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Team resources.
 type teamState struct {
-	// Adds a default maintainer to the team. Defaults to `true` and removes the default maintaner when `false`.
+	// Adds a default maintainer to the team. Defaults to `false` and adds the creating user to the team when `true`.
 	CreateDefaultMaintainer *bool `pulumi:"createDefaultMaintainer"`
 	// A description of the team.
 	Description *string `pulumi:"description"`
@@ -125,7 +125,7 @@ type teamState struct {
 }
 
 type TeamState struct {
-	// Adds a default maintainer to the team. Defaults to `true` and removes the default maintaner when `false`.
+	// Adds a default maintainer to the team. Defaults to `false` and adds the creating user to the team when `true`.
 	CreateDefaultMaintainer pulumi.BoolPtrInput
 	// A description of the team.
 	Description pulumi.StringPtrInput
@@ -153,7 +153,7 @@ func (TeamState) ElementType() reflect.Type {
 }
 
 type teamArgs struct {
-	// Adds a default maintainer to the team. Defaults to `true` and removes the default maintaner when `false`.
+	// Adds a default maintainer to the team. Defaults to `false` and adds the creating user to the team when `true`.
 	CreateDefaultMaintainer *bool `pulumi:"createDefaultMaintainer"`
 	// A description of the team.
 	Description *string `pulumi:"description"`
@@ -170,7 +170,7 @@ type teamArgs struct {
 
 // The set of arguments for constructing a Team resource.
 type TeamArgs struct {
-	// Adds a default maintainer to the team. Defaults to `true` and removes the default maintaner when `false`.
+	// Adds a default maintainer to the team. Defaults to `false` and adds the creating user to the team when `true`.
 	CreateDefaultMaintainer pulumi.BoolPtrInput
 	// A description of the team.
 	Description pulumi.StringPtrInput

@@ -59,6 +59,10 @@ namespace Pulumi.Github
         [Output("updatedAt")]
         public Output<string> UpdatedAt { get; private set; } = null!;
 
+        /// <summary>
+        /// Configures the access that repositories have to the organization secret.
+        /// Must be one of `all`, `private`, `selected`. `selected_repository_ids` is required if set to `selected`.
+        /// </summary>
         [Output("visibility")]
         public Output<string> Visibility { get; private set; } = null!;
 
@@ -138,6 +142,10 @@ namespace Pulumi.Github
             set => _selectedRepositoryIds = value;
         }
 
+        /// <summary>
+        /// Configures the access that repositories have to the organization secret.
+        /// Must be one of `all`, `private`, `selected`. `selected_repository_ids` is required if set to `selected`.
+        /// </summary>
         [Input("visibility", required: true)]
         public Input<string> Visibility { get; set; } = null!;
 
@@ -190,6 +198,10 @@ namespace Pulumi.Github
         [Input("updatedAt")]
         public Input<string>? UpdatedAt { get; set; }
 
+        /// <summary>
+        /// Configures the access that repositories have to the organization secret.
+        /// Must be one of `all`, `private`, `selected`. `selected_repository_ids` is required if set to `selected`.
+        /// </summary>
         [Input("visibility")]
         public Input<string>? Visibility { get; set; }
 
