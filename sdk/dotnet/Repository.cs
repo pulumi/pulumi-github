@@ -119,6 +119,12 @@ namespace Pulumi.Github
         public Output<bool?> AutoInit { get; private set; } = null!;
 
         /// <summary>
+        /// The list of this repository's branches. Each element of `branches` has the following attributes:
+        /// </summary>
+        [Output("branches")]
+        public Output<ImmutableArray<Outputs.RepositoryBranch>> Branches { get; private set; } = null!;
+
+        /// <summary>
         /// (Deprecated: Use `github.BranchDefault` resource instead) The name of the default branch of the repository. **NOTE:** This can only be set after a repository has already been created,
         /// and after a correct reference has been created for the target branch inside the repository. This means a user will have to omit this parameter from the
         /// initial repository creation and create the target branch inside of the repository prior to setting this attribute.
@@ -537,6 +543,18 @@ namespace Pulumi.Github
         /// </summary>
         [Input("autoInit")]
         public Input<bool>? AutoInit { get; set; }
+
+        [Input("branches")]
+        private InputList<Inputs.RepositoryBranchGetArgs>? _branches;
+
+        /// <summary>
+        /// The list of this repository's branches. Each element of `branches` has the following attributes:
+        /// </summary>
+        public InputList<Inputs.RepositoryBranchGetArgs> Branches
+        {
+            get => _branches ?? (_branches = new InputList<Inputs.RepositoryBranchGetArgs>());
+            set => _branches = value;
+        }
 
         /// <summary>
         /// (Deprecated: Use `github.BranchDefault` resource instead) The name of the default branch of the repository. **NOTE:** This can only be set after a repository has already been created,

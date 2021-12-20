@@ -417,6 +417,37 @@
                 }
             }
         },
+        "github:index/RepositoryBranch:RepositoryBranch": {
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "The name of the repository.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "protected": {
+                    "type": "boolean",
+                    "description": "Whether the branch is protected.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "name",
+                        "protected"
+                    ]
+                }
+            }
+        },
         "github:index/RepositoryEnvironmentDeploymentBranchPolicy:RepositoryEnvironmentDeploymentBranchPolicy": {
             "properties": {
                 "customBranchPolicies": {
@@ -2143,6 +2174,10 @@
                     "type": "string",
                     "description": "The name or node ID of the repository associated with this branch protection rule.\n"
                 },
+                "requireConversationResolution": {
+                    "type": "boolean",
+                    "description": "Boolean, setting this to `true` requires all conversations on code must be resolved before a pull request can be merged.\n"
+                },
                 "requireSignedCommits": {
                     "type": "boolean",
                     "description": "Boolean, setting this to `true` requires all commits to be signed with GPG.\n"
@@ -2197,6 +2232,10 @@
                 "repositoryId": {
                     "type": "string",
                     "description": "The name or node ID of the repository associated with this branch protection rule.\n"
+                },
+                "requireConversationResolution": {
+                    "type": "boolean",
+                    "description": "Boolean, setting this to `true` requires all conversations on code must be resolved before a pull request can be merged.\n"
                 },
                 "requireSignedCommits": {
                     "type": "boolean",
@@ -2255,6 +2294,10 @@
                         "type": "string",
                         "description": "The name or node ID of the repository associated with this branch protection rule.\n"
                     },
+                    "requireConversationResolution": {
+                        "type": "boolean",
+                        "description": "Boolean, setting this to `true` requires all conversations on code must be resolved before a pull request can be merged.\n"
+                    },
                     "requireSignedCommits": {
                         "type": "boolean",
                         "description": "Boolean, setting this to `true` requires all commits to be signed with GPG.\n"
@@ -2299,6 +2342,10 @@
                     "type": "string",
                     "description": "The GitHub repository name.\n"
                 },
+                "requireConversationResolution": {
+                    "type": "boolean",
+                    "description": "Boolean, setting this to `true` requires all conversations on code must be resolved before a pull request can be merged.\n"
+                },
                 "requireSignedCommits": {
                     "type": "boolean",
                     "description": "Boolean, setting this to `true` requires all commits to be signed with GPG.\n"
@@ -2333,6 +2380,10 @@
                 "repository": {
                     "type": "string",
                     "description": "The GitHub repository name.\n"
+                },
+                "requireConversationResolution": {
+                    "type": "boolean",
+                    "description": "Boolean, setting this to `true` requires all conversations on code must be resolved before a pull request can be merged.\n"
                 },
                 "requireSignedCommits": {
                     "type": "boolean",
@@ -2372,6 +2423,10 @@
                     "repository": {
                         "type": "string",
                         "description": "The GitHub repository name.\n"
+                    },
+                    "requireConversationResolution": {
+                        "type": "boolean",
+                        "description": "Boolean, setting this to `true` requires all conversations on code must be resolved before a pull request can be merged.\n"
                     },
                     "requireSignedCommits": {
                         "type": "boolean",
@@ -2851,6 +2906,13 @@
                     "type": "boolean",
                     "description": "Set to `true` to produce an initial commit in the repository.\n"
                 },
+                "branches": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/github:index/RepositoryBranch:RepositoryBranch"
+                    },
+                    "description": "The list of this repository's branches. Each element of `branches` has the following attributes:\n"
+                },
                 "defaultBranch": {
                     "type": "string",
                     "description": "(Deprecated: Use `github.BranchDefault` resource instead) The name of the default branch of the repository. **NOTE:** This can only be set after a repository has already been created,\nand after a correct reference has been created for the target branch inside the repository. This means a user will have to omit this parameter from the\ninitial repository creation and create the target branch inside of the repository prior to setting this attribute.\n",
@@ -2965,6 +3027,7 @@
                 }
             },
             "required": [
+                "branches",
                 "defaultBranch",
                 "etag",
                 "fullName",
@@ -3116,6 +3179,13 @@
                     "autoInit": {
                         "type": "boolean",
                         "description": "Set to `true` to produce an initial commit in the repository.\n"
+                    },
+                    "branches": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/github:index/RepositoryBranch:RepositoryBranch"
+                        },
+                        "description": "The list of this repository's branches. Each element of `branches` has the following attributes:\n"
                     },
                     "defaultBranch": {
                         "type": "string",

@@ -1427,6 +1427,112 @@ func (o ProviderAppAuthPtrOutput) PemFile() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type RepositoryBranch struct {
+	// The name of the repository.
+	Name *string `pulumi:"name"`
+	// Whether the branch is protected.
+	Protected *bool `pulumi:"protected"`
+}
+
+// RepositoryBranchInput is an input type that accepts RepositoryBranchArgs and RepositoryBranchOutput values.
+// You can construct a concrete instance of `RepositoryBranchInput` via:
+//
+//          RepositoryBranchArgs{...}
+type RepositoryBranchInput interface {
+	pulumi.Input
+
+	ToRepositoryBranchOutput() RepositoryBranchOutput
+	ToRepositoryBranchOutputWithContext(context.Context) RepositoryBranchOutput
+}
+
+type RepositoryBranchArgs struct {
+	// The name of the repository.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Whether the branch is protected.
+	Protected pulumi.BoolPtrInput `pulumi:"protected"`
+}
+
+func (RepositoryBranchArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositoryBranch)(nil)).Elem()
+}
+
+func (i RepositoryBranchArgs) ToRepositoryBranchOutput() RepositoryBranchOutput {
+	return i.ToRepositoryBranchOutputWithContext(context.Background())
+}
+
+func (i RepositoryBranchArgs) ToRepositoryBranchOutputWithContext(ctx context.Context) RepositoryBranchOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryBranchOutput)
+}
+
+// RepositoryBranchArrayInput is an input type that accepts RepositoryBranchArray and RepositoryBranchArrayOutput values.
+// You can construct a concrete instance of `RepositoryBranchArrayInput` via:
+//
+//          RepositoryBranchArray{ RepositoryBranchArgs{...} }
+type RepositoryBranchArrayInput interface {
+	pulumi.Input
+
+	ToRepositoryBranchArrayOutput() RepositoryBranchArrayOutput
+	ToRepositoryBranchArrayOutputWithContext(context.Context) RepositoryBranchArrayOutput
+}
+
+type RepositoryBranchArray []RepositoryBranchInput
+
+func (RepositoryBranchArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RepositoryBranch)(nil)).Elem()
+}
+
+func (i RepositoryBranchArray) ToRepositoryBranchArrayOutput() RepositoryBranchArrayOutput {
+	return i.ToRepositoryBranchArrayOutputWithContext(context.Background())
+}
+
+func (i RepositoryBranchArray) ToRepositoryBranchArrayOutputWithContext(ctx context.Context) RepositoryBranchArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryBranchArrayOutput)
+}
+
+type RepositoryBranchOutput struct{ *pulumi.OutputState }
+
+func (RepositoryBranchOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositoryBranch)(nil)).Elem()
+}
+
+func (o RepositoryBranchOutput) ToRepositoryBranchOutput() RepositoryBranchOutput {
+	return o
+}
+
+func (o RepositoryBranchOutput) ToRepositoryBranchOutputWithContext(ctx context.Context) RepositoryBranchOutput {
+	return o
+}
+
+// The name of the repository.
+func (o RepositoryBranchOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RepositoryBranch) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Whether the branch is protected.
+func (o RepositoryBranchOutput) Protected() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RepositoryBranch) *bool { return v.Protected }).(pulumi.BoolPtrOutput)
+}
+
+type RepositoryBranchArrayOutput struct{ *pulumi.OutputState }
+
+func (RepositoryBranchArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RepositoryBranch)(nil)).Elem()
+}
+
+func (o RepositoryBranchArrayOutput) ToRepositoryBranchArrayOutput() RepositoryBranchArrayOutput {
+	return o
+}
+
+func (o RepositoryBranchArrayOutput) ToRepositoryBranchArrayOutputWithContext(ctx context.Context) RepositoryBranchArrayOutput {
+	return o
+}
+
+func (o RepositoryBranchArrayOutput) Index(i pulumi.IntInput) RepositoryBranchOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RepositoryBranch {
+		return vs[0].([]RepositoryBranch)[vs[1].(int)]
+	}).(RepositoryBranchOutput)
+}
+
 type RepositoryEnvironmentDeploymentBranchPolicy struct {
 	// Whether only branches that match the specified name patterns can deploy to this environment.
 	CustomBranchPolicies bool `pulumi:"customBranchPolicies"`
@@ -3621,6 +3727,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationWebhookConfigurationPtrInput)(nil)).Elem(), OrganizationWebhookConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProviderAppAuthInput)(nil)).Elem(), ProviderAppAuthArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProviderAppAuthPtrInput)(nil)).Elem(), ProviderAppAuthArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryBranchInput)(nil)).Elem(), RepositoryBranchArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryBranchArrayInput)(nil)).Elem(), RepositoryBranchArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryEnvironmentDeploymentBranchPolicyInput)(nil)).Elem(), RepositoryEnvironmentDeploymentBranchPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryEnvironmentDeploymentBranchPolicyPtrInput)(nil)).Elem(), RepositoryEnvironmentDeploymentBranchPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryEnvironmentReviewerInput)(nil)).Elem(), RepositoryEnvironmentReviewerArgs{})
@@ -3667,6 +3775,8 @@ func init() {
 	pulumi.RegisterOutputType(OrganizationWebhookConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ProviderAppAuthOutput{})
 	pulumi.RegisterOutputType(ProviderAppAuthPtrOutput{})
+	pulumi.RegisterOutputType(RepositoryBranchOutput{})
+	pulumi.RegisterOutputType(RepositoryBranchArrayOutput{})
 	pulumi.RegisterOutputType(RepositoryEnvironmentDeploymentBranchPolicyOutput{})
 	pulumi.RegisterOutputType(RepositoryEnvironmentDeploymentBranchPolicyPtrOutput{})
 	pulumi.RegisterOutputType(RepositoryEnvironmentReviewerOutput{})

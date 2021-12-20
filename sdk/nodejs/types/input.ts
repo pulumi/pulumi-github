@@ -82,6 +82,17 @@ export interface ProviderAppAuth {
     pemFile: pulumi.Input<string>;
 }
 
+export interface RepositoryBranch {
+    /**
+     * The name of the repository.
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * Whether the branch is protected.
+     */
+    protected?: pulumi.Input<boolean>;
+}
+
 export interface RepositoryEnvironmentDeploymentBranchPolicy {
     /**
      * Whether only branches that match the specified name patterns can deploy to this environment.

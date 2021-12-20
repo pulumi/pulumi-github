@@ -131,6 +131,12 @@ namespace Pulumi.Github
         public Output<string> RepositoryId { get; private set; } = null!;
 
         /// <summary>
+        /// Boolean, setting this to `true` requires all conversations on code must be resolved before a pull request can be merged.
+        /// </summary>
+        [Output("requireConversationResolution")]
+        public Output<bool?> RequireConversationResolution { get; private set; } = null!;
+
+        /// <summary>
         /// Boolean, setting this to `true` requires all commits to be signed with GPG.
         /// </summary>
         [Output("requireSignedCommits")]
@@ -243,6 +249,12 @@ namespace Pulumi.Github
         public Input<string> RepositoryId { get; set; } = null!;
 
         /// <summary>
+        /// Boolean, setting this to `true` requires all conversations on code must be resolved before a pull request can be merged.
+        /// </summary>
+        [Input("requireConversationResolution")]
+        public Input<bool>? RequireConversationResolution { get; set; }
+
+        /// <summary>
         /// Boolean, setting this to `true` requires all commits to be signed with GPG.
         /// </summary>
         [Input("requireSignedCommits")]
@@ -326,6 +338,12 @@ namespace Pulumi.Github
         /// </summary>
         [Input("repositoryId")]
         public Input<string>? RepositoryId { get; set; }
+
+        /// <summary>
+        /// Boolean, setting this to `true` requires all conversations on code must be resolved before a pull request can be merged.
+        /// </summary>
+        [Input("requireConversationResolution")]
+        public Input<bool>? RequireConversationResolution { get; set; }
 
         /// <summary>
         /// Boolean, setting this to `true` requires all commits to be signed with GPG.

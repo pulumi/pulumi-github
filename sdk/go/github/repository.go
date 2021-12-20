@@ -94,6 +94,8 @@ type Repository struct {
 	Archived pulumi.BoolPtrOutput `pulumi:"archived"`
 	// Set to `true` to produce an initial commit in the repository.
 	AutoInit pulumi.BoolPtrOutput `pulumi:"autoInit"`
+	// The list of this repository's branches. Each element of `branches` has the following attributes:
+	Branches RepositoryBranchArrayOutput `pulumi:"branches"`
 	// (Deprecated: Use `BranchDefault` resource instead) The name of the default branch of the repository. **NOTE:** This can only be set after a repository has already been created,
 	// and after a correct reference has been created for the target branch inside the repository. This means a user will have to omit this parameter from the
 	// initial repository creation and create the target branch inside of the repository prior to setting this attribute.
@@ -201,6 +203,8 @@ type repositoryState struct {
 	Archived *bool `pulumi:"archived"`
 	// Set to `true` to produce an initial commit in the repository.
 	AutoInit *bool `pulumi:"autoInit"`
+	// The list of this repository's branches. Each element of `branches` has the following attributes:
+	Branches []RepositoryBranch `pulumi:"branches"`
 	// (Deprecated: Use `BranchDefault` resource instead) The name of the default branch of the repository. **NOTE:** This can only be set after a repository has already been created,
 	// and after a correct reference has been created for the target branch inside the repository. This means a user will have to omit this parameter from the
 	// initial repository creation and create the target branch inside of the repository prior to setting this attribute.
@@ -280,6 +284,8 @@ type RepositoryState struct {
 	Archived pulumi.BoolPtrInput
 	// Set to `true` to produce an initial commit in the repository.
 	AutoInit pulumi.BoolPtrInput
+	// The list of this repository's branches. Each element of `branches` has the following attributes:
+	Branches RepositoryBranchArrayInput
 	// (Deprecated: Use `BranchDefault` resource instead) The name of the default branch of the repository. **NOTE:** This can only be set after a repository has already been created,
 	// and after a correct reference has been created for the target branch inside the repository. This means a user will have to omit this parameter from the
 	// initial repository creation and create the target branch inside of the repository prior to setting this attribute.

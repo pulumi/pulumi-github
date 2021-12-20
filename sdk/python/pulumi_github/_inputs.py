@@ -18,6 +18,7 @@ __all__ = [
     'BranchProtectionV3RestrictionsArgs',
     'OrganizationWebhookConfigurationArgs',
     'ProviderAppAuthArgs',
+    'RepositoryBranchArgs',
     'RepositoryEnvironmentDeploymentBranchPolicyArgs',
     'RepositoryEnvironmentReviewerArgs',
     'RepositoryPagesArgs',
@@ -456,6 +457,45 @@ class ProviderAppAuthArgs:
     @pem_file.setter
     def pem_file(self, value: pulumi.Input[str]):
         pulumi.set(self, "pem_file", value)
+
+
+@pulumi.input_type
+class RepositoryBranchArgs:
+    def __init__(__self__, *,
+                 name: Optional[pulumi.Input[str]] = None,
+                 protected: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[str] name: The name of the repository.
+        :param pulumi.Input[bool] protected: Whether the branch is protected.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if protected is not None:
+            pulumi.set(__self__, "protected", protected)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the repository.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def protected(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether the branch is protected.
+        """
+        return pulumi.get(self, "protected")
+
+    @protected.setter
+    def protected(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "protected", value)
 
 
 @pulumi.input_type

@@ -18,6 +18,7 @@ __all__ = [
     'BranchProtectionV3RequiredStatusChecks',
     'BranchProtectionV3Restrictions',
     'OrganizationWebhookConfiguration',
+    'RepositoryBranch',
     'RepositoryEnvironmentDeploymentBranchPolicy',
     'RepositoryEnvironmentReviewer',
     'RepositoryPages',
@@ -437,6 +438,37 @@ class OrganizationWebhookConfiguration(dict):
     @pulumi.getter
     def secret(self) -> Optional[str]:
         return pulumi.get(self, "secret")
+
+
+@pulumi.output_type
+class RepositoryBranch(dict):
+    def __init__(__self__, *,
+                 name: Optional[str] = None,
+                 protected: Optional[bool] = None):
+        """
+        :param str name: The name of the repository.
+        :param bool protected: Whether the branch is protected.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if protected is not None:
+            pulumi.set(__self__, "protected", protected)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The name of the repository.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def protected(self) -> Optional[bool]:
+        """
+        Whether the branch is protected.
+        """
+        return pulumi.get(self, "protected")
 
 
 @pulumi.output_type
