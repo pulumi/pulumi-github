@@ -18,6 +18,7 @@ class BranchProtectionV3Args:
                  branch: pulumi.Input[str],
                  repository: pulumi.Input[str],
                  enforce_admins: Optional[pulumi.Input[bool]] = None,
+                 require_conversation_resolution: Optional[pulumi.Input[bool]] = None,
                  require_signed_commits: Optional[pulumi.Input[bool]] = None,
                  required_pull_request_reviews: Optional[pulumi.Input['BranchProtectionV3RequiredPullRequestReviewsArgs']] = None,
                  required_status_checks: Optional[pulumi.Input['BranchProtectionV3RequiredStatusChecksArgs']] = None,
@@ -27,6 +28,7 @@ class BranchProtectionV3Args:
         :param pulumi.Input[str] branch: The Git branch to protect.
         :param pulumi.Input[str] repository: The GitHub repository name.
         :param pulumi.Input[bool] enforce_admins: Boolean, setting this to `true` enforces status checks for repository administrators.
+        :param pulumi.Input[bool] require_conversation_resolution: Boolean, setting this to `true` requires all conversations on code must be resolved before a pull request can be merged.
         :param pulumi.Input[bool] require_signed_commits: Boolean, setting this to `true` requires all commits to be signed with GPG.
         :param pulumi.Input['BranchProtectionV3RequiredPullRequestReviewsArgs'] required_pull_request_reviews: Enforce restrictions for pull request reviews. See Required Pull Request Reviews below for details.
         :param pulumi.Input['BranchProtectionV3RequiredStatusChecksArgs'] required_status_checks: Enforce restrictions for required status checks. See Required Status Checks below for details.
@@ -36,6 +38,8 @@ class BranchProtectionV3Args:
         pulumi.set(__self__, "repository", repository)
         if enforce_admins is not None:
             pulumi.set(__self__, "enforce_admins", enforce_admins)
+        if require_conversation_resolution is not None:
+            pulumi.set(__self__, "require_conversation_resolution", require_conversation_resolution)
         if require_signed_commits is not None:
             pulumi.set(__self__, "require_signed_commits", require_signed_commits)
         if required_pull_request_reviews is not None:
@@ -80,6 +84,18 @@ class BranchProtectionV3Args:
     @enforce_admins.setter
     def enforce_admins(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enforce_admins", value)
+
+    @property
+    @pulumi.getter(name="requireConversationResolution")
+    def require_conversation_resolution(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Boolean, setting this to `true` requires all conversations on code must be resolved before a pull request can be merged.
+        """
+        return pulumi.get(self, "require_conversation_resolution")
+
+    @require_conversation_resolution.setter
+    def require_conversation_resolution(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "require_conversation_resolution", value)
 
     @property
     @pulumi.getter(name="requireSignedCommits")
@@ -137,6 +153,7 @@ class _BranchProtectionV3State:
                  enforce_admins: Optional[pulumi.Input[bool]] = None,
                  etag: Optional[pulumi.Input[str]] = None,
                  repository: Optional[pulumi.Input[str]] = None,
+                 require_conversation_resolution: Optional[pulumi.Input[bool]] = None,
                  require_signed_commits: Optional[pulumi.Input[bool]] = None,
                  required_pull_request_reviews: Optional[pulumi.Input['BranchProtectionV3RequiredPullRequestReviewsArgs']] = None,
                  required_status_checks: Optional[pulumi.Input['BranchProtectionV3RequiredStatusChecksArgs']] = None,
@@ -146,6 +163,7 @@ class _BranchProtectionV3State:
         :param pulumi.Input[str] branch: The Git branch to protect.
         :param pulumi.Input[bool] enforce_admins: Boolean, setting this to `true` enforces status checks for repository administrators.
         :param pulumi.Input[str] repository: The GitHub repository name.
+        :param pulumi.Input[bool] require_conversation_resolution: Boolean, setting this to `true` requires all conversations on code must be resolved before a pull request can be merged.
         :param pulumi.Input[bool] require_signed_commits: Boolean, setting this to `true` requires all commits to be signed with GPG.
         :param pulumi.Input['BranchProtectionV3RequiredPullRequestReviewsArgs'] required_pull_request_reviews: Enforce restrictions for pull request reviews. See Required Pull Request Reviews below for details.
         :param pulumi.Input['BranchProtectionV3RequiredStatusChecksArgs'] required_status_checks: Enforce restrictions for required status checks. See Required Status Checks below for details.
@@ -159,6 +177,8 @@ class _BranchProtectionV3State:
             pulumi.set(__self__, "etag", etag)
         if repository is not None:
             pulumi.set(__self__, "repository", repository)
+        if require_conversation_resolution is not None:
+            pulumi.set(__self__, "require_conversation_resolution", require_conversation_resolution)
         if require_signed_commits is not None:
             pulumi.set(__self__, "require_signed_commits", require_signed_commits)
         if required_pull_request_reviews is not None:
@@ -212,6 +232,18 @@ class _BranchProtectionV3State:
     @repository.setter
     def repository(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "repository", value)
+
+    @property
+    @pulumi.getter(name="requireConversationResolution")
+    def require_conversation_resolution(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Boolean, setting this to `true` requires all conversations on code must be resolved before a pull request can be merged.
+        """
+        return pulumi.get(self, "require_conversation_resolution")
+
+    @require_conversation_resolution.setter
+    def require_conversation_resolution(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "require_conversation_resolution", value)
 
     @property
     @pulumi.getter(name="requireSignedCommits")
@@ -270,6 +302,7 @@ class BranchProtectionV3(pulumi.CustomResource):
                  branch: Optional[pulumi.Input[str]] = None,
                  enforce_admins: Optional[pulumi.Input[bool]] = None,
                  repository: Optional[pulumi.Input[str]] = None,
+                 require_conversation_resolution: Optional[pulumi.Input[bool]] = None,
                  require_signed_commits: Optional[pulumi.Input[bool]] = None,
                  required_pull_request_reviews: Optional[pulumi.Input[pulumi.InputType['BranchProtectionV3RequiredPullRequestReviewsArgs']]] = None,
                  required_status_checks: Optional[pulumi.Input[pulumi.InputType['BranchProtectionV3RequiredStatusChecksArgs']]] = None,
@@ -343,6 +376,7 @@ class BranchProtectionV3(pulumi.CustomResource):
         :param pulumi.Input[str] branch: The Git branch to protect.
         :param pulumi.Input[bool] enforce_admins: Boolean, setting this to `true` enforces status checks for repository administrators.
         :param pulumi.Input[str] repository: The GitHub repository name.
+        :param pulumi.Input[bool] require_conversation_resolution: Boolean, setting this to `true` requires all conversations on code must be resolved before a pull request can be merged.
         :param pulumi.Input[bool] require_signed_commits: Boolean, setting this to `true` requires all commits to be signed with GPG.
         :param pulumi.Input[pulumi.InputType['BranchProtectionV3RequiredPullRequestReviewsArgs']] required_pull_request_reviews: Enforce restrictions for pull request reviews. See Required Pull Request Reviews below for details.
         :param pulumi.Input[pulumi.InputType['BranchProtectionV3RequiredStatusChecksArgs']] required_status_checks: Enforce restrictions for required status checks. See Required Status Checks below for details.
@@ -435,6 +469,7 @@ class BranchProtectionV3(pulumi.CustomResource):
                  branch: Optional[pulumi.Input[str]] = None,
                  enforce_admins: Optional[pulumi.Input[bool]] = None,
                  repository: Optional[pulumi.Input[str]] = None,
+                 require_conversation_resolution: Optional[pulumi.Input[bool]] = None,
                  require_signed_commits: Optional[pulumi.Input[bool]] = None,
                  required_pull_request_reviews: Optional[pulumi.Input[pulumi.InputType['BranchProtectionV3RequiredPullRequestReviewsArgs']]] = None,
                  required_status_checks: Optional[pulumi.Input[pulumi.InputType['BranchProtectionV3RequiredStatusChecksArgs']]] = None,
@@ -458,6 +493,7 @@ class BranchProtectionV3(pulumi.CustomResource):
             if repository is None and not opts.urn:
                 raise TypeError("Missing required property 'repository'")
             __props__.__dict__["repository"] = repository
+            __props__.__dict__["require_conversation_resolution"] = require_conversation_resolution
             __props__.__dict__["require_signed_commits"] = require_signed_commits
             __props__.__dict__["required_pull_request_reviews"] = required_pull_request_reviews
             __props__.__dict__["required_status_checks"] = required_status_checks
@@ -477,6 +513,7 @@ class BranchProtectionV3(pulumi.CustomResource):
             enforce_admins: Optional[pulumi.Input[bool]] = None,
             etag: Optional[pulumi.Input[str]] = None,
             repository: Optional[pulumi.Input[str]] = None,
+            require_conversation_resolution: Optional[pulumi.Input[bool]] = None,
             require_signed_commits: Optional[pulumi.Input[bool]] = None,
             required_pull_request_reviews: Optional[pulumi.Input[pulumi.InputType['BranchProtectionV3RequiredPullRequestReviewsArgs']]] = None,
             required_status_checks: Optional[pulumi.Input[pulumi.InputType['BranchProtectionV3RequiredStatusChecksArgs']]] = None,
@@ -491,6 +528,7 @@ class BranchProtectionV3(pulumi.CustomResource):
         :param pulumi.Input[str] branch: The Git branch to protect.
         :param pulumi.Input[bool] enforce_admins: Boolean, setting this to `true` enforces status checks for repository administrators.
         :param pulumi.Input[str] repository: The GitHub repository name.
+        :param pulumi.Input[bool] require_conversation_resolution: Boolean, setting this to `true` requires all conversations on code must be resolved before a pull request can be merged.
         :param pulumi.Input[bool] require_signed_commits: Boolean, setting this to `true` requires all commits to be signed with GPG.
         :param pulumi.Input[pulumi.InputType['BranchProtectionV3RequiredPullRequestReviewsArgs']] required_pull_request_reviews: Enforce restrictions for pull request reviews. See Required Pull Request Reviews below for details.
         :param pulumi.Input[pulumi.InputType['BranchProtectionV3RequiredStatusChecksArgs']] required_status_checks: Enforce restrictions for required status checks. See Required Status Checks below for details.
@@ -504,6 +542,7 @@ class BranchProtectionV3(pulumi.CustomResource):
         __props__.__dict__["enforce_admins"] = enforce_admins
         __props__.__dict__["etag"] = etag
         __props__.__dict__["repository"] = repository
+        __props__.__dict__["require_conversation_resolution"] = require_conversation_resolution
         __props__.__dict__["require_signed_commits"] = require_signed_commits
         __props__.__dict__["required_pull_request_reviews"] = required_pull_request_reviews
         __props__.__dict__["required_status_checks"] = required_status_checks
@@ -538,6 +577,14 @@ class BranchProtectionV3(pulumi.CustomResource):
         The GitHub repository name.
         """
         return pulumi.get(self, "repository")
+
+    @property
+    @pulumi.getter(name="requireConversationResolution")
+    def require_conversation_resolution(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Boolean, setting this to `true` requires all conversations on code must be resolved before a pull request can be merged.
+        """
+        return pulumi.get(self, "require_conversation_resolution")
 
     @property
     @pulumi.getter(name="requireSignedCommits")

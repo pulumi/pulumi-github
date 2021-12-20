@@ -446,6 +446,7 @@ class _RepositoryState:
                  archive_on_destroy: Optional[pulumi.Input[bool]] = None,
                  archived: Optional[pulumi.Input[bool]] = None,
                  auto_init: Optional[pulumi.Input[bool]] = None,
+                 branches: Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryBranchArgs']]]] = None,
                  default_branch: Optional[pulumi.Input[str]] = None,
                  delete_branch_on_merge: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -482,6 +483,7 @@ class _RepositoryState:
         :param pulumi.Input[bool] archive_on_destroy: Set to `true` to archive the repository instead of deleting on destroy.
         :param pulumi.Input[bool] archived: Specifies if the repository should be archived. Defaults to `false`. **NOTE** Currently, the API does not support unarchiving.
         :param pulumi.Input[bool] auto_init: Set to `true` to produce an initial commit in the repository.
+        :param pulumi.Input[Sequence[pulumi.Input['RepositoryBranchArgs']]] branches: The list of this repository's branches. Each element of `branches` has the following attributes:
         :param pulumi.Input[str] default_branch: (Deprecated: Use `BranchDefault` resource instead) The name of the default branch of the repository. **NOTE:** This can only be set after a repository has already been created,
                and after a correct reference has been created for the target branch inside the repository. This means a user will have to omit this parameter from the
                initial repository creation and create the target branch inside of the repository prior to setting this attribute.
@@ -528,6 +530,8 @@ class _RepositoryState:
             pulumi.set(__self__, "archived", archived)
         if auto_init is not None:
             pulumi.set(__self__, "auto_init", auto_init)
+        if branches is not None:
+            pulumi.set(__self__, "branches", branches)
         if default_branch is not None:
             warnings.warn("""Use the github_branch_default resource instead""", DeprecationWarning)
             pulumi.log.warn("""default_branch is deprecated: Use the github_branch_default resource instead""")
@@ -672,6 +676,18 @@ class _RepositoryState:
     @auto_init.setter
     def auto_init(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "auto_init", value)
+
+    @property
+    @pulumi.getter
+    def branches(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryBranchArgs']]]]:
+        """
+        The list of this repository's branches. Each element of `branches` has the following attributes:
+        """
+        return pulumi.get(self, "branches")
+
+    @branches.setter
+    def branches(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryBranchArgs']]]]):
+        pulumi.set(self, "branches", value)
 
     @property
     @pulumi.getter(name="defaultBranch")
@@ -1239,6 +1255,7 @@ class Repository(pulumi.CustomResource):
             __props__.__dict__["topics"] = topics
             __props__.__dict__["visibility"] = visibility
             __props__.__dict__["vulnerability_alerts"] = vulnerability_alerts
+            __props__.__dict__["branches"] = None
             __props__.__dict__["etag"] = None
             __props__.__dict__["full_name"] = None
             __props__.__dict__["git_clone_url"] = None
@@ -1265,6 +1282,7 @@ class Repository(pulumi.CustomResource):
             archive_on_destroy: Optional[pulumi.Input[bool]] = None,
             archived: Optional[pulumi.Input[bool]] = None,
             auto_init: Optional[pulumi.Input[bool]] = None,
+            branches: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RepositoryBranchArgs']]]]] = None,
             default_branch: Optional[pulumi.Input[str]] = None,
             delete_branch_on_merge: Optional[pulumi.Input[bool]] = None,
             description: Optional[pulumi.Input[str]] = None,
@@ -1306,6 +1324,7 @@ class Repository(pulumi.CustomResource):
         :param pulumi.Input[bool] archive_on_destroy: Set to `true` to archive the repository instead of deleting on destroy.
         :param pulumi.Input[bool] archived: Specifies if the repository should be archived. Defaults to `false`. **NOTE** Currently, the API does not support unarchiving.
         :param pulumi.Input[bool] auto_init: Set to `true` to produce an initial commit in the repository.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RepositoryBranchArgs']]]] branches: The list of this repository's branches. Each element of `branches` has the following attributes:
         :param pulumi.Input[str] default_branch: (Deprecated: Use `BranchDefault` resource instead) The name of the default branch of the repository. **NOTE:** This can only be set after a repository has already been created,
                and after a correct reference has been created for the target branch inside the repository. This means a user will have to omit this parameter from the
                initial repository creation and create the target branch inside of the repository prior to setting this attribute.
@@ -1349,6 +1368,7 @@ class Repository(pulumi.CustomResource):
         __props__.__dict__["archive_on_destroy"] = archive_on_destroy
         __props__.__dict__["archived"] = archived
         __props__.__dict__["auto_init"] = auto_init
+        __props__.__dict__["branches"] = branches
         __props__.__dict__["default_branch"] = default_branch
         __props__.__dict__["delete_branch_on_merge"] = delete_branch_on_merge
         __props__.__dict__["description"] = description
@@ -1433,6 +1453,14 @@ class Repository(pulumi.CustomResource):
         Set to `true` to produce an initial commit in the repository.
         """
         return pulumi.get(self, "auto_init")
+
+    @property
+    @pulumi.getter
+    def branches(self) -> pulumi.Output[Sequence['outputs.RepositoryBranch']]:
+        """
+        The list of this repository's branches. Each element of `branches` has the following attributes:
+        """
+        return pulumi.get(self, "branches")
 
     @property
     @pulumi.getter(name="defaultBranch")

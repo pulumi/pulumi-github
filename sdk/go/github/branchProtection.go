@@ -106,6 +106,8 @@ type BranchProtection struct {
 	PushRestrictions pulumi.StringArrayOutput `pulumi:"pushRestrictions"`
 	// The name or node ID of the repository associated with this branch protection rule.
 	RepositoryId pulumi.StringOutput `pulumi:"repositoryId"`
+	// Boolean, setting this to `true` requires all conversations on code must be resolved before a pull request can be merged.
+	RequireConversationResolution pulumi.BoolPtrOutput `pulumi:"requireConversationResolution"`
 	// Boolean, setting this to `true` requires all commits to be signed with GPG.
 	RequireSignedCommits pulumi.BoolPtrOutput `pulumi:"requireSignedCommits"`
 	// Boolean, setting this to `true` enforces a linear commit Git history, which prevents anyone from pushing merge commits to a branch
@@ -163,6 +165,8 @@ type branchProtectionState struct {
 	PushRestrictions []string `pulumi:"pushRestrictions"`
 	// The name or node ID of the repository associated with this branch protection rule.
 	RepositoryId *string `pulumi:"repositoryId"`
+	// Boolean, setting this to `true` requires all conversations on code must be resolved before a pull request can be merged.
+	RequireConversationResolution *bool `pulumi:"requireConversationResolution"`
 	// Boolean, setting this to `true` requires all commits to be signed with GPG.
 	RequireSignedCommits *bool `pulumi:"requireSignedCommits"`
 	// Boolean, setting this to `true` enforces a linear commit Git history, which prevents anyone from pushing merge commits to a branch
@@ -186,6 +190,8 @@ type BranchProtectionState struct {
 	PushRestrictions pulumi.StringArrayInput
 	// The name or node ID of the repository associated with this branch protection rule.
 	RepositoryId pulumi.StringPtrInput
+	// Boolean, setting this to `true` requires all conversations on code must be resolved before a pull request can be merged.
+	RequireConversationResolution pulumi.BoolPtrInput
 	// Boolean, setting this to `true` requires all commits to be signed with GPG.
 	RequireSignedCommits pulumi.BoolPtrInput
 	// Boolean, setting this to `true` enforces a linear commit Git history, which prevents anyone from pushing merge commits to a branch
@@ -213,6 +219,8 @@ type branchProtectionArgs struct {
 	PushRestrictions []string `pulumi:"pushRestrictions"`
 	// The name or node ID of the repository associated with this branch protection rule.
 	RepositoryId string `pulumi:"repositoryId"`
+	// Boolean, setting this to `true` requires all conversations on code must be resolved before a pull request can be merged.
+	RequireConversationResolution *bool `pulumi:"requireConversationResolution"`
 	// Boolean, setting this to `true` requires all commits to be signed with GPG.
 	RequireSignedCommits *bool `pulumi:"requireSignedCommits"`
 	// Boolean, setting this to `true` enforces a linear commit Git history, which prevents anyone from pushing merge commits to a branch
@@ -237,6 +245,8 @@ type BranchProtectionArgs struct {
 	PushRestrictions pulumi.StringArrayInput
 	// The name or node ID of the repository associated with this branch protection rule.
 	RepositoryId pulumi.StringInput
+	// Boolean, setting this to `true` requires all conversations on code must be resolved before a pull request can be merged.
+	RequireConversationResolution pulumi.BoolPtrInput
 	// Boolean, setting this to `true` requires all commits to be signed with GPG.
 	RequireSignedCommits pulumi.BoolPtrInput
 	// Boolean, setting this to `true` enforces a linear commit Git history, which prevents anyone from pushing merge commits to a branch

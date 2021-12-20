@@ -128,6 +128,8 @@ type BranchProtectionV3 struct {
 	Etag          pulumi.StringOutput  `pulumi:"etag"`
 	// The GitHub repository name.
 	Repository pulumi.StringOutput `pulumi:"repository"`
+	// Boolean, setting this to `true` requires all conversations on code must be resolved before a pull request can be merged.
+	RequireConversationResolution pulumi.BoolPtrOutput `pulumi:"requireConversationResolution"`
 	// Boolean, setting this to `true` requires all commits to be signed with GPG.
 	RequireSignedCommits pulumi.BoolPtrOutput `pulumi:"requireSignedCommits"`
 	// Enforce restrictions for pull request reviews. See Required Pull Request Reviews below for details.
@@ -180,6 +182,8 @@ type branchProtectionV3State struct {
 	Etag          *string `pulumi:"etag"`
 	// The GitHub repository name.
 	Repository *string `pulumi:"repository"`
+	// Boolean, setting this to `true` requires all conversations on code must be resolved before a pull request can be merged.
+	RequireConversationResolution *bool `pulumi:"requireConversationResolution"`
 	// Boolean, setting this to `true` requires all commits to be signed with GPG.
 	RequireSignedCommits *bool `pulumi:"requireSignedCommits"`
 	// Enforce restrictions for pull request reviews. See Required Pull Request Reviews below for details.
@@ -198,6 +202,8 @@ type BranchProtectionV3State struct {
 	Etag          pulumi.StringPtrInput
 	// The GitHub repository name.
 	Repository pulumi.StringPtrInput
+	// Boolean, setting this to `true` requires all conversations on code must be resolved before a pull request can be merged.
+	RequireConversationResolution pulumi.BoolPtrInput
 	// Boolean, setting this to `true` requires all commits to be signed with GPG.
 	RequireSignedCommits pulumi.BoolPtrInput
 	// Enforce restrictions for pull request reviews. See Required Pull Request Reviews below for details.
@@ -219,6 +225,8 @@ type branchProtectionV3Args struct {
 	EnforceAdmins *bool `pulumi:"enforceAdmins"`
 	// The GitHub repository name.
 	Repository string `pulumi:"repository"`
+	// Boolean, setting this to `true` requires all conversations on code must be resolved before a pull request can be merged.
+	RequireConversationResolution *bool `pulumi:"requireConversationResolution"`
 	// Boolean, setting this to `true` requires all commits to be signed with GPG.
 	RequireSignedCommits *bool `pulumi:"requireSignedCommits"`
 	// Enforce restrictions for pull request reviews. See Required Pull Request Reviews below for details.
@@ -237,6 +245,8 @@ type BranchProtectionV3Args struct {
 	EnforceAdmins pulumi.BoolPtrInput
 	// The GitHub repository name.
 	Repository pulumi.StringInput
+	// Boolean, setting this to `true` requires all conversations on code must be resolved before a pull request can be merged.
+	RequireConversationResolution pulumi.BoolPtrInput
 	// Boolean, setting this to `true` requires all commits to be signed with GPG.
 	RequireSignedCommits pulumi.BoolPtrInput
 	// Enforce restrictions for pull request reviews. See Required Pull Request Reviews below for details.

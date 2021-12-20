@@ -111,6 +111,10 @@ export class BranchProtection extends pulumi.CustomResource {
      */
     public readonly repositoryId!: pulumi.Output<string>;
     /**
+     * Boolean, setting this to `true` requires all conversations on code must be resolved before a pull request can be merged.
+     */
+    public readonly requireConversationResolution!: pulumi.Output<boolean | undefined>;
+    /**
      * Boolean, setting this to `true` requires all commits to be signed with GPG.
      */
     public readonly requireSignedCommits!: pulumi.Output<boolean | undefined>;
@@ -146,6 +150,7 @@ export class BranchProtection extends pulumi.CustomResource {
             resourceInputs["pattern"] = state ? state.pattern : undefined;
             resourceInputs["pushRestrictions"] = state ? state.pushRestrictions : undefined;
             resourceInputs["repositoryId"] = state ? state.repositoryId : undefined;
+            resourceInputs["requireConversationResolution"] = state ? state.requireConversationResolution : undefined;
             resourceInputs["requireSignedCommits"] = state ? state.requireSignedCommits : undefined;
             resourceInputs["requiredLinearHistory"] = state ? state.requiredLinearHistory : undefined;
             resourceInputs["requiredPullRequestReviews"] = state ? state.requiredPullRequestReviews : undefined;
@@ -164,6 +169,7 @@ export class BranchProtection extends pulumi.CustomResource {
             resourceInputs["pattern"] = args ? args.pattern : undefined;
             resourceInputs["pushRestrictions"] = args ? args.pushRestrictions : undefined;
             resourceInputs["repositoryId"] = args ? args.repositoryId : undefined;
+            resourceInputs["requireConversationResolution"] = args ? args.requireConversationResolution : undefined;
             resourceInputs["requireSignedCommits"] = args ? args.requireSignedCommits : undefined;
             resourceInputs["requiredLinearHistory"] = args ? args.requiredLinearHistory : undefined;
             resourceInputs["requiredPullRequestReviews"] = args ? args.requiredPullRequestReviews : undefined;
@@ -204,6 +210,10 @@ export interface BranchProtectionState {
      * The name or node ID of the repository associated with this branch protection rule.
      */
     repositoryId?: pulumi.Input<string>;
+    /**
+     * Boolean, setting this to `true` requires all conversations on code must be resolved before a pull request can be merged.
+     */
+    requireConversationResolution?: pulumi.Input<boolean>;
     /**
      * Boolean, setting this to `true` requires all commits to be signed with GPG.
      */
@@ -250,6 +260,10 @@ export interface BranchProtectionArgs {
      * The name or node ID of the repository associated with this branch protection rule.
      */
     repositoryId: pulumi.Input<string>;
+    /**
+     * Boolean, setting this to `true` requires all conversations on code must be resolved before a pull request can be merged.
+     */
+    requireConversationResolution?: pulumi.Input<boolean>;
     /**
      * Boolean, setting this to `true` requires all commits to be signed with GPG.
      */

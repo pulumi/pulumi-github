@@ -107,6 +107,10 @@ export class Repository extends pulumi.CustomResource {
      */
     public readonly autoInit!: pulumi.Output<boolean | undefined>;
     /**
+     * The list of this repository's branches. Each element of `branches` has the following attributes:
+     */
+    public /*out*/ readonly branches!: pulumi.Output<outputs.RepositoryBranch[]>;
+    /**
      * (Deprecated: Use `github.BranchDefault` resource instead) The name of the default branch of the repository. **NOTE:** This can only be set after a repository has already been created,
      * and after a correct reference has been created for the target branch inside the repository. This means a user will have to omit this parameter from the
      * initial repository creation and create the target branch inside of the repository prior to setting this attribute.
@@ -241,6 +245,7 @@ export class Repository extends pulumi.CustomResource {
             resourceInputs["archiveOnDestroy"] = state ? state.archiveOnDestroy : undefined;
             resourceInputs["archived"] = state ? state.archived : undefined;
             resourceInputs["autoInit"] = state ? state.autoInit : undefined;
+            resourceInputs["branches"] = state ? state.branches : undefined;
             resourceInputs["defaultBranch"] = state ? state.defaultBranch : undefined;
             resourceInputs["deleteBranchOnMerge"] = state ? state.deleteBranchOnMerge : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
@@ -295,6 +300,7 @@ export class Repository extends pulumi.CustomResource {
             resourceInputs["topics"] = args ? args.topics : undefined;
             resourceInputs["visibility"] = args ? args.visibility : undefined;
             resourceInputs["vulnerabilityAlerts"] = args ? args.vulnerabilityAlerts : undefined;
+            resourceInputs["branches"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["fullName"] = undefined /*out*/;
             resourceInputs["gitCloneUrl"] = undefined /*out*/;
@@ -344,6 +350,10 @@ export interface RepositoryState {
      * Set to `true` to produce an initial commit in the repository.
      */
     autoInit?: pulumi.Input<boolean>;
+    /**
+     * The list of this repository's branches. Each element of `branches` has the following attributes:
+     */
+    branches?: pulumi.Input<pulumi.Input<inputs.RepositoryBranch>[]>;
     /**
      * (Deprecated: Use `github.BranchDefault` resource instead) The name of the default branch of the repository. **NOTE:** This can only be set after a repository has already been created,
      * and after a correct reference has been created for the target branch inside the repository. This means a user will have to omit this parameter from the

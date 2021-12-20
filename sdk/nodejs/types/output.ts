@@ -288,6 +288,17 @@ export interface OrganizationWebhookConfiguration {
     url: string;
 }
 
+export interface RepositoryBranch {
+    /**
+     * The name of the repository.
+     */
+    name: string;
+    /**
+     * Whether the branch is protected.
+     */
+    protected: boolean;
+}
+
 export interface RepositoryEnvironmentDeploymentBranchPolicy {
     /**
      * Whether only branches that match the specified name patterns can deploy to this environment.
