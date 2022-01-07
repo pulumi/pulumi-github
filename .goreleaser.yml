@@ -28,7 +28,8 @@ builds:
   - -X github.com/pulumi/pulumi-github/provider/v4/pkg/version.Version={{.Tag}}
   main: ./cmd/pulumi-resource-github/
 changelog:
-  skip: true
+  use: git
+  sort: asc
 release:
   disable: false
 snapshot:
