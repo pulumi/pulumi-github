@@ -6,7 +6,7 @@ CHANGELOG
 *As of this notice, using CHANGELOG.md is DEPRECATED. We will be using [GitHub Releases](https://github.com/pulumi/pulumi-github/releases) for this repository*
 
 ## HEAD (Unreleased)
-_(none)_
+* Upgrade terraform-provider-github to v4.19.1
 
 ---
 
