@@ -2,8 +2,8 @@
 
 # GitHub provider
 
-The GitHub resource provider for Pulumi lets you use GitHub resources in your infrastructure 
-programs. To use this package, please [install the Pulumi CLI first](https://pulumi.io/).
+The GitHub resource provider for Pulumi lets you use GitHub resources in your infrastructure programs. 
+To use this package, please [install the Pulumi CLI first](https://pulumi.io/reference/cli/).
 
 ## Installing
 
