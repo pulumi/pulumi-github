@@ -6167,6 +6167,7 @@
             }
         },
         "go": {
+            "generateExtraInputTypes": true,
             "generateResourceContainerTypes": true,
             "importBasePath": "github.com/pulumi/pulumi-github/sdk/v4/go/github"
         },

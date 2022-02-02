@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Github
 {
@@ -57,7 +56,7 @@ namespace Pulumi.Github
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetOrganizationTeamsResult> InvokeAsync(GetOrganizationTeamsArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetOrganizationTeamsResult>("github:index/getOrganizationTeams:getOrganizationTeams", args ?? new GetOrganizationTeamsArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetOrganizationTeamsResult>("github:index/getOrganizationTeams:getOrganizationTeams", args ?? new GetOrganizationTeamsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to retrieve information about all GitHub teams in an organization.
@@ -104,7 +103,7 @@ namespace Pulumi.Github
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetOrganizationTeamsResult> Invoke(GetOrganizationTeamsInvokeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetOrganizationTeamsResult>("github:index/getOrganizationTeams:getOrganizationTeams", args ?? new GetOrganizationTeamsInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetOrganizationTeamsResult>("github:index/getOrganizationTeams:getOrganizationTeams", args ?? new GetOrganizationTeamsInvokeArgs(), options.WithDefaults());
     }
 
 

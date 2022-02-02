@@ -23,9 +23,7 @@ export function getTeam(args: GetTeamArgs, opts?: pulumi.InvokeOptions): Promise
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("github:index/getTeam:getTeam", {
         "slug": args.slug,
     }, opts);

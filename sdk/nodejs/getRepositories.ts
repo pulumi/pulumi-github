@@ -26,9 +26,7 @@ export function getRepositories(args: GetRepositoriesArgs, opts?: pulumi.InvokeO
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("github:index/getRepositories:getRepositories", {
         "query": args.query,
         "sort": args.sort,

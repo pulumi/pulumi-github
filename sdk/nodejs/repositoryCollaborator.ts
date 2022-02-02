@@ -129,9 +129,7 @@ export class RepositoryCollaborator extends pulumi.CustomResource {
             resourceInputs["username"] = args ? args.username : undefined;
             resourceInputs["invitationId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(RepositoryCollaborator.__pulumiType, name, resourceInputs, opts);
     }
 }

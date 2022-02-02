@@ -173,9 +173,7 @@ export class BranchProtectionV3 extends pulumi.CustomResource {
             resourceInputs["restrictions"] = args ? args.restrictions : undefined;
             resourceInputs["etag"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(BranchProtectionV3.__pulumiType, name, resourceInputs, opts);
     }
 }

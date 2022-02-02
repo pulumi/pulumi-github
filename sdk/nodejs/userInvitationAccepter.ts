@@ -79,9 +79,7 @@ export class UserInvitationAccepter extends pulumi.CustomResource {
             }
             resourceInputs["invitationId"] = args ? args.invitationId : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(UserInvitationAccepter.__pulumiType, name, resourceInputs, opts);
     }
 }

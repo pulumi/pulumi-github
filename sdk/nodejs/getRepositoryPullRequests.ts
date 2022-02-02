@@ -28,9 +28,7 @@ export function getRepositoryPullRequests(args: GetRepositoryPullRequestsArgs, o
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("github:index/getRepositoryPullRequests:getRepositoryPullRequests", {
         "baseRef": args.baseRef,
         "baseRepository": args.baseRepository,

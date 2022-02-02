@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Github
 {
@@ -87,7 +86,7 @@ namespace Pulumi.Github
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetReleaseResult> InvokeAsync(GetReleaseArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetReleaseResult>("github:index/getRelease:getRelease", args ?? new GetReleaseArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetReleaseResult>("github:index/getRelease:getRelease", args ?? new GetReleaseArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to retrieve information about a GitHub release in a specific repository.
@@ -164,7 +163,7 @@ namespace Pulumi.Github
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetReleaseResult> Invoke(GetReleaseInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetReleaseResult>("github:index/getRelease:getRelease", args ?? new GetReleaseInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetReleaseResult>("github:index/getRelease:getRelease", args ?? new GetReleaseInvokeArgs(), options.WithDefaults());
     }
 
 

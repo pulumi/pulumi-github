@@ -175,9 +175,7 @@ export class RepositoryPullRequest extends pulumi.CustomResource {
             resourceInputs["state"] = undefined /*out*/;
             resourceInputs["updatedAt"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(RepositoryPullRequest.__pulumiType, name, resourceInputs, opts);
     }
 }

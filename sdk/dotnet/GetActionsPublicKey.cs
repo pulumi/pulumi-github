@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Github
 {
@@ -40,7 +39,7 @@ namespace Pulumi.Github
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetActionsPublicKeyResult> InvokeAsync(GetActionsPublicKeyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetActionsPublicKeyResult>("github:index/getActionsPublicKey:getActionsPublicKey", args ?? new GetActionsPublicKeyArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetActionsPublicKeyResult>("github:index/getActionsPublicKey:getActionsPublicKey", args ?? new GetActionsPublicKeyArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to retrieve information about a GitHub Actions public key. This data source is required to be used with other GitHub secrets interactions.
@@ -70,7 +69,7 @@ namespace Pulumi.Github
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetActionsPublicKeyResult> Invoke(GetActionsPublicKeyInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetActionsPublicKeyResult>("github:index/getActionsPublicKey:getActionsPublicKey", args ?? new GetActionsPublicKeyInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetActionsPublicKeyResult>("github:index/getActionsPublicKey:getActionsPublicKey", args ?? new GetActionsPublicKeyInvokeArgs(), options.WithDefaults());
     }
 
 

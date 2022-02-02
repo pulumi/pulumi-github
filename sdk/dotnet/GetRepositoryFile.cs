@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Github
 {
@@ -43,7 +42,7 @@ namespace Pulumi.Github
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetRepositoryFileResult> InvokeAsync(GetRepositoryFileArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRepositoryFileResult>("github:index/getRepositoryFile:getRepositoryFile", args ?? new GetRepositoryFileArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetRepositoryFileResult>("github:index/getRepositoryFile:getRepositoryFile", args ?? new GetRepositoryFileArgs(), options.WithDefaults());
 
         /// <summary>
         /// This data source allows you to read files within a
@@ -76,7 +75,7 @@ namespace Pulumi.Github
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetRepositoryFileResult> Invoke(GetRepositoryFileInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetRepositoryFileResult>("github:index/getRepositoryFile:getRepositoryFile", args ?? new GetRepositoryFileInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetRepositoryFileResult>("github:index/getRepositoryFile:getRepositoryFile", args ?? new GetRepositoryFileInvokeArgs(), options.WithDefaults());
     }
 
 

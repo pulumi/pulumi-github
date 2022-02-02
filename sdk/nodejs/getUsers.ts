@@ -31,9 +31,7 @@ export function getUsers(args: GetUsersArgs, opts?: pulumi.InvokeOptions): Promi
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("github:index/getUsers:getUsers", {
         "usernames": args.usernames,
     }, opts);

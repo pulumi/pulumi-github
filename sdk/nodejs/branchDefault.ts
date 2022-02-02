@@ -102,9 +102,7 @@ export class BranchDefault extends pulumi.CustomResource {
             resourceInputs["branch"] = args ? args.branch : undefined;
             resourceInputs["repository"] = args ? args.repository : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(BranchDefault.__pulumiType, name, resourceInputs, opts);
     }
 }

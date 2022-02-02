@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Github
 {
@@ -40,7 +39,7 @@ namespace Pulumi.Github
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetCollaboratorsResult> InvokeAsync(GetCollaboratorsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetCollaboratorsResult>("github:index/getCollaborators:getCollaborators", args ?? new GetCollaboratorsArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetCollaboratorsResult>("github:index/getCollaborators:getCollaborators", args ?? new GetCollaboratorsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to retrieve the collaborators for a given repository.
@@ -70,7 +69,7 @@ namespace Pulumi.Github
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetCollaboratorsResult> Invoke(GetCollaboratorsInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetCollaboratorsResult>("github:index/getCollaborators:getCollaborators", args ?? new GetCollaboratorsInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetCollaboratorsResult>("github:index/getCollaborators:getCollaborators", args ?? new GetCollaboratorsInvokeArgs(), options.WithDefaults());
     }
 
 

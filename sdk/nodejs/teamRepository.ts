@@ -112,9 +112,7 @@ export class TeamRepository extends pulumi.CustomResource {
             resourceInputs["teamId"] = args ? args.teamId : undefined;
             resourceInputs["etag"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(TeamRepository.__pulumiType, name, resourceInputs, opts);
     }
 }

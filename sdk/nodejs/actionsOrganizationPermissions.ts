@@ -113,9 +113,7 @@ export class ActionsOrganizationPermissions extends pulumi.CustomResource {
             resourceInputs["enabledRepositories"] = args ? args.enabledRepositories : undefined;
             resourceInputs["enabledRepositoriesConfig"] = args ? args.enabledRepositoriesConfig : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ActionsOrganizationPermissions.__pulumiType, name, resourceInputs, opts);
     }
 }

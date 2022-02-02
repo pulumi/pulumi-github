@@ -25,9 +25,7 @@ export function getRepositoryMilestone(args: GetRepositoryMilestoneArgs, opts?: 
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("github:index/getRepositoryMilestone:getRepositoryMilestone", {
         "number": args.number,
         "owner": args.owner,

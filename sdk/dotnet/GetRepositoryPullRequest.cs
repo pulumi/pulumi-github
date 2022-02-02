@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Github
 {
@@ -40,7 +39,7 @@ namespace Pulumi.Github
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetRepositoryPullRequestResult> InvokeAsync(GetRepositoryPullRequestArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRepositoryPullRequestResult>("github:index/getRepositoryPullRequest:getRepositoryPullRequest", args ?? new GetRepositoryPullRequestArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetRepositoryPullRequestResult>("github:index/getRepositoryPullRequest:getRepositoryPullRequest", args ?? new GetRepositoryPullRequestArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to retrieve information about a specific GitHub Pull Request in a repository.
@@ -70,7 +69,7 @@ namespace Pulumi.Github
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetRepositoryPullRequestResult> Invoke(GetRepositoryPullRequestInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetRepositoryPullRequestResult>("github:index/getRepositoryPullRequest:getRepositoryPullRequest", args ?? new GetRepositoryPullRequestInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetRepositoryPullRequestResult>("github:index/getRepositoryPullRequest:getRepositoryPullRequest", args ?? new GetRepositoryPullRequestInvokeArgs(), options.WithDefaults());
     }
 
 

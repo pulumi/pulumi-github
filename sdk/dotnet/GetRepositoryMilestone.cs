@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Github
 {
@@ -41,7 +40,7 @@ namespace Pulumi.Github
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetRepositoryMilestoneResult> InvokeAsync(GetRepositoryMilestoneArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRepositoryMilestoneResult>("github:index/getRepositoryMilestone:getRepositoryMilestone", args ?? new GetRepositoryMilestoneArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetRepositoryMilestoneResult>("github:index/getRepositoryMilestone:getRepositoryMilestone", args ?? new GetRepositoryMilestoneArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to retrieve information about a specific GitHub milestone in a repository.
@@ -72,7 +71,7 @@ namespace Pulumi.Github
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetRepositoryMilestoneResult> Invoke(GetRepositoryMilestoneInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetRepositoryMilestoneResult>("github:index/getRepositoryMilestone:getRepositoryMilestone", args ?? new GetRepositoryMilestoneInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetRepositoryMilestoneResult>("github:index/getRepositoryMilestone:getRepositoryMilestone", args ?? new GetRepositoryMilestoneInvokeArgs(), options.WithDefaults());
     }
 
 

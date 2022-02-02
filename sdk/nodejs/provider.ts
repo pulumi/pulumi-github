@@ -64,9 +64,7 @@ export class Provider extends pulumi.ProviderResource {
             resourceInputs["token"] = args ? args.token : undefined;
             resourceInputs["writeDelayMs"] = pulumi.output(args ? args.writeDelayMs : undefined).apply(JSON.stringify);
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Provider.__pulumiType, name, resourceInputs, opts);
     }
 }

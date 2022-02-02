@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Github
 {
@@ -39,7 +38,7 @@ namespace Pulumi.Github
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetTeamResult> InvokeAsync(GetTeamArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTeamResult>("github:index/getTeam:getTeam", args ?? new GetTeamArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetTeamResult>("github:index/getTeam:getTeam", args ?? new GetTeamArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to retrieve information about a GitHub team.
@@ -68,7 +67,7 @@ namespace Pulumi.Github
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetTeamResult> Invoke(GetTeamInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetTeamResult>("github:index/getTeam:getTeam", args ?? new GetTeamInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetTeamResult>("github:index/getTeam:getTeam", args ?? new GetTeamInvokeArgs(), options.WithDefaults());
     }
 
 
