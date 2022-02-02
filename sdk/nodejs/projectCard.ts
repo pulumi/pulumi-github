@@ -98,9 +98,7 @@ export class ProjectCard extends pulumi.CustomResource {
             resourceInputs["cardId"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ProjectCard.__pulumiType, name, resourceInputs, opts);
     }
 }

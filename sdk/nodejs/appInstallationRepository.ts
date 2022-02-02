@@ -106,9 +106,7 @@ export class AppInstallationRepository extends pulumi.CustomResource {
             resourceInputs["repository"] = args ? args.repository : undefined;
             resourceInputs["repoId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(AppInstallationRepository.__pulumiType, name, resourceInputs, opts);
     }
 }

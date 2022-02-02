@@ -110,9 +110,7 @@ export class RepositoryAutolinkReference extends pulumi.CustomResource {
             resourceInputs["targetUrlTemplate"] = args ? args.targetUrlTemplate : undefined;
             resourceInputs["etag"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(RepositoryAutolinkReference.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -21,9 +21,7 @@ export function getIpRanges(opts?: pulumi.InvokeOptions): Promise<GetIpRangesRes
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("github:index/getIpRanges:getIpRanges", {
     }, opts);
 }

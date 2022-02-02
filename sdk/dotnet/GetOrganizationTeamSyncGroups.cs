@@ -35,7 +35,7 @@ namespace Pulumi.Github
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetOrganizationTeamSyncGroupsResult> InvokeAsync(InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetOrganizationTeamSyncGroupsResult>("github:index/getOrganizationTeamSyncGroups:getOrganizationTeamSyncGroups", InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetOrganizationTeamSyncGroupsResult>("github:index/getOrganizationTeamSyncGroups:getOrganizationTeamSyncGroups", InvokeArgs.Empty, options.WithDefaults());
     }
 
 

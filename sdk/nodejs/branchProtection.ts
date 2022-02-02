@@ -175,9 +175,7 @@ export class BranchProtection extends pulumi.CustomResource {
             resourceInputs["requiredPullRequestReviews"] = args ? args.requiredPullRequestReviews : undefined;
             resourceInputs["requiredStatusChecks"] = args ? args.requiredStatusChecks : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(BranchProtection.__pulumiType, name, resourceInputs, opts);
     }
 }

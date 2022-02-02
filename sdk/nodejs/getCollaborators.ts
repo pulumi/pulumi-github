@@ -25,9 +25,7 @@ export function getCollaborators(args: GetCollaboratorsArgs, opts?: pulumi.Invok
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("github:index/getCollaborators:getCollaborators", {
         "affiliation": args.affiliation,
         "owner": args.owner,

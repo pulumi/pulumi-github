@@ -83,9 +83,7 @@ export class ProjectColumn extends pulumi.CustomResource {
             resourceInputs["columnId"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ProjectColumn.__pulumiType, name, resourceInputs, opts);
     }
 }

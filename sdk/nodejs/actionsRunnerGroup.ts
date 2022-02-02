@@ -131,9 +131,7 @@ export class ActionsRunnerGroup extends pulumi.CustomResource {
             resourceInputs["runnersUrl"] = undefined /*out*/;
             resourceInputs["selectedRepositoriesUrl"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ActionsRunnerGroup.__pulumiType, name, resourceInputs, opts);
     }
 }

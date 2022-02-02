@@ -23,9 +23,7 @@ export function getOrganization(args: GetOrganizationArgs, opts?: pulumi.InvokeO
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("github:index/getOrganization:getOrganization", {
         "name": args.name,
     }, opts);

@@ -114,9 +114,7 @@ export class RepositoryEnvironment extends pulumi.CustomResource {
             resourceInputs["reviewers"] = args ? args.reviewers : undefined;
             resourceInputs["waitTimer"] = args ? args.waitTimer : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(RepositoryEnvironment.__pulumiType, name, resourceInputs, opts);
     }
 }

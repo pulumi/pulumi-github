@@ -84,9 +84,7 @@ export class TeamSyncGroupMapping extends pulumi.CustomResource {
             resourceInputs["teamSlug"] = args ? args.teamSlug : undefined;
             resourceInputs["etag"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(TeamSyncGroupMapping.__pulumiType, name, resourceInputs, opts);
     }
 }

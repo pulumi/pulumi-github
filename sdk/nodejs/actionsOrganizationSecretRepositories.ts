@@ -96,9 +96,7 @@ export class ActionsOrganizationSecretRepositories extends pulumi.CustomResource
             resourceInputs["secretName"] = args ? args.secretName : undefined;
             resourceInputs["selectedRepositoryIds"] = args ? args.selectedRepositoryIds : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ActionsOrganizationSecretRepositories.__pulumiType, name, resourceInputs, opts);
     }
 }
