@@ -174,6 +174,18 @@ export interface RepositoryWebhookConfiguration {
     url: pulumi.Input<string>;
 }
 
+export interface TeamMembersMember {
+    /**
+     * The role of the user within the team.
+     * Must be one of `member` or `maintainer`. Defaults to `member`.
+     */
+    role?: pulumi.Input<string>;
+    /**
+     * The user to add to the team.
+     */
+    username: pulumi.Input<string>;
+}
+
 export interface TeamSyncGroupMappingGroup {
     /**
      * The description of the IdP group.

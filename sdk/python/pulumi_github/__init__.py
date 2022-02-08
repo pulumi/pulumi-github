@@ -53,6 +53,7 @@ from .repository_project import *
 from .repository_pull_request import *
 from .repository_webhook import *
 from .team import *
+from .team_members import *
 from .team_membership import *
 from .team_repository import *
 from .team_sync_group_mapping import *
@@ -302,6 +303,14 @@ _utilities.register(
   "fqn": "pulumi_github",
   "classes": {
    "github:index/team:Team": "Team"
+  }
+ },
+ {
+  "pkg": "github",
+  "mod": "index/teamMembers",
+  "fqn": "pulumi_github",
+  "classes": {
+   "github:index/teamMembers:TeamMembers": "TeamMembers"
   }
  },
  {

@@ -25,6 +25,7 @@ __all__ = [
     'RepositoryPagesSourceArgs',
     'RepositoryTemplateArgs',
     'RepositoryWebhookConfigurationArgs',
+    'TeamMembersMemberArgs',
     'TeamSyncGroupMappingGroupArgs',
 ]
 
@@ -805,6 +806,46 @@ class RepositoryWebhookConfigurationArgs:
     @secret.setter
     def secret(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "secret", value)
+
+
+@pulumi.input_type
+class TeamMembersMemberArgs:
+    def __init__(__self__, *,
+                 username: pulumi.Input[str],
+                 role: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] username: The user to add to the team.
+        :param pulumi.Input[str] role: The role of the user within the team.
+               Must be one of `member` or `maintainer`. Defaults to `member`.
+        """
+        pulumi.set(__self__, "username", username)
+        if role is not None:
+            pulumi.set(__self__, "role", role)
+
+    @property
+    @pulumi.getter
+    def username(self) -> pulumi.Input[str]:
+        """
+        The user to add to the team.
+        """
+        return pulumi.get(self, "username")
+
+    @username.setter
+    def username(self, value: pulumi.Input[str]):
+        pulumi.set(self, "username", value)
+
+    @property
+    @pulumi.getter
+    def role(self) -> Optional[pulumi.Input[str]]:
+        """
+        The role of the user within the team.
+        Must be one of `member` or `maintainer`. Defaults to `member`.
+        """
+        return pulumi.get(self, "role")
+
+    @role.setter
+    def role(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "role", value)
 
 
 @pulumi.input_type

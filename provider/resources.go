@@ -128,6 +128,7 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			"github_actions_runner_group":   {Tok: makeResource(mainMod, "ActionsRunnerGroup")},
 			"github_repository_environment": {Tok: makeResource(mainMod, "RepositoryEnvironment")},
+			"github_team_members":           {Tok: makeResource(mainMod, "TeamMembers")},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			"github_actions_public_key":            {Tok: makeDataSource(mainMod, "getActionsPublicKey")},

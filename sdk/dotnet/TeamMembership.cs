@@ -17,6 +17,8 @@ namespace Pulumi.Github
     /// organization, they won't be part of the team until they do. When
     /// destroyed, the user will be removed from the team.
     /// 
+    /// &gt; **Note**: This resource is not compatible with `github.TeamMembers`. Use either `github.TeamMembers` or `github.TeamMembership`.
+    /// 
     /// ## Example Usage
     /// 
     /// ```csharp

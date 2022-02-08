@@ -78,6 +78,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &RepositoryWebhook{}
 	case "github:index/team:Team":
 		r = &Team{}
+	case "github:index/teamMembers:TeamMembers":
+		r = &TeamMembers{}
 	case "github:index/teamMembership:TeamMembership":
 		r = &TeamMembership{}
 	case "github:index/teamRepository:TeamRepository":
@@ -264,6 +266,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"github",
 		"index/team",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"github",
+		"index/teamMembers",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

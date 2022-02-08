@@ -18,6 +18,8 @@ import (
 // organization, they won't be part of the team until they do. When
 // destroyed, the user will be removed from the team.
 //
+// > **Note**: This resource is not compatible with `TeamMembers`. Use either `TeamMembers` or `TeamMembership`.
+//
 // ## Example Usage
 //
 // ```go
