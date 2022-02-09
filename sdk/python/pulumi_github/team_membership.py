@@ -153,6 +153,8 @@ class TeamMembership(pulumi.CustomResource):
         organization, they won't be part of the team until they do. When
         destroyed, the user will be removed from the team.
 
+        > **Note**: This resource is not compatible with `TeamMembers`. Use either `TeamMembers` or `TeamMembership`.
+
         ## Example Usage
 
         ```python
@@ -198,6 +200,8 @@ class TeamMembership(pulumi.CustomResource):
         the user will be added to the team. If the user hasn't accepted their invitation to the
         organization, they won't be part of the team until they do. When
         destroyed, the user will be removed from the team.
+
+        > **Note**: This resource is not compatible with `TeamMembers`. Use either `TeamMembers` or `TeamMembership`.
 
         ## Example Usage
 

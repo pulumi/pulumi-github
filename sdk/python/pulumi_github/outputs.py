@@ -25,6 +25,7 @@ __all__ = [
     'RepositoryPagesSource',
     'RepositoryTemplate',
     'RepositoryWebhookConfiguration',
+    'TeamMembersMember',
     'TeamSyncGroupMappingGroup',
     'GetCollaboratorsCollaboratorResult',
     'GetOrganizationTeamSyncGroupsGroupResult',
@@ -761,6 +762,38 @@ class RepositoryWebhookConfiguration(dict):
         The shared secret for the webhook. [See API documentation](https://developer.github.com/v3/repos/hooks/#create-a-hook).
         """
         return pulumi.get(self, "secret")
+
+
+@pulumi.output_type
+class TeamMembersMember(dict):
+    def __init__(__self__, *,
+                 username: str,
+                 role: Optional[str] = None):
+        """
+        :param str username: The user to add to the team.
+        :param str role: The role of the user within the team.
+               Must be one of `member` or `maintainer`. Defaults to `member`.
+        """
+        pulumi.set(__self__, "username", username)
+        if role is not None:
+            pulumi.set(__self__, "role", role)
+
+    @property
+    @pulumi.getter
+    def username(self) -> str:
+        """
+        The user to add to the team.
+        """
+        return pulumi.get(self, "username")
+
+    @property
+    @pulumi.getter
+    def role(self) -> Optional[str]:
+        """
+        The role of the user within the team.
+        Must be one of `member` or `maintainer`. Defaults to `member`.
+        """
+        return pulumi.get(self, "role")
 
 
 @pulumi.output_type

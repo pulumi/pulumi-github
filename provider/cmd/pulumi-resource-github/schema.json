@@ -671,6 +671,32 @@
                 "url"
             ]
         },
+        "github:index/TeamMembersMember:TeamMembersMember": {
+            "properties": {
+                "role": {
+                    "type": "string",
+                    "description": "The role of the user within the team.\nMust be one of `member` or `maintainer`. Defaults to `member`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "username": {
+                    "type": "string",
+                    "description": "The user to add to the team.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "username"
+            ]
+        },
         "github:index/TeamSyncGroupMappingGroup:TeamSyncGroupMappingGroup": {
             "properties": {
                 "groupDescription": {
@@ -1988,7 +2014,7 @@
             }
         },
         "github:index/branch:Branch": {
-            "description": "This resource allows you to create and manage branches within your repository.\n\nAdditional constraints can be applied to ensure your branch is created from\nanother branch or commit.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\nconst development = new github.Branch(\"development\", {\n    branch: \"development\",\n    repository: \"example\",\n});\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\ndevelopment = github.Branch(\"development\",\n    branch=\"development\",\n    repository=\"example\")\n```\n```csharp\nusing Pulumi;\nusing Github = Pulumi.Github;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var development = new Github.Branch(\"development\", new Github.BranchArgs\n        {\n            Branch = \"development\",\n            Repository = \"example\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-github/sdk/v4/go/github\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := github.NewBranch(ctx, \"development\", \u0026github.BranchArgs{\n\t\t\tBranch:     pulumi.String(\"development\"),\n\t\t\tRepository: pulumi.String(\"example\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nGitHub Branch can be imported using an ID made up of `repository:branch`, e.g.\n\n```sh\n $ pulumi import github:index/branch:Branch terraform terraform:main\n```\n\n Optionally, a source branch may be specified using an ID of `repository:branch:source_branch`. This is useful for importing branches that do not branch directly off main.\n\n```sh\n $ pulumi import github:index/branch:Branch terraform terraform:feature-branch:dev\n```\n\n ",
+            "description": "This resource allows you to create and manage branches within your repository.\n\nAdditional constraints can be applied to ensure your branch is created from\nanother branch or commit.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\nconst development = new github.Branch(\"development\", {\n    branch: \"development\",\n    repository: \"example\",\n});\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\ndevelopment = github.Branch(\"development\",\n    branch=\"development\",\n    repository=\"example\")\n```\n```csharp\nusing Pulumi;\nusing Github = Pulumi.Github;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var development = new Github.Branch(\"development\", new Github.BranchArgs\n        {\n            Branch = \"development\",\n            Repository = \"example\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-github/sdk/v4/go/github\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := github.NewBranch(ctx, \"development\", \u0026github.BranchArgs{\n\t\t\tBranch:     pulumi.String(\"development\"),\n\t\t\tRepository: pulumi.String(\"example\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nGitHub Branch can be imported using an ID made up of `repository:branch`, e.g.\n\n```sh\n $ pulumi import github:index/branch:Branch terraform terraform:main\n```\n\n Importing github branch into an instance object (when using a for each block to manage multiple branches)\n\n```sh\n $ pulumi import github:index/branch:Branch terraform[\"terraform\"] terraform:main\n```\n\n Optionally, a source branch may be specified using an ID of `repository:branch:source_branch`. This is useful for importing branches that do not branch directly off main.\n\n```sh\n $ pulumi import github:index/branch:Branch terraform terraform:feature-branch:dev\n```\n\n ",
             "properties": {
                 "branch": {
                     "type": "string",
@@ -4337,8 +4363,69 @@
                 "type": "object"
             }
         },
+        "github:index/teamMembers:TeamMembers": {
+            "description": "\n\n\n## Import\n\nGitHub Team Membership can be imported using the team ID `teamid`, e.g.\n\n```sh\n $ pulumi import github:index/teamMembers:TeamMembers some_team 1234567\n```\n\n ",
+            "properties": {
+                "etag": {
+                    "type": "string"
+                },
+                "members": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/github:index/TeamMembersMember:TeamMembersMember"
+                    },
+                    "description": "List of team members. See Members below for details.\n"
+                },
+                "teamId": {
+                    "type": "string",
+                    "description": "The GitHub team id\n"
+                }
+            },
+            "required": [
+                "etag",
+                "members",
+                "teamId"
+            ],
+            "inputProperties": {
+                "members": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/github:index/TeamMembersMember:TeamMembersMember"
+                    },
+                    "description": "List of team members. See Members below for details.\n"
+                },
+                "teamId": {
+                    "type": "string",
+                    "description": "The GitHub team id\n"
+                }
+            },
+            "requiredInputs": [
+                "members",
+                "teamId"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering TeamMembers resources.\n",
+                "properties": {
+                    "etag": {
+                        "type": "string"
+                    },
+                    "members": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/github:index/TeamMembersMember:TeamMembersMember"
+                        },
+                        "description": "List of team members. See Members below for details.\n"
+                    },
+                    "teamId": {
+                        "type": "string",
+                        "description": "The GitHub team id\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
         "github:index/teamMembership:TeamMembership": {
-            "description": "Provides a GitHub team membership resource.\n\nThis resource allows you to add/remove users from teams in your organization. When applied,\nthe user will be added to the team. If the user hasn't accepted their invitation to the\norganization, they won't be part of the team until they do. When\ndestroyed, the user will be removed from the team.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\n// Add a user to the organization\nconst membershipForSomeUser = new github.Membership(\"membershipForSomeUser\", {\n    username: \"SomeUser\",\n    role: \"member\",\n});\nconst someTeam = new github.Team(\"someTeam\", {description: \"Some cool team\"});\nconst someTeamMembership = new github.TeamMembership(\"someTeamMembership\", {\n    teamId: someTeam.id,\n    username: \"SomeUser\",\n    role: \"member\",\n});\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\n# Add a user to the organization\nmembership_for_some_user = github.Membership(\"membershipForSomeUser\",\n    username=\"SomeUser\",\n    role=\"member\")\nsome_team = github.Team(\"someTeam\", description=\"Some cool team\")\nsome_team_membership = github.TeamMembership(\"someTeamMembership\",\n    team_id=some_team.id,\n    username=\"SomeUser\",\n    role=\"member\")\n```\n```csharp\nusing Pulumi;\nusing Github = Pulumi.Github;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        // Add a user to the organization\n        var membershipForSomeUser = new Github.Membership(\"membershipForSomeUser\", new Github.MembershipArgs\n        {\n            Username = \"SomeUser\",\n            Role = \"member\",\n        });\n        var someTeam = new Github.Team(\"someTeam\", new Github.TeamArgs\n        {\n            Description = \"Some cool team\",\n        });\n        var someTeamMembership = new Github.TeamMembership(\"someTeamMembership\", new Github.TeamMembershipArgs\n        {\n            TeamId = someTeam.Id,\n            Username = \"SomeUser\",\n            Role = \"member\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-github/sdk/v4/go/github\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := github.NewMembership(ctx, \"membershipForSomeUser\", \u0026github.MembershipArgs{\n\t\t\tUsername: pulumi.String(\"SomeUser\"),\n\t\t\tRole:     pulumi.String(\"member\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tsomeTeam, err := github.NewTeam(ctx, \"someTeam\", \u0026github.TeamArgs{\n\t\t\tDescription: pulumi.String(\"Some cool team\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = github.NewTeamMembership(ctx, \"someTeamMembership\", \u0026github.TeamMembershipArgs{\n\t\t\tTeamId:   someTeam.ID(),\n\t\t\tUsername: pulumi.String(\"SomeUser\"),\n\t\t\tRole:     pulumi.String(\"member\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nGitHub Team Membership can be imported using an ID made up of `teamid:username`, e.g.\n\n```sh\n $ pulumi import github:index/teamMembership:TeamMembership member 1234567:someuser\n```\n\n ",
+            "description": "Provides a GitHub team membership resource.\n\nThis resource allows you to add/remove users from teams in your organization. When applied,\nthe user will be added to the team. If the user hasn't accepted their invitation to the\norganization, they won't be part of the team until they do. When\ndestroyed, the user will be removed from the team.\n\n\u003e **Note**: This resource is not compatible with `github.TeamMembers`. Use either `github.TeamMembers` or `github.TeamMembership`.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\n// Add a user to the organization\nconst membershipForSomeUser = new github.Membership(\"membershipForSomeUser\", {\n    username: \"SomeUser\",\n    role: \"member\",\n});\nconst someTeam = new github.Team(\"someTeam\", {description: \"Some cool team\"});\nconst someTeamMembership = new github.TeamMembership(\"someTeamMembership\", {\n    teamId: someTeam.id,\n    username: \"SomeUser\",\n    role: \"member\",\n});\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\n# Add a user to the organization\nmembership_for_some_user = github.Membership(\"membershipForSomeUser\",\n    username=\"SomeUser\",\n    role=\"member\")\nsome_team = github.Team(\"someTeam\", description=\"Some cool team\")\nsome_team_membership = github.TeamMembership(\"someTeamMembership\",\n    team_id=some_team.id,\n    username=\"SomeUser\",\n    role=\"member\")\n```\n```csharp\nusing Pulumi;\nusing Github = Pulumi.Github;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        // Add a user to the organization\n        var membershipForSomeUser = new Github.Membership(\"membershipForSomeUser\", new Github.MembershipArgs\n        {\n            Username = \"SomeUser\",\n            Role = \"member\",\n        });\n        var someTeam = new Github.Team(\"someTeam\", new Github.TeamArgs\n        {\n            Description = \"Some cool team\",\n        });\n        var someTeamMembership = new Github.TeamMembership(\"someTeamMembership\", new Github.TeamMembershipArgs\n        {\n            TeamId = someTeam.Id,\n            Username = \"SomeUser\",\n            Role = \"member\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-github/sdk/v4/go/github\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := github.NewMembership(ctx, \"membershipForSomeUser\", \u0026github.MembershipArgs{\n\t\t\tUsername: pulumi.String(\"SomeUser\"),\n\t\t\tRole:     pulumi.String(\"member\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tsomeTeam, err := github.NewTeam(ctx, \"someTeam\", \u0026github.TeamArgs{\n\t\t\tDescription: pulumi.String(\"Some cool team\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = github.NewTeamMembership(ctx, \"someTeamMembership\", \u0026github.TeamMembershipArgs{\n\t\t\tTeamId:   someTeam.ID(),\n\t\t\tUsername: pulumi.String(\"SomeUser\"),\n\t\t\tRole:     pulumi.String(\"member\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nGitHub Team Membership can be imported using an ID made up of `teamid:username`, e.g.\n\n```sh\n $ pulumi import github:index/teamMembership:TeamMembership member 1234567:someuser\n```\n\n ",
             "properties": {
                 "etag": {
                     "type": "string"

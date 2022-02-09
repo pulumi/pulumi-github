@@ -64,6 +64,7 @@
         "repositoryPullRequest.ts",
         "repositoryWebhook.ts",
         "team.ts",
+        "teamMembers.ts",
         "teamMembership.ts",
         "teamRepository.ts",
         "teamSyncGroupMapping.ts",

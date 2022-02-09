@@ -2521,6 +2521,115 @@ func (o RepositoryWebhookConfigurationPtrOutput) Url() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type TeamMembersMember struct {
+	// The role of the user within the team.
+	// Must be one of `member` or `maintainer`. Defaults to `member`.
+	Role *string `pulumi:"role"`
+	// The user to add to the team.
+	Username string `pulumi:"username"`
+}
+
+// TeamMembersMemberInput is an input type that accepts TeamMembersMemberArgs and TeamMembersMemberOutput values.
+// You can construct a concrete instance of `TeamMembersMemberInput` via:
+//
+//          TeamMembersMemberArgs{...}
+type TeamMembersMemberInput interface {
+	pulumi.Input
+
+	ToTeamMembersMemberOutput() TeamMembersMemberOutput
+	ToTeamMembersMemberOutputWithContext(context.Context) TeamMembersMemberOutput
+}
+
+type TeamMembersMemberArgs struct {
+	// The role of the user within the team.
+	// Must be one of `member` or `maintainer`. Defaults to `member`.
+	Role pulumi.StringPtrInput `pulumi:"role"`
+	// The user to add to the team.
+	Username pulumi.StringInput `pulumi:"username"`
+}
+
+func (TeamMembersMemberArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TeamMembersMember)(nil)).Elem()
+}
+
+func (i TeamMembersMemberArgs) ToTeamMembersMemberOutput() TeamMembersMemberOutput {
+	return i.ToTeamMembersMemberOutputWithContext(context.Background())
+}
+
+func (i TeamMembersMemberArgs) ToTeamMembersMemberOutputWithContext(ctx context.Context) TeamMembersMemberOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TeamMembersMemberOutput)
+}
+
+// TeamMembersMemberArrayInput is an input type that accepts TeamMembersMemberArray and TeamMembersMemberArrayOutput values.
+// You can construct a concrete instance of `TeamMembersMemberArrayInput` via:
+//
+//          TeamMembersMemberArray{ TeamMembersMemberArgs{...} }
+type TeamMembersMemberArrayInput interface {
+	pulumi.Input
+
+	ToTeamMembersMemberArrayOutput() TeamMembersMemberArrayOutput
+	ToTeamMembersMemberArrayOutputWithContext(context.Context) TeamMembersMemberArrayOutput
+}
+
+type TeamMembersMemberArray []TeamMembersMemberInput
+
+func (TeamMembersMemberArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TeamMembersMember)(nil)).Elem()
+}
+
+func (i TeamMembersMemberArray) ToTeamMembersMemberArrayOutput() TeamMembersMemberArrayOutput {
+	return i.ToTeamMembersMemberArrayOutputWithContext(context.Background())
+}
+
+func (i TeamMembersMemberArray) ToTeamMembersMemberArrayOutputWithContext(ctx context.Context) TeamMembersMemberArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TeamMembersMemberArrayOutput)
+}
+
+type TeamMembersMemberOutput struct{ *pulumi.OutputState }
+
+func (TeamMembersMemberOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TeamMembersMember)(nil)).Elem()
+}
+
+func (o TeamMembersMemberOutput) ToTeamMembersMemberOutput() TeamMembersMemberOutput {
+	return o
+}
+
+func (o TeamMembersMemberOutput) ToTeamMembersMemberOutputWithContext(ctx context.Context) TeamMembersMemberOutput {
+	return o
+}
+
+// The role of the user within the team.
+// Must be one of `member` or `maintainer`. Defaults to `member`.
+func (o TeamMembersMemberOutput) Role() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TeamMembersMember) *string { return v.Role }).(pulumi.StringPtrOutput)
+}
+
+// The user to add to the team.
+func (o TeamMembersMemberOutput) Username() pulumi.StringOutput {
+	return o.ApplyT(func(v TeamMembersMember) string { return v.Username }).(pulumi.StringOutput)
+}
+
+type TeamMembersMemberArrayOutput struct{ *pulumi.OutputState }
+
+func (TeamMembersMemberArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TeamMembersMember)(nil)).Elem()
+}
+
+func (o TeamMembersMemberArrayOutput) ToTeamMembersMemberArrayOutput() TeamMembersMemberArrayOutput {
+	return o
+}
+
+func (o TeamMembersMemberArrayOutput) ToTeamMembersMemberArrayOutputWithContext(ctx context.Context) TeamMembersMemberArrayOutput {
+	return o
+}
+
+func (o TeamMembersMemberArrayOutput) Index(i pulumi.IntInput) TeamMembersMemberOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TeamMembersMember {
+		return vs[0].([]TeamMembersMember)[vs[1].(int)]
+	}).(TeamMembersMemberOutput)
+}
+
 type TeamSyncGroupMappingGroup struct {
 	// The description of the IdP group.
 	GroupDescription string `pulumi:"groupDescription"`
@@ -3741,6 +3850,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryTemplatePtrInput)(nil)).Elem(), RepositoryTemplateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryWebhookConfigurationInput)(nil)).Elem(), RepositoryWebhookConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryWebhookConfigurationPtrInput)(nil)).Elem(), RepositoryWebhookConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TeamMembersMemberInput)(nil)).Elem(), TeamMembersMemberArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TeamMembersMemberArrayInput)(nil)).Elem(), TeamMembersMemberArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TeamSyncGroupMappingGroupInput)(nil)).Elem(), TeamSyncGroupMappingGroupArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TeamSyncGroupMappingGroupArrayInput)(nil)).Elem(), TeamSyncGroupMappingGroupArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCollaboratorsCollaboratorInput)(nil)).Elem(), GetCollaboratorsCollaboratorArgs{})
@@ -3789,6 +3900,8 @@ func init() {
 	pulumi.RegisterOutputType(RepositoryTemplatePtrOutput{})
 	pulumi.RegisterOutputType(RepositoryWebhookConfigurationOutput{})
 	pulumi.RegisterOutputType(RepositoryWebhookConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(TeamMembersMemberOutput{})
+	pulumi.RegisterOutputType(TeamMembersMemberArrayOutput{})
 	pulumi.RegisterOutputType(TeamSyncGroupMappingGroupOutput{})
 	pulumi.RegisterOutputType(TeamSyncGroupMappingGroupArrayOutput{})
 	pulumi.RegisterOutputType(GetCollaboratorsCollaboratorOutput{})

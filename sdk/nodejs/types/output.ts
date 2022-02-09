@@ -380,6 +380,18 @@ export interface RepositoryWebhookConfiguration {
     url: string;
 }
 
+export interface TeamMembersMember {
+    /**
+     * The role of the user within the team.
+     * Must be one of `member` or `maintainer`. Defaults to `member`.
+     */
+    role?: string;
+    /**
+     * The user to add to the team.
+     */
+    username: string;
+}
+
 export interface TeamSyncGroupMappingGroup {
     /**
      * The description of the IdP group.

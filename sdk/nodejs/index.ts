@@ -53,6 +53,7 @@ export * from "./repositoryProject";
 export * from "./repositoryPullRequest";
 export * from "./repositoryWebhook";
 export * from "./team";
+export * from "./teamMembers";
 export * from "./teamMembership";
 export * from "./teamRepository";
 export * from "./teamSyncGroupMapping";
@@ -99,6 +100,7 @@ import { RepositoryProject } from "./repositoryProject";
 import { RepositoryPullRequest } from "./repositoryPullRequest";
 import { RepositoryWebhook } from "./repositoryWebhook";
 import { Team } from "./team";
+import { TeamMembers } from "./teamMembers";
 import { TeamMembership } from "./teamMembership";
 import { TeamRepository } from "./teamRepository";
 import { TeamSyncGroupMapping } from "./teamSyncGroupMapping";
@@ -168,6 +170,8 @@ const _module = {
                 return new RepositoryWebhook(name, <any>undefined, { urn })
             case "github:index/team:Team":
                 return new Team(name, <any>undefined, { urn })
+            case "github:index/teamMembers:TeamMembers":
+                return new TeamMembers(name, <any>undefined, { urn })
             case "github:index/teamMembership:TeamMembership":
                 return new TeamMembership(name, <any>undefined, { urn })
             case "github:index/teamRepository:TeamRepository":
@@ -214,6 +218,7 @@ pulumi.runtime.registerResourceModule("github", "index/repositoryProject", _modu
 pulumi.runtime.registerResourceModule("github", "index/repositoryPullRequest", _module)
 pulumi.runtime.registerResourceModule("github", "index/repositoryWebhook", _module)
 pulumi.runtime.registerResourceModule("github", "index/team", _module)
+pulumi.runtime.registerResourceModule("github", "index/teamMembers", _module)
 pulumi.runtime.registerResourceModule("github", "index/teamMembership", _module)
 pulumi.runtime.registerResourceModule("github", "index/teamRepository", _module)
 pulumi.runtime.registerResourceModule("github", "index/teamSyncGroupMapping", _module)
