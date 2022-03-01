@@ -10,6 +10,27 @@ using Pulumi.Serialization;
 namespace Pulumi.Github
 {
     /// <summary>
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Github = Pulumi.Github;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         // Create a new, red colored label
+    ///         var testRepo = new Github.IssueLabel("testRepo", new Github.IssueLabelArgs
+    ///         {
+    ///             Color = "FF0000",
+    ///             Repository = "test-repo",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// GitHub Issue Labels can be imported using an ID made up of `repository:name`, e.g.

@@ -24,9 +24,8 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		opt0 := "hashicorp/terraform"
 // 		_, err := github.LookupRepository(ctx, &GetRepositoryArgs{
-// 			FullName: &opt0,
+// 			FullName: pulumi.StringRef("hashicorp/terraform"),
 // 		}, nil)
 // 		if err != nil {
 // 			return err

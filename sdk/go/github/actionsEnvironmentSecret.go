@@ -11,6 +11,78 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-github/sdk/v4/go/github"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := github.NewActionsEnvironmentSecret(ctx, "exampleSecretActionsEnvironmentSecret", &github.ActionsEnvironmentSecretArgs{
+// 			Environment:    pulumi.String("example_environment"),
+// 			SecretName:     pulumi.String("example_secret_name"),
+// 			PlaintextValue: pulumi.Any(_var.Some_secret_string),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = github.NewActionsEnvironmentSecret(ctx, "exampleSecretIndex/actionsEnvironmentSecretActionsEnvironmentSecret", &github.ActionsEnvironmentSecretArgs{
+// 			Environment:    pulumi.String("example_environment"),
+// 			SecretName:     pulumi.String("example_secret_name"),
+// 			EncryptedValue: pulumi.Any(_var.Some_encrypted_secret_string),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
+// ```go
+// package main
+//
+// import (
+// 	"fmt"
+//
+// 	"github.com/pulumi/pulumi-github/sdk/v4/go/github"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		repo, err := github.LookupRepository(ctx, &GetRepositoryArgs{
+// 			FullName: pulumi.StringRef("my-org/repo"),
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		repoEnvironment, err := github.NewRepositoryEnvironment(ctx, "repoEnvironment", &github.RepositoryEnvironmentArgs{
+// 			Repository:  pulumi.String(repo.Name),
+// 			Environment: pulumi.String("example_environment"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = github.NewActionsEnvironmentSecret(ctx, "testSecret", &github.ActionsEnvironmentSecretArgs{
+// 			Repository:     pulumi.String(repo.Name),
+// 			Environment:    repoEnvironment.Environment,
+// 			SecretName:     pulumi.String("test_secret_name"),
+// 			PlaintextValue: pulumi.String(fmt.Sprintf("%v%v", "%", "s")),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
 // ## Import
 //
 // This resource can be imported using an ID made up of the secret name

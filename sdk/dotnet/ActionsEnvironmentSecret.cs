@@ -10,6 +10,62 @@ using Pulumi.Serialization;
 namespace Pulumi.Github
 {
     /// <summary>
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Github = Pulumi.Github;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleSecretActionsEnvironmentSecret = new Github.ActionsEnvironmentSecret("exampleSecretActionsEnvironmentSecret", new Github.ActionsEnvironmentSecretArgs
+    ///         {
+    ///             Environment = "example_environment",
+    ///             SecretName = "example_secret_name",
+    ///             PlaintextValue = @var.Some_secret_string,
+    ///         });
+    ///         var exampleSecretIndex_actionsEnvironmentSecretActionsEnvironmentSecret = new Github.ActionsEnvironmentSecret("exampleSecretIndex/actionsEnvironmentSecretActionsEnvironmentSecret", new Github.ActionsEnvironmentSecretArgs
+    ///         {
+    ///             Environment = "example_environment",
+    ///             SecretName = "example_secret_name",
+    ///             EncryptedValue = @var.Some_encrypted_secret_string,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Github = Pulumi.Github;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var repo = Output.Create(Github.GetRepository.InvokeAsync(new Github.GetRepositoryArgs
+    ///         {
+    ///             FullName = "my-org/repo",
+    ///         }));
+    ///         var repoEnvironment = new Github.RepositoryEnvironment("repoEnvironment", new Github.RepositoryEnvironmentArgs
+    ///         {
+    ///             Repository = repo.Apply(repo =&gt; repo.Name),
+    ///             Environment = "example_environment",
+    ///         });
+    ///         var testSecret = new Github.ActionsEnvironmentSecret("testSecret", new Github.ActionsEnvironmentSecretArgs
+    ///         {
+    ///             Repository = repo.Apply(repo =&gt; repo.Name),
+    ///             Environment = repoEnvironment.Environment,
+    ///             SecretName = "test_secret_name",
+    ///             PlaintextValue = "%s",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// This resource can be imported using an ID made up of the secret name

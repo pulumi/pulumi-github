@@ -191,6 +191,18 @@ class IssueLabel(pulumi.CustomResource):
                  repository: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        # Create a new, red colored label
+        test_repo = github.IssueLabel("testRepo",
+            color="FF0000",
+            repository="test-repo")
+        ```
+
         ## Import
 
         GitHub Issue Labels can be imported using an ID made up of `repository:name`, e.g.
@@ -213,6 +225,18 @@ class IssueLabel(pulumi.CustomResource):
                  args: IssueLabelArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        # Create a new, red colored label
+        test_repo = github.IssueLabel("testRepo",
+            color="FF0000",
+            repository="test-repo")
+        ```
+
         ## Import
 
         GitHub Issue Labels can be imported using an ID made up of `repository:name`, e.g.

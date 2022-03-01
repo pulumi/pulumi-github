@@ -25,10 +25,9 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		opt0 := "main"
 // 		_, err := github.LookupRepositoryFile(ctx, &GetRepositoryFileArgs{
 // 			Repository: github_repository.Foo.Name,
-// 			Branch:     &opt0,
+// 			Branch:     pulumi.StringRef("main"),
 // 			File:       ".gitignore",
 // 		}, nil)
 // 		if err != nil {

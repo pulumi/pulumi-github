@@ -9,6 +9,38 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Github
 {
+    /// <summary>
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Github = Pulumi.Github;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var examplePublicKey = Output.Create(Github.GetActionsPublicKey.InvokeAsync(new Github.GetActionsPublicKeyArgs
+    ///         {
+    ///             Repository = "example_repository",
+    ///         }));
+    ///         var exampleSecretActionsSecret = new Github.ActionsSecret("exampleSecretActionsSecret", new Github.ActionsSecretArgs
+    ///         {
+    ///             Repository = "example_repository",
+    ///             SecretName = "example_secret_name",
+    ///             PlaintextValue = @var.Some_secret_string,
+    ///         });
+    ///         var exampleSecretIndex_actionsSecretActionsSecret = new Github.ActionsSecret("exampleSecretIndex/actionsSecretActionsSecret", new Github.ActionsSecretArgs
+    ///         {
+    ///             Repository = "example_repository",
+    ///             SecretName = "example_secret_name",
+    ///             EncryptedValue = @var.Some_encrypted_secret_string,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// </summary>
     [GithubResourceType("github:index/actionsSecret:ActionsSecret")]
     public partial class ActionsSecret : Pulumi.CustomResource
     {
