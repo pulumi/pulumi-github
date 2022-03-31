@@ -24,16 +24,12 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		opt0 := "main"
-// 		opt1 := "updated"
-// 		opt2 := "desc"
-// 		opt3 := "open"
 // 		_, err := github.LookupRepositoryPullRequests(ctx, &GetRepositoryPullRequestsArgs{
-// 			BaseRef:        &opt0,
+// 			BaseRef:        pulumi.StringRef("main"),
 // 			BaseRepository: "example-repository",
-// 			SortBy:         &opt1,
-// 			SortDirection:  &opt2,
-// 			State:          &opt3,
+// 			SortBy:         pulumi.StringRef("updated"),
+// 			SortDirection:  pulumi.StringRef("desc"),
+// 			State:          pulumi.StringRef("open"),
 // 		}, nil)
 // 		if err != nil {
 // 			return err

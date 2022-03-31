@@ -5,6 +5,19 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * // Create a new, red colored label
+ * const testRepo = new github.IssueLabel("test_repo", {
+ *     color: "FF0000",
+ *     repository: "test-repo",
+ * });
+ * ```
+ *
  * ## Import
  *
  * GitHub Issue Labels can be imported using an ID made up of `repository:name`, e.g.

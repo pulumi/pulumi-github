@@ -11,6 +11,59 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-github/sdk/v4/go/github"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := github.NewMembership(ctx, "membershipForSomeUser", &github.MembershipArgs{
+// 			Username: pulumi.String("SomeUser"),
+// 			Role:     pulumi.String("member"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = github.NewMembership(ctx, "membershipForAnotherUser", &github.MembershipArgs{
+// 			Username: pulumi.String("AnotherUser"),
+// 			Role:     pulumi.String("member"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		someTeam, err := github.NewTeam(ctx, "someTeam", &github.TeamArgs{
+// 			Description: pulumi.String("Some cool team"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = github.NewTeamMembers(ctx, "someTeamMembers", &github.TeamMembersArgs{
+// 			TeamId: someTeam.ID(),
+// 			Members: TeamMembersMemberArray{
+// 				&TeamMembersMemberArgs{
+// 					Username: pulumi.String("SomeUser"),
+// 					Role:     pulumi.String("maintainer"),
+// 				},
+// 				&TeamMembersMemberArgs{
+// 					Username: pulumi.String("AnotherUser"),
+// 					Role:     pulumi.String("member"),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
 // ## Import
 //
 // GitHub Team Membership can be imported using the team ID `teamid`, e.g.
