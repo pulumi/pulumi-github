@@ -10,6 +10,53 @@ using Pulumi.Serialization;
 namespace Pulumi.Github
 {
     /// <summary>
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Github = Pulumi.Github;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         // Add a user to the organization
+    ///         var membershipForSomeUser = new Github.Membership("membershipForSomeUser", new Github.MembershipArgs
+    ///         {
+    ///             Username = "SomeUser",
+    ///             Role = "member",
+    ///         });
+    ///         var membershipForAnotherUser = new Github.Membership("membershipForAnotherUser", new Github.MembershipArgs
+    ///         {
+    ///             Username = "AnotherUser",
+    ///             Role = "member",
+    ///         });
+    ///         var someTeam = new Github.Team("someTeam", new Github.TeamArgs
+    ///         {
+    ///             Description = "Some cool team",
+    ///         });
+    ///         var someTeamMembers = new Github.TeamMembers("someTeamMembers", new Github.TeamMembersArgs
+    ///         {
+    ///             TeamId = someTeam.Id,
+    ///             Members = 
+    ///             {
+    ///                 new Github.Inputs.TeamMembersMemberArgs
+    ///                 {
+    ///                     Username = "SomeUser",
+    ///                     Role = "maintainer",
+    ///                 },
+    ///                 new Github.Inputs.TeamMembersMemberArgs
+    ///                 {
+    ///                     Username = "AnotherUser",
+    ///                     Role = "member",
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// GitHub Team Membership can be imported using the team ID `teamid`, e.g.

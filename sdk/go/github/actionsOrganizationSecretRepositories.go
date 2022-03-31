@@ -28,9 +28,8 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		opt0 := "my-org/repo"
 // 		repo, err := github.LookupRepository(ctx, &GetRepositoryArgs{
-// 			FullName: &opt0,
+// 			FullName: pulumi.StringRef("my-org/repo"),
 // 		}, nil)
 // 		if err != nil {
 // 			return err

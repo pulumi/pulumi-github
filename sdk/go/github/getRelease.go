@@ -77,10 +77,9 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		opt0 := "v1.0.0"
 // 		_, err := github.GetRelease(ctx, &GetReleaseArgs{
 // 			Owner:      "example-owner",
-// 			ReleaseTag: &opt0,
+// 			ReleaseTag: pulumi.StringRef("v1.0.0"),
 // 			Repository: "example-repository",
 // 			RetrieveBy: "tag",
 // 		}, nil)

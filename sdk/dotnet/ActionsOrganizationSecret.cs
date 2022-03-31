@@ -10,6 +10,70 @@ using Pulumi.Serialization;
 namespace Pulumi.Github
 {
     /// <summary>
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Github = Pulumi.Github;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleSecretActionsOrganizationSecret = new Github.ActionsOrganizationSecret("exampleSecretActionsOrganizationSecret", new Github.ActionsOrganizationSecretArgs
+    ///         {
+    ///             SecretName = "example_secret_name",
+    ///             Visibility = "private",
+    ///             PlaintextValue = @var.Some_secret_string,
+    ///         });
+    ///         var exampleSecretIndex_actionsOrganizationSecretActionsOrganizationSecret = new Github.ActionsOrganizationSecret("exampleSecretIndex/actionsOrganizationSecretActionsOrganizationSecret", new Github.ActionsOrganizationSecretArgs
+    ///         {
+    ///             SecretName = "example_secret_name",
+    ///             Visibility = "private",
+    ///             EncryptedValue = @var.Some_encrypted_secret_string,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Github = Pulumi.Github;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var repo = Output.Create(Github.GetRepository.InvokeAsync(new Github.GetRepositoryArgs
+    ///         {
+    ///             FullName = "my-org/repo",
+    ///         }));
+    ///         var exampleSecretActionsOrganizationSecret = new Github.ActionsOrganizationSecret("exampleSecretActionsOrganizationSecret", new Github.ActionsOrganizationSecretArgs
+    ///         {
+    ///             SecretName = "example_secret_name",
+    ///             Visibility = "selected",
+    ///             PlaintextValue = @var.Some_secret_string,
+    ///             SelectedRepositoryIds = 
+    ///             {
+    ///                 repo.Apply(repo =&gt; repo.RepoId),
+    ///             },
+    ///         });
+    ///         var exampleSecretIndex_actionsOrganizationSecretActionsOrganizationSecret = new Github.ActionsOrganizationSecret("exampleSecretIndex/actionsOrganizationSecretActionsOrganizationSecret", new Github.ActionsOrganizationSecretArgs
+    ///         {
+    ///             SecretName = "example_secret_name",
+    ///             Visibility = "selected",
+    ///             EncryptedValue = @var.Some_encrypted_secret_string,
+    ///             SelectedRepositoryIds = 
+    ///             {
+    ///                 repo.Apply(repo =&gt; repo.RepoId),
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// This resource can be imported using an ID made up of the secret name
