@@ -24,6 +24,7 @@ export * from "./getMembership";
 export * from "./getOrganization";
 export * from "./getOrganizationTeamSyncGroups";
 export * from "./getOrganizationTeams";
+export * from "./getRef";
 export * from "./getRelease";
 export * from "./getRepositories";
 export * from "./getRepository";
@@ -32,8 +33,10 @@ export * from "./getRepositoryMilestone";
 export * from "./getRepositoryPullRequest";
 export * from "./getRepositoryPullRequests";
 export * from "./getTeam";
+export * from "./getTree";
 export * from "./getUser";
 export * from "./getUsers";
+export * from "./issue";
 export * from "./issueLabel";
 export * from "./membership";
 export * from "./organizationBlock";
@@ -82,6 +85,7 @@ import { Branch } from "./branch";
 import { BranchDefault } from "./branchDefault";
 import { BranchProtection } from "./branchProtection";
 import { BranchProtectionV3 } from "./branchProtectionV3";
+import { Issue } from "./issue";
 import { IssueLabel } from "./issueLabel";
 import { Membership } from "./membership";
 import { OrganizationBlock } from "./organizationBlock";
@@ -134,6 +138,8 @@ const _module = {
                 return new BranchProtection(name, <any>undefined, { urn })
             case "github:index/branchProtectionV3:BranchProtectionV3":
                 return new BranchProtectionV3(name, <any>undefined, { urn })
+            case "github:index/issue:Issue":
+                return new Issue(name, <any>undefined, { urn })
             case "github:index/issueLabel:IssueLabel":
                 return new IssueLabel(name, <any>undefined, { urn })
             case "github:index/membership:Membership":
@@ -200,6 +206,7 @@ pulumi.runtime.registerResourceModule("github", "index/branch", _module)
 pulumi.runtime.registerResourceModule("github", "index/branchDefault", _module)
 pulumi.runtime.registerResourceModule("github", "index/branchProtection", _module)
 pulumi.runtime.registerResourceModule("github", "index/branchProtectionV3", _module)
+pulumi.runtime.registerResourceModule("github", "index/issue", _module)
 pulumi.runtime.registerResourceModule("github", "index/issueLabel", _module)
 pulumi.runtime.registerResourceModule("github", "index/membership", _module)
 pulumi.runtime.registerResourceModule("github", "index/organizationBlock", _module)

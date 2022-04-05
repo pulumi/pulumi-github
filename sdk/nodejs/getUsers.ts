@@ -22,8 +22,8 @@ import * as utilities from "./utilities";
  *     ],
  * }));
  *
- * export const validUsers = github_user_example.logins;
- * export const invalidUsers = github_user_example.unknownLogins;
+ * export const validUsers = example.logins;
+ * export const invalidUsers = example.unknownLogins;
  * ```
  */
 export function getUsers(args: GetUsersArgs, opts?: pulumi.InvokeOptions): Promise<GetUsersResult> {

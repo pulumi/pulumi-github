@@ -52,6 +52,13 @@ class _ExportableConfig(types.ModuleType):
         return __config__.get('owner')
 
     @property
+    def read_delay_ms(self) -> Optional[int]:
+        """
+        Amount of time in milliseconds to sleep in between non-write requests to GitHub API. Defaults to 0ms if not set.
+        """
+        return __config__.get_int('readDelayMs')
+
+    @property
     def token(self) -> Optional[str]:
         """
         The OAuth token used to connect to GitHub. Anonymous mode is enabled if both `token` and `app_auth` are not set.

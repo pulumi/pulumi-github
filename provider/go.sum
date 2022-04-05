@@ -781,8 +781,8 @@ github.com/pulumi/pulumi/sdk/v3 v3.27.0 h1:U5c4sk5+Kv8vgHeK0btfUimqycSohwSDV6Nvj
 github.com/pulumi/pulumi/sdk/v3 v3.27.0/go.mod h1:VsxW+TGv2VBLe/MeqsAr9r0zKzK/gbAhFT9QxYr24cY=
 github.com/pulumi/terraform-diff-reader v0.0.0-20201211191010-ad4715e9285e h1:Dik4Qe/+xguB8JagPyXNlbOnRiXGmq/PSPQTGunYnTk=
 github.com/pulumi/terraform-diff-reader v0.0.0-20201211191010-ad4715e9285e/go.mod h1:sZ9FUzGO+yM41hsQHs/yIcj/Y993qMdBxBU5mpDmAfQ=
-github.com/pulumi/terraform-provider-github v0.0.0-20220321192532-b3054b587e7f h1:SZzsK8CaR50knrYbri8sEr86FpzEGmD/givWvOqXxik=
-github.com/pulumi/terraform-provider-github v0.0.0-20220321192532-b3054b587e7f/go.mod h1:j6xzD9pRUC//+FbCnp3vLHXAllK9pkyLEcimwCre3iY=
+github.com/pulumi/terraform-provider-github v0.0.0-20220405214419-fb0090fbd4cd h1:RkPZNVaCE+Y7pM9L1kwNpyPGwzNagqPcWuOXuk4UTyo=
+github.com/pulumi/terraform-provider-github v0.0.0-20220405214419-fb0090fbd4cd/go.mod h1:IS8ALH24JaGF9HP2rrMPtu/bov/RXmiqVFEy6VnPayA=
 github.com/quasilyte/go-consistent v0.0.0-20190521200055-c6f3937de18c/go.mod h1:5STLWrekHfjyYwxBRVRXNOSewLJ3PWfDJd1VyTS21fI=
 github.com/rivo/uniseg v0.2.0 h1:S1pD9weZBuJdFmowNwbpi7BJ8TNftyUImj/0WQi72jY=
 github.com/rivo/uniseg v0.2.0/go.mod h1:J6wj4VEh+S6ZtnVlnTBMWIodfgj8LQOQFoIToxlJtxc=
@@ -814,8 +814,8 @@ github.com/sergi/go-diff v1.2.0/go.mod h1:STckp+ISIX8hZLjrqAeVduY0gWCT9IjLuqbuNX
 github.com/shirou/gopsutil v0.0.0-20190901111213-e4ec7b275ada/go.mod h1:WWnYX4lzhCH5h/3YBfyVA3VbLYjlMZZAQcW9ojMexNc=
 github.com/shirou/gopsutil v3.21.7+incompatible/go.mod h1:5b4v6he4MtMOwMlS0TUMTu2PcXUg8+E1lC7eC3UO/RA=
 github.com/shirou/w32 v0.0.0-20160930032740-bb4de0191aa4/go.mod h1:qsXQc7+bwAM3Q1u/4XEfrquwF8Lw7D7y5cD8CuHnfIc=
-github.com/shurcooL/githubv4 v0.0.0-20210725200734-83ba7b4c9228 h1:N5B+JgvM/DVYIxreItPJMM3yWrNO/GB2q4nESrtBisM=
-github.com/shurcooL/githubv4 v0.0.0-20210725200734-83ba7b4c9228/go.mod h1:hAF0iLZy4td2EX+/8Tw+4nodhlMrwN3HupfaXj3zkGo=
+github.com/shurcooL/githubv4 v0.0.0-20220106005112-0707a5a90543 h1:TLml5yQBxKTGrjQQUt+fMcJNNIUyNH0wDeCVGyaLF+s=
+github.com/shurcooL/githubv4 v0.0.0-20220106005112-0707a5a90543/go.mod h1:hAF0iLZy4td2EX+/8Tw+4nodhlMrwN3HupfaXj3zkGo=
 github.com/shurcooL/go v0.0.0-20180423040247-9e1955d9fb6e/go.mod h1:TDJrrUr11Vxrven61rcy3hJMUqaf/CLWYhHNPmT14Lk=
 github.com/shurcooL/go-goon v0.0.0-20170922171312-37c2f522c041/go.mod h1:N5mDOmsrJOB+vfqUK+7DmDyjhSLIIBnXo9lvZJj3MWQ=
 github.com/shurcooL/graphql v0.0.0-20181231061246-d48a9a75455f h1:tygelZueB1EtXkPI6mQ4o9DQ0+FKW41hTbunoXZCTqk=

@@ -35,6 +35,11 @@ owner: Optional[str]
 The GitHub owner name to manage. Use this field instead of `organization` when managing individual accounts.
 """
 
+readDelayMs: Optional[int]
+"""
+Amount of time in milliseconds to sleep in between non-write requests to GitHub API. Defaults to 0ms if not set.
+"""
+
 token: Optional[str]
 """
 The OAuth token used to connect to GitHub. Anonymous mode is enabled if both `token` and `app_auth` are not set.

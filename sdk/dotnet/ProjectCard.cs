@@ -39,6 +39,46 @@ namespace Pulumi.Github
     /// 
     /// }
     /// ```
+    /// ### Adding An Issue To A Project
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Github = Pulumi.Github;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var testRepository = new Github.Repository("testRepository", new Github.RepositoryArgs
+    ///         {
+    ///             HasProjects = true,
+    ///             HasIssues = true,
+    ///         });
+    ///         var testIssue = new Github.Issue("testIssue", new Github.IssueArgs
+    ///         {
+    ///             Repository = testRepository.Id,
+    ///             Title = "Test issue title",
+    ///             Body = "Test issue body",
+    ///         });
+    ///         var testRepositoryProject = new Github.RepositoryProject("testRepositoryProject", new Github.RepositoryProjectArgs
+    ///         {
+    ///             Repository = testRepository.Name,
+    ///             Body = "this is a test project",
+    ///         });
+    ///         var testProjectColumn = new Github.ProjectColumn("testProjectColumn", new Github.ProjectColumnArgs
+    ///         {
+    ///             ProjectId = testRepositoryProject.Id,
+    ///         });
+    ///         var testProjectCard = new Github.ProjectCard("testProjectCard", new Github.ProjectCardArgs
+    ///         {
+    ///             ColumnId = testProjectColumn.ColumnId,
+    ///             ContentId = testIssue.IssueId,
+    ///             ContentType = "Issue",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// 
     /// ## Import
     /// 
@@ -60,6 +100,18 @@ namespace Pulumi.Github
         [Output("columnId")]
         public Output<string> ColumnId { get; private set; } = null!;
 
+        /// <summary>
+        /// `github_issue.issue_id`.
+        /// </summary>
+        [Output("contentId")]
+        public Output<int?> ContentId { get; private set; } = null!;
+
+        /// <summary>
+        /// Must be either `Issue` or `PullRequest`
+        /// </summary>
+        [Output("contentType")]
+        public Output<string?> ContentType { get; private set; } = null!;
+
         [Output("etag")]
         public Output<string> Etag { get; private set; } = null!;
 
@@ -67,7 +119,7 @@ namespace Pulumi.Github
         /// The note contents of the card. Markdown supported.
         /// </summary>
         [Output("note")]
-        public Output<string> Note { get; private set; } = null!;
+        public Output<string?> Note { get; private set; } = null!;
 
 
         /// <summary>
@@ -122,10 +174,22 @@ namespace Pulumi.Github
         public Input<string> ColumnId { get; set; } = null!;
 
         /// <summary>
+        /// `github_issue.issue_id`.
+        /// </summary>
+        [Input("contentId")]
+        public Input<int>? ContentId { get; set; }
+
+        /// <summary>
+        /// Must be either `Issue` or `PullRequest`
+        /// </summary>
+        [Input("contentType")]
+        public Input<string>? ContentType { get; set; }
+
+        /// <summary>
         /// The note contents of the card. Markdown supported.
         /// </summary>
-        [Input("note", required: true)]
-        public Input<string> Note { get; set; } = null!;
+        [Input("note")]
+        public Input<string>? Note { get; set; }
 
         public ProjectCardArgs()
         {
@@ -142,6 +206,18 @@ namespace Pulumi.Github
         /// </summary>
         [Input("columnId")]
         public Input<string>? ColumnId { get; set; }
+
+        /// <summary>
+        /// `github_issue.issue_id`.
+        /// </summary>
+        [Input("contentId")]
+        public Input<int>? ContentId { get; set; }
+
+        /// <summary>
+        /// Must be either `Issue` or `PullRequest`
+        /// </summary>
+        [Input("contentType")]
+        public Input<string>? ContentType { get; set; }
 
         [Input("etag")]
         public Input<string>? Etag { get; set; }

@@ -20,7 +20,7 @@ class GetOrganizationResult:
     """
     A collection of values returned by getOrganization.
     """
-    def __init__(__self__, description=None, id=None, login=None, members=None, name=None, node_id=None, plan=None, repositories=None):
+    def __init__(__self__, description=None, id=None, login=None, members=None, name=None, node_id=None, orgname=None, plan=None, repositories=None):
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -39,6 +39,9 @@ class GetOrganizationResult:
         if node_id and not isinstance(node_id, str):
             raise TypeError("Expected argument 'node_id' to be a str")
         pulumi.set(__self__, "node_id", node_id)
+        if orgname and not isinstance(orgname, str):
+            raise TypeError("Expected argument 'orgname' to be a str")
+        pulumi.set(__self__, "orgname", orgname)
         if plan and not isinstance(plan, str):
             raise TypeError("Expected argument 'plan' to be a str")
         pulumi.set(__self__, "plan", plan)
@@ -93,6 +96,11 @@ class GetOrganizationResult:
 
     @property
     @pulumi.getter
+    def orgname(self) -> str:
+        return pulumi.get(self, "orgname")
+
+    @property
+    @pulumi.getter
     def plan(self) -> str:
         """
         The plan name for the organization account
@@ -120,6 +128,7 @@ class AwaitableGetOrganizationResult(GetOrganizationResult):
             members=self.members,
             name=self.name,
             node_id=self.node_id,
+            orgname=self.orgname,
             plan=self.plan,
             repositories=self.repositories)
 
@@ -156,6 +165,7 @@ def get_organization(name: Optional[str] = None,
         members=__ret__.members,
         name=__ret__.name,
         node_id=__ret__.node_id,
+        orgname=__ret__.orgname,
         plan=__ret__.plan,
         repositories=__ret__.repositories)
 

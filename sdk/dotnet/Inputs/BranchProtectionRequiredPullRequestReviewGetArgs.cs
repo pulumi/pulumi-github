@@ -23,6 +23,14 @@ namespace Pulumi.Github.Inputs
             set => _dismissalRestrictions = value;
         }
 
+        [Input("pullRequestBypassers")]
+        private InputList<string>? _pullRequestBypassers;
+        public InputList<string> PullRequestBypassers
+        {
+            get => _pullRequestBypassers ?? (_pullRequestBypassers = new InputList<string>());
+            set => _pullRequestBypassers = value;
+        }
+
         [Input("requireCodeOwnerReviews")]
         public Input<bool>? RequireCodeOwnerReviews { get; set; }
 

@@ -118,7 +118,7 @@ namespace Pulumi.Github
     /// GitHub Branch Protection can be imported using an ID made up of `repository:branch`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import github:index/branchProtectionV3:BranchProtectionV3 github_branch_protection_v3.terraform terraform:main
+    ///  $ pulumi import github:index/branchProtectionV3:BranchProtectionV3 terraform terraform:main
     /// ```
     /// </summary>
     [GithubResourceType("github:index/branchProtectionV3:BranchProtectionV3")]

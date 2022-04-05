@@ -64,6 +64,7 @@ export interface GetOrganizationResult {
      */
     readonly name: string;
     readonly nodeId: string;
+    readonly orgname: string;
     /**
      * The plan name for the organization account
      */

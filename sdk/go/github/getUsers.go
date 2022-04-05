@@ -24,7 +24,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := github.GetUsers(ctx, &GetUsersArgs{
+// 		example, err := github.GetUsers(ctx, &GetUsersArgs{
 // 			Usernames: []string{
 // 				"example1",
 // 				"example2",
@@ -34,8 +34,8 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		ctx.Export("validUsers", data.Github_user.Example.Logins)
-// 		ctx.Export("invalidUsers", data.Github_user.Example.Unknown_logins)
+// 		ctx.Export("validUsers", example.Logins)
+// 		ctx.Export("invalidUsers", example.UnknownLogins)
 // 		return nil
 // 	})
 // }

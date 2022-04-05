@@ -24,6 +24,7 @@ from .get_membership import *
 from .get_organization import *
 from .get_organization_team_sync_groups import *
 from .get_organization_teams import *
+from .get_ref import *
 from .get_release import *
 from .get_repositories import *
 from .get_repository import *
@@ -32,8 +33,10 @@ from .get_repository_milestone import *
 from .get_repository_pull_request import *
 from .get_repository_pull_requests import *
 from .get_team import *
+from .get_tree import *
 from .get_user import *
 from .get_users import *
+from .issue import *
 from .issue_label import *
 from .membership import *
 from .organization_block import *
@@ -159,6 +162,14 @@ _utilities.register(
   "fqn": "pulumi_github",
   "classes": {
    "github:index/branchProtectionV3:BranchProtectionV3": "BranchProtectionV3"
+  }
+ },
+ {
+  "pkg": "github",
+  "mod": "index/issue",
+  "fqn": "pulumi_github",
+  "classes": {
+   "github:index/issue:Issue": "Issue"
   }
  },
  {

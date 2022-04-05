@@ -192,6 +192,10 @@ namespace Pulumi.Github
         /// </summary>
         public readonly ImmutableArray<string> SshKeys;
         /// <summary>
+        /// the suspended date if the user is suspended.
+        /// </summary>
+        public readonly string SuspendedAt;
+        /// <summary>
         /// the update date.
         /// </summary>
         public readonly string UpdatedAt;
@@ -237,6 +241,8 @@ namespace Pulumi.Github
 
             ImmutableArray<string> sshKeys,
 
+            string suspendedAt,
+
             string updatedAt,
 
             string username)
@@ -260,6 +266,7 @@ namespace Pulumi.Github
             PublicRepos = publicRepos;
             SiteAdmin = siteAdmin;
             SshKeys = sshKeys;
+            SuspendedAt = suspendedAt;
             UpdatedAt = updatedAt;
             Username = username;
         }

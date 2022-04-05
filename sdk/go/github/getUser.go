@@ -96,6 +96,8 @@ type GetUserResult struct {
 	SiteAdmin bool `pulumi:"siteAdmin"`
 	// list of user's SSH keys.
 	SshKeys []string `pulumi:"sshKeys"`
+	// the suspended date if the user is suspended.
+	SuspendedAt string `pulumi:"suspendedAt"`
 	// the update date.
 	UpdatedAt string `pulumi:"updatedAt"`
 	Username  string `pulumi:"username"`
@@ -228,6 +230,11 @@ func (o GetUserResultOutput) SiteAdmin() pulumi.BoolOutput {
 // list of user's SSH keys.
 func (o GetUserResultOutput) SshKeys() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetUserResult) []string { return v.SshKeys }).(pulumi.StringArrayOutput)
+}
+
+// the suspended date if the user is suspended.
+func (o GetUserResultOutput) SuspendedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUserResult) string { return v.SuspendedAt }).(pulumi.StringOutput)
 }
 
 // the update date.

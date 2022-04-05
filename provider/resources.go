@@ -129,6 +129,7 @@ func Provider() tfbridge.ProviderInfo {
 			"github_actions_runner_group":   {Tok: makeResource(mainMod, "ActionsRunnerGroup")},
 			"github_repository_environment": {Tok: makeResource(mainMod, "RepositoryEnvironment")},
 			"github_team_members":           {Tok: makeResource(mainMod, "TeamMembers")},
+			"github_issue":                  {Tok: makeResource(mainMod, "Issue")},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			"github_actions_public_key":            {Tok: makeDataSource(mainMod, "getActionsPublicKey")},
@@ -149,6 +150,8 @@ func Provider() tfbridge.ProviderInfo {
 			"github_repository_pull_request":       {Tok: makeDataSource(mainMod, "getRepositoryPullRequest")},
 			"github_repository_pull_requests":      {Tok: makeDataSource(mainMod, "getRepositoryPullRequests")},
 			"github_repository_file":               {Tok: makeDataSource(mainMod, "getRepositoryFile")},
+			"github_ref":                           {Tok: makeDataSource(mainMod, "getRef")},
+			"github_tree":                          {Tok: makeDataSource(mainMod, "getTree")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			// List any npm dependencies and their versions

@@ -35,8 +35,8 @@ namespace Pulumi.Github
         ///                 "example3",
         ///             },
         ///         }));
-        ///         this.ValidUsers = data.Github_user.Example.Logins;
-        ///         this.InvalidUsers = data.Github_user.Example.Unknown_logins;
+        ///         this.ValidUsers = example.Apply(example =&gt; example.Logins);
+        ///         this.InvalidUsers = example.Apply(example =&gt; example.UnknownLogins);
         ///     }
         /// 
         ///     [Output("validUsers")]
@@ -75,8 +75,8 @@ namespace Pulumi.Github
         ///                 "example3",
         ///             },
         ///         }));
-        ///         this.ValidUsers = data.Github_user.Example.Logins;
-        ///         this.InvalidUsers = data.Github_user.Example.Unknown_logins;
+        ///         this.ValidUsers = example.Apply(example =&gt; example.Logins);
+        ///         this.InvalidUsers = example.Apply(example =&gt; example.UnknownLogins);
         ///     }
         /// 
         ///     [Output("validUsers")]

@@ -110,6 +110,7 @@ class BranchProtectionRequiredPullRequestReviewArgs:
     def __init__(__self__, *,
                  dismiss_stale_reviews: Optional[pulumi.Input[bool]] = None,
                  dismissal_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 pull_request_bypassers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  require_code_owner_reviews: Optional[pulumi.Input[bool]] = None,
                  required_approving_review_count: Optional[pulumi.Input[int]] = None,
                  restrict_dismissals: Optional[pulumi.Input[bool]] = None):
@@ -117,6 +118,8 @@ class BranchProtectionRequiredPullRequestReviewArgs:
             pulumi.set(__self__, "dismiss_stale_reviews", dismiss_stale_reviews)
         if dismissal_restrictions is not None:
             pulumi.set(__self__, "dismissal_restrictions", dismissal_restrictions)
+        if pull_request_bypassers is not None:
+            pulumi.set(__self__, "pull_request_bypassers", pull_request_bypassers)
         if require_code_owner_reviews is not None:
             pulumi.set(__self__, "require_code_owner_reviews", require_code_owner_reviews)
         if required_approving_review_count is not None:
@@ -141,6 +144,15 @@ class BranchProtectionRequiredPullRequestReviewArgs:
     @dismissal_restrictions.setter
     def dismissal_restrictions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "dismissal_restrictions", value)
+
+    @property
+    @pulumi.getter(name="pullRequestBypassers")
+    def pull_request_bypassers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "pull_request_bypassers")
+
+    @pull_request_bypassers.setter
+    def pull_request_bypassers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "pull_request_bypassers", value)
 
     @property
     @pulumi.getter(name="requireCodeOwnerReviews")

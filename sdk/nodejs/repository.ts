@@ -170,6 +170,10 @@ export class Repository extends pulumi.CustomResource {
      */
     public /*out*/ readonly httpCloneUrl!: pulumi.Output<string>;
     /**
+     * Set to `true` to not call the vulnerability alerts endpoint so the resource can also be used without admin permissions during read.
+     */
+    public readonly ignoreVulnerabilityAlertsDuringRead!: pulumi.Output<boolean | undefined>;
+    /**
      * Set to `true` to tell GitHub that this is a template repository.
      */
     public readonly isTemplate!: pulumi.Output<boolean | undefined>;
@@ -260,6 +264,7 @@ export class Repository extends pulumi.CustomResource {
             resourceInputs["homepageUrl"] = state ? state.homepageUrl : undefined;
             resourceInputs["htmlUrl"] = state ? state.htmlUrl : undefined;
             resourceInputs["httpCloneUrl"] = state ? state.httpCloneUrl : undefined;
+            resourceInputs["ignoreVulnerabilityAlertsDuringRead"] = state ? state.ignoreVulnerabilityAlertsDuringRead : undefined;
             resourceInputs["isTemplate"] = state ? state.isTemplate : undefined;
             resourceInputs["licenseTemplate"] = state ? state.licenseTemplate : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
@@ -291,6 +296,7 @@ export class Repository extends pulumi.CustomResource {
             resourceInputs["hasProjects"] = args ? args.hasProjects : undefined;
             resourceInputs["hasWiki"] = args ? args.hasWiki : undefined;
             resourceInputs["homepageUrl"] = args ? args.homepageUrl : undefined;
+            resourceInputs["ignoreVulnerabilityAlertsDuringRead"] = args ? args.ignoreVulnerabilityAlertsDuringRead : undefined;
             resourceInputs["isTemplate"] = args ? args.isTemplate : undefined;
             resourceInputs["licenseTemplate"] = args ? args.licenseTemplate : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -411,6 +417,10 @@ export interface RepositoryState {
      * URL that can be provided to `git clone` to clone the repository via HTTPS.
      */
     httpCloneUrl?: pulumi.Input<string>;
+    /**
+     * Set to `true` to not call the vulnerability alerts endpoint so the resource can also be used without admin permissions during read.
+     */
+    ignoreVulnerabilityAlertsDuringRead?: pulumi.Input<boolean>;
     /**
      * Set to `true` to tell GitHub that this is a template repository.
      */
@@ -542,6 +552,10 @@ export interface RepositoryArgs {
      * URL of a page describing the project.
      */
     homepageUrl?: pulumi.Input<string>;
+    /**
+     * Set to `true` to not call the vulnerability alerts endpoint so the resource can also be used without admin permissions during read.
+     */
+    ignoreVulnerabilityAlertsDuringRead?: pulumi.Input<boolean>;
     /**
      * Set to `true` to tell GitHub that this is a template repository.
      */

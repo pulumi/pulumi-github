@@ -20,7 +20,7 @@ class GetUserResult:
     """
     A collection of values returned by getUser.
     """
-    def __init__(__self__, avatar_url=None, bio=None, blog=None, company=None, created_at=None, email=None, followers=None, following=None, gpg_keys=None, gravatar_id=None, id=None, location=None, login=None, name=None, node_id=None, public_gists=None, public_repos=None, site_admin=None, ssh_keys=None, updated_at=None, username=None):
+    def __init__(__self__, avatar_url=None, bio=None, blog=None, company=None, created_at=None, email=None, followers=None, following=None, gpg_keys=None, gravatar_id=None, id=None, location=None, login=None, name=None, node_id=None, public_gists=None, public_repos=None, site_admin=None, ssh_keys=None, suspended_at=None, updated_at=None, username=None):
         if avatar_url and not isinstance(avatar_url, str):
             raise TypeError("Expected argument 'avatar_url' to be a str")
         pulumi.set(__self__, "avatar_url", avatar_url)
@@ -78,6 +78,9 @@ class GetUserResult:
         if ssh_keys and not isinstance(ssh_keys, list):
             raise TypeError("Expected argument 'ssh_keys' to be a list")
         pulumi.set(__self__, "ssh_keys", ssh_keys)
+        if suspended_at and not isinstance(suspended_at, str):
+            raise TypeError("Expected argument 'suspended_at' to be a str")
+        pulumi.set(__self__, "suspended_at", suspended_at)
         if updated_at and not isinstance(updated_at, str):
             raise TypeError("Expected argument 'updated_at' to be a str")
         pulumi.set(__self__, "updated_at", updated_at)
@@ -238,6 +241,14 @@ class GetUserResult:
         return pulumi.get(self, "ssh_keys")
 
     @property
+    @pulumi.getter(name="suspendedAt")
+    def suspended_at(self) -> str:
+        """
+        the suspended date if the user is suspended.
+        """
+        return pulumi.get(self, "suspended_at")
+
+    @property
     @pulumi.getter(name="updatedAt")
     def updated_at(self) -> str:
         """
@@ -276,6 +287,7 @@ class AwaitableGetUserResult(GetUserResult):
             public_repos=self.public_repos,
             site_admin=self.site_admin,
             ssh_keys=self.ssh_keys,
+            suspended_at=self.suspended_at,
             updated_at=self.updated_at,
             username=self.username)
 
@@ -327,6 +339,7 @@ def get_user(username: Optional[str] = None,
         public_repos=__ret__.public_repos,
         site_admin=__ret__.site_admin,
         ssh_keys=__ret__.ssh_keys,
+        suspended_at=__ret__.suspended_at,
         updated_at=__ret__.updated_at,
         username=__ret__.username)
 

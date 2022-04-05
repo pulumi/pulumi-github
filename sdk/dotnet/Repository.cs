@@ -210,6 +210,12 @@ namespace Pulumi.Github
         public Output<string> HttpCloneUrl { get; private set; } = null!;
 
         /// <summary>
+        /// Set to `true` to not call the vulnerability alerts endpoint so the resource can also be used without admin permissions during read.
+        /// </summary>
+        [Output("ignoreVulnerabilityAlertsDuringRead")]
+        public Output<bool?> IgnoreVulnerabilityAlertsDuringRead { get; private set; } = null!;
+
+        /// <summary>
         /// Set to `true` to tell GitHub that this is a template repository.
         /// </summary>
         [Output("isTemplate")]
@@ -435,6 +441,12 @@ namespace Pulumi.Github
         public Input<string>? HomepageUrl { get; set; }
 
         /// <summary>
+        /// Set to `true` to not call the vulnerability alerts endpoint so the resource can also be used without admin permissions during read.
+        /// </summary>
+        [Input("ignoreVulnerabilityAlertsDuringRead")]
+        public Input<bool>? IgnoreVulnerabilityAlertsDuringRead { get; set; }
+
+        /// <summary>
         /// Set to `true` to tell GitHub that this is a template repository.
         /// </summary>
         [Input("isTemplate")]
@@ -640,6 +652,12 @@ namespace Pulumi.Github
         /// </summary>
         [Input("httpCloneUrl")]
         public Input<string>? HttpCloneUrl { get; set; }
+
+        /// <summary>
+        /// Set to `true` to not call the vulnerability alerts endpoint so the resource can also be used without admin permissions during read.
+        /// </summary>
+        [Input("ignoreVulnerabilityAlertsDuringRead")]
+        public Input<bool>? IgnoreVulnerabilityAlertsDuringRead { get; set; }
 
         /// <summary>
         /// Set to `true` to tell GitHub that this is a template repository.

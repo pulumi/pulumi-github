@@ -34,6 +34,7 @@ __all__ = [
     'GetRepositoryPageResult',
     'GetRepositoryPageSourceResult',
     'GetRepositoryPullRequestsResultResult',
+    'GetTreeEntryResult',
 ]
 
 @pulumi.output_type
@@ -143,6 +144,8 @@ class BranchProtectionRequiredPullRequestReview(dict):
             suggest = "dismiss_stale_reviews"
         elif key == "dismissalRestrictions":
             suggest = "dismissal_restrictions"
+        elif key == "pullRequestBypassers":
+            suggest = "pull_request_bypassers"
         elif key == "requireCodeOwnerReviews":
             suggest = "require_code_owner_reviews"
         elif key == "requiredApprovingReviewCount":
@@ -164,6 +167,7 @@ class BranchProtectionRequiredPullRequestReview(dict):
     def __init__(__self__, *,
                  dismiss_stale_reviews: Optional[bool] = None,
                  dismissal_restrictions: Optional[Sequence[str]] = None,
+                 pull_request_bypassers: Optional[Sequence[str]] = None,
                  require_code_owner_reviews: Optional[bool] = None,
                  required_approving_review_count: Optional[int] = None,
                  restrict_dismissals: Optional[bool] = None):
@@ -171,6 +175,8 @@ class BranchProtectionRequiredPullRequestReview(dict):
             pulumi.set(__self__, "dismiss_stale_reviews", dismiss_stale_reviews)
         if dismissal_restrictions is not None:
             pulumi.set(__self__, "dismissal_restrictions", dismissal_restrictions)
+        if pull_request_bypassers is not None:
+            pulumi.set(__self__, "pull_request_bypassers", pull_request_bypassers)
         if require_code_owner_reviews is not None:
             pulumi.set(__self__, "require_code_owner_reviews", require_code_owner_reviews)
         if required_approving_review_count is not None:
@@ -187,6 +193,11 @@ class BranchProtectionRequiredPullRequestReview(dict):
     @pulumi.getter(name="dismissalRestrictions")
     def dismissal_restrictions(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "dismissal_restrictions")
+
+    @property
+    @pulumi.getter(name="pullRequestBypassers")
+    def pull_request_bypassers(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "pull_request_bypassers")
 
     @property
     @pulumi.getter(name="requireCodeOwnerReviews")
@@ -1457,5 +1468,45 @@ class GetRepositoryPullRequestsResultResult(dict):
         The timestamp of the last Pull Request update.
         """
         return pulumi.get(self, "updated_at")
+
+
+@pulumi.output_type
+class GetTreeEntryResult(dict):
+    def __init__(__self__, *,
+                 mode: str,
+                 path: str,
+                 sha: str,
+                 size: int,
+                 type: str):
+        pulumi.set(__self__, "mode", mode)
+        pulumi.set(__self__, "path", path)
+        pulumi.set(__self__, "sha", sha)
+        pulumi.set(__self__, "size", size)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> str:
+        return pulumi.get(self, "mode")
+
+    @property
+    @pulumi.getter
+    def path(self) -> str:
+        return pulumi.get(self, "path")
+
+    @property
+    @pulumi.getter
+    def sha(self) -> str:
+        return pulumi.get(self, "sha")
+
+    @property
+    @pulumi.getter
+    def size(self) -> int:
+        return pulumi.get(self, "size")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        return pulumi.get(self, "type")
 
 
