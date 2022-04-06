@@ -325,6 +325,7 @@ func (o ActionsOrganizationPermissionsEnabledRepositoriesConfigPtrOutput) Reposi
 type BranchProtectionRequiredPullRequestReview struct {
 	DismissStaleReviews          *bool    `pulumi:"dismissStaleReviews"`
 	DismissalRestrictions        []string `pulumi:"dismissalRestrictions"`
+	PullRequestBypassers         []string `pulumi:"pullRequestBypassers"`
 	RequireCodeOwnerReviews      *bool    `pulumi:"requireCodeOwnerReviews"`
 	RequiredApprovingReviewCount *int     `pulumi:"requiredApprovingReviewCount"`
 	RestrictDismissals           *bool    `pulumi:"restrictDismissals"`
@@ -344,6 +345,7 @@ type BranchProtectionRequiredPullRequestReviewInput interface {
 type BranchProtectionRequiredPullRequestReviewArgs struct {
 	DismissStaleReviews          pulumi.BoolPtrInput     `pulumi:"dismissStaleReviews"`
 	DismissalRestrictions        pulumi.StringArrayInput `pulumi:"dismissalRestrictions"`
+	PullRequestBypassers         pulumi.StringArrayInput `pulumi:"pullRequestBypassers"`
 	RequireCodeOwnerReviews      pulumi.BoolPtrInput     `pulumi:"requireCodeOwnerReviews"`
 	RequiredApprovingReviewCount pulumi.IntPtrInput      `pulumi:"requiredApprovingReviewCount"`
 	RestrictDismissals           pulumi.BoolPtrInput     `pulumi:"restrictDismissals"`
@@ -406,6 +408,10 @@ func (o BranchProtectionRequiredPullRequestReviewOutput) DismissStaleReviews() p
 
 func (o BranchProtectionRequiredPullRequestReviewOutput) DismissalRestrictions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BranchProtectionRequiredPullRequestReview) []string { return v.DismissalRestrictions }).(pulumi.StringArrayOutput)
+}
+
+func (o BranchProtectionRequiredPullRequestReviewOutput) PullRequestBypassers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BranchProtectionRequiredPullRequestReview) []string { return v.PullRequestBypassers }).(pulumi.StringArrayOutput)
 }
 
 func (o BranchProtectionRequiredPullRequestReviewOutput) RequireCodeOwnerReviews() pulumi.BoolPtrOutput {
@@ -3817,6 +3823,124 @@ func (o GetRepositoryPullRequestsResultArrayOutput) Index(i pulumi.IntInput) Get
 	}).(GetRepositoryPullRequestsResultOutput)
 }
 
+type GetTreeEntry struct {
+	Mode string `pulumi:"mode"`
+	Path string `pulumi:"path"`
+	Sha  string `pulumi:"sha"`
+	Size int    `pulumi:"size"`
+	Type string `pulumi:"type"`
+}
+
+// GetTreeEntryInput is an input type that accepts GetTreeEntryArgs and GetTreeEntryOutput values.
+// You can construct a concrete instance of `GetTreeEntryInput` via:
+//
+//          GetTreeEntryArgs{...}
+type GetTreeEntryInput interface {
+	pulumi.Input
+
+	ToGetTreeEntryOutput() GetTreeEntryOutput
+	ToGetTreeEntryOutputWithContext(context.Context) GetTreeEntryOutput
+}
+
+type GetTreeEntryArgs struct {
+	Mode pulumi.StringInput `pulumi:"mode"`
+	Path pulumi.StringInput `pulumi:"path"`
+	Sha  pulumi.StringInput `pulumi:"sha"`
+	Size pulumi.IntInput    `pulumi:"size"`
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetTreeEntryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTreeEntry)(nil)).Elem()
+}
+
+func (i GetTreeEntryArgs) ToGetTreeEntryOutput() GetTreeEntryOutput {
+	return i.ToGetTreeEntryOutputWithContext(context.Background())
+}
+
+func (i GetTreeEntryArgs) ToGetTreeEntryOutputWithContext(ctx context.Context) GetTreeEntryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTreeEntryOutput)
+}
+
+// GetTreeEntryArrayInput is an input type that accepts GetTreeEntryArray and GetTreeEntryArrayOutput values.
+// You can construct a concrete instance of `GetTreeEntryArrayInput` via:
+//
+//          GetTreeEntryArray{ GetTreeEntryArgs{...} }
+type GetTreeEntryArrayInput interface {
+	pulumi.Input
+
+	ToGetTreeEntryArrayOutput() GetTreeEntryArrayOutput
+	ToGetTreeEntryArrayOutputWithContext(context.Context) GetTreeEntryArrayOutput
+}
+
+type GetTreeEntryArray []GetTreeEntryInput
+
+func (GetTreeEntryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTreeEntry)(nil)).Elem()
+}
+
+func (i GetTreeEntryArray) ToGetTreeEntryArrayOutput() GetTreeEntryArrayOutput {
+	return i.ToGetTreeEntryArrayOutputWithContext(context.Background())
+}
+
+func (i GetTreeEntryArray) ToGetTreeEntryArrayOutputWithContext(ctx context.Context) GetTreeEntryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTreeEntryArrayOutput)
+}
+
+type GetTreeEntryOutput struct{ *pulumi.OutputState }
+
+func (GetTreeEntryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTreeEntry)(nil)).Elem()
+}
+
+func (o GetTreeEntryOutput) ToGetTreeEntryOutput() GetTreeEntryOutput {
+	return o
+}
+
+func (o GetTreeEntryOutput) ToGetTreeEntryOutputWithContext(ctx context.Context) GetTreeEntryOutput {
+	return o
+}
+
+func (o GetTreeEntryOutput) Mode() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTreeEntry) string { return v.Mode }).(pulumi.StringOutput)
+}
+
+func (o GetTreeEntryOutput) Path() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTreeEntry) string { return v.Path }).(pulumi.StringOutput)
+}
+
+func (o GetTreeEntryOutput) Sha() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTreeEntry) string { return v.Sha }).(pulumi.StringOutput)
+}
+
+func (o GetTreeEntryOutput) Size() pulumi.IntOutput {
+	return o.ApplyT(func(v GetTreeEntry) int { return v.Size }).(pulumi.IntOutput)
+}
+
+func (o GetTreeEntryOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTreeEntry) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetTreeEntryArrayOutput struct{ *pulumi.OutputState }
+
+func (GetTreeEntryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTreeEntry)(nil)).Elem()
+}
+
+func (o GetTreeEntryArrayOutput) ToGetTreeEntryArrayOutput() GetTreeEntryArrayOutput {
+	return o
+}
+
+func (o GetTreeEntryArrayOutput) ToGetTreeEntryArrayOutputWithContext(ctx context.Context) GetTreeEntryArrayOutput {
+	return o
+}
+
+func (o GetTreeEntryArrayOutput) Index(i pulumi.IntInput) GetTreeEntryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetTreeEntry {
+		return vs[0].([]GetTreeEntry)[vs[1].(int)]
+	}).(GetTreeEntryOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionsOrganizationPermissionsAllowedActionsConfigInput)(nil)).Elem(), ActionsOrganizationPermissionsAllowedActionsConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionsOrganizationPermissionsAllowedActionsConfigPtrInput)(nil)).Elem(), ActionsOrganizationPermissionsAllowedActionsConfigArgs{})
@@ -3868,6 +3992,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRepositoryPageSourceArrayInput)(nil)).Elem(), GetRepositoryPageSourceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRepositoryPullRequestsResultInput)(nil)).Elem(), GetRepositoryPullRequestsResultArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRepositoryPullRequestsResultArrayInput)(nil)).Elem(), GetRepositoryPullRequestsResultArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTreeEntryInput)(nil)).Elem(), GetTreeEntryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTreeEntryArrayInput)(nil)).Elem(), GetTreeEntryArray{})
 	pulumi.RegisterOutputType(ActionsOrganizationPermissionsAllowedActionsConfigOutput{})
 	pulumi.RegisterOutputType(ActionsOrganizationPermissionsAllowedActionsConfigPtrOutput{})
 	pulumi.RegisterOutputType(ActionsOrganizationPermissionsEnabledRepositoriesConfigOutput{})
@@ -3918,4 +4044,6 @@ func init() {
 	pulumi.RegisterOutputType(GetRepositoryPageSourceArrayOutput{})
 	pulumi.RegisterOutputType(GetRepositoryPullRequestsResultOutput{})
 	pulumi.RegisterOutputType(GetRepositoryPullRequestsResultArrayOutput{})
+	pulumi.RegisterOutputType(GetTreeEntryOutput{})
+	pulumi.RegisterOutputType(GetTreeEntryArrayOutput{})
 }

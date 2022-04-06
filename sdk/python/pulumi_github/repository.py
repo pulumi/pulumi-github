@@ -31,6 +31,7 @@ class RepositoryArgs:
                  has_projects: Optional[pulumi.Input[bool]] = None,
                  has_wiki: Optional[pulumi.Input[bool]] = None,
                  homepage_url: Optional[pulumi.Input[str]] = None,
+                 ignore_vulnerability_alerts_during_read: Optional[pulumi.Input[bool]] = None,
                  is_template: Optional[pulumi.Input[bool]] = None,
                  license_template: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -62,6 +63,7 @@ class RepositoryArgs:
         :param pulumi.Input[bool] has_wiki: Set to `true` to enable the GitHub Wiki features on
                the repository.
         :param pulumi.Input[str] homepage_url: URL of a page describing the project.
+        :param pulumi.Input[bool] ignore_vulnerability_alerts_during_read: Set to `true` to not call the vulnerability alerts endpoint so the resource can also be used without admin permissions during read.
         :param pulumi.Input[bool] is_template: Set to `true` to tell GitHub that this is a template repository.
         :param pulumi.Input[str] license_template: Use the [name of the template](https://github.com/github/choosealicense.com/tree/gh-pages/_licenses) without the extension. For example, "mit" or "mpl-2.0".
         :param pulumi.Input[str] name: The name of the repository.
@@ -108,6 +110,8 @@ class RepositoryArgs:
             pulumi.set(__self__, "has_wiki", has_wiki)
         if homepage_url is not None:
             pulumi.set(__self__, "homepage_url", homepage_url)
+        if ignore_vulnerability_alerts_during_read is not None:
+            pulumi.set(__self__, "ignore_vulnerability_alerts_during_read", ignore_vulnerability_alerts_during_read)
         if is_template is not None:
             pulumi.set(__self__, "is_template", is_template)
         if license_template is not None:
@@ -327,6 +331,18 @@ class RepositoryArgs:
         pulumi.set(self, "homepage_url", value)
 
     @property
+    @pulumi.getter(name="ignoreVulnerabilityAlertsDuringRead")
+    def ignore_vulnerability_alerts_during_read(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Set to `true` to not call the vulnerability alerts endpoint so the resource can also be used without admin permissions during read.
+        """
+        return pulumi.get(self, "ignore_vulnerability_alerts_during_read")
+
+    @ignore_vulnerability_alerts_during_read.setter
+    def ignore_vulnerability_alerts_during_read(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "ignore_vulnerability_alerts_during_read", value)
+
+    @property
     @pulumi.getter(name="isTemplate")
     def is_template(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -461,6 +477,7 @@ class _RepositoryState:
                  homepage_url: Optional[pulumi.Input[str]] = None,
                  html_url: Optional[pulumi.Input[str]] = None,
                  http_clone_url: Optional[pulumi.Input[str]] = None,
+                 ignore_vulnerability_alerts_during_read: Optional[pulumi.Input[bool]] = None,
                  is_template: Optional[pulumi.Input[bool]] = None,
                  license_template: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -501,6 +518,7 @@ class _RepositoryState:
         :param pulumi.Input[str] homepage_url: URL of a page describing the project.
         :param pulumi.Input[str] html_url: The absolute URL (including scheme) of the rendered GitHub Pages site e.g. `https://username.github.io`.
         :param pulumi.Input[str] http_clone_url: URL that can be provided to `git clone` to clone the repository via HTTPS.
+        :param pulumi.Input[bool] ignore_vulnerability_alerts_during_read: Set to `true` to not call the vulnerability alerts endpoint so the resource can also be used without admin permissions during read.
         :param pulumi.Input[bool] is_template: Set to `true` to tell GitHub that this is a template repository.
         :param pulumi.Input[str] license_template: Use the [name of the template](https://github.com/github/choosealicense.com/tree/gh-pages/_licenses) without the extension. For example, "mit" or "mpl-2.0".
         :param pulumi.Input[str] name: The name of the repository.
@@ -563,6 +581,8 @@ class _RepositoryState:
             pulumi.set(__self__, "html_url", html_url)
         if http_clone_url is not None:
             pulumi.set(__self__, "http_clone_url", http_clone_url)
+        if ignore_vulnerability_alerts_during_read is not None:
+            pulumi.set(__self__, "ignore_vulnerability_alerts_during_read", ignore_vulnerability_alerts_during_read)
         if is_template is not None:
             pulumi.set(__self__, "is_template", is_template)
         if license_template is not None:
@@ -859,6 +879,18 @@ class _RepositoryState:
         pulumi.set(self, "http_clone_url", value)
 
     @property
+    @pulumi.getter(name="ignoreVulnerabilityAlertsDuringRead")
+    def ignore_vulnerability_alerts_during_read(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Set to `true` to not call the vulnerability alerts endpoint so the resource can also be used without admin permissions during read.
+        """
+        return pulumi.get(self, "ignore_vulnerability_alerts_during_read")
+
+    @ignore_vulnerability_alerts_during_read.setter
+    def ignore_vulnerability_alerts_during_read(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "ignore_vulnerability_alerts_during_read", value)
+
+    @property
     @pulumi.getter(name="isTemplate")
     def is_template(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -1037,6 +1069,7 @@ class Repository(pulumi.CustomResource):
                  has_projects: Optional[pulumi.Input[bool]] = None,
                  has_wiki: Optional[pulumi.Input[bool]] = None,
                  homepage_url: Optional[pulumi.Input[str]] = None,
+                 ignore_vulnerability_alerts_during_read: Optional[pulumi.Input[bool]] = None,
                  is_template: Optional[pulumi.Input[bool]] = None,
                  license_template: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -1112,6 +1145,7 @@ class Repository(pulumi.CustomResource):
         :param pulumi.Input[bool] has_wiki: Set to `true` to enable the GitHub Wiki features on
                the repository.
         :param pulumi.Input[str] homepage_url: URL of a page describing the project.
+        :param pulumi.Input[bool] ignore_vulnerability_alerts_during_read: Set to `true` to not call the vulnerability alerts endpoint so the resource can also be used without admin permissions during read.
         :param pulumi.Input[bool] is_template: Set to `true` to tell GitHub that this is a template repository.
         :param pulumi.Input[str] license_template: Use the [name of the template](https://github.com/github/choosealicense.com/tree/gh-pages/_licenses) without the extension. For example, "mit" or "mpl-2.0".
         :param pulumi.Input[str] name: The name of the repository.
@@ -1203,6 +1237,7 @@ class Repository(pulumi.CustomResource):
                  has_projects: Optional[pulumi.Input[bool]] = None,
                  has_wiki: Optional[pulumi.Input[bool]] = None,
                  homepage_url: Optional[pulumi.Input[str]] = None,
+                 ignore_vulnerability_alerts_during_read: Optional[pulumi.Input[bool]] = None,
                  is_template: Optional[pulumi.Input[bool]] = None,
                  license_template: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -1243,6 +1278,7 @@ class Repository(pulumi.CustomResource):
             __props__.__dict__["has_projects"] = has_projects
             __props__.__dict__["has_wiki"] = has_wiki
             __props__.__dict__["homepage_url"] = homepage_url
+            __props__.__dict__["ignore_vulnerability_alerts_during_read"] = ignore_vulnerability_alerts_during_read
             __props__.__dict__["is_template"] = is_template
             __props__.__dict__["license_template"] = license_template
             __props__.__dict__["name"] = name
@@ -1297,6 +1333,7 @@ class Repository(pulumi.CustomResource):
             homepage_url: Optional[pulumi.Input[str]] = None,
             html_url: Optional[pulumi.Input[str]] = None,
             http_clone_url: Optional[pulumi.Input[str]] = None,
+            ignore_vulnerability_alerts_during_read: Optional[pulumi.Input[bool]] = None,
             is_template: Optional[pulumi.Input[bool]] = None,
             license_template: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -1342,6 +1379,7 @@ class Repository(pulumi.CustomResource):
         :param pulumi.Input[str] homepage_url: URL of a page describing the project.
         :param pulumi.Input[str] html_url: The absolute URL (including scheme) of the rendered GitHub Pages site e.g. `https://username.github.io`.
         :param pulumi.Input[str] http_clone_url: URL that can be provided to `git clone` to clone the repository via HTTPS.
+        :param pulumi.Input[bool] ignore_vulnerability_alerts_during_read: Set to `true` to not call the vulnerability alerts endpoint so the resource can also be used without admin permissions during read.
         :param pulumi.Input[bool] is_template: Set to `true` to tell GitHub that this is a template repository.
         :param pulumi.Input[str] license_template: Use the [name of the template](https://github.com/github/choosealicense.com/tree/gh-pages/_licenses) without the extension. For example, "mit" or "mpl-2.0".
         :param pulumi.Input[str] name: The name of the repository.
@@ -1383,6 +1421,7 @@ class Repository(pulumi.CustomResource):
         __props__.__dict__["homepage_url"] = homepage_url
         __props__.__dict__["html_url"] = html_url
         __props__.__dict__["http_clone_url"] = http_clone_url
+        __props__.__dict__["ignore_vulnerability_alerts_during_read"] = ignore_vulnerability_alerts_during_read
         __props__.__dict__["is_template"] = is_template
         __props__.__dict__["license_template"] = license_template
         __props__.__dict__["name"] = name
@@ -1574,6 +1613,14 @@ class Repository(pulumi.CustomResource):
         URL that can be provided to `git clone` to clone the repository via HTTPS.
         """
         return pulumi.get(self, "http_clone_url")
+
+    @property
+    @pulumi.getter(name="ignoreVulnerabilityAlertsDuringRead")
+    def ignore_vulnerability_alerts_during_read(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Set to `true` to not call the vulnerability alerts endpoint so the resource can also be used without admin permissions during read.
+        """
+        return pulumi.get(self, "ignore_vulnerability_alerts_during_read")
 
     @property
     @pulumi.getter(name="isTemplate")

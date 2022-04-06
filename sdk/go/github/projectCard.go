@@ -48,6 +48,58 @@ import (
 // 	})
 // }
 // ```
+// ### Adding An Issue To A Project
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-github/sdk/v4/go/github"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		testRepository, err := github.NewRepository(ctx, "testRepository", &github.RepositoryArgs{
+// 			HasProjects: pulumi.Bool(true),
+// 			HasIssues:   pulumi.Bool(true),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		testIssue, err := github.NewIssue(ctx, "testIssue", &github.IssueArgs{
+// 			Repository: testRepository.ID(),
+// 			Title:      pulumi.String("Test issue title"),
+// 			Body:       pulumi.String("Test issue body"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		testRepositoryProject, err := github.NewRepositoryProject(ctx, "testRepositoryProject", &github.RepositoryProjectArgs{
+// 			Repository: testRepository.Name,
+// 			Body:       pulumi.String("this is a test project"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		testProjectColumn, err := github.NewProjectColumn(ctx, "testProjectColumn", &github.ProjectColumnArgs{
+// 			ProjectId: testRepositoryProject.ID(),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = github.NewProjectCard(ctx, "testProjectCard", &github.ProjectCardArgs{
+// 			ColumnId:    testProjectColumn.ColumnId,
+// 			ContentId:   testIssue.IssueId,
+// 			ContentType: pulumi.String("Issue"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 //
 // ## Import
 //
@@ -62,9 +114,13 @@ type ProjectCard struct {
 	CardId pulumi.IntOutput `pulumi:"cardId"`
 	// The ID of the card.
 	ColumnId pulumi.StringOutput `pulumi:"columnId"`
-	Etag     pulumi.StringOutput `pulumi:"etag"`
+	// `github_issue.issue_id`.
+	ContentId pulumi.IntPtrOutput `pulumi:"contentId"`
+	// Must be either `Issue` or `PullRequest`
+	ContentType pulumi.StringPtrOutput `pulumi:"contentType"`
+	Etag        pulumi.StringOutput    `pulumi:"etag"`
 	// The note contents of the card. Markdown supported.
-	Note pulumi.StringOutput `pulumi:"note"`
+	Note pulumi.StringPtrOutput `pulumi:"note"`
 }
 
 // NewProjectCard registers a new resource with the given unique name, arguments, and options.
@@ -76,9 +132,6 @@ func NewProjectCard(ctx *pulumi.Context,
 
 	if args.ColumnId == nil {
 		return nil, errors.New("invalid value for required argument 'ColumnId'")
-	}
-	if args.Note == nil {
-		return nil, errors.New("invalid value for required argument 'Note'")
 	}
 	var resource ProjectCard
 	err := ctx.RegisterResource("github:index/projectCard:ProjectCard", name, args, &resource, opts...)
@@ -105,7 +158,11 @@ type projectCardState struct {
 	CardId *int `pulumi:"cardId"`
 	// The ID of the card.
 	ColumnId *string `pulumi:"columnId"`
-	Etag     *string `pulumi:"etag"`
+	// `github_issue.issue_id`.
+	ContentId *int `pulumi:"contentId"`
+	// Must be either `Issue` or `PullRequest`
+	ContentType *string `pulumi:"contentType"`
+	Etag        *string `pulumi:"etag"`
 	// The note contents of the card. Markdown supported.
 	Note *string `pulumi:"note"`
 }
@@ -114,7 +171,11 @@ type ProjectCardState struct {
 	CardId pulumi.IntPtrInput
 	// The ID of the card.
 	ColumnId pulumi.StringPtrInput
-	Etag     pulumi.StringPtrInput
+	// `github_issue.issue_id`.
+	ContentId pulumi.IntPtrInput
+	// Must be either `Issue` or `PullRequest`
+	ContentType pulumi.StringPtrInput
+	Etag        pulumi.StringPtrInput
 	// The note contents of the card. Markdown supported.
 	Note pulumi.StringPtrInput
 }
@@ -126,16 +187,24 @@ func (ProjectCardState) ElementType() reflect.Type {
 type projectCardArgs struct {
 	// The ID of the card.
 	ColumnId string `pulumi:"columnId"`
+	// `github_issue.issue_id`.
+	ContentId *int `pulumi:"contentId"`
+	// Must be either `Issue` or `PullRequest`
+	ContentType *string `pulumi:"contentType"`
 	// The note contents of the card. Markdown supported.
-	Note string `pulumi:"note"`
+	Note *string `pulumi:"note"`
 }
 
 // The set of arguments for constructing a ProjectCard resource.
 type ProjectCardArgs struct {
 	// The ID of the card.
 	ColumnId pulumi.StringInput
+	// `github_issue.issue_id`.
+	ContentId pulumi.IntPtrInput
+	// Must be either `Issue` or `PullRequest`
+	ContentType pulumi.StringPtrInput
 	// The note contents of the card. Markdown supported.
-	Note pulumi.StringInput
+	Note pulumi.StringPtrInput
 }
 
 func (ProjectCardArgs) ElementType() reflect.Type {

@@ -104,8 +104,8 @@ def get_users(usernames: Optional[Sequence[str]] = None,
         "example2",
         "example3",
     ])
-    pulumi.export("validUsers", data["github_user"]["example"]["logins"])
-    pulumi.export("invalidUsers", data["github_user"]["example"]["unknown_logins"])
+    pulumi.export("validUsers", example.logins)
+    pulumi.export("invalidUsers", example.unknown_logins)
     ```
 
 
@@ -144,8 +144,8 @@ def get_users_output(usernames: Optional[pulumi.Input[Sequence[str]]] = None,
         "example2",
         "example3",
     ])
-    pulumi.export("validUsers", data["github_user"]["example"]["logins"])
-    pulumi.export("invalidUsers", data["github_user"]["example"]["unknown_logins"])
+    pulumi.export("validUsers", example.logins)
+    pulumi.export("invalidUsers", example.unknown_logins)
     ```
 
 

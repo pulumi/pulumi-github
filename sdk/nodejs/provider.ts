@@ -61,6 +61,7 @@ export class Provider extends pulumi.ProviderResource {
             resourceInputs["insecure"] = pulumi.output(args ? args.insecure : undefined).apply(JSON.stringify);
             resourceInputs["organization"] = args ? args.organization : undefined;
             resourceInputs["owner"] = args ? args.owner : undefined;
+            resourceInputs["readDelayMs"] = pulumi.output(args ? args.readDelayMs : undefined).apply(JSON.stringify);
             resourceInputs["token"] = args ? args.token : undefined;
             resourceInputs["writeDelayMs"] = pulumi.output(args ? args.writeDelayMs : undefined).apply(JSON.stringify);
         }
@@ -96,6 +97,10 @@ export interface ProviderArgs {
      * The GitHub owner name to manage. Use this field instead of `organization` when managing individual accounts.
      */
     owner?: pulumi.Input<string>;
+    /**
+     * Amount of time in milliseconds to sleep in between non-write requests to GitHub API. Defaults to 0ms if not set.
+     */
+    readDelayMs?: pulumi.Input<number>;
     /**
      * The OAuth token used to connect to GitHub. Anonymous mode is enabled if both `token` and `app_auth` are not set.
      */

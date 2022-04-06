@@ -65,6 +65,17 @@ Object.defineProperty(exports, "owner", {
 });
 
 /**
+ * Amount of time in milliseconds to sleep in between non-write requests to GitHub API. Defaults to 0ms if not set.
+ */
+export declare const readDelayMs: number | undefined;
+Object.defineProperty(exports, "readDelayMs", {
+    get() {
+        return __config.getObject<number>("readDelayMs");
+    },
+    enumerable: true,
+});
+
+/**
  * The OAuth token used to connect to GitHub. Anonymous mode is enabled if both `token` and `app_auth` are not set.
  */
 export declare const token: string | undefined;

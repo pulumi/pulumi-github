@@ -19,6 +19,7 @@ class ProviderArgs:
                  insecure: Optional[pulumi.Input[bool]] = None,
                  organization: Optional[pulumi.Input[str]] = None,
                  owner: Optional[pulumi.Input[str]] = None,
+                 read_delay_ms: Optional[pulumi.Input[int]] = None,
                  token: Optional[pulumi.Input[str]] = None,
                  write_delay_ms: Optional[pulumi.Input[int]] = None):
         """
@@ -29,6 +30,7 @@ class ProviderArgs:
         :param pulumi.Input[bool] insecure: Enable `insecure` mode for testing purposes
         :param pulumi.Input[str] organization: The GitHub organization name to manage. Use this field instead of `owner` when managing organization accounts.
         :param pulumi.Input[str] owner: The GitHub owner name to manage. Use this field instead of `organization` when managing individual accounts.
+        :param pulumi.Input[int] read_delay_ms: Amount of time in milliseconds to sleep in between non-write requests to GitHub API. Defaults to 0ms if not set.
         :param pulumi.Input[str] token: The OAuth token used to connect to GitHub. Anonymous mode is enabled if both `token` and `app_auth` are not set.
         :param pulumi.Input[int] write_delay_ms: Amount of time in milliseconds to sleep in between writes to GitHub API. Defaults to 1000ms or 1s if not set.
         """
@@ -47,6 +49,8 @@ class ProviderArgs:
             pulumi.set(__self__, "organization", organization)
         if owner is not None:
             pulumi.set(__self__, "owner", owner)
+        if read_delay_ms is not None:
+            pulumi.set(__self__, "read_delay_ms", read_delay_ms)
         if token is not None:
             pulumi.set(__self__, "token", token)
         if write_delay_ms is not None:
@@ -114,6 +118,18 @@ class ProviderArgs:
         pulumi.set(self, "owner", value)
 
     @property
+    @pulumi.getter(name="readDelayMs")
+    def read_delay_ms(self) -> Optional[pulumi.Input[int]]:
+        """
+        Amount of time in milliseconds to sleep in between non-write requests to GitHub API. Defaults to 0ms if not set.
+        """
+        return pulumi.get(self, "read_delay_ms")
+
+    @read_delay_ms.setter
+    def read_delay_ms(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "read_delay_ms", value)
+
+    @property
     @pulumi.getter
     def token(self) -> Optional[pulumi.Input[str]]:
         """
@@ -148,6 +164,7 @@ class Provider(pulumi.ProviderResource):
                  insecure: Optional[pulumi.Input[bool]] = None,
                  organization: Optional[pulumi.Input[str]] = None,
                  owner: Optional[pulumi.Input[str]] = None,
+                 read_delay_ms: Optional[pulumi.Input[int]] = None,
                  token: Optional[pulumi.Input[str]] = None,
                  write_delay_ms: Optional[pulumi.Input[int]] = None,
                  __props__=None):
@@ -165,6 +182,7 @@ class Provider(pulumi.ProviderResource):
         :param pulumi.Input[bool] insecure: Enable `insecure` mode for testing purposes
         :param pulumi.Input[str] organization: The GitHub organization name to manage. Use this field instead of `owner` when managing organization accounts.
         :param pulumi.Input[str] owner: The GitHub owner name to manage. Use this field instead of `organization` when managing individual accounts.
+        :param pulumi.Input[int] read_delay_ms: Amount of time in milliseconds to sleep in between non-write requests to GitHub API. Defaults to 0ms if not set.
         :param pulumi.Input[str] token: The OAuth token used to connect to GitHub. Anonymous mode is enabled if both `token` and `app_auth` are not set.
         :param pulumi.Input[int] write_delay_ms: Amount of time in milliseconds to sleep in between writes to GitHub API. Defaults to 1000ms or 1s if not set.
         """
@@ -200,6 +218,7 @@ class Provider(pulumi.ProviderResource):
                  insecure: Optional[pulumi.Input[bool]] = None,
                  organization: Optional[pulumi.Input[str]] = None,
                  owner: Optional[pulumi.Input[str]] = None,
+                 read_delay_ms: Optional[pulumi.Input[int]] = None,
                  token: Optional[pulumi.Input[str]] = None,
                  write_delay_ms: Optional[pulumi.Input[int]] = None,
                  __props__=None):
@@ -224,6 +243,7 @@ class Provider(pulumi.ProviderResource):
                 pulumi.log.warn("""organization is deprecated: Use owner (or GITHUB_OWNER) instead of organization (or GITHUB_ORGANIZATION)""")
             __props__.__dict__["organization"] = organization
             __props__.__dict__["owner"] = owner
+            __props__.__dict__["read_delay_ms"] = pulumi.Output.from_input(read_delay_ms).apply(pulumi.runtime.to_json) if read_delay_ms is not None else None
             __props__.__dict__["token"] = token
             __props__.__dict__["write_delay_ms"] = pulumi.Output.from_input(write_delay_ms).apply(pulumi.runtime.to_json) if write_delay_ms is not None else None
         super(Provider, __self__).__init__(

@@ -68,7 +68,7 @@ import * as utilities from "./utilities";
  * GitHub Branch Protection can be imported using an ID made up of `repository:branch`, e.g.
  *
  * ```sh
- *  $ pulumi import github:index/branchProtectionV3:BranchProtectionV3 github_branch_protection_v3.terraform terraform:main
+ *  $ pulumi import github:index/branchProtectionV3:BranchProtectionV3 terraform terraform:main
  * ```
  */
 export class BranchProtectionV3 extends pulumi.CustomResource {

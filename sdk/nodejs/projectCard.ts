@@ -20,6 +20,32 @@ import * as utilities from "./utilities";
  *     note: "## Unaccepted 👇",
  * });
  * ```
+ * ### Adding An Issue To A Project
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const testRepository = new github.Repository("testRepository", {
+ *     hasProjects: true,
+ *     hasIssues: true,
+ * });
+ * const testIssue = new github.Issue("testIssue", {
+ *     repository: testRepository.id,
+ *     title: "Test issue title",
+ *     body: "Test issue body",
+ * });
+ * const testRepositoryProject = new github.RepositoryProject("testRepositoryProject", {
+ *     repository: testRepository.name,
+ *     body: "this is a test project",
+ * });
+ * const testProjectColumn = new github.ProjectColumn("testProjectColumn", {projectId: testRepositoryProject.id});
+ * const testProjectCard = new github.ProjectCard("testProjectCard", {
+ *     columnId: testProjectColumn.columnId,
+ *     contentId: testIssue.issueId,
+ *     contentType: "Issue",
+ * });
+ * ```
  *
  * ## Import
  *
@@ -62,11 +88,19 @@ export class ProjectCard extends pulumi.CustomResource {
      * The ID of the card.
      */
     public readonly columnId!: pulumi.Output<string>;
+    /**
+     * `github_issue.issue_id`.
+     */
+    public readonly contentId!: pulumi.Output<number | undefined>;
+    /**
+     * Must be either `Issue` or `PullRequest`
+     */
+    public readonly contentType!: pulumi.Output<string | undefined>;
     public /*out*/ readonly etag!: pulumi.Output<string>;
     /**
      * The note contents of the card. Markdown supported.
      */
-    public readonly note!: pulumi.Output<string>;
+    public readonly note!: pulumi.Output<string | undefined>;
 
     /**
      * Create a ProjectCard resource with the given unique name, arguments, and options.
@@ -83,6 +117,8 @@ export class ProjectCard extends pulumi.CustomResource {
             const state = argsOrState as ProjectCardState | undefined;
             resourceInputs["cardId"] = state ? state.cardId : undefined;
             resourceInputs["columnId"] = state ? state.columnId : undefined;
+            resourceInputs["contentId"] = state ? state.contentId : undefined;
+            resourceInputs["contentType"] = state ? state.contentType : undefined;
             resourceInputs["etag"] = state ? state.etag : undefined;
             resourceInputs["note"] = state ? state.note : undefined;
         } else {
@@ -90,10 +126,9 @@ export class ProjectCard extends pulumi.CustomResource {
             if ((!args || args.columnId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'columnId'");
             }
-            if ((!args || args.note === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'note'");
-            }
             resourceInputs["columnId"] = args ? args.columnId : undefined;
+            resourceInputs["contentId"] = args ? args.contentId : undefined;
+            resourceInputs["contentType"] = args ? args.contentType : undefined;
             resourceInputs["note"] = args ? args.note : undefined;
             resourceInputs["cardId"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
@@ -112,6 +147,14 @@ export interface ProjectCardState {
      * The ID of the card.
      */
     columnId?: pulumi.Input<string>;
+    /**
+     * `github_issue.issue_id`.
+     */
+    contentId?: pulumi.Input<number>;
+    /**
+     * Must be either `Issue` or `PullRequest`
+     */
+    contentType?: pulumi.Input<string>;
     etag?: pulumi.Input<string>;
     /**
      * The note contents of the card. Markdown supported.
@@ -128,7 +171,15 @@ export interface ProjectCardArgs {
      */
     columnId: pulumi.Input<string>;
     /**
+     * `github_issue.issue_id`.
+     */
+    contentId?: pulumi.Input<number>;
+    /**
+     * Must be either `Issue` or `PullRequest`
+     */
+    contentType?: pulumi.Input<string>;
+    /**
      * The note contents of the card. Markdown supported.
      */
-    note: pulumi.Input<string>;
+    note?: pulumi.Input<string>;
 }

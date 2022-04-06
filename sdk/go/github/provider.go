@@ -61,6 +61,8 @@ type providerArgs struct {
 	Organization *string `pulumi:"organization"`
 	// The GitHub owner name to manage. Use this field instead of `organization` when managing individual accounts.
 	Owner *string `pulumi:"owner"`
+	// Amount of time in milliseconds to sleep in between non-write requests to GitHub API. Defaults to 0ms if not set.
+	ReadDelayMs *int `pulumi:"readDelayMs"`
 	// The OAuth token used to connect to GitHub. Anonymous mode is enabled if both `token` and `app_auth` are not set.
 	Token *string `pulumi:"token"`
 	// Amount of time in milliseconds to sleep in between writes to GitHub API. Defaults to 1000ms or 1s if not set.
@@ -82,6 +84,8 @@ type ProviderArgs struct {
 	Organization pulumi.StringPtrInput
 	// The GitHub owner name to manage. Use this field instead of `organization` when managing individual accounts.
 	Owner pulumi.StringPtrInput
+	// Amount of time in milliseconds to sleep in between non-write requests to GitHub API. Defaults to 0ms if not set.
+	ReadDelayMs pulumi.IntPtrInput
 	// The OAuth token used to connect to GitHub. Anonymous mode is enabled if both `token` and `app_auth` are not set.
 	Token pulumi.StringPtrInput
 	// Amount of time in milliseconds to sleep in between writes to GitHub API. Defaults to 1000ms or 1s if not set.

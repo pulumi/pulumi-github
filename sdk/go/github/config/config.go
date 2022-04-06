@@ -40,6 +40,11 @@ func GetOwner(ctx *pulumi.Context) string {
 	return config.Get(ctx, "github:owner")
 }
 
+// Amount of time in milliseconds to sleep in between non-write requests to GitHub API. Defaults to 0ms if not set.
+func GetReadDelayMs(ctx *pulumi.Context) int {
+	return config.GetInt(ctx, "github:readDelayMs")
+}
+
 // The OAuth token used to connect to GitHub. Anonymous mode is enabled if both `token` and `app_auth` are not set.
 func GetToken(ctx *pulumi.Context) string {
 	return config.Get(ctx, "github:token")

@@ -29,6 +29,7 @@ export interface ActionsOrganizationPermissionsEnabledRepositoriesConfig {
 export interface BranchProtectionRequiredPullRequestReview {
     dismissStaleReviews?: boolean;
     dismissalRestrictions?: string[];
+    pullRequestBypassers?: string[];
     requireCodeOwnerReviews?: boolean;
     requiredApprovingReviewCount?: number;
     restrictDismissals?: boolean;
@@ -276,6 +277,14 @@ export interface GetRepositoryPullRequestsResult {
      * The timestamp of the last Pull Request update.
      */
     updatedAt: number;
+}
+
+export interface GetTreeEntry {
+    mode: string;
+    path: string;
+    sha: string;
+    size: number;
+    type: string;
 }
 
 export interface OrganizationWebhookConfiguration {

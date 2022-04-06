@@ -129,6 +129,8 @@ type Repository struct {
 	HtmlUrl pulumi.StringOutput `pulumi:"htmlUrl"`
 	// URL that can be provided to `git clone` to clone the repository via HTTPS.
 	HttpCloneUrl pulumi.StringOutput `pulumi:"httpCloneUrl"`
+	// Set to `true` to not call the vulnerability alerts endpoint so the resource can also be used without admin permissions during read.
+	IgnoreVulnerabilityAlertsDuringRead pulumi.BoolPtrOutput `pulumi:"ignoreVulnerabilityAlertsDuringRead"`
 	// Set to `true` to tell GitHub that this is a template repository.
 	IsTemplate pulumi.BoolPtrOutput `pulumi:"isTemplate"`
 	// Use the [name of the template](https://github.com/github/choosealicense.com/tree/gh-pages/_licenses) without the extension. For example, "mit" or "mpl-2.0".
@@ -238,6 +240,8 @@ type repositoryState struct {
 	HtmlUrl *string `pulumi:"htmlUrl"`
 	// URL that can be provided to `git clone` to clone the repository via HTTPS.
 	HttpCloneUrl *string `pulumi:"httpCloneUrl"`
+	// Set to `true` to not call the vulnerability alerts endpoint so the resource can also be used without admin permissions during read.
+	IgnoreVulnerabilityAlertsDuringRead *bool `pulumi:"ignoreVulnerabilityAlertsDuringRead"`
 	// Set to `true` to tell GitHub that this is a template repository.
 	IsTemplate *bool `pulumi:"isTemplate"`
 	// Use the [name of the template](https://github.com/github/choosealicense.com/tree/gh-pages/_licenses) without the extension. For example, "mit" or "mpl-2.0".
@@ -319,6 +323,8 @@ type RepositoryState struct {
 	HtmlUrl pulumi.StringPtrInput
 	// URL that can be provided to `git clone` to clone the repository via HTTPS.
 	HttpCloneUrl pulumi.StringPtrInput
+	// Set to `true` to not call the vulnerability alerts endpoint so the resource can also be used without admin permissions during read.
+	IgnoreVulnerabilityAlertsDuringRead pulumi.BoolPtrInput
 	// Set to `true` to tell GitHub that this is a template repository.
 	IsTemplate pulumi.BoolPtrInput
 	// Use the [name of the template](https://github.com/github/choosealicense.com/tree/gh-pages/_licenses) without the extension. For example, "mit" or "mpl-2.0".
@@ -393,6 +399,8 @@ type repositoryArgs struct {
 	HasWiki *bool `pulumi:"hasWiki"`
 	// URL of a page describing the project.
 	HomepageUrl *string `pulumi:"homepageUrl"`
+	// Set to `true` to not call the vulnerability alerts endpoint so the resource can also be used without admin permissions during read.
+	IgnoreVulnerabilityAlertsDuringRead *bool `pulumi:"ignoreVulnerabilityAlertsDuringRead"`
 	// Set to `true` to tell GitHub that this is a template repository.
 	IsTemplate *bool `pulumi:"isTemplate"`
 	// Use the [name of the template](https://github.com/github/choosealicense.com/tree/gh-pages/_licenses) without the extension. For example, "mit" or "mpl-2.0".
@@ -456,6 +464,8 @@ type RepositoryArgs struct {
 	HasWiki pulumi.BoolPtrInput
 	// URL of a page describing the project.
 	HomepageUrl pulumi.StringPtrInput
+	// Set to `true` to not call the vulnerability alerts endpoint so the resource can also be used without admin permissions during read.
+	IgnoreVulnerabilityAlertsDuringRead pulumi.BoolPtrInput
 	// Set to `true` to tell GitHub that this is a template repository.
 	IsTemplate pulumi.BoolPtrInput
 	// Use the [name of the template](https://github.com/github/choosealicense.com/tree/gh-pages/_licenses) without the extension. For example, "mit" or "mpl-2.0".

@@ -60,8 +60,9 @@ type GetOrganizationResult struct {
 	// (`list`) A list with the members of the organization
 	Members []string `pulumi:"members"`
 	// The name of the organization account
-	Name   string `pulumi:"name"`
-	NodeId string `pulumi:"nodeId"`
+	Name    string `pulumi:"name"`
+	NodeId  string `pulumi:"nodeId"`
+	Orgname string `pulumi:"orgname"`
 	// The plan name for the organization account
 	Plan string `pulumi:"plan"`
 	// (`list`) A list with the repositories on the organization
@@ -129,6 +130,10 @@ func (o GetOrganizationResultOutput) Name() pulumi.StringOutput {
 
 func (o GetOrganizationResultOutput) NodeId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetOrganizationResult) string { return v.NodeId }).(pulumi.StringOutput)
+}
+
+func (o GetOrganizationResultOutput) Orgname() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOrganizationResult) string { return v.Orgname }).(pulumi.StringOutput)
 }
 
 // The plan name for the organization account

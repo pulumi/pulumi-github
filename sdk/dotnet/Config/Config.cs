@@ -83,6 +83,16 @@ namespace Pulumi.Github
             set => _owner.Set(value);
         }
 
+        private static readonly __Value<int?> _readDelayMs = new __Value<int?>(() => __config.GetInt32("readDelayMs"));
+        /// <summary>
+        /// Amount of time in milliseconds to sleep in between non-write requests to GitHub API. Defaults to 0ms if not set.
+        /// </summary>
+        public static int? ReadDelayMs
+        {
+            get => _readDelayMs.Get();
+            set => _readDelayMs.Set(value);
+        }
+
         private static readonly __Value<string?> _token = new __Value<string?>(() => __config.Get("token"));
         /// <summary>
         /// The OAuth token used to connect to GitHub. Anonymous mode is enabled if both `token` and `app_auth` are not set.

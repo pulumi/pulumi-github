@@ -102,6 +102,12 @@ namespace Pulumi.Github
         public Input<string>? Owner { get; set; }
 
         /// <summary>
+        /// Amount of time in milliseconds to sleep in between non-write requests to GitHub API. Defaults to 0ms if not set.
+        /// </summary>
+        [Input("readDelayMs", json: true)]
+        public Input<int>? ReadDelayMs { get; set; }
+
+        /// <summary>
         /// The OAuth token used to connect to GitHub. Anonymous mode is enabled if both `token` and `app_auth` are not set.
         /// </summary>
         [Input("token")]

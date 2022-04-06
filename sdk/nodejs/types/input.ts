@@ -29,6 +29,7 @@ export interface ActionsOrganizationPermissionsEnabledRepositoriesConfig {
 export interface BranchProtectionRequiredPullRequestReview {
     dismissStaleReviews?: pulumi.Input<boolean>;
     dismissalRestrictions?: pulumi.Input<pulumi.Input<string>[]>;
+    pullRequestBypassers?: pulumi.Input<pulumi.Input<string>[]>;
     requireCodeOwnerReviews?: pulumi.Input<boolean>;
     requiredApprovingReviewCount?: pulumi.Input<number>;
     restrictDismissals?: pulumi.Input<boolean>;

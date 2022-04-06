@@ -127,6 +127,10 @@ export interface GetUserResult {
      */
     readonly sshKeys: string[];
     /**
+     * the suspended date if the user is suspended.
+     */
+    readonly suspendedAt: string;
+    /**
      * the update date.
      */
     readonly updatedAt: string;
