@@ -42,6 +42,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &BranchProtection{}
 	case "github:index/branchProtectionV3:BranchProtectionV3":
 		r = &BranchProtectionV3{}
+	case "github:index/emuGroupMapping:EmuGroupMapping":
+		r = &EmuGroupMapping{}
 	case "github:index/issue:Issue":
 		r = &Issue{}
 	case "github:index/issueLabel:IssueLabel":
@@ -175,6 +177,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"github",
 		"index/branchProtectionV3",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"github",
+		"index/emuGroupMapping",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

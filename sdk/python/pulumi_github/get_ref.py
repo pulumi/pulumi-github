@@ -20,10 +20,7 @@ class GetRefResult:
     """
     A collection of values returned by getRef.
     """
-    def __init__(__self__, branch=None, etag=None, id=None, ref=None, repository=None, sha=None):
-        if branch and not isinstance(branch, str):
-            raise TypeError("Expected argument 'branch' to be a str")
-        pulumi.set(__self__, "branch", branch)
+    def __init__(__self__, etag=None, id=None, ref=None, repository=None, sha=None):
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
@@ -39,11 +36,6 @@ class GetRefResult:
         if sha and not isinstance(sha, str):
             raise TypeError("Expected argument 'sha' to be a str")
         pulumi.set(__self__, "sha", sha)
-
-    @property
-    @pulumi.getter
-    def branch(self) -> str:
-        return pulumi.get(self, "branch")
 
     @property
     @pulumi.getter
@@ -86,7 +78,6 @@ class AwaitableGetRefResult(GetRefResult):
         if False:
             yield self
         return GetRefResult(
-            branch=self.branch,
             etag=self.etag,
             id=self.id,
             ref=self.ref,
@@ -94,7 +85,7 @@ class AwaitableGetRefResult(GetRefResult):
             sha=self.sha)
 
 
-def get_ref(branch: Optional[str] = None,
+def get_ref(ref: Optional[str] = None,
             repository: Optional[str] = None,
             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRefResult:
     """
@@ -111,10 +102,11 @@ def get_ref(branch: Optional[str] = None,
     ```
 
 
+    :param str ref: The repository ref to look up. Must be formatted `heads/<ref>` for branches, and `tags/<ref>` for tags.
     :param str repository: The GitHub repository name.
     """
     __args__ = dict()
-    __args__['branch'] = branch
+    __args__['ref'] = ref
     __args__['repository'] = repository
     if opts is None:
         opts = pulumi.InvokeOptions()
@@ -123,7 +115,6 @@ def get_ref(branch: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('github:index/getRef:getRef', __args__, opts=opts, typ=GetRefResult).value
 
     return AwaitableGetRefResult(
-        branch=__ret__.branch,
         etag=__ret__.etag,
         id=__ret__.id,
         ref=__ret__.ref,
@@ -132,7 +123,7 @@ def get_ref(branch: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_ref)
-def get_ref_output(branch: Optional[pulumi.Input[str]] = None,
+def get_ref_output(ref: Optional[pulumi.Input[str]] = None,
                    repository: Optional[pulumi.Input[str]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRefResult]:
     """
@@ -149,6 +140,7 @@ def get_ref_output(branch: Optional[pulumi.Input[str]] = None,
     ```
 
 
+    :param str ref: The repository ref to look up. Must be formatted `heads/<ref>` for branches, and `tags/<ref>` for tags.
     :param str repository: The GitHub repository name.
     """
     ...

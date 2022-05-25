@@ -26,6 +26,7 @@
         "branchProtectionV3.ts",
         "config/index.ts",
         "config/vars.ts",
+        "emuGroupMapping.ts",
         "getActionsPublicKey.ts",
         "getBranch.ts",
         "getCollaborators.ts",

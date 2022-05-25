@@ -16,6 +16,7 @@ export * from "./branch";
 export * from "./branchDefault";
 export * from "./branchProtection";
 export * from "./branchProtectionV3";
+export * from "./emuGroupMapping";
 export * from "./getActionsPublicKey";
 export * from "./getBranch";
 export * from "./getCollaborators";
@@ -85,6 +86,7 @@ import { Branch } from "./branch";
 import { BranchDefault } from "./branchDefault";
 import { BranchProtection } from "./branchProtection";
 import { BranchProtectionV3 } from "./branchProtectionV3";
+import { EmuGroupMapping } from "./emuGroupMapping";
 import { Issue } from "./issue";
 import { IssueLabel } from "./issueLabel";
 import { Membership } from "./membership";
@@ -138,6 +140,8 @@ const _module = {
                 return new BranchProtection(name, <any>undefined, { urn })
             case "github:index/branchProtectionV3:BranchProtectionV3":
                 return new BranchProtectionV3(name, <any>undefined, { urn })
+            case "github:index/emuGroupMapping:EmuGroupMapping":
+                return new EmuGroupMapping(name, <any>undefined, { urn })
             case "github:index/issue:Issue":
                 return new Issue(name, <any>undefined, { urn })
             case "github:index/issueLabel:IssueLabel":
@@ -206,6 +210,7 @@ pulumi.runtime.registerResourceModule("github", "index/branch", _module)
 pulumi.runtime.registerResourceModule("github", "index/branchDefault", _module)
 pulumi.runtime.registerResourceModule("github", "index/branchProtection", _module)
 pulumi.runtime.registerResourceModule("github", "index/branchProtectionV3", _module)
+pulumi.runtime.registerResourceModule("github", "index/emuGroupMapping", _module)
 pulumi.runtime.registerResourceModule("github", "index/issue", _module)
 pulumi.runtime.registerResourceModule("github", "index/issueLabel", _module)
 pulumi.runtime.registerResourceModule("github", "index/membership", _module)

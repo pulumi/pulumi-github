@@ -16,6 +16,7 @@ from .branch import *
 from .branch_default import *
 from .branch_protection import *
 from .branch_protection_v3 import *
+from .emu_group_mapping import *
 from .get_actions_public_key import *
 from .get_branch import *
 from .get_collaborators import *
@@ -162,6 +163,14 @@ _utilities.register(
   "fqn": "pulumi_github",
   "classes": {
    "github:index/branchProtectionV3:BranchProtectionV3": "BranchProtectionV3"
+  }
+ },
+ {
+  "pkg": "github",
+  "mod": "index/emuGroupMapping",
+  "fqn": "pulumi_github",
+  "classes": {
+   "github:index/emuGroupMapping:EmuGroupMapping": "EmuGroupMapping"
   }
  },
  {
