@@ -20,11 +20,11 @@ import (
 	"unicode"
 
 	"github.com/hashicorp/terraform-plugin-sdk/helper/schema"
+	"github.com/integrations/terraform-provider-github/v4/github"
 	"github.com/pulumi/pulumi-github/provider/v4/pkg/version"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
 	shimv1 "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim/sdk-v1"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/tokens"
-	"github.com/terraform-providers/terraform-provider-github/github"
 )
 
 // all of the token components used below.
@@ -68,13 +68,15 @@ func Provider() tfbridge.ProviderInfo {
 
 	// Create a Pulumi provider mapping
 	prov := tfbridge.ProviderInfo{
-		P:           p,
-		Name:        "github",
-		Description: "A Pulumi package for creating and managing github cloud resources.",
-		Keywords:    []string{"pulumi", "github"},
-		License:     "Apache-2.0",
-		Homepage:    "https://pulumi.io",
-		Repository:  "https://github.com/pulumi/pulumi-github",
+		P:                       p,
+		Name:                    "github",
+		Description:             "A Pulumi package for creating and managing github cloud resources.",
+		Keywords:                []string{"pulumi", "github"},
+		License:                 "Apache-2.0",
+		Homepage:                "https://pulumi.io",
+		Repository:              "https://github.com/pulumi/pulumi-github",
+		TFProviderModuleVersion: "v4",
+		GitHubOrg:               "integrations",
 		Config: map[string]*tfbridge.SchemaInfo{
 			"base_url": {
 				Default: &tfbridge.DefaultInfo{
@@ -130,6 +132,7 @@ func Provider() tfbridge.ProviderInfo {
 			"github_repository_environment": {Tok: makeResource(mainMod, "RepositoryEnvironment")},
 			"github_team_members":           {Tok: makeResource(mainMod, "TeamMembers")},
 			"github_issue":                  {Tok: makeResource(mainMod, "Issue")},
+			"github_emu_group_mapping":      {Tok: makeResource(mainMod, "EmuGroupMapping")},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			"github_actions_public_key":            {Tok: makeDataSource(mainMod, "getActionsPublicKey")},

@@ -7,7 +7,7 @@
     ],
     "homepage": "https://pulumi.io",
     "license": "Apache-2.0",
-    "attribution": "This Pulumi package is based on the [`github` Terraform Provider](https://github.com/terraform-providers/terraform-provider-github).",
+    "attribution": "This Pulumi package is based on the [`github` Terraform Provider](https://github.com/integrations/terraform-provider-github).",
     "repository": "https://github.com/pulumi/pulumi-github",
     "meta": {
         "moduleFormat": "(.*)(?:/[^/]*)"
@@ -2550,6 +2550,58 @@
                     "restrictions": {
                         "$ref": "#/types/github:index/BranchProtectionV3Restrictions:BranchProtectionV3Restrictions",
                         "description": "Enforce restrictions for the users and teams that may push to the branch. See Restrictions below for details.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "github:index/emuGroupMapping:EmuGroupMapping": {
+            "description": "This resource manages mappings between external groups for enterprise managed users and GitHub teams. It wraps the API detailed [here](https://docs.github.com/en/rest/reference/teams#external-groups). Note that this is a distinct resource from `github.TeamSyncGroupMapping`. `github.EmuGroupMapping` is special to the Enterprise Managed User (EMU) external group feature, whereas `github.TeamSyncGroupMapping` is specific to Identity Provider Groups.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\nconst exampleEmuGroupMapping = new github.EmuGroupMapping(\"example_emu_group_mapping\", {\n    groupId: 28836, // The group ID of the external group to link\n    teamSlug: \"emu-test-team\", // The GitHub team name to modify\n});\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\nexample_emu_group_mapping = github.EmuGroupMapping(\"exampleEmuGroupMapping\",\n    group_id=28836,\n    team_slug=\"emu-test-team\")\n# The GitHub team name to modify\n```\n```csharp\nusing Pulumi;\nusing Github = Pulumi.Github;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var exampleEmuGroupMapping = new Github.EmuGroupMapping(\"exampleEmuGroupMapping\", new Github.EmuGroupMappingArgs\n        {\n            GroupId = 28836,\n            TeamSlug = \"emu-test-team\",\n        });\n        // The GitHub team name to modify\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-github/sdk/v4/go/github\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := github.NewEmuGroupMapping(ctx, \"exampleEmuGroupMapping\", \u0026github.EmuGroupMappingArgs{\n\t\t\tGroupId:  pulumi.Int(28836),\n\t\t\tTeamSlug: pulumi.String(\"emu-test-team\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nGitHub EMU External Group Mappings can be imported using the external `group_id`, e.g.\n\n```sh\n $ pulumi import github:index/emuGroupMapping:EmuGroupMapping example_emu_group_mapping 28836\n```\n\n ",
+            "properties": {
+                "etag": {
+                    "type": "string"
+                },
+                "groupId": {
+                    "type": "integer",
+                    "description": "Integer corresponding to the external group ID to be linked\n"
+                },
+                "teamSlug": {
+                    "type": "string",
+                    "description": "Slug of the GitHub team\n"
+                }
+            },
+            "required": [
+                "etag",
+                "groupId",
+                "teamSlug"
+            ],
+            "inputProperties": {
+                "groupId": {
+                    "type": "integer",
+                    "description": "Integer corresponding to the external group ID to be linked\n"
+                },
+                "teamSlug": {
+                    "type": "string",
+                    "description": "Slug of the GitHub team\n"
+                }
+            },
+            "requiredInputs": [
+                "groupId",
+                "teamSlug"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering EmuGroupMapping resources.\n",
+                "properties": {
+                    "etag": {
+                        "type": "string"
+                    },
+                    "groupId": {
+                        "type": "integer",
+                        "description": "Integer corresponding to the external group ID to be linked\n"
+                    },
+                    "teamSlug": {
+                        "type": "string",
+                        "description": "Slug of the GitHub team\n"
                     }
                 },
                 "type": "object"
@@ -5511,8 +5563,9 @@
             "inputs": {
                 "description": "A collection of arguments for invoking getRef.\n",
                 "properties": {
-                    "branch": {
-                        "type": "string"
+                    "ref": {
+                        "type": "string",
+                        "description": "The repository ref to look up. Must be formatted `heads/\u003cref\u003e` for branches, and `tags/\u003cref\u003e` for tags.\n"
                     },
                     "repository": {
                         "type": "string",
@@ -5521,16 +5574,13 @@
                 },
                 "type": "object",
                 "required": [
-                    "branch",
+                    "ref",
                     "repository"
                 ]
             },
             "outputs": {
                 "description": "A collection of values returned by getRef.\n",
                 "properties": {
-                    "branch": {
-                        "type": "string"
-                    },
                     "etag": {
                         "type": "string",
                         "description": "An etag representing the ref.\n"
@@ -5552,7 +5602,6 @@
                 },
                 "type": "object",
                 "required": [
-                    "branch",
                     "etag",
                     "ref",
                     "repository",
@@ -6642,12 +6691,12 @@
             "disableUnionOutputTypes": true,
             "packageDescription": "A Pulumi package for creating and managing github cloud resources.",
             "packageName": "",
-            "readme": "\u003e This provider is a derived work of the [Terraform Provider](https://github.com/terraform-providers/terraform-provider-github)\n\u003e distributed under [MPL 2.0](https://www.mozilla.org/en-US/MPL/2.0/). If you encounter a bug or missing feature,\n\u003e first check the [`pulumi/pulumi-github` repo](https://github.com/pulumi/pulumi-github/issues); however, if that doesn't turn up anything,\n\u003e please consult the source [`terraform-providers/terraform-provider-github` repo](https://github.com/terraform-providers/terraform-provider-github/issues).",
+            "readme": "\u003e This provider is a derived work of the [Terraform Provider](https://github.com/integrations/terraform-provider-github)\n\u003e distributed under [MPL 2.0](https://www.mozilla.org/en-US/MPL/2.0/). If you encounter a bug or missing feature,\n\u003e first check the [`pulumi/pulumi-github` repo](https://github.com/pulumi/pulumi-github/issues); however, if that doesn't turn up anything,\n\u003e please consult the source [`integrations/terraform-provider-github` repo](https://github.com/integrations/terraform-provider-github/issues).",
             "typescriptVersion": ""
         },
         "python": {
             "compatibility": "tfbridge20",
-            "readme": "\u003e This provider is a derived work of the [Terraform Provider](https://github.com/terraform-providers/terraform-provider-github)\n\u003e distributed under [MPL 2.0](https://www.mozilla.org/en-US/MPL/2.0/). If you encounter a bug or missing feature,\n\u003e first check the [`pulumi/pulumi-github` repo](https://github.com/pulumi/pulumi-github/issues); however, if that doesn't turn up anything,\n\u003e please consult the source [`terraform-providers/terraform-provider-github` repo](https://github.com/terraform-providers/terraform-provider-github/issues).",
+            "readme": "\u003e This provider is a derived work of the [Terraform Provider](https://github.com/integrations/terraform-provider-github)\n\u003e distributed under [MPL 2.0](https://www.mozilla.org/en-US/MPL/2.0/). If you encounter a bug or missing feature,\n\u003e first check the [`pulumi/pulumi-github` repo](https://github.com/pulumi/pulumi-github/issues); however, if that doesn't turn up anything,\n\u003e please consult the source [`integrations/terraform-provider-github` repo](https://github.com/integrations/terraform-provider-github/issues).",
             "requires": {
                 "pulumi": "\u003e=3.0.0,\u003c4.0.0"
             }

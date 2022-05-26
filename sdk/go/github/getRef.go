@@ -46,14 +46,14 @@ func GetRef(ctx *pulumi.Context, args *GetRefArgs, opts ...pulumi.InvokeOption) 
 
 // A collection of arguments for invoking getRef.
 type GetRefArgs struct {
-	Branch string `pulumi:"branch"`
+	// The repository ref to look up. Must be formatted `heads/<ref>` for branches, and `tags/<ref>` for tags.
+	Ref string `pulumi:"ref"`
 	// The GitHub repository name.
 	Repository string `pulumi:"repository"`
 }
 
 // A collection of values returned by getRef.
 type GetRefResult struct {
-	Branch string `pulumi:"branch"`
 	// An etag representing the ref.
 	Etag string `pulumi:"etag"`
 	// The provider-assigned unique ID for this managed resource.
@@ -79,7 +79,8 @@ func GetRefOutput(ctx *pulumi.Context, args GetRefOutputArgs, opts ...pulumi.Inv
 
 // A collection of arguments for invoking getRef.
 type GetRefOutputArgs struct {
-	Branch pulumi.StringInput `pulumi:"branch"`
+	// The repository ref to look up. Must be formatted `heads/<ref>` for branches, and `tags/<ref>` for tags.
+	Ref pulumi.StringInput `pulumi:"ref"`
 	// The GitHub repository name.
 	Repository pulumi.StringInput `pulumi:"repository"`
 }
@@ -101,10 +102,6 @@ func (o GetRefResultOutput) ToGetRefResultOutput() GetRefResultOutput {
 
 func (o GetRefResultOutput) ToGetRefResultOutputWithContext(ctx context.Context) GetRefResultOutput {
 	return o
-}
-
-func (o GetRefResultOutput) Branch() pulumi.StringOutput {
-	return o.ApplyT(func(v GetRefResult) string { return v.Branch }).(pulumi.StringOutput)
 }
 
 // An etag representing the ref.

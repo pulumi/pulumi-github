@@ -75,8 +75,11 @@ namespace Pulumi.Github
 
     public sealed class GetRefArgs : Pulumi.InvokeArgs
     {
-        [Input("branch", required: true)]
-        public string Branch { get; set; } = null!;
+        /// <summary>
+        /// The repository ref to look up. Must be formatted `heads/&lt;ref&gt;` for branches, and `tags/&lt;ref&gt;` for tags.
+        /// </summary>
+        [Input("ref", required: true)]
+        public string Ref { get; set; } = null!;
 
         /// <summary>
         /// The GitHub repository name.
@@ -91,8 +94,11 @@ namespace Pulumi.Github
 
     public sealed class GetRefInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("branch", required: true)]
-        public Input<string> Branch { get; set; } = null!;
+        /// <summary>
+        /// The repository ref to look up. Must be formatted `heads/&lt;ref&gt;` for branches, and `tags/&lt;ref&gt;` for tags.
+        /// </summary>
+        [Input("ref", required: true)]
+        public Input<string> Ref { get; set; } = null!;
 
         /// <summary>
         /// The GitHub repository name.
@@ -109,7 +115,6 @@ namespace Pulumi.Github
     [OutputType]
     public sealed class GetRefResult
     {
-        public readonly string Branch;
         /// <summary>
         /// An etag representing the ref.
         /// </summary>
@@ -127,8 +132,6 @@ namespace Pulumi.Github
 
         [OutputConstructor]
         private GetRefResult(
-            string branch,
-
             string etag,
 
             string id,
@@ -139,7 +142,6 @@ namespace Pulumi.Github
 
             string sha)
         {
-            Branch = branch;
             Etag = etag;
             Id = id;
             Ref = @ref;

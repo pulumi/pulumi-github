@@ -26,7 +26,7 @@ export function getRef(args: GetRefArgs, opts?: pulumi.InvokeOptions): Promise<G
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("github:index/getRef:getRef", {
-        "branch": args.branch,
+        "ref": args.ref,
         "repository": args.repository,
     }, opts);
 }
@@ -35,7 +35,10 @@ export function getRef(args: GetRefArgs, opts?: pulumi.InvokeOptions): Promise<G
  * A collection of arguments for invoking getRef.
  */
 export interface GetRefArgs {
-    branch: string;
+    /**
+     * The repository ref to look up. Must be formatted `heads/<ref>` for branches, and `tags/<ref>` for tags.
+     */
+    ref: string;
     /**
      * The GitHub repository name.
      */
@@ -46,7 +49,6 @@ export interface GetRefArgs {
  * A collection of values returned by getRef.
  */
 export interface GetRefResult {
-    readonly branch: string;
     /**
      * An etag representing the ref.
      */
@@ -71,7 +73,10 @@ export function getRefOutput(args: GetRefOutputArgs, opts?: pulumi.InvokeOptions
  * A collection of arguments for invoking getRef.
  */
 export interface GetRefOutputArgs {
-    branch: pulumi.Input<string>;
+    /**
+     * The repository ref to look up. Must be formatted `heads/<ref>` for branches, and `tags/<ref>` for tags.
+     */
+    ref: pulumi.Input<string>;
     /**
      * The GitHub repository name.
      */
