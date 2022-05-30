@@ -2555,6 +2555,211 @@
                 "type": "object"
             }
         },
+        "github:index/dependabotOrganizationSecret:DependabotOrganizationSecret": {
+            "properties": {
+                "createdAt": {
+                    "type": "string"
+                },
+                "encryptedValue": {
+                    "type": "string"
+                },
+                "plaintextValue": {
+                    "type": "string"
+                },
+                "secretName": {
+                    "type": "string"
+                },
+                "selectedRepositoryIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    }
+                },
+                "updatedAt": {
+                    "type": "string"
+                },
+                "visibility": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "createdAt",
+                "secretName",
+                "updatedAt",
+                "visibility"
+            ],
+            "inputProperties": {
+                "encryptedValue": {
+                    "type": "string"
+                },
+                "plaintextValue": {
+                    "type": "string"
+                },
+                "secretName": {
+                    "type": "string"
+                },
+                "selectedRepositoryIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    }
+                },
+                "visibility": {
+                    "type": "string"
+                }
+            },
+            "requiredInputs": [
+                "secretName",
+                "visibility"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering DependabotOrganizationSecret resources.\n",
+                "properties": {
+                    "createdAt": {
+                        "type": "string"
+                    },
+                    "encryptedValue": {
+                        "type": "string"
+                    },
+                    "plaintextValue": {
+                        "type": "string"
+                    },
+                    "secretName": {
+                        "type": "string"
+                    },
+                    "selectedRepositoryIds": {
+                        "type": "array",
+                        "items": {
+                            "type": "integer"
+                        }
+                    },
+                    "updatedAt": {
+                        "type": "string"
+                    },
+                    "visibility": {
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "github:index/dependabotOrganizationSecretRepositories:DependabotOrganizationSecretRepositories": {
+            "properties": {
+                "secretName": {
+                    "type": "string"
+                },
+                "selectedRepositoryIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "required": [
+                "secretName",
+                "selectedRepositoryIds"
+            ],
+            "inputProperties": {
+                "secretName": {
+                    "type": "string"
+                },
+                "selectedRepositoryIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "requiredInputs": [
+                "secretName",
+                "selectedRepositoryIds"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering DependabotOrganizationSecretRepositories resources.\n",
+                "properties": {
+                    "secretName": {
+                        "type": "string"
+                    },
+                    "selectedRepositoryIds": {
+                        "type": "array",
+                        "items": {
+                            "type": "integer"
+                        }
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "github:index/dependabotSecret:DependabotSecret": {
+            "properties": {
+                "createdAt": {
+                    "type": "string"
+                },
+                "encryptedValue": {
+                    "type": "string"
+                },
+                "plaintextValue": {
+                    "type": "string"
+                },
+                "repository": {
+                    "type": "string"
+                },
+                "secretName": {
+                    "type": "string"
+                },
+                "updatedAt": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "createdAt",
+                "repository",
+                "secretName",
+                "updatedAt"
+            ],
+            "inputProperties": {
+                "encryptedValue": {
+                    "type": "string"
+                },
+                "plaintextValue": {
+                    "type": "string"
+                },
+                "repository": {
+                    "type": "string"
+                },
+                "secretName": {
+                    "type": "string"
+                }
+            },
+            "requiredInputs": [
+                "repository",
+                "secretName"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering DependabotSecret resources.\n",
+                "properties": {
+                    "createdAt": {
+                        "type": "string"
+                    },
+                    "encryptedValue": {
+                        "type": "string"
+                    },
+                    "plaintextValue": {
+                        "type": "string"
+                    },
+                    "repository": {
+                        "type": "string"
+                    },
+                    "secretName": {
+                        "type": "string"
+                    },
+                    "updatedAt": {
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            }
+        },
         "github:index/emuGroupMapping:EmuGroupMapping": {
             "description": "This resource manages mappings between external groups for enterprise managed users and GitHub teams. It wraps the API detailed [here](https://docs.github.com/en/rest/reference/teams#external-groups). Note that this is a distinct resource from `github.TeamSyncGroupMapping`. `github.EmuGroupMapping` is special to the Enterprise Managed User (EMU) external group feature, whereas `github.TeamSyncGroupMapping` is specific to Identity Provider Groups.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\nconst exampleEmuGroupMapping = new github.EmuGroupMapping(\"example_emu_group_mapping\", {\n    groupId: 28836, // The group ID of the external group to link\n    teamSlug: \"emu-test-team\", // The GitHub team name to modify\n});\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\nexample_emu_group_mapping = github.EmuGroupMapping(\"exampleEmuGroupMapping\",\n    group_id=28836,\n    team_slug=\"emu-test-team\")\n# The GitHub team name to modify\n```\n```csharp\nusing Pulumi;\nusing Github = Pulumi.Github;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var exampleEmuGroupMapping = new Github.EmuGroupMapping(\"exampleEmuGroupMapping\", new Github.EmuGroupMappingArgs\n        {\n            GroupId = 28836,\n            TeamSlug = \"emu-test-team\",\n        });\n        // The GitHub team name to modify\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-github/sdk/v4/go/github\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := github.NewEmuGroupMapping(ctx, \"exampleEmuGroupMapping\", \u0026github.EmuGroupMappingArgs{\n\t\t\tGroupId:  pulumi.Int(28836),\n\t\t\tTeamSlug: pulumi.String(\"emu-test-team\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nGitHub EMU External Group Mappings can be imported using the external `group_id`, e.g.\n\n```sh\n $ pulumi import github:index/emuGroupMapping:EmuGroupMapping example_emu_group_mapping 28836\n```\n\n ",
             "properties": {
@@ -4799,7 +5004,7 @@
                 },
                 "permission": {
                     "type": "string",
-                    "description": "The permissions of team members regarding the repository.\nMust be one of `pull`, `triage`, `push`, `maintain`, or `admin`. Defaults to `pull`.\n"
+                    "description": "The permissions of team members regarding the repository.\nMust be one of `pull`, `triage`, `push`, `maintain`, `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organisation. Defaults to `pull`.\n"
                 },
                 "repository": {
                     "type": "string",
@@ -4818,7 +5023,7 @@
             "inputProperties": {
                 "permission": {
                     "type": "string",
-                    "description": "The permissions of team members regarding the repository.\nMust be one of `pull`, `triage`, `push`, `maintain`, or `admin`. Defaults to `pull`.\n"
+                    "description": "The permissions of team members regarding the repository.\nMust be one of `pull`, `triage`, `push`, `maintain`, `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organisation. Defaults to `pull`.\n"
                 },
                 "repository": {
                     "type": "string",
@@ -4841,7 +5046,7 @@
                     },
                     "permission": {
                         "type": "string",
-                        "description": "The permissions of team members regarding the repository.\nMust be one of `pull`, `triage`, `push`, `maintain`, or `admin`. Defaults to `pull`.\n"
+                        "description": "The permissions of team members regarding the repository.\nMust be one of `pull`, `triage`, `push`, `maintain`, `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organisation. Defaults to `pull`.\n"
                     },
                     "repository": {
                         "type": "string",
@@ -5207,6 +5412,45 @@
                 "required": [
                     "collaborators",
                     "owner",
+                    "repository",
+                    "id"
+                ]
+            }
+        },
+        "github:index/getDependabotPublicKey:getDependabotPublicKey": {
+            "inputs": {
+                "description": "A collection of arguments for invoking getDependabotPublicKey.\n",
+                "properties": {
+                    "repository": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "repository"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getDependabotPublicKey.\n",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "key": {
+                        "type": "string"
+                    },
+                    "keyId": {
+                        "type": "string"
+                    },
+                    "repository": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "key",
+                    "keyId",
                     "repository",
                     "id"
                 ]

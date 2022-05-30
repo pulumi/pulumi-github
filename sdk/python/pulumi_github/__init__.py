@@ -16,10 +16,14 @@ from .branch import *
 from .branch_default import *
 from .branch_protection import *
 from .branch_protection_v3 import *
+from .dependabot_organization_secret import *
+from .dependabot_organization_secret_repositories import *
+from .dependabot_secret import *
 from .emu_group_mapping import *
 from .get_actions_public_key import *
 from .get_branch import *
 from .get_collaborators import *
+from .get_dependabot_public_key import *
 from .get_ip_ranges import *
 from .get_membership import *
 from .get_organization import *
@@ -163,6 +167,30 @@ _utilities.register(
   "fqn": "pulumi_github",
   "classes": {
    "github:index/branchProtectionV3:BranchProtectionV3": "BranchProtectionV3"
+  }
+ },
+ {
+  "pkg": "github",
+  "mod": "index/dependabotOrganizationSecret",
+  "fqn": "pulumi_github",
+  "classes": {
+   "github:index/dependabotOrganizationSecret:DependabotOrganizationSecret": "DependabotOrganizationSecret"
+  }
+ },
+ {
+  "pkg": "github",
+  "mod": "index/dependabotOrganizationSecretRepositories",
+  "fqn": "pulumi_github",
+  "classes": {
+   "github:index/dependabotOrganizationSecretRepositories:DependabotOrganizationSecretRepositories": "DependabotOrganizationSecretRepositories"
+  }
+ },
+ {
+  "pkg": "github",
+  "mod": "index/dependabotSecret",
+  "fqn": "pulumi_github",
+  "classes": {
+   "github:index/dependabotSecret:DependabotSecret": "DependabotSecret"
   }
  },
  {

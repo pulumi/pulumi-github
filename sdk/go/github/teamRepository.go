@@ -68,7 +68,7 @@ type TeamRepository struct {
 
 	Etag pulumi.StringOutput `pulumi:"etag"`
 	// The permissions of team members regarding the repository.
-	// Must be one of `pull`, `triage`, `push`, `maintain`, or `admin`. Defaults to `pull`.
+	// Must be one of `pull`, `triage`, `push`, `maintain`, `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organisation. Defaults to `pull`.
 	Permission pulumi.StringPtrOutput `pulumi:"permission"`
 	// The repository to add to the team.
 	Repository pulumi.StringOutput `pulumi:"repository"`
@@ -113,7 +113,7 @@ func GetTeamRepository(ctx *pulumi.Context,
 type teamRepositoryState struct {
 	Etag *string `pulumi:"etag"`
 	// The permissions of team members regarding the repository.
-	// Must be one of `pull`, `triage`, `push`, `maintain`, or `admin`. Defaults to `pull`.
+	// Must be one of `pull`, `triage`, `push`, `maintain`, `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organisation. Defaults to `pull`.
 	Permission *string `pulumi:"permission"`
 	// The repository to add to the team.
 	Repository *string `pulumi:"repository"`
@@ -124,7 +124,7 @@ type teamRepositoryState struct {
 type TeamRepositoryState struct {
 	Etag pulumi.StringPtrInput
 	// The permissions of team members regarding the repository.
-	// Must be one of `pull`, `triage`, `push`, `maintain`, or `admin`. Defaults to `pull`.
+	// Must be one of `pull`, `triage`, `push`, `maintain`, `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organisation. Defaults to `pull`.
 	Permission pulumi.StringPtrInput
 	// The repository to add to the team.
 	Repository pulumi.StringPtrInput
@@ -138,7 +138,7 @@ func (TeamRepositoryState) ElementType() reflect.Type {
 
 type teamRepositoryArgs struct {
 	// The permissions of team members regarding the repository.
-	// Must be one of `pull`, `triage`, `push`, `maintain`, or `admin`. Defaults to `pull`.
+	// Must be one of `pull`, `triage`, `push`, `maintain`, `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organisation. Defaults to `pull`.
 	Permission *string `pulumi:"permission"`
 	// The repository to add to the team.
 	Repository string `pulumi:"repository"`
@@ -149,7 +149,7 @@ type teamRepositoryArgs struct {
 // The set of arguments for constructing a TeamRepository resource.
 type TeamRepositoryArgs struct {
 	// The permissions of team members regarding the repository.
-	// Must be one of `pull`, `triage`, `push`, `maintain`, or `admin`. Defaults to `pull`.
+	// Must be one of `pull`, `triage`, `push`, `maintain`, `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organisation. Defaults to `pull`.
 	Permission pulumi.StringPtrInput
 	// The repository to add to the team.
 	Repository pulumi.StringInput

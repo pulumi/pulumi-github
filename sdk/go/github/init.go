@@ -42,6 +42,12 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &BranchProtection{}
 	case "github:index/branchProtectionV3:BranchProtectionV3":
 		r = &BranchProtectionV3{}
+	case "github:index/dependabotOrganizationSecret:DependabotOrganizationSecret":
+		r = &DependabotOrganizationSecret{}
+	case "github:index/dependabotOrganizationSecretRepositories:DependabotOrganizationSecretRepositories":
+		r = &DependabotOrganizationSecretRepositories{}
+	case "github:index/dependabotSecret:DependabotSecret":
+		r = &DependabotSecret{}
 	case "github:index/emuGroupMapping:EmuGroupMapping":
 		r = &EmuGroupMapping{}
 	case "github:index/issue:Issue":
@@ -177,6 +183,21 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"github",
 		"index/branchProtectionV3",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"github",
+		"index/dependabotOrganizationSecret",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"github",
+		"index/dependabotOrganizationSecretRepositories",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"github",
+		"index/dependabotSecret",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
