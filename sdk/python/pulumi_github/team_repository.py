@@ -21,7 +21,7 @@ class TeamRepositoryArgs:
         :param pulumi.Input[str] repository: The repository to add to the team.
         :param pulumi.Input[str] team_id: The GitHub team id or the GitHub team slug
         :param pulumi.Input[str] permission: The permissions of team members regarding the repository.
-               Must be one of `pull`, `triage`, `push`, `maintain`, or `admin`. Defaults to `pull`.
+               Must be one of `pull`, `triage`, `push`, `maintain`, `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organisation. Defaults to `pull`.
         """
         pulumi.set(__self__, "repository", repository)
         pulumi.set(__self__, "team_id", team_id)
@@ -57,7 +57,7 @@ class TeamRepositoryArgs:
     def permission(self) -> Optional[pulumi.Input[str]]:
         """
         The permissions of team members regarding the repository.
-        Must be one of `pull`, `triage`, `push`, `maintain`, or `admin`. Defaults to `pull`.
+        Must be one of `pull`, `triage`, `push`, `maintain`, `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organisation. Defaults to `pull`.
         """
         return pulumi.get(self, "permission")
 
@@ -76,7 +76,7 @@ class _TeamRepositoryState:
         """
         Input properties used for looking up and filtering TeamRepository resources.
         :param pulumi.Input[str] permission: The permissions of team members regarding the repository.
-               Must be one of `pull`, `triage`, `push`, `maintain`, or `admin`. Defaults to `pull`.
+               Must be one of `pull`, `triage`, `push`, `maintain`, `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organisation. Defaults to `pull`.
         :param pulumi.Input[str] repository: The repository to add to the team.
         :param pulumi.Input[str] team_id: The GitHub team id or the GitHub team slug
         """
@@ -103,7 +103,7 @@ class _TeamRepositoryState:
     def permission(self) -> Optional[pulumi.Input[str]]:
         """
         The permissions of team members regarding the repository.
-        Must be one of `pull`, `triage`, `push`, `maintain`, or `admin`. Defaults to `pull`.
+        Must be one of `pull`, `triage`, `push`, `maintain`, `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organisation. Defaults to `pull`.
         """
         return pulumi.get(self, "permission")
 
@@ -182,7 +182,7 @@ class TeamRepository(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] permission: The permissions of team members regarding the repository.
-               Must be one of `pull`, `triage`, `push`, `maintain`, or `admin`. Defaults to `pull`.
+               Must be one of `pull`, `triage`, `push`, `maintain`, `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organisation. Defaults to `pull`.
         :param pulumi.Input[str] repository: The repository to add to the team.
         :param pulumi.Input[str] team_id: The GitHub team id or the GitHub team slug
         """
@@ -286,7 +286,7 @@ class TeamRepository(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] permission: The permissions of team members regarding the repository.
-               Must be one of `pull`, `triage`, `push`, `maintain`, or `admin`. Defaults to `pull`.
+               Must be one of `pull`, `triage`, `push`, `maintain`, `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organisation. Defaults to `pull`.
         :param pulumi.Input[str] repository: The repository to add to the team.
         :param pulumi.Input[str] team_id: The GitHub team id or the GitHub team slug
         """
@@ -310,7 +310,7 @@ class TeamRepository(pulumi.CustomResource):
     def permission(self) -> pulumi.Output[Optional[str]]:
         """
         The permissions of team members regarding the repository.
-        Must be one of `pull`, `triage`, `push`, `maintain`, or `admin`. Defaults to `pull`.
+        Must be one of `pull`, `triage`, `push`, `maintain`, `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organisation. Defaults to `pull`.
         """
         return pulumi.get(self, "permission")
 

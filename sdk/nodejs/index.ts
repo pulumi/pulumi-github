@@ -16,10 +16,14 @@ export * from "./branch";
 export * from "./branchDefault";
 export * from "./branchProtection";
 export * from "./branchProtectionV3";
+export * from "./dependabotOrganizationSecret";
+export * from "./dependabotOrganizationSecretRepositories";
+export * from "./dependabotSecret";
 export * from "./emuGroupMapping";
 export * from "./getActionsPublicKey";
 export * from "./getBranch";
 export * from "./getCollaborators";
+export * from "./getDependabotPublicKey";
 export * from "./getIpRanges";
 export * from "./getMembership";
 export * from "./getOrganization";
@@ -86,6 +90,9 @@ import { Branch } from "./branch";
 import { BranchDefault } from "./branchDefault";
 import { BranchProtection } from "./branchProtection";
 import { BranchProtectionV3 } from "./branchProtectionV3";
+import { DependabotOrganizationSecret } from "./dependabotOrganizationSecret";
+import { DependabotOrganizationSecretRepositories } from "./dependabotOrganizationSecretRepositories";
+import { DependabotSecret } from "./dependabotSecret";
 import { EmuGroupMapping } from "./emuGroupMapping";
 import { Issue } from "./issue";
 import { IssueLabel } from "./issueLabel";
@@ -140,6 +147,12 @@ const _module = {
                 return new BranchProtection(name, <any>undefined, { urn })
             case "github:index/branchProtectionV3:BranchProtectionV3":
                 return new BranchProtectionV3(name, <any>undefined, { urn })
+            case "github:index/dependabotOrganizationSecret:DependabotOrganizationSecret":
+                return new DependabotOrganizationSecret(name, <any>undefined, { urn })
+            case "github:index/dependabotOrganizationSecretRepositories:DependabotOrganizationSecretRepositories":
+                return new DependabotOrganizationSecretRepositories(name, <any>undefined, { urn })
+            case "github:index/dependabotSecret:DependabotSecret":
+                return new DependabotSecret(name, <any>undefined, { urn })
             case "github:index/emuGroupMapping:EmuGroupMapping":
                 return new EmuGroupMapping(name, <any>undefined, { urn })
             case "github:index/issue:Issue":
@@ -210,6 +223,9 @@ pulumi.runtime.registerResourceModule("github", "index/branch", _module)
 pulumi.runtime.registerResourceModule("github", "index/branchDefault", _module)
 pulumi.runtime.registerResourceModule("github", "index/branchProtection", _module)
 pulumi.runtime.registerResourceModule("github", "index/branchProtectionV3", _module)
+pulumi.runtime.registerResourceModule("github", "index/dependabotOrganizationSecret", _module)
+pulumi.runtime.registerResourceModule("github", "index/dependabotOrganizationSecretRepositories", _module)
+pulumi.runtime.registerResourceModule("github", "index/dependabotSecret", _module)
 pulumi.runtime.registerResourceModule("github", "index/emuGroupMapping", _module)
 pulumi.runtime.registerResourceModule("github", "index/issue", _module)
 pulumi.runtime.registerResourceModule("github", "index/issueLabel", _module)

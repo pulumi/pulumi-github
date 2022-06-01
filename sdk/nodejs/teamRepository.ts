@@ -70,7 +70,7 @@ export class TeamRepository extends pulumi.CustomResource {
     public /*out*/ readonly etag!: pulumi.Output<string>;
     /**
      * The permissions of team members regarding the repository.
-     * Must be one of `pull`, `triage`, `push`, `maintain`, or `admin`. Defaults to `pull`.
+     * Must be one of `pull`, `triage`, `push`, `maintain`, `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organisation. Defaults to `pull`.
      */
     public readonly permission!: pulumi.Output<string | undefined>;
     /**
@@ -124,7 +124,7 @@ export interface TeamRepositoryState {
     etag?: pulumi.Input<string>;
     /**
      * The permissions of team members regarding the repository.
-     * Must be one of `pull`, `triage`, `push`, `maintain`, or `admin`. Defaults to `pull`.
+     * Must be one of `pull`, `triage`, `push`, `maintain`, `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organisation. Defaults to `pull`.
      */
     permission?: pulumi.Input<string>;
     /**
@@ -143,7 +143,7 @@ export interface TeamRepositoryState {
 export interface TeamRepositoryArgs {
     /**
      * The permissions of team members regarding the repository.
-     * Must be one of `pull`, `triage`, `push`, `maintain`, or `admin`. Defaults to `pull`.
+     * Must be one of `pull`, `triage`, `push`, `maintain`, `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organisation. Defaults to `pull`.
      */
     permission?: pulumi.Input<string>;
     /**

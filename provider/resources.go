@@ -133,6 +133,24 @@ func Provider() tfbridge.ProviderInfo {
 			"github_team_members":           {Tok: makeResource(mainMod, "TeamMembers")},
 			"github_issue":                  {Tok: makeResource(mainMod, "Issue")},
 			"github_emu_group_mapping":      {Tok: makeResource(mainMod, "EmuGroupMapping")},
+			"github_dependabot_organization_secret": {
+				Tok: makeResource(mainMod, "DependabotOrganizationSecret"),
+				Docs: &tfbridge.DocInfo{
+					Markdown: []byte(" "),
+				},
+			},
+			"github_dependabot_organization_secret_repositories": {
+				Tok: makeResource(mainMod, "DependabotOrganizationSecretRepositories"),
+				Docs: &tfbridge.DocInfo{
+					Markdown: []byte(" "),
+				},
+			},
+			"github_dependabot_secret": {
+				Tok: makeResource(mainMod, "DependabotSecret"),
+				Docs: &tfbridge.DocInfo{
+					Markdown: []byte(" "),
+				},
+			},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			"github_actions_public_key":            {Tok: makeDataSource(mainMod, "getActionsPublicKey")},
@@ -155,6 +173,12 @@ func Provider() tfbridge.ProviderInfo {
 			"github_repository_file":               {Tok: makeDataSource(mainMod, "getRepositoryFile")},
 			"github_ref":                           {Tok: makeDataSource(mainMod, "getRef")},
 			"github_tree":                          {Tok: makeDataSource(mainMod, "getTree")},
+			"github_dependabot_public_key": {
+				Tok: makeDataSource(mainMod, "getDependabotPublicKey"),
+				Docs: &tfbridge.DocInfo{
+					Markdown: []byte(" "),
+				},
+			},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			// List any npm dependencies and their versions
