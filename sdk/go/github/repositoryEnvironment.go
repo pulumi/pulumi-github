@@ -250,6 +250,31 @@ func (o RepositoryEnvironmentOutput) ToRepositoryEnvironmentOutputWithContext(ct
 	return o
 }
 
+func (o RepositoryEnvironmentOutput) DeploymentBranchPolicy() RepositoryEnvironmentDeploymentBranchPolicyPtrOutput {
+	return o.ApplyT(func(v *RepositoryEnvironment) RepositoryEnvironmentDeploymentBranchPolicyPtrOutput {
+		return v.DeploymentBranchPolicy
+	}).(RepositoryEnvironmentDeploymentBranchPolicyPtrOutput)
+}
+
+// The name of the environment.
+func (o RepositoryEnvironmentOutput) Environment() pulumi.StringOutput {
+	return o.ApplyT(func(v *RepositoryEnvironment) pulumi.StringOutput { return v.Environment }).(pulumi.StringOutput)
+}
+
+// The repository of the environment.
+func (o RepositoryEnvironmentOutput) Repository() pulumi.StringOutput {
+	return o.ApplyT(func(v *RepositoryEnvironment) pulumi.StringOutput { return v.Repository }).(pulumi.StringOutput)
+}
+
+func (o RepositoryEnvironmentOutput) Reviewers() RepositoryEnvironmentReviewerArrayOutput {
+	return o.ApplyT(func(v *RepositoryEnvironment) RepositoryEnvironmentReviewerArrayOutput { return v.Reviewers }).(RepositoryEnvironmentReviewerArrayOutput)
+}
+
+// Amount of time to delay a job after the job is initially triggered.
+func (o RepositoryEnvironmentOutput) WaitTimer() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *RepositoryEnvironment) pulumi.IntPtrOutput { return v.WaitTimer }).(pulumi.IntPtrOutput)
+}
+
 type RepositoryEnvironmentArrayOutput struct{ *pulumi.OutputState }
 
 func (RepositoryEnvironmentArrayOutput) ElementType() reflect.Type {

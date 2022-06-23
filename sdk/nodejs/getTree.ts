@@ -7,27 +7,6 @@ import * as utilities from "./utilities";
 
 /**
  * Use this data source to retrieve information about a single tree.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as github from "@pulumi/github";
- *
- * const thisRepository = github.getRepository({
- *     name: "example",
- * });
- * const thisBranch = Promise.all([thisRepository, thisRepository]).then(([thisRepository, thisRepository1]) => github.getBranch({
- *     branch: thisRepository.defaultBranch,
- *     repository: thisRepository1.name,
- * }));
- * const thisTree = Promise.all([thisRepository, thisBranch]).then(([thisRepository, thisBranch]) => github.getTree({
- *     recursive: false,
- *     repository: thisRepository.name,
- *     treeSha: thisBranch.sha,
- * }));
- * export const entries = thisTree.then(thisTree => thisTree.entries);
- * ```
  */
 export function getTree(args: GetTreeArgs, opts?: pulumi.InvokeOptions): Promise<GetTreeResult> {
     if (!opts) {

@@ -4,28 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
-/**
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as github from "@pulumi/github";
- *
- * const examplePublicKey = github.getActionsPublicKey({
- *     repository: "example_repository",
- * });
- * const exampleSecretActionsSecret = new github.ActionsSecret("exampleSecretActionsSecret", {
- *     repository: "example_repository",
- *     secretName: "example_secret_name",
- *     plaintextValue: _var.some_secret_string,
- * });
- * const exampleSecretIndex_actionsSecretActionsSecret = new github.ActionsSecret("exampleSecretIndex/actionsSecretActionsSecret", {
- *     repository: "example_repository",
- *     secretName: "example_secret_name",
- *     encryptedValue: _var.some_encrypted_secret_string,
- * });
- * ```
- */
 export class ActionsSecret extends pulumi.CustomResource {
     /**
      * Get an existing ActionsSecret resource's state with the given name, ID, and optional extra

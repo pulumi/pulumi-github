@@ -30,7 +30,7 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := github.NewUserGpgKey(ctx, "example", &github.UserGpgKeyArgs{
-// 			ArmoredPublicKey: pulumi.String(fmt.Sprintf("%v%v%v", "-----BEGIN PGP PUBLIC KEY BLOCK-----\n", "...\n", "-----END PGP PUBLIC KEY BLOCK-----\n")),
+// 			ArmoredPublicKey: pulumi.String(fmt.Sprintf("-----BEGIN PGP PUBLIC KEY BLOCK-----\n...\n-----END PGP PUBLIC KEY BLOCK-----\n")),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -205,6 +205,21 @@ func (o UserGpgKeyOutput) ToUserGpgKeyOutput() UserGpgKeyOutput {
 
 func (o UserGpgKeyOutput) ToUserGpgKeyOutputWithContext(ctx context.Context) UserGpgKeyOutput {
 	return o
+}
+
+// Your public GPG key, generated in ASCII-armored format.
+// See [Generating a new GPG key](https://help.github.com/articles/generating-a-new-gpg-key/) for help on creating a GPG key.
+func (o UserGpgKeyOutput) ArmoredPublicKey() pulumi.StringOutput {
+	return o.ApplyT(func(v *UserGpgKey) pulumi.StringOutput { return v.ArmoredPublicKey }).(pulumi.StringOutput)
+}
+
+func (o UserGpgKeyOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *UserGpgKey) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// The key ID of the GPG key, e.g. `3262EFF25BA0D270`
+func (o UserGpgKeyOutput) KeyId() pulumi.StringOutput {
+	return o.ApplyT(func(v *UserGpgKey) pulumi.StringOutput { return v.KeyId }).(pulumi.StringOutput)
 }
 
 type UserGpgKeyArrayOutput struct{ *pulumi.OutputState }

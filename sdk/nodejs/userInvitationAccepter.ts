@@ -6,24 +6,6 @@ import * as utilities from "./utilities";
 
 /**
  * Provides a resource to manage GitHub repository collaborator invitations.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as github from "@pulumi/github";
- *
- * const exampleRepository = new github.Repository("exampleRepository", {});
- * const exampleRepositoryCollaborator = new github.RepositoryCollaborator("exampleRepositoryCollaborator", {
- *     repository: exampleRepository.name,
- *     username: "example-username",
- *     permission: "push",
- * });
- * const invitee = new github.Provider("invitee", {token: _var.invitee_token});
- * const exampleUserInvitationAccepter = new github.UserInvitationAccepter("exampleUserInvitationAccepter", {invitationId: exampleRepositoryCollaborator.invitationId}, {
- *     provider: "github.invitee",
- * });
- * ```
  */
 export class UserInvitationAccepter extends pulumi.CustomResource {
     /**

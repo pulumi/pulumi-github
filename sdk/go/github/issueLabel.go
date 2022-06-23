@@ -234,6 +234,35 @@ func (o IssueLabelOutput) ToIssueLabelOutputWithContext(ctx context.Context) Iss
 	return o
 }
 
+// A 6 character hex code, **without the leading #**, identifying the color of the label.
+func (o IssueLabelOutput) Color() pulumi.StringOutput {
+	return o.ApplyT(func(v *IssueLabel) pulumi.StringOutput { return v.Color }).(pulumi.StringOutput)
+}
+
+// A short description of the label.
+func (o IssueLabelOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IssueLabel) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o IssueLabelOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *IssueLabel) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// The name of the label.
+func (o IssueLabelOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *IssueLabel) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The GitHub repository
+func (o IssueLabelOutput) Repository() pulumi.StringOutput {
+	return o.ApplyT(func(v *IssueLabel) pulumi.StringOutput { return v.Repository }).(pulumi.StringOutput)
+}
+
+// The URL to the issue label
+func (o IssueLabelOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v *IssueLabel) pulumi.StringOutput { return v.Url }).(pulumi.StringOutput)
+}
+
 type IssueLabelArrayOutput struct{ *pulumi.OutputState }
 
 func (IssueLabelArrayOutput) ElementType() reflect.Type {

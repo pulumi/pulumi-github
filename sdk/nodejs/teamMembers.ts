@@ -6,37 +6,6 @@ import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
 /**
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as github from "@pulumi/github";
- *
- * // Add a user to the organization
- * const membershipForSomeUser = new github.Membership("membershipForSomeUser", {
- *     username: "SomeUser",
- *     role: "member",
- * });
- * const membershipForAnotherUser = new github.Membership("membershipForAnotherUser", {
- *     username: "AnotherUser",
- *     role: "member",
- * });
- * const someTeam = new github.Team("someTeam", {description: "Some cool team"});
- * const someTeamMembers = new github.TeamMembers("someTeamMembers", {
- *     teamId: someTeam.id,
- *     members: [
- *         {
- *             username: "SomeUser",
- *             role: "maintainer",
- *         },
- *         {
- *             username: "AnotherUser",
- *             role: "member",
- *         },
- *     ],
- * });
- * ```
- *
  * ## Import
  *
  * GitHub Team Membership can be imported using the team ID `teamid`, e.g.

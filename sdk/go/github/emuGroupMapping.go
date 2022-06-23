@@ -210,6 +210,20 @@ func (o EmuGroupMappingOutput) ToEmuGroupMappingOutputWithContext(ctx context.Co
 	return o
 }
 
+func (o EmuGroupMappingOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *EmuGroupMapping) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// Integer corresponding to the external group ID to be linked
+func (o EmuGroupMappingOutput) GroupId() pulumi.IntOutput {
+	return o.ApplyT(func(v *EmuGroupMapping) pulumi.IntOutput { return v.GroupId }).(pulumi.IntOutput)
+}
+
+// Slug of the GitHub team
+func (o EmuGroupMappingOutput) TeamSlug() pulumi.StringOutput {
+	return o.ApplyT(func(v *EmuGroupMapping) pulumi.StringOutput { return v.TeamSlug }).(pulumi.StringOutput)
+}
+
 type EmuGroupMappingArrayOutput struct{ *pulumi.OutputState }
 
 func (EmuGroupMappingArrayOutput) ElementType() reflect.Type {

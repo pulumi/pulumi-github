@@ -255,6 +255,35 @@ func (o RepositoryWebhookOutput) ToRepositoryWebhookOutputWithContext(ctx contex
 	return o
 }
 
+// Indicate if the webhook should receive events. Defaults to `true`.
+func (o RepositoryWebhookOutput) Active() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RepositoryWebhook) pulumi.BoolPtrOutput { return v.Active }).(pulumi.BoolPtrOutput)
+}
+
+// Configuration block for the webhook. Detailed below.
+func (o RepositoryWebhookOutput) Configuration() RepositoryWebhookConfigurationPtrOutput {
+	return o.ApplyT(func(v *RepositoryWebhook) RepositoryWebhookConfigurationPtrOutput { return v.Configuration }).(RepositoryWebhookConfigurationPtrOutput)
+}
+
+func (o RepositoryWebhookOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *RepositoryWebhook) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// A list of events which should trigger the webhook. See a list of [available events](https://developer.github.com/v3/activity/events/types/).
+func (o RepositoryWebhookOutput) Events() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *RepositoryWebhook) pulumi.StringArrayOutput { return v.Events }).(pulumi.StringArrayOutput)
+}
+
+// The repository of the webhook.
+func (o RepositoryWebhookOutput) Repository() pulumi.StringOutput {
+	return o.ApplyT(func(v *RepositoryWebhook) pulumi.StringOutput { return v.Repository }).(pulumi.StringOutput)
+}
+
+// The URL of the webhook.
+func (o RepositoryWebhookOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v *RepositoryWebhook) pulumi.StringOutput { return v.Url }).(pulumi.StringOutput)
+}
+
 type RepositoryWebhookArrayOutput struct{ *pulumi.OutputState }
 
 func (RepositoryWebhookArrayOutput) ElementType() reflect.Type {

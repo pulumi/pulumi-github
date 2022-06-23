@@ -8,25 +8,6 @@ import * as utilities from "./utilities";
  * This resource allows you to create and manage files within a
  * GitHub repository.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as github from "@pulumi/github";
- *
- * const fooRepository = new github.Repository("fooRepository", {autoInit: true});
- * const fooRepositoryFile = new github.RepositoryFile("fooRepositoryFile", {
- *     repository: fooRepository.name,
- *     branch: "main",
- *     file: ".gitignore",
- *     content: "**&#47;*.tfstate",
- *     commitMessage: "Managed by Terraform",
- *     commitAuthor: "Terraform User",
- *     commitEmail: "terraform@example.com",
- *     overwriteOnCreate: true,
- * });
- * ```
- *
  * ## Import
  *
  * Repository files can be imported using a combination of the `repo` and `file`, e.g.

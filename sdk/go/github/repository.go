@@ -576,6 +576,194 @@ func (o RepositoryOutput) ToRepositoryOutputWithContext(ctx context.Context) Rep
 	return o
 }
 
+// Set to `true` to allow auto-merging pull requests on the repository.
+func (o RepositoryOutput) AllowAutoMerge() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Repository) pulumi.BoolPtrOutput { return v.AllowAutoMerge }).(pulumi.BoolPtrOutput)
+}
+
+// Set to `false` to disable merge commits on the repository.
+func (o RepositoryOutput) AllowMergeCommit() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Repository) pulumi.BoolPtrOutput { return v.AllowMergeCommit }).(pulumi.BoolPtrOutput)
+}
+
+// Set to `false` to disable rebase merges on the repository.
+func (o RepositoryOutput) AllowRebaseMerge() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Repository) pulumi.BoolPtrOutput { return v.AllowRebaseMerge }).(pulumi.BoolPtrOutput)
+}
+
+// Set to `false` to disable squash merges on the repository.
+func (o RepositoryOutput) AllowSquashMerge() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Repository) pulumi.BoolPtrOutput { return v.AllowSquashMerge }).(pulumi.BoolPtrOutput)
+}
+
+// Set to `true` to archive the repository instead of deleting on destroy.
+func (o RepositoryOutput) ArchiveOnDestroy() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Repository) pulumi.BoolPtrOutput { return v.ArchiveOnDestroy }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies if the repository should be archived. Defaults to `false`. **NOTE** Currently, the API does not support unarchiving.
+func (o RepositoryOutput) Archived() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Repository) pulumi.BoolPtrOutput { return v.Archived }).(pulumi.BoolPtrOutput)
+}
+
+// Set to `true` to produce an initial commit in the repository.
+func (o RepositoryOutput) AutoInit() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Repository) pulumi.BoolPtrOutput { return v.AutoInit }).(pulumi.BoolPtrOutput)
+}
+
+// The list of this repository's branches. Each element of `branches` has the following attributes:
+func (o RepositoryOutput) Branches() RepositoryBranchArrayOutput {
+	return o.ApplyT(func(v *Repository) RepositoryBranchArrayOutput { return v.Branches }).(RepositoryBranchArrayOutput)
+}
+
+// (Deprecated: Use `BranchDefault` resource instead) The name of the default branch of the repository. **NOTE:** This can only be set after a repository has already been created,
+// and after a correct reference has been created for the target branch inside the repository. This means a user will have to omit this parameter from the
+// initial repository creation and create the target branch inside of the repository prior to setting this attribute.
+//
+// Deprecated: Use the github_branch_default resource instead
+func (o RepositoryOutput) DefaultBranch() pulumi.StringOutput {
+	return o.ApplyT(func(v *Repository) pulumi.StringOutput { return v.DefaultBranch }).(pulumi.StringOutput)
+}
+
+// Automatically delete head branch after a pull request is merged. Defaults to `false`.
+func (o RepositoryOutput) DeleteBranchOnMerge() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Repository) pulumi.BoolPtrOutput { return v.DeleteBranchOnMerge }).(pulumi.BoolPtrOutput)
+}
+
+// A description of the repository.
+func (o RepositoryOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Repository) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o RepositoryOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *Repository) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// A string of the form "orgname/reponame".
+func (o RepositoryOutput) FullName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Repository) pulumi.StringOutput { return v.FullName }).(pulumi.StringOutput)
+}
+
+// URL that can be provided to `git clone` to clone the repository anonymously via the git protocol.
+func (o RepositoryOutput) GitCloneUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v *Repository) pulumi.StringOutput { return v.GitCloneUrl }).(pulumi.StringOutput)
+}
+
+// Use the [name of the template](https://github.com/github/gitignore) without the extension. For example, "Haskell".
+func (o RepositoryOutput) GitignoreTemplate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Repository) pulumi.StringPtrOutput { return v.GitignoreTemplate }).(pulumi.StringPtrOutput)
+}
+
+// Set to `true` to enable the (deprecated) downloads features on the repository.
+func (o RepositoryOutput) HasDownloads() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Repository) pulumi.BoolPtrOutput { return v.HasDownloads }).(pulumi.BoolPtrOutput)
+}
+
+// Set to `true` to enable the GitHub Issues features
+// on the repository.
+func (o RepositoryOutput) HasIssues() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Repository) pulumi.BoolPtrOutput { return v.HasIssues }).(pulumi.BoolPtrOutput)
+}
+
+// Set to `true` to enable the GitHub Projects features on the repository. Per the GitHub [documentation](https://developer.github.com/v3/repos/#create) when in an organization that has disabled repository projects it will default to `false` and will otherwise default to `true`. If you specify `true` when it has been disabled it will return an error.
+func (o RepositoryOutput) HasProjects() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Repository) pulumi.BoolPtrOutput { return v.HasProjects }).(pulumi.BoolPtrOutput)
+}
+
+// Set to `true` to enable the GitHub Wiki features on
+// the repository.
+func (o RepositoryOutput) HasWiki() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Repository) pulumi.BoolPtrOutput { return v.HasWiki }).(pulumi.BoolPtrOutput)
+}
+
+// URL of a page describing the project.
+func (o RepositoryOutput) HomepageUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Repository) pulumi.StringPtrOutput { return v.HomepageUrl }).(pulumi.StringPtrOutput)
+}
+
+// The absolute URL (including scheme) of the rendered GitHub Pages site e.g. `https://username.github.io`.
+func (o RepositoryOutput) HtmlUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v *Repository) pulumi.StringOutput { return v.HtmlUrl }).(pulumi.StringOutput)
+}
+
+// URL that can be provided to `git clone` to clone the repository via HTTPS.
+func (o RepositoryOutput) HttpCloneUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v *Repository) pulumi.StringOutput { return v.HttpCloneUrl }).(pulumi.StringOutput)
+}
+
+// Set to `true` to not call the vulnerability alerts endpoint so the resource can also be used without admin permissions during read.
+func (o RepositoryOutput) IgnoreVulnerabilityAlertsDuringRead() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Repository) pulumi.BoolPtrOutput { return v.IgnoreVulnerabilityAlertsDuringRead }).(pulumi.BoolPtrOutput)
+}
+
+// Set to `true` to tell GitHub that this is a template repository.
+func (o RepositoryOutput) IsTemplate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Repository) pulumi.BoolPtrOutput { return v.IsTemplate }).(pulumi.BoolPtrOutput)
+}
+
+// Use the [name of the template](https://github.com/github/choosealicense.com/tree/gh-pages/_licenses) without the extension. For example, "mit" or "mpl-2.0".
+func (o RepositoryOutput) LicenseTemplate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Repository) pulumi.StringPtrOutput { return v.LicenseTemplate }).(pulumi.StringPtrOutput)
+}
+
+// The name of the repository.
+func (o RepositoryOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Repository) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// GraphQL global node id for use with v4 API
+func (o RepositoryOutput) NodeId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Repository) pulumi.StringOutput { return v.NodeId }).(pulumi.StringOutput)
+}
+
+// The repository's GitHub Pages configuration. See GitHub Pages Configuration below for details.
+func (o RepositoryOutput) Pages() RepositoryPagesPtrOutput {
+	return o.ApplyT(func(v *Repository) RepositoryPagesPtrOutput { return v.Pages }).(RepositoryPagesPtrOutput)
+}
+
+// Set to `true` to create a private repository.
+// Repositories are created as public (e.g. open source) by default.
+//
+// Deprecated: use visibility instead
+func (o RepositoryOutput) Private() pulumi.BoolOutput {
+	return o.ApplyT(func(v *Repository) pulumi.BoolOutput { return v.Private }).(pulumi.BoolOutput)
+}
+
+// GitHub ID for the repository
+func (o RepositoryOutput) RepoId() pulumi.IntOutput {
+	return o.ApplyT(func(v *Repository) pulumi.IntOutput { return v.RepoId }).(pulumi.IntOutput)
+}
+
+// URL that can be provided to `git clone` to clone the repository via SSH.
+func (o RepositoryOutput) SshCloneUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v *Repository) pulumi.StringOutput { return v.SshCloneUrl }).(pulumi.StringOutput)
+}
+
+// URL that can be provided to `svn checkout` to check out the repository via GitHub's Subversion protocol emulation.
+func (o RepositoryOutput) SvnUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v *Repository) pulumi.StringOutput { return v.SvnUrl }).(pulumi.StringOutput)
+}
+
+// Use a template repository to create this resource. See Template Repositories below for details.
+func (o RepositoryOutput) Template() RepositoryTemplatePtrOutput {
+	return o.ApplyT(func(v *Repository) RepositoryTemplatePtrOutput { return v.Template }).(RepositoryTemplatePtrOutput)
+}
+
+// The list of topics of the repository.
+func (o RepositoryOutput) Topics() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Repository) pulumi.StringArrayOutput { return v.Topics }).(pulumi.StringArrayOutput)
+}
+
+// Can be `public` or `private`. If your organization is associated with an enterprise account using GitHub Enterprise Cloud or GitHub Enterprise Server 2.20+, visibility can also be `internal`. The `visibility` parameter overrides the `private` parameter.
+func (o RepositoryOutput) Visibility() pulumi.StringOutput {
+	return o.ApplyT(func(v *Repository) pulumi.StringOutput { return v.Visibility }).(pulumi.StringOutput)
+}
+
+// Set to `true` to enable security alerts for vulnerable dependencies. Enabling requires alerts to be enabled on the owner level. (Note for importing: GitHub enables the alerts on public repos but disables them on private repos by default.) See [GitHub Documentation](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for details. Note that vulnerability alerts have not been successfully tested on any GitHub Enterprise instance and may be unavailable in those settings.
+func (o RepositoryOutput) VulnerabilityAlerts() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Repository) pulumi.BoolPtrOutput { return v.VulnerabilityAlerts }).(pulumi.BoolPtrOutput)
+}
+
 type RepositoryArrayOutput struct{ *pulumi.OutputState }
 
 func (RepositoryArrayOutput) ElementType() reflect.Type {

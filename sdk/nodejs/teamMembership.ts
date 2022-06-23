@@ -14,25 +14,6 @@ import * as utilities from "./utilities";
  *
  * > **Note**: This resource is not compatible with `github.TeamMembers`. Use either `github.TeamMembers` or `github.TeamMembership`.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as github from "@pulumi/github";
- *
- * // Add a user to the organization
- * const membershipForSomeUser = new github.Membership("membershipForSomeUser", {
- *     username: "SomeUser",
- *     role: "member",
- * });
- * const someTeam = new github.Team("someTeam", {description: "Some cool team"});
- * const someTeamMembership = new github.TeamMembership("someTeamMembership", {
- *     teamId: someTeam.id,
- *     username: "SomeUser",
- *     role: "member",
- * });
- * ```
- *
  * ## Import
  *
  * GitHub Team Membership can be imported using an ID made up of `teamid:username`, e.g.

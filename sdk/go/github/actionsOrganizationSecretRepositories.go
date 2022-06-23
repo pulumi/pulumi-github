@@ -218,6 +218,16 @@ func (o ActionsOrganizationSecretRepositoriesOutput) ToActionsOrganizationSecret
 	return o
 }
 
+// Name of the existing secret
+func (o ActionsOrganizationSecretRepositoriesOutput) SecretName() pulumi.StringOutput {
+	return o.ApplyT(func(v *ActionsOrganizationSecretRepositories) pulumi.StringOutput { return v.SecretName }).(pulumi.StringOutput)
+}
+
+// An array of repository ids that can access the organization secret.
+func (o ActionsOrganizationSecretRepositoriesOutput) SelectedRepositoryIds() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v *ActionsOrganizationSecretRepositories) pulumi.IntArrayOutput { return v.SelectedRepositoryIds }).(pulumi.IntArrayOutput)
+}
+
 type ActionsOrganizationSecretRepositoriesArrayOutput struct{ *pulumi.OutputState }
 
 func (ActionsOrganizationSecretRepositoriesArrayOutput) ElementType() reflect.Type {

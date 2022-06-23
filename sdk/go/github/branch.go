@@ -260,6 +260,41 @@ func (o BranchOutput) ToBranchOutputWithContext(ctx context.Context) BranchOutpu
 	return o
 }
 
+// The repository branch to create.
+func (o BranchOutput) Branch() pulumi.StringOutput {
+	return o.ApplyT(func(v *Branch) pulumi.StringOutput { return v.Branch }).(pulumi.StringOutput)
+}
+
+// An etag representing the Branch object.
+func (o BranchOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *Branch) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// A string representing a branch reference, in the form of `refs/heads/<branch>`.
+func (o BranchOutput) Ref() pulumi.StringOutput {
+	return o.ApplyT(func(v *Branch) pulumi.StringOutput { return v.Ref }).(pulumi.StringOutput)
+}
+
+// The GitHub repository name.
+func (o BranchOutput) Repository() pulumi.StringOutput {
+	return o.ApplyT(func(v *Branch) pulumi.StringOutput { return v.Repository }).(pulumi.StringOutput)
+}
+
+// A string storing the reference's `HEAD` commit's SHA1.
+func (o BranchOutput) Sha() pulumi.StringOutput {
+	return o.ApplyT(func(v *Branch) pulumi.StringOutput { return v.Sha }).(pulumi.StringOutput)
+}
+
+// The branch name to start from. Defaults to `main`.
+func (o BranchOutput) SourceBranch() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Branch) pulumi.StringPtrOutput { return v.SourceBranch }).(pulumi.StringPtrOutput)
+}
+
+// The commit hash to start from. Defaults to the tip of `sourceBranch`. If provided, `sourceBranch` is ignored.
+func (o BranchOutput) SourceSha() pulumi.StringOutput {
+	return o.ApplyT(func(v *Branch) pulumi.StringOutput { return v.SourceSha }).(pulumi.StringOutput)
+}
+
 type BranchArrayOutput struct{ *pulumi.OutputState }
 
 func (BranchArrayOutput) ElementType() reflect.Type {

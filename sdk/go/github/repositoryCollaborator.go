@@ -261,6 +261,33 @@ func (o RepositoryCollaboratorOutput) ToRepositoryCollaboratorOutputWithContext(
 	return o
 }
 
+// ID of the invitation to be used in `UserInvitationAccepter`
+func (o RepositoryCollaboratorOutput) InvitationId() pulumi.StringOutput {
+	return o.ApplyT(func(v *RepositoryCollaborator) pulumi.StringOutput { return v.InvitationId }).(pulumi.StringOutput)
+}
+
+// The permission of the outside collaborator for the repository.
+// Must be one of `pull`, `push`, `maintain`, `triage` or `admin` for organization-owned repositories.
+// Must be `push` for personal repositories. Defaults to `push`.
+func (o RepositoryCollaboratorOutput) Permission() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RepositoryCollaborator) pulumi.StringPtrOutput { return v.Permission }).(pulumi.StringPtrOutput)
+}
+
+// Suppress plan diffs for `triage` and `maintain`.  Defaults to `false`.
+func (o RepositoryCollaboratorOutput) PermissionDiffSuppression() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RepositoryCollaborator) pulumi.BoolPtrOutput { return v.PermissionDiffSuppression }).(pulumi.BoolPtrOutput)
+}
+
+// The GitHub repository
+func (o RepositoryCollaboratorOutput) Repository() pulumi.StringOutput {
+	return o.ApplyT(func(v *RepositoryCollaborator) pulumi.StringOutput { return v.Repository }).(pulumi.StringOutput)
+}
+
+// The user to add to the repository as a collaborator.
+func (o RepositoryCollaboratorOutput) Username() pulumi.StringOutput {
+	return o.ApplyT(func(v *RepositoryCollaborator) pulumi.StringOutput { return v.Username }).(pulumi.StringOutput)
+}
+
 type RepositoryCollaboratorArrayOutput struct{ *pulumi.OutputState }
 
 func (RepositoryCollaboratorArrayOutput) ElementType() reflect.Type {

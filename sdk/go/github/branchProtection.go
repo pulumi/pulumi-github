@@ -344,6 +344,65 @@ func (o BranchProtectionOutput) ToBranchProtectionOutputWithContext(ctx context.
 	return o
 }
 
+// Boolean, setting this to `true` to allow the branch to be deleted.
+func (o BranchProtectionOutput) AllowsDeletions() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BranchProtection) pulumi.BoolPtrOutput { return v.AllowsDeletions }).(pulumi.BoolPtrOutput)
+}
+
+// Boolean, setting this to `true` to allow force pushes on the branch.
+func (o BranchProtectionOutput) AllowsForcePushes() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BranchProtection) pulumi.BoolPtrOutput { return v.AllowsForcePushes }).(pulumi.BoolPtrOutput)
+}
+
+// Boolean, setting this to `true` enforces status checks for repository administrators.
+func (o BranchProtectionOutput) EnforceAdmins() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BranchProtection) pulumi.BoolPtrOutput { return v.EnforceAdmins }).(pulumi.BoolPtrOutput)
+}
+
+// Identifies the protection rule pattern.
+func (o BranchProtectionOutput) Pattern() pulumi.StringOutput {
+	return o.ApplyT(func(v *BranchProtection) pulumi.StringOutput { return v.Pattern }).(pulumi.StringOutput)
+}
+
+// The list of actor IDs that may push to the branch.
+func (o BranchProtectionOutput) PushRestrictions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BranchProtection) pulumi.StringArrayOutput { return v.PushRestrictions }).(pulumi.StringArrayOutput)
+}
+
+// The name or node ID of the repository associated with this branch protection rule.
+func (o BranchProtectionOutput) RepositoryId() pulumi.StringOutput {
+	return o.ApplyT(func(v *BranchProtection) pulumi.StringOutput { return v.RepositoryId }).(pulumi.StringOutput)
+}
+
+// Boolean, setting this to `true` requires all conversations on code must be resolved before a pull request can be merged.
+func (o BranchProtectionOutput) RequireConversationResolution() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BranchProtection) pulumi.BoolPtrOutput { return v.RequireConversationResolution }).(pulumi.BoolPtrOutput)
+}
+
+// Boolean, setting this to `true` requires all commits to be signed with GPG.
+func (o BranchProtectionOutput) RequireSignedCommits() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BranchProtection) pulumi.BoolPtrOutput { return v.RequireSignedCommits }).(pulumi.BoolPtrOutput)
+}
+
+// Boolean, setting this to `true` enforces a linear commit Git history, which prevents anyone from pushing merge commits to a branch
+func (o BranchProtectionOutput) RequiredLinearHistory() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BranchProtection) pulumi.BoolPtrOutput { return v.RequiredLinearHistory }).(pulumi.BoolPtrOutput)
+}
+
+// Enforce restrictions for pull request reviews. See Required Pull Request Reviews below for details.
+func (o BranchProtectionOutput) RequiredPullRequestReviews() BranchProtectionRequiredPullRequestReviewArrayOutput {
+	return o.ApplyT(func(v *BranchProtection) BranchProtectionRequiredPullRequestReviewArrayOutput {
+		return v.RequiredPullRequestReviews
+	}).(BranchProtectionRequiredPullRequestReviewArrayOutput)
+}
+
+// Enforce restrictions for required status checks. See Required Status Checks below for details.
+func (o BranchProtectionOutput) RequiredStatusChecks() BranchProtectionRequiredStatusCheckArrayOutput {
+	return o.ApplyT(func(v *BranchProtection) BranchProtectionRequiredStatusCheckArrayOutput {
+		return v.RequiredStatusChecks
+	}).(BranchProtectionRequiredStatusCheckArrayOutput)
+}
+
 type BranchProtectionArrayOutput struct{ *pulumi.OutputState }
 
 func (BranchProtectionArrayOutput) ElementType() reflect.Type {

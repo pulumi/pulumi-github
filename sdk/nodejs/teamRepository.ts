@@ -15,22 +15,6 @@ import * as utilities from "./utilities";
  * on GitHub. This resource does not actually *create* any repositories;
  * to do that, see `github.Repository`.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as github from "@pulumi/github";
- *
- * // Add a repository to the team
- * const someTeam = new github.Team("someTeam", {description: "Some cool team"});
- * const someRepo = new github.Repository("someRepo", {});
- * const someTeamRepo = new github.TeamRepository("someTeamRepo", {
- *     teamId: someTeam.id,
- *     repository: someRepo.name,
- *     permission: "pull",
- * });
- * ```
- *
  * ## Import
  *
  * GitHub Team Repository can be imported using an ID made up of `teamid:repository`, e.g.
