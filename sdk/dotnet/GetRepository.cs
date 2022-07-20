@@ -97,6 +97,12 @@ namespace Pulumi.Github
         [Input("name")]
         public string? Name { get; set; }
 
+        /// <summary>
+        /// . If true, the `branches` attributes will be populated only with protected branches. Default: `false`.
+        /// </summary>
+        [Input("onlyProtectedBranches")]
+        public bool? OnlyProtectedBranches { get; set; }
+
         public GetRepositoryArgs()
         {
         }
@@ -127,6 +133,12 @@ namespace Pulumi.Github
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// . If true, the `branches` attributes will be populated only with protected branches. Default: `false`.
+        /// </summary>
+        [Input("onlyProtectedBranches")]
+        public Input<bool>? OnlyProtectedBranches { get; set; }
 
         public GetRepositoryInvokeArgs()
         {
@@ -214,6 +226,7 @@ namespace Pulumi.Github
         /// GraphQL global node id for use with v4 API
         /// </summary>
         public readonly string NodeId;
+        public readonly bool? OnlyProtectedBranches;
         /// <summary>
         /// The repository's GitHub Pages configuration.
         /// </summary>
@@ -285,6 +298,8 @@ namespace Pulumi.Github
 
             string nodeId,
 
+            bool? onlyProtectedBranches,
+
             ImmutableArray<Outputs.GetRepositoryPageResult> pages,
 
             bool @private,
@@ -319,6 +334,7 @@ namespace Pulumi.Github
             Id = id;
             Name = name;
             NodeId = nodeId;
+            OnlyProtectedBranches = onlyProtectedBranches;
             Pages = pages;
             Private = @private;
             RepoId = repoId;

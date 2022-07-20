@@ -95,6 +95,10 @@ export class BranchProtection extends pulumi.CustomResource {
      */
     public readonly allowsForcePushes!: pulumi.Output<boolean | undefined>;
     /**
+     * Boolean, setting this to `true` to block creating the branch.
+     */
+    public readonly blocksCreations!: pulumi.Output<boolean | undefined>;
+    /**
      * Boolean, setting this to `true` enforces status checks for repository administrators.
      */
     public readonly enforceAdmins!: pulumi.Output<boolean | undefined>;
@@ -146,6 +150,7 @@ export class BranchProtection extends pulumi.CustomResource {
             const state = argsOrState as BranchProtectionState | undefined;
             resourceInputs["allowsDeletions"] = state ? state.allowsDeletions : undefined;
             resourceInputs["allowsForcePushes"] = state ? state.allowsForcePushes : undefined;
+            resourceInputs["blocksCreations"] = state ? state.blocksCreations : undefined;
             resourceInputs["enforceAdmins"] = state ? state.enforceAdmins : undefined;
             resourceInputs["pattern"] = state ? state.pattern : undefined;
             resourceInputs["pushRestrictions"] = state ? state.pushRestrictions : undefined;
@@ -165,6 +170,7 @@ export class BranchProtection extends pulumi.CustomResource {
             }
             resourceInputs["allowsDeletions"] = args ? args.allowsDeletions : undefined;
             resourceInputs["allowsForcePushes"] = args ? args.allowsForcePushes : undefined;
+            resourceInputs["blocksCreations"] = args ? args.blocksCreations : undefined;
             resourceInputs["enforceAdmins"] = args ? args.enforceAdmins : undefined;
             resourceInputs["pattern"] = args ? args.pattern : undefined;
             resourceInputs["pushRestrictions"] = args ? args.pushRestrictions : undefined;
@@ -192,6 +198,10 @@ export interface BranchProtectionState {
      * Boolean, setting this to `true` to allow force pushes on the branch.
      */
     allowsForcePushes?: pulumi.Input<boolean>;
+    /**
+     * Boolean, setting this to `true` to block creating the branch.
+     */
+    blocksCreations?: pulumi.Input<boolean>;
     /**
      * Boolean, setting this to `true` enforces status checks for repository administrators.
      */
@@ -242,6 +252,10 @@ export interface BranchProtectionArgs {
      * Boolean, setting this to `true` to allow force pushes on the branch.
      */
     allowsForcePushes?: pulumi.Input<boolean>;
+    /**
+     * Boolean, setting this to `true` to block creating the branch.
+     */
+    blocksCreations?: pulumi.Input<boolean>;
     /**
      * Boolean, setting this to `true` enforces status checks for repository administrators.
      */

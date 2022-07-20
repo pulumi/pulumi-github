@@ -19,6 +19,7 @@ class BranchProtectionArgs:
                  repository_id: pulumi.Input[str],
                  allows_deletions: Optional[pulumi.Input[bool]] = None,
                  allows_force_pushes: Optional[pulumi.Input[bool]] = None,
+                 blocks_creations: Optional[pulumi.Input[bool]] = None,
                  enforce_admins: Optional[pulumi.Input[bool]] = None,
                  push_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  require_conversation_resolution: Optional[pulumi.Input[bool]] = None,
@@ -32,6 +33,7 @@ class BranchProtectionArgs:
         :param pulumi.Input[str] repository_id: The name or node ID of the repository associated with this branch protection rule.
         :param pulumi.Input[bool] allows_deletions: Boolean, setting this to `true` to allow the branch to be deleted.
         :param pulumi.Input[bool] allows_force_pushes: Boolean, setting this to `true` to allow force pushes on the branch.
+        :param pulumi.Input[bool] blocks_creations: Boolean, setting this to `true` to block creating the branch.
         :param pulumi.Input[bool] enforce_admins: Boolean, setting this to `true` enforces status checks for repository administrators.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] push_restrictions: The list of actor IDs that may push to the branch.
         :param pulumi.Input[bool] require_conversation_resolution: Boolean, setting this to `true` requires all conversations on code must be resolved before a pull request can be merged.
@@ -46,6 +48,8 @@ class BranchProtectionArgs:
             pulumi.set(__self__, "allows_deletions", allows_deletions)
         if allows_force_pushes is not None:
             pulumi.set(__self__, "allows_force_pushes", allows_force_pushes)
+        if blocks_creations is not None:
+            pulumi.set(__self__, "blocks_creations", blocks_creations)
         if enforce_admins is not None:
             pulumi.set(__self__, "enforce_admins", enforce_admins)
         if push_restrictions is not None:
@@ -108,6 +112,18 @@ class BranchProtectionArgs:
     @allows_force_pushes.setter
     def allows_force_pushes(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "allows_force_pushes", value)
+
+    @property
+    @pulumi.getter(name="blocksCreations")
+    def blocks_creations(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Boolean, setting this to `true` to block creating the branch.
+        """
+        return pulumi.get(self, "blocks_creations")
+
+    @blocks_creations.setter
+    def blocks_creations(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "blocks_creations", value)
 
     @property
     @pulumi.getter(name="enforceAdmins")
@@ -199,6 +215,7 @@ class _BranchProtectionState:
     def __init__(__self__, *,
                  allows_deletions: Optional[pulumi.Input[bool]] = None,
                  allows_force_pushes: Optional[pulumi.Input[bool]] = None,
+                 blocks_creations: Optional[pulumi.Input[bool]] = None,
                  enforce_admins: Optional[pulumi.Input[bool]] = None,
                  pattern: Optional[pulumi.Input[str]] = None,
                  push_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -212,6 +229,7 @@ class _BranchProtectionState:
         Input properties used for looking up and filtering BranchProtection resources.
         :param pulumi.Input[bool] allows_deletions: Boolean, setting this to `true` to allow the branch to be deleted.
         :param pulumi.Input[bool] allows_force_pushes: Boolean, setting this to `true` to allow force pushes on the branch.
+        :param pulumi.Input[bool] blocks_creations: Boolean, setting this to `true` to block creating the branch.
         :param pulumi.Input[bool] enforce_admins: Boolean, setting this to `true` enforces status checks for repository administrators.
         :param pulumi.Input[str] pattern: Identifies the protection rule pattern.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] push_restrictions: The list of actor IDs that may push to the branch.
@@ -226,6 +244,8 @@ class _BranchProtectionState:
             pulumi.set(__self__, "allows_deletions", allows_deletions)
         if allows_force_pushes is not None:
             pulumi.set(__self__, "allows_force_pushes", allows_force_pushes)
+        if blocks_creations is not None:
+            pulumi.set(__self__, "blocks_creations", blocks_creations)
         if enforce_admins is not None:
             pulumi.set(__self__, "enforce_admins", enforce_admins)
         if pattern is not None:
@@ -268,6 +288,18 @@ class _BranchProtectionState:
     @allows_force_pushes.setter
     def allows_force_pushes(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "allows_force_pushes", value)
+
+    @property
+    @pulumi.getter(name="blocksCreations")
+    def blocks_creations(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Boolean, setting this to `true` to block creating the branch.
+        """
+        return pulumi.get(self, "blocks_creations")
+
+    @blocks_creations.setter
+    def blocks_creations(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "blocks_creations", value)
 
     @property
     @pulumi.getter(name="enforceAdmins")
@@ -385,6 +417,7 @@ class BranchProtection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allows_deletions: Optional[pulumi.Input[bool]] = None,
                  allows_force_pushes: Optional[pulumi.Input[bool]] = None,
+                 blocks_creations: Optional[pulumi.Input[bool]] = None,
                  enforce_admins: Optional[pulumi.Input[bool]] = None,
                  pattern: Optional[pulumi.Input[str]] = None,
                  push_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -448,6 +481,7 @@ class BranchProtection(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] allows_deletions: Boolean, setting this to `true` to allow the branch to be deleted.
         :param pulumi.Input[bool] allows_force_pushes: Boolean, setting this to `true` to allow force pushes on the branch.
+        :param pulumi.Input[bool] blocks_creations: Boolean, setting this to `true` to block creating the branch.
         :param pulumi.Input[bool] enforce_admins: Boolean, setting this to `true` enforces status checks for repository administrators.
         :param pulumi.Input[str] pattern: Identifies the protection rule pattern.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] push_restrictions: The list of actor IDs that may push to the branch.
@@ -530,6 +564,7 @@ class BranchProtection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allows_deletions: Optional[pulumi.Input[bool]] = None,
                  allows_force_pushes: Optional[pulumi.Input[bool]] = None,
+                 blocks_creations: Optional[pulumi.Input[bool]] = None,
                  enforce_admins: Optional[pulumi.Input[bool]] = None,
                  pattern: Optional[pulumi.Input[str]] = None,
                  push_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -553,6 +588,7 @@ class BranchProtection(pulumi.CustomResource):
 
             __props__.__dict__["allows_deletions"] = allows_deletions
             __props__.__dict__["allows_force_pushes"] = allows_force_pushes
+            __props__.__dict__["blocks_creations"] = blocks_creations
             __props__.__dict__["enforce_admins"] = enforce_admins
             if pattern is None and not opts.urn:
                 raise TypeError("Missing required property 'pattern'")
@@ -578,6 +614,7 @@ class BranchProtection(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             allows_deletions: Optional[pulumi.Input[bool]] = None,
             allows_force_pushes: Optional[pulumi.Input[bool]] = None,
+            blocks_creations: Optional[pulumi.Input[bool]] = None,
             enforce_admins: Optional[pulumi.Input[bool]] = None,
             pattern: Optional[pulumi.Input[str]] = None,
             push_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -596,6 +633,7 @@ class BranchProtection(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] allows_deletions: Boolean, setting this to `true` to allow the branch to be deleted.
         :param pulumi.Input[bool] allows_force_pushes: Boolean, setting this to `true` to allow force pushes on the branch.
+        :param pulumi.Input[bool] blocks_creations: Boolean, setting this to `true` to block creating the branch.
         :param pulumi.Input[bool] enforce_admins: Boolean, setting this to `true` enforces status checks for repository administrators.
         :param pulumi.Input[str] pattern: Identifies the protection rule pattern.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] push_restrictions: The list of actor IDs that may push to the branch.
@@ -612,6 +650,7 @@ class BranchProtection(pulumi.CustomResource):
 
         __props__.__dict__["allows_deletions"] = allows_deletions
         __props__.__dict__["allows_force_pushes"] = allows_force_pushes
+        __props__.__dict__["blocks_creations"] = blocks_creations
         __props__.__dict__["enforce_admins"] = enforce_admins
         __props__.__dict__["pattern"] = pattern
         __props__.__dict__["push_restrictions"] = push_restrictions
@@ -638,6 +677,14 @@ class BranchProtection(pulumi.CustomResource):
         Boolean, setting this to `true` to allow force pushes on the branch.
         """
         return pulumi.get(self, "allows_force_pushes")
+
+    @property
+    @pulumi.getter(name="blocksCreations")
+    def blocks_creations(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Boolean, setting this to `true` to block creating the branch.
+        """
+        return pulumi.get(self, "blocks_creations")
 
     @property
     @pulumi.getter(name="enforceAdmins")

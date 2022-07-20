@@ -2262,6 +2262,10 @@
                     "type": "boolean",
                     "description": "Boolean, setting this to `true` to allow force pushes on the branch.\n"
                 },
+                "blocksCreations": {
+                    "type": "boolean",
+                    "description": "Boolean, setting this to `true` to block creating the branch.\n"
+                },
                 "enforceAdmins": {
                     "type": "boolean",
                     "description": "Boolean, setting this to `true` enforces status checks for repository administrators.\n"
@@ -2320,6 +2324,10 @@
                 "allowsForcePushes": {
                     "type": "boolean",
                     "description": "Boolean, setting this to `true` to allow force pushes on the branch.\n"
+                },
+                "blocksCreations": {
+                    "type": "boolean",
+                    "description": "Boolean, setting this to `true` to block creating the branch.\n"
                 },
                 "enforceAdmins": {
                     "type": "boolean",
@@ -2381,6 +2389,10 @@
                     "allowsForcePushes": {
                         "type": "boolean",
                         "description": "Boolean, setting this to `true` to allow force pushes on the branch.\n"
+                    },
+                    "blocksCreations": {
+                        "type": "boolean",
+                        "description": "Boolean, setting this to `true` to block creating the branch.\n"
                     },
                     "enforceAdmins": {
                         "type": "boolean",
@@ -6060,6 +6072,10 @@
                     "name": {
                         "type": "string",
                         "description": "The name of the repository.\n"
+                    },
+                    "onlyProtectedBranches": {
+                        "type": "boolean",
+                        "description": ". If true, the `branches` attributes will be populated only with protected branches. Default: `false`.\n"
                     }
                 },
                 "type": "object"
@@ -6148,6 +6164,9 @@
                     "nodeId": {
                         "type": "string",
                         "description": "GraphQL global node id for use with v4 API\n"
+                    },
+                    "onlyProtectedBranches": {
+                        "type": "boolean"
                     },
                     "pages": {
                         "type": "array",

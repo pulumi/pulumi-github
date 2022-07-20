@@ -31,6 +31,7 @@ export function getRepository(args?: GetRepositoryArgs, opts?: pulumi.InvokeOpti
         "fullName": args.fullName,
         "homepageUrl": args.homepageUrl,
         "name": args.name,
+        "onlyProtectedBranches": args.onlyProtectedBranches,
     }, opts);
 }
 
@@ -54,6 +55,10 @@ export interface GetRepositoryArgs {
      * The name of the repository.
      */
     name?: string;
+    /**
+     * . If true, the `branches` attributes will be populated only with protected branches. Default: `false`.
+     */
+    onlyProtectedBranches?: boolean;
 }
 
 /**
@@ -137,6 +142,7 @@ export interface GetRepositoryResult {
      * GraphQL global node id for use with v4 API
      */
     readonly nodeId: string;
+    readonly onlyProtectedBranches?: boolean;
     /**
      * The repository's GitHub Pages configuration.
      */
@@ -191,4 +197,8 @@ export interface GetRepositoryOutputArgs {
      * The name of the repository.
      */
     name?: pulumi.Input<string>;
+    /**
+     * . If true, the `branches` attributes will be populated only with protected branches. Default: `false`.
+     */
+    onlyProtectedBranches?: pulumi.Input<boolean>;
 }

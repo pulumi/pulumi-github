@@ -53,6 +53,8 @@ type LookupRepositoryArgs struct {
 	HomepageUrl *string `pulumi:"homepageUrl"`
 	// The name of the repository.
 	Name *string `pulumi:"name"`
+	// . If true, the `branches` attributes will be populated only with protected branches. Default: `false`.
+	OnlyProtectedBranches *bool `pulumi:"onlyProtectedBranches"`
 }
 
 // A collection of values returned by getRepository.
@@ -95,7 +97,8 @@ type LookupRepositoryResult struct {
 	// Name of the branch.
 	Name string `pulumi:"name"`
 	// GraphQL global node id for use with v4 API
-	NodeId string `pulumi:"nodeId"`
+	NodeId                string `pulumi:"nodeId"`
+	OnlyProtectedBranches *bool  `pulumi:"onlyProtectedBranches"`
 	// The repository's GitHub Pages configuration.
 	Pages []GetRepositoryPage `pulumi:"pages"`
 	// Whether the repository is private.
@@ -135,6 +138,8 @@ type LookupRepositoryOutputArgs struct {
 	HomepageUrl pulumi.StringPtrInput `pulumi:"homepageUrl"`
 	// The name of the repository.
 	Name pulumi.StringPtrInput `pulumi:"name"`
+	// . If true, the `branches` attributes will be populated only with protected branches. Default: `false`.
+	OnlyProtectedBranches pulumi.BoolPtrInput `pulumi:"onlyProtectedBranches"`
 }
 
 func (LookupRepositoryOutputArgs) ElementType() reflect.Type {
@@ -253,6 +258,10 @@ func (o LookupRepositoryResultOutput) Name() pulumi.StringOutput {
 // GraphQL global node id for use with v4 API
 func (o LookupRepositoryResultOutput) NodeId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRepositoryResult) string { return v.NodeId }).(pulumi.StringOutput)
+}
+
+func (o LookupRepositoryResultOutput) OnlyProtectedBranches() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupRepositoryResult) *bool { return v.OnlyProtectedBranches }).(pulumi.BoolPtrOutput)
 }
 
 // The repository's GitHub Pages configuration.
