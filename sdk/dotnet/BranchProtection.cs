@@ -107,6 +107,12 @@ namespace Pulumi.Github
         public Output<bool?> AllowsForcePushes { get; private set; } = null!;
 
         /// <summary>
+        /// Boolean, setting this to `true` to block creating the branch.
+        /// </summary>
+        [Output("blocksCreations")]
+        public Output<bool?> BlocksCreations { get; private set; } = null!;
+
+        /// <summary>
         /// Boolean, setting this to `true` enforces status checks for repository administrators.
         /// </summary>
         [Output("enforceAdmins")]
@@ -219,6 +225,12 @@ namespace Pulumi.Github
         public Input<bool>? AllowsForcePushes { get; set; }
 
         /// <summary>
+        /// Boolean, setting this to `true` to block creating the branch.
+        /// </summary>
+        [Input("blocksCreations")]
+        public Input<bool>? BlocksCreations { get; set; }
+
+        /// <summary>
         /// Boolean, setting this to `true` enforces status checks for repository administrators.
         /// </summary>
         [Input("enforceAdmins")]
@@ -308,6 +320,12 @@ namespace Pulumi.Github
         /// </summary>
         [Input("allowsForcePushes")]
         public Input<bool>? AllowsForcePushes { get; set; }
+
+        /// <summary>
+        /// Boolean, setting this to `true` to block creating the branch.
+        /// </summary>
+        [Input("blocksCreations")]
+        public Input<bool>? BlocksCreations { get; set; }
 
         /// <summary>
         /// Boolean, setting this to `true` enforces status checks for repository administrators.

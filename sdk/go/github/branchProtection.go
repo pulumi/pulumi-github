@@ -98,6 +98,8 @@ type BranchProtection struct {
 	AllowsDeletions pulumi.BoolPtrOutput `pulumi:"allowsDeletions"`
 	// Boolean, setting this to `true` to allow force pushes on the branch.
 	AllowsForcePushes pulumi.BoolPtrOutput `pulumi:"allowsForcePushes"`
+	// Boolean, setting this to `true` to block creating the branch.
+	BlocksCreations pulumi.BoolPtrOutput `pulumi:"blocksCreations"`
 	// Boolean, setting this to `true` enforces status checks for repository administrators.
 	EnforceAdmins pulumi.BoolPtrOutput `pulumi:"enforceAdmins"`
 	// Identifies the protection rule pattern.
@@ -157,6 +159,8 @@ type branchProtectionState struct {
 	AllowsDeletions *bool `pulumi:"allowsDeletions"`
 	// Boolean, setting this to `true` to allow force pushes on the branch.
 	AllowsForcePushes *bool `pulumi:"allowsForcePushes"`
+	// Boolean, setting this to `true` to block creating the branch.
+	BlocksCreations *bool `pulumi:"blocksCreations"`
 	// Boolean, setting this to `true` enforces status checks for repository administrators.
 	EnforceAdmins *bool `pulumi:"enforceAdmins"`
 	// Identifies the protection rule pattern.
@@ -182,6 +186,8 @@ type BranchProtectionState struct {
 	AllowsDeletions pulumi.BoolPtrInput
 	// Boolean, setting this to `true` to allow force pushes on the branch.
 	AllowsForcePushes pulumi.BoolPtrInput
+	// Boolean, setting this to `true` to block creating the branch.
+	BlocksCreations pulumi.BoolPtrInput
 	// Boolean, setting this to `true` enforces status checks for repository administrators.
 	EnforceAdmins pulumi.BoolPtrInput
 	// Identifies the protection rule pattern.
@@ -211,6 +217,8 @@ type branchProtectionArgs struct {
 	AllowsDeletions *bool `pulumi:"allowsDeletions"`
 	// Boolean, setting this to `true` to allow force pushes on the branch.
 	AllowsForcePushes *bool `pulumi:"allowsForcePushes"`
+	// Boolean, setting this to `true` to block creating the branch.
+	BlocksCreations *bool `pulumi:"blocksCreations"`
 	// Boolean, setting this to `true` enforces status checks for repository administrators.
 	EnforceAdmins *bool `pulumi:"enforceAdmins"`
 	// Identifies the protection rule pattern.
@@ -237,6 +245,8 @@ type BranchProtectionArgs struct {
 	AllowsDeletions pulumi.BoolPtrInput
 	// Boolean, setting this to `true` to allow force pushes on the branch.
 	AllowsForcePushes pulumi.BoolPtrInput
+	// Boolean, setting this to `true` to block creating the branch.
+	BlocksCreations pulumi.BoolPtrInput
 	// Boolean, setting this to `true` enforces status checks for repository administrators.
 	EnforceAdmins pulumi.BoolPtrInput
 	// Identifies the protection rule pattern.
