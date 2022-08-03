@@ -180,6 +180,30 @@ func (o DependabotSecretOutput) ToDependabotSecretOutputWithContext(ctx context.
 	return o
 }
 
+func (o DependabotSecretOutput) CreatedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v *DependabotSecret) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
+}
+
+func (o DependabotSecretOutput) EncryptedValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DependabotSecret) pulumi.StringPtrOutput { return v.EncryptedValue }).(pulumi.StringPtrOutput)
+}
+
+func (o DependabotSecretOutput) PlaintextValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DependabotSecret) pulumi.StringPtrOutput { return v.PlaintextValue }).(pulumi.StringPtrOutput)
+}
+
+func (o DependabotSecretOutput) Repository() pulumi.StringOutput {
+	return o.ApplyT(func(v *DependabotSecret) pulumi.StringOutput { return v.Repository }).(pulumi.StringOutput)
+}
+
+func (o DependabotSecretOutput) SecretName() pulumi.StringOutput {
+	return o.ApplyT(func(v *DependabotSecret) pulumi.StringOutput { return v.SecretName }).(pulumi.StringOutput)
+}
+
+func (o DependabotSecretOutput) UpdatedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v *DependabotSecret) pulumi.StringOutput { return v.UpdatedAt }).(pulumi.StringOutput)
+}
+
 type DependabotSecretArrayOutput struct{ *pulumi.OutputState }
 
 func (DependabotSecretArrayOutput) ElementType() reflect.Type {

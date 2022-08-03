@@ -306,6 +306,57 @@ func (o RepositoryFileOutput) ToRepositoryFileOutputWithContext(ctx context.Cont
 	return o
 }
 
+// Git branch (defaults to `main`).
+// The branch must already exist, it will not be created if it does not already exist.
+func (o RepositoryFileOutput) Branch() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RepositoryFile) pulumi.StringPtrOutput { return v.Branch }).(pulumi.StringPtrOutput)
+}
+
+// Committer author name to use.
+func (o RepositoryFileOutput) CommitAuthor() pulumi.StringOutput {
+	return o.ApplyT(func(v *RepositoryFile) pulumi.StringOutput { return v.CommitAuthor }).(pulumi.StringOutput)
+}
+
+// Committer email address to use.
+func (o RepositoryFileOutput) CommitEmail() pulumi.StringOutput {
+	return o.ApplyT(func(v *RepositoryFile) pulumi.StringOutput { return v.CommitEmail }).(pulumi.StringOutput)
+}
+
+// Commit message when adding or updating the managed file.
+func (o RepositoryFileOutput) CommitMessage() pulumi.StringOutput {
+	return o.ApplyT(func(v *RepositoryFile) pulumi.StringOutput { return v.CommitMessage }).(pulumi.StringOutput)
+}
+
+// The SHA of the commit that modified the file.
+func (o RepositoryFileOutput) CommitSha() pulumi.StringOutput {
+	return o.ApplyT(func(v *RepositoryFile) pulumi.StringOutput { return v.CommitSha }).(pulumi.StringOutput)
+}
+
+// The file content.
+func (o RepositoryFileOutput) Content() pulumi.StringOutput {
+	return o.ApplyT(func(v *RepositoryFile) pulumi.StringOutput { return v.Content }).(pulumi.StringOutput)
+}
+
+// The path of the file to manage.
+func (o RepositoryFileOutput) File() pulumi.StringOutput {
+	return o.ApplyT(func(v *RepositoryFile) pulumi.StringOutput { return v.File }).(pulumi.StringOutput)
+}
+
+// Enable overwriting existing files
+func (o RepositoryFileOutput) OverwriteOnCreate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RepositoryFile) pulumi.BoolPtrOutput { return v.OverwriteOnCreate }).(pulumi.BoolPtrOutput)
+}
+
+// The repository to create the file in.
+func (o RepositoryFileOutput) Repository() pulumi.StringOutput {
+	return o.ApplyT(func(v *RepositoryFile) pulumi.StringOutput { return v.Repository }).(pulumi.StringOutput)
+}
+
+// The SHA blob of the file.
+func (o RepositoryFileOutput) Sha() pulumi.StringOutput {
+	return o.ApplyT(func(v *RepositoryFile) pulumi.StringOutput { return v.Sha }).(pulumi.StringOutput)
+}
+
 type RepositoryFileArrayOutput struct{ *pulumi.OutputState }
 
 func (RepositoryFileArrayOutput) ElementType() reflect.Type {

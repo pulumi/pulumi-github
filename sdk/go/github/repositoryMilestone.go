@@ -259,6 +259,41 @@ func (o RepositoryMilestoneOutput) ToRepositoryMilestoneOutputWithContext(ctx co
 	return o
 }
 
+// A description of the milestone.
+func (o RepositoryMilestoneOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RepositoryMilestone) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The milestone due date. In `yyyy-mm-dd` format.
+func (o RepositoryMilestoneOutput) DueDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RepositoryMilestone) pulumi.StringPtrOutput { return v.DueDate }).(pulumi.StringPtrOutput)
+}
+
+// The number of the milestone.
+func (o RepositoryMilestoneOutput) Number() pulumi.IntOutput {
+	return o.ApplyT(func(v *RepositoryMilestone) pulumi.IntOutput { return v.Number }).(pulumi.IntOutput)
+}
+
+// The owner of the GitHub Repository.
+func (o RepositoryMilestoneOutput) Owner() pulumi.StringOutput {
+	return o.ApplyT(func(v *RepositoryMilestone) pulumi.StringOutput { return v.Owner }).(pulumi.StringOutput)
+}
+
+// The name of the GitHub Repository.
+func (o RepositoryMilestoneOutput) Repository() pulumi.StringOutput {
+	return o.ApplyT(func(v *RepositoryMilestone) pulumi.StringOutput { return v.Repository }).(pulumi.StringOutput)
+}
+
+// The state of the milestone. Either `open` or `closed`. Default: `open`
+func (o RepositoryMilestoneOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RepositoryMilestone) pulumi.StringPtrOutput { return v.State }).(pulumi.StringPtrOutput)
+}
+
+// The title of the milestone.
+func (o RepositoryMilestoneOutput) Title() pulumi.StringOutput {
+	return o.ApplyT(func(v *RepositoryMilestone) pulumi.StringOutput { return v.Title }).(pulumi.StringOutput)
+}
+
 type RepositoryMilestoneArrayOutput struct{ *pulumi.OutputState }
 
 func (RepositoryMilestoneArrayOutput) ElementType() reflect.Type {

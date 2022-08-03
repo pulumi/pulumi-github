@@ -257,6 +257,51 @@ func (o ActionsRunnerGroupOutput) ToActionsRunnerGroupOutputWithContext(ctx cont
 	return o
 }
 
+// Whether public repositories can be added to the runner group
+func (o ActionsRunnerGroupOutput) AllowsPublicRepositories() pulumi.BoolOutput {
+	return o.ApplyT(func(v *ActionsRunnerGroup) pulumi.BoolOutput { return v.AllowsPublicRepositories }).(pulumi.BoolOutput)
+}
+
+// Whether this is the default runner group
+func (o ActionsRunnerGroupOutput) Default() pulumi.BoolOutput {
+	return o.ApplyT(func(v *ActionsRunnerGroup) pulumi.BoolOutput { return v.Default }).(pulumi.BoolOutput)
+}
+
+// An etag representing the runner group object
+func (o ActionsRunnerGroupOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *ActionsRunnerGroup) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// Whether the runner group is inherited from the enterprise level
+func (o ActionsRunnerGroupOutput) Inherited() pulumi.BoolOutput {
+	return o.ApplyT(func(v *ActionsRunnerGroup) pulumi.BoolOutput { return v.Inherited }).(pulumi.BoolOutput)
+}
+
+// Name of the runner group
+func (o ActionsRunnerGroupOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ActionsRunnerGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The GitHub API URL for the runner group's runners
+func (o ActionsRunnerGroupOutput) RunnersUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v *ActionsRunnerGroup) pulumi.StringOutput { return v.RunnersUrl }).(pulumi.StringOutput)
+}
+
+// Github API URL for the runner group's repositories
+func (o ActionsRunnerGroupOutput) SelectedRepositoriesUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v *ActionsRunnerGroup) pulumi.StringOutput { return v.SelectedRepositoriesUrl }).(pulumi.StringOutput)
+}
+
+// IDs of the repositories which should be added to the runner group
+func (o ActionsRunnerGroupOutput) SelectedRepositoryIds() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v *ActionsRunnerGroup) pulumi.IntArrayOutput { return v.SelectedRepositoryIds }).(pulumi.IntArrayOutput)
+}
+
+// Visibility of a runner group. Whether the runner group can include `all`, `selected`, or `private` repositories. A value of `private` is not currently supported due to limitations in the GitHub API.
+func (o ActionsRunnerGroupOutput) Visibility() pulumi.StringOutput {
+	return o.ApplyT(func(v *ActionsRunnerGroup) pulumi.StringOutput { return v.Visibility }).(pulumi.StringOutput)
+}
+
 type ActionsRunnerGroupArrayOutput struct{ *pulumi.OutputState }
 
 func (ActionsRunnerGroupArrayOutput) ElementType() reflect.Type {

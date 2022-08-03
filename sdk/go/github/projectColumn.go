@@ -207,6 +207,24 @@ func (o ProjectColumnOutput) ToProjectColumnOutputWithContext(ctx context.Contex
 	return o
 }
 
+func (o ProjectColumnOutput) ColumnId() pulumi.IntOutput {
+	return o.ApplyT(func(v *ProjectColumn) pulumi.IntOutput { return v.ColumnId }).(pulumi.IntOutput)
+}
+
+func (o ProjectColumnOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProjectColumn) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// The name of the column.
+func (o ProjectColumnOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProjectColumn) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The ID of an existing project that the column will be created in.
+func (o ProjectColumnOutput) ProjectId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProjectColumn) pulumi.StringOutput { return v.ProjectId }).(pulumi.StringOutput)
+}
+
 type ProjectColumnArrayOutput struct{ *pulumi.OutputState }
 
 func (ProjectColumnArrayOutput) ElementType() reflect.Type {

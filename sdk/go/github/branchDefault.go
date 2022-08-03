@@ -225,6 +225,16 @@ func (o BranchDefaultOutput) ToBranchDefaultOutputWithContext(ctx context.Contex
 	return o
 }
 
+// The branch (e.g. `main`)
+func (o BranchDefaultOutput) Branch() pulumi.StringOutput {
+	return o.ApplyT(func(v *BranchDefault) pulumi.StringOutput { return v.Branch }).(pulumi.StringOutput)
+}
+
+// The GitHub repository
+func (o BranchDefaultOutput) Repository() pulumi.StringOutput {
+	return o.ApplyT(func(v *BranchDefault) pulumi.StringOutput { return v.Repository }).(pulumi.StringOutput)
+}
+
 type BranchDefaultArrayOutput struct{ *pulumi.OutputState }
 
 func (BranchDefaultArrayOutput) ElementType() reflect.Type {

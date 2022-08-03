@@ -246,6 +246,26 @@ func (o TeamMembershipOutput) ToTeamMembershipOutputWithContext(ctx context.Cont
 	return o
 }
 
+func (o TeamMembershipOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *TeamMembership) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// The role of the user within the team.
+// Must be one of `member` or `maintainer`. Defaults to `member`.
+func (o TeamMembershipOutput) Role() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TeamMembership) pulumi.StringPtrOutput { return v.Role }).(pulumi.StringPtrOutput)
+}
+
+// The GitHub team id
+func (o TeamMembershipOutput) TeamId() pulumi.StringOutput {
+	return o.ApplyT(func(v *TeamMembership) pulumi.StringOutput { return v.TeamId }).(pulumi.StringOutput)
+}
+
+// The user to add to the team.
+func (o TeamMembershipOutput) Username() pulumi.StringOutput {
+	return o.ApplyT(func(v *TeamMembership) pulumi.StringOutput { return v.Username }).(pulumi.StringOutput)
+}
+
 type TeamMembershipArrayOutput struct{ *pulumi.OutputState }
 
 func (TeamMembershipArrayOutput) ElementType() reflect.Type {

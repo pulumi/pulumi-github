@@ -244,6 +244,30 @@ func (o RepositoryDeployKeyOutput) ToRepositoryDeployKeyOutputWithContext(ctx co
 	return o
 }
 
+func (o RepositoryDeployKeyOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *RepositoryDeployKey) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// A SSH key.
+func (o RepositoryDeployKeyOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v *RepositoryDeployKey) pulumi.StringOutput { return v.Key }).(pulumi.StringOutput)
+}
+
+// A boolean qualifying the key to be either read only or read/write.
+func (o RepositoryDeployKeyOutput) ReadOnly() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RepositoryDeployKey) pulumi.BoolPtrOutput { return v.ReadOnly }).(pulumi.BoolPtrOutput)
+}
+
+// Name of the GitHub repository.
+func (o RepositoryDeployKeyOutput) Repository() pulumi.StringOutput {
+	return o.ApplyT(func(v *RepositoryDeployKey) pulumi.StringOutput { return v.Repository }).(pulumi.StringOutput)
+}
+
+// A title.
+func (o RepositoryDeployKeyOutput) Title() pulumi.StringOutput {
+	return o.ApplyT(func(v *RepositoryDeployKey) pulumi.StringOutput { return v.Title }).(pulumi.StringOutput)
+}
+
 type RepositoryDeployKeyArrayOutput struct{ *pulumi.OutputState }
 
 func (RepositoryDeployKeyArrayOutput) ElementType() reflect.Type {

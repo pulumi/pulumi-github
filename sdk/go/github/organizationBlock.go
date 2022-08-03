@@ -188,6 +188,15 @@ func (o OrganizationBlockOutput) ToOrganizationBlockOutputWithContext(ctx contex
 	return o
 }
 
+func (o OrganizationBlockOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *OrganizationBlock) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// The name of the user to block.
+func (o OrganizationBlockOutput) Username() pulumi.StringOutput {
+	return o.ApplyT(func(v *OrganizationBlock) pulumi.StringOutput { return v.Username }).(pulumi.StringOutput)
+}
+
 type OrganizationBlockArrayOutput struct{ *pulumi.OutputState }
 
 func (OrganizationBlockArrayOutput) ElementType() reflect.Type {

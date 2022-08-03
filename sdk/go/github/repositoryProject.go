@@ -222,6 +222,30 @@ func (o RepositoryProjectOutput) ToRepositoryProjectOutputWithContext(ctx contex
 	return o
 }
 
+// The body of the project.
+func (o RepositoryProjectOutput) Body() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RepositoryProject) pulumi.StringPtrOutput { return v.Body }).(pulumi.StringPtrOutput)
+}
+
+func (o RepositoryProjectOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *RepositoryProject) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// The name of the project.
+func (o RepositoryProjectOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *RepositoryProject) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The repository of the project.
+func (o RepositoryProjectOutput) Repository() pulumi.StringOutput {
+	return o.ApplyT(func(v *RepositoryProject) pulumi.StringOutput { return v.Repository }).(pulumi.StringOutput)
+}
+
+// URL of the project
+func (o RepositoryProjectOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v *RepositoryProject) pulumi.StringOutput { return v.Url }).(pulumi.StringOutput)
+}
+
 type RepositoryProjectArrayOutput struct{ *pulumi.OutputState }
 
 func (RepositoryProjectArrayOutput) ElementType() reflect.Type {

@@ -242,6 +242,30 @@ func (o ActionsOrganizationPermissionsOutput) ToActionsOrganizationPermissionsOu
 	return o
 }
 
+// The permissions policy that controls the actions that are allowed to run. Can be one of: `all`, `localOnly`, or `selected`.
+func (o ActionsOrganizationPermissionsOutput) AllowedActions() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionsOrganizationPermissions) pulumi.StringPtrOutput { return v.AllowedActions }).(pulumi.StringPtrOutput)
+}
+
+// Sets the actions that are allowed in an organization. Only available when `allowedActions` = `selected`. See Allowed Actions Config below for details.
+func (o ActionsOrganizationPermissionsOutput) AllowedActionsConfig() ActionsOrganizationPermissionsAllowedActionsConfigPtrOutput {
+	return o.ApplyT(func(v *ActionsOrganizationPermissions) ActionsOrganizationPermissionsAllowedActionsConfigPtrOutput {
+		return v.AllowedActionsConfig
+	}).(ActionsOrganizationPermissionsAllowedActionsConfigPtrOutput)
+}
+
+// The policy that controls the repositories in the organization that are allowed to run GitHub Actions. Can be one of: `all`, `none`, or `selected`.
+func (o ActionsOrganizationPermissionsOutput) EnabledRepositories() pulumi.StringOutput {
+	return o.ApplyT(func(v *ActionsOrganizationPermissions) pulumi.StringOutput { return v.EnabledRepositories }).(pulumi.StringOutput)
+}
+
+// Sets the list of selected repositories that are enabled for GitHub Actions in an organization. Only available when `enabledRepositories` = `selected`. See Enabled Repositories Config below for details.
+func (o ActionsOrganizationPermissionsOutput) EnabledRepositoriesConfig() ActionsOrganizationPermissionsEnabledRepositoriesConfigPtrOutput {
+	return o.ApplyT(func(v *ActionsOrganizationPermissions) ActionsOrganizationPermissionsEnabledRepositoriesConfigPtrOutput {
+		return v.EnabledRepositoriesConfig
+	}).(ActionsOrganizationPermissionsEnabledRepositoriesConfigPtrOutput)
+}
+
 type ActionsOrganizationPermissionsArrayOutput struct{ *pulumi.OutputState }
 
 func (ActionsOrganizationPermissionsArrayOutput) ElementType() reflect.Type {

@@ -192,6 +192,21 @@ func (o TeamSyncGroupMappingOutput) ToTeamSyncGroupMappingOutputWithContext(ctx 
 	return o
 }
 
+func (o TeamSyncGroupMappingOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *TeamSyncGroupMapping) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// An Array of GitHub Identity Provider Groups (or empty []).  Each `group` block consists of the fields documented below.
+// ***
+func (o TeamSyncGroupMappingOutput) Groups() TeamSyncGroupMappingGroupArrayOutput {
+	return o.ApplyT(func(v *TeamSyncGroupMapping) TeamSyncGroupMappingGroupArrayOutput { return v.Groups }).(TeamSyncGroupMappingGroupArrayOutput)
+}
+
+// Slug of the team
+func (o TeamSyncGroupMappingOutput) TeamSlug() pulumi.StringOutput {
+	return o.ApplyT(func(v *TeamSyncGroupMapping) pulumi.StringOutput { return v.TeamSlug }).(pulumi.StringOutput)
+}
+
 type TeamSyncGroupMappingArrayOutput struct{ *pulumi.OutputState }
 
 func (TeamSyncGroupMappingArrayOutput) ElementType() reflect.Type {

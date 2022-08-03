@@ -164,6 +164,16 @@ func (o DependabotOrganizationSecretRepositoriesOutput) ToDependabotOrganization
 	return o
 }
 
+func (o DependabotOrganizationSecretRepositoriesOutput) SecretName() pulumi.StringOutput {
+	return o.ApplyT(func(v *DependabotOrganizationSecretRepositories) pulumi.StringOutput { return v.SecretName }).(pulumi.StringOutput)
+}
+
+func (o DependabotOrganizationSecretRepositoriesOutput) SelectedRepositoryIds() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v *DependabotOrganizationSecretRepositories) pulumi.IntArrayOutput {
+		return v.SelectedRepositoryIds
+	}).(pulumi.IntArrayOutput)
+}
+
 type DependabotOrganizationSecretRepositoriesArrayOutput struct{ *pulumi.OutputState }
 
 func (DependabotOrganizationSecretRepositoriesArrayOutput) ElementType() reflect.Type {

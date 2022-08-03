@@ -272,6 +272,57 @@ func (o TeamOutput) ToTeamOutputWithContext(ctx context.Context) TeamOutput {
 	return o
 }
 
+// Adds a default maintainer to the team. Defaults to `false` and adds the creating user to the team when `true`.
+func (o TeamOutput) CreateDefaultMaintainer() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Team) pulumi.BoolPtrOutput { return v.CreateDefaultMaintainer }).(pulumi.BoolPtrOutput)
+}
+
+// A description of the team.
+func (o TeamOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Team) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o TeamOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *Team) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// The LDAP Distinguished Name of the group where membership will be synchronized. Only available in GitHub Enterprise Server.
+func (o TeamOutput) LdapDn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Team) pulumi.StringPtrOutput { return v.LdapDn }).(pulumi.StringPtrOutput)
+}
+
+func (o TeamOutput) MembersCount() pulumi.IntOutput {
+	return o.ApplyT(func(v *Team) pulumi.IntOutput { return v.MembersCount }).(pulumi.IntOutput)
+}
+
+// The name of the team.
+func (o TeamOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Team) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The Node ID of the created team.
+func (o TeamOutput) NodeId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Team) pulumi.StringOutput { return v.NodeId }).(pulumi.StringOutput)
+}
+
+// The ID of the parent team, if this is a nested team.
+func (o TeamOutput) ParentTeamId() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Team) pulumi.IntPtrOutput { return v.ParentTeamId }).(pulumi.IntPtrOutput)
+}
+
+// The level of privacy for the team. Must be one of `secret` or `closed`.
+// Defaults to `secret`.
+func (o TeamOutput) Privacy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Team) pulumi.StringPtrOutput { return v.Privacy }).(pulumi.StringPtrOutput)
+}
+
+// The slug of the created team, which may or may not differ from `name`,
+// depending on whether `name` contains "URL-unsafe" characters.
+// Useful when referencing the team in [`BranchProtection`](https://www.terraform.io/docs/providers/github/r/branch_protection.html).
+func (o TeamOutput) Slug() pulumi.StringOutput {
+	return o.ApplyT(func(v *Team) pulumi.StringOutput { return v.Slug }).(pulumi.StringOutput)
+}
+
 type TeamArrayOutput struct{ *pulumi.OutputState }
 
 func (TeamArrayOutput) ElementType() reflect.Type {

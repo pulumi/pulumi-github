@@ -34,7 +34,7 @@ namespace Pulumi.Github
     ///         var development = new Github.Branch("development", new Github.BranchArgs
     ///         {
     ///             Repository = example.Name,
-    ///             Branch = "development",
+    ///             BranchName = "development",
     ///         });
     ///         var @default = new Github.BranchDefault("default", new Github.BranchDefaultArgs
     ///         {
