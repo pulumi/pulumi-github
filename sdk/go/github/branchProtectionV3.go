@@ -344,6 +344,54 @@ func (o BranchProtectionV3Output) ToBranchProtectionV3OutputWithContext(ctx cont
 	return o
 }
 
+// The Git branch to protect.
+func (o BranchProtectionV3Output) Branch() pulumi.StringOutput {
+	return o.ApplyT(func(v *BranchProtectionV3) pulumi.StringOutput { return v.Branch }).(pulumi.StringOutput)
+}
+
+// Boolean, setting this to `true` enforces status checks for repository administrators.
+func (o BranchProtectionV3Output) EnforceAdmins() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BranchProtectionV3) pulumi.BoolPtrOutput { return v.EnforceAdmins }).(pulumi.BoolPtrOutput)
+}
+
+func (o BranchProtectionV3Output) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *BranchProtectionV3) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// The GitHub repository name.
+func (o BranchProtectionV3Output) Repository() pulumi.StringOutput {
+	return o.ApplyT(func(v *BranchProtectionV3) pulumi.StringOutput { return v.Repository }).(pulumi.StringOutput)
+}
+
+// Boolean, setting this to `true` requires all conversations on code must be resolved before a pull request can be merged.
+func (o BranchProtectionV3Output) RequireConversationResolution() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BranchProtectionV3) pulumi.BoolPtrOutput { return v.RequireConversationResolution }).(pulumi.BoolPtrOutput)
+}
+
+// Boolean, setting this to `true` requires all commits to be signed with GPG.
+func (o BranchProtectionV3Output) RequireSignedCommits() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BranchProtectionV3) pulumi.BoolPtrOutput { return v.RequireSignedCommits }).(pulumi.BoolPtrOutput)
+}
+
+// Enforce restrictions for pull request reviews. See Required Pull Request Reviews below for details.
+func (o BranchProtectionV3Output) RequiredPullRequestReviews() BranchProtectionV3RequiredPullRequestReviewsPtrOutput {
+	return o.ApplyT(func(v *BranchProtectionV3) BranchProtectionV3RequiredPullRequestReviewsPtrOutput {
+		return v.RequiredPullRequestReviews
+	}).(BranchProtectionV3RequiredPullRequestReviewsPtrOutput)
+}
+
+// Enforce restrictions for required status checks. See Required Status Checks below for details.
+func (o BranchProtectionV3Output) RequiredStatusChecks() BranchProtectionV3RequiredStatusChecksPtrOutput {
+	return o.ApplyT(func(v *BranchProtectionV3) BranchProtectionV3RequiredStatusChecksPtrOutput {
+		return v.RequiredStatusChecks
+	}).(BranchProtectionV3RequiredStatusChecksPtrOutput)
+}
+
+// Enforce restrictions for the users and teams that may push to the branch. See Restrictions below for details.
+func (o BranchProtectionV3Output) Restrictions() BranchProtectionV3RestrictionsPtrOutput {
+	return o.ApplyT(func(v *BranchProtectionV3) BranchProtectionV3RestrictionsPtrOutput { return v.Restrictions }).(BranchProtectionV3RestrictionsPtrOutput)
+}
+
 type BranchProtectionV3ArrayOutput struct{ *pulumi.OutputState }
 
 func (BranchProtectionV3ArrayOutput) ElementType() reflect.Type {

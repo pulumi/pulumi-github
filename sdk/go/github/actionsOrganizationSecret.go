@@ -306,6 +306,42 @@ func (o ActionsOrganizationSecretOutput) ToActionsOrganizationSecretOutputWithCo
 	return o
 }
 
+// Date of actionsSecret creation.
+func (o ActionsOrganizationSecretOutput) CreatedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v *ActionsOrganizationSecret) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
+}
+
+// Encrypted value of the secret using the Github public key in Base64 format.
+func (o ActionsOrganizationSecretOutput) EncryptedValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionsOrganizationSecret) pulumi.StringPtrOutput { return v.EncryptedValue }).(pulumi.StringPtrOutput)
+}
+
+// Plaintext value of the secret to be encrypted
+func (o ActionsOrganizationSecretOutput) PlaintextValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionsOrganizationSecret) pulumi.StringPtrOutput { return v.PlaintextValue }).(pulumi.StringPtrOutput)
+}
+
+// Name of the secret
+func (o ActionsOrganizationSecretOutput) SecretName() pulumi.StringOutput {
+	return o.ApplyT(func(v *ActionsOrganizationSecret) pulumi.StringOutput { return v.SecretName }).(pulumi.StringOutput)
+}
+
+// An array of repository ids that can access the organization secret.
+func (o ActionsOrganizationSecretOutput) SelectedRepositoryIds() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v *ActionsOrganizationSecret) pulumi.IntArrayOutput { return v.SelectedRepositoryIds }).(pulumi.IntArrayOutput)
+}
+
+// Date of actionsSecret update.
+func (o ActionsOrganizationSecretOutput) UpdatedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v *ActionsOrganizationSecret) pulumi.StringOutput { return v.UpdatedAt }).(pulumi.StringOutput)
+}
+
+// Configures the access that repositories have to the organization secret.
+// Must be one of `all`, `private`, `selected`. `selectedRepositoryIds` is required if set to `selected`.
+func (o ActionsOrganizationSecretOutput) Visibility() pulumi.StringOutput {
+	return o.ApplyT(func(v *ActionsOrganizationSecret) pulumi.StringOutput { return v.Visibility }).(pulumi.StringOutput)
+}
+
 type ActionsOrganizationSecretArrayOutput struct{ *pulumi.OutputState }
 
 func (ActionsOrganizationSecretArrayOutput) ElementType() reflect.Type {

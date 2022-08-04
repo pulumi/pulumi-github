@@ -244,6 +244,26 @@ func (o TeamRepositoryOutput) ToTeamRepositoryOutputWithContext(ctx context.Cont
 	return o
 }
 
+func (o TeamRepositoryOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *TeamRepository) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// The permissions of team members regarding the repository.
+// Must be one of `pull`, `triage`, `push`, `maintain`, `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organisation. Defaults to `pull`.
+func (o TeamRepositoryOutput) Permission() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TeamRepository) pulumi.StringPtrOutput { return v.Permission }).(pulumi.StringPtrOutput)
+}
+
+// The repository to add to the team.
+func (o TeamRepositoryOutput) Repository() pulumi.StringOutput {
+	return o.ApplyT(func(v *TeamRepository) pulumi.StringOutput { return v.Repository }).(pulumi.StringOutput)
+}
+
+// The GitHub team id or the GitHub team slug
+func (o TeamRepositoryOutput) TeamId() pulumi.StringOutput {
+	return o.ApplyT(func(v *TeamRepository) pulumi.StringOutput { return v.TeamId }).(pulumi.StringOutput)
+}
+
 type TeamRepositoryArrayOutput struct{ *pulumi.OutputState }
 
 func (TeamRepositoryArrayOutput) ElementType() reflect.Type {

@@ -232,6 +232,30 @@ func (o OrganizationWebhookOutput) ToOrganizationWebhookOutputWithContext(ctx co
 	return o
 }
 
+// Indicate of the webhook should receive events. Defaults to `true`.
+func (o OrganizationWebhookOutput) Active() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *OrganizationWebhook) pulumi.BoolPtrOutput { return v.Active }).(pulumi.BoolPtrOutput)
+}
+
+// key/value pair of configuration for this webhook. Available keys are `url`, `contentType`, `secret` and `insecureSsl`.
+func (o OrganizationWebhookOutput) Configuration() OrganizationWebhookConfigurationPtrOutput {
+	return o.ApplyT(func(v *OrganizationWebhook) OrganizationWebhookConfigurationPtrOutput { return v.Configuration }).(OrganizationWebhookConfigurationPtrOutput)
+}
+
+func (o OrganizationWebhookOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *OrganizationWebhook) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// A list of events which should trigger the webhook. See a list of [available events](https://developer.github.com/v3/activity/events/types/)
+func (o OrganizationWebhookOutput) Events() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *OrganizationWebhook) pulumi.StringArrayOutput { return v.Events }).(pulumi.StringArrayOutput)
+}
+
+// URL of the webhook
+func (o OrganizationWebhookOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v *OrganizationWebhook) pulumi.StringOutput { return v.Url }).(pulumi.StringOutput)
+}
+
 type OrganizationWebhookArrayOutput struct{ *pulumi.OutputState }
 
 func (OrganizationWebhookArrayOutput) ElementType() reflect.Type {

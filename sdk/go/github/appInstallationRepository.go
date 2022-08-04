@@ -224,6 +224,20 @@ func (o AppInstallationRepositoryOutput) ToAppInstallationRepositoryOutputWithCo
 	return o
 }
 
+// The GitHub app installation id.
+func (o AppInstallationRepositoryOutput) InstallationId() pulumi.StringOutput {
+	return o.ApplyT(func(v *AppInstallationRepository) pulumi.StringOutput { return v.InstallationId }).(pulumi.StringOutput)
+}
+
+func (o AppInstallationRepositoryOutput) RepoId() pulumi.IntOutput {
+	return o.ApplyT(func(v *AppInstallationRepository) pulumi.IntOutput { return v.RepoId }).(pulumi.IntOutput)
+}
+
+// The repository to install the app on.
+func (o AppInstallationRepositoryOutput) Repository() pulumi.StringOutput {
+	return o.ApplyT(func(v *AppInstallationRepository) pulumi.StringOutput { return v.Repository }).(pulumi.StringOutput)
+}
+
 type AppInstallationRepositoryArrayOutput struct{ *pulumi.OutputState }
 
 func (AppInstallationRepositoryArrayOutput) ElementType() reflect.Type {

@@ -234,6 +234,26 @@ func (o RepositoryAutolinkReferenceOutput) ToRepositoryAutolinkReferenceOutputWi
 	return o
 }
 
+// An etag representing the autolink reference object.
+func (o RepositoryAutolinkReferenceOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *RepositoryAutolinkReference) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// This prefix appended by a number will generate a link any time it is found in an issue, pull request, or commit.
+func (o RepositoryAutolinkReferenceOutput) KeyPrefix() pulumi.StringOutput {
+	return o.ApplyT(func(v *RepositoryAutolinkReference) pulumi.StringOutput { return v.KeyPrefix }).(pulumi.StringOutput)
+}
+
+// The repository of the autolink reference.
+func (o RepositoryAutolinkReferenceOutput) Repository() pulumi.StringOutput {
+	return o.ApplyT(func(v *RepositoryAutolinkReference) pulumi.StringOutput { return v.Repository }).(pulumi.StringOutput)
+}
+
+// The template of the target URL used for the links; must be a valid URL and contain `<num>` for the reference number
+func (o RepositoryAutolinkReferenceOutput) TargetUrlTemplate() pulumi.StringOutput {
+	return o.ApplyT(func(v *RepositoryAutolinkReference) pulumi.StringOutput { return v.TargetUrlTemplate }).(pulumi.StringOutput)
+}
+
 type RepositoryAutolinkReferenceArrayOutput struct{ *pulumi.OutputState }
 
 func (RepositoryAutolinkReferenceArrayOutput) ElementType() reflect.Type {

@@ -73,7 +73,7 @@ import (
 // 			Repository:     pulumi.String(repo.Name),
 // 			Environment:    repoEnvironment.Environment,
 // 			SecretName:     pulumi.String("test_secret_name"),
-// 			PlaintextValue: pulumi.String(fmt.Sprintf("%v%v", "%", "s")),
+// 			PlaintextValue: pulumi.String(fmt.Sprintf("%vs", "%")),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -298,6 +298,41 @@ func (o ActionsEnvironmentSecretOutput) ToActionsEnvironmentSecretOutput() Actio
 
 func (o ActionsEnvironmentSecretOutput) ToActionsEnvironmentSecretOutputWithContext(ctx context.Context) ActionsEnvironmentSecretOutput {
 	return o
+}
+
+// Date of actionsEnvironmentSecret creation.
+func (o ActionsEnvironmentSecretOutput) CreatedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v *ActionsEnvironmentSecret) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
+}
+
+// Encrypted value of the secret using the Github public key in Base64 format.
+func (o ActionsEnvironmentSecretOutput) EncryptedValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionsEnvironmentSecret) pulumi.StringPtrOutput { return v.EncryptedValue }).(pulumi.StringPtrOutput)
+}
+
+// Name of the environment.
+func (o ActionsEnvironmentSecretOutput) Environment() pulumi.StringOutput {
+	return o.ApplyT(func(v *ActionsEnvironmentSecret) pulumi.StringOutput { return v.Environment }).(pulumi.StringOutput)
+}
+
+// Plaintext value of the secret to be encrypted.
+func (o ActionsEnvironmentSecretOutput) PlaintextValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionsEnvironmentSecret) pulumi.StringPtrOutput { return v.PlaintextValue }).(pulumi.StringPtrOutput)
+}
+
+// Name of the repository.
+func (o ActionsEnvironmentSecretOutput) Repository() pulumi.StringOutput {
+	return o.ApplyT(func(v *ActionsEnvironmentSecret) pulumi.StringOutput { return v.Repository }).(pulumi.StringOutput)
+}
+
+// Name of the secret.
+func (o ActionsEnvironmentSecretOutput) SecretName() pulumi.StringOutput {
+	return o.ApplyT(func(v *ActionsEnvironmentSecret) pulumi.StringOutput { return v.SecretName }).(pulumi.StringOutput)
+}
+
+// Date of actionsEnvironmentSecret update.
+func (o ActionsEnvironmentSecretOutput) UpdatedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v *ActionsEnvironmentSecret) pulumi.StringOutput { return v.UpdatedAt }).(pulumi.StringOutput)
 }
 
 type ActionsEnvironmentSecretArrayOutput struct{ *pulumi.OutputState }

@@ -13,8 +13,8 @@ import * as utilities from "./utilities";
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
+ * import * as fs from "fs";
  * import * as github from "@pulumi/github";
- * import * from "fs";
  *
  * const example = new github.UserSshKey("example", {
  *     title: "example title",

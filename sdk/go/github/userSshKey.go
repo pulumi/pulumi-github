@@ -228,6 +228,25 @@ func (o UserSshKeyOutput) ToUserSshKeyOutputWithContext(ctx context.Context) Use
 	return o
 }
 
+func (o UserSshKeyOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *UserSshKey) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// The public SSH key to add to your GitHub account.
+func (o UserSshKeyOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v *UserSshKey) pulumi.StringOutput { return v.Key }).(pulumi.StringOutput)
+}
+
+// A descriptive name for the new key. e.g. `Personal MacBook Air`
+func (o UserSshKeyOutput) Title() pulumi.StringOutput {
+	return o.ApplyT(func(v *UserSshKey) pulumi.StringOutput { return v.Title }).(pulumi.StringOutput)
+}
+
+// The URL of the SSH key
+func (o UserSshKeyOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v *UserSshKey) pulumi.StringOutput { return v.Url }).(pulumi.StringOutput)
+}
+
 type UserSshKeyArrayOutput struct{ *pulumi.OutputState }
 
 func (UserSshKeyArrayOutput) ElementType() reflect.Type {

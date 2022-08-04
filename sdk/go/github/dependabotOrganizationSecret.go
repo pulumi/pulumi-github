@@ -185,6 +185,34 @@ func (o DependabotOrganizationSecretOutput) ToDependabotOrganizationSecretOutput
 	return o
 }
 
+func (o DependabotOrganizationSecretOutput) CreatedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v *DependabotOrganizationSecret) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
+}
+
+func (o DependabotOrganizationSecretOutput) EncryptedValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DependabotOrganizationSecret) pulumi.StringPtrOutput { return v.EncryptedValue }).(pulumi.StringPtrOutput)
+}
+
+func (o DependabotOrganizationSecretOutput) PlaintextValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DependabotOrganizationSecret) pulumi.StringPtrOutput { return v.PlaintextValue }).(pulumi.StringPtrOutput)
+}
+
+func (o DependabotOrganizationSecretOutput) SecretName() pulumi.StringOutput {
+	return o.ApplyT(func(v *DependabotOrganizationSecret) pulumi.StringOutput { return v.SecretName }).(pulumi.StringOutput)
+}
+
+func (o DependabotOrganizationSecretOutput) SelectedRepositoryIds() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v *DependabotOrganizationSecret) pulumi.IntArrayOutput { return v.SelectedRepositoryIds }).(pulumi.IntArrayOutput)
+}
+
+func (o DependabotOrganizationSecretOutput) UpdatedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v *DependabotOrganizationSecret) pulumi.StringOutput { return v.UpdatedAt }).(pulumi.StringOutput)
+}
+
+func (o DependabotOrganizationSecretOutput) Visibility() pulumi.StringOutput {
+	return o.ApplyT(func(v *DependabotOrganizationSecret) pulumi.StringOutput { return v.Visibility }).(pulumi.StringOutput)
+}
+
 type DependabotOrganizationSecretArrayOutput struct{ *pulumi.OutputState }
 
 func (DependabotOrganizationSecretArrayOutput) ElementType() reflect.Type {

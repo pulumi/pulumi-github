@@ -27,7 +27,7 @@ namespace Pulumi.Github
     ///     {
     ///         var development = new Github.Branch("development", new Github.BranchArgs
     ///         {
-    ///             Branch = "development",
+    ///             BranchName = "development",
     ///             Repository = "example",
     ///         });
     ///     }

@@ -294,6 +294,34 @@ func (o ProjectCardOutput) ToProjectCardOutputWithContext(ctx context.Context) P
 	return o
 }
 
+func (o ProjectCardOutput) CardId() pulumi.IntOutput {
+	return o.ApplyT(func(v *ProjectCard) pulumi.IntOutput { return v.CardId }).(pulumi.IntOutput)
+}
+
+// The ID of the card.
+func (o ProjectCardOutput) ColumnId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProjectCard) pulumi.StringOutput { return v.ColumnId }).(pulumi.StringOutput)
+}
+
+// `github_issue.issue_id`.
+func (o ProjectCardOutput) ContentId() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ProjectCard) pulumi.IntPtrOutput { return v.ContentId }).(pulumi.IntPtrOutput)
+}
+
+// Must be either `Issue` or `PullRequest`
+func (o ProjectCardOutput) ContentType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProjectCard) pulumi.StringPtrOutput { return v.ContentType }).(pulumi.StringPtrOutput)
+}
+
+func (o ProjectCardOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProjectCard) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// The note contents of the card. Markdown supported.
+func (o ProjectCardOutput) Note() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProjectCard) pulumi.StringPtrOutput { return v.Note }).(pulumi.StringPtrOutput)
+}
+
 type ProjectCardArrayOutput struct{ *pulumi.OutputState }
 
 func (ProjectCardArrayOutput) ElementType() reflect.Type {

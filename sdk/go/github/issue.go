@@ -273,6 +273,50 @@ func (o IssueOutput) ToIssueOutputWithContext(ctx context.Context) IssueOutput {
 	return o
 }
 
+// List of Logins to assign the to the issue.
+func (o IssueOutput) Assignees() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Issue) pulumi.StringArrayOutput { return v.Assignees }).(pulumi.StringArrayOutput)
+}
+
+// Title of the issue.
+func (o IssueOutput) Body() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Issue) pulumi.StringPtrOutput { return v.Body }).(pulumi.StringPtrOutput)
+}
+
+func (o IssueOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *Issue) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// (Computed) - The issue id
+func (o IssueOutput) IssueId() pulumi.IntOutput {
+	return o.ApplyT(func(v *Issue) pulumi.IntOutput { return v.IssueId }).(pulumi.IntOutput)
+}
+
+// List of labels to attach to the issue.
+func (o IssueOutput) Labels() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Issue) pulumi.StringArrayOutput { return v.Labels }).(pulumi.StringArrayOutput)
+}
+
+// Milestone number to assign to the issue
+func (o IssueOutput) MilestoneNumber() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Issue) pulumi.IntPtrOutput { return v.MilestoneNumber }).(pulumi.IntPtrOutput)
+}
+
+// (Computed) - The issue number
+func (o IssueOutput) Number() pulumi.IntOutput {
+	return o.ApplyT(func(v *Issue) pulumi.IntOutput { return v.Number }).(pulumi.IntOutput)
+}
+
+// The GitHub repository name
+func (o IssueOutput) Repository() pulumi.StringOutput {
+	return o.ApplyT(func(v *Issue) pulumi.StringOutput { return v.Repository }).(pulumi.StringOutput)
+}
+
+// Title of the issue.
+func (o IssueOutput) Title() pulumi.StringOutput {
+	return o.ApplyT(func(v *Issue) pulumi.StringOutput { return v.Title }).(pulumi.StringOutput)
+}
+
 type IssueArrayOutput struct{ *pulumi.OutputState }
 
 func (IssueArrayOutput) ElementType() reflect.Type {

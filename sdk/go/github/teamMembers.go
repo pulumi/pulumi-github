@@ -237,6 +237,20 @@ func (o TeamMembersOutput) ToTeamMembersOutputWithContext(ctx context.Context) T
 	return o
 }
 
+func (o TeamMembersOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *TeamMembers) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// List of team members. See Members below for details.
+func (o TeamMembersOutput) Members() TeamMembersMemberArrayOutput {
+	return o.ApplyT(func(v *TeamMembers) TeamMembersMemberArrayOutput { return v.Members }).(TeamMembersMemberArrayOutput)
+}
+
+// The GitHub team id
+func (o TeamMembersOutput) TeamId() pulumi.StringOutput {
+	return o.ApplyT(func(v *TeamMembers) pulumi.StringOutput { return v.TeamId }).(pulumi.StringOutput)
+}
+
 type TeamMembersArrayOutput struct{ *pulumi.OutputState }
 
 func (TeamMembersArrayOutput) ElementType() reflect.Type {

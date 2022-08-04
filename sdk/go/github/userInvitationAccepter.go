@@ -204,6 +204,11 @@ func (o UserInvitationAccepterOutput) ToUserInvitationAccepterOutputWithContext(
 	return o
 }
 
+// ID of the invitation to accept
+func (o UserInvitationAccepterOutput) InvitationId() pulumi.StringOutput {
+	return o.ApplyT(func(v *UserInvitationAccepter) pulumi.StringOutput { return v.InvitationId }).(pulumi.StringOutput)
+}
+
 type UserInvitationAccepterArrayOutput struct{ *pulumi.OutputState }
 
 func (UserInvitationAccepterArrayOutput) ElementType() reflect.Type {

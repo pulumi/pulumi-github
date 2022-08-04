@@ -200,6 +200,25 @@ func (o OrganizationProjectOutput) ToOrganizationProjectOutputWithContext(ctx co
 	return o
 }
 
+// The body of the project.
+func (o OrganizationProjectOutput) Body() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrganizationProject) pulumi.StringPtrOutput { return v.Body }).(pulumi.StringPtrOutput)
+}
+
+func (o OrganizationProjectOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *OrganizationProject) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// The name of the project.
+func (o OrganizationProjectOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *OrganizationProject) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// URL of the project
+func (o OrganizationProjectOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v *OrganizationProject) pulumi.StringOutput { return v.Url }).(pulumi.StringOutput)
+}
+
 type OrganizationProjectArrayOutput struct{ *pulumi.OutputState }
 
 func (OrganizationProjectArrayOutput) ElementType() reflect.Type {

@@ -216,6 +216,21 @@ func (o MembershipOutput) ToMembershipOutputWithContext(ctx context.Context) Mem
 	return o
 }
 
+func (o MembershipOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *Membership) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// The role of the user within the organization.
+// Must be one of `member` or `admin`. Defaults to `member`.
+func (o MembershipOutput) Role() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Membership) pulumi.StringPtrOutput { return v.Role }).(pulumi.StringPtrOutput)
+}
+
+// The user to add to the organization.
+func (o MembershipOutput) Username() pulumi.StringOutput {
+	return o.ApplyT(func(v *Membership) pulumi.StringOutput { return v.Username }).(pulumi.StringOutput)
+}
+
 type MembershipArrayOutput struct{ *pulumi.OutputState }
 
 func (MembershipArrayOutput) ElementType() reflect.Type {
