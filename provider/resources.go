@@ -124,7 +124,10 @@ func Provider() tfbridge.ProviderInfo {
 			"github_team_sync_group_mapping":       {Tok: makeResource(mainMod, "TeamSyncGroupMapping")},
 			"github_app_installation_repository":   {Tok: makeResource(mainMod, "AppInstallationRepository")},
 			"github_repository_pull_request":       {Tok: makeResource(mainMod, "RepositoryPullRequest")},
-			"github_actions_environment_secret":    {Tok: makeResource(mainMod, "ActionsEnvironmentSecret")},
+			"github_actions_environment_secret": {
+				Tok:                 makeResource(mainMod, "ActionsEnvironmentSecret"),
+				DeleteBeforeReplace: true,
+			},
 			"github_actions_organization_secret_repositories": {
 				Tok: makeResource(mainMod, "ActionsOrganizationSecretRepositories"),
 			},
