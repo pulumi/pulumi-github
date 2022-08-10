@@ -22,7 +22,7 @@ type ActionsOrganizationPermissionsAllowedActionsConfig struct {
 // ActionsOrganizationPermissionsAllowedActionsConfigInput is an input type that accepts ActionsOrganizationPermissionsAllowedActionsConfigArgs and ActionsOrganizationPermissionsAllowedActionsConfigOutput values.
 // You can construct a concrete instance of `ActionsOrganizationPermissionsAllowedActionsConfigInput` via:
 //
-//          ActionsOrganizationPermissionsAllowedActionsConfigArgs{...}
+//	ActionsOrganizationPermissionsAllowedActionsConfigArgs{...}
 type ActionsOrganizationPermissionsAllowedActionsConfigInput interface {
 	pulumi.Input
 
@@ -62,11 +62,11 @@ func (i ActionsOrganizationPermissionsAllowedActionsConfigArgs) ToActionsOrganiz
 // ActionsOrganizationPermissionsAllowedActionsConfigPtrInput is an input type that accepts ActionsOrganizationPermissionsAllowedActionsConfigArgs, ActionsOrganizationPermissionsAllowedActionsConfigPtr and ActionsOrganizationPermissionsAllowedActionsConfigPtrOutput values.
 // You can construct a concrete instance of `ActionsOrganizationPermissionsAllowedActionsConfigPtrInput` via:
 //
-//          ActionsOrganizationPermissionsAllowedActionsConfigArgs{...}
+//	        ActionsOrganizationPermissionsAllowedActionsConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ActionsOrganizationPermissionsAllowedActionsConfigPtrInput interface {
 	pulumi.Input
 
@@ -193,7 +193,7 @@ type ActionsOrganizationPermissionsEnabledRepositoriesConfig struct {
 // ActionsOrganizationPermissionsEnabledRepositoriesConfigInput is an input type that accepts ActionsOrganizationPermissionsEnabledRepositoriesConfigArgs and ActionsOrganizationPermissionsEnabledRepositoriesConfigOutput values.
 // You can construct a concrete instance of `ActionsOrganizationPermissionsEnabledRepositoriesConfigInput` via:
 //
-//          ActionsOrganizationPermissionsEnabledRepositoriesConfigArgs{...}
+//	ActionsOrganizationPermissionsEnabledRepositoriesConfigArgs{...}
 type ActionsOrganizationPermissionsEnabledRepositoriesConfigInput interface {
 	pulumi.Input
 
@@ -229,11 +229,11 @@ func (i ActionsOrganizationPermissionsEnabledRepositoriesConfigArgs) ToActionsOr
 // ActionsOrganizationPermissionsEnabledRepositoriesConfigPtrInput is an input type that accepts ActionsOrganizationPermissionsEnabledRepositoriesConfigArgs, ActionsOrganizationPermissionsEnabledRepositoriesConfigPtr and ActionsOrganizationPermissionsEnabledRepositoriesConfigPtrOutput values.
 // You can construct a concrete instance of `ActionsOrganizationPermissionsEnabledRepositoriesConfigPtrInput` via:
 //
-//          ActionsOrganizationPermissionsEnabledRepositoriesConfigArgs{...}
+//	        ActionsOrganizationPermissionsEnabledRepositoriesConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ActionsOrganizationPermissionsEnabledRepositoriesConfigPtrInput interface {
 	pulumi.Input
 
@@ -334,7 +334,7 @@ type BranchProtectionRequiredPullRequestReview struct {
 // BranchProtectionRequiredPullRequestReviewInput is an input type that accepts BranchProtectionRequiredPullRequestReviewArgs and BranchProtectionRequiredPullRequestReviewOutput values.
 // You can construct a concrete instance of `BranchProtectionRequiredPullRequestReviewInput` via:
 //
-//          BranchProtectionRequiredPullRequestReviewArgs{...}
+//	BranchProtectionRequiredPullRequestReviewArgs{...}
 type BranchProtectionRequiredPullRequestReviewInput interface {
 	pulumi.Input
 
@@ -366,7 +366,7 @@ func (i BranchProtectionRequiredPullRequestReviewArgs) ToBranchProtectionRequire
 // BranchProtectionRequiredPullRequestReviewArrayInput is an input type that accepts BranchProtectionRequiredPullRequestReviewArray and BranchProtectionRequiredPullRequestReviewArrayOutput values.
 // You can construct a concrete instance of `BranchProtectionRequiredPullRequestReviewArrayInput` via:
 //
-//          BranchProtectionRequiredPullRequestReviewArray{ BranchProtectionRequiredPullRequestReviewArgs{...} }
+//	BranchProtectionRequiredPullRequestReviewArray{ BranchProtectionRequiredPullRequestReviewArgs{...} }
 type BranchProtectionRequiredPullRequestReviewArrayInput interface {
 	pulumi.Input
 
@@ -454,7 +454,7 @@ type BranchProtectionRequiredStatusCheck struct {
 // BranchProtectionRequiredStatusCheckInput is an input type that accepts BranchProtectionRequiredStatusCheckArgs and BranchProtectionRequiredStatusCheckOutput values.
 // You can construct a concrete instance of `BranchProtectionRequiredStatusCheckInput` via:
 //
-//          BranchProtectionRequiredStatusCheckArgs{...}
+//	BranchProtectionRequiredStatusCheckArgs{...}
 type BranchProtectionRequiredStatusCheckInput interface {
 	pulumi.Input
 
@@ -482,7 +482,7 @@ func (i BranchProtectionRequiredStatusCheckArgs) ToBranchProtectionRequiredStatu
 // BranchProtectionRequiredStatusCheckArrayInput is an input type that accepts BranchProtectionRequiredStatusCheckArray and BranchProtectionRequiredStatusCheckArrayOutput values.
 // You can construct a concrete instance of `BranchProtectionRequiredStatusCheckArrayInput` via:
 //
-//          BranchProtectionRequiredStatusCheckArray{ BranchProtectionRequiredStatusCheckArgs{...} }
+//	BranchProtectionRequiredStatusCheckArray{ BranchProtectionRequiredStatusCheckArgs{...} }
 type BranchProtectionRequiredStatusCheckArrayInput interface {
 	pulumi.Input
 
@@ -559,7 +559,7 @@ type BranchProtectionV3RequiredPullRequestReviews struct {
 // BranchProtectionV3RequiredPullRequestReviewsInput is an input type that accepts BranchProtectionV3RequiredPullRequestReviewsArgs and BranchProtectionV3RequiredPullRequestReviewsOutput values.
 // You can construct a concrete instance of `BranchProtectionV3RequiredPullRequestReviewsInput` via:
 //
-//          BranchProtectionV3RequiredPullRequestReviewsArgs{...}
+//	BranchProtectionV3RequiredPullRequestReviewsArgs{...}
 type BranchProtectionV3RequiredPullRequestReviewsInput interface {
 	pulumi.Input
 
@@ -600,11 +600,11 @@ func (i BranchProtectionV3RequiredPullRequestReviewsArgs) ToBranchProtectionV3Re
 // BranchProtectionV3RequiredPullRequestReviewsPtrInput is an input type that accepts BranchProtectionV3RequiredPullRequestReviewsArgs, BranchProtectionV3RequiredPullRequestReviewsPtr and BranchProtectionV3RequiredPullRequestReviewsPtrOutput values.
 // You can construct a concrete instance of `BranchProtectionV3RequiredPullRequestReviewsPtrInput` via:
 //
-//          BranchProtectionV3RequiredPullRequestReviewsArgs{...}
+//	        BranchProtectionV3RequiredPullRequestReviewsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type BranchProtectionV3RequiredPullRequestReviewsPtrInput interface {
 	pulumi.Input
 
@@ -768,7 +768,7 @@ type BranchProtectionV3RequiredStatusChecks struct {
 // BranchProtectionV3RequiredStatusChecksInput is an input type that accepts BranchProtectionV3RequiredStatusChecksArgs and BranchProtectionV3RequiredStatusChecksOutput values.
 // You can construct a concrete instance of `BranchProtectionV3RequiredStatusChecksInput` via:
 //
-//          BranchProtectionV3RequiredStatusChecksArgs{...}
+//	BranchProtectionV3RequiredStatusChecksArgs{...}
 type BranchProtectionV3RequiredStatusChecksInput interface {
 	pulumi.Input
 
@@ -806,11 +806,11 @@ func (i BranchProtectionV3RequiredStatusChecksArgs) ToBranchProtectionV3Required
 // BranchProtectionV3RequiredStatusChecksPtrInput is an input type that accepts BranchProtectionV3RequiredStatusChecksArgs, BranchProtectionV3RequiredStatusChecksPtr and BranchProtectionV3RequiredStatusChecksPtrOutput values.
 // You can construct a concrete instance of `BranchProtectionV3RequiredStatusChecksPtrInput` via:
 //
-//          BranchProtectionV3RequiredStatusChecksArgs{...}
+//	        BranchProtectionV3RequiredStatusChecksArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type BranchProtectionV3RequiredStatusChecksPtrInput interface {
 	pulumi.Input
 
@@ -934,7 +934,7 @@ type BranchProtectionV3Restrictions struct {
 // BranchProtectionV3RestrictionsInput is an input type that accepts BranchProtectionV3RestrictionsArgs and BranchProtectionV3RestrictionsOutput values.
 // You can construct a concrete instance of `BranchProtectionV3RestrictionsInput` via:
 //
-//          BranchProtectionV3RestrictionsArgs{...}
+//	BranchProtectionV3RestrictionsArgs{...}
 type BranchProtectionV3RestrictionsInput interface {
 	pulumi.Input
 
@@ -971,11 +971,11 @@ func (i BranchProtectionV3RestrictionsArgs) ToBranchProtectionV3RestrictionsPtrO
 // BranchProtectionV3RestrictionsPtrInput is an input type that accepts BranchProtectionV3RestrictionsArgs, BranchProtectionV3RestrictionsPtr and BranchProtectionV3RestrictionsPtrOutput values.
 // You can construct a concrete instance of `BranchProtectionV3RestrictionsPtrInput` via:
 //
-//          BranchProtectionV3RestrictionsArgs{...}
+//	        BranchProtectionV3RestrictionsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type BranchProtectionV3RestrictionsPtrInput interface {
 	pulumi.Input
 
@@ -1099,7 +1099,7 @@ type OrganizationWebhookConfiguration struct {
 // OrganizationWebhookConfigurationInput is an input type that accepts OrganizationWebhookConfigurationArgs and OrganizationWebhookConfigurationOutput values.
 // You can construct a concrete instance of `OrganizationWebhookConfigurationInput` via:
 //
-//          OrganizationWebhookConfigurationArgs{...}
+//	OrganizationWebhookConfigurationArgs{...}
 type OrganizationWebhookConfigurationInput interface {
 	pulumi.Input
 
@@ -1138,11 +1138,11 @@ func (i OrganizationWebhookConfigurationArgs) ToOrganizationWebhookConfiguration
 // OrganizationWebhookConfigurationPtrInput is an input type that accepts OrganizationWebhookConfigurationArgs, OrganizationWebhookConfigurationPtr and OrganizationWebhookConfigurationPtrOutput values.
 // You can construct a concrete instance of `OrganizationWebhookConfigurationPtrInput` via:
 //
-//          OrganizationWebhookConfigurationArgs{...}
+//	        OrganizationWebhookConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type OrganizationWebhookConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -1279,7 +1279,7 @@ type ProviderAppAuth struct {
 // ProviderAppAuthInput is an input type that accepts ProviderAppAuthArgs and ProviderAppAuthOutput values.
 // You can construct a concrete instance of `ProviderAppAuthInput` via:
 //
-//          ProviderAppAuthArgs{...}
+//	ProviderAppAuthArgs{...}
 type ProviderAppAuthInput interface {
 	pulumi.Input
 
@@ -1316,11 +1316,11 @@ func (i ProviderAppAuthArgs) ToProviderAppAuthPtrOutputWithContext(ctx context.C
 // ProviderAppAuthPtrInput is an input type that accepts ProviderAppAuthArgs, ProviderAppAuthPtr and ProviderAppAuthPtrOutput values.
 // You can construct a concrete instance of `ProviderAppAuthPtrInput` via:
 //
-//          ProviderAppAuthArgs{...}
+//	        ProviderAppAuthArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ProviderAppAuthPtrInput interface {
 	pulumi.Input
 
@@ -1443,7 +1443,7 @@ type RepositoryBranch struct {
 // RepositoryBranchInput is an input type that accepts RepositoryBranchArgs and RepositoryBranchOutput values.
 // You can construct a concrete instance of `RepositoryBranchInput` via:
 //
-//          RepositoryBranchArgs{...}
+//	RepositoryBranchArgs{...}
 type RepositoryBranchInput interface {
 	pulumi.Input
 
@@ -1473,7 +1473,7 @@ func (i RepositoryBranchArgs) ToRepositoryBranchOutputWithContext(ctx context.Co
 // RepositoryBranchArrayInput is an input type that accepts RepositoryBranchArray and RepositoryBranchArrayOutput values.
 // You can construct a concrete instance of `RepositoryBranchArrayInput` via:
 //
-//          RepositoryBranchArray{ RepositoryBranchArgs{...} }
+//	RepositoryBranchArray{ RepositoryBranchArgs{...} }
 type RepositoryBranchArrayInput interface {
 	pulumi.Input
 
@@ -1549,7 +1549,7 @@ type RepositoryEnvironmentDeploymentBranchPolicy struct {
 // RepositoryEnvironmentDeploymentBranchPolicyInput is an input type that accepts RepositoryEnvironmentDeploymentBranchPolicyArgs and RepositoryEnvironmentDeploymentBranchPolicyOutput values.
 // You can construct a concrete instance of `RepositoryEnvironmentDeploymentBranchPolicyInput` via:
 //
-//          RepositoryEnvironmentDeploymentBranchPolicyArgs{...}
+//	RepositoryEnvironmentDeploymentBranchPolicyArgs{...}
 type RepositoryEnvironmentDeploymentBranchPolicyInput interface {
 	pulumi.Input
 
@@ -1587,11 +1587,11 @@ func (i RepositoryEnvironmentDeploymentBranchPolicyArgs) ToRepositoryEnvironment
 // RepositoryEnvironmentDeploymentBranchPolicyPtrInput is an input type that accepts RepositoryEnvironmentDeploymentBranchPolicyArgs, RepositoryEnvironmentDeploymentBranchPolicyPtr and RepositoryEnvironmentDeploymentBranchPolicyPtrOutput values.
 // You can construct a concrete instance of `RepositoryEnvironmentDeploymentBranchPolicyPtrInput` via:
 //
-//          RepositoryEnvironmentDeploymentBranchPolicyArgs{...}
+//	        RepositoryEnvironmentDeploymentBranchPolicyArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type RepositoryEnvironmentDeploymentBranchPolicyPtrInput interface {
 	pulumi.Input
 
@@ -1705,7 +1705,7 @@ type RepositoryEnvironmentReviewer struct {
 // RepositoryEnvironmentReviewerInput is an input type that accepts RepositoryEnvironmentReviewerArgs and RepositoryEnvironmentReviewerOutput values.
 // You can construct a concrete instance of `RepositoryEnvironmentReviewerInput` via:
 //
-//          RepositoryEnvironmentReviewerArgs{...}
+//	RepositoryEnvironmentReviewerArgs{...}
 type RepositoryEnvironmentReviewerInput interface {
 	pulumi.Input
 
@@ -1735,7 +1735,7 @@ func (i RepositoryEnvironmentReviewerArgs) ToRepositoryEnvironmentReviewerOutput
 // RepositoryEnvironmentReviewerArrayInput is an input type that accepts RepositoryEnvironmentReviewerArray and RepositoryEnvironmentReviewerArrayOutput values.
 // You can construct a concrete instance of `RepositoryEnvironmentReviewerArrayInput` via:
 //
-//          RepositoryEnvironmentReviewerArray{ RepositoryEnvironmentReviewerArgs{...} }
+//	RepositoryEnvironmentReviewerArray{ RepositoryEnvironmentReviewerArgs{...} }
 type RepositoryEnvironmentReviewerArrayInput interface {
 	pulumi.Input
 
@@ -1818,7 +1818,7 @@ type RepositoryPages struct {
 // RepositoryPagesInput is an input type that accepts RepositoryPagesArgs and RepositoryPagesOutput values.
 // You can construct a concrete instance of `RepositoryPagesInput` via:
 //
-//          RepositoryPagesArgs{...}
+//	RepositoryPagesArgs{...}
 type RepositoryPagesInput interface {
 	pulumi.Input
 
@@ -1863,11 +1863,11 @@ func (i RepositoryPagesArgs) ToRepositoryPagesPtrOutputWithContext(ctx context.C
 // RepositoryPagesPtrInput is an input type that accepts RepositoryPagesArgs, RepositoryPagesPtr and RepositoryPagesPtrOutput values.
 // You can construct a concrete instance of `RepositoryPagesPtrInput` via:
 //
-//          RepositoryPagesArgs{...}
+//	        RepositoryPagesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type RepositoryPagesPtrInput interface {
 	pulumi.Input
 
@@ -2039,7 +2039,7 @@ type RepositoryPagesSource struct {
 // RepositoryPagesSourceInput is an input type that accepts RepositoryPagesSourceArgs and RepositoryPagesSourceOutput values.
 // You can construct a concrete instance of `RepositoryPagesSourceInput` via:
 //
-//          RepositoryPagesSourceArgs{...}
+//	RepositoryPagesSourceArgs{...}
 type RepositoryPagesSourceInput interface {
 	pulumi.Input
 
@@ -2077,11 +2077,11 @@ func (i RepositoryPagesSourceArgs) ToRepositoryPagesSourcePtrOutputWithContext(c
 // RepositoryPagesSourcePtrInput is an input type that accepts RepositoryPagesSourceArgs, RepositoryPagesSourcePtr and RepositoryPagesSourcePtrOutput values.
 // You can construct a concrete instance of `RepositoryPagesSourcePtrInput` via:
 //
-//          RepositoryPagesSourceArgs{...}
+//	        RepositoryPagesSourceArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type RepositoryPagesSourcePtrInput interface {
 	pulumi.Input
 
@@ -2193,7 +2193,7 @@ type RepositoryTemplate struct {
 // RepositoryTemplateInput is an input type that accepts RepositoryTemplateArgs and RepositoryTemplateOutput values.
 // You can construct a concrete instance of `RepositoryTemplateInput` via:
 //
-//          RepositoryTemplateArgs{...}
+//	RepositoryTemplateArgs{...}
 type RepositoryTemplateInput interface {
 	pulumi.Input
 
@@ -2229,11 +2229,11 @@ func (i RepositoryTemplateArgs) ToRepositoryTemplatePtrOutputWithContext(ctx con
 // RepositoryTemplatePtrInput is an input type that accepts RepositoryTemplateArgs, RepositoryTemplatePtr and RepositoryTemplatePtrOutput values.
 // You can construct a concrete instance of `RepositoryTemplatePtrInput` via:
 //
-//          RepositoryTemplateArgs{...}
+//	        RepositoryTemplateArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type RepositoryTemplatePtrInput interface {
 	pulumi.Input
 
@@ -2347,7 +2347,7 @@ type RepositoryWebhookConfiguration struct {
 // RepositoryWebhookConfigurationInput is an input type that accepts RepositoryWebhookConfigurationArgs and RepositoryWebhookConfigurationOutput values.
 // You can construct a concrete instance of `RepositoryWebhookConfigurationInput` via:
 //
-//          RepositoryWebhookConfigurationArgs{...}
+//	RepositoryWebhookConfigurationArgs{...}
 type RepositoryWebhookConfigurationInput interface {
 	pulumi.Input
 
@@ -2389,11 +2389,11 @@ func (i RepositoryWebhookConfigurationArgs) ToRepositoryWebhookConfigurationPtrO
 // RepositoryWebhookConfigurationPtrInput is an input type that accepts RepositoryWebhookConfigurationArgs, RepositoryWebhookConfigurationPtr and RepositoryWebhookConfigurationPtrOutput values.
 // You can construct a concrete instance of `RepositoryWebhookConfigurationPtrInput` via:
 //
-//          RepositoryWebhookConfigurationArgs{...}
+//	        RepositoryWebhookConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type RepositoryWebhookConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -2538,7 +2538,7 @@ type TeamMembersMember struct {
 // TeamMembersMemberInput is an input type that accepts TeamMembersMemberArgs and TeamMembersMemberOutput values.
 // You can construct a concrete instance of `TeamMembersMemberInput` via:
 //
-//          TeamMembersMemberArgs{...}
+//	TeamMembersMemberArgs{...}
 type TeamMembersMemberInput interface {
 	pulumi.Input
 
@@ -2569,7 +2569,7 @@ func (i TeamMembersMemberArgs) ToTeamMembersMemberOutputWithContext(ctx context.
 // TeamMembersMemberArrayInput is an input type that accepts TeamMembersMemberArray and TeamMembersMemberArrayOutput values.
 // You can construct a concrete instance of `TeamMembersMemberArrayInput` via:
 //
-//          TeamMembersMemberArray{ TeamMembersMemberArgs{...} }
+//	TeamMembersMemberArray{ TeamMembersMemberArgs{...} }
 type TeamMembersMemberArrayInput interface {
 	pulumi.Input
 
@@ -2648,7 +2648,7 @@ type TeamSyncGroupMappingGroup struct {
 // TeamSyncGroupMappingGroupInput is an input type that accepts TeamSyncGroupMappingGroupArgs and TeamSyncGroupMappingGroupOutput values.
 // You can construct a concrete instance of `TeamSyncGroupMappingGroupInput` via:
 //
-//          TeamSyncGroupMappingGroupArgs{...}
+//	TeamSyncGroupMappingGroupArgs{...}
 type TeamSyncGroupMappingGroupInput interface {
 	pulumi.Input
 
@@ -2680,7 +2680,7 @@ func (i TeamSyncGroupMappingGroupArgs) ToTeamSyncGroupMappingGroupOutputWithCont
 // TeamSyncGroupMappingGroupArrayInput is an input type that accepts TeamSyncGroupMappingGroupArray and TeamSyncGroupMappingGroupArrayOutput values.
 // You can construct a concrete instance of `TeamSyncGroupMappingGroupArrayInput` via:
 //
-//          TeamSyncGroupMappingGroupArray{ TeamSyncGroupMappingGroupArgs{...} }
+//	TeamSyncGroupMappingGroupArray{ TeamSyncGroupMappingGroupArgs{...} }
 type TeamSyncGroupMappingGroupArrayInput interface {
 	pulumi.Input
 
@@ -2789,7 +2789,7 @@ type GetCollaboratorsCollaborator struct {
 // GetCollaboratorsCollaboratorInput is an input type that accepts GetCollaboratorsCollaboratorArgs and GetCollaboratorsCollaboratorOutput values.
 // You can construct a concrete instance of `GetCollaboratorsCollaboratorInput` via:
 //
-//          GetCollaboratorsCollaboratorArgs{...}
+//	GetCollaboratorsCollaboratorArgs{...}
 type GetCollaboratorsCollaboratorInput interface {
 	pulumi.Input
 
@@ -2847,7 +2847,7 @@ func (i GetCollaboratorsCollaboratorArgs) ToGetCollaboratorsCollaboratorOutputWi
 // GetCollaboratorsCollaboratorArrayInput is an input type that accepts GetCollaboratorsCollaboratorArray and GetCollaboratorsCollaboratorArrayOutput values.
 // You can construct a concrete instance of `GetCollaboratorsCollaboratorArrayInput` via:
 //
-//          GetCollaboratorsCollaboratorArray{ GetCollaboratorsCollaboratorArgs{...} }
+//	GetCollaboratorsCollaboratorArray{ GetCollaboratorsCollaboratorArgs{...} }
 type GetCollaboratorsCollaboratorArrayInput interface {
 	pulumi.Input
 
@@ -2995,7 +2995,7 @@ type GetOrganizationTeamSyncGroupsGroup struct {
 // GetOrganizationTeamSyncGroupsGroupInput is an input type that accepts GetOrganizationTeamSyncGroupsGroupArgs and GetOrganizationTeamSyncGroupsGroupOutput values.
 // You can construct a concrete instance of `GetOrganizationTeamSyncGroupsGroupInput` via:
 //
-//          GetOrganizationTeamSyncGroupsGroupArgs{...}
+//	GetOrganizationTeamSyncGroupsGroupArgs{...}
 type GetOrganizationTeamSyncGroupsGroupInput interface {
 	pulumi.Input
 
@@ -3027,7 +3027,7 @@ func (i GetOrganizationTeamSyncGroupsGroupArgs) ToGetOrganizationTeamSyncGroupsG
 // GetOrganizationTeamSyncGroupsGroupArrayInput is an input type that accepts GetOrganizationTeamSyncGroupsGroupArray and GetOrganizationTeamSyncGroupsGroupArrayOutput values.
 // You can construct a concrete instance of `GetOrganizationTeamSyncGroupsGroupArrayInput` via:
 //
-//          GetOrganizationTeamSyncGroupsGroupArray{ GetOrganizationTeamSyncGroupsGroupArgs{...} }
+//	GetOrganizationTeamSyncGroupsGroupArray{ GetOrganizationTeamSyncGroupsGroupArgs{...} }
 type GetOrganizationTeamSyncGroupsGroupArrayInput interface {
 	pulumi.Input
 
@@ -3120,7 +3120,7 @@ type GetOrganizationTeamsTeam struct {
 // GetOrganizationTeamsTeamInput is an input type that accepts GetOrganizationTeamsTeamArgs and GetOrganizationTeamsTeamOutput values.
 // You can construct a concrete instance of `GetOrganizationTeamsTeamInput` via:
 //
-//          GetOrganizationTeamsTeamArgs{...}
+//	GetOrganizationTeamsTeamArgs{...}
 type GetOrganizationTeamsTeamInput interface {
 	pulumi.Input
 
@@ -3162,7 +3162,7 @@ func (i GetOrganizationTeamsTeamArgs) ToGetOrganizationTeamsTeamOutputWithContex
 // GetOrganizationTeamsTeamArrayInput is an input type that accepts GetOrganizationTeamsTeamArray and GetOrganizationTeamsTeamArrayOutput values.
 // You can construct a concrete instance of `GetOrganizationTeamsTeamArrayInput` via:
 //
-//          GetOrganizationTeamsTeamArray{ GetOrganizationTeamsTeamArgs{...} }
+//	GetOrganizationTeamsTeamArray{ GetOrganizationTeamsTeamArgs{...} }
 type GetOrganizationTeamsTeamArrayInput interface {
 	pulumi.Input
 
@@ -3268,7 +3268,7 @@ type GetRepositoryBranch struct {
 // GetRepositoryBranchInput is an input type that accepts GetRepositoryBranchArgs and GetRepositoryBranchOutput values.
 // You can construct a concrete instance of `GetRepositoryBranchInput` via:
 //
-//          GetRepositoryBranchArgs{...}
+//	GetRepositoryBranchArgs{...}
 type GetRepositoryBranchInput interface {
 	pulumi.Input
 
@@ -3298,7 +3298,7 @@ func (i GetRepositoryBranchArgs) ToGetRepositoryBranchOutputWithContext(ctx cont
 // GetRepositoryBranchArrayInput is an input type that accepts GetRepositoryBranchArray and GetRepositoryBranchArrayOutput values.
 // You can construct a concrete instance of `GetRepositoryBranchArrayInput` via:
 //
-//          GetRepositoryBranchArray{ GetRepositoryBranchArgs{...} }
+//	GetRepositoryBranchArray{ GetRepositoryBranchArgs{...} }
 type GetRepositoryBranchArrayInput interface {
 	pulumi.Input
 
@@ -3377,7 +3377,7 @@ type GetRepositoryPage struct {
 // GetRepositoryPageInput is an input type that accepts GetRepositoryPageArgs and GetRepositoryPageOutput values.
 // You can construct a concrete instance of `GetRepositoryPageInput` via:
 //
-//          GetRepositoryPageArgs{...}
+//	GetRepositoryPageArgs{...}
 type GetRepositoryPageInput interface {
 	pulumi.Input
 
@@ -3410,7 +3410,7 @@ func (i GetRepositoryPageArgs) ToGetRepositoryPageOutputWithContext(ctx context.
 // GetRepositoryPageArrayInput is an input type that accepts GetRepositoryPageArray and GetRepositoryPageArrayOutput values.
 // You can construct a concrete instance of `GetRepositoryPageArrayInput` via:
 //
-//          GetRepositoryPageArray{ GetRepositoryPageArgs{...} }
+//	GetRepositoryPageArray{ GetRepositoryPageArgs{...} }
 type GetRepositoryPageArrayInput interface {
 	pulumi.Input
 
@@ -3499,7 +3499,7 @@ type GetRepositoryPageSource struct {
 // GetRepositoryPageSourceInput is an input type that accepts GetRepositoryPageSourceArgs and GetRepositoryPageSourceOutput values.
 // You can construct a concrete instance of `GetRepositoryPageSourceInput` via:
 //
-//          GetRepositoryPageSourceArgs{...}
+//	GetRepositoryPageSourceArgs{...}
 type GetRepositoryPageSourceInput interface {
 	pulumi.Input
 
@@ -3527,7 +3527,7 @@ func (i GetRepositoryPageSourceArgs) ToGetRepositoryPageSourceOutputWithContext(
 // GetRepositoryPageSourceArrayInput is an input type that accepts GetRepositoryPageSourceArray and GetRepositoryPageSourceArrayOutput values.
 // You can construct a concrete instance of `GetRepositoryPageSourceArrayInput` via:
 //
-//          GetRepositoryPageSourceArray{ GetRepositoryPageSourceArgs{...} }
+//	GetRepositoryPageSourceArray{ GetRepositoryPageSourceArgs{...} }
 type GetRepositoryPageSourceArrayInput interface {
 	pulumi.Input
 
@@ -3629,7 +3629,7 @@ type GetRepositoryPullRequestsResult struct {
 // GetRepositoryPullRequestsResultInput is an input type that accepts GetRepositoryPullRequestsResultArgs and GetRepositoryPullRequestsResultOutput values.
 // You can construct a concrete instance of `GetRepositoryPullRequestsResultInput` via:
 //
-//          GetRepositoryPullRequestsResultArgs{...}
+//	GetRepositoryPullRequestsResultArgs{...}
 type GetRepositoryPullRequestsResultInput interface {
 	pulumi.Input
 
@@ -3687,7 +3687,7 @@ func (i GetRepositoryPullRequestsResultArgs) ToGetRepositoryPullRequestsResultOu
 // GetRepositoryPullRequestsResultArrayInput is an input type that accepts GetRepositoryPullRequestsResultArray and GetRepositoryPullRequestsResultArrayOutput values.
 // You can construct a concrete instance of `GetRepositoryPullRequestsResultArrayInput` via:
 //
-//          GetRepositoryPullRequestsResultArray{ GetRepositoryPullRequestsResultArgs{...} }
+//	GetRepositoryPullRequestsResultArray{ GetRepositoryPullRequestsResultArgs{...} }
 type GetRepositoryPullRequestsResultArrayInput interface {
 	pulumi.Input
 
@@ -3834,7 +3834,7 @@ type GetTreeEntry struct {
 // GetTreeEntryInput is an input type that accepts GetTreeEntryArgs and GetTreeEntryOutput values.
 // You can construct a concrete instance of `GetTreeEntryInput` via:
 //
-//          GetTreeEntryArgs{...}
+//	GetTreeEntryArgs{...}
 type GetTreeEntryInput interface {
 	pulumi.Input
 
@@ -3865,7 +3865,7 @@ func (i GetTreeEntryArgs) ToGetTreeEntryOutputWithContext(ctx context.Context) G
 // GetTreeEntryArrayInput is an input type that accepts GetTreeEntryArray and GetTreeEntryArrayOutput values.
 // You can construct a concrete instance of `GetTreeEntryArrayInput` via:
 //
-//          GetTreeEntryArray{ GetTreeEntryArgs{...} }
+//	GetTreeEntryArray{ GetTreeEntryArgs{...} }
 type GetTreeEntryArrayInput interface {
 	pulumi.Input
 

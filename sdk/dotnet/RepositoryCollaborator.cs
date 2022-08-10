@@ -32,23 +32,21 @@ namespace Pulumi.Github
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Github = Pulumi.Github;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     // Add a collaborator to a repository
+    ///     var aRepoCollaborator = new Github.RepositoryCollaborator("aRepoCollaborator", new()
     ///     {
-    ///         // Add a collaborator to a repository
-    ///         var aRepoCollaborator = new Github.RepositoryCollaborator("aRepoCollaborator", new Github.RepositoryCollaboratorArgs
-    ///         {
-    ///             Permission = "admin",
-    ///             Repository = "our-cool-repo",
-    ///             Username = "SomeUser",
-    ///         });
-    ///     }
+    ///         Permission = "admin",
+    ///         Repository = "our-cool-repo",
+    ///         Username = "SomeUser",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -60,7 +58,7 @@ namespace Pulumi.Github
     /// ```
     /// </summary>
     [GithubResourceType("github:index/repositoryCollaborator:RepositoryCollaborator")]
-    public partial class RepositoryCollaborator : Pulumi.CustomResource
+    public partial class RepositoryCollaborator : global::Pulumi.CustomResource
     {
         /// <summary>
         /// ID of the invitation to be used in `github.UserInvitationAccepter`
@@ -138,7 +136,7 @@ namespace Pulumi.Github
         }
     }
 
-    public sealed class RepositoryCollaboratorArgs : Pulumi.ResourceArgs
+    public sealed class RepositoryCollaboratorArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The permission of the outside collaborator for the repository.
@@ -169,9 +167,10 @@ namespace Pulumi.Github
         public RepositoryCollaboratorArgs()
         {
         }
+        public static new RepositoryCollaboratorArgs Empty => new RepositoryCollaboratorArgs();
     }
 
-    public sealed class RepositoryCollaboratorState : Pulumi.ResourceArgs
+    public sealed class RepositoryCollaboratorState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ID of the invitation to be used in `github.UserInvitationAccepter`
@@ -208,5 +207,6 @@ namespace Pulumi.Github
         public RepositoryCollaboratorState()
         {
         }
+        public static new RepositoryCollaboratorState Empty => new RepositoryCollaboratorState();
     }
 }

@@ -23,36 +23,39 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-github/sdk/v4/go/github"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-github/sdk/v4/go/github"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := github.NewRepository(ctx, "example", &github.RepositoryArgs{
-// 			Description: pulumi.String("My awesome codebase"),
-// 			AutoInit:    pulumi.Bool(true),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		development, err := github.NewBranch(ctx, "development", &github.BranchArgs{
-// 			Repository: example.Name,
-// 			Branch:     pulumi.String("development"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = github.NewBranchDefault(ctx, "default", &github.BranchDefaultArgs{
-// 			Repository: example.Name,
-// 			Branch:     development.Branch,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := github.NewRepository(ctx, "example", &github.RepositoryArgs{
+//				Description: pulumi.String("My awesome codebase"),
+//				AutoInit:    pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			development, err := github.NewBranch(ctx, "development", &github.BranchArgs{
+//				Repository: example.Name,
+//				Branch:     pulumi.String("development"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = github.NewBranchDefault(ctx, "default", &github.BranchDefaultArgs{
+//				Repository: example.Name,
+//				Branch:     development.Branch,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -60,7 +63,9 @@ import (
 // GitHub Branch Defaults can be imported using an ID made up of `repository`, e.g.
 //
 // ```sh
-//  $ pulumi import github:index/branchDefault:BranchDefault branch_default my-repo
+//
+//	$ pulumi import github:index/branchDefault:BranchDefault branch_default my-repo
+//
 // ```
 type BranchDefault struct {
 	pulumi.CustomResourceState
@@ -164,7 +169,7 @@ func (i *BranchDefault) ToBranchDefaultOutputWithContext(ctx context.Context) Br
 // BranchDefaultArrayInput is an input type that accepts BranchDefaultArray and BranchDefaultArrayOutput values.
 // You can construct a concrete instance of `BranchDefaultArrayInput` via:
 //
-//          BranchDefaultArray{ BranchDefaultArgs{...} }
+//	BranchDefaultArray{ BranchDefaultArgs{...} }
 type BranchDefaultArrayInput interface {
 	pulumi.Input
 
@@ -189,7 +194,7 @@ func (i BranchDefaultArray) ToBranchDefaultArrayOutputWithContext(ctx context.Co
 // BranchDefaultMapInput is an input type that accepts BranchDefaultMap and BranchDefaultMapOutput values.
 // You can construct a concrete instance of `BranchDefaultMapInput` via:
 //
-//          BranchDefaultMap{ "key": BranchDefaultArgs{...} }
+//	BranchDefaultMap{ "key": BranchDefaultArgs{...} }
 type BranchDefaultMapInput interface {
 	pulumi.Input
 

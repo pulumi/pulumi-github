@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Github.Inputs
 {
 
-    public sealed class RepositoryPagesGetArgs : Pulumi.ResourceArgs
+    public sealed class RepositoryPagesGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The custom domain for the repository. This can only be set after the repository has been created.
@@ -48,5 +48,6 @@ namespace Pulumi.Github.Inputs
         public RepositoryPagesGetArgs()
         {
         }
+        public static new RepositoryPagesGetArgs Empty => new RepositoryPagesGetArgs();
     }
 }

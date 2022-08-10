@@ -22,22 +22,25 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-github/sdk/v4/go/github"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-github/sdk/v4/go/github"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := github.NewBranch(ctx, "development", &github.BranchArgs{
-// 			Branch:     pulumi.String("development"),
-// 			Repository: pulumi.String("example"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := github.NewBranch(ctx, "development", &github.BranchArgs{
+//				Branch:     pulumi.String("development"),
+//				Repository: pulumi.String("example"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -45,19 +48,25 @@ import (
 // GitHub Branch can be imported using an ID made up of `repository:branch`, e.g.
 //
 // ```sh
-//  $ pulumi import github:index/branch:Branch terraform terraform:main
+//
+//	$ pulumi import github:index/branch:Branch terraform terraform:main
+//
 // ```
 //
-//  Importing github branch into an instance object (when using a for each block to manage multiple branches)
+//	Importing github branch into an instance object (when using a for each block to manage multiple branches)
 //
 // ```sh
-//  $ pulumi import github:index/branch:Branch terraform["terraform"] terraform:main
+//
+//	$ pulumi import github:index/branch:Branch terraform["terraform"] terraform:main
+//
 // ```
 //
-//  Optionally, a source branch may be specified using an ID of `repository:branch:source_branch`. This is useful for importing branches that do not branch directly off main.
+//	Optionally, a source branch may be specified using an ID of `repository:branch:source_branch`. This is useful for importing branches that do not branch directly off main.
 //
 // ```sh
-//  $ pulumi import github:index/branch:Branch terraform terraform:feature-branch:dev
+//
+//	$ pulumi import github:index/branch:Branch terraform terraform:feature-branch:dev
+//
 // ```
 type Branch struct {
 	pulumi.CustomResourceState
@@ -199,7 +208,7 @@ func (i *Branch) ToBranchOutputWithContext(ctx context.Context) BranchOutput {
 // BranchArrayInput is an input type that accepts BranchArray and BranchArrayOutput values.
 // You can construct a concrete instance of `BranchArrayInput` via:
 //
-//          BranchArray{ BranchArgs{...} }
+//	BranchArray{ BranchArgs{...} }
 type BranchArrayInput interface {
 	pulumi.Input
 
@@ -224,7 +233,7 @@ func (i BranchArray) ToBranchArrayOutputWithContext(ctx context.Context) BranchA
 // BranchMapInput is an input type that accepts BranchMap and BranchMapOutput values.
 // You can construct a concrete instance of `BranchMapInput` via:
 //
-//          BranchMap{ "key": BranchArgs{...} }
+//	BranchMap{ "key": BranchArgs{...} }
 type BranchMapInput interface {
 	pulumi.Input
 

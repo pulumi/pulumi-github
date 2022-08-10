@@ -15,69 +15,71 @@ namespace Pulumi.Github
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Github = Pulumi.Github;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var project = new Github.OrganizationProject("project", new()
     ///     {
-    ///         var project = new Github.OrganizationProject("project", new Github.OrganizationProjectArgs
-    ///         {
-    ///             Body = "This is an organization project.",
-    ///         });
-    ///         var column = new Github.ProjectColumn("column", new Github.ProjectColumnArgs
-    ///         {
-    ///             ProjectId = project.Id,
-    ///         });
-    ///         var card = new Github.ProjectCard("card", new Github.ProjectCardArgs
-    ///         {
-    ///             ColumnId = column.ColumnId,
-    ///             Note = "## Unaccepted 👇",
-    ///         });
-    ///     }
+    ///         Body = "This is an organization project.",
+    ///     });
     /// 
-    /// }
+    ///     var column = new Github.ProjectColumn("column", new()
+    ///     {
+    ///         ProjectId = project.Id,
+    ///     });
+    /// 
+    ///     var card = new Github.ProjectCard("card", new()
+    ///     {
+    ///         ColumnId = column.ColumnId,
+    ///         Note = "## Unaccepted 👇",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ### Adding An Issue To A Project
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Github = Pulumi.Github;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var testRepository = new Github.Repository("testRepository", new()
     ///     {
-    ///         var testRepository = new Github.Repository("testRepository", new Github.RepositoryArgs
-    ///         {
-    ///             HasProjects = true,
-    ///             HasIssues = true,
-    ///         });
-    ///         var testIssue = new Github.Issue("testIssue", new Github.IssueArgs
-    ///         {
-    ///             Repository = testRepository.Id,
-    ///             Title = "Test issue title",
-    ///             Body = "Test issue body",
-    ///         });
-    ///         var testRepositoryProject = new Github.RepositoryProject("testRepositoryProject", new Github.RepositoryProjectArgs
-    ///         {
-    ///             Repository = testRepository.Name,
-    ///             Body = "this is a test project",
-    ///         });
-    ///         var testProjectColumn = new Github.ProjectColumn("testProjectColumn", new Github.ProjectColumnArgs
-    ///         {
-    ///             ProjectId = testRepositoryProject.Id,
-    ///         });
-    ///         var testProjectCard = new Github.ProjectCard("testProjectCard", new Github.ProjectCardArgs
-    ///         {
-    ///             ColumnId = testProjectColumn.ColumnId,
-    ///             ContentId = testIssue.IssueId,
-    ///             ContentType = "Issue",
-    ///         });
-    ///     }
+    ///         HasProjects = true,
+    ///         HasIssues = true,
+    ///     });
     /// 
-    /// }
+    ///     var testIssue = new Github.Issue("testIssue", new()
+    ///     {
+    ///         Repository = testRepository.Id,
+    ///         Title = "Test issue title",
+    ///         Body = "Test issue body",
+    ///     });
+    /// 
+    ///     var testRepositoryProject = new Github.RepositoryProject("testRepositoryProject", new()
+    ///     {
+    ///         Repository = testRepository.Name,
+    ///         Body = "this is a test project",
+    ///     });
+    /// 
+    ///     var testProjectColumn = new Github.ProjectColumn("testProjectColumn", new()
+    ///     {
+    ///         ProjectId = testRepositoryProject.Id,
+    ///     });
+    /// 
+    ///     var testProjectCard = new Github.ProjectCard("testProjectCard", new()
+    ///     {
+    ///         ColumnId = testProjectColumn.ColumnId,
+    ///         ContentId = testIssue.IssueId,
+    ///         ContentType = "Issue",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -89,7 +91,7 @@ namespace Pulumi.Github
     /// ```
     /// </summary>
     [GithubResourceType("github:index/projectCard:ProjectCard")]
-    public partial class ProjectCard : Pulumi.CustomResource
+    public partial class ProjectCard : global::Pulumi.CustomResource
     {
         [Output("cardId")]
         public Output<int> CardId { get; private set; } = null!;
@@ -165,7 +167,7 @@ namespace Pulumi.Github
         }
     }
 
-    public sealed class ProjectCardArgs : Pulumi.ResourceArgs
+    public sealed class ProjectCardArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the card.
@@ -194,9 +196,10 @@ namespace Pulumi.Github
         public ProjectCardArgs()
         {
         }
+        public static new ProjectCardArgs Empty => new ProjectCardArgs();
     }
 
-    public sealed class ProjectCardState : Pulumi.ResourceArgs
+    public sealed class ProjectCardState : global::Pulumi.ResourceArgs
     {
         [Input("cardId")]
         public Input<int>? CardId { get; set; }
@@ -231,5 +234,6 @@ namespace Pulumi.Github
         public ProjectCardState()
         {
         }
+        public static new ProjectCardState Empty => new ProjectCardState();
     }
 }

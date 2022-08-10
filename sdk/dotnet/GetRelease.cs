@@ -25,7 +25,7 @@ namespace Pulumi.Github
     }
 
 
-    public sealed class GetReleaseArgs : Pulumi.InvokeArgs
+    public sealed class GetReleaseArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Owner of the repository.
@@ -60,9 +60,10 @@ namespace Pulumi.Github
         public GetReleaseArgs()
         {
         }
+        public static new GetReleaseArgs Empty => new GetReleaseArgs();
     }
 
-    public sealed class GetReleaseInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetReleaseInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Owner of the repository.
@@ -97,6 +98,7 @@ namespace Pulumi.Github
         public GetReleaseInvokeArgs()
         {
         }
+        public static new GetReleaseInvokeArgs Empty => new GetReleaseInvokeArgs();
     }
 
 

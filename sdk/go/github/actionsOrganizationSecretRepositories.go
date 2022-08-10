@@ -22,38 +22,43 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-github/sdk/v4/go/github"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-github/sdk/v4/go/github"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		repo, err := github.LookupRepository(ctx, &GetRepositoryArgs{
-// 			FullName: pulumi.StringRef("my-org/repo"),
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = github.NewActionsOrganizationSecretRepositories(ctx, "orgSecretRepos", &github.ActionsOrganizationSecretRepositoriesArgs{
-// 			SecretName: pulumi.String("existing_secret_name"),
-// 			SelectedRepositoryIds: pulumi.IntArray{
-// 				pulumi.Int(repo.RepoId),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			repo, err := github.LookupRepository(ctx, &GetRepositoryArgs{
+//				FullName: pulumi.StringRef("my-org/repo"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = github.NewActionsOrganizationSecretRepositories(ctx, "orgSecretRepos", &github.ActionsOrganizationSecretRepositoriesArgs{
+//				SecretName: pulumi.String("existing_secret_name"),
+//				SelectedRepositoryIds: pulumi.IntArray{
+//					pulumi.Int(repo.RepoId),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
 //
-// This resource can be imported using an ID made up of the secret name
+// # This resource can be imported using an ID made up of the secret name
 //
 // ```sh
-//  $ pulumi import github:index/actionsOrganizationSecretRepositories:ActionsOrganizationSecretRepositories test_secret_repos test_secret_name
+//
+//	$ pulumi import github:index/actionsOrganizationSecretRepositories:ActionsOrganizationSecretRepositories test_secret_repos test_secret_name
+//
 // ```
 type ActionsOrganizationSecretRepositories struct {
 	pulumi.CustomResourceState
@@ -157,7 +162,7 @@ func (i *ActionsOrganizationSecretRepositories) ToActionsOrganizationSecretRepos
 // ActionsOrganizationSecretRepositoriesArrayInput is an input type that accepts ActionsOrganizationSecretRepositoriesArray and ActionsOrganizationSecretRepositoriesArrayOutput values.
 // You can construct a concrete instance of `ActionsOrganizationSecretRepositoriesArrayInput` via:
 //
-//          ActionsOrganizationSecretRepositoriesArray{ ActionsOrganizationSecretRepositoriesArgs{...} }
+//	ActionsOrganizationSecretRepositoriesArray{ ActionsOrganizationSecretRepositoriesArgs{...} }
 type ActionsOrganizationSecretRepositoriesArrayInput interface {
 	pulumi.Input
 
@@ -182,7 +187,7 @@ func (i ActionsOrganizationSecretRepositoriesArray) ToActionsOrganizationSecretR
 // ActionsOrganizationSecretRepositoriesMapInput is an input type that accepts ActionsOrganizationSecretRepositoriesMap and ActionsOrganizationSecretRepositoriesMapOutput values.
 // You can construct a concrete instance of `ActionsOrganizationSecretRepositoriesMapInput` via:
 //
-//          ActionsOrganizationSecretRepositoriesMap{ "key": ActionsOrganizationSecretRepositoriesArgs{...} }
+//	ActionsOrganizationSecretRepositoriesMap{ "key": ActionsOrganizationSecretRepositoriesArgs{...} }
 type ActionsOrganizationSecretRepositoriesMapInput interface {
 	pulumi.Input
 

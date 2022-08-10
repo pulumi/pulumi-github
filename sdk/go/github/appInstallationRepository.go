@@ -29,26 +29,29 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-github/sdk/v4/go/github"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-github/sdk/v4/go/github"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		someRepo, err := github.NewRepository(ctx, "someRepo", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = github.NewAppInstallationRepository(ctx, "someAppRepo", &github.AppInstallationRepositoryArgs{
-// 			InstallationId: pulumi.String("1234567"),
-// 			Repository:     someRepo.Name,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			someRepo, err := github.NewRepository(ctx, "someRepo", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = github.NewAppInstallationRepository(ctx, "someAppRepo", &github.AppInstallationRepositoryArgs{
+//				InstallationId: pulumi.String("1234567"),
+//				Repository:     someRepo.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -56,7 +59,9 @@ import (
 // GitHub App Installation Repository can be imported using an ID made up of `installation_id:repository`, e.g.
 //
 // ```sh
-//  $ pulumi import github:index/appInstallationRepository:AppInstallationRepository terraform_repo 1234567:terraform
+//
+//	$ pulumi import github:index/appInstallationRepository:AppInstallationRepository terraform_repo 1234567:terraform
+//
 // ```
 type AppInstallationRepository struct {
 	pulumi.CustomResourceState
@@ -163,7 +168,7 @@ func (i *AppInstallationRepository) ToAppInstallationRepositoryOutputWithContext
 // AppInstallationRepositoryArrayInput is an input type that accepts AppInstallationRepositoryArray and AppInstallationRepositoryArrayOutput values.
 // You can construct a concrete instance of `AppInstallationRepositoryArrayInput` via:
 //
-//          AppInstallationRepositoryArray{ AppInstallationRepositoryArgs{...} }
+//	AppInstallationRepositoryArray{ AppInstallationRepositoryArgs{...} }
 type AppInstallationRepositoryArrayInput interface {
 	pulumi.Input
 
@@ -188,7 +193,7 @@ func (i AppInstallationRepositoryArray) ToAppInstallationRepositoryArrayOutputWi
 // AppInstallationRepositoryMapInput is an input type that accepts AppInstallationRepositoryMap and AppInstallationRepositoryMapOutput values.
 // You can construct a concrete instance of `AppInstallationRepositoryMapInput` via:
 //
-//          AppInstallationRepositoryMap{ "key": AppInstallationRepositoryArgs{...} }
+//	AppInstallationRepositoryMap{ "key": AppInstallationRepositoryArgs{...} }
 type AppInstallationRepositoryMapInput interface {
 	pulumi.Input
 

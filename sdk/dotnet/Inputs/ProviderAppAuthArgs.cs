@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Github.Inputs
 {
 
-    public sealed class ProviderAppAuthArgs : Pulumi.ResourceArgs
+    public sealed class ProviderAppAuthArgs : global::Pulumi.ResourceArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -24,5 +24,6 @@ namespace Pulumi.Github.Inputs
         public ProviderAppAuthArgs()
         {
         }
+        public static new ProviderAppAuthArgs Empty => new ProviderAppAuthArgs();
     }
 }

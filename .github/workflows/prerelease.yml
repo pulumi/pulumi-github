@@ -104,7 +104,7 @@ jobs:
         dotnetversion:
         - 3.1.301
         goversion:
-        - 1.18.x
+        - 1.19.x
         javaversion:
         - "11"
         language:
@@ -114,9 +114,9 @@ jobs:
         - go
         - java
         nodeversion:
-        - 14.x
+        - 16.x
         pythonversion:
-        - "3.7"
+        - "3.9"
   lint:
     container: golangci/golangci-lint:latest
     name: lint
@@ -153,7 +153,7 @@ jobs:
       fail-fast: true
       matrix:
         goversion:
-        - 1.18.x
+        - 1.19.x
   lint_sdk:
     container: golangci/golangci-lint:latest
     name: lint-sdk
@@ -191,7 +191,7 @@ jobs:
       fail-fast: true
       matrix:
         goversion:
-        - 1.18.x
+        - 1.19.x
   prerequisites:
     name: prerequisites
     runs-on: ubuntu-latest
@@ -261,11 +261,11 @@ jobs:
         dotnetversion:
         - 3.1.301
         goversion:
-        - 1.18.x
+        - 1.19.x
         nodeversion:
-        - 14.x
+        - 16.x
         pythonversion:
-        - "3.7"
+        - "3.9"
   publish:
     name: publish
     needs: test
@@ -317,11 +317,11 @@ jobs:
         dotnetversion:
         - 3.1.301
         goversion:
-        - 1.18.x
+        - 1.19.x
         nodeversion:
-        - 14.x
+        - 16.x
         pythonversion:
-        - "3.7"
+        - "3.9"
   publish_sdk:
     name: publish_sdk
     needs: publish
@@ -424,13 +424,13 @@ jobs:
         dotnetversion:
         - 3.1.301
         goversion:
-        - 1.18.x
+        - 1.19.x
         javaversion:
         - "11"
         nodeversion:
-        - 14.x
+        - 16.x
         pythonversion:
-        - "3.7"
+        - "3.9"
   test:
     name: test
     needs: build_sdk
@@ -522,7 +522,7 @@ jobs:
         dotnetversion:
         - 3.1.301
         goversion:
-        - 1.18.x
+        - 1.19.x
         javaversion:
         - "11"
         language:
@@ -532,9 +532,9 @@ jobs:
         - go
         - java
         nodeversion:
-        - 14.x
+        - 16.x
         pythonversion:
-        - "3.7"
+        - "3.9"
 name: prerelease
 on:
   push:

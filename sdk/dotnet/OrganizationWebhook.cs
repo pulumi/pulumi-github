@@ -15,30 +15,28 @@ namespace Pulumi.Github
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Github = Pulumi.Github;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var foo = new Github.OrganizationWebhook("foo", new()
     ///     {
-    ///         var foo = new Github.OrganizationWebhook("foo", new Github.OrganizationWebhookArgs
+    ///         Active = false,
+    ///         Configuration = new Github.Inputs.OrganizationWebhookConfigurationArgs
     ///         {
-    ///             Active = false,
-    ///             Configuration = new Github.Inputs.OrganizationWebhookConfigurationArgs
-    ///             {
-    ///                 ContentType = "form",
-    ///                 InsecureSsl = false,
-    ///                 Url = "https://google.de/",
-    ///             },
-    ///             Events = 
-    ///             {
-    ///                 "issues",
-    ///             },
-    ///         });
-    ///     }
+    ///             ContentType = "form",
+    ///             InsecureSsl = false,
+    ///             Url = "https://google.de/",
+    ///         },
+    ///         Events = new[]
+    ///         {
+    ///             "issues",
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -52,7 +50,7 @@ namespace Pulumi.Github
     ///  If secret is populated in the webhook's configuration, the value will be imported as "********".
     /// </summary>
     [GithubResourceType("github:index/organizationWebhook:OrganizationWebhook")]
-    public partial class OrganizationWebhook : Pulumi.CustomResource
+    public partial class OrganizationWebhook : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Indicate of the webhook should receive events. Defaults to `true`.
@@ -125,7 +123,7 @@ namespace Pulumi.Github
         }
     }
 
-    public sealed class OrganizationWebhookArgs : Pulumi.ResourceArgs
+    public sealed class OrganizationWebhookArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicate of the webhook should receive events. Defaults to `true`.
@@ -154,9 +152,10 @@ namespace Pulumi.Github
         public OrganizationWebhookArgs()
         {
         }
+        public static new OrganizationWebhookArgs Empty => new OrganizationWebhookArgs();
     }
 
-    public sealed class OrganizationWebhookState : Pulumi.ResourceArgs
+    public sealed class OrganizationWebhookState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicate of the webhook should receive events. Defaults to `true`.
@@ -194,5 +193,6 @@ namespace Pulumi.Github
         public OrganizationWebhookState()
         {
         }
+        public static new OrganizationWebhookState Empty => new OrganizationWebhookState();
     }
 }

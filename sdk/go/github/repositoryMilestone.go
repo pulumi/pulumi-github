@@ -21,23 +21,26 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-github/sdk/v4/go/github"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-github/sdk/v4/go/github"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := github.NewRepositoryMilestone(ctx, "example", &github.RepositoryMilestoneArgs{
-// 			Owner:      pulumi.String("example-owner"),
-// 			Repository: pulumi.String("example-repository"),
-// 			Title:      pulumi.String("v1.1.0"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := github.NewRepositoryMilestone(ctx, "example", &github.RepositoryMilestoneArgs{
+//				Owner:      pulumi.String("example-owner"),
+//				Repository: pulumi.String("example-repository"),
+//				Title:      pulumi.String("v1.1.0"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -45,7 +48,9 @@ import (
 // A GitHub Repository Milestone can be imported using an ID made up of `owner/repository/number`, e.g.
 //
 // ```sh
-//  $ pulumi import github:index/repositoryMilestone:RepositoryMilestone example example-owner/example-repository/1
+//
+//	$ pulumi import github:index/repositoryMilestone:RepositoryMilestone example example-owner/example-repository/1
+//
 // ```
 type RepositoryMilestone struct {
 	pulumi.CustomResourceState
@@ -198,7 +203,7 @@ func (i *RepositoryMilestone) ToRepositoryMilestoneOutputWithContext(ctx context
 // RepositoryMilestoneArrayInput is an input type that accepts RepositoryMilestoneArray and RepositoryMilestoneArrayOutput values.
 // You can construct a concrete instance of `RepositoryMilestoneArrayInput` via:
 //
-//          RepositoryMilestoneArray{ RepositoryMilestoneArgs{...} }
+//	RepositoryMilestoneArray{ RepositoryMilestoneArgs{...} }
 type RepositoryMilestoneArrayInput interface {
 	pulumi.Input
 
@@ -223,7 +228,7 @@ func (i RepositoryMilestoneArray) ToRepositoryMilestoneArrayOutputWithContext(ct
 // RepositoryMilestoneMapInput is an input type that accepts RepositoryMilestoneMap and RepositoryMilestoneMapOutput values.
 // You can construct a concrete instance of `RepositoryMilestoneMapInput` via:
 //
-//          RepositoryMilestoneMap{ "key": RepositoryMilestoneArgs{...} }
+//	RepositoryMilestoneMap{ "key": RepositoryMilestoneArgs{...} }
 type RepositoryMilestoneMapInput interface {
 	pulumi.Input
 

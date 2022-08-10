@@ -15,30 +15,29 @@ namespace Pulumi.Github
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Github = Pulumi.Github;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Github.Repository("example", new()
     ///     {
-    ///         var example = new Github.Repository("example", new Github.RepositoryArgs
-    ///         {
-    ///             Description = "My awesome codebase",
-    ///             HasProjects = true,
-    ///         });
-    ///         var project = new Github.RepositoryProject("project", new Github.RepositoryProjectArgs
-    ///         {
-    ///             Body = "This is a repository project.",
-    ///             Repository = example.Name,
-    ///         });
-    ///     }
+    ///         Description = "My awesome codebase",
+    ///         HasProjects = true,
+    ///     });
     /// 
-    /// }
+    ///     var project = new Github.RepositoryProject("project", new()
+    ///     {
+    ///         Body = "This is a repository project.",
+    ///         Repository = example.Name,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// </summary>
     [GithubResourceType("github:index/repositoryProject:RepositoryProject")]
-    public partial class RepositoryProject : Pulumi.CustomResource
+    public partial class RepositoryProject : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The body of the project.
@@ -111,7 +110,7 @@ namespace Pulumi.Github
         }
     }
 
-    public sealed class RepositoryProjectArgs : Pulumi.ResourceArgs
+    public sealed class RepositoryProjectArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The body of the project.
@@ -134,9 +133,10 @@ namespace Pulumi.Github
         public RepositoryProjectArgs()
         {
         }
+        public static new RepositoryProjectArgs Empty => new RepositoryProjectArgs();
     }
 
-    public sealed class RepositoryProjectState : Pulumi.ResourceArgs
+    public sealed class RepositoryProjectState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The body of the project.
@@ -168,5 +168,6 @@ namespace Pulumi.Github
         public RepositoryProjectState()
         {
         }
+        public static new RepositoryProjectState Empty => new RepositoryProjectState();
     }
 }

@@ -26,36 +26,39 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-github/sdk/v4/go/github"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-github/sdk/v4/go/github"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := github.NewMembership(ctx, "membershipForSomeUser", &github.MembershipArgs{
-// 			Username: pulumi.String("SomeUser"),
-// 			Role:     pulumi.String("member"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		someTeam, err := github.NewTeam(ctx, "someTeam", &github.TeamArgs{
-// 			Description: pulumi.String("Some cool team"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = github.NewTeamMembership(ctx, "someTeamMembership", &github.TeamMembershipArgs{
-// 			TeamId:   someTeam.ID(),
-// 			Username: pulumi.String("SomeUser"),
-// 			Role:     pulumi.String("member"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := github.NewMembership(ctx, "membershipForSomeUser", &github.MembershipArgs{
+//				Username: pulumi.String("SomeUser"),
+//				Role:     pulumi.String("member"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			someTeam, err := github.NewTeam(ctx, "someTeam", &github.TeamArgs{
+//				Description: pulumi.String("Some cool team"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = github.NewTeamMembership(ctx, "someTeamMembership", &github.TeamMembershipArgs{
+//				TeamId:   someTeam.ID(),
+//				Username: pulumi.String("SomeUser"),
+//				Role:     pulumi.String("member"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -63,7 +66,9 @@ import (
 // GitHub Team Membership can be imported using an ID made up of `teamid:username`, e.g.
 //
 // ```sh
-//  $ pulumi import github:index/teamMembership:TeamMembership member 1234567:someuser
+//
+//	$ pulumi import github:index/teamMembership:TeamMembership member 1234567:someuser
+//
 // ```
 type TeamMembership struct {
 	pulumi.CustomResourceState
@@ -185,7 +190,7 @@ func (i *TeamMembership) ToTeamMembershipOutputWithContext(ctx context.Context) 
 // TeamMembershipArrayInput is an input type that accepts TeamMembershipArray and TeamMembershipArrayOutput values.
 // You can construct a concrete instance of `TeamMembershipArrayInput` via:
 //
-//          TeamMembershipArray{ TeamMembershipArgs{...} }
+//	TeamMembershipArray{ TeamMembershipArgs{...} }
 type TeamMembershipArrayInput interface {
 	pulumi.Input
 
@@ -210,7 +215,7 @@ func (i TeamMembershipArray) ToTeamMembershipArrayOutputWithContext(ctx context.
 // TeamMembershipMapInput is an input type that accepts TeamMembershipMap and TeamMembershipMapOutput values.
 // You can construct a concrete instance of `TeamMembershipMapInput` via:
 //
-//          TeamMembershipMap{ "key": TeamMembershipArgs{...} }
+//	TeamMembershipMap{ "key": TeamMembershipArgs{...} }
 type TeamMembershipMapInput interface {
 	pulumi.Input
 

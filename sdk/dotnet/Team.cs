@@ -18,22 +18,20 @@ namespace Pulumi.Github
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Github = Pulumi.Github;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     // Add a team to the organization
+    ///     var someTeam = new Github.Team("someTeam", new()
     ///     {
-    ///         // Add a team to the organization
-    ///         var someTeam = new Github.Team("someTeam", new Github.TeamArgs
-    ///         {
-    ///             Description = "Some cool team",
-    ///             Privacy = "closed",
-    ///         });
-    ///     }
+    ///         Description = "Some cool team",
+    ///         Privacy = "closed",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -45,7 +43,7 @@ namespace Pulumi.Github
     /// ```
     /// </summary>
     [GithubResourceType("github:index/team:Team")]
-    public partial class Team : Pulumi.CustomResource
+    public partial class Team : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Adds a default maintainer to the team. Defaults to `false` and adds the creating user to the team when `true`.
@@ -148,7 +146,7 @@ namespace Pulumi.Github
         }
     }
 
-    public sealed class TeamArgs : Pulumi.ResourceArgs
+    public sealed class TeamArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Adds a default maintainer to the team. Defaults to `false` and adds the creating user to the team when `true`.
@@ -190,9 +188,10 @@ namespace Pulumi.Github
         public TeamArgs()
         {
         }
+        public static new TeamArgs Empty => new TeamArgs();
     }
 
-    public sealed class TeamState : Pulumi.ResourceArgs
+    public sealed class TeamState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Adds a default maintainer to the team. Defaults to `false` and adds the creating user to the team when `true`.
@@ -254,5 +253,6 @@ namespace Pulumi.Github
         public TeamState()
         {
         }
+        public static new TeamState Empty => new TeamState();
     }
 }

@@ -25,7 +25,7 @@ namespace Pulumi.Github
     /// ```
     /// </summary>
     [GithubResourceType("github:index/teamSyncGroupMapping:TeamSyncGroupMapping")]
-    public partial class TeamSyncGroupMapping : Pulumi.CustomResource
+    public partial class TeamSyncGroupMapping : global::Pulumi.CustomResource
     {
         [Output("etag")]
         public Output<string> Etag { get; private set; } = null!;
@@ -87,7 +87,7 @@ namespace Pulumi.Github
         }
     }
 
-    public sealed class TeamSyncGroupMappingArgs : Pulumi.ResourceArgs
+    public sealed class TeamSyncGroupMappingArgs : global::Pulumi.ResourceArgs
     {
         [Input("groups")]
         private InputList<Inputs.TeamSyncGroupMappingGroupArgs>? _groups;
@@ -111,9 +111,10 @@ namespace Pulumi.Github
         public TeamSyncGroupMappingArgs()
         {
         }
+        public static new TeamSyncGroupMappingArgs Empty => new TeamSyncGroupMappingArgs();
     }
 
-    public sealed class TeamSyncGroupMappingState : Pulumi.ResourceArgs
+    public sealed class TeamSyncGroupMappingState : global::Pulumi.ResourceArgs
     {
         [Input("etag")]
         public Input<string>? Etag { get; set; }
@@ -140,5 +141,6 @@ namespace Pulumi.Github
         public TeamSyncGroupMappingState()
         {
         }
+        public static new TeamSyncGroupMappingState Empty => new TeamSyncGroupMappingState();
     }
 }

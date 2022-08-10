@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Github.Inputs
 {
 
-    public sealed class RepositoryBranchArgs : Pulumi.ResourceArgs
+    public sealed class RepositoryBranchArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the repository.
@@ -27,5 +27,6 @@ namespace Pulumi.Github.Inputs
         public RepositoryBranchArgs()
         {
         }
+        public static new RepositoryBranchArgs Empty => new RepositoryBranchArgs();
     }
 }

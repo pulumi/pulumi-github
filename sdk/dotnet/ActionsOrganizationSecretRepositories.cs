@@ -18,28 +18,27 @@ namespace Pulumi.Github
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Github = Pulumi.Github;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var repo = Github.GetRepository.Invoke(new()
     ///     {
-    ///         var repo = Output.Create(Github.GetRepository.InvokeAsync(new Github.GetRepositoryArgs
-    ///         {
-    ///             FullName = "my-org/repo",
-    ///         }));
-    ///         var orgSecretRepos = new Github.ActionsOrganizationSecretRepositories("orgSecretRepos", new Github.ActionsOrganizationSecretRepositoriesArgs
-    ///         {
-    ///             SecretName = "existing_secret_name",
-    ///             SelectedRepositoryIds = 
-    ///             {
-    ///                 repo.Apply(repo =&gt; repo.RepoId),
-    ///             },
-    ///         });
-    ///     }
+    ///         FullName = "my-org/repo",
+    ///     });
     /// 
-    /// }
+    ///     var orgSecretRepos = new Github.ActionsOrganizationSecretRepositories("orgSecretRepos", new()
+    ///     {
+    ///         SecretName = "existing_secret_name",
+    ///         SelectedRepositoryIds = new[]
+    ///         {
+    ///             repo.Apply(getRepositoryResult =&gt; getRepositoryResult.RepoId),
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -51,7 +50,7 @@ namespace Pulumi.Github
     /// ```
     /// </summary>
     [GithubResourceType("github:index/actionsOrganizationSecretRepositories:ActionsOrganizationSecretRepositories")]
-    public partial class ActionsOrganizationSecretRepositories : Pulumi.CustomResource
+    public partial class ActionsOrganizationSecretRepositories : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Name of the existing secret
@@ -109,7 +108,7 @@ namespace Pulumi.Github
         }
     }
 
-    public sealed class ActionsOrganizationSecretRepositoriesArgs : Pulumi.ResourceArgs
+    public sealed class ActionsOrganizationSecretRepositoriesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the existing secret
@@ -132,9 +131,10 @@ namespace Pulumi.Github
         public ActionsOrganizationSecretRepositoriesArgs()
         {
         }
+        public static new ActionsOrganizationSecretRepositoriesArgs Empty => new ActionsOrganizationSecretRepositoriesArgs();
     }
 
-    public sealed class ActionsOrganizationSecretRepositoriesState : Pulumi.ResourceArgs
+    public sealed class ActionsOrganizationSecretRepositoriesState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the existing secret
@@ -157,5 +157,6 @@ namespace Pulumi.Github
         public ActionsOrganizationSecretRepositoriesState()
         {
         }
+        public static new ActionsOrganizationSecretRepositoriesState Empty => new ActionsOrganizationSecretRepositoriesState();
     }
 }

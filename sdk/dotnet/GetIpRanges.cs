@@ -19,17 +19,15 @@ namespace Pulumi.Github
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Github = Pulumi.Github;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
-        ///     {
-        ///         var test = Output.Create(Github.GetIpRanges.InvokeAsync());
-        ///     }
+        ///     var test = Github.GetIpRanges.Invoke();
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}

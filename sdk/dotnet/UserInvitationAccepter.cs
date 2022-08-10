@@ -15,40 +15,39 @@ namespace Pulumi.Github
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Github = Pulumi.Github;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var exampleRepository = new Github.Repository("exampleRepository", new Github.RepositoryArgs
-    ///         {
-    ///         });
-    ///         var exampleRepositoryCollaborator = new Github.RepositoryCollaborator("exampleRepositoryCollaborator", new Github.RepositoryCollaboratorArgs
-    ///         {
-    ///             Repository = exampleRepository.Name,
-    ///             Username = "example-username",
-    ///             Permission = "push",
-    ///         });
-    ///         var invitee = new Github.Provider("invitee", new Github.ProviderArgs
-    ///         {
-    ///             Token = @var.Invitee_token,
-    ///         });
-    ///         var exampleUserInvitationAccepter = new Github.UserInvitationAccepter("exampleUserInvitationAccepter", new Github.UserInvitationAccepterArgs
-    ///         {
-    ///             InvitationId = exampleRepositoryCollaborator.InvitationId,
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             Provider = "github.invitee",
-    ///         });
-    ///     }
+    ///     var exampleRepository = new Github.Repository("exampleRepository");
     /// 
-    /// }
+    ///     var exampleRepositoryCollaborator = new Github.RepositoryCollaborator("exampleRepositoryCollaborator", new()
+    ///     {
+    ///         Repository = exampleRepository.Name,
+    ///         Username = "example-username",
+    ///         Permission = "push",
+    ///     });
+    /// 
+    ///     var invitee = new Github.Provider("invitee", new()
+    ///     {
+    ///         Token = @var.Invitee_token,
+    ///     });
+    /// 
+    ///     var exampleUserInvitationAccepter = new Github.UserInvitationAccepter("exampleUserInvitationAccepter", new()
+    ///     {
+    ///         InvitationId = exampleRepositoryCollaborator.InvitationId,
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         Provider = "github.invitee",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// </summary>
     [GithubResourceType("github:index/userInvitationAccepter:UserInvitationAccepter")]
-    public partial class UserInvitationAccepter : Pulumi.CustomResource
+    public partial class UserInvitationAccepter : global::Pulumi.CustomResource
     {
         /// <summary>
         /// ID of the invitation to accept
@@ -100,7 +99,7 @@ namespace Pulumi.Github
         }
     }
 
-    public sealed class UserInvitationAccepterArgs : Pulumi.ResourceArgs
+    public sealed class UserInvitationAccepterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ID of the invitation to accept
@@ -111,9 +110,10 @@ namespace Pulumi.Github
         public UserInvitationAccepterArgs()
         {
         }
+        public static new UserInvitationAccepterArgs Empty => new UserInvitationAccepterArgs();
     }
 
-    public sealed class UserInvitationAccepterState : Pulumi.ResourceArgs
+    public sealed class UserInvitationAccepterState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ID of the invitation to accept
@@ -124,5 +124,6 @@ namespace Pulumi.Github
         public UserInvitationAccepterState()
         {
         }
+        public static new UserInvitationAccepterState Empty => new UserInvitationAccepterState();
     }
 }

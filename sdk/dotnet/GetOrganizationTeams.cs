@@ -21,36 +21,32 @@ namespace Pulumi.Github
         /// To retrieve *all* teams of the organization:
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Github = Pulumi.Github;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
-        ///     {
-        ///         var all = Output.Create(Github.GetOrganizationTeams.InvokeAsync());
-        ///     }
+        ///     var all = Github.GetOrganizationTeams.Invoke();
         /// 
-        /// }
+        /// });
         /// ```
         /// 
         /// To retrieve only the team's at the root of the organization:
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Github = Pulumi.Github;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var rootTeams = Github.GetOrganizationTeams.Invoke(new()
         ///     {
-        ///         var rootTeams = Output.Create(Github.GetOrganizationTeams.InvokeAsync(new Github.GetOrganizationTeamsArgs
-        ///         {
-        ///             RootTeamsOnly = true,
-        ///         }));
-        ///     }
+        ///         RootTeamsOnly = true,
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -68,36 +64,32 @@ namespace Pulumi.Github
         /// To retrieve *all* teams of the organization:
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Github = Pulumi.Github;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
-        ///     {
-        ///         var all = Output.Create(Github.GetOrganizationTeams.InvokeAsync());
-        ///     }
+        ///     var all = Github.GetOrganizationTeams.Invoke();
         /// 
-        /// }
+        /// });
         /// ```
         /// 
         /// To retrieve only the team's at the root of the organization:
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Github = Pulumi.Github;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var rootTeams = Github.GetOrganizationTeams.Invoke(new()
         ///     {
-        ///         var rootTeams = Output.Create(Github.GetOrganizationTeams.InvokeAsync(new Github.GetOrganizationTeamsArgs
-        ///         {
-        ///             RootTeamsOnly = true,
-        ///         }));
-        ///     }
+        ///         RootTeamsOnly = true,
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -107,7 +99,7 @@ namespace Pulumi.Github
     }
 
 
-    public sealed class GetOrganizationTeamsArgs : Pulumi.InvokeArgs
+    public sealed class GetOrganizationTeamsArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Only return teams that are at the organization's root, i.e. no nested teams. Defaults to `false`.
@@ -118,9 +110,10 @@ namespace Pulumi.Github
         public GetOrganizationTeamsArgs()
         {
         }
+        public static new GetOrganizationTeamsArgs Empty => new GetOrganizationTeamsArgs();
     }
 
-    public sealed class GetOrganizationTeamsInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetOrganizationTeamsInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Only return teams that are at the organization's root, i.e. no nested teams. Defaults to `false`.
@@ -131,6 +124,7 @@ namespace Pulumi.Github
         public GetOrganizationTeamsInvokeArgs()
         {
         }
+        public static new GetOrganizationTeamsInvokeArgs Empty => new GetOrganizationTeamsInvokeArgs();
     }
 
 

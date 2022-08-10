@@ -18,22 +18,25 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-github/sdk/v4/go/github"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-github/sdk/v4/go/github"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := github.GetCollaborators(ctx, &GetCollaboratorsArgs{
-// 			Owner:      "example_owner",
-// 			Repository: "example_repository",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := github.GetCollaborators(ctx, &GetCollaboratorsArgs{
+//				Owner:      "example_owner",
+//				Repository: "example_repository",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 func GetCollaborators(ctx *pulumi.Context, args *GetCollaboratorsArgs, opts ...pulumi.InvokeOption) (*GetCollaboratorsResult, error) {
 	var rv GetCollaboratorsResult

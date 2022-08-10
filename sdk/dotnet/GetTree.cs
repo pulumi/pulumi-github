@@ -19,44 +19,35 @@ namespace Pulumi.Github
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Github = Pulumi.Github;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var thisRepository = Github.GetRepository.Invoke(new()
         ///     {
-        ///         var thisRepository = Output.Create(Github.GetRepository.InvokeAsync(new Github.GetRepositoryArgs
-        ///         {
-        ///             Name = "example",
-        ///         }));
-        ///         var thisBranch = Output.Tuple(thisRepository, thisRepository).Apply(values =&gt;
-        ///         {
-        ///             var thisRepository = values.Item1;
-        ///             var thisRepository1 = values.Item2;
-        ///             return Output.Create(Github.GetBranch.InvokeAsync(new Github.GetBranchArgs
-        ///             {
-        ///                 Branch = thisRepository.DefaultBranch,
-        ///                 Repository = thisRepository1.Name,
-        ///             }));
-        ///         });
-        ///         var thisTree = Output.Tuple(thisRepository, thisBranch).Apply(values =&gt;
-        ///         {
-        ///             var thisRepository = values.Item1;
-        ///             var thisBranch = values.Item2;
-        ///             return Output.Create(Github.GetTree.InvokeAsync(new Github.GetTreeArgs
-        ///             {
-        ///                 Recursive = false,
-        ///                 Repository = thisRepository.Name,
-        ///                 TreeSha = thisBranch.Sha,
-        ///             }));
-        ///         });
-        ///         this.Entries = thisTree.Apply(thisTree =&gt; thisTree.Entries);
-        ///     }
+        ///         Name = "example",
+        ///     });
         /// 
-        ///     [Output("entries")]
-        ///     public Output&lt;string&gt; Entries { get; set; }
-        /// }
+        ///     var thisBranch = Github.GetBranch.Invoke(new()
+        ///     {
+        ///         Branch = thisRepository.Apply(getRepositoryResult =&gt; getRepositoryResult.DefaultBranch),
+        ///         Repository = thisRepository.Apply(getRepositoryResult =&gt; getRepositoryResult.Name),
+        ///     });
+        /// 
+        ///     var thisTree = Github.GetTree.Invoke(new()
+        ///     {
+        ///         Recursive = false,
+        ///         Repository = thisRepository.Apply(getRepositoryResult =&gt; getRepositoryResult.Name),
+        ///         TreeSha = thisBranch.Apply(getBranchResult =&gt; getBranchResult.Sha),
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["entries"] = thisTree.Apply(getTreeResult =&gt; getTreeResult.Entries),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -72,44 +63,35 @@ namespace Pulumi.Github
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Github = Pulumi.Github;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var thisRepository = Github.GetRepository.Invoke(new()
         ///     {
-        ///         var thisRepository = Output.Create(Github.GetRepository.InvokeAsync(new Github.GetRepositoryArgs
-        ///         {
-        ///             Name = "example",
-        ///         }));
-        ///         var thisBranch = Output.Tuple(thisRepository, thisRepository).Apply(values =&gt;
-        ///         {
-        ///             var thisRepository = values.Item1;
-        ///             var thisRepository1 = values.Item2;
-        ///             return Output.Create(Github.GetBranch.InvokeAsync(new Github.GetBranchArgs
-        ///             {
-        ///                 Branch = thisRepository.DefaultBranch,
-        ///                 Repository = thisRepository1.Name,
-        ///             }));
-        ///         });
-        ///         var thisTree = Output.Tuple(thisRepository, thisBranch).Apply(values =&gt;
-        ///         {
-        ///             var thisRepository = values.Item1;
-        ///             var thisBranch = values.Item2;
-        ///             return Output.Create(Github.GetTree.InvokeAsync(new Github.GetTreeArgs
-        ///             {
-        ///                 Recursive = false,
-        ///                 Repository = thisRepository.Name,
-        ///                 TreeSha = thisBranch.Sha,
-        ///             }));
-        ///         });
-        ///         this.Entries = thisTree.Apply(thisTree =&gt; thisTree.Entries);
-        ///     }
+        ///         Name = "example",
+        ///     });
         /// 
-        ///     [Output("entries")]
-        ///     public Output&lt;string&gt; Entries { get; set; }
-        /// }
+        ///     var thisBranch = Github.GetBranch.Invoke(new()
+        ///     {
+        ///         Branch = thisRepository.Apply(getRepositoryResult =&gt; getRepositoryResult.DefaultBranch),
+        ///         Repository = thisRepository.Apply(getRepositoryResult =&gt; getRepositoryResult.Name),
+        ///     });
+        /// 
+        ///     var thisTree = Github.GetTree.Invoke(new()
+        ///     {
+        ///         Recursive = false,
+        ///         Repository = thisRepository.Apply(getRepositoryResult =&gt; getRepositoryResult.Name),
+        ///         TreeSha = thisBranch.Apply(getBranchResult =&gt; getBranchResult.Sha),
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["entries"] = thisTree.Apply(getTreeResult =&gt; getTreeResult.Entries),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -119,7 +101,7 @@ namespace Pulumi.Github
     }
 
 
-    public sealed class GetTreeArgs : Pulumi.InvokeArgs
+    public sealed class GetTreeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Setting this parameter to `true` returns the objects or subtrees referenced by the tree specified in `tree_sha`.
@@ -142,9 +124,10 @@ namespace Pulumi.Github
         public GetTreeArgs()
         {
         }
+        public static new GetTreeArgs Empty => new GetTreeArgs();
     }
 
-    public sealed class GetTreeInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetTreeInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Setting this parameter to `true` returns the objects or subtrees referenced by the tree specified in `tree_sha`.
@@ -167,6 +150,7 @@ namespace Pulumi.Github
         public GetTreeInvokeArgs()
         {
         }
+        public static new GetTreeInvokeArgs Empty => new GetTreeInvokeArgs();
     }
 
 

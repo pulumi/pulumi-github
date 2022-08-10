@@ -20,34 +20,37 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-github/sdk/v4/go/github"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-github/sdk/v4/go/github"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		fooRepository, err := github.NewRepository(ctx, "fooRepository", &github.RepositoryArgs{
-// 			AutoInit: pulumi.Bool(true),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = github.NewRepositoryFile(ctx, "fooRepositoryFile", &github.RepositoryFileArgs{
-// 			Repository:        fooRepository.Name,
-// 			Branch:            pulumi.String("main"),
-// 			File:              pulumi.String(".gitignore"),
-// 			Content:           pulumi.String("**/*.tfstate"),
-// 			CommitMessage:     pulumi.String("Managed by Terraform"),
-// 			CommitAuthor:      pulumi.String("Terraform User"),
-// 			CommitEmail:       pulumi.String("terraform@example.com"),
-// 			OverwriteOnCreate: pulumi.Bool(true),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			fooRepository, err := github.NewRepository(ctx, "fooRepository", &github.RepositoryArgs{
+//				AutoInit: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = github.NewRepositoryFile(ctx, "fooRepositoryFile", &github.RepositoryFileArgs{
+//				Repository:        fooRepository.Name,
+//				Branch:            pulumi.String("main"),
+//				File:              pulumi.String(".gitignore"),
+//				Content:           pulumi.String("**/*.tfstate"),
+//				CommitMessage:     pulumi.String("Managed by Terraform"),
+//				CommitAuthor:      pulumi.String("Terraform User"),
+//				CommitEmail:       pulumi.String("terraform@example.com"),
+//				OverwriteOnCreate: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -55,13 +58,17 @@ import (
 // Repository files can be imported using a combination of the `repo` and `file`, e.g.
 //
 // ```sh
-//  $ pulumi import github:index/repositoryFile:RepositoryFile gitignore example/.gitignore
+//
+//	$ pulumi import github:index/repositoryFile:RepositoryFile gitignore example/.gitignore
+//
 // ```
 //
-//  To import a file from a branch other than main, append `:` and the branch name, e.g.
+//	To import a file from a branch other than main, append `:` and the branch name, e.g.
 //
 // ```sh
-//  $ pulumi import github:index/repositoryFile:RepositoryFile gitignore example/.gitignore:dev
+//
+//	$ pulumi import github:index/repositoryFile:RepositoryFile gitignore example/.gitignore:dev
+//
 // ```
 type RepositoryFile struct {
 	pulumi.CustomResourceState
@@ -245,7 +252,7 @@ func (i *RepositoryFile) ToRepositoryFileOutputWithContext(ctx context.Context) 
 // RepositoryFileArrayInput is an input type that accepts RepositoryFileArray and RepositoryFileArrayOutput values.
 // You can construct a concrete instance of `RepositoryFileArrayInput` via:
 //
-//          RepositoryFileArray{ RepositoryFileArgs{...} }
+//	RepositoryFileArray{ RepositoryFileArgs{...} }
 type RepositoryFileArrayInput interface {
 	pulumi.Input
 
@@ -270,7 +277,7 @@ func (i RepositoryFileArray) ToRepositoryFileArrayOutputWithContext(ctx context.
 // RepositoryFileMapInput is an input type that accepts RepositoryFileMap and RepositoryFileMapOutput values.
 // You can construct a concrete instance of `RepositoryFileMapInput` via:
 //
-//          RepositoryFileMap{ "key": RepositoryFileArgs{...} }
+//	RepositoryFileMap{ "key": RepositoryFileArgs{...} }
 type RepositoryFileMapInput interface {
 	pulumi.Input
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Github.Inputs
 {
 
-    public sealed class BranchProtectionV3RestrictionsGetArgs : Pulumi.ResourceArgs
+    public sealed class BranchProtectionV3RestrictionsGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("apps")]
         private InputList<string>? _apps;
@@ -39,5 +39,6 @@ namespace Pulumi.Github.Inputs
         public BranchProtectionV3RestrictionsGetArgs()
         {
         }
+        public static new BranchProtectionV3RestrictionsGetArgs Empty => new BranchProtectionV3RestrictionsGetArgs();
     }
 }

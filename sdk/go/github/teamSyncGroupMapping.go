@@ -22,7 +22,9 @@ import (
 // GitHub Team Sync Group Mappings can be imported using the GitHub team `slug` e.g.
 //
 // ```sh
-//  $ pulumi import github:index/teamSyncGroupMapping:TeamSyncGroupMapping example some_team
+//
+//	$ pulumi import github:index/teamSyncGroupMapping:TeamSyncGroupMapping example some_team
+//
 // ```
 type TeamSyncGroupMapping struct {
 	pulumi.CustomResourceState
@@ -131,7 +133,7 @@ func (i *TeamSyncGroupMapping) ToTeamSyncGroupMappingOutputWithContext(ctx conte
 // TeamSyncGroupMappingArrayInput is an input type that accepts TeamSyncGroupMappingArray and TeamSyncGroupMappingArrayOutput values.
 // You can construct a concrete instance of `TeamSyncGroupMappingArrayInput` via:
 //
-//          TeamSyncGroupMappingArray{ TeamSyncGroupMappingArgs{...} }
+//	TeamSyncGroupMappingArray{ TeamSyncGroupMappingArgs{...} }
 type TeamSyncGroupMappingArrayInput interface {
 	pulumi.Input
 
@@ -156,7 +158,7 @@ func (i TeamSyncGroupMappingArray) ToTeamSyncGroupMappingArrayOutputWithContext(
 // TeamSyncGroupMappingMapInput is an input type that accepts TeamSyncGroupMappingMap and TeamSyncGroupMappingMapOutput values.
 // You can construct a concrete instance of `TeamSyncGroupMappingMapInput` via:
 //
-//          TeamSyncGroupMappingMap{ "key": TeamSyncGroupMappingArgs{...} }
+//	TeamSyncGroupMappingMap{ "key": TeamSyncGroupMappingArgs{...} }
 type TeamSyncGroupMappingMapInput interface {
 	pulumi.Input
 

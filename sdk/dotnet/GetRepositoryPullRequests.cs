@@ -19,24 +19,22 @@ namespace Pulumi.Github
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Github = Pulumi.Github;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Github.GetRepositoryPullRequests.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Github.GetRepositoryPullRequests.InvokeAsync(new Github.GetRepositoryPullRequestsArgs
-        ///         {
-        ///             BaseRef = "main",
-        ///             BaseRepository = "example-repository",
-        ///             SortBy = "updated",
-        ///             SortDirection = "desc",
-        ///             State = "open",
-        ///         }));
-        ///     }
+        ///         BaseRef = "main",
+        ///         BaseRepository = "example-repository",
+        ///         SortBy = "updated",
+        ///         SortDirection = "desc",
+        ///         State = "open",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -52,24 +50,22 @@ namespace Pulumi.Github
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Github = Pulumi.Github;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Github.GetRepositoryPullRequests.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Github.GetRepositoryPullRequests.InvokeAsync(new Github.GetRepositoryPullRequestsArgs
-        ///         {
-        ///             BaseRef = "main",
-        ///             BaseRepository = "example-repository",
-        ///             SortBy = "updated",
-        ///             SortDirection = "desc",
-        ///             State = "open",
-        ///         }));
-        ///     }
+        ///         BaseRef = "main",
+        ///         BaseRepository = "example-repository",
+        ///         SortBy = "updated",
+        ///         SortDirection = "desc",
+        ///         State = "open",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -79,7 +75,7 @@ namespace Pulumi.Github
     }
 
 
-    public sealed class GetRepositoryPullRequestsArgs : Pulumi.InvokeArgs
+    public sealed class GetRepositoryPullRequestsArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// If set, filters Pull Requests by base branch name.
@@ -126,9 +122,10 @@ namespace Pulumi.Github
         public GetRepositoryPullRequestsArgs()
         {
         }
+        public static new GetRepositoryPullRequestsArgs Empty => new GetRepositoryPullRequestsArgs();
     }
 
-    public sealed class GetRepositoryPullRequestsInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetRepositoryPullRequestsInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// If set, filters Pull Requests by base branch name.
@@ -175,6 +172,7 @@ namespace Pulumi.Github
         public GetRepositoryPullRequestsInvokeArgs()
         {
         }
+        public static new GetRepositoryPullRequestsInvokeArgs Empty => new GetRepositoryPullRequestsInvokeArgs();
     }
 
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Github.Inputs
 {
 
-    public sealed class ActionsOrganizationPermissionsAllowedActionsConfigArgs : Pulumi.ResourceArgs
+    public sealed class ActionsOrganizationPermissionsAllowedActionsConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether GitHub-owned actions are allowed in the organization.
@@ -39,5 +39,6 @@ namespace Pulumi.Github.Inputs
         public ActionsOrganizationPermissionsAllowedActionsConfigArgs()
         {
         }
+        public static new ActionsOrganizationPermissionsAllowedActionsConfigArgs Empty => new ActionsOrganizationPermissionsAllowedActionsConfigArgs();
     }
 }

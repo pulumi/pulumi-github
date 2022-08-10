@@ -19,98 +19,93 @@ namespace Pulumi.Github
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Github = Pulumi.Github;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     // Protect the main branch of the foo repository. Only allow a specific user to merge to the branch.
+    ///     var example = new Github.BranchProtectionV3("example", new()
     ///     {
-    ///         // Protect the main branch of the foo repository. Only allow a specific user to merge to the branch.
-    ///         var example = new Github.BranchProtectionV3("example", new Github.BranchProtectionV3Args
+    ///         Repository = github_repository.Example.Name,
+    ///         Branch = "main",
+    ///         Restrictions = new Github.Inputs.BranchProtectionV3RestrictionsArgs
     ///         {
-    ///             Repository = github_repository.Example.Name,
-    ///             Branch = "main",
-    ///             Restrictions = new Github.Inputs.BranchProtectionV3RestrictionsArgs
+    ///             Users = new[]
     ///             {
-    ///                 Users = 
-    ///                 {
-    ///                     "foo-user",
-    ///                 },
+    ///                 "foo-user",
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Github = Pulumi.Github;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var exampleRepository = new Github.Repository("exampleRepository", new Github.RepositoryArgs
-    ///         {
-    ///         });
-    ///         var exampleTeam = new Github.Team("exampleTeam", new Github.TeamArgs
-    ///         {
-    ///         });
-    ///         // Protect the main branch of the foo repository. Additionally, require that
-    ///         // the "ci/travis" context to be passing and only allow the engineers team merge
-    ///         // to the branch.
-    ///         var exampleBranchProtectionV3 = new Github.BranchProtectionV3("exampleBranchProtectionV3", new Github.BranchProtectionV3Args
-    ///         {
-    ///             Repository = exampleRepository.Name,
-    ///             Branch = "main",
-    ///             EnforceAdmins = true,
-    ///             RequiredStatusChecks = new Github.Inputs.BranchProtectionV3RequiredStatusChecksArgs
-    ///             {
-    ///                 Strict = false,
-    ///                 Contexts = 
-    ///                 {
-    ///                     "ci/travis",
-    ///                 },
-    ///             },
-    ///             RequiredPullRequestReviews = new Github.Inputs.BranchProtectionV3RequiredPullRequestReviewsArgs
-    ///             {
-    ///                 DismissStaleReviews = true,
-    ///                 DismissalUsers = 
-    ///                 {
-    ///                     "foo-user",
-    ///                 },
-    ///                 DismissalTeams = 
-    ///                 {
-    ///                     exampleTeam.Slug,
-    ///                 },
-    ///             },
-    ///             Restrictions = new Github.Inputs.BranchProtectionV3RestrictionsArgs
-    ///             {
-    ///                 Users = 
-    ///                 {
-    ///                     "foo-user",
-    ///                 },
-    ///                 Teams = 
-    ///                 {
-    ///                     exampleTeam.Slug,
-    ///                 },
-    ///                 Apps = 
-    ///                 {
-    ///                     "foo-app",
-    ///                 },
-    ///             },
-    ///         });
-    ///         var exampleTeamRepository = new Github.TeamRepository("exampleTeamRepository", new Github.TeamRepositoryArgs
-    ///         {
-    ///             TeamId = exampleTeam.Id,
-    ///             Repository = exampleRepository.Name,
-    ///             Permission = "pull",
-    ///         });
-    ///     }
+    ///     var exampleRepository = new Github.Repository("exampleRepository");
     /// 
-    /// }
+    ///     var exampleTeam = new Github.Team("exampleTeam");
+    /// 
+    ///     // Protect the main branch of the foo repository. Additionally, require that
+    ///     // the "ci/travis" context to be passing and only allow the engineers team merge
+    ///     // to the branch.
+    ///     var exampleBranchProtectionV3 = new Github.BranchProtectionV3("exampleBranchProtectionV3", new()
+    ///     {
+    ///         Repository = exampleRepository.Name,
+    ///         Branch = "main",
+    ///         EnforceAdmins = true,
+    ///         RequiredStatusChecks = new Github.Inputs.BranchProtectionV3RequiredStatusChecksArgs
+    ///         {
+    ///             Strict = false,
+    ///             Contexts = new[]
+    ///             {
+    ///                 "ci/travis",
+    ///             },
+    ///         },
+    ///         RequiredPullRequestReviews = new Github.Inputs.BranchProtectionV3RequiredPullRequestReviewsArgs
+    ///         {
+    ///             DismissStaleReviews = true,
+    ///             DismissalUsers = new[]
+    ///             {
+    ///                 "foo-user",
+    ///             },
+    ///             DismissalTeams = new[]
+    ///             {
+    ///                 exampleTeam.Slug,
+    ///             },
+    ///         },
+    ///         Restrictions = new Github.Inputs.BranchProtectionV3RestrictionsArgs
+    ///         {
+    ///             Users = new[]
+    ///             {
+    ///                 "foo-user",
+    ///             },
+    ///             Teams = new[]
+    ///             {
+    ///                 exampleTeam.Slug,
+    ///             },
+    ///             Apps = new[]
+    ///             {
+    ///                 "foo-app",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleTeamRepository = new Github.TeamRepository("exampleTeamRepository", new()
+    ///     {
+    ///         TeamId = exampleTeam.Id,
+    ///         Repository = exampleRepository.Name,
+    ///         Permission = "pull",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -122,7 +117,7 @@ namespace Pulumi.Github
     /// ```
     /// </summary>
     [GithubResourceType("github:index/branchProtectionV3:BranchProtectionV3")]
-    public partial class BranchProtectionV3 : Pulumi.CustomResource
+    public partial class BranchProtectionV3 : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Git branch to protect.
@@ -219,7 +214,7 @@ namespace Pulumi.Github
         }
     }
 
-    public sealed class BranchProtectionV3Args : Pulumi.ResourceArgs
+    public sealed class BranchProtectionV3Args : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Git branch to protect.
@@ -272,9 +267,10 @@ namespace Pulumi.Github
         public BranchProtectionV3Args()
         {
         }
+        public static new BranchProtectionV3Args Empty => new BranchProtectionV3Args();
     }
 
-    public sealed class BranchProtectionV3State : Pulumi.ResourceArgs
+    public sealed class BranchProtectionV3State : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Git branch to protect.
@@ -330,5 +326,6 @@ namespace Pulumi.Github
         public BranchProtectionV3State()
         {
         }
+        public static new BranchProtectionV3State Empty => new BranchProtectionV3State();
     }
 }

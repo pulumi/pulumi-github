@@ -16,41 +16,38 @@ namespace Pulumi.Github
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Github = Pulumi.Github;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var example = new Github.Repository("example", new Github.RepositoryArgs
-    ///         {
-    ///         });
-    ///         var test = new Github.ActionsOrganizationPermissions("test", new Github.ActionsOrganizationPermissionsArgs
-    ///         {
-    ///             AllowedActions = "selected",
-    ///             EnabledRepositories = "selected",
-    ///             AllowedActionsConfig = new Github.Inputs.ActionsOrganizationPermissionsAllowedActionsConfigArgs
-    ///             {
-    ///                 GithubOwnedAllowed = true,
-    ///                 PatternsAlloweds = 
-    ///                 {
-    ///                     "actions/cache@*",
-    ///                     "actions/checkout@*",
-    ///                 },
-    ///                 VerifiedAllowed = true,
-    ///             },
-    ///             EnabledRepositoriesConfig = new Github.Inputs.ActionsOrganizationPermissionsEnabledRepositoriesConfigArgs
-    ///             {
-    ///                 RepositoryIds = 
-    ///                 {
-    ///                     example.RepoId,
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///     var example = new Github.Repository("example");
     /// 
-    /// }
+    ///     var test = new Github.ActionsOrganizationPermissions("test", new()
+    ///     {
+    ///         AllowedActions = "selected",
+    ///         EnabledRepositories = "selected",
+    ///         AllowedActionsConfig = new Github.Inputs.ActionsOrganizationPermissionsAllowedActionsConfigArgs
+    ///         {
+    ///             GithubOwnedAllowed = true,
+    ///             PatternsAlloweds = new[]
+    ///             {
+    ///                 "actions/cache@*",
+    ///                 "actions/checkout@*",
+    ///             },
+    ///             VerifiedAllowed = true,
+    ///         },
+    ///         EnabledRepositoriesConfig = new Github.Inputs.ActionsOrganizationPermissionsEnabledRepositoriesConfigArgs
+    ///         {
+    ///             RepositoryIds = new[]
+    ///             {
+    ///                 example.RepoId,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -62,7 +59,7 @@ namespace Pulumi.Github
     /// ```
     /// </summary>
     [GithubResourceType("github:index/actionsOrganizationPermissions:ActionsOrganizationPermissions")]
-    public partial class ActionsOrganizationPermissions : Pulumi.CustomResource
+    public partial class ActionsOrganizationPermissions : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The permissions policy that controls the actions that are allowed to run. Can be one of: `all`, `local_only`, or `selected`.
@@ -132,7 +129,7 @@ namespace Pulumi.Github
         }
     }
 
-    public sealed class ActionsOrganizationPermissionsArgs : Pulumi.ResourceArgs
+    public sealed class ActionsOrganizationPermissionsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The permissions policy that controls the actions that are allowed to run. Can be one of: `all`, `local_only`, or `selected`.
@@ -161,9 +158,10 @@ namespace Pulumi.Github
         public ActionsOrganizationPermissionsArgs()
         {
         }
+        public static new ActionsOrganizationPermissionsArgs Empty => new ActionsOrganizationPermissionsArgs();
     }
 
-    public sealed class ActionsOrganizationPermissionsState : Pulumi.ResourceArgs
+    public sealed class ActionsOrganizationPermissionsState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The permissions policy that controls the actions that are allowed to run. Can be one of: `all`, `local_only`, or `selected`.
@@ -192,5 +190,6 @@ namespace Pulumi.Github
         public ActionsOrganizationPermissionsState()
         {
         }
+        public static new ActionsOrganizationPermissionsState Empty => new ActionsOrganizationPermissionsState();
     }
 }

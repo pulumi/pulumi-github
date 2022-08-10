@@ -17,70 +17,68 @@ namespace Pulumi.Github
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Github = Pulumi.Github;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var exampleRepository = new Github.Repository("exampleRepository", new Github.RepositoryArgs
-    ///         {
-    ///         });
-    ///         var exampleUser = Output.Create(Github.GetUser.InvokeAsync(new Github.GetUserArgs
-    ///         {
-    ///             Username = "example",
-    ///         }));
-    ///         var exampleTeam = new Github.Team("exampleTeam", new Github.TeamArgs
-    ///         {
-    ///         });
-    ///         // Protect the main branch of the foo repository. Additionally, require that
-    ///         // the "ci/travis" context to be passing and only allow the engineers team merge
-    ///         // to the branch.
-    ///         var exampleBranchProtection = new Github.BranchProtection("exampleBranchProtection", new Github.BranchProtectionArgs
-    ///         {
-    ///             RepositoryId = exampleRepository.NodeId,
-    ///             Pattern = "main",
-    ///             EnforceAdmins = true,
-    ///             AllowsDeletions = true,
-    ///             RequiredStatusChecks = 
-    ///             {
-    ///                 new Github.Inputs.BranchProtectionRequiredStatusCheckArgs
-    ///                 {
-    ///                     Strict = false,
-    ///                     Contexts = 
-    ///                     {
-    ///                         "ci/travis",
-    ///                     },
-    ///                 },
-    ///             },
-    ///             RequiredPullRequestReviews = 
-    ///             {
-    ///                 new Github.Inputs.BranchProtectionRequiredPullRequestReviewArgs
-    ///                 {
-    ///                     DismissStaleReviews = true,
-    ///                     RestrictDismissals = true,
-    ///                     DismissalRestrictions = 
-    ///                     {
-    ///                         exampleUser.Apply(exampleUser =&gt; exampleUser.NodeId),
-    ///                         exampleTeam.NodeId,
-    ///                     },
-    ///                 },
-    ///             },
-    ///             PushRestrictions = 
-    ///             {
-    ///                 exampleUser.Apply(exampleUser =&gt; exampleUser.NodeId),
-    ///             },
-    ///         });
-    ///         var exampleTeamRepository = new Github.TeamRepository("exampleTeamRepository", new Github.TeamRepositoryArgs
-    ///         {
-    ///             TeamId = exampleTeam.Id,
-    ///             Repository = exampleRepository.Name,
-    ///             Permission = "pull",
-    ///         });
-    ///     }
+    ///     var exampleRepository = new Github.Repository("exampleRepository");
     /// 
-    /// }
+    ///     var exampleUser = Github.GetUser.Invoke(new()
+    ///     {
+    ///         Username = "example",
+    ///     });
+    /// 
+    ///     var exampleTeam = new Github.Team("exampleTeam");
+    /// 
+    ///     // Protect the main branch of the foo repository. Additionally, require that
+    ///     // the "ci/travis" context to be passing and only allow the engineers team merge
+    ///     // to the branch.
+    ///     var exampleBranchProtection = new Github.BranchProtection("exampleBranchProtection", new()
+    ///     {
+    ///         RepositoryId = exampleRepository.NodeId,
+    ///         Pattern = "main",
+    ///         EnforceAdmins = true,
+    ///         AllowsDeletions = true,
+    ///         RequiredStatusChecks = new[]
+    ///         {
+    ///             new Github.Inputs.BranchProtectionRequiredStatusCheckArgs
+    ///             {
+    ///                 Strict = false,
+    ///                 Contexts = new[]
+    ///                 {
+    ///                     "ci/travis",
+    ///                 },
+    ///             },
+    ///         },
+    ///         RequiredPullRequestReviews = new[]
+    ///         {
+    ///             new Github.Inputs.BranchProtectionRequiredPullRequestReviewArgs
+    ///             {
+    ///                 DismissStaleReviews = true,
+    ///                 RestrictDismissals = true,
+    ///                 DismissalRestrictions = new[]
+    ///                 {
+    ///                     exampleUser.Apply(getUserResult =&gt; getUserResult.NodeId),
+    ///                     exampleTeam.NodeId,
+    ///                 },
+    ///             },
+    ///         },
+    ///         PushRestrictions = new[]
+    ///         {
+    ///             exampleUser.Apply(getUserResult =&gt; getUserResult.NodeId),
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleTeamRepository = new Github.TeamRepository("exampleTeamRepository", new()
+    ///     {
+    ///         TeamId = exampleTeam.Id,
+    ///         Repository = exampleRepository.Name,
+    ///         Permission = "pull",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -92,7 +90,7 @@ namespace Pulumi.Github
     /// ```
     /// </summary>
     [GithubResourceType("github:index/branchProtection:BranchProtection")]
-    public partial class BranchProtection : Pulumi.CustomResource
+    public partial class BranchProtection : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Boolean, setting this to `true` to allow the branch to be deleted.
@@ -210,7 +208,7 @@ namespace Pulumi.Github
         }
     }
 
-    public sealed class BranchProtectionArgs : Pulumi.ResourceArgs
+    public sealed class BranchProtectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Boolean, setting this to `true` to allow the branch to be deleted.
@@ -305,9 +303,10 @@ namespace Pulumi.Github
         public BranchProtectionArgs()
         {
         }
+        public static new BranchProtectionArgs Empty => new BranchProtectionArgs();
     }
 
-    public sealed class BranchProtectionState : Pulumi.ResourceArgs
+    public sealed class BranchProtectionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Boolean, setting this to `true` to allow the branch to be deleted.
@@ -402,5 +401,6 @@ namespace Pulumi.Github
         public BranchProtectionState()
         {
         }
+        public static new BranchProtectionState Empty => new BranchProtectionState();
     }
 }

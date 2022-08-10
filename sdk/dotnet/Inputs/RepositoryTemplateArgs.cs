@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Github.Inputs
 {
 
-    public sealed class RepositoryTemplateArgs : Pulumi.ResourceArgs
+    public sealed class RepositoryTemplateArgs : global::Pulumi.ResourceArgs
     {
         [Input("owner", required: true)]
         public Input<string> Owner { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.Github.Inputs
         public RepositoryTemplateArgs()
         {
         }
+        public static new RepositoryTemplateArgs Empty => new RepositoryTemplateArgs();
     }
 }

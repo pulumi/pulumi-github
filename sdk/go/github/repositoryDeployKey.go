@@ -28,24 +28,27 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-github/sdk/v4/go/github"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-github/sdk/v4/go/github"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := github.NewRepositoryDeployKey(ctx, "exampleRepositoryDeployKey", &github.RepositoryDeployKeyArgs{
-// 			Key:        pulumi.String("ssh-rsa AAA..."),
-// 			ReadOnly:   pulumi.Bool(false),
-// 			Repository: pulumi.String("test-repo"),
-// 			Title:      pulumi.String("Repository test key"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := github.NewRepositoryDeployKey(ctx, "exampleRepositoryDeployKey", &github.RepositoryDeployKeyArgs{
+//				Key:        pulumi.String("ssh-rsa AAA..."),
+//				ReadOnly:   pulumi.Bool(false),
+//				Repository: pulumi.String("test-repo"),
+//				Title:      pulumi.String("Repository test key"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -53,7 +56,9 @@ import (
 // Repository deploy keys can be imported using a colon-separated pair of repository name and GitHub's key id. The latter can be obtained by GitHub's SDKs and API.
 //
 // ```sh
-//  $ pulumi import github:index/repositoryDeployKey:RepositoryDeployKey foo test-repo:23824728
+//
+//	$ pulumi import github:index/repositoryDeployKey:RepositoryDeployKey foo test-repo:23824728
+//
 // ```
 type RepositoryDeployKey struct {
 	pulumi.CustomResourceState
@@ -183,7 +188,7 @@ func (i *RepositoryDeployKey) ToRepositoryDeployKeyOutputWithContext(ctx context
 // RepositoryDeployKeyArrayInput is an input type that accepts RepositoryDeployKeyArray and RepositoryDeployKeyArrayOutput values.
 // You can construct a concrete instance of `RepositoryDeployKeyArrayInput` via:
 //
-//          RepositoryDeployKeyArray{ RepositoryDeployKeyArgs{...} }
+//	RepositoryDeployKeyArray{ RepositoryDeployKeyArgs{...} }
 type RepositoryDeployKeyArrayInput interface {
 	pulumi.Input
 
@@ -208,7 +213,7 @@ func (i RepositoryDeployKeyArray) ToRepositoryDeployKeyArrayOutputWithContext(ct
 // RepositoryDeployKeyMapInput is an input type that accepts RepositoryDeployKeyMap and RepositoryDeployKeyMapOutput values.
 // You can construct a concrete instance of `RepositoryDeployKeyMapInput` via:
 //
-//          RepositoryDeployKeyMap{ "key": RepositoryDeployKeyArgs{...} }
+//	RepositoryDeployKeyMap{ "key": RepositoryDeployKeyArgs{...} }
 type RepositoryDeployKeyMapInput interface {
 	pulumi.Input
 

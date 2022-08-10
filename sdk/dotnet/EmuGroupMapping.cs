@@ -15,22 +15,20 @@ namespace Pulumi.Github
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Github = Pulumi.Github;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleEmuGroupMapping = new Github.EmuGroupMapping("exampleEmuGroupMapping", new()
     ///     {
-    ///         var exampleEmuGroupMapping = new Github.EmuGroupMapping("exampleEmuGroupMapping", new Github.EmuGroupMappingArgs
-    ///         {
-    ///             GroupId = 28836,
-    ///             TeamSlug = "emu-test-team",
-    ///         });
-    ///         // The GitHub team name to modify
-    ///     }
+    ///         GroupId = 28836,
+    ///         TeamSlug = "emu-test-team",
+    ///     });
     /// 
-    /// }
+    ///     // The GitHub team name to modify
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -42,7 +40,7 @@ namespace Pulumi.Github
     /// ```
     /// </summary>
     [GithubResourceType("github:index/emuGroupMapping:EmuGroupMapping")]
-    public partial class EmuGroupMapping : Pulumi.CustomResource
+    public partial class EmuGroupMapping : global::Pulumi.CustomResource
     {
         [Output("etag")]
         public Output<string> Etag { get; private set; } = null!;
@@ -103,7 +101,7 @@ namespace Pulumi.Github
         }
     }
 
-    public sealed class EmuGroupMappingArgs : Pulumi.ResourceArgs
+    public sealed class EmuGroupMappingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Integer corresponding to the external group ID to be linked
@@ -120,9 +118,10 @@ namespace Pulumi.Github
         public EmuGroupMappingArgs()
         {
         }
+        public static new EmuGroupMappingArgs Empty => new EmuGroupMappingArgs();
     }
 
-    public sealed class EmuGroupMappingState : Pulumi.ResourceArgs
+    public sealed class EmuGroupMappingState : global::Pulumi.ResourceArgs
     {
         [Input("etag")]
         public Input<string>? Etag { get; set; }
@@ -142,5 +141,6 @@ namespace Pulumi.Github
         public EmuGroupMappingState()
         {
         }
+        public static new EmuGroupMappingState Empty => new EmuGroupMappingState();
     }
 }

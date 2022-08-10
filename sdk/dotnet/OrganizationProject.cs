@@ -15,24 +15,22 @@ namespace Pulumi.Github
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Github = Pulumi.Github;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var project = new Github.OrganizationProject("project", new()
     ///     {
-    ///         var project = new Github.OrganizationProject("project", new Github.OrganizationProjectArgs
-    ///         {
-    ///             Body = "This is a organization project.",
-    ///         });
-    ///     }
+    ///         Body = "This is a organization project.",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// </summary>
     [GithubResourceType("github:index/organizationProject:OrganizationProject")]
-    public partial class OrganizationProject : Pulumi.CustomResource
+    public partial class OrganizationProject : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The body of the project.
@@ -99,7 +97,7 @@ namespace Pulumi.Github
         }
     }
 
-    public sealed class OrganizationProjectArgs : Pulumi.ResourceArgs
+    public sealed class OrganizationProjectArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The body of the project.
@@ -116,9 +114,10 @@ namespace Pulumi.Github
         public OrganizationProjectArgs()
         {
         }
+        public static new OrganizationProjectArgs Empty => new OrganizationProjectArgs();
     }
 
-    public sealed class OrganizationProjectState : Pulumi.ResourceArgs
+    public sealed class OrganizationProjectState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The body of the project.
@@ -144,5 +143,6 @@ namespace Pulumi.Github
         public OrganizationProjectState()
         {
         }
+        public static new OrganizationProjectState Empty => new OrganizationProjectState();
     }
 }

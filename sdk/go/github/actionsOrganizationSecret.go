@@ -17,85 +17,93 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-github/sdk/v4/go/github"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-github/sdk/v4/go/github"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := github.NewActionsOrganizationSecret(ctx, "exampleSecretActionsOrganizationSecret", &github.ActionsOrganizationSecretArgs{
-// 			SecretName:     pulumi.String("example_secret_name"),
-// 			Visibility:     pulumi.String("private"),
-// 			PlaintextValue: pulumi.Any(_var.Some_secret_string),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = github.NewActionsOrganizationSecret(ctx, "exampleSecretIndex/actionsOrganizationSecretActionsOrganizationSecret", &github.ActionsOrganizationSecretArgs{
-// 			SecretName:     pulumi.String("example_secret_name"),
-// 			Visibility:     pulumi.String("private"),
-// 			EncryptedValue: pulumi.Any(_var.Some_encrypted_secret_string),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := github.NewActionsOrganizationSecret(ctx, "exampleSecretActionsOrganizationSecret", &github.ActionsOrganizationSecretArgs{
+//				SecretName:     pulumi.String("example_secret_name"),
+//				Visibility:     pulumi.String("private"),
+//				PlaintextValue: pulumi.Any(_var.Some_secret_string),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = github.NewActionsOrganizationSecret(ctx, "exampleSecretIndex/actionsOrganizationSecretActionsOrganizationSecret", &github.ActionsOrganizationSecretArgs{
+//				SecretName:     pulumi.String("example_secret_name"),
+//				Visibility:     pulumi.String("private"),
+//				EncryptedValue: pulumi.Any(_var.Some_encrypted_secret_string),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ```go
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-github/sdk/v4/go/github"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-github/sdk/v4/go/github"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		repo, err := github.LookupRepository(ctx, &GetRepositoryArgs{
-// 			FullName: pulumi.StringRef("my-org/repo"),
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = github.NewActionsOrganizationSecret(ctx, "exampleSecretActionsOrganizationSecret", &github.ActionsOrganizationSecretArgs{
-// 			SecretName:     pulumi.String("example_secret_name"),
-// 			Visibility:     pulumi.String("selected"),
-// 			PlaintextValue: pulumi.Any(_var.Some_secret_string),
-// 			SelectedRepositoryIds: pulumi.IntArray{
-// 				pulumi.Int(repo.RepoId),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = github.NewActionsOrganizationSecret(ctx, "exampleSecretIndex/actionsOrganizationSecretActionsOrganizationSecret", &github.ActionsOrganizationSecretArgs{
-// 			SecretName:     pulumi.String("example_secret_name"),
-// 			Visibility:     pulumi.String("selected"),
-// 			EncryptedValue: pulumi.Any(_var.Some_encrypted_secret_string),
-// 			SelectedRepositoryIds: pulumi.IntArray{
-// 				pulumi.Int(repo.RepoId),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			repo, err := github.LookupRepository(ctx, &GetRepositoryArgs{
+//				FullName: pulumi.StringRef("my-org/repo"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = github.NewActionsOrganizationSecret(ctx, "exampleSecretActionsOrganizationSecret", &github.ActionsOrganizationSecretArgs{
+//				SecretName:     pulumi.String("example_secret_name"),
+//				Visibility:     pulumi.String("selected"),
+//				PlaintextValue: pulumi.Any(_var.Some_secret_string),
+//				SelectedRepositoryIds: pulumi.IntArray{
+//					pulumi.Int(repo.RepoId),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = github.NewActionsOrganizationSecret(ctx, "exampleSecretIndex/actionsOrganizationSecretActionsOrganizationSecret", &github.ActionsOrganizationSecretArgs{
+//				SecretName:     pulumi.String("example_secret_name"),
+//				Visibility:     pulumi.String("selected"),
+//				EncryptedValue: pulumi.Any(_var.Some_encrypted_secret_string),
+//				SelectedRepositoryIds: pulumi.IntArray{
+//					pulumi.Int(repo.RepoId),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
 //
-// This resource can be imported using an ID made up of the secret name
+// # This resource can be imported using an ID made up of the secret name
 //
 // ```sh
-//  $ pulumi import github:index/actionsOrganizationSecret:ActionsOrganizationSecret test_secret test_secret_name
+//
+//	$ pulumi import github:index/actionsOrganizationSecret:ActionsOrganizationSecret test_secret test_secret_name
+//
 // ```
 //
-//  NOTEthe implementation is limited in that it won't fetch the value of the `plaintext_value` or `encrypted_value` fields when importing. You may need to ignore changes for these as a workaround.
+//	NOTEthe implementation is limited in that it won't fetch the value of the `plaintext_value` or `encrypted_value` fields when importing. You may need to ignore changes for these as a workaround.
 type ActionsOrganizationSecret struct {
 	pulumi.CustomResourceState
 
@@ -245,7 +253,7 @@ func (i *ActionsOrganizationSecret) ToActionsOrganizationSecretOutputWithContext
 // ActionsOrganizationSecretArrayInput is an input type that accepts ActionsOrganizationSecretArray and ActionsOrganizationSecretArrayOutput values.
 // You can construct a concrete instance of `ActionsOrganizationSecretArrayInput` via:
 //
-//          ActionsOrganizationSecretArray{ ActionsOrganizationSecretArgs{...} }
+//	ActionsOrganizationSecretArray{ ActionsOrganizationSecretArgs{...} }
 type ActionsOrganizationSecretArrayInput interface {
 	pulumi.Input
 
@@ -270,7 +278,7 @@ func (i ActionsOrganizationSecretArray) ToActionsOrganizationSecretArrayOutputWi
 // ActionsOrganizationSecretMapInput is an input type that accepts ActionsOrganizationSecretMap and ActionsOrganizationSecretMapOutput values.
 // You can construct a concrete instance of `ActionsOrganizationSecretMapInput` via:
 //
-//          ActionsOrganizationSecretMap{ "key": ActionsOrganizationSecretArgs{...} }
+//	ActionsOrganizationSecretMap{ "key": ActionsOrganizationSecretArgs{...} }
 type ActionsOrganizationSecretMapInput interface {
 	pulumi.Input
 

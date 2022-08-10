@@ -13,48 +13,49 @@ namespace Pulumi.Github
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Github = Pulumi.Github;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     // Add a user to the organization
+    ///     var membershipForSomeUser = new Github.Membership("membershipForSomeUser", new()
     ///     {
-    ///         // Add a user to the organization
-    ///         var membershipForSomeUser = new Github.Membership("membershipForSomeUser", new Github.MembershipArgs
-    ///         {
-    ///             Username = "SomeUser",
-    ///             Role = "member",
-    ///         });
-    ///         var membershipForAnotherUser = new Github.Membership("membershipForAnotherUser", new Github.MembershipArgs
-    ///         {
-    ///             Username = "AnotherUser",
-    ///             Role = "member",
-    ///         });
-    ///         var someTeam = new Github.Team("someTeam", new Github.TeamArgs
-    ///         {
-    ///             Description = "Some cool team",
-    ///         });
-    ///         var someTeamMembers = new Github.TeamMembers("someTeamMembers", new Github.TeamMembersArgs
-    ///         {
-    ///             TeamId = someTeam.Id,
-    ///             Members = 
-    ///             {
-    ///                 new Github.Inputs.TeamMembersMemberArgs
-    ///                 {
-    ///                     Username = "SomeUser",
-    ///                     Role = "maintainer",
-    ///                 },
-    ///                 new Github.Inputs.TeamMembersMemberArgs
-    ///                 {
-    ///                     Username = "AnotherUser",
-    ///                     Role = "member",
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///         Username = "SomeUser",
+    ///         Role = "member",
+    ///     });
     /// 
-    /// }
+    ///     var membershipForAnotherUser = new Github.Membership("membershipForAnotherUser", new()
+    ///     {
+    ///         Username = "AnotherUser",
+    ///         Role = "member",
+    ///     });
+    /// 
+    ///     var someTeam = new Github.Team("someTeam", new()
+    ///     {
+    ///         Description = "Some cool team",
+    ///     });
+    /// 
+    ///     var someTeamMembers = new Github.TeamMembers("someTeamMembers", new()
+    ///     {
+    ///         TeamId = someTeam.Id,
+    ///         Members = new[]
+    ///         {
+    ///             new Github.Inputs.TeamMembersMemberArgs
+    ///             {
+    ///                 Username = "SomeUser",
+    ///                 Role = "maintainer",
+    ///             },
+    ///             new Github.Inputs.TeamMembersMemberArgs
+    ///             {
+    ///                 Username = "AnotherUser",
+    ///                 Role = "member",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -66,7 +67,7 @@ namespace Pulumi.Github
     /// ```
     /// </summary>
     [GithubResourceType("github:index/teamMembers:TeamMembers")]
-    public partial class TeamMembers : Pulumi.CustomResource
+    public partial class TeamMembers : global::Pulumi.CustomResource
     {
         [Output("etag")]
         public Output<string> Etag { get; private set; } = null!;
@@ -127,7 +128,7 @@ namespace Pulumi.Github
         }
     }
 
-    public sealed class TeamMembersArgs : Pulumi.ResourceArgs
+    public sealed class TeamMembersArgs : global::Pulumi.ResourceArgs
     {
         [Input("members", required: true)]
         private InputList<Inputs.TeamMembersMemberArgs>? _members;
@@ -150,9 +151,10 @@ namespace Pulumi.Github
         public TeamMembersArgs()
         {
         }
+        public static new TeamMembersArgs Empty => new TeamMembersArgs();
     }
 
-    public sealed class TeamMembersState : Pulumi.ResourceArgs
+    public sealed class TeamMembersState : global::Pulumi.ResourceArgs
     {
         [Input("etag")]
         public Input<string>? Etag { get; set; }
@@ -178,5 +180,6 @@ namespace Pulumi.Github
         public TeamMembersState()
         {
         }
+        public static new TeamMembersState Empty => new TeamMembersState();
     }
 }

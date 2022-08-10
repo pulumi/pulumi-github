@@ -19,26 +19,29 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-github/sdk/v4/go/github"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-github/sdk/v4/go/github"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := github.NewRepository(ctx, "example", &github.RepositoryArgs{
-// 			Description: pulumi.String("My awesome codebase"),
-// 			Template: &RepositoryTemplateArgs{
-// 				Owner:      pulumi.String("github"),
-// 				Repository: pulumi.String("terraform-module-template"),
-// 			},
-// 			Visibility: pulumi.String("public"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := github.NewRepository(ctx, "example", &github.RepositoryArgs{
+//				Description: pulumi.String("My awesome codebase"),
+//				Template: &RepositoryTemplateArgs{
+//					Owner:      pulumi.String("github"),
+//					Repository: pulumi.String("terraform-module-template"),
+//				},
+//				Visibility: pulumi.String("public"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### With GitHub Pages Enabled
 //
@@ -46,28 +49,31 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-github/sdk/v4/go/github"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-github/sdk/v4/go/github"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := github.NewRepository(ctx, "example", &github.RepositoryArgs{
-// 			Description: pulumi.String("My awesome web page"),
-// 			Pages: &RepositoryPagesArgs{
-// 				Source: &RepositoryPagesSourceArgs{
-// 					Branch: pulumi.String("master"),
-// 					Path:   pulumi.String("/docs"),
-// 				},
-// 			},
-// 			Private: pulumi.Bool(false),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := github.NewRepository(ctx, "example", &github.RepositoryArgs{
+//				Description: pulumi.String("My awesome web page"),
+//				Pages: &RepositoryPagesArgs{
+//					Source: &RepositoryPagesSourceArgs{
+//						Branch: pulumi.String("master"),
+//						Path:   pulumi.String("/docs"),
+//					},
+//				},
+//				Private: pulumi.Bool(false),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -75,7 +81,9 @@ import (
 // Repositories can be imported using the `name`, e.g.
 //
 // ```sh
-//  $ pulumi import github:index/repository:Repository terraform terraform
+//
+//	$ pulumi import github:index/repository:Repository terraform terraform
+//
 // ```
 type Repository struct {
 	pulumi.CustomResourceState
@@ -515,7 +523,7 @@ func (i *Repository) ToRepositoryOutputWithContext(ctx context.Context) Reposito
 // RepositoryArrayInput is an input type that accepts RepositoryArray and RepositoryArrayOutput values.
 // You can construct a concrete instance of `RepositoryArrayInput` via:
 //
-//          RepositoryArray{ RepositoryArgs{...} }
+//	RepositoryArray{ RepositoryArgs{...} }
 type RepositoryArrayInput interface {
 	pulumi.Input
 
@@ -540,7 +548,7 @@ func (i RepositoryArray) ToRepositoryArrayOutputWithContext(ctx context.Context)
 // RepositoryMapInput is an input type that accepts RepositoryMap and RepositoryMapOutput values.
 // You can construct a concrete instance of `RepositoryMapInput` via:
 //
-//          RepositoryMap{ "key": RepositoryArgs{...} }
+//	RepositoryMap{ "key": RepositoryArgs{...} }
 type RepositoryMapInput interface {
 	pulumi.Input
 

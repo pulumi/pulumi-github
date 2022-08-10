@@ -22,30 +22,33 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-github/sdk/v4/go/github"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-github/sdk/v4/go/github"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		testRepository, err := github.NewRepository(ctx, "testRepository", &github.RepositoryArgs{
-// 			AutoInit:  pulumi.Bool(true),
-// 			HasIssues: pulumi.Bool(true),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = github.NewIssue(ctx, "testIssue", &github.IssueArgs{
-// 			Repository: testRepository.Name,
-// 			Title:      pulumi.String("My issue title"),
-// 			Body:       pulumi.String("The body of my issue"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			testRepository, err := github.NewRepository(ctx, "testRepository", &github.RepositoryArgs{
+//				AutoInit:  pulumi.Bool(true),
+//				HasIssues: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = github.NewIssue(ctx, "testIssue", &github.IssueArgs{
+//				Repository: testRepository.Name,
+//				Title:      pulumi.String("My issue title"),
+//				Body:       pulumi.String("The body of my issue"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -53,7 +56,9 @@ import (
 // GitHub Issues can be imported using an ID made up of `repository:number`, e.g.
 //
 // ```sh
-//  $ pulumi import github:index/issue:Issue issue_15 myrepo:15
+//
+//	$ pulumi import github:index/issue:Issue issue_15 myrepo:15
+//
 // ```
 type Issue struct {
 	pulumi.CustomResourceState
@@ -212,7 +217,7 @@ func (i *Issue) ToIssueOutputWithContext(ctx context.Context) IssueOutput {
 // IssueArrayInput is an input type that accepts IssueArray and IssueArrayOutput values.
 // You can construct a concrete instance of `IssueArrayInput` via:
 //
-//          IssueArray{ IssueArgs{...} }
+//	IssueArray{ IssueArgs{...} }
 type IssueArrayInput interface {
 	pulumi.Input
 
@@ -237,7 +242,7 @@ func (i IssueArray) ToIssueArrayOutputWithContext(ctx context.Context) IssueArra
 // IssueMapInput is an input type that accepts IssueMap and IssueMapOutput values.
 // You can construct a concrete instance of `IssueMapInput` via:
 //
-//          IssueMap{ "key": IssueArgs{...} }
+//	IssueMap{ "key": IssueArgs{...} }
 type IssueMapInput interface {
 	pulumi.Input
 

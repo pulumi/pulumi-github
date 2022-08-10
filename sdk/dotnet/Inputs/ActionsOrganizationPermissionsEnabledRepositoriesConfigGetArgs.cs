@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Github.Inputs
 {
 
-    public sealed class ActionsOrganizationPermissionsEnabledRepositoriesConfigGetArgs : Pulumi.ResourceArgs
+    public sealed class ActionsOrganizationPermissionsEnabledRepositoriesConfigGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("repositoryIds", required: true)]
         private InputList<int>? _repositoryIds;
@@ -27,5 +27,6 @@ namespace Pulumi.Github.Inputs
         public ActionsOrganizationPermissionsEnabledRepositoriesConfigGetArgs()
         {
         }
+        public static new ActionsOrganizationPermissionsEnabledRepositoriesConfigGetArgs Empty => new ActionsOrganizationPermissionsEnabledRepositoriesConfigGetArgs();
     }
 }

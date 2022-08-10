@@ -21,22 +21,25 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-github/sdk/v4/go/github"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-github/sdk/v4/go/github"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := github.NewTeam(ctx, "someTeam", &github.TeamArgs{
-// 			Description: pulumi.String("Some cool team"),
-// 			Privacy:     pulumi.String("closed"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := github.NewTeam(ctx, "someTeam", &github.TeamArgs{
+//				Description: pulumi.String("Some cool team"),
+//				Privacy:     pulumi.String("closed"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -44,7 +47,9 @@ import (
 // GitHub Teams can be imported using the GitHub team ID e.g.
 //
 // ```sh
-//  $ pulumi import github:index/team:Team core 1234567
+//
+//	$ pulumi import github:index/team:Team core 1234567
+//
 // ```
 type Team struct {
 	pulumi.CustomResourceState
@@ -211,7 +216,7 @@ func (i *Team) ToTeamOutputWithContext(ctx context.Context) TeamOutput {
 // TeamArrayInput is an input type that accepts TeamArray and TeamArrayOutput values.
 // You can construct a concrete instance of `TeamArrayInput` via:
 //
-//          TeamArray{ TeamArgs{...} }
+//	TeamArray{ TeamArgs{...} }
 type TeamArrayInput interface {
 	pulumi.Input
 
@@ -236,7 +241,7 @@ func (i TeamArray) ToTeamArrayOutputWithContext(ctx context.Context) TeamArrayOu
 // TeamMapInput is an input type that accepts TeamMap and TeamMapOutput values.
 // You can construct a concrete instance of `TeamMapInput` via:
 //
-//          TeamMap{ "key": TeamArgs{...} }
+//	TeamMap{ "key": TeamArgs{...} }
 type TeamMapInput interface {
 	pulumi.Input
 

@@ -20,36 +20,41 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-github/sdk/v4/go/github"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-github/sdk/v4/go/github"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleRepository, err := github.NewRepository(ctx, "exampleRepository", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = github.NewActionsRunnerGroup(ctx, "exampleActionsRunnerGroup", &github.ActionsRunnerGroupArgs{
-// 			Visibility: pulumi.String("selected"),
-// 			SelectedRepositoryIds: pulumi.IntArray{
-// 				exampleRepository.RepoId,
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleRepository, err := github.NewRepository(ctx, "exampleRepository", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = github.NewActionsRunnerGroup(ctx, "exampleActionsRunnerGroup", &github.ActionsRunnerGroupArgs{
+//				Visibility: pulumi.String("selected"),
+//				SelectedRepositoryIds: pulumi.IntArray{
+//					exampleRepository.RepoId,
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
 //
-// This resource can be imported using the ID of the runner group
+// # This resource can be imported using the ID of the runner group
 //
 // ```sh
-//  $ pulumi import github:index/actionsRunnerGroup:ActionsRunnerGroup test 7
+//
+//	$ pulumi import github:index/actionsRunnerGroup:ActionsRunnerGroup test 7
+//
 // ```
 type ActionsRunnerGroup struct {
 	pulumi.CustomResourceState
@@ -196,7 +201,7 @@ func (i *ActionsRunnerGroup) ToActionsRunnerGroupOutputWithContext(ctx context.C
 // ActionsRunnerGroupArrayInput is an input type that accepts ActionsRunnerGroupArray and ActionsRunnerGroupArrayOutput values.
 // You can construct a concrete instance of `ActionsRunnerGroupArrayInput` via:
 //
-//          ActionsRunnerGroupArray{ ActionsRunnerGroupArgs{...} }
+//	ActionsRunnerGroupArray{ ActionsRunnerGroupArgs{...} }
 type ActionsRunnerGroupArrayInput interface {
 	pulumi.Input
 
@@ -221,7 +226,7 @@ func (i ActionsRunnerGroupArray) ToActionsRunnerGroupArrayOutputWithContext(ctx 
 // ActionsRunnerGroupMapInput is an input type that accepts ActionsRunnerGroupMap and ActionsRunnerGroupMapOutput values.
 // You can construct a concrete instance of `ActionsRunnerGroupMapInput` via:
 //
-//          ActionsRunnerGroupMap{ "key": ActionsRunnerGroupArgs{...} }
+//	ActionsRunnerGroupMap{ "key": ActionsRunnerGroupArgs{...} }
 type ActionsRunnerGroupMapInput interface {
 	pulumi.Input
 

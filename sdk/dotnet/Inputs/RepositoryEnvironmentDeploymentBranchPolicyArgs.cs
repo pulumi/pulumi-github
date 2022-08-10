@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Github.Inputs
 {
 
-    public sealed class RepositoryEnvironmentDeploymentBranchPolicyArgs : Pulumi.ResourceArgs
+    public sealed class RepositoryEnvironmentDeploymentBranchPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether only branches that match the specified name patterns can deploy to this environment.
@@ -27,5 +27,6 @@ namespace Pulumi.Github.Inputs
         public RepositoryEnvironmentDeploymentBranchPolicyArgs()
         {
         }
+        public static new RepositoryEnvironmentDeploymentBranchPolicyArgs Empty => new RepositoryEnvironmentDeploymentBranchPolicyArgs();
     }
 }

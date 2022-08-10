@@ -16,37 +16,36 @@ namespace Pulumi.Github
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Github = Pulumi.Github;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var repo = new Github.Repository("repo", new()
     ///     {
-    ///         var repo = new Github.Repository("repo", new Github.RepositoryArgs
-    ///         {
-    ///             Description = "Terraform acceptance tests",
-    ///             HomepageUrl = "http://example.com/",
-    ///             Private = false,
-    ///         });
-    ///         var foo = new Github.RepositoryWebhook("foo", new Github.RepositoryWebhookArgs
-    ///         {
-    ///             Repository = repo.Name,
-    ///             Configuration = new Github.Inputs.RepositoryWebhookConfigurationArgs
-    ///             {
-    ///                 Url = "https://google.de/",
-    ///                 ContentType = "form",
-    ///                 InsecureSsl = false,
-    ///             },
-    ///             Active = false,
-    ///             Events = 
-    ///             {
-    ///                 "issues",
-    ///             },
-    ///         });
-    ///     }
+    ///         Description = "Terraform acceptance tests",
+    ///         HomepageUrl = "http://example.com/",
+    ///         Private = false,
+    ///     });
     /// 
-    /// }
+    ///     var foo = new Github.RepositoryWebhook("foo", new()
+    ///     {
+    ///         Repository = repo.Name,
+    ///         Configuration = new Github.Inputs.RepositoryWebhookConfigurationArgs
+    ///         {
+    ///             Url = "https://google.de/",
+    ///             ContentType = "form",
+    ///             InsecureSsl = false,
+    ///         },
+    ///         Active = false,
+    ///         Events = new[]
+    ///         {
+    ///             "issues",
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -60,7 +59,7 @@ namespace Pulumi.Github
     ///  If secret is populated in the webhook's configuration, the value will be imported as "********".
     /// </summary>
     [GithubResourceType("github:index/repositoryWebhook:RepositoryWebhook")]
-    public partial class RepositoryWebhook : Pulumi.CustomResource
+    public partial class RepositoryWebhook : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Indicate if the webhook should receive events. Defaults to `true`.
@@ -139,7 +138,7 @@ namespace Pulumi.Github
         }
     }
 
-    public sealed class RepositoryWebhookArgs : Pulumi.ResourceArgs
+    public sealed class RepositoryWebhookArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicate if the webhook should receive events. Defaults to `true`.
@@ -174,9 +173,10 @@ namespace Pulumi.Github
         public RepositoryWebhookArgs()
         {
         }
+        public static new RepositoryWebhookArgs Empty => new RepositoryWebhookArgs();
     }
 
-    public sealed class RepositoryWebhookState : Pulumi.ResourceArgs
+    public sealed class RepositoryWebhookState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicate if the webhook should receive events. Defaults to `true`.
@@ -220,5 +220,6 @@ namespace Pulumi.Github
         public RepositoryWebhookState()
         {
         }
+        public static new RepositoryWebhookState Empty => new RepositoryWebhookState();
     }
 }

@@ -21,67 +21,70 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-github/sdk/v4/go/github"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-github/sdk/v4/go/github"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleRepository, err := github.NewRepository(ctx, "exampleRepository", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleUser, err := github.GetUser(ctx, &GetUserArgs{
-// 			Username: "example",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleTeam, err := github.NewTeam(ctx, "exampleTeam", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = github.NewBranchProtection(ctx, "exampleBranchProtection", &github.BranchProtectionArgs{
-// 			RepositoryId:    exampleRepository.NodeId,
-// 			Pattern:         pulumi.String("main"),
-// 			EnforceAdmins:   pulumi.Bool(true),
-// 			AllowsDeletions: pulumi.Bool(true),
-// 			RequiredStatusChecks: BranchProtectionRequiredStatusCheckArray{
-// 				&BranchProtectionRequiredStatusCheckArgs{
-// 					Strict: pulumi.Bool(false),
-// 					Contexts: pulumi.StringArray{
-// 						pulumi.String("ci/travis"),
-// 					},
-// 				},
-// 			},
-// 			RequiredPullRequestReviews: BranchProtectionRequiredPullRequestReviewArray{
-// 				&BranchProtectionRequiredPullRequestReviewArgs{
-// 					DismissStaleReviews: pulumi.Bool(true),
-// 					RestrictDismissals:  pulumi.Bool(true),
-// 					DismissalRestrictions: pulumi.StringArray{
-// 						pulumi.String(exampleUser.NodeId),
-// 						exampleTeam.NodeId,
-// 					},
-// 				},
-// 			},
-// 			PushRestrictions: pulumi.StringArray{
-// 				pulumi.String(exampleUser.NodeId),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = github.NewTeamRepository(ctx, "exampleTeamRepository", &github.TeamRepositoryArgs{
-// 			TeamId:     exampleTeam.ID(),
-// 			Repository: exampleRepository.Name,
-// 			Permission: pulumi.String("pull"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleRepository, err := github.NewRepository(ctx, "exampleRepository", nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleUser, err := github.GetUser(ctx, &GetUserArgs{
+//				Username: "example",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleTeam, err := github.NewTeam(ctx, "exampleTeam", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = github.NewBranchProtection(ctx, "exampleBranchProtection", &github.BranchProtectionArgs{
+//				RepositoryId:    exampleRepository.NodeId,
+//				Pattern:         pulumi.String("main"),
+//				EnforceAdmins:   pulumi.Bool(true),
+//				AllowsDeletions: pulumi.Bool(true),
+//				RequiredStatusChecks: BranchProtectionRequiredStatusCheckArray{
+//					&BranchProtectionRequiredStatusCheckArgs{
+//						Strict: pulumi.Bool(false),
+//						Contexts: pulumi.StringArray{
+//							pulumi.String("ci/travis"),
+//						},
+//					},
+//				},
+//				RequiredPullRequestReviews: BranchProtectionRequiredPullRequestReviewArray{
+//					&BranchProtectionRequiredPullRequestReviewArgs{
+//						DismissStaleReviews: pulumi.Bool(true),
+//						RestrictDismissals:  pulumi.Bool(true),
+//						DismissalRestrictions: pulumi.StringArray{
+//							pulumi.String(exampleUser.NodeId),
+//							exampleTeam.NodeId,
+//						},
+//					},
+//				},
+//				PushRestrictions: pulumi.StringArray{
+//					pulumi.String(exampleUser.NodeId),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = github.NewTeamRepository(ctx, "exampleTeamRepository", &github.TeamRepositoryArgs{
+//				TeamId:     exampleTeam.ID(),
+//				Repository: exampleRepository.Name,
+//				Permission: pulumi.String("pull"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -89,7 +92,9 @@ import (
 // GitHub Branch Protection can be imported using an ID made up of `repository:pattern`, e.g.
 //
 // ```sh
-//  $ pulumi import github:index/branchProtection:BranchProtection terraform terraform:main
+//
+//	$ pulumi import github:index/branchProtection:BranchProtection terraform terraform:main
+//
 // ```
 type BranchProtection struct {
 	pulumi.CustomResourceState
@@ -293,7 +298,7 @@ func (i *BranchProtection) ToBranchProtectionOutputWithContext(ctx context.Conte
 // BranchProtectionArrayInput is an input type that accepts BranchProtectionArray and BranchProtectionArrayOutput values.
 // You can construct a concrete instance of `BranchProtectionArrayInput` via:
 //
-//          BranchProtectionArray{ BranchProtectionArgs{...} }
+//	BranchProtectionArray{ BranchProtectionArgs{...} }
 type BranchProtectionArrayInput interface {
 	pulumi.Input
 
@@ -318,7 +323,7 @@ func (i BranchProtectionArray) ToBranchProtectionArrayOutputWithContext(ctx cont
 // BranchProtectionMapInput is an input type that accepts BranchProtectionMap and BranchProtectionMapOutput values.
 // You can construct a concrete instance of `BranchProtectionMapInput` via:
 //
-//          BranchProtectionMap{ "key": BranchProtectionArgs{...} }
+//	BranchProtectionMap{ "key": BranchProtectionArgs{...} }
 type BranchProtectionMapInput interface {
 	pulumi.Input
 

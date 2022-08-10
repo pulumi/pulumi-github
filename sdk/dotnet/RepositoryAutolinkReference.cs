@@ -15,27 +15,26 @@ namespace Pulumi.Github
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Github = Pulumi.Github;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var repo = new Github.Repository("repo", new()
     ///     {
-    ///         var repo = new Github.Repository("repo", new Github.RepositoryArgs
-    ///         {
-    ///             Description = "GitHub repo managed by Terraform",
-    ///             Private = false,
-    ///         });
-    ///         var auto = new Github.RepositoryAutolinkReference("auto", new Github.RepositoryAutolinkReferenceArgs
-    ///         {
-    ///             Repository = repo.Name,
-    ///             KeyPrefix = "TICKET-",
-    ///             TargetUrlTemplate = "https://hello.there/TICKET?query=&lt;num&gt;",
-    ///         });
-    ///     }
+    ///         Description = "GitHub repo managed by Terraform",
+    ///         Private = false,
+    ///     });
     /// 
-    /// }
+    ///     var auto = new Github.RepositoryAutolinkReference("auto", new()
+    ///     {
+    ///         Repository = repo.Name,
+    ///         KeyPrefix = "TICKET-",
+    ///         TargetUrlTemplate = "https://hello.there/TICKET?query=&lt;num&gt;",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -47,7 +46,7 @@ namespace Pulumi.Github
     /// ```
     /// </summary>
     [GithubResourceType("github:index/repositoryAutolinkReference:RepositoryAutolinkReference")]
-    public partial class RepositoryAutolinkReference : Pulumi.CustomResource
+    public partial class RepositoryAutolinkReference : global::Pulumi.CustomResource
     {
         /// <summary>
         /// An etag representing the autolink reference object.
@@ -117,7 +116,7 @@ namespace Pulumi.Github
         }
     }
 
-    public sealed class RepositoryAutolinkReferenceArgs : Pulumi.ResourceArgs
+    public sealed class RepositoryAutolinkReferenceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// This prefix appended by a number will generate a link any time it is found in an issue, pull request, or commit.
@@ -140,9 +139,10 @@ namespace Pulumi.Github
         public RepositoryAutolinkReferenceArgs()
         {
         }
+        public static new RepositoryAutolinkReferenceArgs Empty => new RepositoryAutolinkReferenceArgs();
     }
 
-    public sealed class RepositoryAutolinkReferenceState : Pulumi.ResourceArgs
+    public sealed class RepositoryAutolinkReferenceState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// An etag representing the autolink reference object.
@@ -171,5 +171,6 @@ namespace Pulumi.Github
         public RepositoryAutolinkReferenceState()
         {
         }
+        public static new RepositoryAutolinkReferenceState Empty => new RepositoryAutolinkReferenceState();
     }
 }

@@ -19,45 +19,48 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-github/sdk/v4/go/github"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-github/sdk/v4/go/github"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		current, err := github.GetUser(ctx, &GetUserArgs{
-// 			Username: "",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleRepository, err := github.NewRepository(ctx, "exampleRepository", &github.RepositoryArgs{
-// 			Description: pulumi.String("My awesome codebase"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = github.NewRepositoryEnvironment(ctx, "exampleRepositoryEnvironment", &github.RepositoryEnvironmentArgs{
-// 			Environment: pulumi.String("example"),
-// 			Repository:  exampleRepository.Name,
-// 			Reviewers: RepositoryEnvironmentReviewerArray{
-// 				&RepositoryEnvironmentReviewerArgs{
-// 					Users: pulumi.IntArray{
-// 						pulumi.String(current.Id),
-// 					},
-// 				},
-// 			},
-// 			DeploymentBranchPolicy: &RepositoryEnvironmentDeploymentBranchPolicyArgs{
-// 				ProtectedBranches:    pulumi.Bool(true),
-// 				CustomBranchPolicies: pulumi.Bool(false),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			current, err := github.GetUser(ctx, &GetUserArgs{
+//				Username: "",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleRepository, err := github.NewRepository(ctx, "exampleRepository", &github.RepositoryArgs{
+//				Description: pulumi.String("My awesome codebase"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = github.NewRepositoryEnvironment(ctx, "exampleRepositoryEnvironment", &github.RepositoryEnvironmentArgs{
+//				Environment: pulumi.String("example"),
+//				Repository:  exampleRepository.Name,
+//				Reviewers: RepositoryEnvironmentReviewerArray{
+//					&RepositoryEnvironmentReviewerArgs{
+//						Users: pulumi.IntArray{
+//							pulumi.String(current.Id),
+//						},
+//					},
+//				},
+//				DeploymentBranchPolicy: &RepositoryEnvironmentDeploymentBranchPolicyArgs{
+//					ProtectedBranches:    pulumi.Bool(true),
+//					CustomBranchPolicies: pulumi.Bool(false),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -65,7 +68,9 @@ import (
 // GitHub Repository Environment can be imported using an ID made up of `name` of the repository combined with the `environment` name of the environment, separated by a `:` character, e.g.
 //
 // ```sh
-//  $ pulumi import github:index/repositoryEnvironment:RepositoryEnvironment daily terraform:daily
+//
+//	$ pulumi import github:index/repositoryEnvironment:RepositoryEnvironment daily terraform:daily
+//
 // ```
 type RepositoryEnvironment struct {
 	pulumi.CustomResourceState
@@ -189,7 +194,7 @@ func (i *RepositoryEnvironment) ToRepositoryEnvironmentOutputWithContext(ctx con
 // RepositoryEnvironmentArrayInput is an input type that accepts RepositoryEnvironmentArray and RepositoryEnvironmentArrayOutput values.
 // You can construct a concrete instance of `RepositoryEnvironmentArrayInput` via:
 //
-//          RepositoryEnvironmentArray{ RepositoryEnvironmentArgs{...} }
+//	RepositoryEnvironmentArray{ RepositoryEnvironmentArgs{...} }
 type RepositoryEnvironmentArrayInput interface {
 	pulumi.Input
 
@@ -214,7 +219,7 @@ func (i RepositoryEnvironmentArray) ToRepositoryEnvironmentArrayOutputWithContex
 // RepositoryEnvironmentMapInput is an input type that accepts RepositoryEnvironmentMap and RepositoryEnvironmentMapOutput values.
 // You can construct a concrete instance of `RepositoryEnvironmentMapInput` via:
 //
-//          RepositoryEnvironmentMap{ "key": RepositoryEnvironmentArgs{...} }
+//	RepositoryEnvironmentMap{ "key": RepositoryEnvironmentArgs{...} }
 type RepositoryEnvironmentMapInput interface {
 	pulumi.Input
 

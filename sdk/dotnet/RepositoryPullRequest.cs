@@ -15,28 +15,26 @@ namespace Pulumi.Github
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Github = Pulumi.Github;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Github.RepositoryPullRequest("example", new()
     ///     {
-    ///         var example = new Github.RepositoryPullRequest("example", new Github.RepositoryPullRequestArgs
-    ///         {
-    ///             BaseRef = "main",
-    ///             BaseRepository = "example-repository",
-    ///             Body = "This will change everything",
-    ///             HeadRef = "feature-branch",
-    ///             Title = "My newest feature",
-    ///         });
-    ///     }
+    ///         BaseRef = "main",
+    ///         BaseRepository = "example-repository",
+    ///         Body = "This will change everything",
+    ///         HeadRef = "feature-branch",
+    ///         Title = "My newest feature",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// </summary>
     [GithubResourceType("github:index/repositoryPullRequest:RepositoryPullRequest")]
-    public partial class RepositoryPullRequest : Pulumi.CustomResource
+    public partial class RepositoryPullRequest : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Name of the branch serving as the base of the Pull Request.
@@ -178,7 +176,7 @@ namespace Pulumi.Github
         }
     }
 
-    public sealed class RepositoryPullRequestArgs : Pulumi.ResourceArgs
+    public sealed class RepositoryPullRequestArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the branch serving as the base of the Pull Request.
@@ -225,9 +223,10 @@ namespace Pulumi.Github
         public RepositoryPullRequestArgs()
         {
         }
+        public static new RepositoryPullRequestArgs Empty => new RepositoryPullRequestArgs();
     }
 
-    public sealed class RepositoryPullRequestState : Pulumi.ResourceArgs
+    public sealed class RepositoryPullRequestState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the branch serving as the base of the Pull Request.
@@ -334,5 +333,6 @@ namespace Pulumi.Github
         public RepositoryPullRequestState()
         {
         }
+        public static new RepositoryPullRequestState Empty => new RepositoryPullRequestState();
     }
 }

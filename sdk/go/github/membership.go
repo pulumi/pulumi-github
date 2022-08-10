@@ -23,22 +23,25 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-github/sdk/v4/go/github"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-github/sdk/v4/go/github"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := github.NewMembership(ctx, "membershipForSomeUser", &github.MembershipArgs{
-// 			Role:     pulumi.String("member"),
-// 			Username: pulumi.String("SomeUser"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := github.NewMembership(ctx, "membershipForSomeUser", &github.MembershipArgs{
+//				Role:     pulumi.String("member"),
+//				Username: pulumi.String("SomeUser"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -46,7 +49,9 @@ import (
 // GitHub Membership can be imported using an ID made up of `organization:username`, e.g.
 //
 // ```sh
-//  $ pulumi import github:index/membership:Membership member hashicorp:someuser
+//
+//	$ pulumi import github:index/membership:Membership member hashicorp:someuser
+//
 // ```
 type Membership struct {
 	pulumi.CustomResourceState
@@ -155,7 +160,7 @@ func (i *Membership) ToMembershipOutputWithContext(ctx context.Context) Membersh
 // MembershipArrayInput is an input type that accepts MembershipArray and MembershipArrayOutput values.
 // You can construct a concrete instance of `MembershipArrayInput` via:
 //
-//          MembershipArray{ MembershipArgs{...} }
+//	MembershipArray{ MembershipArgs{...} }
 type MembershipArrayInput interface {
 	pulumi.Input
 
@@ -180,7 +185,7 @@ func (i MembershipArray) ToMembershipArrayOutputWithContext(ctx context.Context)
 // MembershipMapInput is an input type that accepts MembershipMap and MembershipMapOutput values.
 // You can construct a concrete instance of `MembershipMapInput` via:
 //
-//          MembershipMap{ "key": MembershipArgs{...} }
+//	MembershipMap{ "key": MembershipArgs{...} }
 type MembershipMapInput interface {
 	pulumi.Input
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Github.Inputs
 {
 
-    public sealed class RepositoryEnvironmentReviewerGetArgs : Pulumi.ResourceArgs
+    public sealed class RepositoryEnvironmentReviewerGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("teams")]
         private InputList<int>? _teams;
@@ -39,5 +39,6 @@ namespace Pulumi.Github.Inputs
         public RepositoryEnvironmentReviewerGetArgs()
         {
         }
+        public static new RepositoryEnvironmentReviewerGetArgs Empty => new RepositoryEnvironmentReviewerGetArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Github.Inputs
 {
 
-    public sealed class RepositoryWebhookConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class RepositoryWebhookConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The content type for the payload. Valid values are either `form` or `json`.
@@ -39,5 +39,6 @@ namespace Pulumi.Github.Inputs
         public RepositoryWebhookConfigurationArgs()
         {
         }
+        public static new RepositoryWebhookConfigurationArgs Empty => new RepositoryWebhookConfigurationArgs();
     }
 }

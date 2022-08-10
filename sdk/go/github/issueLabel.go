@@ -17,22 +17,25 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-github/sdk/v4/go/github"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-github/sdk/v4/go/github"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := github.NewIssueLabel(ctx, "testRepo", &github.IssueLabelArgs{
-// 			Color:      pulumi.String("FF0000"),
-// 			Repository: pulumi.String("test-repo"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := github.NewIssueLabel(ctx, "testRepo", &github.IssueLabelArgs{
+//				Color:      pulumi.String("FF0000"),
+//				Repository: pulumi.String("test-repo"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -40,7 +43,9 @@ import (
 // GitHub Issue Labels can be imported using an ID made up of `repository:name`, e.g.
 //
 // ```sh
-//  $ pulumi import github:index/issueLabel:IssueLabel panic_label terraform:panic
+//
+//	$ pulumi import github:index/issueLabel:IssueLabel panic_label terraform:panic
+//
 // ```
 type IssueLabel struct {
 	pulumi.CustomResourceState
@@ -173,7 +178,7 @@ func (i *IssueLabel) ToIssueLabelOutputWithContext(ctx context.Context) IssueLab
 // IssueLabelArrayInput is an input type that accepts IssueLabelArray and IssueLabelArrayOutput values.
 // You can construct a concrete instance of `IssueLabelArrayInput` via:
 //
-//          IssueLabelArray{ IssueLabelArgs{...} }
+//	IssueLabelArray{ IssueLabelArgs{...} }
 type IssueLabelArrayInput interface {
 	pulumi.Input
 
@@ -198,7 +203,7 @@ func (i IssueLabelArray) ToIssueLabelArrayOutputWithContext(ctx context.Context)
 // IssueLabelMapInput is an input type that accepts IssueLabelMap and IssueLabelMapOutput values.
 // You can construct a concrete instance of `IssueLabelMapInput` via:
 //
-//          IssueLabelMap{ "key": IssueLabelArgs{...} }
+//	IssueLabelMap{ "key": IssueLabelArgs{...} }
 type IssueLabelMapInput interface {
 	pulumi.Input
 

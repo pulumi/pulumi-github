@@ -22,20 +22,18 @@ namespace Pulumi.Github
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Github = Pulumi.Github;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Github.GetRepositories.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Github.GetRepositories.InvokeAsync(new Github.GetRepositoriesArgs
-        ///         {
-        ///             Query = "org:hashicorp language:Go",
-        ///         }));
-        ///     }
+        ///         Query = "org:hashicorp language:Go",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -54,20 +52,18 @@ namespace Pulumi.Github
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Github = Pulumi.Github;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Github.GetRepositories.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Github.GetRepositories.InvokeAsync(new Github.GetRepositoriesArgs
-        ///         {
-        ///             Query = "org:hashicorp language:Go",
-        ///         }));
-        ///     }
+        ///         Query = "org:hashicorp language:Go",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -77,7 +73,7 @@ namespace Pulumi.Github
     }
 
 
-    public sealed class GetRepositoriesArgs : Pulumi.InvokeArgs
+    public sealed class GetRepositoriesArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Search query. See [documentation for the search syntax](https://help.github.com/articles/understanding-the-search-syntax/).
@@ -94,9 +90,10 @@ namespace Pulumi.Github
         public GetRepositoriesArgs()
         {
         }
+        public static new GetRepositoriesArgs Empty => new GetRepositoriesArgs();
     }
 
-    public sealed class GetRepositoriesInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetRepositoriesInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Search query. See [documentation for the search syntax](https://help.github.com/articles/understanding-the-search-syntax/).
@@ -113,6 +110,7 @@ namespace Pulumi.Github
         public GetRepositoriesInvokeArgs()
         {
         }
+        public static new GetRepositoriesInvokeArgs Empty => new GetRepositoriesInvokeArgs();
     }
 
 

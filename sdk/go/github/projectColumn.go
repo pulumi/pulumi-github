@@ -19,27 +19,30 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-github/sdk/v4/go/github"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-github/sdk/v4/go/github"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		project, err := github.NewOrganizationProject(ctx, "project", &github.OrganizationProjectArgs{
-// 			Body: pulumi.String("This is an organization project."),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = github.NewProjectColumn(ctx, "column", &github.ProjectColumnArgs{
-// 			ProjectId: project.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			project, err := github.NewOrganizationProject(ctx, "project", &github.OrganizationProjectArgs{
+//				Body: pulumi.String("This is an organization project."),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = github.NewProjectColumn(ctx, "column", &github.ProjectColumnArgs{
+//				ProjectId: project.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 type ProjectColumn struct {
 	pulumi.CustomResourceState
@@ -146,7 +149,7 @@ func (i *ProjectColumn) ToProjectColumnOutputWithContext(ctx context.Context) Pr
 // ProjectColumnArrayInput is an input type that accepts ProjectColumnArray and ProjectColumnArrayOutput values.
 // You can construct a concrete instance of `ProjectColumnArrayInput` via:
 //
-//          ProjectColumnArray{ ProjectColumnArgs{...} }
+//	ProjectColumnArray{ ProjectColumnArgs{...} }
 type ProjectColumnArrayInput interface {
 	pulumi.Input
 
@@ -171,7 +174,7 @@ func (i ProjectColumnArray) ToProjectColumnArrayOutputWithContext(ctx context.Co
 // ProjectColumnMapInput is an input type that accepts ProjectColumnMap and ProjectColumnMapOutput values.
 // You can construct a concrete instance of `ProjectColumnMapInput` via:
 //
-//          ProjectColumnMap{ "key": ProjectColumnArgs{...} }
+//	ProjectColumnMap{ "key": ProjectColumnArgs{...} }
 type ProjectColumnMapInput interface {
 	pulumi.Input
 

@@ -16,27 +16,24 @@ namespace Pulumi.Github
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Github = Pulumi.Github;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var exampleRepository = new Github.Repository("exampleRepository", new Github.RepositoryArgs
-    ///         {
-    ///         });
-    ///         var exampleActionsRunnerGroup = new Github.ActionsRunnerGroup("exampleActionsRunnerGroup", new Github.ActionsRunnerGroupArgs
-    ///         {
-    ///             Visibility = "selected",
-    ///             SelectedRepositoryIds = 
-    ///             {
-    ///                 exampleRepository.RepoId,
-    ///             },
-    ///         });
-    ///     }
+    ///     var exampleRepository = new Github.Repository("exampleRepository");
     /// 
-    /// }
+    ///     var exampleActionsRunnerGroup = new Github.ActionsRunnerGroup("exampleActionsRunnerGroup", new()
+    ///     {
+    ///         Visibility = "selected",
+    ///         SelectedRepositoryIds = new[]
+    ///         {
+    ///             exampleRepository.RepoId,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -48,7 +45,7 @@ namespace Pulumi.Github
     /// ```
     /// </summary>
     [GithubResourceType("github:index/actionsRunnerGroup:ActionsRunnerGroup")]
-    public partial class ActionsRunnerGroup : Pulumi.CustomResource
+    public partial class ActionsRunnerGroup : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Whether public repositories can be added to the runner group
@@ -148,7 +145,7 @@ namespace Pulumi.Github
         }
     }
 
-    public sealed class ActionsRunnerGroupArgs : Pulumi.ResourceArgs
+    public sealed class ActionsRunnerGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the runner group
@@ -177,9 +174,10 @@ namespace Pulumi.Github
         public ActionsRunnerGroupArgs()
         {
         }
+        public static new ActionsRunnerGroupArgs Empty => new ActionsRunnerGroupArgs();
     }
 
-    public sealed class ActionsRunnerGroupState : Pulumi.ResourceArgs
+    public sealed class ActionsRunnerGroupState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether public repositories can be added to the runner group
@@ -244,5 +242,6 @@ namespace Pulumi.Github
         public ActionsRunnerGroupState()
         {
         }
+        public static new ActionsRunnerGroupState Empty => new ActionsRunnerGroupState();
     }
 }

@@ -17,23 +17,21 @@ namespace Pulumi.Github
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Github = Pulumi.Github;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     // Create a milestone for a repository
+    ///     var example = new Github.RepositoryMilestone("example", new()
     ///     {
-    ///         // Create a milestone for a repository
-    ///         var example = new Github.RepositoryMilestone("example", new Github.RepositoryMilestoneArgs
-    ///         {
-    ///             Owner = "example-owner",
-    ///             Repository = "example-repository",
-    ///             Title = "v1.1.0",
-    ///         });
-    ///     }
+    ///         Owner = "example-owner",
+    ///         Repository = "example-repository",
+    ///         Title = "v1.1.0",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -45,7 +43,7 @@ namespace Pulumi.Github
     /// ```
     /// </summary>
     [GithubResourceType("github:index/repositoryMilestone:RepositoryMilestone")]
-    public partial class RepositoryMilestone : Pulumi.CustomResource
+    public partial class RepositoryMilestone : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A description of the milestone.
@@ -133,7 +131,7 @@ namespace Pulumi.Github
         }
     }
 
-    public sealed class RepositoryMilestoneArgs : Pulumi.ResourceArgs
+    public sealed class RepositoryMilestoneArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A description of the milestone.
@@ -174,9 +172,10 @@ namespace Pulumi.Github
         public RepositoryMilestoneArgs()
         {
         }
+        public static new RepositoryMilestoneArgs Empty => new RepositoryMilestoneArgs();
     }
 
-    public sealed class RepositoryMilestoneState : Pulumi.ResourceArgs
+    public sealed class RepositoryMilestoneState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A description of the milestone.
@@ -223,5 +222,6 @@ namespace Pulumi.Github
         public RepositoryMilestoneState()
         {
         }
+        public static new RepositoryMilestoneState Empty => new RepositoryMilestoneState();
     }
 }

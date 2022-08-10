@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Github.Inputs
 {
 
-    public sealed class TeamSyncGroupMappingGroupGetArgs : Pulumi.ResourceArgs
+    public sealed class TeamSyncGroupMappingGroupGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The description of the IdP group.
@@ -33,5 +33,6 @@ namespace Pulumi.Github.Inputs
         public TeamSyncGroupMappingGroupGetArgs()
         {
         }
+        public static new TeamSyncGroupMappingGroupGetArgs Empty => new TeamSyncGroupMappingGroupGetArgs();
     }
 }

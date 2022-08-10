@@ -19,21 +19,19 @@ namespace Pulumi.Github
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Github = Pulumi.Github;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var test = Github.GetCollaborators.Invoke(new()
         ///     {
-        ///         var test = Output.Create(Github.GetCollaborators.InvokeAsync(new Github.GetCollaboratorsArgs
-        ///         {
-        ///             Owner = "example_owner",
-        ///             Repository = "example_repository",
-        ///         }));
-        ///     }
+        ///         Owner = "example_owner",
+        ///         Repository = "example_repository",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -49,21 +47,19 @@ namespace Pulumi.Github
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Github = Pulumi.Github;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var test = Github.GetCollaborators.Invoke(new()
         ///     {
-        ///         var test = Output.Create(Github.GetCollaborators.InvokeAsync(new Github.GetCollaboratorsArgs
-        ///         {
-        ///             Owner = "example_owner",
-        ///             Repository = "example_repository",
-        ///         }));
-        ///     }
+        ///         Owner = "example_owner",
+        ///         Repository = "example_repository",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -73,7 +69,7 @@ namespace Pulumi.Github
     }
 
 
-    public sealed class GetCollaboratorsArgs : Pulumi.InvokeArgs
+    public sealed class GetCollaboratorsArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Filter collaborators returned by their affiliation. Can be one of: `outside`, `direct`, `all`.  Defaults to `all`.
@@ -96,9 +92,10 @@ namespace Pulumi.Github
         public GetCollaboratorsArgs()
         {
         }
+        public static new GetCollaboratorsArgs Empty => new GetCollaboratorsArgs();
     }
 
-    public sealed class GetCollaboratorsInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetCollaboratorsInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Filter collaborators returned by their affiliation. Can be one of: `outside`, `direct`, `all`.  Defaults to `all`.
@@ -121,6 +118,7 @@ namespace Pulumi.Github
         public GetCollaboratorsInvokeArgs()
         {
         }
+        public static new GetCollaboratorsInvokeArgs Empty => new GetCollaboratorsInvokeArgs();
     }
 
 

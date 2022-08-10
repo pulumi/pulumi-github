@@ -15,44 +15,44 @@ namespace Pulumi.Github
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Github = Pulumi.Github;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var current = Github.GetUser.Invoke(new()
     ///     {
-    ///         var current = Output.Create(Github.GetUser.InvokeAsync(new Github.GetUserArgs
+    ///         Username = "",
+    ///     });
+    /// 
+    ///     var exampleRepository = new Github.Repository("exampleRepository", new()
+    ///     {
+    ///         Description = "My awesome codebase",
+    ///     });
+    /// 
+    ///     var exampleRepositoryEnvironment = new Github.RepositoryEnvironment("exampleRepositoryEnvironment", new()
+    ///     {
+    ///         Environment = "example",
+    ///         Repository = exampleRepository.Name,
+    ///         Reviewers = new[]
     ///         {
-    ///             Username = "",
-    ///         }));
-    ///         var exampleRepository = new Github.Repository("exampleRepository", new Github.RepositoryArgs
-    ///         {
-    ///             Description = "My awesome codebase",
-    ///         });
-    ///         var exampleRepositoryEnvironment = new Github.RepositoryEnvironment("exampleRepositoryEnvironment", new Github.RepositoryEnvironmentArgs
-    ///         {
-    ///             Environment = "example",
-    ///             Repository = exampleRepository.Name,
-    ///             Reviewers = 
+    ///             new Github.Inputs.RepositoryEnvironmentReviewerArgs
     ///             {
-    ///                 new Github.Inputs.RepositoryEnvironmentReviewerArgs
+    ///                 Users = new[]
     ///                 {
-    ///                     Users = 
-    ///                     {
-    ///                         current.Apply(current =&gt; current.Id),
-    ///                     },
+    ///                     current.Apply(getUserResult =&gt; getUserResult.Id),
     ///                 },
     ///             },
-    ///             DeploymentBranchPolicy = new Github.Inputs.RepositoryEnvironmentDeploymentBranchPolicyArgs
-    ///             {
-    ///                 ProtectedBranches = true,
-    ///                 CustomBranchPolicies = false,
-    ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///         DeploymentBranchPolicy = new Github.Inputs.RepositoryEnvironmentDeploymentBranchPolicyArgs
+    ///         {
+    ///             ProtectedBranches = true,
+    ///             CustomBranchPolicies = false,
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -64,7 +64,7 @@ namespace Pulumi.Github
     /// ```
     /// </summary>
     [GithubResourceType("github:index/repositoryEnvironment:RepositoryEnvironment")]
-    public partial class RepositoryEnvironment : Pulumi.CustomResource
+    public partial class RepositoryEnvironment : global::Pulumi.CustomResource
     {
         [Output("deploymentBranchPolicy")]
         public Output<Outputs.RepositoryEnvironmentDeploymentBranchPolicy?> DeploymentBranchPolicy { get; private set; } = null!;
@@ -134,7 +134,7 @@ namespace Pulumi.Github
         }
     }
 
-    public sealed class RepositoryEnvironmentArgs : Pulumi.ResourceArgs
+    public sealed class RepositoryEnvironmentArgs : global::Pulumi.ResourceArgs
     {
         [Input("deploymentBranchPolicy")]
         public Input<Inputs.RepositoryEnvironmentDeploymentBranchPolicyArgs>? DeploymentBranchPolicy { get; set; }
@@ -168,9 +168,10 @@ namespace Pulumi.Github
         public RepositoryEnvironmentArgs()
         {
         }
+        public static new RepositoryEnvironmentArgs Empty => new RepositoryEnvironmentArgs();
     }
 
-    public sealed class RepositoryEnvironmentState : Pulumi.ResourceArgs
+    public sealed class RepositoryEnvironmentState : global::Pulumi.ResourceArgs
     {
         [Input("deploymentBranchPolicy")]
         public Input<Inputs.RepositoryEnvironmentDeploymentBranchPolicyGetArgs>? DeploymentBranchPolicy { get; set; }
@@ -204,5 +205,6 @@ namespace Pulumi.Github
         public RepositoryEnvironmentState()
         {
         }
+        public static new RepositoryEnvironmentState Empty => new RepositoryEnvironmentState();
     }
 }

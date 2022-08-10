@@ -23,92 +23,98 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-github/sdk/v4/go/github"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-github/sdk/v4/go/github"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := github.NewBranchProtectionV3(ctx, "example", &github.BranchProtectionV3Args{
-// 			Repository: pulumi.Any(github_repository.Example.Name),
-// 			Branch:     pulumi.String("main"),
-// 			Restrictions: &BranchProtectionV3RestrictionsArgs{
-// 				Users: pulumi.StringArray{
-// 					pulumi.String("foo-user"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := github.NewBranchProtectionV3(ctx, "example", &github.BranchProtectionV3Args{
+//				Repository: pulumi.Any(github_repository.Example.Name),
+//				Branch:     pulumi.String("main"),
+//				Restrictions: &BranchProtectionV3RestrictionsArgs{
+//					Users: pulumi.StringArray{
+//						pulumi.String("foo-user"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ```go
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-github/sdk/v4/go/github"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-github/sdk/v4/go/github"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleRepository, err := github.NewRepository(ctx, "exampleRepository", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleTeam, err := github.NewTeam(ctx, "exampleTeam", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = github.NewBranchProtectionV3(ctx, "exampleBranchProtectionV3", &github.BranchProtectionV3Args{
-// 			Repository:    exampleRepository.Name,
-// 			Branch:        pulumi.String("main"),
-// 			EnforceAdmins: pulumi.Bool(true),
-// 			RequiredStatusChecks: &BranchProtectionV3RequiredStatusChecksArgs{
-// 				Strict: pulumi.Bool(false),
-// 				Contexts: pulumi.StringArray{
-// 					pulumi.String("ci/travis"),
-// 				},
-// 			},
-// 			RequiredPullRequestReviews: &BranchProtectionV3RequiredPullRequestReviewsArgs{
-// 				DismissStaleReviews: pulumi.Bool(true),
-// 				DismissalUsers: pulumi.StringArray{
-// 					pulumi.String("foo-user"),
-// 				},
-// 				DismissalTeams: pulumi.StringArray{
-// 					exampleTeam.Slug,
-// 				},
-// 			},
-// 			Restrictions: &BranchProtectionV3RestrictionsArgs{
-// 				Users: pulumi.StringArray{
-// 					pulumi.String("foo-user"),
-// 				},
-// 				Teams: pulumi.StringArray{
-// 					exampleTeam.Slug,
-// 				},
-// 				Apps: pulumi.StringArray{
-// 					pulumi.String("foo-app"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = github.NewTeamRepository(ctx, "exampleTeamRepository", &github.TeamRepositoryArgs{
-// 			TeamId:     exampleTeam.ID(),
-// 			Repository: exampleRepository.Name,
-// 			Permission: pulumi.String("pull"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleRepository, err := github.NewRepository(ctx, "exampleRepository", nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleTeam, err := github.NewTeam(ctx, "exampleTeam", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = github.NewBranchProtectionV3(ctx, "exampleBranchProtectionV3", &github.BranchProtectionV3Args{
+//				Repository:    exampleRepository.Name,
+//				Branch:        pulumi.String("main"),
+//				EnforceAdmins: pulumi.Bool(true),
+//				RequiredStatusChecks: &BranchProtectionV3RequiredStatusChecksArgs{
+//					Strict: pulumi.Bool(false),
+//					Contexts: pulumi.StringArray{
+//						pulumi.String("ci/travis"),
+//					},
+//				},
+//				RequiredPullRequestReviews: &BranchProtectionV3RequiredPullRequestReviewsArgs{
+//					DismissStaleReviews: pulumi.Bool(true),
+//					DismissalUsers: pulumi.StringArray{
+//						pulumi.String("foo-user"),
+//					},
+//					DismissalTeams: pulumi.StringArray{
+//						exampleTeam.Slug,
+//					},
+//				},
+//				Restrictions: &BranchProtectionV3RestrictionsArgs{
+//					Users: pulumi.StringArray{
+//						pulumi.String("foo-user"),
+//					},
+//					Teams: pulumi.StringArray{
+//						exampleTeam.Slug,
+//					},
+//					Apps: pulumi.StringArray{
+//						pulumi.String("foo-app"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = github.NewTeamRepository(ctx, "exampleTeamRepository", &github.TeamRepositoryArgs{
+//				TeamId:     exampleTeam.ID(),
+//				Repository: exampleRepository.Name,
+//				Permission: pulumi.String("pull"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -116,7 +122,9 @@ import (
 // GitHub Branch Protection can be imported using an ID made up of `repository:branch`, e.g.
 //
 // ```sh
-//  $ pulumi import github:index/branchProtectionV3:BranchProtectionV3 terraform terraform:main
+//
+//	$ pulumi import github:index/branchProtectionV3:BranchProtectionV3 terraform terraform:main
+//
 // ```
 type BranchProtectionV3 struct {
 	pulumi.CustomResourceState
@@ -283,7 +291,7 @@ func (i *BranchProtectionV3) ToBranchProtectionV3OutputWithContext(ctx context.C
 // BranchProtectionV3ArrayInput is an input type that accepts BranchProtectionV3Array and BranchProtectionV3ArrayOutput values.
 // You can construct a concrete instance of `BranchProtectionV3ArrayInput` via:
 //
-//          BranchProtectionV3Array{ BranchProtectionV3Args{...} }
+//	BranchProtectionV3Array{ BranchProtectionV3Args{...} }
 type BranchProtectionV3ArrayInput interface {
 	pulumi.Input
 
@@ -308,7 +316,7 @@ func (i BranchProtectionV3Array) ToBranchProtectionV3ArrayOutputWithContext(ctx 
 // BranchProtectionV3MapInput is an input type that accepts BranchProtectionV3Map and BranchProtectionV3MapOutput values.
 // You can construct a concrete instance of `BranchProtectionV3MapInput` via:
 //
-//          BranchProtectionV3Map{ "key": BranchProtectionV3Args{...} }
+//	BranchProtectionV3Map{ "key": BranchProtectionV3Args{...} }
 type BranchProtectionV3MapInput interface {
 	pulumi.Input
 
