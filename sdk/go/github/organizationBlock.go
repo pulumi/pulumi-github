@@ -19,21 +19,24 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-github/sdk/v4/go/github"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-github/sdk/v4/go/github"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := github.NewOrganizationBlock(ctx, "example", &github.OrganizationBlockArgs{
-// 			Username: pulumi.String("paultyng"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := github.NewOrganizationBlock(ctx, "example", &github.OrganizationBlockArgs{
+//				Username: pulumi.String("paultyng"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 type OrganizationBlock struct {
 	pulumi.CustomResourceState
@@ -127,7 +130,7 @@ func (i *OrganizationBlock) ToOrganizationBlockOutputWithContext(ctx context.Con
 // OrganizationBlockArrayInput is an input type that accepts OrganizationBlockArray and OrganizationBlockArrayOutput values.
 // You can construct a concrete instance of `OrganizationBlockArrayInput` via:
 //
-//          OrganizationBlockArray{ OrganizationBlockArgs{...} }
+//	OrganizationBlockArray{ OrganizationBlockArgs{...} }
 type OrganizationBlockArrayInput interface {
 	pulumi.Input
 
@@ -152,7 +155,7 @@ func (i OrganizationBlockArray) ToOrganizationBlockArrayOutputWithContext(ctx co
 // OrganizationBlockMapInput is an input type that accepts OrganizationBlockMap and OrganizationBlockMapOutput values.
 // You can construct a concrete instance of `OrganizationBlockMapInput` via:
 //
-//          OrganizationBlockMap{ "key": OrganizationBlockArgs{...} }
+//	OrganizationBlockMap{ "key": OrganizationBlockArgs{...} }
 type OrganizationBlockMapInput interface {
 	pulumi.Input
 

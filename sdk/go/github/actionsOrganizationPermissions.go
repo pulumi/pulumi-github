@@ -20,47 +20,52 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-github/sdk/v4/go/github"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-github/sdk/v4/go/github"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := github.NewRepository(ctx, "example", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = github.NewActionsOrganizationPermissions(ctx, "test", &github.ActionsOrganizationPermissionsArgs{
-// 			AllowedActions:      pulumi.String("selected"),
-// 			EnabledRepositories: pulumi.String("selected"),
-// 			AllowedActionsConfig: &ActionsOrganizationPermissionsAllowedActionsConfigArgs{
-// 				GithubOwnedAllowed: pulumi.Bool(true),
-// 				PatternsAlloweds: pulumi.StringArray{
-// 					pulumi.String("actions/cache@*"),
-// 					pulumi.String("actions/checkout@*"),
-// 				},
-// 				VerifiedAllowed: pulumi.Bool(true),
-// 			},
-// 			EnabledRepositoriesConfig: &ActionsOrganizationPermissionsEnabledRepositoriesConfigArgs{
-// 				RepositoryIds: pulumi.IntArray{
-// 					example.RepoId,
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := github.NewRepository(ctx, "example", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = github.NewActionsOrganizationPermissions(ctx, "test", &github.ActionsOrganizationPermissionsArgs{
+//				AllowedActions:      pulumi.String("selected"),
+//				EnabledRepositories: pulumi.String("selected"),
+//				AllowedActionsConfig: &ActionsOrganizationPermissionsAllowedActionsConfigArgs{
+//					GithubOwnedAllowed: pulumi.Bool(true),
+//					PatternsAlloweds: pulumi.StringArray{
+//						pulumi.String("actions/cache@*"),
+//						pulumi.String("actions/checkout@*"),
+//					},
+//					VerifiedAllowed: pulumi.Bool(true),
+//				},
+//				EnabledRepositoriesConfig: &ActionsOrganizationPermissionsEnabledRepositoriesConfigArgs{
+//					RepositoryIds: pulumi.IntArray{
+//						example.RepoId,
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
 //
-// This resource can be imported using the ID of the GitHub organization
+// # This resource can be imported using the ID of the GitHub organization
 //
 // ```sh
-//  $ pulumi import github:index/actionsOrganizationPermissions:ActionsOrganizationPermissions test <github_organization_name>
+//
+//	$ pulumi import github:index/actionsOrganizationPermissions:ActionsOrganizationPermissions test <github_organization_name>
+//
 // ```
 type ActionsOrganizationPermissions struct {
 	pulumi.CustomResourceState
@@ -181,7 +186,7 @@ func (i *ActionsOrganizationPermissions) ToActionsOrganizationPermissionsOutputW
 // ActionsOrganizationPermissionsArrayInput is an input type that accepts ActionsOrganizationPermissionsArray and ActionsOrganizationPermissionsArrayOutput values.
 // You can construct a concrete instance of `ActionsOrganizationPermissionsArrayInput` via:
 //
-//          ActionsOrganizationPermissionsArray{ ActionsOrganizationPermissionsArgs{...} }
+//	ActionsOrganizationPermissionsArray{ ActionsOrganizationPermissionsArgs{...} }
 type ActionsOrganizationPermissionsArrayInput interface {
 	pulumi.Input
 
@@ -206,7 +211,7 @@ func (i ActionsOrganizationPermissionsArray) ToActionsOrganizationPermissionsArr
 // ActionsOrganizationPermissionsMapInput is an input type that accepts ActionsOrganizationPermissionsMap and ActionsOrganizationPermissionsMapOutput values.
 // You can construct a concrete instance of `ActionsOrganizationPermissionsMapInput` via:
 //
-//          ActionsOrganizationPermissionsMap{ "key": ActionsOrganizationPermissionsArgs{...} }
+//	ActionsOrganizationPermissionsMap{ "key": ActionsOrganizationPermissionsArgs{...} }
 type ActionsOrganizationPermissionsMapInput interface {
 	pulumi.Input
 

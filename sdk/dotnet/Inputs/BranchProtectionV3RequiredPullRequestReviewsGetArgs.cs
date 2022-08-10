@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Github.Inputs
 {
 
-    public sealed class BranchProtectionV3RequiredPullRequestReviewsGetArgs : Pulumi.ResourceArgs
+    public sealed class BranchProtectionV3RequiredPullRequestReviewsGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("dismissStaleReviews")]
         public Input<bool>? DismissStaleReviews { get; set; }
@@ -43,5 +43,6 @@ namespace Pulumi.Github.Inputs
         public BranchProtectionV3RequiredPullRequestReviewsGetArgs()
         {
         }
+        public static new BranchProtectionV3RequiredPullRequestReviewsGetArgs Empty => new BranchProtectionV3RequiredPullRequestReviewsGetArgs();
     }
 }

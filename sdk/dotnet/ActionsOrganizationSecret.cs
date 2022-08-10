@@ -13,65 +13,64 @@ namespace Pulumi.Github
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Github = Pulumi.Github;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleSecretActionsOrganizationSecret = new Github.ActionsOrganizationSecret("exampleSecretActionsOrganizationSecret", new()
     ///     {
-    ///         var exampleSecretActionsOrganizationSecret = new Github.ActionsOrganizationSecret("exampleSecretActionsOrganizationSecret", new Github.ActionsOrganizationSecretArgs
-    ///         {
-    ///             SecretName = "example_secret_name",
-    ///             Visibility = "private",
-    ///             PlaintextValue = @var.Some_secret_string,
-    ///         });
-    ///         var exampleSecretIndex_actionsOrganizationSecretActionsOrganizationSecret = new Github.ActionsOrganizationSecret("exampleSecretIndex/actionsOrganizationSecretActionsOrganizationSecret", new Github.ActionsOrganizationSecretArgs
-    ///         {
-    ///             SecretName = "example_secret_name",
-    ///             Visibility = "private",
-    ///             EncryptedValue = @var.Some_encrypted_secret_string,
-    ///         });
-    ///     }
+    ///         SecretName = "example_secret_name",
+    ///         Visibility = "private",
+    ///         PlaintextValue = @var.Some_secret_string,
+    ///     });
     /// 
-    /// }
+    ///     var exampleSecretIndex_actionsOrganizationSecretActionsOrganizationSecret = new Github.ActionsOrganizationSecret("exampleSecretIndex/actionsOrganizationSecretActionsOrganizationSecret", new()
+    ///     {
+    ///         SecretName = "example_secret_name",
+    ///         Visibility = "private",
+    ///         EncryptedValue = @var.Some_encrypted_secret_string,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Github = Pulumi.Github;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var repo = Github.GetRepository.Invoke(new()
     ///     {
-    ///         var repo = Output.Create(Github.GetRepository.InvokeAsync(new Github.GetRepositoryArgs
-    ///         {
-    ///             FullName = "my-org/repo",
-    ///         }));
-    ///         var exampleSecretActionsOrganizationSecret = new Github.ActionsOrganizationSecret("exampleSecretActionsOrganizationSecret", new Github.ActionsOrganizationSecretArgs
-    ///         {
-    ///             SecretName = "example_secret_name",
-    ///             Visibility = "selected",
-    ///             PlaintextValue = @var.Some_secret_string,
-    ///             SelectedRepositoryIds = 
-    ///             {
-    ///                 repo.Apply(repo =&gt; repo.RepoId),
-    ///             },
-    ///         });
-    ///         var exampleSecretIndex_actionsOrganizationSecretActionsOrganizationSecret = new Github.ActionsOrganizationSecret("exampleSecretIndex/actionsOrganizationSecretActionsOrganizationSecret", new Github.ActionsOrganizationSecretArgs
-    ///         {
-    ///             SecretName = "example_secret_name",
-    ///             Visibility = "selected",
-    ///             EncryptedValue = @var.Some_encrypted_secret_string,
-    ///             SelectedRepositoryIds = 
-    ///             {
-    ///                 repo.Apply(repo =&gt; repo.RepoId),
-    ///             },
-    ///         });
-    ///     }
+    ///         FullName = "my-org/repo",
+    ///     });
     /// 
-    /// }
+    ///     var exampleSecretActionsOrganizationSecret = new Github.ActionsOrganizationSecret("exampleSecretActionsOrganizationSecret", new()
+    ///     {
+    ///         SecretName = "example_secret_name",
+    ///         Visibility = "selected",
+    ///         PlaintextValue = @var.Some_secret_string,
+    ///         SelectedRepositoryIds = new[]
+    ///         {
+    ///             repo.Apply(getRepositoryResult =&gt; getRepositoryResult.RepoId),
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleSecretIndex_actionsOrganizationSecretActionsOrganizationSecret = new Github.ActionsOrganizationSecret("exampleSecretIndex/actionsOrganizationSecretActionsOrganizationSecret", new()
+    ///     {
+    ///         SecretName = "example_secret_name",
+    ///         Visibility = "selected",
+    ///         EncryptedValue = @var.Some_encrypted_secret_string,
+    ///         SelectedRepositoryIds = new[]
+    ///         {
+    ///             repo.Apply(getRepositoryResult =&gt; getRepositoryResult.RepoId),
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -85,7 +84,7 @@ namespace Pulumi.Github
     ///  NOTEthe implementation is limited in that it won't fetch the value of the `plaintext_value` or `encrypted_value` fields when importing. You may need to ignore changes for these as a workaround.
     /// </summary>
     [GithubResourceType("github:index/actionsOrganizationSecret:ActionsOrganizationSecret")]
-    public partial class ActionsOrganizationSecret : Pulumi.CustomResource
+    public partial class ActionsOrganizationSecret : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Date of actions_secret creation.
@@ -174,7 +173,7 @@ namespace Pulumi.Github
         }
     }
 
-    public sealed class ActionsOrganizationSecretArgs : Pulumi.ResourceArgs
+    public sealed class ActionsOrganizationSecretArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Encrypted value of the secret using the Github public key in Base64 format.
@@ -216,9 +215,10 @@ namespace Pulumi.Github
         public ActionsOrganizationSecretArgs()
         {
         }
+        public static new ActionsOrganizationSecretArgs Empty => new ActionsOrganizationSecretArgs();
     }
 
-    public sealed class ActionsOrganizationSecretState : Pulumi.ResourceArgs
+    public sealed class ActionsOrganizationSecretState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Date of actions_secret creation.
@@ -272,5 +272,6 @@ namespace Pulumi.Github
         public ActionsOrganizationSecretState()
         {
         }
+        public static new ActionsOrganizationSecretState Empty => new ActionsOrganizationSecretState();
     }
 }

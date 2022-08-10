@@ -19,25 +19,28 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-github/sdk/v4/go/github"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-github/sdk/v4/go/github"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := github.NewRepositoryPullRequest(ctx, "example", &github.RepositoryPullRequestArgs{
-// 			BaseRef:        pulumi.String("main"),
-// 			BaseRepository: pulumi.String("example-repository"),
-// 			Body:           pulumi.String("This will change everything"),
-// 			HeadRef:        pulumi.String("feature-branch"),
-// 			Title:          pulumi.String("My newest feature"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := github.NewRepositoryPullRequest(ctx, "example", &github.RepositoryPullRequestArgs{
+//				BaseRef:        pulumi.String("main"),
+//				BaseRepository: pulumi.String("example-repository"),
+//				Body:           pulumi.String("This will change everything"),
+//				HeadRef:        pulumi.String("feature-branch"),
+//				Title:          pulumi.String("My newest feature"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 type RepositoryPullRequest struct {
 	pulumi.CustomResourceState
@@ -251,7 +254,7 @@ func (i *RepositoryPullRequest) ToRepositoryPullRequestOutputWithContext(ctx con
 // RepositoryPullRequestArrayInput is an input type that accepts RepositoryPullRequestArray and RepositoryPullRequestArrayOutput values.
 // You can construct a concrete instance of `RepositoryPullRequestArrayInput` via:
 //
-//          RepositoryPullRequestArray{ RepositoryPullRequestArgs{...} }
+//	RepositoryPullRequestArray{ RepositoryPullRequestArgs{...} }
 type RepositoryPullRequestArrayInput interface {
 	pulumi.Input
 
@@ -276,7 +279,7 @@ func (i RepositoryPullRequestArray) ToRepositoryPullRequestArrayOutputWithContex
 // RepositoryPullRequestMapInput is an input type that accepts RepositoryPullRequestMap and RepositoryPullRequestMapOutput values.
 // You can construct a concrete instance of `RepositoryPullRequestMapInput` via:
 //
-//          RepositoryPullRequestMap{ "key": RepositoryPullRequestArgs{...} }
+//	RepositoryPullRequestMap{ "key": RepositoryPullRequestArgs{...} }
 type RepositoryPullRequestMapInput interface {
 	pulumi.Input
 

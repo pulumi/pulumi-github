@@ -18,73 +18,72 @@ namespace Pulumi.Github
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Github = Pulumi.Github;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     // Create a simple issue
+    ///     var testRepository = new Github.Repository("testRepository", new()
     ///     {
-    ///         // Create a simple issue
-    ///         var testRepository = new Github.Repository("testRepository", new Github.RepositoryArgs
-    ///         {
-    ///             AutoInit = true,
-    ///             HasIssues = true,
-    ///         });
-    ///         var testIssue = new Github.Issue("testIssue", new Github.IssueArgs
-    ///         {
-    ///             Repository = testRepository.Name,
-    ///             Title = "My issue title",
-    ///             Body = "The body of my issue",
-    ///         });
-    ///     }
+    ///         AutoInit = true,
+    ///         HasIssues = true,
+    ///     });
     /// 
-    /// }
+    ///     var testIssue = new Github.Issue("testIssue", new()
+    ///     {
+    ///         Repository = testRepository.Name,
+    ///         Title = "My issue title",
+    ///         Body = "The body of my issue",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ### With Milestone And Project Assignment
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Github = Pulumi.Github;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     // Create an issue with milestone and project assignment
+    ///     var testRepository = new Github.Repository("testRepository", new()
     ///     {
-    ///         // Create an issue with milestone and project assignment
-    ///         var testRepository = new Github.Repository("testRepository", new Github.RepositoryArgs
-    ///         {
-    ///             AutoInit = true,
-    ///             HasIssues = true,
-    ///         });
-    ///         var testRepositoryMilestone = new Github.RepositoryMilestone("testRepositoryMilestone", new Github.RepositoryMilestoneArgs
-    ///         {
-    ///             Owner = testRepository.FullName.Apply(fullName =&gt; fullName.Split("/")).Apply(split =&gt; split[0]),
-    ///             Repository = testRepository.Name,
-    ///             Title = "v1.0.0",
-    ///             Description = "General Availability",
-    ///             DueDate = "2022-11-22",
-    ///             State = "open",
-    ///         });
-    ///         var testIssue = new Github.Issue("testIssue", new Github.IssueArgs
-    ///         {
-    ///             Repository = testRepository.Name,
-    ///             Title = "My issue",
-    ///             Body = "My issue body",
-    ///             Labels = 
-    ///             {
-    ///                 "bug",
-    ///                 "documentation",
-    ///             },
-    ///             Assignees = 
-    ///             {
-    ///                 "bob-github",
-    ///             },
-    ///             MilestoneNumber = testRepositoryMilestone.Number,
-    ///         });
-    ///     }
+    ///         AutoInit = true,
+    ///         HasIssues = true,
+    ///     });
     /// 
-    /// }
+    ///     var testRepositoryMilestone = new Github.RepositoryMilestone("testRepositoryMilestone", new()
+    ///     {
+    ///         Owner = testRepository.FullName.Apply(fullName =&gt; fullName.Split("/")).Apply(split =&gt; split[0]),
+    ///         Repository = testRepository.Name,
+    ///         Title = "v1.0.0",
+    ///         Description = "General Availability",
+    ///         DueDate = "2022-11-22",
+    ///         State = "open",
+    ///     });
+    /// 
+    ///     var testIssue = new Github.Issue("testIssue", new()
+    ///     {
+    ///         Repository = testRepository.Name,
+    ///         Title = "My issue",
+    ///         Body = "My issue body",
+    ///         Labels = new[]
+    ///         {
+    ///             "bug",
+    ///             "documentation",
+    ///         },
+    ///         Assignees = new[]
+    ///         {
+    ///             "bob-github",
+    ///         },
+    ///         MilestoneNumber = testRepositoryMilestone.Number,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -96,7 +95,7 @@ namespace Pulumi.Github
     /// ```
     /// </summary>
     [GithubResourceType("github:index/issue:Issue")]
-    public partial class Issue : Pulumi.CustomResource
+    public partial class Issue : global::Pulumi.CustomResource
     {
         /// <summary>
         /// List of Logins to assign the to the issue.
@@ -193,7 +192,7 @@ namespace Pulumi.Github
         }
     }
 
-    public sealed class IssueArgs : Pulumi.ResourceArgs
+    public sealed class IssueArgs : global::Pulumi.ResourceArgs
     {
         [Input("assignees")]
         private InputList<string>? _assignees;
@@ -246,9 +245,10 @@ namespace Pulumi.Github
         public IssueArgs()
         {
         }
+        public static new IssueArgs Empty => new IssueArgs();
     }
 
-    public sealed class IssueState : Pulumi.ResourceArgs
+    public sealed class IssueState : global::Pulumi.ResourceArgs
     {
         [Input("assignees")]
         private InputList<string>? _assignees;
@@ -316,5 +316,6 @@ namespace Pulumi.Github
         public IssueState()
         {
         }
+        public static new IssueState Empty => new IssueState();
     }
 }

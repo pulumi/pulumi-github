@@ -19,22 +19,20 @@ namespace Pulumi.Github
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Github = Pulumi.Github;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     // Add a user to the organization
+    ///     var membershipForSomeUser = new Github.Membership("membershipForSomeUser", new()
     ///     {
-    ///         // Add a user to the organization
-    ///         var membershipForSomeUser = new Github.Membership("membershipForSomeUser", new Github.MembershipArgs
-    ///         {
-    ///             Role = "member",
-    ///             Username = "SomeUser",
-    ///         });
-    ///     }
+    ///         Role = "member",
+    ///         Username = "SomeUser",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -46,7 +44,7 @@ namespace Pulumi.Github
     /// ```
     /// </summary>
     [GithubResourceType("github:index/membership:Membership")]
-    public partial class Membership : Pulumi.CustomResource
+    public partial class Membership : global::Pulumi.CustomResource
     {
         [Output("etag")]
         public Output<string> Etag { get; private set; } = null!;
@@ -108,7 +106,7 @@ namespace Pulumi.Github
         }
     }
 
-    public sealed class MembershipArgs : Pulumi.ResourceArgs
+    public sealed class MembershipArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The role of the user within the organization.
@@ -126,9 +124,10 @@ namespace Pulumi.Github
         public MembershipArgs()
         {
         }
+        public static new MembershipArgs Empty => new MembershipArgs();
     }
 
-    public sealed class MembershipState : Pulumi.ResourceArgs
+    public sealed class MembershipState : global::Pulumi.ResourceArgs
     {
         [Input("etag")]
         public Input<string>? Etag { get; set; }
@@ -149,5 +148,6 @@ namespace Pulumi.Github
         public MembershipState()
         {
         }
+        public static new MembershipState Empty => new MembershipState();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Github.Inputs
 {
 
-    public sealed class OrganizationWebhookConfigurationGetArgs : Pulumi.ResourceArgs
+    public sealed class OrganizationWebhookConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("contentType")]
         public Input<string>? ContentType { get; set; }
@@ -30,5 +30,6 @@ namespace Pulumi.Github.Inputs
         public OrganizationWebhookConfigurationGetArgs()
         {
         }
+        public static new OrganizationWebhookConfigurationGetArgs Empty => new OrganizationWebhookConfigurationGetArgs();
     }
 }

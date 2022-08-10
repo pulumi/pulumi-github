@@ -19,7 +19,7 @@ namespace Pulumi.Github
     }
 
 
-    public sealed class GetDependabotPublicKeyArgs : Pulumi.InvokeArgs
+    public sealed class GetDependabotPublicKeyArgs : global::Pulumi.InvokeArgs
     {
         [Input("repository", required: true)]
         public string Repository { get; set; } = null!;
@@ -27,9 +27,10 @@ namespace Pulumi.Github
         public GetDependabotPublicKeyArgs()
         {
         }
+        public static new GetDependabotPublicKeyArgs Empty => new GetDependabotPublicKeyArgs();
     }
 
-    public sealed class GetDependabotPublicKeyInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetDependabotPublicKeyInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("repository", required: true)]
         public Input<string> Repository { get; set; } = null!;
@@ -37,6 +38,7 @@ namespace Pulumi.Github
         public GetDependabotPublicKeyInvokeArgs()
         {
         }
+        public static new GetDependabotPublicKeyInvokeArgs Empty => new GetDependabotPublicKeyInvokeArgs();
     }
 
 

@@ -17,81 +17,89 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-github/sdk/v4/go/github"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-github/sdk/v4/go/github"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := github.NewActionsEnvironmentSecret(ctx, "exampleSecretActionsEnvironmentSecret", &github.ActionsEnvironmentSecretArgs{
-// 			Environment:    pulumi.String("example_environment"),
-// 			SecretName:     pulumi.String("example_secret_name"),
-// 			PlaintextValue: pulumi.Any(_var.Some_secret_string),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = github.NewActionsEnvironmentSecret(ctx, "exampleSecretIndex/actionsEnvironmentSecretActionsEnvironmentSecret", &github.ActionsEnvironmentSecretArgs{
-// 			Environment:    pulumi.String("example_environment"),
-// 			SecretName:     pulumi.String("example_secret_name"),
-// 			EncryptedValue: pulumi.Any(_var.Some_encrypted_secret_string),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := github.NewActionsEnvironmentSecret(ctx, "exampleSecretActionsEnvironmentSecret", &github.ActionsEnvironmentSecretArgs{
+//				Environment:    pulumi.String("example_environment"),
+//				SecretName:     pulumi.String("example_secret_name"),
+//				PlaintextValue: pulumi.Any(_var.Some_secret_string),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = github.NewActionsEnvironmentSecret(ctx, "exampleSecretIndex/actionsEnvironmentSecretActionsEnvironmentSecret", &github.ActionsEnvironmentSecretArgs{
+//				Environment:    pulumi.String("example_environment"),
+//				SecretName:     pulumi.String("example_secret_name"),
+//				EncryptedValue: pulumi.Any(_var.Some_encrypted_secret_string),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ```go
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-github/sdk/v4/go/github"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-github/sdk/v4/go/github"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		repo, err := github.LookupRepository(ctx, &GetRepositoryArgs{
-// 			FullName: pulumi.StringRef("my-org/repo"),
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		repoEnvironment, err := github.NewRepositoryEnvironment(ctx, "repoEnvironment", &github.RepositoryEnvironmentArgs{
-// 			Repository:  pulumi.String(repo.Name),
-// 			Environment: pulumi.String("example_environment"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = github.NewActionsEnvironmentSecret(ctx, "testSecret", &github.ActionsEnvironmentSecretArgs{
-// 			Repository:     pulumi.String(repo.Name),
-// 			Environment:    repoEnvironment.Environment,
-// 			SecretName:     pulumi.String("test_secret_name"),
-// 			PlaintextValue: pulumi.String(fmt.Sprintf("%vs", "%")),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			repo, err := github.LookupRepository(ctx, &GetRepositoryArgs{
+//				FullName: pulumi.StringRef("my-org/repo"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			repoEnvironment, err := github.NewRepositoryEnvironment(ctx, "repoEnvironment", &github.RepositoryEnvironmentArgs{
+//				Repository:  pulumi.String(repo.Name),
+//				Environment: pulumi.String("example_environment"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = github.NewActionsEnvironmentSecret(ctx, "testSecret", &github.ActionsEnvironmentSecretArgs{
+//				Repository:     pulumi.String(repo.Name),
+//				Environment:    repoEnvironment.Environment,
+//				SecretName:     pulumi.String("test_secret_name"),
+//				PlaintextValue: pulumi.String(fmt.Sprintf("%vs", "%")),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
 //
-// This resource can be imported using an ID made up of the secret name
+// # This resource can be imported using an ID made up of the secret name
 //
 // ```sh
-//  $ pulumi import github:index/actionsEnvironmentSecret:ActionsEnvironmentSecret test_secret test_secret_name
+//
+//	$ pulumi import github:index/actionsEnvironmentSecret:ActionsEnvironmentSecret test_secret test_secret_name
+//
 // ```
 //
-//  NOTEthe implementation is limited in that it won't fetch the value of the `plaintext_value` field when importing. You may need to ignore changes for the `plaintext_value` as a workaround.
+//	NOTEthe implementation is limited in that it won't fetch the value of the `plaintext_value` field when importing. You may need to ignore changes for the `plaintext_value` as a workaround.
 type ActionsEnvironmentSecret struct {
 	pulumi.CustomResourceState
 
@@ -239,7 +247,7 @@ func (i *ActionsEnvironmentSecret) ToActionsEnvironmentSecretOutputWithContext(c
 // ActionsEnvironmentSecretArrayInput is an input type that accepts ActionsEnvironmentSecretArray and ActionsEnvironmentSecretArrayOutput values.
 // You can construct a concrete instance of `ActionsEnvironmentSecretArrayInput` via:
 //
-//          ActionsEnvironmentSecretArray{ ActionsEnvironmentSecretArgs{...} }
+//	ActionsEnvironmentSecretArray{ ActionsEnvironmentSecretArgs{...} }
 type ActionsEnvironmentSecretArrayInput interface {
 	pulumi.Input
 
@@ -264,7 +272,7 @@ func (i ActionsEnvironmentSecretArray) ToActionsEnvironmentSecretArrayOutputWith
 // ActionsEnvironmentSecretMapInput is an input type that accepts ActionsEnvironmentSecretMap and ActionsEnvironmentSecretMapOutput values.
 // You can construct a concrete instance of `ActionsEnvironmentSecretMapInput` via:
 //
-//          ActionsEnvironmentSecretMap{ "key": ActionsEnvironmentSecretArgs{...} }
+//	ActionsEnvironmentSecretMap{ "key": ActionsEnvironmentSecretArgs{...} }
 type ActionsEnvironmentSecretMapInput interface {
 	pulumi.Input
 

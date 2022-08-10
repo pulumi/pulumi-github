@@ -21,23 +21,26 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-github/sdk/v4/go/github"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-github/sdk/v4/go/github"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := github.NewUserGpgKey(ctx, "example", &github.UserGpgKeyArgs{
-// 			ArmoredPublicKey: pulumi.String(fmt.Sprintf("-----BEGIN PGP PUBLIC KEY BLOCK-----\n...\n-----END PGP PUBLIC KEY BLOCK-----\n")),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := github.NewUserGpgKey(ctx, "example", &github.UserGpgKeyArgs{
+//				ArmoredPublicKey: pulumi.String(fmt.Sprintf("-----BEGIN PGP PUBLIC KEY BLOCK-----\n...\n-----END PGP PUBLIC KEY BLOCK-----\n")),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -146,7 +149,7 @@ func (i *UserGpgKey) ToUserGpgKeyOutputWithContext(ctx context.Context) UserGpgK
 // UserGpgKeyArrayInput is an input type that accepts UserGpgKeyArray and UserGpgKeyArrayOutput values.
 // You can construct a concrete instance of `UserGpgKeyArrayInput` via:
 //
-//          UserGpgKeyArray{ UserGpgKeyArgs{...} }
+//	UserGpgKeyArray{ UserGpgKeyArgs{...} }
 type UserGpgKeyArrayInput interface {
 	pulumi.Input
 
@@ -171,7 +174,7 @@ func (i UserGpgKeyArray) ToUserGpgKeyArrayOutputWithContext(ctx context.Context)
 // UserGpgKeyMapInput is an input type that accepts UserGpgKeyMap and UserGpgKeyMapOutput values.
 // You can construct a concrete instance of `UserGpgKeyMapInput` via:
 //
-//          UserGpgKeyMap{ "key": UserGpgKeyArgs{...} }
+//	UserGpgKeyMap{ "key": UserGpgKeyArgs{...} }
 type UserGpgKeyMapInput interface {
 	pulumi.Input
 

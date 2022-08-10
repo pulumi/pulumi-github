@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Github.Inputs
 {
 
-    public sealed class TeamMembersMemberGetArgs : Pulumi.ResourceArgs
+    public sealed class TeamMembersMemberGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The role of the user within the team.
@@ -28,5 +28,6 @@ namespace Pulumi.Github.Inputs
         public TeamMembersMemberGetArgs()
         {
         }
+        public static new TeamMembersMemberGetArgs Empty => new TeamMembersMemberGetArgs();
     }
 }

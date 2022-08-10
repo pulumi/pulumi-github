@@ -22,32 +22,32 @@ namespace Pulumi.Github
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Github = Pulumi.Github;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     // Add a user to the organization
+    ///     var membershipForSomeUser = new Github.Membership("membershipForSomeUser", new()
     ///     {
-    ///         // Add a user to the organization
-    ///         var membershipForSomeUser = new Github.Membership("membershipForSomeUser", new Github.MembershipArgs
-    ///         {
-    ///             Username = "SomeUser",
-    ///             Role = "member",
-    ///         });
-    ///         var someTeam = new Github.Team("someTeam", new Github.TeamArgs
-    ///         {
-    ///             Description = "Some cool team",
-    ///         });
-    ///         var someTeamMembership = new Github.TeamMembership("someTeamMembership", new Github.TeamMembershipArgs
-    ///         {
-    ///             TeamId = someTeam.Id,
-    ///             Username = "SomeUser",
-    ///             Role = "member",
-    ///         });
-    ///     }
+    ///         Username = "SomeUser",
+    ///         Role = "member",
+    ///     });
     /// 
-    /// }
+    ///     var someTeam = new Github.Team("someTeam", new()
+    ///     {
+    ///         Description = "Some cool team",
+    ///     });
+    /// 
+    ///     var someTeamMembership = new Github.TeamMembership("someTeamMembership", new()
+    ///     {
+    ///         TeamId = someTeam.Id,
+    ///         Username = "SomeUser",
+    ///         Role = "member",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -59,7 +59,7 @@ namespace Pulumi.Github
     /// ```
     /// </summary>
     [GithubResourceType("github:index/teamMembership:TeamMembership")]
-    public partial class TeamMembership : Pulumi.CustomResource
+    public partial class TeamMembership : global::Pulumi.CustomResource
     {
         [Output("etag")]
         public Output<string> Etag { get; private set; } = null!;
@@ -127,7 +127,7 @@ namespace Pulumi.Github
         }
     }
 
-    public sealed class TeamMembershipArgs : Pulumi.ResourceArgs
+    public sealed class TeamMembershipArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The role of the user within the team.
@@ -151,9 +151,10 @@ namespace Pulumi.Github
         public TeamMembershipArgs()
         {
         }
+        public static new TeamMembershipArgs Empty => new TeamMembershipArgs();
     }
 
-    public sealed class TeamMembershipState : Pulumi.ResourceArgs
+    public sealed class TeamMembershipState : global::Pulumi.ResourceArgs
     {
         [Input("etag")]
         public Input<string>? Etag { get; set; }
@@ -180,5 +181,6 @@ namespace Pulumi.Github
         public TeamMembershipState()
         {
         }
+        public static new TeamMembershipState Empty => new TeamMembershipState();
     }
 }

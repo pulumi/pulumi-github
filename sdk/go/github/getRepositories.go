@@ -11,7 +11,8 @@ import (
 )
 
 // > **Note:** The data source will return a maximum of `1000` repositories
-// 	[as documented in official API docs](https://developer.github.com/v3/search/#about-the-search-api).
+//
+//	[as documented in official API docs](https://developer.github.com/v3/search/#about-the-search-api).
 //
 // Use this data source to retrieve a list of GitHub repositories using a search query.
 //
@@ -21,21 +22,24 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-github/sdk/v4/go/github"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-github/sdk/v4/go/github"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := github.GetRepositories(ctx, &GetRepositoriesArgs{
-// 			Query: "org:hashicorp language:Go",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := github.GetRepositories(ctx, &GetRepositoriesArgs{
+//				Query: "org:hashicorp language:Go",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 func GetRepositories(ctx *pulumi.Context, args *GetRepositoriesArgs, opts ...pulumi.InvokeOption) (*GetRepositoriesResult, error) {
 	var rv GetRepositoriesResult

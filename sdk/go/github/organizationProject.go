@@ -18,21 +18,24 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-github/sdk/v4/go/github"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-github/sdk/v4/go/github"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := github.NewOrganizationProject(ctx, "project", &github.OrganizationProjectArgs{
-// 			Body: pulumi.String("This is a organization project."),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := github.NewOrganizationProject(ctx, "project", &github.OrganizationProjectArgs{
+//				Body: pulumi.String("This is a organization project."),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 type OrganizationProject struct {
 	pulumi.CustomResourceState
@@ -139,7 +142,7 @@ func (i *OrganizationProject) ToOrganizationProjectOutputWithContext(ctx context
 // OrganizationProjectArrayInput is an input type that accepts OrganizationProjectArray and OrganizationProjectArrayOutput values.
 // You can construct a concrete instance of `OrganizationProjectArrayInput` via:
 //
-//          OrganizationProjectArray{ OrganizationProjectArgs{...} }
+//	OrganizationProjectArray{ OrganizationProjectArgs{...} }
 type OrganizationProjectArrayInput interface {
 	pulumi.Input
 
@@ -164,7 +167,7 @@ func (i OrganizationProjectArray) ToOrganizationProjectArrayOutputWithContext(ct
 // OrganizationProjectMapInput is an input type that accepts OrganizationProjectMap and OrganizationProjectMapOutput values.
 // You can construct a concrete instance of `OrganizationProjectMapInput` via:
 //
-//          OrganizationProjectMap{ "key": OrganizationProjectArgs{...} }
+//	OrganizationProjectMap{ "key": OrganizationProjectArgs{...} }
 type OrganizationProjectMapInput interface {
 	pulumi.Input
 

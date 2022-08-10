@@ -17,37 +17,40 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-github/sdk/v4/go/github"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-github/sdk/v4/go/github"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := github.GetActionsPublicKey(ctx, &GetActionsPublicKeyArgs{
-// 			Repository: "example_repository",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = github.NewActionsSecret(ctx, "exampleSecretActionsSecret", &github.ActionsSecretArgs{
-// 			Repository:     pulumi.String("example_repository"),
-// 			SecretName:     pulumi.String("example_secret_name"),
-// 			PlaintextValue: pulumi.Any(_var.Some_secret_string),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = github.NewActionsSecret(ctx, "exampleSecretIndex/actionsSecretActionsSecret", &github.ActionsSecretArgs{
-// 			Repository:     pulumi.String("example_repository"),
-// 			SecretName:     pulumi.String("example_secret_name"),
-// 			EncryptedValue: pulumi.Any(_var.Some_encrypted_secret_string),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := github.GetActionsPublicKey(ctx, &GetActionsPublicKeyArgs{
+//				Repository: "example_repository",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = github.NewActionsSecret(ctx, "exampleSecretActionsSecret", &github.ActionsSecretArgs{
+//				Repository:     pulumi.String("example_repository"),
+//				SecretName:     pulumi.String("example_secret_name"),
+//				PlaintextValue: pulumi.Any(_var.Some_secret_string),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = github.NewActionsSecret(ctx, "exampleSecretIndex/actionsSecretActionsSecret", &github.ActionsSecretArgs{
+//				Repository:     pulumi.String("example_repository"),
+//				SecretName:     pulumi.String("example_secret_name"),
+//				EncryptedValue: pulumi.Any(_var.Some_encrypted_secret_string),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 type ActionsSecret struct {
 	pulumi.CustomResourceState
@@ -183,7 +186,7 @@ func (i *ActionsSecret) ToActionsSecretOutputWithContext(ctx context.Context) Ac
 // ActionsSecretArrayInput is an input type that accepts ActionsSecretArray and ActionsSecretArrayOutput values.
 // You can construct a concrete instance of `ActionsSecretArrayInput` via:
 //
-//          ActionsSecretArray{ ActionsSecretArgs{...} }
+//	ActionsSecretArray{ ActionsSecretArgs{...} }
 type ActionsSecretArrayInput interface {
 	pulumi.Input
 
@@ -208,7 +211,7 @@ func (i ActionsSecretArray) ToActionsSecretArrayOutputWithContext(ctx context.Co
 // ActionsSecretMapInput is an input type that accepts ActionsSecretMap and ActionsSecretMapOutput values.
 // You can construct a concrete instance of `ActionsSecretMapInput` via:
 //
-//          ActionsSecretMap{ "key": ActionsSecretArgs{...} }
+//	ActionsSecretMap{ "key": ActionsSecretArgs{...} }
 type ActionsSecretMapInput interface {
 	pulumi.Input
 

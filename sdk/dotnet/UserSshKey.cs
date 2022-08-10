@@ -17,22 +17,20 @@ namespace Pulumi.Github
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using System.IO;
     /// using Pulumi;
     /// using Github = Pulumi.Github;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Github.UserSshKey("example", new()
     ///     {
-    ///         var example = new Github.UserSshKey("example", new Github.UserSshKeyArgs
-    ///         {
-    ///             Title = "example title",
-    ///             Key = File.ReadAllText("~/.ssh/id_rsa.pub"),
-    ///         });
-    ///     }
+    ///         Title = "example title",
+    ///         Key = File.ReadAllText("~/.ssh/id_rsa.pub"),
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -44,7 +42,7 @@ namespace Pulumi.Github
     /// ```
     /// </summary>
     [GithubResourceType("github:index/userSshKey:UserSshKey")]
-    public partial class UserSshKey : Pulumi.CustomResource
+    public partial class UserSshKey : global::Pulumi.CustomResource
     {
         [Output("etag")]
         public Output<string> Etag { get; private set; } = null!;
@@ -111,7 +109,7 @@ namespace Pulumi.Github
         }
     }
 
-    public sealed class UserSshKeyArgs : Pulumi.ResourceArgs
+    public sealed class UserSshKeyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The public SSH key to add to your GitHub account.
@@ -128,9 +126,10 @@ namespace Pulumi.Github
         public UserSshKeyArgs()
         {
         }
+        public static new UserSshKeyArgs Empty => new UserSshKeyArgs();
     }
 
-    public sealed class UserSshKeyState : Pulumi.ResourceArgs
+    public sealed class UserSshKeyState : global::Pulumi.ResourceArgs
     {
         [Input("etag")]
         public Input<string>? Etag { get; set; }
@@ -156,5 +155,6 @@ namespace Pulumi.Github
         public UserSshKeyState()
         {
         }
+        public static new UserSshKeyState Empty => new UserSshKeyState();
     }
 }

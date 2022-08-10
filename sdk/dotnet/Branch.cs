@@ -18,21 +18,19 @@ namespace Pulumi.Github
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Github = Pulumi.Github;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var development = new Github.Branch("development", new()
     ///     {
-    ///         var development = new Github.Branch("development", new Github.BranchArgs
-    ///         {
-    ///             BranchName = "development",
-    ///             Repository = "example",
-    ///         });
-    ///     }
+    ///         BranchName = "development",
+    ///         Repository = "example",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -56,7 +54,7 @@ namespace Pulumi.Github
     /// ```
     /// </summary>
     [GithubResourceType("github:index/branch:Branch")]
-    public partial class Branch : Pulumi.CustomResource
+    public partial class Branch : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The repository branch to create.
@@ -144,7 +142,7 @@ namespace Pulumi.Github
         }
     }
 
-    public sealed class BranchArgs : Pulumi.ResourceArgs
+    public sealed class BranchArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The repository branch to create.
@@ -173,9 +171,10 @@ namespace Pulumi.Github
         public BranchArgs()
         {
         }
+        public static new BranchArgs Empty => new BranchArgs();
     }
 
-    public sealed class BranchState : Pulumi.ResourceArgs
+    public sealed class BranchState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The repository branch to create.
@@ -222,5 +221,6 @@ namespace Pulumi.Github
         public BranchState()
         {
         }
+        public static new BranchState Empty => new BranchState();
     }
 }

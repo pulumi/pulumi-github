@@ -19,22 +19,20 @@ namespace Pulumi.Github
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Github = Pulumi.Github;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Github.GetRepositoryMilestone.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Github.GetRepositoryMilestone.InvokeAsync(new Github.GetRepositoryMilestoneArgs
-        ///         {
-        ///             Number = 1,
-        ///             Owner = "example-owner",
-        ///             Repository = "example-repository",
-        ///         }));
-        ///     }
+        ///         Number = 1,
+        ///         Owner = "example-owner",
+        ///         Repository = "example-repository",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -50,22 +48,20 @@ namespace Pulumi.Github
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Github = Pulumi.Github;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Github.GetRepositoryMilestone.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Github.GetRepositoryMilestone.InvokeAsync(new Github.GetRepositoryMilestoneArgs
-        ///         {
-        ///             Number = 1,
-        ///             Owner = "example-owner",
-        ///             Repository = "example-repository",
-        ///         }));
-        ///     }
+        ///         Number = 1,
+        ///         Owner = "example-owner",
+        ///         Repository = "example-repository",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -75,7 +71,7 @@ namespace Pulumi.Github
     }
 
 
-    public sealed class GetRepositoryMilestoneArgs : Pulumi.InvokeArgs
+    public sealed class GetRepositoryMilestoneArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The number of the milestone.
@@ -98,9 +94,10 @@ namespace Pulumi.Github
         public GetRepositoryMilestoneArgs()
         {
         }
+        public static new GetRepositoryMilestoneArgs Empty => new GetRepositoryMilestoneArgs();
     }
 
-    public sealed class GetRepositoryMilestoneInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetRepositoryMilestoneInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The number of the milestone.
@@ -123,6 +120,7 @@ namespace Pulumi.Github
         public GetRepositoryMilestoneInvokeArgs()
         {
         }
+        public static new GetRepositoryMilestoneInvokeArgs Empty => new GetRepositoryMilestoneInvokeArgs();
     }
 
 

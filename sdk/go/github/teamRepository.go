@@ -27,33 +27,36 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-github/sdk/v4/go/github"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-github/sdk/v4/go/github"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		someTeam, err := github.NewTeam(ctx, "someTeam", &github.TeamArgs{
-// 			Description: pulumi.String("Some cool team"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		someRepo, err := github.NewRepository(ctx, "someRepo", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = github.NewTeamRepository(ctx, "someTeamRepo", &github.TeamRepositoryArgs{
-// 			TeamId:     someTeam.ID(),
-// 			Repository: someRepo.Name,
-// 			Permission: pulumi.String("pull"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			someTeam, err := github.NewTeam(ctx, "someTeam", &github.TeamArgs{
+//				Description: pulumi.String("Some cool team"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			someRepo, err := github.NewRepository(ctx, "someRepo", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = github.NewTeamRepository(ctx, "someTeamRepo", &github.TeamRepositoryArgs{
+//				TeamId:     someTeam.ID(),
+//				Repository: someRepo.Name,
+//				Permission: pulumi.String("pull"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -61,7 +64,9 @@ import (
 // GitHub Team Repository can be imported using an ID made up of `teamid:repository`, e.g.
 //
 // ```sh
-//  $ pulumi import github:index/teamRepository:TeamRepository terraform_repo 1234567:terraform
+//
+//	$ pulumi import github:index/teamRepository:TeamRepository terraform_repo 1234567:terraform
+//
 // ```
 type TeamRepository struct {
 	pulumi.CustomResourceState
@@ -183,7 +188,7 @@ func (i *TeamRepository) ToTeamRepositoryOutputWithContext(ctx context.Context) 
 // TeamRepositoryArrayInput is an input type that accepts TeamRepositoryArray and TeamRepositoryArrayOutput values.
 // You can construct a concrete instance of `TeamRepositoryArrayInput` via:
 //
-//          TeamRepositoryArray{ TeamRepositoryArgs{...} }
+//	TeamRepositoryArray{ TeamRepositoryArgs{...} }
 type TeamRepositoryArrayInput interface {
 	pulumi.Input
 
@@ -208,7 +213,7 @@ func (i TeamRepositoryArray) ToTeamRepositoryArrayOutputWithContext(ctx context.
 // TeamRepositoryMapInput is an input type that accepts TeamRepositoryMap and TeamRepositoryMapOutput values.
 // You can construct a concrete instance of `TeamRepositoryMapInput` via:
 //
-//          TeamRepositoryMap{ "key": TeamRepositoryArgs{...} }
+//	TeamRepositoryMap{ "key": TeamRepositoryArgs{...} }
 type TeamRepositoryMapInput interface {
 	pulumi.Input
 

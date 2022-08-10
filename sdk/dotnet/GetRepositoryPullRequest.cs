@@ -19,21 +19,19 @@ namespace Pulumi.Github
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Github = Pulumi.Github;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Github.GetRepositoryPullRequest.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Github.GetRepositoryPullRequest.InvokeAsync(new Github.GetRepositoryPullRequestArgs
-        ///         {
-        ///             BaseRepository = "example_repository",
-        ///             Number = 1,
-        ///         }));
-        ///     }
+        ///         BaseRepository = "example_repository",
+        ///         Number = 1,
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -49,21 +47,19 @@ namespace Pulumi.Github
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Github = Pulumi.Github;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Github.GetRepositoryPullRequest.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Github.GetRepositoryPullRequest.InvokeAsync(new Github.GetRepositoryPullRequestArgs
-        ///         {
-        ///             BaseRepository = "example_repository",
-        ///             Number = 1,
-        ///         }));
-        ///     }
+        ///         BaseRepository = "example_repository",
+        ///         Number = 1,
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -73,7 +69,7 @@ namespace Pulumi.Github
     }
 
 
-    public sealed class GetRepositoryPullRequestArgs : Pulumi.InvokeArgs
+    public sealed class GetRepositoryPullRequestArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the base repository to retrieve the Pull Request from.
@@ -96,9 +92,10 @@ namespace Pulumi.Github
         public GetRepositoryPullRequestArgs()
         {
         }
+        public static new GetRepositoryPullRequestArgs Empty => new GetRepositoryPullRequestArgs();
     }
 
-    public sealed class GetRepositoryPullRequestInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetRepositoryPullRequestInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the base repository to retrieve the Pull Request from.
@@ -121,6 +118,7 @@ namespace Pulumi.Github
         public GetRepositoryPullRequestInvokeArgs()
         {
         }
+        public static new GetRepositoryPullRequestInvokeArgs Empty => new GetRepositoryPullRequestInvokeArgs();
     }
 
 

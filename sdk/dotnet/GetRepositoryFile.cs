@@ -21,22 +21,20 @@ namespace Pulumi.Github
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Github = Pulumi.Github;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var foo = Github.GetRepositoryFile.Invoke(new()
         ///     {
-        ///         var foo = Output.Create(Github.GetRepositoryFile.InvokeAsync(new Github.GetRepositoryFileArgs
-        ///         {
-        ///             Repository = github_repository.Foo.Name,
-        ///             Branch = "main",
-        ///             File = ".gitignore",
-        ///         }));
-        ///     }
+        ///         Repository = github_repository.Foo.Name,
+        ///         Branch = "main",
+        ///         File = ".gitignore",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -54,22 +52,20 @@ namespace Pulumi.Github
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Github = Pulumi.Github;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var foo = Github.GetRepositoryFile.Invoke(new()
         ///     {
-        ///         var foo = Output.Create(Github.GetRepositoryFile.InvokeAsync(new Github.GetRepositoryFileArgs
-        ///         {
-        ///             Repository = github_repository.Foo.Name,
-        ///             Branch = "main",
-        ///             File = ".gitignore",
-        ///         }));
-        ///     }
+        ///         Repository = github_repository.Foo.Name,
+        ///         Branch = "main",
+        ///         File = ".gitignore",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -79,7 +75,7 @@ namespace Pulumi.Github
     }
 
 
-    public sealed class GetRepositoryFileArgs : Pulumi.InvokeArgs
+    public sealed class GetRepositoryFileArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Git branch (defaults to `main`).
@@ -103,9 +99,10 @@ namespace Pulumi.Github
         public GetRepositoryFileArgs()
         {
         }
+        public static new GetRepositoryFileArgs Empty => new GetRepositoryFileArgs();
     }
 
-    public sealed class GetRepositoryFileInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetRepositoryFileInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Git branch (defaults to `main`).
@@ -129,6 +126,7 @@ namespace Pulumi.Github
         public GetRepositoryFileInvokeArgs()
         {
         }
+        public static new GetRepositoryFileInvokeArgs Empty => new GetRepositoryFileInvokeArgs();
     }
 
 

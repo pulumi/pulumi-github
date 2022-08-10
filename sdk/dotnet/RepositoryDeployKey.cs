@@ -24,24 +24,22 @@ namespace Pulumi.Github
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Github = Pulumi.Github;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     // Add a deploy key
+    ///     var exampleRepositoryDeployKey = new Github.RepositoryDeployKey("exampleRepositoryDeployKey", new()
     ///     {
-    ///         // Add a deploy key
-    ///         var exampleRepositoryDeployKey = new Github.RepositoryDeployKey("exampleRepositoryDeployKey", new Github.RepositoryDeployKeyArgs
-    ///         {
-    ///             Key = "ssh-rsa AAA...",
-    ///             ReadOnly = false,
-    ///             Repository = "test-repo",
-    ///             Title = "Repository test key",
-    ///         });
-    ///     }
+    ///         Key = "ssh-rsa AAA...",
+    ///         ReadOnly = false,
+    ///         Repository = "test-repo",
+    ///         Title = "Repository test key",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -53,7 +51,7 @@ namespace Pulumi.Github
     /// ```
     /// </summary>
     [GithubResourceType("github:index/repositoryDeployKey:RepositoryDeployKey")]
-    public partial class RepositoryDeployKey : Pulumi.CustomResource
+    public partial class RepositoryDeployKey : global::Pulumi.CustomResource
     {
         [Output("etag")]
         public Output<string> Etag { get; private set; } = null!;
@@ -126,7 +124,7 @@ namespace Pulumi.Github
         }
     }
 
-    public sealed class RepositoryDeployKeyArgs : Pulumi.ResourceArgs
+    public sealed class RepositoryDeployKeyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A SSH key.
@@ -155,9 +153,10 @@ namespace Pulumi.Github
         public RepositoryDeployKeyArgs()
         {
         }
+        public static new RepositoryDeployKeyArgs Empty => new RepositoryDeployKeyArgs();
     }
 
-    public sealed class RepositoryDeployKeyState : Pulumi.ResourceArgs
+    public sealed class RepositoryDeployKeyState : global::Pulumi.ResourceArgs
     {
         [Input("etag")]
         public Input<string>? Etag { get; set; }
@@ -189,5 +188,6 @@ namespace Pulumi.Github
         public RepositoryDeployKeyState()
         {
         }
+        public static new RepositoryDeployKeyState Empty => new RepositoryDeployKeyState();
     }
 }

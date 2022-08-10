@@ -19,22 +19,25 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-github/sdk/v4/go/github"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-github/sdk/v4/go/github"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := github.NewEmuGroupMapping(ctx, "exampleEmuGroupMapping", &github.EmuGroupMappingArgs{
-// 			GroupId:  pulumi.Int(28836),
-// 			TeamSlug: pulumi.String("emu-test-team"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := github.NewEmuGroupMapping(ctx, "exampleEmuGroupMapping", &github.EmuGroupMappingArgs{
+//				GroupId:  pulumi.Int(28836),
+//				TeamSlug: pulumi.String("emu-test-team"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -42,7 +45,9 @@ import (
 // GitHub EMU External Group Mappings can be imported using the external `group_id`, e.g.
 //
 // ```sh
-//  $ pulumi import github:index/emuGroupMapping:EmuGroupMapping example_emu_group_mapping 28836
+//
+//	$ pulumi import github:index/emuGroupMapping:EmuGroupMapping example_emu_group_mapping 28836
+//
 // ```
 type EmuGroupMapping struct {
 	pulumi.CustomResourceState
@@ -149,7 +154,7 @@ func (i *EmuGroupMapping) ToEmuGroupMappingOutputWithContext(ctx context.Context
 // EmuGroupMappingArrayInput is an input type that accepts EmuGroupMappingArray and EmuGroupMappingArrayOutput values.
 // You can construct a concrete instance of `EmuGroupMappingArrayInput` via:
 //
-//          EmuGroupMappingArray{ EmuGroupMappingArgs{...} }
+//	EmuGroupMappingArray{ EmuGroupMappingArgs{...} }
 type EmuGroupMappingArrayInput interface {
 	pulumi.Input
 
@@ -174,7 +179,7 @@ func (i EmuGroupMappingArray) ToEmuGroupMappingArrayOutputWithContext(ctx contex
 // EmuGroupMappingMapInput is an input type that accepts EmuGroupMappingMap and EmuGroupMappingMapOutput values.
 // You can construct a concrete instance of `EmuGroupMappingMapInput` via:
 //
-//          EmuGroupMappingMap{ "key": EmuGroupMappingArgs{...} }
+//	EmuGroupMappingMap{ "key": EmuGroupMappingArgs{...} }
 type EmuGroupMappingMapInput interface {
 	pulumi.Input
 

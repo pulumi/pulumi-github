@@ -16,53 +16,49 @@ namespace Pulumi.Github
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Github = Pulumi.Github;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Github.Repository("example", new()
     ///     {
-    ///         var example = new Github.Repository("example", new Github.RepositoryArgs
+    ///         Description = "My awesome codebase",
+    ///         Template = new Github.Inputs.RepositoryTemplateArgs
     ///         {
-    ///             Description = "My awesome codebase",
-    ///             Template = new Github.Inputs.RepositoryTemplateArgs
-    ///             {
-    ///                 Owner = "github",
-    ///                 Repository = "terraform-module-template",
-    ///             },
-    ///             Visibility = "public",
-    ///         });
-    ///     }
+    ///             Owner = "github",
+    ///             Repository = "terraform-module-template",
+    ///         },
+    ///         Visibility = "public",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### With GitHub Pages Enabled
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Github = Pulumi.Github;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Github.Repository("example", new()
     ///     {
-    ///         var example = new Github.Repository("example", new Github.RepositoryArgs
+    ///         Description = "My awesome web page",
+    ///         Pages = new Github.Inputs.RepositoryPagesArgs
     ///         {
-    ///             Description = "My awesome web page",
-    ///             Pages = new Github.Inputs.RepositoryPagesArgs
+    ///             Source = new Github.Inputs.RepositoryPagesSourceArgs
     ///             {
-    ///                 Source = new Github.Inputs.RepositoryPagesSourceArgs
-    ///                 {
-    ///                     Branch = "master",
-    ///                     Path = "/docs",
-    ///                 },
+    ///                 Branch = "master",
+    ///                 Path = "/docs",
     ///             },
-    ///             Private = false,
-    ///         });
-    ///     }
+    ///         },
+    ///         Private = false,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -74,7 +70,7 @@ namespace Pulumi.Github
     /// ```
     /// </summary>
     [GithubResourceType("github:index/repository:Repository")]
-    public partial class Repository : Pulumi.CustomResource
+    public partial class Repository : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Set to `true` to allow auto-merging pull requests on the repository.
@@ -338,7 +334,7 @@ namespace Pulumi.Github
         }
     }
 
-    public sealed class RepositoryArgs : Pulumi.ResourceArgs
+    public sealed class RepositoryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Set to `true` to allow auto-merging pull requests on the repository.
@@ -510,9 +506,10 @@ namespace Pulumi.Github
         public RepositoryArgs()
         {
         }
+        public static new RepositoryArgs Empty => new RepositoryArgs();
     }
 
-    public sealed class RepositoryState : Pulumi.ResourceArgs
+    public sealed class RepositoryState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Set to `true` to allow auto-merging pull requests on the repository.
@@ -747,5 +744,6 @@ namespace Pulumi.Github
         public RepositoryState()
         {
         }
+        public static new RepositoryState Empty => new RepositoryState();
     }
 }

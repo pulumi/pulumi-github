@@ -20,20 +20,18 @@ namespace Pulumi.Github
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Github = Pulumi.Github;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Github.GetActionsPublicKey.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Github.GetActionsPublicKey.InvokeAsync(new Github.GetActionsPublicKeyArgs
-        ///         {
-        ///             Repository = "example_repo",
-        ///         }));
-        ///     }
+        ///         Repository = "example_repo",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -50,20 +48,18 @@ namespace Pulumi.Github
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Github = Pulumi.Github;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Github.GetActionsPublicKey.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Github.GetActionsPublicKey.InvokeAsync(new Github.GetActionsPublicKeyArgs
-        ///         {
-        ///             Repository = "example_repo",
-        ///         }));
-        ///     }
+        ///         Repository = "example_repo",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -73,7 +69,7 @@ namespace Pulumi.Github
     }
 
 
-    public sealed class GetActionsPublicKeyArgs : Pulumi.InvokeArgs
+    public sealed class GetActionsPublicKeyArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the repository to get public key from.
@@ -84,9 +80,10 @@ namespace Pulumi.Github
         public GetActionsPublicKeyArgs()
         {
         }
+        public static new GetActionsPublicKeyArgs Empty => new GetActionsPublicKeyArgs();
     }
 
-    public sealed class GetActionsPublicKeyInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetActionsPublicKeyInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the repository to get public key from.
@@ -97,6 +94,7 @@ namespace Pulumi.Github
         public GetActionsPublicKeyInvokeArgs()
         {
         }
+        public static new GetActionsPublicKeyInvokeArgs Empty => new GetActionsPublicKeyInvokeArgs();
     }
 
 

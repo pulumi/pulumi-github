@@ -15,24 +15,22 @@ namespace Pulumi.Github
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Github = Pulumi.Github;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Github.OrganizationBlock("example", new()
     ///     {
-    ///         var example = new Github.OrganizationBlock("example", new Github.OrganizationBlockArgs
-    ///         {
-    ///             Username = "paultyng",
-    ///         });
-    ///     }
+    ///         Username = "paultyng",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// </summary>
     [GithubResourceType("github:index/organizationBlock:OrganizationBlock")]
-    public partial class OrganizationBlock : Pulumi.CustomResource
+    public partial class OrganizationBlock : global::Pulumi.CustomResource
     {
         [Output("etag")]
         public Output<string> Etag { get; private set; } = null!;
@@ -87,7 +85,7 @@ namespace Pulumi.Github
         }
     }
 
-    public sealed class OrganizationBlockArgs : Pulumi.ResourceArgs
+    public sealed class OrganizationBlockArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the user to block.
@@ -98,9 +96,10 @@ namespace Pulumi.Github
         public OrganizationBlockArgs()
         {
         }
+        public static new OrganizationBlockArgs Empty => new OrganizationBlockArgs();
     }
 
-    public sealed class OrganizationBlockState : Pulumi.ResourceArgs
+    public sealed class OrganizationBlockState : global::Pulumi.ResourceArgs
     {
         [Input("etag")]
         public Input<string>? Etag { get; set; }
@@ -114,5 +113,6 @@ namespace Pulumi.Github
         public OrganizationBlockState()
         {
         }
+        public static new OrganizationBlockState Empty => new OrganizationBlockState();
     }
 }

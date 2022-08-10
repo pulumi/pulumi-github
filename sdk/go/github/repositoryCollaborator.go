@@ -36,23 +36,26 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-github/sdk/v4/go/github"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-github/sdk/v4/go/github"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := github.NewRepositoryCollaborator(ctx, "aRepoCollaborator", &github.RepositoryCollaboratorArgs{
-// 			Permission: pulumi.String("admin"),
-// 			Repository: pulumi.String("our-cool-repo"),
-// 			Username:   pulumi.String("SomeUser"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := github.NewRepositoryCollaborator(ctx, "aRepoCollaborator", &github.RepositoryCollaboratorArgs{
+//				Permission: pulumi.String("admin"),
+//				Repository: pulumi.String("our-cool-repo"),
+//				Username:   pulumi.String("SomeUser"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -60,7 +63,9 @@ import (
 // GitHub Repository Collaborators can be imported using an ID made up of `repository:username`, e.g.
 //
 // ```sh
-//  $ pulumi import github:index/repositoryCollaborator:RepositoryCollaborator collaborator terraform:someuser
+//
+//	$ pulumi import github:index/repositoryCollaborator:RepositoryCollaborator collaborator terraform:someuser
+//
 // ```
 type RepositoryCollaborator struct {
 	pulumi.CustomResourceState
@@ -200,7 +205,7 @@ func (i *RepositoryCollaborator) ToRepositoryCollaboratorOutputWithContext(ctx c
 // RepositoryCollaboratorArrayInput is an input type that accepts RepositoryCollaboratorArray and RepositoryCollaboratorArrayOutput values.
 // You can construct a concrete instance of `RepositoryCollaboratorArrayInput` via:
 //
-//          RepositoryCollaboratorArray{ RepositoryCollaboratorArgs{...} }
+//	RepositoryCollaboratorArray{ RepositoryCollaboratorArgs{...} }
 type RepositoryCollaboratorArrayInput interface {
 	pulumi.Input
 
@@ -225,7 +230,7 @@ func (i RepositoryCollaboratorArray) ToRepositoryCollaboratorArrayOutputWithCont
 // RepositoryCollaboratorMapInput is an input type that accepts RepositoryCollaboratorMap and RepositoryCollaboratorMapOutput values.
 // You can construct a concrete instance of `RepositoryCollaboratorMapInput` via:
 //
-//          RepositoryCollaboratorMap{ "key": RepositoryCollaboratorArgs{...} }
+//	RepositoryCollaboratorMap{ "key": RepositoryCollaboratorArgs{...} }
 type RepositoryCollaboratorMapInput interface {
 	pulumi.Input
 

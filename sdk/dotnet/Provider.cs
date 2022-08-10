@@ -16,7 +16,7 @@ namespace Pulumi.Github
     /// [documentation](https://www.pulumi.com/docs/reference/programming-model/#providers) for more information.
     /// </summary>
     [GithubResourceType("pulumi:providers:github")]
-    public partial class Provider : Pulumi.ProviderResource
+    public partial class Provider : global::Pulumi.ProviderResource
     {
         /// <summary>
         /// The GitHub Base API URL
@@ -68,7 +68,7 @@ namespace Pulumi.Github
         }
     }
 
-    public sealed class ProviderArgs : Pulumi.ResourceArgs
+    public sealed class ProviderArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The GitHub App credentials used to connect to GitHub. Conflicts with `token`. Anonymous mode is enabled if both `token`
@@ -123,5 +123,6 @@ namespace Pulumi.Github
         {
             BaseUrl = Utilities.GetEnv("GITHUB_BASE_URL") ?? "https://api.github.com/";
         }
+        public static new ProviderArgs Empty => new ProviderArgs();
     }
 }

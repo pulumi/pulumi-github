@@ -18,27 +18,30 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-github/sdk/v4/go/github"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-github/sdk/v4/go/github"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := github.GetUsers(ctx, &GetUsersArgs{
-// 			Usernames: []string{
-// 				"example1",
-// 				"example2",
-// 				"example3",
-// 			},
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		ctx.Export("validUsers", example.Logins)
-// 		ctx.Export("invalidUsers", example.UnknownLogins)
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := github.GetUsers(ctx, &GetUsersArgs{
+//				Usernames: []string{
+//					"example1",
+//					"example2",
+//					"example3",
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("validUsers", example.Logins)
+//			ctx.Export("invalidUsers", example.UnknownLogins)
+//			return nil
+//		})
+//	}
+//
 // ```
 func GetUsers(ctx *pulumi.Context, args *GetUsersArgs, opts ...pulumi.InvokeOption) (*GetUsersResult, error) {
 	var rv GetUsersResult

@@ -15,28 +15,27 @@ namespace Pulumi.Github
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Github = Pulumi.Github;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var project = new Github.OrganizationProject("project", new()
     ///     {
-    ///         var project = new Github.OrganizationProject("project", new Github.OrganizationProjectArgs
-    ///         {
-    ///             Body = "This is an organization project.",
-    ///         });
-    ///         var column = new Github.ProjectColumn("column", new Github.ProjectColumnArgs
-    ///         {
-    ///             ProjectId = project.Id,
-    ///         });
-    ///     }
+    ///         Body = "This is an organization project.",
+    ///     });
     /// 
-    /// }
+    ///     var column = new Github.ProjectColumn("column", new()
+    ///     {
+    ///         ProjectId = project.Id,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// </summary>
     [GithubResourceType("github:index/projectColumn:ProjectColumn")]
-    public partial class ProjectColumn : Pulumi.CustomResource
+    public partial class ProjectColumn : global::Pulumi.CustomResource
     {
         [Output("columnId")]
         public Output<int> ColumnId { get; private set; } = null!;
@@ -100,7 +99,7 @@ namespace Pulumi.Github
         }
     }
 
-    public sealed class ProjectColumnArgs : Pulumi.ResourceArgs
+    public sealed class ProjectColumnArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the column.
@@ -117,9 +116,10 @@ namespace Pulumi.Github
         public ProjectColumnArgs()
         {
         }
+        public static new ProjectColumnArgs Empty => new ProjectColumnArgs();
     }
 
-    public sealed class ProjectColumnState : Pulumi.ResourceArgs
+    public sealed class ProjectColumnState : global::Pulumi.ResourceArgs
     {
         [Input("columnId")]
         public Input<int>? ColumnId { get; set; }
@@ -142,5 +142,6 @@ namespace Pulumi.Github
         public ProjectColumnState()
         {
         }
+        public static new ProjectColumnState Empty => new ProjectColumnState();
     }
 }

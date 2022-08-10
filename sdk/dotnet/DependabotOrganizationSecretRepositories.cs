@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Github
 {
     [GithubResourceType("github:index/dependabotOrganizationSecretRepositories:DependabotOrganizationSecretRepositories")]
-    public partial class DependabotOrganizationSecretRepositories : Pulumi.CustomResource
+    public partial class DependabotOrganizationSecretRepositories : global::Pulumi.CustomResource
     {
         [Output("secretName")]
         public Output<string> SecretName { get; private set; } = null!;
@@ -62,7 +62,7 @@ namespace Pulumi.Github
         }
     }
 
-    public sealed class DependabotOrganizationSecretRepositoriesArgs : Pulumi.ResourceArgs
+    public sealed class DependabotOrganizationSecretRepositoriesArgs : global::Pulumi.ResourceArgs
     {
         [Input("secretName", required: true)]
         public Input<string> SecretName { get; set; } = null!;
@@ -78,9 +78,10 @@ namespace Pulumi.Github
         public DependabotOrganizationSecretRepositoriesArgs()
         {
         }
+        public static new DependabotOrganizationSecretRepositoriesArgs Empty => new DependabotOrganizationSecretRepositoriesArgs();
     }
 
-    public sealed class DependabotOrganizationSecretRepositoriesState : Pulumi.ResourceArgs
+    public sealed class DependabotOrganizationSecretRepositoriesState : global::Pulumi.ResourceArgs
     {
         [Input("secretName")]
         public Input<string>? SecretName { get; set; }
@@ -96,5 +97,6 @@ namespace Pulumi.Github
         public DependabotOrganizationSecretRepositoriesState()
         {
         }
+        public static new DependabotOrganizationSecretRepositoriesState Empty => new DependabotOrganizationSecretRepositoriesState();
     }
 }

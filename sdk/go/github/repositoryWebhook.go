@@ -20,38 +20,41 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-github/sdk/v4/go/github"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-github/sdk/v4/go/github"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		repo, err := github.NewRepository(ctx, "repo", &github.RepositoryArgs{
-// 			Description: pulumi.String("Terraform acceptance tests"),
-// 			HomepageUrl: pulumi.String("http://example.com/"),
-// 			Private:     pulumi.Bool(false),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = github.NewRepositoryWebhook(ctx, "foo", &github.RepositoryWebhookArgs{
-// 			Repository: repo.Name,
-// 			Configuration: &RepositoryWebhookConfigurationArgs{
-// 				Url:         pulumi.String("https://google.de/"),
-// 				ContentType: pulumi.String("form"),
-// 				InsecureSsl: pulumi.Bool(false),
-// 			},
-// 			Active: pulumi.Bool(false),
-// 			Events: pulumi.StringArray{
-// 				pulumi.String("issues"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			repo, err := github.NewRepository(ctx, "repo", &github.RepositoryArgs{
+//				Description: pulumi.String("Terraform acceptance tests"),
+//				HomepageUrl: pulumi.String("http://example.com/"),
+//				Private:     pulumi.Bool(false),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = github.NewRepositoryWebhook(ctx, "foo", &github.RepositoryWebhookArgs{
+//				Repository: repo.Name,
+//				Configuration: &RepositoryWebhookConfigurationArgs{
+//					Url:         pulumi.String("https://google.de/"),
+//					ContentType: pulumi.String("form"),
+//					InsecureSsl: pulumi.Bool(false),
+//				},
+//				Active: pulumi.Bool(false),
+//				Events: pulumi.StringArray{
+//					pulumi.String("issues"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -59,10 +62,12 @@ import (
 // Repository webhooks can be imported using the `name` of the repository, combined with the `id` of the webhook, separated by a `/` character. The `id` of the webhook can be found in the URL of the webhook. For example`"https://github.com/foo-org/foo-repo/settings/hooks/14711452"`. Importing uses the name of the repository, as well as the ID of the webhook, e.g.
 //
 // ```sh
-//  $ pulumi import github:index/repositoryWebhook:RepositoryWebhook terraform terraform/11235813
+//
+//	$ pulumi import github:index/repositoryWebhook:RepositoryWebhook terraform terraform/11235813
+//
 // ```
 //
-//  If secret is populated in the webhook's configuration, the value will be imported as "********".
+//	If secret is populated in the webhook's configuration, the value will be imported as "********".
 type RepositoryWebhook struct {
 	pulumi.CustomResourceState
 
@@ -194,7 +199,7 @@ func (i *RepositoryWebhook) ToRepositoryWebhookOutputWithContext(ctx context.Con
 // RepositoryWebhookArrayInput is an input type that accepts RepositoryWebhookArray and RepositoryWebhookArrayOutput values.
 // You can construct a concrete instance of `RepositoryWebhookArrayInput` via:
 //
-//          RepositoryWebhookArray{ RepositoryWebhookArgs{...} }
+//	RepositoryWebhookArray{ RepositoryWebhookArgs{...} }
 type RepositoryWebhookArrayInput interface {
 	pulumi.Input
 
@@ -219,7 +224,7 @@ func (i RepositoryWebhookArray) ToRepositoryWebhookArrayOutputWithContext(ctx co
 // RepositoryWebhookMapInput is an input type that accepts RepositoryWebhookMap and RepositoryWebhookMapOutput values.
 // You can construct a concrete instance of `RepositoryWebhookMapInput` via:
 //
-//          RepositoryWebhookMap{ "key": RepositoryWebhookArgs{...} }
+//	RepositoryWebhookMap{ "key": RepositoryWebhookArgs{...} }
 type RepositoryWebhookMapInput interface {
 	pulumi.Input
 

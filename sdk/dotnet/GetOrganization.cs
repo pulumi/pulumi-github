@@ -19,20 +19,18 @@ namespace Pulumi.Github
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Github = Pulumi.Github;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var test = Github.GetOrganization.Invoke(new()
         ///     {
-        ///         var test = Output.Create(Github.GetOrganization.InvokeAsync(new Github.GetOrganizationArgs
-        ///         {
-        ///             Name = "github",
-        ///         }));
-        ///     }
+        ///         Name = "github",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -48,20 +46,18 @@ namespace Pulumi.Github
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Github = Pulumi.Github;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var test = Github.GetOrganization.Invoke(new()
         ///     {
-        ///         var test = Output.Create(Github.GetOrganization.InvokeAsync(new Github.GetOrganizationArgs
-        ///         {
-        ///             Name = "github",
-        ///         }));
-        ///     }
+        ///         Name = "github",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -71,7 +67,7 @@ namespace Pulumi.Github
     }
 
 
-    public sealed class GetOrganizationArgs : Pulumi.InvokeArgs
+    public sealed class GetOrganizationArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the organization account
@@ -82,9 +78,10 @@ namespace Pulumi.Github
         public GetOrganizationArgs()
         {
         }
+        public static new GetOrganizationArgs Empty => new GetOrganizationArgs();
     }
 
-    public sealed class GetOrganizationInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetOrganizationInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the organization account
@@ -95,6 +92,7 @@ namespace Pulumi.Github
         public GetOrganizationInvokeArgs()
         {
         }
+        public static new GetOrganizationInvokeArgs Empty => new GetOrganizationInvokeArgs();
     }
 
 

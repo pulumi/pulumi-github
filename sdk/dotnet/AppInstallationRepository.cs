@@ -25,25 +25,22 @@ namespace Pulumi.Github
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Github = Pulumi.Github;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         // Create a repository.
-    ///         var someRepo = new Github.Repository("someRepo", new Github.RepositoryArgs
-    ///         {
-    ///         });
-    ///         var someAppRepo = new Github.AppInstallationRepository("someAppRepo", new Github.AppInstallationRepositoryArgs
-    ///         {
-    ///             InstallationId = "1234567",
-    ///             Repository = someRepo.Name,
-    ///         });
-    ///     }
+    ///     // Create a repository.
+    ///     var someRepo = new Github.Repository("someRepo");
     /// 
-    /// }
+    ///     var someAppRepo = new Github.AppInstallationRepository("someAppRepo", new()
+    ///     {
+    ///         InstallationId = "1234567",
+    ///         Repository = someRepo.Name,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -55,7 +52,7 @@ namespace Pulumi.Github
     /// ```
     /// </summary>
     [GithubResourceType("github:index/appInstallationRepository:AppInstallationRepository")]
-    public partial class AppInstallationRepository : Pulumi.CustomResource
+    public partial class AppInstallationRepository : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The GitHub app installation id.
@@ -116,7 +113,7 @@ namespace Pulumi.Github
         }
     }
 
-    public sealed class AppInstallationRepositoryArgs : Pulumi.ResourceArgs
+    public sealed class AppInstallationRepositoryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The GitHub app installation id.
@@ -133,9 +130,10 @@ namespace Pulumi.Github
         public AppInstallationRepositoryArgs()
         {
         }
+        public static new AppInstallationRepositoryArgs Empty => new AppInstallationRepositoryArgs();
     }
 
-    public sealed class AppInstallationRepositoryState : Pulumi.ResourceArgs
+    public sealed class AppInstallationRepositoryState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The GitHub app installation id.
@@ -155,5 +153,6 @@ namespace Pulumi.Github
         public AppInstallationRepositoryState()
         {
         }
+        public static new AppInstallationRepositoryState Empty => new AppInstallationRepositoryState();
     }
 }

@@ -18,37 +18,40 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-github/sdk/v4/go/github"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-github/sdk/v4/go/github"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		thisRepository, err := github.LookupRepository(ctx, &GetRepositoryArgs{
-// 			Name: pulumi.StringRef("example"),
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		thisBranch, err := github.LookupBranch(ctx, &GetBranchArgs{
-// 			Branch:     thisRepository.DefaultBranch,
-// 			Repository: thisRepository.Name,
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		thisTree, err := github.GetTree(ctx, &GetTreeArgs{
-// 			Recursive:  pulumi.BoolRef(false),
-// 			Repository: thisRepository.Name,
-// 			TreeSha:    thisBranch.Sha,
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		ctx.Export("entries", thisTree.Entries)
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			thisRepository, err := github.LookupRepository(ctx, &GetRepositoryArgs{
+//				Name: pulumi.StringRef("example"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			thisBranch, err := github.LookupBranch(ctx, &GetBranchArgs{
+//				Branch:     thisRepository.DefaultBranch,
+//				Repository: thisRepository.Name,
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			thisTree, err := github.GetTree(ctx, &GetTreeArgs{
+//				Recursive:  pulumi.BoolRef(false),
+//				Repository: thisRepository.Name,
+//				TreeSha:    thisBranch.Sha,
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("entries", thisTree.Entries)
+//			return nil
+//		})
+//	}
+//
 // ```
 func GetTree(ctx *pulumi.Context, args *GetTreeArgs, opts ...pulumi.InvokeOption) (*GetTreeResult, error) {
 	var rv GetTreeResult

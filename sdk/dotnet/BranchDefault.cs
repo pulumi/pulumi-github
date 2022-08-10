@@ -19,31 +19,31 @@ namespace Pulumi.Github
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Github = Pulumi.Github;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Github.Repository("example", new()
     ///     {
-    ///         var example = new Github.Repository("example", new Github.RepositoryArgs
-    ///         {
-    ///             Description = "My awesome codebase",
-    ///             AutoInit = true,
-    ///         });
-    ///         var development = new Github.Branch("development", new Github.BranchArgs
-    ///         {
-    ///             Repository = example.Name,
-    ///             BranchName = "development",
-    ///         });
-    ///         var @default = new Github.BranchDefault("default", new Github.BranchDefaultArgs
-    ///         {
-    ///             Repository = example.Name,
-    ///             Branch = development.BranchName,
-    ///         });
-    ///     }
+    ///         Description = "My awesome codebase",
+    ///         AutoInit = true,
+    ///     });
     /// 
-    /// }
+    ///     var development = new Github.Branch("development", new()
+    ///     {
+    ///         Repository = example.Name,
+    ///         BranchName = "development",
+    ///     });
+    /// 
+    ///     var @default = new Github.BranchDefault("default", new()
+    ///     {
+    ///         Repository = example.Name,
+    ///         Branch = development.BranchName,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -55,7 +55,7 @@ namespace Pulumi.Github
     /// ```
     /// </summary>
     [GithubResourceType("github:index/branchDefault:BranchDefault")]
-    public partial class BranchDefault : Pulumi.CustomResource
+    public partial class BranchDefault : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The branch (e.g. `main`)
@@ -113,7 +113,7 @@ namespace Pulumi.Github
         }
     }
 
-    public sealed class BranchDefaultArgs : Pulumi.ResourceArgs
+    public sealed class BranchDefaultArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The branch (e.g. `main`)
@@ -130,9 +130,10 @@ namespace Pulumi.Github
         public BranchDefaultArgs()
         {
         }
+        public static new BranchDefaultArgs Empty => new BranchDefaultArgs();
     }
 
-    public sealed class BranchDefaultState : Pulumi.ResourceArgs
+    public sealed class BranchDefaultState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The branch (e.g. `main`)
@@ -149,5 +150,6 @@ namespace Pulumi.Github
         public BranchDefaultState()
         {
         }
+        public static new BranchDefaultState Empty => new BranchDefaultState();
     }
 }

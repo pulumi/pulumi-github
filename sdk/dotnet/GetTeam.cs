@@ -19,20 +19,18 @@ namespace Pulumi.Github
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Github = Pulumi.Github;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Github.GetTeam.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Github.GetTeam.InvokeAsync(new Github.GetTeamArgs
-        ///         {
-        ///             Slug = "example",
-        ///         }));
-        ///     }
+        ///         Slug = "example",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -48,20 +46,18 @@ namespace Pulumi.Github
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Github = Pulumi.Github;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Github.GetTeam.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Github.GetTeam.InvokeAsync(new Github.GetTeamArgs
-        ///         {
-        ///             Slug = "example",
-        ///         }));
-        ///     }
+        ///         Slug = "example",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -71,7 +67,7 @@ namespace Pulumi.Github
     }
 
 
-    public sealed class GetTeamArgs : Pulumi.InvokeArgs
+    public sealed class GetTeamArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The team slug.
@@ -82,9 +78,10 @@ namespace Pulumi.Github
         public GetTeamArgs()
         {
         }
+        public static new GetTeamArgs Empty => new GetTeamArgs();
     }
 
-    public sealed class GetTeamInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetTeamInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The team slug.
@@ -95,6 +92,7 @@ namespace Pulumi.Github
         public GetTeamInvokeArgs()
         {
         }
+        public static new GetTeamInvokeArgs Empty => new GetTeamInvokeArgs();
     }
 
 

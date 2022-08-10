@@ -23,30 +23,28 @@ namespace Pulumi.Github
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Github = Pulumi.Github;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     // Add a repository to the team
+    ///     var someTeam = new Github.Team("someTeam", new()
     ///     {
-    ///         // Add a repository to the team
-    ///         var someTeam = new Github.Team("someTeam", new Github.TeamArgs
-    ///         {
-    ///             Description = "Some cool team",
-    ///         });
-    ///         var someRepo = new Github.Repository("someRepo", new Github.RepositoryArgs
-    ///         {
-    ///         });
-    ///         var someTeamRepo = new Github.TeamRepository("someTeamRepo", new Github.TeamRepositoryArgs
-    ///         {
-    ///             TeamId = someTeam.Id,
-    ///             Repository = someRepo.Name,
-    ///             Permission = "pull",
-    ///         });
-    ///     }
+    ///         Description = "Some cool team",
+    ///     });
     /// 
-    /// }
+    ///     var someRepo = new Github.Repository("someRepo");
+    /// 
+    ///     var someTeamRepo = new Github.TeamRepository("someTeamRepo", new()
+    ///     {
+    ///         TeamId = someTeam.Id,
+    ///         Repository = someRepo.Name,
+    ///         Permission = "pull",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -58,7 +56,7 @@ namespace Pulumi.Github
     /// ```
     /// </summary>
     [GithubResourceType("github:index/teamRepository:TeamRepository")]
-    public partial class TeamRepository : Pulumi.CustomResource
+    public partial class TeamRepository : global::Pulumi.CustomResource
     {
         [Output("etag")]
         public Output<string> Etag { get; private set; } = null!;
@@ -126,7 +124,7 @@ namespace Pulumi.Github
         }
     }
 
-    public sealed class TeamRepositoryArgs : Pulumi.ResourceArgs
+    public sealed class TeamRepositoryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The permissions of team members regarding the repository.
@@ -150,9 +148,10 @@ namespace Pulumi.Github
         public TeamRepositoryArgs()
         {
         }
+        public static new TeamRepositoryArgs Empty => new TeamRepositoryArgs();
     }
 
-    public sealed class TeamRepositoryState : Pulumi.ResourceArgs
+    public sealed class TeamRepositoryState : global::Pulumi.ResourceArgs
     {
         [Input("etag")]
         public Input<string>? Etag { get; set; }
@@ -179,5 +178,6 @@ namespace Pulumi.Github
         public TeamRepositoryState()
         {
         }
+        public static new TeamRepositoryState Empty => new TeamRepositoryState();
     }
 }

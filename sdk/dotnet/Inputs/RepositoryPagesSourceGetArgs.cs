@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Github.Inputs
 {
 
-    public sealed class RepositoryPagesSourceGetArgs : Pulumi.ResourceArgs
+    public sealed class RepositoryPagesSourceGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The repository branch used to publish the site's source files. (i.e. `main` or `gh-pages`.
@@ -27,5 +27,6 @@ namespace Pulumi.Github.Inputs
         public RepositoryPagesSourceGetArgs()
         {
         }
+        public static new RepositoryPagesSourceGetArgs Empty => new RepositoryPagesSourceGetArgs();
     }
 }

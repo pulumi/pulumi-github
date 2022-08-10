@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Github.Inputs
 {
 
-    public sealed class BranchProtectionV3RequiredStatusChecksArgs : Pulumi.ResourceArgs
+    public sealed class BranchProtectionV3RequiredStatusChecksArgs : global::Pulumi.ResourceArgs
     {
         [Input("contexts")]
         private InputList<string>? _contexts;
@@ -29,5 +29,6 @@ namespace Pulumi.Github.Inputs
         public BranchProtectionV3RequiredStatusChecksArgs()
         {
         }
+        public static new BranchProtectionV3RequiredStatusChecksArgs Empty => new BranchProtectionV3RequiredStatusChecksArgs();
     }
 }

@@ -19,20 +19,18 @@ namespace Pulumi.Github
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Github = Pulumi.Github;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Github.GetRepository.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Github.GetRepository.InvokeAsync(new Github.GetRepositoryArgs
-        ///         {
-        ///             FullName = "hashicorp/terraform",
-        ///         }));
-        ///     }
+        ///         FullName = "hashicorp/terraform",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -48,20 +46,18 @@ namespace Pulumi.Github
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Github = Pulumi.Github;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Github.GetRepository.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Github.GetRepository.InvokeAsync(new Github.GetRepositoryArgs
-        ///         {
-        ///             FullName = "hashicorp/terraform",
-        ///         }));
-        ///     }
+        ///         FullName = "hashicorp/terraform",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -71,7 +67,7 @@ namespace Pulumi.Github
     }
 
 
-    public sealed class GetRepositoryArgs : Pulumi.InvokeArgs
+    public sealed class GetRepositoryArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// A description of the repository.
@@ -106,9 +102,10 @@ namespace Pulumi.Github
         public GetRepositoryArgs()
         {
         }
+        public static new GetRepositoryArgs Empty => new GetRepositoryArgs();
     }
 
-    public sealed class GetRepositoryInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetRepositoryInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// A description of the repository.
@@ -143,6 +140,7 @@ namespace Pulumi.Github
         public GetRepositoryInvokeArgs()
         {
         }
+        public static new GetRepositoryInvokeArgs Empty => new GetRepositoryInvokeArgs();
     }
 
 

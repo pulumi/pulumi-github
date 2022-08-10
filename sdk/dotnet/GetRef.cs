@@ -19,21 +19,19 @@ namespace Pulumi.Github
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Github = Pulumi.Github;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var development = Github.GetRef.Invoke(new()
         ///     {
-        ///         var development = Output.Create(Github.GetRef.InvokeAsync(new Github.GetRefArgs
-        ///         {
-        ///             Ref = "heads/development",
-        ///             Repository = "example",
-        ///         }));
-        ///     }
+        ///         Ref = "heads/development",
+        ///         Repository = "example",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -49,21 +47,19 @@ namespace Pulumi.Github
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Github = Pulumi.Github;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var development = Github.GetRef.Invoke(new()
         ///     {
-        ///         var development = Output.Create(Github.GetRef.InvokeAsync(new Github.GetRefArgs
-        ///         {
-        ///             Ref = "heads/development",
-        ///             Repository = "example",
-        ///         }));
-        ///     }
+        ///         Ref = "heads/development",
+        ///         Repository = "example",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -73,7 +69,7 @@ namespace Pulumi.Github
     }
 
 
-    public sealed class GetRefArgs : Pulumi.InvokeArgs
+    public sealed class GetRefArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The repository ref to look up. Must be formatted `heads/&lt;ref&gt;` for branches, and `tags/&lt;ref&gt;` for tags.
@@ -90,9 +86,10 @@ namespace Pulumi.Github
         public GetRefArgs()
         {
         }
+        public static new GetRefArgs Empty => new GetRefArgs();
     }
 
-    public sealed class GetRefInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetRefInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The repository ref to look up. Must be formatted `heads/&lt;ref&gt;` for branches, and `tags/&lt;ref&gt;` for tags.
@@ -109,6 +106,7 @@ namespace Pulumi.Github
         public GetRefInvokeArgs()
         {
         }
+        public static new GetRefInvokeArgs Empty => new GetRefInvokeArgs();
     }
 
 

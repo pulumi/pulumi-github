@@ -19,31 +19,28 @@ namespace Pulumi.Github
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Github = Pulumi.Github;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Github.GetUsers.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Github.GetUsers.InvokeAsync(new Github.GetUsersArgs
+        ///         Usernames = new[]
         ///         {
-        ///             Usernames = 
-        ///             {
-        ///                 "example1",
-        ///                 "example2",
-        ///                 "example3",
-        ///             },
-        ///         }));
-        ///         this.ValidUsers = example.Apply(example =&gt; example.Logins);
-        ///         this.InvalidUsers = example.Apply(example =&gt; example.UnknownLogins);
-        ///     }
+        ///             "example1",
+        ///             "example2",
+        ///             "example3",
+        ///         },
+        ///     });
         /// 
-        ///     [Output("validUsers")]
-        ///     public Output&lt;string&gt; ValidUsers { get; set; }
-        ///     [Output("invalidUsers")]
-        ///     public Output&lt;string&gt; InvalidUsers { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["validUsers"] = example.Apply(getUsersResult =&gt; getUsersResult.Logins),
+        ///         ["invalidUsers"] = example.Apply(getUsersResult =&gt; getUsersResult.UnknownLogins),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -59,31 +56,28 @@ namespace Pulumi.Github
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Github = Pulumi.Github;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Github.GetUsers.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Github.GetUsers.InvokeAsync(new Github.GetUsersArgs
+        ///         Usernames = new[]
         ///         {
-        ///             Usernames = 
-        ///             {
-        ///                 "example1",
-        ///                 "example2",
-        ///                 "example3",
-        ///             },
-        ///         }));
-        ///         this.ValidUsers = example.Apply(example =&gt; example.Logins);
-        ///         this.InvalidUsers = example.Apply(example =&gt; example.UnknownLogins);
-        ///     }
+        ///             "example1",
+        ///             "example2",
+        ///             "example3",
+        ///         },
+        ///     });
         /// 
-        ///     [Output("validUsers")]
-        ///     public Output&lt;string&gt; ValidUsers { get; set; }
-        ///     [Output("invalidUsers")]
-        ///     public Output&lt;string&gt; InvalidUsers { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["validUsers"] = example.Apply(getUsersResult =&gt; getUsersResult.Logins),
+        ///         ["invalidUsers"] = example.Apply(getUsersResult =&gt; getUsersResult.UnknownLogins),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -93,7 +87,7 @@ namespace Pulumi.Github
     }
 
 
-    public sealed class GetUsersArgs : Pulumi.InvokeArgs
+    public sealed class GetUsersArgs : global::Pulumi.InvokeArgs
     {
         [Input("usernames", required: true)]
         private List<string>? _usernames;
@@ -110,9 +104,10 @@ namespace Pulumi.Github
         public GetUsersArgs()
         {
         }
+        public static new GetUsersArgs Empty => new GetUsersArgs();
     }
 
-    public sealed class GetUsersInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetUsersInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("usernames", required: true)]
         private InputList<string>? _usernames;
@@ -129,6 +124,7 @@ namespace Pulumi.Github
         public GetUsersInvokeArgs()
         {
         }
+        public static new GetUsersInvokeArgs Empty => new GetUsersInvokeArgs();
     }
 
 

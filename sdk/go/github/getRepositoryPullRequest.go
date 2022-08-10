@@ -18,22 +18,25 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-github/sdk/v4/go/github"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-github/sdk/v4/go/github"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := github.LookupRepositoryPullRequest(ctx, &GetRepositoryPullRequestArgs{
-// 			BaseRepository: "example_repository",
-// 			Number:         1,
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := github.LookupRepositoryPullRequest(ctx, &GetRepositoryPullRequestArgs{
+//				BaseRepository: "example_repository",
+//				Number:         1,
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 func LookupRepositoryPullRequest(ctx *pulumi.Context, args *LookupRepositoryPullRequestArgs, opts ...pulumi.InvokeOption) (*LookupRepositoryPullRequestResult, error) {
 	var rv LookupRepositoryPullRequestResult

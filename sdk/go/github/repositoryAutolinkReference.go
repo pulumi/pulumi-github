@@ -19,30 +19,33 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-github/sdk/v4/go/github"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-github/sdk/v4/go/github"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		repo, err := github.NewRepository(ctx, "repo", &github.RepositoryArgs{
-// 			Description: pulumi.String("GitHub repo managed by Terraform"),
-// 			Private:     pulumi.Bool(false),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = github.NewRepositoryAutolinkReference(ctx, "auto", &github.RepositoryAutolinkReferenceArgs{
-// 			Repository:        repo.Name,
-// 			KeyPrefix:         pulumi.String("TICKET-"),
-// 			TargetUrlTemplate: pulumi.String("https://hello.there/TICKET?query=<num>"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			repo, err := github.NewRepository(ctx, "repo", &github.RepositoryArgs{
+//				Description: pulumi.String("GitHub repo managed by Terraform"),
+//				Private:     pulumi.Bool(false),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = github.NewRepositoryAutolinkReference(ctx, "auto", &github.RepositoryAutolinkReferenceArgs{
+//				Repository:        repo.Name,
+//				KeyPrefix:         pulumi.String("TICKET-"),
+//				TargetUrlTemplate: pulumi.String("https://hello.there/TICKET?query=<num>"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -50,7 +53,9 @@ import (
 // Autolink references can be imported using the `name` of the repository, combined with the `id` of the autolink reference and a `/` character for separating components, e.g.
 //
 // ```sh
-//  $ pulumi import github:index/repositoryAutolinkReference:RepositoryAutolinkReference auto oof/123
+//
+//	$ pulumi import github:index/repositoryAutolinkReference:RepositoryAutolinkReference auto oof/123
+//
 // ```
 type RepositoryAutolinkReference struct {
 	pulumi.CustomResourceState
@@ -173,7 +178,7 @@ func (i *RepositoryAutolinkReference) ToRepositoryAutolinkReferenceOutputWithCon
 // RepositoryAutolinkReferenceArrayInput is an input type that accepts RepositoryAutolinkReferenceArray and RepositoryAutolinkReferenceArrayOutput values.
 // You can construct a concrete instance of `RepositoryAutolinkReferenceArrayInput` via:
 //
-//          RepositoryAutolinkReferenceArray{ RepositoryAutolinkReferenceArgs{...} }
+//	RepositoryAutolinkReferenceArray{ RepositoryAutolinkReferenceArgs{...} }
 type RepositoryAutolinkReferenceArrayInput interface {
 	pulumi.Input
 
@@ -198,7 +203,7 @@ func (i RepositoryAutolinkReferenceArray) ToRepositoryAutolinkReferenceArrayOutp
 // RepositoryAutolinkReferenceMapInput is an input type that accepts RepositoryAutolinkReferenceMap and RepositoryAutolinkReferenceMapOutput values.
 // You can construct a concrete instance of `RepositoryAutolinkReferenceMapInput` via:
 //
-//          RepositoryAutolinkReferenceMap{ "key": RepositoryAutolinkReferenceArgs{...} }
+//	RepositoryAutolinkReferenceMap{ "key": RepositoryAutolinkReferenceArgs{...} }
 type RepositoryAutolinkReferenceMapInput interface {
 	pulumi.Input
 

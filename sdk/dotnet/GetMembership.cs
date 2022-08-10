@@ -22,20 +22,18 @@ namespace Pulumi.Github
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Github = Pulumi.Github;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var membershipForSomeUser = Github.GetMembership.Invoke(new()
         ///     {
-        ///         var membershipForSomeUser = Output.Create(Github.GetMembership.InvokeAsync(new Github.GetMembershipArgs
-        ///         {
-        ///             Username = "SomeUser",
-        ///         }));
-        ///     }
+        ///         Username = "SomeUser",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -54,20 +52,18 @@ namespace Pulumi.Github
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Github = Pulumi.Github;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var membershipForSomeUser = Github.GetMembership.Invoke(new()
         ///     {
-        ///         var membershipForSomeUser = Output.Create(Github.GetMembership.InvokeAsync(new Github.GetMembershipArgs
-        ///         {
-        ///             Username = "SomeUser",
-        ///         }));
-        ///     }
+        ///         Username = "SomeUser",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -77,7 +73,7 @@ namespace Pulumi.Github
     }
 
 
-    public sealed class GetMembershipArgs : Pulumi.InvokeArgs
+    public sealed class GetMembershipArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The organization to check for the above username.
@@ -94,9 +90,10 @@ namespace Pulumi.Github
         public GetMembershipArgs()
         {
         }
+        public static new GetMembershipArgs Empty => new GetMembershipArgs();
     }
 
-    public sealed class GetMembershipInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetMembershipInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The organization to check for the above username.
@@ -113,6 +110,7 @@ namespace Pulumi.Github
         public GetMembershipInvokeArgs()
         {
         }
+        public static new GetMembershipInvokeArgs Empty => new GetMembershipInvokeArgs();
     }
 
 

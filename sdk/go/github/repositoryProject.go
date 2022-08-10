@@ -19,29 +19,32 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-github/sdk/v4/go/github"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-github/sdk/v4/go/github"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := github.NewRepository(ctx, "example", &github.RepositoryArgs{
-// 			Description: pulumi.String("My awesome codebase"),
-// 			HasProjects: pulumi.Bool(true),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = github.NewRepositoryProject(ctx, "project", &github.RepositoryProjectArgs{
-// 			Body:       pulumi.String("This is a repository project."),
-// 			Repository: example.Name,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := github.NewRepository(ctx, "example", &github.RepositoryArgs{
+//				Description: pulumi.String("My awesome codebase"),
+//				HasProjects: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = github.NewRepositoryProject(ctx, "project", &github.RepositoryProjectArgs{
+//				Body:       pulumi.String("This is a repository project."),
+//				Repository: example.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 type RepositoryProject struct {
 	pulumi.CustomResourceState
@@ -161,7 +164,7 @@ func (i *RepositoryProject) ToRepositoryProjectOutputWithContext(ctx context.Con
 // RepositoryProjectArrayInput is an input type that accepts RepositoryProjectArray and RepositoryProjectArrayOutput values.
 // You can construct a concrete instance of `RepositoryProjectArrayInput` via:
 //
-//          RepositoryProjectArray{ RepositoryProjectArgs{...} }
+//	RepositoryProjectArray{ RepositoryProjectArgs{...} }
 type RepositoryProjectArrayInput interface {
 	pulumi.Input
 
@@ -186,7 +189,7 @@ func (i RepositoryProjectArray) ToRepositoryProjectArrayOutputWithContext(ctx co
 // RepositoryProjectMapInput is an input type that accepts RepositoryProjectMap and RepositoryProjectMapOutput values.
 // You can construct a concrete instance of `RepositoryProjectMapInput` via:
 //
-//          RepositoryProjectMap{ "key": RepositoryProjectArgs{...} }
+//	RepositoryProjectMap{ "key": RepositoryProjectArgs{...} }
 type RepositoryProjectMapInput interface {
 	pulumi.Input
 

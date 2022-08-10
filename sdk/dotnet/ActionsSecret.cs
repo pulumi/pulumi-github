@@ -13,36 +13,36 @@ namespace Pulumi.Github
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Github = Pulumi.Github;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var examplePublicKey = Github.GetActionsPublicKey.Invoke(new()
     ///     {
-    ///         var examplePublicKey = Output.Create(Github.GetActionsPublicKey.InvokeAsync(new Github.GetActionsPublicKeyArgs
-    ///         {
-    ///             Repository = "example_repository",
-    ///         }));
-    ///         var exampleSecretActionsSecret = new Github.ActionsSecret("exampleSecretActionsSecret", new Github.ActionsSecretArgs
-    ///         {
-    ///             Repository = "example_repository",
-    ///             SecretName = "example_secret_name",
-    ///             PlaintextValue = @var.Some_secret_string,
-    ///         });
-    ///         var exampleSecretIndex_actionsSecretActionsSecret = new Github.ActionsSecret("exampleSecretIndex/actionsSecretActionsSecret", new Github.ActionsSecretArgs
-    ///         {
-    ///             Repository = "example_repository",
-    ///             SecretName = "example_secret_name",
-    ///             EncryptedValue = @var.Some_encrypted_secret_string,
-    ///         });
-    ///     }
+    ///         Repository = "example_repository",
+    ///     });
     /// 
-    /// }
+    ///     var exampleSecretActionsSecret = new Github.ActionsSecret("exampleSecretActionsSecret", new()
+    ///     {
+    ///         Repository = "example_repository",
+    ///         SecretName = "example_secret_name",
+    ///         PlaintextValue = @var.Some_secret_string,
+    ///     });
+    /// 
+    ///     var exampleSecretIndex_actionsSecretActionsSecret = new Github.ActionsSecret("exampleSecretIndex/actionsSecretActionsSecret", new()
+    ///     {
+    ///         Repository = "example_repository",
+    ///         SecretName = "example_secret_name",
+    ///         EncryptedValue = @var.Some_encrypted_secret_string,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// </summary>
     [GithubResourceType("github:index/actionsSecret:ActionsSecret")]
-    public partial class ActionsSecret : Pulumi.CustomResource
+    public partial class ActionsSecret : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Date of actions_secret creation.
@@ -124,7 +124,7 @@ namespace Pulumi.Github
         }
     }
 
-    public sealed class ActionsSecretArgs : Pulumi.ResourceArgs
+    public sealed class ActionsSecretArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Encrypted value of the secret using the Github public key in Base64 format.
@@ -153,9 +153,10 @@ namespace Pulumi.Github
         public ActionsSecretArgs()
         {
         }
+        public static new ActionsSecretArgs Empty => new ActionsSecretArgs();
     }
 
-    public sealed class ActionsSecretState : Pulumi.ResourceArgs
+    public sealed class ActionsSecretState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Date of actions_secret creation.
@@ -196,5 +197,6 @@ namespace Pulumi.Github
         public ActionsSecretState()
         {
         }
+        public static new ActionsSecretState Empty => new ActionsSecretState();
     }
 }

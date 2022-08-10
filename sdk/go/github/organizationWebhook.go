@@ -19,29 +19,32 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-github/sdk/v4/go/github"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-github/sdk/v4/go/github"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := github.NewOrganizationWebhook(ctx, "foo", &github.OrganizationWebhookArgs{
-// 			Active: pulumi.Bool(false),
-// 			Configuration: &OrganizationWebhookConfigurationArgs{
-// 				ContentType: pulumi.String("form"),
-// 				InsecureSsl: pulumi.Bool(false),
-// 				Url:         pulumi.String("https://google.de/"),
-// 			},
-// 			Events: pulumi.StringArray{
-// 				pulumi.String("issues"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := github.NewOrganizationWebhook(ctx, "foo", &github.OrganizationWebhookArgs{
+//				Active: pulumi.Bool(false),
+//				Configuration: &OrganizationWebhookConfigurationArgs{
+//					ContentType: pulumi.String("form"),
+//					InsecureSsl: pulumi.Bool(false),
+//					Url:         pulumi.String("https://google.de/"),
+//				},
+//				Events: pulumi.StringArray{
+//					pulumi.String("issues"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -49,10 +52,12 @@ import (
 // Organization webhooks can be imported using the `id` of the webhook. The `id` of the webhook can be found in the URL of the webhook. For example, `"https://github.com/organizations/foo-org/settings/hooks/123456789"`.
 //
 // ```sh
-//  $ pulumi import github:index/organizationWebhook:OrganizationWebhook terraform 123456789
+//
+//	$ pulumi import github:index/organizationWebhook:OrganizationWebhook terraform 123456789
+//
 // ```
 //
-//  If secret is populated in the webhook's configuration, the value will be imported as "********".
+//	If secret is populated in the webhook's configuration, the value will be imported as "********".
 type OrganizationWebhook struct {
 	pulumi.CustomResourceState
 
@@ -171,7 +176,7 @@ func (i *OrganizationWebhook) ToOrganizationWebhookOutputWithContext(ctx context
 // OrganizationWebhookArrayInput is an input type that accepts OrganizationWebhookArray and OrganizationWebhookArrayOutput values.
 // You can construct a concrete instance of `OrganizationWebhookArrayInput` via:
 //
-//          OrganizationWebhookArray{ OrganizationWebhookArgs{...} }
+//	OrganizationWebhookArray{ OrganizationWebhookArgs{...} }
 type OrganizationWebhookArrayInput interface {
 	pulumi.Input
 
@@ -196,7 +201,7 @@ func (i OrganizationWebhookArray) ToOrganizationWebhookArrayOutputWithContext(ct
 // OrganizationWebhookMapInput is an input type that accepts OrganizationWebhookMap and OrganizationWebhookMapOutput values.
 // You can construct a concrete instance of `OrganizationWebhookMapInput` via:
 //
-//          OrganizationWebhookMap{ "key": OrganizationWebhookArgs{...} }
+//	OrganizationWebhookMap{ "key": OrganizationWebhookArgs{...} }
 type OrganizationWebhookMapInput interface {
 	pulumi.Input
 

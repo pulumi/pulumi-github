@@ -13,22 +13,20 @@ namespace Pulumi.Github
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Github = Pulumi.Github;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     // Create a new, red colored label
+    ///     var testRepo = new Github.IssueLabel("testRepo", new()
     ///     {
-    ///         // Create a new, red colored label
-    ///         var testRepo = new Github.IssueLabel("testRepo", new Github.IssueLabelArgs
-    ///         {
-    ///             Color = "FF0000",
-    ///             Repository = "test-repo",
-    ///         });
-    ///     }
+    ///         Color = "FF0000",
+    ///         Repository = "test-repo",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -40,7 +38,7 @@ namespace Pulumi.Github
     /// ```
     /// </summary>
     [GithubResourceType("github:index/issueLabel:IssueLabel")]
-    public partial class IssueLabel : Pulumi.CustomResource
+    public partial class IssueLabel : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A 6 character hex code, **without the leading #**, identifying the color of the label.
@@ -119,7 +117,7 @@ namespace Pulumi.Github
         }
     }
 
-    public sealed class IssueLabelArgs : Pulumi.ResourceArgs
+    public sealed class IssueLabelArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A 6 character hex code, **without the leading #**, identifying the color of the label.
@@ -148,9 +146,10 @@ namespace Pulumi.Github
         public IssueLabelArgs()
         {
         }
+        public static new IssueLabelArgs Empty => new IssueLabelArgs();
     }
 
-    public sealed class IssueLabelState : Pulumi.ResourceArgs
+    public sealed class IssueLabelState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A 6 character hex code, **without the leading #**, identifying the color of the label.
@@ -188,5 +187,6 @@ namespace Pulumi.Github
         public IssueLabelState()
         {
         }
+        public static new IssueLabelState Empty => new IssueLabelState();
     }
 }

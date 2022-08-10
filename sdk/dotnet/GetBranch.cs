@@ -19,21 +19,19 @@ namespace Pulumi.Github
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Github = Pulumi.Github;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var development = Github.GetBranch.Invoke(new()
         ///     {
-        ///         var development = Output.Create(Github.GetBranch.InvokeAsync(new Github.GetBranchArgs
-        ///         {
-        ///             Branch = "development",
-        ///             Repository = "example",
-        ///         }));
-        ///     }
+        ///         Branch = "development",
+        ///         Repository = "example",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -49,21 +47,19 @@ namespace Pulumi.Github
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Github = Pulumi.Github;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var development = Github.GetBranch.Invoke(new()
         ///     {
-        ///         var development = Output.Create(Github.GetBranch.InvokeAsync(new Github.GetBranchArgs
-        ///         {
-        ///             Branch = "development",
-        ///             Repository = "example",
-        ///         }));
-        ///     }
+        ///         Branch = "development",
+        ///         Repository = "example",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -73,7 +69,7 @@ namespace Pulumi.Github
     }
 
 
-    public sealed class GetBranchArgs : Pulumi.InvokeArgs
+    public sealed class GetBranchArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The repository branch to create.
@@ -90,9 +86,10 @@ namespace Pulumi.Github
         public GetBranchArgs()
         {
         }
+        public static new GetBranchArgs Empty => new GetBranchArgs();
     }
 
-    public sealed class GetBranchInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetBranchInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The repository branch to create.
@@ -109,6 +106,7 @@ namespace Pulumi.Github
         public GetBranchInvokeArgs()
         {
         }
+        public static new GetBranchInvokeArgs Empty => new GetBranchInvokeArgs();
     }
 
 

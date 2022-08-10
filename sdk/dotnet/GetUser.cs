@@ -19,27 +19,27 @@ namespace Pulumi.Github
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Github = Pulumi.Github;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Github.GetUser.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Github.GetUser.InvokeAsync(new Github.GetUserArgs
-        ///         {
-        ///             Username = "example",
-        ///         }));
-        ///         var current = Output.Create(Github.GetUser.InvokeAsync(new Github.GetUserArgs
-        ///         {
-        ///             Username = "",
-        ///         }));
-        ///         this.CurrentGithubLogin = current.Apply(current =&gt; current.Login);
-        ///     }
+        ///         Username = "example",
+        ///     });
         /// 
-        ///     [Output("currentGithubLogin")]
-        ///     public Output&lt;string&gt; CurrentGithubLogin { get; set; }
-        /// }
+        ///     var current = Github.GetUser.Invoke(new()
+        ///     {
+        ///         Username = "",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["currentGithubLogin"] = current.Apply(getUserResult =&gt; getUserResult.Login),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -55,27 +55,27 @@ namespace Pulumi.Github
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Github = Pulumi.Github;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Github.GetUser.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Github.GetUser.InvokeAsync(new Github.GetUserArgs
-        ///         {
-        ///             Username = "example",
-        ///         }));
-        ///         var current = Output.Create(Github.GetUser.InvokeAsync(new Github.GetUserArgs
-        ///         {
-        ///             Username = "",
-        ///         }));
-        ///         this.CurrentGithubLogin = current.Apply(current =&gt; current.Login);
-        ///     }
+        ///         Username = "example",
+        ///     });
         /// 
-        ///     [Output("currentGithubLogin")]
-        ///     public Output&lt;string&gt; CurrentGithubLogin { get; set; }
-        /// }
+        ///     var current = Github.GetUser.Invoke(new()
+        ///     {
+        ///         Username = "",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["currentGithubLogin"] = current.Apply(getUserResult =&gt; getUserResult.Login),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -85,7 +85,7 @@ namespace Pulumi.Github
     }
 
 
-    public sealed class GetUserArgs : Pulumi.InvokeArgs
+    public sealed class GetUserArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The username. Use an empty string `""` to retrieve information about the currently authenticated user.
@@ -96,9 +96,10 @@ namespace Pulumi.Github
         public GetUserArgs()
         {
         }
+        public static new GetUserArgs Empty => new GetUserArgs();
     }
 
-    public sealed class GetUserInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetUserInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The username. Use an empty string `""` to retrieve information about the currently authenticated user.
@@ -109,6 +110,7 @@ namespace Pulumi.Github
         public GetUserInvokeArgs()
         {
         }
+        public static new GetUserInvokeArgs Empty => new GetUserInvokeArgs();
     }
 
 

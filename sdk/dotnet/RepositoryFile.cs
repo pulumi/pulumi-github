@@ -16,31 +16,30 @@ namespace Pulumi.Github
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Github = Pulumi.Github;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var fooRepository = new Github.Repository("fooRepository", new()
     ///     {
-    ///         var fooRepository = new Github.Repository("fooRepository", new Github.RepositoryArgs
-    ///         {
-    ///             AutoInit = true,
-    ///         });
-    ///         var fooRepositoryFile = new Github.RepositoryFile("fooRepositoryFile", new Github.RepositoryFileArgs
-    ///         {
-    ///             Repository = fooRepository.Name,
-    ///             Branch = "main",
-    ///             File = ".gitignore",
-    ///             Content = "**/*.tfstate",
-    ///             CommitMessage = "Managed by Terraform",
-    ///             CommitAuthor = "Terraform User",
-    ///             CommitEmail = "terraform@example.com",
-    ///             OverwriteOnCreate = true,
-    ///         });
-    ///     }
+    ///         AutoInit = true,
+    ///     });
     /// 
-    /// }
+    ///     var fooRepositoryFile = new Github.RepositoryFile("fooRepositoryFile", new()
+    ///     {
+    ///         Repository = fooRepository.Name,
+    ///         Branch = "main",
+    ///         File = ".gitignore",
+    ///         Content = "**/*.tfstate",
+    ///         CommitMessage = "Managed by Terraform",
+    ///         CommitAuthor = "Terraform User",
+    ///         CommitEmail = "terraform@example.com",
+    ///         OverwriteOnCreate = true,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -58,7 +57,7 @@ namespace Pulumi.Github
     /// ```
     /// </summary>
     [GithubResourceType("github:index/repositoryFile:RepositoryFile")]
-    public partial class RepositoryFile : Pulumi.CustomResource
+    public partial class RepositoryFile : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Git branch (defaults to `main`).
@@ -165,7 +164,7 @@ namespace Pulumi.Github
         }
     }
 
-    public sealed class RepositoryFileArgs : Pulumi.ResourceArgs
+    public sealed class RepositoryFileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Git branch (defaults to `main`).
@@ -219,9 +218,10 @@ namespace Pulumi.Github
         public RepositoryFileArgs()
         {
         }
+        public static new RepositoryFileArgs Empty => new RepositoryFileArgs();
     }
 
-    public sealed class RepositoryFileState : Pulumi.ResourceArgs
+    public sealed class RepositoryFileState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Git branch (defaults to `main`).
@@ -287,5 +287,6 @@ namespace Pulumi.Github
         public RepositoryFileState()
         {
         }
+        public static new RepositoryFileState Empty => new RepositoryFileState();
     }
 }

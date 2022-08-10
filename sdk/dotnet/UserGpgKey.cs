@@ -17,23 +17,21 @@ namespace Pulumi.Github
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Github = Pulumi.Github;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Github.UserGpgKey("example", new()
     ///     {
-    ///         var example = new Github.UserGpgKey("example", new Github.UserGpgKeyArgs
-    ///         {
-    ///             ArmoredPublicKey = @"-----BEGIN PGP PUBLIC KEY BLOCK-----
+    ///         ArmoredPublicKey = @"-----BEGIN PGP PUBLIC KEY BLOCK-----
     /// ...
     /// -----END PGP PUBLIC KEY BLOCK-----
     /// ",
-    ///         });
-    ///     }
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -41,7 +39,7 @@ namespace Pulumi.Github
     /// GPG keys are not importable due to the fact that [API](https://developer.github.com/v3/users/gpg_keys/#gpg-keys) does not return previously uploaded GPG key.
     /// </summary>
     [GithubResourceType("github:index/userGpgKey:UserGpgKey")]
-    public partial class UserGpgKey : Pulumi.CustomResource
+    public partial class UserGpgKey : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Your public GPG key, generated in ASCII-armored format.
@@ -103,7 +101,7 @@ namespace Pulumi.Github
         }
     }
 
-    public sealed class UserGpgKeyArgs : Pulumi.ResourceArgs
+    public sealed class UserGpgKeyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Your public GPG key, generated in ASCII-armored format.
@@ -115,9 +113,10 @@ namespace Pulumi.Github
         public UserGpgKeyArgs()
         {
         }
+        public static new UserGpgKeyArgs Empty => new UserGpgKeyArgs();
     }
 
-    public sealed class UserGpgKeyState : Pulumi.ResourceArgs
+    public sealed class UserGpgKeyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Your public GPG key, generated in ASCII-armored format.
@@ -138,5 +137,6 @@ namespace Pulumi.Github
         public UserGpgKeyState()
         {
         }
+        public static new UserGpgKeyState Empty => new UserGpgKeyState();
     }
 }

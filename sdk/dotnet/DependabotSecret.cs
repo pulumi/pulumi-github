@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Github
 {
     [GithubResourceType("github:index/dependabotSecret:DependabotSecret")]
-    public partial class DependabotSecret : Pulumi.CustomResource
+    public partial class DependabotSecret : global::Pulumi.CustomResource
     {
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
@@ -74,7 +74,7 @@ namespace Pulumi.Github
         }
     }
 
-    public sealed class DependabotSecretArgs : Pulumi.ResourceArgs
+    public sealed class DependabotSecretArgs : global::Pulumi.ResourceArgs
     {
         [Input("encryptedValue")]
         public Input<string>? EncryptedValue { get; set; }
@@ -91,9 +91,10 @@ namespace Pulumi.Github
         public DependabotSecretArgs()
         {
         }
+        public static new DependabotSecretArgs Empty => new DependabotSecretArgs();
     }
 
-    public sealed class DependabotSecretState : Pulumi.ResourceArgs
+    public sealed class DependabotSecretState : global::Pulumi.ResourceArgs
     {
         [Input("createdAt")]
         public Input<string>? CreatedAt { get; set; }
@@ -116,5 +117,6 @@ namespace Pulumi.Github
         public DependabotSecretState()
         {
         }
+        public static new DependabotSecretState Empty => new DependabotSecretState();
     }
 }
