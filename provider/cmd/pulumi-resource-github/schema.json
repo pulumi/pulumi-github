@@ -957,6 +957,48 @@
                 }
             }
         },
+        "github:index/getExternalGroupsExternalGroup:getExternalGroupsExternalGroup": {
+            "properties": {
+                "groupId": {
+                    "type": "integer",
+                    "description": "the ID of the group.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "groupName": {
+                    "type": "string",
+                    "description": "the name of the group.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "updatedAt": {
+                    "type": "string",
+                    "description": "the date the group was last updated.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "groupId",
+                "groupName",
+                "updatedAt"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
         "github:index/getOrganizationTeamSyncGroupsGroup:getOrganizationTeamSyncGroupsGroup": {
             "properties": {
                 "groupDescription": {
@@ -5640,8 +5682,32 @@
                 ]
             }
         },
+        "github:index/getExternalGroups:getExternalGroups": {
+            "description": "Use this data source to retrieve external groups belonging to an organization.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\nconst exampleExternalGroups = github.getExternalGroups({});\nconst localGroups = exampleExternalGroups;\nexport const groups = localGroups;\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\nexample_external_groups = github.get_external_groups()\nlocal_groups = example_external_groups\npulumi.export(\"groups\", local_groups)\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Github = Pulumi.Github;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var exampleExternalGroups = Github.GetExternalGroups.Invoke();\n\n    var localGroups = exampleExternalGroups.Apply(getExternalGroupsResult =\u003e getExternalGroupsResult);\n\n    return new Dictionary\u003cstring, object?\u003e\n    {\n        [\"groups\"] = localGroups,\n    };\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-github/sdk/v4/go/github\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\texampleExternalGroups, err := github.GetExternalGroups(ctx, nil, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tlocalGroups := exampleExternalGroups\n\t\tctx.Export(\"groups\", localGroups)\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.github.GithubFunctions;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var exampleExternalGroups = GithubFunctions.getExternalGroups();\n\n        final var localGroups = exampleExternalGroups.applyValue(getExternalGroupsResult -\u003e getExternalGroupsResult);\n\n        ctx.export(\"groups\", localGroups);\n    }\n}\n```\n```yaml\nvariables:\n  exampleExternalGroups:\n    Fn::Invoke:\n      Function: github:getExternalGroups\n      Arguments: {}\n  localGroups: ${exampleExternalGroups}\noutputs:\n  groups: ${localGroups}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "outputs": {
+                "description": "A collection of values returned by getExternalGroups.\n",
+                "properties": {
+                    "externalGroups": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/github:index/getExternalGroupsExternalGroup:getExternalGroupsExternalGroup"
+                        },
+                        "description": "an array of external groups belonging to the organization. Each group consists of the fields documented below.\n"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "externalGroups",
+                    "id"
+                ]
+            }
+        },
         "github:index/getIpRanges:getIpRanges": {
-            "description": "Use this data source to retrieve information about GitHub's IP addresses.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\nconst test = pulumi.output(github.getIpRanges());\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\ntest = github.get_ip_ranges()\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Github = Pulumi.Github;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var test = Github.GetIpRanges.Invoke();\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-github/sdk/v4/go/github\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := github.GetIpRanges(ctx, nil, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```yaml\nvariables:\n  test:\n    Fn::Invoke:\n      Function: github:getIpRanges\n      Arguments: {}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "description": "Use this data source to retrieve information about GitHub's IP addresses.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\nconst test = pulumi.output(github.getIpRanges());\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\ntest = github.get_ip_ranges()\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Github = Pulumi.Github;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var test = Github.GetIpRanges.Invoke();\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-github/sdk/v4/go/github\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := github.GetIpRanges(ctx, nil, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.github.GithubFunctions;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var test = GithubFunctions.getIpRanges();\n\n    }\n}\n```\n```yaml\nvariables:\n  test:\n    Fn::Invoke:\n      Function: github:getIpRanges\n      Arguments: {}\n```\n{{% /example %}}\n{{% /examples %}}",
             "outputs": {
                 "description": "A collection of values returned by getIpRanges.\n",
                 "properties": {
@@ -5925,7 +5991,7 @@
             }
         },
         "github:index/getOrganizationTeamSyncGroups:getOrganizationTeamSyncGroups": {
-            "description": "Use this data source to retrieve the identity provider (IdP) groups for an organization.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\nconst test = pulumi.output(github.getOrganizationTeamSyncGroups());\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\ntest = github.get_organization_team_sync_groups()\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Github = Pulumi.Github;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var test = Github.GetOrganizationTeamSyncGroups.Invoke();\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-github/sdk/v4/go/github\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := github.GetOrganizationTeamSyncGroups(ctx, nil, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```yaml\nvariables:\n  test:\n    Fn::Invoke:\n      Function: github:getOrganizationTeamSyncGroups\n      Arguments: {}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "description": "Use this data source to retrieve the identity provider (IdP) groups for an organization.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\nconst test = pulumi.output(github.getOrganizationTeamSyncGroups());\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\ntest = github.get_organization_team_sync_groups()\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Github = Pulumi.Github;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var test = Github.GetOrganizationTeamSyncGroups.Invoke();\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-github/sdk/v4/go/github\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := github.GetOrganizationTeamSyncGroups(ctx, nil, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.github.GithubFunctions;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var test = GithubFunctions.getOrganizationTeamSyncGroups();\n\n    }\n}\n```\n```yaml\nvariables:\n  test:\n    Fn::Invoke:\n      Function: github:getOrganizationTeamSyncGroups\n      Arguments: {}\n```\n{{% /example %}}\n{{% /examples %}}",
             "outputs": {
                 "description": "A collection of values returned by getOrganizationTeamSyncGroups.\n",
                 "properties": {

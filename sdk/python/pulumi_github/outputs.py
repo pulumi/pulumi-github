@@ -29,6 +29,7 @@ __all__ = [
     'TeamMembersMember',
     'TeamSyncGroupMappingGroup',
     'GetCollaboratorsCollaboratorResult',
+    'GetExternalGroupsExternalGroupResult',
     'GetOrganizationTeamSyncGroupsGroupResult',
     'GetOrganizationTeamsTeamResult',
     'GetRepositoryBranchResult',
@@ -1050,6 +1051,46 @@ class GetCollaboratorsCollaboratorResult(dict):
         The GitHub API URL for the collaborator.
         """
         return pulumi.get(self, "url")
+
+
+@pulumi.output_type
+class GetExternalGroupsExternalGroupResult(dict):
+    def __init__(__self__, *,
+                 group_id: int,
+                 group_name: str,
+                 updated_at: str):
+        """
+        :param int group_id: the ID of the group.
+        :param str group_name: the name of the group.
+        :param str updated_at: the date the group was last updated.
+        """
+        pulumi.set(__self__, "group_id", group_id)
+        pulumi.set(__self__, "group_name", group_name)
+        pulumi.set(__self__, "updated_at", updated_at)
+
+    @property
+    @pulumi.getter(name="groupId")
+    def group_id(self) -> int:
+        """
+        the ID of the group.
+        """
+        return pulumi.get(self, "group_id")
+
+    @property
+    @pulumi.getter(name="groupName")
+    def group_name(self) -> str:
+        """
+        the name of the group.
+        """
+        return pulumi.get(self, "group_name")
+
+    @property
+    @pulumi.getter(name="updatedAt")
+    def updated_at(self) -> str:
+        """
+        the date the group was last updated.
+        """
+        return pulumi.get(self, "updated_at")
 
 
 @pulumi.output_type

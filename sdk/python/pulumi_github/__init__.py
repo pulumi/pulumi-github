@@ -24,6 +24,7 @@ from .get_actions_public_key import *
 from .get_branch import *
 from .get_collaborators import *
 from .get_dependabot_public_key import *
+from .get_external_groups import *
 from .get_ip_ranges import *
 from .get_membership import *
 from .get_organization import *

@@ -176,6 +176,7 @@ func Provider() tfbridge.ProviderInfo {
 			"github_repository_file":               {Tok: makeDataSource(mainMod, "getRepositoryFile")},
 			"github_ref":                           {Tok: makeDataSource(mainMod, "getRef")},
 			"github_tree":                          {Tok: makeDataSource(mainMod, "getTree")},
+			"github_external_groups":               {Tok: makeDataSource(mainMod, "getExternalGroups")},
 			"github_dependabot_public_key": {
 				Tok: makeDataSource(mainMod, "getDependabotPublicKey"),
 				Docs: &tfbridge.DocInfo{
