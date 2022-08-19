@@ -50,6 +50,7 @@ import com.pulumi.github.outputs.GetActionsPublicKeyResult;
 import com.pulumi.github.outputs.GetBranchResult;
 import com.pulumi.github.outputs.GetCollaboratorsResult;
 import com.pulumi.github.outputs.GetDependabotPublicKeyResult;
+import com.pulumi.github.outputs.GetExternalGroupsResult;
 import com.pulumi.github.outputs.GetIpRangesResult;
 import com.pulumi.github.outputs.GetMembershipResult;
 import com.pulumi.github.outputs.GetOrganizationResult;
@@ -540,9 +541,256 @@ public final class GithubFunctions {
         return Deployment.getInstance().invokeAsync("github:index/getDependabotPublicKey:getDependabotPublicKey", TypeShape.of(GetDependabotPublicKeyResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Use this data source to retrieve external groups belonging to an organization.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var exampleExternalGroups = GithubFunctions.getExternalGroups();
+     * 
+     *         final var localGroups = exampleExternalGroups.applyValue(getExternalGroupsResult -&gt; getExternalGroupsResult);
+     * 
+     *         ctx.export(&#34;groups&#34;, localGroups);
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetExternalGroupsResult> getExternalGroups() {
+        return getExternalGroups(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve external groups belonging to an organization.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var exampleExternalGroups = GithubFunctions.getExternalGroups();
+     * 
+     *         final var localGroups = exampleExternalGroups.applyValue(getExternalGroupsResult -&gt; getExternalGroupsResult);
+     * 
+     *         ctx.export(&#34;groups&#34;, localGroups);
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetExternalGroupsResult> getExternalGroupsPlain() {
+        return getExternalGroupsPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve external groups belonging to an organization.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var exampleExternalGroups = GithubFunctions.getExternalGroups();
+     * 
+     *         final var localGroups = exampleExternalGroups.applyValue(getExternalGroupsResult -&gt; getExternalGroupsResult);
+     * 
+     *         ctx.export(&#34;groups&#34;, localGroups);
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetExternalGroupsResult> getExternalGroups(InvokeArgs args) {
+        return getExternalGroups(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve external groups belonging to an organization.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var exampleExternalGroups = GithubFunctions.getExternalGroups();
+     * 
+     *         final var localGroups = exampleExternalGroups.applyValue(getExternalGroupsResult -&gt; getExternalGroupsResult);
+     * 
+     *         ctx.export(&#34;groups&#34;, localGroups);
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetExternalGroupsResult> getExternalGroupsPlain(InvokeArgs args) {
+        return getExternalGroupsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve external groups belonging to an organization.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var exampleExternalGroups = GithubFunctions.getExternalGroups();
+     * 
+     *         final var localGroups = exampleExternalGroups.applyValue(getExternalGroupsResult -&gt; getExternalGroupsResult);
+     * 
+     *         ctx.export(&#34;groups&#34;, localGroups);
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetExternalGroupsResult> getExternalGroups(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("github:index/getExternalGroups:getExternalGroups", TypeShape.of(GetExternalGroupsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve external groups belonging to an organization.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var exampleExternalGroups = GithubFunctions.getExternalGroups();
+     * 
+     *         final var localGroups = exampleExternalGroups.applyValue(getExternalGroupsResult -&gt; getExternalGroupsResult);
+     * 
+     *         ctx.export(&#34;groups&#34;, localGroups);
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetExternalGroupsResult> getExternalGroupsPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("github:index/getExternalGroups:getExternalGroups", TypeShape.of(GetExternalGroupsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
      * Use this data source to retrieve information about GitHub&#39;s IP addresses.
      * 
      * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = GithubFunctions.getIpRanges();
+     * 
+     *     }
+     * }
+     * ```
      * 
      */
     public static Output<GetIpRangesResult> getIpRanges() {
@@ -552,6 +800,31 @@ public final class GithubFunctions {
      * Use this data source to retrieve information about GitHub&#39;s IP addresses.
      * 
      * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = GithubFunctions.getIpRanges();
+     * 
+     *     }
+     * }
+     * ```
      * 
      */
     public static CompletableFuture<GetIpRangesResult> getIpRangesPlain() {
@@ -561,6 +834,31 @@ public final class GithubFunctions {
      * Use this data source to retrieve information about GitHub&#39;s IP addresses.
      * 
      * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = GithubFunctions.getIpRanges();
+     * 
+     *     }
+     * }
+     * ```
      * 
      */
     public static Output<GetIpRangesResult> getIpRanges(InvokeArgs args) {
@@ -570,6 +868,31 @@ public final class GithubFunctions {
      * Use this data source to retrieve information about GitHub&#39;s IP addresses.
      * 
      * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = GithubFunctions.getIpRanges();
+     * 
+     *     }
+     * }
+     * ```
      * 
      */
     public static CompletableFuture<GetIpRangesResult> getIpRangesPlain(InvokeArgs args) {
@@ -579,6 +902,31 @@ public final class GithubFunctions {
      * Use this data source to retrieve information about GitHub&#39;s IP addresses.
      * 
      * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = GithubFunctions.getIpRanges();
+     * 
+     *     }
+     * }
+     * ```
      * 
      */
     public static Output<GetIpRangesResult> getIpRanges(InvokeArgs args, InvokeOptions options) {
@@ -588,6 +936,31 @@ public final class GithubFunctions {
      * Use this data source to retrieve information about GitHub&#39;s IP addresses.
      * 
      * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = GithubFunctions.getIpRanges();
+     * 
+     *     }
+     * }
+     * ```
      * 
      */
     public static CompletableFuture<GetIpRangesResult> getIpRangesPlain(InvokeArgs args, InvokeOptions options) {
@@ -905,6 +1278,31 @@ public final class GithubFunctions {
      * Use this data source to retrieve the identity provider (IdP) groups for an organization.
      * 
      * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = GithubFunctions.getOrganizationTeamSyncGroups();
+     * 
+     *     }
+     * }
+     * ```
      * 
      */
     public static Output<GetOrganizationTeamSyncGroupsResult> getOrganizationTeamSyncGroups() {
@@ -914,6 +1312,31 @@ public final class GithubFunctions {
      * Use this data source to retrieve the identity provider (IdP) groups for an organization.
      * 
      * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = GithubFunctions.getOrganizationTeamSyncGroups();
+     * 
+     *     }
+     * }
+     * ```
      * 
      */
     public static CompletableFuture<GetOrganizationTeamSyncGroupsResult> getOrganizationTeamSyncGroupsPlain() {
@@ -923,6 +1346,31 @@ public final class GithubFunctions {
      * Use this data source to retrieve the identity provider (IdP) groups for an organization.
      * 
      * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = GithubFunctions.getOrganizationTeamSyncGroups();
+     * 
+     *     }
+     * }
+     * ```
      * 
      */
     public static Output<GetOrganizationTeamSyncGroupsResult> getOrganizationTeamSyncGroups(InvokeArgs args) {
@@ -932,6 +1380,31 @@ public final class GithubFunctions {
      * Use this data source to retrieve the identity provider (IdP) groups for an organization.
      * 
      * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = GithubFunctions.getOrganizationTeamSyncGroups();
+     * 
+     *     }
+     * }
+     * ```
      * 
      */
     public static CompletableFuture<GetOrganizationTeamSyncGroupsResult> getOrganizationTeamSyncGroupsPlain(InvokeArgs args) {
@@ -941,6 +1414,31 @@ public final class GithubFunctions {
      * Use this data source to retrieve the identity provider (IdP) groups for an organization.
      * 
      * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = GithubFunctions.getOrganizationTeamSyncGroups();
+     * 
+     *     }
+     * }
+     * ```
      * 
      */
     public static Output<GetOrganizationTeamSyncGroupsResult> getOrganizationTeamSyncGroups(InvokeArgs args, InvokeOptions options) {
@@ -950,6 +1448,31 @@ public final class GithubFunctions {
      * Use this data source to retrieve the identity provider (IdP) groups for an organization.
      * 
      * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = GithubFunctions.getOrganizationTeamSyncGroups();
+     * 
+     *     }
+     * }
+     * ```
      * 
      */
     public static CompletableFuture<GetOrganizationTeamSyncGroupsResult> getOrganizationTeamSyncGroupsPlain(InvokeArgs args, InvokeOptions options) {

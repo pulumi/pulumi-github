@@ -134,6 +134,21 @@ export interface GetCollaboratorsCollaborator {
     url: string;
 }
 
+export interface GetExternalGroupsExternalGroup {
+    /**
+     * the ID of the group.
+     */
+    groupId: number;
+    /**
+     * the name of the group.
+     */
+    groupName: string;
+    /**
+     * the date the group was last updated.
+     */
+    updatedAt: string;
+}
+
 export interface GetOrganizationTeamSyncGroupsGroup {
     /**
      * The description of the IdP group.

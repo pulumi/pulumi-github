@@ -24,6 +24,7 @@ export * from "./getActionsPublicKey";
 export * from "./getBranch";
 export * from "./getCollaborators";
 export * from "./getDependabotPublicKey";
+export * from "./getExternalGroups";
 export * from "./getIpRanges";
 export * from "./getMembership";
 export * from "./getOrganization";

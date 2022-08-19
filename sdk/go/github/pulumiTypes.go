@@ -2983,6 +2983,121 @@ func (o GetCollaboratorsCollaboratorArrayOutput) Index(i pulumi.IntInput) GetCol
 	}).(GetCollaboratorsCollaboratorOutput)
 }
 
+type GetExternalGroupsExternalGroup struct {
+	// the ID of the group.
+	GroupId int `pulumi:"groupId"`
+	// the name of the group.
+	GroupName string `pulumi:"groupName"`
+	// the date the group was last updated.
+	UpdatedAt string `pulumi:"updatedAt"`
+}
+
+// GetExternalGroupsExternalGroupInput is an input type that accepts GetExternalGroupsExternalGroupArgs and GetExternalGroupsExternalGroupOutput values.
+// You can construct a concrete instance of `GetExternalGroupsExternalGroupInput` via:
+//
+//	GetExternalGroupsExternalGroupArgs{...}
+type GetExternalGroupsExternalGroupInput interface {
+	pulumi.Input
+
+	ToGetExternalGroupsExternalGroupOutput() GetExternalGroupsExternalGroupOutput
+	ToGetExternalGroupsExternalGroupOutputWithContext(context.Context) GetExternalGroupsExternalGroupOutput
+}
+
+type GetExternalGroupsExternalGroupArgs struct {
+	// the ID of the group.
+	GroupId pulumi.IntInput `pulumi:"groupId"`
+	// the name of the group.
+	GroupName pulumi.StringInput `pulumi:"groupName"`
+	// the date the group was last updated.
+	UpdatedAt pulumi.StringInput `pulumi:"updatedAt"`
+}
+
+func (GetExternalGroupsExternalGroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetExternalGroupsExternalGroup)(nil)).Elem()
+}
+
+func (i GetExternalGroupsExternalGroupArgs) ToGetExternalGroupsExternalGroupOutput() GetExternalGroupsExternalGroupOutput {
+	return i.ToGetExternalGroupsExternalGroupOutputWithContext(context.Background())
+}
+
+func (i GetExternalGroupsExternalGroupArgs) ToGetExternalGroupsExternalGroupOutputWithContext(ctx context.Context) GetExternalGroupsExternalGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetExternalGroupsExternalGroupOutput)
+}
+
+// GetExternalGroupsExternalGroupArrayInput is an input type that accepts GetExternalGroupsExternalGroupArray and GetExternalGroupsExternalGroupArrayOutput values.
+// You can construct a concrete instance of `GetExternalGroupsExternalGroupArrayInput` via:
+//
+//	GetExternalGroupsExternalGroupArray{ GetExternalGroupsExternalGroupArgs{...} }
+type GetExternalGroupsExternalGroupArrayInput interface {
+	pulumi.Input
+
+	ToGetExternalGroupsExternalGroupArrayOutput() GetExternalGroupsExternalGroupArrayOutput
+	ToGetExternalGroupsExternalGroupArrayOutputWithContext(context.Context) GetExternalGroupsExternalGroupArrayOutput
+}
+
+type GetExternalGroupsExternalGroupArray []GetExternalGroupsExternalGroupInput
+
+func (GetExternalGroupsExternalGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetExternalGroupsExternalGroup)(nil)).Elem()
+}
+
+func (i GetExternalGroupsExternalGroupArray) ToGetExternalGroupsExternalGroupArrayOutput() GetExternalGroupsExternalGroupArrayOutput {
+	return i.ToGetExternalGroupsExternalGroupArrayOutputWithContext(context.Background())
+}
+
+func (i GetExternalGroupsExternalGroupArray) ToGetExternalGroupsExternalGroupArrayOutputWithContext(ctx context.Context) GetExternalGroupsExternalGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetExternalGroupsExternalGroupArrayOutput)
+}
+
+type GetExternalGroupsExternalGroupOutput struct{ *pulumi.OutputState }
+
+func (GetExternalGroupsExternalGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetExternalGroupsExternalGroup)(nil)).Elem()
+}
+
+func (o GetExternalGroupsExternalGroupOutput) ToGetExternalGroupsExternalGroupOutput() GetExternalGroupsExternalGroupOutput {
+	return o
+}
+
+func (o GetExternalGroupsExternalGroupOutput) ToGetExternalGroupsExternalGroupOutputWithContext(ctx context.Context) GetExternalGroupsExternalGroupOutput {
+	return o
+}
+
+// the ID of the group.
+func (o GetExternalGroupsExternalGroupOutput) GroupId() pulumi.IntOutput {
+	return o.ApplyT(func(v GetExternalGroupsExternalGroup) int { return v.GroupId }).(pulumi.IntOutput)
+}
+
+// the name of the group.
+func (o GetExternalGroupsExternalGroupOutput) GroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetExternalGroupsExternalGroup) string { return v.GroupName }).(pulumi.StringOutput)
+}
+
+// the date the group was last updated.
+func (o GetExternalGroupsExternalGroupOutput) UpdatedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v GetExternalGroupsExternalGroup) string { return v.UpdatedAt }).(pulumi.StringOutput)
+}
+
+type GetExternalGroupsExternalGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (GetExternalGroupsExternalGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetExternalGroupsExternalGroup)(nil)).Elem()
+}
+
+func (o GetExternalGroupsExternalGroupArrayOutput) ToGetExternalGroupsExternalGroupArrayOutput() GetExternalGroupsExternalGroupArrayOutput {
+	return o
+}
+
+func (o GetExternalGroupsExternalGroupArrayOutput) ToGetExternalGroupsExternalGroupArrayOutputWithContext(ctx context.Context) GetExternalGroupsExternalGroupArrayOutput {
+	return o
+}
+
+func (o GetExternalGroupsExternalGroupArrayOutput) Index(i pulumi.IntInput) GetExternalGroupsExternalGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetExternalGroupsExternalGroup {
+		return vs[0].([]GetExternalGroupsExternalGroup)[vs[1].(int)]
+	}).(GetExternalGroupsExternalGroupOutput)
+}
+
 type GetOrganizationTeamSyncGroupsGroup struct {
 	// The description of the IdP group.
 	GroupDescription string `pulumi:"groupDescription"`
@@ -3980,6 +4095,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TeamSyncGroupMappingGroupArrayInput)(nil)).Elem(), TeamSyncGroupMappingGroupArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCollaboratorsCollaboratorInput)(nil)).Elem(), GetCollaboratorsCollaboratorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCollaboratorsCollaboratorArrayInput)(nil)).Elem(), GetCollaboratorsCollaboratorArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetExternalGroupsExternalGroupInput)(nil)).Elem(), GetExternalGroupsExternalGroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetExternalGroupsExternalGroupArrayInput)(nil)).Elem(), GetExternalGroupsExternalGroupArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetOrganizationTeamSyncGroupsGroupInput)(nil)).Elem(), GetOrganizationTeamSyncGroupsGroupArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetOrganizationTeamSyncGroupsGroupArrayInput)(nil)).Elem(), GetOrganizationTeamSyncGroupsGroupArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetOrganizationTeamsTeamInput)(nil)).Elem(), GetOrganizationTeamsTeamArgs{})
@@ -4032,6 +4149,8 @@ func init() {
 	pulumi.RegisterOutputType(TeamSyncGroupMappingGroupArrayOutput{})
 	pulumi.RegisterOutputType(GetCollaboratorsCollaboratorOutput{})
 	pulumi.RegisterOutputType(GetCollaboratorsCollaboratorArrayOutput{})
+	pulumi.RegisterOutputType(GetExternalGroupsExternalGroupOutput{})
+	pulumi.RegisterOutputType(GetExternalGroupsExternalGroupArrayOutput{})
 	pulumi.RegisterOutputType(GetOrganizationTeamSyncGroupsGroupOutput{})
 	pulumi.RegisterOutputType(GetOrganizationTeamSyncGroupsGroupArrayOutput{})
 	pulumi.RegisterOutputType(GetOrganizationTeamsTeamOutput{})
