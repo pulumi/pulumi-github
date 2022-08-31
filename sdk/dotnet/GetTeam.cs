@@ -70,6 +70,12 @@ namespace Pulumi.Github
     public sealed class GetTeamArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
+        /// Type of membershp to be requested to fill the list of members. Can be either "all" or "immediate". Default: "all"
+        /// </summary>
+        [Input("membershipType")]
+        public string? MembershipType { get; set; }
+
+        /// <summary>
         /// The team slug.
         /// </summary>
         [Input("slug", required: true)]
@@ -83,6 +89,12 @@ namespace Pulumi.Github
 
     public sealed class GetTeamInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Type of membershp to be requested to fill the list of members. Can be either "all" or "immediate". Default: "all"
+        /// </summary>
+        [Input("membershipType")]
+        public Input<string>? MembershipType { get; set; }
+
         /// <summary>
         /// The team slug.
         /// </summary>
@@ -108,9 +120,10 @@ namespace Pulumi.Github
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// List of team members
+        /// List of team members (list of GitHub usernames)
         /// </summary>
         public readonly ImmutableArray<string> Members;
+        public readonly string? MembershipType;
         /// <summary>
         /// the team's full name.
         /// </summary>
@@ -128,7 +141,7 @@ namespace Pulumi.Github
         /// </summary>
         public readonly string Privacy;
         /// <summary>
-        /// List of team repositories
+        /// List of team repositories (list of repo names)
         /// </summary>
         public readonly ImmutableArray<string> Repositories;
         public readonly string Slug;
@@ -140,6 +153,8 @@ namespace Pulumi.Github
             string id,
 
             ImmutableArray<string> members,
+
+            string? membershipType,
 
             string name,
 
@@ -156,6 +171,7 @@ namespace Pulumi.Github
             Description = description;
             Id = id;
             Members = members;
+            MembershipType = membershipType;
             Name = name;
             NodeId = nodeId;
             Permission = permission;

@@ -7,11 +7,28 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetTeamArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetTeamArgs Empty = new GetTeamArgs();
+
+    /**
+     * Type of membershp to be requested to fill the list of members. Can be either &#34;all&#34; or &#34;immediate&#34;. Default: &#34;all&#34;
+     * 
+     */
+    @Import(name="membershipType")
+    private @Nullable Output<String> membershipType;
+
+    /**
+     * @return Type of membershp to be requested to fill the list of members. Can be either &#34;all&#34; or &#34;immediate&#34;. Default: &#34;all&#34;
+     * 
+     */
+    public Optional<Output<String>> membershipType() {
+        return Optional.ofNullable(this.membershipType);
+    }
 
     /**
      * The team slug.
@@ -31,6 +48,7 @@ public final class GetTeamArgs extends com.pulumi.resources.InvokeArgs {
     private GetTeamArgs() {}
 
     private GetTeamArgs(GetTeamArgs $) {
+        this.membershipType = $.membershipType;
         this.slug = $.slug;
     }
 
@@ -50,6 +68,27 @@ public final class GetTeamArgs extends com.pulumi.resources.InvokeArgs {
 
         public Builder(GetTeamArgs defaults) {
             $ = new GetTeamArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param membershipType Type of membershp to be requested to fill the list of members. Can be either &#34;all&#34; or &#34;immediate&#34;. Default: &#34;all&#34;
+         * 
+         * @return builder
+         * 
+         */
+        public Builder membershipType(@Nullable Output<String> membershipType) {
+            $.membershipType = membershipType;
+            return this;
+        }
+
+        /**
+         * @param membershipType Type of membershp to be requested to fill the list of members. Can be either &#34;all&#34; or &#34;immediate&#34;. Default: &#34;all&#34;
+         * 
+         * @return builder
+         * 
+         */
+        public Builder membershipType(String membershipType) {
+            return membershipType(Output.of(membershipType));
         }
 
         /**

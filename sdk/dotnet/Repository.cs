@@ -224,6 +224,18 @@ namespace Pulumi.Github
         public Output<string?> LicenseTemplate { get; private set; } = null!;
 
         /// <summary>
+        /// Can be `PR_BODY`, `PR_TITLE`, or `BLANK` for a default merge commit message.
+        /// </summary>
+        [Output("mergeCommitMessage")]
+        public Output<string?> MergeCommitMessage { get; private set; } = null!;
+
+        /// <summary>
+        /// Can be `PR_TITLE` or `MERGE_MESSAGE` for a default merge commit title.
+        /// </summary>
+        [Output("mergeCommitTitle")]
+        public Output<string?> MergeCommitTitle { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the repository.
         /// </summary>
         [Output("name")]
@@ -253,6 +265,18 @@ namespace Pulumi.Github
         /// </summary>
         [Output("repoId")]
         public Output<int> RepoId { get; private set; } = null!;
+
+        /// <summary>
+        /// Can be `PR_BODY`, `COMMIT_MESSAGES`, or `BLANK` for a default squash merge commit message.
+        /// </summary>
+        [Output("squashMergeCommitMessage")]
+        public Output<string?> SquashMergeCommitMessage { get; private set; } = null!;
+
+        /// <summary>
+        /// Can be `PR_TITLE` or `COMMIT_OR_PR_TITLE` for a default squash merge commit title.
+        /// </summary>
+        [Output("squashMergeCommitTitle")]
+        public Output<string?> SquashMergeCommitTitle { get; private set; } = null!;
 
         /// <summary>
         /// URL that can be provided to `git clone` to clone the repository via SSH.
@@ -455,6 +479,18 @@ namespace Pulumi.Github
         public Input<string>? LicenseTemplate { get; set; }
 
         /// <summary>
+        /// Can be `PR_BODY`, `PR_TITLE`, or `BLANK` for a default merge commit message.
+        /// </summary>
+        [Input("mergeCommitMessage")]
+        public Input<string>? MergeCommitMessage { get; set; }
+
+        /// <summary>
+        /// Can be `PR_TITLE` or `MERGE_MESSAGE` for a default merge commit title.
+        /// </summary>
+        [Input("mergeCommitTitle")]
+        public Input<string>? MergeCommitTitle { get; set; }
+
+        /// <summary>
         /// The name of the repository.
         /// </summary>
         [Input("name")]
@@ -472,6 +508,18 @@ namespace Pulumi.Github
         /// </summary>
         [Input("private")]
         public Input<bool>? Private { get; set; }
+
+        /// <summary>
+        /// Can be `PR_BODY`, `COMMIT_MESSAGES`, or `BLANK` for a default squash merge commit message.
+        /// </summary>
+        [Input("squashMergeCommitMessage")]
+        public Input<string>? SquashMergeCommitMessage { get; set; }
+
+        /// <summary>
+        /// Can be `PR_TITLE` or `COMMIT_OR_PR_TITLE` for a default squash merge commit title.
+        /// </summary>
+        [Input("squashMergeCommitTitle")]
+        public Input<string>? SquashMergeCommitTitle { get; set; }
 
         /// <summary>
         /// Use a template repository to create this resource. See Template Repositories below for details.
@@ -669,6 +717,18 @@ namespace Pulumi.Github
         public Input<string>? LicenseTemplate { get; set; }
 
         /// <summary>
+        /// Can be `PR_BODY`, `PR_TITLE`, or `BLANK` for a default merge commit message.
+        /// </summary>
+        [Input("mergeCommitMessage")]
+        public Input<string>? MergeCommitMessage { get; set; }
+
+        /// <summary>
+        /// Can be `PR_TITLE` or `MERGE_MESSAGE` for a default merge commit title.
+        /// </summary>
+        [Input("mergeCommitTitle")]
+        public Input<string>? MergeCommitTitle { get; set; }
+
+        /// <summary>
         /// The name of the repository.
         /// </summary>
         [Input("name")]
@@ -698,6 +758,18 @@ namespace Pulumi.Github
         /// </summary>
         [Input("repoId")]
         public Input<int>? RepoId { get; set; }
+
+        /// <summary>
+        /// Can be `PR_BODY`, `COMMIT_MESSAGES`, or `BLANK` for a default squash merge commit message.
+        /// </summary>
+        [Input("squashMergeCommitMessage")]
+        public Input<string>? SquashMergeCommitMessage { get; set; }
+
+        /// <summary>
+        /// Can be `PR_TITLE` or `COMMIT_OR_PR_TITLE` for a default squash merge commit title.
+        /// </summary>
+        [Input("squashMergeCommitTitle")]
+        public Input<string>? SquashMergeCommitTitle { get; set; }
 
         /// <summary>
         /// URL that can be provided to `git clone` to clone the repository via SSH.

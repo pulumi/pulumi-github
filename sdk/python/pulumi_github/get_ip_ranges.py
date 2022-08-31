@@ -20,7 +20,7 @@ class GetIpRangesResult:
     """
     A collection of values returned by getIpRanges.
     """
-    def __init__(__self__, actions=None, actions_ipv4s=None, actions_ipv6s=None, dependabot_ipv4s=None, dependabot_ipv6s=None, dependabots=None, git_ipv4s=None, git_ipv6s=None, gits=None, hooks=None, hooks_ipv4s=None, hooks_ipv6s=None, id=None, importer_ipv4s=None, importer_ipv6s=None, importers=None, pages=None, pages_ipv4s=None, pages_ipv6s=None):
+    def __init__(__self__, actions=None, actions_ipv4s=None, actions_ipv6s=None, api_ipv4s=None, api_ipv6s=None, apis=None, dependabot_ipv4s=None, dependabot_ipv6s=None, dependabots=None, git_ipv4s=None, git_ipv6s=None, gits=None, hooks=None, hooks_ipv4s=None, hooks_ipv6s=None, id=None, importer_ipv4s=None, importer_ipv6s=None, importers=None, pages=None, pages_ipv4s=None, pages_ipv6s=None, web_ipv4s=None, web_ipv6s=None, webs=None):
         if actions and not isinstance(actions, list):
             raise TypeError("Expected argument 'actions' to be a list")
         pulumi.set(__self__, "actions", actions)
@@ -30,6 +30,15 @@ class GetIpRangesResult:
         if actions_ipv6s and not isinstance(actions_ipv6s, list):
             raise TypeError("Expected argument 'actions_ipv6s' to be a list")
         pulumi.set(__self__, "actions_ipv6s", actions_ipv6s)
+        if api_ipv4s and not isinstance(api_ipv4s, list):
+            raise TypeError("Expected argument 'api_ipv4s' to be a list")
+        pulumi.set(__self__, "api_ipv4s", api_ipv4s)
+        if api_ipv6s and not isinstance(api_ipv6s, list):
+            raise TypeError("Expected argument 'api_ipv6s' to be a list")
+        pulumi.set(__self__, "api_ipv6s", api_ipv6s)
+        if apis and not isinstance(apis, list):
+            raise TypeError("Expected argument 'apis' to be a list")
+        pulumi.set(__self__, "apis", apis)
         if dependabot_ipv4s and not isinstance(dependabot_ipv4s, list):
             raise TypeError("Expected argument 'dependabot_ipv4s' to be a list")
         pulumi.set(__self__, "dependabot_ipv4s", dependabot_ipv4s)
@@ -78,6 +87,15 @@ class GetIpRangesResult:
         if pages_ipv6s and not isinstance(pages_ipv6s, list):
             raise TypeError("Expected argument 'pages_ipv6s' to be a list")
         pulumi.set(__self__, "pages_ipv6s", pages_ipv6s)
+        if web_ipv4s and not isinstance(web_ipv4s, list):
+            raise TypeError("Expected argument 'web_ipv4s' to be a list")
+        pulumi.set(__self__, "web_ipv4s", web_ipv4s)
+        if web_ipv6s and not isinstance(web_ipv6s, list):
+            raise TypeError("Expected argument 'web_ipv6s' to be a list")
+        pulumi.set(__self__, "web_ipv6s", web_ipv6s)
+        if webs and not isinstance(webs, list):
+            raise TypeError("Expected argument 'webs' to be a list")
+        pulumi.set(__self__, "webs", webs)
 
     @property
     @pulumi.getter
@@ -102,6 +120,30 @@ class GetIpRangesResult:
         A subset of the `actions` array that contains IP addresses in IPv6 CIDR format.
         """
         return pulumi.get(self, "actions_ipv6s")
+
+    @property
+    @pulumi.getter(name="apiIpv4s")
+    def api_ipv4s(self) -> Sequence[str]:
+        """
+        A subset of the `api` array that contains IP addresses in IPv4 CIDR format.
+        """
+        return pulumi.get(self, "api_ipv4s")
+
+    @property
+    @pulumi.getter(name="apiIpv6s")
+    def api_ipv6s(self) -> Sequence[str]:
+        """
+        A subset of the `api` array that contains IP addresses in IPv6 CIDR format.
+        """
+        return pulumi.get(self, "api_ipv6s")
+
+    @property
+    @pulumi.getter
+    def apis(self) -> Sequence[str]:
+        """
+        An Array of IP addresses in CIDR format for the GitHub API.
+        """
+        return pulumi.get(self, "apis")
 
     @property
     @pulumi.getter(name="dependabotIpv4s")
@@ -231,6 +273,30 @@ class GetIpRangesResult:
         """
         return pulumi.get(self, "pages_ipv6s")
 
+    @property
+    @pulumi.getter(name="webIpv4s")
+    def web_ipv4s(self) -> Sequence[str]:
+        """
+        A subset of the `web` array that contains IP addresses in IPv4 CIDR format.
+        """
+        return pulumi.get(self, "web_ipv4s")
+
+    @property
+    @pulumi.getter(name="webIpv6s")
+    def web_ipv6s(self) -> Sequence[str]:
+        """
+        A subset of the `web` array that contains IP addresses in IPv6 CIDR format.
+        """
+        return pulumi.get(self, "web_ipv6s")
+
+    @property
+    @pulumi.getter
+    def webs(self) -> Sequence[str]:
+        """
+        An Array of IP addresses in CIDR format for GitHub Web.
+        """
+        return pulumi.get(self, "webs")
+
 
 class AwaitableGetIpRangesResult(GetIpRangesResult):
     # pylint: disable=using-constant-test
@@ -241,6 +307,9 @@ class AwaitableGetIpRangesResult(GetIpRangesResult):
             actions=self.actions,
             actions_ipv4s=self.actions_ipv4s,
             actions_ipv6s=self.actions_ipv6s,
+            api_ipv4s=self.api_ipv4s,
+            api_ipv6s=self.api_ipv6s,
+            apis=self.apis,
             dependabot_ipv4s=self.dependabot_ipv4s,
             dependabot_ipv6s=self.dependabot_ipv6s,
             dependabots=self.dependabots,
@@ -256,7 +325,10 @@ class AwaitableGetIpRangesResult(GetIpRangesResult):
             importers=self.importers,
             pages=self.pages,
             pages_ipv4s=self.pages_ipv4s,
-            pages_ipv6s=self.pages_ipv6s)
+            pages_ipv6s=self.pages_ipv6s,
+            web_ipv4s=self.web_ipv4s,
+            web_ipv6s=self.web_ipv6s,
+            webs=self.webs)
 
 
 def get_ip_ranges(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIpRangesResult:
@@ -280,6 +352,9 @@ def get_ip_ranges(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIp
         actions=__ret__.actions,
         actions_ipv4s=__ret__.actions_ipv4s,
         actions_ipv6s=__ret__.actions_ipv6s,
+        api_ipv4s=__ret__.api_ipv4s,
+        api_ipv6s=__ret__.api_ipv6s,
+        apis=__ret__.apis,
         dependabot_ipv4s=__ret__.dependabot_ipv4s,
         dependabot_ipv6s=__ret__.dependabot_ipv6s,
         dependabots=__ret__.dependabots,
@@ -295,4 +370,7 @@ def get_ip_ranges(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIp
         importers=__ret__.importers,
         pages=__ret__.pages,
         pages_ipv4s=__ret__.pages_ipv4s,
-        pages_ipv6s=__ret__.pages_ipv6s)
+        pages_ipv6s=__ret__.pages_ipv6s,
+        web_ipv4s=__ret__.web_ipv4s,
+        web_ipv6s=__ret__.web_ipv6s,
+        webs=__ret__.webs)

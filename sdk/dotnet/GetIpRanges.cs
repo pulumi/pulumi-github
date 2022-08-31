@@ -53,6 +53,18 @@ namespace Pulumi.Github
         /// </summary>
         public readonly ImmutableArray<string> ActionsIpv6s;
         /// <summary>
+        /// A subset of the `api` array that contains IP addresses in IPv4 CIDR format.
+        /// </summary>
+        public readonly ImmutableArray<string> ApiIpv4s;
+        /// <summary>
+        /// A subset of the `api` array that contains IP addresses in IPv6 CIDR format.
+        /// </summary>
+        public readonly ImmutableArray<string> ApiIpv6s;
+        /// <summary>
+        /// An Array of IP addresses in CIDR format for the GitHub API.
+        /// </summary>
+        public readonly ImmutableArray<string> Apis;
+        /// <summary>
         /// A subset of the `dependabot` array that contains IP addresses in IPv4 CIDR format.
         /// </summary>
         public readonly ImmutableArray<string> DependabotIpv4s;
@@ -116,6 +128,18 @@ namespace Pulumi.Github
         /// A subset of the `pages` array that contains IP addresses in IPv6 CIDR format.
         /// </summary>
         public readonly ImmutableArray<string> PagesIpv6s;
+        /// <summary>
+        /// A subset of the `web` array that contains IP addresses in IPv4 CIDR format.
+        /// </summary>
+        public readonly ImmutableArray<string> WebIpv4s;
+        /// <summary>
+        /// A subset of the `web` array that contains IP addresses in IPv6 CIDR format.
+        /// </summary>
+        public readonly ImmutableArray<string> WebIpv6s;
+        /// <summary>
+        /// An Array of IP addresses in CIDR format for GitHub Web.
+        /// </summary>
+        public readonly ImmutableArray<string> Webs;
 
         [OutputConstructor]
         private GetIpRangesResult(
@@ -124,6 +148,12 @@ namespace Pulumi.Github
             ImmutableArray<string> actionsIpv4s,
 
             ImmutableArray<string> actionsIpv6s,
+
+            ImmutableArray<string> apiIpv4s,
+
+            ImmutableArray<string> apiIpv6s,
+
+            ImmutableArray<string> apis,
 
             ImmutableArray<string> dependabotIpv4s,
 
@@ -155,11 +185,20 @@ namespace Pulumi.Github
 
             ImmutableArray<string> pagesIpv4s,
 
-            ImmutableArray<string> pagesIpv6s)
+            ImmutableArray<string> pagesIpv6s,
+
+            ImmutableArray<string> webIpv4s,
+
+            ImmutableArray<string> webIpv6s,
+
+            ImmutableArray<string> webs)
         {
             Actions = actions;
             ActionsIpv4s = actionsIpv4s;
             ActionsIpv6s = actionsIpv6s;
+            ApiIpv4s = apiIpv4s;
+            ApiIpv6s = apiIpv6s;
+            Apis = apis;
             DependabotIpv4s = dependabotIpv4s;
             DependabotIpv6s = dependabotIpv6s;
             Dependabots = dependabots;
@@ -176,6 +215,9 @@ namespace Pulumi.Github
             Pages = pages;
             PagesIpv4s = pagesIpv4s;
             PagesIpv6s = pagesIpv6s;
+            WebIpv4s = webIpv4s;
+            WebIpv6s = webIpv6s;
+            Webs = webs;
         }
     }
 }

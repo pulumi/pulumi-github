@@ -143,6 +143,10 @@ type Repository struct {
 	IsTemplate pulumi.BoolPtrOutput `pulumi:"isTemplate"`
 	// Use the [name of the template](https://github.com/github/choosealicense.com/tree/gh-pages/_licenses) without the extension. For example, "mit" or "mpl-2.0".
 	LicenseTemplate pulumi.StringPtrOutput `pulumi:"licenseTemplate"`
+	// Can be `PR_BODY`, `PR_TITLE`, or `BLANK` for a default merge commit message.
+	MergeCommitMessage pulumi.StringPtrOutput `pulumi:"mergeCommitMessage"`
+	// Can be `PR_TITLE` or `MERGE_MESSAGE` for a default merge commit title.
+	MergeCommitTitle pulumi.StringPtrOutput `pulumi:"mergeCommitTitle"`
 	// The name of the repository.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// GraphQL global node id for use with v4 API
@@ -156,6 +160,10 @@ type Repository struct {
 	Private pulumi.BoolOutput `pulumi:"private"`
 	// GitHub ID for the repository
 	RepoId pulumi.IntOutput `pulumi:"repoId"`
+	// Can be `PR_BODY`, `COMMIT_MESSAGES`, or `BLANK` for a default squash merge commit message.
+	SquashMergeCommitMessage pulumi.StringPtrOutput `pulumi:"squashMergeCommitMessage"`
+	// Can be `PR_TITLE` or `COMMIT_OR_PR_TITLE` for a default squash merge commit title.
+	SquashMergeCommitTitle pulumi.StringPtrOutput `pulumi:"squashMergeCommitTitle"`
 	// URL that can be provided to `git clone` to clone the repository via SSH.
 	SshCloneUrl pulumi.StringOutput `pulumi:"sshCloneUrl"`
 	// URL that can be provided to `svn checkout` to check out the repository via GitHub's Subversion protocol emulation.
@@ -254,6 +262,10 @@ type repositoryState struct {
 	IsTemplate *bool `pulumi:"isTemplate"`
 	// Use the [name of the template](https://github.com/github/choosealicense.com/tree/gh-pages/_licenses) without the extension. For example, "mit" or "mpl-2.0".
 	LicenseTemplate *string `pulumi:"licenseTemplate"`
+	// Can be `PR_BODY`, `PR_TITLE`, or `BLANK` for a default merge commit message.
+	MergeCommitMessage *string `pulumi:"mergeCommitMessage"`
+	// Can be `PR_TITLE` or `MERGE_MESSAGE` for a default merge commit title.
+	MergeCommitTitle *string `pulumi:"mergeCommitTitle"`
 	// The name of the repository.
 	Name *string `pulumi:"name"`
 	// GraphQL global node id for use with v4 API
@@ -267,6 +279,10 @@ type repositoryState struct {
 	Private *bool `pulumi:"private"`
 	// GitHub ID for the repository
 	RepoId *int `pulumi:"repoId"`
+	// Can be `PR_BODY`, `COMMIT_MESSAGES`, or `BLANK` for a default squash merge commit message.
+	SquashMergeCommitMessage *string `pulumi:"squashMergeCommitMessage"`
+	// Can be `PR_TITLE` or `COMMIT_OR_PR_TITLE` for a default squash merge commit title.
+	SquashMergeCommitTitle *string `pulumi:"squashMergeCommitTitle"`
 	// URL that can be provided to `git clone` to clone the repository via SSH.
 	SshCloneUrl *string `pulumi:"sshCloneUrl"`
 	// URL that can be provided to `svn checkout` to check out the repository via GitHub's Subversion protocol emulation.
@@ -337,6 +353,10 @@ type RepositoryState struct {
 	IsTemplate pulumi.BoolPtrInput
 	// Use the [name of the template](https://github.com/github/choosealicense.com/tree/gh-pages/_licenses) without the extension. For example, "mit" or "mpl-2.0".
 	LicenseTemplate pulumi.StringPtrInput
+	// Can be `PR_BODY`, `PR_TITLE`, or `BLANK` for a default merge commit message.
+	MergeCommitMessage pulumi.StringPtrInput
+	// Can be `PR_TITLE` or `MERGE_MESSAGE` for a default merge commit title.
+	MergeCommitTitle pulumi.StringPtrInput
 	// The name of the repository.
 	Name pulumi.StringPtrInput
 	// GraphQL global node id for use with v4 API
@@ -350,6 +370,10 @@ type RepositoryState struct {
 	Private pulumi.BoolPtrInput
 	// GitHub ID for the repository
 	RepoId pulumi.IntPtrInput
+	// Can be `PR_BODY`, `COMMIT_MESSAGES`, or `BLANK` for a default squash merge commit message.
+	SquashMergeCommitMessage pulumi.StringPtrInput
+	// Can be `PR_TITLE` or `COMMIT_OR_PR_TITLE` for a default squash merge commit title.
+	SquashMergeCommitTitle pulumi.StringPtrInput
 	// URL that can be provided to `git clone` to clone the repository via SSH.
 	SshCloneUrl pulumi.StringPtrInput
 	// URL that can be provided to `svn checkout` to check out the repository via GitHub's Subversion protocol emulation.
@@ -413,6 +437,10 @@ type repositoryArgs struct {
 	IsTemplate *bool `pulumi:"isTemplate"`
 	// Use the [name of the template](https://github.com/github/choosealicense.com/tree/gh-pages/_licenses) without the extension. For example, "mit" or "mpl-2.0".
 	LicenseTemplate *string `pulumi:"licenseTemplate"`
+	// Can be `PR_BODY`, `PR_TITLE`, or `BLANK` for a default merge commit message.
+	MergeCommitMessage *string `pulumi:"mergeCommitMessage"`
+	// Can be `PR_TITLE` or `MERGE_MESSAGE` for a default merge commit title.
+	MergeCommitTitle *string `pulumi:"mergeCommitTitle"`
 	// The name of the repository.
 	Name *string `pulumi:"name"`
 	// The repository's GitHub Pages configuration. See GitHub Pages Configuration below for details.
@@ -422,6 +450,10 @@ type repositoryArgs struct {
 	//
 	// Deprecated: use visibility instead
 	Private *bool `pulumi:"private"`
+	// Can be `PR_BODY`, `COMMIT_MESSAGES`, or `BLANK` for a default squash merge commit message.
+	SquashMergeCommitMessage *string `pulumi:"squashMergeCommitMessage"`
+	// Can be `PR_TITLE` or `COMMIT_OR_PR_TITLE` for a default squash merge commit title.
+	SquashMergeCommitTitle *string `pulumi:"squashMergeCommitTitle"`
 	// Use a template repository to create this resource. See Template Repositories below for details.
 	Template *RepositoryTemplate `pulumi:"template"`
 	// The list of topics of the repository.
@@ -478,6 +510,10 @@ type RepositoryArgs struct {
 	IsTemplate pulumi.BoolPtrInput
 	// Use the [name of the template](https://github.com/github/choosealicense.com/tree/gh-pages/_licenses) without the extension. For example, "mit" or "mpl-2.0".
 	LicenseTemplate pulumi.StringPtrInput
+	// Can be `PR_BODY`, `PR_TITLE`, or `BLANK` for a default merge commit message.
+	MergeCommitMessage pulumi.StringPtrInput
+	// Can be `PR_TITLE` or `MERGE_MESSAGE` for a default merge commit title.
+	MergeCommitTitle pulumi.StringPtrInput
 	// The name of the repository.
 	Name pulumi.StringPtrInput
 	// The repository's GitHub Pages configuration. See GitHub Pages Configuration below for details.
@@ -487,6 +523,10 @@ type RepositoryArgs struct {
 	//
 	// Deprecated: use visibility instead
 	Private pulumi.BoolPtrInput
+	// Can be `PR_BODY`, `COMMIT_MESSAGES`, or `BLANK` for a default squash merge commit message.
+	SquashMergeCommitMessage pulumi.StringPtrInput
+	// Can be `PR_TITLE` or `COMMIT_OR_PR_TITLE` for a default squash merge commit title.
+	SquashMergeCommitTitle pulumi.StringPtrInput
 	// Use a template repository to create this resource. See Template Repositories below for details.
 	Template RepositoryTemplatePtrInput
 	// The list of topics of the repository.
@@ -714,6 +754,16 @@ func (o RepositoryOutput) LicenseTemplate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Repository) pulumi.StringPtrOutput { return v.LicenseTemplate }).(pulumi.StringPtrOutput)
 }
 
+// Can be `PR_BODY`, `PR_TITLE`, or `BLANK` for a default merge commit message.
+func (o RepositoryOutput) MergeCommitMessage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Repository) pulumi.StringPtrOutput { return v.MergeCommitMessage }).(pulumi.StringPtrOutput)
+}
+
+// Can be `PR_TITLE` or `MERGE_MESSAGE` for a default merge commit title.
+func (o RepositoryOutput) MergeCommitTitle() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Repository) pulumi.StringPtrOutput { return v.MergeCommitTitle }).(pulumi.StringPtrOutput)
+}
+
 // The name of the repository.
 func (o RepositoryOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Repository) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
@@ -740,6 +790,16 @@ func (o RepositoryOutput) Private() pulumi.BoolOutput {
 // GitHub ID for the repository
 func (o RepositoryOutput) RepoId() pulumi.IntOutput {
 	return o.ApplyT(func(v *Repository) pulumi.IntOutput { return v.RepoId }).(pulumi.IntOutput)
+}
+
+// Can be `PR_BODY`, `COMMIT_MESSAGES`, or `BLANK` for a default squash merge commit message.
+func (o RepositoryOutput) SquashMergeCommitMessage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Repository) pulumi.StringPtrOutput { return v.SquashMergeCommitMessage }).(pulumi.StringPtrOutput)
+}
+
+// Can be `PR_TITLE` or `COMMIT_OR_PR_TITLE` for a default squash merge commit title.
+func (o RepositoryOutput) SquashMergeCommitTitle() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Repository) pulumi.StringPtrOutput { return v.SquashMergeCommitTitle }).(pulumi.StringPtrOutput)
 }
 
 // URL that can be provided to `git clone` to clone the repository via SSH.

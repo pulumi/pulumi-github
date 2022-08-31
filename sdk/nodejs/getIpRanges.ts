@@ -43,6 +43,18 @@ export interface GetIpRangesResult {
      */
     readonly actionsIpv6s: string[];
     /**
+     * A subset of the `api` array that contains IP addresses in IPv4 CIDR format.
+     */
+    readonly apiIpv4s: string[];
+    /**
+     * A subset of the `api` array that contains IP addresses in IPv6 CIDR format.
+     */
+    readonly apiIpv6s: string[];
+    /**
+     * An Array of IP addresses in CIDR format for the GitHub API.
+     */
+    readonly apis: string[];
+    /**
      * A subset of the `dependabot` array that contains IP addresses in IPv4 CIDR format.
      */
     readonly dependabotIpv4s: string[];
@@ -106,4 +118,16 @@ export interface GetIpRangesResult {
      * A subset of the `pages` array that contains IP addresses in IPv6 CIDR format.
      */
     readonly pagesIpv6s: string[];
+    /**
+     * A subset of the `web` array that contains IP addresses in IPv4 CIDR format.
+     */
+    readonly webIpv4s: string[];
+    /**
+     * A subset of the `web` array that contains IP addresses in IPv6 CIDR format.
+     */
+    readonly webIpv6s: string[];
+    /**
+     * An Array of IP addresses in CIDR format for GitHub Web.
+     */
+    readonly webs: string[];
 }

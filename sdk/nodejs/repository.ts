@@ -182,6 +182,14 @@ export class Repository extends pulumi.CustomResource {
      */
     public readonly licenseTemplate!: pulumi.Output<string | undefined>;
     /**
+     * Can be `PR_BODY`, `PR_TITLE`, or `BLANK` for a default merge commit message.
+     */
+    public readonly mergeCommitMessage!: pulumi.Output<string | undefined>;
+    /**
+     * Can be `PR_TITLE` or `MERGE_MESSAGE` for a default merge commit title.
+     */
+    public readonly mergeCommitTitle!: pulumi.Output<string | undefined>;
+    /**
      * The name of the repository.
      */
     public readonly name!: pulumi.Output<string>;
@@ -204,6 +212,14 @@ export class Repository extends pulumi.CustomResource {
      * GitHub ID for the repository
      */
     public /*out*/ readonly repoId!: pulumi.Output<number>;
+    /**
+     * Can be `PR_BODY`, `COMMIT_MESSAGES`, or `BLANK` for a default squash merge commit message.
+     */
+    public readonly squashMergeCommitMessage!: pulumi.Output<string | undefined>;
+    /**
+     * Can be `PR_TITLE` or `COMMIT_OR_PR_TITLE` for a default squash merge commit title.
+     */
+    public readonly squashMergeCommitTitle!: pulumi.Output<string | undefined>;
     /**
      * URL that can be provided to `git clone` to clone the repository via SSH.
      */
@@ -267,11 +283,15 @@ export class Repository extends pulumi.CustomResource {
             resourceInputs["ignoreVulnerabilityAlertsDuringRead"] = state ? state.ignoreVulnerabilityAlertsDuringRead : undefined;
             resourceInputs["isTemplate"] = state ? state.isTemplate : undefined;
             resourceInputs["licenseTemplate"] = state ? state.licenseTemplate : undefined;
+            resourceInputs["mergeCommitMessage"] = state ? state.mergeCommitMessage : undefined;
+            resourceInputs["mergeCommitTitle"] = state ? state.mergeCommitTitle : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["nodeId"] = state ? state.nodeId : undefined;
             resourceInputs["pages"] = state ? state.pages : undefined;
             resourceInputs["private"] = state ? state.private : undefined;
             resourceInputs["repoId"] = state ? state.repoId : undefined;
+            resourceInputs["squashMergeCommitMessage"] = state ? state.squashMergeCommitMessage : undefined;
+            resourceInputs["squashMergeCommitTitle"] = state ? state.squashMergeCommitTitle : undefined;
             resourceInputs["sshCloneUrl"] = state ? state.sshCloneUrl : undefined;
             resourceInputs["svnUrl"] = state ? state.svnUrl : undefined;
             resourceInputs["template"] = state ? state.template : undefined;
@@ -299,9 +319,13 @@ export class Repository extends pulumi.CustomResource {
             resourceInputs["ignoreVulnerabilityAlertsDuringRead"] = args ? args.ignoreVulnerabilityAlertsDuringRead : undefined;
             resourceInputs["isTemplate"] = args ? args.isTemplate : undefined;
             resourceInputs["licenseTemplate"] = args ? args.licenseTemplate : undefined;
+            resourceInputs["mergeCommitMessage"] = args ? args.mergeCommitMessage : undefined;
+            resourceInputs["mergeCommitTitle"] = args ? args.mergeCommitTitle : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["pages"] = args ? args.pages : undefined;
             resourceInputs["private"] = args ? args.private : undefined;
+            resourceInputs["squashMergeCommitMessage"] = args ? args.squashMergeCommitMessage : undefined;
+            resourceInputs["squashMergeCommitTitle"] = args ? args.squashMergeCommitTitle : undefined;
             resourceInputs["template"] = args ? args.template : undefined;
             resourceInputs["topics"] = args ? args.topics : undefined;
             resourceInputs["visibility"] = args ? args.visibility : undefined;
@@ -430,6 +454,14 @@ export interface RepositoryState {
      */
     licenseTemplate?: pulumi.Input<string>;
     /**
+     * Can be `PR_BODY`, `PR_TITLE`, or `BLANK` for a default merge commit message.
+     */
+    mergeCommitMessage?: pulumi.Input<string>;
+    /**
+     * Can be `PR_TITLE` or `MERGE_MESSAGE` for a default merge commit title.
+     */
+    mergeCommitTitle?: pulumi.Input<string>;
+    /**
      * The name of the repository.
      */
     name?: pulumi.Input<string>;
@@ -452,6 +484,14 @@ export interface RepositoryState {
      * GitHub ID for the repository
      */
     repoId?: pulumi.Input<number>;
+    /**
+     * Can be `PR_BODY`, `COMMIT_MESSAGES`, or `BLANK` for a default squash merge commit message.
+     */
+    squashMergeCommitMessage?: pulumi.Input<string>;
+    /**
+     * Can be `PR_TITLE` or `COMMIT_OR_PR_TITLE` for a default squash merge commit title.
+     */
+    squashMergeCommitTitle?: pulumi.Input<string>;
     /**
      * URL that can be provided to `git clone` to clone the repository via SSH.
      */
@@ -565,6 +605,14 @@ export interface RepositoryArgs {
      */
     licenseTemplate?: pulumi.Input<string>;
     /**
+     * Can be `PR_BODY`, `PR_TITLE`, or `BLANK` for a default merge commit message.
+     */
+    mergeCommitMessage?: pulumi.Input<string>;
+    /**
+     * Can be `PR_TITLE` or `MERGE_MESSAGE` for a default merge commit title.
+     */
+    mergeCommitTitle?: pulumi.Input<string>;
+    /**
      * The name of the repository.
      */
     name?: pulumi.Input<string>;
@@ -579,6 +627,14 @@ export interface RepositoryArgs {
      * @deprecated use visibility instead
      */
     private?: pulumi.Input<boolean>;
+    /**
+     * Can be `PR_BODY`, `COMMIT_MESSAGES`, or `BLANK` for a default squash merge commit message.
+     */
+    squashMergeCommitMessage?: pulumi.Input<string>;
+    /**
+     * Can be `PR_TITLE` or `COMMIT_OR_PR_TITLE` for a default squash merge commit title.
+     */
+    squashMergeCommitTitle?: pulumi.Input<string>;
     /**
      * Use a template repository to create this resource. See Template Repositories below for details.
      */

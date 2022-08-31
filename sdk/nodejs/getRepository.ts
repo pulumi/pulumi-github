@@ -135,6 +135,14 @@ export interface GetRepositoryResult {
      */
     readonly id: string;
     /**
+     * The default value for a merge commit message.
+     */
+    readonly mergeCommitMessage: string;
+    /**
+     * The default value for a merge commit title.
+     */
+    readonly mergeCommitTitle: string;
+    /**
      * Name of the branch.
      */
     readonly name: string;
@@ -155,6 +163,14 @@ export interface GetRepositoryResult {
      * GitHub ID for the repository
      */
     readonly repoId: number;
+    /**
+     * The default value for a squash merge commit message.
+     */
+    readonly squashMergeCommitMessage: string;
+    /**
+     * The default value for a squash merge commit title.
+     */
+    readonly squashMergeCommitTitle: string;
     /**
      * URL that can be provided to `git clone` to clone the repository via SSH.
      */

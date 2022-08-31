@@ -97,6 +97,10 @@ type LookupRepositoryResult struct {
 	HttpCloneUrl string `pulumi:"httpCloneUrl"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
+	// The default value for a merge commit message.
+	MergeCommitMessage string `pulumi:"mergeCommitMessage"`
+	// The default value for a merge commit title.
+	MergeCommitTitle string `pulumi:"mergeCommitTitle"`
 	// Name of the branch.
 	Name string `pulumi:"name"`
 	// GraphQL global node id for use with v4 API
@@ -108,6 +112,10 @@ type LookupRepositoryResult struct {
 	Private bool `pulumi:"private"`
 	// GitHub ID for the repository
 	RepoId int `pulumi:"repoId"`
+	// The default value for a squash merge commit message.
+	SquashMergeCommitMessage string `pulumi:"squashMergeCommitMessage"`
+	// The default value for a squash merge commit title.
+	SquashMergeCommitTitle string `pulumi:"squashMergeCommitTitle"`
 	// URL that can be provided to `git clone` to clone the repository via SSH.
 	SshCloneUrl string `pulumi:"sshCloneUrl"`
 	// URL that can be provided to `svn checkout` to check out the repository via GitHub's Subversion protocol emulation.
@@ -253,6 +261,16 @@ func (o LookupRepositoryResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRepositoryResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// The default value for a merge commit message.
+func (o LookupRepositoryResultOutput) MergeCommitMessage() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRepositoryResult) string { return v.MergeCommitMessage }).(pulumi.StringOutput)
+}
+
+// The default value for a merge commit title.
+func (o LookupRepositoryResultOutput) MergeCommitTitle() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRepositoryResult) string { return v.MergeCommitTitle }).(pulumi.StringOutput)
+}
+
 // Name of the branch.
 func (o LookupRepositoryResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRepositoryResult) string { return v.Name }).(pulumi.StringOutput)
@@ -280,6 +298,16 @@ func (o LookupRepositoryResultOutput) Private() pulumi.BoolOutput {
 // GitHub ID for the repository
 func (o LookupRepositoryResultOutput) RepoId() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupRepositoryResult) int { return v.RepoId }).(pulumi.IntOutput)
+}
+
+// The default value for a squash merge commit message.
+func (o LookupRepositoryResultOutput) SquashMergeCommitMessage() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRepositoryResult) string { return v.SquashMergeCommitMessage }).(pulumi.StringOutput)
+}
+
+// The default value for a squash merge commit title.
+func (o LookupRepositoryResultOutput) SquashMergeCommitTitle() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRepositoryResult) string { return v.SquashMergeCommitTitle }).(pulumi.StringOutput)
 }
 
 // URL that can be provided to `git clone` to clone the repository via SSH.
