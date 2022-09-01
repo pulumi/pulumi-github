@@ -217,6 +217,14 @@ namespace Pulumi.Github
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// The default value for a merge commit message.
+        /// </summary>
+        public readonly string MergeCommitMessage;
+        /// <summary>
+        /// The default value for a merge commit title.
+        /// </summary>
+        public readonly string MergeCommitTitle;
+        /// <summary>
         /// Name of the branch.
         /// </summary>
         public readonly string Name;
@@ -237,6 +245,14 @@ namespace Pulumi.Github
         /// GitHub ID for the repository
         /// </summary>
         public readonly int RepoId;
+        /// <summary>
+        /// The default value for a squash merge commit message.
+        /// </summary>
+        public readonly string SquashMergeCommitMessage;
+        /// <summary>
+        /// The default value for a squash merge commit title.
+        /// </summary>
+        public readonly string SquashMergeCommitTitle;
         /// <summary>
         /// URL that can be provided to `git clone` to clone the repository via SSH.
         /// </summary>
@@ -292,6 +308,10 @@ namespace Pulumi.Github
 
             string id,
 
+            string mergeCommitMessage,
+
+            string mergeCommitTitle,
+
             string name,
 
             string nodeId,
@@ -303,6 +323,10 @@ namespace Pulumi.Github
             bool @private,
 
             int repoId,
+
+            string squashMergeCommitMessage,
+
+            string squashMergeCommitTitle,
 
             string sshCloneUrl,
 
@@ -330,12 +354,16 @@ namespace Pulumi.Github
             HtmlUrl = htmlUrl;
             HttpCloneUrl = httpCloneUrl;
             Id = id;
+            MergeCommitMessage = mergeCommitMessage;
+            MergeCommitTitle = mergeCommitTitle;
             Name = name;
             NodeId = nodeId;
             OnlyProtectedBranches = onlyProtectedBranches;
             Pages = pages;
             Private = @private;
             RepoId = repoId;
+            SquashMergeCommitMessage = squashMergeCommitMessage;
+            SquashMergeCommitTitle = squashMergeCommitTitle;
             SshCloneUrl = sshCloneUrl;
             SvnUrl = svnUrl;
             Topics = topics;

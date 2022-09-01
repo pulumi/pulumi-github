@@ -22,7 +22,7 @@ class GetRepositoryResult:
     """
     A collection of values returned by getRepository.
     """
-    def __init__(__self__, allow_auto_merge=None, allow_merge_commit=None, allow_rebase_merge=None, allow_squash_merge=None, archived=None, branches=None, default_branch=None, description=None, full_name=None, git_clone_url=None, has_downloads=None, has_issues=None, has_projects=None, has_wiki=None, homepage_url=None, html_url=None, http_clone_url=None, id=None, name=None, node_id=None, only_protected_branches=None, pages=None, private=None, repo_id=None, ssh_clone_url=None, svn_url=None, topics=None, visibility=None):
+    def __init__(__self__, allow_auto_merge=None, allow_merge_commit=None, allow_rebase_merge=None, allow_squash_merge=None, archived=None, branches=None, default_branch=None, description=None, full_name=None, git_clone_url=None, has_downloads=None, has_issues=None, has_projects=None, has_wiki=None, homepage_url=None, html_url=None, http_clone_url=None, id=None, merge_commit_message=None, merge_commit_title=None, name=None, node_id=None, only_protected_branches=None, pages=None, private=None, repo_id=None, squash_merge_commit_message=None, squash_merge_commit_title=None, ssh_clone_url=None, svn_url=None, topics=None, visibility=None):
         if allow_auto_merge and not isinstance(allow_auto_merge, bool):
             raise TypeError("Expected argument 'allow_auto_merge' to be a bool")
         pulumi.set(__self__, "allow_auto_merge", allow_auto_merge)
@@ -77,6 +77,12 @@ class GetRepositoryResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if merge_commit_message and not isinstance(merge_commit_message, str):
+            raise TypeError("Expected argument 'merge_commit_message' to be a str")
+        pulumi.set(__self__, "merge_commit_message", merge_commit_message)
+        if merge_commit_title and not isinstance(merge_commit_title, str):
+            raise TypeError("Expected argument 'merge_commit_title' to be a str")
+        pulumi.set(__self__, "merge_commit_title", merge_commit_title)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -95,6 +101,12 @@ class GetRepositoryResult:
         if repo_id and not isinstance(repo_id, int):
             raise TypeError("Expected argument 'repo_id' to be a int")
         pulumi.set(__self__, "repo_id", repo_id)
+        if squash_merge_commit_message and not isinstance(squash_merge_commit_message, str):
+            raise TypeError("Expected argument 'squash_merge_commit_message' to be a str")
+        pulumi.set(__self__, "squash_merge_commit_message", squash_merge_commit_message)
+        if squash_merge_commit_title and not isinstance(squash_merge_commit_title, str):
+            raise TypeError("Expected argument 'squash_merge_commit_title' to be a str")
+        pulumi.set(__self__, "squash_merge_commit_title", squash_merge_commit_title)
         if ssh_clone_url and not isinstance(ssh_clone_url, str):
             raise TypeError("Expected argument 'ssh_clone_url' to be a str")
         pulumi.set(__self__, "ssh_clone_url", ssh_clone_url)
@@ -250,6 +262,22 @@ class GetRepositoryResult:
         return pulumi.get(self, "id")
 
     @property
+    @pulumi.getter(name="mergeCommitMessage")
+    def merge_commit_message(self) -> str:
+        """
+        The default value for a merge commit message.
+        """
+        return pulumi.get(self, "merge_commit_message")
+
+    @property
+    @pulumi.getter(name="mergeCommitTitle")
+    def merge_commit_title(self) -> str:
+        """
+        The default value for a merge commit title.
+        """
+        return pulumi.get(self, "merge_commit_title")
+
+    @property
     @pulumi.getter
     def name(self) -> str:
         """
@@ -293,6 +321,22 @@ class GetRepositoryResult:
         GitHub ID for the repository
         """
         return pulumi.get(self, "repo_id")
+
+    @property
+    @pulumi.getter(name="squashMergeCommitMessage")
+    def squash_merge_commit_message(self) -> str:
+        """
+        The default value for a squash merge commit message.
+        """
+        return pulumi.get(self, "squash_merge_commit_message")
+
+    @property
+    @pulumi.getter(name="squashMergeCommitTitle")
+    def squash_merge_commit_title(self) -> str:
+        """
+        The default value for a squash merge commit title.
+        """
+        return pulumi.get(self, "squash_merge_commit_title")
 
     @property
     @pulumi.getter(name="sshCloneUrl")
@@ -351,12 +395,16 @@ class AwaitableGetRepositoryResult(GetRepositoryResult):
             html_url=self.html_url,
             http_clone_url=self.http_clone_url,
             id=self.id,
+            merge_commit_message=self.merge_commit_message,
+            merge_commit_title=self.merge_commit_title,
             name=self.name,
             node_id=self.node_id,
             only_protected_branches=self.only_protected_branches,
             pages=self.pages,
             private=self.private,
             repo_id=self.repo_id,
+            squash_merge_commit_message=self.squash_merge_commit_message,
+            squash_merge_commit_title=self.squash_merge_commit_title,
             ssh_clone_url=self.ssh_clone_url,
             svn_url=self.svn_url,
             topics=self.topics,
@@ -416,12 +464,16 @@ def get_repository(description: Optional[str] = None,
         html_url=__ret__.html_url,
         http_clone_url=__ret__.http_clone_url,
         id=__ret__.id,
+        merge_commit_message=__ret__.merge_commit_message,
+        merge_commit_title=__ret__.merge_commit_title,
         name=__ret__.name,
         node_id=__ret__.node_id,
         only_protected_branches=__ret__.only_protected_branches,
         pages=__ret__.pages,
         private=__ret__.private,
         repo_id=__ret__.repo_id,
+        squash_merge_commit_message=__ret__.squash_merge_commit_message,
+        squash_merge_commit_title=__ret__.squash_merge_commit_title,
         ssh_clone_url=__ret__.ssh_clone_url,
         svn_url=__ret__.svn_url,
         topics=__ret__.topics,

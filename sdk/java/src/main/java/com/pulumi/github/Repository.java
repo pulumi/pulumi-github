@@ -464,6 +464,34 @@ public class Repository extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.licenseTemplate);
     }
     /**
+     * Can be `PR_BODY`, `PR_TITLE`, or `BLANK` for a default merge commit message.
+     * 
+     */
+    @Export(name="mergeCommitMessage", type=String.class, parameters={})
+    private Output</* @Nullable */ String> mergeCommitMessage;
+
+    /**
+     * @return Can be `PR_BODY`, `PR_TITLE`, or `BLANK` for a default merge commit message.
+     * 
+     */
+    public Output<Optional<String>> mergeCommitMessage() {
+        return Codegen.optional(this.mergeCommitMessage);
+    }
+    /**
+     * Can be `PR_TITLE` or `MERGE_MESSAGE` for a default merge commit title.
+     * 
+     */
+    @Export(name="mergeCommitTitle", type=String.class, parameters={})
+    private Output</* @Nullable */ String> mergeCommitTitle;
+
+    /**
+     * @return Can be `PR_TITLE` or `MERGE_MESSAGE` for a default merge commit title.
+     * 
+     */
+    public Output<Optional<String>> mergeCommitTitle() {
+        return Codegen.optional(this.mergeCommitTitle);
+    }
+    /**
      * The name of the repository.
      * 
      */
@@ -538,6 +566,34 @@ public class Repository extends com.pulumi.resources.CustomResource {
      */
     public Output<Integer> repoId() {
         return this.repoId;
+    }
+    /**
+     * Can be `PR_BODY`, `COMMIT_MESSAGES`, or `BLANK` for a default squash merge commit message.
+     * 
+     */
+    @Export(name="squashMergeCommitMessage", type=String.class, parameters={})
+    private Output</* @Nullable */ String> squashMergeCommitMessage;
+
+    /**
+     * @return Can be `PR_BODY`, `COMMIT_MESSAGES`, or `BLANK` for a default squash merge commit message.
+     * 
+     */
+    public Output<Optional<String>> squashMergeCommitMessage() {
+        return Codegen.optional(this.squashMergeCommitMessage);
+    }
+    /**
+     * Can be `PR_TITLE` or `COMMIT_OR_PR_TITLE` for a default squash merge commit title.
+     * 
+     */
+    @Export(name="squashMergeCommitTitle", type=String.class, parameters={})
+    private Output</* @Nullable */ String> squashMergeCommitTitle;
+
+    /**
+     * @return Can be `PR_TITLE` or `COMMIT_OR_PR_TITLE` for a default squash merge commit title.
+     * 
+     */
+    public Output<Optional<String>> squashMergeCommitTitle() {
+        return Codegen.optional(this.squashMergeCommitTitle);
     }
     /**
      * URL that can be provided to `git clone` to clone the repository via SSH.

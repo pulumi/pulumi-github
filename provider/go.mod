@@ -4,7 +4,7 @@ go 1.18
 
 require (
 	github.com/hashicorp/terraform-plugin-sdk v1.9.1
-	github.com/integrations/terraform-provider-github/v4 v4.29.0
+	github.com/integrations/terraform-provider-github/v4 v4.31.0
 	github.com/pulumi/pulumi-terraform-bridge/v3 v3.28.0
 	github.com/pulumi/pulumi/sdk/v3 v3.38.0
 )
@@ -77,7 +77,7 @@ require (
 	github.com/golang/protobuf v1.5.2 // indirect
 	github.com/golang/snappy v0.0.4 // indirect
 	github.com/google/go-cmp v0.5.8 // indirect
-	github.com/google/go-github/v45 v45.2.0 // indirect
+	github.com/google/go-github/v47 v47.0.0 // indirect
 	github.com/google/go-querystring v1.1.0 // indirect
 	github.com/google/shlex v0.0.0-20191202100458-e7afc7fbc510 // indirect
 	github.com/google/uuid v1.3.0 // indirect

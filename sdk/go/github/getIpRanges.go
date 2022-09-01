@@ -49,6 +49,12 @@ type GetIpRangesResult struct {
 	ActionsIpv4s []string `pulumi:"actionsIpv4s"`
 	// A subset of the `actions` array that contains IP addresses in IPv6 CIDR format.
 	ActionsIpv6s []string `pulumi:"actionsIpv6s"`
+	// A subset of the `api` array that contains IP addresses in IPv4 CIDR format.
+	ApiIpv4s []string `pulumi:"apiIpv4s"`
+	// A subset of the `api` array that contains IP addresses in IPv6 CIDR format.
+	ApiIpv6s []string `pulumi:"apiIpv6s"`
+	// An Array of IP addresses in CIDR format for the GitHub API.
+	Apis []string `pulumi:"apis"`
 	// A subset of the `dependabot` array that contains IP addresses in IPv4 CIDR format.
 	DependabotIpv4s []string `pulumi:"dependabotIpv4s"`
 	// A subset of the `dependabot` array that contains IP addresses in IPv6 CIDR format.
@@ -81,4 +87,10 @@ type GetIpRangesResult struct {
 	PagesIpv4s []string `pulumi:"pagesIpv4s"`
 	// A subset of the `pages` array that contains IP addresses in IPv6 CIDR format.
 	PagesIpv6s []string `pulumi:"pagesIpv6s"`
+	// A subset of the `web` array that contains IP addresses in IPv4 CIDR format.
+	WebIpv4s []string `pulumi:"webIpv4s"`
+	// A subset of the `web` array that contains IP addresses in IPv6 CIDR format.
+	WebIpv6s []string `pulumi:"webIpv6s"`
+	// An Array of IP addresses in CIDR format for GitHub Web.
+	Webs []string `pulumi:"webs"`
 }

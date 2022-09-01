@@ -6,11 +6,28 @@ package com.pulumi.github.inputs;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetTeamPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetTeamPlainArgs Empty = new GetTeamPlainArgs();
+
+    /**
+     * Type of membershp to be requested to fill the list of members. Can be either &#34;all&#34; or &#34;immediate&#34;. Default: &#34;all&#34;
+     * 
+     */
+    @Import(name="membershipType")
+    private @Nullable String membershipType;
+
+    /**
+     * @return Type of membershp to be requested to fill the list of members. Can be either &#34;all&#34; or &#34;immediate&#34;. Default: &#34;all&#34;
+     * 
+     */
+    public Optional<String> membershipType() {
+        return Optional.ofNullable(this.membershipType);
+    }
 
     /**
      * The team slug.
@@ -30,6 +47,7 @@ public final class GetTeamPlainArgs extends com.pulumi.resources.InvokeArgs {
     private GetTeamPlainArgs() {}
 
     private GetTeamPlainArgs(GetTeamPlainArgs $) {
+        this.membershipType = $.membershipType;
         this.slug = $.slug;
     }
 
@@ -49,6 +67,17 @@ public final class GetTeamPlainArgs extends com.pulumi.resources.InvokeArgs {
 
         public Builder(GetTeamPlainArgs defaults) {
             $ = new GetTeamPlainArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param membershipType Type of membershp to be requested to fill the list of members. Can be either &#34;all&#34; or &#34;immediate&#34;. Default: &#34;all&#34;
+         * 
+         * @return builder
+         * 
+         */
+        public Builder membershipType(@Nullable String membershipType) {
+            $.membershipType = membershipType;
+            return this;
         }
 
         /**

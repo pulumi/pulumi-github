@@ -3667,6 +3667,14 @@
                     "type": "string",
                     "description": "Use the [name of the template](https://github.com/github/choosealicense.com/tree/gh-pages/_licenses) without the extension. For example, \"mit\" or \"mpl-2.0\".\n"
                 },
+                "mergeCommitMessage": {
+                    "type": "string",
+                    "description": "Can be `PR_BODY`, `PR_TITLE`, or `BLANK` for a default merge commit message.\n"
+                },
+                "mergeCommitTitle": {
+                    "type": "string",
+                    "description": "Can be `PR_TITLE` or `MERGE_MESSAGE` for a default merge commit title.\n"
+                },
                 "name": {
                     "type": "string",
                     "description": "The name of the repository.\n"
@@ -3687,6 +3695,14 @@
                 "repoId": {
                     "type": "integer",
                     "description": "GitHub ID for the repository\n"
+                },
+                "squashMergeCommitMessage": {
+                    "type": "string",
+                    "description": "Can be `PR_BODY`, `COMMIT_MESSAGES`, or `BLANK` for a default squash merge commit message.\n"
+                },
+                "squashMergeCommitTitle": {
+                    "type": "string",
+                    "description": "Can be `PR_TITLE` or `COMMIT_OR_PR_TITLE` for a default squash merge commit title.\n"
                 },
                 "sshCloneUrl": {
                     "type": "string",
@@ -3810,6 +3826,14 @@
                     "type": "string",
                     "description": "Use the [name of the template](https://github.com/github/choosealicense.com/tree/gh-pages/_licenses) without the extension. For example, \"mit\" or \"mpl-2.0\".\n"
                 },
+                "mergeCommitMessage": {
+                    "type": "string",
+                    "description": "Can be `PR_BODY`, `PR_TITLE`, or `BLANK` for a default merge commit message.\n"
+                },
+                "mergeCommitTitle": {
+                    "type": "string",
+                    "description": "Can be `PR_TITLE` or `MERGE_MESSAGE` for a default merge commit title.\n"
+                },
                 "name": {
                     "type": "string",
                     "description": "The name of the repository.\n"
@@ -3822,6 +3846,14 @@
                     "type": "boolean",
                     "description": "Set to `true` to create a private repository.\nRepositories are created as public (e.g. open source) by default.\n",
                     "deprecationMessage": "use visibility instead"
+                },
+                "squashMergeCommitMessage": {
+                    "type": "string",
+                    "description": "Can be `PR_BODY`, `COMMIT_MESSAGES`, or `BLANK` for a default squash merge commit message.\n"
+                },
+                "squashMergeCommitTitle": {
+                    "type": "string",
+                    "description": "Can be `PR_TITLE` or `COMMIT_OR_PR_TITLE` for a default squash merge commit title.\n"
                 },
                 "template": {
                     "$ref": "#/types/github:index/RepositoryTemplate:RepositoryTemplate",
@@ -3949,6 +3981,14 @@
                         "type": "string",
                         "description": "Use the [name of the template](https://github.com/github/choosealicense.com/tree/gh-pages/_licenses) without the extension. For example, \"mit\" or \"mpl-2.0\".\n"
                     },
+                    "mergeCommitMessage": {
+                        "type": "string",
+                        "description": "Can be `PR_BODY`, `PR_TITLE`, or `BLANK` for a default merge commit message.\n"
+                    },
+                    "mergeCommitTitle": {
+                        "type": "string",
+                        "description": "Can be `PR_TITLE` or `MERGE_MESSAGE` for a default merge commit title.\n"
+                    },
                     "name": {
                         "type": "string",
                         "description": "The name of the repository.\n"
@@ -3969,6 +4009,14 @@
                     "repoId": {
                         "type": "integer",
                         "description": "GitHub ID for the repository\n"
+                    },
+                    "squashMergeCommitMessage": {
+                        "type": "string",
+                        "description": "Can be `PR_BODY`, `COMMIT_MESSAGES`, or `BLANK` for a default squash merge commit message.\n"
+                    },
+                    "squashMergeCommitTitle": {
+                        "type": "string",
+                        "description": "Can be `PR_TITLE` or `COMMIT_OR_PR_TITLE` for a default squash merge commit title.\n"
                     },
                     "sshCloneUrl": {
                         "type": "string",
@@ -5732,6 +5780,27 @@
                         },
                         "description": "A subset of the `actions` array that contains IP addresses in IPv6 CIDR format.\n"
                     },
+                    "apiIpv4s": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "A subset of the `api` array that contains IP addresses in IPv4 CIDR format.\n"
+                    },
+                    "apiIpv6s": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "A subset of the `api` array that contains IP addresses in IPv6 CIDR format.\n"
+                    },
+                    "apis": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "An Array of IP addresses in CIDR format for the GitHub API.\n"
+                    },
                     "dependabotIpv4s": {
                         "type": "array",
                         "items": {
@@ -5840,6 +5909,27 @@
                             "type": "string"
                         },
                         "description": "A subset of the `pages` array that contains IP addresses in IPv6 CIDR format.\n"
+                    },
+                    "webIpv4s": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "A subset of the `web` array that contains IP addresses in IPv4 CIDR format.\n"
+                    },
+                    "webIpv6s": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "A subset of the `web` array that contains IP addresses in IPv6 CIDR format.\n"
+                    },
+                    "webs": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "An Array of IP addresses in CIDR format for GitHub Web.\n"
                     }
                 },
                 "type": "object",
@@ -5847,6 +5937,9 @@
                     "actions",
                     "actionsIpv4s",
                     "actionsIpv6s",
+                    "apis",
+                    "apiIpv4s",
+                    "apiIpv6s",
                     "dependabots",
                     "dependabotIpv4s",
                     "dependabotIpv6s",
@@ -5862,6 +5955,9 @@
                     "pages",
                     "pagesIpv4s",
                     "pagesIpv6s",
+                    "webs",
+                    "webIpv4s",
+                    "webIpv6s",
                     "id"
                 ]
             }
@@ -6397,6 +6493,14 @@
                         "type": "string",
                         "description": "The provider-assigned unique ID for this managed resource.\n"
                     },
+                    "mergeCommitMessage": {
+                        "type": "string",
+                        "description": "The default value for a merge commit message.\n"
+                    },
+                    "mergeCommitTitle": {
+                        "type": "string",
+                        "description": "The default value for a merge commit title.\n"
+                    },
                     "name": {
                         "type": "string",
                         "description": "Name of the branch.\n"
@@ -6422,6 +6526,14 @@
                     "repoId": {
                         "type": "integer",
                         "description": "GitHub ID for the repository\n"
+                    },
+                    "squashMergeCommitMessage": {
+                        "type": "string",
+                        "description": "The default value for a squash merge commit message.\n"
+                    },
+                    "squashMergeCommitTitle": {
+                        "type": "string",
+                        "description": "The default value for a squash merge commit title.\n"
                     },
                     "sshCloneUrl": {
                         "type": "string",
@@ -6460,11 +6572,15 @@
                     "hasWiki",
                     "htmlUrl",
                     "httpCloneUrl",
+                    "mergeCommitMessage",
+                    "mergeCommitTitle",
                     "name",
                     "nodeId",
                     "pages",
                     "private",
                     "repoId",
+                    "squashMergeCommitMessage",
+                    "squashMergeCommitTitle",
                     "sshCloneUrl",
                     "svnUrl",
                     "topics",
@@ -6840,6 +6956,10 @@
             "inputs": {
                 "description": "A collection of arguments for invoking getTeam.\n",
                 "properties": {
+                    "membershipType": {
+                        "type": "string",
+                        "description": "Type of membershp to be requested to fill the list of members. Can be either \"all\" or \"immediate\". Default: \"all\"\n"
+                    },
                     "slug": {
                         "type": "string",
                         "description": "The team slug.\n"
@@ -6866,7 +6986,10 @@
                         "items": {
                             "type": "string"
                         },
-                        "description": "List of team members\n"
+                        "description": "List of team members (list of GitHub usernames)\n"
+                    },
+                    "membershipType": {
+                        "type": "string"
                     },
                     "name": {
                         "type": "string",
@@ -6889,7 +7012,7 @@
                         "items": {
                             "type": "string"
                         },
-                        "description": "List of team repositories\n"
+                        "description": "List of team repositories (list of repo names)\n"
                     },
                     "slug": {
                         "type": "string"

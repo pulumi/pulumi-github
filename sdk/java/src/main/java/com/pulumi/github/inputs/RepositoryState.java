@@ -405,6 +405,36 @@ public final class RepositoryState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Can be `PR_BODY`, `PR_TITLE`, or `BLANK` for a default merge commit message.
+     * 
+     */
+    @Import(name="mergeCommitMessage")
+    private @Nullable Output<String> mergeCommitMessage;
+
+    /**
+     * @return Can be `PR_BODY`, `PR_TITLE`, or `BLANK` for a default merge commit message.
+     * 
+     */
+    public Optional<Output<String>> mergeCommitMessage() {
+        return Optional.ofNullable(this.mergeCommitMessage);
+    }
+
+    /**
+     * Can be `PR_TITLE` or `MERGE_MESSAGE` for a default merge commit title.
+     * 
+     */
+    @Import(name="mergeCommitTitle")
+    private @Nullable Output<String> mergeCommitTitle;
+
+    /**
+     * @return Can be `PR_TITLE` or `MERGE_MESSAGE` for a default merge commit title.
+     * 
+     */
+    public Optional<Output<String>> mergeCommitTitle() {
+        return Optional.ofNullable(this.mergeCommitTitle);
+    }
+
+    /**
      * The name of the repository.
      * 
      */
@@ -487,6 +517,36 @@ public final class RepositoryState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<Integer>> repoId() {
         return Optional.ofNullable(this.repoId);
+    }
+
+    /**
+     * Can be `PR_BODY`, `COMMIT_MESSAGES`, or `BLANK` for a default squash merge commit message.
+     * 
+     */
+    @Import(name="squashMergeCommitMessage")
+    private @Nullable Output<String> squashMergeCommitMessage;
+
+    /**
+     * @return Can be `PR_BODY`, `COMMIT_MESSAGES`, or `BLANK` for a default squash merge commit message.
+     * 
+     */
+    public Optional<Output<String>> squashMergeCommitMessage() {
+        return Optional.ofNullable(this.squashMergeCommitMessage);
+    }
+
+    /**
+     * Can be `PR_TITLE` or `COMMIT_OR_PR_TITLE` for a default squash merge commit title.
+     * 
+     */
+    @Import(name="squashMergeCommitTitle")
+    private @Nullable Output<String> squashMergeCommitTitle;
+
+    /**
+     * @return Can be `PR_TITLE` or `COMMIT_OR_PR_TITLE` for a default squash merge commit title.
+     * 
+     */
+    public Optional<Output<String>> squashMergeCommitTitle() {
+        return Optional.ofNullable(this.squashMergeCommitTitle);
     }
 
     /**
@@ -607,11 +667,15 @@ public final class RepositoryState extends com.pulumi.resources.ResourceArgs {
         this.ignoreVulnerabilityAlertsDuringRead = $.ignoreVulnerabilityAlertsDuringRead;
         this.isTemplate = $.isTemplate;
         this.licenseTemplate = $.licenseTemplate;
+        this.mergeCommitMessage = $.mergeCommitMessage;
+        this.mergeCommitTitle = $.mergeCommitTitle;
         this.name = $.name;
         this.nodeId = $.nodeId;
         this.pages = $.pages;
         this.private_ = $.private_;
         this.repoId = $.repoId;
+        this.squashMergeCommitMessage = $.squashMergeCommitMessage;
+        this.squashMergeCommitTitle = $.squashMergeCommitTitle;
         this.sshCloneUrl = $.sshCloneUrl;
         this.svnUrl = $.svnUrl;
         this.template = $.template;
@@ -1178,6 +1242,48 @@ public final class RepositoryState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param mergeCommitMessage Can be `PR_BODY`, `PR_TITLE`, or `BLANK` for a default merge commit message.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder mergeCommitMessage(@Nullable Output<String> mergeCommitMessage) {
+            $.mergeCommitMessage = mergeCommitMessage;
+            return this;
+        }
+
+        /**
+         * @param mergeCommitMessage Can be `PR_BODY`, `PR_TITLE`, or `BLANK` for a default merge commit message.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder mergeCommitMessage(String mergeCommitMessage) {
+            return mergeCommitMessage(Output.of(mergeCommitMessage));
+        }
+
+        /**
+         * @param mergeCommitTitle Can be `PR_TITLE` or `MERGE_MESSAGE` for a default merge commit title.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder mergeCommitTitle(@Nullable Output<String> mergeCommitTitle) {
+            $.mergeCommitTitle = mergeCommitTitle;
+            return this;
+        }
+
+        /**
+         * @param mergeCommitTitle Can be `PR_TITLE` or `MERGE_MESSAGE` for a default merge commit title.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder mergeCommitTitle(String mergeCommitTitle) {
+            return mergeCommitTitle(Output.of(mergeCommitTitle));
+        }
+
+        /**
          * @param name The name of the repository.
          * 
          * @return builder
@@ -1290,6 +1396,48 @@ public final class RepositoryState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder repoId(Integer repoId) {
             return repoId(Output.of(repoId));
+        }
+
+        /**
+         * @param squashMergeCommitMessage Can be `PR_BODY`, `COMMIT_MESSAGES`, or `BLANK` for a default squash merge commit message.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder squashMergeCommitMessage(@Nullable Output<String> squashMergeCommitMessage) {
+            $.squashMergeCommitMessage = squashMergeCommitMessage;
+            return this;
+        }
+
+        /**
+         * @param squashMergeCommitMessage Can be `PR_BODY`, `COMMIT_MESSAGES`, or `BLANK` for a default squash merge commit message.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder squashMergeCommitMessage(String squashMergeCommitMessage) {
+            return squashMergeCommitMessage(Output.of(squashMergeCommitMessage));
+        }
+
+        /**
+         * @param squashMergeCommitTitle Can be `PR_TITLE` or `COMMIT_OR_PR_TITLE` for a default squash merge commit title.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder squashMergeCommitTitle(@Nullable Output<String> squashMergeCommitTitle) {
+            $.squashMergeCommitTitle = squashMergeCommitTitle;
+            return this;
+        }
+
+        /**
+         * @param squashMergeCommitTitle Can be `PR_TITLE` or `COMMIT_OR_PR_TITLE` for a default squash merge commit title.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder squashMergeCommitTitle(String squashMergeCommitTitle) {
+            return squashMergeCommitTitle(Output.of(squashMergeCommitTitle));
         }
 
         /**

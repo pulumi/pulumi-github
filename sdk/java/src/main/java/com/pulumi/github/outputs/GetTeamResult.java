@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetTeamResult {
@@ -21,10 +23,11 @@ public final class GetTeamResult {
      */
     private final String id;
     /**
-     * @return List of team members
+     * @return List of team members (list of GitHub usernames)
      * 
      */
     private final List<String> members;
+    private final @Nullable String membershipType;
     /**
      * @return the team&#39;s full name.
      * 
@@ -46,7 +49,7 @@ public final class GetTeamResult {
      */
     private final String privacy;
     /**
-     * @return List of team repositories
+     * @return List of team repositories (list of repo names)
      * 
      */
     private final List<String> repositories;
@@ -57,6 +60,7 @@ public final class GetTeamResult {
         @CustomType.Parameter("description") String description,
         @CustomType.Parameter("id") String id,
         @CustomType.Parameter("members") List<String> members,
+        @CustomType.Parameter("membershipType") @Nullable String membershipType,
         @CustomType.Parameter("name") String name,
         @CustomType.Parameter("nodeId") String nodeId,
         @CustomType.Parameter("permission") String permission,
@@ -66,6 +70,7 @@ public final class GetTeamResult {
         this.description = description;
         this.id = id;
         this.members = members;
+        this.membershipType = membershipType;
         this.name = name;
         this.nodeId = nodeId;
         this.permission = permission;
@@ -89,11 +94,14 @@ public final class GetTeamResult {
         return this.id;
     }
     /**
-     * @return List of team members
+     * @return List of team members (list of GitHub usernames)
      * 
      */
     public List<String> members() {
         return this.members;
+    }
+    public Optional<String> membershipType() {
+        return Optional.ofNullable(this.membershipType);
     }
     /**
      * @return the team&#39;s full name.
@@ -124,7 +132,7 @@ public final class GetTeamResult {
         return this.privacy;
     }
     /**
-     * @return List of team repositories
+     * @return List of team repositories (list of repo names)
      * 
      */
     public List<String> repositories() {
@@ -146,6 +154,7 @@ public final class GetTeamResult {
         private String description;
         private String id;
         private List<String> members;
+        private @Nullable String membershipType;
         private String name;
         private String nodeId;
         private String permission;
@@ -162,6 +171,7 @@ public final class GetTeamResult {
     	      this.description = defaults.description;
     	      this.id = defaults.id;
     	      this.members = defaults.members;
+    	      this.membershipType = defaults.membershipType;
     	      this.name = defaults.name;
     	      this.nodeId = defaults.nodeId;
     	      this.permission = defaults.permission;
@@ -184,6 +194,10 @@ public final class GetTeamResult {
         }
         public Builder members(String... members) {
             return members(List.of(members));
+        }
+        public Builder membershipType(@Nullable String membershipType) {
+            this.membershipType = membershipType;
+            return this;
         }
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
@@ -212,7 +226,7 @@ public final class GetTeamResult {
             this.slug = Objects.requireNonNull(slug);
             return this;
         }        public GetTeamResult build() {
-            return new GetTeamResult(description, id, members, name, nodeId, permission, privacy, repositories, slug);
+            return new GetTeamResult(description, id, members, membershipType, name, nodeId, permission, privacy, repositories, slug);
         }
     }
 }

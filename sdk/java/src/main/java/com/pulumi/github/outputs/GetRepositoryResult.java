@@ -103,6 +103,16 @@ public final class GetRepositoryResult {
      */
     private final String id;
     /**
+     * @return The default value for a merge commit message.
+     * 
+     */
+    private final String mergeCommitMessage;
+    /**
+     * @return The default value for a merge commit title.
+     * 
+     */
+    private final String mergeCommitTitle;
+    /**
      * @return Name of the branch.
      * 
      */
@@ -128,6 +138,16 @@ public final class GetRepositoryResult {
      * 
      */
     private final Integer repoId;
+    /**
+     * @return The default value for a squash merge commit message.
+     * 
+     */
+    private final String squashMergeCommitMessage;
+    /**
+     * @return The default value for a squash merge commit title.
+     * 
+     */
+    private final String squashMergeCommitTitle;
     /**
      * @return URL that can be provided to `git clone` to clone the repository via SSH.
      * 
@@ -169,12 +189,16 @@ public final class GetRepositoryResult {
         @CustomType.Parameter("htmlUrl") String htmlUrl,
         @CustomType.Parameter("httpCloneUrl") String httpCloneUrl,
         @CustomType.Parameter("id") String id,
+        @CustomType.Parameter("mergeCommitMessage") String mergeCommitMessage,
+        @CustomType.Parameter("mergeCommitTitle") String mergeCommitTitle,
         @CustomType.Parameter("name") String name,
         @CustomType.Parameter("nodeId") String nodeId,
         @CustomType.Parameter("onlyProtectedBranches") @Nullable Boolean onlyProtectedBranches,
         @CustomType.Parameter("pages") List<GetRepositoryPage> pages,
         @CustomType.Parameter("private") Boolean private_,
         @CustomType.Parameter("repoId") Integer repoId,
+        @CustomType.Parameter("squashMergeCommitMessage") String squashMergeCommitMessage,
+        @CustomType.Parameter("squashMergeCommitTitle") String squashMergeCommitTitle,
         @CustomType.Parameter("sshCloneUrl") String sshCloneUrl,
         @CustomType.Parameter("svnUrl") String svnUrl,
         @CustomType.Parameter("topics") List<String> topics,
@@ -197,12 +221,16 @@ public final class GetRepositoryResult {
         this.htmlUrl = htmlUrl;
         this.httpCloneUrl = httpCloneUrl;
         this.id = id;
+        this.mergeCommitMessage = mergeCommitMessage;
+        this.mergeCommitTitle = mergeCommitTitle;
         this.name = name;
         this.nodeId = nodeId;
         this.onlyProtectedBranches = onlyProtectedBranches;
         this.pages = pages;
         this.private_ = private_;
         this.repoId = repoId;
+        this.squashMergeCommitMessage = squashMergeCommitMessage;
+        this.squashMergeCommitTitle = squashMergeCommitTitle;
         this.sshCloneUrl = sshCloneUrl;
         this.svnUrl = svnUrl;
         this.topics = topics;
@@ -332,6 +360,20 @@ public final class GetRepositoryResult {
         return this.id;
     }
     /**
+     * @return The default value for a merge commit message.
+     * 
+     */
+    public String mergeCommitMessage() {
+        return this.mergeCommitMessage;
+    }
+    /**
+     * @return The default value for a merge commit title.
+     * 
+     */
+    public String mergeCommitTitle() {
+        return this.mergeCommitTitle;
+    }
+    /**
      * @return Name of the branch.
      * 
      */
@@ -368,6 +410,20 @@ public final class GetRepositoryResult {
      */
     public Integer repoId() {
         return this.repoId;
+    }
+    /**
+     * @return The default value for a squash merge commit message.
+     * 
+     */
+    public String squashMergeCommitMessage() {
+        return this.squashMergeCommitMessage;
+    }
+    /**
+     * @return The default value for a squash merge commit title.
+     * 
+     */
+    public String squashMergeCommitTitle() {
+        return this.squashMergeCommitTitle;
     }
     /**
      * @return URL that can be provided to `git clone` to clone the repository via SSH.
@@ -425,12 +481,16 @@ public final class GetRepositoryResult {
         private String htmlUrl;
         private String httpCloneUrl;
         private String id;
+        private String mergeCommitMessage;
+        private String mergeCommitTitle;
         private String name;
         private String nodeId;
         private @Nullable Boolean onlyProtectedBranches;
         private List<GetRepositoryPage> pages;
         private Boolean private_;
         private Integer repoId;
+        private String squashMergeCommitMessage;
+        private String squashMergeCommitTitle;
         private String sshCloneUrl;
         private String svnUrl;
         private List<String> topics;
@@ -460,12 +520,16 @@ public final class GetRepositoryResult {
     	      this.htmlUrl = defaults.htmlUrl;
     	      this.httpCloneUrl = defaults.httpCloneUrl;
     	      this.id = defaults.id;
+    	      this.mergeCommitMessage = defaults.mergeCommitMessage;
+    	      this.mergeCommitTitle = defaults.mergeCommitTitle;
     	      this.name = defaults.name;
     	      this.nodeId = defaults.nodeId;
     	      this.onlyProtectedBranches = defaults.onlyProtectedBranches;
     	      this.pages = defaults.pages;
     	      this.private_ = defaults.private_;
     	      this.repoId = defaults.repoId;
+    	      this.squashMergeCommitMessage = defaults.squashMergeCommitMessage;
+    	      this.squashMergeCommitTitle = defaults.squashMergeCommitTitle;
     	      this.sshCloneUrl = defaults.sshCloneUrl;
     	      this.svnUrl = defaults.svnUrl;
     	      this.topics = defaults.topics;
@@ -547,6 +611,14 @@ public final class GetRepositoryResult {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        public Builder mergeCommitMessage(String mergeCommitMessage) {
+            this.mergeCommitMessage = Objects.requireNonNull(mergeCommitMessage);
+            return this;
+        }
+        public Builder mergeCommitTitle(String mergeCommitTitle) {
+            this.mergeCommitTitle = Objects.requireNonNull(mergeCommitTitle);
+            return this;
+        }
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
@@ -574,6 +646,14 @@ public final class GetRepositoryResult {
             this.repoId = Objects.requireNonNull(repoId);
             return this;
         }
+        public Builder squashMergeCommitMessage(String squashMergeCommitMessage) {
+            this.squashMergeCommitMessage = Objects.requireNonNull(squashMergeCommitMessage);
+            return this;
+        }
+        public Builder squashMergeCommitTitle(String squashMergeCommitTitle) {
+            this.squashMergeCommitTitle = Objects.requireNonNull(squashMergeCommitTitle);
+            return this;
+        }
         public Builder sshCloneUrl(String sshCloneUrl) {
             this.sshCloneUrl = Objects.requireNonNull(sshCloneUrl);
             return this;
@@ -593,7 +673,7 @@ public final class GetRepositoryResult {
             this.visibility = Objects.requireNonNull(visibility);
             return this;
         }        public GetRepositoryResult build() {
-            return new GetRepositoryResult(allowAutoMerge, allowMergeCommit, allowRebaseMerge, allowSquashMerge, archived, branches, defaultBranch, description, fullName, gitCloneUrl, hasDownloads, hasIssues, hasProjects, hasWiki, homepageUrl, htmlUrl, httpCloneUrl, id, name, nodeId, onlyProtectedBranches, pages, private_, repoId, sshCloneUrl, svnUrl, topics, visibility);
+            return new GetRepositoryResult(allowAutoMerge, allowMergeCommit, allowRebaseMerge, allowSquashMerge, archived, branches, defaultBranch, description, fullName, gitCloneUrl, hasDownloads, hasIssues, hasProjects, hasWiki, homepageUrl, htmlUrl, httpCloneUrl, id, mergeCommitMessage, mergeCommitTitle, name, nodeId, onlyProtectedBranches, pages, private_, repoId, squashMergeCommitMessage, squashMergeCommitTitle, sshCloneUrl, svnUrl, topics, visibility);
         }
     }
 }

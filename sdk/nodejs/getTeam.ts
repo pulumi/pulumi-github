@@ -25,6 +25,7 @@ export function getTeam(args: GetTeamArgs, opts?: pulumi.InvokeOptions): Promise
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("github:index/getTeam:getTeam", {
+        "membershipType": args.membershipType,
         "slug": args.slug,
     }, opts);
 }
@@ -33,6 +34,10 @@ export function getTeam(args: GetTeamArgs, opts?: pulumi.InvokeOptions): Promise
  * A collection of arguments for invoking getTeam.
  */
 export interface GetTeamArgs {
+    /**
+     * Type of membershp to be requested to fill the list of members. Can be either "all" or "immediate". Default: "all"
+     */
+    membershipType?: string;
     /**
      * The team slug.
      */
@@ -52,9 +57,10 @@ export interface GetTeamResult {
      */
     readonly id: string;
     /**
-     * List of team members
+     * List of team members (list of GitHub usernames)
      */
     readonly members: string[];
+    readonly membershipType?: string;
     /**
      * the team's full name.
      */
@@ -72,7 +78,7 @@ export interface GetTeamResult {
      */
     readonly privacy: string;
     /**
-     * List of team repositories
+     * List of team repositories (list of repo names)
      */
     readonly repositories: string[];
     readonly slug: string;
@@ -86,6 +92,10 @@ export function getTeamOutput(args: GetTeamOutputArgs, opts?: pulumi.InvokeOptio
  * A collection of arguments for invoking getTeam.
  */
 export interface GetTeamOutputArgs {
+    /**
+     * Type of membershp to be requested to fill the list of members. Can be either "all" or "immediate". Default: "all"
+     */
+    membershipType?: pulumi.Input<string>;
     /**
      * The team slug.
      */

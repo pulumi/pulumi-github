@@ -21,7 +21,7 @@ class GetTeamResult:
     """
     A collection of values returned by getTeam.
     """
-    def __init__(__self__, description=None, id=None, members=None, name=None, node_id=None, permission=None, privacy=None, repositories=None, slug=None):
+    def __init__(__self__, description=None, id=None, members=None, membership_type=None, name=None, node_id=None, permission=None, privacy=None, repositories=None, slug=None):
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -31,6 +31,9 @@ class GetTeamResult:
         if members and not isinstance(members, list):
             raise TypeError("Expected argument 'members' to be a list")
         pulumi.set(__self__, "members", members)
+        if membership_type and not isinstance(membership_type, str):
+            raise TypeError("Expected argument 'membership_type' to be a str")
+        pulumi.set(__self__, "membership_type", membership_type)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -70,9 +73,14 @@ class GetTeamResult:
     @pulumi.getter
     def members(self) -> Sequence[str]:
         """
-        List of team members
+        List of team members (list of GitHub usernames)
         """
         return pulumi.get(self, "members")
+
+    @property
+    @pulumi.getter(name="membershipType")
+    def membership_type(self) -> Optional[str]:
+        return pulumi.get(self, "membership_type")
 
     @property
     @pulumi.getter
@@ -110,7 +118,7 @@ class GetTeamResult:
     @pulumi.getter
     def repositories(self) -> Sequence[str]:
         """
-        List of team repositories
+        List of team repositories (list of repo names)
         """
         return pulumi.get(self, "repositories")
 
@@ -129,6 +137,7 @@ class AwaitableGetTeamResult(GetTeamResult):
             description=self.description,
             id=self.id,
             members=self.members,
+            membership_type=self.membership_type,
             name=self.name,
             node_id=self.node_id,
             permission=self.permission,
@@ -137,7 +146,8 @@ class AwaitableGetTeamResult(GetTeamResult):
             slug=self.slug)
 
 
-def get_team(slug: Optional[str] = None,
+def get_team(membership_type: Optional[str] = None,
+             slug: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTeamResult:
     """
     Use this data source to retrieve information about a GitHub team.
@@ -152,9 +162,11 @@ def get_team(slug: Optional[str] = None,
     ```
 
 
+    :param str membership_type: Type of membershp to be requested to fill the list of members. Can be either "all" or "immediate". Default: "all"
     :param str slug: The team slug.
     """
     __args__ = dict()
+    __args__['membershipType'] = membership_type
     __args__['slug'] = slug
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('github:index/getTeam:getTeam', __args__, opts=opts, typ=GetTeamResult).value
@@ -163,6 +175,7 @@ def get_team(slug: Optional[str] = None,
         description=__ret__.description,
         id=__ret__.id,
         members=__ret__.members,
+        membership_type=__ret__.membership_type,
         name=__ret__.name,
         node_id=__ret__.node_id,
         permission=__ret__.permission,
@@ -172,7 +185,8 @@ def get_team(slug: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_team)
-def get_team_output(slug: Optional[pulumi.Input[str]] = None,
+def get_team_output(membership_type: Optional[pulumi.Input[Optional[str]]] = None,
+                    slug: Optional[pulumi.Input[str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTeamResult]:
     """
     Use this data source to retrieve information about a GitHub team.
@@ -187,6 +201,7 @@ def get_team_output(slug: Optional[pulumi.Input[str]] = None,
     ```
 
 
+    :param str membership_type: Type of membershp to be requested to fill the list of members. Can be either "all" or "immediate". Default: "all"
     :param str slug: The team slug.
     """
     ...
