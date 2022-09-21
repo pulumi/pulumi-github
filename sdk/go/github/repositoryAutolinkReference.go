@@ -11,60 +11,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// This resource allows you to create and manage an autolink reference for a single repository.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-github/sdk/v4/go/github"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			repo, err := github.NewRepository(ctx, "repo", &github.RepositoryArgs{
-//				Description: pulumi.String("GitHub repo managed by Terraform"),
-//				Private:     pulumi.Bool(false),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = github.NewRepositoryAutolinkReference(ctx, "auto", &github.RepositoryAutolinkReferenceArgs{
-//				Repository:        repo.Name,
-//				KeyPrefix:         pulumi.String("TICKET-"),
-//				TargetUrlTemplate: pulumi.String("https://hello.there/TICKET?query=<num>"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Autolink references can be imported using the `name` of the repository, combined with the `id` of the autolink reference and a `/` character for separating components, e.g.
-//
-// ```sh
-//
-//	$ pulumi import github:index/repositoryAutolinkReference:RepositoryAutolinkReference auto oof/123
-//
-// ```
 type RepositoryAutolinkReference struct {
 	pulumi.CustomResourceState
 
-	// An etag representing the autolink reference object.
 	Etag pulumi.StringOutput `pulumi:"etag"`
-	// This prefix appended by a number will generate a link any time it is found in an issue, pull request, or commit.
+	// This prefix appended by a number will generate a link any time it is found in an issue, pull request, or commit
 	KeyPrefix pulumi.StringOutput `pulumi:"keyPrefix"`
-	// The repository of the autolink reference.
+	// The repository name
 	Repository pulumi.StringOutput `pulumi:"repository"`
 	// The template of the target URL used for the links; must be a valid URL and contain `<num>` for the reference number
 	TargetUrlTemplate pulumi.StringOutput `pulumi:"targetUrlTemplate"`
@@ -108,22 +61,20 @@ func GetRepositoryAutolinkReference(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RepositoryAutolinkReference resources.
 type repositoryAutolinkReferenceState struct {
-	// An etag representing the autolink reference object.
 	Etag *string `pulumi:"etag"`
-	// This prefix appended by a number will generate a link any time it is found in an issue, pull request, or commit.
+	// This prefix appended by a number will generate a link any time it is found in an issue, pull request, or commit
 	KeyPrefix *string `pulumi:"keyPrefix"`
-	// The repository of the autolink reference.
+	// The repository name
 	Repository *string `pulumi:"repository"`
 	// The template of the target URL used for the links; must be a valid URL and contain `<num>` for the reference number
 	TargetUrlTemplate *string `pulumi:"targetUrlTemplate"`
 }
 
 type RepositoryAutolinkReferenceState struct {
-	// An etag representing the autolink reference object.
 	Etag pulumi.StringPtrInput
-	// This prefix appended by a number will generate a link any time it is found in an issue, pull request, or commit.
+	// This prefix appended by a number will generate a link any time it is found in an issue, pull request, or commit
 	KeyPrefix pulumi.StringPtrInput
-	// The repository of the autolink reference.
+	// The repository name
 	Repository pulumi.StringPtrInput
 	// The template of the target URL used for the links; must be a valid URL and contain `<num>` for the reference number
 	TargetUrlTemplate pulumi.StringPtrInput
@@ -134,9 +85,9 @@ func (RepositoryAutolinkReferenceState) ElementType() reflect.Type {
 }
 
 type repositoryAutolinkReferenceArgs struct {
-	// This prefix appended by a number will generate a link any time it is found in an issue, pull request, or commit.
+	// This prefix appended by a number will generate a link any time it is found in an issue, pull request, or commit
 	KeyPrefix string `pulumi:"keyPrefix"`
-	// The repository of the autolink reference.
+	// The repository name
 	Repository string `pulumi:"repository"`
 	// The template of the target URL used for the links; must be a valid URL and contain `<num>` for the reference number
 	TargetUrlTemplate string `pulumi:"targetUrlTemplate"`
@@ -144,9 +95,9 @@ type repositoryAutolinkReferenceArgs struct {
 
 // The set of arguments for constructing a RepositoryAutolinkReference resource.
 type RepositoryAutolinkReferenceArgs struct {
-	// This prefix appended by a number will generate a link any time it is found in an issue, pull request, or commit.
+	// This prefix appended by a number will generate a link any time it is found in an issue, pull request, or commit
 	KeyPrefix pulumi.StringInput
-	// The repository of the autolink reference.
+	// The repository name
 	Repository pulumi.StringInput
 	// The template of the target URL used for the links; must be a valid URL and contain `<num>` for the reference number
 	TargetUrlTemplate pulumi.StringInput
@@ -239,17 +190,16 @@ func (o RepositoryAutolinkReferenceOutput) ToRepositoryAutolinkReferenceOutputWi
 	return o
 }
 
-// An etag representing the autolink reference object.
 func (o RepositoryAutolinkReferenceOutput) Etag() pulumi.StringOutput {
 	return o.ApplyT(func(v *RepositoryAutolinkReference) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
 }
 
-// This prefix appended by a number will generate a link any time it is found in an issue, pull request, or commit.
+// This prefix appended by a number will generate a link any time it is found in an issue, pull request, or commit
 func (o RepositoryAutolinkReferenceOutput) KeyPrefix() pulumi.StringOutput {
 	return o.ApplyT(func(v *RepositoryAutolinkReference) pulumi.StringOutput { return v.KeyPrefix }).(pulumi.StringOutput)
 }
 
-// The repository of the autolink reference.
+// The repository name
 func (o RepositoryAutolinkReferenceOutput) Repository() pulumi.StringOutput {
 	return o.ApplyT(func(v *RepositoryAutolinkReference) pulumi.StringOutput { return v.Repository }).(pulumi.StringOutput)
 }

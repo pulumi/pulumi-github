@@ -11,65 +11,9 @@ namespace Pulumi.Github
 {
     public static class GetRepositoryPullRequests
     {
-        /// <summary>
-        /// Use this data source to retrieve information about multiple GitHub Pull Requests in a repository.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Github = Pulumi.Github;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Github.GetRepositoryPullRequests.Invoke(new()
-        ///     {
-        ///         BaseRef = "main",
-        ///         BaseRepository = "example-repository",
-        ///         SortBy = "updated",
-        ///         SortDirection = "desc",
-        ///         State = "open",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Task<GetRepositoryPullRequestsResult> InvokeAsync(GetRepositoryPullRequestsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRepositoryPullRequestsResult>("github:index/getRepositoryPullRequests:getRepositoryPullRequests", args ?? new GetRepositoryPullRequestsArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Use this data source to retrieve information about multiple GitHub Pull Requests in a repository.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Github = Pulumi.Github;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Github.GetRepositoryPullRequests.Invoke(new()
-        ///     {
-        ///         BaseRef = "main",
-        ///         BaseRepository = "example-repository",
-        ///         SortBy = "updated",
-        ///         SortDirection = "desc",
-        ///         State = "open",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Output<GetRepositoryPullRequestsResult> Invoke(GetRepositoryPullRequestsInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetRepositoryPullRequestsResult>("github:index/getRepositoryPullRequests:getRepositoryPullRequests", args ?? new GetRepositoryPullRequestsInvokeArgs(), options.WithDefaults());
     }
@@ -77,45 +21,24 @@ namespace Pulumi.Github
 
     public sealed class GetRepositoryPullRequestsArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// If set, filters Pull Requests by base branch name.
-        /// </summary>
         [Input("baseRef")]
         public string? BaseRef { get; set; }
 
-        /// <summary>
-        /// Name of the base repository to retrieve the Pull Requests from.
-        /// </summary>
         [Input("baseRepository", required: true)]
         public string BaseRepository { get; set; } = null!;
 
-        /// <summary>
-        /// If set, filters Pull Requests by head user or head organization and branch name in the format of "user:ref-name" or "organization:ref-name". For example: "github:new-script-format" or "octocat:test-branch".
-        /// </summary>
         [Input("headRef")]
         public string? HeadRef { get; set; }
 
-        /// <summary>
-        /// Owner of the repository. If not provided, the provider's default owner is used.
-        /// </summary>
         [Input("owner")]
         public string? Owner { get; set; }
 
-        /// <summary>
-        /// If set, indicates what to sort results by. Can be either "created", "updated", "popularity" (comment count) or "long-running" (age, filtering by pulls updated in the last month). Default: "created".
-        /// </summary>
         [Input("sortBy")]
         public string? SortBy { get; set; }
 
-        /// <summary>
-        /// If set, controls the direction of the sort. Can be either "asc" or "desc". Default: "asc".
-        /// </summary>
         [Input("sortDirection")]
         public string? SortDirection { get; set; }
 
-        /// <summary>
-        /// If set, filters Pull Requests by state. Can be "open", "closed", or "all". Default: "open".
-        /// </summary>
         [Input("state")]
         public string? State { get; set; }
 
@@ -127,45 +50,24 @@ namespace Pulumi.Github
 
     public sealed class GetRepositoryPullRequestsInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// If set, filters Pull Requests by base branch name.
-        /// </summary>
         [Input("baseRef")]
         public Input<string>? BaseRef { get; set; }
 
-        /// <summary>
-        /// Name of the base repository to retrieve the Pull Requests from.
-        /// </summary>
         [Input("baseRepository", required: true)]
         public Input<string> BaseRepository { get; set; } = null!;
 
-        /// <summary>
-        /// If set, filters Pull Requests by head user or head organization and branch name in the format of "user:ref-name" or "organization:ref-name". For example: "github:new-script-format" or "octocat:test-branch".
-        /// </summary>
         [Input("headRef")]
         public Input<string>? HeadRef { get; set; }
 
-        /// <summary>
-        /// Owner of the repository. If not provided, the provider's default owner is used.
-        /// </summary>
         [Input("owner")]
         public Input<string>? Owner { get; set; }
 
-        /// <summary>
-        /// If set, indicates what to sort results by. Can be either "created", "updated", "popularity" (comment count) or "long-running" (age, filtering by pulls updated in the last month). Default: "created".
-        /// </summary>
         [Input("sortBy")]
         public Input<string>? SortBy { get; set; }
 
-        /// <summary>
-        /// If set, controls the direction of the sort. Can be either "asc" or "desc". Default: "asc".
-        /// </summary>
         [Input("sortDirection")]
         public Input<string>? SortDirection { get; set; }
 
-        /// <summary>
-        /// If set, filters Pull Requests by state. Can be "open", "closed", or "all". Default: "open".
-        /// </summary>
         [Input("state")]
         public Input<string>? State { get; set; }
 
@@ -179,29 +81,17 @@ namespace Pulumi.Github
     [OutputType]
     public sealed class GetRepositoryPullRequestsResult
     {
-        /// <summary>
-        /// Name of the ref (branch) of the Pull Request base.
-        /// </summary>
         public readonly string? BaseRef;
         public readonly string BaseRepository;
-        /// <summary>
-        /// Value of the Pull Request `HEAD` reference.
-        /// </summary>
         public readonly string? HeadRef;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
         public readonly string? Owner;
-        /// <summary>
-        /// Collection of Pull Requests matching the filters. Each of the results conforms to the following scheme:
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetRepositoryPullRequestsResultResult> Results;
         public readonly string? SortBy;
         public readonly string? SortDirection;
-        /// <summary>
-        /// the current Pull Request state - can be "open", "closed" or "merged".
-        /// </summary>
         public readonly string? State;
 
         [OutputConstructor]

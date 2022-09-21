@@ -11,120 +11,37 @@ import java.util.Objects;
 
 @CustomType
 public final class GetOrganizationTeamsTeam {
-    /**
-     * @return the team&#39;s description.
-     * 
-     */
-    private final String description;
-    /**
-     * @return the ID of the team.
-     * 
-     */
-    private final Integer id;
-    /**
-     * @return List of team members.
-     * 
-     */
-    private final List<String> members;
-    /**
-     * @return the team&#39;s full name.
-     * 
-     */
-    private final String name;
-    /**
-     * @return the Node ID of the team.
-     * 
-     */
-    private final String nodeId;
-    /**
-     * @return the team&#39;s privacy type.
-     * 
-     */
-    private final String privacy;
-    /**
-     * @return List of team repositories.
-     * 
-     */
-    private final List<String> repositories;
-    /**
-     * @return the slug of the team.
-     * 
-     */
-    private final String slug;
+    private String description;
+    private Integer id;
+    private List<String> members;
+    private String name;
+    private String nodeId;
+    private String privacy;
+    private List<String> repositories;
+    private String slug;
 
-    @CustomType.Constructor
-    private GetOrganizationTeamsTeam(
-        @CustomType.Parameter("description") String description,
-        @CustomType.Parameter("id") Integer id,
-        @CustomType.Parameter("members") List<String> members,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("nodeId") String nodeId,
-        @CustomType.Parameter("privacy") String privacy,
-        @CustomType.Parameter("repositories") List<String> repositories,
-        @CustomType.Parameter("slug") String slug) {
-        this.description = description;
-        this.id = id;
-        this.members = members;
-        this.name = name;
-        this.nodeId = nodeId;
-        this.privacy = privacy;
-        this.repositories = repositories;
-        this.slug = slug;
-    }
-
-    /**
-     * @return the team&#39;s description.
-     * 
-     */
+    private GetOrganizationTeamsTeam() {}
     public String description() {
         return this.description;
     }
-    /**
-     * @return the ID of the team.
-     * 
-     */
     public Integer id() {
         return this.id;
     }
-    /**
-     * @return List of team members.
-     * 
-     */
     public List<String> members() {
         return this.members;
     }
-    /**
-     * @return the team&#39;s full name.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return the Node ID of the team.
-     * 
-     */
     public String nodeId() {
         return this.nodeId;
     }
-    /**
-     * @return the team&#39;s privacy type.
-     * 
-     */
     public String privacy() {
         return this.privacy;
     }
-    /**
-     * @return List of team repositories.
-     * 
-     */
     public List<String> repositories() {
         return this.repositories;
     }
-    /**
-     * @return the slug of the team.
-     * 
-     */
     public String slug() {
         return this.slug;
     }
@@ -136,7 +53,7 @@ public final class GetOrganizationTeamsTeam {
     public static Builder builder(GetOrganizationTeamsTeam defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String description;
         private Integer id;
@@ -146,11 +63,7 @@ public final class GetOrganizationTeamsTeam {
         private String privacy;
         private List<String> repositories;
         private String slug;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetOrganizationTeamsTeam defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.description = defaults.description;
@@ -163,14 +76,17 @@ public final class GetOrganizationTeamsTeam {
     	      this.slug = defaults.slug;
         }
 
+        @CustomType.Setter
         public Builder description(String description) {
             this.description = Objects.requireNonNull(description);
             return this;
         }
+        @CustomType.Setter
         public Builder id(Integer id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder members(List<String> members) {
             this.members = Objects.requireNonNull(members);
             return this;
@@ -178,18 +94,22 @@ public final class GetOrganizationTeamsTeam {
         public Builder members(String... members) {
             return members(List.of(members));
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder nodeId(String nodeId) {
             this.nodeId = Objects.requireNonNull(nodeId);
             return this;
         }
+        @CustomType.Setter
         public Builder privacy(String privacy) {
             this.privacy = Objects.requireNonNull(privacy);
             return this;
         }
+        @CustomType.Setter
         public Builder repositories(List<String> repositories) {
             this.repositories = Objects.requireNonNull(repositories);
             return this;
@@ -197,11 +117,22 @@ public final class GetOrganizationTeamsTeam {
         public Builder repositories(String... repositories) {
             return repositories(List.of(repositories));
         }
+        @CustomType.Setter
         public Builder slug(String slug) {
             this.slug = Objects.requireNonNull(slug);
             return this;
-        }        public GetOrganizationTeamsTeam build() {
-            return new GetOrganizationTeamsTeam(description, id, members, name, nodeId, privacy, repositories, slug);
+        }
+        public GetOrganizationTeamsTeam build() {
+            final var o = new GetOrganizationTeamsTeam();
+            o.description = description;
+            o.id = id;
+            o.members = members;
+            o.name = name;
+            o.nodeId = nodeId;
+            o.privacy = privacy;
+            o.repositories = repositories;
+            o.slug = slug;
+            return o;
         }
     }
 }

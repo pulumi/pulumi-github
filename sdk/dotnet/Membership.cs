@@ -9,56 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Github
 {
-    /// <summary>
-    /// Provides a GitHub membership resource.
-    /// 
-    /// This resource allows you to add/remove users from your organization. When applied,
-    /// an invitation will be sent to the user to become part of the organization. When
-    /// destroyed, either the invitation will be cancelled or the user will be removed.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Github = Pulumi.Github;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     // Add a user to the organization
-    ///     var membershipForSomeUser = new Github.Membership("membershipForSomeUser", new()
-    ///     {
-    ///         Role = "member",
-    ///         Username = "SomeUser",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// GitHub Membership can be imported using an ID made up of `organization:username`, e.g.
-    /// 
-    /// ```sh
-    ///  $ pulumi import github:index/membership:Membership member hashicorp:someuser
-    /// ```
-    /// </summary>
     [GithubResourceType("github:index/membership:Membership")]
     public partial class Membership : global::Pulumi.CustomResource
     {
         [Output("etag")]
         public Output<string> Etag { get; private set; } = null!;
 
-        /// <summary>
-        /// The role of the user within the organization.
-        /// Must be one of `member` or `admin`. Defaults to `member`.
-        /// </summary>
         [Output("role")]
         public Output<string?> Role { get; private set; } = null!;
 
-        /// <summary>
-        /// The user to add to the organization.
-        /// </summary>
         [Output("username")]
         public Output<string> Username { get; private set; } = null!;
 
@@ -108,16 +67,9 @@ namespace Pulumi.Github
 
     public sealed class MembershipArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The role of the user within the organization.
-        /// Must be one of `member` or `admin`. Defaults to `member`.
-        /// </summary>
         [Input("role")]
         public Input<string>? Role { get; set; }
 
-        /// <summary>
-        /// The user to add to the organization.
-        /// </summary>
         [Input("username", required: true)]
         public Input<string> Username { get; set; } = null!;
 
@@ -132,16 +84,9 @@ namespace Pulumi.Github
         [Input("etag")]
         public Input<string>? Etag { get; set; }
 
-        /// <summary>
-        /// The role of the user within the organization.
-        /// Must be one of `member` or `admin`. Defaults to `member`.
-        /// </summary>
         [Input("role")]
         public Input<string>? Role { get; set; }
 
-        /// <summary>
-        /// The user to add to the organization.
-        /// </summary>
         [Input("username")]
         public Input<string>? Username { get; set; }
 

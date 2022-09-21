@@ -4,25 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
-/**
- * This resource allows you to create and manage projects for GitHub repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as github from "@pulumi/github";
- *
- * const example = new github.Repository("example", {
- *     description: "My awesome codebase",
- *     hasProjects: true,
- * });
- * const project = new github.RepositoryProject("project", {
- *     body: "This is a repository project.",
- *     repository: example.name,
- * });
- * ```
- */
 export class RepositoryProject extends pulumi.CustomResource {
     /**
      * Get an existing RepositoryProject resource's state with the given name, ID, and optional extra
@@ -51,22 +32,10 @@ export class RepositoryProject extends pulumi.CustomResource {
         return obj['__pulumiType'] === RepositoryProject.__pulumiType;
     }
 
-    /**
-     * The body of the project.
-     */
     public readonly body!: pulumi.Output<string | undefined>;
     public /*out*/ readonly etag!: pulumi.Output<string>;
-    /**
-     * The name of the project.
-     */
     public readonly name!: pulumi.Output<string>;
-    /**
-     * The repository of the project.
-     */
     public readonly repository!: pulumi.Output<string>;
-    /**
-     * URL of the project
-     */
     public /*out*/ readonly url!: pulumi.Output<string>;
 
     /**
@@ -107,22 +76,10 @@ export class RepositoryProject extends pulumi.CustomResource {
  * Input properties used for looking up and filtering RepositoryProject resources.
  */
 export interface RepositoryProjectState {
-    /**
-     * The body of the project.
-     */
     body?: pulumi.Input<string>;
     etag?: pulumi.Input<string>;
-    /**
-     * The name of the project.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * The repository of the project.
-     */
     repository?: pulumi.Input<string>;
-    /**
-     * URL of the project
-     */
     url?: pulumi.Input<string>;
 }
 
@@ -130,16 +87,7 @@ export interface RepositoryProjectState {
  * The set of arguments for constructing a RepositoryProject resource.
  */
 export interface RepositoryProjectArgs {
-    /**
-     * The body of the project.
-     */
     body?: pulumi.Input<string>;
-    /**
-     * The name of the project.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * The repository of the project.
-     */
     repository: pulumi.Input<string>;
 }

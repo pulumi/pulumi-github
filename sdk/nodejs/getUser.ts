@@ -4,27 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
-/**
- * Use this data source to retrieve information about a GitHub user.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as github from "@pulumi/github";
- *
- * // Retrieve information about a GitHub user.
- * const example = pulumi.output(github.getUser({
- *     username: "example",
- * }));
- * // Retrieve information about the currently authenticated user.
- * const current = pulumi.output(github.getUser({
- *     username: "",
- * }));
- *
- * export const currentGithubLogin = current.login;
- * ```
- */
 export function getUser(args: GetUserArgs, opts?: pulumi.InvokeOptions): Promise<GetUserResult> {
     if (!opts) {
         opts = {}
@@ -40,9 +19,6 @@ export function getUser(args: GetUserArgs, opts?: pulumi.InvokeOptions): Promise
  * A collection of arguments for invoking getUser.
  */
 export interface GetUserArgs {
-    /**
-     * The username. Use an empty string `""` to retrieve information about the currently authenticated user.
-     */
     username: string;
 }
 
@@ -50,89 +26,29 @@ export interface GetUserArgs {
  * A collection of values returned by getUser.
  */
 export interface GetUserResult {
-    /**
-     * the user's avatar URL.
-     */
     readonly avatarUrl: string;
-    /**
-     * the user's bio.
-     */
     readonly bio: string;
-    /**
-     * the user's blog location.
-     */
     readonly blog: string;
-    /**
-     * the user's company name.
-     */
     readonly company: string;
-    /**
-     * the creation date.
-     */
     readonly createdAt: string;
-    /**
-     * the user's email.
-     */
     readonly email: string;
-    /**
-     * the number of followers.
-     */
     readonly followers: number;
-    /**
-     * the number of following users.
-     */
     readonly following: number;
-    /**
-     * list of user's GPG keys.
-     */
     readonly gpgKeys: string[];
-    /**
-     * the user's gravatar ID.
-     */
     readonly gravatarId: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    /**
-     * the user's location.
-     */
     readonly location: string;
-    /**
-     * the user's login.
-     */
     readonly login: string;
-    /**
-     * the user's full name.
-     */
     readonly name: string;
-    /**
-     * the Node ID of the user.
-     */
     readonly nodeId: string;
-    /**
-     * the number of public gists.
-     */
     readonly publicGists: number;
-    /**
-     * the number of public repositories.
-     */
     readonly publicRepos: number;
-    /**
-     * whether the user is a GitHub admin.
-     */
     readonly siteAdmin: boolean;
-    /**
-     * list of user's SSH keys.
-     */
     readonly sshKeys: string[];
-    /**
-     * the suspended date if the user is suspended.
-     */
     readonly suspendedAt: string;
-    /**
-     * the update date.
-     */
     readonly updatedAt: string;
     readonly username: string;
 }
@@ -145,8 +61,5 @@ export function getUserOutput(args: GetUserOutputArgs, opts?: pulumi.InvokeOptio
  * A collection of arguments for invoking getUser.
  */
 export interface GetUserOutputArgs {
-    /**
-     * The username. Use an empty string `""` to retrieve information about the currently authenticated user.
-     */
     username: pulumi.Input<string>;
 }

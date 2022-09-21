@@ -16,77 +16,37 @@ public final class GetRepositoryArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetRepositoryArgs Empty = new GetRepositoryArgs();
 
-    /**
-     * A description of the repository.
-     * 
-     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
-    /**
-     * @return A description of the repository.
-     * 
-     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
-    /**
-     * Full name of the repository (in `org/name` format).
-     * 
-     */
     @Import(name="fullName")
     private @Nullable Output<String> fullName;
 
-    /**
-     * @return Full name of the repository (in `org/name` format).
-     * 
-     */
     public Optional<Output<String>> fullName() {
         return Optional.ofNullable(this.fullName);
     }
 
-    /**
-     * URL of a page describing the project.
-     * 
-     */
     @Import(name="homepageUrl")
     private @Nullable Output<String> homepageUrl;
 
-    /**
-     * @return URL of a page describing the project.
-     * 
-     */
     public Optional<Output<String>> homepageUrl() {
         return Optional.ofNullable(this.homepageUrl);
     }
 
-    /**
-     * The name of the repository.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return The name of the repository.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * . If true, the `branches` attributes will be populated only with protected branches. Default: `false`.
-     * 
-     */
     @Import(name="onlyProtectedBranches")
     private @Nullable Output<Boolean> onlyProtectedBranches;
 
-    /**
-     * @return . If true, the `branches` attributes will be populated only with protected branches. Default: `false`.
-     * 
-     */
     public Optional<Output<Boolean>> onlyProtectedBranches() {
         return Optional.ofNullable(this.onlyProtectedBranches);
     }
@@ -119,107 +79,47 @@ public final class GetRepositoryArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetRepositoryArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param description A description of the repository.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
-        /**
-         * @param description A description of the repository.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
-        /**
-         * @param fullName Full name of the repository (in `org/name` format).
-         * 
-         * @return builder
-         * 
-         */
         public Builder fullName(@Nullable Output<String> fullName) {
             $.fullName = fullName;
             return this;
         }
 
-        /**
-         * @param fullName Full name of the repository (in `org/name` format).
-         * 
-         * @return builder
-         * 
-         */
         public Builder fullName(String fullName) {
             return fullName(Output.of(fullName));
         }
 
-        /**
-         * @param homepageUrl URL of a page describing the project.
-         * 
-         * @return builder
-         * 
-         */
         public Builder homepageUrl(@Nullable Output<String> homepageUrl) {
             $.homepageUrl = homepageUrl;
             return this;
         }
 
-        /**
-         * @param homepageUrl URL of a page describing the project.
-         * 
-         * @return builder
-         * 
-         */
         public Builder homepageUrl(String homepageUrl) {
             return homepageUrl(Output.of(homepageUrl));
         }
 
-        /**
-         * @param name The name of the repository.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The name of the repository.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param onlyProtectedBranches . If true, the `branches` attributes will be populated only with protected branches. Default: `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder onlyProtectedBranches(@Nullable Output<Boolean> onlyProtectedBranches) {
             $.onlyProtectedBranches = onlyProtectedBranches;
             return this;
         }
 
-        /**
-         * @param onlyProtectedBranches . If true, the `branches` attributes will be populated only with protected branches. Default: `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder onlyProtectedBranches(Boolean onlyProtectedBranches) {
             return onlyProtectedBranches(Output.of(onlyProtectedBranches));
         }

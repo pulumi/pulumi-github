@@ -11,65 +11,9 @@ namespace Pulumi.Github
 {
     public static class GetRepositoryFile
     {
-        /// <summary>
-        /// This data source allows you to read files within a
-        /// GitHub repository.
-        /// 
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Github = Pulumi.Github;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var foo = Github.GetRepositoryFile.Invoke(new()
-        ///     {
-        ///         Repository = github_repository.Foo.Name,
-        ///         Branch = "main",
-        ///         File = ".gitignore",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Task<GetRepositoryFileResult> InvokeAsync(GetRepositoryFileArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRepositoryFileResult>("github:index/getRepositoryFile:getRepositoryFile", args ?? new GetRepositoryFileArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// This data source allows you to read files within a
-        /// GitHub repository.
-        /// 
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Github = Pulumi.Github;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var foo = Github.GetRepositoryFile.Invoke(new()
-        ///     {
-        ///         Repository = github_repository.Foo.Name,
-        ///         Branch = "main",
-        ///         File = ".gitignore",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Output<GetRepositoryFileResult> Invoke(GetRepositoryFileInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetRepositoryFileResult>("github:index/getRepositoryFile:getRepositoryFile", args ?? new GetRepositoryFileInvokeArgs(), options.WithDefaults());
     }
@@ -77,22 +21,12 @@ namespace Pulumi.Github
 
     public sealed class GetRepositoryFileArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Git branch (defaults to `main`).
-        /// The branch must already exist, it will not be created if it does not already exist.
-        /// </summary>
         [Input("branch")]
         public string? Branch { get; set; }
 
-        /// <summary>
-        /// The path of the file to manage.
-        /// </summary>
         [Input("file", required: true)]
         public string File { get; set; } = null!;
 
-        /// <summary>
-        /// The repository to create the file in.
-        /// </summary>
         [Input("repository", required: true)]
         public string Repository { get; set; } = null!;
 
@@ -104,22 +38,12 @@ namespace Pulumi.Github
 
     public sealed class GetRepositoryFileInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Git branch (defaults to `main`).
-        /// The branch must already exist, it will not be created if it does not already exist.
-        /// </summary>
         [Input("branch")]
         public Input<string>? Branch { get; set; }
 
-        /// <summary>
-        /// The path of the file to manage.
-        /// </summary>
         [Input("file", required: true)]
         public Input<string> File { get; set; } = null!;
 
-        /// <summary>
-        /// The repository to create the file in.
-        /// </summary>
         [Input("repository", required: true)]
         public Input<string> Repository { get; set; } = null!;
 
@@ -134,25 +58,10 @@ namespace Pulumi.Github
     public sealed class GetRepositoryFileResult
     {
         public readonly string? Branch;
-        /// <summary>
-        /// Committer author name.
-        /// </summary>
         public readonly string CommitAuthor;
-        /// <summary>
-        /// Committer email address.
-        /// </summary>
         public readonly string CommitEmail;
-        /// <summary>
-        /// Commit message when file was last updated.
-        /// </summary>
         public readonly string CommitMessage;
-        /// <summary>
-        /// The SHA of the commit that modified the file.
-        /// </summary>
         public readonly string CommitSha;
-        /// <summary>
-        /// The file content.
-        /// </summary>
         public readonly string Content;
         public readonly string File;
         /// <summary>
@@ -160,9 +69,6 @@ namespace Pulumi.Github
         /// </summary>
         public readonly string Id;
         public readonly string Repository;
-        /// <summary>
-        /// The SHA blob of the file.
-        /// </summary>
         public readonly string Sha;
 
         [OutputConstructor]

@@ -11,63 +11,9 @@ namespace Pulumi.Github
 {
     public static class GetRepositories
     {
-        /// <summary>
-        /// &gt; **Note:** The data source will return a maximum of `1000` repositories
-        /// 	[as documented in official API docs](https://developer.github.com/v3/search/#about-the-search-api).
-        /// 
-        /// Use this data source to retrieve a list of GitHub repositories using a search query.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Github = Pulumi.Github;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Github.GetRepositories.Invoke(new()
-        ///     {
-        ///         Query = "org:hashicorp language:Go",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Task<GetRepositoriesResult> InvokeAsync(GetRepositoriesArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRepositoriesResult>("github:index/getRepositories:getRepositories", args ?? new GetRepositoriesArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// &gt; **Note:** The data source will return a maximum of `1000` repositories
-        /// 	[as documented in official API docs](https://developer.github.com/v3/search/#about-the-search-api).
-        /// 
-        /// Use this data source to retrieve a list of GitHub repositories using a search query.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Github = Pulumi.Github;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Github.GetRepositories.Invoke(new()
-        ///     {
-        ///         Query = "org:hashicorp language:Go",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Output<GetRepositoriesResult> Invoke(GetRepositoriesInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetRepositoriesResult>("github:index/getRepositories:getRepositories", args ?? new GetRepositoriesInvokeArgs(), options.WithDefaults());
     }
@@ -75,15 +21,9 @@ namespace Pulumi.Github
 
     public sealed class GetRepositoriesArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Search query. See [documentation for the search syntax](https://help.github.com/articles/understanding-the-search-syntax/).
-        /// </summary>
         [Input("query", required: true)]
         public string Query { get; set; } = null!;
 
-        /// <summary>
-        /// Sorts the repositories returned by the specified attribute. Valid values include `stars`, `fork`, and `updated`. Defaults to `updated`.
-        /// </summary>
         [Input("sort")]
         public string? Sort { get; set; }
 
@@ -95,15 +35,9 @@ namespace Pulumi.Github
 
     public sealed class GetRepositoriesInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Search query. See [documentation for the search syntax](https://help.github.com/articles/understanding-the-search-syntax/).
-        /// </summary>
         [Input("query", required: true)]
         public Input<string> Query { get; set; } = null!;
 
-        /// <summary>
-        /// Sorts the repositories returned by the specified attribute. Valid values include `stars`, `fork`, and `updated`. Defaults to `updated`.
-        /// </summary>
         [Input("sort")]
         public Input<string>? Sort { get; set; }
 

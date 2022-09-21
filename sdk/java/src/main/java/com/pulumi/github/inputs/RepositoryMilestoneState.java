@@ -16,107 +16,59 @@ public final class RepositoryMilestoneState extends com.pulumi.resources.Resourc
 
     public static final RepositoryMilestoneState Empty = new RepositoryMilestoneState();
 
-    /**
-     * A description of the milestone.
-     * 
-     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
-    /**
-     * @return A description of the milestone.
-     * 
-     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
     /**
-     * The milestone due date. In `yyyy-mm-dd` format.
+     * in yyyy-mm-dd format
      * 
      */
     @Import(name="dueDate")
     private @Nullable Output<String> dueDate;
 
     /**
-     * @return The milestone due date. In `yyyy-mm-dd` format.
+     * @return in yyyy-mm-dd format
      * 
      */
     public Optional<Output<String>> dueDate() {
         return Optional.ofNullable(this.dueDate);
     }
 
-    /**
-     * The number of the milestone.
-     * 
-     */
     @Import(name="number")
     private @Nullable Output<Integer> number;
 
-    /**
-     * @return The number of the milestone.
-     * 
-     */
     public Optional<Output<Integer>> number() {
         return Optional.ofNullable(this.number);
     }
 
-    /**
-     * The owner of the GitHub Repository.
-     * 
-     */
     @Import(name="owner")
     private @Nullable Output<String> owner;
 
-    /**
-     * @return The owner of the GitHub Repository.
-     * 
-     */
     public Optional<Output<String>> owner() {
         return Optional.ofNullable(this.owner);
     }
 
-    /**
-     * The name of the GitHub Repository.
-     * 
-     */
     @Import(name="repository")
     private @Nullable Output<String> repository;
 
-    /**
-     * @return The name of the GitHub Repository.
-     * 
-     */
     public Optional<Output<String>> repository() {
         return Optional.ofNullable(this.repository);
     }
 
-    /**
-     * The state of the milestone. Either `open` or `closed`. Default: `open`
-     * 
-     */
     @Import(name="state")
     private @Nullable Output<String> state;
 
-    /**
-     * @return The state of the milestone. Either `open` or `closed`. Default: `open`
-     * 
-     */
     public Optional<Output<String>> state() {
         return Optional.ofNullable(this.state);
     }
 
-    /**
-     * The title of the milestone.
-     * 
-     */
     @Import(name="title")
     private @Nullable Output<String> title;
 
-    /**
-     * @return The title of the milestone.
-     * 
-     */
     public Optional<Output<String>> title() {
         return Optional.ofNullable(this.title);
     }
@@ -151,29 +103,17 @@ public final class RepositoryMilestoneState extends com.pulumi.resources.Resourc
             $ = new RepositoryMilestoneState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param description A description of the milestone.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
-        /**
-         * @param description A description of the milestone.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
         /**
-         * @param dueDate The milestone due date. In `yyyy-mm-dd` format.
+         * @param dueDate in yyyy-mm-dd format
          * 
          * @return builder
          * 
@@ -184,7 +124,7 @@ public final class RepositoryMilestoneState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param dueDate The milestone due date. In `yyyy-mm-dd` format.
+         * @param dueDate in yyyy-mm-dd format
          * 
          * @return builder
          * 
@@ -193,107 +133,47 @@ public final class RepositoryMilestoneState extends com.pulumi.resources.Resourc
             return dueDate(Output.of(dueDate));
         }
 
-        /**
-         * @param number The number of the milestone.
-         * 
-         * @return builder
-         * 
-         */
         public Builder number(@Nullable Output<Integer> number) {
             $.number = number;
             return this;
         }
 
-        /**
-         * @param number The number of the milestone.
-         * 
-         * @return builder
-         * 
-         */
         public Builder number(Integer number) {
             return number(Output.of(number));
         }
 
-        /**
-         * @param owner The owner of the GitHub Repository.
-         * 
-         * @return builder
-         * 
-         */
         public Builder owner(@Nullable Output<String> owner) {
             $.owner = owner;
             return this;
         }
 
-        /**
-         * @param owner The owner of the GitHub Repository.
-         * 
-         * @return builder
-         * 
-         */
         public Builder owner(String owner) {
             return owner(Output.of(owner));
         }
 
-        /**
-         * @param repository The name of the GitHub Repository.
-         * 
-         * @return builder
-         * 
-         */
         public Builder repository(@Nullable Output<String> repository) {
             $.repository = repository;
             return this;
         }
 
-        /**
-         * @param repository The name of the GitHub Repository.
-         * 
-         * @return builder
-         * 
-         */
         public Builder repository(String repository) {
             return repository(Output.of(repository));
         }
 
-        /**
-         * @param state The state of the milestone. Either `open` or `closed`. Default: `open`
-         * 
-         * @return builder
-         * 
-         */
         public Builder state(@Nullable Output<String> state) {
             $.state = state;
             return this;
         }
 
-        /**
-         * @param state The state of the milestone. Either `open` or `closed`. Default: `open`
-         * 
-         * @return builder
-         * 
-         */
         public Builder state(String state) {
             return state(Output.of(state));
         }
 
-        /**
-         * @param title The title of the milestone.
-         * 
-         * @return builder
-         * 
-         */
         public Builder title(@Nullable Output<String> title) {
             $.title = title;
             return this;
         }
 
-        /**
-         * @param title The title of the milestone.
-         * 
-         * @return builder
-         * 
-         */
         public Builder title(String title) {
             return title(Output.of(title));
         }

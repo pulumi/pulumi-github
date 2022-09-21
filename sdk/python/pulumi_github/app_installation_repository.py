@@ -18,8 +18,6 @@ class AppInstallationRepositoryArgs:
                  repository: pulumi.Input[str]):
         """
         The set of arguments for constructing a AppInstallationRepository resource.
-        :param pulumi.Input[str] installation_id: The GitHub app installation id.
-        :param pulumi.Input[str] repository: The repository to install the app on.
         """
         pulumi.set(__self__, "installation_id", installation_id)
         pulumi.set(__self__, "repository", repository)
@@ -27,9 +25,6 @@ class AppInstallationRepositoryArgs:
     @property
     @pulumi.getter(name="installationId")
     def installation_id(self) -> pulumi.Input[str]:
-        """
-        The GitHub app installation id.
-        """
         return pulumi.get(self, "installation_id")
 
     @installation_id.setter
@@ -39,9 +34,6 @@ class AppInstallationRepositoryArgs:
     @property
     @pulumi.getter
     def repository(self) -> pulumi.Input[str]:
-        """
-        The repository to install the app on.
-        """
         return pulumi.get(self, "repository")
 
     @repository.setter
@@ -57,8 +49,6 @@ class _AppInstallationRepositoryState:
                  repository: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering AppInstallationRepository resources.
-        :param pulumi.Input[str] installation_id: The GitHub app installation id.
-        :param pulumi.Input[str] repository: The repository to install the app on.
         """
         if installation_id is not None:
             pulumi.set(__self__, "installation_id", installation_id)
@@ -70,9 +60,6 @@ class _AppInstallationRepositoryState:
     @property
     @pulumi.getter(name="installationId")
     def installation_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The GitHub app installation id.
-        """
         return pulumi.get(self, "installation_id")
 
     @installation_id.setter
@@ -91,9 +78,6 @@ class _AppInstallationRepositoryState:
     @property
     @pulumi.getter
     def repository(self) -> Optional[pulumi.Input[str]]:
-        """
-        The repository to install the app on.
-        """
         return pulumi.get(self, "repository")
 
     @repository.setter
@@ -110,43 +94,9 @@ class AppInstallationRepository(pulumi.CustomResource):
                  repository: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        > **Note**: This resource is not compatible with the GitHub App Installation authentication method.
-
-        This resource manages relationships between app installations and repositories
-        in your GitHub organization.
-
-        Creating this resource installs a particular app on a particular repository.
-
-        The app installation and the repository must both belong to the same
-        organization on GitHub. Note: you can review your organization's installations
-        by the following the instructions at this
-        [link](https://docs.github.com/en/github/setting-up-and-managing-organizations-and-teams/reviewing-your-organizations-installed-integrations).
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_github as github
-
-        # Create a repository.
-        some_repo = github.Repository("someRepo")
-        some_app_repo = github.AppInstallationRepository("someAppRepo",
-            installation_id="1234567",
-            repository=some_repo.name)
-        ```
-
-        ## Import
-
-        GitHub App Installation Repository can be imported using an ID made up of `installation_id:repository`, e.g.
-
-        ```sh
-         $ pulumi import github:index/appInstallationRepository:AppInstallationRepository terraform_repo 1234567:terraform
-        ```
-
+        Create a AppInstallationRepository resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] installation_id: The GitHub app installation id.
-        :param pulumi.Input[str] repository: The repository to install the app on.
         """
         ...
     @overload
@@ -155,39 +105,7 @@ class AppInstallationRepository(pulumi.CustomResource):
                  args: AppInstallationRepositoryArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        > **Note**: This resource is not compatible with the GitHub App Installation authentication method.
-
-        This resource manages relationships between app installations and repositories
-        in your GitHub organization.
-
-        Creating this resource installs a particular app on a particular repository.
-
-        The app installation and the repository must both belong to the same
-        organization on GitHub. Note: you can review your organization's installations
-        by the following the instructions at this
-        [link](https://docs.github.com/en/github/setting-up-and-managing-organizations-and-teams/reviewing-your-organizations-installed-integrations).
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_github as github
-
-        # Create a repository.
-        some_repo = github.Repository("someRepo")
-        some_app_repo = github.AppInstallationRepository("someAppRepo",
-            installation_id="1234567",
-            repository=some_repo.name)
-        ```
-
-        ## Import
-
-        GitHub App Installation Repository can be imported using an ID made up of `installation_id:repository`, e.g.
-
-        ```sh
-         $ pulumi import github:index/appInstallationRepository:AppInstallationRepository terraform_repo 1234567:terraform
-        ```
-
+        Create a AppInstallationRepository resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param AppInstallationRepositoryArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -241,8 +159,6 @@ class AppInstallationRepository(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] installation_id: The GitHub app installation id.
-        :param pulumi.Input[str] repository: The repository to install the app on.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -256,9 +172,6 @@ class AppInstallationRepository(pulumi.CustomResource):
     @property
     @pulumi.getter(name="installationId")
     def installation_id(self) -> pulumi.Output[str]:
-        """
-        The GitHub app installation id.
-        """
         return pulumi.get(self, "installation_id")
 
     @property
@@ -269,8 +182,5 @@ class AppInstallationRepository(pulumi.CustomResource):
     @property
     @pulumi.getter
     def repository(self) -> pulumi.Output[str]:
-        """
-        The repository to install the app on.
-        """
         return pulumi.get(self, "repository")
 

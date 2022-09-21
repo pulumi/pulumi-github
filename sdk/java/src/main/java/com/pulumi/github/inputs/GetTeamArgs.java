@@ -15,32 +15,16 @@ public final class GetTeamArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetTeamArgs Empty = new GetTeamArgs();
 
-    /**
-     * Type of membershp to be requested to fill the list of members. Can be either &#34;all&#34; or &#34;immediate&#34;. Default: &#34;all&#34;
-     * 
-     */
     @Import(name="membershipType")
     private @Nullable Output<String> membershipType;
 
-    /**
-     * @return Type of membershp to be requested to fill the list of members. Can be either &#34;all&#34; or &#34;immediate&#34;. Default: &#34;all&#34;
-     * 
-     */
     public Optional<Output<String>> membershipType() {
         return Optional.ofNullable(this.membershipType);
     }
 
-    /**
-     * The team slug.
-     * 
-     */
     @Import(name="slug", required=true)
     private Output<String> slug;
 
-    /**
-     * @return The team slug.
-     * 
-     */
     public Output<String> slug() {
         return this.slug;
     }
@@ -70,44 +54,20 @@ public final class GetTeamArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetTeamArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param membershipType Type of membershp to be requested to fill the list of members. Can be either &#34;all&#34; or &#34;immediate&#34;. Default: &#34;all&#34;
-         * 
-         * @return builder
-         * 
-         */
         public Builder membershipType(@Nullable Output<String> membershipType) {
             $.membershipType = membershipType;
             return this;
         }
 
-        /**
-         * @param membershipType Type of membershp to be requested to fill the list of members. Can be either &#34;all&#34; or &#34;immediate&#34;. Default: &#34;all&#34;
-         * 
-         * @return builder
-         * 
-         */
         public Builder membershipType(String membershipType) {
             return membershipType(Output.of(membershipType));
         }
 
-        /**
-         * @param slug The team slug.
-         * 
-         * @return builder
-         * 
-         */
         public Builder slug(Output<String> slug) {
             $.slug = slug;
             return this;
         }
 
-        /**
-         * @param slug The team slug.
-         * 
-         * @return builder
-         * 
-         */
         public Builder slug(String slug) {
             return slug(Output.of(slug));
         }

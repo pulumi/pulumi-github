@@ -4,44 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
-/**
- * This resource allows you to create and manage branches within your repository.
- *
- * Additional constraints can be applied to ensure your branch is created from
- * another branch or commit.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as github from "@pulumi/github";
- *
- * const development = new github.Branch("development", {
- *     branch: "development",
- *     repository: "example",
- * });
- * ```
- *
- * ## Import
- *
- * GitHub Branch can be imported using an ID made up of `repository:branch`, e.g.
- *
- * ```sh
- *  $ pulumi import github:index/branch:Branch terraform terraform:main
- * ```
- *
- *  Importing github branch into an instance object (when using a for each block to manage multiple branches)
- *
- * ```sh
- *  $ pulumi import github:index/branch:Branch terraform["terraform"] terraform:main
- * ```
- *
- *  Optionally, a source branch may be specified using an ID of `repository:branch:source_branch`. This is useful for importing branches that do not branch directly off main.
- *
- * ```sh
- *  $ pulumi import github:index/branch:Branch terraform terraform:feature-branch:dev
- * ```
- */
 export class Branch extends pulumi.CustomResource {
     /**
      * Get an existing Branch resource's state with the given name, ID, and optional extra
@@ -70,33 +32,12 @@ export class Branch extends pulumi.CustomResource {
         return obj['__pulumiType'] === Branch.__pulumiType;
     }
 
-    /**
-     * The repository branch to create.
-     */
     public readonly branch!: pulumi.Output<string>;
-    /**
-     * An etag representing the Branch object.
-     */
     public /*out*/ readonly etag!: pulumi.Output<string>;
-    /**
-     * A string representing a branch reference, in the form of `refs/heads/<branch>`.
-     */
     public /*out*/ readonly ref!: pulumi.Output<string>;
-    /**
-     * The GitHub repository name.
-     */
     public readonly repository!: pulumi.Output<string>;
-    /**
-     * A string storing the reference's `HEAD` commit's SHA1.
-     */
     public /*out*/ readonly sha!: pulumi.Output<string>;
-    /**
-     * The branch name to start from. Defaults to `main`.
-     */
     public readonly sourceBranch!: pulumi.Output<string | undefined>;
-    /**
-     * The commit hash to start from. Defaults to the tip of `sourceBranch`. If provided, `sourceBranch` is ignored.
-     */
     public readonly sourceSha!: pulumi.Output<string>;
 
     /**
@@ -144,33 +85,12 @@ export class Branch extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Branch resources.
  */
 export interface BranchState {
-    /**
-     * The repository branch to create.
-     */
     branch?: pulumi.Input<string>;
-    /**
-     * An etag representing the Branch object.
-     */
     etag?: pulumi.Input<string>;
-    /**
-     * A string representing a branch reference, in the form of `refs/heads/<branch>`.
-     */
     ref?: pulumi.Input<string>;
-    /**
-     * The GitHub repository name.
-     */
     repository?: pulumi.Input<string>;
-    /**
-     * A string storing the reference's `HEAD` commit's SHA1.
-     */
     sha?: pulumi.Input<string>;
-    /**
-     * The branch name to start from. Defaults to `main`.
-     */
     sourceBranch?: pulumi.Input<string>;
-    /**
-     * The commit hash to start from. Defaults to the tip of `sourceBranch`. If provided, `sourceBranch` is ignored.
-     */
     sourceSha?: pulumi.Input<string>;
 }
 
@@ -178,20 +98,8 @@ export interface BranchState {
  * The set of arguments for constructing a Branch resource.
  */
 export interface BranchArgs {
-    /**
-     * The repository branch to create.
-     */
     branch: pulumi.Input<string>;
-    /**
-     * The GitHub repository name.
-     */
     repository: pulumi.Input<string>;
-    /**
-     * The branch name to start from. Defaults to `main`.
-     */
     sourceBranch?: pulumi.Input<string>;
-    /**
-     * The commit hash to start from. Defaults to the tip of `sourceBranch`. If provided, `sourceBranch` is ignored.
-     */
     sourceSha?: pulumi.Input<string>;
 }

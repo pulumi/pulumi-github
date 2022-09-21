@@ -11,29 +11,14 @@ import java.util.Objects;
 
 @CustomType
 public final class GetExternalGroupsResult {
-    /**
-     * @return an array of external groups belonging to the organization. Each group consists of the fields documented below.
-     * 
-     */
-    private final List<GetExternalGroupsExternalGroup> externalGroups;
+    private List<GetExternalGroupsExternalGroup> externalGroups;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
 
-    @CustomType.Constructor
-    private GetExternalGroupsResult(
-        @CustomType.Parameter("externalGroups") List<GetExternalGroupsExternalGroup> externalGroups,
-        @CustomType.Parameter("id") String id) {
-        this.externalGroups = externalGroups;
-        this.id = id;
-    }
-
-    /**
-     * @return an array of external groups belonging to the organization. Each group consists of the fields documented below.
-     * 
-     */
+    private GetExternalGroupsResult() {}
     public List<GetExternalGroupsExternalGroup> externalGroups() {
         return this.externalGroups;
     }
@@ -52,21 +37,18 @@ public final class GetExternalGroupsResult {
     public static Builder builder(GetExternalGroupsResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<GetExternalGroupsExternalGroup> externalGroups;
         private String id;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetExternalGroupsResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.externalGroups = defaults.externalGroups;
     	      this.id = defaults.id;
         }
 
+        @CustomType.Setter
         public Builder externalGroups(List<GetExternalGroupsExternalGroup> externalGroups) {
             this.externalGroups = Objects.requireNonNull(externalGroups);
             return this;
@@ -74,11 +56,16 @@ public final class GetExternalGroupsResult {
         public Builder externalGroups(GetExternalGroupsExternalGroup... externalGroups) {
             return externalGroups(List.of(externalGroups));
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
-        }        public GetExternalGroupsResult build() {
-            return new GetExternalGroupsResult(externalGroups, id);
+        }
+        public GetExternalGroupsResult build() {
+            final var o = new GetExternalGroupsResult();
+            o.externalGroups = externalGroups;
+            o.id = id;
+            return o;
         }
     }
 }

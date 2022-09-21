@@ -9,20 +9,11 @@ import java.util.Objects;
 
 @CustomType
 public final class AppAuth {
-    private final String id;
-    private final String installationId;
-    private final String pemFile;
+    private String id;
+    private String installationId;
+    private String pemFile;
 
-    @CustomType.Constructor
-    private AppAuth(
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("installationId") String installationId,
-        @CustomType.Parameter("pemFile") String pemFile) {
-        this.id = id;
-        this.installationId = installationId;
-        this.pemFile = pemFile;
-    }
-
+    private AppAuth() {}
     public String id() {
         return this.id;
     }
@@ -40,16 +31,12 @@ public final class AppAuth {
     public static Builder builder(AppAuth defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String id;
         private String installationId;
         private String pemFile;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(AppAuth defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
@@ -57,19 +44,27 @@ public final class AppAuth {
     	      this.pemFile = defaults.pemFile;
         }
 
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder installationId(String installationId) {
             this.installationId = Objects.requireNonNull(installationId);
             return this;
         }
+        @CustomType.Setter
         public Builder pemFile(String pemFile) {
             this.pemFile = Objects.requireNonNull(pemFile);
             return this;
-        }        public AppAuth build() {
-            return new AppAuth(id, installationId, pemFile);
+        }
+        public AppAuth build() {
+            final var o = new AppAuth();
+            o.id = id;
+            o.installationId = installationId;
+            o.pemFile = pemFile;
+            return o;
         }
     }
 }

@@ -13,41 +13,20 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetCollaboratorsResult {
-    private final @Nullable String affiliation;
-    /**
-     * @return An Array of GitHub collaborators.  Each `collaborator` block consists of the fields documented below.
-     * 
-     */
-    private final List<GetCollaboratorsCollaborator> collaborators;
+    private @Nullable String affiliation;
+    private List<GetCollaboratorsCollaborator> collaborators;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final String owner;
-    private final String repository;
+    private String id;
+    private String owner;
+    private String repository;
 
-    @CustomType.Constructor
-    private GetCollaboratorsResult(
-        @CustomType.Parameter("affiliation") @Nullable String affiliation,
-        @CustomType.Parameter("collaborators") List<GetCollaboratorsCollaborator> collaborators,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("owner") String owner,
-        @CustomType.Parameter("repository") String repository) {
-        this.affiliation = affiliation;
-        this.collaborators = collaborators;
-        this.id = id;
-        this.owner = owner;
-        this.repository = repository;
-    }
-
+    private GetCollaboratorsResult() {}
     public Optional<String> affiliation() {
         return Optional.ofNullable(this.affiliation);
     }
-    /**
-     * @return An Array of GitHub collaborators.  Each `collaborator` block consists of the fields documented below.
-     * 
-     */
     public List<GetCollaboratorsCollaborator> collaborators() {
         return this.collaborators;
     }
@@ -72,18 +51,14 @@ public final class GetCollaboratorsResult {
     public static Builder builder(GetCollaboratorsResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String affiliation;
         private List<GetCollaboratorsCollaborator> collaborators;
         private String id;
         private String owner;
         private String repository;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetCollaboratorsResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.affiliation = defaults.affiliation;
@@ -93,10 +68,12 @@ public final class GetCollaboratorsResult {
     	      this.repository = defaults.repository;
         }
 
+        @CustomType.Setter
         public Builder affiliation(@Nullable String affiliation) {
             this.affiliation = affiliation;
             return this;
         }
+        @CustomType.Setter
         public Builder collaborators(List<GetCollaboratorsCollaborator> collaborators) {
             this.collaborators = Objects.requireNonNull(collaborators);
             return this;
@@ -104,19 +81,29 @@ public final class GetCollaboratorsResult {
         public Builder collaborators(GetCollaboratorsCollaborator... collaborators) {
             return collaborators(List.of(collaborators));
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder owner(String owner) {
             this.owner = Objects.requireNonNull(owner);
             return this;
         }
+        @CustomType.Setter
         public Builder repository(String repository) {
             this.repository = Objects.requireNonNull(repository);
             return this;
-        }        public GetCollaboratorsResult build() {
-            return new GetCollaboratorsResult(affiliation, collaborators, id, owner, repository);
+        }
+        public GetCollaboratorsResult build() {
+            final var o = new GetCollaboratorsResult();
+            o.affiliation = affiliation;
+            o.collaborators = collaborators;
+            o.id = id;
+            o.owner = owner;
+            o.repository = repository;
+            return o;
         }
     }
 }

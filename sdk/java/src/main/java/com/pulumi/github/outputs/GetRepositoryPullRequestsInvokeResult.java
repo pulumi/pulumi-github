@@ -13,72 +13,27 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetRepositoryPullRequestsInvokeResult {
-    /**
-     * @return Name of the ref (branch) of the Pull Request base.
-     * 
-     */
-    private final @Nullable String baseRef;
-    private final String baseRepository;
-    /**
-     * @return Value of the Pull Request `HEAD` reference.
-     * 
-     */
-    private final @Nullable String headRef;
+    private @Nullable String baseRef;
+    private String baseRepository;
+    private @Nullable String headRef;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final @Nullable String owner;
-    /**
-     * @return Collection of Pull Requests matching the filters. Each of the results conforms to the following scheme:
-     * 
-     */
-    private final List<GetRepositoryPullRequestsResult> results;
-    private final @Nullable String sortBy;
-    private final @Nullable String sortDirection;
-    /**
-     * @return the current Pull Request state - can be &#34;open&#34;, &#34;closed&#34; or &#34;merged&#34;.
-     * 
-     */
-    private final @Nullable String state;
+    private String id;
+    private @Nullable String owner;
+    private List<GetRepositoryPullRequestsResult> results;
+    private @Nullable String sortBy;
+    private @Nullable String sortDirection;
+    private @Nullable String state;
 
-    @CustomType.Constructor
-    private GetRepositoryPullRequestsInvokeResult(
-        @CustomType.Parameter("baseRef") @Nullable String baseRef,
-        @CustomType.Parameter("baseRepository") String baseRepository,
-        @CustomType.Parameter("headRef") @Nullable String headRef,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("owner") @Nullable String owner,
-        @CustomType.Parameter("results") List<GetRepositoryPullRequestsResult> results,
-        @CustomType.Parameter("sortBy") @Nullable String sortBy,
-        @CustomType.Parameter("sortDirection") @Nullable String sortDirection,
-        @CustomType.Parameter("state") @Nullable String state) {
-        this.baseRef = baseRef;
-        this.baseRepository = baseRepository;
-        this.headRef = headRef;
-        this.id = id;
-        this.owner = owner;
-        this.results = results;
-        this.sortBy = sortBy;
-        this.sortDirection = sortDirection;
-        this.state = state;
-    }
-
-    /**
-     * @return Name of the ref (branch) of the Pull Request base.
-     * 
-     */
+    private GetRepositoryPullRequestsInvokeResult() {}
     public Optional<String> baseRef() {
         return Optional.ofNullable(this.baseRef);
     }
     public String baseRepository() {
         return this.baseRepository;
     }
-    /**
-     * @return Value of the Pull Request `HEAD` reference.
-     * 
-     */
     public Optional<String> headRef() {
         return Optional.ofNullable(this.headRef);
     }
@@ -92,10 +47,6 @@ public final class GetRepositoryPullRequestsInvokeResult {
     public Optional<String> owner() {
         return Optional.ofNullable(this.owner);
     }
-    /**
-     * @return Collection of Pull Requests matching the filters. Each of the results conforms to the following scheme:
-     * 
-     */
     public List<GetRepositoryPullRequestsResult> results() {
         return this.results;
     }
@@ -105,10 +56,6 @@ public final class GetRepositoryPullRequestsInvokeResult {
     public Optional<String> sortDirection() {
         return Optional.ofNullable(this.sortDirection);
     }
-    /**
-     * @return the current Pull Request state - can be &#34;open&#34;, &#34;closed&#34; or &#34;merged&#34;.
-     * 
-     */
     public Optional<String> state() {
         return Optional.ofNullable(this.state);
     }
@@ -120,7 +67,7 @@ public final class GetRepositoryPullRequestsInvokeResult {
     public static Builder builder(GetRepositoryPullRequestsInvokeResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String baseRef;
         private String baseRepository;
@@ -131,11 +78,7 @@ public final class GetRepositoryPullRequestsInvokeResult {
         private @Nullable String sortBy;
         private @Nullable String sortDirection;
         private @Nullable String state;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetRepositoryPullRequestsInvokeResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.baseRef = defaults.baseRef;
@@ -149,26 +92,32 @@ public final class GetRepositoryPullRequestsInvokeResult {
     	      this.state = defaults.state;
         }
 
+        @CustomType.Setter
         public Builder baseRef(@Nullable String baseRef) {
             this.baseRef = baseRef;
             return this;
         }
+        @CustomType.Setter
         public Builder baseRepository(String baseRepository) {
             this.baseRepository = Objects.requireNonNull(baseRepository);
             return this;
         }
+        @CustomType.Setter
         public Builder headRef(@Nullable String headRef) {
             this.headRef = headRef;
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder owner(@Nullable String owner) {
             this.owner = owner;
             return this;
         }
+        @CustomType.Setter
         public Builder results(List<GetRepositoryPullRequestsResult> results) {
             this.results = Objects.requireNonNull(results);
             return this;
@@ -176,19 +125,33 @@ public final class GetRepositoryPullRequestsInvokeResult {
         public Builder results(GetRepositoryPullRequestsResult... results) {
             return results(List.of(results));
         }
+        @CustomType.Setter
         public Builder sortBy(@Nullable String sortBy) {
             this.sortBy = sortBy;
             return this;
         }
+        @CustomType.Setter
         public Builder sortDirection(@Nullable String sortDirection) {
             this.sortDirection = sortDirection;
             return this;
         }
+        @CustomType.Setter
         public Builder state(@Nullable String state) {
             this.state = state;
             return this;
-        }        public GetRepositoryPullRequestsInvokeResult build() {
-            return new GetRepositoryPullRequestsInvokeResult(baseRef, baseRepository, headRef, id, owner, results, sortBy, sortDirection, state);
+        }
+        public GetRepositoryPullRequestsInvokeResult build() {
+            final var o = new GetRepositoryPullRequestsInvokeResult();
+            o.baseRef = baseRef;
+            o.baseRepository = baseRepository;
+            o.headRef = headRef;
+            o.id = id;
+            o.owner = owner;
+            o.results = results;
+            o.sortBy = sortBy;
+            o.sortDirection = sortDirection;
+            o.state = state;
+            return o;
         }
     }
 }

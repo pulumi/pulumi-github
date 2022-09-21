@@ -13,40 +13,6 @@ import com.pulumi.github.inputs.OrganizationBlockState;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * This resource allows you to create and manage blocks for GitHub organizations.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.github.OrganizationBlock;
- * import com.pulumi.github.OrganizationBlockArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new OrganizationBlock(&#34;example&#34;, OrganizationBlockArgs.builder()        
- *             .username(&#34;paultyng&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- */
 @ResourceType(type="github:index/organizationBlock:OrganizationBlock")
 public class OrganizationBlock extends com.pulumi.resources.CustomResource {
     @Export(name="etag", type=String.class, parameters={})
@@ -55,17 +21,9 @@ public class OrganizationBlock extends com.pulumi.resources.CustomResource {
     public Output<String> etag() {
         return this.etag;
     }
-    /**
-     * The name of the user to block.
-     * 
-     */
     @Export(name="username", type=String.class, parameters={})
     private Output<String> username;
 
-    /**
-     * @return The name of the user to block.
-     * 
-     */
     public Output<String> username() {
         return this.username;
     }

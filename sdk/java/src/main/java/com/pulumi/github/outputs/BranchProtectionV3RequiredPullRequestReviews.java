@@ -14,35 +14,20 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class BranchProtectionV3RequiredPullRequestReviews {
-    private final @Nullable Boolean dismissStaleReviews;
-    private final @Nullable List<String> dismissalTeams;
-    private final @Nullable List<String> dismissalUsers;
+    private @Nullable Boolean dismissStaleReviews;
+    private @Nullable List<String> dismissalTeams;
+    private @Nullable List<String> dismissalUsers;
     /**
      * @deprecated
      * Use enforce_admins instead
      * 
      */
     @Deprecated /* Use enforce_admins instead */
-    private final @Nullable Boolean includeAdmins;
-    private final @Nullable Boolean requireCodeOwnerReviews;
-    private final @Nullable Integer requiredApprovingReviewCount;
+    private @Nullable Boolean includeAdmins;
+    private @Nullable Boolean requireCodeOwnerReviews;
+    private @Nullable Integer requiredApprovingReviewCount;
 
-    @CustomType.Constructor
-    private BranchProtectionV3RequiredPullRequestReviews(
-        @CustomType.Parameter("dismissStaleReviews") @Nullable Boolean dismissStaleReviews,
-        @CustomType.Parameter("dismissalTeams") @Nullable List<String> dismissalTeams,
-        @CustomType.Parameter("dismissalUsers") @Nullable List<String> dismissalUsers,
-        @CustomType.Parameter("includeAdmins") @Nullable Boolean includeAdmins,
-        @CustomType.Parameter("requireCodeOwnerReviews") @Nullable Boolean requireCodeOwnerReviews,
-        @CustomType.Parameter("requiredApprovingReviewCount") @Nullable Integer requiredApprovingReviewCount) {
-        this.dismissStaleReviews = dismissStaleReviews;
-        this.dismissalTeams = dismissalTeams;
-        this.dismissalUsers = dismissalUsers;
-        this.includeAdmins = includeAdmins;
-        this.requireCodeOwnerReviews = requireCodeOwnerReviews;
-        this.requiredApprovingReviewCount = requiredApprovingReviewCount;
-    }
-
+    private BranchProtectionV3RequiredPullRequestReviews() {}
     public Optional<Boolean> dismissStaleReviews() {
         return Optional.ofNullable(this.dismissStaleReviews);
     }
@@ -75,7 +60,7 @@ public final class BranchProtectionV3RequiredPullRequestReviews {
     public static Builder builder(BranchProtectionV3RequiredPullRequestReviews defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean dismissStaleReviews;
         private @Nullable List<String> dismissalTeams;
@@ -83,11 +68,7 @@ public final class BranchProtectionV3RequiredPullRequestReviews {
         private @Nullable Boolean includeAdmins;
         private @Nullable Boolean requireCodeOwnerReviews;
         private @Nullable Integer requiredApprovingReviewCount;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(BranchProtectionV3RequiredPullRequestReviews defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.dismissStaleReviews = defaults.dismissStaleReviews;
@@ -98,10 +79,12 @@ public final class BranchProtectionV3RequiredPullRequestReviews {
     	      this.requiredApprovingReviewCount = defaults.requiredApprovingReviewCount;
         }
 
+        @CustomType.Setter
         public Builder dismissStaleReviews(@Nullable Boolean dismissStaleReviews) {
             this.dismissStaleReviews = dismissStaleReviews;
             return this;
         }
+        @CustomType.Setter
         public Builder dismissalTeams(@Nullable List<String> dismissalTeams) {
             this.dismissalTeams = dismissalTeams;
             return this;
@@ -109,6 +92,7 @@ public final class BranchProtectionV3RequiredPullRequestReviews {
         public Builder dismissalTeams(String... dismissalTeams) {
             return dismissalTeams(List.of(dismissalTeams));
         }
+        @CustomType.Setter
         public Builder dismissalUsers(@Nullable List<String> dismissalUsers) {
             this.dismissalUsers = dismissalUsers;
             return this;
@@ -116,19 +100,30 @@ public final class BranchProtectionV3RequiredPullRequestReviews {
         public Builder dismissalUsers(String... dismissalUsers) {
             return dismissalUsers(List.of(dismissalUsers));
         }
+        @CustomType.Setter
         public Builder includeAdmins(@Nullable Boolean includeAdmins) {
             this.includeAdmins = includeAdmins;
             return this;
         }
+        @CustomType.Setter
         public Builder requireCodeOwnerReviews(@Nullable Boolean requireCodeOwnerReviews) {
             this.requireCodeOwnerReviews = requireCodeOwnerReviews;
             return this;
         }
+        @CustomType.Setter
         public Builder requiredApprovingReviewCount(@Nullable Integer requiredApprovingReviewCount) {
             this.requiredApprovingReviewCount = requiredApprovingReviewCount;
             return this;
-        }        public BranchProtectionV3RequiredPullRequestReviews build() {
-            return new BranchProtectionV3RequiredPullRequestReviews(dismissStaleReviews, dismissalTeams, dismissalUsers, includeAdmins, requireCodeOwnerReviews, requiredApprovingReviewCount);
+        }
+        public BranchProtectionV3RequiredPullRequestReviews build() {
+            final var o = new BranchProtectionV3RequiredPullRequestReviews();
+            o.dismissStaleReviews = dismissStaleReviews;
+            o.dismissalTeams = dismissalTeams;
+            o.dismissalUsers = dismissalUsers;
+            o.includeAdmins = includeAdmins;
+            o.requireCodeOwnerReviews = requireCodeOwnerReviews;
+            o.requiredApprovingReviewCount = requiredApprovingReviewCount;
+            return o;
         }
     }
 }

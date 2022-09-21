@@ -4,34 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
-/**
- * This resource allows you to create and manage an autolink reference for a single repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as github from "@pulumi/github";
- *
- * const repo = new github.Repository("repo", {
- *     description: "GitHub repo managed by Terraform",
- *     "private": false,
- * });
- * const auto = new github.RepositoryAutolinkReference("auto", {
- *     repository: repo.name,
- *     keyPrefix: "TICKET-",
- *     targetUrlTemplate: "https://hello.there/TICKET?query=<num>",
- * });
- * ```
- *
- * ## Import
- *
- * Autolink references can be imported using the `name` of the repository, combined with the `id` of the autolink reference and a `/` character for separating components, e.g.
- *
- * ```sh
- *  $ pulumi import github:index/repositoryAutolinkReference:RepositoryAutolinkReference auto oof/123
- * ```
- */
 export class RepositoryAutolinkReference extends pulumi.CustomResource {
     /**
      * Get an existing RepositoryAutolinkReference resource's state with the given name, ID, and optional extra
@@ -60,16 +32,13 @@ export class RepositoryAutolinkReference extends pulumi.CustomResource {
         return obj['__pulumiType'] === RepositoryAutolinkReference.__pulumiType;
     }
 
-    /**
-     * An etag representing the autolink reference object.
-     */
     public /*out*/ readonly etag!: pulumi.Output<string>;
     /**
-     * This prefix appended by a number will generate a link any time it is found in an issue, pull request, or commit.
+     * This prefix appended by a number will generate a link any time it is found in an issue, pull request, or commit
      */
     public readonly keyPrefix!: pulumi.Output<string>;
     /**
-     * The repository of the autolink reference.
+     * The repository name
      */
     public readonly repository!: pulumi.Output<string>;
     /**
@@ -119,16 +88,13 @@ export class RepositoryAutolinkReference extends pulumi.CustomResource {
  * Input properties used for looking up and filtering RepositoryAutolinkReference resources.
  */
 export interface RepositoryAutolinkReferenceState {
-    /**
-     * An etag representing the autolink reference object.
-     */
     etag?: pulumi.Input<string>;
     /**
-     * This prefix appended by a number will generate a link any time it is found in an issue, pull request, or commit.
+     * This prefix appended by a number will generate a link any time it is found in an issue, pull request, or commit
      */
     keyPrefix?: pulumi.Input<string>;
     /**
-     * The repository of the autolink reference.
+     * The repository name
      */
     repository?: pulumi.Input<string>;
     /**
@@ -142,11 +108,11 @@ export interface RepositoryAutolinkReferenceState {
  */
 export interface RepositoryAutolinkReferenceArgs {
     /**
-     * This prefix appended by a number will generate a link any time it is found in an issue, pull request, or commit.
+     * This prefix appended by a number will generate a link any time it is found in an issue, pull request, or commit
      */
     keyPrefix: pulumi.Input<string>;
     /**
-     * The repository of the autolink reference.
+     * The repository name
      */
     repository: pulumi.Input<string>;
     /**

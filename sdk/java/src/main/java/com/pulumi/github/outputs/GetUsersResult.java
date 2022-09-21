@@ -14,38 +14,13 @@ public final class GetUsersResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    /**
-     * @return list of logins of users that could be found.
-     * 
-     */
-    private final List<String> logins;
-    /**
-     * @return list of Node IDs of users that could be found.
-     * 
-     */
-    private final List<String> nodeIds;
-    /**
-     * @return list of logins without matching user.
-     * 
-     */
-    private final List<String> unknownLogins;
-    private final List<String> usernames;
+    private String id;
+    private List<String> logins;
+    private List<String> nodeIds;
+    private List<String> unknownLogins;
+    private List<String> usernames;
 
-    @CustomType.Constructor
-    private GetUsersResult(
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("logins") List<String> logins,
-        @CustomType.Parameter("nodeIds") List<String> nodeIds,
-        @CustomType.Parameter("unknownLogins") List<String> unknownLogins,
-        @CustomType.Parameter("usernames") List<String> usernames) {
-        this.id = id;
-        this.logins = logins;
-        this.nodeIds = nodeIds;
-        this.unknownLogins = unknownLogins;
-        this.usernames = usernames;
-    }
-
+    private GetUsersResult() {}
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -53,24 +28,12 @@ public final class GetUsersResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return list of logins of users that could be found.
-     * 
-     */
     public List<String> logins() {
         return this.logins;
     }
-    /**
-     * @return list of Node IDs of users that could be found.
-     * 
-     */
     public List<String> nodeIds() {
         return this.nodeIds;
     }
-    /**
-     * @return list of logins without matching user.
-     * 
-     */
     public List<String> unknownLogins() {
         return this.unknownLogins;
     }
@@ -85,18 +48,14 @@ public final class GetUsersResult {
     public static Builder builder(GetUsersResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String id;
         private List<String> logins;
         private List<String> nodeIds;
         private List<String> unknownLogins;
         private List<String> usernames;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetUsersResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
@@ -106,10 +65,12 @@ public final class GetUsersResult {
     	      this.usernames = defaults.usernames;
         }
 
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder logins(List<String> logins) {
             this.logins = Objects.requireNonNull(logins);
             return this;
@@ -117,6 +78,7 @@ public final class GetUsersResult {
         public Builder logins(String... logins) {
             return logins(List.of(logins));
         }
+        @CustomType.Setter
         public Builder nodeIds(List<String> nodeIds) {
             this.nodeIds = Objects.requireNonNull(nodeIds);
             return this;
@@ -124,6 +86,7 @@ public final class GetUsersResult {
         public Builder nodeIds(String... nodeIds) {
             return nodeIds(List.of(nodeIds));
         }
+        @CustomType.Setter
         public Builder unknownLogins(List<String> unknownLogins) {
             this.unknownLogins = Objects.requireNonNull(unknownLogins);
             return this;
@@ -131,14 +94,22 @@ public final class GetUsersResult {
         public Builder unknownLogins(String... unknownLogins) {
             return unknownLogins(List.of(unknownLogins));
         }
+        @CustomType.Setter
         public Builder usernames(List<String> usernames) {
             this.usernames = Objects.requireNonNull(usernames);
             return this;
         }
         public Builder usernames(String... usernames) {
             return usernames(List.of(usernames));
-        }        public GetUsersResult build() {
-            return new GetUsersResult(id, logins, nodeIds, unknownLogins, usernames);
+        }
+        public GetUsersResult build() {
+            final var o = new GetUsersResult();
+            o.id = id;
+            o.logins = logins;
+            o.nodeIds = nodeIds;
+            o.unknownLogins = unknownLogins;
+            o.usernames = usernames;
+            return o;
         }
     }
 }

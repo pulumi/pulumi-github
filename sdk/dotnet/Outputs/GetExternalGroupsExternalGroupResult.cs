@@ -13,17 +13,8 @@ namespace Pulumi.Github.Outputs
     [OutputType]
     public sealed class GetExternalGroupsExternalGroupResult
     {
-        /// <summary>
-        /// the ID of the group.
-        /// </summary>
         public readonly int GroupId;
-        /// <summary>
-        /// the name of the group.
-        /// </summary>
         public readonly string GroupName;
-        /// <summary>
-        /// the date the group was last updated.
-        /// </summary>
         public readonly string UpdatedAt;
 
         [OutputConstructor]

@@ -4,32 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
-/**
- * Provides a GitHub user's SSH key resource.
- *
- * This resource allows you to add/remove SSH keys from your user account.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as fs from "fs";
- * import * as github from "@pulumi/github";
- *
- * const example = new github.UserSshKey("example", {
- *     title: "example title",
- *     key: fs.readFileSync("~/.ssh/id_rsa.pub"),
- * });
- * ```
- *
- * ## Import
- *
- * SSH keys can be imported using their ID e.g.
- *
- * ```sh
- *  $ pulumi import github:index/userSshKey:UserSshKey example 1234567
- * ```
- */
 export class UserSshKey extends pulumi.CustomResource {
     /**
      * Get an existing UserSshKey resource's state with the given name, ID, and optional extra
@@ -59,17 +33,8 @@ export class UserSshKey extends pulumi.CustomResource {
     }
 
     public /*out*/ readonly etag!: pulumi.Output<string>;
-    /**
-     * The public SSH key to add to your GitHub account.
-     */
     public readonly key!: pulumi.Output<string>;
-    /**
-     * A descriptive name for the new key. e.g. `Personal MacBook Air`
-     */
     public readonly title!: pulumi.Output<string>;
-    /**
-     * The URL of the SSH key
-     */
     public /*out*/ readonly url!: pulumi.Output<string>;
 
     /**
@@ -112,17 +77,8 @@ export class UserSshKey extends pulumi.CustomResource {
  */
 export interface UserSshKeyState {
     etag?: pulumi.Input<string>;
-    /**
-     * The public SSH key to add to your GitHub account.
-     */
     key?: pulumi.Input<string>;
-    /**
-     * A descriptive name for the new key. e.g. `Personal MacBook Air`
-     */
     title?: pulumi.Input<string>;
-    /**
-     * The URL of the SSH key
-     */
     url?: pulumi.Input<string>;
 }
 
@@ -130,12 +86,6 @@ export interface UserSshKeyState {
  * The set of arguments for constructing a UserSshKey resource.
  */
 export interface UserSshKeyArgs {
-    /**
-     * The public SSH key to add to your GitHub account.
-     */
     key: pulumi.Input<string>;
-    /**
-     * A descriptive name for the new key. e.g. `Personal MacBook Air`
-     */
     title: pulumi.Input<string>;
 }

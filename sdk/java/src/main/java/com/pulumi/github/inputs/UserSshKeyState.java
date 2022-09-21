@@ -22,47 +22,23 @@ public final class UserSshKeyState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.etag);
     }
 
-    /**
-     * The public SSH key to add to your GitHub account.
-     * 
-     */
     @Import(name="key")
     private @Nullable Output<String> key;
 
-    /**
-     * @return The public SSH key to add to your GitHub account.
-     * 
-     */
     public Optional<Output<String>> key() {
         return Optional.ofNullable(this.key);
     }
 
-    /**
-     * A descriptive name for the new key. e.g. `Personal MacBook Air`
-     * 
-     */
     @Import(name="title")
     private @Nullable Output<String> title;
 
-    /**
-     * @return A descriptive name for the new key. e.g. `Personal MacBook Air`
-     * 
-     */
     public Optional<Output<String>> title() {
         return Optional.ofNullable(this.title);
     }
 
-    /**
-     * The URL of the SSH key
-     * 
-     */
     @Import(name="url")
     private @Nullable Output<String> url;
 
-    /**
-     * @return The URL of the SSH key
-     * 
-     */
     public Optional<Output<String>> url() {
         return Optional.ofNullable(this.url);
     }
@@ -103,65 +79,29 @@ public final class UserSshKeyState extends com.pulumi.resources.ResourceArgs {
             return etag(Output.of(etag));
         }
 
-        /**
-         * @param key The public SSH key to add to your GitHub account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(@Nullable Output<String> key) {
             $.key = key;
             return this;
         }
 
-        /**
-         * @param key The public SSH key to add to your GitHub account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(String key) {
             return key(Output.of(key));
         }
 
-        /**
-         * @param title A descriptive name for the new key. e.g. `Personal MacBook Air`
-         * 
-         * @return builder
-         * 
-         */
         public Builder title(@Nullable Output<String> title) {
             $.title = title;
             return this;
         }
 
-        /**
-         * @param title A descriptive name for the new key. e.g. `Personal MacBook Air`
-         * 
-         * @return builder
-         * 
-         */
         public Builder title(String title) {
             return title(Output.of(title));
         }
 
-        /**
-         * @param url The URL of the SSH key
-         * 
-         * @return builder
-         * 
-         */
         public Builder url(@Nullable Output<String> url) {
             $.url = url;
             return this;
         }
 
-        /**
-         * @param url The URL of the SSH key
-         * 
-         * @return builder
-         * 
-         */
         public Builder url(String url) {
             return url(Output.of(url));
         }

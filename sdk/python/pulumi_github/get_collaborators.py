@@ -47,9 +47,6 @@ class GetCollaboratorsResult:
     @property
     @pulumi.getter
     def collaborators(self) -> Sequence['outputs.GetCollaboratorsCollaboratorResult']:
-        """
-        An Array of GitHub collaborators.  Each `collaborator` block consists of the fields documented below.
-        """
         return pulumi.get(self, "collaborators")
 
     @property
@@ -89,22 +86,7 @@ def get_collaborators(affiliation: Optional[str] = None,
                       repository: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCollaboratorsResult:
     """
-    Use this data source to retrieve the collaborators for a given repository.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_github as github
-
-    test = github.get_collaborators(owner="example_owner",
-        repository="example_repository")
-    ```
-
-
-    :param str affiliation: Filter collaborators returned by their affiliation. Can be one of: `outside`, `direct`, `all`.  Defaults to `all`.
-    :param str owner: The organization that owns the repository.
-    :param str repository: The name of the repository.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['affiliation'] = affiliation
@@ -127,21 +109,6 @@ def get_collaborators_output(affiliation: Optional[pulumi.Input[Optional[str]]] 
                              repository: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCollaboratorsResult]:
     """
-    Use this data source to retrieve the collaborators for a given repository.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_github as github
-
-    test = github.get_collaborators(owner="example_owner",
-        repository="example_repository")
-    ```
-
-
-    :param str affiliation: Filter collaborators returned by their affiliation. Can be one of: `outside`, `direct`, `all`.  Defaults to `all`.
-    :param str owner: The organization that owns the repository.
-    :param str repository: The name of the repository.
+    Use this data source to access information about an existing resource.
     """
     ...

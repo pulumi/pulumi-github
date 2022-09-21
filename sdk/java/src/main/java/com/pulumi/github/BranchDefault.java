@@ -13,94 +13,17 @@ import com.pulumi.github.inputs.BranchDefaultState;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Provides a GitHub branch default resource.
- * 
- * This resource allows you to set the default branch for a given repository.
- * 
- * Note that use of this resource is incompatible with the `default_branch` option of the `github.Repository` resource.  Using both will result in plans always showing a diff.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.github.Repository;
- * import com.pulumi.github.RepositoryArgs;
- * import com.pulumi.github.Branch;
- * import com.pulumi.github.BranchArgs;
- * import com.pulumi.github.BranchDefault;
- * import com.pulumi.github.BranchDefaultArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Repository(&#34;example&#34;, RepositoryArgs.builder()        
- *             .description(&#34;My awesome codebase&#34;)
- *             .autoInit(true)
- *             .build());
- * 
- *         var development = new Branch(&#34;development&#34;, BranchArgs.builder()        
- *             .repository(example.name())
- *             .branch(&#34;development&#34;)
- *             .build());
- * 
- *         var default_ = new BranchDefault(&#34;default&#34;, BranchDefaultArgs.builder()        
- *             .repository(example.name())
- *             .branch(development.branch())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * GitHub Branch Defaults can be imported using an ID made up of `repository`, e.g.
- * 
- * ```sh
- *  $ pulumi import github:index/branchDefault:BranchDefault branch_default my-repo
- * ```
- * 
- */
 @ResourceType(type="github:index/branchDefault:BranchDefault")
 public class BranchDefault extends com.pulumi.resources.CustomResource {
-    /**
-     * The branch (e.g. `main`)
-     * 
-     */
     @Export(name="branch", type=String.class, parameters={})
     private Output<String> branch;
 
-    /**
-     * @return The branch (e.g. `main`)
-     * 
-     */
     public Output<String> branch() {
         return this.branch;
     }
-    /**
-     * The GitHub repository
-     * 
-     */
     @Export(name="repository", type=String.class, parameters={})
     private Output<String> repository;
 
-    /**
-     * @return The GitHub repository
-     * 
-     */
     public Output<String> repository() {
         return this.repository;
     }

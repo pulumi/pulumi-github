@@ -24,32 +24,16 @@ public final class TeamMembersState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.etag);
     }
 
-    /**
-     * List of team members. See Members below for details.
-     * 
-     */
     @Import(name="members")
     private @Nullable Output<List<TeamMembersMemberArgs>> members;
 
-    /**
-     * @return List of team members. See Members below for details.
-     * 
-     */
     public Optional<Output<List<TeamMembersMemberArgs>>> members() {
         return Optional.ofNullable(this.members);
     }
 
-    /**
-     * The GitHub team id
-     * 
-     */
     @Import(name="teamId")
     private @Nullable Output<String> teamId;
 
-    /**
-     * @return The GitHub team id
-     * 
-     */
     public Optional<Output<String>> teamId() {
         return Optional.ofNullable(this.teamId);
     }
@@ -89,54 +73,24 @@ public final class TeamMembersState extends com.pulumi.resources.ResourceArgs {
             return etag(Output.of(etag));
         }
 
-        /**
-         * @param members List of team members. See Members below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder members(@Nullable Output<List<TeamMembersMemberArgs>> members) {
             $.members = members;
             return this;
         }
 
-        /**
-         * @param members List of team members. See Members below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder members(List<TeamMembersMemberArgs> members) {
             return members(Output.of(members));
         }
 
-        /**
-         * @param members List of team members. See Members below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder members(TeamMembersMemberArgs... members) {
             return members(List.of(members));
         }
 
-        /**
-         * @param teamId The GitHub team id
-         * 
-         * @return builder
-         * 
-         */
         public Builder teamId(@Nullable Output<String> teamId) {
             $.teamId = teamId;
             return this;
         }
 
-        /**
-         * @param teamId The GitHub team id
-         * 
-         * @return builder
-         * 
-         */
         public Builder teamId(String teamId) {
             return teamId(Output.of(teamId));
         }

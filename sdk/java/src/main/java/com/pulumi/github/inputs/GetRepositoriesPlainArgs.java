@@ -14,32 +14,16 @@ public final class GetRepositoriesPlainArgs extends com.pulumi.resources.InvokeA
 
     public static final GetRepositoriesPlainArgs Empty = new GetRepositoriesPlainArgs();
 
-    /**
-     * Search query. See [documentation for the search syntax](https://help.github.com/articles/understanding-the-search-syntax/).
-     * 
-     */
     @Import(name="query", required=true)
     private String query;
 
-    /**
-     * @return Search query. See [documentation for the search syntax](https://help.github.com/articles/understanding-the-search-syntax/).
-     * 
-     */
     public String query() {
         return this.query;
     }
 
-    /**
-     * Sorts the repositories returned by the specified attribute. Valid values include `stars`, `fork`, and `updated`. Defaults to `updated`.
-     * 
-     */
     @Import(name="sort")
     private @Nullable String sort;
 
-    /**
-     * @return Sorts the repositories returned by the specified attribute. Valid values include `stars`, `fork`, and `updated`. Defaults to `updated`.
-     * 
-     */
     public Optional<String> sort() {
         return Optional.ofNullable(this.sort);
     }
@@ -69,23 +53,11 @@ public final class GetRepositoriesPlainArgs extends com.pulumi.resources.InvokeA
             $ = new GetRepositoriesPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param query Search query. See [documentation for the search syntax](https://help.github.com/articles/understanding-the-search-syntax/).
-         * 
-         * @return builder
-         * 
-         */
         public Builder query(String query) {
             $.query = query;
             return this;
         }
 
-        /**
-         * @param sort Sorts the repositories returned by the specified attribute. Valid values include `stars`, `fork`, and `updated`. Defaults to `updated`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sort(@Nullable String sort) {
             $.sort = sort;
             return this;

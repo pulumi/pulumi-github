@@ -11,29 +11,14 @@ import java.util.Objects;
 
 @CustomType
 public final class GetOrganizationTeamSyncGroupsResult {
-    /**
-     * @return An Array of GitHub Identity Provider Groups.  Each `group` block consists of the fields documented below.
-     * 
-     */
-    private final List<GetOrganizationTeamSyncGroupsGroup> groups;
+    private List<GetOrganizationTeamSyncGroupsGroup> groups;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
 
-    @CustomType.Constructor
-    private GetOrganizationTeamSyncGroupsResult(
-        @CustomType.Parameter("groups") List<GetOrganizationTeamSyncGroupsGroup> groups,
-        @CustomType.Parameter("id") String id) {
-        this.groups = groups;
-        this.id = id;
-    }
-
-    /**
-     * @return An Array of GitHub Identity Provider Groups.  Each `group` block consists of the fields documented below.
-     * 
-     */
+    private GetOrganizationTeamSyncGroupsResult() {}
     public List<GetOrganizationTeamSyncGroupsGroup> groups() {
         return this.groups;
     }
@@ -52,21 +37,18 @@ public final class GetOrganizationTeamSyncGroupsResult {
     public static Builder builder(GetOrganizationTeamSyncGroupsResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<GetOrganizationTeamSyncGroupsGroup> groups;
         private String id;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetOrganizationTeamSyncGroupsResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.groups = defaults.groups;
     	      this.id = defaults.id;
         }
 
+        @CustomType.Setter
         public Builder groups(List<GetOrganizationTeamSyncGroupsGroup> groups) {
             this.groups = Objects.requireNonNull(groups);
             return this;
@@ -74,11 +56,16 @@ public final class GetOrganizationTeamSyncGroupsResult {
         public Builder groups(GetOrganizationTeamSyncGroupsGroup... groups) {
             return groups(List.of(groups));
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
-        }        public GetOrganizationTeamSyncGroupsResult build() {
-            return new GetOrganizationTeamSyncGroupsResult(groups, id);
+        }
+        public GetOrganizationTeamSyncGroupsResult build() {
+            final var o = new GetOrganizationTeamSyncGroupsResult();
+            o.groups = groups;
+            o.id = id;
+            return o;
         }
     }
 }

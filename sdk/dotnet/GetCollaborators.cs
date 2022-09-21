@@ -11,59 +11,9 @@ namespace Pulumi.Github
 {
     public static class GetCollaborators
     {
-        /// <summary>
-        /// Use this data source to retrieve the collaborators for a given repository.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Github = Pulumi.Github;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Github.GetCollaborators.Invoke(new()
-        ///     {
-        ///         Owner = "example_owner",
-        ///         Repository = "example_repository",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Task<GetCollaboratorsResult> InvokeAsync(GetCollaboratorsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCollaboratorsResult>("github:index/getCollaborators:getCollaborators", args ?? new GetCollaboratorsArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Use this data source to retrieve the collaborators for a given repository.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Github = Pulumi.Github;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Github.GetCollaborators.Invoke(new()
-        ///     {
-        ///         Owner = "example_owner",
-        ///         Repository = "example_repository",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Output<GetCollaboratorsResult> Invoke(GetCollaboratorsInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetCollaboratorsResult>("github:index/getCollaborators:getCollaborators", args ?? new GetCollaboratorsInvokeArgs(), options.WithDefaults());
     }
@@ -71,21 +21,12 @@ namespace Pulumi.Github
 
     public sealed class GetCollaboratorsArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Filter collaborators returned by their affiliation. Can be one of: `outside`, `direct`, `all`.  Defaults to `all`.
-        /// </summary>
         [Input("affiliation")]
         public string? Affiliation { get; set; }
 
-        /// <summary>
-        /// The organization that owns the repository.
-        /// </summary>
         [Input("owner", required: true)]
         public string Owner { get; set; } = null!;
 
-        /// <summary>
-        /// The name of the repository.
-        /// </summary>
         [Input("repository", required: true)]
         public string Repository { get; set; } = null!;
 
@@ -97,21 +38,12 @@ namespace Pulumi.Github
 
     public sealed class GetCollaboratorsInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Filter collaborators returned by their affiliation. Can be one of: `outside`, `direct`, `all`.  Defaults to `all`.
-        /// </summary>
         [Input("affiliation")]
         public Input<string>? Affiliation { get; set; }
 
-        /// <summary>
-        /// The organization that owns the repository.
-        /// </summary>
         [Input("owner", required: true)]
         public Input<string> Owner { get; set; } = null!;
 
-        /// <summary>
-        /// The name of the repository.
-        /// </summary>
         [Input("repository", required: true)]
         public Input<string> Repository { get; set; } = null!;
 
@@ -126,9 +58,6 @@ namespace Pulumi.Github
     public sealed class GetCollaboratorsResult
     {
         public readonly string? Affiliation;
-        /// <summary>
-        /// An Array of GitHub collaborators.  Each `collaborator` block consists of the fields documented below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetCollaboratorsCollaboratorResult> Collaborators;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.

@@ -9,123 +9,27 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Github
 {
-    /// <summary>
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Github = Pulumi.Github;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleSecretActionsOrganizationSecret = new Github.ActionsOrganizationSecret("exampleSecretActionsOrganizationSecret", new()
-    ///     {
-    ///         SecretName = "example_secret_name",
-    ///         Visibility = "private",
-    ///         PlaintextValue = @var.Some_secret_string,
-    ///     });
-    /// 
-    ///     var exampleSecretIndex_actionsOrganizationSecretActionsOrganizationSecret = new Github.ActionsOrganizationSecret("exampleSecretIndex/actionsOrganizationSecretActionsOrganizationSecret", new()
-    ///     {
-    ///         SecretName = "example_secret_name",
-    ///         Visibility = "private",
-    ///         EncryptedValue = @var.Some_encrypted_secret_string,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Github = Pulumi.Github;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var repo = Github.GetRepository.Invoke(new()
-    ///     {
-    ///         FullName = "my-org/repo",
-    ///     });
-    /// 
-    ///     var exampleSecretActionsOrganizationSecret = new Github.ActionsOrganizationSecret("exampleSecretActionsOrganizationSecret", new()
-    ///     {
-    ///         SecretName = "example_secret_name",
-    ///         Visibility = "selected",
-    ///         PlaintextValue = @var.Some_secret_string,
-    ///         SelectedRepositoryIds = new[]
-    ///         {
-    ///             repo.Apply(getRepositoryResult =&gt; getRepositoryResult.RepoId),
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleSecretIndex_actionsOrganizationSecretActionsOrganizationSecret = new Github.ActionsOrganizationSecret("exampleSecretIndex/actionsOrganizationSecretActionsOrganizationSecret", new()
-    ///     {
-    ///         SecretName = "example_secret_name",
-    ///         Visibility = "selected",
-    ///         EncryptedValue = @var.Some_encrypted_secret_string,
-    ///         SelectedRepositoryIds = new[]
-    ///         {
-    ///             repo.Apply(getRepositoryResult =&gt; getRepositoryResult.RepoId),
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// This resource can be imported using an ID made up of the secret name
-    /// 
-    /// ```sh
-    ///  $ pulumi import github:index/actionsOrganizationSecret:ActionsOrganizationSecret test_secret test_secret_name
-    /// ```
-    /// 
-    ///  NOTEthe implementation is limited in that it won't fetch the value of the `plaintext_value` or `encrypted_value` fields when importing. You may need to ignore changes for these as a workaround.
-    /// </summary>
     [GithubResourceType("github:index/actionsOrganizationSecret:ActionsOrganizationSecret")]
     public partial class ActionsOrganizationSecret : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Date of actions_secret creation.
-        /// </summary>
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
 
-        /// <summary>
-        /// Encrypted value of the secret using the Github public key in Base64 format.
-        /// </summary>
         [Output("encryptedValue")]
         public Output<string?> EncryptedValue { get; private set; } = null!;
 
-        /// <summary>
-        /// Plaintext value of the secret to be encrypted
-        /// </summary>
         [Output("plaintextValue")]
         public Output<string?> PlaintextValue { get; private set; } = null!;
 
-        /// <summary>
-        /// Name of the secret
-        /// </summary>
         [Output("secretName")]
         public Output<string> SecretName { get; private set; } = null!;
 
-        /// <summary>
-        /// An array of repository ids that can access the organization secret.
-        /// </summary>
         [Output("selectedRepositoryIds")]
         public Output<ImmutableArray<int>> SelectedRepositoryIds { get; private set; } = null!;
 
-        /// <summary>
-        /// Date of actions_secret update.
-        /// </summary>
         [Output("updatedAt")]
         public Output<string> UpdatedAt { get; private set; } = null!;
 
-        /// <summary>
-        /// Configures the access that repositories have to the organization secret.
-        /// Must be one of `all`, `private`, `selected`. `selected_repository_ids` is required if set to `selected`.
-        /// </summary>
         [Output("visibility")]
         public Output<string> Visibility { get; private set; } = null!;
 
@@ -175,40 +79,23 @@ namespace Pulumi.Github
 
     public sealed class ActionsOrganizationSecretArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Encrypted value of the secret using the Github public key in Base64 format.
-        /// </summary>
         [Input("encryptedValue")]
         public Input<string>? EncryptedValue { get; set; }
 
-        /// <summary>
-        /// Plaintext value of the secret to be encrypted
-        /// </summary>
         [Input("plaintextValue")]
         public Input<string>? PlaintextValue { get; set; }
 
-        /// <summary>
-        /// Name of the secret
-        /// </summary>
         [Input("secretName", required: true)]
         public Input<string> SecretName { get; set; } = null!;
 
         [Input("selectedRepositoryIds")]
         private InputList<int>? _selectedRepositoryIds;
-
-        /// <summary>
-        /// An array of repository ids that can access the organization secret.
-        /// </summary>
         public InputList<int> SelectedRepositoryIds
         {
             get => _selectedRepositoryIds ?? (_selectedRepositoryIds = new InputList<int>());
             set => _selectedRepositoryIds = value;
         }
 
-        /// <summary>
-        /// Configures the access that repositories have to the organization secret.
-        /// Must be one of `all`, `private`, `selected`. `selected_repository_ids` is required if set to `selected`.
-        /// </summary>
         [Input("visibility", required: true)]
         public Input<string> Visibility { get; set; } = null!;
 
@@ -220,52 +107,29 @@ namespace Pulumi.Github
 
     public sealed class ActionsOrganizationSecretState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Date of actions_secret creation.
-        /// </summary>
         [Input("createdAt")]
         public Input<string>? CreatedAt { get; set; }
 
-        /// <summary>
-        /// Encrypted value of the secret using the Github public key in Base64 format.
-        /// </summary>
         [Input("encryptedValue")]
         public Input<string>? EncryptedValue { get; set; }
 
-        /// <summary>
-        /// Plaintext value of the secret to be encrypted
-        /// </summary>
         [Input("plaintextValue")]
         public Input<string>? PlaintextValue { get; set; }
 
-        /// <summary>
-        /// Name of the secret
-        /// </summary>
         [Input("secretName")]
         public Input<string>? SecretName { get; set; }
 
         [Input("selectedRepositoryIds")]
         private InputList<int>? _selectedRepositoryIds;
-
-        /// <summary>
-        /// An array of repository ids that can access the organization secret.
-        /// </summary>
         public InputList<int> SelectedRepositoryIds
         {
             get => _selectedRepositoryIds ?? (_selectedRepositoryIds = new InputList<int>());
             set => _selectedRepositoryIds = value;
         }
 
-        /// <summary>
-        /// Date of actions_secret update.
-        /// </summary>
         [Input("updatedAt")]
         public Input<string>? UpdatedAt { get; set; }
 
-        /// <summary>
-        /// Configures the access that repositories have to the organization secret.
-        /// Must be one of `all`, `private`, `selected`. `selected_repository_ids` is required if set to `selected`.
-        /// </summary>
         [Input("visibility")]
         public Input<string>? Visibility { get; set; }
 

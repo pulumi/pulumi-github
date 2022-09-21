@@ -48,41 +48,7 @@ class RepositoryArgs:
                  vulnerability_alerts: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a Repository resource.
-        :param pulumi.Input[bool] allow_auto_merge: Set to `true` to allow auto-merging pull requests on the repository.
-        :param pulumi.Input[bool] allow_merge_commit: Set to `false` to disable merge commits on the repository.
-        :param pulumi.Input[bool] allow_rebase_merge: Set to `false` to disable rebase merges on the repository.
-        :param pulumi.Input[bool] allow_squash_merge: Set to `false` to disable squash merges on the repository.
-        :param pulumi.Input[bool] archive_on_destroy: Set to `true` to archive the repository instead of deleting on destroy.
-        :param pulumi.Input[bool] archived: Specifies if the repository should be archived. Defaults to `false`. **NOTE** Currently, the API does not support unarchiving.
-        :param pulumi.Input[bool] auto_init: Set to `true` to produce an initial commit in the repository.
-        :param pulumi.Input[str] default_branch: (Deprecated: Use `BranchDefault` resource instead) The name of the default branch of the repository. **NOTE:** This can only be set after a repository has already been created,
-               and after a correct reference has been created for the target branch inside the repository. This means a user will have to omit this parameter from the
-               initial repository creation and create the target branch inside of the repository prior to setting this attribute.
-        :param pulumi.Input[bool] delete_branch_on_merge: Automatically delete head branch after a pull request is merged. Defaults to `false`.
-        :param pulumi.Input[str] description: A description of the repository.
-        :param pulumi.Input[str] gitignore_template: Use the [name of the template](https://github.com/github/gitignore) without the extension. For example, "Haskell".
-        :param pulumi.Input[bool] has_downloads: Set to `true` to enable the (deprecated) downloads features on the repository.
-        :param pulumi.Input[bool] has_issues: Set to `true` to enable the GitHub Issues features
-               on the repository.
-        :param pulumi.Input[bool] has_projects: Set to `true` to enable the GitHub Projects features on the repository. Per the GitHub [documentation](https://developer.github.com/v3/repos/#create) when in an organization that has disabled repository projects it will default to `false` and will otherwise default to `true`. If you specify `true` when it has been disabled it will return an error.
-        :param pulumi.Input[bool] has_wiki: Set to `true` to enable the GitHub Wiki features on
-               the repository.
-        :param pulumi.Input[str] homepage_url: URL of a page describing the project.
-        :param pulumi.Input[bool] ignore_vulnerability_alerts_during_read: Set to `true` to not call the vulnerability alerts endpoint so the resource can also be used without admin permissions during read.
-        :param pulumi.Input[bool] is_template: Set to `true` to tell GitHub that this is a template repository.
-        :param pulumi.Input[str] license_template: Use the [name of the template](https://github.com/github/choosealicense.com/tree/gh-pages/_licenses) without the extension. For example, "mit" or "mpl-2.0".
-        :param pulumi.Input[str] merge_commit_message: Can be `PR_BODY`, `PR_TITLE`, or `BLANK` for a default merge commit message.
-        :param pulumi.Input[str] merge_commit_title: Can be `PR_TITLE` or `MERGE_MESSAGE` for a default merge commit title.
-        :param pulumi.Input[str] name: The name of the repository.
-        :param pulumi.Input['RepositoryPagesArgs'] pages: The repository's GitHub Pages configuration. See GitHub Pages Configuration below for details.
-        :param pulumi.Input[bool] private: Set to `true` to create a private repository.
-               Repositories are created as public (e.g. open source) by default.
-        :param pulumi.Input[str] squash_merge_commit_message: Can be `PR_BODY`, `COMMIT_MESSAGES`, or `BLANK` for a default squash merge commit message.
-        :param pulumi.Input[str] squash_merge_commit_title: Can be `PR_TITLE` or `COMMIT_OR_PR_TITLE` for a default squash merge commit title.
-        :param pulumi.Input['RepositoryTemplateArgs'] template: Use a template repository to create this resource. See Template Repositories below for details.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] topics: The list of topics of the repository.
-        :param pulumi.Input[str] visibility: Can be `public` or `private`. If your organization is associated with an enterprise account using GitHub Enterprise Cloud or GitHub Enterprise Server 2.20+, visibility can also be `internal`. The `visibility` parameter overrides the `private` parameter.
-        :param pulumi.Input[bool] vulnerability_alerts: Set to `true` to enable security alerts for vulnerable dependencies. Enabling requires alerts to be enabled on the owner level. (Note for importing: GitHub enables the alerts on public repos but disables them on private repos by default.) See [GitHub Documentation](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for details. Note that vulnerability alerts have not been successfully tested on any GitHub Enterprise instance and may be unavailable in those settings.
+        :param pulumi.Input[str] default_branch: Can only be set after initial repository creation, and only if the target branch exists
         """
         if allow_auto_merge is not None:
             pulumi.set(__self__, "allow_auto_merge", allow_auto_merge)
@@ -154,9 +120,6 @@ class RepositoryArgs:
     @property
     @pulumi.getter(name="allowAutoMerge")
     def allow_auto_merge(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Set to `true` to allow auto-merging pull requests on the repository.
-        """
         return pulumi.get(self, "allow_auto_merge")
 
     @allow_auto_merge.setter
@@ -166,9 +129,6 @@ class RepositoryArgs:
     @property
     @pulumi.getter(name="allowMergeCommit")
     def allow_merge_commit(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Set to `false` to disable merge commits on the repository.
-        """
         return pulumi.get(self, "allow_merge_commit")
 
     @allow_merge_commit.setter
@@ -178,9 +138,6 @@ class RepositoryArgs:
     @property
     @pulumi.getter(name="allowRebaseMerge")
     def allow_rebase_merge(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Set to `false` to disable rebase merges on the repository.
-        """
         return pulumi.get(self, "allow_rebase_merge")
 
     @allow_rebase_merge.setter
@@ -190,9 +147,6 @@ class RepositoryArgs:
     @property
     @pulumi.getter(name="allowSquashMerge")
     def allow_squash_merge(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Set to `false` to disable squash merges on the repository.
-        """
         return pulumi.get(self, "allow_squash_merge")
 
     @allow_squash_merge.setter
@@ -202,9 +156,6 @@ class RepositoryArgs:
     @property
     @pulumi.getter(name="archiveOnDestroy")
     def archive_on_destroy(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Set to `true` to archive the repository instead of deleting on destroy.
-        """
         return pulumi.get(self, "archive_on_destroy")
 
     @archive_on_destroy.setter
@@ -214,9 +165,6 @@ class RepositoryArgs:
     @property
     @pulumi.getter
     def archived(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Specifies if the repository should be archived. Defaults to `false`. **NOTE** Currently, the API does not support unarchiving.
-        """
         return pulumi.get(self, "archived")
 
     @archived.setter
@@ -226,9 +174,6 @@ class RepositoryArgs:
     @property
     @pulumi.getter(name="autoInit")
     def auto_init(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Set to `true` to produce an initial commit in the repository.
-        """
         return pulumi.get(self, "auto_init")
 
     @auto_init.setter
@@ -239,9 +184,7 @@ class RepositoryArgs:
     @pulumi.getter(name="defaultBranch")
     def default_branch(self) -> Optional[pulumi.Input[str]]:
         """
-        (Deprecated: Use `BranchDefault` resource instead) The name of the default branch of the repository. **NOTE:** This can only be set after a repository has already been created,
-        and after a correct reference has been created for the target branch inside the repository. This means a user will have to omit this parameter from the
-        initial repository creation and create the target branch inside of the repository prior to setting this attribute.
+        Can only be set after initial repository creation, and only if the target branch exists
         """
         return pulumi.get(self, "default_branch")
 
@@ -252,9 +195,6 @@ class RepositoryArgs:
     @property
     @pulumi.getter(name="deleteBranchOnMerge")
     def delete_branch_on_merge(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Automatically delete head branch after a pull request is merged. Defaults to `false`.
-        """
         return pulumi.get(self, "delete_branch_on_merge")
 
     @delete_branch_on_merge.setter
@@ -264,9 +204,6 @@ class RepositoryArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        A description of the repository.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -276,9 +213,6 @@ class RepositoryArgs:
     @property
     @pulumi.getter(name="gitignoreTemplate")
     def gitignore_template(self) -> Optional[pulumi.Input[str]]:
-        """
-        Use the [name of the template](https://github.com/github/gitignore) without the extension. For example, "Haskell".
-        """
         return pulumi.get(self, "gitignore_template")
 
     @gitignore_template.setter
@@ -288,9 +222,6 @@ class RepositoryArgs:
     @property
     @pulumi.getter(name="hasDownloads")
     def has_downloads(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Set to `true` to enable the (deprecated) downloads features on the repository.
-        """
         return pulumi.get(self, "has_downloads")
 
     @has_downloads.setter
@@ -300,10 +231,6 @@ class RepositoryArgs:
     @property
     @pulumi.getter(name="hasIssues")
     def has_issues(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Set to `true` to enable the GitHub Issues features
-        on the repository.
-        """
         return pulumi.get(self, "has_issues")
 
     @has_issues.setter
@@ -313,9 +240,6 @@ class RepositoryArgs:
     @property
     @pulumi.getter(name="hasProjects")
     def has_projects(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Set to `true` to enable the GitHub Projects features on the repository. Per the GitHub [documentation](https://developer.github.com/v3/repos/#create) when in an organization that has disabled repository projects it will default to `false` and will otherwise default to `true`. If you specify `true` when it has been disabled it will return an error.
-        """
         return pulumi.get(self, "has_projects")
 
     @has_projects.setter
@@ -325,10 +249,6 @@ class RepositoryArgs:
     @property
     @pulumi.getter(name="hasWiki")
     def has_wiki(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Set to `true` to enable the GitHub Wiki features on
-        the repository.
-        """
         return pulumi.get(self, "has_wiki")
 
     @has_wiki.setter
@@ -338,9 +258,6 @@ class RepositoryArgs:
     @property
     @pulumi.getter(name="homepageUrl")
     def homepage_url(self) -> Optional[pulumi.Input[str]]:
-        """
-        URL of a page describing the project.
-        """
         return pulumi.get(self, "homepage_url")
 
     @homepage_url.setter
@@ -350,9 +267,6 @@ class RepositoryArgs:
     @property
     @pulumi.getter(name="ignoreVulnerabilityAlertsDuringRead")
     def ignore_vulnerability_alerts_during_read(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Set to `true` to not call the vulnerability alerts endpoint so the resource can also be used without admin permissions during read.
-        """
         return pulumi.get(self, "ignore_vulnerability_alerts_during_read")
 
     @ignore_vulnerability_alerts_during_read.setter
@@ -362,9 +276,6 @@ class RepositoryArgs:
     @property
     @pulumi.getter(name="isTemplate")
     def is_template(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Set to `true` to tell GitHub that this is a template repository.
-        """
         return pulumi.get(self, "is_template")
 
     @is_template.setter
@@ -374,9 +285,6 @@ class RepositoryArgs:
     @property
     @pulumi.getter(name="licenseTemplate")
     def license_template(self) -> Optional[pulumi.Input[str]]:
-        """
-        Use the [name of the template](https://github.com/github/choosealicense.com/tree/gh-pages/_licenses) without the extension. For example, "mit" or "mpl-2.0".
-        """
         return pulumi.get(self, "license_template")
 
     @license_template.setter
@@ -386,9 +294,6 @@ class RepositoryArgs:
     @property
     @pulumi.getter(name="mergeCommitMessage")
     def merge_commit_message(self) -> Optional[pulumi.Input[str]]:
-        """
-        Can be `PR_BODY`, `PR_TITLE`, or `BLANK` for a default merge commit message.
-        """
         return pulumi.get(self, "merge_commit_message")
 
     @merge_commit_message.setter
@@ -398,9 +303,6 @@ class RepositoryArgs:
     @property
     @pulumi.getter(name="mergeCommitTitle")
     def merge_commit_title(self) -> Optional[pulumi.Input[str]]:
-        """
-        Can be `PR_TITLE` or `MERGE_MESSAGE` for a default merge commit title.
-        """
         return pulumi.get(self, "merge_commit_title")
 
     @merge_commit_title.setter
@@ -410,9 +312,6 @@ class RepositoryArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the repository.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -422,9 +321,6 @@ class RepositoryArgs:
     @property
     @pulumi.getter
     def pages(self) -> Optional[pulumi.Input['RepositoryPagesArgs']]:
-        """
-        The repository's GitHub Pages configuration. See GitHub Pages Configuration below for details.
-        """
         return pulumi.get(self, "pages")
 
     @pages.setter
@@ -434,10 +330,6 @@ class RepositoryArgs:
     @property
     @pulumi.getter
     def private(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Set to `true` to create a private repository.
-        Repositories are created as public (e.g. open source) by default.
-        """
         return pulumi.get(self, "private")
 
     @private.setter
@@ -447,9 +339,6 @@ class RepositoryArgs:
     @property
     @pulumi.getter(name="squashMergeCommitMessage")
     def squash_merge_commit_message(self) -> Optional[pulumi.Input[str]]:
-        """
-        Can be `PR_BODY`, `COMMIT_MESSAGES`, or `BLANK` for a default squash merge commit message.
-        """
         return pulumi.get(self, "squash_merge_commit_message")
 
     @squash_merge_commit_message.setter
@@ -459,9 +348,6 @@ class RepositoryArgs:
     @property
     @pulumi.getter(name="squashMergeCommitTitle")
     def squash_merge_commit_title(self) -> Optional[pulumi.Input[str]]:
-        """
-        Can be `PR_TITLE` or `COMMIT_OR_PR_TITLE` for a default squash merge commit title.
-        """
         return pulumi.get(self, "squash_merge_commit_title")
 
     @squash_merge_commit_title.setter
@@ -471,9 +357,6 @@ class RepositoryArgs:
     @property
     @pulumi.getter
     def template(self) -> Optional[pulumi.Input['RepositoryTemplateArgs']]:
-        """
-        Use a template repository to create this resource. See Template Repositories below for details.
-        """
         return pulumi.get(self, "template")
 
     @template.setter
@@ -483,9 +366,6 @@ class RepositoryArgs:
     @property
     @pulumi.getter
     def topics(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        The list of topics of the repository.
-        """
         return pulumi.get(self, "topics")
 
     @topics.setter
@@ -495,9 +375,6 @@ class RepositoryArgs:
     @property
     @pulumi.getter
     def visibility(self) -> Optional[pulumi.Input[str]]:
-        """
-        Can be `public` or `private`. If your organization is associated with an enterprise account using GitHub Enterprise Cloud or GitHub Enterprise Server 2.20+, visibility can also be `internal`. The `visibility` parameter overrides the `private` parameter.
-        """
         return pulumi.get(self, "visibility")
 
     @visibility.setter
@@ -507,9 +384,6 @@ class RepositoryArgs:
     @property
     @pulumi.getter(name="vulnerabilityAlerts")
     def vulnerability_alerts(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Set to `true` to enable security alerts for vulnerable dependencies. Enabling requires alerts to be enabled on the owner level. (Note for importing: GitHub enables the alerts on public repos but disables them on private repos by default.) See [GitHub Documentation](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for details. Note that vulnerability alerts have not been successfully tested on any GitHub Enterprise instance and may be unavailable in those settings.
-        """
         return pulumi.get(self, "vulnerability_alerts")
 
     @vulnerability_alerts.setter
@@ -527,7 +401,6 @@ class _RepositoryState:
                  archive_on_destroy: Optional[pulumi.Input[bool]] = None,
                  archived: Optional[pulumi.Input[bool]] = None,
                  auto_init: Optional[pulumi.Input[bool]] = None,
-                 branches: Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryBranchArgs']]]] = None,
                  default_branch: Optional[pulumi.Input[str]] = None,
                  delete_branch_on_merge: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -562,50 +435,7 @@ class _RepositoryState:
                  vulnerability_alerts: Optional[pulumi.Input[bool]] = None):
         """
         Input properties used for looking up and filtering Repository resources.
-        :param pulumi.Input[bool] allow_auto_merge: Set to `true` to allow auto-merging pull requests on the repository.
-        :param pulumi.Input[bool] allow_merge_commit: Set to `false` to disable merge commits on the repository.
-        :param pulumi.Input[bool] allow_rebase_merge: Set to `false` to disable rebase merges on the repository.
-        :param pulumi.Input[bool] allow_squash_merge: Set to `false` to disable squash merges on the repository.
-        :param pulumi.Input[bool] archive_on_destroy: Set to `true` to archive the repository instead of deleting on destroy.
-        :param pulumi.Input[bool] archived: Specifies if the repository should be archived. Defaults to `false`. **NOTE** Currently, the API does not support unarchiving.
-        :param pulumi.Input[bool] auto_init: Set to `true` to produce an initial commit in the repository.
-        :param pulumi.Input[Sequence[pulumi.Input['RepositoryBranchArgs']]] branches: The list of this repository's branches. Each element of `branches` has the following attributes:
-        :param pulumi.Input[str] default_branch: (Deprecated: Use `BranchDefault` resource instead) The name of the default branch of the repository. **NOTE:** This can only be set after a repository has already been created,
-               and after a correct reference has been created for the target branch inside the repository. This means a user will have to omit this parameter from the
-               initial repository creation and create the target branch inside of the repository prior to setting this attribute.
-        :param pulumi.Input[bool] delete_branch_on_merge: Automatically delete head branch after a pull request is merged. Defaults to `false`.
-        :param pulumi.Input[str] description: A description of the repository.
-        :param pulumi.Input[str] full_name: A string of the form "orgname/reponame".
-        :param pulumi.Input[str] git_clone_url: URL that can be provided to `git clone` to clone the repository anonymously via the git protocol.
-        :param pulumi.Input[str] gitignore_template: Use the [name of the template](https://github.com/github/gitignore) without the extension. For example, "Haskell".
-        :param pulumi.Input[bool] has_downloads: Set to `true` to enable the (deprecated) downloads features on the repository.
-        :param pulumi.Input[bool] has_issues: Set to `true` to enable the GitHub Issues features
-               on the repository.
-        :param pulumi.Input[bool] has_projects: Set to `true` to enable the GitHub Projects features on the repository. Per the GitHub [documentation](https://developer.github.com/v3/repos/#create) when in an organization that has disabled repository projects it will default to `false` and will otherwise default to `true`. If you specify `true` when it has been disabled it will return an error.
-        :param pulumi.Input[bool] has_wiki: Set to `true` to enable the GitHub Wiki features on
-               the repository.
-        :param pulumi.Input[str] homepage_url: URL of a page describing the project.
-        :param pulumi.Input[str] html_url: The absolute URL (including scheme) of the rendered GitHub Pages site e.g. `https://username.github.io`.
-        :param pulumi.Input[str] http_clone_url: URL that can be provided to `git clone` to clone the repository via HTTPS.
-        :param pulumi.Input[bool] ignore_vulnerability_alerts_during_read: Set to `true` to not call the vulnerability alerts endpoint so the resource can also be used without admin permissions during read.
-        :param pulumi.Input[bool] is_template: Set to `true` to tell GitHub that this is a template repository.
-        :param pulumi.Input[str] license_template: Use the [name of the template](https://github.com/github/choosealicense.com/tree/gh-pages/_licenses) without the extension. For example, "mit" or "mpl-2.0".
-        :param pulumi.Input[str] merge_commit_message: Can be `PR_BODY`, `PR_TITLE`, or `BLANK` for a default merge commit message.
-        :param pulumi.Input[str] merge_commit_title: Can be `PR_TITLE` or `MERGE_MESSAGE` for a default merge commit title.
-        :param pulumi.Input[str] name: The name of the repository.
-        :param pulumi.Input[str] node_id: GraphQL global node id for use with v4 API
-        :param pulumi.Input['RepositoryPagesArgs'] pages: The repository's GitHub Pages configuration. See GitHub Pages Configuration below for details.
-        :param pulumi.Input[bool] private: Set to `true` to create a private repository.
-               Repositories are created as public (e.g. open source) by default.
-        :param pulumi.Input[int] repo_id: GitHub ID for the repository
-        :param pulumi.Input[str] squash_merge_commit_message: Can be `PR_BODY`, `COMMIT_MESSAGES`, or `BLANK` for a default squash merge commit message.
-        :param pulumi.Input[str] squash_merge_commit_title: Can be `PR_TITLE` or `COMMIT_OR_PR_TITLE` for a default squash merge commit title.
-        :param pulumi.Input[str] ssh_clone_url: URL that can be provided to `git clone` to clone the repository via SSH.
-        :param pulumi.Input[str] svn_url: URL that can be provided to `svn checkout` to check out the repository via GitHub's Subversion protocol emulation.
-        :param pulumi.Input['RepositoryTemplateArgs'] template: Use a template repository to create this resource. See Template Repositories below for details.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] topics: The list of topics of the repository.
-        :param pulumi.Input[str] visibility: Can be `public` or `private`. If your organization is associated with an enterprise account using GitHub Enterprise Cloud or GitHub Enterprise Server 2.20+, visibility can also be `internal`. The `visibility` parameter overrides the `private` parameter.
-        :param pulumi.Input[bool] vulnerability_alerts: Set to `true` to enable security alerts for vulnerable dependencies. Enabling requires alerts to be enabled on the owner level. (Note for importing: GitHub enables the alerts on public repos but disables them on private repos by default.) See [GitHub Documentation](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for details. Note that vulnerability alerts have not been successfully tested on any GitHub Enterprise instance and may be unavailable in those settings.
+        :param pulumi.Input[str] default_branch: Can only be set after initial repository creation, and only if the target branch exists
         """
         if allow_auto_merge is not None:
             pulumi.set(__self__, "allow_auto_merge", allow_auto_merge)
@@ -621,8 +451,6 @@ class _RepositoryState:
             pulumi.set(__self__, "archived", archived)
         if auto_init is not None:
             pulumi.set(__self__, "auto_init", auto_init)
-        if branches is not None:
-            pulumi.set(__self__, "branches", branches)
         if default_branch is not None:
             warnings.warn("""Use the github_branch_default resource instead""", DeprecationWarning)
             pulumi.log.warn("""default_branch is deprecated: Use the github_branch_default resource instead""")
@@ -697,9 +525,6 @@ class _RepositoryState:
     @property
     @pulumi.getter(name="allowAutoMerge")
     def allow_auto_merge(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Set to `true` to allow auto-merging pull requests on the repository.
-        """
         return pulumi.get(self, "allow_auto_merge")
 
     @allow_auto_merge.setter
@@ -709,9 +534,6 @@ class _RepositoryState:
     @property
     @pulumi.getter(name="allowMergeCommit")
     def allow_merge_commit(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Set to `false` to disable merge commits on the repository.
-        """
         return pulumi.get(self, "allow_merge_commit")
 
     @allow_merge_commit.setter
@@ -721,9 +543,6 @@ class _RepositoryState:
     @property
     @pulumi.getter(name="allowRebaseMerge")
     def allow_rebase_merge(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Set to `false` to disable rebase merges on the repository.
-        """
         return pulumi.get(self, "allow_rebase_merge")
 
     @allow_rebase_merge.setter
@@ -733,9 +552,6 @@ class _RepositoryState:
     @property
     @pulumi.getter(name="allowSquashMerge")
     def allow_squash_merge(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Set to `false` to disable squash merges on the repository.
-        """
         return pulumi.get(self, "allow_squash_merge")
 
     @allow_squash_merge.setter
@@ -745,9 +561,6 @@ class _RepositoryState:
     @property
     @pulumi.getter(name="archiveOnDestroy")
     def archive_on_destroy(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Set to `true` to archive the repository instead of deleting on destroy.
-        """
         return pulumi.get(self, "archive_on_destroy")
 
     @archive_on_destroy.setter
@@ -757,9 +570,6 @@ class _RepositoryState:
     @property
     @pulumi.getter
     def archived(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Specifies if the repository should be archived. Defaults to `false`. **NOTE** Currently, the API does not support unarchiving.
-        """
         return pulumi.get(self, "archived")
 
     @archived.setter
@@ -769,9 +579,6 @@ class _RepositoryState:
     @property
     @pulumi.getter(name="autoInit")
     def auto_init(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Set to `true` to produce an initial commit in the repository.
-        """
         return pulumi.get(self, "auto_init")
 
     @auto_init.setter
@@ -779,24 +586,10 @@ class _RepositoryState:
         pulumi.set(self, "auto_init", value)
 
     @property
-    @pulumi.getter
-    def branches(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryBranchArgs']]]]:
-        """
-        The list of this repository's branches. Each element of `branches` has the following attributes:
-        """
-        return pulumi.get(self, "branches")
-
-    @branches.setter
-    def branches(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryBranchArgs']]]]):
-        pulumi.set(self, "branches", value)
-
-    @property
     @pulumi.getter(name="defaultBranch")
     def default_branch(self) -> Optional[pulumi.Input[str]]:
         """
-        (Deprecated: Use `BranchDefault` resource instead) The name of the default branch of the repository. **NOTE:** This can only be set after a repository has already been created,
-        and after a correct reference has been created for the target branch inside the repository. This means a user will have to omit this parameter from the
-        initial repository creation and create the target branch inside of the repository prior to setting this attribute.
+        Can only be set after initial repository creation, and only if the target branch exists
         """
         return pulumi.get(self, "default_branch")
 
@@ -807,9 +600,6 @@ class _RepositoryState:
     @property
     @pulumi.getter(name="deleteBranchOnMerge")
     def delete_branch_on_merge(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Automatically delete head branch after a pull request is merged. Defaults to `false`.
-        """
         return pulumi.get(self, "delete_branch_on_merge")
 
     @delete_branch_on_merge.setter
@@ -819,9 +609,6 @@ class _RepositoryState:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        A description of the repository.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -840,9 +627,6 @@ class _RepositoryState:
     @property
     @pulumi.getter(name="fullName")
     def full_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        A string of the form "orgname/reponame".
-        """
         return pulumi.get(self, "full_name")
 
     @full_name.setter
@@ -852,9 +636,6 @@ class _RepositoryState:
     @property
     @pulumi.getter(name="gitCloneUrl")
     def git_clone_url(self) -> Optional[pulumi.Input[str]]:
-        """
-        URL that can be provided to `git clone` to clone the repository anonymously via the git protocol.
-        """
         return pulumi.get(self, "git_clone_url")
 
     @git_clone_url.setter
@@ -864,9 +645,6 @@ class _RepositoryState:
     @property
     @pulumi.getter(name="gitignoreTemplate")
     def gitignore_template(self) -> Optional[pulumi.Input[str]]:
-        """
-        Use the [name of the template](https://github.com/github/gitignore) without the extension. For example, "Haskell".
-        """
         return pulumi.get(self, "gitignore_template")
 
     @gitignore_template.setter
@@ -876,9 +654,6 @@ class _RepositoryState:
     @property
     @pulumi.getter(name="hasDownloads")
     def has_downloads(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Set to `true` to enable the (deprecated) downloads features on the repository.
-        """
         return pulumi.get(self, "has_downloads")
 
     @has_downloads.setter
@@ -888,10 +663,6 @@ class _RepositoryState:
     @property
     @pulumi.getter(name="hasIssues")
     def has_issues(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Set to `true` to enable the GitHub Issues features
-        on the repository.
-        """
         return pulumi.get(self, "has_issues")
 
     @has_issues.setter
@@ -901,9 +672,6 @@ class _RepositoryState:
     @property
     @pulumi.getter(name="hasProjects")
     def has_projects(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Set to `true` to enable the GitHub Projects features on the repository. Per the GitHub [documentation](https://developer.github.com/v3/repos/#create) when in an organization that has disabled repository projects it will default to `false` and will otherwise default to `true`. If you specify `true` when it has been disabled it will return an error.
-        """
         return pulumi.get(self, "has_projects")
 
     @has_projects.setter
@@ -913,10 +681,6 @@ class _RepositoryState:
     @property
     @pulumi.getter(name="hasWiki")
     def has_wiki(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Set to `true` to enable the GitHub Wiki features on
-        the repository.
-        """
         return pulumi.get(self, "has_wiki")
 
     @has_wiki.setter
@@ -926,9 +690,6 @@ class _RepositoryState:
     @property
     @pulumi.getter(name="homepageUrl")
     def homepage_url(self) -> Optional[pulumi.Input[str]]:
-        """
-        URL of a page describing the project.
-        """
         return pulumi.get(self, "homepage_url")
 
     @homepage_url.setter
@@ -938,9 +699,6 @@ class _RepositoryState:
     @property
     @pulumi.getter(name="htmlUrl")
     def html_url(self) -> Optional[pulumi.Input[str]]:
-        """
-        The absolute URL (including scheme) of the rendered GitHub Pages site e.g. `https://username.github.io`.
-        """
         return pulumi.get(self, "html_url")
 
     @html_url.setter
@@ -950,9 +708,6 @@ class _RepositoryState:
     @property
     @pulumi.getter(name="httpCloneUrl")
     def http_clone_url(self) -> Optional[pulumi.Input[str]]:
-        """
-        URL that can be provided to `git clone` to clone the repository via HTTPS.
-        """
         return pulumi.get(self, "http_clone_url")
 
     @http_clone_url.setter
@@ -962,9 +717,6 @@ class _RepositoryState:
     @property
     @pulumi.getter(name="ignoreVulnerabilityAlertsDuringRead")
     def ignore_vulnerability_alerts_during_read(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Set to `true` to not call the vulnerability alerts endpoint so the resource can also be used without admin permissions during read.
-        """
         return pulumi.get(self, "ignore_vulnerability_alerts_during_read")
 
     @ignore_vulnerability_alerts_during_read.setter
@@ -974,9 +726,6 @@ class _RepositoryState:
     @property
     @pulumi.getter(name="isTemplate")
     def is_template(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Set to `true` to tell GitHub that this is a template repository.
-        """
         return pulumi.get(self, "is_template")
 
     @is_template.setter
@@ -986,9 +735,6 @@ class _RepositoryState:
     @property
     @pulumi.getter(name="licenseTemplate")
     def license_template(self) -> Optional[pulumi.Input[str]]:
-        """
-        Use the [name of the template](https://github.com/github/choosealicense.com/tree/gh-pages/_licenses) without the extension. For example, "mit" or "mpl-2.0".
-        """
         return pulumi.get(self, "license_template")
 
     @license_template.setter
@@ -998,9 +744,6 @@ class _RepositoryState:
     @property
     @pulumi.getter(name="mergeCommitMessage")
     def merge_commit_message(self) -> Optional[pulumi.Input[str]]:
-        """
-        Can be `PR_BODY`, `PR_TITLE`, or `BLANK` for a default merge commit message.
-        """
         return pulumi.get(self, "merge_commit_message")
 
     @merge_commit_message.setter
@@ -1010,9 +753,6 @@ class _RepositoryState:
     @property
     @pulumi.getter(name="mergeCommitTitle")
     def merge_commit_title(self) -> Optional[pulumi.Input[str]]:
-        """
-        Can be `PR_TITLE` or `MERGE_MESSAGE` for a default merge commit title.
-        """
         return pulumi.get(self, "merge_commit_title")
 
     @merge_commit_title.setter
@@ -1022,9 +762,6 @@ class _RepositoryState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the repository.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -1034,9 +771,6 @@ class _RepositoryState:
     @property
     @pulumi.getter(name="nodeId")
     def node_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        GraphQL global node id for use with v4 API
-        """
         return pulumi.get(self, "node_id")
 
     @node_id.setter
@@ -1046,9 +780,6 @@ class _RepositoryState:
     @property
     @pulumi.getter
     def pages(self) -> Optional[pulumi.Input['RepositoryPagesArgs']]:
-        """
-        The repository's GitHub Pages configuration. See GitHub Pages Configuration below for details.
-        """
         return pulumi.get(self, "pages")
 
     @pages.setter
@@ -1058,10 +789,6 @@ class _RepositoryState:
     @property
     @pulumi.getter
     def private(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Set to `true` to create a private repository.
-        Repositories are created as public (e.g. open source) by default.
-        """
         return pulumi.get(self, "private")
 
     @private.setter
@@ -1071,9 +798,6 @@ class _RepositoryState:
     @property
     @pulumi.getter(name="repoId")
     def repo_id(self) -> Optional[pulumi.Input[int]]:
-        """
-        GitHub ID for the repository
-        """
         return pulumi.get(self, "repo_id")
 
     @repo_id.setter
@@ -1083,9 +807,6 @@ class _RepositoryState:
     @property
     @pulumi.getter(name="squashMergeCommitMessage")
     def squash_merge_commit_message(self) -> Optional[pulumi.Input[str]]:
-        """
-        Can be `PR_BODY`, `COMMIT_MESSAGES`, or `BLANK` for a default squash merge commit message.
-        """
         return pulumi.get(self, "squash_merge_commit_message")
 
     @squash_merge_commit_message.setter
@@ -1095,9 +816,6 @@ class _RepositoryState:
     @property
     @pulumi.getter(name="squashMergeCommitTitle")
     def squash_merge_commit_title(self) -> Optional[pulumi.Input[str]]:
-        """
-        Can be `PR_TITLE` or `COMMIT_OR_PR_TITLE` for a default squash merge commit title.
-        """
         return pulumi.get(self, "squash_merge_commit_title")
 
     @squash_merge_commit_title.setter
@@ -1107,9 +825,6 @@ class _RepositoryState:
     @property
     @pulumi.getter(name="sshCloneUrl")
     def ssh_clone_url(self) -> Optional[pulumi.Input[str]]:
-        """
-        URL that can be provided to `git clone` to clone the repository via SSH.
-        """
         return pulumi.get(self, "ssh_clone_url")
 
     @ssh_clone_url.setter
@@ -1119,9 +834,6 @@ class _RepositoryState:
     @property
     @pulumi.getter(name="svnUrl")
     def svn_url(self) -> Optional[pulumi.Input[str]]:
-        """
-        URL that can be provided to `svn checkout` to check out the repository via GitHub's Subversion protocol emulation.
-        """
         return pulumi.get(self, "svn_url")
 
     @svn_url.setter
@@ -1131,9 +843,6 @@ class _RepositoryState:
     @property
     @pulumi.getter
     def template(self) -> Optional[pulumi.Input['RepositoryTemplateArgs']]:
-        """
-        Use a template repository to create this resource. See Template Repositories below for details.
-        """
         return pulumi.get(self, "template")
 
     @template.setter
@@ -1143,9 +852,6 @@ class _RepositoryState:
     @property
     @pulumi.getter
     def topics(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        The list of topics of the repository.
-        """
         return pulumi.get(self, "topics")
 
     @topics.setter
@@ -1155,9 +861,6 @@ class _RepositoryState:
     @property
     @pulumi.getter
     def visibility(self) -> Optional[pulumi.Input[str]]:
-        """
-        Can be `public` or `private`. If your organization is associated with an enterprise account using GitHub Enterprise Cloud or GitHub Enterprise Server 2.20+, visibility can also be `internal`. The `visibility` parameter overrides the `private` parameter.
-        """
         return pulumi.get(self, "visibility")
 
     @visibility.setter
@@ -1167,9 +870,6 @@ class _RepositoryState:
     @property
     @pulumi.getter(name="vulnerabilityAlerts")
     def vulnerability_alerts(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Set to `true` to enable security alerts for vulnerable dependencies. Enabling requires alerts to be enabled on the owner level. (Note for importing: GitHub enables the alerts on public repos but disables them on private repos by default.) See [GitHub Documentation](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for details. Note that vulnerability alerts have not been successfully tested on any GitHub Enterprise instance and may be unavailable in those settings.
-        """
         return pulumi.get(self, "vulnerability_alerts")
 
     @vulnerability_alerts.setter
@@ -1214,85 +914,10 @@ class Repository(pulumi.CustomResource):
                  vulnerability_alerts: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
-        This resource allows you to create and manage repositories within your
-        GitHub organization or personal account.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_github as github
-
-        example = github.Repository("example",
-            description="My awesome codebase",
-            template=github.RepositoryTemplateArgs(
-                owner="github",
-                repository="terraform-module-template",
-            ),
-            visibility="public")
-        ```
-        ### With GitHub Pages Enabled
-
-        ```python
-        import pulumi
-        import pulumi_github as github
-
-        example = github.Repository("example",
-            description="My awesome web page",
-            pages=github.RepositoryPagesArgs(
-                source=github.RepositoryPagesSourceArgs(
-                    branch="master",
-                    path="/docs",
-                ),
-            ),
-            private=False)
-        ```
-
-        ## Import
-
-        Repositories can be imported using the `name`, e.g.
-
-        ```sh
-         $ pulumi import github:index/repository:Repository terraform terraform
-        ```
-
+        Create a Repository resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] allow_auto_merge: Set to `true` to allow auto-merging pull requests on the repository.
-        :param pulumi.Input[bool] allow_merge_commit: Set to `false` to disable merge commits on the repository.
-        :param pulumi.Input[bool] allow_rebase_merge: Set to `false` to disable rebase merges on the repository.
-        :param pulumi.Input[bool] allow_squash_merge: Set to `false` to disable squash merges on the repository.
-        :param pulumi.Input[bool] archive_on_destroy: Set to `true` to archive the repository instead of deleting on destroy.
-        :param pulumi.Input[bool] archived: Specifies if the repository should be archived. Defaults to `false`. **NOTE** Currently, the API does not support unarchiving.
-        :param pulumi.Input[bool] auto_init: Set to `true` to produce an initial commit in the repository.
-        :param pulumi.Input[str] default_branch: (Deprecated: Use `BranchDefault` resource instead) The name of the default branch of the repository. **NOTE:** This can only be set after a repository has already been created,
-               and after a correct reference has been created for the target branch inside the repository. This means a user will have to omit this parameter from the
-               initial repository creation and create the target branch inside of the repository prior to setting this attribute.
-        :param pulumi.Input[bool] delete_branch_on_merge: Automatically delete head branch after a pull request is merged. Defaults to `false`.
-        :param pulumi.Input[str] description: A description of the repository.
-        :param pulumi.Input[str] gitignore_template: Use the [name of the template](https://github.com/github/gitignore) without the extension. For example, "Haskell".
-        :param pulumi.Input[bool] has_downloads: Set to `true` to enable the (deprecated) downloads features on the repository.
-        :param pulumi.Input[bool] has_issues: Set to `true` to enable the GitHub Issues features
-               on the repository.
-        :param pulumi.Input[bool] has_projects: Set to `true` to enable the GitHub Projects features on the repository. Per the GitHub [documentation](https://developer.github.com/v3/repos/#create) when in an organization that has disabled repository projects it will default to `false` and will otherwise default to `true`. If you specify `true` when it has been disabled it will return an error.
-        :param pulumi.Input[bool] has_wiki: Set to `true` to enable the GitHub Wiki features on
-               the repository.
-        :param pulumi.Input[str] homepage_url: URL of a page describing the project.
-        :param pulumi.Input[bool] ignore_vulnerability_alerts_during_read: Set to `true` to not call the vulnerability alerts endpoint so the resource can also be used without admin permissions during read.
-        :param pulumi.Input[bool] is_template: Set to `true` to tell GitHub that this is a template repository.
-        :param pulumi.Input[str] license_template: Use the [name of the template](https://github.com/github/choosealicense.com/tree/gh-pages/_licenses) without the extension. For example, "mit" or "mpl-2.0".
-        :param pulumi.Input[str] merge_commit_message: Can be `PR_BODY`, `PR_TITLE`, or `BLANK` for a default merge commit message.
-        :param pulumi.Input[str] merge_commit_title: Can be `PR_TITLE` or `MERGE_MESSAGE` for a default merge commit title.
-        :param pulumi.Input[str] name: The name of the repository.
-        :param pulumi.Input[pulumi.InputType['RepositoryPagesArgs']] pages: The repository's GitHub Pages configuration. See GitHub Pages Configuration below for details.
-        :param pulumi.Input[bool] private: Set to `true` to create a private repository.
-               Repositories are created as public (e.g. open source) by default.
-        :param pulumi.Input[str] squash_merge_commit_message: Can be `PR_BODY`, `COMMIT_MESSAGES`, or `BLANK` for a default squash merge commit message.
-        :param pulumi.Input[str] squash_merge_commit_title: Can be `PR_TITLE` or `COMMIT_OR_PR_TITLE` for a default squash merge commit title.
-        :param pulumi.Input[pulumi.InputType['RepositoryTemplateArgs']] template: Use a template repository to create this resource. See Template Repositories below for details.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] topics: The list of topics of the repository.
-        :param pulumi.Input[str] visibility: Can be `public` or `private`. If your organization is associated with an enterprise account using GitHub Enterprise Cloud or GitHub Enterprise Server 2.20+, visibility can also be `internal`. The `visibility` parameter overrides the `private` parameter.
-        :param pulumi.Input[bool] vulnerability_alerts: Set to `true` to enable security alerts for vulnerable dependencies. Enabling requires alerts to be enabled on the owner level. (Note for importing: GitHub enables the alerts on public repos but disables them on private repos by default.) See [GitHub Documentation](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for details. Note that vulnerability alerts have not been successfully tested on any GitHub Enterprise instance and may be unavailable in those settings.
+        :param pulumi.Input[str] default_branch: Can only be set after initial repository creation, and only if the target branch exists
         """
         ...
     @overload
@@ -1301,48 +926,7 @@ class Repository(pulumi.CustomResource):
                  args: Optional[RepositoryArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        This resource allows you to create and manage repositories within your
-        GitHub organization or personal account.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_github as github
-
-        example = github.Repository("example",
-            description="My awesome codebase",
-            template=github.RepositoryTemplateArgs(
-                owner="github",
-                repository="terraform-module-template",
-            ),
-            visibility="public")
-        ```
-        ### With GitHub Pages Enabled
-
-        ```python
-        import pulumi
-        import pulumi_github as github
-
-        example = github.Repository("example",
-            description="My awesome web page",
-            pages=github.RepositoryPagesArgs(
-                source=github.RepositoryPagesSourceArgs(
-                    branch="master",
-                    path="/docs",
-                ),
-            ),
-            private=False)
-        ```
-
-        ## Import
-
-        Repositories can be imported using the `name`, e.g.
-
-        ```sh
-         $ pulumi import github:index/repository:Repository terraform terraform
-        ```
-
+        Create a Repository resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param RepositoryArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -1433,7 +1017,6 @@ class Repository(pulumi.CustomResource):
             __props__.__dict__["topics"] = topics
             __props__.__dict__["visibility"] = visibility
             __props__.__dict__["vulnerability_alerts"] = vulnerability_alerts
-            __props__.__dict__["branches"] = None
             __props__.__dict__["etag"] = None
             __props__.__dict__["full_name"] = None
             __props__.__dict__["git_clone_url"] = None
@@ -1460,7 +1043,6 @@ class Repository(pulumi.CustomResource):
             archive_on_destroy: Optional[pulumi.Input[bool]] = None,
             archived: Optional[pulumi.Input[bool]] = None,
             auto_init: Optional[pulumi.Input[bool]] = None,
-            branches: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RepositoryBranchArgs']]]]] = None,
             default_branch: Optional[pulumi.Input[str]] = None,
             delete_branch_on_merge: Optional[pulumi.Input[bool]] = None,
             description: Optional[pulumi.Input[str]] = None,
@@ -1500,50 +1082,7 @@ class Repository(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] allow_auto_merge: Set to `true` to allow auto-merging pull requests on the repository.
-        :param pulumi.Input[bool] allow_merge_commit: Set to `false` to disable merge commits on the repository.
-        :param pulumi.Input[bool] allow_rebase_merge: Set to `false` to disable rebase merges on the repository.
-        :param pulumi.Input[bool] allow_squash_merge: Set to `false` to disable squash merges on the repository.
-        :param pulumi.Input[bool] archive_on_destroy: Set to `true` to archive the repository instead of deleting on destroy.
-        :param pulumi.Input[bool] archived: Specifies if the repository should be archived. Defaults to `false`. **NOTE** Currently, the API does not support unarchiving.
-        :param pulumi.Input[bool] auto_init: Set to `true` to produce an initial commit in the repository.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RepositoryBranchArgs']]]] branches: The list of this repository's branches. Each element of `branches` has the following attributes:
-        :param pulumi.Input[str] default_branch: (Deprecated: Use `BranchDefault` resource instead) The name of the default branch of the repository. **NOTE:** This can only be set after a repository has already been created,
-               and after a correct reference has been created for the target branch inside the repository. This means a user will have to omit this parameter from the
-               initial repository creation and create the target branch inside of the repository prior to setting this attribute.
-        :param pulumi.Input[bool] delete_branch_on_merge: Automatically delete head branch after a pull request is merged. Defaults to `false`.
-        :param pulumi.Input[str] description: A description of the repository.
-        :param pulumi.Input[str] full_name: A string of the form "orgname/reponame".
-        :param pulumi.Input[str] git_clone_url: URL that can be provided to `git clone` to clone the repository anonymously via the git protocol.
-        :param pulumi.Input[str] gitignore_template: Use the [name of the template](https://github.com/github/gitignore) without the extension. For example, "Haskell".
-        :param pulumi.Input[bool] has_downloads: Set to `true` to enable the (deprecated) downloads features on the repository.
-        :param pulumi.Input[bool] has_issues: Set to `true` to enable the GitHub Issues features
-               on the repository.
-        :param pulumi.Input[bool] has_projects: Set to `true` to enable the GitHub Projects features on the repository. Per the GitHub [documentation](https://developer.github.com/v3/repos/#create) when in an organization that has disabled repository projects it will default to `false` and will otherwise default to `true`. If you specify `true` when it has been disabled it will return an error.
-        :param pulumi.Input[bool] has_wiki: Set to `true` to enable the GitHub Wiki features on
-               the repository.
-        :param pulumi.Input[str] homepage_url: URL of a page describing the project.
-        :param pulumi.Input[str] html_url: The absolute URL (including scheme) of the rendered GitHub Pages site e.g. `https://username.github.io`.
-        :param pulumi.Input[str] http_clone_url: URL that can be provided to `git clone` to clone the repository via HTTPS.
-        :param pulumi.Input[bool] ignore_vulnerability_alerts_during_read: Set to `true` to not call the vulnerability alerts endpoint so the resource can also be used without admin permissions during read.
-        :param pulumi.Input[bool] is_template: Set to `true` to tell GitHub that this is a template repository.
-        :param pulumi.Input[str] license_template: Use the [name of the template](https://github.com/github/choosealicense.com/tree/gh-pages/_licenses) without the extension. For example, "mit" or "mpl-2.0".
-        :param pulumi.Input[str] merge_commit_message: Can be `PR_BODY`, `PR_TITLE`, or `BLANK` for a default merge commit message.
-        :param pulumi.Input[str] merge_commit_title: Can be `PR_TITLE` or `MERGE_MESSAGE` for a default merge commit title.
-        :param pulumi.Input[str] name: The name of the repository.
-        :param pulumi.Input[str] node_id: GraphQL global node id for use with v4 API
-        :param pulumi.Input[pulumi.InputType['RepositoryPagesArgs']] pages: The repository's GitHub Pages configuration. See GitHub Pages Configuration below for details.
-        :param pulumi.Input[bool] private: Set to `true` to create a private repository.
-               Repositories are created as public (e.g. open source) by default.
-        :param pulumi.Input[int] repo_id: GitHub ID for the repository
-        :param pulumi.Input[str] squash_merge_commit_message: Can be `PR_BODY`, `COMMIT_MESSAGES`, or `BLANK` for a default squash merge commit message.
-        :param pulumi.Input[str] squash_merge_commit_title: Can be `PR_TITLE` or `COMMIT_OR_PR_TITLE` for a default squash merge commit title.
-        :param pulumi.Input[str] ssh_clone_url: URL that can be provided to `git clone` to clone the repository via SSH.
-        :param pulumi.Input[str] svn_url: URL that can be provided to `svn checkout` to check out the repository via GitHub's Subversion protocol emulation.
-        :param pulumi.Input[pulumi.InputType['RepositoryTemplateArgs']] template: Use a template repository to create this resource. See Template Repositories below for details.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] topics: The list of topics of the repository.
-        :param pulumi.Input[str] visibility: Can be `public` or `private`. If your organization is associated with an enterprise account using GitHub Enterprise Cloud or GitHub Enterprise Server 2.20+, visibility can also be `internal`. The `visibility` parameter overrides the `private` parameter.
-        :param pulumi.Input[bool] vulnerability_alerts: Set to `true` to enable security alerts for vulnerable dependencies. Enabling requires alerts to be enabled on the owner level. (Note for importing: GitHub enables the alerts on public repos but disables them on private repos by default.) See [GitHub Documentation](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for details. Note that vulnerability alerts have not been successfully tested on any GitHub Enterprise instance and may be unavailable in those settings.
+        :param pulumi.Input[str] default_branch: Can only be set after initial repository creation, and only if the target branch exists
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1556,7 +1095,6 @@ class Repository(pulumi.CustomResource):
         __props__.__dict__["archive_on_destroy"] = archive_on_destroy
         __props__.__dict__["archived"] = archived
         __props__.__dict__["auto_init"] = auto_init
-        __props__.__dict__["branches"] = branches
         __props__.__dict__["default_branch"] = default_branch
         __props__.__dict__["delete_branch_on_merge"] = delete_branch_on_merge
         __props__.__dict__["description"] = description
@@ -1594,91 +1132,54 @@ class Repository(pulumi.CustomResource):
     @property
     @pulumi.getter(name="allowAutoMerge")
     def allow_auto_merge(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Set to `true` to allow auto-merging pull requests on the repository.
-        """
         return pulumi.get(self, "allow_auto_merge")
 
     @property
     @pulumi.getter(name="allowMergeCommit")
     def allow_merge_commit(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Set to `false` to disable merge commits on the repository.
-        """
         return pulumi.get(self, "allow_merge_commit")
 
     @property
     @pulumi.getter(name="allowRebaseMerge")
     def allow_rebase_merge(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Set to `false` to disable rebase merges on the repository.
-        """
         return pulumi.get(self, "allow_rebase_merge")
 
     @property
     @pulumi.getter(name="allowSquashMerge")
     def allow_squash_merge(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Set to `false` to disable squash merges on the repository.
-        """
         return pulumi.get(self, "allow_squash_merge")
 
     @property
     @pulumi.getter(name="archiveOnDestroy")
     def archive_on_destroy(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Set to `true` to archive the repository instead of deleting on destroy.
-        """
         return pulumi.get(self, "archive_on_destroy")
 
     @property
     @pulumi.getter
     def archived(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Specifies if the repository should be archived. Defaults to `false`. **NOTE** Currently, the API does not support unarchiving.
-        """
         return pulumi.get(self, "archived")
 
     @property
     @pulumi.getter(name="autoInit")
     def auto_init(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Set to `true` to produce an initial commit in the repository.
-        """
         return pulumi.get(self, "auto_init")
-
-    @property
-    @pulumi.getter
-    def branches(self) -> pulumi.Output[Sequence['outputs.RepositoryBranch']]:
-        """
-        The list of this repository's branches. Each element of `branches` has the following attributes:
-        """
-        return pulumi.get(self, "branches")
 
     @property
     @pulumi.getter(name="defaultBranch")
     def default_branch(self) -> pulumi.Output[str]:
         """
-        (Deprecated: Use `BranchDefault` resource instead) The name of the default branch of the repository. **NOTE:** This can only be set after a repository has already been created,
-        and after a correct reference has been created for the target branch inside the repository. This means a user will have to omit this parameter from the
-        initial repository creation and create the target branch inside of the repository prior to setting this attribute.
+        Can only be set after initial repository creation, and only if the target branch exists
         """
         return pulumi.get(self, "default_branch")
 
     @property
     @pulumi.getter(name="deleteBranchOnMerge")
     def delete_branch_on_merge(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Automatically delete head branch after a pull request is merged. Defaults to `false`.
-        """
         return pulumi.get(self, "delete_branch_on_merge")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
-        """
-        A description of the repository.
-        """
         return pulumi.get(self, "description")
 
     @property
@@ -1689,227 +1190,140 @@ class Repository(pulumi.CustomResource):
     @property
     @pulumi.getter(name="fullName")
     def full_name(self) -> pulumi.Output[str]:
-        """
-        A string of the form "orgname/reponame".
-        """
         return pulumi.get(self, "full_name")
 
     @property
     @pulumi.getter(name="gitCloneUrl")
     def git_clone_url(self) -> pulumi.Output[str]:
-        """
-        URL that can be provided to `git clone` to clone the repository anonymously via the git protocol.
-        """
         return pulumi.get(self, "git_clone_url")
 
     @property
     @pulumi.getter(name="gitignoreTemplate")
     def gitignore_template(self) -> pulumi.Output[Optional[str]]:
-        """
-        Use the [name of the template](https://github.com/github/gitignore) without the extension. For example, "Haskell".
-        """
         return pulumi.get(self, "gitignore_template")
 
     @property
     @pulumi.getter(name="hasDownloads")
     def has_downloads(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Set to `true` to enable the (deprecated) downloads features on the repository.
-        """
         return pulumi.get(self, "has_downloads")
 
     @property
     @pulumi.getter(name="hasIssues")
     def has_issues(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Set to `true` to enable the GitHub Issues features
-        on the repository.
-        """
         return pulumi.get(self, "has_issues")
 
     @property
     @pulumi.getter(name="hasProjects")
     def has_projects(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Set to `true` to enable the GitHub Projects features on the repository. Per the GitHub [documentation](https://developer.github.com/v3/repos/#create) when in an organization that has disabled repository projects it will default to `false` and will otherwise default to `true`. If you specify `true` when it has been disabled it will return an error.
-        """
         return pulumi.get(self, "has_projects")
 
     @property
     @pulumi.getter(name="hasWiki")
     def has_wiki(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Set to `true` to enable the GitHub Wiki features on
-        the repository.
-        """
         return pulumi.get(self, "has_wiki")
 
     @property
     @pulumi.getter(name="homepageUrl")
     def homepage_url(self) -> pulumi.Output[Optional[str]]:
-        """
-        URL of a page describing the project.
-        """
         return pulumi.get(self, "homepage_url")
 
     @property
     @pulumi.getter(name="htmlUrl")
     def html_url(self) -> pulumi.Output[str]:
-        """
-        The absolute URL (including scheme) of the rendered GitHub Pages site e.g. `https://username.github.io`.
-        """
         return pulumi.get(self, "html_url")
 
     @property
     @pulumi.getter(name="httpCloneUrl")
     def http_clone_url(self) -> pulumi.Output[str]:
-        """
-        URL that can be provided to `git clone` to clone the repository via HTTPS.
-        """
         return pulumi.get(self, "http_clone_url")
 
     @property
     @pulumi.getter(name="ignoreVulnerabilityAlertsDuringRead")
     def ignore_vulnerability_alerts_during_read(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Set to `true` to not call the vulnerability alerts endpoint so the resource can also be used without admin permissions during read.
-        """
         return pulumi.get(self, "ignore_vulnerability_alerts_during_read")
 
     @property
     @pulumi.getter(name="isTemplate")
     def is_template(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Set to `true` to tell GitHub that this is a template repository.
-        """
         return pulumi.get(self, "is_template")
 
     @property
     @pulumi.getter(name="licenseTemplate")
     def license_template(self) -> pulumi.Output[Optional[str]]:
-        """
-        Use the [name of the template](https://github.com/github/choosealicense.com/tree/gh-pages/_licenses) without the extension. For example, "mit" or "mpl-2.0".
-        """
         return pulumi.get(self, "license_template")
 
     @property
     @pulumi.getter(name="mergeCommitMessage")
     def merge_commit_message(self) -> pulumi.Output[Optional[str]]:
-        """
-        Can be `PR_BODY`, `PR_TITLE`, or `BLANK` for a default merge commit message.
-        """
         return pulumi.get(self, "merge_commit_message")
 
     @property
     @pulumi.getter(name="mergeCommitTitle")
     def merge_commit_title(self) -> pulumi.Output[Optional[str]]:
-        """
-        Can be `PR_TITLE` or `MERGE_MESSAGE` for a default merge commit title.
-        """
         return pulumi.get(self, "merge_commit_title")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
-        """
-        The name of the repository.
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="nodeId")
     def node_id(self) -> pulumi.Output[str]:
-        """
-        GraphQL global node id for use with v4 API
-        """
         return pulumi.get(self, "node_id")
 
     @property
     @pulumi.getter
     def pages(self) -> pulumi.Output[Optional['outputs.RepositoryPages']]:
-        """
-        The repository's GitHub Pages configuration. See GitHub Pages Configuration below for details.
-        """
         return pulumi.get(self, "pages")
 
     @property
     @pulumi.getter
     def private(self) -> pulumi.Output[bool]:
-        """
-        Set to `true` to create a private repository.
-        Repositories are created as public (e.g. open source) by default.
-        """
         return pulumi.get(self, "private")
 
     @property
     @pulumi.getter(name="repoId")
     def repo_id(self) -> pulumi.Output[int]:
-        """
-        GitHub ID for the repository
-        """
         return pulumi.get(self, "repo_id")
 
     @property
     @pulumi.getter(name="squashMergeCommitMessage")
     def squash_merge_commit_message(self) -> pulumi.Output[Optional[str]]:
-        """
-        Can be `PR_BODY`, `COMMIT_MESSAGES`, or `BLANK` for a default squash merge commit message.
-        """
         return pulumi.get(self, "squash_merge_commit_message")
 
     @property
     @pulumi.getter(name="squashMergeCommitTitle")
     def squash_merge_commit_title(self) -> pulumi.Output[Optional[str]]:
-        """
-        Can be `PR_TITLE` or `COMMIT_OR_PR_TITLE` for a default squash merge commit title.
-        """
         return pulumi.get(self, "squash_merge_commit_title")
 
     @property
     @pulumi.getter(name="sshCloneUrl")
     def ssh_clone_url(self) -> pulumi.Output[str]:
-        """
-        URL that can be provided to `git clone` to clone the repository via SSH.
-        """
         return pulumi.get(self, "ssh_clone_url")
 
     @property
     @pulumi.getter(name="svnUrl")
     def svn_url(self) -> pulumi.Output[str]:
-        """
-        URL that can be provided to `svn checkout` to check out the repository via GitHub's Subversion protocol emulation.
-        """
         return pulumi.get(self, "svn_url")
 
     @property
     @pulumi.getter
     def template(self) -> pulumi.Output[Optional['outputs.RepositoryTemplate']]:
-        """
-        Use a template repository to create this resource. See Template Repositories below for details.
-        """
         return pulumi.get(self, "template")
 
     @property
     @pulumi.getter
     def topics(self) -> pulumi.Output[Optional[Sequence[str]]]:
-        """
-        The list of topics of the repository.
-        """
         return pulumi.get(self, "topics")
 
     @property
     @pulumi.getter
     def visibility(self) -> pulumi.Output[str]:
-        """
-        Can be `public` or `private`. If your organization is associated with an enterprise account using GitHub Enterprise Cloud or GitHub Enterprise Server 2.20+, visibility can also be `internal`. The `visibility` parameter overrides the `private` parameter.
-        """
         return pulumi.get(self, "visibility")
 
     @property
     @pulumi.getter(name="vulnerabilityAlerts")
     def vulnerability_alerts(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Set to `true` to enable security alerts for vulnerable dependencies. Enabling requires alerts to be enabled on the owner level. (Note for importing: GitHub enables the alerts on public repos but disables them on private repos by default.) See [GitHub Documentation](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for details. Note that vulnerability alerts have not been successfully tested on any GitHub Enterprise instance and may be unavailable in those settings.
-        """
         return pulumi.get(self, "vulnerability_alerts")
 

@@ -50,17 +50,11 @@ class GetRepositoryMilestoneResult:
     @property
     @pulumi.getter
     def description(self) -> str:
-        """
-        Description of the milestone.
-        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="dueDate")
     def due_date(self) -> str:
-        """
-        The milestone due date (in ISO-8601 `yyyy-mm-dd` format).
-        """
         return pulumi.get(self, "due_date")
 
     @property
@@ -89,17 +83,11 @@ class GetRepositoryMilestoneResult:
     @property
     @pulumi.getter
     def state(self) -> str:
-        """
-        State of the milestone.
-        """
         return pulumi.get(self, "state")
 
     @property
     @pulumi.getter
     def title(self) -> str:
-        """
-        Title of the milestone.
-        """
         return pulumi.get(self, "title")
 
 
@@ -124,23 +112,7 @@ def get_repository_milestone(number: Optional[int] = None,
                              repository: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRepositoryMilestoneResult:
     """
-    Use this data source to retrieve information about a specific GitHub milestone in a repository.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_github as github
-
-    example = github.get_repository_milestone(number=1,
-        owner="example-owner",
-        repository="example-repository")
-    ```
-
-
-    :param int number: The number of the milestone.
-    :param str owner: Owner of the repository.
-    :param str repository: Name of the repository to retrieve the milestone from.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['number'] = number
@@ -166,22 +138,6 @@ def get_repository_milestone_output(number: Optional[pulumi.Input[int]] = None,
                                     repository: Optional[pulumi.Input[str]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRepositoryMilestoneResult]:
     """
-    Use this data source to retrieve information about a specific GitHub milestone in a repository.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_github as github
-
-    example = github.get_repository_milestone(number=1,
-        owner="example-owner",
-        repository="example-repository")
-    ```
-
-
-    :param int number: The number of the milestone.
-    :param str owner: Owner of the repository.
-    :param str repository: Name of the repository to retrieve the milestone from.
+    Use this data source to access information about an existing resource.
     """
     ...

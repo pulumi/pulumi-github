@@ -14,135 +14,41 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.github.GithubFunctions;
- * import com.pulumi.github.inputs.GetActionsPublicKeyArgs;
- * import com.pulumi.github.ActionsSecret;
- * import com.pulumi.github.ActionsSecretArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var examplePublicKey = GithubFunctions.getActionsPublicKey(GetActionsPublicKeyArgs.builder()
- *             .repository(&#34;example_repository&#34;)
- *             .build());
- * 
- *         var exampleSecretActionsSecret = new ActionsSecret(&#34;exampleSecretActionsSecret&#34;, ActionsSecretArgs.builder()        
- *             .repository(&#34;example_repository&#34;)
- *             .secretName(&#34;example_secret_name&#34;)
- *             .plaintextValue(var_.some_secret_string())
- *             .build());
- * 
- *         var exampleSecretIndex_actionsSecretActionsSecret = new ActionsSecret(&#34;exampleSecretIndex/actionsSecretActionsSecret&#34;, ActionsSecretArgs.builder()        
- *             .repository(&#34;example_repository&#34;)
- *             .secretName(&#34;example_secret_name&#34;)
- *             .encryptedValue(var_.some_encrypted_secret_string())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- */
 @ResourceType(type="github:index/actionsSecret:ActionsSecret")
 public class ActionsSecret extends com.pulumi.resources.CustomResource {
-    /**
-     * Date of actions_secret creation.
-     * 
-     */
     @Export(name="createdAt", type=String.class, parameters={})
     private Output<String> createdAt;
 
-    /**
-     * @return Date of actions_secret creation.
-     * 
-     */
     public Output<String> createdAt() {
         return this.createdAt;
     }
-    /**
-     * Encrypted value of the secret using the Github public key in Base64 format.
-     * 
-     */
     @Export(name="encryptedValue", type=String.class, parameters={})
     private Output</* @Nullable */ String> encryptedValue;
 
-    /**
-     * @return Encrypted value of the secret using the Github public key in Base64 format.
-     * 
-     */
     public Output<Optional<String>> encryptedValue() {
         return Codegen.optional(this.encryptedValue);
     }
-    /**
-     * Plaintext value of the secret to be encrypted
-     * 
-     */
     @Export(name="plaintextValue", type=String.class, parameters={})
     private Output</* @Nullable */ String> plaintextValue;
 
-    /**
-     * @return Plaintext value of the secret to be encrypted
-     * 
-     */
     public Output<Optional<String>> plaintextValue() {
         return Codegen.optional(this.plaintextValue);
     }
-    /**
-     * Name of the repository
-     * 
-     */
     @Export(name="repository", type=String.class, parameters={})
     private Output<String> repository;
 
-    /**
-     * @return Name of the repository
-     * 
-     */
     public Output<String> repository() {
         return this.repository;
     }
-    /**
-     * Name of the secret
-     * 
-     */
     @Export(name="secretName", type=String.class, parameters={})
     private Output<String> secretName;
 
-    /**
-     * @return Name of the secret
-     * 
-     */
     public Output<String> secretName() {
         return this.secretName;
     }
-    /**
-     * Date of actions_secret update.
-     * 
-     */
     @Export(name="updatedAt", type=String.class, parameters={})
     private Output<String> updatedAt;
 
-    /**
-     * @return Date of actions_secret update.
-     * 
-     */
     public Output<String> updatedAt() {
         return this.updatedAt;
     }

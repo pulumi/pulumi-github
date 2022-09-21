@@ -13,26 +13,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class BranchProtectionV3RequiredStatusChecks {
-    private final @Nullable List<String> contexts;
+    private @Nullable List<String> contexts;
     /**
      * @deprecated
      * Use enforce_admins instead
      * 
      */
     @Deprecated /* Use enforce_admins instead */
-    private final @Nullable Boolean includeAdmins;
-    private final @Nullable Boolean strict;
+    private @Nullable Boolean includeAdmins;
+    private @Nullable Boolean strict;
 
-    @CustomType.Constructor
-    private BranchProtectionV3RequiredStatusChecks(
-        @CustomType.Parameter("contexts") @Nullable List<String> contexts,
-        @CustomType.Parameter("includeAdmins") @Nullable Boolean includeAdmins,
-        @CustomType.Parameter("strict") @Nullable Boolean strict) {
-        this.contexts = contexts;
-        this.includeAdmins = includeAdmins;
-        this.strict = strict;
-    }
-
+    private BranchProtectionV3RequiredStatusChecks() {}
     public List<String> contexts() {
         return this.contexts == null ? List.of() : this.contexts;
     }
@@ -56,16 +47,12 @@ public final class BranchProtectionV3RequiredStatusChecks {
     public static Builder builder(BranchProtectionV3RequiredStatusChecks defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<String> contexts;
         private @Nullable Boolean includeAdmins;
         private @Nullable Boolean strict;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(BranchProtectionV3RequiredStatusChecks defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.contexts = defaults.contexts;
@@ -73,6 +60,7 @@ public final class BranchProtectionV3RequiredStatusChecks {
     	      this.strict = defaults.strict;
         }
 
+        @CustomType.Setter
         public Builder contexts(@Nullable List<String> contexts) {
             this.contexts = contexts;
             return this;
@@ -80,15 +68,22 @@ public final class BranchProtectionV3RequiredStatusChecks {
         public Builder contexts(String... contexts) {
             return contexts(List.of(contexts));
         }
+        @CustomType.Setter
         public Builder includeAdmins(@Nullable Boolean includeAdmins) {
             this.includeAdmins = includeAdmins;
             return this;
         }
+        @CustomType.Setter
         public Builder strict(@Nullable Boolean strict) {
             this.strict = strict;
             return this;
-        }        public BranchProtectionV3RequiredStatusChecks build() {
-            return new BranchProtectionV3RequiredStatusChecks(contexts, includeAdmins, strict);
+        }
+        public BranchProtectionV3RequiredStatusChecks build() {
+            final var o = new BranchProtectionV3RequiredStatusChecks();
+            o.contexts = contexts;
+            o.includeAdmins = includeAdmins;
+            o.strict = strict;
+            return o;
         }
     }
 }

@@ -20,7 +20,9 @@ from .dependabot_organization_secret import *
 from .dependabot_organization_secret_repositories import *
 from .dependabot_secret import *
 from .emu_group_mapping import *
+from .get_actions_organization_secrets import *
 from .get_actions_public_key import *
+from .get_actions_secrets import *
 from .get_branch import *
 from .get_collaborators import *
 from .get_dependabot_public_key import *
@@ -38,6 +40,7 @@ from .get_repository_file import *
 from .get_repository_milestone import *
 from .get_repository_pull_request import *
 from .get_repository_pull_requests import *
+from .get_repository_teams import *
 from .get_team import *
 from .get_tree import *
 from .get_user import *
@@ -60,6 +63,7 @@ from .repository_file import *
 from .repository_milestone import *
 from .repository_project import *
 from .repository_pull_request import *
+from .repository_tag_protection import *
 from .repository_webhook import *
 from .team import *
 from .team_members import *
@@ -336,6 +340,14 @@ _utilities.register(
   "fqn": "pulumi_github",
   "classes": {
    "github:index/repositoryPullRequest:RepositoryPullRequest": "RepositoryPullRequest"
+  }
+ },
+ {
+  "pkg": "github",
+  "mod": "index/repositoryTagProtection",
+  "fqn": "pulumi_github",
+  "classes": {
+   "github:index/repositoryTagProtection:RepositoryTagProtection": "RepositoryTagProtection"
   }
  },
  {

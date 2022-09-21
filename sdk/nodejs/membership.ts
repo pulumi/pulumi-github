@@ -4,34 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
-/**
- * Provides a GitHub membership resource.
- *
- * This resource allows you to add/remove users from your organization. When applied,
- * an invitation will be sent to the user to become part of the organization. When
- * destroyed, either the invitation will be cancelled or the user will be removed.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as github from "@pulumi/github";
- *
- * // Add a user to the organization
- * const membershipForSomeUser = new github.Membership("membership_for_some_user", {
- *     role: "member",
- *     username: "SomeUser",
- * });
- * ```
- *
- * ## Import
- *
- * GitHub Membership can be imported using an ID made up of `organization:username`, e.g.
- *
- * ```sh
- *  $ pulumi import github:index/membership:Membership member hashicorp:someuser
- * ```
- */
 export class Membership extends pulumi.CustomResource {
     /**
      * Get an existing Membership resource's state with the given name, ID, and optional extra
@@ -61,14 +33,7 @@ export class Membership extends pulumi.CustomResource {
     }
 
     public /*out*/ readonly etag!: pulumi.Output<string>;
-    /**
-     * The role of the user within the organization.
-     * Must be one of `member` or `admin`. Defaults to `member`.
-     */
     public readonly role!: pulumi.Output<string | undefined>;
-    /**
-     * The user to add to the organization.
-     */
     public readonly username!: pulumi.Output<string>;
 
     /**
@@ -106,14 +71,7 @@ export class Membership extends pulumi.CustomResource {
  */
 export interface MembershipState {
     etag?: pulumi.Input<string>;
-    /**
-     * The role of the user within the organization.
-     * Must be one of `member` or `admin`. Defaults to `member`.
-     */
     role?: pulumi.Input<string>;
-    /**
-     * The user to add to the organization.
-     */
     username?: pulumi.Input<string>;
 }
 
@@ -121,13 +79,6 @@ export interface MembershipState {
  * The set of arguments for constructing a Membership resource.
  */
 export interface MembershipArgs {
-    /**
-     * The role of the user within the organization.
-     * Must be one of `member` or `admin`. Defaults to `member`.
-     */
     role?: pulumi.Input<string>;
-    /**
-     * The user to add to the organization.
-     */
     username: pulumi.Input<string>;
 }

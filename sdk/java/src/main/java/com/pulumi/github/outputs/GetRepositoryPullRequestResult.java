@@ -14,180 +14,55 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetRepositoryPullRequestResult {
-    /**
-     * @return Name of the ref (branch) of the Pull Request base.
-     * 
-     */
-    private final String baseRef;
-    private final String baseRepository;
-    /**
-     * @return Head commit SHA of the Pull Request base.
-     * 
-     */
-    private final String baseSha;
-    /**
-     * @return Body of the Pull Request.
-     * 
-     */
-    private final String body;
-    /**
-     * @return Indicates Whether this Pull Request is a draft.
-     * 
-     */
-    private final Boolean draft;
-    /**
-     * @return Owner of the Pull Request head repository.
-     * 
-     */
-    private final String headOwner;
-    private final String headRef;
-    /**
-     * @return Name of the Pull Request head repository.
-     * 
-     */
-    private final String headRepository;
-    /**
-     * @return Head commit SHA of the Pull Request head.
-     * 
-     */
-    private final String headSha;
+    private String baseRef;
+    private String baseRepository;
+    private String baseSha;
+    private String body;
+    private Boolean draft;
+    private String headOwner;
+    private String headRef;
+    private String headRepository;
+    private String headSha;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    /**
-     * @return List of label names set on the Pull Request.
-     * 
-     */
-    private final List<String> labels;
-    /**
-     * @return Indicates whether the base repository maintainers can modify the Pull Request.
-     * 
-     */
-    private final Boolean maintainerCanModify;
-    private final Integer number;
-    /**
-     * @return Unix timestamp indicating the Pull Request creation time.
-     * 
-     */
-    private final Integer openedAt;
-    /**
-     * @return GitHub login of the user who opened the Pull Request.
-     * 
-     */
-    private final String openedBy;
-    private final @Nullable String owner;
-    /**
-     * @return the current Pull Request state - can be &#34;open&#34;, &#34;closed&#34; or &#34;merged&#34;.
-     * 
-     */
-    private final String state;
-    /**
-     * @return The title of the Pull Request.
-     * 
-     */
-    private final String title;
-    /**
-     * @return The timestamp of the last Pull Request update.
-     * 
-     */
-    private final Integer updatedAt;
+    private String id;
+    private List<String> labels;
+    private Boolean maintainerCanModify;
+    private Integer number;
+    private Integer openedAt;
+    private String openedBy;
+    private @Nullable String owner;
+    private String state;
+    private String title;
+    private Integer updatedAt;
 
-    @CustomType.Constructor
-    private GetRepositoryPullRequestResult(
-        @CustomType.Parameter("baseRef") String baseRef,
-        @CustomType.Parameter("baseRepository") String baseRepository,
-        @CustomType.Parameter("baseSha") String baseSha,
-        @CustomType.Parameter("body") String body,
-        @CustomType.Parameter("draft") Boolean draft,
-        @CustomType.Parameter("headOwner") String headOwner,
-        @CustomType.Parameter("headRef") String headRef,
-        @CustomType.Parameter("headRepository") String headRepository,
-        @CustomType.Parameter("headSha") String headSha,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("labels") List<String> labels,
-        @CustomType.Parameter("maintainerCanModify") Boolean maintainerCanModify,
-        @CustomType.Parameter("number") Integer number,
-        @CustomType.Parameter("openedAt") Integer openedAt,
-        @CustomType.Parameter("openedBy") String openedBy,
-        @CustomType.Parameter("owner") @Nullable String owner,
-        @CustomType.Parameter("state") String state,
-        @CustomType.Parameter("title") String title,
-        @CustomType.Parameter("updatedAt") Integer updatedAt) {
-        this.baseRef = baseRef;
-        this.baseRepository = baseRepository;
-        this.baseSha = baseSha;
-        this.body = body;
-        this.draft = draft;
-        this.headOwner = headOwner;
-        this.headRef = headRef;
-        this.headRepository = headRepository;
-        this.headSha = headSha;
-        this.id = id;
-        this.labels = labels;
-        this.maintainerCanModify = maintainerCanModify;
-        this.number = number;
-        this.openedAt = openedAt;
-        this.openedBy = openedBy;
-        this.owner = owner;
-        this.state = state;
-        this.title = title;
-        this.updatedAt = updatedAt;
-    }
-
-    /**
-     * @return Name of the ref (branch) of the Pull Request base.
-     * 
-     */
+    private GetRepositoryPullRequestResult() {}
     public String baseRef() {
         return this.baseRef;
     }
     public String baseRepository() {
         return this.baseRepository;
     }
-    /**
-     * @return Head commit SHA of the Pull Request base.
-     * 
-     */
     public String baseSha() {
         return this.baseSha;
     }
-    /**
-     * @return Body of the Pull Request.
-     * 
-     */
     public String body() {
         return this.body;
     }
-    /**
-     * @return Indicates Whether this Pull Request is a draft.
-     * 
-     */
     public Boolean draft() {
         return this.draft;
     }
-    /**
-     * @return Owner of the Pull Request head repository.
-     * 
-     */
     public String headOwner() {
         return this.headOwner;
     }
     public String headRef() {
         return this.headRef;
     }
-    /**
-     * @return Name of the Pull Request head repository.
-     * 
-     */
     public String headRepository() {
         return this.headRepository;
     }
-    /**
-     * @return Head commit SHA of the Pull Request head.
-     * 
-     */
     public String headSha() {
         return this.headSha;
     }
@@ -198,58 +73,30 @@ public final class GetRepositoryPullRequestResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return List of label names set on the Pull Request.
-     * 
-     */
     public List<String> labels() {
         return this.labels;
     }
-    /**
-     * @return Indicates whether the base repository maintainers can modify the Pull Request.
-     * 
-     */
     public Boolean maintainerCanModify() {
         return this.maintainerCanModify;
     }
     public Integer number() {
         return this.number;
     }
-    /**
-     * @return Unix timestamp indicating the Pull Request creation time.
-     * 
-     */
     public Integer openedAt() {
         return this.openedAt;
     }
-    /**
-     * @return GitHub login of the user who opened the Pull Request.
-     * 
-     */
     public String openedBy() {
         return this.openedBy;
     }
     public Optional<String> owner() {
         return Optional.ofNullable(this.owner);
     }
-    /**
-     * @return the current Pull Request state - can be &#34;open&#34;, &#34;closed&#34; or &#34;merged&#34;.
-     * 
-     */
     public String state() {
         return this.state;
     }
-    /**
-     * @return The title of the Pull Request.
-     * 
-     */
     public String title() {
         return this.title;
     }
-    /**
-     * @return The timestamp of the last Pull Request update.
-     * 
-     */
     public Integer updatedAt() {
         return this.updatedAt;
     }
@@ -261,7 +108,7 @@ public final class GetRepositoryPullRequestResult {
     public static Builder builder(GetRepositoryPullRequestResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String baseRef;
         private String baseRepository;
@@ -282,11 +129,7 @@ public final class GetRepositoryPullRequestResult {
         private String state;
         private String title;
         private Integer updatedAt;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetRepositoryPullRequestResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.baseRef = defaults.baseRef;
@@ -310,46 +153,57 @@ public final class GetRepositoryPullRequestResult {
     	      this.updatedAt = defaults.updatedAt;
         }
 
+        @CustomType.Setter
         public Builder baseRef(String baseRef) {
             this.baseRef = Objects.requireNonNull(baseRef);
             return this;
         }
+        @CustomType.Setter
         public Builder baseRepository(String baseRepository) {
             this.baseRepository = Objects.requireNonNull(baseRepository);
             return this;
         }
+        @CustomType.Setter
         public Builder baseSha(String baseSha) {
             this.baseSha = Objects.requireNonNull(baseSha);
             return this;
         }
+        @CustomType.Setter
         public Builder body(String body) {
             this.body = Objects.requireNonNull(body);
             return this;
         }
+        @CustomType.Setter
         public Builder draft(Boolean draft) {
             this.draft = Objects.requireNonNull(draft);
             return this;
         }
+        @CustomType.Setter
         public Builder headOwner(String headOwner) {
             this.headOwner = Objects.requireNonNull(headOwner);
             return this;
         }
+        @CustomType.Setter
         public Builder headRef(String headRef) {
             this.headRef = Objects.requireNonNull(headRef);
             return this;
         }
+        @CustomType.Setter
         public Builder headRepository(String headRepository) {
             this.headRepository = Objects.requireNonNull(headRepository);
             return this;
         }
+        @CustomType.Setter
         public Builder headSha(String headSha) {
             this.headSha = Objects.requireNonNull(headSha);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder labels(List<String> labels) {
             this.labels = Objects.requireNonNull(labels);
             return this;
@@ -357,39 +211,68 @@ public final class GetRepositoryPullRequestResult {
         public Builder labels(String... labels) {
             return labels(List.of(labels));
         }
+        @CustomType.Setter
         public Builder maintainerCanModify(Boolean maintainerCanModify) {
             this.maintainerCanModify = Objects.requireNonNull(maintainerCanModify);
             return this;
         }
+        @CustomType.Setter
         public Builder number(Integer number) {
             this.number = Objects.requireNonNull(number);
             return this;
         }
+        @CustomType.Setter
         public Builder openedAt(Integer openedAt) {
             this.openedAt = Objects.requireNonNull(openedAt);
             return this;
         }
+        @CustomType.Setter
         public Builder openedBy(String openedBy) {
             this.openedBy = Objects.requireNonNull(openedBy);
             return this;
         }
+        @CustomType.Setter
         public Builder owner(@Nullable String owner) {
             this.owner = owner;
             return this;
         }
+        @CustomType.Setter
         public Builder state(String state) {
             this.state = Objects.requireNonNull(state);
             return this;
         }
+        @CustomType.Setter
         public Builder title(String title) {
             this.title = Objects.requireNonNull(title);
             return this;
         }
+        @CustomType.Setter
         public Builder updatedAt(Integer updatedAt) {
             this.updatedAt = Objects.requireNonNull(updatedAt);
             return this;
-        }        public GetRepositoryPullRequestResult build() {
-            return new GetRepositoryPullRequestResult(baseRef, baseRepository, baseSha, body, draft, headOwner, headRef, headRepository, headSha, id, labels, maintainerCanModify, number, openedAt, openedBy, owner, state, title, updatedAt);
+        }
+        public GetRepositoryPullRequestResult build() {
+            final var o = new GetRepositoryPullRequestResult();
+            o.baseRef = baseRef;
+            o.baseRepository = baseRepository;
+            o.baseSha = baseSha;
+            o.body = body;
+            o.draft = draft;
+            o.headOwner = headOwner;
+            o.headRef = headRef;
+            o.headRepository = headRepository;
+            o.headSha = headSha;
+            o.id = id;
+            o.labels = labels;
+            o.maintainerCanModify = maintainerCanModify;
+            o.number = number;
+            o.openedAt = openedAt;
+            o.openedBy = openedBy;
+            o.owner = owner;
+            o.state = state;
+            o.title = title;
+            o.updatedAt = updatedAt;
+            return o;
         }
     }
 }

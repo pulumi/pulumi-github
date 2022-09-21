@@ -9,31 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Github
 {
-    /// <summary>
-    /// This resource allows you to create and manage columns for GitHub projects.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Github = Pulumi.Github;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var project = new Github.OrganizationProject("project", new()
-    ///     {
-    ///         Body = "This is an organization project.",
-    ///     });
-    /// 
-    ///     var column = new Github.ProjectColumn("column", new()
-    ///     {
-    ///         ProjectId = project.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// </summary>
     [GithubResourceType("github:index/projectColumn:ProjectColumn")]
     public partial class ProjectColumn : global::Pulumi.CustomResource
     {
@@ -43,15 +18,9 @@ namespace Pulumi.Github
         [Output("etag")]
         public Output<string> Etag { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the column.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID of an existing project that the column will be created in.
-        /// </summary>
         [Output("projectId")]
         public Output<string> ProjectId { get; private set; } = null!;
 
@@ -101,15 +70,9 @@ namespace Pulumi.Github
 
     public sealed class ProjectColumnArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The name of the column.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// The ID of an existing project that the column will be created in.
-        /// </summary>
         [Input("projectId", required: true)]
         public Input<string> ProjectId { get; set; } = null!;
 
@@ -127,15 +90,9 @@ namespace Pulumi.Github
         [Input("etag")]
         public Input<string>? Etag { get; set; }
 
-        /// <summary>
-        /// The name of the column.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// The ID of an existing project that the column will be created in.
-        /// </summary>
         [Input("projectId")]
         public Input<string>? ProjectId { get; set; }
 

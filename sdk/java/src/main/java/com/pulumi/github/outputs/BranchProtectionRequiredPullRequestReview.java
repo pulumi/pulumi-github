@@ -14,29 +14,14 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class BranchProtectionRequiredPullRequestReview {
-    private final @Nullable Boolean dismissStaleReviews;
-    private final @Nullable List<String> dismissalRestrictions;
-    private final @Nullable List<String> pullRequestBypassers;
-    private final @Nullable Boolean requireCodeOwnerReviews;
-    private final @Nullable Integer requiredApprovingReviewCount;
-    private final @Nullable Boolean restrictDismissals;
+    private @Nullable Boolean dismissStaleReviews;
+    private @Nullable List<String> dismissalRestrictions;
+    private @Nullable List<String> pullRequestBypassers;
+    private @Nullable Boolean requireCodeOwnerReviews;
+    private @Nullable Integer requiredApprovingReviewCount;
+    private @Nullable Boolean restrictDismissals;
 
-    @CustomType.Constructor
-    private BranchProtectionRequiredPullRequestReview(
-        @CustomType.Parameter("dismissStaleReviews") @Nullable Boolean dismissStaleReviews,
-        @CustomType.Parameter("dismissalRestrictions") @Nullable List<String> dismissalRestrictions,
-        @CustomType.Parameter("pullRequestBypassers") @Nullable List<String> pullRequestBypassers,
-        @CustomType.Parameter("requireCodeOwnerReviews") @Nullable Boolean requireCodeOwnerReviews,
-        @CustomType.Parameter("requiredApprovingReviewCount") @Nullable Integer requiredApprovingReviewCount,
-        @CustomType.Parameter("restrictDismissals") @Nullable Boolean restrictDismissals) {
-        this.dismissStaleReviews = dismissStaleReviews;
-        this.dismissalRestrictions = dismissalRestrictions;
-        this.pullRequestBypassers = pullRequestBypassers;
-        this.requireCodeOwnerReviews = requireCodeOwnerReviews;
-        this.requiredApprovingReviewCount = requiredApprovingReviewCount;
-        this.restrictDismissals = restrictDismissals;
-    }
-
+    private BranchProtectionRequiredPullRequestReview() {}
     public Optional<Boolean> dismissStaleReviews() {
         return Optional.ofNullable(this.dismissStaleReviews);
     }
@@ -63,7 +48,7 @@ public final class BranchProtectionRequiredPullRequestReview {
     public static Builder builder(BranchProtectionRequiredPullRequestReview defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean dismissStaleReviews;
         private @Nullable List<String> dismissalRestrictions;
@@ -71,11 +56,7 @@ public final class BranchProtectionRequiredPullRequestReview {
         private @Nullable Boolean requireCodeOwnerReviews;
         private @Nullable Integer requiredApprovingReviewCount;
         private @Nullable Boolean restrictDismissals;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(BranchProtectionRequiredPullRequestReview defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.dismissStaleReviews = defaults.dismissStaleReviews;
@@ -86,10 +67,12 @@ public final class BranchProtectionRequiredPullRequestReview {
     	      this.restrictDismissals = defaults.restrictDismissals;
         }
 
+        @CustomType.Setter
         public Builder dismissStaleReviews(@Nullable Boolean dismissStaleReviews) {
             this.dismissStaleReviews = dismissStaleReviews;
             return this;
         }
+        @CustomType.Setter
         public Builder dismissalRestrictions(@Nullable List<String> dismissalRestrictions) {
             this.dismissalRestrictions = dismissalRestrictions;
             return this;
@@ -97,6 +80,7 @@ public final class BranchProtectionRequiredPullRequestReview {
         public Builder dismissalRestrictions(String... dismissalRestrictions) {
             return dismissalRestrictions(List.of(dismissalRestrictions));
         }
+        @CustomType.Setter
         public Builder pullRequestBypassers(@Nullable List<String> pullRequestBypassers) {
             this.pullRequestBypassers = pullRequestBypassers;
             return this;
@@ -104,19 +88,30 @@ public final class BranchProtectionRequiredPullRequestReview {
         public Builder pullRequestBypassers(String... pullRequestBypassers) {
             return pullRequestBypassers(List.of(pullRequestBypassers));
         }
+        @CustomType.Setter
         public Builder requireCodeOwnerReviews(@Nullable Boolean requireCodeOwnerReviews) {
             this.requireCodeOwnerReviews = requireCodeOwnerReviews;
             return this;
         }
+        @CustomType.Setter
         public Builder requiredApprovingReviewCount(@Nullable Integer requiredApprovingReviewCount) {
             this.requiredApprovingReviewCount = requiredApprovingReviewCount;
             return this;
         }
+        @CustomType.Setter
         public Builder restrictDismissals(@Nullable Boolean restrictDismissals) {
             this.restrictDismissals = restrictDismissals;
             return this;
-        }        public BranchProtectionRequiredPullRequestReview build() {
-            return new BranchProtectionRequiredPullRequestReview(dismissStaleReviews, dismissalRestrictions, pullRequestBypassers, requireCodeOwnerReviews, requiredApprovingReviewCount, restrictDismissals);
+        }
+        public BranchProtectionRequiredPullRequestReview build() {
+            final var o = new BranchProtectionRequiredPullRequestReview();
+            o.dismissStaleReviews = dismissStaleReviews;
+            o.dismissalRestrictions = dismissalRestrictions;
+            o.pullRequestBypassers = pullRequestBypassers;
+            o.requireCodeOwnerReviews = requireCodeOwnerReviews;
+            o.requiredApprovingReviewCount = requiredApprovingReviewCount;
+            o.restrictDismissals = restrictDismissals;
+            return o;
         }
     }
 }

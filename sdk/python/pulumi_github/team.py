@@ -22,13 +22,6 @@ class TeamArgs:
                  privacy: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Team resource.
-        :param pulumi.Input[bool] create_default_maintainer: Adds a default maintainer to the team. Defaults to `false` and adds the creating user to the team when `true`.
-        :param pulumi.Input[str] description: A description of the team.
-        :param pulumi.Input[str] ldap_dn: The LDAP Distinguished Name of the group where membership will be synchronized. Only available in GitHub Enterprise Server.
-        :param pulumi.Input[str] name: The name of the team.
-        :param pulumi.Input[int] parent_team_id: The ID of the parent team, if this is a nested team.
-        :param pulumi.Input[str] privacy: The level of privacy for the team. Must be one of `secret` or `closed`.
-               Defaults to `secret`.
         """
         if create_default_maintainer is not None:
             pulumi.set(__self__, "create_default_maintainer", create_default_maintainer)
@@ -46,9 +39,6 @@ class TeamArgs:
     @property
     @pulumi.getter(name="createDefaultMaintainer")
     def create_default_maintainer(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Adds a default maintainer to the team. Defaults to `false` and adds the creating user to the team when `true`.
-        """
         return pulumi.get(self, "create_default_maintainer")
 
     @create_default_maintainer.setter
@@ -58,9 +48,6 @@ class TeamArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        A description of the team.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -70,9 +57,6 @@ class TeamArgs:
     @property
     @pulumi.getter(name="ldapDn")
     def ldap_dn(self) -> Optional[pulumi.Input[str]]:
-        """
-        The LDAP Distinguished Name of the group where membership will be synchronized. Only available in GitHub Enterprise Server.
-        """
         return pulumi.get(self, "ldap_dn")
 
     @ldap_dn.setter
@@ -82,9 +66,6 @@ class TeamArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the team.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -94,9 +75,6 @@ class TeamArgs:
     @property
     @pulumi.getter(name="parentTeamId")
     def parent_team_id(self) -> Optional[pulumi.Input[int]]:
-        """
-        The ID of the parent team, if this is a nested team.
-        """
         return pulumi.get(self, "parent_team_id")
 
     @parent_team_id.setter
@@ -106,10 +84,6 @@ class TeamArgs:
     @property
     @pulumi.getter
     def privacy(self) -> Optional[pulumi.Input[str]]:
-        """
-        The level of privacy for the team. Must be one of `secret` or `closed`.
-        Defaults to `secret`.
-        """
         return pulumi.get(self, "privacy")
 
     @privacy.setter
@@ -132,17 +106,6 @@ class _TeamState:
                  slug: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Team resources.
-        :param pulumi.Input[bool] create_default_maintainer: Adds a default maintainer to the team. Defaults to `false` and adds the creating user to the team when `true`.
-        :param pulumi.Input[str] description: A description of the team.
-        :param pulumi.Input[str] ldap_dn: The LDAP Distinguished Name of the group where membership will be synchronized. Only available in GitHub Enterprise Server.
-        :param pulumi.Input[str] name: The name of the team.
-        :param pulumi.Input[str] node_id: The Node ID of the created team.
-        :param pulumi.Input[int] parent_team_id: The ID of the parent team, if this is a nested team.
-        :param pulumi.Input[str] privacy: The level of privacy for the team. Must be one of `secret` or `closed`.
-               Defaults to `secret`.
-        :param pulumi.Input[str] slug: The slug of the created team, which may or may not differ from `name`,
-               depending on whether `name` contains "URL-unsafe" characters.
-               Useful when referencing the team in [`BranchProtection`](https://www.terraform.io/docs/providers/github/r/branch_protection.html).
         """
         if create_default_maintainer is not None:
             pulumi.set(__self__, "create_default_maintainer", create_default_maintainer)
@@ -168,9 +131,6 @@ class _TeamState:
     @property
     @pulumi.getter(name="createDefaultMaintainer")
     def create_default_maintainer(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Adds a default maintainer to the team. Defaults to `false` and adds the creating user to the team when `true`.
-        """
         return pulumi.get(self, "create_default_maintainer")
 
     @create_default_maintainer.setter
@@ -180,9 +140,6 @@ class _TeamState:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        A description of the team.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -201,9 +158,6 @@ class _TeamState:
     @property
     @pulumi.getter(name="ldapDn")
     def ldap_dn(self) -> Optional[pulumi.Input[str]]:
-        """
-        The LDAP Distinguished Name of the group where membership will be synchronized. Only available in GitHub Enterprise Server.
-        """
         return pulumi.get(self, "ldap_dn")
 
     @ldap_dn.setter
@@ -222,9 +176,6 @@ class _TeamState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the team.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -234,9 +185,6 @@ class _TeamState:
     @property
     @pulumi.getter(name="nodeId")
     def node_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The Node ID of the created team.
-        """
         return pulumi.get(self, "node_id")
 
     @node_id.setter
@@ -246,9 +194,6 @@ class _TeamState:
     @property
     @pulumi.getter(name="parentTeamId")
     def parent_team_id(self) -> Optional[pulumi.Input[int]]:
-        """
-        The ID of the parent team, if this is a nested team.
-        """
         return pulumi.get(self, "parent_team_id")
 
     @parent_team_id.setter
@@ -258,10 +203,6 @@ class _TeamState:
     @property
     @pulumi.getter
     def privacy(self) -> Optional[pulumi.Input[str]]:
-        """
-        The level of privacy for the team. Must be one of `secret` or `closed`.
-        Defaults to `secret`.
-        """
         return pulumi.get(self, "privacy")
 
     @privacy.setter
@@ -271,11 +212,6 @@ class _TeamState:
     @property
     @pulumi.getter
     def slug(self) -> Optional[pulumi.Input[str]]:
-        """
-        The slug of the created team, which may or may not differ from `name`,
-        depending on whether `name` contains "URL-unsafe" characters.
-        Useful when referencing the team in [`BranchProtection`](https://www.terraform.io/docs/providers/github/r/branch_protection.html).
-        """
         return pulumi.get(self, "slug")
 
     @slug.setter
@@ -296,40 +232,9 @@ class Team(pulumi.CustomResource):
                  privacy: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Provides a GitHub team resource.
-
-        This resource allows you to add/remove teams from your organization. When applied,
-        a new team will be created. When destroyed, that team will be removed.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_github as github
-
-        # Add a team to the organization
-        some_team = github.Team("someTeam",
-            description="Some cool team",
-            privacy="closed")
-        ```
-
-        ## Import
-
-        GitHub Teams can be imported using the GitHub team ID e.g.
-
-        ```sh
-         $ pulumi import github:index/team:Team core 1234567
-        ```
-
+        Create a Team resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] create_default_maintainer: Adds a default maintainer to the team. Defaults to `false` and adds the creating user to the team when `true`.
-        :param pulumi.Input[str] description: A description of the team.
-        :param pulumi.Input[str] ldap_dn: The LDAP Distinguished Name of the group where membership will be synchronized. Only available in GitHub Enterprise Server.
-        :param pulumi.Input[str] name: The name of the team.
-        :param pulumi.Input[int] parent_team_id: The ID of the parent team, if this is a nested team.
-        :param pulumi.Input[str] privacy: The level of privacy for the team. Must be one of `secret` or `closed`.
-               Defaults to `secret`.
         """
         ...
     @overload
@@ -338,31 +243,7 @@ class Team(pulumi.CustomResource):
                  args: Optional[TeamArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a GitHub team resource.
-
-        This resource allows you to add/remove teams from your organization. When applied,
-        a new team will be created. When destroyed, that team will be removed.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_github as github
-
-        # Add a team to the organization
-        some_team = github.Team("someTeam",
-            description="Some cool team",
-            privacy="closed")
-        ```
-
-        ## Import
-
-        GitHub Teams can be imported using the GitHub team ID e.g.
-
-        ```sh
-         $ pulumi import github:index/team:Team core 1234567
-        ```
-
+        Create a Team resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param TeamArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -430,17 +311,6 @@ class Team(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] create_default_maintainer: Adds a default maintainer to the team. Defaults to `false` and adds the creating user to the team when `true`.
-        :param pulumi.Input[str] description: A description of the team.
-        :param pulumi.Input[str] ldap_dn: The LDAP Distinguished Name of the group where membership will be synchronized. Only available in GitHub Enterprise Server.
-        :param pulumi.Input[str] name: The name of the team.
-        :param pulumi.Input[str] node_id: The Node ID of the created team.
-        :param pulumi.Input[int] parent_team_id: The ID of the parent team, if this is a nested team.
-        :param pulumi.Input[str] privacy: The level of privacy for the team. Must be one of `secret` or `closed`.
-               Defaults to `secret`.
-        :param pulumi.Input[str] slug: The slug of the created team, which may or may not differ from `name`,
-               depending on whether `name` contains "URL-unsafe" characters.
-               Useful when referencing the team in [`BranchProtection`](https://www.terraform.io/docs/providers/github/r/branch_protection.html).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -461,17 +331,11 @@ class Team(pulumi.CustomResource):
     @property
     @pulumi.getter(name="createDefaultMaintainer")
     def create_default_maintainer(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Adds a default maintainer to the team. Defaults to `false` and adds the creating user to the team when `true`.
-        """
         return pulumi.get(self, "create_default_maintainer")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
-        """
-        A description of the team.
-        """
         return pulumi.get(self, "description")
 
     @property
@@ -482,9 +346,6 @@ class Team(pulumi.CustomResource):
     @property
     @pulumi.getter(name="ldapDn")
     def ldap_dn(self) -> pulumi.Output[Optional[str]]:
-        """
-        The LDAP Distinguished Name of the group where membership will be synchronized. Only available in GitHub Enterprise Server.
-        """
         return pulumi.get(self, "ldap_dn")
 
     @property
@@ -495,43 +356,25 @@ class Team(pulumi.CustomResource):
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
-        """
-        The name of the team.
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="nodeId")
     def node_id(self) -> pulumi.Output[str]:
-        """
-        The Node ID of the created team.
-        """
         return pulumi.get(self, "node_id")
 
     @property
     @pulumi.getter(name="parentTeamId")
     def parent_team_id(self) -> pulumi.Output[Optional[int]]:
-        """
-        The ID of the parent team, if this is a nested team.
-        """
         return pulumi.get(self, "parent_team_id")
 
     @property
     @pulumi.getter
     def privacy(self) -> pulumi.Output[Optional[str]]:
-        """
-        The level of privacy for the team. Must be one of `secret` or `closed`.
-        Defaults to `secret`.
-        """
         return pulumi.get(self, "privacy")
 
     @property
     @pulumi.getter
     def slug(self) -> pulumi.Output[str]:
-        """
-        The slug of the created team, which may or may not differ from `name`,
-        depending on whether `name` contains "URL-unsafe" characters.
-        Useful when referencing the team in [`BranchProtection`](https://www.terraform.io/docs/providers/github/r/branch_protection.html).
-        """
         return pulumi.get(self, "slug")
 

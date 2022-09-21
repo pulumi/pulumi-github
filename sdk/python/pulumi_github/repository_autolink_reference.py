@@ -19,8 +19,8 @@ class RepositoryAutolinkReferenceArgs:
                  target_url_template: pulumi.Input[str]):
         """
         The set of arguments for constructing a RepositoryAutolinkReference resource.
-        :param pulumi.Input[str] key_prefix: This prefix appended by a number will generate a link any time it is found in an issue, pull request, or commit.
-        :param pulumi.Input[str] repository: The repository of the autolink reference.
+        :param pulumi.Input[str] key_prefix: This prefix appended by a number will generate a link any time it is found in an issue, pull request, or commit
+        :param pulumi.Input[str] repository: The repository name
         :param pulumi.Input[str] target_url_template: The template of the target URL used for the links; must be a valid URL and contain `<num>` for the reference number
         """
         pulumi.set(__self__, "key_prefix", key_prefix)
@@ -31,7 +31,7 @@ class RepositoryAutolinkReferenceArgs:
     @pulumi.getter(name="keyPrefix")
     def key_prefix(self) -> pulumi.Input[str]:
         """
-        This prefix appended by a number will generate a link any time it is found in an issue, pull request, or commit.
+        This prefix appended by a number will generate a link any time it is found in an issue, pull request, or commit
         """
         return pulumi.get(self, "key_prefix")
 
@@ -43,7 +43,7 @@ class RepositoryAutolinkReferenceArgs:
     @pulumi.getter
     def repository(self) -> pulumi.Input[str]:
         """
-        The repository of the autolink reference.
+        The repository name
         """
         return pulumi.get(self, "repository")
 
@@ -73,9 +73,8 @@ class _RepositoryAutolinkReferenceState:
                  target_url_template: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering RepositoryAutolinkReference resources.
-        :param pulumi.Input[str] etag: An etag representing the autolink reference object.
-        :param pulumi.Input[str] key_prefix: This prefix appended by a number will generate a link any time it is found in an issue, pull request, or commit.
-        :param pulumi.Input[str] repository: The repository of the autolink reference.
+        :param pulumi.Input[str] key_prefix: This prefix appended by a number will generate a link any time it is found in an issue, pull request, or commit
+        :param pulumi.Input[str] repository: The repository name
         :param pulumi.Input[str] target_url_template: The template of the target URL used for the links; must be a valid URL and contain `<num>` for the reference number
         """
         if etag is not None:
@@ -90,9 +89,6 @@ class _RepositoryAutolinkReferenceState:
     @property
     @pulumi.getter
     def etag(self) -> Optional[pulumi.Input[str]]:
-        """
-        An etag representing the autolink reference object.
-        """
         return pulumi.get(self, "etag")
 
     @etag.setter
@@ -103,7 +99,7 @@ class _RepositoryAutolinkReferenceState:
     @pulumi.getter(name="keyPrefix")
     def key_prefix(self) -> Optional[pulumi.Input[str]]:
         """
-        This prefix appended by a number will generate a link any time it is found in an issue, pull request, or commit.
+        This prefix appended by a number will generate a link any time it is found in an issue, pull request, or commit
         """
         return pulumi.get(self, "key_prefix")
 
@@ -115,7 +111,7 @@ class _RepositoryAutolinkReferenceState:
     @pulumi.getter
     def repository(self) -> Optional[pulumi.Input[str]]:
         """
-        The repository of the autolink reference.
+        The repository name
         """
         return pulumi.get(self, "repository")
 
@@ -146,35 +142,11 @@ class RepositoryAutolinkReference(pulumi.CustomResource):
                  target_url_template: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        This resource allows you to create and manage an autolink reference for a single repository.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_github as github
-
-        repo = github.Repository("repo",
-            description="GitHub repo managed by Terraform",
-            private=False)
-        auto = github.RepositoryAutolinkReference("auto",
-            repository=repo.name,
-            key_prefix="TICKET-",
-            target_url_template="https://hello.there/TICKET?query=<num>")
-        ```
-
-        ## Import
-
-        Autolink references can be imported using the `name` of the repository, combined with the `id` of the autolink reference and a `/` character for separating components, e.g.
-
-        ```sh
-         $ pulumi import github:index/repositoryAutolinkReference:RepositoryAutolinkReference auto oof/123
-        ```
-
+        Create a RepositoryAutolinkReference resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] key_prefix: This prefix appended by a number will generate a link any time it is found in an issue, pull request, or commit.
-        :param pulumi.Input[str] repository: The repository of the autolink reference.
+        :param pulumi.Input[str] key_prefix: This prefix appended by a number will generate a link any time it is found in an issue, pull request, or commit
+        :param pulumi.Input[str] repository: The repository name
         :param pulumi.Input[str] target_url_template: The template of the target URL used for the links; must be a valid URL and contain `<num>` for the reference number
         """
         ...
@@ -184,31 +156,7 @@ class RepositoryAutolinkReference(pulumi.CustomResource):
                  args: RepositoryAutolinkReferenceArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        This resource allows you to create and manage an autolink reference for a single repository.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_github as github
-
-        repo = github.Repository("repo",
-            description="GitHub repo managed by Terraform",
-            private=False)
-        auto = github.RepositoryAutolinkReference("auto",
-            repository=repo.name,
-            key_prefix="TICKET-",
-            target_url_template="https://hello.there/TICKET?query=<num>")
-        ```
-
-        ## Import
-
-        Autolink references can be imported using the `name` of the repository, combined with the `id` of the autolink reference and a `/` character for separating components, e.g.
-
-        ```sh
-         $ pulumi import github:index/repositoryAutolinkReference:RepositoryAutolinkReference auto oof/123
-        ```
-
+        Create a RepositoryAutolinkReference resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param RepositoryAutolinkReferenceArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -267,9 +215,8 @@ class RepositoryAutolinkReference(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] etag: An etag representing the autolink reference object.
-        :param pulumi.Input[str] key_prefix: This prefix appended by a number will generate a link any time it is found in an issue, pull request, or commit.
-        :param pulumi.Input[str] repository: The repository of the autolink reference.
+        :param pulumi.Input[str] key_prefix: This prefix appended by a number will generate a link any time it is found in an issue, pull request, or commit
+        :param pulumi.Input[str] repository: The repository name
         :param pulumi.Input[str] target_url_template: The template of the target URL used for the links; must be a valid URL and contain `<num>` for the reference number
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -285,16 +232,13 @@ class RepositoryAutolinkReference(pulumi.CustomResource):
     @property
     @pulumi.getter
     def etag(self) -> pulumi.Output[str]:
-        """
-        An etag representing the autolink reference object.
-        """
         return pulumi.get(self, "etag")
 
     @property
     @pulumi.getter(name="keyPrefix")
     def key_prefix(self) -> pulumi.Output[str]:
         """
-        This prefix appended by a number will generate a link any time it is found in an issue, pull request, or commit.
+        This prefix appended by a number will generate a link any time it is found in an issue, pull request, or commit
         """
         return pulumi.get(self, "key_prefix")
 
@@ -302,7 +246,7 @@ class RepositoryAutolinkReference(pulumi.CustomResource):
     @pulumi.getter
     def repository(self) -> pulumi.Output[str]:
         """
-        The repository of the autolink reference.
+        The repository name
         """
         return pulumi.get(self, "repository")
 

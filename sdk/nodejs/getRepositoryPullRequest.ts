@@ -4,21 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
-/**
- * Use this data source to retrieve information about a specific GitHub Pull Request in a repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as github from "@pulumi/github";
- *
- * const example = pulumi.output(github.getRepositoryPullRequest({
- *     baseRepository: "example_repository",
- *     number: 1,
- * }));
- * ```
- */
 export function getRepositoryPullRequest(args: GetRepositoryPullRequestArgs, opts?: pulumi.InvokeOptions): Promise<GetRepositoryPullRequestResult> {
     if (!opts) {
         opts = {}
@@ -36,17 +21,8 @@ export function getRepositoryPullRequest(args: GetRepositoryPullRequestArgs, opt
  * A collection of arguments for invoking getRepositoryPullRequest.
  */
 export interface GetRepositoryPullRequestArgs {
-    /**
-     * Name of the base repository to retrieve the Pull Request from.
-     */
     baseRepository: string;
-    /**
-     * The number of the Pull Request within the repository.
-     */
     number: number;
-    /**
-     * Owner of the repository. If not provided, the provider's default owner is used.
-     */
     owner?: string;
 }
 
@@ -54,69 +30,27 @@ export interface GetRepositoryPullRequestArgs {
  * A collection of values returned by getRepositoryPullRequest.
  */
 export interface GetRepositoryPullRequestResult {
-    /**
-     * Name of the ref (branch) of the Pull Request base.
-     */
     readonly baseRef: string;
     readonly baseRepository: string;
-    /**
-     * Head commit SHA of the Pull Request base.
-     */
     readonly baseSha: string;
-    /**
-     * Body of the Pull Request.
-     */
     readonly body: string;
-    /**
-     * Indicates Whether this Pull Request is a draft.
-     */
     readonly draft: boolean;
-    /**
-     * Owner of the Pull Request head repository.
-     */
     readonly headOwner: string;
     readonly headRef: string;
-    /**
-     * Name of the Pull Request head repository.
-     */
     readonly headRepository: string;
-    /**
-     * Head commit SHA of the Pull Request head.
-     */
     readonly headSha: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    /**
-     * List of label names set on the Pull Request.
-     */
     readonly labels: string[];
-    /**
-     * Indicates whether the base repository maintainers can modify the Pull Request.
-     */
     readonly maintainerCanModify: boolean;
     readonly number: number;
-    /**
-     * Unix timestamp indicating the Pull Request creation time.
-     */
     readonly openedAt: number;
-    /**
-     * GitHub login of the user who opened the Pull Request.
-     */
     readonly openedBy: string;
     readonly owner?: string;
-    /**
-     * the current Pull Request state - can be "open", "closed" or "merged".
-     */
     readonly state: string;
-    /**
-     * The title of the Pull Request.
-     */
     readonly title: string;
-    /**
-     * The timestamp of the last Pull Request update.
-     */
     readonly updatedAt: number;
 }
 
@@ -128,16 +62,7 @@ export function getRepositoryPullRequestOutput(args: GetRepositoryPullRequestOut
  * A collection of arguments for invoking getRepositoryPullRequest.
  */
 export interface GetRepositoryPullRequestOutputArgs {
-    /**
-     * Name of the base repository to retrieve the Pull Request from.
-     */
     baseRepository: pulumi.Input<string>;
-    /**
-     * The number of the Pull Request within the repository.
-     */
     number: pulumi.Input<number>;
-    /**
-     * Owner of the repository. If not provided, the provider's default owner is used.
-     */
     owner?: pulumi.Input<string>;
 }

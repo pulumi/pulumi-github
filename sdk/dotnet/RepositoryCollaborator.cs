@@ -9,86 +9,21 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Github
 {
-    /// <summary>
-    /// Provides a GitHub repository collaborator resource.
-    /// 
-    /// This resource allows you to add/remove collaborators from repositories in your
-    /// organization or personal account. For organization repositories, collaborators can
-    /// have explicit (and differing levels of) read, write, or administrator access to
-    /// specific repositories, without giving the user full organization membership.
-    /// For personal repositories, collaborators can only be granted write
-    /// (implictly includes read) permission.
-    /// 
-    /// When applied, an invitation will be sent to the user to become a collaborator
-    /// on a repository. When destroyed, either the invitation will be cancelled or the
-    /// collaborator will be removed from the repository.
-    /// 
-    /// Further documentation on GitHub collaborators:
-    /// 
-    /// - [Adding outside collaborators to your personal repositories](https://help.github.com/en/github/setting-up-and-managing-your-github-user-account/managing-access-to-your-personal-repositories)
-    /// - [Adding outside collaborators to repositories in your organization](https://help.github.com/articles/adding-outside-collaborators-to-repositories-in-your-organization/)
-    /// - [Converting an organization member to an outside collaborator](https://help.github.com/articles/converting-an-organization-member-to-an-outside-collaborator/)
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Github = Pulumi.Github;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     // Add a collaborator to a repository
-    ///     var aRepoCollaborator = new Github.RepositoryCollaborator("aRepoCollaborator", new()
-    ///     {
-    ///         Permission = "admin",
-    ///         Repository = "our-cool-repo",
-    ///         Username = "SomeUser",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// GitHub Repository Collaborators can be imported using an ID made up of `repository:username`, e.g.
-    /// 
-    /// ```sh
-    ///  $ pulumi import github:index/repositoryCollaborator:RepositoryCollaborator collaborator terraform:someuser
-    /// ```
-    /// </summary>
     [GithubResourceType("github:index/repositoryCollaborator:RepositoryCollaborator")]
     public partial class RepositoryCollaborator : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// ID of the invitation to be used in `github.UserInvitationAccepter`
-        /// </summary>
         [Output("invitationId")]
         public Output<string> InvitationId { get; private set; } = null!;
 
-        /// <summary>
-        /// The permission of the outside collaborator for the repository.
-        /// Must be one of `pull`, `push`, `maintain`, `triage` or `admin` for organization-owned repositories.
-        /// Must be `push` for personal repositories. Defaults to `push`.
-        /// </summary>
         [Output("permission")]
         public Output<string?> Permission { get; private set; } = null!;
 
-        /// <summary>
-        /// Suppress plan diffs for `triage` and `maintain`.  Defaults to `false`.
-        /// </summary>
         [Output("permissionDiffSuppression")]
         public Output<bool?> PermissionDiffSuppression { get; private set; } = null!;
 
-        /// <summary>
-        /// The GitHub repository
-        /// </summary>
         [Output("repository")]
         public Output<string> Repository { get; private set; } = null!;
 
-        /// <summary>
-        /// The user to add to the repository as a collaborator.
-        /// </summary>
         [Output("username")]
         public Output<string> Username { get; private set; } = null!;
 
@@ -138,29 +73,15 @@ namespace Pulumi.Github
 
     public sealed class RepositoryCollaboratorArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The permission of the outside collaborator for the repository.
-        /// Must be one of `pull`, `push`, `maintain`, `triage` or `admin` for organization-owned repositories.
-        /// Must be `push` for personal repositories. Defaults to `push`.
-        /// </summary>
         [Input("permission")]
         public Input<string>? Permission { get; set; }
 
-        /// <summary>
-        /// Suppress plan diffs for `triage` and `maintain`.  Defaults to `false`.
-        /// </summary>
         [Input("permissionDiffSuppression")]
         public Input<bool>? PermissionDiffSuppression { get; set; }
 
-        /// <summary>
-        /// The GitHub repository
-        /// </summary>
         [Input("repository", required: true)]
         public Input<string> Repository { get; set; } = null!;
 
-        /// <summary>
-        /// The user to add to the repository as a collaborator.
-        /// </summary>
         [Input("username", required: true)]
         public Input<string> Username { get; set; } = null!;
 
@@ -172,35 +93,18 @@ namespace Pulumi.Github
 
     public sealed class RepositoryCollaboratorState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ID of the invitation to be used in `github.UserInvitationAccepter`
-        /// </summary>
         [Input("invitationId")]
         public Input<string>? InvitationId { get; set; }
 
-        /// <summary>
-        /// The permission of the outside collaborator for the repository.
-        /// Must be one of `pull`, `push`, `maintain`, `triage` or `admin` for organization-owned repositories.
-        /// Must be `push` for personal repositories. Defaults to `push`.
-        /// </summary>
         [Input("permission")]
         public Input<string>? Permission { get; set; }
 
-        /// <summary>
-        /// Suppress plan diffs for `triage` and `maintain`.  Defaults to `false`.
-        /// </summary>
         [Input("permissionDiffSuppression")]
         public Input<bool>? PermissionDiffSuppression { get; set; }
 
-        /// <summary>
-        /// The GitHub repository
-        /// </summary>
         [Input("repository")]
         public Input<string>? Repository { get; set; }
 
-        /// <summary>
-        /// The user to add to the repository as a collaborator.
-        /// </summary>
         [Input("username")]
         public Input<string>? Username { get; set; }
 

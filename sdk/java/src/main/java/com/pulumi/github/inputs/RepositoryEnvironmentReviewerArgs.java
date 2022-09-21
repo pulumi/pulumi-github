@@ -16,32 +16,16 @@ public final class RepositoryEnvironmentReviewerArgs extends com.pulumi.resource
 
     public static final RepositoryEnvironmentReviewerArgs Empty = new RepositoryEnvironmentReviewerArgs();
 
-    /**
-     * Up to 6 IDs for teams who may review jobs that reference the environment. Reviewers must have at least read access to the repository. Only one of the required reviewers needs to approve the job for it to proceed.
-     * 
-     */
     @Import(name="teams")
     private @Nullable Output<List<Integer>> teams;
 
-    /**
-     * @return Up to 6 IDs for teams who may review jobs that reference the environment. Reviewers must have at least read access to the repository. Only one of the required reviewers needs to approve the job for it to proceed.
-     * 
-     */
     public Optional<Output<List<Integer>>> teams() {
         return Optional.ofNullable(this.teams);
     }
 
-    /**
-     * Up to 6 IDs for users who may review jobs that reference the environment. Reviewers must have at least read access to the repository. Only one of the required reviewers needs to approve the job for it to proceed.
-     * 
-     */
     @Import(name="users")
     private @Nullable Output<List<Integer>> users;
 
-    /**
-     * @return Up to 6 IDs for users who may review jobs that reference the environment. Reviewers must have at least read access to the repository. Only one of the required reviewers needs to approve the job for it to proceed.
-     * 
-     */
     public Optional<Output<List<Integer>>> users() {
         return Optional.ofNullable(this.users);
     }
@@ -71,64 +55,28 @@ public final class RepositoryEnvironmentReviewerArgs extends com.pulumi.resource
             $ = new RepositoryEnvironmentReviewerArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param teams Up to 6 IDs for teams who may review jobs that reference the environment. Reviewers must have at least read access to the repository. Only one of the required reviewers needs to approve the job for it to proceed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder teams(@Nullable Output<List<Integer>> teams) {
             $.teams = teams;
             return this;
         }
 
-        /**
-         * @param teams Up to 6 IDs for teams who may review jobs that reference the environment. Reviewers must have at least read access to the repository. Only one of the required reviewers needs to approve the job for it to proceed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder teams(List<Integer> teams) {
             return teams(Output.of(teams));
         }
 
-        /**
-         * @param teams Up to 6 IDs for teams who may review jobs that reference the environment. Reviewers must have at least read access to the repository. Only one of the required reviewers needs to approve the job for it to proceed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder teams(Integer... teams) {
             return teams(List.of(teams));
         }
 
-        /**
-         * @param users Up to 6 IDs for users who may review jobs that reference the environment. Reviewers must have at least read access to the repository. Only one of the required reviewers needs to approve the job for it to proceed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder users(@Nullable Output<List<Integer>> users) {
             $.users = users;
             return this;
         }
 
-        /**
-         * @param users Up to 6 IDs for users who may review jobs that reference the environment. Reviewers must have at least read access to the repository. Only one of the required reviewers needs to approve the job for it to proceed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder users(List<Integer> users) {
             return users(Output.of(users));
         }
 
-        /**
-         * @param users Up to 6 IDs for users who may review jobs that reference the environment. Reviewers must have at least read access to the repository. Only one of the required reviewers needs to approve the job for it to proceed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder users(Integer... users) {
             return users(List.of(users));
         }

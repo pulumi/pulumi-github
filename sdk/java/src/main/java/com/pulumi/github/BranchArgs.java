@@ -15,62 +15,30 @@ public final class BranchArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final BranchArgs Empty = new BranchArgs();
 
-    /**
-     * The repository branch to create.
-     * 
-     */
     @Import(name="branch", required=true)
     private Output<String> branch;
 
-    /**
-     * @return The repository branch to create.
-     * 
-     */
     public Output<String> branch() {
         return this.branch;
     }
 
-    /**
-     * The GitHub repository name.
-     * 
-     */
     @Import(name="repository", required=true)
     private Output<String> repository;
 
-    /**
-     * @return The GitHub repository name.
-     * 
-     */
     public Output<String> repository() {
         return this.repository;
     }
 
-    /**
-     * The branch name to start from. Defaults to `main`.
-     * 
-     */
     @Import(name="sourceBranch")
     private @Nullable Output<String> sourceBranch;
 
-    /**
-     * @return The branch name to start from. Defaults to `main`.
-     * 
-     */
     public Optional<Output<String>> sourceBranch() {
         return Optional.ofNullable(this.sourceBranch);
     }
 
-    /**
-     * The commit hash to start from. Defaults to the tip of `source_branch`. If provided, `source_branch` is ignored.
-     * 
-     */
     @Import(name="sourceSha")
     private @Nullable Output<String> sourceSha;
 
-    /**
-     * @return The commit hash to start from. Defaults to the tip of `source_branch`. If provided, `source_branch` is ignored.
-     * 
-     */
     public Optional<Output<String>> sourceSha() {
         return Optional.ofNullable(this.sourceSha);
     }
@@ -102,86 +70,38 @@ public final class BranchArgs extends com.pulumi.resources.ResourceArgs {
             $ = new BranchArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param branch The repository branch to create.
-         * 
-         * @return builder
-         * 
-         */
         public Builder branch(Output<String> branch) {
             $.branch = branch;
             return this;
         }
 
-        /**
-         * @param branch The repository branch to create.
-         * 
-         * @return builder
-         * 
-         */
         public Builder branch(String branch) {
             return branch(Output.of(branch));
         }
 
-        /**
-         * @param repository The GitHub repository name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder repository(Output<String> repository) {
             $.repository = repository;
             return this;
         }
 
-        /**
-         * @param repository The GitHub repository name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder repository(String repository) {
             return repository(Output.of(repository));
         }
 
-        /**
-         * @param sourceBranch The branch name to start from. Defaults to `main`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceBranch(@Nullable Output<String> sourceBranch) {
             $.sourceBranch = sourceBranch;
             return this;
         }
 
-        /**
-         * @param sourceBranch The branch name to start from. Defaults to `main`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceBranch(String sourceBranch) {
             return sourceBranch(Output.of(sourceBranch));
         }
 
-        /**
-         * @param sourceSha The commit hash to start from. Defaults to the tip of `source_branch`. If provided, `source_branch` is ignored.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceSha(@Nullable Output<String> sourceSha) {
             $.sourceSha = sourceSha;
             return this;
         }
 
-        /**
-         * @param sourceSha The commit hash to start from. Defaults to the tip of `source_branch`. If provided, `source_branch` is ignored.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceSha(String sourceSha) {
             return sourceSha(Output.of(sourceSha));
         }

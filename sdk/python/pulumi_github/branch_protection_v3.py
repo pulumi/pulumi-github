@@ -26,14 +26,6 @@ class BranchProtectionV3Args:
                  restrictions: Optional[pulumi.Input['BranchProtectionV3RestrictionsArgs']] = None):
         """
         The set of arguments for constructing a BranchProtectionV3 resource.
-        :param pulumi.Input[str] branch: The Git branch to protect.
-        :param pulumi.Input[str] repository: The GitHub repository name.
-        :param pulumi.Input[bool] enforce_admins: Boolean, setting this to `true` enforces status checks for repository administrators.
-        :param pulumi.Input[bool] require_conversation_resolution: Boolean, setting this to `true` requires all conversations on code must be resolved before a pull request can be merged.
-        :param pulumi.Input[bool] require_signed_commits: Boolean, setting this to `true` requires all commits to be signed with GPG.
-        :param pulumi.Input['BranchProtectionV3RequiredPullRequestReviewsArgs'] required_pull_request_reviews: Enforce restrictions for pull request reviews. See Required Pull Request Reviews below for details.
-        :param pulumi.Input['BranchProtectionV3RequiredStatusChecksArgs'] required_status_checks: Enforce restrictions for required status checks. See Required Status Checks below for details.
-        :param pulumi.Input['BranchProtectionV3RestrictionsArgs'] restrictions: Enforce restrictions for the users and teams that may push to the branch. See Restrictions below for details.
         """
         pulumi.set(__self__, "branch", branch)
         pulumi.set(__self__, "repository", repository)
@@ -53,9 +45,6 @@ class BranchProtectionV3Args:
     @property
     @pulumi.getter
     def branch(self) -> pulumi.Input[str]:
-        """
-        The Git branch to protect.
-        """
         return pulumi.get(self, "branch")
 
     @branch.setter
@@ -65,9 +54,6 @@ class BranchProtectionV3Args:
     @property
     @pulumi.getter
     def repository(self) -> pulumi.Input[str]:
-        """
-        The GitHub repository name.
-        """
         return pulumi.get(self, "repository")
 
     @repository.setter
@@ -77,9 +63,6 @@ class BranchProtectionV3Args:
     @property
     @pulumi.getter(name="enforceAdmins")
     def enforce_admins(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Boolean, setting this to `true` enforces status checks for repository administrators.
-        """
         return pulumi.get(self, "enforce_admins")
 
     @enforce_admins.setter
@@ -89,9 +72,6 @@ class BranchProtectionV3Args:
     @property
     @pulumi.getter(name="requireConversationResolution")
     def require_conversation_resolution(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Boolean, setting this to `true` requires all conversations on code must be resolved before a pull request can be merged.
-        """
         return pulumi.get(self, "require_conversation_resolution")
 
     @require_conversation_resolution.setter
@@ -101,9 +81,6 @@ class BranchProtectionV3Args:
     @property
     @pulumi.getter(name="requireSignedCommits")
     def require_signed_commits(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Boolean, setting this to `true` requires all commits to be signed with GPG.
-        """
         return pulumi.get(self, "require_signed_commits")
 
     @require_signed_commits.setter
@@ -113,9 +90,6 @@ class BranchProtectionV3Args:
     @property
     @pulumi.getter(name="requiredPullRequestReviews")
     def required_pull_request_reviews(self) -> Optional[pulumi.Input['BranchProtectionV3RequiredPullRequestReviewsArgs']]:
-        """
-        Enforce restrictions for pull request reviews. See Required Pull Request Reviews below for details.
-        """
         return pulumi.get(self, "required_pull_request_reviews")
 
     @required_pull_request_reviews.setter
@@ -125,9 +99,6 @@ class BranchProtectionV3Args:
     @property
     @pulumi.getter(name="requiredStatusChecks")
     def required_status_checks(self) -> Optional[pulumi.Input['BranchProtectionV3RequiredStatusChecksArgs']]:
-        """
-        Enforce restrictions for required status checks. See Required Status Checks below for details.
-        """
         return pulumi.get(self, "required_status_checks")
 
     @required_status_checks.setter
@@ -137,9 +108,6 @@ class BranchProtectionV3Args:
     @property
     @pulumi.getter
     def restrictions(self) -> Optional[pulumi.Input['BranchProtectionV3RestrictionsArgs']]:
-        """
-        Enforce restrictions for the users and teams that may push to the branch. See Restrictions below for details.
-        """
         return pulumi.get(self, "restrictions")
 
     @restrictions.setter
@@ -161,14 +129,6 @@ class _BranchProtectionV3State:
                  restrictions: Optional[pulumi.Input['BranchProtectionV3RestrictionsArgs']] = None):
         """
         Input properties used for looking up and filtering BranchProtectionV3 resources.
-        :param pulumi.Input[str] branch: The Git branch to protect.
-        :param pulumi.Input[bool] enforce_admins: Boolean, setting this to `true` enforces status checks for repository administrators.
-        :param pulumi.Input[str] repository: The GitHub repository name.
-        :param pulumi.Input[bool] require_conversation_resolution: Boolean, setting this to `true` requires all conversations on code must be resolved before a pull request can be merged.
-        :param pulumi.Input[bool] require_signed_commits: Boolean, setting this to `true` requires all commits to be signed with GPG.
-        :param pulumi.Input['BranchProtectionV3RequiredPullRequestReviewsArgs'] required_pull_request_reviews: Enforce restrictions for pull request reviews. See Required Pull Request Reviews below for details.
-        :param pulumi.Input['BranchProtectionV3RequiredStatusChecksArgs'] required_status_checks: Enforce restrictions for required status checks. See Required Status Checks below for details.
-        :param pulumi.Input['BranchProtectionV3RestrictionsArgs'] restrictions: Enforce restrictions for the users and teams that may push to the branch. See Restrictions below for details.
         """
         if branch is not None:
             pulumi.set(__self__, "branch", branch)
@@ -192,9 +152,6 @@ class _BranchProtectionV3State:
     @property
     @pulumi.getter
     def branch(self) -> Optional[pulumi.Input[str]]:
-        """
-        The Git branch to protect.
-        """
         return pulumi.get(self, "branch")
 
     @branch.setter
@@ -204,9 +161,6 @@ class _BranchProtectionV3State:
     @property
     @pulumi.getter(name="enforceAdmins")
     def enforce_admins(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Boolean, setting this to `true` enforces status checks for repository administrators.
-        """
         return pulumi.get(self, "enforce_admins")
 
     @enforce_admins.setter
@@ -225,9 +179,6 @@ class _BranchProtectionV3State:
     @property
     @pulumi.getter
     def repository(self) -> Optional[pulumi.Input[str]]:
-        """
-        The GitHub repository name.
-        """
         return pulumi.get(self, "repository")
 
     @repository.setter
@@ -237,9 +188,6 @@ class _BranchProtectionV3State:
     @property
     @pulumi.getter(name="requireConversationResolution")
     def require_conversation_resolution(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Boolean, setting this to `true` requires all conversations on code must be resolved before a pull request can be merged.
-        """
         return pulumi.get(self, "require_conversation_resolution")
 
     @require_conversation_resolution.setter
@@ -249,9 +197,6 @@ class _BranchProtectionV3State:
     @property
     @pulumi.getter(name="requireSignedCommits")
     def require_signed_commits(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Boolean, setting this to `true` requires all commits to be signed with GPG.
-        """
         return pulumi.get(self, "require_signed_commits")
 
     @require_signed_commits.setter
@@ -261,9 +206,6 @@ class _BranchProtectionV3State:
     @property
     @pulumi.getter(name="requiredPullRequestReviews")
     def required_pull_request_reviews(self) -> Optional[pulumi.Input['BranchProtectionV3RequiredPullRequestReviewsArgs']]:
-        """
-        Enforce restrictions for pull request reviews. See Required Pull Request Reviews below for details.
-        """
         return pulumi.get(self, "required_pull_request_reviews")
 
     @required_pull_request_reviews.setter
@@ -273,9 +215,6 @@ class _BranchProtectionV3State:
     @property
     @pulumi.getter(name="requiredStatusChecks")
     def required_status_checks(self) -> Optional[pulumi.Input['BranchProtectionV3RequiredStatusChecksArgs']]:
-        """
-        Enforce restrictions for required status checks. See Required Status Checks below for details.
-        """
         return pulumi.get(self, "required_status_checks")
 
     @required_status_checks.setter
@@ -285,9 +224,6 @@ class _BranchProtectionV3State:
     @property
     @pulumi.getter
     def restrictions(self) -> Optional[pulumi.Input['BranchProtectionV3RestrictionsArgs']]:
-        """
-        Enforce restrictions for the users and teams that may push to the branch. See Restrictions below for details.
-        """
         return pulumi.get(self, "restrictions")
 
     @restrictions.setter
@@ -310,78 +246,9 @@ class BranchProtectionV3(pulumi.CustomResource):
                  restrictions: Optional[pulumi.Input[pulumi.InputType['BranchProtectionV3RestrictionsArgs']]] = None,
                  __props__=None):
         """
-        Protects a GitHub branch.
-
-        The `BranchProtection` resource has moved to the GraphQL API, while this resource will continue to leverage the REST API.
-
-        This resource allows you to configure branch protection for repositories in your organization. When applied, the branch will be protected from forced pushes and deletion. Additional constraints, such as required status checks or restrictions on users, teams, and apps, can also be configured.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_github as github
-
-        # Protect the main branch of the foo repository. Only allow a specific user to merge to the branch.
-        example = github.BranchProtectionV3("example",
-            repository=github_repository["example"]["name"],
-            branch="main",
-            restrictions=github.BranchProtectionV3RestrictionsArgs(
-                users=["foo-user"],
-            ))
-        ```
-
-        ```python
-        import pulumi
-        import pulumi_github as github
-
-        example_repository = github.Repository("exampleRepository")
-        example_team = github.Team("exampleTeam")
-        # Protect the main branch of the foo repository. Additionally, require that
-        # the "ci/travis" context to be passing and only allow the engineers team merge
-        # to the branch.
-        example_branch_protection_v3 = github.BranchProtectionV3("exampleBranchProtectionV3",
-            repository=example_repository.name,
-            branch="main",
-            enforce_admins=True,
-            required_status_checks=github.BranchProtectionV3RequiredStatusChecksArgs(
-                strict=False,
-                contexts=["ci/travis"],
-            ),
-            required_pull_request_reviews=github.BranchProtectionV3RequiredPullRequestReviewsArgs(
-                dismiss_stale_reviews=True,
-                dismissal_users=["foo-user"],
-                dismissal_teams=[example_team.slug],
-            ),
-            restrictions=github.BranchProtectionV3RestrictionsArgs(
-                users=["foo-user"],
-                teams=[example_team.slug],
-                apps=["foo-app"],
-            ))
-        example_team_repository = github.TeamRepository("exampleTeamRepository",
-            team_id=example_team.id,
-            repository=example_repository.name,
-            permission="pull")
-        ```
-
-        ## Import
-
-        GitHub Branch Protection can be imported using an ID made up of `repository:branch`, e.g.
-
-        ```sh
-         $ pulumi import github:index/branchProtectionV3:BranchProtectionV3 terraform terraform:main
-        ```
-
+        Create a BranchProtectionV3 resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] branch: The Git branch to protect.
-        :param pulumi.Input[bool] enforce_admins: Boolean, setting this to `true` enforces status checks for repository administrators.
-        :param pulumi.Input[str] repository: The GitHub repository name.
-        :param pulumi.Input[bool] require_conversation_resolution: Boolean, setting this to `true` requires all conversations on code must be resolved before a pull request can be merged.
-        :param pulumi.Input[bool] require_signed_commits: Boolean, setting this to `true` requires all commits to be signed with GPG.
-        :param pulumi.Input[pulumi.InputType['BranchProtectionV3RequiredPullRequestReviewsArgs']] required_pull_request_reviews: Enforce restrictions for pull request reviews. See Required Pull Request Reviews below for details.
-        :param pulumi.Input[pulumi.InputType['BranchProtectionV3RequiredStatusChecksArgs']] required_status_checks: Enforce restrictions for required status checks. See Required Status Checks below for details.
-        :param pulumi.Input[pulumi.InputType['BranchProtectionV3RestrictionsArgs']] restrictions: Enforce restrictions for the users and teams that may push to the branch. See Restrictions below for details.
         """
         ...
     @overload
@@ -390,68 +257,7 @@ class BranchProtectionV3(pulumi.CustomResource):
                  args: BranchProtectionV3Args,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Protects a GitHub branch.
-
-        The `BranchProtection` resource has moved to the GraphQL API, while this resource will continue to leverage the REST API.
-
-        This resource allows you to configure branch protection for repositories in your organization. When applied, the branch will be protected from forced pushes and deletion. Additional constraints, such as required status checks or restrictions on users, teams, and apps, can also be configured.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_github as github
-
-        # Protect the main branch of the foo repository. Only allow a specific user to merge to the branch.
-        example = github.BranchProtectionV3("example",
-            repository=github_repository["example"]["name"],
-            branch="main",
-            restrictions=github.BranchProtectionV3RestrictionsArgs(
-                users=["foo-user"],
-            ))
-        ```
-
-        ```python
-        import pulumi
-        import pulumi_github as github
-
-        example_repository = github.Repository("exampleRepository")
-        example_team = github.Team("exampleTeam")
-        # Protect the main branch of the foo repository. Additionally, require that
-        # the "ci/travis" context to be passing and only allow the engineers team merge
-        # to the branch.
-        example_branch_protection_v3 = github.BranchProtectionV3("exampleBranchProtectionV3",
-            repository=example_repository.name,
-            branch="main",
-            enforce_admins=True,
-            required_status_checks=github.BranchProtectionV3RequiredStatusChecksArgs(
-                strict=False,
-                contexts=["ci/travis"],
-            ),
-            required_pull_request_reviews=github.BranchProtectionV3RequiredPullRequestReviewsArgs(
-                dismiss_stale_reviews=True,
-                dismissal_users=["foo-user"],
-                dismissal_teams=[example_team.slug],
-            ),
-            restrictions=github.BranchProtectionV3RestrictionsArgs(
-                users=["foo-user"],
-                teams=[example_team.slug],
-                apps=["foo-app"],
-            ))
-        example_team_repository = github.TeamRepository("exampleTeamRepository",
-            team_id=example_team.id,
-            repository=example_repository.name,
-            permission="pull")
-        ```
-
-        ## Import
-
-        GitHub Branch Protection can be imported using an ID made up of `repository:branch`, e.g.
-
-        ```sh
-         $ pulumi import github:index/branchProtectionV3:BranchProtectionV3 terraform terraform:main
-        ```
-
+        Create a BranchProtectionV3 resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param BranchProtectionV3Args args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -523,14 +329,6 @@ class BranchProtectionV3(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] branch: The Git branch to protect.
-        :param pulumi.Input[bool] enforce_admins: Boolean, setting this to `true` enforces status checks for repository administrators.
-        :param pulumi.Input[str] repository: The GitHub repository name.
-        :param pulumi.Input[bool] require_conversation_resolution: Boolean, setting this to `true` requires all conversations on code must be resolved before a pull request can be merged.
-        :param pulumi.Input[bool] require_signed_commits: Boolean, setting this to `true` requires all commits to be signed with GPG.
-        :param pulumi.Input[pulumi.InputType['BranchProtectionV3RequiredPullRequestReviewsArgs']] required_pull_request_reviews: Enforce restrictions for pull request reviews. See Required Pull Request Reviews below for details.
-        :param pulumi.Input[pulumi.InputType['BranchProtectionV3RequiredStatusChecksArgs']] required_status_checks: Enforce restrictions for required status checks. See Required Status Checks below for details.
-        :param pulumi.Input[pulumi.InputType['BranchProtectionV3RestrictionsArgs']] restrictions: Enforce restrictions for the users and teams that may push to the branch. See Restrictions below for details.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -550,17 +348,11 @@ class BranchProtectionV3(pulumi.CustomResource):
     @property
     @pulumi.getter
     def branch(self) -> pulumi.Output[str]:
-        """
-        The Git branch to protect.
-        """
         return pulumi.get(self, "branch")
 
     @property
     @pulumi.getter(name="enforceAdmins")
     def enforce_admins(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Boolean, setting this to `true` enforces status checks for repository administrators.
-        """
         return pulumi.get(self, "enforce_admins")
 
     @property
@@ -571,48 +363,30 @@ class BranchProtectionV3(pulumi.CustomResource):
     @property
     @pulumi.getter
     def repository(self) -> pulumi.Output[str]:
-        """
-        The GitHub repository name.
-        """
         return pulumi.get(self, "repository")
 
     @property
     @pulumi.getter(name="requireConversationResolution")
     def require_conversation_resolution(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Boolean, setting this to `true` requires all conversations on code must be resolved before a pull request can be merged.
-        """
         return pulumi.get(self, "require_conversation_resolution")
 
     @property
     @pulumi.getter(name="requireSignedCommits")
     def require_signed_commits(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Boolean, setting this to `true` requires all commits to be signed with GPG.
-        """
         return pulumi.get(self, "require_signed_commits")
 
     @property
     @pulumi.getter(name="requiredPullRequestReviews")
     def required_pull_request_reviews(self) -> pulumi.Output[Optional['outputs.BranchProtectionV3RequiredPullRequestReviews']]:
-        """
-        Enforce restrictions for pull request reviews. See Required Pull Request Reviews below for details.
-        """
         return pulumi.get(self, "required_pull_request_reviews")
 
     @property
     @pulumi.getter(name="requiredStatusChecks")
     def required_status_checks(self) -> pulumi.Output[Optional['outputs.BranchProtectionV3RequiredStatusChecks']]:
-        """
-        Enforce restrictions for required status checks. See Required Status Checks below for details.
-        """
         return pulumi.get(self, "required_status_checks")
 
     @property
     @pulumi.getter
     def restrictions(self) -> pulumi.Output[Optional['outputs.BranchProtectionV3Restrictions']]:
-        """
-        Enforce restrictions for the users and teams that may push to the branch. See Restrictions below for details.
-        """
         return pulumi.get(self, "restrictions")
 

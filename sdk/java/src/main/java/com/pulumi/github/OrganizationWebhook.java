@@ -17,84 +17,17 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * This resource allows you to create and manage webhooks for GitHub organization.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.github.OrganizationWebhook;
- * import com.pulumi.github.OrganizationWebhookArgs;
- * import com.pulumi.github.inputs.OrganizationWebhookConfigurationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var foo = new OrganizationWebhook(&#34;foo&#34;, OrganizationWebhookArgs.builder()        
- *             .active(false)
- *             .configuration(OrganizationWebhookConfigurationArgs.builder()
- *                 .contentType(&#34;form&#34;)
- *                 .insecureSsl(false)
- *                 .url(&#34;https://google.de/&#34;)
- *                 .build())
- *             .events(&#34;issues&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * Organization webhooks can be imported using the `id` of the webhook. The `id` of the webhook can be found in the URL of the webhook. For example, `&#34;https://github.com/organizations/foo-org/settings/hooks/123456789&#34;`.
- * 
- * ```sh
- *  $ pulumi import github:index/organizationWebhook:OrganizationWebhook terraform 123456789
- * ```
- * 
- *  If secret is populated in the webhook&#39;s configuration, the value will be imported as &#34;********&#34;.
- * 
- */
 @ResourceType(type="github:index/organizationWebhook:OrganizationWebhook")
 public class OrganizationWebhook extends com.pulumi.resources.CustomResource {
-    /**
-     * Indicate of the webhook should receive events. Defaults to `true`.
-     * 
-     */
     @Export(name="active", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> active;
 
-    /**
-     * @return Indicate of the webhook should receive events. Defaults to `true`.
-     * 
-     */
     public Output<Optional<Boolean>> active() {
         return Codegen.optional(this.active);
     }
-    /**
-     * key/value pair of configuration for this webhook. Available keys are `url`, `content_type`, `secret` and `insecure_ssl`.
-     * 
-     */
     @Export(name="configuration", type=OrganizationWebhookConfiguration.class, parameters={})
     private Output</* @Nullable */ OrganizationWebhookConfiguration> configuration;
 
-    /**
-     * @return key/value pair of configuration for this webhook. Available keys are `url`, `content_type`, `secret` and `insecure_ssl`.
-     * 
-     */
     public Output<Optional<OrganizationWebhookConfiguration>> configuration() {
         return Codegen.optional(this.configuration);
     }
@@ -104,31 +37,15 @@ public class OrganizationWebhook extends com.pulumi.resources.CustomResource {
     public Output<String> etag() {
         return this.etag;
     }
-    /**
-     * A list of events which should trigger the webhook. See a list of [available events](https://developer.github.com/v3/activity/events/types/)
-     * 
-     */
     @Export(name="events", type=List.class, parameters={String.class})
     private Output<List<String>> events;
 
-    /**
-     * @return A list of events which should trigger the webhook. See a list of [available events](https://developer.github.com/v3/activity/events/types/)
-     * 
-     */
     public Output<List<String>> events() {
         return this.events;
     }
-    /**
-     * URL of the webhook
-     * 
-     */
     @Export(name="url", type=String.class, parameters={})
     private Output<String> url;
 
-    /**
-     * @return URL of the webhook
-     * 
-     */
     public Output<String> url() {
         return this.url;
     }

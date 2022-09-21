@@ -11,88 +11,28 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// This resource allows you to create and manage files within a
-// GitHub repository.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-github/sdk/v4/go/github"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			fooRepository, err := github.NewRepository(ctx, "fooRepository", &github.RepositoryArgs{
-//				AutoInit: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = github.NewRepositoryFile(ctx, "fooRepositoryFile", &github.RepositoryFileArgs{
-//				Repository:        fooRepository.Name,
-//				Branch:            pulumi.String("main"),
-//				File:              pulumi.String(".gitignore"),
-//				Content:           pulumi.String("**/*.tfstate"),
-//				CommitMessage:     pulumi.String("Managed by Terraform"),
-//				CommitAuthor:      pulumi.String("Terraform User"),
-//				CommitEmail:       pulumi.String("terraform@example.com"),
-//				OverwriteOnCreate: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Repository files can be imported using a combination of the `repo` and `file`, e.g.
-//
-// ```sh
-//
-//	$ pulumi import github:index/repositoryFile:RepositoryFile gitignore example/.gitignore
-//
-// ```
-//
-//	To import a file from a branch other than main, append `:` and the branch name, e.g.
-//
-// ```sh
-//
-//	$ pulumi import github:index/repositoryFile:RepositoryFile gitignore example/.gitignore:dev
-//
-// ```
 type RepositoryFile struct {
 	pulumi.CustomResourceState
 
-	// Git branch (defaults to `main`).
-	// The branch must already exist, it will not be created if it does not already exist.
+	// The branch name, defaults to "main"
 	Branch pulumi.StringPtrOutput `pulumi:"branch"`
-	// Committer author name to use.
+	// The commit author name, defaults to the authenticated user's name
 	CommitAuthor pulumi.StringOutput `pulumi:"commitAuthor"`
-	// Committer email address to use.
+	// The commit author email address, defaults to the authenticated user's email address
 	CommitEmail pulumi.StringOutput `pulumi:"commitEmail"`
-	// Commit message when adding or updating the managed file.
+	// The commit message when creating or updating the file
 	CommitMessage pulumi.StringOutput `pulumi:"commitMessage"`
-	// The SHA of the commit that modified the file.
+	// The SHA of the commit that modified the file
 	CommitSha pulumi.StringOutput `pulumi:"commitSha"`
-	// The file content.
+	// The file's content
 	Content pulumi.StringOutput `pulumi:"content"`
-	// The path of the file to manage.
+	// The file path to manage
 	File pulumi.StringOutput `pulumi:"file"`
-	// Enable overwriting existing files
+	// Enable overwriting existing files, defaults to "false"
 	OverwriteOnCreate pulumi.BoolPtrOutput `pulumi:"overwriteOnCreate"`
-	// The repository to create the file in.
+	// The repository name
 	Repository pulumi.StringOutput `pulumi:"repository"`
-	// The SHA blob of the file.
+	// The blob SHA of the file
 	Sha pulumi.StringOutput `pulumi:"sha"`
 }
 
@@ -134,50 +74,48 @@ func GetRepositoryFile(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RepositoryFile resources.
 type repositoryFileState struct {
-	// Git branch (defaults to `main`).
-	// The branch must already exist, it will not be created if it does not already exist.
+	// The branch name, defaults to "main"
 	Branch *string `pulumi:"branch"`
-	// Committer author name to use.
+	// The commit author name, defaults to the authenticated user's name
 	CommitAuthor *string `pulumi:"commitAuthor"`
-	// Committer email address to use.
+	// The commit author email address, defaults to the authenticated user's email address
 	CommitEmail *string `pulumi:"commitEmail"`
-	// Commit message when adding or updating the managed file.
+	// The commit message when creating or updating the file
 	CommitMessage *string `pulumi:"commitMessage"`
-	// The SHA of the commit that modified the file.
+	// The SHA of the commit that modified the file
 	CommitSha *string `pulumi:"commitSha"`
-	// The file content.
+	// The file's content
 	Content *string `pulumi:"content"`
-	// The path of the file to manage.
+	// The file path to manage
 	File *string `pulumi:"file"`
-	// Enable overwriting existing files
+	// Enable overwriting existing files, defaults to "false"
 	OverwriteOnCreate *bool `pulumi:"overwriteOnCreate"`
-	// The repository to create the file in.
+	// The repository name
 	Repository *string `pulumi:"repository"`
-	// The SHA blob of the file.
+	// The blob SHA of the file
 	Sha *string `pulumi:"sha"`
 }
 
 type RepositoryFileState struct {
-	// Git branch (defaults to `main`).
-	// The branch must already exist, it will not be created if it does not already exist.
+	// The branch name, defaults to "main"
 	Branch pulumi.StringPtrInput
-	// Committer author name to use.
+	// The commit author name, defaults to the authenticated user's name
 	CommitAuthor pulumi.StringPtrInput
-	// Committer email address to use.
+	// The commit author email address, defaults to the authenticated user's email address
 	CommitEmail pulumi.StringPtrInput
-	// Commit message when adding or updating the managed file.
+	// The commit message when creating or updating the file
 	CommitMessage pulumi.StringPtrInput
-	// The SHA of the commit that modified the file.
+	// The SHA of the commit that modified the file
 	CommitSha pulumi.StringPtrInput
-	// The file content.
+	// The file's content
 	Content pulumi.StringPtrInput
-	// The path of the file to manage.
+	// The file path to manage
 	File pulumi.StringPtrInput
-	// Enable overwriting existing files
+	// Enable overwriting existing files, defaults to "false"
 	OverwriteOnCreate pulumi.BoolPtrInput
-	// The repository to create the file in.
+	// The repository name
 	Repository pulumi.StringPtrInput
-	// The SHA blob of the file.
+	// The blob SHA of the file
 	Sha pulumi.StringPtrInput
 }
 
@@ -186,43 +124,41 @@ func (RepositoryFileState) ElementType() reflect.Type {
 }
 
 type repositoryFileArgs struct {
-	// Git branch (defaults to `main`).
-	// The branch must already exist, it will not be created if it does not already exist.
+	// The branch name, defaults to "main"
 	Branch *string `pulumi:"branch"`
-	// Committer author name to use.
+	// The commit author name, defaults to the authenticated user's name
 	CommitAuthor *string `pulumi:"commitAuthor"`
-	// Committer email address to use.
+	// The commit author email address, defaults to the authenticated user's email address
 	CommitEmail *string `pulumi:"commitEmail"`
-	// Commit message when adding or updating the managed file.
+	// The commit message when creating or updating the file
 	CommitMessage *string `pulumi:"commitMessage"`
-	// The file content.
+	// The file's content
 	Content string `pulumi:"content"`
-	// The path of the file to manage.
+	// The file path to manage
 	File string `pulumi:"file"`
-	// Enable overwriting existing files
+	// Enable overwriting existing files, defaults to "false"
 	OverwriteOnCreate *bool `pulumi:"overwriteOnCreate"`
-	// The repository to create the file in.
+	// The repository name
 	Repository string `pulumi:"repository"`
 }
 
 // The set of arguments for constructing a RepositoryFile resource.
 type RepositoryFileArgs struct {
-	// Git branch (defaults to `main`).
-	// The branch must already exist, it will not be created if it does not already exist.
+	// The branch name, defaults to "main"
 	Branch pulumi.StringPtrInput
-	// Committer author name to use.
+	// The commit author name, defaults to the authenticated user's name
 	CommitAuthor pulumi.StringPtrInput
-	// Committer email address to use.
+	// The commit author email address, defaults to the authenticated user's email address
 	CommitEmail pulumi.StringPtrInput
-	// Commit message when adding or updating the managed file.
+	// The commit message when creating or updating the file
 	CommitMessage pulumi.StringPtrInput
-	// The file content.
+	// The file's content
 	Content pulumi.StringInput
-	// The path of the file to manage.
+	// The file path to manage
 	File pulumi.StringInput
-	// Enable overwriting existing files
+	// Enable overwriting existing files, defaults to "false"
 	OverwriteOnCreate pulumi.BoolPtrInput
-	// The repository to create the file in.
+	// The repository name
 	Repository pulumi.StringInput
 }
 
@@ -313,53 +249,52 @@ func (o RepositoryFileOutput) ToRepositoryFileOutputWithContext(ctx context.Cont
 	return o
 }
 
-// Git branch (defaults to `main`).
-// The branch must already exist, it will not be created if it does not already exist.
+// The branch name, defaults to "main"
 func (o RepositoryFileOutput) Branch() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RepositoryFile) pulumi.StringPtrOutput { return v.Branch }).(pulumi.StringPtrOutput)
 }
 
-// Committer author name to use.
+// The commit author name, defaults to the authenticated user's name
 func (o RepositoryFileOutput) CommitAuthor() pulumi.StringOutput {
 	return o.ApplyT(func(v *RepositoryFile) pulumi.StringOutput { return v.CommitAuthor }).(pulumi.StringOutput)
 }
 
-// Committer email address to use.
+// The commit author email address, defaults to the authenticated user's email address
 func (o RepositoryFileOutput) CommitEmail() pulumi.StringOutput {
 	return o.ApplyT(func(v *RepositoryFile) pulumi.StringOutput { return v.CommitEmail }).(pulumi.StringOutput)
 }
 
-// Commit message when adding or updating the managed file.
+// The commit message when creating or updating the file
 func (o RepositoryFileOutput) CommitMessage() pulumi.StringOutput {
 	return o.ApplyT(func(v *RepositoryFile) pulumi.StringOutput { return v.CommitMessage }).(pulumi.StringOutput)
 }
 
-// The SHA of the commit that modified the file.
+// The SHA of the commit that modified the file
 func (o RepositoryFileOutput) CommitSha() pulumi.StringOutput {
 	return o.ApplyT(func(v *RepositoryFile) pulumi.StringOutput { return v.CommitSha }).(pulumi.StringOutput)
 }
 
-// The file content.
+// The file's content
 func (o RepositoryFileOutput) Content() pulumi.StringOutput {
 	return o.ApplyT(func(v *RepositoryFile) pulumi.StringOutput { return v.Content }).(pulumi.StringOutput)
 }
 
-// The path of the file to manage.
+// The file path to manage
 func (o RepositoryFileOutput) File() pulumi.StringOutput {
 	return o.ApplyT(func(v *RepositoryFile) pulumi.StringOutput { return v.File }).(pulumi.StringOutput)
 }
 
-// Enable overwriting existing files
+// Enable overwriting existing files, defaults to "false"
 func (o RepositoryFileOutput) OverwriteOnCreate() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RepositoryFile) pulumi.BoolPtrOutput { return v.OverwriteOnCreate }).(pulumi.BoolPtrOutput)
 }
 
-// The repository to create the file in.
+// The repository name
 func (o RepositoryFileOutput) Repository() pulumi.StringOutput {
 	return o.ApplyT(func(v *RepositoryFile) pulumi.StringOutput { return v.Repository }).(pulumi.StringOutput)
 }
 
-// The SHA blob of the file.
+// The blob SHA of the file
 func (o RepositoryFileOutput) Sha() pulumi.StringOutput {
 	return o.ApplyT(func(v *RepositoryFile) pulumi.StringOutput { return v.Sha }).(pulumi.StringOutput)
 }

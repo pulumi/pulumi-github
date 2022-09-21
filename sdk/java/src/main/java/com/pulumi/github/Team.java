@@ -16,79 +16,17 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a GitHub team resource.
- * 
- * This resource allows you to add/remove teams from your organization. When applied,
- * a new team will be created. When destroyed, that team will be removed.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.github.Team;
- * import com.pulumi.github.TeamArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var someTeam = new Team(&#34;someTeam&#34;, TeamArgs.builder()        
- *             .description(&#34;Some cool team&#34;)
- *             .privacy(&#34;closed&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * GitHub Teams can be imported using the GitHub team ID e.g.
- * 
- * ```sh
- *  $ pulumi import github:index/team:Team core 1234567
- * ```
- * 
- */
 @ResourceType(type="github:index/team:Team")
 public class Team extends com.pulumi.resources.CustomResource {
-    /**
-     * Adds a default maintainer to the team. Defaults to `false` and adds the creating user to the team when `true`.
-     * 
-     */
     @Export(name="createDefaultMaintainer", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> createDefaultMaintainer;
 
-    /**
-     * @return Adds a default maintainer to the team. Defaults to `false` and adds the creating user to the team when `true`.
-     * 
-     */
     public Output<Optional<Boolean>> createDefaultMaintainer() {
         return Codegen.optional(this.createDefaultMaintainer);
     }
-    /**
-     * A description of the team.
-     * 
-     */
     @Export(name="description", type=String.class, parameters={})
     private Output</* @Nullable */ String> description;
 
-    /**
-     * @return A description of the team.
-     * 
-     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
@@ -98,17 +36,9 @@ public class Team extends com.pulumi.resources.CustomResource {
     public Output<String> etag() {
         return this.etag;
     }
-    /**
-     * The LDAP Distinguished Name of the group where membership will be synchronized. Only available in GitHub Enterprise Server.
-     * 
-     */
     @Export(name="ldapDn", type=String.class, parameters={})
     private Output</* @Nullable */ String> ldapDn;
 
-    /**
-     * @return The LDAP Distinguished Name of the group where membership will be synchronized. Only available in GitHub Enterprise Server.
-     * 
-     */
     public Output<Optional<String>> ldapDn() {
         return Codegen.optional(this.ldapDn);
     }
@@ -118,79 +48,33 @@ public class Team extends com.pulumi.resources.CustomResource {
     public Output<Integer> membersCount() {
         return this.membersCount;
     }
-    /**
-     * The name of the team.
-     * 
-     */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
-    /**
-     * @return The name of the team.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * The Node ID of the created team.
-     * 
-     */
     @Export(name="nodeId", type=String.class, parameters={})
     private Output<String> nodeId;
 
-    /**
-     * @return The Node ID of the created team.
-     * 
-     */
     public Output<String> nodeId() {
         return this.nodeId;
     }
-    /**
-     * The ID of the parent team, if this is a nested team.
-     * 
-     */
     @Export(name="parentTeamId", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> parentTeamId;
 
-    /**
-     * @return The ID of the parent team, if this is a nested team.
-     * 
-     */
     public Output<Optional<Integer>> parentTeamId() {
         return Codegen.optional(this.parentTeamId);
     }
-    /**
-     * The level of privacy for the team. Must be one of `secret` or `closed`.
-     * Defaults to `secret`.
-     * 
-     */
     @Export(name="privacy", type=String.class, parameters={})
     private Output</* @Nullable */ String> privacy;
 
-    /**
-     * @return The level of privacy for the team. Must be one of `secret` or `closed`.
-     * Defaults to `secret`.
-     * 
-     */
     public Output<Optional<String>> privacy() {
         return Codegen.optional(this.privacy);
     }
-    /**
-     * The slug of the created team, which may or may not differ from `name`,
-     * depending on whether `name` contains &#34;URL-unsafe&#34; characters.
-     * Useful when referencing the team in [`github.BranchProtection`](https://www.terraform.io/docs/providers/github/r/branch_protection.html).
-     * 
-     */
     @Export(name="slug", type=String.class, parameters={})
     private Output<String> slug;
 
-    /**
-     * @return The slug of the created team, which may or may not differ from `name`,
-     * depending on whether `name` contains &#34;URL-unsafe&#34; characters.
-     * Useful when referencing the team in [`github.BranchProtection`](https://www.terraform.io/docs/providers/github/r/branch_protection.html).
-     * 
-     */
     public Output<String> slug() {
         return this.slug;
     }

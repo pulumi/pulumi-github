@@ -32,9 +32,6 @@ class GetOrganizationTeamSyncGroupsResult:
     @property
     @pulumi.getter
     def groups(self) -> Sequence['outputs.GetOrganizationTeamSyncGroupsGroupResult']:
-        """
-        An Array of GitHub Identity Provider Groups.  Each `group` block consists of the fields documented below.
-        """
         return pulumi.get(self, "groups")
 
     @property
@@ -58,16 +55,7 @@ class AwaitableGetOrganizationTeamSyncGroupsResult(GetOrganizationTeamSyncGroups
 
 def get_organization_team_sync_groups(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOrganizationTeamSyncGroupsResult:
     """
-    Use this data source to retrieve the identity provider (IdP) groups for an organization.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_github as github
-
-    test = github.get_organization_team_sync_groups()
-    ```
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)

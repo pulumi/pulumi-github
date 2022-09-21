@@ -21,11 +21,6 @@ class ActionsEnvironmentSecretArgs:
                  plaintext_value: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ActionsEnvironmentSecret resource.
-        :param pulumi.Input[str] environment: Name of the environment.
-        :param pulumi.Input[str] repository: Name of the repository.
-        :param pulumi.Input[str] secret_name: Name of the secret.
-        :param pulumi.Input[str] encrypted_value: Encrypted value of the secret using the Github public key in Base64 format.
-        :param pulumi.Input[str] plaintext_value: Plaintext value of the secret to be encrypted.
         """
         pulumi.set(__self__, "environment", environment)
         pulumi.set(__self__, "repository", repository)
@@ -38,9 +33,6 @@ class ActionsEnvironmentSecretArgs:
     @property
     @pulumi.getter
     def environment(self) -> pulumi.Input[str]:
-        """
-        Name of the environment.
-        """
         return pulumi.get(self, "environment")
 
     @environment.setter
@@ -50,9 +42,6 @@ class ActionsEnvironmentSecretArgs:
     @property
     @pulumi.getter
     def repository(self) -> pulumi.Input[str]:
-        """
-        Name of the repository.
-        """
         return pulumi.get(self, "repository")
 
     @repository.setter
@@ -62,9 +51,6 @@ class ActionsEnvironmentSecretArgs:
     @property
     @pulumi.getter(name="secretName")
     def secret_name(self) -> pulumi.Input[str]:
-        """
-        Name of the secret.
-        """
         return pulumi.get(self, "secret_name")
 
     @secret_name.setter
@@ -74,9 +60,6 @@ class ActionsEnvironmentSecretArgs:
     @property
     @pulumi.getter(name="encryptedValue")
     def encrypted_value(self) -> Optional[pulumi.Input[str]]:
-        """
-        Encrypted value of the secret using the Github public key in Base64 format.
-        """
         return pulumi.get(self, "encrypted_value")
 
     @encrypted_value.setter
@@ -86,9 +69,6 @@ class ActionsEnvironmentSecretArgs:
     @property
     @pulumi.getter(name="plaintextValue")
     def plaintext_value(self) -> Optional[pulumi.Input[str]]:
-        """
-        Plaintext value of the secret to be encrypted.
-        """
         return pulumi.get(self, "plaintext_value")
 
     @plaintext_value.setter
@@ -108,13 +88,6 @@ class _ActionsEnvironmentSecretState:
                  updated_at: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering ActionsEnvironmentSecret resources.
-        :param pulumi.Input[str] created_at: Date of actions_environment_secret creation.
-        :param pulumi.Input[str] encrypted_value: Encrypted value of the secret using the Github public key in Base64 format.
-        :param pulumi.Input[str] environment: Name of the environment.
-        :param pulumi.Input[str] plaintext_value: Plaintext value of the secret to be encrypted.
-        :param pulumi.Input[str] repository: Name of the repository.
-        :param pulumi.Input[str] secret_name: Name of the secret.
-        :param pulumi.Input[str] updated_at: Date of actions_environment_secret update.
         """
         if created_at is not None:
             pulumi.set(__self__, "created_at", created_at)
@@ -134,9 +107,6 @@ class _ActionsEnvironmentSecretState:
     @property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> Optional[pulumi.Input[str]]:
-        """
-        Date of actions_environment_secret creation.
-        """
         return pulumi.get(self, "created_at")
 
     @created_at.setter
@@ -146,9 +116,6 @@ class _ActionsEnvironmentSecretState:
     @property
     @pulumi.getter(name="encryptedValue")
     def encrypted_value(self) -> Optional[pulumi.Input[str]]:
-        """
-        Encrypted value of the secret using the Github public key in Base64 format.
-        """
         return pulumi.get(self, "encrypted_value")
 
     @encrypted_value.setter
@@ -158,9 +125,6 @@ class _ActionsEnvironmentSecretState:
     @property
     @pulumi.getter
     def environment(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of the environment.
-        """
         return pulumi.get(self, "environment")
 
     @environment.setter
@@ -170,9 +134,6 @@ class _ActionsEnvironmentSecretState:
     @property
     @pulumi.getter(name="plaintextValue")
     def plaintext_value(self) -> Optional[pulumi.Input[str]]:
-        """
-        Plaintext value of the secret to be encrypted.
-        """
         return pulumi.get(self, "plaintext_value")
 
     @plaintext_value.setter
@@ -182,9 +143,6 @@ class _ActionsEnvironmentSecretState:
     @property
     @pulumi.getter
     def repository(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of the repository.
-        """
         return pulumi.get(self, "repository")
 
     @repository.setter
@@ -194,9 +152,6 @@ class _ActionsEnvironmentSecretState:
     @property
     @pulumi.getter(name="secretName")
     def secret_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of the secret.
-        """
         return pulumi.get(self, "secret_name")
 
     @secret_name.setter
@@ -206,9 +161,6 @@ class _ActionsEnvironmentSecretState:
     @property
     @pulumi.getter(name="updatedAt")
     def updated_at(self) -> Optional[pulumi.Input[str]]:
-        """
-        Date of actions_environment_secret update.
-        """
         return pulumi.get(self, "updated_at")
 
     @updated_at.setter
@@ -228,54 +180,9 @@ class ActionsEnvironmentSecret(pulumi.CustomResource):
                  secret_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_github as github
-
-        example_secret_actions_environment_secret = github.ActionsEnvironmentSecret("exampleSecretActionsEnvironmentSecret",
-            environment="example_environment",
-            secret_name="example_secret_name",
-            plaintext_value=var["some_secret_string"])
-        example_secret_index_actions_environment_secret_actions_environment_secret = github.ActionsEnvironmentSecret("exampleSecretIndex/actionsEnvironmentSecretActionsEnvironmentSecret",
-            environment="example_environment",
-            secret_name="example_secret_name",
-            encrypted_value=var["some_encrypted_secret_string"])
-        ```
-
-        ```python
-        import pulumi
-        import pulumi_github as github
-
-        repo = github.get_repository(full_name="my-org/repo")
-        repo_environment = github.RepositoryEnvironment("repoEnvironment",
-            repository=repo.name,
-            environment="example_environment")
-        test_secret = github.ActionsEnvironmentSecret("testSecret",
-            repository=repo.name,
-            environment=repo_environment.environment,
-            secret_name="test_secret_name",
-            plaintext_value="%s")
-        ```
-
-        ## Import
-
-        This resource can be imported using an ID made up of the secret name
-
-        ```sh
-         $ pulumi import github:index/actionsEnvironmentSecret:ActionsEnvironmentSecret test_secret test_secret_name
-        ```
-
-         NOTEthe implementation is limited in that it won't fetch the value of the `plaintext_value` field when importing. You may need to ignore changes for the `plaintext_value` as a workaround.
-
+        Create a ActionsEnvironmentSecret resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] encrypted_value: Encrypted value of the secret using the Github public key in Base64 format.
-        :param pulumi.Input[str] environment: Name of the environment.
-        :param pulumi.Input[str] plaintext_value: Plaintext value of the secret to be encrypted.
-        :param pulumi.Input[str] repository: Name of the repository.
-        :param pulumi.Input[str] secret_name: Name of the secret.
         """
         ...
     @overload
@@ -284,47 +191,7 @@ class ActionsEnvironmentSecret(pulumi.CustomResource):
                  args: ActionsEnvironmentSecretArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_github as github
-
-        example_secret_actions_environment_secret = github.ActionsEnvironmentSecret("exampleSecretActionsEnvironmentSecret",
-            environment="example_environment",
-            secret_name="example_secret_name",
-            plaintext_value=var["some_secret_string"])
-        example_secret_index_actions_environment_secret_actions_environment_secret = github.ActionsEnvironmentSecret("exampleSecretIndex/actionsEnvironmentSecretActionsEnvironmentSecret",
-            environment="example_environment",
-            secret_name="example_secret_name",
-            encrypted_value=var["some_encrypted_secret_string"])
-        ```
-
-        ```python
-        import pulumi
-        import pulumi_github as github
-
-        repo = github.get_repository(full_name="my-org/repo")
-        repo_environment = github.RepositoryEnvironment("repoEnvironment",
-            repository=repo.name,
-            environment="example_environment")
-        test_secret = github.ActionsEnvironmentSecret("testSecret",
-            repository=repo.name,
-            environment=repo_environment.environment,
-            secret_name="test_secret_name",
-            plaintext_value="%s")
-        ```
-
-        ## Import
-
-        This resource can be imported using an ID made up of the secret name
-
-        ```sh
-         $ pulumi import github:index/actionsEnvironmentSecret:ActionsEnvironmentSecret test_secret test_secret_name
-        ```
-
-         NOTEthe implementation is limited in that it won't fetch the value of the `plaintext_value` field when importing. You may need to ignore changes for the `plaintext_value` as a workaround.
-
+        Create a ActionsEnvironmentSecret resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ActionsEnvironmentSecretArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -391,13 +258,6 @@ class ActionsEnvironmentSecret(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] created_at: Date of actions_environment_secret creation.
-        :param pulumi.Input[str] encrypted_value: Encrypted value of the secret using the Github public key in Base64 format.
-        :param pulumi.Input[str] environment: Name of the environment.
-        :param pulumi.Input[str] plaintext_value: Plaintext value of the secret to be encrypted.
-        :param pulumi.Input[str] repository: Name of the repository.
-        :param pulumi.Input[str] secret_name: Name of the secret.
-        :param pulumi.Input[str] updated_at: Date of actions_environment_secret update.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -415,56 +275,35 @@ class ActionsEnvironmentSecret(pulumi.CustomResource):
     @property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> pulumi.Output[str]:
-        """
-        Date of actions_environment_secret creation.
-        """
         return pulumi.get(self, "created_at")
 
     @property
     @pulumi.getter(name="encryptedValue")
     def encrypted_value(self) -> pulumi.Output[Optional[str]]:
-        """
-        Encrypted value of the secret using the Github public key in Base64 format.
-        """
         return pulumi.get(self, "encrypted_value")
 
     @property
     @pulumi.getter
     def environment(self) -> pulumi.Output[str]:
-        """
-        Name of the environment.
-        """
         return pulumi.get(self, "environment")
 
     @property
     @pulumi.getter(name="plaintextValue")
     def plaintext_value(self) -> pulumi.Output[Optional[str]]:
-        """
-        Plaintext value of the secret to be encrypted.
-        """
         return pulumi.get(self, "plaintext_value")
 
     @property
     @pulumi.getter
     def repository(self) -> pulumi.Output[str]:
-        """
-        Name of the repository.
-        """
         return pulumi.get(self, "repository")
 
     @property
     @pulumi.getter(name="secretName")
     def secret_name(self) -> pulumi.Output[str]:
-        """
-        Name of the secret.
-        """
         return pulumi.get(self, "secret_name")
 
     @property
     @pulumi.getter(name="updatedAt")
     def updated_at(self) -> pulumi.Output[str]:
-        """
-        Date of actions_environment_secret update.
-        """
         return pulumi.get(self, "updated_at")
 

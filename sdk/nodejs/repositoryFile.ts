@@ -4,43 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
-/**
- * This resource allows you to create and manage files within a
- * GitHub repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as github from "@pulumi/github";
- *
- * const fooRepository = new github.Repository("fooRepository", {autoInit: true});
- * const fooRepositoryFile = new github.RepositoryFile("fooRepositoryFile", {
- *     repository: fooRepository.name,
- *     branch: "main",
- *     file: ".gitignore",
- *     content: "**&#47;*.tfstate",
- *     commitMessage: "Managed by Terraform",
- *     commitAuthor: "Terraform User",
- *     commitEmail: "terraform@example.com",
- *     overwriteOnCreate: true,
- * });
- * ```
- *
- * ## Import
- *
- * Repository files can be imported using a combination of the `repo` and `file`, e.g.
- *
- * ```sh
- *  $ pulumi import github:index/repositoryFile:RepositoryFile gitignore example/.gitignore
- * ```
- *
- *  To import a file from a branch other than main, append `:` and the branch name, e.g.
- *
- * ```sh
- *  $ pulumi import github:index/repositoryFile:RepositoryFile gitignore example/.gitignore:dev
- * ```
- */
 export class RepositoryFile extends pulumi.CustomResource {
     /**
      * Get an existing RepositoryFile resource's state with the given name, ID, and optional extra
@@ -70,44 +33,43 @@ export class RepositoryFile extends pulumi.CustomResource {
     }
 
     /**
-     * Git branch (defaults to `main`).
-     * The branch must already exist, it will not be created if it does not already exist.
+     * The branch name, defaults to "main"
      */
     public readonly branch!: pulumi.Output<string | undefined>;
     /**
-     * Committer author name to use.
+     * The commit author name, defaults to the authenticated user's name
      */
     public readonly commitAuthor!: pulumi.Output<string>;
     /**
-     * Committer email address to use.
+     * The commit author email address, defaults to the authenticated user's email address
      */
     public readonly commitEmail!: pulumi.Output<string>;
     /**
-     * Commit message when adding or updating the managed file.
+     * The commit message when creating or updating the file
      */
     public readonly commitMessage!: pulumi.Output<string>;
     /**
-     * The SHA of the commit that modified the file.
+     * The SHA of the commit that modified the file
      */
     public /*out*/ readonly commitSha!: pulumi.Output<string>;
     /**
-     * The file content.
+     * The file's content
      */
     public readonly content!: pulumi.Output<string>;
     /**
-     * The path of the file to manage.
+     * The file path to manage
      */
     public readonly file!: pulumi.Output<string>;
     /**
-     * Enable overwriting existing files
+     * Enable overwriting existing files, defaults to "false"
      */
     public readonly overwriteOnCreate!: pulumi.Output<boolean | undefined>;
     /**
-     * The repository to create the file in.
+     * The repository name
      */
     public readonly repository!: pulumi.Output<string>;
     /**
-     * The SHA blob of the file.
+     * The blob SHA of the file
      */
     public /*out*/ readonly sha!: pulumi.Output<string>;
 
@@ -166,44 +128,43 @@ export class RepositoryFile extends pulumi.CustomResource {
  */
 export interface RepositoryFileState {
     /**
-     * Git branch (defaults to `main`).
-     * The branch must already exist, it will not be created if it does not already exist.
+     * The branch name, defaults to "main"
      */
     branch?: pulumi.Input<string>;
     /**
-     * Committer author name to use.
+     * The commit author name, defaults to the authenticated user's name
      */
     commitAuthor?: pulumi.Input<string>;
     /**
-     * Committer email address to use.
+     * The commit author email address, defaults to the authenticated user's email address
      */
     commitEmail?: pulumi.Input<string>;
     /**
-     * Commit message when adding or updating the managed file.
+     * The commit message when creating or updating the file
      */
     commitMessage?: pulumi.Input<string>;
     /**
-     * The SHA of the commit that modified the file.
+     * The SHA of the commit that modified the file
      */
     commitSha?: pulumi.Input<string>;
     /**
-     * The file content.
+     * The file's content
      */
     content?: pulumi.Input<string>;
     /**
-     * The path of the file to manage.
+     * The file path to manage
      */
     file?: pulumi.Input<string>;
     /**
-     * Enable overwriting existing files
+     * Enable overwriting existing files, defaults to "false"
      */
     overwriteOnCreate?: pulumi.Input<boolean>;
     /**
-     * The repository to create the file in.
+     * The repository name
      */
     repository?: pulumi.Input<string>;
     /**
-     * The SHA blob of the file.
+     * The blob SHA of the file
      */
     sha?: pulumi.Input<string>;
 }
@@ -213,36 +174,35 @@ export interface RepositoryFileState {
  */
 export interface RepositoryFileArgs {
     /**
-     * Git branch (defaults to `main`).
-     * The branch must already exist, it will not be created if it does not already exist.
+     * The branch name, defaults to "main"
      */
     branch?: pulumi.Input<string>;
     /**
-     * Committer author name to use.
+     * The commit author name, defaults to the authenticated user's name
      */
     commitAuthor?: pulumi.Input<string>;
     /**
-     * Committer email address to use.
+     * The commit author email address, defaults to the authenticated user's email address
      */
     commitEmail?: pulumi.Input<string>;
     /**
-     * Commit message when adding or updating the managed file.
+     * The commit message when creating or updating the file
      */
     commitMessage?: pulumi.Input<string>;
     /**
-     * The file content.
+     * The file's content
      */
     content: pulumi.Input<string>;
     /**
-     * The path of the file to manage.
+     * The file path to manage
      */
     file: pulumi.Input<string>;
     /**
-     * Enable overwriting existing files
+     * Enable overwriting existing files, defaults to "false"
      */
     overwriteOnCreate?: pulumi.Input<boolean>;
     /**
-     * The repository to create the file in.
+     * The repository name
      */
     repository: pulumi.Input<string>;
 }

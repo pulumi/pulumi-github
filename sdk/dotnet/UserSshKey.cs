@@ -9,59 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Github
 {
-    /// <summary>
-    /// Provides a GitHub user's SSH key resource.
-    /// 
-    /// This resource allows you to add/remove SSH keys from your user account.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.IO;
-    /// using Pulumi;
-    /// using Github = Pulumi.Github;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Github.UserSshKey("example", new()
-    ///     {
-    ///         Title = "example title",
-    ///         Key = File.ReadAllText("~/.ssh/id_rsa.pub"),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// SSH keys can be imported using their ID e.g.
-    /// 
-    /// ```sh
-    ///  $ pulumi import github:index/userSshKey:UserSshKey example 1234567
-    /// ```
-    /// </summary>
     [GithubResourceType("github:index/userSshKey:UserSshKey")]
     public partial class UserSshKey : global::Pulumi.CustomResource
     {
         [Output("etag")]
         public Output<string> Etag { get; private set; } = null!;
 
-        /// <summary>
-        /// The public SSH key to add to your GitHub account.
-        /// </summary>
         [Output("key")]
         public Output<string> Key { get; private set; } = null!;
 
-        /// <summary>
-        /// A descriptive name for the new key. e.g. `Personal MacBook Air`
-        /// </summary>
         [Output("title")]
         public Output<string> Title { get; private set; } = null!;
 
-        /// <summary>
-        /// The URL of the SSH key
-        /// </summary>
         [Output("url")]
         public Output<string> Url { get; private set; } = null!;
 
@@ -111,15 +70,9 @@ namespace Pulumi.Github
 
     public sealed class UserSshKeyArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The public SSH key to add to your GitHub account.
-        /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
-        /// <summary>
-        /// A descriptive name for the new key. e.g. `Personal MacBook Air`
-        /// </summary>
         [Input("title", required: true)]
         public Input<string> Title { get; set; } = null!;
 
@@ -134,21 +87,12 @@ namespace Pulumi.Github
         [Input("etag")]
         public Input<string>? Etag { get; set; }
 
-        /// <summary>
-        /// The public SSH key to add to your GitHub account.
-        /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }
 
-        /// <summary>
-        /// A descriptive name for the new key. e.g. `Personal MacBook Air`
-        /// </summary>
         [Input("title")]
         public Input<string>? Title { get; set; }
 
-        /// <summary>
-        /// The URL of the SSH key
-        /// </summary>
         [Input("url")]
         public Input<string>? Url { get; set; }
 

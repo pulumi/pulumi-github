@@ -14,75 +14,11 @@ import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * &gt; **Note**: This resource is not compatible with the GitHub App Installation authentication method.
- * 
- * This resource manages relationships between app installations and repositories
- * in your GitHub organization.
- * 
- * Creating this resource installs a particular app on a particular repository.
- * 
- * The app installation and the repository must both belong to the same
- * organization on GitHub. Note: you can review your organization&#39;s installations
- * by the following the instructions at this
- * [link](https://docs.github.com/en/github/setting-up-and-managing-organizations-and-teams/reviewing-your-organizations-installed-integrations).
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.github.Repository;
- * import com.pulumi.github.AppInstallationRepository;
- * import com.pulumi.github.AppInstallationRepositoryArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var someRepo = new Repository(&#34;someRepo&#34;);
- * 
- *         var someAppRepo = new AppInstallationRepository(&#34;someAppRepo&#34;, AppInstallationRepositoryArgs.builder()        
- *             .installationId(&#34;1234567&#34;)
- *             .repository(someRepo.name())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * GitHub App Installation Repository can be imported using an ID made up of `installation_id:repository`, e.g.
- * 
- * ```sh
- *  $ pulumi import github:index/appInstallationRepository:AppInstallationRepository terraform_repo 1234567:terraform
- * ```
- * 
- */
 @ResourceType(type="github:index/appInstallationRepository:AppInstallationRepository")
 public class AppInstallationRepository extends com.pulumi.resources.CustomResource {
-    /**
-     * The GitHub app installation id.
-     * 
-     */
     @Export(name="installationId", type=String.class, parameters={})
     private Output<String> installationId;
 
-    /**
-     * @return The GitHub app installation id.
-     * 
-     */
     public Output<String> installationId() {
         return this.installationId;
     }
@@ -92,17 +28,9 @@ public class AppInstallationRepository extends com.pulumi.resources.CustomResour
     public Output<Integer> repoId() {
         return this.repoId;
     }
-    /**
-     * The repository to install the app on.
-     * 
-     */
     @Export(name="repository", type=String.class, parameters={})
     private Output<String> repository;
 
-    /**
-     * @return The repository to install the app on.
-     * 
-     */
     public Output<String> repository() {
         return this.repository;
     }

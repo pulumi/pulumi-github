@@ -15,32 +15,16 @@ public final class ActionsOrganizationSecretRepositoriesArgs extends com.pulumi.
 
     public static final ActionsOrganizationSecretRepositoriesArgs Empty = new ActionsOrganizationSecretRepositoriesArgs();
 
-    /**
-     * Name of the existing secret
-     * 
-     */
     @Import(name="secretName", required=true)
     private Output<String> secretName;
 
-    /**
-     * @return Name of the existing secret
-     * 
-     */
     public Output<String> secretName() {
         return this.secretName;
     }
 
-    /**
-     * An array of repository ids that can access the organization secret.
-     * 
-     */
     @Import(name="selectedRepositoryIds", required=true)
     private Output<List<Integer>> selectedRepositoryIds;
 
-    /**
-     * @return An array of repository ids that can access the organization secret.
-     * 
-     */
     public Output<List<Integer>> selectedRepositoryIds() {
         return this.selectedRepositoryIds;
     }
@@ -70,54 +54,24 @@ public final class ActionsOrganizationSecretRepositoriesArgs extends com.pulumi.
             $ = new ActionsOrganizationSecretRepositoriesArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param secretName Name of the existing secret
-         * 
-         * @return builder
-         * 
-         */
         public Builder secretName(Output<String> secretName) {
             $.secretName = secretName;
             return this;
         }
 
-        /**
-         * @param secretName Name of the existing secret
-         * 
-         * @return builder
-         * 
-         */
         public Builder secretName(String secretName) {
             return secretName(Output.of(secretName));
         }
 
-        /**
-         * @param selectedRepositoryIds An array of repository ids that can access the organization secret.
-         * 
-         * @return builder
-         * 
-         */
         public Builder selectedRepositoryIds(Output<List<Integer>> selectedRepositoryIds) {
             $.selectedRepositoryIds = selectedRepositoryIds;
             return this;
         }
 
-        /**
-         * @param selectedRepositoryIds An array of repository ids that can access the organization secret.
-         * 
-         * @return builder
-         * 
-         */
         public Builder selectedRepositoryIds(List<Integer> selectedRepositoryIds) {
             return selectedRepositoryIds(Output.of(selectedRepositoryIds));
         }
 
-        /**
-         * @param selectedRepositoryIds An array of repository ids that can access the organization secret.
-         * 
-         * @return builder
-         * 
-         */
         public Builder selectedRepositoryIds(Integer... selectedRepositoryIds) {
             return selectedRepositoryIds(List.of(selectedRepositoryIds));
         }

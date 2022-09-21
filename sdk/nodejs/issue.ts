@@ -4,69 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
-/**
- * Provides a GitHub issue resource.
- *
- * This resource allows you to create and manage issue within your
- * GitHub repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as github from "@pulumi/github";
- *
- * // Create a simple issue
- * const testRepository = new github.Repository("testRepository", {
- *     autoInit: true,
- *     hasIssues: true,
- * });
- * const testIssue = new github.Issue("testIssue", {
- *     repository: testRepository.name,
- *     title: "My issue title",
- *     body: "The body of my issue",
- * });
- * ```
- * ### With Milestone And Project Assignment
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as github from "@pulumi/github";
- *
- * // Create an issue with milestone and project assignment
- * const testRepository = new github.Repository("testRepository", {
- *     autoInit: true,
- *     hasIssues: true,
- * });
- * const testRepositoryMilestone = new github.RepositoryMilestone("testRepositoryMilestone", {
- *     owner: testRepository.fullName.apply(fullName => fullName.split("/")).apply(split => split[0]),
- *     repository: testRepository.name,
- *     title: "v1.0.0",
- *     description: "General Availability",
- *     dueDate: "2022-11-22",
- *     state: "open",
- * });
- * const testIssue = new github.Issue("testIssue", {
- *     repository: testRepository.name,
- *     title: "My issue",
- *     body: "My issue body",
- *     labels: [
- *         "bug",
- *         "documentation",
- *     ],
- *     assignees: ["bob-github"],
- *     milestoneNumber: testRepositoryMilestone.number,
- * });
- * ```
- *
- * ## Import
- *
- * GitHub Issues can be imported using an ID made up of `repository:number`, e.g.
- *
- * ```sh
- *  $ pulumi import github:index/issue:Issue issue_15 myrepo:15
- * ```
- */
 export class Issue extends pulumi.CustomResource {
     /**
      * Get an existing Issue resource's state with the given name, ID, and optional extra
@@ -96,37 +33,19 @@ export class Issue extends pulumi.CustomResource {
     }
 
     /**
-     * List of Logins to assign the to the issue.
+     * List of Logins for Users to assign to this issue
      */
     public readonly assignees!: pulumi.Output<string[] | undefined>;
-    /**
-     * Title of the issue.
-     */
     public readonly body!: pulumi.Output<string | undefined>;
     public /*out*/ readonly etag!: pulumi.Output<string>;
-    /**
-     * (Computed) - The issue id
-     */
     public /*out*/ readonly issueId!: pulumi.Output<number>;
     /**
-     * List of labels to attach to the issue.
+     * List of names of labels on the issue
      */
     public readonly labels!: pulumi.Output<string[] | undefined>;
-    /**
-     * Milestone number to assign to the issue
-     */
     public readonly milestoneNumber!: pulumi.Output<number | undefined>;
-    /**
-     * (Computed) - The issue number
-     */
     public /*out*/ readonly number!: pulumi.Output<number>;
-    /**
-     * The GitHub repository name
-     */
     public readonly repository!: pulumi.Output<string>;
-    /**
-     * Title of the issue.
-     */
     public readonly title!: pulumi.Output<string>;
 
     /**
@@ -179,37 +98,19 @@ export class Issue extends pulumi.CustomResource {
  */
 export interface IssueState {
     /**
-     * List of Logins to assign the to the issue.
+     * List of Logins for Users to assign to this issue
      */
     assignees?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Title of the issue.
-     */
     body?: pulumi.Input<string>;
     etag?: pulumi.Input<string>;
-    /**
-     * (Computed) - The issue id
-     */
     issueId?: pulumi.Input<number>;
     /**
-     * List of labels to attach to the issue.
+     * List of names of labels on the issue
      */
     labels?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Milestone number to assign to the issue
-     */
     milestoneNumber?: pulumi.Input<number>;
-    /**
-     * (Computed) - The issue number
-     */
     number?: pulumi.Input<number>;
-    /**
-     * The GitHub repository name
-     */
     repository?: pulumi.Input<string>;
-    /**
-     * Title of the issue.
-     */
     title?: pulumi.Input<string>;
 }
 
@@ -218,27 +119,15 @@ export interface IssueState {
  */
 export interface IssueArgs {
     /**
-     * List of Logins to assign the to the issue.
+     * List of Logins for Users to assign to this issue
      */
     assignees?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Title of the issue.
-     */
     body?: pulumi.Input<string>;
     /**
-     * List of labels to attach to the issue.
+     * List of names of labels on the issue
      */
     labels?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Milestone number to assign to the issue
-     */
     milestoneNumber?: pulumi.Input<number>;
-    /**
-     * The GitHub repository name
-     */
     repository: pulumi.Input<string>;
-    /**
-     * Title of the issue.
-     */
     title: pulumi.Input<string>;
 }

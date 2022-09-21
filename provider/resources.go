@@ -143,6 +143,7 @@ func Provider() tfbridge.ProviderInfo {
 			"github_repository_file":               {Tok: makeResource(mainMod, "RepositoryFile")},
 			"github_repository_pull_request":       {Tok: makeResource(mainMod, "RepositoryPullRequest")},
 			"github_repository_project":            {Tok: makeResource(mainMod, "RepositoryProject")},
+			"github_repository_tag_protection":     {Tok: makeResource(mainMod, "RepositoryTagProtection")},
 			"github_repository_webhook":            {Tok: makeResource(mainMod, "RepositoryWebhook")},
 			"github_repository_milestone":          {Tok: makeResource(mainMod, "RepositoryMilestone")},
 			"github_repository_autolink_reference": {Tok: makeResource(mainMod, "RepositoryAutolinkReference")},
@@ -156,9 +157,19 @@ func Provider() tfbridge.ProviderInfo {
 			"github_user_ssh_key":                  {Tok: makeResource(mainMod, "UserSshKey")},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
+			"github_actions_dependabot_organization_secrets": {
+				Tok: makeDataSource(mainMod, "getActionsDependabotOrganizationSecrets"),
+			},
+			"github_actions_dependabot_secrets": {
+				Tok: makeDataSource(mainMod, "getActionsDependabotSecrets"),
+			},
 			"github_actions_public_key": {Tok: makeDataSource(mainMod, "getActionsPublicKey")},
-			"github_branch":             {Tok: makeDataSource(mainMod, "getBranch")},
-			"github_collaborators":      {Tok: makeDataSource(mainMod, "getCollaborators")},
+			"github_actions_organization_secrets": {
+				Tok: makeDataSource(mainMod, "getActionsOrganizationSecrets"),
+			},
+			"github_actions_secrets": {Tok: makeDataSource(mainMod, "getActionsSecrets")},
+			"github_branch":          {Tok: makeDataSource(mainMod, "getBranch")},
+			"github_collaborators":   {Tok: makeDataSource(mainMod, "getCollaborators")},
 			"github_dependabot_public_key": {
 				Tok: makeDataSource(mainMod, "getDependabotPublicKey"),
 				Docs: &tfbridge.DocInfo{
@@ -178,6 +189,7 @@ func Provider() tfbridge.ProviderInfo {
 			"github_repository_milestone":          {Tok: makeDataSource(mainMod, "getRepositoryMilestone")},
 			"github_repository_pull_request":       {Tok: makeDataSource(mainMod, "getRepositoryPullRequest")},
 			"github_repository_pull_requests":      {Tok: makeDataSource(mainMod, "getRepositoryPullRequests")},
+			"github_repository_teams":              {Tok: makeDataSource(mainMod, "getRepositoryTeams")},
 			"github_team":                          {Tok: makeDataSource(mainMod, "getTeam")},
 			"github_user":                          {Tok: makeDataSource(mainMod, "getUser")},
 			"github_users":                         {Tok: makeDataSource(mainMod, "getUsers")},

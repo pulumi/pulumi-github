@@ -12,30 +12,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetRepositoriesResult {
-    private final List<String> fullNames;
+    private List<String> fullNames;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final List<String> names;
-    private final String query;
-    private final @Nullable String sort;
+    private String id;
+    private List<String> names;
+    private String query;
+    private @Nullable String sort;
 
-    @CustomType.Constructor
-    private GetRepositoriesResult(
-        @CustomType.Parameter("fullNames") List<String> fullNames,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("names") List<String> names,
-        @CustomType.Parameter("query") String query,
-        @CustomType.Parameter("sort") @Nullable String sort) {
-        this.fullNames = fullNames;
-        this.id = id;
-        this.names = names;
-        this.query = query;
-        this.sort = sort;
-    }
-
+    private GetRepositoriesResult() {}
     public List<String> fullNames() {
         return this.fullNames;
     }
@@ -63,18 +50,14 @@ public final class GetRepositoriesResult {
     public static Builder builder(GetRepositoriesResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> fullNames;
         private String id;
         private List<String> names;
         private String query;
         private @Nullable String sort;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetRepositoriesResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.fullNames = defaults.fullNames;
@@ -84,6 +67,7 @@ public final class GetRepositoriesResult {
     	      this.sort = defaults.sort;
         }
 
+        @CustomType.Setter
         public Builder fullNames(List<String> fullNames) {
             this.fullNames = Objects.requireNonNull(fullNames);
             return this;
@@ -91,10 +75,12 @@ public final class GetRepositoriesResult {
         public Builder fullNames(String... fullNames) {
             return fullNames(List.of(fullNames));
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder names(List<String> names) {
             this.names = Objects.requireNonNull(names);
             return this;
@@ -102,15 +88,24 @@ public final class GetRepositoriesResult {
         public Builder names(String... names) {
             return names(List.of(names));
         }
+        @CustomType.Setter
         public Builder query(String query) {
             this.query = Objects.requireNonNull(query);
             return this;
         }
+        @CustomType.Setter
         public Builder sort(@Nullable String sort) {
             this.sort = sort;
             return this;
-        }        public GetRepositoriesResult build() {
-            return new GetRepositoriesResult(fullNames, id, names, query, sort);
+        }
+        public GetRepositoriesResult build() {
+            final var o = new GetRepositoriesResult();
+            o.fullNames = fullNames;
+            o.id = id;
+            o.names = names;
+            o.query = query;
+            o.sort = sort;
+            return o;
         }
     }
 }

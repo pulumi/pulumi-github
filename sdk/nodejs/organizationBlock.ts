@@ -4,20 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
-/**
- * This resource allows you to create and manage blocks for GitHub organizations.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as github from "@pulumi/github";
- *
- * const example = new github.OrganizationBlock("example", {
- *     username: "paultyng",
- * });
- * ```
- */
 export class OrganizationBlock extends pulumi.CustomResource {
     /**
      * Get an existing OrganizationBlock resource's state with the given name, ID, and optional extra
@@ -47,9 +33,6 @@ export class OrganizationBlock extends pulumi.CustomResource {
     }
 
     public /*out*/ readonly etag!: pulumi.Output<string>;
-    /**
-     * The name of the user to block.
-     */
     public readonly username!: pulumi.Output<string>;
 
     /**
@@ -85,9 +68,6 @@ export class OrganizationBlock extends pulumi.CustomResource {
  */
 export interface OrganizationBlockState {
     etag?: pulumi.Input<string>;
-    /**
-     * The name of the user to block.
-     */
     username?: pulumi.Input<string>;
 }
 
@@ -95,8 +75,5 @@ export interface OrganizationBlockState {
  * The set of arguments for constructing a OrganizationBlock resource.
  */
 export interface OrganizationBlockArgs {
-    /**
-     * The name of the user to block.
-     */
     username: pulumi.Input<string>;
 }

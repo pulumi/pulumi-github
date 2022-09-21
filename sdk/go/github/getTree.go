@@ -10,49 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Use this data source to retrieve information about a single tree.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-github/sdk/v4/go/github"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			thisRepository, err := github.LookupRepository(ctx, &GetRepositoryArgs{
-//				Name: pulumi.StringRef("example"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			thisBranch, err := github.LookupBranch(ctx, &GetBranchArgs{
-//				Branch:     thisRepository.DefaultBranch,
-//				Repository: thisRepository.Name,
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			thisTree, err := github.GetTree(ctx, &GetTreeArgs{
-//				Recursive:  pulumi.BoolRef(false),
-//				Repository: thisRepository.Name,
-//				TreeSha:    thisBranch.Sha,
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			ctx.Export("entries", thisTree.Entries)
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetTree(ctx *pulumi.Context, args *GetTreeArgs, opts ...pulumi.InvokeOption) (*GetTreeResult, error) {
 	var rv GetTreeResult
 	err := ctx.Invoke("github:index/getTree:getTree", args, &rv, opts...)
@@ -64,17 +21,13 @@ func GetTree(ctx *pulumi.Context, args *GetTreeArgs, opts ...pulumi.InvokeOption
 
 // A collection of arguments for invoking getTree.
 type GetTreeArgs struct {
-	// Setting this parameter to `true` returns the objects or subtrees referenced by the tree specified in `treeSha`.
-	Recursive *bool `pulumi:"recursive"`
-	// The name of the repository.
+	Recursive  *bool  `pulumi:"recursive"`
 	Repository string `pulumi:"repository"`
-	// The SHA1 value for the tree.
-	TreeSha string `pulumi:"treeSha"`
+	TreeSha    string `pulumi:"treeSha"`
 }
 
 // A collection of values returned by getTree.
 type GetTreeResult struct {
-	// Objects (of `path`, `mode`, `type`, `size`, and `sha`) specifying a tree structure.
 	Entries []GetTreeEntry `pulumi:"entries"`
 	// The provider-assigned unique ID for this managed resource.
 	Id         string `pulumi:"id"`
@@ -98,12 +51,9 @@ func GetTreeOutput(ctx *pulumi.Context, args GetTreeOutputArgs, opts ...pulumi.I
 
 // A collection of arguments for invoking getTree.
 type GetTreeOutputArgs struct {
-	// Setting this parameter to `true` returns the objects or subtrees referenced by the tree specified in `treeSha`.
-	Recursive pulumi.BoolPtrInput `pulumi:"recursive"`
-	// The name of the repository.
-	Repository pulumi.StringInput `pulumi:"repository"`
-	// The SHA1 value for the tree.
-	TreeSha pulumi.StringInput `pulumi:"treeSha"`
+	Recursive  pulumi.BoolPtrInput `pulumi:"recursive"`
+	Repository pulumi.StringInput  `pulumi:"repository"`
+	TreeSha    pulumi.StringInput  `pulumi:"treeSha"`
 }
 
 func (GetTreeOutputArgs) ElementType() reflect.Type {
@@ -125,7 +75,6 @@ func (o GetTreeResultOutput) ToGetTreeResultOutputWithContext(ctx context.Contex
 	return o
 }
 
-// Objects (of `path`, `mode`, `type`, `size`, and `sha`) specifying a tree structure.
 func (o GetTreeResultOutput) Entries() GetTreeEntryArrayOutput {
 	return o.ApplyT(func(v GetTreeResult) []GetTreeEntry { return v.Entries }).(GetTreeEntryArrayOutput)
 }

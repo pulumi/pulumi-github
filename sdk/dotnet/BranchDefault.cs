@@ -9,63 +9,12 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Github
 {
-    /// <summary>
-    /// Provides a GitHub branch default resource.
-    /// 
-    /// This resource allows you to set the default branch for a given repository.
-    /// 
-    /// Note that use of this resource is incompatible with the `default_branch` option of the `github.Repository` resource.  Using both will result in plans always showing a diff.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Github = Pulumi.Github;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Github.Repository("example", new()
-    ///     {
-    ///         Description = "My awesome codebase",
-    ///         AutoInit = true,
-    ///     });
-    /// 
-    ///     var development = new Github.Branch("development", new()
-    ///     {
-    ///         Repository = example.Name,
-    ///         BranchName = "development",
-    ///     });
-    /// 
-    ///     var @default = new Github.BranchDefault("default", new()
-    ///     {
-    ///         Repository = example.Name,
-    ///         Branch = development.BranchName,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// GitHub Branch Defaults can be imported using an ID made up of `repository`, e.g.
-    /// 
-    /// ```sh
-    ///  $ pulumi import github:index/branchDefault:BranchDefault branch_default my-repo
-    /// ```
-    /// </summary>
     [GithubResourceType("github:index/branchDefault:BranchDefault")]
     public partial class BranchDefault : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The branch (e.g. `main`)
-        /// </summary>
         [Output("branch")]
         public Output<string> Branch { get; private set; } = null!;
 
-        /// <summary>
-        /// The GitHub repository
-        /// </summary>
         [Output("repository")]
         public Output<string> Repository { get; private set; } = null!;
 
@@ -115,15 +64,9 @@ namespace Pulumi.Github
 
     public sealed class BranchDefaultArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The branch (e.g. `main`)
-        /// </summary>
         [Input("branch", required: true)]
         public Input<string> Branch { get; set; } = null!;
 
-        /// <summary>
-        /// The GitHub repository
-        /// </summary>
         [Input("repository", required: true)]
         public Input<string> Repository { get; set; } = null!;
 
@@ -135,15 +78,9 @@ namespace Pulumi.Github
 
     public sealed class BranchDefaultState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The branch (e.g. `main`)
-        /// </summary>
         [Input("branch")]
         public Input<string>? Branch { get; set; }
 
-        /// <summary>
-        /// The GitHub repository
-        /// </summary>
         [Input("repository")]
         public Input<string>? Repository { get; set; }
 

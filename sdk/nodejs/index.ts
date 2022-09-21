@@ -20,7 +20,9 @@ export * from "./dependabotOrganizationSecret";
 export * from "./dependabotOrganizationSecretRepositories";
 export * from "./dependabotSecret";
 export * from "./emuGroupMapping";
+export * from "./getActionsOrganizationSecrets";
 export * from "./getActionsPublicKey";
+export * from "./getActionsSecrets";
 export * from "./getBranch";
 export * from "./getCollaborators";
 export * from "./getDependabotPublicKey";
@@ -38,6 +40,7 @@ export * from "./getRepositoryFile";
 export * from "./getRepositoryMilestone";
 export * from "./getRepositoryPullRequest";
 export * from "./getRepositoryPullRequests";
+export * from "./getRepositoryTeams";
 export * from "./getTeam";
 export * from "./getTree";
 export * from "./getUser";
@@ -60,6 +63,7 @@ export * from "./repositoryFile";
 export * from "./repositoryMilestone";
 export * from "./repositoryProject";
 export * from "./repositoryPullRequest";
+export * from "./repositoryTagProtection";
 export * from "./repositoryWebhook";
 export * from "./team";
 export * from "./teamMembers";
@@ -112,6 +116,7 @@ import { RepositoryFile } from "./repositoryFile";
 import { RepositoryMilestone } from "./repositoryMilestone";
 import { RepositoryProject } from "./repositoryProject";
 import { RepositoryPullRequest } from "./repositoryPullRequest";
+import { RepositoryTagProtection } from "./repositoryTagProtection";
 import { RepositoryWebhook } from "./repositoryWebhook";
 import { Team } from "./team";
 import { TeamMembers } from "./teamMembers";
@@ -190,6 +195,8 @@ const _module = {
                 return new RepositoryProject(name, <any>undefined, { urn })
             case "github:index/repositoryPullRequest:RepositoryPullRequest":
                 return new RepositoryPullRequest(name, <any>undefined, { urn })
+            case "github:index/repositoryTagProtection:RepositoryTagProtection":
+                return new RepositoryTagProtection(name, <any>undefined, { urn })
             case "github:index/repositoryWebhook:RepositoryWebhook":
                 return new RepositoryWebhook(name, <any>undefined, { urn })
             case "github:index/team:Team":
@@ -245,6 +252,7 @@ pulumi.runtime.registerResourceModule("github", "index/repositoryFile", _module)
 pulumi.runtime.registerResourceModule("github", "index/repositoryMilestone", _module)
 pulumi.runtime.registerResourceModule("github", "index/repositoryProject", _module)
 pulumi.runtime.registerResourceModule("github", "index/repositoryPullRequest", _module)
+pulumi.runtime.registerResourceModule("github", "index/repositoryTagProtection", _module)
 pulumi.runtime.registerResourceModule("github", "index/repositoryWebhook", _module)
 pulumi.runtime.registerResourceModule("github", "index/team", _module)
 pulumi.runtime.registerResourceModule("github", "index/teamMembers", _module)

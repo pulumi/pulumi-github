@@ -15,60 +15,6 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a GitHub repository deploy key resource.
- * 
- * A deploy key is an SSH key that is stored on your server and grants
- * access to a single GitHub repository. This key is attached directly to the repository instead of to a personal user
- * account.
- * 
- * This resource allows you to add/remove repository deploy keys.
- * 
- * Further documentation on GitHub repository deploy keys:
- * - [About deploy keys](https://developer.github.com/guides/managing-deploy-keys/#deploy-keys)
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.github.RepositoryDeployKey;
- * import com.pulumi.github.RepositoryDeployKeyArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var exampleRepositoryDeployKey = new RepositoryDeployKey(&#34;exampleRepositoryDeployKey&#34;, RepositoryDeployKeyArgs.builder()        
- *             .key(&#34;ssh-rsa AAA...&#34;)
- *             .readOnly(&#34;false&#34;)
- *             .repository(&#34;test-repo&#34;)
- *             .title(&#34;Repository test key&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * Repository deploy keys can be imported using a colon-separated pair of repository name and GitHub&#39;s key id. The latter can be obtained by GitHub&#39;s SDKs and API.
- * 
- * ```sh
- *  $ pulumi import github:index/repositoryDeployKey:RepositoryDeployKey foo test-repo:23824728
- * ```
- * 
- */
 @ResourceType(type="github:index/repositoryDeployKey:RepositoryDeployKey")
 public class RepositoryDeployKey extends com.pulumi.resources.CustomResource {
     @Export(name="etag", type=String.class, parameters={})
@@ -77,59 +23,27 @@ public class RepositoryDeployKey extends com.pulumi.resources.CustomResource {
     public Output<String> etag() {
         return this.etag;
     }
-    /**
-     * A SSH key.
-     * 
-     */
     @Export(name="key", type=String.class, parameters={})
     private Output<String> key;
 
-    /**
-     * @return A SSH key.
-     * 
-     */
     public Output<String> key() {
         return this.key;
     }
-    /**
-     * A boolean qualifying the key to be either read only or read/write.
-     * 
-     */
     @Export(name="readOnly", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> readOnly;
 
-    /**
-     * @return A boolean qualifying the key to be either read only or read/write.
-     * 
-     */
     public Output<Optional<Boolean>> readOnly() {
         return Codegen.optional(this.readOnly);
     }
-    /**
-     * Name of the GitHub repository.
-     * 
-     */
     @Export(name="repository", type=String.class, parameters={})
     private Output<String> repository;
 
-    /**
-     * @return Name of the GitHub repository.
-     * 
-     */
     public Output<String> repository() {
         return this.repository;
     }
-    /**
-     * A title.
-     * 
-     */
     @Export(name="title", type=String.class, parameters={})
     private Output<String> title;
 
-    /**
-     * @return A title.
-     * 
-     */
     public Output<String> title() {
         return this.title;
     }

@@ -12,27 +12,12 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class OrganizationWebhookConfiguration {
-    private final @Nullable String contentType;
-    private final @Nullable Boolean insecureSsl;
-    private final @Nullable String secret;
-    /**
-     * @return URL of the webhook
-     * 
-     */
-    private final String url;
+    private @Nullable String contentType;
+    private @Nullable Boolean insecureSsl;
+    private @Nullable String secret;
+    private String url;
 
-    @CustomType.Constructor
-    private OrganizationWebhookConfiguration(
-        @CustomType.Parameter("contentType") @Nullable String contentType,
-        @CustomType.Parameter("insecureSsl") @Nullable Boolean insecureSsl,
-        @CustomType.Parameter("secret") @Nullable String secret,
-        @CustomType.Parameter("url") String url) {
-        this.contentType = contentType;
-        this.insecureSsl = insecureSsl;
-        this.secret = secret;
-        this.url = url;
-    }
-
+    private OrganizationWebhookConfiguration() {}
     public Optional<String> contentType() {
         return Optional.ofNullable(this.contentType);
     }
@@ -42,10 +27,6 @@ public final class OrganizationWebhookConfiguration {
     public Optional<String> secret() {
         return Optional.ofNullable(this.secret);
     }
-    /**
-     * @return URL of the webhook
-     * 
-     */
     public String url() {
         return this.url;
     }
@@ -57,17 +38,13 @@ public final class OrganizationWebhookConfiguration {
     public static Builder builder(OrganizationWebhookConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String contentType;
         private @Nullable Boolean insecureSsl;
         private @Nullable String secret;
         private String url;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(OrganizationWebhookConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.contentType = defaults.contentType;
@@ -76,23 +53,33 @@ public final class OrganizationWebhookConfiguration {
     	      this.url = defaults.url;
         }
 
+        @CustomType.Setter
         public Builder contentType(@Nullable String contentType) {
             this.contentType = contentType;
             return this;
         }
+        @CustomType.Setter
         public Builder insecureSsl(@Nullable Boolean insecureSsl) {
             this.insecureSsl = insecureSsl;
             return this;
         }
+        @CustomType.Setter
         public Builder secret(@Nullable String secret) {
             this.secret = secret;
             return this;
         }
+        @CustomType.Setter
         public Builder url(String url) {
             this.url = Objects.requireNonNull(url);
             return this;
-        }        public OrganizationWebhookConfiguration build() {
-            return new OrganizationWebhookConfiguration(contentType, insecureSsl, secret, url);
+        }
+        public OrganizationWebhookConfiguration build() {
+            final var o = new OrganizationWebhookConfiguration();
+            o.contentType = contentType;
+            o.insecureSsl = insecureSsl;
+            o.secret = secret;
+            o.url = url;
+            return o;
         }
     }
 }

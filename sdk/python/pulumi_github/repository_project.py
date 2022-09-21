@@ -19,9 +19,6 @@ class RepositoryProjectArgs:
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a RepositoryProject resource.
-        :param pulumi.Input[str] repository: The repository of the project.
-        :param pulumi.Input[str] body: The body of the project.
-        :param pulumi.Input[str] name: The name of the project.
         """
         pulumi.set(__self__, "repository", repository)
         if body is not None:
@@ -32,9 +29,6 @@ class RepositoryProjectArgs:
     @property
     @pulumi.getter
     def repository(self) -> pulumi.Input[str]:
-        """
-        The repository of the project.
-        """
         return pulumi.get(self, "repository")
 
     @repository.setter
@@ -44,9 +38,6 @@ class RepositoryProjectArgs:
     @property
     @pulumi.getter
     def body(self) -> Optional[pulumi.Input[str]]:
-        """
-        The body of the project.
-        """
         return pulumi.get(self, "body")
 
     @body.setter
@@ -56,9 +47,6 @@ class RepositoryProjectArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the project.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -76,10 +64,6 @@ class _RepositoryProjectState:
                  url: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering RepositoryProject resources.
-        :param pulumi.Input[str] body: The body of the project.
-        :param pulumi.Input[str] name: The name of the project.
-        :param pulumi.Input[str] repository: The repository of the project.
-        :param pulumi.Input[str] url: URL of the project
         """
         if body is not None:
             pulumi.set(__self__, "body", body)
@@ -95,9 +79,6 @@ class _RepositoryProjectState:
     @property
     @pulumi.getter
     def body(self) -> Optional[pulumi.Input[str]]:
-        """
-        The body of the project.
-        """
         return pulumi.get(self, "body")
 
     @body.setter
@@ -116,9 +97,6 @@ class _RepositoryProjectState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the project.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -128,9 +106,6 @@ class _RepositoryProjectState:
     @property
     @pulumi.getter
     def repository(self) -> Optional[pulumi.Input[str]]:
-        """
-        The repository of the project.
-        """
         return pulumi.get(self, "repository")
 
     @repository.setter
@@ -140,9 +115,6 @@ class _RepositoryProjectState:
     @property
     @pulumi.getter
     def url(self) -> Optional[pulumi.Input[str]]:
-        """
-        URL of the project
-        """
         return pulumi.get(self, "url")
 
     @url.setter
@@ -160,27 +132,9 @@ class RepositoryProject(pulumi.CustomResource):
                  repository: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        This resource allows you to create and manage projects for GitHub repository.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_github as github
-
-        example = github.Repository("example",
-            description="My awesome codebase",
-            has_projects=True)
-        project = github.RepositoryProject("project",
-            body="This is a repository project.",
-            repository=example.name)
-        ```
-
+        Create a RepositoryProject resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] body: The body of the project.
-        :param pulumi.Input[str] name: The name of the project.
-        :param pulumi.Input[str] repository: The repository of the project.
         """
         ...
     @overload
@@ -189,22 +143,7 @@ class RepositoryProject(pulumi.CustomResource):
                  args: RepositoryProjectArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        This resource allows you to create and manage projects for GitHub repository.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_github as github
-
-        example = github.Repository("example",
-            description="My awesome codebase",
-            has_projects=True)
-        project = github.RepositoryProject("project",
-            body="This is a repository project.",
-            repository=example.name)
-        ```
-
+        Create a RepositoryProject resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param RepositoryProjectArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -261,10 +200,6 @@ class RepositoryProject(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] body: The body of the project.
-        :param pulumi.Input[str] name: The name of the project.
-        :param pulumi.Input[str] repository: The repository of the project.
-        :param pulumi.Input[str] url: URL of the project
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -280,9 +215,6 @@ class RepositoryProject(pulumi.CustomResource):
     @property
     @pulumi.getter
     def body(self) -> pulumi.Output[Optional[str]]:
-        """
-        The body of the project.
-        """
         return pulumi.get(self, "body")
 
     @property
@@ -293,24 +225,15 @@ class RepositoryProject(pulumi.CustomResource):
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
-        """
-        The name of the project.
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def repository(self) -> pulumi.Output[str]:
-        """
-        The repository of the project.
-        """
         return pulumi.get(self, "repository")
 
     @property
     @pulumi.getter
     def url(self) -> pulumi.Output[str]:
-        """
-        URL of the project
-        """
         return pulumi.get(self, "url")
 

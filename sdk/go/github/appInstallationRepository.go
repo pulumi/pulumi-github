@@ -11,66 +11,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// > **Note**: This resource is not compatible with the GitHub App Installation authentication method.
-//
-// This resource manages relationships between app installations and repositories
-// in your GitHub organization.
-//
-// Creating this resource installs a particular app on a particular repository.
-//
-// The app installation and the repository must both belong to the same
-// organization on GitHub. Note: you can review your organization's installations
-// by the following the instructions at this
-// [link](https://docs.github.com/en/github/setting-up-and-managing-organizations-and-teams/reviewing-your-organizations-installed-integrations).
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-github/sdk/v4/go/github"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			someRepo, err := github.NewRepository(ctx, "someRepo", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = github.NewAppInstallationRepository(ctx, "someAppRepo", &github.AppInstallationRepositoryArgs{
-//				InstallationId: pulumi.String("1234567"),
-//				Repository:     someRepo.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// GitHub App Installation Repository can be imported using an ID made up of `installation_id:repository`, e.g.
-//
-// ```sh
-//
-//	$ pulumi import github:index/appInstallationRepository:AppInstallationRepository terraform_repo 1234567:terraform
-//
-// ```
 type AppInstallationRepository struct {
 	pulumi.CustomResourceState
 
-	// The GitHub app installation id.
 	InstallationId pulumi.StringOutput `pulumi:"installationId"`
 	RepoId         pulumi.IntOutput    `pulumi:"repoId"`
-	// The repository to install the app on.
-	Repository pulumi.StringOutput `pulumi:"repository"`
+	Repository     pulumi.StringOutput `pulumi:"repository"`
 }
 
 // NewAppInstallationRepository registers a new resource with the given unique name, arguments, and options.
@@ -108,19 +54,15 @@ func GetAppInstallationRepository(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AppInstallationRepository resources.
 type appInstallationRepositoryState struct {
-	// The GitHub app installation id.
 	InstallationId *string `pulumi:"installationId"`
 	RepoId         *int    `pulumi:"repoId"`
-	// The repository to install the app on.
-	Repository *string `pulumi:"repository"`
+	Repository     *string `pulumi:"repository"`
 }
 
 type AppInstallationRepositoryState struct {
-	// The GitHub app installation id.
 	InstallationId pulumi.StringPtrInput
 	RepoId         pulumi.IntPtrInput
-	// The repository to install the app on.
-	Repository pulumi.StringPtrInput
+	Repository     pulumi.StringPtrInput
 }
 
 func (AppInstallationRepositoryState) ElementType() reflect.Type {
@@ -128,18 +70,14 @@ func (AppInstallationRepositoryState) ElementType() reflect.Type {
 }
 
 type appInstallationRepositoryArgs struct {
-	// The GitHub app installation id.
 	InstallationId string `pulumi:"installationId"`
-	// The repository to install the app on.
-	Repository string `pulumi:"repository"`
+	Repository     string `pulumi:"repository"`
 }
 
 // The set of arguments for constructing a AppInstallationRepository resource.
 type AppInstallationRepositoryArgs struct {
-	// The GitHub app installation id.
 	InstallationId pulumi.StringInput
-	// The repository to install the app on.
-	Repository pulumi.StringInput
+	Repository     pulumi.StringInput
 }
 
 func (AppInstallationRepositoryArgs) ElementType() reflect.Type {
@@ -229,7 +167,6 @@ func (o AppInstallationRepositoryOutput) ToAppInstallationRepositoryOutputWithCo
 	return o
 }
 
-// The GitHub app installation id.
 func (o AppInstallationRepositoryOutput) InstallationId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AppInstallationRepository) pulumi.StringOutput { return v.InstallationId }).(pulumi.StringOutput)
 }
@@ -238,7 +175,6 @@ func (o AppInstallationRepositoryOutput) RepoId() pulumi.IntOutput {
 	return o.ApplyT(func(v *AppInstallationRepository) pulumi.IntOutput { return v.RepoId }).(pulumi.IntOutput)
 }
 
-// The repository to install the app on.
 func (o AppInstallationRepositoryOutput) Repository() pulumi.StringOutput {
 	return o.ApplyT(func(v *AppInstallationRepository) pulumi.StringOutput { return v.Repository }).(pulumi.StringOutput)
 }

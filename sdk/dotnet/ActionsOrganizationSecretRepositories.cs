@@ -9,58 +9,12 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Github
 {
-    /// <summary>
-    /// This resource allows you to manage repository allow list for existing GitHub Actions secrets within your GitHub organization.
-    /// You must have write access to an organization secret to use this resource.
-    /// 
-    /// This resource is only applicable when `visibility` of the existing organization secret has been set to `selected`.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Github = Pulumi.Github;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var repo = Github.GetRepository.Invoke(new()
-    ///     {
-    ///         FullName = "my-org/repo",
-    ///     });
-    /// 
-    ///     var orgSecretRepos = new Github.ActionsOrganizationSecretRepositories("orgSecretRepos", new()
-    ///     {
-    ///         SecretName = "existing_secret_name",
-    ///         SelectedRepositoryIds = new[]
-    ///         {
-    ///             repo.Apply(getRepositoryResult =&gt; getRepositoryResult.RepoId),
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// This resource can be imported using an ID made up of the secret name
-    /// 
-    /// ```sh
-    ///  $ pulumi import github:index/actionsOrganizationSecretRepositories:ActionsOrganizationSecretRepositories test_secret_repos test_secret_name
-    /// ```
-    /// </summary>
     [GithubResourceType("github:index/actionsOrganizationSecretRepositories:ActionsOrganizationSecretRepositories")]
     public partial class ActionsOrganizationSecretRepositories : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Name of the existing secret
-        /// </summary>
         [Output("secretName")]
         public Output<string> SecretName { get; private set; } = null!;
 
-        /// <summary>
-        /// An array of repository ids that can access the organization secret.
-        /// </summary>
         [Output("selectedRepositoryIds")]
         public Output<ImmutableArray<int>> SelectedRepositoryIds { get; private set; } = null!;
 
@@ -110,18 +64,11 @@ namespace Pulumi.Github
 
     public sealed class ActionsOrganizationSecretRepositoriesArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Name of the existing secret
-        /// </summary>
         [Input("secretName", required: true)]
         public Input<string> SecretName { get; set; } = null!;
 
         [Input("selectedRepositoryIds", required: true)]
         private InputList<int>? _selectedRepositoryIds;
-
-        /// <summary>
-        /// An array of repository ids that can access the organization secret.
-        /// </summary>
         public InputList<int> SelectedRepositoryIds
         {
             get => _selectedRepositoryIds ?? (_selectedRepositoryIds = new InputList<int>());
@@ -136,18 +83,11 @@ namespace Pulumi.Github
 
     public sealed class ActionsOrganizationSecretRepositoriesState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Name of the existing secret
-        /// </summary>
         [Input("secretName")]
         public Input<string>? SecretName { get; set; }
 
         [Input("selectedRepositoryIds")]
         private InputList<int>? _selectedRepositoryIds;
-
-        /// <summary>
-        /// An array of repository ids that can access the organization secret.
-        /// </summary>
         public InputList<int> SelectedRepositoryIds
         {
             get => _selectedRepositoryIds ?? (_selectedRepositoryIds = new InputList<int>());

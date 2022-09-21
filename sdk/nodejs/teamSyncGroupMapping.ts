@@ -5,21 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
-/**
- * This resource allows you to create and manage Identity Provider (IdP) group connections within your GitHub teams.
- * You must have team synchronization enabled for organizations owned by enterprise accounts.
- *
- * To learn more about team synchronization between IdPs and GitHub, please refer to:
- * https://help.github.com/en/github/setting-up-and-managing-organizations-and-teams/synchronizing-teams-between-your-identity-provider-and-github
- *
- * ## Import
- *
- * GitHub Team Sync Group Mappings can be imported using the GitHub team `slug` e.g.
- *
- * ```sh
- *  $ pulumi import github:index/teamSyncGroupMapping:TeamSyncGroupMapping example some_team
- * ```
- */
 export class TeamSyncGroupMapping extends pulumi.CustomResource {
     /**
      * Get an existing TeamSyncGroupMapping resource's state with the given name, ID, and optional extra
@@ -49,14 +34,7 @@ export class TeamSyncGroupMapping extends pulumi.CustomResource {
     }
 
     public /*out*/ readonly etag!: pulumi.Output<string>;
-    /**
-     * An Array of GitHub Identity Provider Groups (or empty []).  Each `group` block consists of the fields documented below.
-     * ___
-     */
     public readonly groups!: pulumi.Output<outputs.TeamSyncGroupMappingGroup[] | undefined>;
-    /**
-     * Slug of the team
-     */
     public readonly teamSlug!: pulumi.Output<string>;
 
     /**
@@ -94,14 +72,7 @@ export class TeamSyncGroupMapping extends pulumi.CustomResource {
  */
 export interface TeamSyncGroupMappingState {
     etag?: pulumi.Input<string>;
-    /**
-     * An Array of GitHub Identity Provider Groups (or empty []).  Each `group` block consists of the fields documented below.
-     * ___
-     */
     groups?: pulumi.Input<pulumi.Input<inputs.TeamSyncGroupMappingGroup>[]>;
-    /**
-     * Slug of the team
-     */
     teamSlug?: pulumi.Input<string>;
 }
 
@@ -109,13 +80,6 @@ export interface TeamSyncGroupMappingState {
  * The set of arguments for constructing a TeamSyncGroupMapping resource.
  */
 export interface TeamSyncGroupMappingArgs {
-    /**
-     * An Array of GitHub Identity Provider Groups (or empty []).  Each `group` block consists of the fields documented below.
-     * ___
-     */
     groups?: pulumi.Input<pulumi.Input<inputs.TeamSyncGroupMappingGroup>[]>;
-    /**
-     * Slug of the team
-     */
     teamSlug: pulumi.Input<string>;
 }

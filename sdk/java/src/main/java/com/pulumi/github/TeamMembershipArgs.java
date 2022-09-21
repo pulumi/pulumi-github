@@ -15,49 +15,23 @@ public final class TeamMembershipArgs extends com.pulumi.resources.ResourceArgs 
 
     public static final TeamMembershipArgs Empty = new TeamMembershipArgs();
 
-    /**
-     * The role of the user within the team.
-     * Must be one of `member` or `maintainer`. Defaults to `member`.
-     * 
-     */
     @Import(name="role")
     private @Nullable Output<String> role;
 
-    /**
-     * @return The role of the user within the team.
-     * Must be one of `member` or `maintainer`. Defaults to `member`.
-     * 
-     */
     public Optional<Output<String>> role() {
         return Optional.ofNullable(this.role);
     }
 
-    /**
-     * The GitHub team id
-     * 
-     */
     @Import(name="teamId", required=true)
     private Output<String> teamId;
 
-    /**
-     * @return The GitHub team id
-     * 
-     */
     public Output<String> teamId() {
         return this.teamId;
     }
 
-    /**
-     * The user to add to the team.
-     * 
-     */
     @Import(name="username", required=true)
     private Output<String> username;
 
-    /**
-     * @return The user to add to the team.
-     * 
-     */
     public Output<String> username() {
         return this.username;
     }
@@ -88,67 +62,29 @@ public final class TeamMembershipArgs extends com.pulumi.resources.ResourceArgs 
             $ = new TeamMembershipArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param role The role of the user within the team.
-         * Must be one of `member` or `maintainer`. Defaults to `member`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder role(@Nullable Output<String> role) {
             $.role = role;
             return this;
         }
 
-        /**
-         * @param role The role of the user within the team.
-         * Must be one of `member` or `maintainer`. Defaults to `member`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder role(String role) {
             return role(Output.of(role));
         }
 
-        /**
-         * @param teamId The GitHub team id
-         * 
-         * @return builder
-         * 
-         */
         public Builder teamId(Output<String> teamId) {
             $.teamId = teamId;
             return this;
         }
 
-        /**
-         * @param teamId The GitHub team id
-         * 
-         * @return builder
-         * 
-         */
         public Builder teamId(String teamId) {
             return teamId(Output.of(teamId));
         }
 
-        /**
-         * @param username The user to add to the team.
-         * 
-         * @return builder
-         * 
-         */
         public Builder username(Output<String> username) {
             $.username = username;
             return this;
         }
 
-        /**
-         * @param username The user to add to the team.
-         * 
-         * @return builder
-         * 
-         */
         public Builder username(String username) {
             return username(Output.of(username));
         }

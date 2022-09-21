@@ -17,18 +17,12 @@ class UserGpgKeyArgs:
                  armored_public_key: pulumi.Input[str]):
         """
         The set of arguments for constructing a UserGpgKey resource.
-        :param pulumi.Input[str] armored_public_key: Your public GPG key, generated in ASCII-armored format.
-               See [Generating a new GPG key](https://help.github.com/articles/generating-a-new-gpg-key/) for help on creating a GPG key.
         """
         pulumi.set(__self__, "armored_public_key", armored_public_key)
 
     @property
     @pulumi.getter(name="armoredPublicKey")
     def armored_public_key(self) -> pulumi.Input[str]:
-        """
-        Your public GPG key, generated in ASCII-armored format.
-        See [Generating a new GPG key](https://help.github.com/articles/generating-a-new-gpg-key/) for help on creating a GPG key.
-        """
         return pulumi.get(self, "armored_public_key")
 
     @armored_public_key.setter
@@ -44,9 +38,6 @@ class _UserGpgKeyState:
                  key_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering UserGpgKey resources.
-        :param pulumi.Input[str] armored_public_key: Your public GPG key, generated in ASCII-armored format.
-               See [Generating a new GPG key](https://help.github.com/articles/generating-a-new-gpg-key/) for help on creating a GPG key.
-        :param pulumi.Input[str] key_id: The key ID of the GPG key, e.g. `3262EFF25BA0D270`
         """
         if armored_public_key is not None:
             pulumi.set(__self__, "armored_public_key", armored_public_key)
@@ -58,10 +49,6 @@ class _UserGpgKeyState:
     @property
     @pulumi.getter(name="armoredPublicKey")
     def armored_public_key(self) -> Optional[pulumi.Input[str]]:
-        """
-        Your public GPG key, generated in ASCII-armored format.
-        See [Generating a new GPG key](https://help.github.com/articles/generating-a-new-gpg-key/) for help on creating a GPG key.
-        """
         return pulumi.get(self, "armored_public_key")
 
     @armored_public_key.setter
@@ -80,9 +67,6 @@ class _UserGpgKeyState:
     @property
     @pulumi.getter(name="keyId")
     def key_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The key ID of the GPG key, e.g. `3262EFF25BA0D270`
-        """
         return pulumi.get(self, "key_id")
 
     @key_id.setter
@@ -98,30 +82,9 @@ class UserGpgKey(pulumi.CustomResource):
                  armored_public_key: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Provides a GitHub user's GPG key resource.
-
-        This resource allows you to add/remove GPG keys from your user account.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_github as github
-
-        example = github.UserGpgKey("example", armored_public_key=\"\"\"-----BEGIN PGP PUBLIC KEY BLOCK-----
-        ...
-        -----END PGP PUBLIC KEY BLOCK-----
-        \"\"\")
-        ```
-
-        ## Import
-
-        GPG keys are not importable due to the fact that [API](https://developer.github.com/v3/users/gpg_keys/#gpg-keys) does not return previously uploaded GPG key.
-
+        Create a UserGpgKey resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] armored_public_key: Your public GPG key, generated in ASCII-armored format.
-               See [Generating a new GPG key](https://help.github.com/articles/generating-a-new-gpg-key/) for help on creating a GPG key.
         """
         ...
     @overload
@@ -130,26 +93,7 @@ class UserGpgKey(pulumi.CustomResource):
                  args: UserGpgKeyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a GitHub user's GPG key resource.
-
-        This resource allows you to add/remove GPG keys from your user account.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_github as github
-
-        example = github.UserGpgKey("example", armored_public_key=\"\"\"-----BEGIN PGP PUBLIC KEY BLOCK-----
-        ...
-        -----END PGP PUBLIC KEY BLOCK-----
-        \"\"\")
-        ```
-
-        ## Import
-
-        GPG keys are not importable due to the fact that [API](https://developer.github.com/v3/users/gpg_keys/#gpg-keys) does not return previously uploaded GPG key.
-
+        Create a UserGpgKey resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param UserGpgKeyArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -200,9 +144,6 @@ class UserGpgKey(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] armored_public_key: Your public GPG key, generated in ASCII-armored format.
-               See [Generating a new GPG key](https://help.github.com/articles/generating-a-new-gpg-key/) for help on creating a GPG key.
-        :param pulumi.Input[str] key_id: The key ID of the GPG key, e.g. `3262EFF25BA0D270`
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -216,10 +157,6 @@ class UserGpgKey(pulumi.CustomResource):
     @property
     @pulumi.getter(name="armoredPublicKey")
     def armored_public_key(self) -> pulumi.Output[str]:
-        """
-        Your public GPG key, generated in ASCII-armored format.
-        See [Generating a new GPG key](https://help.github.com/articles/generating-a-new-gpg-key/) for help on creating a GPG key.
-        """
         return pulumi.get(self, "armored_public_key")
 
     @property
@@ -230,8 +167,5 @@ class UserGpgKey(pulumi.CustomResource):
     @property
     @pulumi.getter(name="keyId")
     def key_id(self) -> pulumi.Output[str]:
-        """
-        The key ID of the GPG key, e.g. `3262EFF25BA0D270`
-        """
         return pulumi.get(self, "key_id")
 

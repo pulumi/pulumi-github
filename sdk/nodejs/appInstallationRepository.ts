@@ -4,42 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
-/**
- * > **Note**: This resource is not compatible with the GitHub App Installation authentication method.
- *
- * This resource manages relationships between app installations and repositories
- * in your GitHub organization.
- *
- * Creating this resource installs a particular app on a particular repository.
- *
- * The app installation and the repository must both belong to the same
- * organization on GitHub. Note: you can review your organization's installations
- * by the following the instructions at this
- * [link](https://docs.github.com/en/github/setting-up-and-managing-organizations-and-teams/reviewing-your-organizations-installed-integrations).
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as github from "@pulumi/github";
- *
- * // Create a repository.
- * const someRepo = new github.Repository("some_repo", {});
- * const someAppRepo = new github.AppInstallationRepository("some_app_repo", {
- *     // The installation id of the app (in the organization).
- *     installationId: "1234567",
- *     repository: someRepo.name,
- * });
- * ```
- *
- * ## Import
- *
- * GitHub App Installation Repository can be imported using an ID made up of `installation_id:repository`, e.g.
- *
- * ```sh
- *  $ pulumi import github:index/appInstallationRepository:AppInstallationRepository terraform_repo 1234567:terraform
- * ```
- */
 export class AppInstallationRepository extends pulumi.CustomResource {
     /**
      * Get an existing AppInstallationRepository resource's state with the given name, ID, and optional extra
@@ -68,14 +32,8 @@ export class AppInstallationRepository extends pulumi.CustomResource {
         return obj['__pulumiType'] === AppInstallationRepository.__pulumiType;
     }
 
-    /**
-     * The GitHub app installation id.
-     */
     public readonly installationId!: pulumi.Output<string>;
     public /*out*/ readonly repoId!: pulumi.Output<number>;
-    /**
-     * The repository to install the app on.
-     */
     public readonly repository!: pulumi.Output<string>;
 
     /**
@@ -115,14 +73,8 @@ export class AppInstallationRepository extends pulumi.CustomResource {
  * Input properties used for looking up and filtering AppInstallationRepository resources.
  */
 export interface AppInstallationRepositoryState {
-    /**
-     * The GitHub app installation id.
-     */
     installationId?: pulumi.Input<string>;
     repoId?: pulumi.Input<number>;
-    /**
-     * The repository to install the app on.
-     */
     repository?: pulumi.Input<string>;
 }
 
@@ -130,12 +82,6 @@ export interface AppInstallationRepositoryState {
  * The set of arguments for constructing a AppInstallationRepository resource.
  */
 export interface AppInstallationRepositoryArgs {
-    /**
-     * The GitHub app installation id.
-     */
     installationId: pulumi.Input<string>;
-    /**
-     * The repository to install the app on.
-     */
     repository: pulumi.Input<string>;
 }

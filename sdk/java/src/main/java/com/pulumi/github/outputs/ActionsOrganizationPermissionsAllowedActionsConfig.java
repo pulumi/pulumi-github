@@ -13,50 +13,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ActionsOrganizationPermissionsAllowedActionsConfig {
-    /**
-     * @return Whether GitHub-owned actions are allowed in the organization.
-     * 
-     */
-    private final Boolean githubOwnedAllowed;
-    /**
-     * @return Specifies a list of string-matching patterns to allow specific action(s). Wildcards, tags, and SHAs are allowed. For example, monalisa/octocat@*, monalisa/octocat@v2, monalisa/*.&#34;
-     * 
-     */
-    private final @Nullable List<String> patternsAlloweds;
-    /**
-     * @return Whether actions in GitHub Marketplace from verified creators are allowed. Set to true to allow all GitHub Marketplace actions by verified creators.
-     * 
-     */
-    private final @Nullable Boolean verifiedAllowed;
+    private Boolean githubOwnedAllowed;
+    private @Nullable List<String> patternsAlloweds;
+    private @Nullable Boolean verifiedAllowed;
 
-    @CustomType.Constructor
-    private ActionsOrganizationPermissionsAllowedActionsConfig(
-        @CustomType.Parameter("githubOwnedAllowed") Boolean githubOwnedAllowed,
-        @CustomType.Parameter("patternsAlloweds") @Nullable List<String> patternsAlloweds,
-        @CustomType.Parameter("verifiedAllowed") @Nullable Boolean verifiedAllowed) {
-        this.githubOwnedAllowed = githubOwnedAllowed;
-        this.patternsAlloweds = patternsAlloweds;
-        this.verifiedAllowed = verifiedAllowed;
-    }
-
-    /**
-     * @return Whether GitHub-owned actions are allowed in the organization.
-     * 
-     */
+    private ActionsOrganizationPermissionsAllowedActionsConfig() {}
     public Boolean githubOwnedAllowed() {
         return this.githubOwnedAllowed;
     }
-    /**
-     * @return Specifies a list of string-matching patterns to allow specific action(s). Wildcards, tags, and SHAs are allowed. For example, monalisa/octocat@*, monalisa/octocat@v2, monalisa/*.&#34;
-     * 
-     */
     public List<String> patternsAlloweds() {
         return this.patternsAlloweds == null ? List.of() : this.patternsAlloweds;
     }
-    /**
-     * @return Whether actions in GitHub Marketplace from verified creators are allowed. Set to true to allow all GitHub Marketplace actions by verified creators.
-     * 
-     */
     public Optional<Boolean> verifiedAllowed() {
         return Optional.ofNullable(this.verifiedAllowed);
     }
@@ -68,16 +35,12 @@ public final class ActionsOrganizationPermissionsAllowedActionsConfig {
     public static Builder builder(ActionsOrganizationPermissionsAllowedActionsConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Boolean githubOwnedAllowed;
         private @Nullable List<String> patternsAlloweds;
         private @Nullable Boolean verifiedAllowed;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ActionsOrganizationPermissionsAllowedActionsConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.githubOwnedAllowed = defaults.githubOwnedAllowed;
@@ -85,10 +48,12 @@ public final class ActionsOrganizationPermissionsAllowedActionsConfig {
     	      this.verifiedAllowed = defaults.verifiedAllowed;
         }
 
+        @CustomType.Setter
         public Builder githubOwnedAllowed(Boolean githubOwnedAllowed) {
             this.githubOwnedAllowed = Objects.requireNonNull(githubOwnedAllowed);
             return this;
         }
+        @CustomType.Setter
         public Builder patternsAlloweds(@Nullable List<String> patternsAlloweds) {
             this.patternsAlloweds = patternsAlloweds;
             return this;
@@ -96,11 +61,17 @@ public final class ActionsOrganizationPermissionsAllowedActionsConfig {
         public Builder patternsAlloweds(String... patternsAlloweds) {
             return patternsAlloweds(List.of(patternsAlloweds));
         }
+        @CustomType.Setter
         public Builder verifiedAllowed(@Nullable Boolean verifiedAllowed) {
             this.verifiedAllowed = verifiedAllowed;
             return this;
-        }        public ActionsOrganizationPermissionsAllowedActionsConfig build() {
-            return new ActionsOrganizationPermissionsAllowedActionsConfig(githubOwnedAllowed, patternsAlloweds, verifiedAllowed);
+        }
+        public ActionsOrganizationPermissionsAllowedActionsConfig build() {
+            final var o = new ActionsOrganizationPermissionsAllowedActionsConfig();
+            o.githubOwnedAllowed = githubOwnedAllowed;
+            o.patternsAlloweds = patternsAlloweds;
+            o.verifiedAllowed = verifiedAllowed;
+            return o;
         }
     }
 }

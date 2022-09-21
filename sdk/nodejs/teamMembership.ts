@@ -4,43 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
-/**
- * Provides a GitHub team membership resource.
- *
- * This resource allows you to add/remove users from teams in your organization. When applied,
- * the user will be added to the team. If the user hasn't accepted their invitation to the
- * organization, they won't be part of the team until they do. When
- * destroyed, the user will be removed from the team.
- *
- * > **Note**: This resource is not compatible with `github.TeamMembers`. Use either `github.TeamMembers` or `github.TeamMembership`.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as github from "@pulumi/github";
- *
- * // Add a user to the organization
- * const membershipForSomeUser = new github.Membership("membershipForSomeUser", {
- *     username: "SomeUser",
- *     role: "member",
- * });
- * const someTeam = new github.Team("someTeam", {description: "Some cool team"});
- * const someTeamMembership = new github.TeamMembership("someTeamMembership", {
- *     teamId: someTeam.id,
- *     username: "SomeUser",
- *     role: "member",
- * });
- * ```
- *
- * ## Import
- *
- * GitHub Team Membership can be imported using an ID made up of `teamid:username`, e.g.
- *
- * ```sh
- *  $ pulumi import github:index/teamMembership:TeamMembership member 1234567:someuser
- * ```
- */
 export class TeamMembership extends pulumi.CustomResource {
     /**
      * Get an existing TeamMembership resource's state with the given name, ID, and optional extra
@@ -70,18 +33,8 @@ export class TeamMembership extends pulumi.CustomResource {
     }
 
     public /*out*/ readonly etag!: pulumi.Output<string>;
-    /**
-     * The role of the user within the team.
-     * Must be one of `member` or `maintainer`. Defaults to `member`.
-     */
     public readonly role!: pulumi.Output<string | undefined>;
-    /**
-     * The GitHub team id
-     */
     public readonly teamId!: pulumi.Output<string>;
-    /**
-     * The user to add to the team.
-     */
     public readonly username!: pulumi.Output<string>;
 
     /**
@@ -124,18 +77,8 @@ export class TeamMembership extends pulumi.CustomResource {
  */
 export interface TeamMembershipState {
     etag?: pulumi.Input<string>;
-    /**
-     * The role of the user within the team.
-     * Must be one of `member` or `maintainer`. Defaults to `member`.
-     */
     role?: pulumi.Input<string>;
-    /**
-     * The GitHub team id
-     */
     teamId?: pulumi.Input<string>;
-    /**
-     * The user to add to the team.
-     */
     username?: pulumi.Input<string>;
 }
 
@@ -143,17 +86,7 @@ export interface TeamMembershipState {
  * The set of arguments for constructing a TeamMembership resource.
  */
 export interface TeamMembershipArgs {
-    /**
-     * The role of the user within the team.
-     * Must be one of `member` or `maintainer`. Defaults to `member`.
-     */
     role?: pulumi.Input<string>;
-    /**
-     * The GitHub team id
-     */
     teamId: pulumi.Input<string>;
-    /**
-     * The user to add to the team.
-     */
     username: pulumi.Input<string>;
 }

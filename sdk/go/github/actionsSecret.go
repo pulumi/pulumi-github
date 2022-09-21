@@ -11,62 +11,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-github/sdk/v4/go/github"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := github.GetActionsPublicKey(ctx, &GetActionsPublicKeyArgs{
-//				Repository: "example_repository",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = github.NewActionsSecret(ctx, "exampleSecretActionsSecret", &github.ActionsSecretArgs{
-//				Repository:     pulumi.String("example_repository"),
-//				SecretName:     pulumi.String("example_secret_name"),
-//				PlaintextValue: pulumi.Any(_var.Some_secret_string),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = github.NewActionsSecret(ctx, "exampleSecretIndex/actionsSecretActionsSecret", &github.ActionsSecretArgs{
-//				Repository:     pulumi.String("example_repository"),
-//				SecretName:     pulumi.String("example_secret_name"),
-//				EncryptedValue: pulumi.Any(_var.Some_encrypted_secret_string),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 type ActionsSecret struct {
 	pulumi.CustomResourceState
 
-	// Date of actionsSecret creation.
-	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
-	// Encrypted value of the secret using the Github public key in Base64 format.
+	CreatedAt      pulumi.StringOutput    `pulumi:"createdAt"`
 	EncryptedValue pulumi.StringPtrOutput `pulumi:"encryptedValue"`
-	// Plaintext value of the secret to be encrypted
 	PlaintextValue pulumi.StringPtrOutput `pulumi:"plaintextValue"`
-	// Name of the repository
-	Repository pulumi.StringOutput `pulumi:"repository"`
-	// Name of the secret
-	SecretName pulumi.StringOutput `pulumi:"secretName"`
-	// Date of actionsSecret update.
-	UpdatedAt pulumi.StringOutput `pulumi:"updatedAt"`
+	Repository     pulumi.StringOutput    `pulumi:"repository"`
+	SecretName     pulumi.StringOutput    `pulumi:"secretName"`
+	UpdatedAt      pulumi.StringOutput    `pulumi:"updatedAt"`
 }
 
 // NewActionsSecret registers a new resource with the given unique name, arguments, and options.
@@ -104,33 +57,21 @@ func GetActionsSecret(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ActionsSecret resources.
 type actionsSecretState struct {
-	// Date of actionsSecret creation.
-	CreatedAt *string `pulumi:"createdAt"`
-	// Encrypted value of the secret using the Github public key in Base64 format.
+	CreatedAt      *string `pulumi:"createdAt"`
 	EncryptedValue *string `pulumi:"encryptedValue"`
-	// Plaintext value of the secret to be encrypted
 	PlaintextValue *string `pulumi:"plaintextValue"`
-	// Name of the repository
-	Repository *string `pulumi:"repository"`
-	// Name of the secret
-	SecretName *string `pulumi:"secretName"`
-	// Date of actionsSecret update.
-	UpdatedAt *string `pulumi:"updatedAt"`
+	Repository     *string `pulumi:"repository"`
+	SecretName     *string `pulumi:"secretName"`
+	UpdatedAt      *string `pulumi:"updatedAt"`
 }
 
 type ActionsSecretState struct {
-	// Date of actionsSecret creation.
-	CreatedAt pulumi.StringPtrInput
-	// Encrypted value of the secret using the Github public key in Base64 format.
+	CreatedAt      pulumi.StringPtrInput
 	EncryptedValue pulumi.StringPtrInput
-	// Plaintext value of the secret to be encrypted
 	PlaintextValue pulumi.StringPtrInput
-	// Name of the repository
-	Repository pulumi.StringPtrInput
-	// Name of the secret
-	SecretName pulumi.StringPtrInput
-	// Date of actionsSecret update.
-	UpdatedAt pulumi.StringPtrInput
+	Repository     pulumi.StringPtrInput
+	SecretName     pulumi.StringPtrInput
+	UpdatedAt      pulumi.StringPtrInput
 }
 
 func (ActionsSecretState) ElementType() reflect.Type {
@@ -138,26 +79,18 @@ func (ActionsSecretState) ElementType() reflect.Type {
 }
 
 type actionsSecretArgs struct {
-	// Encrypted value of the secret using the Github public key in Base64 format.
 	EncryptedValue *string `pulumi:"encryptedValue"`
-	// Plaintext value of the secret to be encrypted
 	PlaintextValue *string `pulumi:"plaintextValue"`
-	// Name of the repository
-	Repository string `pulumi:"repository"`
-	// Name of the secret
-	SecretName string `pulumi:"secretName"`
+	Repository     string  `pulumi:"repository"`
+	SecretName     string  `pulumi:"secretName"`
 }
 
 // The set of arguments for constructing a ActionsSecret resource.
 type ActionsSecretArgs struct {
-	// Encrypted value of the secret using the Github public key in Base64 format.
 	EncryptedValue pulumi.StringPtrInput
-	// Plaintext value of the secret to be encrypted
 	PlaintextValue pulumi.StringPtrInput
-	// Name of the repository
-	Repository pulumi.StringInput
-	// Name of the secret
-	SecretName pulumi.StringInput
+	Repository     pulumi.StringInput
+	SecretName     pulumi.StringInput
 }
 
 func (ActionsSecretArgs) ElementType() reflect.Type {
@@ -247,32 +180,26 @@ func (o ActionsSecretOutput) ToActionsSecretOutputWithContext(ctx context.Contex
 	return o
 }
 
-// Date of actionsSecret creation.
 func (o ActionsSecretOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *ActionsSecret) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
-// Encrypted value of the secret using the Github public key in Base64 format.
 func (o ActionsSecretOutput) EncryptedValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ActionsSecret) pulumi.StringPtrOutput { return v.EncryptedValue }).(pulumi.StringPtrOutput)
 }
 
-// Plaintext value of the secret to be encrypted
 func (o ActionsSecretOutput) PlaintextValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ActionsSecret) pulumi.StringPtrOutput { return v.PlaintextValue }).(pulumi.StringPtrOutput)
 }
 
-// Name of the repository
 func (o ActionsSecretOutput) Repository() pulumi.StringOutput {
 	return o.ApplyT(func(v *ActionsSecret) pulumi.StringOutput { return v.Repository }).(pulumi.StringOutput)
 }
 
-// Name of the secret
 func (o ActionsSecretOutput) SecretName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ActionsSecret) pulumi.StringOutput { return v.SecretName }).(pulumi.StringOutput)
 }
 
-// Date of actionsSecret update.
 func (o ActionsSecretOutput) UpdatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *ActionsSecret) pulumi.StringOutput { return v.UpdatedAt }).(pulumi.StringOutput)
 }

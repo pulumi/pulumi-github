@@ -13,32 +13,16 @@ public final class GetRefArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetRefArgs Empty = new GetRefArgs();
 
-    /**
-     * The repository ref to look up. Must be formatted `heads/&lt;ref&gt;` for branches, and `tags/&lt;ref&gt;` for tags.
-     * 
-     */
     @Import(name="ref", required=true)
     private Output<String> ref;
 
-    /**
-     * @return The repository ref to look up. Must be formatted `heads/&lt;ref&gt;` for branches, and `tags/&lt;ref&gt;` for tags.
-     * 
-     */
     public Output<String> ref() {
         return this.ref;
     }
 
-    /**
-     * The GitHub repository name.
-     * 
-     */
     @Import(name="repository", required=true)
     private Output<String> repository;
 
-    /**
-     * @return The GitHub repository name.
-     * 
-     */
     public Output<String> repository() {
         return this.repository;
     }
@@ -68,44 +52,20 @@ public final class GetRefArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetRefArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param ref The repository ref to look up. Must be formatted `heads/&lt;ref&gt;` for branches, and `tags/&lt;ref&gt;` for tags.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ref(Output<String> ref) {
             $.ref = ref;
             return this;
         }
 
-        /**
-         * @param ref The repository ref to look up. Must be formatted `heads/&lt;ref&gt;` for branches, and `tags/&lt;ref&gt;` for tags.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ref(String ref) {
             return ref(Output.of(ref));
         }
 
-        /**
-         * @param repository The GitHub repository name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder repository(Output<String> repository) {
             $.repository = repository;
             return this;
         }
 
-        /**
-         * @param repository The GitHub repository name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder repository(String repository) {
             return repository(Output.of(repository));
         }

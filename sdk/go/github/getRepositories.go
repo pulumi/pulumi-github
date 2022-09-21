@@ -10,37 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// > **Note:** The data source will return a maximum of `1000` repositories
-//
-//	[as documented in official API docs](https://developer.github.com/v3/search/#about-the-search-api).
-//
-// Use this data source to retrieve a list of GitHub repositories using a search query.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-github/sdk/v4/go/github"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := github.GetRepositories(ctx, &GetRepositoriesArgs{
-//				Query: "org:hashicorp language:Go",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetRepositories(ctx *pulumi.Context, args *GetRepositoriesArgs, opts ...pulumi.InvokeOption) (*GetRepositoriesResult, error) {
 	var rv GetRepositoriesResult
 	err := ctx.Invoke("github:index/getRepositories:getRepositories", args, &rv, opts...)
@@ -52,10 +21,8 @@ func GetRepositories(ctx *pulumi.Context, args *GetRepositoriesArgs, opts ...pul
 
 // A collection of arguments for invoking getRepositories.
 type GetRepositoriesArgs struct {
-	// Search query. See [documentation for the search syntax](https://help.github.com/articles/understanding-the-search-syntax/).
-	Query string `pulumi:"query"`
-	// Sorts the repositories returned by the specified attribute. Valid values include `stars`, `fork`, and `updated`. Defaults to `updated`.
-	Sort *string `pulumi:"sort"`
+	Query string  `pulumi:"query"`
+	Sort  *string `pulumi:"sort"`
 }
 
 // A collection of values returned by getRepositories.
@@ -83,10 +50,8 @@ func GetRepositoriesOutput(ctx *pulumi.Context, args GetRepositoriesOutputArgs, 
 
 // A collection of arguments for invoking getRepositories.
 type GetRepositoriesOutputArgs struct {
-	// Search query. See [documentation for the search syntax](https://help.github.com/articles/understanding-the-search-syntax/).
-	Query pulumi.StringInput `pulumi:"query"`
-	// Sorts the repositories returned by the specified attribute. Valid values include `stars`, `fork`, and `updated`. Defaults to `updated`.
-	Sort pulumi.StringPtrInput `pulumi:"sort"`
+	Query pulumi.StringInput    `pulumi:"query"`
+	Sort  pulumi.StringPtrInput `pulumi:"sort"`
 }
 
 func (GetRepositoriesOutputArgs) ElementType() reflect.Type {

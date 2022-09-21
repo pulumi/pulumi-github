@@ -5,20 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
-/**
- * Use this data source to retrieve external groups belonging to an organization.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as github from "@pulumi/github";
- *
- * const exampleExternalGroups = github.getExternalGroups({});
- * const localGroups = exampleExternalGroups;
- * export const groups = localGroups;
- * ```
- */
 export function getExternalGroups(opts?: pulumi.InvokeOptions): Promise<GetExternalGroupsResult> {
     if (!opts) {
         opts = {}
@@ -33,9 +19,6 @@ export function getExternalGroups(opts?: pulumi.InvokeOptions): Promise<GetExter
  * A collection of values returned by getExternalGroups.
  */
 export interface GetExternalGroupsResult {
-    /**
-     * an array of external groups belonging to the organization. Each group consists of the fields documented below.
-     */
     readonly externalGroups: outputs.GetExternalGroupsExternalGroup[];
     /**
      * The provider-assigned unique ID for this managed resource.

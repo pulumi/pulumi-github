@@ -18,8 +18,6 @@ class EmuGroupMappingArgs:
                  team_slug: pulumi.Input[str]):
         """
         The set of arguments for constructing a EmuGroupMapping resource.
-        :param pulumi.Input[int] group_id: Integer corresponding to the external group ID to be linked
-        :param pulumi.Input[str] team_slug: Slug of the GitHub team
         """
         pulumi.set(__self__, "group_id", group_id)
         pulumi.set(__self__, "team_slug", team_slug)
@@ -27,9 +25,6 @@ class EmuGroupMappingArgs:
     @property
     @pulumi.getter(name="groupId")
     def group_id(self) -> pulumi.Input[int]:
-        """
-        Integer corresponding to the external group ID to be linked
-        """
         return pulumi.get(self, "group_id")
 
     @group_id.setter
@@ -39,9 +34,6 @@ class EmuGroupMappingArgs:
     @property
     @pulumi.getter(name="teamSlug")
     def team_slug(self) -> pulumi.Input[str]:
-        """
-        Slug of the GitHub team
-        """
         return pulumi.get(self, "team_slug")
 
     @team_slug.setter
@@ -57,8 +49,6 @@ class _EmuGroupMappingState:
                  team_slug: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering EmuGroupMapping resources.
-        :param pulumi.Input[int] group_id: Integer corresponding to the external group ID to be linked
-        :param pulumi.Input[str] team_slug: Slug of the GitHub team
         """
         if etag is not None:
             pulumi.set(__self__, "etag", etag)
@@ -79,9 +69,6 @@ class _EmuGroupMappingState:
     @property
     @pulumi.getter(name="groupId")
     def group_id(self) -> Optional[pulumi.Input[int]]:
-        """
-        Integer corresponding to the external group ID to be linked
-        """
         return pulumi.get(self, "group_id")
 
     @group_id.setter
@@ -91,9 +78,6 @@ class _EmuGroupMappingState:
     @property
     @pulumi.getter(name="teamSlug")
     def team_slug(self) -> Optional[pulumi.Input[str]]:
-        """
-        Slug of the GitHub team
-        """
         return pulumi.get(self, "team_slug")
 
     @team_slug.setter
@@ -110,32 +94,9 @@ class EmuGroupMapping(pulumi.CustomResource):
                  team_slug: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        This resource manages mappings between external groups for enterprise managed users and GitHub teams. It wraps the API detailed [here](https://docs.github.com/en/rest/reference/teams#external-groups). Note that this is a distinct resource from `TeamSyncGroupMapping`. `EmuGroupMapping` is special to the Enterprise Managed User (EMU) external group feature, whereas `TeamSyncGroupMapping` is specific to Identity Provider Groups.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_github as github
-
-        example_emu_group_mapping = github.EmuGroupMapping("exampleEmuGroupMapping",
-            group_id=28836,
-            team_slug="emu-test-team")
-        # The GitHub team name to modify
-        ```
-
-        ## Import
-
-        GitHub EMU External Group Mappings can be imported using the external `group_id`, e.g.
-
-        ```sh
-         $ pulumi import github:index/emuGroupMapping:EmuGroupMapping example_emu_group_mapping 28836
-        ```
-
+        Create a EmuGroupMapping resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[int] group_id: Integer corresponding to the external group ID to be linked
-        :param pulumi.Input[str] team_slug: Slug of the GitHub team
         """
         ...
     @overload
@@ -144,28 +105,7 @@ class EmuGroupMapping(pulumi.CustomResource):
                  args: EmuGroupMappingArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        This resource manages mappings between external groups for enterprise managed users and GitHub teams. It wraps the API detailed [here](https://docs.github.com/en/rest/reference/teams#external-groups). Note that this is a distinct resource from `TeamSyncGroupMapping`. `EmuGroupMapping` is special to the Enterprise Managed User (EMU) external group feature, whereas `TeamSyncGroupMapping` is specific to Identity Provider Groups.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_github as github
-
-        example_emu_group_mapping = github.EmuGroupMapping("exampleEmuGroupMapping",
-            group_id=28836,
-            team_slug="emu-test-team")
-        # The GitHub team name to modify
-        ```
-
-        ## Import
-
-        GitHub EMU External Group Mappings can be imported using the external `group_id`, e.g.
-
-        ```sh
-         $ pulumi import github:index/emuGroupMapping:EmuGroupMapping example_emu_group_mapping 28836
-        ```
-
+        Create a EmuGroupMapping resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param EmuGroupMappingArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -219,8 +159,6 @@ class EmuGroupMapping(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[int] group_id: Integer corresponding to the external group ID to be linked
-        :param pulumi.Input[str] team_slug: Slug of the GitHub team
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -239,16 +177,10 @@ class EmuGroupMapping(pulumi.CustomResource):
     @property
     @pulumi.getter(name="groupId")
     def group_id(self) -> pulumi.Output[int]:
-        """
-        Integer corresponding to the external group ID to be linked
-        """
         return pulumi.get(self, "group_id")
 
     @property
     @pulumi.getter(name="teamSlug")
     def team_slug(self) -> pulumi.Output[str]:
-        """
-        Slug of the GitHub team
-        """
         return pulumi.get(self, "team_slug")
 

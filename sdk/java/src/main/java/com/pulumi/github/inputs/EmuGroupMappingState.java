@@ -23,32 +23,16 @@ public final class EmuGroupMappingState extends com.pulumi.resources.ResourceArg
         return Optional.ofNullable(this.etag);
     }
 
-    /**
-     * Integer corresponding to the external group ID to be linked
-     * 
-     */
     @Import(name="groupId")
     private @Nullable Output<Integer> groupId;
 
-    /**
-     * @return Integer corresponding to the external group ID to be linked
-     * 
-     */
     public Optional<Output<Integer>> groupId() {
         return Optional.ofNullable(this.groupId);
     }
 
-    /**
-     * Slug of the GitHub team
-     * 
-     */
     @Import(name="teamSlug")
     private @Nullable Output<String> teamSlug;
 
-    /**
-     * @return Slug of the GitHub team
-     * 
-     */
     public Optional<Output<String>> teamSlug() {
         return Optional.ofNullable(this.teamSlug);
     }
@@ -88,44 +72,20 @@ public final class EmuGroupMappingState extends com.pulumi.resources.ResourceArg
             return etag(Output.of(etag));
         }
 
-        /**
-         * @param groupId Integer corresponding to the external group ID to be linked
-         * 
-         * @return builder
-         * 
-         */
         public Builder groupId(@Nullable Output<Integer> groupId) {
             $.groupId = groupId;
             return this;
         }
 
-        /**
-         * @param groupId Integer corresponding to the external group ID to be linked
-         * 
-         * @return builder
-         * 
-         */
         public Builder groupId(Integer groupId) {
             return groupId(Output.of(groupId));
         }
 
-        /**
-         * @param teamSlug Slug of the GitHub team
-         * 
-         * @return builder
-         * 
-         */
         public Builder teamSlug(@Nullable Output<String> teamSlug) {
             $.teamSlug = teamSlug;
             return this;
         }
 
-        /**
-         * @param teamSlug Slug of the GitHub team
-         * 
-         * @return builder
-         * 
-         */
         public Builder teamSlug(String teamSlug) {
             return teamSlug(Output.of(teamSlug));
         }

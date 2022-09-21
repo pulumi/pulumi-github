@@ -17,16 +17,14 @@ public final class RepositoryFileArgs extends com.pulumi.resources.ResourceArgs 
     public static final RepositoryFileArgs Empty = new RepositoryFileArgs();
 
     /**
-     * Git branch (defaults to `main`).
-     * The branch must already exist, it will not be created if it does not already exist.
+     * The branch name, defaults to &#34;main&#34;
      * 
      */
     @Import(name="branch")
     private @Nullable Output<String> branch;
 
     /**
-     * @return Git branch (defaults to `main`).
-     * The branch must already exist, it will not be created if it does not already exist.
+     * @return The branch name, defaults to &#34;main&#34;
      * 
      */
     public Optional<Output<String>> branch() {
@@ -34,14 +32,14 @@ public final class RepositoryFileArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Committer author name to use.
+     * The commit author name, defaults to the authenticated user&#39;s name
      * 
      */
     @Import(name="commitAuthor")
     private @Nullable Output<String> commitAuthor;
 
     /**
-     * @return Committer author name to use.
+     * @return The commit author name, defaults to the authenticated user&#39;s name
      * 
      */
     public Optional<Output<String>> commitAuthor() {
@@ -49,14 +47,14 @@ public final class RepositoryFileArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Committer email address to use.
+     * The commit author email address, defaults to the authenticated user&#39;s email address
      * 
      */
     @Import(name="commitEmail")
     private @Nullable Output<String> commitEmail;
 
     /**
-     * @return Committer email address to use.
+     * @return The commit author email address, defaults to the authenticated user&#39;s email address
      * 
      */
     public Optional<Output<String>> commitEmail() {
@@ -64,14 +62,14 @@ public final class RepositoryFileArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Commit message when adding or updating the managed file.
+     * The commit message when creating or updating the file
      * 
      */
     @Import(name="commitMessage")
     private @Nullable Output<String> commitMessage;
 
     /**
-     * @return Commit message when adding or updating the managed file.
+     * @return The commit message when creating or updating the file
      * 
      */
     public Optional<Output<String>> commitMessage() {
@@ -79,14 +77,14 @@ public final class RepositoryFileArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The file content.
+     * The file&#39;s content
      * 
      */
     @Import(name="content", required=true)
     private Output<String> content;
 
     /**
-     * @return The file content.
+     * @return The file&#39;s content
      * 
      */
     public Output<String> content() {
@@ -94,14 +92,14 @@ public final class RepositoryFileArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The path of the file to manage.
+     * The file path to manage
      * 
      */
     @Import(name="file", required=true)
     private Output<String> file;
 
     /**
-     * @return The path of the file to manage.
+     * @return The file path to manage
      * 
      */
     public Output<String> file() {
@@ -109,14 +107,14 @@ public final class RepositoryFileArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Enable overwriting existing files
+     * Enable overwriting existing files, defaults to &#34;false&#34;
      * 
      */
     @Import(name="overwriteOnCreate")
     private @Nullable Output<Boolean> overwriteOnCreate;
 
     /**
-     * @return Enable overwriting existing files
+     * @return Enable overwriting existing files, defaults to &#34;false&#34;
      * 
      */
     public Optional<Output<Boolean>> overwriteOnCreate() {
@@ -124,14 +122,14 @@ public final class RepositoryFileArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The repository to create the file in.
+     * The repository name
      * 
      */
     @Import(name="repository", required=true)
     private Output<String> repository;
 
     /**
-     * @return The repository to create the file in.
+     * @return The repository name
      * 
      */
     public Output<String> repository() {
@@ -170,8 +168,7 @@ public final class RepositoryFileArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param branch Git branch (defaults to `main`).
-         * The branch must already exist, it will not be created if it does not already exist.
+         * @param branch The branch name, defaults to &#34;main&#34;
          * 
          * @return builder
          * 
@@ -182,8 +179,7 @@ public final class RepositoryFileArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param branch Git branch (defaults to `main`).
-         * The branch must already exist, it will not be created if it does not already exist.
+         * @param branch The branch name, defaults to &#34;main&#34;
          * 
          * @return builder
          * 
@@ -193,7 +189,7 @@ public final class RepositoryFileArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param commitAuthor Committer author name to use.
+         * @param commitAuthor The commit author name, defaults to the authenticated user&#39;s name
          * 
          * @return builder
          * 
@@ -204,7 +200,7 @@ public final class RepositoryFileArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param commitAuthor Committer author name to use.
+         * @param commitAuthor The commit author name, defaults to the authenticated user&#39;s name
          * 
          * @return builder
          * 
@@ -214,7 +210,7 @@ public final class RepositoryFileArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param commitEmail Committer email address to use.
+         * @param commitEmail The commit author email address, defaults to the authenticated user&#39;s email address
          * 
          * @return builder
          * 
@@ -225,7 +221,7 @@ public final class RepositoryFileArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param commitEmail Committer email address to use.
+         * @param commitEmail The commit author email address, defaults to the authenticated user&#39;s email address
          * 
          * @return builder
          * 
@@ -235,7 +231,7 @@ public final class RepositoryFileArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param commitMessage Commit message when adding or updating the managed file.
+         * @param commitMessage The commit message when creating or updating the file
          * 
          * @return builder
          * 
@@ -246,7 +242,7 @@ public final class RepositoryFileArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param commitMessage Commit message when adding or updating the managed file.
+         * @param commitMessage The commit message when creating or updating the file
          * 
          * @return builder
          * 
@@ -256,7 +252,7 @@ public final class RepositoryFileArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param content The file content.
+         * @param content The file&#39;s content
          * 
          * @return builder
          * 
@@ -267,7 +263,7 @@ public final class RepositoryFileArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param content The file content.
+         * @param content The file&#39;s content
          * 
          * @return builder
          * 
@@ -277,7 +273,7 @@ public final class RepositoryFileArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param file The path of the file to manage.
+         * @param file The file path to manage
          * 
          * @return builder
          * 
@@ -288,7 +284,7 @@ public final class RepositoryFileArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param file The path of the file to manage.
+         * @param file The file path to manage
          * 
          * @return builder
          * 
@@ -298,7 +294,7 @@ public final class RepositoryFileArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param overwriteOnCreate Enable overwriting existing files
+         * @param overwriteOnCreate Enable overwriting existing files, defaults to &#34;false&#34;
          * 
          * @return builder
          * 
@@ -309,7 +305,7 @@ public final class RepositoryFileArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param overwriteOnCreate Enable overwriting existing files
+         * @param overwriteOnCreate Enable overwriting existing files, defaults to &#34;false&#34;
          * 
          * @return builder
          * 
@@ -319,7 +315,7 @@ public final class RepositoryFileArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param repository The repository to create the file in.
+         * @param repository The repository name
          * 
          * @return builder
          * 
@@ -330,7 +326,7 @@ public final class RepositoryFileArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param repository The repository to create the file in.
+         * @param repository The repository name
          * 
          * @return builder
          * 

@@ -4,21 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
-/**
- * Use this data source to retrieve information about a GitHub Actions public key. This data source is required to be used with other GitHub secrets interactions.
- * Note that the provider `token` must have admin rights to a repository to retrieve it's action public key.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as github from "@pulumi/github";
- *
- * const example = pulumi.output(github.getActionsPublicKey({
- *     repository: "example_repo",
- * }));
- * ```
- */
 export function getActionsPublicKey(args: GetActionsPublicKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetActionsPublicKeyResult> {
     if (!opts) {
         opts = {}
@@ -34,9 +19,6 @@ export function getActionsPublicKey(args: GetActionsPublicKeyArgs, opts?: pulumi
  * A collection of arguments for invoking getActionsPublicKey.
  */
 export interface GetActionsPublicKeyArgs {
-    /**
-     * Name of the repository to get public key from.
-     */
     repository: string;
 }
 
@@ -48,13 +30,7 @@ export interface GetActionsPublicKeyResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    /**
-     * Actual key retrieved.
-     */
     readonly key: string;
-    /**
-     * ID of the key that has been retrieved.
-     */
     readonly keyId: string;
     readonly repository: string;
 }
@@ -67,8 +43,5 @@ export function getActionsPublicKeyOutput(args: GetActionsPublicKeyOutputArgs, o
  * A collection of arguments for invoking getActionsPublicKey.
  */
 export interface GetActionsPublicKeyOutputArgs {
-    /**
-     * Name of the repository to get public key from.
-     */
     repository: pulumi.Input<string>;
 }

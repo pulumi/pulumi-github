@@ -23,9 +23,6 @@ class RepositoryEnvironmentArgs:
                  wait_timer: Optional[pulumi.Input[int]] = None):
         """
         The set of arguments for constructing a RepositoryEnvironment resource.
-        :param pulumi.Input[str] environment: The name of the environment.
-        :param pulumi.Input[str] repository: The repository of the environment.
-        :param pulumi.Input[int] wait_timer: Amount of time to delay a job after the job is initially triggered.
         """
         pulumi.set(__self__, "environment", environment)
         pulumi.set(__self__, "repository", repository)
@@ -39,9 +36,6 @@ class RepositoryEnvironmentArgs:
     @property
     @pulumi.getter
     def environment(self) -> pulumi.Input[str]:
-        """
-        The name of the environment.
-        """
         return pulumi.get(self, "environment")
 
     @environment.setter
@@ -51,9 +45,6 @@ class RepositoryEnvironmentArgs:
     @property
     @pulumi.getter
     def repository(self) -> pulumi.Input[str]:
-        """
-        The repository of the environment.
-        """
         return pulumi.get(self, "repository")
 
     @repository.setter
@@ -81,9 +72,6 @@ class RepositoryEnvironmentArgs:
     @property
     @pulumi.getter(name="waitTimer")
     def wait_timer(self) -> Optional[pulumi.Input[int]]:
-        """
-        Amount of time to delay a job after the job is initially triggered.
-        """
         return pulumi.get(self, "wait_timer")
 
     @wait_timer.setter
@@ -101,9 +89,6 @@ class _RepositoryEnvironmentState:
                  wait_timer: Optional[pulumi.Input[int]] = None):
         """
         Input properties used for looking up and filtering RepositoryEnvironment resources.
-        :param pulumi.Input[str] environment: The name of the environment.
-        :param pulumi.Input[str] repository: The repository of the environment.
-        :param pulumi.Input[int] wait_timer: Amount of time to delay a job after the job is initially triggered.
         """
         if deployment_branch_policy is not None:
             pulumi.set(__self__, "deployment_branch_policy", deployment_branch_policy)
@@ -128,9 +113,6 @@ class _RepositoryEnvironmentState:
     @property
     @pulumi.getter
     def environment(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the environment.
-        """
         return pulumi.get(self, "environment")
 
     @environment.setter
@@ -140,9 +122,6 @@ class _RepositoryEnvironmentState:
     @property
     @pulumi.getter
     def repository(self) -> Optional[pulumi.Input[str]]:
-        """
-        The repository of the environment.
-        """
         return pulumi.get(self, "repository")
 
     @repository.setter
@@ -161,9 +140,6 @@ class _RepositoryEnvironmentState:
     @property
     @pulumi.getter(name="waitTimer")
     def wait_timer(self) -> Optional[pulumi.Input[int]]:
-        """
-        Amount of time to delay a job after the job is initially triggered.
-        """
         return pulumi.get(self, "wait_timer")
 
     @wait_timer.setter
@@ -183,41 +159,9 @@ class RepositoryEnvironment(pulumi.CustomResource):
                  wait_timer: Optional[pulumi.Input[int]] = None,
                  __props__=None):
         """
-        This resource allows you to create and manage environments for a GitHub repository.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_github as github
-
-        current = github.get_user(username="")
-        example_repository = github.Repository("exampleRepository", description="My awesome codebase")
-        example_repository_environment = github.RepositoryEnvironment("exampleRepositoryEnvironment",
-            environment="example",
-            repository=example_repository.name,
-            reviewers=[github.RepositoryEnvironmentReviewerArgs(
-                users=[current.id],
-            )],
-            deployment_branch_policy=github.RepositoryEnvironmentDeploymentBranchPolicyArgs(
-                protected_branches=True,
-                custom_branch_policies=False,
-            ))
-        ```
-
-        ## Import
-
-        GitHub Repository Environment can be imported using an ID made up of `name` of the repository combined with the `environment` name of the environment, separated by a `:` character, e.g.
-
-        ```sh
-         $ pulumi import github:index/repositoryEnvironment:RepositoryEnvironment daily terraform:daily
-        ```
-
+        Create a RepositoryEnvironment resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] environment: The name of the environment.
-        :param pulumi.Input[str] repository: The repository of the environment.
-        :param pulumi.Input[int] wait_timer: Amount of time to delay a job after the job is initially triggered.
         """
         ...
     @overload
@@ -226,36 +170,7 @@ class RepositoryEnvironment(pulumi.CustomResource):
                  args: RepositoryEnvironmentArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        This resource allows you to create and manage environments for a GitHub repository.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_github as github
-
-        current = github.get_user(username="")
-        example_repository = github.Repository("exampleRepository", description="My awesome codebase")
-        example_repository_environment = github.RepositoryEnvironment("exampleRepositoryEnvironment",
-            environment="example",
-            repository=example_repository.name,
-            reviewers=[github.RepositoryEnvironmentReviewerArgs(
-                users=[current.id],
-            )],
-            deployment_branch_policy=github.RepositoryEnvironmentDeploymentBranchPolicyArgs(
-                protected_branches=True,
-                custom_branch_policies=False,
-            ))
-        ```
-
-        ## Import
-
-        GitHub Repository Environment can be imported using an ID made up of `name` of the repository combined with the `environment` name of the environment, separated by a `:` character, e.g.
-
-        ```sh
-         $ pulumi import github:index/repositoryEnvironment:RepositoryEnvironment daily terraform:daily
-        ```
-
+        Create a RepositoryEnvironment resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param RepositoryEnvironmentArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -316,9 +231,6 @@ class RepositoryEnvironment(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] environment: The name of the environment.
-        :param pulumi.Input[str] repository: The repository of the environment.
-        :param pulumi.Input[int] wait_timer: Amount of time to delay a job after the job is initially triggered.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -339,17 +251,11 @@ class RepositoryEnvironment(pulumi.CustomResource):
     @property
     @pulumi.getter
     def environment(self) -> pulumi.Output[str]:
-        """
-        The name of the environment.
-        """
         return pulumi.get(self, "environment")
 
     @property
     @pulumi.getter
     def repository(self) -> pulumi.Output[str]:
-        """
-        The repository of the environment.
-        """
         return pulumi.get(self, "repository")
 
     @property
@@ -360,8 +266,5 @@ class RepositoryEnvironment(pulumi.CustomResource):
     @property
     @pulumi.getter(name="waitTimer")
     def wait_timer(self) -> pulumi.Output[Optional[int]]:
-        """
-        Amount of time to delay a job after the job is initially triggered.
-        """
         return pulumi.get(self, "wait_timer")
 

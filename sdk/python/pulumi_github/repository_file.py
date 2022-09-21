@@ -24,15 +24,14 @@ class RepositoryFileArgs:
                  overwrite_on_create: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a RepositoryFile resource.
-        :param pulumi.Input[str] content: The file content.
-        :param pulumi.Input[str] file: The path of the file to manage.
-        :param pulumi.Input[str] repository: The repository to create the file in.
-        :param pulumi.Input[str] branch: Git branch (defaults to `main`).
-               The branch must already exist, it will not be created if it does not already exist.
-        :param pulumi.Input[str] commit_author: Committer author name to use.
-        :param pulumi.Input[str] commit_email: Committer email address to use.
-        :param pulumi.Input[str] commit_message: Commit message when adding or updating the managed file.
-        :param pulumi.Input[bool] overwrite_on_create: Enable overwriting existing files
+        :param pulumi.Input[str] content: The file's content
+        :param pulumi.Input[str] file: The file path to manage
+        :param pulumi.Input[str] repository: The repository name
+        :param pulumi.Input[str] branch: The branch name, defaults to "main"
+        :param pulumi.Input[str] commit_author: The commit author name, defaults to the authenticated user's name
+        :param pulumi.Input[str] commit_email: The commit author email address, defaults to the authenticated user's email address
+        :param pulumi.Input[str] commit_message: The commit message when creating or updating the file
+        :param pulumi.Input[bool] overwrite_on_create: Enable overwriting existing files, defaults to "false"
         """
         pulumi.set(__self__, "content", content)
         pulumi.set(__self__, "file", file)
@@ -52,7 +51,7 @@ class RepositoryFileArgs:
     @pulumi.getter
     def content(self) -> pulumi.Input[str]:
         """
-        The file content.
+        The file's content
         """
         return pulumi.get(self, "content")
 
@@ -64,7 +63,7 @@ class RepositoryFileArgs:
     @pulumi.getter
     def file(self) -> pulumi.Input[str]:
         """
-        The path of the file to manage.
+        The file path to manage
         """
         return pulumi.get(self, "file")
 
@@ -76,7 +75,7 @@ class RepositoryFileArgs:
     @pulumi.getter
     def repository(self) -> pulumi.Input[str]:
         """
-        The repository to create the file in.
+        The repository name
         """
         return pulumi.get(self, "repository")
 
@@ -88,8 +87,7 @@ class RepositoryFileArgs:
     @pulumi.getter
     def branch(self) -> Optional[pulumi.Input[str]]:
         """
-        Git branch (defaults to `main`).
-        The branch must already exist, it will not be created if it does not already exist.
+        The branch name, defaults to "main"
         """
         return pulumi.get(self, "branch")
 
@@ -101,7 +99,7 @@ class RepositoryFileArgs:
     @pulumi.getter(name="commitAuthor")
     def commit_author(self) -> Optional[pulumi.Input[str]]:
         """
-        Committer author name to use.
+        The commit author name, defaults to the authenticated user's name
         """
         return pulumi.get(self, "commit_author")
 
@@ -113,7 +111,7 @@ class RepositoryFileArgs:
     @pulumi.getter(name="commitEmail")
     def commit_email(self) -> Optional[pulumi.Input[str]]:
         """
-        Committer email address to use.
+        The commit author email address, defaults to the authenticated user's email address
         """
         return pulumi.get(self, "commit_email")
 
@@ -125,7 +123,7 @@ class RepositoryFileArgs:
     @pulumi.getter(name="commitMessage")
     def commit_message(self) -> Optional[pulumi.Input[str]]:
         """
-        Commit message when adding or updating the managed file.
+        The commit message when creating or updating the file
         """
         return pulumi.get(self, "commit_message")
 
@@ -137,7 +135,7 @@ class RepositoryFileArgs:
     @pulumi.getter(name="overwriteOnCreate")
     def overwrite_on_create(self) -> Optional[pulumi.Input[bool]]:
         """
-        Enable overwriting existing files
+        Enable overwriting existing files, defaults to "false"
         """
         return pulumi.get(self, "overwrite_on_create")
 
@@ -161,17 +159,16 @@ class _RepositoryFileState:
                  sha: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering RepositoryFile resources.
-        :param pulumi.Input[str] branch: Git branch (defaults to `main`).
-               The branch must already exist, it will not be created if it does not already exist.
-        :param pulumi.Input[str] commit_author: Committer author name to use.
-        :param pulumi.Input[str] commit_email: Committer email address to use.
-        :param pulumi.Input[str] commit_message: Commit message when adding or updating the managed file.
-        :param pulumi.Input[str] commit_sha: The SHA of the commit that modified the file.
-        :param pulumi.Input[str] content: The file content.
-        :param pulumi.Input[str] file: The path of the file to manage.
-        :param pulumi.Input[bool] overwrite_on_create: Enable overwriting existing files
-        :param pulumi.Input[str] repository: The repository to create the file in.
-        :param pulumi.Input[str] sha: The SHA blob of the file.
+        :param pulumi.Input[str] branch: The branch name, defaults to "main"
+        :param pulumi.Input[str] commit_author: The commit author name, defaults to the authenticated user's name
+        :param pulumi.Input[str] commit_email: The commit author email address, defaults to the authenticated user's email address
+        :param pulumi.Input[str] commit_message: The commit message when creating or updating the file
+        :param pulumi.Input[str] commit_sha: The SHA of the commit that modified the file
+        :param pulumi.Input[str] content: The file's content
+        :param pulumi.Input[str] file: The file path to manage
+        :param pulumi.Input[bool] overwrite_on_create: Enable overwriting existing files, defaults to "false"
+        :param pulumi.Input[str] repository: The repository name
+        :param pulumi.Input[str] sha: The blob SHA of the file
         """
         if branch is not None:
             pulumi.set(__self__, "branch", branch)
@@ -198,8 +195,7 @@ class _RepositoryFileState:
     @pulumi.getter
     def branch(self) -> Optional[pulumi.Input[str]]:
         """
-        Git branch (defaults to `main`).
-        The branch must already exist, it will not be created if it does not already exist.
+        The branch name, defaults to "main"
         """
         return pulumi.get(self, "branch")
 
@@ -211,7 +207,7 @@ class _RepositoryFileState:
     @pulumi.getter(name="commitAuthor")
     def commit_author(self) -> Optional[pulumi.Input[str]]:
         """
-        Committer author name to use.
+        The commit author name, defaults to the authenticated user's name
         """
         return pulumi.get(self, "commit_author")
 
@@ -223,7 +219,7 @@ class _RepositoryFileState:
     @pulumi.getter(name="commitEmail")
     def commit_email(self) -> Optional[pulumi.Input[str]]:
         """
-        Committer email address to use.
+        The commit author email address, defaults to the authenticated user's email address
         """
         return pulumi.get(self, "commit_email")
 
@@ -235,7 +231,7 @@ class _RepositoryFileState:
     @pulumi.getter(name="commitMessage")
     def commit_message(self) -> Optional[pulumi.Input[str]]:
         """
-        Commit message when adding or updating the managed file.
+        The commit message when creating or updating the file
         """
         return pulumi.get(self, "commit_message")
 
@@ -247,7 +243,7 @@ class _RepositoryFileState:
     @pulumi.getter(name="commitSha")
     def commit_sha(self) -> Optional[pulumi.Input[str]]:
         """
-        The SHA of the commit that modified the file.
+        The SHA of the commit that modified the file
         """
         return pulumi.get(self, "commit_sha")
 
@@ -259,7 +255,7 @@ class _RepositoryFileState:
     @pulumi.getter
     def content(self) -> Optional[pulumi.Input[str]]:
         """
-        The file content.
+        The file's content
         """
         return pulumi.get(self, "content")
 
@@ -271,7 +267,7 @@ class _RepositoryFileState:
     @pulumi.getter
     def file(self) -> Optional[pulumi.Input[str]]:
         """
-        The path of the file to manage.
+        The file path to manage
         """
         return pulumi.get(self, "file")
 
@@ -283,7 +279,7 @@ class _RepositoryFileState:
     @pulumi.getter(name="overwriteOnCreate")
     def overwrite_on_create(self) -> Optional[pulumi.Input[bool]]:
         """
-        Enable overwriting existing files
+        Enable overwriting existing files, defaults to "false"
         """
         return pulumi.get(self, "overwrite_on_create")
 
@@ -295,7 +291,7 @@ class _RepositoryFileState:
     @pulumi.getter
     def repository(self) -> Optional[pulumi.Input[str]]:
         """
-        The repository to create the file in.
+        The repository name
         """
         return pulumi.get(self, "repository")
 
@@ -307,7 +303,7 @@ class _RepositoryFileState:
     @pulumi.getter
     def sha(self) -> Optional[pulumi.Input[str]]:
         """
-        The SHA blob of the file.
+        The blob SHA of the file
         """
         return pulumi.get(self, "sha")
 
@@ -331,52 +327,17 @@ class RepositoryFile(pulumi.CustomResource):
                  repository: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        This resource allows you to create and manage files within a
-        GitHub repository.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_github as github
-
-        foo_repository = github.Repository("fooRepository", auto_init=True)
-        foo_repository_file = github.RepositoryFile("fooRepositoryFile",
-            repository=foo_repository.name,
-            branch="main",
-            file=".gitignore",
-            content="**/*.tfstate",
-            commit_message="Managed by Terraform",
-            commit_author="Terraform User",
-            commit_email="terraform@example.com",
-            overwrite_on_create=True)
-        ```
-
-        ## Import
-
-        Repository files can be imported using a combination of the `repo` and `file`, e.g.
-
-        ```sh
-         $ pulumi import github:index/repositoryFile:RepositoryFile gitignore example/.gitignore
-        ```
-
-         To import a file from a branch other than main, append `:` and the branch name, e.g.
-
-        ```sh
-         $ pulumi import github:index/repositoryFile:RepositoryFile gitignore example/.gitignore:dev
-        ```
-
+        Create a RepositoryFile resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] branch: Git branch (defaults to `main`).
-               The branch must already exist, it will not be created if it does not already exist.
-        :param pulumi.Input[str] commit_author: Committer author name to use.
-        :param pulumi.Input[str] commit_email: Committer email address to use.
-        :param pulumi.Input[str] commit_message: Commit message when adding or updating the managed file.
-        :param pulumi.Input[str] content: The file content.
-        :param pulumi.Input[str] file: The path of the file to manage.
-        :param pulumi.Input[bool] overwrite_on_create: Enable overwriting existing files
-        :param pulumi.Input[str] repository: The repository to create the file in.
+        :param pulumi.Input[str] branch: The branch name, defaults to "main"
+        :param pulumi.Input[str] commit_author: The commit author name, defaults to the authenticated user's name
+        :param pulumi.Input[str] commit_email: The commit author email address, defaults to the authenticated user's email address
+        :param pulumi.Input[str] commit_message: The commit message when creating or updating the file
+        :param pulumi.Input[str] content: The file's content
+        :param pulumi.Input[str] file: The file path to manage
+        :param pulumi.Input[bool] overwrite_on_create: Enable overwriting existing files, defaults to "false"
+        :param pulumi.Input[str] repository: The repository name
         """
         ...
     @overload
@@ -385,41 +346,7 @@ class RepositoryFile(pulumi.CustomResource):
                  args: RepositoryFileArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        This resource allows you to create and manage files within a
-        GitHub repository.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_github as github
-
-        foo_repository = github.Repository("fooRepository", auto_init=True)
-        foo_repository_file = github.RepositoryFile("fooRepositoryFile",
-            repository=foo_repository.name,
-            branch="main",
-            file=".gitignore",
-            content="**/*.tfstate",
-            commit_message="Managed by Terraform",
-            commit_author="Terraform User",
-            commit_email="terraform@example.com",
-            overwrite_on_create=True)
-        ```
-
-        ## Import
-
-        Repository files can be imported using a combination of the `repo` and `file`, e.g.
-
-        ```sh
-         $ pulumi import github:index/repositoryFile:RepositoryFile gitignore example/.gitignore
-        ```
-
-         To import a file from a branch other than main, append `:` and the branch name, e.g.
-
-        ```sh
-         $ pulumi import github:index/repositoryFile:RepositoryFile gitignore example/.gitignore:dev
-        ```
-
+        Create a RepositoryFile resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param RepositoryFileArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -495,17 +422,16 @@ class RepositoryFile(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] branch: Git branch (defaults to `main`).
-               The branch must already exist, it will not be created if it does not already exist.
-        :param pulumi.Input[str] commit_author: Committer author name to use.
-        :param pulumi.Input[str] commit_email: Committer email address to use.
-        :param pulumi.Input[str] commit_message: Commit message when adding or updating the managed file.
-        :param pulumi.Input[str] commit_sha: The SHA of the commit that modified the file.
-        :param pulumi.Input[str] content: The file content.
-        :param pulumi.Input[str] file: The path of the file to manage.
-        :param pulumi.Input[bool] overwrite_on_create: Enable overwriting existing files
-        :param pulumi.Input[str] repository: The repository to create the file in.
-        :param pulumi.Input[str] sha: The SHA blob of the file.
+        :param pulumi.Input[str] branch: The branch name, defaults to "main"
+        :param pulumi.Input[str] commit_author: The commit author name, defaults to the authenticated user's name
+        :param pulumi.Input[str] commit_email: The commit author email address, defaults to the authenticated user's email address
+        :param pulumi.Input[str] commit_message: The commit message when creating or updating the file
+        :param pulumi.Input[str] commit_sha: The SHA of the commit that modified the file
+        :param pulumi.Input[str] content: The file's content
+        :param pulumi.Input[str] file: The file path to manage
+        :param pulumi.Input[bool] overwrite_on_create: Enable overwriting existing files, defaults to "false"
+        :param pulumi.Input[str] repository: The repository name
+        :param pulumi.Input[str] sha: The blob SHA of the file
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -527,8 +453,7 @@ class RepositoryFile(pulumi.CustomResource):
     @pulumi.getter
     def branch(self) -> pulumi.Output[Optional[str]]:
         """
-        Git branch (defaults to `main`).
-        The branch must already exist, it will not be created if it does not already exist.
+        The branch name, defaults to "main"
         """
         return pulumi.get(self, "branch")
 
@@ -536,7 +461,7 @@ class RepositoryFile(pulumi.CustomResource):
     @pulumi.getter(name="commitAuthor")
     def commit_author(self) -> pulumi.Output[str]:
         """
-        Committer author name to use.
+        The commit author name, defaults to the authenticated user's name
         """
         return pulumi.get(self, "commit_author")
 
@@ -544,7 +469,7 @@ class RepositoryFile(pulumi.CustomResource):
     @pulumi.getter(name="commitEmail")
     def commit_email(self) -> pulumi.Output[str]:
         """
-        Committer email address to use.
+        The commit author email address, defaults to the authenticated user's email address
         """
         return pulumi.get(self, "commit_email")
 
@@ -552,7 +477,7 @@ class RepositoryFile(pulumi.CustomResource):
     @pulumi.getter(name="commitMessage")
     def commit_message(self) -> pulumi.Output[str]:
         """
-        Commit message when adding or updating the managed file.
+        The commit message when creating or updating the file
         """
         return pulumi.get(self, "commit_message")
 
@@ -560,7 +485,7 @@ class RepositoryFile(pulumi.CustomResource):
     @pulumi.getter(name="commitSha")
     def commit_sha(self) -> pulumi.Output[str]:
         """
-        The SHA of the commit that modified the file.
+        The SHA of the commit that modified the file
         """
         return pulumi.get(self, "commit_sha")
 
@@ -568,7 +493,7 @@ class RepositoryFile(pulumi.CustomResource):
     @pulumi.getter
     def content(self) -> pulumi.Output[str]:
         """
-        The file content.
+        The file's content
         """
         return pulumi.get(self, "content")
 
@@ -576,7 +501,7 @@ class RepositoryFile(pulumi.CustomResource):
     @pulumi.getter
     def file(self) -> pulumi.Output[str]:
         """
-        The path of the file to manage.
+        The file path to manage
         """
         return pulumi.get(self, "file")
 
@@ -584,7 +509,7 @@ class RepositoryFile(pulumi.CustomResource):
     @pulumi.getter(name="overwriteOnCreate")
     def overwrite_on_create(self) -> pulumi.Output[Optional[bool]]:
         """
-        Enable overwriting existing files
+        Enable overwriting existing files, defaults to "false"
         """
         return pulumi.get(self, "overwrite_on_create")
 
@@ -592,7 +517,7 @@ class RepositoryFile(pulumi.CustomResource):
     @pulumi.getter
     def repository(self) -> pulumi.Output[str]:
         """
-        The repository to create the file in.
+        The repository name
         """
         return pulumi.get(self, "repository")
 
@@ -600,7 +525,7 @@ class RepositoryFile(pulumi.CustomResource):
     @pulumi.getter
     def sha(self) -> pulumi.Output[str]:
         """
-        The SHA blob of the file.
+        The blob SHA of the file
         """
         return pulumi.get(self, "sha")
 

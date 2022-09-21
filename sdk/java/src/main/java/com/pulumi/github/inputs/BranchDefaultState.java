@@ -15,32 +15,16 @@ public final class BranchDefaultState extends com.pulumi.resources.ResourceArgs 
 
     public static final BranchDefaultState Empty = new BranchDefaultState();
 
-    /**
-     * The branch (e.g. `main`)
-     * 
-     */
     @Import(name="branch")
     private @Nullable Output<String> branch;
 
-    /**
-     * @return The branch (e.g. `main`)
-     * 
-     */
     public Optional<Output<String>> branch() {
         return Optional.ofNullable(this.branch);
     }
 
-    /**
-     * The GitHub repository
-     * 
-     */
     @Import(name="repository")
     private @Nullable Output<String> repository;
 
-    /**
-     * @return The GitHub repository
-     * 
-     */
     public Optional<Output<String>> repository() {
         return Optional.ofNullable(this.repository);
     }
@@ -70,44 +54,20 @@ public final class BranchDefaultState extends com.pulumi.resources.ResourceArgs 
             $ = new BranchDefaultState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param branch The branch (e.g. `main`)
-         * 
-         * @return builder
-         * 
-         */
         public Builder branch(@Nullable Output<String> branch) {
             $.branch = branch;
             return this;
         }
 
-        /**
-         * @param branch The branch (e.g. `main`)
-         * 
-         * @return builder
-         * 
-         */
         public Builder branch(String branch) {
             return branch(Output.of(branch));
         }
 
-        /**
-         * @param repository The GitHub repository
-         * 
-         * @return builder
-         * 
-         */
         public Builder repository(@Nullable Output<String> repository) {
             $.repository = repository;
             return this;
         }
 
-        /**
-         * @param repository The GitHub repository
-         * 
-         * @return builder
-         * 
-         */
         public Builder repository(String repository) {
             return repository(Output.of(repository));
         }

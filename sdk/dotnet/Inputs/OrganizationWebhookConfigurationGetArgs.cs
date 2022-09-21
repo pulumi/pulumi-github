@@ -21,9 +21,6 @@ namespace Pulumi.Github.Inputs
         [Input("secret")]
         public Input<string>? Secret { get; set; }
 
-        /// <summary>
-        /// URL of the webhook
-        /// </summary>
         [Input("url", required: true)]
         public Input<string> Url { get; set; } = null!;
 

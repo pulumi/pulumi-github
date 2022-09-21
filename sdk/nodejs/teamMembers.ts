@@ -5,46 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
-/**
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as github from "@pulumi/github";
- *
- * // Add a user to the organization
- * const membershipForSomeUser = new github.Membership("membershipForSomeUser", {
- *     username: "SomeUser",
- *     role: "member",
- * });
- * const membershipForAnotherUser = new github.Membership("membershipForAnotherUser", {
- *     username: "AnotherUser",
- *     role: "member",
- * });
- * const someTeam = new github.Team("someTeam", {description: "Some cool team"});
- * const someTeamMembers = new github.TeamMembers("someTeamMembers", {
- *     teamId: someTeam.id,
- *     members: [
- *         {
- *             username: "SomeUser",
- *             role: "maintainer",
- *         },
- *         {
- *             username: "AnotherUser",
- *             role: "member",
- *         },
- *     ],
- * });
- * ```
- *
- * ## Import
- *
- * GitHub Team Membership can be imported using the team ID `teamid`, e.g.
- *
- * ```sh
- *  $ pulumi import github:index/teamMembers:TeamMembers some_team 1234567
- * ```
- */
 export class TeamMembers extends pulumi.CustomResource {
     /**
      * Get an existing TeamMembers resource's state with the given name, ID, and optional extra
@@ -74,13 +34,7 @@ export class TeamMembers extends pulumi.CustomResource {
     }
 
     public /*out*/ readonly etag!: pulumi.Output<string>;
-    /**
-     * List of team members. See Members below for details.
-     */
     public readonly members!: pulumi.Output<outputs.TeamMembersMember[]>;
-    /**
-     * The GitHub team id
-     */
     public readonly teamId!: pulumi.Output<string>;
 
     /**
@@ -121,13 +75,7 @@ export class TeamMembers extends pulumi.CustomResource {
  */
 export interface TeamMembersState {
     etag?: pulumi.Input<string>;
-    /**
-     * List of team members. See Members below for details.
-     */
     members?: pulumi.Input<pulumi.Input<inputs.TeamMembersMember>[]>;
-    /**
-     * The GitHub team id
-     */
     teamId?: pulumi.Input<string>;
 }
 
@@ -135,12 +83,6 @@ export interface TeamMembersState {
  * The set of arguments for constructing a TeamMembers resource.
  */
 export interface TeamMembersArgs {
-    /**
-     * List of team members. See Members below for details.
-     */
     members: pulumi.Input<pulumi.Input<inputs.TeamMembersMember>[]>;
-    /**
-     * The GitHub team id
-     */
     teamId: pulumi.Input<string>;
 }

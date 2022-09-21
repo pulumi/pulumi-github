@@ -56,9 +56,6 @@ class GetTeamResult:
     @property
     @pulumi.getter
     def description(self) -> str:
-        """
-        the team's description.
-        """
         return pulumi.get(self, "description")
 
     @property
@@ -72,9 +69,6 @@ class GetTeamResult:
     @property
     @pulumi.getter
     def members(self) -> Sequence[str]:
-        """
-        List of team members (list of GitHub usernames)
-        """
         return pulumi.get(self, "members")
 
     @property
@@ -85,41 +79,26 @@ class GetTeamResult:
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        the team's full name.
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="nodeId")
     def node_id(self) -> str:
-        """
-        the Node ID of the team.
-        """
         return pulumi.get(self, "node_id")
 
     @property
     @pulumi.getter
     def permission(self) -> str:
-        """
-        the team's permission level.
-        """
         return pulumi.get(self, "permission")
 
     @property
     @pulumi.getter
     def privacy(self) -> str:
-        """
-        the team's privacy type.
-        """
         return pulumi.get(self, "privacy")
 
     @property
     @pulumi.getter
     def repositories(self) -> Sequence[str]:
-        """
-        List of team repositories (list of repo names)
-        """
         return pulumi.get(self, "repositories")
 
     @property
@@ -150,20 +129,7 @@ def get_team(membership_type: Optional[str] = None,
              slug: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTeamResult:
     """
-    Use this data source to retrieve information about a GitHub team.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_github as github
-
-    example = github.get_team(slug="example")
-    ```
-
-
-    :param str membership_type: Type of membershp to be requested to fill the list of members. Can be either "all" or "immediate". Default: "all"
-    :param str slug: The team slug.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['membershipType'] = membership_type
@@ -189,19 +155,6 @@ def get_team_output(membership_type: Optional[pulumi.Input[Optional[str]]] = Non
                     slug: Optional[pulumi.Input[str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTeamResult]:
     """
-    Use this data source to retrieve information about a GitHub team.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_github as github
-
-    example = github.get_team(slug="example")
-    ```
-
-
-    :param str membership_type: Type of membershp to be requested to fill the list of members. Can be either "all" or "immediate". Default: "all"
-    :param str slug: The team slug.
+    Use this data source to access information about an existing resource.
     """
     ...

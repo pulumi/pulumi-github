@@ -14,38 +14,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetTreeResult {
-    /**
-     * @return Objects (of `path`, `mode`, `type`, `size`, and `sha`) specifying a tree structure.
-     * 
-     */
-    private final List<GetTreeEntry> entries;
+    private List<GetTreeEntry> entries;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final @Nullable Boolean recursive;
-    private final String repository;
-    private final String treeSha;
+    private String id;
+    private @Nullable Boolean recursive;
+    private String repository;
+    private String treeSha;
 
-    @CustomType.Constructor
-    private GetTreeResult(
-        @CustomType.Parameter("entries") List<GetTreeEntry> entries,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("recursive") @Nullable Boolean recursive,
-        @CustomType.Parameter("repository") String repository,
-        @CustomType.Parameter("treeSha") String treeSha) {
-        this.entries = entries;
-        this.id = id;
-        this.recursive = recursive;
-        this.repository = repository;
-        this.treeSha = treeSha;
-    }
-
-    /**
-     * @return Objects (of `path`, `mode`, `type`, `size`, and `sha`) specifying a tree structure.
-     * 
-     */
+    private GetTreeResult() {}
     public List<GetTreeEntry> entries() {
         return this.entries;
     }
@@ -73,18 +52,14 @@ public final class GetTreeResult {
     public static Builder builder(GetTreeResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<GetTreeEntry> entries;
         private String id;
         private @Nullable Boolean recursive;
         private String repository;
         private String treeSha;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetTreeResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.entries = defaults.entries;
@@ -94,6 +69,7 @@ public final class GetTreeResult {
     	      this.treeSha = defaults.treeSha;
         }
 
+        @CustomType.Setter
         public Builder entries(List<GetTreeEntry> entries) {
             this.entries = Objects.requireNonNull(entries);
             return this;
@@ -101,23 +77,34 @@ public final class GetTreeResult {
         public Builder entries(GetTreeEntry... entries) {
             return entries(List.of(entries));
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder recursive(@Nullable Boolean recursive) {
             this.recursive = recursive;
             return this;
         }
+        @CustomType.Setter
         public Builder repository(String repository) {
             this.repository = Objects.requireNonNull(repository);
             return this;
         }
+        @CustomType.Setter
         public Builder treeSha(String treeSha) {
             this.treeSha = Objects.requireNonNull(treeSha);
             return this;
-        }        public GetTreeResult build() {
-            return new GetTreeResult(entries, id, recursive, repository, treeSha);
+        }
+        public GetTreeResult build() {
+            final var o = new GetTreeResult();
+            o.entries = entries;
+            o.id = id;
+            o.recursive = recursive;
+            o.repository = repository;
+            o.treeSha = treeSha;
+            return o;
         }
     }
 }

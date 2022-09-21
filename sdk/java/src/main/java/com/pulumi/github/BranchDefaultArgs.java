@@ -13,32 +13,16 @@ public final class BranchDefaultArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final BranchDefaultArgs Empty = new BranchDefaultArgs();
 
-    /**
-     * The branch (e.g. `main`)
-     * 
-     */
     @Import(name="branch", required=true)
     private Output<String> branch;
 
-    /**
-     * @return The branch (e.g. `main`)
-     * 
-     */
     public Output<String> branch() {
         return this.branch;
     }
 
-    /**
-     * The GitHub repository
-     * 
-     */
     @Import(name="repository", required=true)
     private Output<String> repository;
 
-    /**
-     * @return The GitHub repository
-     * 
-     */
     public Output<String> repository() {
         return this.repository;
     }
@@ -68,44 +52,20 @@ public final class BranchDefaultArgs extends com.pulumi.resources.ResourceArgs {
             $ = new BranchDefaultArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param branch The branch (e.g. `main`)
-         * 
-         * @return builder
-         * 
-         */
         public Builder branch(Output<String> branch) {
             $.branch = branch;
             return this;
         }
 
-        /**
-         * @param branch The branch (e.g. `main`)
-         * 
-         * @return builder
-         * 
-         */
         public Builder branch(String branch) {
             return branch(Output.of(branch));
         }
 
-        /**
-         * @param repository The GitHub repository
-         * 
-         * @return builder
-         * 
-         */
         public Builder repository(Output<String> repository) {
             $.repository = repository;
             return this;
         }
 
-        /**
-         * @param repository The GitHub repository
-         * 
-         * @return builder
-         * 
-         */
         public Builder repository(String repository) {
             return repository(Output.of(repository));
         }

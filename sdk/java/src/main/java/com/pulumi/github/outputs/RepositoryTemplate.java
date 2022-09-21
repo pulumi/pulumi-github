@@ -9,17 +9,10 @@ import java.util.Objects;
 
 @CustomType
 public final class RepositoryTemplate {
-    private final String owner;
-    private final String repository;
+    private String owner;
+    private String repository;
 
-    @CustomType.Constructor
-    private RepositoryTemplate(
-        @CustomType.Parameter("owner") String owner,
-        @CustomType.Parameter("repository") String repository) {
-        this.owner = owner;
-        this.repository = repository;
-    }
-
+    private RepositoryTemplate() {}
     public String owner() {
         return this.owner;
     }
@@ -34,30 +27,32 @@ public final class RepositoryTemplate {
     public static Builder builder(RepositoryTemplate defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String owner;
         private String repository;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RepositoryTemplate defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.owner = defaults.owner;
     	      this.repository = defaults.repository;
         }
 
+        @CustomType.Setter
         public Builder owner(String owner) {
             this.owner = Objects.requireNonNull(owner);
             return this;
         }
+        @CustomType.Setter
         public Builder repository(String repository) {
             this.repository = Objects.requireNonNull(repository);
             return this;
-        }        public RepositoryTemplate build() {
-            return new RepositoryTemplate(owner, repository);
+        }
+        public RepositoryTemplate build() {
+            final var o = new RepositoryTemplate();
+            o.owner = owner;
+            o.repository = repository;
+            return o;
         }
     }
 }

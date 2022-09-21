@@ -19,9 +19,6 @@ class ActionsRunnerGroupArgs:
                  selected_repository_ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None):
         """
         The set of arguments for constructing a ActionsRunnerGroup resource.
-        :param pulumi.Input[str] visibility: Visibility of a runner group. Whether the runner group can include `all`, `selected`, or `private` repositories. A value of `private` is not currently supported due to limitations in the GitHub API.
-        :param pulumi.Input[str] name: Name of the runner group
-        :param pulumi.Input[Sequence[pulumi.Input[int]]] selected_repository_ids: IDs of the repositories which should be added to the runner group
         """
         pulumi.set(__self__, "visibility", visibility)
         if name is not None:
@@ -32,9 +29,6 @@ class ActionsRunnerGroupArgs:
     @property
     @pulumi.getter
     def visibility(self) -> pulumi.Input[str]:
-        """
-        Visibility of a runner group. Whether the runner group can include `all`, `selected`, or `private` repositories. A value of `private` is not currently supported due to limitations in the GitHub API.
-        """
         return pulumi.get(self, "visibility")
 
     @visibility.setter
@@ -44,9 +38,6 @@ class ActionsRunnerGroupArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of the runner group
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -56,9 +47,6 @@ class ActionsRunnerGroupArgs:
     @property
     @pulumi.getter(name="selectedRepositoryIds")
     def selected_repository_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
-        """
-        IDs of the repositories which should be added to the runner group
-        """
         return pulumi.get(self, "selected_repository_ids")
 
     @selected_repository_ids.setter
@@ -80,15 +68,6 @@ class _ActionsRunnerGroupState:
                  visibility: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering ActionsRunnerGroup resources.
-        :param pulumi.Input[bool] allows_public_repositories: Whether public repositories can be added to the runner group
-        :param pulumi.Input[bool] default: Whether this is the default runner group
-        :param pulumi.Input[str] etag: An etag representing the runner group object
-        :param pulumi.Input[bool] inherited: Whether the runner group is inherited from the enterprise level
-        :param pulumi.Input[str] name: Name of the runner group
-        :param pulumi.Input[str] runners_url: The GitHub API URL for the runner group's runners
-        :param pulumi.Input[str] selected_repositories_url: Github API URL for the runner group's repositories
-        :param pulumi.Input[Sequence[pulumi.Input[int]]] selected_repository_ids: IDs of the repositories which should be added to the runner group
-        :param pulumi.Input[str] visibility: Visibility of a runner group. Whether the runner group can include `all`, `selected`, or `private` repositories. A value of `private` is not currently supported due to limitations in the GitHub API.
         """
         if allows_public_repositories is not None:
             pulumi.set(__self__, "allows_public_repositories", allows_public_repositories)
@@ -112,9 +91,6 @@ class _ActionsRunnerGroupState:
     @property
     @pulumi.getter(name="allowsPublicRepositories")
     def allows_public_repositories(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Whether public repositories can be added to the runner group
-        """
         return pulumi.get(self, "allows_public_repositories")
 
     @allows_public_repositories.setter
@@ -124,9 +100,6 @@ class _ActionsRunnerGroupState:
     @property
     @pulumi.getter
     def default(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Whether this is the default runner group
-        """
         return pulumi.get(self, "default")
 
     @default.setter
@@ -136,9 +109,6 @@ class _ActionsRunnerGroupState:
     @property
     @pulumi.getter
     def etag(self) -> Optional[pulumi.Input[str]]:
-        """
-        An etag representing the runner group object
-        """
         return pulumi.get(self, "etag")
 
     @etag.setter
@@ -148,9 +118,6 @@ class _ActionsRunnerGroupState:
     @property
     @pulumi.getter
     def inherited(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Whether the runner group is inherited from the enterprise level
-        """
         return pulumi.get(self, "inherited")
 
     @inherited.setter
@@ -160,9 +127,6 @@ class _ActionsRunnerGroupState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of the runner group
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -172,9 +136,6 @@ class _ActionsRunnerGroupState:
     @property
     @pulumi.getter(name="runnersUrl")
     def runners_url(self) -> Optional[pulumi.Input[str]]:
-        """
-        The GitHub API URL for the runner group's runners
-        """
         return pulumi.get(self, "runners_url")
 
     @runners_url.setter
@@ -184,9 +145,6 @@ class _ActionsRunnerGroupState:
     @property
     @pulumi.getter(name="selectedRepositoriesUrl")
     def selected_repositories_url(self) -> Optional[pulumi.Input[str]]:
-        """
-        Github API URL for the runner group's repositories
-        """
         return pulumi.get(self, "selected_repositories_url")
 
     @selected_repositories_url.setter
@@ -196,9 +154,6 @@ class _ActionsRunnerGroupState:
     @property
     @pulumi.getter(name="selectedRepositoryIds")
     def selected_repository_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
-        """
-        IDs of the repositories which should be added to the runner group
-        """
         return pulumi.get(self, "selected_repository_ids")
 
     @selected_repository_ids.setter
@@ -208,9 +163,6 @@ class _ActionsRunnerGroupState:
     @property
     @pulumi.getter
     def visibility(self) -> Optional[pulumi.Input[str]]:
-        """
-        Visibility of a runner group. Whether the runner group can include `all`, `selected`, or `private` repositories. A value of `private` is not currently supported due to limitations in the GitHub API.
-        """
         return pulumi.get(self, "visibility")
 
     @visibility.setter
@@ -228,34 +180,9 @@ class ActionsRunnerGroup(pulumi.CustomResource):
                  visibility: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        This resource allows you to create and manage GitHub Actions runner groups within your GitHub enterprise organizations.
-        You must have admin access to an organization to use this resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_github as github
-
-        example_repository = github.Repository("exampleRepository")
-        example_actions_runner_group = github.ActionsRunnerGroup("exampleActionsRunnerGroup",
-            visibility="selected",
-            selected_repository_ids=[example_repository.repo_id])
-        ```
-
-        ## Import
-
-        This resource can be imported using the ID of the runner group
-
-        ```sh
-         $ pulumi import github:index/actionsRunnerGroup:ActionsRunnerGroup test 7
-        ```
-
+        Create a ActionsRunnerGroup resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: Name of the runner group
-        :param pulumi.Input[Sequence[pulumi.Input[int]]] selected_repository_ids: IDs of the repositories which should be added to the runner group
-        :param pulumi.Input[str] visibility: Visibility of a runner group. Whether the runner group can include `all`, `selected`, or `private` repositories. A value of `private` is not currently supported due to limitations in the GitHub API.
         """
         ...
     @overload
@@ -264,29 +191,7 @@ class ActionsRunnerGroup(pulumi.CustomResource):
                  args: ActionsRunnerGroupArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        This resource allows you to create and manage GitHub Actions runner groups within your GitHub enterprise organizations.
-        You must have admin access to an organization to use this resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_github as github
-
-        example_repository = github.Repository("exampleRepository")
-        example_actions_runner_group = github.ActionsRunnerGroup("exampleActionsRunnerGroup",
-            visibility="selected",
-            selected_repository_ids=[example_repository.repo_id])
-        ```
-
-        ## Import
-
-        This resource can be imported using the ID of the runner group
-
-        ```sh
-         $ pulumi import github:index/actionsRunnerGroup:ActionsRunnerGroup test 7
-        ```
-
+        Create a ActionsRunnerGroup resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ActionsRunnerGroupArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -351,15 +256,6 @@ class ActionsRunnerGroup(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] allows_public_repositories: Whether public repositories can be added to the runner group
-        :param pulumi.Input[bool] default: Whether this is the default runner group
-        :param pulumi.Input[str] etag: An etag representing the runner group object
-        :param pulumi.Input[bool] inherited: Whether the runner group is inherited from the enterprise level
-        :param pulumi.Input[str] name: Name of the runner group
-        :param pulumi.Input[str] runners_url: The GitHub API URL for the runner group's runners
-        :param pulumi.Input[str] selected_repositories_url: Github API URL for the runner group's repositories
-        :param pulumi.Input[Sequence[pulumi.Input[int]]] selected_repository_ids: IDs of the repositories which should be added to the runner group
-        :param pulumi.Input[str] visibility: Visibility of a runner group. Whether the runner group can include `all`, `selected`, or `private` repositories. A value of `private` is not currently supported due to limitations in the GitHub API.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -379,72 +275,45 @@ class ActionsRunnerGroup(pulumi.CustomResource):
     @property
     @pulumi.getter(name="allowsPublicRepositories")
     def allows_public_repositories(self) -> pulumi.Output[bool]:
-        """
-        Whether public repositories can be added to the runner group
-        """
         return pulumi.get(self, "allows_public_repositories")
 
     @property
     @pulumi.getter
     def default(self) -> pulumi.Output[bool]:
-        """
-        Whether this is the default runner group
-        """
         return pulumi.get(self, "default")
 
     @property
     @pulumi.getter
     def etag(self) -> pulumi.Output[str]:
-        """
-        An etag representing the runner group object
-        """
         return pulumi.get(self, "etag")
 
     @property
     @pulumi.getter
     def inherited(self) -> pulumi.Output[bool]:
-        """
-        Whether the runner group is inherited from the enterprise level
-        """
         return pulumi.get(self, "inherited")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
-        """
-        Name of the runner group
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="runnersUrl")
     def runners_url(self) -> pulumi.Output[str]:
-        """
-        The GitHub API URL for the runner group's runners
-        """
         return pulumi.get(self, "runners_url")
 
     @property
     @pulumi.getter(name="selectedRepositoriesUrl")
     def selected_repositories_url(self) -> pulumi.Output[str]:
-        """
-        Github API URL for the runner group's repositories
-        """
         return pulumi.get(self, "selected_repositories_url")
 
     @property
     @pulumi.getter(name="selectedRepositoryIds")
     def selected_repository_ids(self) -> pulumi.Output[Optional[Sequence[int]]]:
-        """
-        IDs of the repositories which should be added to the runner group
-        """
         return pulumi.get(self, "selected_repository_ids")
 
     @property
     @pulumi.getter
     def visibility(self) -> pulumi.Output[str]:
-        """
-        Visibility of a runner group. Whether the runner group can include `all`, `selected`, or `private` repositories. A value of `private` is not currently supported due to limitations in the GitHub API.
-        """
         return pulumi.get(self, "visibility")
 

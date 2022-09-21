@@ -10,34 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Use this data source to retrieve information about a repository ref.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-github/sdk/v4/go/github"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := github.GetRef(ctx, &GetRefArgs{
-//				Ref:        "heads/development",
-//				Repository: "example",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetRef(ctx *pulumi.Context, args *GetRefArgs, opts ...pulumi.InvokeOption) (*GetRefResult, error) {
 	var rv GetRefResult
 	err := ctx.Invoke("github:index/getRef:getRef", args, &rv, opts...)
@@ -49,22 +21,18 @@ func GetRef(ctx *pulumi.Context, args *GetRefArgs, opts ...pulumi.InvokeOption) 
 
 // A collection of arguments for invoking getRef.
 type GetRefArgs struct {
-	// The repository ref to look up. Must be formatted `heads/<ref>` for branches, and `tags/<ref>` for tags.
-	Ref string `pulumi:"ref"`
-	// The GitHub repository name.
+	Ref        string `pulumi:"ref"`
 	Repository string `pulumi:"repository"`
 }
 
 // A collection of values returned by getRef.
 type GetRefResult struct {
-	// An etag representing the ref.
 	Etag string `pulumi:"etag"`
 	// The provider-assigned unique ID for this managed resource.
 	Id         string `pulumi:"id"`
 	Ref        string `pulumi:"ref"`
 	Repository string `pulumi:"repository"`
-	// A string storing the reference's `HEAD` commit's SHA1.
-	Sha string `pulumi:"sha"`
+	Sha        string `pulumi:"sha"`
 }
 
 func GetRefOutput(ctx *pulumi.Context, args GetRefOutputArgs, opts ...pulumi.InvokeOption) GetRefResultOutput {
@@ -82,9 +50,7 @@ func GetRefOutput(ctx *pulumi.Context, args GetRefOutputArgs, opts ...pulumi.Inv
 
 // A collection of arguments for invoking getRef.
 type GetRefOutputArgs struct {
-	// The repository ref to look up. Must be formatted `heads/<ref>` for branches, and `tags/<ref>` for tags.
-	Ref pulumi.StringInput `pulumi:"ref"`
-	// The GitHub repository name.
+	Ref        pulumi.StringInput `pulumi:"ref"`
 	Repository pulumi.StringInput `pulumi:"repository"`
 }
 
@@ -107,7 +73,6 @@ func (o GetRefResultOutput) ToGetRefResultOutputWithContext(ctx context.Context)
 	return o
 }
 
-// An etag representing the ref.
 func (o GetRefResultOutput) Etag() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRefResult) string { return v.Etag }).(pulumi.StringOutput)
 }
@@ -125,7 +90,6 @@ func (o GetRefResultOutput) Repository() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRefResult) string { return v.Repository }).(pulumi.StringOutput)
 }
 
-// A string storing the reference's `HEAD` commit's SHA1.
 func (o GetRefResultOutput) Sha() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRefResult) string { return v.Sha }).(pulumi.StringOutput)
 }

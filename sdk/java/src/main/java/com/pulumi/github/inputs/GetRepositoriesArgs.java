@@ -15,32 +15,16 @@ public final class GetRepositoriesArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetRepositoriesArgs Empty = new GetRepositoriesArgs();
 
-    /**
-     * Search query. See [documentation for the search syntax](https://help.github.com/articles/understanding-the-search-syntax/).
-     * 
-     */
     @Import(name="query", required=true)
     private Output<String> query;
 
-    /**
-     * @return Search query. See [documentation for the search syntax](https://help.github.com/articles/understanding-the-search-syntax/).
-     * 
-     */
     public Output<String> query() {
         return this.query;
     }
 
-    /**
-     * Sorts the repositories returned by the specified attribute. Valid values include `stars`, `fork`, and `updated`. Defaults to `updated`.
-     * 
-     */
     @Import(name="sort")
     private @Nullable Output<String> sort;
 
-    /**
-     * @return Sorts the repositories returned by the specified attribute. Valid values include `stars`, `fork`, and `updated`. Defaults to `updated`.
-     * 
-     */
     public Optional<Output<String>> sort() {
         return Optional.ofNullable(this.sort);
     }
@@ -70,44 +54,20 @@ public final class GetRepositoriesArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetRepositoriesArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param query Search query. See [documentation for the search syntax](https://help.github.com/articles/understanding-the-search-syntax/).
-         * 
-         * @return builder
-         * 
-         */
         public Builder query(Output<String> query) {
             $.query = query;
             return this;
         }
 
-        /**
-         * @param query Search query. See [documentation for the search syntax](https://help.github.com/articles/understanding-the-search-syntax/).
-         * 
-         * @return builder
-         * 
-         */
         public Builder query(String query) {
             return query(Output.of(query));
         }
 
-        /**
-         * @param sort Sorts the repositories returned by the specified attribute. Valid values include `stars`, `fork`, and `updated`. Defaults to `updated`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sort(@Nullable Output<String> sort) {
             $.sort = sort;
             return this;
         }
 
-        /**
-         * @param sort Sorts the repositories returned by the specified attribute. Valid values include `stars`, `fork`, and `updated`. Defaults to `updated`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sort(String sort) {
             return sort(Output.of(sort));
         }

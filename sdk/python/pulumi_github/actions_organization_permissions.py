@@ -22,10 +22,6 @@ class ActionsOrganizationPermissionsArgs:
                  enabled_repositories_config: Optional[pulumi.Input['ActionsOrganizationPermissionsEnabledRepositoriesConfigArgs']] = None):
         """
         The set of arguments for constructing a ActionsOrganizationPermissions resource.
-        :param pulumi.Input[str] enabled_repositories: The policy that controls the repositories in the organization that are allowed to run GitHub Actions. Can be one of: `all`, `none`, or `selected`.
-        :param pulumi.Input[str] allowed_actions: The permissions policy that controls the actions that are allowed to run. Can be one of: `all`, `local_only`, or `selected`.
-        :param pulumi.Input['ActionsOrganizationPermissionsAllowedActionsConfigArgs'] allowed_actions_config: Sets the actions that are allowed in an organization. Only available when `allowed_actions` = `selected`. See Allowed Actions Config below for details.
-        :param pulumi.Input['ActionsOrganizationPermissionsEnabledRepositoriesConfigArgs'] enabled_repositories_config: Sets the list of selected repositories that are enabled for GitHub Actions in an organization. Only available when `enabled_repositories` = `selected`. See Enabled Repositories Config below for details.
         """
         pulumi.set(__self__, "enabled_repositories", enabled_repositories)
         if allowed_actions is not None:
@@ -38,9 +34,6 @@ class ActionsOrganizationPermissionsArgs:
     @property
     @pulumi.getter(name="enabledRepositories")
     def enabled_repositories(self) -> pulumi.Input[str]:
-        """
-        The policy that controls the repositories in the organization that are allowed to run GitHub Actions. Can be one of: `all`, `none`, or `selected`.
-        """
         return pulumi.get(self, "enabled_repositories")
 
     @enabled_repositories.setter
@@ -50,9 +43,6 @@ class ActionsOrganizationPermissionsArgs:
     @property
     @pulumi.getter(name="allowedActions")
     def allowed_actions(self) -> Optional[pulumi.Input[str]]:
-        """
-        The permissions policy that controls the actions that are allowed to run. Can be one of: `all`, `local_only`, or `selected`.
-        """
         return pulumi.get(self, "allowed_actions")
 
     @allowed_actions.setter
@@ -62,9 +52,6 @@ class ActionsOrganizationPermissionsArgs:
     @property
     @pulumi.getter(name="allowedActionsConfig")
     def allowed_actions_config(self) -> Optional[pulumi.Input['ActionsOrganizationPermissionsAllowedActionsConfigArgs']]:
-        """
-        Sets the actions that are allowed in an organization. Only available when `allowed_actions` = `selected`. See Allowed Actions Config below for details.
-        """
         return pulumi.get(self, "allowed_actions_config")
 
     @allowed_actions_config.setter
@@ -74,9 +61,6 @@ class ActionsOrganizationPermissionsArgs:
     @property
     @pulumi.getter(name="enabledRepositoriesConfig")
     def enabled_repositories_config(self) -> Optional[pulumi.Input['ActionsOrganizationPermissionsEnabledRepositoriesConfigArgs']]:
-        """
-        Sets the list of selected repositories that are enabled for GitHub Actions in an organization. Only available when `enabled_repositories` = `selected`. See Enabled Repositories Config below for details.
-        """
         return pulumi.get(self, "enabled_repositories_config")
 
     @enabled_repositories_config.setter
@@ -93,10 +77,6 @@ class _ActionsOrganizationPermissionsState:
                  enabled_repositories_config: Optional[pulumi.Input['ActionsOrganizationPermissionsEnabledRepositoriesConfigArgs']] = None):
         """
         Input properties used for looking up and filtering ActionsOrganizationPermissions resources.
-        :param pulumi.Input[str] allowed_actions: The permissions policy that controls the actions that are allowed to run. Can be one of: `all`, `local_only`, or `selected`.
-        :param pulumi.Input['ActionsOrganizationPermissionsAllowedActionsConfigArgs'] allowed_actions_config: Sets the actions that are allowed in an organization. Only available when `allowed_actions` = `selected`. See Allowed Actions Config below for details.
-        :param pulumi.Input[str] enabled_repositories: The policy that controls the repositories in the organization that are allowed to run GitHub Actions. Can be one of: `all`, `none`, or `selected`.
-        :param pulumi.Input['ActionsOrganizationPermissionsEnabledRepositoriesConfigArgs'] enabled_repositories_config: Sets the list of selected repositories that are enabled for GitHub Actions in an organization. Only available when `enabled_repositories` = `selected`. See Enabled Repositories Config below for details.
         """
         if allowed_actions is not None:
             pulumi.set(__self__, "allowed_actions", allowed_actions)
@@ -110,9 +90,6 @@ class _ActionsOrganizationPermissionsState:
     @property
     @pulumi.getter(name="allowedActions")
     def allowed_actions(self) -> Optional[pulumi.Input[str]]:
-        """
-        The permissions policy that controls the actions that are allowed to run. Can be one of: `all`, `local_only`, or `selected`.
-        """
         return pulumi.get(self, "allowed_actions")
 
     @allowed_actions.setter
@@ -122,9 +99,6 @@ class _ActionsOrganizationPermissionsState:
     @property
     @pulumi.getter(name="allowedActionsConfig")
     def allowed_actions_config(self) -> Optional[pulumi.Input['ActionsOrganizationPermissionsAllowedActionsConfigArgs']]:
-        """
-        Sets the actions that are allowed in an organization. Only available when `allowed_actions` = `selected`. See Allowed Actions Config below for details.
-        """
         return pulumi.get(self, "allowed_actions_config")
 
     @allowed_actions_config.setter
@@ -134,9 +108,6 @@ class _ActionsOrganizationPermissionsState:
     @property
     @pulumi.getter(name="enabledRepositories")
     def enabled_repositories(self) -> Optional[pulumi.Input[str]]:
-        """
-        The policy that controls the repositories in the organization that are allowed to run GitHub Actions. Can be one of: `all`, `none`, or `selected`.
-        """
         return pulumi.get(self, "enabled_repositories")
 
     @enabled_repositories.setter
@@ -146,9 +117,6 @@ class _ActionsOrganizationPermissionsState:
     @property
     @pulumi.getter(name="enabledRepositoriesConfig")
     def enabled_repositories_config(self) -> Optional[pulumi.Input['ActionsOrganizationPermissionsEnabledRepositoriesConfigArgs']]:
-        """
-        Sets the list of selected repositories that are enabled for GitHub Actions in an organization. Only available when `enabled_repositories` = `selected`. See Enabled Repositories Config below for details.
-        """
         return pulumi.get(self, "enabled_repositories_config")
 
     @enabled_repositories_config.setter
@@ -167,46 +135,9 @@ class ActionsOrganizationPermissions(pulumi.CustomResource):
                  enabled_repositories_config: Optional[pulumi.Input[pulumi.InputType['ActionsOrganizationPermissionsEnabledRepositoriesConfigArgs']]] = None,
                  __props__=None):
         """
-        This resource allows you to create and manage GitHub Actions permissions within your GitHub enterprise organizations.
-        You must have admin access to an organization to use this resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_github as github
-
-        example = github.Repository("example")
-        test = github.ActionsOrganizationPermissions("test",
-            allowed_actions="selected",
-            enabled_repositories="selected",
-            allowed_actions_config=github.ActionsOrganizationPermissionsAllowedActionsConfigArgs(
-                github_owned_allowed=True,
-                patterns_alloweds=[
-                    "actions/cache@*",
-                    "actions/checkout@*",
-                ],
-                verified_allowed=True,
-            ),
-            enabled_repositories_config=github.ActionsOrganizationPermissionsEnabledRepositoriesConfigArgs(
-                repository_ids=[example.repo_id],
-            ))
-        ```
-
-        ## Import
-
-        This resource can be imported using the ID of the GitHub organization
-
-        ```sh
-         $ pulumi import github:index/actionsOrganizationPermissions:ActionsOrganizationPermissions test <github_organization_name>
-        ```
-
+        Create a ActionsOrganizationPermissions resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] allowed_actions: The permissions policy that controls the actions that are allowed to run. Can be one of: `all`, `local_only`, or `selected`.
-        :param pulumi.Input[pulumi.InputType['ActionsOrganizationPermissionsAllowedActionsConfigArgs']] allowed_actions_config: Sets the actions that are allowed in an organization. Only available when `allowed_actions` = `selected`. See Allowed Actions Config below for details.
-        :param pulumi.Input[str] enabled_repositories: The policy that controls the repositories in the organization that are allowed to run GitHub Actions. Can be one of: `all`, `none`, or `selected`.
-        :param pulumi.Input[pulumi.InputType['ActionsOrganizationPermissionsEnabledRepositoriesConfigArgs']] enabled_repositories_config: Sets the list of selected repositories that are enabled for GitHub Actions in an organization. Only available when `enabled_repositories` = `selected`. See Enabled Repositories Config below for details.
         """
         ...
     @overload
@@ -215,40 +146,7 @@ class ActionsOrganizationPermissions(pulumi.CustomResource):
                  args: ActionsOrganizationPermissionsArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        This resource allows you to create and manage GitHub Actions permissions within your GitHub enterprise organizations.
-        You must have admin access to an organization to use this resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_github as github
-
-        example = github.Repository("example")
-        test = github.ActionsOrganizationPermissions("test",
-            allowed_actions="selected",
-            enabled_repositories="selected",
-            allowed_actions_config=github.ActionsOrganizationPermissionsAllowedActionsConfigArgs(
-                github_owned_allowed=True,
-                patterns_alloweds=[
-                    "actions/cache@*",
-                    "actions/checkout@*",
-                ],
-                verified_allowed=True,
-            ),
-            enabled_repositories_config=github.ActionsOrganizationPermissionsEnabledRepositoriesConfigArgs(
-                repository_ids=[example.repo_id],
-            ))
-        ```
-
-        ## Import
-
-        This resource can be imported using the ID of the GitHub organization
-
-        ```sh
-         $ pulumi import github:index/actionsOrganizationPermissions:ActionsOrganizationPermissions test <github_organization_name>
-        ```
-
+        Create a ActionsOrganizationPermissions resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ActionsOrganizationPermissionsArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -304,10 +202,6 @@ class ActionsOrganizationPermissions(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] allowed_actions: The permissions policy that controls the actions that are allowed to run. Can be one of: `all`, `local_only`, or `selected`.
-        :param pulumi.Input[pulumi.InputType['ActionsOrganizationPermissionsAllowedActionsConfigArgs']] allowed_actions_config: Sets the actions that are allowed in an organization. Only available when `allowed_actions` = `selected`. See Allowed Actions Config below for details.
-        :param pulumi.Input[str] enabled_repositories: The policy that controls the repositories in the organization that are allowed to run GitHub Actions. Can be one of: `all`, `none`, or `selected`.
-        :param pulumi.Input[pulumi.InputType['ActionsOrganizationPermissionsEnabledRepositoriesConfigArgs']] enabled_repositories_config: Sets the list of selected repositories that are enabled for GitHub Actions in an organization. Only available when `enabled_repositories` = `selected`. See Enabled Repositories Config below for details.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -322,32 +216,20 @@ class ActionsOrganizationPermissions(pulumi.CustomResource):
     @property
     @pulumi.getter(name="allowedActions")
     def allowed_actions(self) -> pulumi.Output[Optional[str]]:
-        """
-        The permissions policy that controls the actions that are allowed to run. Can be one of: `all`, `local_only`, or `selected`.
-        """
         return pulumi.get(self, "allowed_actions")
 
     @property
     @pulumi.getter(name="allowedActionsConfig")
     def allowed_actions_config(self) -> pulumi.Output[Optional['outputs.ActionsOrganizationPermissionsAllowedActionsConfig']]:
-        """
-        Sets the actions that are allowed in an organization. Only available when `allowed_actions` = `selected`. See Allowed Actions Config below for details.
-        """
         return pulumi.get(self, "allowed_actions_config")
 
     @property
     @pulumi.getter(name="enabledRepositories")
     def enabled_repositories(self) -> pulumi.Output[str]:
-        """
-        The policy that controls the repositories in the organization that are allowed to run GitHub Actions. Can be one of: `all`, `none`, or `selected`.
-        """
         return pulumi.get(self, "enabled_repositories")
 
     @property
     @pulumi.getter(name="enabledRepositoriesConfig")
     def enabled_repositories_config(self) -> pulumi.Output[Optional['outputs.ActionsOrganizationPermissionsEnabledRepositoriesConfig']]:
-        """
-        Sets the list of selected repositories that are enabled for GitHub Actions in an organization. Only available when `enabled_repositories` = `selected`. See Enabled Repositories Config below for details.
-        """
         return pulumi.get(self, "enabled_repositories_config")
 

@@ -12,15 +12,9 @@ namespace Pulumi.Github.Inputs
 
     public sealed class RepositoryEnvironmentDeploymentBranchPolicyGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Whether only branches that match the specified name patterns can deploy to this environment.
-        /// </summary>
         [Input("customBranchPolicies", required: true)]
         public Input<bool> CustomBranchPolicies { get; set; } = null!;
 
-        /// <summary>
-        /// Whether only branches with branch protection rules can deploy to this environment.
-        /// </summary>
         [Input("protectedBranches", required: true)]
         public Input<bool> ProtectedBranches { get; set; } = null!;
 

@@ -9,92 +9,27 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Github
 {
-    /// <summary>
-    /// This resource allows you to create and manage branches within your repository.
-    /// 
-    /// Additional constraints can be applied to ensure your branch is created from
-    /// another branch or commit.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Github = Pulumi.Github;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var development = new Github.Branch("development", new()
-    ///     {
-    ///         BranchName = "development",
-    ///         Repository = "example",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// GitHub Branch can be imported using an ID made up of `repository:branch`, e.g.
-    /// 
-    /// ```sh
-    ///  $ pulumi import github:index/branch:Branch terraform terraform:main
-    /// ```
-    /// 
-    ///  Importing github branch into an instance object (when using a for each block to manage multiple branches)
-    /// 
-    /// ```sh
-    ///  $ pulumi import github:index/branch:Branch terraform["terraform"] terraform:main
-    /// ```
-    /// 
-    ///  Optionally, a source branch may be specified using an ID of `repository:branch:source_branch`. This is useful for importing branches that do not branch directly off main.
-    /// 
-    /// ```sh
-    ///  $ pulumi import github:index/branch:Branch terraform terraform:feature-branch:dev
-    /// ```
-    /// </summary>
     [GithubResourceType("github:index/branch:Branch")]
     public partial class Branch : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The repository branch to create.
-        /// </summary>
         [Output("branch")]
         public Output<string> BranchName { get; private set; } = null!;
 
-        /// <summary>
-        /// An etag representing the Branch object.
-        /// </summary>
         [Output("etag")]
         public Output<string> Etag { get; private set; } = null!;
 
-        /// <summary>
-        /// A string representing a branch reference, in the form of `refs/heads/&lt;branch&gt;`.
-        /// </summary>
         [Output("ref")]
         public Output<string> Ref { get; private set; } = null!;
 
-        /// <summary>
-        /// The GitHub repository name.
-        /// </summary>
         [Output("repository")]
         public Output<string> Repository { get; private set; } = null!;
 
-        /// <summary>
-        /// A string storing the reference's `HEAD` commit's SHA1.
-        /// </summary>
         [Output("sha")]
         public Output<string> Sha { get; private set; } = null!;
 
-        /// <summary>
-        /// The branch name to start from. Defaults to `main`.
-        /// </summary>
         [Output("sourceBranch")]
         public Output<string?> SourceBranch { get; private set; } = null!;
 
-        /// <summary>
-        /// The commit hash to start from. Defaults to the tip of `source_branch`. If provided, `source_branch` is ignored.
-        /// </summary>
         [Output("sourceSha")]
         public Output<string> SourceSha { get; private set; } = null!;
 
@@ -144,27 +79,15 @@ namespace Pulumi.Github
 
     public sealed class BranchArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The repository branch to create.
-        /// </summary>
         [Input("branch", required: true)]
         public Input<string> BranchName { get; set; } = null!;
 
-        /// <summary>
-        /// The GitHub repository name.
-        /// </summary>
         [Input("repository", required: true)]
         public Input<string> Repository { get; set; } = null!;
 
-        /// <summary>
-        /// The branch name to start from. Defaults to `main`.
-        /// </summary>
         [Input("sourceBranch")]
         public Input<string>? SourceBranch { get; set; }
 
-        /// <summary>
-        /// The commit hash to start from. Defaults to the tip of `source_branch`. If provided, `source_branch` is ignored.
-        /// </summary>
         [Input("sourceSha")]
         public Input<string>? SourceSha { get; set; }
 
@@ -176,45 +99,24 @@ namespace Pulumi.Github
 
     public sealed class BranchState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The repository branch to create.
-        /// </summary>
         [Input("branch")]
         public Input<string>? BranchName { get; set; }
 
-        /// <summary>
-        /// An etag representing the Branch object.
-        /// </summary>
         [Input("etag")]
         public Input<string>? Etag { get; set; }
 
-        /// <summary>
-        /// A string representing a branch reference, in the form of `refs/heads/&lt;branch&gt;`.
-        /// </summary>
         [Input("ref")]
         public Input<string>? Ref { get; set; }
 
-        /// <summary>
-        /// The GitHub repository name.
-        /// </summary>
         [Input("repository")]
         public Input<string>? Repository { get; set; }
 
-        /// <summary>
-        /// A string storing the reference's `HEAD` commit's SHA1.
-        /// </summary>
         [Input("sha")]
         public Input<string>? Sha { get; set; }
 
-        /// <summary>
-        /// The branch name to start from. Defaults to `main`.
-        /// </summary>
         [Input("sourceBranch")]
         public Input<string>? SourceBranch { get; set; }
 
-        /// <summary>
-        /// The commit hash to start from. Defaults to the tip of `source_branch`. If provided, `source_branch` is ignored.
-        /// </summary>
         [Input("sourceSha")]
         public Input<string>? SourceSha { get; set; }
 

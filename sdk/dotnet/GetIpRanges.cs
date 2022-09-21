@@ -11,27 +11,6 @@ namespace Pulumi.Github
 {
     public static class GetIpRanges
     {
-        /// <summary>
-        /// Use this data source to retrieve information about GitHub's IP addresses.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Github = Pulumi.Github;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Github.GetIpRanges.Invoke();
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Task<GetIpRangesResult> InvokeAsync(InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetIpRangesResult>("github:index/getIpRanges:getIpRanges", InvokeArgs.Empty, options.WithDefaults());
     }
@@ -40,105 +19,33 @@ namespace Pulumi.Github
     [OutputType]
     public sealed class GetIpRangesResult
     {
-        /// <summary>
-        /// An array of IP addresses in CIDR format specifying the addresses that incoming requests from GitHub actions will originate from.
-        /// </summary>
         public readonly ImmutableArray<string> Actions;
-        /// <summary>
-        /// A subset of the `actions` array that contains IP addresses in IPv4 CIDR format.
-        /// </summary>
         public readonly ImmutableArray<string> ActionsIpv4s;
-        /// <summary>
-        /// A subset of the `actions` array that contains IP addresses in IPv6 CIDR format.
-        /// </summary>
         public readonly ImmutableArray<string> ActionsIpv6s;
-        /// <summary>
-        /// A subset of the `api` array that contains IP addresses in IPv4 CIDR format.
-        /// </summary>
         public readonly ImmutableArray<string> ApiIpv4s;
-        /// <summary>
-        /// A subset of the `api` array that contains IP addresses in IPv6 CIDR format.
-        /// </summary>
         public readonly ImmutableArray<string> ApiIpv6s;
-        /// <summary>
-        /// An Array of IP addresses in CIDR format for the GitHub API.
-        /// </summary>
         public readonly ImmutableArray<string> Apis;
-        /// <summary>
-        /// A subset of the `dependabot` array that contains IP addresses in IPv4 CIDR format.
-        /// </summary>
         public readonly ImmutableArray<string> DependabotIpv4s;
-        /// <summary>
-        /// A subset of the `dependabot` array that contains IP addresses in IPv6 CIDR format.
-        /// </summary>
         public readonly ImmutableArray<string> DependabotIpv6s;
-        /// <summary>
-        /// An array of IP addresses in CIDR format specifying the A records for dependabot.
-        /// </summary>
         public readonly ImmutableArray<string> Dependabots;
-        /// <summary>
-        /// A subset of the `git` array that contains IP addresses in IPv4 CIDR format.
-        /// </summary>
         public readonly ImmutableArray<string> GitIpv4s;
-        /// <summary>
-        /// A subset of the `git` array that contains IP addresses in IPv6 CIDR format.
-        /// </summary>
         public readonly ImmutableArray<string> GitIpv6s;
-        /// <summary>
-        /// An Array of IP addresses in CIDR format specifying the Git servers.
-        /// </summary>
         public readonly ImmutableArray<string> Gits;
-        /// <summary>
-        /// An Array of IP addresses in CIDR format specifying the addresses that incoming service hooks will originate from.
-        /// </summary>
         public readonly ImmutableArray<string> Hooks;
-        /// <summary>
-        /// A subset of the `hooks` array that contains IP addresses in IPv4 CIDR format.
-        /// </summary>
         public readonly ImmutableArray<string> HooksIpv4s;
-        /// <summary>
-        /// A subset of the `hooks` array that contains IP addresses in IPv6 CIDR format.
-        /// </summary>
         public readonly ImmutableArray<string> HooksIpv6s;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// A subset of the `importer` array that contains IP addresses in IPv4 CIDR format.
-        /// </summary>
         public readonly ImmutableArray<string> ImporterIpv4s;
-        /// <summary>
-        /// A subset of the `importer` array that contains IP addresses in IPv6 CIDR format.
-        /// </summary>
         public readonly ImmutableArray<string> ImporterIpv6s;
-        /// <summary>
-        /// An Array of IP addresses in CIDR format specifying the A records for GitHub Importer.
-        /// </summary>
         public readonly ImmutableArray<string> Importers;
-        /// <summary>
-        /// An Array of IP addresses in CIDR format specifying the A records for GitHub Pages.
-        /// </summary>
         public readonly ImmutableArray<string> Pages;
-        /// <summary>
-        /// A subset of the `pages` array that contains IP addresses in IPv4 CIDR format.
-        /// </summary>
         public readonly ImmutableArray<string> PagesIpv4s;
-        /// <summary>
-        /// A subset of the `pages` array that contains IP addresses in IPv6 CIDR format.
-        /// </summary>
         public readonly ImmutableArray<string> PagesIpv6s;
-        /// <summary>
-        /// A subset of the `web` array that contains IP addresses in IPv4 CIDR format.
-        /// </summary>
         public readonly ImmutableArray<string> WebIpv4s;
-        /// <summary>
-        /// A subset of the `web` array that contains IP addresses in IPv6 CIDR format.
-        /// </summary>
         public readonly ImmutableArray<string> WebIpv6s;
-        /// <summary>
-        /// An Array of IP addresses in CIDR format for GitHub Web.
-        /// </summary>
         public readonly ImmutableArray<string> Webs;
 
         [OutputConstructor]

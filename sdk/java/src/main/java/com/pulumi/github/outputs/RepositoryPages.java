@@ -13,81 +13,26 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class RepositoryPages {
-    /**
-     * @return The custom domain for the repository. This can only be set after the repository has been created.
-     * 
-     */
-    private final @Nullable String cname;
-    /**
-     * @return Whether the rendered GitHub Pages site has a custom 404 page.
-     * 
-     */
-    private final @Nullable Boolean custom404;
-    /**
-     * @return The absolute URL (including scheme) of the rendered GitHub Pages site e.g. `https://username.github.io`.
-     * 
-     */
-    private final @Nullable String htmlUrl;
-    /**
-     * @return The source branch and directory for the rendered Pages site. See GitHub Pages Source below for details.
-     * 
-     */
-    private final RepositoryPagesSource source;
-    /**
-     * @return The GitHub Pages site&#39;s build status e.g. `building` or `built`.
-     * 
-     */
-    private final @Nullable String status;
-    private final @Nullable String url;
+    private @Nullable String cname;
+    private @Nullable Boolean custom404;
+    private @Nullable String htmlUrl;
+    private RepositoryPagesSource source;
+    private @Nullable String status;
+    private @Nullable String url;
 
-    @CustomType.Constructor
-    private RepositoryPages(
-        @CustomType.Parameter("cname") @Nullable String cname,
-        @CustomType.Parameter("custom404") @Nullable Boolean custom404,
-        @CustomType.Parameter("htmlUrl") @Nullable String htmlUrl,
-        @CustomType.Parameter("source") RepositoryPagesSource source,
-        @CustomType.Parameter("status") @Nullable String status,
-        @CustomType.Parameter("url") @Nullable String url) {
-        this.cname = cname;
-        this.custom404 = custom404;
-        this.htmlUrl = htmlUrl;
-        this.source = source;
-        this.status = status;
-        this.url = url;
-    }
-
-    /**
-     * @return The custom domain for the repository. This can only be set after the repository has been created.
-     * 
-     */
+    private RepositoryPages() {}
     public Optional<String> cname() {
         return Optional.ofNullable(this.cname);
     }
-    /**
-     * @return Whether the rendered GitHub Pages site has a custom 404 page.
-     * 
-     */
     public Optional<Boolean> custom404() {
         return Optional.ofNullable(this.custom404);
     }
-    /**
-     * @return The absolute URL (including scheme) of the rendered GitHub Pages site e.g. `https://username.github.io`.
-     * 
-     */
     public Optional<String> htmlUrl() {
         return Optional.ofNullable(this.htmlUrl);
     }
-    /**
-     * @return The source branch and directory for the rendered Pages site. See GitHub Pages Source below for details.
-     * 
-     */
     public RepositoryPagesSource source() {
         return this.source;
     }
-    /**
-     * @return The GitHub Pages site&#39;s build status e.g. `building` or `built`.
-     * 
-     */
     public Optional<String> status() {
         return Optional.ofNullable(this.status);
     }
@@ -102,7 +47,7 @@ public final class RepositoryPages {
     public static Builder builder(RepositoryPages defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String cname;
         private @Nullable Boolean custom404;
@@ -110,11 +55,7 @@ public final class RepositoryPages {
         private RepositoryPagesSource source;
         private @Nullable String status;
         private @Nullable String url;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RepositoryPages defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.cname = defaults.cname;
@@ -125,31 +66,45 @@ public final class RepositoryPages {
     	      this.url = defaults.url;
         }
 
+        @CustomType.Setter
         public Builder cname(@Nullable String cname) {
             this.cname = cname;
             return this;
         }
+        @CustomType.Setter
         public Builder custom404(@Nullable Boolean custom404) {
             this.custom404 = custom404;
             return this;
         }
+        @CustomType.Setter
         public Builder htmlUrl(@Nullable String htmlUrl) {
             this.htmlUrl = htmlUrl;
             return this;
         }
+        @CustomType.Setter
         public Builder source(RepositoryPagesSource source) {
             this.source = Objects.requireNonNull(source);
             return this;
         }
+        @CustomType.Setter
         public Builder status(@Nullable String status) {
             this.status = status;
             return this;
         }
+        @CustomType.Setter
         public Builder url(@Nullable String url) {
             this.url = url;
             return this;
-        }        public RepositoryPages build() {
-            return new RepositoryPages(cname, custom404, htmlUrl, source, status, url);
+        }
+        public RepositoryPages build() {
+            final var o = new RepositoryPages();
+            o.cname = cname;
+            o.custom404 = custom404;
+            o.htmlUrl = htmlUrl;
+            o.source = source;
+            o.status = status;
+            o.url = url;
+            return o;
         }
     }
 }

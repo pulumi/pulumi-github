@@ -9,95 +9,33 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Github
 {
-    /// <summary>
-    /// This resource allows you to create and manage GitHub Actions runner groups within your GitHub enterprise organizations.
-    /// You must have admin access to an organization to use this resource.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Github = Pulumi.Github;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleRepository = new Github.Repository("exampleRepository");
-    /// 
-    ///     var exampleActionsRunnerGroup = new Github.ActionsRunnerGroup("exampleActionsRunnerGroup", new()
-    ///     {
-    ///         Visibility = "selected",
-    ///         SelectedRepositoryIds = new[]
-    ///         {
-    ///             exampleRepository.RepoId,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// This resource can be imported using the ID of the runner group
-    /// 
-    /// ```sh
-    ///  $ pulumi import github:index/actionsRunnerGroup:ActionsRunnerGroup test 7
-    /// ```
-    /// </summary>
     [GithubResourceType("github:index/actionsRunnerGroup:ActionsRunnerGroup")]
     public partial class ActionsRunnerGroup : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Whether public repositories can be added to the runner group
-        /// </summary>
         [Output("allowsPublicRepositories")]
         public Output<bool> AllowsPublicRepositories { get; private set; } = null!;
 
-        /// <summary>
-        /// Whether this is the default runner group
-        /// </summary>
         [Output("default")]
         public Output<bool> Default { get; private set; } = null!;
 
-        /// <summary>
-        /// An etag representing the runner group object
-        /// </summary>
         [Output("etag")]
         public Output<string> Etag { get; private set; } = null!;
 
-        /// <summary>
-        /// Whether the runner group is inherited from the enterprise level
-        /// </summary>
         [Output("inherited")]
         public Output<bool> Inherited { get; private set; } = null!;
 
-        /// <summary>
-        /// Name of the runner group
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// The GitHub API URL for the runner group's runners
-        /// </summary>
         [Output("runnersUrl")]
         public Output<string> RunnersUrl { get; private set; } = null!;
 
-        /// <summary>
-        /// Github API URL for the runner group's repositories
-        /// </summary>
         [Output("selectedRepositoriesUrl")]
         public Output<string> SelectedRepositoriesUrl { get; private set; } = null!;
 
-        /// <summary>
-        /// IDs of the repositories which should be added to the runner group
-        /// </summary>
         [Output("selectedRepositoryIds")]
         public Output<ImmutableArray<int>> SelectedRepositoryIds { get; private set; } = null!;
 
-        /// <summary>
-        /// Visibility of a runner group. Whether the runner group can include `all`, `selected`, or `private` repositories. A value of `private` is not currently supported due to limitations in the GitHub API.
-        /// </summary>
         [Output("visibility")]
         public Output<string> Visibility { get; private set; } = null!;
 
@@ -147,27 +85,17 @@ namespace Pulumi.Github
 
     public sealed class ActionsRunnerGroupArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Name of the runner group
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("selectedRepositoryIds")]
         private InputList<int>? _selectedRepositoryIds;
-
-        /// <summary>
-        /// IDs of the repositories which should be added to the runner group
-        /// </summary>
         public InputList<int> SelectedRepositoryIds
         {
             get => _selectedRepositoryIds ?? (_selectedRepositoryIds = new InputList<int>());
             set => _selectedRepositoryIds = value;
         }
 
-        /// <summary>
-        /// Visibility of a runner group. Whether the runner group can include `all`, `selected`, or `private` repositories. A value of `private` is not currently supported due to limitations in the GitHub API.
-        /// </summary>
         [Input("visibility", required: true)]
         public Input<string> Visibility { get; set; } = null!;
 
@@ -179,63 +107,35 @@ namespace Pulumi.Github
 
     public sealed class ActionsRunnerGroupState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Whether public repositories can be added to the runner group
-        /// </summary>
         [Input("allowsPublicRepositories")]
         public Input<bool>? AllowsPublicRepositories { get; set; }
 
-        /// <summary>
-        /// Whether this is the default runner group
-        /// </summary>
         [Input("default")]
         public Input<bool>? Default { get; set; }
 
-        /// <summary>
-        /// An etag representing the runner group object
-        /// </summary>
         [Input("etag")]
         public Input<string>? Etag { get; set; }
 
-        /// <summary>
-        /// Whether the runner group is inherited from the enterprise level
-        /// </summary>
         [Input("inherited")]
         public Input<bool>? Inherited { get; set; }
 
-        /// <summary>
-        /// Name of the runner group
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// The GitHub API URL for the runner group's runners
-        /// </summary>
         [Input("runnersUrl")]
         public Input<string>? RunnersUrl { get; set; }
 
-        /// <summary>
-        /// Github API URL for the runner group's repositories
-        /// </summary>
         [Input("selectedRepositoriesUrl")]
         public Input<string>? SelectedRepositoriesUrl { get; set; }
 
         [Input("selectedRepositoryIds")]
         private InputList<int>? _selectedRepositoryIds;
-
-        /// <summary>
-        /// IDs of the repositories which should be added to the runner group
-        /// </summary>
         public InputList<int> SelectedRepositoryIds
         {
             get => _selectedRepositoryIds ?? (_selectedRepositoryIds = new InputList<int>());
             set => _selectedRepositoryIds = value;
         }
 
-        /// <summary>
-        /// Visibility of a runner group. Whether the runner group can include `all`, `selected`, or `private` repositories. A value of `private` is not currently supported due to limitations in the GitHub API.
-        /// </summary>
         [Input("visibility")]
         public Input<string>? Visibility { get; set; }
 

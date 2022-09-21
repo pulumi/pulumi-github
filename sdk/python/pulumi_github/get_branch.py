@@ -49,9 +49,6 @@ class GetBranchResult:
     @property
     @pulumi.getter
     def etag(self) -> str:
-        """
-        An etag representing the Branch object.
-        """
         return pulumi.get(self, "etag")
 
     @property
@@ -65,9 +62,6 @@ class GetBranchResult:
     @property
     @pulumi.getter
     def ref(self) -> str:
-        """
-        A string representing a branch reference, in the form of `refs/heads/<branch>`.
-        """
         return pulumi.get(self, "ref")
 
     @property
@@ -78,9 +72,6 @@ class GetBranchResult:
     @property
     @pulumi.getter
     def sha(self) -> str:
-        """
-        A string storing the reference's `HEAD` commit's SHA1.
-        """
         return pulumi.get(self, "sha")
 
 
@@ -102,21 +93,7 @@ def get_branch(branch: Optional[str] = None,
                repository: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBranchResult:
     """
-    Use this data source to retrieve information about a repository branch.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_github as github
-
-    development = github.get_branch(branch="development",
-        repository="example")
-    ```
-
-
-    :param str branch: The repository branch to create.
-    :param str repository: The GitHub repository name.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['branch'] = branch
@@ -138,20 +115,6 @@ def get_branch_output(branch: Optional[pulumi.Input[str]] = None,
                       repository: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBranchResult]:
     """
-    Use this data source to retrieve information about a repository branch.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_github as github
-
-    development = github.get_branch(branch="development",
-        repository="example")
-    ```
-
-
-    :param str branch: The repository branch to create.
-    :param str repository: The GitHub repository name.
+    Use this data source to access information about an existing resource.
     """
     ...

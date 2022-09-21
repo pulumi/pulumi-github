@@ -9,36 +9,13 @@ import java.util.Objects;
 
 @CustomType
 public final class RepositoryEnvironmentDeploymentBranchPolicy {
-    /**
-     * @return Whether only branches that match the specified name patterns can deploy to this environment.
-     * 
-     */
-    private final Boolean customBranchPolicies;
-    /**
-     * @return Whether only branches with branch protection rules can deploy to this environment.
-     * 
-     */
-    private final Boolean protectedBranches;
+    private Boolean customBranchPolicies;
+    private Boolean protectedBranches;
 
-    @CustomType.Constructor
-    private RepositoryEnvironmentDeploymentBranchPolicy(
-        @CustomType.Parameter("customBranchPolicies") Boolean customBranchPolicies,
-        @CustomType.Parameter("protectedBranches") Boolean protectedBranches) {
-        this.customBranchPolicies = customBranchPolicies;
-        this.protectedBranches = protectedBranches;
-    }
-
-    /**
-     * @return Whether only branches that match the specified name patterns can deploy to this environment.
-     * 
-     */
+    private RepositoryEnvironmentDeploymentBranchPolicy() {}
     public Boolean customBranchPolicies() {
         return this.customBranchPolicies;
     }
-    /**
-     * @return Whether only branches with branch protection rules can deploy to this environment.
-     * 
-     */
     public Boolean protectedBranches() {
         return this.protectedBranches;
     }
@@ -50,30 +27,32 @@ public final class RepositoryEnvironmentDeploymentBranchPolicy {
     public static Builder builder(RepositoryEnvironmentDeploymentBranchPolicy defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Boolean customBranchPolicies;
         private Boolean protectedBranches;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RepositoryEnvironmentDeploymentBranchPolicy defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.customBranchPolicies = defaults.customBranchPolicies;
     	      this.protectedBranches = defaults.protectedBranches;
         }
 
+        @CustomType.Setter
         public Builder customBranchPolicies(Boolean customBranchPolicies) {
             this.customBranchPolicies = Objects.requireNonNull(customBranchPolicies);
             return this;
         }
+        @CustomType.Setter
         public Builder protectedBranches(Boolean protectedBranches) {
             this.protectedBranches = Objects.requireNonNull(protectedBranches);
             return this;
-        }        public RepositoryEnvironmentDeploymentBranchPolicy build() {
-            return new RepositoryEnvironmentDeploymentBranchPolicy(customBranchPolicies, protectedBranches);
+        }
+        public RepositoryEnvironmentDeploymentBranchPolicy build() {
+            final var o = new RepositoryEnvironmentDeploymentBranchPolicy();
+            o.customBranchPolicies = customBranchPolicies;
+            o.protectedBranches = protectedBranches;
+            return o;
         }
     }
 }

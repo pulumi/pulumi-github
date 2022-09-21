@@ -4,21 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
-/**
- * Use this data source to retrieve information about a repository branch.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as github from "@pulumi/github";
- *
- * const development = pulumi.output(github.getBranch({
- *     branch: "development",
- *     repository: "example",
- * }));
- * ```
- */
 export function getBranch(args: GetBranchArgs, opts?: pulumi.InvokeOptions): Promise<GetBranchResult> {
     if (!opts) {
         opts = {}
@@ -35,13 +20,7 @@ export function getBranch(args: GetBranchArgs, opts?: pulumi.InvokeOptions): Pro
  * A collection of arguments for invoking getBranch.
  */
 export interface GetBranchArgs {
-    /**
-     * The repository branch to create.
-     */
     branch: string;
-    /**
-     * The GitHub repository name.
-     */
     repository: string;
 }
 
@@ -50,22 +29,13 @@ export interface GetBranchArgs {
  */
 export interface GetBranchResult {
     readonly branch: string;
-    /**
-     * An etag representing the Branch object.
-     */
     readonly etag: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    /**
-     * A string representing a branch reference, in the form of `refs/heads/<branch>`.
-     */
     readonly ref: string;
     readonly repository: string;
-    /**
-     * A string storing the reference's `HEAD` commit's SHA1.
-     */
     readonly sha: string;
 }
 
@@ -77,12 +47,6 @@ export function getBranchOutput(args: GetBranchOutputArgs, opts?: pulumi.InvokeO
  * A collection of arguments for invoking getBranch.
  */
 export interface GetBranchOutputArgs {
-    /**
-     * The repository branch to create.
-     */
     branch: pulumi.Input<string>;
-    /**
-     * The GitHub repository name.
-     */
     repository: pulumi.Input<string>;
 }

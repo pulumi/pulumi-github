@@ -18,70 +18,6 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * This resource allows you to create and manage environments for a GitHub repository.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.github.GithubFunctions;
- * import com.pulumi.github.inputs.GetUserArgs;
- * import com.pulumi.github.Repository;
- * import com.pulumi.github.RepositoryArgs;
- * import com.pulumi.github.RepositoryEnvironment;
- * import com.pulumi.github.RepositoryEnvironmentArgs;
- * import com.pulumi.github.inputs.RepositoryEnvironmentReviewerArgs;
- * import com.pulumi.github.inputs.RepositoryEnvironmentDeploymentBranchPolicyArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var current = GithubFunctions.getUser(GetUserArgs.builder()
- *             .username(&#34;&#34;)
- *             .build());
- * 
- *         var exampleRepository = new Repository(&#34;exampleRepository&#34;, RepositoryArgs.builder()        
- *             .description(&#34;My awesome codebase&#34;)
- *             .build());
- * 
- *         var exampleRepositoryEnvironment = new RepositoryEnvironment(&#34;exampleRepositoryEnvironment&#34;, RepositoryEnvironmentArgs.builder()        
- *             .environment(&#34;example&#34;)
- *             .repository(exampleRepository.name())
- *             .reviewers(RepositoryEnvironmentReviewerArgs.builder()
- *                 .users(current.applyValue(getUserResult -&gt; getUserResult.id()))
- *                 .build())
- *             .deploymentBranchPolicy(RepositoryEnvironmentDeploymentBranchPolicyArgs.builder()
- *                 .protectedBranches(true)
- *                 .customBranchPolicies(false)
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * GitHub Repository Environment can be imported using an ID made up of `name` of the repository combined with the `environment` name of the environment, separated by a `:` character, e.g.
- * 
- * ```sh
- *  $ pulumi import github:index/repositoryEnvironment:RepositoryEnvironment daily terraform:daily
- * ```
- * 
- */
 @ResourceType(type="github:index/repositoryEnvironment:RepositoryEnvironment")
 public class RepositoryEnvironment extends com.pulumi.resources.CustomResource {
     @Export(name="deploymentBranchPolicy", type=RepositoryEnvironmentDeploymentBranchPolicy.class, parameters={})
@@ -90,31 +26,15 @@ public class RepositoryEnvironment extends com.pulumi.resources.CustomResource {
     public Output<Optional<RepositoryEnvironmentDeploymentBranchPolicy>> deploymentBranchPolicy() {
         return Codegen.optional(this.deploymentBranchPolicy);
     }
-    /**
-     * The name of the environment.
-     * 
-     */
     @Export(name="environment", type=String.class, parameters={})
     private Output<String> environment;
 
-    /**
-     * @return The name of the environment.
-     * 
-     */
     public Output<String> environment() {
         return this.environment;
     }
-    /**
-     * The repository of the environment.
-     * 
-     */
     @Export(name="repository", type=String.class, parameters={})
     private Output<String> repository;
 
-    /**
-     * @return The repository of the environment.
-     * 
-     */
     public Output<String> repository() {
         return this.repository;
     }
@@ -124,17 +44,9 @@ public class RepositoryEnvironment extends com.pulumi.resources.CustomResource {
     public Output<Optional<List<RepositoryEnvironmentReviewer>>> reviewers() {
         return Codegen.optional(this.reviewers);
     }
-    /**
-     * Amount of time to delay a job after the job is initially triggered.
-     * 
-     */
     @Export(name="waitTimer", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> waitTimer;
 
-    /**
-     * @return Amount of time to delay a job after the job is initially triggered.
-     * 
-     */
     public Output<Optional<Integer>> waitTimer() {
         return Codegen.optional(this.waitTimer);
     }

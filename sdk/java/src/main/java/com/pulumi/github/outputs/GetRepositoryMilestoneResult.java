@@ -10,66 +10,23 @@ import java.util.Objects;
 
 @CustomType
 public final class GetRepositoryMilestoneResult {
-    /**
-     * @return Description of the milestone.
-     * 
-     */
-    private final String description;
-    /**
-     * @return The milestone due date (in ISO-8601 `yyyy-mm-dd` format).
-     * 
-     */
-    private final String dueDate;
+    private String description;
+    private String dueDate;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final Integer number;
-    private final String owner;
-    private final String repository;
-    /**
-     * @return State of the milestone.
-     * 
-     */
-    private final String state;
-    /**
-     * @return Title of the milestone.
-     * 
-     */
-    private final String title;
+    private String id;
+    private Integer number;
+    private String owner;
+    private String repository;
+    private String state;
+    private String title;
 
-    @CustomType.Constructor
-    private GetRepositoryMilestoneResult(
-        @CustomType.Parameter("description") String description,
-        @CustomType.Parameter("dueDate") String dueDate,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("number") Integer number,
-        @CustomType.Parameter("owner") String owner,
-        @CustomType.Parameter("repository") String repository,
-        @CustomType.Parameter("state") String state,
-        @CustomType.Parameter("title") String title) {
-        this.description = description;
-        this.dueDate = dueDate;
-        this.id = id;
-        this.number = number;
-        this.owner = owner;
-        this.repository = repository;
-        this.state = state;
-        this.title = title;
-    }
-
-    /**
-     * @return Description of the milestone.
-     * 
-     */
+    private GetRepositoryMilestoneResult() {}
     public String description() {
         return this.description;
     }
-    /**
-     * @return The milestone due date (in ISO-8601 `yyyy-mm-dd` format).
-     * 
-     */
     public String dueDate() {
         return this.dueDate;
     }
@@ -89,17 +46,9 @@ public final class GetRepositoryMilestoneResult {
     public String repository() {
         return this.repository;
     }
-    /**
-     * @return State of the milestone.
-     * 
-     */
     public String state() {
         return this.state;
     }
-    /**
-     * @return Title of the milestone.
-     * 
-     */
     public String title() {
         return this.title;
     }
@@ -111,7 +60,7 @@ public final class GetRepositoryMilestoneResult {
     public static Builder builder(GetRepositoryMilestoneResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String description;
         private String dueDate;
@@ -121,11 +70,7 @@ public final class GetRepositoryMilestoneResult {
         private String repository;
         private String state;
         private String title;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetRepositoryMilestoneResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.description = defaults.description;
@@ -138,39 +83,57 @@ public final class GetRepositoryMilestoneResult {
     	      this.title = defaults.title;
         }
 
+        @CustomType.Setter
         public Builder description(String description) {
             this.description = Objects.requireNonNull(description);
             return this;
         }
+        @CustomType.Setter
         public Builder dueDate(String dueDate) {
             this.dueDate = Objects.requireNonNull(dueDate);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder number(Integer number) {
             this.number = Objects.requireNonNull(number);
             return this;
         }
+        @CustomType.Setter
         public Builder owner(String owner) {
             this.owner = Objects.requireNonNull(owner);
             return this;
         }
+        @CustomType.Setter
         public Builder repository(String repository) {
             this.repository = Objects.requireNonNull(repository);
             return this;
         }
+        @CustomType.Setter
         public Builder state(String state) {
             this.state = Objects.requireNonNull(state);
             return this;
         }
+        @CustomType.Setter
         public Builder title(String title) {
             this.title = Objects.requireNonNull(title);
             return this;
-        }        public GetRepositoryMilestoneResult build() {
-            return new GetRepositoryMilestoneResult(description, dueDate, id, number, owner, repository, state, title);
+        }
+        public GetRepositoryMilestoneResult build() {
+            final var o = new GetRepositoryMilestoneResult();
+            o.description = description;
+            o.dueDate = dueDate;
+            o.id = id;
+            o.number = number;
+            o.owner = owner;
+            o.repository = repository;
+            o.state = state;
+            o.title = title;
+            return o;
         }
     }
 }

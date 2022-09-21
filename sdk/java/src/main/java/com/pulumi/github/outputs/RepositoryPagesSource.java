@@ -11,36 +11,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class RepositoryPagesSource {
-    /**
-     * @return The repository branch used to publish the site&#39;s source files. (i.e. `main` or `gh-pages`.
-     * 
-     */
-    private final String branch;
-    /**
-     * @return The repository directory from which the site publishes (Default: `/`).
-     * 
-     */
-    private final @Nullable String path;
+    private String branch;
+    private @Nullable String path;
 
-    @CustomType.Constructor
-    private RepositoryPagesSource(
-        @CustomType.Parameter("branch") String branch,
-        @CustomType.Parameter("path") @Nullable String path) {
-        this.branch = branch;
-        this.path = path;
-    }
-
-    /**
-     * @return The repository branch used to publish the site&#39;s source files. (i.e. `main` or `gh-pages`.
-     * 
-     */
+    private RepositoryPagesSource() {}
     public String branch() {
         return this.branch;
     }
-    /**
-     * @return The repository directory from which the site publishes (Default: `/`).
-     * 
-     */
     public Optional<String> path() {
         return Optional.ofNullable(this.path);
     }
@@ -52,30 +29,32 @@ public final class RepositoryPagesSource {
     public static Builder builder(RepositoryPagesSource defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String branch;
         private @Nullable String path;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RepositoryPagesSource defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.branch = defaults.branch;
     	      this.path = defaults.path;
         }
 
+        @CustomType.Setter
         public Builder branch(String branch) {
             this.branch = Objects.requireNonNull(branch);
             return this;
         }
+        @CustomType.Setter
         public Builder path(@Nullable String path) {
             this.path = path;
             return this;
-        }        public RepositoryPagesSource build() {
-            return new RepositoryPagesSource(branch, path);
+        }
+        public RepositoryPagesSource build() {
+            final var o = new RepositoryPagesSource();
+            o.branch = branch;
+            o.path = path;
+            return o;
         }
     }
 }

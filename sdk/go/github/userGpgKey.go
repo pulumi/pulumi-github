@@ -11,50 +11,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a GitHub user's GPG key resource.
-//
-// This resource allows you to add/remove GPG keys from your user account.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-github/sdk/v4/go/github"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := github.NewUserGpgKey(ctx, "example", &github.UserGpgKeyArgs{
-//				ArmoredPublicKey: pulumi.String(fmt.Sprintf("-----BEGIN PGP PUBLIC KEY BLOCK-----\n...\n-----END PGP PUBLIC KEY BLOCK-----\n")),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// GPG keys are not importable due to the fact that [API](https://developer.github.com/v3/users/gpg_keys/#gpg-keys) does not return previously uploaded GPG key.
 type UserGpgKey struct {
 	pulumi.CustomResourceState
 
-	// Your public GPG key, generated in ASCII-armored format.
-	// See [Generating a new GPG key](https://help.github.com/articles/generating-a-new-gpg-key/) for help on creating a GPG key.
 	ArmoredPublicKey pulumi.StringOutput `pulumi:"armoredPublicKey"`
 	Etag             pulumi.StringOutput `pulumi:"etag"`
-	// The key ID of the GPG key, e.g. `3262EFF25BA0D270`
-	KeyId pulumi.StringOutput `pulumi:"keyId"`
+	KeyId            pulumi.StringOutput `pulumi:"keyId"`
 }
 
 // NewUserGpgKey registers a new resource with the given unique name, arguments, and options.
@@ -89,21 +51,15 @@ func GetUserGpgKey(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering UserGpgKey resources.
 type userGpgKeyState struct {
-	// Your public GPG key, generated in ASCII-armored format.
-	// See [Generating a new GPG key](https://help.github.com/articles/generating-a-new-gpg-key/) for help on creating a GPG key.
 	ArmoredPublicKey *string `pulumi:"armoredPublicKey"`
 	Etag             *string `pulumi:"etag"`
-	// The key ID of the GPG key, e.g. `3262EFF25BA0D270`
-	KeyId *string `pulumi:"keyId"`
+	KeyId            *string `pulumi:"keyId"`
 }
 
 type UserGpgKeyState struct {
-	// Your public GPG key, generated in ASCII-armored format.
-	// See [Generating a new GPG key](https://help.github.com/articles/generating-a-new-gpg-key/) for help on creating a GPG key.
 	ArmoredPublicKey pulumi.StringPtrInput
 	Etag             pulumi.StringPtrInput
-	// The key ID of the GPG key, e.g. `3262EFF25BA0D270`
-	KeyId pulumi.StringPtrInput
+	KeyId            pulumi.StringPtrInput
 }
 
 func (UserGpgKeyState) ElementType() reflect.Type {
@@ -111,15 +67,11 @@ func (UserGpgKeyState) ElementType() reflect.Type {
 }
 
 type userGpgKeyArgs struct {
-	// Your public GPG key, generated in ASCII-armored format.
-	// See [Generating a new GPG key](https://help.github.com/articles/generating-a-new-gpg-key/) for help on creating a GPG key.
 	ArmoredPublicKey string `pulumi:"armoredPublicKey"`
 }
 
 // The set of arguments for constructing a UserGpgKey resource.
 type UserGpgKeyArgs struct {
-	// Your public GPG key, generated in ASCII-armored format.
-	// See [Generating a new GPG key](https://help.github.com/articles/generating-a-new-gpg-key/) for help on creating a GPG key.
 	ArmoredPublicKey pulumi.StringInput
 }
 
@@ -210,8 +162,6 @@ func (o UserGpgKeyOutput) ToUserGpgKeyOutputWithContext(ctx context.Context) Use
 	return o
 }
 
-// Your public GPG key, generated in ASCII-armored format.
-// See [Generating a new GPG key](https://help.github.com/articles/generating-a-new-gpg-key/) for help on creating a GPG key.
 func (o UserGpgKeyOutput) ArmoredPublicKey() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserGpgKey) pulumi.StringOutput { return v.ArmoredPublicKey }).(pulumi.StringOutput)
 }
@@ -220,7 +170,6 @@ func (o UserGpgKeyOutput) Etag() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserGpgKey) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
 }
 
-// The key ID of the GPG key, e.g. `3262EFF25BA0D270`
 func (o UserGpgKeyOutput) KeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserGpgKey) pulumi.StringOutput { return v.KeyId }).(pulumi.StringOutput)
 }

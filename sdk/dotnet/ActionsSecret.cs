@@ -9,74 +9,24 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Github
 {
-    /// <summary>
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Github = Pulumi.Github;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var examplePublicKey = Github.GetActionsPublicKey.Invoke(new()
-    ///     {
-    ///         Repository = "example_repository",
-    ///     });
-    /// 
-    ///     var exampleSecretActionsSecret = new Github.ActionsSecret("exampleSecretActionsSecret", new()
-    ///     {
-    ///         Repository = "example_repository",
-    ///         SecretName = "example_secret_name",
-    ///         PlaintextValue = @var.Some_secret_string,
-    ///     });
-    /// 
-    ///     var exampleSecretIndex_actionsSecretActionsSecret = new Github.ActionsSecret("exampleSecretIndex/actionsSecretActionsSecret", new()
-    ///     {
-    ///         Repository = "example_repository",
-    ///         SecretName = "example_secret_name",
-    ///         EncryptedValue = @var.Some_encrypted_secret_string,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// </summary>
     [GithubResourceType("github:index/actionsSecret:ActionsSecret")]
     public partial class ActionsSecret : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Date of actions_secret creation.
-        /// </summary>
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
 
-        /// <summary>
-        /// Encrypted value of the secret using the Github public key in Base64 format.
-        /// </summary>
         [Output("encryptedValue")]
         public Output<string?> EncryptedValue { get; private set; } = null!;
 
-        /// <summary>
-        /// Plaintext value of the secret to be encrypted
-        /// </summary>
         [Output("plaintextValue")]
         public Output<string?> PlaintextValue { get; private set; } = null!;
 
-        /// <summary>
-        /// Name of the repository
-        /// </summary>
         [Output("repository")]
         public Output<string> Repository { get; private set; } = null!;
 
-        /// <summary>
-        /// Name of the secret
-        /// </summary>
         [Output("secretName")]
         public Output<string> SecretName { get; private set; } = null!;
 
-        /// <summary>
-        /// Date of actions_secret update.
-        /// </summary>
         [Output("updatedAt")]
         public Output<string> UpdatedAt { get; private set; } = null!;
 
@@ -126,27 +76,15 @@ namespace Pulumi.Github
 
     public sealed class ActionsSecretArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Encrypted value of the secret using the Github public key in Base64 format.
-        /// </summary>
         [Input("encryptedValue")]
         public Input<string>? EncryptedValue { get; set; }
 
-        /// <summary>
-        /// Plaintext value of the secret to be encrypted
-        /// </summary>
         [Input("plaintextValue")]
         public Input<string>? PlaintextValue { get; set; }
 
-        /// <summary>
-        /// Name of the repository
-        /// </summary>
         [Input("repository", required: true)]
         public Input<string> Repository { get; set; } = null!;
 
-        /// <summary>
-        /// Name of the secret
-        /// </summary>
         [Input("secretName", required: true)]
         public Input<string> SecretName { get; set; } = null!;
 
@@ -158,39 +96,21 @@ namespace Pulumi.Github
 
     public sealed class ActionsSecretState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Date of actions_secret creation.
-        /// </summary>
         [Input("createdAt")]
         public Input<string>? CreatedAt { get; set; }
 
-        /// <summary>
-        /// Encrypted value of the secret using the Github public key in Base64 format.
-        /// </summary>
         [Input("encryptedValue")]
         public Input<string>? EncryptedValue { get; set; }
 
-        /// <summary>
-        /// Plaintext value of the secret to be encrypted
-        /// </summary>
         [Input("plaintextValue")]
         public Input<string>? PlaintextValue { get; set; }
 
-        /// <summary>
-        /// Name of the repository
-        /// </summary>
         [Input("repository")]
         public Input<string>? Repository { get; set; }
 
-        /// <summary>
-        /// Name of the secret
-        /// </summary>
         [Input("secretName")]
         public Input<string>? SecretName { get; set; }
 
-        /// <summary>
-        /// Date of actions_secret update.
-        /// </summary>
         [Input("updatedAt")]
         public Input<string>? UpdatedAt { get; set; }
 

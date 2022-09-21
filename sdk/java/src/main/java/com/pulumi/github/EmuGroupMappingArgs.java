@@ -14,32 +14,16 @@ public final class EmuGroupMappingArgs extends com.pulumi.resources.ResourceArgs
 
     public static final EmuGroupMappingArgs Empty = new EmuGroupMappingArgs();
 
-    /**
-     * Integer corresponding to the external group ID to be linked
-     * 
-     */
     @Import(name="groupId", required=true)
     private Output<Integer> groupId;
 
-    /**
-     * @return Integer corresponding to the external group ID to be linked
-     * 
-     */
     public Output<Integer> groupId() {
         return this.groupId;
     }
 
-    /**
-     * Slug of the GitHub team
-     * 
-     */
     @Import(name="teamSlug", required=true)
     private Output<String> teamSlug;
 
-    /**
-     * @return Slug of the GitHub team
-     * 
-     */
     public Output<String> teamSlug() {
         return this.teamSlug;
     }
@@ -69,44 +53,20 @@ public final class EmuGroupMappingArgs extends com.pulumi.resources.ResourceArgs
             $ = new EmuGroupMappingArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param groupId Integer corresponding to the external group ID to be linked
-         * 
-         * @return builder
-         * 
-         */
         public Builder groupId(Output<Integer> groupId) {
             $.groupId = groupId;
             return this;
         }
 
-        /**
-         * @param groupId Integer corresponding to the external group ID to be linked
-         * 
-         * @return builder
-         * 
-         */
         public Builder groupId(Integer groupId) {
             return groupId(Output.of(groupId));
         }
 
-        /**
-         * @param teamSlug Slug of the GitHub team
-         * 
-         * @return builder
-         * 
-         */
         public Builder teamSlug(Output<String> teamSlug) {
             $.teamSlug = teamSlug;
             return this;
         }
 
-        /**
-         * @param teamSlug Slug of the GitHub team
-         * 
-         * @return builder
-         * 
-         */
         public Builder teamSlug(String teamSlug) {
             return teamSlug(Output.of(teamSlug));
         }

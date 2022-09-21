@@ -13,32 +13,16 @@ public final class RepositoryEnvironmentDeploymentBranchPolicyArgs extends com.p
 
     public static final RepositoryEnvironmentDeploymentBranchPolicyArgs Empty = new RepositoryEnvironmentDeploymentBranchPolicyArgs();
 
-    /**
-     * Whether only branches that match the specified name patterns can deploy to this environment.
-     * 
-     */
     @Import(name="customBranchPolicies", required=true)
     private Output<Boolean> customBranchPolicies;
 
-    /**
-     * @return Whether only branches that match the specified name patterns can deploy to this environment.
-     * 
-     */
     public Output<Boolean> customBranchPolicies() {
         return this.customBranchPolicies;
     }
 
-    /**
-     * Whether only branches with branch protection rules can deploy to this environment.
-     * 
-     */
     @Import(name="protectedBranches", required=true)
     private Output<Boolean> protectedBranches;
 
-    /**
-     * @return Whether only branches with branch protection rules can deploy to this environment.
-     * 
-     */
     public Output<Boolean> protectedBranches() {
         return this.protectedBranches;
     }
@@ -68,44 +52,20 @@ public final class RepositoryEnvironmentDeploymentBranchPolicyArgs extends com.p
             $ = new RepositoryEnvironmentDeploymentBranchPolicyArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param customBranchPolicies Whether only branches that match the specified name patterns can deploy to this environment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customBranchPolicies(Output<Boolean> customBranchPolicies) {
             $.customBranchPolicies = customBranchPolicies;
             return this;
         }
 
-        /**
-         * @param customBranchPolicies Whether only branches that match the specified name patterns can deploy to this environment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customBranchPolicies(Boolean customBranchPolicies) {
             return customBranchPolicies(Output.of(customBranchPolicies));
         }
 
-        /**
-         * @param protectedBranches Whether only branches with branch protection rules can deploy to this environment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder protectedBranches(Output<Boolean> protectedBranches) {
             $.protectedBranches = protectedBranches;
             return this;
         }
 
-        /**
-         * @param protectedBranches Whether only branches with branch protection rules can deploy to this environment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder protectedBranches(Boolean protectedBranches) {
             return protectedBranches(Output.of(protectedBranches));
         }

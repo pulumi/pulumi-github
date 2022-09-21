@@ -16,17 +16,9 @@ public final class AppInstallationRepositoryState extends com.pulumi.resources.R
 
     public static final AppInstallationRepositoryState Empty = new AppInstallationRepositoryState();
 
-    /**
-     * The GitHub app installation id.
-     * 
-     */
     @Import(name="installationId")
     private @Nullable Output<String> installationId;
 
-    /**
-     * @return The GitHub app installation id.
-     * 
-     */
     public Optional<Output<String>> installationId() {
         return Optional.ofNullable(this.installationId);
     }
@@ -38,17 +30,9 @@ public final class AppInstallationRepositoryState extends com.pulumi.resources.R
         return Optional.ofNullable(this.repoId);
     }
 
-    /**
-     * The repository to install the app on.
-     * 
-     */
     @Import(name="repository")
     private @Nullable Output<String> repository;
 
-    /**
-     * @return The repository to install the app on.
-     * 
-     */
     public Optional<Output<String>> repository() {
         return Optional.ofNullable(this.repository);
     }
@@ -79,23 +63,11 @@ public final class AppInstallationRepositoryState extends com.pulumi.resources.R
             $ = new AppInstallationRepositoryState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param installationId The GitHub app installation id.
-         * 
-         * @return builder
-         * 
-         */
         public Builder installationId(@Nullable Output<String> installationId) {
             $.installationId = installationId;
             return this;
         }
 
-        /**
-         * @param installationId The GitHub app installation id.
-         * 
-         * @return builder
-         * 
-         */
         public Builder installationId(String installationId) {
             return installationId(Output.of(installationId));
         }
@@ -109,23 +81,11 @@ public final class AppInstallationRepositoryState extends com.pulumi.resources.R
             return repoId(Output.of(repoId));
         }
 
-        /**
-         * @param repository The repository to install the app on.
-         * 
-         * @return builder
-         * 
-         */
         public Builder repository(@Nullable Output<String> repository) {
             $.repository = repository;
             return this;
         }
 
-        /**
-         * @param repository The repository to install the app on.
-         * 
-         * @return builder
-         * 
-         */
         public Builder repository(String repository) {
             return repository(Output.of(repository));
         }

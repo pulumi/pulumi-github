@@ -44,18 +44,11 @@ class GetOrganizationTeamsResult:
     @property
     @pulumi.getter(name="rootTeamsOnly")
     def root_teams_only(self) -> Optional[bool]:
-        """
-        Only return teams that are at the organization's root, i.e. no nested teams. Defaults to `false`.
-        """
         return pulumi.get(self, "root_teams_only")
 
     @property
     @pulumi.getter
     def teams(self) -> Sequence['outputs.GetOrganizationTeamsTeamResult']:
-        """
-        An Array of GitHub Teams.  Each `team` block consists of the fields documented below.
-        ___
-        """
         return pulumi.get(self, "teams")
 
 
@@ -73,30 +66,7 @@ class AwaitableGetOrganizationTeamsResult(GetOrganizationTeamsResult):
 def get_organization_teams(root_teams_only: Optional[bool] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOrganizationTeamsResult:
     """
-    Use this data source to retrieve information about all GitHub teams in an organization.
-
-    ## Example Usage
-
-    To retrieve *all* teams of the organization:
-
-    ```python
-    import pulumi
-    import pulumi_github as github
-
-    all = github.get_organization_teams()
-    ```
-
-    To retrieve only the team's at the root of the organization:
-
-    ```python
-    import pulumi
-    import pulumi_github as github
-
-    root_teams = github.get_organization_teams(root_teams_only=True)
-    ```
-
-
-    :param bool root_teams_only: Only return teams that are at the organization's root, i.e. no nested teams. Defaults to `false`.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['rootTeamsOnly'] = root_teams_only
@@ -113,29 +83,6 @@ def get_organization_teams(root_teams_only: Optional[bool] = None,
 def get_organization_teams_output(root_teams_only: Optional[pulumi.Input[Optional[bool]]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOrganizationTeamsResult]:
     """
-    Use this data source to retrieve information about all GitHub teams in an organization.
-
-    ## Example Usage
-
-    To retrieve *all* teams of the organization:
-
-    ```python
-    import pulumi
-    import pulumi_github as github
-
-    all = github.get_organization_teams()
-    ```
-
-    To retrieve only the team's at the root of the organization:
-
-    ```python
-    import pulumi
-    import pulumi_github as github
-
-    root_teams = github.get_organization_teams(root_teams_only=True)
-    ```
-
-
-    :param bool root_teams_only: Only return teams that are at the organization's root, i.e. no nested teams. Defaults to `false`.
+    Use this data source to access information about an existing resource.
     """
     ...

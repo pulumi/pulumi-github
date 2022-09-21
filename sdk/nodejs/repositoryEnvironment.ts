@@ -5,40 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
-/**
- * This resource allows you to create and manage environments for a GitHub repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as github from "@pulumi/github";
- *
- * const current = github.getUser({
- *     username: "",
- * });
- * const exampleRepository = new github.Repository("exampleRepository", {description: "My awesome codebase"});
- * const exampleRepositoryEnvironment = new github.RepositoryEnvironment("exampleRepositoryEnvironment", {
- *     environment: "example",
- *     repository: exampleRepository.name,
- *     reviewers: [{
- *         users: [current.then(current => current.id)],
- *     }],
- *     deploymentBranchPolicy: {
- *         protectedBranches: true,
- *         customBranchPolicies: false,
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * GitHub Repository Environment can be imported using an ID made up of `name` of the repository combined with the `environment` name of the environment, separated by a `:` character, e.g.
- *
- * ```sh
- *  $ pulumi import github:index/repositoryEnvironment:RepositoryEnvironment daily terraform:daily
- * ```
- */
 export class RepositoryEnvironment extends pulumi.CustomResource {
     /**
      * Get an existing RepositoryEnvironment resource's state with the given name, ID, and optional extra
@@ -68,18 +34,9 @@ export class RepositoryEnvironment extends pulumi.CustomResource {
     }
 
     public readonly deploymentBranchPolicy!: pulumi.Output<outputs.RepositoryEnvironmentDeploymentBranchPolicy | undefined>;
-    /**
-     * The name of the environment.
-     */
     public readonly environment!: pulumi.Output<string>;
-    /**
-     * The repository of the environment.
-     */
     public readonly repository!: pulumi.Output<string>;
     public readonly reviewers!: pulumi.Output<outputs.RepositoryEnvironmentReviewer[] | undefined>;
-    /**
-     * Amount of time to delay a job after the job is initially triggered.
-     */
     public readonly waitTimer!: pulumi.Output<number | undefined>;
 
     /**
@@ -124,18 +81,9 @@ export class RepositoryEnvironment extends pulumi.CustomResource {
  */
 export interface RepositoryEnvironmentState {
     deploymentBranchPolicy?: pulumi.Input<inputs.RepositoryEnvironmentDeploymentBranchPolicy>;
-    /**
-     * The name of the environment.
-     */
     environment?: pulumi.Input<string>;
-    /**
-     * The repository of the environment.
-     */
     repository?: pulumi.Input<string>;
     reviewers?: pulumi.Input<pulumi.Input<inputs.RepositoryEnvironmentReviewer>[]>;
-    /**
-     * Amount of time to delay a job after the job is initially triggered.
-     */
     waitTimer?: pulumi.Input<number>;
 }
 
@@ -144,17 +92,8 @@ export interface RepositoryEnvironmentState {
  */
 export interface RepositoryEnvironmentArgs {
     deploymentBranchPolicy?: pulumi.Input<inputs.RepositoryEnvironmentDeploymentBranchPolicy>;
-    /**
-     * The name of the environment.
-     */
     environment: pulumi.Input<string>;
-    /**
-     * The repository of the environment.
-     */
     repository: pulumi.Input<string>;
     reviewers?: pulumi.Input<pulumi.Input<inputs.RepositoryEnvironmentReviewer>[]>;
-    /**
-     * Amount of time to delay a job after the job is initially triggered.
-     */
     waitTimer?: pulumi.Input<number>;
 }

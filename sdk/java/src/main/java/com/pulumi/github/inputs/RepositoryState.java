@@ -5,7 +5,6 @@ package com.pulumi.github.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import com.pulumi.github.inputs.RepositoryBranchArgs;
 import com.pulumi.github.inputs.RepositoryPagesArgs;
 import com.pulumi.github.inputs.RepositoryTemplateArgs;
 import java.lang.Boolean;
@@ -21,130 +20,57 @@ public final class RepositoryState extends com.pulumi.resources.ResourceArgs {
 
     public static final RepositoryState Empty = new RepositoryState();
 
-    /**
-     * Set to `true` to allow auto-merging pull requests on the repository.
-     * 
-     */
     @Import(name="allowAutoMerge")
     private @Nullable Output<Boolean> allowAutoMerge;
 
-    /**
-     * @return Set to `true` to allow auto-merging pull requests on the repository.
-     * 
-     */
     public Optional<Output<Boolean>> allowAutoMerge() {
         return Optional.ofNullable(this.allowAutoMerge);
     }
 
-    /**
-     * Set to `false` to disable merge commits on the repository.
-     * 
-     */
     @Import(name="allowMergeCommit")
     private @Nullable Output<Boolean> allowMergeCommit;
 
-    /**
-     * @return Set to `false` to disable merge commits on the repository.
-     * 
-     */
     public Optional<Output<Boolean>> allowMergeCommit() {
         return Optional.ofNullable(this.allowMergeCommit);
     }
 
-    /**
-     * Set to `false` to disable rebase merges on the repository.
-     * 
-     */
     @Import(name="allowRebaseMerge")
     private @Nullable Output<Boolean> allowRebaseMerge;
 
-    /**
-     * @return Set to `false` to disable rebase merges on the repository.
-     * 
-     */
     public Optional<Output<Boolean>> allowRebaseMerge() {
         return Optional.ofNullable(this.allowRebaseMerge);
     }
 
-    /**
-     * Set to `false` to disable squash merges on the repository.
-     * 
-     */
     @Import(name="allowSquashMerge")
     private @Nullable Output<Boolean> allowSquashMerge;
 
-    /**
-     * @return Set to `false` to disable squash merges on the repository.
-     * 
-     */
     public Optional<Output<Boolean>> allowSquashMerge() {
         return Optional.ofNullable(this.allowSquashMerge);
     }
 
-    /**
-     * Set to `true` to archive the repository instead of deleting on destroy.
-     * 
-     */
     @Import(name="archiveOnDestroy")
     private @Nullable Output<Boolean> archiveOnDestroy;
 
-    /**
-     * @return Set to `true` to archive the repository instead of deleting on destroy.
-     * 
-     */
     public Optional<Output<Boolean>> archiveOnDestroy() {
         return Optional.ofNullable(this.archiveOnDestroy);
     }
 
-    /**
-     * Specifies if the repository should be archived. Defaults to `false`. **NOTE** Currently, the API does not support unarchiving.
-     * 
-     */
     @Import(name="archived")
     private @Nullable Output<Boolean> archived;
 
-    /**
-     * @return Specifies if the repository should be archived. Defaults to `false`. **NOTE** Currently, the API does not support unarchiving.
-     * 
-     */
     public Optional<Output<Boolean>> archived() {
         return Optional.ofNullable(this.archived);
     }
 
-    /**
-     * Set to `true` to produce an initial commit in the repository.
-     * 
-     */
     @Import(name="autoInit")
     private @Nullable Output<Boolean> autoInit;
 
-    /**
-     * @return Set to `true` to produce an initial commit in the repository.
-     * 
-     */
     public Optional<Output<Boolean>> autoInit() {
         return Optional.ofNullable(this.autoInit);
     }
 
     /**
-     * The list of this repository&#39;s branches. Each element of `branches` has the following attributes:
-     * 
-     */
-    @Import(name="branches")
-    private @Nullable Output<List<RepositoryBranchArgs>> branches;
-
-    /**
-     * @return The list of this repository&#39;s branches. Each element of `branches` has the following attributes:
-     * 
-     */
-    public Optional<Output<List<RepositoryBranchArgs>>> branches() {
-        return Optional.ofNullable(this.branches);
-    }
-
-    /**
-     * (Deprecated: Use `github.BranchDefault` resource instead) The name of the default branch of the repository. **NOTE:** This can only be set after a repository has already been created,
-     * and after a correct reference has been created for the target branch inside the repository. This means a user will have to omit this parameter from the
-     * initial repository creation and create the target branch inside of the repository prior to setting this attribute.
+     * Can only be set after initial repository creation, and only if the target branch exists
      * 
      * @deprecated
      * Use the github_branch_default resource instead
@@ -155,9 +81,7 @@ public final class RepositoryState extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<String> defaultBranch;
 
     /**
-     * @return (Deprecated: Use `github.BranchDefault` resource instead) The name of the default branch of the repository. **NOTE:** This can only be set after a repository has already been created,
-     * and after a correct reference has been created for the target branch inside the repository. This means a user will have to omit this parameter from the
-     * initial repository creation and create the target branch inside of the repository prior to setting this attribute.
+     * @return Can only be set after initial repository creation, and only if the target branch exists
      * 
      * @deprecated
      * Use the github_branch_default resource instead
@@ -168,32 +92,16 @@ public final class RepositoryState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.defaultBranch);
     }
 
-    /**
-     * Automatically delete head branch after a pull request is merged. Defaults to `false`.
-     * 
-     */
     @Import(name="deleteBranchOnMerge")
     private @Nullable Output<Boolean> deleteBranchOnMerge;
 
-    /**
-     * @return Automatically delete head branch after a pull request is merged. Defaults to `false`.
-     * 
-     */
     public Optional<Output<Boolean>> deleteBranchOnMerge() {
         return Optional.ofNullable(this.deleteBranchOnMerge);
     }
 
-    /**
-     * A description of the repository.
-     * 
-     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
-    /**
-     * @return A description of the repository.
-     * 
-     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
@@ -205,284 +113,133 @@ public final class RepositoryState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.etag);
     }
 
-    /**
-     * A string of the form &#34;orgname/reponame&#34;.
-     * 
-     */
     @Import(name="fullName")
     private @Nullable Output<String> fullName;
 
-    /**
-     * @return A string of the form &#34;orgname/reponame&#34;.
-     * 
-     */
     public Optional<Output<String>> fullName() {
         return Optional.ofNullable(this.fullName);
     }
 
-    /**
-     * URL that can be provided to `git clone` to clone the repository anonymously via the git protocol.
-     * 
-     */
     @Import(name="gitCloneUrl")
     private @Nullable Output<String> gitCloneUrl;
 
-    /**
-     * @return URL that can be provided to `git clone` to clone the repository anonymously via the git protocol.
-     * 
-     */
     public Optional<Output<String>> gitCloneUrl() {
         return Optional.ofNullable(this.gitCloneUrl);
     }
 
-    /**
-     * Use the [name of the template](https://github.com/github/gitignore) without the extension. For example, &#34;Haskell&#34;.
-     * 
-     */
     @Import(name="gitignoreTemplate")
     private @Nullable Output<String> gitignoreTemplate;
 
-    /**
-     * @return Use the [name of the template](https://github.com/github/gitignore) without the extension. For example, &#34;Haskell&#34;.
-     * 
-     */
     public Optional<Output<String>> gitignoreTemplate() {
         return Optional.ofNullable(this.gitignoreTemplate);
     }
 
-    /**
-     * Set to `true` to enable the (deprecated) downloads features on the repository.
-     * 
-     */
     @Import(name="hasDownloads")
     private @Nullable Output<Boolean> hasDownloads;
 
-    /**
-     * @return Set to `true` to enable the (deprecated) downloads features on the repository.
-     * 
-     */
     public Optional<Output<Boolean>> hasDownloads() {
         return Optional.ofNullable(this.hasDownloads);
     }
 
-    /**
-     * Set to `true` to enable the GitHub Issues features
-     * on the repository.
-     * 
-     */
     @Import(name="hasIssues")
     private @Nullable Output<Boolean> hasIssues;
 
-    /**
-     * @return Set to `true` to enable the GitHub Issues features
-     * on the repository.
-     * 
-     */
     public Optional<Output<Boolean>> hasIssues() {
         return Optional.ofNullable(this.hasIssues);
     }
 
-    /**
-     * Set to `true` to enable the GitHub Projects features on the repository. Per the GitHub [documentation](https://developer.github.com/v3/repos/#create) when in an organization that has disabled repository projects it will default to `false` and will otherwise default to `true`. If you specify `true` when it has been disabled it will return an error.
-     * 
-     */
     @Import(name="hasProjects")
     private @Nullable Output<Boolean> hasProjects;
 
-    /**
-     * @return Set to `true` to enable the GitHub Projects features on the repository. Per the GitHub [documentation](https://developer.github.com/v3/repos/#create) when in an organization that has disabled repository projects it will default to `false` and will otherwise default to `true`. If you specify `true` when it has been disabled it will return an error.
-     * 
-     */
     public Optional<Output<Boolean>> hasProjects() {
         return Optional.ofNullable(this.hasProjects);
     }
 
-    /**
-     * Set to `true` to enable the GitHub Wiki features on
-     * the repository.
-     * 
-     */
     @Import(name="hasWiki")
     private @Nullable Output<Boolean> hasWiki;
 
-    /**
-     * @return Set to `true` to enable the GitHub Wiki features on
-     * the repository.
-     * 
-     */
     public Optional<Output<Boolean>> hasWiki() {
         return Optional.ofNullable(this.hasWiki);
     }
 
-    /**
-     * URL of a page describing the project.
-     * 
-     */
     @Import(name="homepageUrl")
     private @Nullable Output<String> homepageUrl;
 
-    /**
-     * @return URL of a page describing the project.
-     * 
-     */
     public Optional<Output<String>> homepageUrl() {
         return Optional.ofNullable(this.homepageUrl);
     }
 
-    /**
-     * The absolute URL (including scheme) of the rendered GitHub Pages site e.g. `https://username.github.io`.
-     * 
-     */
     @Import(name="htmlUrl")
     private @Nullable Output<String> htmlUrl;
 
-    /**
-     * @return The absolute URL (including scheme) of the rendered GitHub Pages site e.g. `https://username.github.io`.
-     * 
-     */
     public Optional<Output<String>> htmlUrl() {
         return Optional.ofNullable(this.htmlUrl);
     }
 
-    /**
-     * URL that can be provided to `git clone` to clone the repository via HTTPS.
-     * 
-     */
     @Import(name="httpCloneUrl")
     private @Nullable Output<String> httpCloneUrl;
 
-    /**
-     * @return URL that can be provided to `git clone` to clone the repository via HTTPS.
-     * 
-     */
     public Optional<Output<String>> httpCloneUrl() {
         return Optional.ofNullable(this.httpCloneUrl);
     }
 
-    /**
-     * Set to `true` to not call the vulnerability alerts endpoint so the resource can also be used without admin permissions during read.
-     * 
-     */
     @Import(name="ignoreVulnerabilityAlertsDuringRead")
     private @Nullable Output<Boolean> ignoreVulnerabilityAlertsDuringRead;
 
-    /**
-     * @return Set to `true` to not call the vulnerability alerts endpoint so the resource can also be used without admin permissions during read.
-     * 
-     */
     public Optional<Output<Boolean>> ignoreVulnerabilityAlertsDuringRead() {
         return Optional.ofNullable(this.ignoreVulnerabilityAlertsDuringRead);
     }
 
-    /**
-     * Set to `true` to tell GitHub that this is a template repository.
-     * 
-     */
     @Import(name="isTemplate")
     private @Nullable Output<Boolean> isTemplate;
 
-    /**
-     * @return Set to `true` to tell GitHub that this is a template repository.
-     * 
-     */
     public Optional<Output<Boolean>> isTemplate() {
         return Optional.ofNullable(this.isTemplate);
     }
 
-    /**
-     * Use the [name of the template](https://github.com/github/choosealicense.com/tree/gh-pages/_licenses) without the extension. For example, &#34;mit&#34; or &#34;mpl-2.0&#34;.
-     * 
-     */
     @Import(name="licenseTemplate")
     private @Nullable Output<String> licenseTemplate;
 
-    /**
-     * @return Use the [name of the template](https://github.com/github/choosealicense.com/tree/gh-pages/_licenses) without the extension. For example, &#34;mit&#34; or &#34;mpl-2.0&#34;.
-     * 
-     */
     public Optional<Output<String>> licenseTemplate() {
         return Optional.ofNullable(this.licenseTemplate);
     }
 
-    /**
-     * Can be `PR_BODY`, `PR_TITLE`, or `BLANK` for a default merge commit message.
-     * 
-     */
     @Import(name="mergeCommitMessage")
     private @Nullable Output<String> mergeCommitMessage;
 
-    /**
-     * @return Can be `PR_BODY`, `PR_TITLE`, or `BLANK` for a default merge commit message.
-     * 
-     */
     public Optional<Output<String>> mergeCommitMessage() {
         return Optional.ofNullable(this.mergeCommitMessage);
     }
 
-    /**
-     * Can be `PR_TITLE` or `MERGE_MESSAGE` for a default merge commit title.
-     * 
-     */
     @Import(name="mergeCommitTitle")
     private @Nullable Output<String> mergeCommitTitle;
 
-    /**
-     * @return Can be `PR_TITLE` or `MERGE_MESSAGE` for a default merge commit title.
-     * 
-     */
     public Optional<Output<String>> mergeCommitTitle() {
         return Optional.ofNullable(this.mergeCommitTitle);
     }
 
-    /**
-     * The name of the repository.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return The name of the repository.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * GraphQL global node id for use with v4 API
-     * 
-     */
     @Import(name="nodeId")
     private @Nullable Output<String> nodeId;
 
-    /**
-     * @return GraphQL global node id for use with v4 API
-     * 
-     */
     public Optional<Output<String>> nodeId() {
         return Optional.ofNullable(this.nodeId);
     }
 
-    /**
-     * The repository&#39;s GitHub Pages configuration. See GitHub Pages Configuration below for details.
-     * 
-     */
     @Import(name="pages")
     private @Nullable Output<RepositoryPagesArgs> pages;
 
-    /**
-     * @return The repository&#39;s GitHub Pages configuration. See GitHub Pages Configuration below for details.
-     * 
-     */
     public Optional<Output<RepositoryPagesArgs>> pages() {
         return Optional.ofNullable(this.pages);
     }
 
     /**
-     * Set to `true` to create a private repository.
-     * Repositories are created as public (e.g. open source) by default.
-     * 
      * @deprecated
      * use visibility instead
      * 
@@ -492,9 +249,6 @@ public final class RepositoryState extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<Boolean> private_;
 
     /**
-     * @return Set to `true` to create a private repository.
-     * Repositories are created as public (e.g. open source) by default.
-     * 
      * @deprecated
      * use visibility instead
      * 
@@ -504,137 +258,65 @@ public final class RepositoryState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.private_);
     }
 
-    /**
-     * GitHub ID for the repository
-     * 
-     */
     @Import(name="repoId")
     private @Nullable Output<Integer> repoId;
 
-    /**
-     * @return GitHub ID for the repository
-     * 
-     */
     public Optional<Output<Integer>> repoId() {
         return Optional.ofNullable(this.repoId);
     }
 
-    /**
-     * Can be `PR_BODY`, `COMMIT_MESSAGES`, or `BLANK` for a default squash merge commit message.
-     * 
-     */
     @Import(name="squashMergeCommitMessage")
     private @Nullable Output<String> squashMergeCommitMessage;
 
-    /**
-     * @return Can be `PR_BODY`, `COMMIT_MESSAGES`, or `BLANK` for a default squash merge commit message.
-     * 
-     */
     public Optional<Output<String>> squashMergeCommitMessage() {
         return Optional.ofNullable(this.squashMergeCommitMessage);
     }
 
-    /**
-     * Can be `PR_TITLE` or `COMMIT_OR_PR_TITLE` for a default squash merge commit title.
-     * 
-     */
     @Import(name="squashMergeCommitTitle")
     private @Nullable Output<String> squashMergeCommitTitle;
 
-    /**
-     * @return Can be `PR_TITLE` or `COMMIT_OR_PR_TITLE` for a default squash merge commit title.
-     * 
-     */
     public Optional<Output<String>> squashMergeCommitTitle() {
         return Optional.ofNullable(this.squashMergeCommitTitle);
     }
 
-    /**
-     * URL that can be provided to `git clone` to clone the repository via SSH.
-     * 
-     */
     @Import(name="sshCloneUrl")
     private @Nullable Output<String> sshCloneUrl;
 
-    /**
-     * @return URL that can be provided to `git clone` to clone the repository via SSH.
-     * 
-     */
     public Optional<Output<String>> sshCloneUrl() {
         return Optional.ofNullable(this.sshCloneUrl);
     }
 
-    /**
-     * URL that can be provided to `svn checkout` to check out the repository via GitHub&#39;s Subversion protocol emulation.
-     * 
-     */
     @Import(name="svnUrl")
     private @Nullable Output<String> svnUrl;
 
-    /**
-     * @return URL that can be provided to `svn checkout` to check out the repository via GitHub&#39;s Subversion protocol emulation.
-     * 
-     */
     public Optional<Output<String>> svnUrl() {
         return Optional.ofNullable(this.svnUrl);
     }
 
-    /**
-     * Use a template repository to create this resource. See Template Repositories below for details.
-     * 
-     */
     @Import(name="template")
     private @Nullable Output<RepositoryTemplateArgs> template;
 
-    /**
-     * @return Use a template repository to create this resource. See Template Repositories below for details.
-     * 
-     */
     public Optional<Output<RepositoryTemplateArgs>> template() {
         return Optional.ofNullable(this.template);
     }
 
-    /**
-     * The list of topics of the repository.
-     * 
-     */
     @Import(name="topics")
     private @Nullable Output<List<String>> topics;
 
-    /**
-     * @return The list of topics of the repository.
-     * 
-     */
     public Optional<Output<List<String>>> topics() {
         return Optional.ofNullable(this.topics);
     }
 
-    /**
-     * Can be `public` or `private`. If your organization is associated with an enterprise account using GitHub Enterprise Cloud or GitHub Enterprise Server 2.20+, visibility can also be `internal`. The `visibility` parameter overrides the `private` parameter.
-     * 
-     */
     @Import(name="visibility")
     private @Nullable Output<String> visibility;
 
-    /**
-     * @return Can be `public` or `private`. If your organization is associated with an enterprise account using GitHub Enterprise Cloud or GitHub Enterprise Server 2.20+, visibility can also be `internal`. The `visibility` parameter overrides the `private` parameter.
-     * 
-     */
     public Optional<Output<String>> visibility() {
         return Optional.ofNullable(this.visibility);
     }
 
-    /**
-     * Set to `true` to enable security alerts for vulnerable dependencies. Enabling requires alerts to be enabled on the owner level. (Note for importing: GitHub enables the alerts on public repos but disables them on private repos by default.) See [GitHub Documentation](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for details. Note that vulnerability alerts have not been successfully tested on any GitHub Enterprise instance and may be unavailable in those settings.
-     * 
-     */
     @Import(name="vulnerabilityAlerts")
     private @Nullable Output<Boolean> vulnerabilityAlerts;
 
-    /**
-     * @return Set to `true` to enable security alerts for vulnerable dependencies. Enabling requires alerts to be enabled on the owner level. (Note for importing: GitHub enables the alerts on public repos but disables them on private repos by default.) See [GitHub Documentation](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for details. Note that vulnerability alerts have not been successfully tested on any GitHub Enterprise instance and may be unavailable in those settings.
-     * 
-     */
     public Optional<Output<Boolean>> vulnerabilityAlerts() {
         return Optional.ofNullable(this.vulnerabilityAlerts);
     }
@@ -649,7 +331,6 @@ public final class RepositoryState extends com.pulumi.resources.ResourceArgs {
         this.archiveOnDestroy = $.archiveOnDestroy;
         this.archived = $.archived;
         this.autoInit = $.autoInit;
-        this.branches = $.branches;
         this.defaultBranch = $.defaultBranch;
         this.deleteBranchOnMerge = $.deleteBranchOnMerge;
         this.description = $.description;
@@ -702,188 +383,71 @@ public final class RepositoryState extends com.pulumi.resources.ResourceArgs {
             $ = new RepositoryState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param allowAutoMerge Set to `true` to allow auto-merging pull requests on the repository.
-         * 
-         * @return builder
-         * 
-         */
         public Builder allowAutoMerge(@Nullable Output<Boolean> allowAutoMerge) {
             $.allowAutoMerge = allowAutoMerge;
             return this;
         }
 
-        /**
-         * @param allowAutoMerge Set to `true` to allow auto-merging pull requests on the repository.
-         * 
-         * @return builder
-         * 
-         */
         public Builder allowAutoMerge(Boolean allowAutoMerge) {
             return allowAutoMerge(Output.of(allowAutoMerge));
         }
 
-        /**
-         * @param allowMergeCommit Set to `false` to disable merge commits on the repository.
-         * 
-         * @return builder
-         * 
-         */
         public Builder allowMergeCommit(@Nullable Output<Boolean> allowMergeCommit) {
             $.allowMergeCommit = allowMergeCommit;
             return this;
         }
 
-        /**
-         * @param allowMergeCommit Set to `false` to disable merge commits on the repository.
-         * 
-         * @return builder
-         * 
-         */
         public Builder allowMergeCommit(Boolean allowMergeCommit) {
             return allowMergeCommit(Output.of(allowMergeCommit));
         }
 
-        /**
-         * @param allowRebaseMerge Set to `false` to disable rebase merges on the repository.
-         * 
-         * @return builder
-         * 
-         */
         public Builder allowRebaseMerge(@Nullable Output<Boolean> allowRebaseMerge) {
             $.allowRebaseMerge = allowRebaseMerge;
             return this;
         }
 
-        /**
-         * @param allowRebaseMerge Set to `false` to disable rebase merges on the repository.
-         * 
-         * @return builder
-         * 
-         */
         public Builder allowRebaseMerge(Boolean allowRebaseMerge) {
             return allowRebaseMerge(Output.of(allowRebaseMerge));
         }
 
-        /**
-         * @param allowSquashMerge Set to `false` to disable squash merges on the repository.
-         * 
-         * @return builder
-         * 
-         */
         public Builder allowSquashMerge(@Nullable Output<Boolean> allowSquashMerge) {
             $.allowSquashMerge = allowSquashMerge;
             return this;
         }
 
-        /**
-         * @param allowSquashMerge Set to `false` to disable squash merges on the repository.
-         * 
-         * @return builder
-         * 
-         */
         public Builder allowSquashMerge(Boolean allowSquashMerge) {
             return allowSquashMerge(Output.of(allowSquashMerge));
         }
 
-        /**
-         * @param archiveOnDestroy Set to `true` to archive the repository instead of deleting on destroy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder archiveOnDestroy(@Nullable Output<Boolean> archiveOnDestroy) {
             $.archiveOnDestroy = archiveOnDestroy;
             return this;
         }
 
-        /**
-         * @param archiveOnDestroy Set to `true` to archive the repository instead of deleting on destroy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder archiveOnDestroy(Boolean archiveOnDestroy) {
             return archiveOnDestroy(Output.of(archiveOnDestroy));
         }
 
-        /**
-         * @param archived Specifies if the repository should be archived. Defaults to `false`. **NOTE** Currently, the API does not support unarchiving.
-         * 
-         * @return builder
-         * 
-         */
         public Builder archived(@Nullable Output<Boolean> archived) {
             $.archived = archived;
             return this;
         }
 
-        /**
-         * @param archived Specifies if the repository should be archived. Defaults to `false`. **NOTE** Currently, the API does not support unarchiving.
-         * 
-         * @return builder
-         * 
-         */
         public Builder archived(Boolean archived) {
             return archived(Output.of(archived));
         }
 
-        /**
-         * @param autoInit Set to `true` to produce an initial commit in the repository.
-         * 
-         * @return builder
-         * 
-         */
         public Builder autoInit(@Nullable Output<Boolean> autoInit) {
             $.autoInit = autoInit;
             return this;
         }
 
-        /**
-         * @param autoInit Set to `true` to produce an initial commit in the repository.
-         * 
-         * @return builder
-         * 
-         */
         public Builder autoInit(Boolean autoInit) {
             return autoInit(Output.of(autoInit));
         }
 
         /**
-         * @param branches The list of this repository&#39;s branches. Each element of `branches` has the following attributes:
-         * 
-         * @return builder
-         * 
-         */
-        public Builder branches(@Nullable Output<List<RepositoryBranchArgs>> branches) {
-            $.branches = branches;
-            return this;
-        }
-
-        /**
-         * @param branches The list of this repository&#39;s branches. Each element of `branches` has the following attributes:
-         * 
-         * @return builder
-         * 
-         */
-        public Builder branches(List<RepositoryBranchArgs> branches) {
-            return branches(Output.of(branches));
-        }
-
-        /**
-         * @param branches The list of this repository&#39;s branches. Each element of `branches` has the following attributes:
-         * 
-         * @return builder
-         * 
-         */
-        public Builder branches(RepositoryBranchArgs... branches) {
-            return branches(List.of(branches));
-        }
-
-        /**
-         * @param defaultBranch (Deprecated: Use `github.BranchDefault` resource instead) The name of the default branch of the repository. **NOTE:** This can only be set after a repository has already been created,
-         * and after a correct reference has been created for the target branch inside the repository. This means a user will have to omit this parameter from the
-         * initial repository creation and create the target branch inside of the repository prior to setting this attribute.
+         * @param defaultBranch Can only be set after initial repository creation, and only if the target branch exists
          * 
          * @return builder
          * 
@@ -898,9 +462,7 @@ public final class RepositoryState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param defaultBranch (Deprecated: Use `github.BranchDefault` resource instead) The name of the default branch of the repository. **NOTE:** This can only be set after a repository has already been created,
-         * and after a correct reference has been created for the target branch inside the repository. This means a user will have to omit this parameter from the
-         * initial repository creation and create the target branch inside of the repository prior to setting this attribute.
+         * @param defaultBranch Can only be set after initial repository creation, and only if the target branch exists
          * 
          * @return builder
          * 
@@ -913,44 +475,20 @@ public final class RepositoryState extends com.pulumi.resources.ResourceArgs {
             return defaultBranch(Output.of(defaultBranch));
         }
 
-        /**
-         * @param deleteBranchOnMerge Automatically delete head branch after a pull request is merged. Defaults to `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder deleteBranchOnMerge(@Nullable Output<Boolean> deleteBranchOnMerge) {
             $.deleteBranchOnMerge = deleteBranchOnMerge;
             return this;
         }
 
-        /**
-         * @param deleteBranchOnMerge Automatically delete head branch after a pull request is merged. Defaults to `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder deleteBranchOnMerge(Boolean deleteBranchOnMerge) {
             return deleteBranchOnMerge(Output.of(deleteBranchOnMerge));
         }
 
-        /**
-         * @param description A description of the repository.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
-        /**
-         * @param description A description of the repository.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
@@ -964,392 +502,169 @@ public final class RepositoryState extends com.pulumi.resources.ResourceArgs {
             return etag(Output.of(etag));
         }
 
-        /**
-         * @param fullName A string of the form &#34;orgname/reponame&#34;.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fullName(@Nullable Output<String> fullName) {
             $.fullName = fullName;
             return this;
         }
 
-        /**
-         * @param fullName A string of the form &#34;orgname/reponame&#34;.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fullName(String fullName) {
             return fullName(Output.of(fullName));
         }
 
-        /**
-         * @param gitCloneUrl URL that can be provided to `git clone` to clone the repository anonymously via the git protocol.
-         * 
-         * @return builder
-         * 
-         */
         public Builder gitCloneUrl(@Nullable Output<String> gitCloneUrl) {
             $.gitCloneUrl = gitCloneUrl;
             return this;
         }
 
-        /**
-         * @param gitCloneUrl URL that can be provided to `git clone` to clone the repository anonymously via the git protocol.
-         * 
-         * @return builder
-         * 
-         */
         public Builder gitCloneUrl(String gitCloneUrl) {
             return gitCloneUrl(Output.of(gitCloneUrl));
         }
 
-        /**
-         * @param gitignoreTemplate Use the [name of the template](https://github.com/github/gitignore) without the extension. For example, &#34;Haskell&#34;.
-         * 
-         * @return builder
-         * 
-         */
         public Builder gitignoreTemplate(@Nullable Output<String> gitignoreTemplate) {
             $.gitignoreTemplate = gitignoreTemplate;
             return this;
         }
 
-        /**
-         * @param gitignoreTemplate Use the [name of the template](https://github.com/github/gitignore) without the extension. For example, &#34;Haskell&#34;.
-         * 
-         * @return builder
-         * 
-         */
         public Builder gitignoreTemplate(String gitignoreTemplate) {
             return gitignoreTemplate(Output.of(gitignoreTemplate));
         }
 
-        /**
-         * @param hasDownloads Set to `true` to enable the (deprecated) downloads features on the repository.
-         * 
-         * @return builder
-         * 
-         */
         public Builder hasDownloads(@Nullable Output<Boolean> hasDownloads) {
             $.hasDownloads = hasDownloads;
             return this;
         }
 
-        /**
-         * @param hasDownloads Set to `true` to enable the (deprecated) downloads features on the repository.
-         * 
-         * @return builder
-         * 
-         */
         public Builder hasDownloads(Boolean hasDownloads) {
             return hasDownloads(Output.of(hasDownloads));
         }
 
-        /**
-         * @param hasIssues Set to `true` to enable the GitHub Issues features
-         * on the repository.
-         * 
-         * @return builder
-         * 
-         */
         public Builder hasIssues(@Nullable Output<Boolean> hasIssues) {
             $.hasIssues = hasIssues;
             return this;
         }
 
-        /**
-         * @param hasIssues Set to `true` to enable the GitHub Issues features
-         * on the repository.
-         * 
-         * @return builder
-         * 
-         */
         public Builder hasIssues(Boolean hasIssues) {
             return hasIssues(Output.of(hasIssues));
         }
 
-        /**
-         * @param hasProjects Set to `true` to enable the GitHub Projects features on the repository. Per the GitHub [documentation](https://developer.github.com/v3/repos/#create) when in an organization that has disabled repository projects it will default to `false` and will otherwise default to `true`. If you specify `true` when it has been disabled it will return an error.
-         * 
-         * @return builder
-         * 
-         */
         public Builder hasProjects(@Nullable Output<Boolean> hasProjects) {
             $.hasProjects = hasProjects;
             return this;
         }
 
-        /**
-         * @param hasProjects Set to `true` to enable the GitHub Projects features on the repository. Per the GitHub [documentation](https://developer.github.com/v3/repos/#create) when in an organization that has disabled repository projects it will default to `false` and will otherwise default to `true`. If you specify `true` when it has been disabled it will return an error.
-         * 
-         * @return builder
-         * 
-         */
         public Builder hasProjects(Boolean hasProjects) {
             return hasProjects(Output.of(hasProjects));
         }
 
-        /**
-         * @param hasWiki Set to `true` to enable the GitHub Wiki features on
-         * the repository.
-         * 
-         * @return builder
-         * 
-         */
         public Builder hasWiki(@Nullable Output<Boolean> hasWiki) {
             $.hasWiki = hasWiki;
             return this;
         }
 
-        /**
-         * @param hasWiki Set to `true` to enable the GitHub Wiki features on
-         * the repository.
-         * 
-         * @return builder
-         * 
-         */
         public Builder hasWiki(Boolean hasWiki) {
             return hasWiki(Output.of(hasWiki));
         }
 
-        /**
-         * @param homepageUrl URL of a page describing the project.
-         * 
-         * @return builder
-         * 
-         */
         public Builder homepageUrl(@Nullable Output<String> homepageUrl) {
             $.homepageUrl = homepageUrl;
             return this;
         }
 
-        /**
-         * @param homepageUrl URL of a page describing the project.
-         * 
-         * @return builder
-         * 
-         */
         public Builder homepageUrl(String homepageUrl) {
             return homepageUrl(Output.of(homepageUrl));
         }
 
-        /**
-         * @param htmlUrl The absolute URL (including scheme) of the rendered GitHub Pages site e.g. `https://username.github.io`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder htmlUrl(@Nullable Output<String> htmlUrl) {
             $.htmlUrl = htmlUrl;
             return this;
         }
 
-        /**
-         * @param htmlUrl The absolute URL (including scheme) of the rendered GitHub Pages site e.g. `https://username.github.io`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder htmlUrl(String htmlUrl) {
             return htmlUrl(Output.of(htmlUrl));
         }
 
-        /**
-         * @param httpCloneUrl URL that can be provided to `git clone` to clone the repository via HTTPS.
-         * 
-         * @return builder
-         * 
-         */
         public Builder httpCloneUrl(@Nullable Output<String> httpCloneUrl) {
             $.httpCloneUrl = httpCloneUrl;
             return this;
         }
 
-        /**
-         * @param httpCloneUrl URL that can be provided to `git clone` to clone the repository via HTTPS.
-         * 
-         * @return builder
-         * 
-         */
         public Builder httpCloneUrl(String httpCloneUrl) {
             return httpCloneUrl(Output.of(httpCloneUrl));
         }
 
-        /**
-         * @param ignoreVulnerabilityAlertsDuringRead Set to `true` to not call the vulnerability alerts endpoint so the resource can also be used without admin permissions during read.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ignoreVulnerabilityAlertsDuringRead(@Nullable Output<Boolean> ignoreVulnerabilityAlertsDuringRead) {
             $.ignoreVulnerabilityAlertsDuringRead = ignoreVulnerabilityAlertsDuringRead;
             return this;
         }
 
-        /**
-         * @param ignoreVulnerabilityAlertsDuringRead Set to `true` to not call the vulnerability alerts endpoint so the resource can also be used without admin permissions during read.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ignoreVulnerabilityAlertsDuringRead(Boolean ignoreVulnerabilityAlertsDuringRead) {
             return ignoreVulnerabilityAlertsDuringRead(Output.of(ignoreVulnerabilityAlertsDuringRead));
         }
 
-        /**
-         * @param isTemplate Set to `true` to tell GitHub that this is a template repository.
-         * 
-         * @return builder
-         * 
-         */
         public Builder isTemplate(@Nullable Output<Boolean> isTemplate) {
             $.isTemplate = isTemplate;
             return this;
         }
 
-        /**
-         * @param isTemplate Set to `true` to tell GitHub that this is a template repository.
-         * 
-         * @return builder
-         * 
-         */
         public Builder isTemplate(Boolean isTemplate) {
             return isTemplate(Output.of(isTemplate));
         }
 
-        /**
-         * @param licenseTemplate Use the [name of the template](https://github.com/github/choosealicense.com/tree/gh-pages/_licenses) without the extension. For example, &#34;mit&#34; or &#34;mpl-2.0&#34;.
-         * 
-         * @return builder
-         * 
-         */
         public Builder licenseTemplate(@Nullable Output<String> licenseTemplate) {
             $.licenseTemplate = licenseTemplate;
             return this;
         }
 
-        /**
-         * @param licenseTemplate Use the [name of the template](https://github.com/github/choosealicense.com/tree/gh-pages/_licenses) without the extension. For example, &#34;mit&#34; or &#34;mpl-2.0&#34;.
-         * 
-         * @return builder
-         * 
-         */
         public Builder licenseTemplate(String licenseTemplate) {
             return licenseTemplate(Output.of(licenseTemplate));
         }
 
-        /**
-         * @param mergeCommitMessage Can be `PR_BODY`, `PR_TITLE`, or `BLANK` for a default merge commit message.
-         * 
-         * @return builder
-         * 
-         */
         public Builder mergeCommitMessage(@Nullable Output<String> mergeCommitMessage) {
             $.mergeCommitMessage = mergeCommitMessage;
             return this;
         }
 
-        /**
-         * @param mergeCommitMessage Can be `PR_BODY`, `PR_TITLE`, or `BLANK` for a default merge commit message.
-         * 
-         * @return builder
-         * 
-         */
         public Builder mergeCommitMessage(String mergeCommitMessage) {
             return mergeCommitMessage(Output.of(mergeCommitMessage));
         }
 
-        /**
-         * @param mergeCommitTitle Can be `PR_TITLE` or `MERGE_MESSAGE` for a default merge commit title.
-         * 
-         * @return builder
-         * 
-         */
         public Builder mergeCommitTitle(@Nullable Output<String> mergeCommitTitle) {
             $.mergeCommitTitle = mergeCommitTitle;
             return this;
         }
 
-        /**
-         * @param mergeCommitTitle Can be `PR_TITLE` or `MERGE_MESSAGE` for a default merge commit title.
-         * 
-         * @return builder
-         * 
-         */
         public Builder mergeCommitTitle(String mergeCommitTitle) {
             return mergeCommitTitle(Output.of(mergeCommitTitle));
         }
 
-        /**
-         * @param name The name of the repository.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The name of the repository.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param nodeId GraphQL global node id for use with v4 API
-         * 
-         * @return builder
-         * 
-         */
         public Builder nodeId(@Nullable Output<String> nodeId) {
             $.nodeId = nodeId;
             return this;
         }
 
-        /**
-         * @param nodeId GraphQL global node id for use with v4 API
-         * 
-         * @return builder
-         * 
-         */
         public Builder nodeId(String nodeId) {
             return nodeId(Output.of(nodeId));
         }
 
-        /**
-         * @param pages The repository&#39;s GitHub Pages configuration. See GitHub Pages Configuration below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder pages(@Nullable Output<RepositoryPagesArgs> pages) {
             $.pages = pages;
             return this;
         }
 
-        /**
-         * @param pages The repository&#39;s GitHub Pages configuration. See GitHub Pages Configuration below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder pages(RepositoryPagesArgs pages) {
             return pages(Output.of(pages));
         }
 
         /**
-         * @param private_ Set to `true` to create a private repository.
-         * Repositories are created as public (e.g. open source) by default.
-         * 
          * @return builder
          * 
          * @deprecated
@@ -1363,9 +678,6 @@ public final class RepositoryState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param private_ Set to `true` to create a private repository.
-         * Repositories are created as public (e.g. open source) by default.
-         * 
          * @return builder
          * 
          * @deprecated
@@ -1377,201 +689,87 @@ public final class RepositoryState extends com.pulumi.resources.ResourceArgs {
             return private_(Output.of(private_));
         }
 
-        /**
-         * @param repoId GitHub ID for the repository
-         * 
-         * @return builder
-         * 
-         */
         public Builder repoId(@Nullable Output<Integer> repoId) {
             $.repoId = repoId;
             return this;
         }
 
-        /**
-         * @param repoId GitHub ID for the repository
-         * 
-         * @return builder
-         * 
-         */
         public Builder repoId(Integer repoId) {
             return repoId(Output.of(repoId));
         }
 
-        /**
-         * @param squashMergeCommitMessage Can be `PR_BODY`, `COMMIT_MESSAGES`, or `BLANK` for a default squash merge commit message.
-         * 
-         * @return builder
-         * 
-         */
         public Builder squashMergeCommitMessage(@Nullable Output<String> squashMergeCommitMessage) {
             $.squashMergeCommitMessage = squashMergeCommitMessage;
             return this;
         }
 
-        /**
-         * @param squashMergeCommitMessage Can be `PR_BODY`, `COMMIT_MESSAGES`, or `BLANK` for a default squash merge commit message.
-         * 
-         * @return builder
-         * 
-         */
         public Builder squashMergeCommitMessage(String squashMergeCommitMessage) {
             return squashMergeCommitMessage(Output.of(squashMergeCommitMessage));
         }
 
-        /**
-         * @param squashMergeCommitTitle Can be `PR_TITLE` or `COMMIT_OR_PR_TITLE` for a default squash merge commit title.
-         * 
-         * @return builder
-         * 
-         */
         public Builder squashMergeCommitTitle(@Nullable Output<String> squashMergeCommitTitle) {
             $.squashMergeCommitTitle = squashMergeCommitTitle;
             return this;
         }
 
-        /**
-         * @param squashMergeCommitTitle Can be `PR_TITLE` or `COMMIT_OR_PR_TITLE` for a default squash merge commit title.
-         * 
-         * @return builder
-         * 
-         */
         public Builder squashMergeCommitTitle(String squashMergeCommitTitle) {
             return squashMergeCommitTitle(Output.of(squashMergeCommitTitle));
         }
 
-        /**
-         * @param sshCloneUrl URL that can be provided to `git clone` to clone the repository via SSH.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sshCloneUrl(@Nullable Output<String> sshCloneUrl) {
             $.sshCloneUrl = sshCloneUrl;
             return this;
         }
 
-        /**
-         * @param sshCloneUrl URL that can be provided to `git clone` to clone the repository via SSH.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sshCloneUrl(String sshCloneUrl) {
             return sshCloneUrl(Output.of(sshCloneUrl));
         }
 
-        /**
-         * @param svnUrl URL that can be provided to `svn checkout` to check out the repository via GitHub&#39;s Subversion protocol emulation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder svnUrl(@Nullable Output<String> svnUrl) {
             $.svnUrl = svnUrl;
             return this;
         }
 
-        /**
-         * @param svnUrl URL that can be provided to `svn checkout` to check out the repository via GitHub&#39;s Subversion protocol emulation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder svnUrl(String svnUrl) {
             return svnUrl(Output.of(svnUrl));
         }
 
-        /**
-         * @param template Use a template repository to create this resource. See Template Repositories below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder template(@Nullable Output<RepositoryTemplateArgs> template) {
             $.template = template;
             return this;
         }
 
-        /**
-         * @param template Use a template repository to create this resource. See Template Repositories below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder template(RepositoryTemplateArgs template) {
             return template(Output.of(template));
         }
 
-        /**
-         * @param topics The list of topics of the repository.
-         * 
-         * @return builder
-         * 
-         */
         public Builder topics(@Nullable Output<List<String>> topics) {
             $.topics = topics;
             return this;
         }
 
-        /**
-         * @param topics The list of topics of the repository.
-         * 
-         * @return builder
-         * 
-         */
         public Builder topics(List<String> topics) {
             return topics(Output.of(topics));
         }
 
-        /**
-         * @param topics The list of topics of the repository.
-         * 
-         * @return builder
-         * 
-         */
         public Builder topics(String... topics) {
             return topics(List.of(topics));
         }
 
-        /**
-         * @param visibility Can be `public` or `private`. If your organization is associated with an enterprise account using GitHub Enterprise Cloud or GitHub Enterprise Server 2.20+, visibility can also be `internal`. The `visibility` parameter overrides the `private` parameter.
-         * 
-         * @return builder
-         * 
-         */
         public Builder visibility(@Nullable Output<String> visibility) {
             $.visibility = visibility;
             return this;
         }
 
-        /**
-         * @param visibility Can be `public` or `private`. If your organization is associated with an enterprise account using GitHub Enterprise Cloud or GitHub Enterprise Server 2.20+, visibility can also be `internal`. The `visibility` parameter overrides the `private` parameter.
-         * 
-         * @return builder
-         * 
-         */
         public Builder visibility(String visibility) {
             return visibility(Output.of(visibility));
         }
 
-        /**
-         * @param vulnerabilityAlerts Set to `true` to enable security alerts for vulnerable dependencies. Enabling requires alerts to be enabled on the owner level. (Note for importing: GitHub enables the alerts on public repos but disables them on private repos by default.) See [GitHub Documentation](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for details. Note that vulnerability alerts have not been successfully tested on any GitHub Enterprise instance and may be unavailable in those settings.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vulnerabilityAlerts(@Nullable Output<Boolean> vulnerabilityAlerts) {
             $.vulnerabilityAlerts = vulnerabilityAlerts;
             return this;
         }
 
-        /**
-         * @param vulnerabilityAlerts Set to `true` to enable security alerts for vulnerable dependencies. Enabling requires alerts to be enabled on the owner level. (Note for importing: GitHub enables the alerts on public repos but disables them on private repos by default.) See [GitHub Documentation](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for details. Note that vulnerability alerts have not been successfully tested on any GitHub Enterprise instance and may be unavailable in those settings.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vulnerabilityAlerts(Boolean vulnerabilityAlerts) {
             return vulnerabilityAlerts(Output.of(vulnerabilityAlerts));
         }

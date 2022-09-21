@@ -13,17 +13,8 @@ namespace Pulumi.Github.Outputs
     [OutputType]
     public sealed class TeamSyncGroupMappingGroup
     {
-        /// <summary>
-        /// The description of the IdP group.
-        /// </summary>
         public readonly string GroupDescription;
-        /// <summary>
-        /// The ID of the IdP group.
-        /// </summary>
         public readonly string GroupId;
-        /// <summary>
-        /// The name of the IdP group.
-        /// </summary>
         public readonly string GroupName;
 
         [OutputConstructor]

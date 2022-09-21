@@ -13,17 +13,9 @@ public final class OrganizationBlockArgs extends com.pulumi.resources.ResourceAr
 
     public static final OrganizationBlockArgs Empty = new OrganizationBlockArgs();
 
-    /**
-     * The name of the user to block.
-     * 
-     */
     @Import(name="username", required=true)
     private Output<String> username;
 
-    /**
-     * @return The name of the user to block.
-     * 
-     */
     public Output<String> username() {
         return this.username;
     }
@@ -52,23 +44,11 @@ public final class OrganizationBlockArgs extends com.pulumi.resources.ResourceAr
             $ = new OrganizationBlockArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param username The name of the user to block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder username(Output<String> username) {
             $.username = username;
             return this;
         }
 
-        /**
-         * @param username The name of the user to block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder username(String username) {
             return username(Output.of(username));
         }

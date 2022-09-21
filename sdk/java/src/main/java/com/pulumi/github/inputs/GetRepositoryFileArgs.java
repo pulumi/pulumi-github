@@ -15,49 +15,23 @@ public final class GetRepositoryFileArgs extends com.pulumi.resources.InvokeArgs
 
     public static final GetRepositoryFileArgs Empty = new GetRepositoryFileArgs();
 
-    /**
-     * Git branch (defaults to `main`).
-     * The branch must already exist, it will not be created if it does not already exist.
-     * 
-     */
     @Import(name="branch")
     private @Nullable Output<String> branch;
 
-    /**
-     * @return Git branch (defaults to `main`).
-     * The branch must already exist, it will not be created if it does not already exist.
-     * 
-     */
     public Optional<Output<String>> branch() {
         return Optional.ofNullable(this.branch);
     }
 
-    /**
-     * The path of the file to manage.
-     * 
-     */
     @Import(name="file", required=true)
     private Output<String> file;
 
-    /**
-     * @return The path of the file to manage.
-     * 
-     */
     public Output<String> file() {
         return this.file;
     }
 
-    /**
-     * The repository to create the file in.
-     * 
-     */
     @Import(name="repository", required=true)
     private Output<String> repository;
 
-    /**
-     * @return The repository to create the file in.
-     * 
-     */
     public Output<String> repository() {
         return this.repository;
     }
@@ -88,67 +62,29 @@ public final class GetRepositoryFileArgs extends com.pulumi.resources.InvokeArgs
             $ = new GetRepositoryFileArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param branch Git branch (defaults to `main`).
-         * The branch must already exist, it will not be created if it does not already exist.
-         * 
-         * @return builder
-         * 
-         */
         public Builder branch(@Nullable Output<String> branch) {
             $.branch = branch;
             return this;
         }
 
-        /**
-         * @param branch Git branch (defaults to `main`).
-         * The branch must already exist, it will not be created if it does not already exist.
-         * 
-         * @return builder
-         * 
-         */
         public Builder branch(String branch) {
             return branch(Output.of(branch));
         }
 
-        /**
-         * @param file The path of the file to manage.
-         * 
-         * @return builder
-         * 
-         */
         public Builder file(Output<String> file) {
             $.file = file;
             return this;
         }
 
-        /**
-         * @param file The path of the file to manage.
-         * 
-         * @return builder
-         * 
-         */
         public Builder file(String file) {
             return file(Output.of(file));
         }
 
-        /**
-         * @param repository The repository to create the file in.
-         * 
-         * @return builder
-         * 
-         */
         public Builder repository(Output<String> repository) {
             $.repository = repository;
             return this;
         }
 
-        /**
-         * @param repository The repository to create the file in.
-         * 
-         * @return builder
-         * 
-         */
         public Builder repository(String repository) {
             return repository(Output.of(repository));
         }

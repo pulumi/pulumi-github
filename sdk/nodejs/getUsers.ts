@@ -4,28 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
-/**
- * Use this data source to retrieve information about multiple GitHub users at once.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as github from "@pulumi/github";
- *
- * // Retrieve information about multiple GitHub users.
- * const example = pulumi.output(github.getUsers({
- *     usernames: [
- *         "example1",
- *         "example2",
- *         "example3",
- *     ],
- * }));
- *
- * export const validUsers = example.logins;
- * export const invalidUsers = example.unknownLogins;
- * ```
- */
 export function getUsers(args: GetUsersArgs, opts?: pulumi.InvokeOptions): Promise<GetUsersResult> {
     if (!opts) {
         opts = {}
@@ -41,9 +19,6 @@ export function getUsers(args: GetUsersArgs, opts?: pulumi.InvokeOptions): Promi
  * A collection of arguments for invoking getUsers.
  */
 export interface GetUsersArgs {
-    /**
-     * List of usernames.
-     */
     usernames: string[];
 }
 
@@ -55,17 +30,8 @@ export interface GetUsersResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    /**
-     * list of logins of users that could be found.
-     */
     readonly logins: string[];
-    /**
-     * list of Node IDs of users that could be found.
-     */
     readonly nodeIds: string[];
-    /**
-     * list of logins without matching user.
-     */
     readonly unknownLogins: string[];
     readonly usernames: string[];
 }
@@ -78,8 +44,5 @@ export function getUsersOutput(args: GetUsersOutputArgs, opts?: pulumi.InvokeOpt
  * A collection of arguments for invoking getUsers.
  */
 export interface GetUsersOutputArgs {
-    /**
-     * List of usernames.
-     */
     usernames: pulumi.Input<pulumi.Input<string>[]>;
 }

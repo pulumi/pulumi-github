@@ -13,17 +13,10 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class BranchProtectionRequiredStatusCheck {
-    private final @Nullable List<String> contexts;
-    private final @Nullable Boolean strict;
+    private @Nullable List<String> contexts;
+    private @Nullable Boolean strict;
 
-    @CustomType.Constructor
-    private BranchProtectionRequiredStatusCheck(
-        @CustomType.Parameter("contexts") @Nullable List<String> contexts,
-        @CustomType.Parameter("strict") @Nullable Boolean strict) {
-        this.contexts = contexts;
-        this.strict = strict;
-    }
-
+    private BranchProtectionRequiredStatusCheck() {}
     public List<String> contexts() {
         return this.contexts == null ? List.of() : this.contexts;
     }
@@ -38,21 +31,18 @@ public final class BranchProtectionRequiredStatusCheck {
     public static Builder builder(BranchProtectionRequiredStatusCheck defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<String> contexts;
         private @Nullable Boolean strict;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(BranchProtectionRequiredStatusCheck defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.contexts = defaults.contexts;
     	      this.strict = defaults.strict;
         }
 
+        @CustomType.Setter
         public Builder contexts(@Nullable List<String> contexts) {
             this.contexts = contexts;
             return this;
@@ -60,11 +50,16 @@ public final class BranchProtectionRequiredStatusCheck {
         public Builder contexts(String... contexts) {
             return contexts(List.of(contexts));
         }
+        @CustomType.Setter
         public Builder strict(@Nullable Boolean strict) {
             this.strict = strict;
             return this;
-        }        public BranchProtectionRequiredStatusCheck build() {
-            return new BranchProtectionRequiredStatusCheck(contexts, strict);
+        }
+        public BranchProtectionRequiredStatusCheck build() {
+            final var o = new BranchProtectionRequiredStatusCheck();
+            o.contexts = contexts;
+            o.strict = strict;
+            return o;
         }
     }
 }

@@ -10,288 +10,79 @@ import java.util.Objects;
 
 @CustomType
 public final class GetIpRangesResult {
-    /**
-     * @return An array of IP addresses in CIDR format specifying the addresses that incoming requests from GitHub actions will originate from.
-     * 
-     */
-    private final List<String> actions;
-    /**
-     * @return A subset of the `actions` array that contains IP addresses in IPv4 CIDR format.
-     * 
-     */
-    private final List<String> actionsIpv4s;
-    /**
-     * @return A subset of the `actions` array that contains IP addresses in IPv6 CIDR format.
-     * 
-     */
-    private final List<String> actionsIpv6s;
-    /**
-     * @return A subset of the `api` array that contains IP addresses in IPv4 CIDR format.
-     * 
-     */
-    private final List<String> apiIpv4s;
-    /**
-     * @return A subset of the `api` array that contains IP addresses in IPv6 CIDR format.
-     * 
-     */
-    private final List<String> apiIpv6s;
-    /**
-     * @return An Array of IP addresses in CIDR format for the GitHub API.
-     * 
-     */
-    private final List<String> apis;
-    /**
-     * @return A subset of the `dependabot` array that contains IP addresses in IPv4 CIDR format.
-     * 
-     */
-    private final List<String> dependabotIpv4s;
-    /**
-     * @return A subset of the `dependabot` array that contains IP addresses in IPv6 CIDR format.
-     * 
-     */
-    private final List<String> dependabotIpv6s;
-    /**
-     * @return An array of IP addresses in CIDR format specifying the A records for dependabot.
-     * 
-     */
-    private final List<String> dependabots;
-    /**
-     * @return A subset of the `git` array that contains IP addresses in IPv4 CIDR format.
-     * 
-     */
-    private final List<String> gitIpv4s;
-    /**
-     * @return A subset of the `git` array that contains IP addresses in IPv6 CIDR format.
-     * 
-     */
-    private final List<String> gitIpv6s;
-    /**
-     * @return An Array of IP addresses in CIDR format specifying the Git servers.
-     * 
-     */
-    private final List<String> gits;
-    /**
-     * @return An Array of IP addresses in CIDR format specifying the addresses that incoming service hooks will originate from.
-     * 
-     */
-    private final List<String> hooks;
-    /**
-     * @return A subset of the `hooks` array that contains IP addresses in IPv4 CIDR format.
-     * 
-     */
-    private final List<String> hooksIpv4s;
-    /**
-     * @return A subset of the `hooks` array that contains IP addresses in IPv6 CIDR format.
-     * 
-     */
-    private final List<String> hooksIpv6s;
+    private List<String> actions;
+    private List<String> actionsIpv4s;
+    private List<String> actionsIpv6s;
+    private List<String> apiIpv4s;
+    private List<String> apiIpv6s;
+    private List<String> apis;
+    private List<String> dependabotIpv4s;
+    private List<String> dependabotIpv6s;
+    private List<String> dependabots;
+    private List<String> gitIpv4s;
+    private List<String> gitIpv6s;
+    private List<String> gits;
+    private List<String> hooks;
+    private List<String> hooksIpv4s;
+    private List<String> hooksIpv6s;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    /**
-     * @return A subset of the `importer` array that contains IP addresses in IPv4 CIDR format.
-     * 
-     */
-    private final List<String> importerIpv4s;
-    /**
-     * @return A subset of the `importer` array that contains IP addresses in IPv6 CIDR format.
-     * 
-     */
-    private final List<String> importerIpv6s;
-    /**
-     * @return An Array of IP addresses in CIDR format specifying the A records for GitHub Importer.
-     * 
-     */
-    private final List<String> importers;
-    /**
-     * @return An Array of IP addresses in CIDR format specifying the A records for GitHub Pages.
-     * 
-     */
-    private final List<String> pages;
-    /**
-     * @return A subset of the `pages` array that contains IP addresses in IPv4 CIDR format.
-     * 
-     */
-    private final List<String> pagesIpv4s;
-    /**
-     * @return A subset of the `pages` array that contains IP addresses in IPv6 CIDR format.
-     * 
-     */
-    private final List<String> pagesIpv6s;
-    /**
-     * @return A subset of the `web` array that contains IP addresses in IPv4 CIDR format.
-     * 
-     */
-    private final List<String> webIpv4s;
-    /**
-     * @return A subset of the `web` array that contains IP addresses in IPv6 CIDR format.
-     * 
-     */
-    private final List<String> webIpv6s;
-    /**
-     * @return An Array of IP addresses in CIDR format for GitHub Web.
-     * 
-     */
-    private final List<String> webs;
+    private String id;
+    private List<String> importerIpv4s;
+    private List<String> importerIpv6s;
+    private List<String> importers;
+    private List<String> pages;
+    private List<String> pagesIpv4s;
+    private List<String> pagesIpv6s;
+    private List<String> webIpv4s;
+    private List<String> webIpv6s;
+    private List<String> webs;
 
-    @CustomType.Constructor
-    private GetIpRangesResult(
-        @CustomType.Parameter("actions") List<String> actions,
-        @CustomType.Parameter("actionsIpv4s") List<String> actionsIpv4s,
-        @CustomType.Parameter("actionsIpv6s") List<String> actionsIpv6s,
-        @CustomType.Parameter("apiIpv4s") List<String> apiIpv4s,
-        @CustomType.Parameter("apiIpv6s") List<String> apiIpv6s,
-        @CustomType.Parameter("apis") List<String> apis,
-        @CustomType.Parameter("dependabotIpv4s") List<String> dependabotIpv4s,
-        @CustomType.Parameter("dependabotIpv6s") List<String> dependabotIpv6s,
-        @CustomType.Parameter("dependabots") List<String> dependabots,
-        @CustomType.Parameter("gitIpv4s") List<String> gitIpv4s,
-        @CustomType.Parameter("gitIpv6s") List<String> gitIpv6s,
-        @CustomType.Parameter("gits") List<String> gits,
-        @CustomType.Parameter("hooks") List<String> hooks,
-        @CustomType.Parameter("hooksIpv4s") List<String> hooksIpv4s,
-        @CustomType.Parameter("hooksIpv6s") List<String> hooksIpv6s,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("importerIpv4s") List<String> importerIpv4s,
-        @CustomType.Parameter("importerIpv6s") List<String> importerIpv6s,
-        @CustomType.Parameter("importers") List<String> importers,
-        @CustomType.Parameter("pages") List<String> pages,
-        @CustomType.Parameter("pagesIpv4s") List<String> pagesIpv4s,
-        @CustomType.Parameter("pagesIpv6s") List<String> pagesIpv6s,
-        @CustomType.Parameter("webIpv4s") List<String> webIpv4s,
-        @CustomType.Parameter("webIpv6s") List<String> webIpv6s,
-        @CustomType.Parameter("webs") List<String> webs) {
-        this.actions = actions;
-        this.actionsIpv4s = actionsIpv4s;
-        this.actionsIpv6s = actionsIpv6s;
-        this.apiIpv4s = apiIpv4s;
-        this.apiIpv6s = apiIpv6s;
-        this.apis = apis;
-        this.dependabotIpv4s = dependabotIpv4s;
-        this.dependabotIpv6s = dependabotIpv6s;
-        this.dependabots = dependabots;
-        this.gitIpv4s = gitIpv4s;
-        this.gitIpv6s = gitIpv6s;
-        this.gits = gits;
-        this.hooks = hooks;
-        this.hooksIpv4s = hooksIpv4s;
-        this.hooksIpv6s = hooksIpv6s;
-        this.id = id;
-        this.importerIpv4s = importerIpv4s;
-        this.importerIpv6s = importerIpv6s;
-        this.importers = importers;
-        this.pages = pages;
-        this.pagesIpv4s = pagesIpv4s;
-        this.pagesIpv6s = pagesIpv6s;
-        this.webIpv4s = webIpv4s;
-        this.webIpv6s = webIpv6s;
-        this.webs = webs;
-    }
-
-    /**
-     * @return An array of IP addresses in CIDR format specifying the addresses that incoming requests from GitHub actions will originate from.
-     * 
-     */
+    private GetIpRangesResult() {}
     public List<String> actions() {
         return this.actions;
     }
-    /**
-     * @return A subset of the `actions` array that contains IP addresses in IPv4 CIDR format.
-     * 
-     */
     public List<String> actionsIpv4s() {
         return this.actionsIpv4s;
     }
-    /**
-     * @return A subset of the `actions` array that contains IP addresses in IPv6 CIDR format.
-     * 
-     */
     public List<String> actionsIpv6s() {
         return this.actionsIpv6s;
     }
-    /**
-     * @return A subset of the `api` array that contains IP addresses in IPv4 CIDR format.
-     * 
-     */
     public List<String> apiIpv4s() {
         return this.apiIpv4s;
     }
-    /**
-     * @return A subset of the `api` array that contains IP addresses in IPv6 CIDR format.
-     * 
-     */
     public List<String> apiIpv6s() {
         return this.apiIpv6s;
     }
-    /**
-     * @return An Array of IP addresses in CIDR format for the GitHub API.
-     * 
-     */
     public List<String> apis() {
         return this.apis;
     }
-    /**
-     * @return A subset of the `dependabot` array that contains IP addresses in IPv4 CIDR format.
-     * 
-     */
     public List<String> dependabotIpv4s() {
         return this.dependabotIpv4s;
     }
-    /**
-     * @return A subset of the `dependabot` array that contains IP addresses in IPv6 CIDR format.
-     * 
-     */
     public List<String> dependabotIpv6s() {
         return this.dependabotIpv6s;
     }
-    /**
-     * @return An array of IP addresses in CIDR format specifying the A records for dependabot.
-     * 
-     */
     public List<String> dependabots() {
         return this.dependabots;
     }
-    /**
-     * @return A subset of the `git` array that contains IP addresses in IPv4 CIDR format.
-     * 
-     */
     public List<String> gitIpv4s() {
         return this.gitIpv4s;
     }
-    /**
-     * @return A subset of the `git` array that contains IP addresses in IPv6 CIDR format.
-     * 
-     */
     public List<String> gitIpv6s() {
         return this.gitIpv6s;
     }
-    /**
-     * @return An Array of IP addresses in CIDR format specifying the Git servers.
-     * 
-     */
     public List<String> gits() {
         return this.gits;
     }
-    /**
-     * @return An Array of IP addresses in CIDR format specifying the addresses that incoming service hooks will originate from.
-     * 
-     */
     public List<String> hooks() {
         return this.hooks;
     }
-    /**
-     * @return A subset of the `hooks` array that contains IP addresses in IPv4 CIDR format.
-     * 
-     */
     public List<String> hooksIpv4s() {
         return this.hooksIpv4s;
     }
-    /**
-     * @return A subset of the `hooks` array that contains IP addresses in IPv6 CIDR format.
-     * 
-     */
     public List<String> hooksIpv6s() {
         return this.hooksIpv6s;
     }
@@ -302,66 +93,30 @@ public final class GetIpRangesResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return A subset of the `importer` array that contains IP addresses in IPv4 CIDR format.
-     * 
-     */
     public List<String> importerIpv4s() {
         return this.importerIpv4s;
     }
-    /**
-     * @return A subset of the `importer` array that contains IP addresses in IPv6 CIDR format.
-     * 
-     */
     public List<String> importerIpv6s() {
         return this.importerIpv6s;
     }
-    /**
-     * @return An Array of IP addresses in CIDR format specifying the A records for GitHub Importer.
-     * 
-     */
     public List<String> importers() {
         return this.importers;
     }
-    /**
-     * @return An Array of IP addresses in CIDR format specifying the A records for GitHub Pages.
-     * 
-     */
     public List<String> pages() {
         return this.pages;
     }
-    /**
-     * @return A subset of the `pages` array that contains IP addresses in IPv4 CIDR format.
-     * 
-     */
     public List<String> pagesIpv4s() {
         return this.pagesIpv4s;
     }
-    /**
-     * @return A subset of the `pages` array that contains IP addresses in IPv6 CIDR format.
-     * 
-     */
     public List<String> pagesIpv6s() {
         return this.pagesIpv6s;
     }
-    /**
-     * @return A subset of the `web` array that contains IP addresses in IPv4 CIDR format.
-     * 
-     */
     public List<String> webIpv4s() {
         return this.webIpv4s;
     }
-    /**
-     * @return A subset of the `web` array that contains IP addresses in IPv6 CIDR format.
-     * 
-     */
     public List<String> webIpv6s() {
         return this.webIpv6s;
     }
-    /**
-     * @return An Array of IP addresses in CIDR format for GitHub Web.
-     * 
-     */
     public List<String> webs() {
         return this.webs;
     }
@@ -373,7 +128,7 @@ public final class GetIpRangesResult {
     public static Builder builder(GetIpRangesResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> actions;
         private List<String> actionsIpv4s;
@@ -400,11 +155,7 @@ public final class GetIpRangesResult {
         private List<String> webIpv4s;
         private List<String> webIpv6s;
         private List<String> webs;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetIpRangesResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.actions = defaults.actions;
@@ -434,6 +185,7 @@ public final class GetIpRangesResult {
     	      this.webs = defaults.webs;
         }
 
+        @CustomType.Setter
         public Builder actions(List<String> actions) {
             this.actions = Objects.requireNonNull(actions);
             return this;
@@ -441,6 +193,7 @@ public final class GetIpRangesResult {
         public Builder actions(String... actions) {
             return actions(List.of(actions));
         }
+        @CustomType.Setter
         public Builder actionsIpv4s(List<String> actionsIpv4s) {
             this.actionsIpv4s = Objects.requireNonNull(actionsIpv4s);
             return this;
@@ -448,6 +201,7 @@ public final class GetIpRangesResult {
         public Builder actionsIpv4s(String... actionsIpv4s) {
             return actionsIpv4s(List.of(actionsIpv4s));
         }
+        @CustomType.Setter
         public Builder actionsIpv6s(List<String> actionsIpv6s) {
             this.actionsIpv6s = Objects.requireNonNull(actionsIpv6s);
             return this;
@@ -455,6 +209,7 @@ public final class GetIpRangesResult {
         public Builder actionsIpv6s(String... actionsIpv6s) {
             return actionsIpv6s(List.of(actionsIpv6s));
         }
+        @CustomType.Setter
         public Builder apiIpv4s(List<String> apiIpv4s) {
             this.apiIpv4s = Objects.requireNonNull(apiIpv4s);
             return this;
@@ -462,6 +217,7 @@ public final class GetIpRangesResult {
         public Builder apiIpv4s(String... apiIpv4s) {
             return apiIpv4s(List.of(apiIpv4s));
         }
+        @CustomType.Setter
         public Builder apiIpv6s(List<String> apiIpv6s) {
             this.apiIpv6s = Objects.requireNonNull(apiIpv6s);
             return this;
@@ -469,6 +225,7 @@ public final class GetIpRangesResult {
         public Builder apiIpv6s(String... apiIpv6s) {
             return apiIpv6s(List.of(apiIpv6s));
         }
+        @CustomType.Setter
         public Builder apis(List<String> apis) {
             this.apis = Objects.requireNonNull(apis);
             return this;
@@ -476,6 +233,7 @@ public final class GetIpRangesResult {
         public Builder apis(String... apis) {
             return apis(List.of(apis));
         }
+        @CustomType.Setter
         public Builder dependabotIpv4s(List<String> dependabotIpv4s) {
             this.dependabotIpv4s = Objects.requireNonNull(dependabotIpv4s);
             return this;
@@ -483,6 +241,7 @@ public final class GetIpRangesResult {
         public Builder dependabotIpv4s(String... dependabotIpv4s) {
             return dependabotIpv4s(List.of(dependabotIpv4s));
         }
+        @CustomType.Setter
         public Builder dependabotIpv6s(List<String> dependabotIpv6s) {
             this.dependabotIpv6s = Objects.requireNonNull(dependabotIpv6s);
             return this;
@@ -490,6 +249,7 @@ public final class GetIpRangesResult {
         public Builder dependabotIpv6s(String... dependabotIpv6s) {
             return dependabotIpv6s(List.of(dependabotIpv6s));
         }
+        @CustomType.Setter
         public Builder dependabots(List<String> dependabots) {
             this.dependabots = Objects.requireNonNull(dependabots);
             return this;
@@ -497,6 +257,7 @@ public final class GetIpRangesResult {
         public Builder dependabots(String... dependabots) {
             return dependabots(List.of(dependabots));
         }
+        @CustomType.Setter
         public Builder gitIpv4s(List<String> gitIpv4s) {
             this.gitIpv4s = Objects.requireNonNull(gitIpv4s);
             return this;
@@ -504,6 +265,7 @@ public final class GetIpRangesResult {
         public Builder gitIpv4s(String... gitIpv4s) {
             return gitIpv4s(List.of(gitIpv4s));
         }
+        @CustomType.Setter
         public Builder gitIpv6s(List<String> gitIpv6s) {
             this.gitIpv6s = Objects.requireNonNull(gitIpv6s);
             return this;
@@ -511,6 +273,7 @@ public final class GetIpRangesResult {
         public Builder gitIpv6s(String... gitIpv6s) {
             return gitIpv6s(List.of(gitIpv6s));
         }
+        @CustomType.Setter
         public Builder gits(List<String> gits) {
             this.gits = Objects.requireNonNull(gits);
             return this;
@@ -518,6 +281,7 @@ public final class GetIpRangesResult {
         public Builder gits(String... gits) {
             return gits(List.of(gits));
         }
+        @CustomType.Setter
         public Builder hooks(List<String> hooks) {
             this.hooks = Objects.requireNonNull(hooks);
             return this;
@@ -525,6 +289,7 @@ public final class GetIpRangesResult {
         public Builder hooks(String... hooks) {
             return hooks(List.of(hooks));
         }
+        @CustomType.Setter
         public Builder hooksIpv4s(List<String> hooksIpv4s) {
             this.hooksIpv4s = Objects.requireNonNull(hooksIpv4s);
             return this;
@@ -532,6 +297,7 @@ public final class GetIpRangesResult {
         public Builder hooksIpv4s(String... hooksIpv4s) {
             return hooksIpv4s(List.of(hooksIpv4s));
         }
+        @CustomType.Setter
         public Builder hooksIpv6s(List<String> hooksIpv6s) {
             this.hooksIpv6s = Objects.requireNonNull(hooksIpv6s);
             return this;
@@ -539,10 +305,12 @@ public final class GetIpRangesResult {
         public Builder hooksIpv6s(String... hooksIpv6s) {
             return hooksIpv6s(List.of(hooksIpv6s));
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder importerIpv4s(List<String> importerIpv4s) {
             this.importerIpv4s = Objects.requireNonNull(importerIpv4s);
             return this;
@@ -550,6 +318,7 @@ public final class GetIpRangesResult {
         public Builder importerIpv4s(String... importerIpv4s) {
             return importerIpv4s(List.of(importerIpv4s));
         }
+        @CustomType.Setter
         public Builder importerIpv6s(List<String> importerIpv6s) {
             this.importerIpv6s = Objects.requireNonNull(importerIpv6s);
             return this;
@@ -557,6 +326,7 @@ public final class GetIpRangesResult {
         public Builder importerIpv6s(String... importerIpv6s) {
             return importerIpv6s(List.of(importerIpv6s));
         }
+        @CustomType.Setter
         public Builder importers(List<String> importers) {
             this.importers = Objects.requireNonNull(importers);
             return this;
@@ -564,6 +334,7 @@ public final class GetIpRangesResult {
         public Builder importers(String... importers) {
             return importers(List.of(importers));
         }
+        @CustomType.Setter
         public Builder pages(List<String> pages) {
             this.pages = Objects.requireNonNull(pages);
             return this;
@@ -571,6 +342,7 @@ public final class GetIpRangesResult {
         public Builder pages(String... pages) {
             return pages(List.of(pages));
         }
+        @CustomType.Setter
         public Builder pagesIpv4s(List<String> pagesIpv4s) {
             this.pagesIpv4s = Objects.requireNonNull(pagesIpv4s);
             return this;
@@ -578,6 +350,7 @@ public final class GetIpRangesResult {
         public Builder pagesIpv4s(String... pagesIpv4s) {
             return pagesIpv4s(List.of(pagesIpv4s));
         }
+        @CustomType.Setter
         public Builder pagesIpv6s(List<String> pagesIpv6s) {
             this.pagesIpv6s = Objects.requireNonNull(pagesIpv6s);
             return this;
@@ -585,6 +358,7 @@ public final class GetIpRangesResult {
         public Builder pagesIpv6s(String... pagesIpv6s) {
             return pagesIpv6s(List.of(pagesIpv6s));
         }
+        @CustomType.Setter
         public Builder webIpv4s(List<String> webIpv4s) {
             this.webIpv4s = Objects.requireNonNull(webIpv4s);
             return this;
@@ -592,6 +366,7 @@ public final class GetIpRangesResult {
         public Builder webIpv4s(String... webIpv4s) {
             return webIpv4s(List.of(webIpv4s));
         }
+        @CustomType.Setter
         public Builder webIpv6s(List<String> webIpv6s) {
             this.webIpv6s = Objects.requireNonNull(webIpv6s);
             return this;
@@ -599,14 +374,42 @@ public final class GetIpRangesResult {
         public Builder webIpv6s(String... webIpv6s) {
             return webIpv6s(List.of(webIpv6s));
         }
+        @CustomType.Setter
         public Builder webs(List<String> webs) {
             this.webs = Objects.requireNonNull(webs);
             return this;
         }
         public Builder webs(String... webs) {
             return webs(List.of(webs));
-        }        public GetIpRangesResult build() {
-            return new GetIpRangesResult(actions, actionsIpv4s, actionsIpv6s, apiIpv4s, apiIpv6s, apis, dependabotIpv4s, dependabotIpv6s, dependabots, gitIpv4s, gitIpv6s, gits, hooks, hooksIpv4s, hooksIpv6s, id, importerIpv4s, importerIpv6s, importers, pages, pagesIpv4s, pagesIpv6s, webIpv4s, webIpv6s, webs);
+        }
+        public GetIpRangesResult build() {
+            final var o = new GetIpRangesResult();
+            o.actions = actions;
+            o.actionsIpv4s = actionsIpv4s;
+            o.actionsIpv6s = actionsIpv6s;
+            o.apiIpv4s = apiIpv4s;
+            o.apiIpv6s = apiIpv6s;
+            o.apis = apis;
+            o.dependabotIpv4s = dependabotIpv4s;
+            o.dependabotIpv6s = dependabotIpv6s;
+            o.dependabots = dependabots;
+            o.gitIpv4s = gitIpv4s;
+            o.gitIpv6s = gitIpv6s;
+            o.gits = gits;
+            o.hooks = hooks;
+            o.hooksIpv4s = hooksIpv4s;
+            o.hooksIpv6s = hooksIpv6s;
+            o.id = id;
+            o.importerIpv4s = importerIpv4s;
+            o.importerIpv6s = importerIpv6s;
+            o.importers = importers;
+            o.pages = pages;
+            o.pagesIpv4s = pagesIpv4s;
+            o.pagesIpv6s = pagesIpv6s;
+            o.webIpv4s = webIpv4s;
+            o.webIpv6s = webIpv6s;
+            o.webs = webs;
+            return o;
         }
     }
 }
