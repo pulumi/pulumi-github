@@ -20,8 +20,8 @@ import (
 	"unicode"
 
 	"github.com/hashicorp/terraform-plugin-sdk/helper/schema"
-	"github.com/integrations/terraform-provider-github/v4/github"
-	"github.com/pulumi/pulumi-github/provider/v4/pkg/version"
+	"github.com/integrations/terraform-provider-github/v5/github"
+	"github.com/pulumi/pulumi-github/provider/v5/pkg/version"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
 	shimv1 "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim/sdk-v1"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/tokens"
