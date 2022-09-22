@@ -16,62 +16,30 @@ public final class RepositoryWebhookConfigurationArgs extends com.pulumi.resourc
 
     public static final RepositoryWebhookConfigurationArgs Empty = new RepositoryWebhookConfigurationArgs();
 
-    /**
-     * The content type for the payload. Valid values are either `form` or `json`.
-     * 
-     */
     @Import(name="contentType")
     private @Nullable Output<String> contentType;
 
-    /**
-     * @return The content type for the payload. Valid values are either `form` or `json`.
-     * 
-     */
     public Optional<Output<String>> contentType() {
         return Optional.ofNullable(this.contentType);
     }
 
-    /**
-     * Insecure SSL boolean toggle. Defaults to `false`.
-     * 
-     */
     @Import(name="insecureSsl")
     private @Nullable Output<Boolean> insecureSsl;
 
-    /**
-     * @return Insecure SSL boolean toggle. Defaults to `false`.
-     * 
-     */
     public Optional<Output<Boolean>> insecureSsl() {
         return Optional.ofNullable(this.insecureSsl);
     }
 
-    /**
-     * The shared secret for the webhook. [See API documentation](https://developer.github.com/v3/repos/hooks/#create-a-hook).
-     * 
-     */
     @Import(name="secret")
     private @Nullable Output<String> secret;
 
-    /**
-     * @return The shared secret for the webhook. [See API documentation](https://developer.github.com/v3/repos/hooks/#create-a-hook).
-     * 
-     */
     public Optional<Output<String>> secret() {
         return Optional.ofNullable(this.secret);
     }
 
-    /**
-     * The URL of the webhook.
-     * 
-     */
     @Import(name="url", required=true)
     private Output<String> url;
 
-    /**
-     * @return The URL of the webhook.
-     * 
-     */
     public Output<String> url() {
         return this.url;
     }
@@ -103,86 +71,38 @@ public final class RepositoryWebhookConfigurationArgs extends com.pulumi.resourc
             $ = new RepositoryWebhookConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param contentType The content type for the payload. Valid values are either `form` or `json`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder contentType(@Nullable Output<String> contentType) {
             $.contentType = contentType;
             return this;
         }
 
-        /**
-         * @param contentType The content type for the payload. Valid values are either `form` or `json`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder contentType(String contentType) {
             return contentType(Output.of(contentType));
         }
 
-        /**
-         * @param insecureSsl Insecure SSL boolean toggle. Defaults to `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder insecureSsl(@Nullable Output<Boolean> insecureSsl) {
             $.insecureSsl = insecureSsl;
             return this;
         }
 
-        /**
-         * @param insecureSsl Insecure SSL boolean toggle. Defaults to `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder insecureSsl(Boolean insecureSsl) {
             return insecureSsl(Output.of(insecureSsl));
         }
 
-        /**
-         * @param secret The shared secret for the webhook. [See API documentation](https://developer.github.com/v3/repos/hooks/#create-a-hook).
-         * 
-         * @return builder
-         * 
-         */
         public Builder secret(@Nullable Output<String> secret) {
             $.secret = secret;
             return this;
         }
 
-        /**
-         * @param secret The shared secret for the webhook. [See API documentation](https://developer.github.com/v3/repos/hooks/#create-a-hook).
-         * 
-         * @return builder
-         * 
-         */
         public Builder secret(String secret) {
             return secret(Output.of(secret));
         }
 
-        /**
-         * @param url The URL of the webhook.
-         * 
-         * @return builder
-         * 
-         */
         public Builder url(Output<String> url) {
             $.url = url;
             return this;
         }
 
-        /**
-         * @param url The URL of the webhook.
-         * 
-         * @return builder
-         * 
-         */
         public Builder url(String url) {
             return url(Output.of(url));
         }

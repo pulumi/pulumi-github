@@ -11,20 +11,11 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class BranchProtectionV3Restrictions {
-    private final @Nullable List<String> apps;
-    private final @Nullable List<String> teams;
-    private final @Nullable List<String> users;
+    private @Nullable List<String> apps;
+    private @Nullable List<String> teams;
+    private @Nullable List<String> users;
 
-    @CustomType.Constructor
-    private BranchProtectionV3Restrictions(
-        @CustomType.Parameter("apps") @Nullable List<String> apps,
-        @CustomType.Parameter("teams") @Nullable List<String> teams,
-        @CustomType.Parameter("users") @Nullable List<String> users) {
-        this.apps = apps;
-        this.teams = teams;
-        this.users = users;
-    }
-
+    private BranchProtectionV3Restrictions() {}
     public List<String> apps() {
         return this.apps == null ? List.of() : this.apps;
     }
@@ -42,16 +33,12 @@ public final class BranchProtectionV3Restrictions {
     public static Builder builder(BranchProtectionV3Restrictions defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<String> apps;
         private @Nullable List<String> teams;
         private @Nullable List<String> users;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(BranchProtectionV3Restrictions defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.apps = defaults.apps;
@@ -59,6 +46,7 @@ public final class BranchProtectionV3Restrictions {
     	      this.users = defaults.users;
         }
 
+        @CustomType.Setter
         public Builder apps(@Nullable List<String> apps) {
             this.apps = apps;
             return this;
@@ -66,6 +54,7 @@ public final class BranchProtectionV3Restrictions {
         public Builder apps(String... apps) {
             return apps(List.of(apps));
         }
+        @CustomType.Setter
         public Builder teams(@Nullable List<String> teams) {
             this.teams = teams;
             return this;
@@ -73,14 +62,20 @@ public final class BranchProtectionV3Restrictions {
         public Builder teams(String... teams) {
             return teams(List.of(teams));
         }
+        @CustomType.Setter
         public Builder users(@Nullable List<String> users) {
             this.users = users;
             return this;
         }
         public Builder users(String... users) {
             return users(List.of(users));
-        }        public BranchProtectionV3Restrictions build() {
-            return new BranchProtectionV3Restrictions(apps, teams, users);
+        }
+        public BranchProtectionV3Restrictions build() {
+            final var o = new BranchProtectionV3Restrictions();
+            o.apps = apps;
+            o.teams = teams;
+            o.users = users;
+            return o;
         }
     }
 }

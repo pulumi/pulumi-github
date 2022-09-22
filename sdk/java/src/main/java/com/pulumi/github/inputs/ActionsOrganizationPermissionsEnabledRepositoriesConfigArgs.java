@@ -14,17 +14,9 @@ public final class ActionsOrganizationPermissionsEnabledRepositoriesConfigArgs e
 
     public static final ActionsOrganizationPermissionsEnabledRepositoriesConfigArgs Empty = new ActionsOrganizationPermissionsEnabledRepositoriesConfigArgs();
 
-    /**
-     * List of repository IDs to enable for GitHub Actions.
-     * 
-     */
     @Import(name="repositoryIds", required=true)
     private Output<List<Integer>> repositoryIds;
 
-    /**
-     * @return List of repository IDs to enable for GitHub Actions.
-     * 
-     */
     public Output<List<Integer>> repositoryIds() {
         return this.repositoryIds;
     }
@@ -53,33 +45,15 @@ public final class ActionsOrganizationPermissionsEnabledRepositoriesConfigArgs e
             $ = new ActionsOrganizationPermissionsEnabledRepositoriesConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param repositoryIds List of repository IDs to enable for GitHub Actions.
-         * 
-         * @return builder
-         * 
-         */
         public Builder repositoryIds(Output<List<Integer>> repositoryIds) {
             $.repositoryIds = repositoryIds;
             return this;
         }
 
-        /**
-         * @param repositoryIds List of repository IDs to enable for GitHub Actions.
-         * 
-         * @return builder
-         * 
-         */
         public Builder repositoryIds(List<Integer> repositoryIds) {
             return repositoryIds(Output.of(repositoryIds));
         }
 
-        /**
-         * @param repositoryIds List of repository IDs to enable for GitHub Actions.
-         * 
-         * @return builder
-         * 
-         */
         public Builder repositoryIds(Integer... repositoryIds) {
             return repositoryIds(List.of(repositoryIds));
         }

@@ -9,77 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Github
 {
-    /// <summary>
-    /// Provides a GitHub team membership resource.
-    /// 
-    /// This resource allows you to add/remove users from teams in your organization. When applied,
-    /// the user will be added to the team. If the user hasn't accepted their invitation to the
-    /// organization, they won't be part of the team until they do. When
-    /// destroyed, the user will be removed from the team.
-    /// 
-    /// &gt; **Note**: This resource is not compatible with `github.TeamMembers`. Use either `github.TeamMembers` or `github.TeamMembership`.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Github = Pulumi.Github;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     // Add a user to the organization
-    ///     var membershipForSomeUser = new Github.Membership("membershipForSomeUser", new()
-    ///     {
-    ///         Username = "SomeUser",
-    ///         Role = "member",
-    ///     });
-    /// 
-    ///     var someTeam = new Github.Team("someTeam", new()
-    ///     {
-    ///         Description = "Some cool team",
-    ///     });
-    /// 
-    ///     var someTeamMembership = new Github.TeamMembership("someTeamMembership", new()
-    ///     {
-    ///         TeamId = someTeam.Id,
-    ///         Username = "SomeUser",
-    ///         Role = "member",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// GitHub Team Membership can be imported using an ID made up of `teamid:username`, e.g.
-    /// 
-    /// ```sh
-    ///  $ pulumi import github:index/teamMembership:TeamMembership member 1234567:someuser
-    /// ```
-    /// </summary>
     [GithubResourceType("github:index/teamMembership:TeamMembership")]
     public partial class TeamMembership : global::Pulumi.CustomResource
     {
         [Output("etag")]
         public Output<string> Etag { get; private set; } = null!;
 
-        /// <summary>
-        /// The role of the user within the team.
-        /// Must be one of `member` or `maintainer`. Defaults to `member`.
-        /// </summary>
         [Output("role")]
         public Output<string?> Role { get; private set; } = null!;
 
-        /// <summary>
-        /// The GitHub team id
-        /// </summary>
         [Output("teamId")]
         public Output<string> TeamId { get; private set; } = null!;
 
-        /// <summary>
-        /// The user to add to the team.
-        /// </summary>
         [Output("username")]
         public Output<string> Username { get; private set; } = null!;
 
@@ -129,22 +70,12 @@ namespace Pulumi.Github
 
     public sealed class TeamMembershipArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The role of the user within the team.
-        /// Must be one of `member` or `maintainer`. Defaults to `member`.
-        /// </summary>
         [Input("role")]
         public Input<string>? Role { get; set; }
 
-        /// <summary>
-        /// The GitHub team id
-        /// </summary>
         [Input("teamId", required: true)]
         public Input<string> TeamId { get; set; } = null!;
 
-        /// <summary>
-        /// The user to add to the team.
-        /// </summary>
         [Input("username", required: true)]
         public Input<string> Username { get; set; } = null!;
 
@@ -159,22 +90,12 @@ namespace Pulumi.Github
         [Input("etag")]
         public Input<string>? Etag { get; set; }
 
-        /// <summary>
-        /// The role of the user within the team.
-        /// Must be one of `member` or `maintainer`. Defaults to `member`.
-        /// </summary>
         [Input("role")]
         public Input<string>? Role { get; set; }
 
-        /// <summary>
-        /// The GitHub team id
-        /// </summary>
         [Input("teamId")]
         public Input<string>? TeamId { get; set; }
 
-        /// <summary>
-        /// The user to add to the team.
-        /// </summary>
         [Input("username")]
         public Input<string>? Username { get; set; }
 

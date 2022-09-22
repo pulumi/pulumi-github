@@ -11,46 +11,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetMembershipResult {
-    /**
-     * @return An etag representing the membership object.
-     * 
-     */
-    private final String etag;
+    private String etag;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final @Nullable String organization;
-    /**
-     * @return `admin` or `member` -- the role the user has within the organization.
-     * 
-     */
-    private final String role;
-    /**
-     * @return The username.
-     * 
-     */
-    private final String username;
+    private String id;
+    private @Nullable String organization;
+    private String role;
+    private String username;
 
-    @CustomType.Constructor
-    private GetMembershipResult(
-        @CustomType.Parameter("etag") String etag,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("organization") @Nullable String organization,
-        @CustomType.Parameter("role") String role,
-        @CustomType.Parameter("username") String username) {
-        this.etag = etag;
-        this.id = id;
-        this.organization = organization;
-        this.role = role;
-        this.username = username;
-    }
-
-    /**
-     * @return An etag representing the membership object.
-     * 
-     */
+    private GetMembershipResult() {}
     public String etag() {
         return this.etag;
     }
@@ -64,17 +35,9 @@ public final class GetMembershipResult {
     public Optional<String> organization() {
         return Optional.ofNullable(this.organization);
     }
-    /**
-     * @return `admin` or `member` -- the role the user has within the organization.
-     * 
-     */
     public String role() {
         return this.role;
     }
-    /**
-     * @return The username.
-     * 
-     */
     public String username() {
         return this.username;
     }
@@ -86,18 +49,14 @@ public final class GetMembershipResult {
     public static Builder builder(GetMembershipResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String etag;
         private String id;
         private @Nullable String organization;
         private String role;
         private String username;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetMembershipResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.etag = defaults.etag;
@@ -107,27 +66,39 @@ public final class GetMembershipResult {
     	      this.username = defaults.username;
         }
 
+        @CustomType.Setter
         public Builder etag(String etag) {
             this.etag = Objects.requireNonNull(etag);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder organization(@Nullable String organization) {
             this.organization = organization;
             return this;
         }
+        @CustomType.Setter
         public Builder role(String role) {
             this.role = Objects.requireNonNull(role);
             return this;
         }
+        @CustomType.Setter
         public Builder username(String username) {
             this.username = Objects.requireNonNull(username);
             return this;
-        }        public GetMembershipResult build() {
-            return new GetMembershipResult(etag, id, organization, role, username);
+        }
+        public GetMembershipResult build() {
+            final var o = new GetMembershipResult();
+            o.etag = etag;
+            o.id = id;
+            o.organization = organization;
+            o.role = role;
+            o.username = username;
+            return o;
         }
     }
 }

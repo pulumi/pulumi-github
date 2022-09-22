@@ -13,164 +13,43 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetReleaseResult {
-    /**
-     * @return URL of any associated assets with the release
-     * 
-     */
-    private final String assertsUrl;
-    /**
-     * @return Contents of the description (body) of a release
-     * 
-     */
-    private final String body;
-    /**
-     * @return Date of release creation
-     * 
-     */
-    private final String createdAt;
-    /**
-     * @return (`Boolean`) indicates whether the release is a draft
-     * 
-     */
-    private final Boolean draft;
-    /**
-     * @return URL directing to detailed information on the release
-     * 
-     */
-    private final String htmlUrl;
+    private String assertsUrl;
+    private String body;
+    private String createdAt;
+    private Boolean draft;
+    private String htmlUrl;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    /**
-     * @return Name of release
-     * 
-     */
-    private final String name;
-    private final String owner;
-    /**
-     * @return (`Boolean`) indicates whether the release is a prerelease
-     * 
-     */
-    private final Boolean prerelease;
-    /**
-     * @return Date of release publishing
-     * 
-     */
-    private final String publishedAt;
-    /**
-     * @return ID of release
-     * 
-     */
-    private final @Nullable Integer releaseId;
-    /**
-     * @return Tag of release
-     * 
-     */
-    private final @Nullable String releaseTag;
-    private final String repository;
-    private final String retrieveBy;
-    /**
-     * @return Download URL of a specific release in `tar.gz` format
-     * 
-     */
-    private final String tarballUrl;
-    /**
-     * @return Commitish value that determines where the Git release is created from
-     * 
-     */
-    private final String targetCommitish;
-    /**
-     * @return URL that can be used to upload Assets to the release
-     * 
-     */
-    private final String uploadUrl;
-    /**
-     * @return Base URL of the release
-     * 
-     */
-    private final String url;
-    /**
-     * @return Download URL of a specific release in `zip` format
-     * 
-     */
-    private final String zipballUrl;
+    private String id;
+    private String name;
+    private String owner;
+    private Boolean prerelease;
+    private String publishedAt;
+    private @Nullable Integer releaseId;
+    private @Nullable String releaseTag;
+    private String repository;
+    private String retrieveBy;
+    private String tarballUrl;
+    private String targetCommitish;
+    private String uploadUrl;
+    private String url;
+    private String zipballUrl;
 
-    @CustomType.Constructor
-    private GetReleaseResult(
-        @CustomType.Parameter("assertsUrl") String assertsUrl,
-        @CustomType.Parameter("body") String body,
-        @CustomType.Parameter("createdAt") String createdAt,
-        @CustomType.Parameter("draft") Boolean draft,
-        @CustomType.Parameter("htmlUrl") String htmlUrl,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("owner") String owner,
-        @CustomType.Parameter("prerelease") Boolean prerelease,
-        @CustomType.Parameter("publishedAt") String publishedAt,
-        @CustomType.Parameter("releaseId") @Nullable Integer releaseId,
-        @CustomType.Parameter("releaseTag") @Nullable String releaseTag,
-        @CustomType.Parameter("repository") String repository,
-        @CustomType.Parameter("retrieveBy") String retrieveBy,
-        @CustomType.Parameter("tarballUrl") String tarballUrl,
-        @CustomType.Parameter("targetCommitish") String targetCommitish,
-        @CustomType.Parameter("uploadUrl") String uploadUrl,
-        @CustomType.Parameter("url") String url,
-        @CustomType.Parameter("zipballUrl") String zipballUrl) {
-        this.assertsUrl = assertsUrl;
-        this.body = body;
-        this.createdAt = createdAt;
-        this.draft = draft;
-        this.htmlUrl = htmlUrl;
-        this.id = id;
-        this.name = name;
-        this.owner = owner;
-        this.prerelease = prerelease;
-        this.publishedAt = publishedAt;
-        this.releaseId = releaseId;
-        this.releaseTag = releaseTag;
-        this.repository = repository;
-        this.retrieveBy = retrieveBy;
-        this.tarballUrl = tarballUrl;
-        this.targetCommitish = targetCommitish;
-        this.uploadUrl = uploadUrl;
-        this.url = url;
-        this.zipballUrl = zipballUrl;
-    }
-
-    /**
-     * @return URL of any associated assets with the release
-     * 
-     */
+    private GetReleaseResult() {}
     public String assertsUrl() {
         return this.assertsUrl;
     }
-    /**
-     * @return Contents of the description (body) of a release
-     * 
-     */
     public String body() {
         return this.body;
     }
-    /**
-     * @return Date of release creation
-     * 
-     */
     public String createdAt() {
         return this.createdAt;
     }
-    /**
-     * @return (`Boolean`) indicates whether the release is a draft
-     * 
-     */
     public Boolean draft() {
         return this.draft;
     }
-    /**
-     * @return URL directing to detailed information on the release
-     * 
-     */
     public String htmlUrl() {
         return this.htmlUrl;
     }
@@ -181,41 +60,21 @@ public final class GetReleaseResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return Name of release
-     * 
-     */
     public String name() {
         return this.name;
     }
     public String owner() {
         return this.owner;
     }
-    /**
-     * @return (`Boolean`) indicates whether the release is a prerelease
-     * 
-     */
     public Boolean prerelease() {
         return this.prerelease;
     }
-    /**
-     * @return Date of release publishing
-     * 
-     */
     public String publishedAt() {
         return this.publishedAt;
     }
-    /**
-     * @return ID of release
-     * 
-     */
     public Optional<Integer> releaseId() {
         return Optional.ofNullable(this.releaseId);
     }
-    /**
-     * @return Tag of release
-     * 
-     */
     public Optional<String> releaseTag() {
         return Optional.ofNullable(this.releaseTag);
     }
@@ -225,38 +84,18 @@ public final class GetReleaseResult {
     public String retrieveBy() {
         return this.retrieveBy;
     }
-    /**
-     * @return Download URL of a specific release in `tar.gz` format
-     * 
-     */
     public String tarballUrl() {
         return this.tarballUrl;
     }
-    /**
-     * @return Commitish value that determines where the Git release is created from
-     * 
-     */
     public String targetCommitish() {
         return this.targetCommitish;
     }
-    /**
-     * @return URL that can be used to upload Assets to the release
-     * 
-     */
     public String uploadUrl() {
         return this.uploadUrl;
     }
-    /**
-     * @return Base URL of the release
-     * 
-     */
     public String url() {
         return this.url;
     }
-    /**
-     * @return Download URL of a specific release in `zip` format
-     * 
-     */
     public String zipballUrl() {
         return this.zipballUrl;
     }
@@ -268,7 +107,7 @@ public final class GetReleaseResult {
     public static Builder builder(GetReleaseResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String assertsUrl;
         private String body;
@@ -289,11 +128,7 @@ public final class GetReleaseResult {
         private String uploadUrl;
         private String url;
         private String zipballUrl;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetReleaseResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.assertsUrl = defaults.assertsUrl;
@@ -317,83 +152,123 @@ public final class GetReleaseResult {
     	      this.zipballUrl = defaults.zipballUrl;
         }
 
+        @CustomType.Setter
         public Builder assertsUrl(String assertsUrl) {
             this.assertsUrl = Objects.requireNonNull(assertsUrl);
             return this;
         }
+        @CustomType.Setter
         public Builder body(String body) {
             this.body = Objects.requireNonNull(body);
             return this;
         }
+        @CustomType.Setter
         public Builder createdAt(String createdAt) {
             this.createdAt = Objects.requireNonNull(createdAt);
             return this;
         }
+        @CustomType.Setter
         public Builder draft(Boolean draft) {
             this.draft = Objects.requireNonNull(draft);
             return this;
         }
+        @CustomType.Setter
         public Builder htmlUrl(String htmlUrl) {
             this.htmlUrl = Objects.requireNonNull(htmlUrl);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder owner(String owner) {
             this.owner = Objects.requireNonNull(owner);
             return this;
         }
+        @CustomType.Setter
         public Builder prerelease(Boolean prerelease) {
             this.prerelease = Objects.requireNonNull(prerelease);
             return this;
         }
+        @CustomType.Setter
         public Builder publishedAt(String publishedAt) {
             this.publishedAt = Objects.requireNonNull(publishedAt);
             return this;
         }
+        @CustomType.Setter
         public Builder releaseId(@Nullable Integer releaseId) {
             this.releaseId = releaseId;
             return this;
         }
+        @CustomType.Setter
         public Builder releaseTag(@Nullable String releaseTag) {
             this.releaseTag = releaseTag;
             return this;
         }
+        @CustomType.Setter
         public Builder repository(String repository) {
             this.repository = Objects.requireNonNull(repository);
             return this;
         }
+        @CustomType.Setter
         public Builder retrieveBy(String retrieveBy) {
             this.retrieveBy = Objects.requireNonNull(retrieveBy);
             return this;
         }
+        @CustomType.Setter
         public Builder tarballUrl(String tarballUrl) {
             this.tarballUrl = Objects.requireNonNull(tarballUrl);
             return this;
         }
+        @CustomType.Setter
         public Builder targetCommitish(String targetCommitish) {
             this.targetCommitish = Objects.requireNonNull(targetCommitish);
             return this;
         }
+        @CustomType.Setter
         public Builder uploadUrl(String uploadUrl) {
             this.uploadUrl = Objects.requireNonNull(uploadUrl);
             return this;
         }
+        @CustomType.Setter
         public Builder url(String url) {
             this.url = Objects.requireNonNull(url);
             return this;
         }
+        @CustomType.Setter
         public Builder zipballUrl(String zipballUrl) {
             this.zipballUrl = Objects.requireNonNull(zipballUrl);
             return this;
-        }        public GetReleaseResult build() {
-            return new GetReleaseResult(assertsUrl, body, createdAt, draft, htmlUrl, id, name, owner, prerelease, publishedAt, releaseId, releaseTag, repository, retrieveBy, tarballUrl, targetCommitish, uploadUrl, url, zipballUrl);
+        }
+        public GetReleaseResult build() {
+            final var o = new GetReleaseResult();
+            o.assertsUrl = assertsUrl;
+            o.body = body;
+            o.createdAt = createdAt;
+            o.draft = draft;
+            o.htmlUrl = htmlUrl;
+            o.id = id;
+            o.name = name;
+            o.owner = owner;
+            o.prerelease = prerelease;
+            o.publishedAt = publishedAt;
+            o.releaseId = releaseId;
+            o.releaseTag = releaseTag;
+            o.repository = repository;
+            o.retrieveBy = retrieveBy;
+            o.tarballUrl = tarballUrl;
+            o.targetCommitish = targetCommitish;
+            o.uploadUrl = uploadUrl;
+            o.url = url;
+            o.zipballUrl = zipballUrl;
+            return o;
         }
     }
 }

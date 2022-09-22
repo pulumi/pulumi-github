@@ -14,14 +14,14 @@ public final class RepositoryAutolinkReferenceArgs extends com.pulumi.resources.
     public static final RepositoryAutolinkReferenceArgs Empty = new RepositoryAutolinkReferenceArgs();
 
     /**
-     * This prefix appended by a number will generate a link any time it is found in an issue, pull request, or commit.
+     * This prefix appended by a number will generate a link any time it is found in an issue, pull request, or commit
      * 
      */
     @Import(name="keyPrefix", required=true)
     private Output<String> keyPrefix;
 
     /**
-     * @return This prefix appended by a number will generate a link any time it is found in an issue, pull request, or commit.
+     * @return This prefix appended by a number will generate a link any time it is found in an issue, pull request, or commit
      * 
      */
     public Output<String> keyPrefix() {
@@ -29,14 +29,14 @@ public final class RepositoryAutolinkReferenceArgs extends com.pulumi.resources.
     }
 
     /**
-     * The repository of the autolink reference.
+     * The repository name
      * 
      */
     @Import(name="repository", required=true)
     private Output<String> repository;
 
     /**
-     * @return The repository of the autolink reference.
+     * @return The repository name
      * 
      */
     public Output<String> repository() {
@@ -85,7 +85,7 @@ public final class RepositoryAutolinkReferenceArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param keyPrefix This prefix appended by a number will generate a link any time it is found in an issue, pull request, or commit.
+         * @param keyPrefix This prefix appended by a number will generate a link any time it is found in an issue, pull request, or commit
          * 
          * @return builder
          * 
@@ -96,7 +96,7 @@ public final class RepositoryAutolinkReferenceArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param keyPrefix This prefix appended by a number will generate a link any time it is found in an issue, pull request, or commit.
+         * @param keyPrefix This prefix appended by a number will generate a link any time it is found in an issue, pull request, or commit
          * 
          * @return builder
          * 
@@ -106,7 +106,7 @@ public final class RepositoryAutolinkReferenceArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param repository The repository of the autolink reference.
+         * @param repository The repository name
          * 
          * @return builder
          * 
@@ -117,7 +117,7 @@ public final class RepositoryAutolinkReferenceArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param repository The repository of the autolink reference.
+         * @param repository The repository name
          * 
          * @return builder
          * 

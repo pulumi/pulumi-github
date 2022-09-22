@@ -9,88 +9,24 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Github
 {
-    /// <summary>
-    /// This resource allows you to create and manage webhooks for repositories within your
-    /// GitHub organization or personal account.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Github = Pulumi.Github;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var repo = new Github.Repository("repo", new()
-    ///     {
-    ///         Description = "Terraform acceptance tests",
-    ///         HomepageUrl = "http://example.com/",
-    ///         Private = false,
-    ///     });
-    /// 
-    ///     var foo = new Github.RepositoryWebhook("foo", new()
-    ///     {
-    ///         Repository = repo.Name,
-    ///         Configuration = new Github.Inputs.RepositoryWebhookConfigurationArgs
-    ///         {
-    ///             Url = "https://google.de/",
-    ///             ContentType = "form",
-    ///             InsecureSsl = false,
-    ///         },
-    ///         Active = false,
-    ///         Events = new[]
-    ///         {
-    ///             "issues",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Repository webhooks can be imported using the `name` of the repository, combined with the `id` of the webhook, separated by a `/` character. The `id` of the webhook can be found in the URL of the webhook. For example`"https://github.com/foo-org/foo-repo/settings/hooks/14711452"`. Importing uses the name of the repository, as well as the ID of the webhook, e.g.
-    /// 
-    /// ```sh
-    ///  $ pulumi import github:index/repositoryWebhook:RepositoryWebhook terraform terraform/11235813
-    /// ```
-    /// 
-    ///  If secret is populated in the webhook's configuration, the value will be imported as "********".
-    /// </summary>
     [GithubResourceType("github:index/repositoryWebhook:RepositoryWebhook")]
     public partial class RepositoryWebhook : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Indicate if the webhook should receive events. Defaults to `true`.
-        /// </summary>
         [Output("active")]
         public Output<bool?> Active { get; private set; } = null!;
 
-        /// <summary>
-        /// Configuration block for the webhook. Detailed below.
-        /// </summary>
         [Output("configuration")]
         public Output<Outputs.RepositoryWebhookConfiguration?> Configuration { get; private set; } = null!;
 
         [Output("etag")]
         public Output<string> Etag { get; private set; } = null!;
 
-        /// <summary>
-        /// A list of events which should trigger the webhook. See a list of [available events](https://developer.github.com/v3/activity/events/types/).
-        /// </summary>
         [Output("events")]
         public Output<ImmutableArray<string>> Events { get; private set; } = null!;
 
-        /// <summary>
-        /// The repository of the webhook.
-        /// </summary>
         [Output("repository")]
         public Output<string> Repository { get; private set; } = null!;
 
-        /// <summary>
-        /// The URL of the webhook.
-        /// </summary>
         [Output("url")]
         public Output<string> Url { get; private set; } = null!;
 
@@ -140,33 +76,20 @@ namespace Pulumi.Github
 
     public sealed class RepositoryWebhookArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Indicate if the webhook should receive events. Defaults to `true`.
-        /// </summary>
         [Input("active")]
         public Input<bool>? Active { get; set; }
 
-        /// <summary>
-        /// Configuration block for the webhook. Detailed below.
-        /// </summary>
         [Input("configuration")]
         public Input<Inputs.RepositoryWebhookConfigurationArgs>? Configuration { get; set; }
 
         [Input("events", required: true)]
         private InputList<string>? _events;
-
-        /// <summary>
-        /// A list of events which should trigger the webhook. See a list of [available events](https://developer.github.com/v3/activity/events/types/).
-        /// </summary>
         public InputList<string> Events
         {
             get => _events ?? (_events = new InputList<string>());
             set => _events = value;
         }
 
-        /// <summary>
-        /// The repository of the webhook.
-        /// </summary>
         [Input("repository", required: true)]
         public Input<string> Repository { get; set; } = null!;
 
@@ -178,15 +101,9 @@ namespace Pulumi.Github
 
     public sealed class RepositoryWebhookState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Indicate if the webhook should receive events. Defaults to `true`.
-        /// </summary>
         [Input("active")]
         public Input<bool>? Active { get; set; }
 
-        /// <summary>
-        /// Configuration block for the webhook. Detailed below.
-        /// </summary>
         [Input("configuration")]
         public Input<Inputs.RepositoryWebhookConfigurationGetArgs>? Configuration { get; set; }
 
@@ -195,25 +112,15 @@ namespace Pulumi.Github
 
         [Input("events")]
         private InputList<string>? _events;
-
-        /// <summary>
-        /// A list of events which should trigger the webhook. See a list of [available events](https://developer.github.com/v3/activity/events/types/).
-        /// </summary>
         public InputList<string> Events
         {
             get => _events ?? (_events = new InputList<string>());
             set => _events = value;
         }
 
-        /// <summary>
-        /// The repository of the webhook.
-        /// </summary>
         [Input("repository")]
         public Input<string>? Repository { get; set; }
 
-        /// <summary>
-        /// The URL of the webhook.
-        /// </summary>
         [Input("url")]
         public Input<string>? Url { get; set; }
 

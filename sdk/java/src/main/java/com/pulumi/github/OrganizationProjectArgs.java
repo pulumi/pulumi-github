@@ -15,32 +15,16 @@ public final class OrganizationProjectArgs extends com.pulumi.resources.Resource
 
     public static final OrganizationProjectArgs Empty = new OrganizationProjectArgs();
 
-    /**
-     * The body of the project.
-     * 
-     */
     @Import(name="body")
     private @Nullable Output<String> body;
 
-    /**
-     * @return The body of the project.
-     * 
-     */
     public Optional<Output<String>> body() {
         return Optional.ofNullable(this.body);
     }
 
-    /**
-     * The name of the project.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return The name of the project.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
@@ -70,44 +54,20 @@ public final class OrganizationProjectArgs extends com.pulumi.resources.Resource
             $ = new OrganizationProjectArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param body The body of the project.
-         * 
-         * @return builder
-         * 
-         */
         public Builder body(@Nullable Output<String> body) {
             $.body = body;
             return this;
         }
 
-        /**
-         * @param body The body of the project.
-         * 
-         * @return builder
-         * 
-         */
         public Builder body(String body) {
             return body(Output.of(body));
         }
 
-        /**
-         * @param name The name of the project.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The name of the project.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }

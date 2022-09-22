@@ -9,50 +9,17 @@ import java.util.Objects;
 
 @CustomType
 public final class TeamSyncGroupMappingGroup {
-    /**
-     * @return The description of the IdP group.
-     * 
-     */
-    private final String groupDescription;
-    /**
-     * @return The ID of the IdP group.
-     * 
-     */
-    private final String groupId;
-    /**
-     * @return The name of the IdP group.
-     * 
-     */
-    private final String groupName;
+    private String groupDescription;
+    private String groupId;
+    private String groupName;
 
-    @CustomType.Constructor
-    private TeamSyncGroupMappingGroup(
-        @CustomType.Parameter("groupDescription") String groupDescription,
-        @CustomType.Parameter("groupId") String groupId,
-        @CustomType.Parameter("groupName") String groupName) {
-        this.groupDescription = groupDescription;
-        this.groupId = groupId;
-        this.groupName = groupName;
-    }
-
-    /**
-     * @return The description of the IdP group.
-     * 
-     */
+    private TeamSyncGroupMappingGroup() {}
     public String groupDescription() {
         return this.groupDescription;
     }
-    /**
-     * @return The ID of the IdP group.
-     * 
-     */
     public String groupId() {
         return this.groupId;
     }
-    /**
-     * @return The name of the IdP group.
-     * 
-     */
     public String groupName() {
         return this.groupName;
     }
@@ -64,16 +31,12 @@ public final class TeamSyncGroupMappingGroup {
     public static Builder builder(TeamSyncGroupMappingGroup defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String groupDescription;
         private String groupId;
         private String groupName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(TeamSyncGroupMappingGroup defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.groupDescription = defaults.groupDescription;
@@ -81,19 +44,27 @@ public final class TeamSyncGroupMappingGroup {
     	      this.groupName = defaults.groupName;
         }
 
+        @CustomType.Setter
         public Builder groupDescription(String groupDescription) {
             this.groupDescription = Objects.requireNonNull(groupDescription);
             return this;
         }
+        @CustomType.Setter
         public Builder groupId(String groupId) {
             this.groupId = Objects.requireNonNull(groupId);
             return this;
         }
+        @CustomType.Setter
         public Builder groupName(String groupName) {
             this.groupName = Objects.requireNonNull(groupName);
             return this;
-        }        public TeamSyncGroupMappingGroup build() {
-            return new TeamSyncGroupMappingGroup(groupDescription, groupId, groupName);
+        }
+        public TeamSyncGroupMappingGroup build() {
+            final var o = new TeamSyncGroupMappingGroup();
+            o.groupDescription = groupDescription;
+            o.groupId = groupId;
+            o.groupName = groupName;
+            return o;
         }
     }
 }

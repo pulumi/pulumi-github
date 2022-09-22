@@ -5,30 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
-/**
- * Use this data source to retrieve information about a single tree.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as github from "@pulumi/github";
- *
- * const thisRepository = github.getRepository({
- *     name: "example",
- * });
- * const thisBranch = Promise.all([thisRepository, thisRepository]).then(([thisRepository, thisRepository1]) => github.getBranch({
- *     branch: thisRepository.defaultBranch,
- *     repository: thisRepository1.name,
- * }));
- * const thisTree = Promise.all([thisRepository, thisBranch]).then(([thisRepository, thisBranch]) => github.getTree({
- *     recursive: false,
- *     repository: thisRepository.name,
- *     treeSha: thisBranch.sha,
- * }));
- * export const entries = thisTree.then(thisTree => thisTree.entries);
- * ```
- */
 export function getTree(args: GetTreeArgs, opts?: pulumi.InvokeOptions): Promise<GetTreeResult> {
     if (!opts) {
         opts = {}
@@ -46,17 +22,8 @@ export function getTree(args: GetTreeArgs, opts?: pulumi.InvokeOptions): Promise
  * A collection of arguments for invoking getTree.
  */
 export interface GetTreeArgs {
-    /**
-     * Setting this parameter to `true` returns the objects or subtrees referenced by the tree specified in `treeSha`.
-     */
     recursive?: boolean;
-    /**
-     * The name of the repository.
-     */
     repository: string;
-    /**
-     * The SHA1 value for the tree.
-     */
     treeSha: string;
 }
 
@@ -64,9 +31,6 @@ export interface GetTreeArgs {
  * A collection of values returned by getTree.
  */
 export interface GetTreeResult {
-    /**
-     * Objects (of `path`, `mode`, `type`, `size`, and `sha`) specifying a tree structure.
-     */
     readonly entries: outputs.GetTreeEntry[];
     /**
      * The provider-assigned unique ID for this managed resource.
@@ -85,16 +49,7 @@ export function getTreeOutput(args: GetTreeOutputArgs, opts?: pulumi.InvokeOptio
  * A collection of arguments for invoking getTree.
  */
 export interface GetTreeOutputArgs {
-    /**
-     * Setting this parameter to `true` returns the objects or subtrees referenced by the tree specified in `treeSha`.
-     */
     recursive?: pulumi.Input<boolean>;
-    /**
-     * The name of the repository.
-     */
     repository: pulumi.Input<string>;
-    /**
-     * The SHA1 value for the tree.
-     */
     treeSha: pulumi.Input<string>;
 }

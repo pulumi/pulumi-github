@@ -18,47 +18,23 @@ public final class OrganizationWebhookArgs extends com.pulumi.resources.Resource
 
     public static final OrganizationWebhookArgs Empty = new OrganizationWebhookArgs();
 
-    /**
-     * Indicate of the webhook should receive events. Defaults to `true`.
-     * 
-     */
     @Import(name="active")
     private @Nullable Output<Boolean> active;
 
-    /**
-     * @return Indicate of the webhook should receive events. Defaults to `true`.
-     * 
-     */
     public Optional<Output<Boolean>> active() {
         return Optional.ofNullable(this.active);
     }
 
-    /**
-     * key/value pair of configuration for this webhook. Available keys are `url`, `content_type`, `secret` and `insecure_ssl`.
-     * 
-     */
     @Import(name="configuration")
     private @Nullable Output<OrganizationWebhookConfigurationArgs> configuration;
 
-    /**
-     * @return key/value pair of configuration for this webhook. Available keys are `url`, `content_type`, `secret` and `insecure_ssl`.
-     * 
-     */
     public Optional<Output<OrganizationWebhookConfigurationArgs>> configuration() {
         return Optional.ofNullable(this.configuration);
     }
 
-    /**
-     * A list of events which should trigger the webhook. See a list of [available events](https://developer.github.com/v3/activity/events/types/)
-     * 
-     */
     @Import(name="events", required=true)
     private Output<List<String>> events;
 
-    /**
-     * @return A list of events which should trigger the webhook. See a list of [available events](https://developer.github.com/v3/activity/events/types/)
-     * 
-     */
     public Output<List<String>> events() {
         return this.events;
     }
@@ -89,75 +65,33 @@ public final class OrganizationWebhookArgs extends com.pulumi.resources.Resource
             $ = new OrganizationWebhookArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param active Indicate of the webhook should receive events. Defaults to `true`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder active(@Nullable Output<Boolean> active) {
             $.active = active;
             return this;
         }
 
-        /**
-         * @param active Indicate of the webhook should receive events. Defaults to `true`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder active(Boolean active) {
             return active(Output.of(active));
         }
 
-        /**
-         * @param configuration key/value pair of configuration for this webhook. Available keys are `url`, `content_type`, `secret` and `insecure_ssl`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder configuration(@Nullable Output<OrganizationWebhookConfigurationArgs> configuration) {
             $.configuration = configuration;
             return this;
         }
 
-        /**
-         * @param configuration key/value pair of configuration for this webhook. Available keys are `url`, `content_type`, `secret` and `insecure_ssl`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder configuration(OrganizationWebhookConfigurationArgs configuration) {
             return configuration(Output.of(configuration));
         }
 
-        /**
-         * @param events A list of events which should trigger the webhook. See a list of [available events](https://developer.github.com/v3/activity/events/types/)
-         * 
-         * @return builder
-         * 
-         */
         public Builder events(Output<List<String>> events) {
             $.events = events;
             return this;
         }
 
-        /**
-         * @param events A list of events which should trigger the webhook. See a list of [available events](https://developer.github.com/v3/activity/events/types/)
-         * 
-         * @return builder
-         * 
-         */
         public Builder events(List<String> events) {
             return events(Output.of(events));
         }
 
-        /**
-         * @param events A list of events which should trigger the webhook. See a list of [available events](https://developer.github.com/v3/activity/events/types/)
-         * 
-         * @return builder
-         * 
-         */
         public Builder events(String... events) {
             return events(List.of(events));
         }

@@ -18,29 +18,11 @@ public final class GetOrganizationTeamsResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    /**
-     * @return Only return teams that are at the organization&#39;s root, i.e. no nested teams. Defaults to `false`.
-     * 
-     */
-    private final @Nullable Boolean rootTeamsOnly;
-    /**
-     * @return An Array of GitHub Teams.  Each `team` block consists of the fields documented below.
-     * ***
-     * 
-     */
-    private final List<GetOrganizationTeamsTeam> teams;
+    private String id;
+    private @Nullable Boolean rootTeamsOnly;
+    private List<GetOrganizationTeamsTeam> teams;
 
-    @CustomType.Constructor
-    private GetOrganizationTeamsResult(
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("rootTeamsOnly") @Nullable Boolean rootTeamsOnly,
-        @CustomType.Parameter("teams") List<GetOrganizationTeamsTeam> teams) {
-        this.id = id;
-        this.rootTeamsOnly = rootTeamsOnly;
-        this.teams = teams;
-    }
-
+    private GetOrganizationTeamsResult() {}
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -48,18 +30,9 @@ public final class GetOrganizationTeamsResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return Only return teams that are at the organization&#39;s root, i.e. no nested teams. Defaults to `false`.
-     * 
-     */
     public Optional<Boolean> rootTeamsOnly() {
         return Optional.ofNullable(this.rootTeamsOnly);
     }
-    /**
-     * @return An Array of GitHub Teams.  Each `team` block consists of the fields documented below.
-     * ***
-     * 
-     */
     public List<GetOrganizationTeamsTeam> teams() {
         return this.teams;
     }
@@ -71,16 +44,12 @@ public final class GetOrganizationTeamsResult {
     public static Builder builder(GetOrganizationTeamsResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String id;
         private @Nullable Boolean rootTeamsOnly;
         private List<GetOrganizationTeamsTeam> teams;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetOrganizationTeamsResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
@@ -88,22 +57,30 @@ public final class GetOrganizationTeamsResult {
     	      this.teams = defaults.teams;
         }
 
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder rootTeamsOnly(@Nullable Boolean rootTeamsOnly) {
             this.rootTeamsOnly = rootTeamsOnly;
             return this;
         }
+        @CustomType.Setter
         public Builder teams(List<GetOrganizationTeamsTeam> teams) {
             this.teams = Objects.requireNonNull(teams);
             return this;
         }
         public Builder teams(GetOrganizationTeamsTeam... teams) {
             return teams(List.of(teams));
-        }        public GetOrganizationTeamsResult build() {
-            return new GetOrganizationTeamsResult(id, rootTeamsOnly, teams);
+        }
+        public GetOrganizationTeamsResult build() {
+            final var o = new GetOrganizationTeamsResult();
+            o.id = id;
+            o.rootTeamsOnly = rootTeamsOnly;
+            o.teams = teams;
+            return o;
         }
     }
 }

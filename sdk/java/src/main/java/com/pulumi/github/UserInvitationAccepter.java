@@ -13,73 +13,11 @@ import com.pulumi.github.inputs.UserInvitationAccepterState;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Provides a resource to manage GitHub repository collaborator invitations.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.github.Repository;
- * import com.pulumi.github.RepositoryCollaborator;
- * import com.pulumi.github.RepositoryCollaboratorArgs;
- * import com.pulumi.pulumi.providers.github;
- * import com.pulumi.pulumi.providers.ProviderArgs;
- * import com.pulumi.github.UserInvitationAccepter;
- * import com.pulumi.github.UserInvitationAccepterArgs;
- * import com.pulumi.resources.CustomResourceOptions;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var exampleRepository = new Repository(&#34;exampleRepository&#34;);
- * 
- *         var exampleRepositoryCollaborator = new RepositoryCollaborator(&#34;exampleRepositoryCollaborator&#34;, RepositoryCollaboratorArgs.builder()        
- *             .repository(exampleRepository.name())
- *             .username(&#34;example-username&#34;)
- *             .permission(&#34;push&#34;)
- *             .build());
- * 
- *         var invitee = new Provider(&#34;invitee&#34;, ProviderArgs.builder()        
- *             .token(var_.invitee_token())
- *             .build());
- * 
- *         var exampleUserInvitationAccepter = new UserInvitationAccepter(&#34;exampleUserInvitationAccepter&#34;, UserInvitationAccepterArgs.builder()        
- *             .invitationId(exampleRepositoryCollaborator.invitationId())
- *             .build(), CustomResourceOptions.builder()
- *                 .provider(&#34;github.invitee&#34;)
- *                 .build());
- * 
- *     }
- * }
- * ```
- * 
- */
 @ResourceType(type="github:index/userInvitationAccepter:UserInvitationAccepter")
 public class UserInvitationAccepter extends com.pulumi.resources.CustomResource {
-    /**
-     * ID of the invitation to accept
-     * 
-     */
     @Export(name="invitationId", type=String.class, parameters={})
     private Output<String> invitationId;
 
-    /**
-     * @return ID of the invitation to accept
-     * 
-     */
     public Output<String> invitationId() {
         return this.invitationId;
     }

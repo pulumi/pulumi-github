@@ -13,25 +13,10 @@ namespace Pulumi.Github.Outputs
     [OutputType]
     public sealed class RepositoryPages
     {
-        /// <summary>
-        /// The custom domain for the repository. This can only be set after the repository has been created.
-        /// </summary>
         public readonly string? Cname;
-        /// <summary>
-        /// Whether the rendered GitHub Pages site has a custom 404 page.
-        /// </summary>
         public readonly bool? Custom404;
-        /// <summary>
-        /// The absolute URL (including scheme) of the rendered GitHub Pages site e.g. `https://username.github.io`.
-        /// </summary>
         public readonly string? HtmlUrl;
-        /// <summary>
-        /// The source branch and directory for the rendered Pages site. See GitHub Pages Source below for details.
-        /// </summary>
         public readonly Outputs.RepositoryPagesSource Source;
-        /// <summary>
-        /// The GitHub Pages site's build status e.g. `building` or `built`.
-        /// </summary>
         public readonly string? Status;
         public readonly string? Url;
 

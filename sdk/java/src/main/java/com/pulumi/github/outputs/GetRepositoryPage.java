@@ -12,43 +12,20 @@ import java.util.Objects;
 
 @CustomType
 public final class GetRepositoryPage {
-    private final String cname;
-    private final Boolean custom404;
-    /**
-     * @return URL to the repository on the web.
-     * 
-     */
-    private final String htmlUrl;
-    private final List<GetRepositoryPageSource> sources;
-    private final String status;
-    private final String url;
+    private String cname;
+    private Boolean custom404;
+    private String htmlUrl;
+    private List<GetRepositoryPageSource> sources;
+    private String status;
+    private String url;
 
-    @CustomType.Constructor
-    private GetRepositoryPage(
-        @CustomType.Parameter("cname") String cname,
-        @CustomType.Parameter("custom404") Boolean custom404,
-        @CustomType.Parameter("htmlUrl") String htmlUrl,
-        @CustomType.Parameter("sources") List<GetRepositoryPageSource> sources,
-        @CustomType.Parameter("status") String status,
-        @CustomType.Parameter("url") String url) {
-        this.cname = cname;
-        this.custom404 = custom404;
-        this.htmlUrl = htmlUrl;
-        this.sources = sources;
-        this.status = status;
-        this.url = url;
-    }
-
+    private GetRepositoryPage() {}
     public String cname() {
         return this.cname;
     }
     public Boolean custom404() {
         return this.custom404;
     }
-    /**
-     * @return URL to the repository on the web.
-     * 
-     */
     public String htmlUrl() {
         return this.htmlUrl;
     }
@@ -69,7 +46,7 @@ public final class GetRepositoryPage {
     public static Builder builder(GetRepositoryPage defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String cname;
         private Boolean custom404;
@@ -77,11 +54,7 @@ public final class GetRepositoryPage {
         private List<GetRepositoryPageSource> sources;
         private String status;
         private String url;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetRepositoryPage defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.cname = defaults.cname;
@@ -92,18 +65,22 @@ public final class GetRepositoryPage {
     	      this.url = defaults.url;
         }
 
+        @CustomType.Setter
         public Builder cname(String cname) {
             this.cname = Objects.requireNonNull(cname);
             return this;
         }
+        @CustomType.Setter
         public Builder custom404(Boolean custom404) {
             this.custom404 = Objects.requireNonNull(custom404);
             return this;
         }
+        @CustomType.Setter
         public Builder htmlUrl(String htmlUrl) {
             this.htmlUrl = Objects.requireNonNull(htmlUrl);
             return this;
         }
+        @CustomType.Setter
         public Builder sources(List<GetRepositoryPageSource> sources) {
             this.sources = Objects.requireNonNull(sources);
             return this;
@@ -111,15 +88,25 @@ public final class GetRepositoryPage {
         public Builder sources(GetRepositoryPageSource... sources) {
             return sources(List.of(sources));
         }
+        @CustomType.Setter
         public Builder status(String status) {
             this.status = Objects.requireNonNull(status);
             return this;
         }
+        @CustomType.Setter
         public Builder url(String url) {
             this.url = Objects.requireNonNull(url);
             return this;
-        }        public GetRepositoryPage build() {
-            return new GetRepositoryPage(cname, custom404, htmlUrl, sources, status, url);
+        }
+        public GetRepositoryPage build() {
+            final var o = new GetRepositoryPage();
+            o.cname = cname;
+            o.custom404 = custom404;
+            o.htmlUrl = htmlUrl;
+            o.sources = sources;
+            o.status = status;
+            o.url = url;
+            return o;
         }
     }
 }

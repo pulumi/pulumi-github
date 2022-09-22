@@ -14,17 +14,9 @@ public final class GetUsersArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetUsersArgs Empty = new GetUsersArgs();
 
-    /**
-     * List of usernames.
-     * 
-     */
     @Import(name="usernames", required=true)
     private Output<List<String>> usernames;
 
-    /**
-     * @return List of usernames.
-     * 
-     */
     public Output<List<String>> usernames() {
         return this.usernames;
     }
@@ -53,33 +45,15 @@ public final class GetUsersArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetUsersArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param usernames List of usernames.
-         * 
-         * @return builder
-         * 
-         */
         public Builder usernames(Output<List<String>> usernames) {
             $.usernames = usernames;
             return this;
         }
 
-        /**
-         * @param usernames List of usernames.
-         * 
-         * @return builder
-         * 
-         */
         public Builder usernames(List<String> usernames) {
             return usernames(Output.of(usernames));
         }
 
-        /**
-         * @param usernames List of usernames.
-         * 
-         * @return builder
-         * 
-         */
         public Builder usernames(String... usernames) {
             return usernames(List.of(usernames));
         }

@@ -4,23 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
-/**
- * This data source allows you to read files within a
- * GitHub repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as github from "@pulumi/github";
- *
- * const foo = github.getRepositoryFile({
- *     repository: github_repository.foo.name,
- *     branch: "main",
- *     file: ".gitignore",
- * });
- * ```
- */
 export function getRepositoryFile(args: GetRepositoryFileArgs, opts?: pulumi.InvokeOptions): Promise<GetRepositoryFileResult> {
     if (!opts) {
         opts = {}
@@ -38,18 +21,8 @@ export function getRepositoryFile(args: GetRepositoryFileArgs, opts?: pulumi.Inv
  * A collection of arguments for invoking getRepositoryFile.
  */
 export interface GetRepositoryFileArgs {
-    /**
-     * Git branch (defaults to `main`).
-     * The branch must already exist, it will not be created if it does not already exist.
-     */
     branch?: string;
-    /**
-     * The path of the file to manage.
-     */
     file: string;
-    /**
-     * The repository to create the file in.
-     */
     repository: string;
 }
 
@@ -58,25 +31,10 @@ export interface GetRepositoryFileArgs {
  */
 export interface GetRepositoryFileResult {
     readonly branch?: string;
-    /**
-     * Committer author name.
-     */
     readonly commitAuthor: string;
-    /**
-     * Committer email address.
-     */
     readonly commitEmail: string;
-    /**
-     * Commit message when file was last updated.
-     */
     readonly commitMessage: string;
-    /**
-     * The SHA of the commit that modified the file.
-     */
     readonly commitSha: string;
-    /**
-     * The file content.
-     */
     readonly content: string;
     readonly file: string;
     /**
@@ -84,9 +42,6 @@ export interface GetRepositoryFileResult {
      */
     readonly id: string;
     readonly repository: string;
-    /**
-     * The SHA blob of the file.
-     */
     readonly sha: string;
 }
 
@@ -98,17 +53,7 @@ export function getRepositoryFileOutput(args: GetRepositoryFileOutputArgs, opts?
  * A collection of arguments for invoking getRepositoryFile.
  */
 export interface GetRepositoryFileOutputArgs {
-    /**
-     * Git branch (defaults to `main`).
-     * The branch must already exist, it will not be created if it does not already exist.
-     */
     branch?: pulumi.Input<string>;
-    /**
-     * The path of the file to manage.
-     */
     file: pulumi.Input<string>;
-    /**
-     * The repository to create the file in.
-     */
     repository: pulumi.Input<string>;
 }

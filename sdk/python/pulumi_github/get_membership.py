@@ -41,9 +41,6 @@ class GetMembershipResult:
     @property
     @pulumi.getter
     def etag(self) -> str:
-        """
-        An etag representing the membership object.
-        """
         return pulumi.get(self, "etag")
 
     @property
@@ -62,17 +59,11 @@ class GetMembershipResult:
     @property
     @pulumi.getter
     def role(self) -> str:
-        """
-        `admin` or `member` -- the role the user has within the organization.
-        """
         return pulumi.get(self, "role")
 
     @property
     @pulumi.getter
     def username(self) -> str:
-        """
-        The username.
-        """
         return pulumi.get(self, "username")
 
 
@@ -93,23 +84,7 @@ def get_membership(organization: Optional[str] = None,
                    username: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMembershipResult:
     """
-    Use this data source to find out if a user is a member of your organization, as well
-    as what role they have within it.
-    If the user's membership in the organization is pending their acceptance of an invite,
-    the role they would have once they accept will be returned.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_github as github
-
-    membership_for_some_user = github.get_membership(username="SomeUser")
-    ```
-
-
-    :param str organization: The organization to check for the above username.
-    :param str username: The username to lookup in the organization.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['organization'] = organization
@@ -130,22 +105,6 @@ def get_membership_output(organization: Optional[pulumi.Input[Optional[str]]] = 
                           username: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMembershipResult]:
     """
-    Use this data source to find out if a user is a member of your organization, as well
-    as what role they have within it.
-    If the user's membership in the organization is pending their acceptance of an invite,
-    the role they would have once they accept will be returned.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_github as github
-
-    membership_for_some_user = github.get_membership(username="SomeUser")
-    ```
-
-
-    :param str organization: The organization to check for the above username.
-    :param str username: The username to lookup in the organization.
+    Use this data source to access information about an existing resource.
     """
     ...

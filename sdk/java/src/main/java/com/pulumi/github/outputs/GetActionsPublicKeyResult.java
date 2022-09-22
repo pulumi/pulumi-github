@@ -13,31 +13,12 @@ public final class GetActionsPublicKeyResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    /**
-     * @return Actual key retrieved.
-     * 
-     */
-    private final String key;
-    /**
-     * @return ID of the key that has been retrieved.
-     * 
-     */
-    private final String keyId;
-    private final String repository;
+    private String id;
+    private String key;
+    private String keyId;
+    private String repository;
 
-    @CustomType.Constructor
-    private GetActionsPublicKeyResult(
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("key") String key,
-        @CustomType.Parameter("keyId") String keyId,
-        @CustomType.Parameter("repository") String repository) {
-        this.id = id;
-        this.key = key;
-        this.keyId = keyId;
-        this.repository = repository;
-    }
-
+    private GetActionsPublicKeyResult() {}
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -45,17 +26,9 @@ public final class GetActionsPublicKeyResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return Actual key retrieved.
-     * 
-     */
     public String key() {
         return this.key;
     }
-    /**
-     * @return ID of the key that has been retrieved.
-     * 
-     */
     public String keyId() {
         return this.keyId;
     }
@@ -70,17 +43,13 @@ public final class GetActionsPublicKeyResult {
     public static Builder builder(GetActionsPublicKeyResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String id;
         private String key;
         private String keyId;
         private String repository;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetActionsPublicKeyResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
@@ -89,23 +58,33 @@ public final class GetActionsPublicKeyResult {
     	      this.repository = defaults.repository;
         }
 
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder key(String key) {
             this.key = Objects.requireNonNull(key);
             return this;
         }
+        @CustomType.Setter
         public Builder keyId(String keyId) {
             this.keyId = Objects.requireNonNull(keyId);
             return this;
         }
+        @CustomType.Setter
         public Builder repository(String repository) {
             this.repository = Objects.requireNonNull(repository);
             return this;
-        }        public GetActionsPublicKeyResult build() {
-            return new GetActionsPublicKeyResult(id, key, keyId, repository);
+        }
+        public GetActionsPublicKeyResult build() {
+            final var o = new GetActionsPublicKeyResult();
+            o.id = id;
+            o.key = key;
+            o.keyId = keyId;
+            o.repository = repository;
+            return o;
         }
     }
 }

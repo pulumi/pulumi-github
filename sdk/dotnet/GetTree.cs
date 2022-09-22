@@ -11,91 +11,9 @@ namespace Pulumi.Github
 {
     public static class GetTree
     {
-        /// <summary>
-        /// Use this data source to retrieve information about a single tree.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Github = Pulumi.Github;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var thisRepository = Github.GetRepository.Invoke(new()
-        ///     {
-        ///         Name = "example",
-        ///     });
-        /// 
-        ///     var thisBranch = Github.GetBranch.Invoke(new()
-        ///     {
-        ///         Branch = thisRepository.Apply(getRepositoryResult =&gt; getRepositoryResult.DefaultBranch),
-        ///         Repository = thisRepository.Apply(getRepositoryResult =&gt; getRepositoryResult.Name),
-        ///     });
-        /// 
-        ///     var thisTree = Github.GetTree.Invoke(new()
-        ///     {
-        ///         Recursive = false,
-        ///         Repository = thisRepository.Apply(getRepositoryResult =&gt; getRepositoryResult.Name),
-        ///         TreeSha = thisBranch.Apply(getBranchResult =&gt; getBranchResult.Sha),
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["entries"] = thisTree.Apply(getTreeResult =&gt; getTreeResult.Entries),
-        ///     };
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Task<GetTreeResult> InvokeAsync(GetTreeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetTreeResult>("github:index/getTree:getTree", args ?? new GetTreeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Use this data source to retrieve information about a single tree.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Github = Pulumi.Github;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var thisRepository = Github.GetRepository.Invoke(new()
-        ///     {
-        ///         Name = "example",
-        ///     });
-        /// 
-        ///     var thisBranch = Github.GetBranch.Invoke(new()
-        ///     {
-        ///         Branch = thisRepository.Apply(getRepositoryResult =&gt; getRepositoryResult.DefaultBranch),
-        ///         Repository = thisRepository.Apply(getRepositoryResult =&gt; getRepositoryResult.Name),
-        ///     });
-        /// 
-        ///     var thisTree = Github.GetTree.Invoke(new()
-        ///     {
-        ///         Recursive = false,
-        ///         Repository = thisRepository.Apply(getRepositoryResult =&gt; getRepositoryResult.Name),
-        ///         TreeSha = thisBranch.Apply(getBranchResult =&gt; getBranchResult.Sha),
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["entries"] = thisTree.Apply(getTreeResult =&gt; getTreeResult.Entries),
-        ///     };
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Output<GetTreeResult> Invoke(GetTreeInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetTreeResult>("github:index/getTree:getTree", args ?? new GetTreeInvokeArgs(), options.WithDefaults());
     }
@@ -103,21 +21,12 @@ namespace Pulumi.Github
 
     public sealed class GetTreeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Setting this parameter to `true` returns the objects or subtrees referenced by the tree specified in `tree_sha`.
-        /// </summary>
         [Input("recursive")]
         public bool? Recursive { get; set; }
 
-        /// <summary>
-        /// The name of the repository.
-        /// </summary>
         [Input("repository", required: true)]
         public string Repository { get; set; } = null!;
 
-        /// <summary>
-        /// The SHA1 value for the tree.
-        /// </summary>
         [Input("treeSha", required: true)]
         public string TreeSha { get; set; } = null!;
 
@@ -129,21 +38,12 @@ namespace Pulumi.Github
 
     public sealed class GetTreeInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Setting this parameter to `true` returns the objects or subtrees referenced by the tree specified in `tree_sha`.
-        /// </summary>
         [Input("recursive")]
         public Input<bool>? Recursive { get; set; }
 
-        /// <summary>
-        /// The name of the repository.
-        /// </summary>
         [Input("repository", required: true)]
         public Input<string> Repository { get; set; } = null!;
 
-        /// <summary>
-        /// The SHA1 value for the tree.
-        /// </summary>
         [Input("treeSha", required: true)]
         public Input<string> TreeSha { get; set; } = null!;
 
@@ -157,9 +57,6 @@ namespace Pulumi.Github
     [OutputType]
     public sealed class GetTreeResult
     {
-        /// <summary>
-        /// Objects (of `path`, `mode`, `type`, `size`, and `sha`) specifying a tree structure.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetTreeEntryResult> Entries;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.

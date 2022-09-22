@@ -16,107 +16,51 @@ public final class RepositoryPullRequestArgs extends com.pulumi.resources.Resour
 
     public static final RepositoryPullRequestArgs Empty = new RepositoryPullRequestArgs();
 
-    /**
-     * Name of the branch serving as the base of the Pull Request.
-     * 
-     */
     @Import(name="baseRef", required=true)
     private Output<String> baseRef;
 
-    /**
-     * @return Name of the branch serving as the base of the Pull Request.
-     * 
-     */
     public Output<String> baseRef() {
         return this.baseRef;
     }
 
-    /**
-     * Name of the base repository to retrieve the Pull Requests from.
-     * 
-     */
     @Import(name="baseRepository", required=true)
     private Output<String> baseRepository;
 
-    /**
-     * @return Name of the base repository to retrieve the Pull Requests from.
-     * 
-     */
     public Output<String> baseRepository() {
         return this.baseRepository;
     }
 
-    /**
-     * Body of the Pull Request.
-     * 
-     */
     @Import(name="body")
     private @Nullable Output<String> body;
 
-    /**
-     * @return Body of the Pull Request.
-     * 
-     */
     public Optional<Output<String>> body() {
         return Optional.ofNullable(this.body);
     }
 
-    /**
-     * Name of the branch serving as the head of the Pull Request.
-     * 
-     */
     @Import(name="headRef", required=true)
     private Output<String> headRef;
 
-    /**
-     * @return Name of the branch serving as the head of the Pull Request.
-     * 
-     */
     public Output<String> headRef() {
         return this.headRef;
     }
 
-    /**
-     * Controls whether the base repository maintainers can modify the Pull Request. Default: false.
-     * 
-     */
     @Import(name="maintainerCanModify")
     private @Nullable Output<Boolean> maintainerCanModify;
 
-    /**
-     * @return Controls whether the base repository maintainers can modify the Pull Request. Default: false.
-     * 
-     */
     public Optional<Output<Boolean>> maintainerCanModify() {
         return Optional.ofNullable(this.maintainerCanModify);
     }
 
-    /**
-     * Owner of the repository. If not provided, the provider&#39;s default owner is used.
-     * 
-     */
     @Import(name="owner")
     private @Nullable Output<String> owner;
 
-    /**
-     * @return Owner of the repository. If not provided, the provider&#39;s default owner is used.
-     * 
-     */
     public Optional<Output<String>> owner() {
         return Optional.ofNullable(this.owner);
     }
 
-    /**
-     * The title of the Pull Request.
-     * 
-     */
     @Import(name="title", required=true)
     private Output<String> title;
 
-    /**
-     * @return The title of the Pull Request.
-     * 
-     */
     public Output<String> title() {
         return this.title;
     }
@@ -151,149 +95,65 @@ public final class RepositoryPullRequestArgs extends com.pulumi.resources.Resour
             $ = new RepositoryPullRequestArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param baseRef Name of the branch serving as the base of the Pull Request.
-         * 
-         * @return builder
-         * 
-         */
         public Builder baseRef(Output<String> baseRef) {
             $.baseRef = baseRef;
             return this;
         }
 
-        /**
-         * @param baseRef Name of the branch serving as the base of the Pull Request.
-         * 
-         * @return builder
-         * 
-         */
         public Builder baseRef(String baseRef) {
             return baseRef(Output.of(baseRef));
         }
 
-        /**
-         * @param baseRepository Name of the base repository to retrieve the Pull Requests from.
-         * 
-         * @return builder
-         * 
-         */
         public Builder baseRepository(Output<String> baseRepository) {
             $.baseRepository = baseRepository;
             return this;
         }
 
-        /**
-         * @param baseRepository Name of the base repository to retrieve the Pull Requests from.
-         * 
-         * @return builder
-         * 
-         */
         public Builder baseRepository(String baseRepository) {
             return baseRepository(Output.of(baseRepository));
         }
 
-        /**
-         * @param body Body of the Pull Request.
-         * 
-         * @return builder
-         * 
-         */
         public Builder body(@Nullable Output<String> body) {
             $.body = body;
             return this;
         }
 
-        /**
-         * @param body Body of the Pull Request.
-         * 
-         * @return builder
-         * 
-         */
         public Builder body(String body) {
             return body(Output.of(body));
         }
 
-        /**
-         * @param headRef Name of the branch serving as the head of the Pull Request.
-         * 
-         * @return builder
-         * 
-         */
         public Builder headRef(Output<String> headRef) {
             $.headRef = headRef;
             return this;
         }
 
-        /**
-         * @param headRef Name of the branch serving as the head of the Pull Request.
-         * 
-         * @return builder
-         * 
-         */
         public Builder headRef(String headRef) {
             return headRef(Output.of(headRef));
         }
 
-        /**
-         * @param maintainerCanModify Controls whether the base repository maintainers can modify the Pull Request. Default: false.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maintainerCanModify(@Nullable Output<Boolean> maintainerCanModify) {
             $.maintainerCanModify = maintainerCanModify;
             return this;
         }
 
-        /**
-         * @param maintainerCanModify Controls whether the base repository maintainers can modify the Pull Request. Default: false.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maintainerCanModify(Boolean maintainerCanModify) {
             return maintainerCanModify(Output.of(maintainerCanModify));
         }
 
-        /**
-         * @param owner Owner of the repository. If not provided, the provider&#39;s default owner is used.
-         * 
-         * @return builder
-         * 
-         */
         public Builder owner(@Nullable Output<String> owner) {
             $.owner = owner;
             return this;
         }
 
-        /**
-         * @param owner Owner of the repository. If not provided, the provider&#39;s default owner is used.
-         * 
-         * @return builder
-         * 
-         */
         public Builder owner(String owner) {
             return owner(Output.of(owner));
         }
 
-        /**
-         * @param title The title of the Pull Request.
-         * 
-         * @return builder
-         * 
-         */
         public Builder title(Output<String> title) {
             $.title = title;
             return this;
         }
 
-        /**
-         * @param title The title of the Pull Request.
-         * 
-         * @return builder
-         * 
-         */
         public Builder title(String title) {
             return title(Output.of(title));
         }

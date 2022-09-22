@@ -13,96 +13,37 @@ import com.pulumi.github.inputs.RepositoryAutolinkReferenceState;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * This resource allows you to create and manage an autolink reference for a single repository.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.github.Repository;
- * import com.pulumi.github.RepositoryArgs;
- * import com.pulumi.github.RepositoryAutolinkReference;
- * import com.pulumi.github.RepositoryAutolinkReferenceArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var repo = new Repository(&#34;repo&#34;, RepositoryArgs.builder()        
- *             .description(&#34;GitHub repo managed by Terraform&#34;)
- *             .private_(false)
- *             .build());
- * 
- *         var auto = new RepositoryAutolinkReference(&#34;auto&#34;, RepositoryAutolinkReferenceArgs.builder()        
- *             .repository(repo.name())
- *             .keyPrefix(&#34;TICKET-&#34;)
- *             .targetUrlTemplate(&#34;https://hello.there/TICKET?query=&lt;num&gt;&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * Autolink references can be imported using the `name` of the repository, combined with the `id` of the autolink reference and a `/` character for separating components, e.g.
- * 
- * ```sh
- *  $ pulumi import github:index/repositoryAutolinkReference:RepositoryAutolinkReference auto oof/123
- * ```
- * 
- */
 @ResourceType(type="github:index/repositoryAutolinkReference:RepositoryAutolinkReference")
 public class RepositoryAutolinkReference extends com.pulumi.resources.CustomResource {
-    /**
-     * An etag representing the autolink reference object.
-     * 
-     */
     @Export(name="etag", type=String.class, parameters={})
     private Output<String> etag;
 
-    /**
-     * @return An etag representing the autolink reference object.
-     * 
-     */
     public Output<String> etag() {
         return this.etag;
     }
     /**
-     * This prefix appended by a number will generate a link any time it is found in an issue, pull request, or commit.
+     * This prefix appended by a number will generate a link any time it is found in an issue, pull request, or commit
      * 
      */
     @Export(name="keyPrefix", type=String.class, parameters={})
     private Output<String> keyPrefix;
 
     /**
-     * @return This prefix appended by a number will generate a link any time it is found in an issue, pull request, or commit.
+     * @return This prefix appended by a number will generate a link any time it is found in an issue, pull request, or commit
      * 
      */
     public Output<String> keyPrefix() {
         return this.keyPrefix;
     }
     /**
-     * The repository of the autolink reference.
+     * The repository name
      * 
      */
     @Export(name="repository", type=String.class, parameters={})
     private Output<String> repository;
 
     /**
-     * @return The repository of the autolink reference.
+     * @return The repository name
      * 
      */
     public Output<String> repository() {

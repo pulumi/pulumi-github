@@ -15,47 +15,23 @@ public final class GetRepositoryPullRequestPlainArgs extends com.pulumi.resource
 
     public static final GetRepositoryPullRequestPlainArgs Empty = new GetRepositoryPullRequestPlainArgs();
 
-    /**
-     * Name of the base repository to retrieve the Pull Request from.
-     * 
-     */
     @Import(name="baseRepository", required=true)
     private String baseRepository;
 
-    /**
-     * @return Name of the base repository to retrieve the Pull Request from.
-     * 
-     */
     public String baseRepository() {
         return this.baseRepository;
     }
 
-    /**
-     * The number of the Pull Request within the repository.
-     * 
-     */
     @Import(name="number", required=true)
     private Integer number;
 
-    /**
-     * @return The number of the Pull Request within the repository.
-     * 
-     */
     public Integer number() {
         return this.number;
     }
 
-    /**
-     * Owner of the repository. If not provided, the provider&#39;s default owner is used.
-     * 
-     */
     @Import(name="owner")
     private @Nullable String owner;
 
-    /**
-     * @return Owner of the repository. If not provided, the provider&#39;s default owner is used.
-     * 
-     */
     public Optional<String> owner() {
         return Optional.ofNullable(this.owner);
     }
@@ -86,34 +62,16 @@ public final class GetRepositoryPullRequestPlainArgs extends com.pulumi.resource
             $ = new GetRepositoryPullRequestPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param baseRepository Name of the base repository to retrieve the Pull Request from.
-         * 
-         * @return builder
-         * 
-         */
         public Builder baseRepository(String baseRepository) {
             $.baseRepository = baseRepository;
             return this;
         }
 
-        /**
-         * @param number The number of the Pull Request within the repository.
-         * 
-         * @return builder
-         * 
-         */
         public Builder number(Integer number) {
             $.number = number;
             return this;
         }
 
-        /**
-         * @param owner Owner of the repository. If not provided, the provider&#39;s default owner is used.
-         * 
-         * @return builder
-         * 
-         */
         public Builder owner(@Nullable String owner) {
             $.owner = owner;
             return this;

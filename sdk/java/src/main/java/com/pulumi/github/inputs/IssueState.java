@@ -18,31 +18,23 @@ public final class IssueState extends com.pulumi.resources.ResourceArgs {
     public static final IssueState Empty = new IssueState();
 
     /**
-     * List of Logins to assign the to the issue.
+     * List of Logins for Users to assign to this issue
      * 
      */
     @Import(name="assignees")
     private @Nullable Output<List<String>> assignees;
 
     /**
-     * @return List of Logins to assign the to the issue.
+     * @return List of Logins for Users to assign to this issue
      * 
      */
     public Optional<Output<List<String>>> assignees() {
         return Optional.ofNullable(this.assignees);
     }
 
-    /**
-     * Title of the issue.
-     * 
-     */
     @Import(name="body")
     private @Nullable Output<String> body;
 
-    /**
-     * @return Title of the issue.
-     * 
-     */
     public Optional<Output<String>> body() {
         return Optional.ofNullable(this.body);
     }
@@ -54,92 +46,52 @@ public final class IssueState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.etag);
     }
 
-    /**
-     * (Computed) - The issue id
-     * 
-     */
     @Import(name="issueId")
     private @Nullable Output<Integer> issueId;
 
-    /**
-     * @return (Computed) - The issue id
-     * 
-     */
     public Optional<Output<Integer>> issueId() {
         return Optional.ofNullable(this.issueId);
     }
 
     /**
-     * List of labels to attach to the issue.
+     * List of names of labels on the issue
      * 
      */
     @Import(name="labels")
     private @Nullable Output<List<String>> labels;
 
     /**
-     * @return List of labels to attach to the issue.
+     * @return List of names of labels on the issue
      * 
      */
     public Optional<Output<List<String>>> labels() {
         return Optional.ofNullable(this.labels);
     }
 
-    /**
-     * Milestone number to assign to the issue
-     * 
-     */
     @Import(name="milestoneNumber")
     private @Nullable Output<Integer> milestoneNumber;
 
-    /**
-     * @return Milestone number to assign to the issue
-     * 
-     */
     public Optional<Output<Integer>> milestoneNumber() {
         return Optional.ofNullable(this.milestoneNumber);
     }
 
-    /**
-     * (Computed) - The issue number
-     * 
-     */
     @Import(name="number")
     private @Nullable Output<Integer> number;
 
-    /**
-     * @return (Computed) - The issue number
-     * 
-     */
     public Optional<Output<Integer>> number() {
         return Optional.ofNullable(this.number);
     }
 
-    /**
-     * The GitHub repository name
-     * 
-     */
     @Import(name="repository")
     private @Nullable Output<String> repository;
 
-    /**
-     * @return The GitHub repository name
-     * 
-     */
     public Optional<Output<String>> repository() {
         return Optional.ofNullable(this.repository);
     }
 
-    /**
-     * Title of the issue.
-     * 
-     */
     @Import(name="title")
     private @Nullable Output<String> title;
 
-    /**
-     * @return Title of the issue.
-     * 
-     */
     public Optional<Output<String>> title() {
         return Optional.ofNullable(this.title);
     }
@@ -177,7 +129,7 @@ public final class IssueState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param assignees List of Logins to assign the to the issue.
+         * @param assignees List of Logins for Users to assign to this issue
          * 
          * @return builder
          * 
@@ -188,7 +140,7 @@ public final class IssueState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param assignees List of Logins to assign the to the issue.
+         * @param assignees List of Logins for Users to assign to this issue
          * 
          * @return builder
          * 
@@ -198,7 +150,7 @@ public final class IssueState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param assignees List of Logins to assign the to the issue.
+         * @param assignees List of Logins for Users to assign to this issue
          * 
          * @return builder
          * 
@@ -207,23 +159,11 @@ public final class IssueState extends com.pulumi.resources.ResourceArgs {
             return assignees(List.of(assignees));
         }
 
-        /**
-         * @param body Title of the issue.
-         * 
-         * @return builder
-         * 
-         */
         public Builder body(@Nullable Output<String> body) {
             $.body = body;
             return this;
         }
 
-        /**
-         * @param body Title of the issue.
-         * 
-         * @return builder
-         * 
-         */
         public Builder body(String body) {
             return body(Output.of(body));
         }
@@ -237,29 +177,17 @@ public final class IssueState extends com.pulumi.resources.ResourceArgs {
             return etag(Output.of(etag));
         }
 
-        /**
-         * @param issueId (Computed) - The issue id
-         * 
-         * @return builder
-         * 
-         */
         public Builder issueId(@Nullable Output<Integer> issueId) {
             $.issueId = issueId;
             return this;
         }
 
-        /**
-         * @param issueId (Computed) - The issue id
-         * 
-         * @return builder
-         * 
-         */
         public Builder issueId(Integer issueId) {
             return issueId(Output.of(issueId));
         }
 
         /**
-         * @param labels List of labels to attach to the issue.
+         * @param labels List of names of labels on the issue
          * 
          * @return builder
          * 
@@ -270,7 +198,7 @@ public final class IssueState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param labels List of labels to attach to the issue.
+         * @param labels List of names of labels on the issue
          * 
          * @return builder
          * 
@@ -280,7 +208,7 @@ public final class IssueState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param labels List of labels to attach to the issue.
+         * @param labels List of names of labels on the issue
          * 
          * @return builder
          * 
@@ -289,86 +217,38 @@ public final class IssueState extends com.pulumi.resources.ResourceArgs {
             return labels(List.of(labels));
         }
 
-        /**
-         * @param milestoneNumber Milestone number to assign to the issue
-         * 
-         * @return builder
-         * 
-         */
         public Builder milestoneNumber(@Nullable Output<Integer> milestoneNumber) {
             $.milestoneNumber = milestoneNumber;
             return this;
         }
 
-        /**
-         * @param milestoneNumber Milestone number to assign to the issue
-         * 
-         * @return builder
-         * 
-         */
         public Builder milestoneNumber(Integer milestoneNumber) {
             return milestoneNumber(Output.of(milestoneNumber));
         }
 
-        /**
-         * @param number (Computed) - The issue number
-         * 
-         * @return builder
-         * 
-         */
         public Builder number(@Nullable Output<Integer> number) {
             $.number = number;
             return this;
         }
 
-        /**
-         * @param number (Computed) - The issue number
-         * 
-         * @return builder
-         * 
-         */
         public Builder number(Integer number) {
             return number(Output.of(number));
         }
 
-        /**
-         * @param repository The GitHub repository name
-         * 
-         * @return builder
-         * 
-         */
         public Builder repository(@Nullable Output<String> repository) {
             $.repository = repository;
             return this;
         }
 
-        /**
-         * @param repository The GitHub repository name
-         * 
-         * @return builder
-         * 
-         */
         public Builder repository(String repository) {
             return repository(Output.of(repository));
         }
 
-        /**
-         * @param title Title of the issue.
-         * 
-         * @return builder
-         * 
-         */
         public Builder title(@Nullable Output<String> title) {
             $.title = title;
             return this;
         }
 
-        /**
-         * @param title Title of the issue.
-         * 
-         * @return builder
-         * 
-         */
         public Builder title(String title) {
             return title(Output.of(title));
         }

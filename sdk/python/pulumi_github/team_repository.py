@@ -19,10 +19,7 @@ class TeamRepositoryArgs:
                  permission: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a TeamRepository resource.
-        :param pulumi.Input[str] repository: The repository to add to the team.
-        :param pulumi.Input[str] team_id: The GitHub team id or the GitHub team slug
-        :param pulumi.Input[str] permission: The permissions of team members regarding the repository.
-               Must be one of `pull`, `triage`, `push`, `maintain`, `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organisation. Defaults to `pull`.
+        :param pulumi.Input[str] team_id: ID or slug of team
         """
         pulumi.set(__self__, "repository", repository)
         pulumi.set(__self__, "team_id", team_id)
@@ -32,9 +29,6 @@ class TeamRepositoryArgs:
     @property
     @pulumi.getter
     def repository(self) -> pulumi.Input[str]:
-        """
-        The repository to add to the team.
-        """
         return pulumi.get(self, "repository")
 
     @repository.setter
@@ -45,7 +39,7 @@ class TeamRepositoryArgs:
     @pulumi.getter(name="teamId")
     def team_id(self) -> pulumi.Input[str]:
         """
-        The GitHub team id or the GitHub team slug
+        ID or slug of team
         """
         return pulumi.get(self, "team_id")
 
@@ -56,10 +50,6 @@ class TeamRepositoryArgs:
     @property
     @pulumi.getter
     def permission(self) -> Optional[pulumi.Input[str]]:
-        """
-        The permissions of team members regarding the repository.
-        Must be one of `pull`, `triage`, `push`, `maintain`, `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organisation. Defaults to `pull`.
-        """
         return pulumi.get(self, "permission")
 
     @permission.setter
@@ -76,10 +66,7 @@ class _TeamRepositoryState:
                  team_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering TeamRepository resources.
-        :param pulumi.Input[str] permission: The permissions of team members regarding the repository.
-               Must be one of `pull`, `triage`, `push`, `maintain`, `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organisation. Defaults to `pull`.
-        :param pulumi.Input[str] repository: The repository to add to the team.
-        :param pulumi.Input[str] team_id: The GitHub team id or the GitHub team slug
+        :param pulumi.Input[str] team_id: ID or slug of team
         """
         if etag is not None:
             pulumi.set(__self__, "etag", etag)
@@ -102,10 +89,6 @@ class _TeamRepositoryState:
     @property
     @pulumi.getter
     def permission(self) -> Optional[pulumi.Input[str]]:
-        """
-        The permissions of team members regarding the repository.
-        Must be one of `pull`, `triage`, `push`, `maintain`, `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organisation. Defaults to `pull`.
-        """
         return pulumi.get(self, "permission")
 
     @permission.setter
@@ -115,9 +98,6 @@ class _TeamRepositoryState:
     @property
     @pulumi.getter
     def repository(self) -> Optional[pulumi.Input[str]]:
-        """
-        The repository to add to the team.
-        """
         return pulumi.get(self, "repository")
 
     @repository.setter
@@ -128,7 +108,7 @@ class _TeamRepositoryState:
     @pulumi.getter(name="teamId")
     def team_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The GitHub team id or the GitHub team slug
+        ID or slug of team
         """
         return pulumi.get(self, "team_id")
 
@@ -147,45 +127,10 @@ class TeamRepository(pulumi.CustomResource):
                  team_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        This resource manages relationships between teams and repositories
-        in your GitHub organization.
-
-        Creating this resource grants a particular team permissions on a
-        particular repository.
-
-        The repository and the team must both belong to the same organization
-        on GitHub. This resource does not actually *create* any repositories;
-        to do that, see `Repository`.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_github as github
-
-        # Add a repository to the team
-        some_team = github.Team("someTeam", description="Some cool team")
-        some_repo = github.Repository("someRepo")
-        some_team_repo = github.TeamRepository("someTeamRepo",
-            team_id=some_team.id,
-            repository=some_repo.name,
-            permission="pull")
-        ```
-
-        ## Import
-
-        GitHub Team Repository can be imported using an ID made up of `teamid:repository`, e.g.
-
-        ```sh
-         $ pulumi import github:index/teamRepository:TeamRepository terraform_repo 1234567:terraform
-        ```
-
+        Create a TeamRepository resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] permission: The permissions of team members regarding the repository.
-               Must be one of `pull`, `triage`, `push`, `maintain`, `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organisation. Defaults to `pull`.
-        :param pulumi.Input[str] repository: The repository to add to the team.
-        :param pulumi.Input[str] team_id: The GitHub team id or the GitHub team slug
+        :param pulumi.Input[str] team_id: ID or slug of team
         """
         ...
     @overload
@@ -194,39 +139,7 @@ class TeamRepository(pulumi.CustomResource):
                  args: TeamRepositoryArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        This resource manages relationships between teams and repositories
-        in your GitHub organization.
-
-        Creating this resource grants a particular team permissions on a
-        particular repository.
-
-        The repository and the team must both belong to the same organization
-        on GitHub. This resource does not actually *create* any repositories;
-        to do that, see `Repository`.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_github as github
-
-        # Add a repository to the team
-        some_team = github.Team("someTeam", description="Some cool team")
-        some_repo = github.Repository("someRepo")
-        some_team_repo = github.TeamRepository("someTeamRepo",
-            team_id=some_team.id,
-            repository=some_repo.name,
-            permission="pull")
-        ```
-
-        ## Import
-
-        GitHub Team Repository can be imported using an ID made up of `teamid:repository`, e.g.
-
-        ```sh
-         $ pulumi import github:index/teamRepository:TeamRepository terraform_repo 1234567:terraform
-        ```
-
+        Create a TeamRepository resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param TeamRepositoryArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -283,10 +196,7 @@ class TeamRepository(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] permission: The permissions of team members regarding the repository.
-               Must be one of `pull`, `triage`, `push`, `maintain`, `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organisation. Defaults to `pull`.
-        :param pulumi.Input[str] repository: The repository to add to the team.
-        :param pulumi.Input[str] team_id: The GitHub team id or the GitHub team slug
+        :param pulumi.Input[str] team_id: ID or slug of team
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -306,25 +216,18 @@ class TeamRepository(pulumi.CustomResource):
     @property
     @pulumi.getter
     def permission(self) -> pulumi.Output[Optional[str]]:
-        """
-        The permissions of team members regarding the repository.
-        Must be one of `pull`, `triage`, `push`, `maintain`, `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organisation. Defaults to `pull`.
-        """
         return pulumi.get(self, "permission")
 
     @property
     @pulumi.getter
     def repository(self) -> pulumi.Output[str]:
-        """
-        The repository to add to the team.
-        """
         return pulumi.get(self, "repository")
 
     @property
     @pulumi.getter(name="teamId")
     def team_id(self) -> pulumi.Output[str]:
         """
-        The GitHub team id or the GitHub team slug
+        ID or slug of team
         """
         return pulumi.get(self, "team_id")
 

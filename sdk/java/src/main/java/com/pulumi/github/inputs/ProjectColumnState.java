@@ -30,32 +30,16 @@ public final class ProjectColumnState extends com.pulumi.resources.ResourceArgs 
         return Optional.ofNullable(this.etag);
     }
 
-    /**
-     * The name of the column.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return The name of the column.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * The ID of an existing project that the column will be created in.
-     * 
-     */
     @Import(name="projectId")
     private @Nullable Output<String> projectId;
 
-    /**
-     * @return The ID of an existing project that the column will be created in.
-     * 
-     */
     public Optional<Output<String>> projectId() {
         return Optional.ofNullable(this.projectId);
     }
@@ -105,44 +89,20 @@ public final class ProjectColumnState extends com.pulumi.resources.ResourceArgs 
             return etag(Output.of(etag));
         }
 
-        /**
-         * @param name The name of the column.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The name of the column.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param projectId The ID of an existing project that the column will be created in.
-         * 
-         * @return builder
-         * 
-         */
         public Builder projectId(@Nullable Output<String> projectId) {
             $.projectId = projectId;
             return this;
         }
 
-        /**
-         * @param projectId The ID of an existing project that the column will be created in.
-         * 
-         * @return builder
-         * 
-         */
         public Builder projectId(String projectId) {
             return projectId(Output.of(projectId));
         }

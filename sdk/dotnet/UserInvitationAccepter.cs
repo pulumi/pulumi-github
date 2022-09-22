@@ -9,49 +9,9 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Github
 {
-    /// <summary>
-    /// Provides a resource to manage GitHub repository collaborator invitations.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Github = Pulumi.Github;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleRepository = new Github.Repository("exampleRepository");
-    /// 
-    ///     var exampleRepositoryCollaborator = new Github.RepositoryCollaborator("exampleRepositoryCollaborator", new()
-    ///     {
-    ///         Repository = exampleRepository.Name,
-    ///         Username = "example-username",
-    ///         Permission = "push",
-    ///     });
-    /// 
-    ///     var invitee = new Github.Provider("invitee", new()
-    ///     {
-    ///         Token = @var.Invitee_token,
-    ///     });
-    /// 
-    ///     var exampleUserInvitationAccepter = new Github.UserInvitationAccepter("exampleUserInvitationAccepter", new()
-    ///     {
-    ///         InvitationId = exampleRepositoryCollaborator.InvitationId,
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         Provider = "github.invitee",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// </summary>
     [GithubResourceType("github:index/userInvitationAccepter:UserInvitationAccepter")]
     public partial class UserInvitationAccepter : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// ID of the invitation to accept
-        /// </summary>
         [Output("invitationId")]
         public Output<string> InvitationId { get; private set; } = null!;
 
@@ -101,9 +61,6 @@ namespace Pulumi.Github
 
     public sealed class UserInvitationAccepterArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ID of the invitation to accept
-        /// </summary>
         [Input("invitationId", required: true)]
         public Input<string> InvitationId { get; set; } = null!;
 
@@ -115,9 +72,6 @@ namespace Pulumi.Github
 
     public sealed class UserInvitationAccepterState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ID of the invitation to accept
-        /// </summary>
         [Input("invitationId")]
         public Input<string>? InvitationId { get; set; }
 

@@ -30,18 +30,7 @@ class BranchProtectionArgs:
                  required_status_checks: Optional[pulumi.Input[Sequence[pulumi.Input['BranchProtectionRequiredStatusCheckArgs']]]] = None):
         """
         The set of arguments for constructing a BranchProtection resource.
-        :param pulumi.Input[str] pattern: Identifies the protection rule pattern.
-        :param pulumi.Input[str] repository_id: The name or node ID of the repository associated with this branch protection rule.
-        :param pulumi.Input[bool] allows_deletions: Boolean, setting this to `true` to allow the branch to be deleted.
-        :param pulumi.Input[bool] allows_force_pushes: Boolean, setting this to `true` to allow force pushes on the branch.
-        :param pulumi.Input[bool] blocks_creations: Boolean, setting this to `true` to block creating the branch.
-        :param pulumi.Input[bool] enforce_admins: Boolean, setting this to `true` enforces status checks for repository administrators.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] push_restrictions: The list of actor IDs that may push to the branch.
-        :param pulumi.Input[bool] require_conversation_resolution: Boolean, setting this to `true` requires all conversations on code must be resolved before a pull request can be merged.
-        :param pulumi.Input[bool] require_signed_commits: Boolean, setting this to `true` requires all commits to be signed with GPG.
-        :param pulumi.Input[bool] required_linear_history: Boolean, setting this to `true` enforces a linear commit Git history, which prevents anyone from pushing merge commits to a branch
-        :param pulumi.Input[Sequence[pulumi.Input['BranchProtectionRequiredPullRequestReviewArgs']]] required_pull_request_reviews: Enforce restrictions for pull request reviews. See Required Pull Request Reviews below for details.
-        :param pulumi.Input[Sequence[pulumi.Input['BranchProtectionRequiredStatusCheckArgs']]] required_status_checks: Enforce restrictions for required status checks. See Required Status Checks below for details.
+        :param pulumi.Input[str] repository_id: Node ID or name of repository
         """
         pulumi.set(__self__, "pattern", pattern)
         pulumi.set(__self__, "repository_id", repository_id)
@@ -69,9 +58,6 @@ class BranchProtectionArgs:
     @property
     @pulumi.getter
     def pattern(self) -> pulumi.Input[str]:
-        """
-        Identifies the protection rule pattern.
-        """
         return pulumi.get(self, "pattern")
 
     @pattern.setter
@@ -82,7 +68,7 @@ class BranchProtectionArgs:
     @pulumi.getter(name="repositoryId")
     def repository_id(self) -> pulumi.Input[str]:
         """
-        The name or node ID of the repository associated with this branch protection rule.
+        Node ID or name of repository
         """
         return pulumi.get(self, "repository_id")
 
@@ -93,9 +79,6 @@ class BranchProtectionArgs:
     @property
     @pulumi.getter(name="allowsDeletions")
     def allows_deletions(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Boolean, setting this to `true` to allow the branch to be deleted.
-        """
         return pulumi.get(self, "allows_deletions")
 
     @allows_deletions.setter
@@ -105,9 +88,6 @@ class BranchProtectionArgs:
     @property
     @pulumi.getter(name="allowsForcePushes")
     def allows_force_pushes(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Boolean, setting this to `true` to allow force pushes on the branch.
-        """
         return pulumi.get(self, "allows_force_pushes")
 
     @allows_force_pushes.setter
@@ -117,9 +97,6 @@ class BranchProtectionArgs:
     @property
     @pulumi.getter(name="blocksCreations")
     def blocks_creations(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Boolean, setting this to `true` to block creating the branch.
-        """
         return pulumi.get(self, "blocks_creations")
 
     @blocks_creations.setter
@@ -129,9 +106,6 @@ class BranchProtectionArgs:
     @property
     @pulumi.getter(name="enforceAdmins")
     def enforce_admins(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Boolean, setting this to `true` enforces status checks for repository administrators.
-        """
         return pulumi.get(self, "enforce_admins")
 
     @enforce_admins.setter
@@ -141,9 +115,6 @@ class BranchProtectionArgs:
     @property
     @pulumi.getter(name="pushRestrictions")
     def push_restrictions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        The list of actor IDs that may push to the branch.
-        """
         return pulumi.get(self, "push_restrictions")
 
     @push_restrictions.setter
@@ -153,9 +124,6 @@ class BranchProtectionArgs:
     @property
     @pulumi.getter(name="requireConversationResolution")
     def require_conversation_resolution(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Boolean, setting this to `true` requires all conversations on code must be resolved before a pull request can be merged.
-        """
         return pulumi.get(self, "require_conversation_resolution")
 
     @require_conversation_resolution.setter
@@ -165,9 +133,6 @@ class BranchProtectionArgs:
     @property
     @pulumi.getter(name="requireSignedCommits")
     def require_signed_commits(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Boolean, setting this to `true` requires all commits to be signed with GPG.
-        """
         return pulumi.get(self, "require_signed_commits")
 
     @require_signed_commits.setter
@@ -177,9 +142,6 @@ class BranchProtectionArgs:
     @property
     @pulumi.getter(name="requiredLinearHistory")
     def required_linear_history(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Boolean, setting this to `true` enforces a linear commit Git history, which prevents anyone from pushing merge commits to a branch
-        """
         return pulumi.get(self, "required_linear_history")
 
     @required_linear_history.setter
@@ -189,9 +151,6 @@ class BranchProtectionArgs:
     @property
     @pulumi.getter(name="requiredPullRequestReviews")
     def required_pull_request_reviews(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BranchProtectionRequiredPullRequestReviewArgs']]]]:
-        """
-        Enforce restrictions for pull request reviews. See Required Pull Request Reviews below for details.
-        """
         return pulumi.get(self, "required_pull_request_reviews")
 
     @required_pull_request_reviews.setter
@@ -201,9 +160,6 @@ class BranchProtectionArgs:
     @property
     @pulumi.getter(name="requiredStatusChecks")
     def required_status_checks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BranchProtectionRequiredStatusCheckArgs']]]]:
-        """
-        Enforce restrictions for required status checks. See Required Status Checks below for details.
-        """
         return pulumi.get(self, "required_status_checks")
 
     @required_status_checks.setter
@@ -228,18 +184,7 @@ class _BranchProtectionState:
                  required_status_checks: Optional[pulumi.Input[Sequence[pulumi.Input['BranchProtectionRequiredStatusCheckArgs']]]] = None):
         """
         Input properties used for looking up and filtering BranchProtection resources.
-        :param pulumi.Input[bool] allows_deletions: Boolean, setting this to `true` to allow the branch to be deleted.
-        :param pulumi.Input[bool] allows_force_pushes: Boolean, setting this to `true` to allow force pushes on the branch.
-        :param pulumi.Input[bool] blocks_creations: Boolean, setting this to `true` to block creating the branch.
-        :param pulumi.Input[bool] enforce_admins: Boolean, setting this to `true` enforces status checks for repository administrators.
-        :param pulumi.Input[str] pattern: Identifies the protection rule pattern.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] push_restrictions: The list of actor IDs that may push to the branch.
-        :param pulumi.Input[str] repository_id: The name or node ID of the repository associated with this branch protection rule.
-        :param pulumi.Input[bool] require_conversation_resolution: Boolean, setting this to `true` requires all conversations on code must be resolved before a pull request can be merged.
-        :param pulumi.Input[bool] require_signed_commits: Boolean, setting this to `true` requires all commits to be signed with GPG.
-        :param pulumi.Input[bool] required_linear_history: Boolean, setting this to `true` enforces a linear commit Git history, which prevents anyone from pushing merge commits to a branch
-        :param pulumi.Input[Sequence[pulumi.Input['BranchProtectionRequiredPullRequestReviewArgs']]] required_pull_request_reviews: Enforce restrictions for pull request reviews. See Required Pull Request Reviews below for details.
-        :param pulumi.Input[Sequence[pulumi.Input['BranchProtectionRequiredStatusCheckArgs']]] required_status_checks: Enforce restrictions for required status checks. See Required Status Checks below for details.
+        :param pulumi.Input[str] repository_id: Node ID or name of repository
         """
         if allows_deletions is not None:
             pulumi.set(__self__, "allows_deletions", allows_deletions)
@@ -269,9 +214,6 @@ class _BranchProtectionState:
     @property
     @pulumi.getter(name="allowsDeletions")
     def allows_deletions(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Boolean, setting this to `true` to allow the branch to be deleted.
-        """
         return pulumi.get(self, "allows_deletions")
 
     @allows_deletions.setter
@@ -281,9 +223,6 @@ class _BranchProtectionState:
     @property
     @pulumi.getter(name="allowsForcePushes")
     def allows_force_pushes(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Boolean, setting this to `true` to allow force pushes on the branch.
-        """
         return pulumi.get(self, "allows_force_pushes")
 
     @allows_force_pushes.setter
@@ -293,9 +232,6 @@ class _BranchProtectionState:
     @property
     @pulumi.getter(name="blocksCreations")
     def blocks_creations(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Boolean, setting this to `true` to block creating the branch.
-        """
         return pulumi.get(self, "blocks_creations")
 
     @blocks_creations.setter
@@ -305,9 +241,6 @@ class _BranchProtectionState:
     @property
     @pulumi.getter(name="enforceAdmins")
     def enforce_admins(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Boolean, setting this to `true` enforces status checks for repository administrators.
-        """
         return pulumi.get(self, "enforce_admins")
 
     @enforce_admins.setter
@@ -317,9 +250,6 @@ class _BranchProtectionState:
     @property
     @pulumi.getter
     def pattern(self) -> Optional[pulumi.Input[str]]:
-        """
-        Identifies the protection rule pattern.
-        """
         return pulumi.get(self, "pattern")
 
     @pattern.setter
@@ -329,9 +259,6 @@ class _BranchProtectionState:
     @property
     @pulumi.getter(name="pushRestrictions")
     def push_restrictions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        The list of actor IDs that may push to the branch.
-        """
         return pulumi.get(self, "push_restrictions")
 
     @push_restrictions.setter
@@ -342,7 +269,7 @@ class _BranchProtectionState:
     @pulumi.getter(name="repositoryId")
     def repository_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The name or node ID of the repository associated with this branch protection rule.
+        Node ID or name of repository
         """
         return pulumi.get(self, "repository_id")
 
@@ -353,9 +280,6 @@ class _BranchProtectionState:
     @property
     @pulumi.getter(name="requireConversationResolution")
     def require_conversation_resolution(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Boolean, setting this to `true` requires all conversations on code must be resolved before a pull request can be merged.
-        """
         return pulumi.get(self, "require_conversation_resolution")
 
     @require_conversation_resolution.setter
@@ -365,9 +289,6 @@ class _BranchProtectionState:
     @property
     @pulumi.getter(name="requireSignedCommits")
     def require_signed_commits(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Boolean, setting this to `true` requires all commits to be signed with GPG.
-        """
         return pulumi.get(self, "require_signed_commits")
 
     @require_signed_commits.setter
@@ -377,9 +298,6 @@ class _BranchProtectionState:
     @property
     @pulumi.getter(name="requiredLinearHistory")
     def required_linear_history(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Boolean, setting this to `true` enforces a linear commit Git history, which prevents anyone from pushing merge commits to a branch
-        """
         return pulumi.get(self, "required_linear_history")
 
     @required_linear_history.setter
@@ -389,9 +307,6 @@ class _BranchProtectionState:
     @property
     @pulumi.getter(name="requiredPullRequestReviews")
     def required_pull_request_reviews(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BranchProtectionRequiredPullRequestReviewArgs']]]]:
-        """
-        Enforce restrictions for pull request reviews. See Required Pull Request Reviews below for details.
-        """
         return pulumi.get(self, "required_pull_request_reviews")
 
     @required_pull_request_reviews.setter
@@ -401,9 +316,6 @@ class _BranchProtectionState:
     @property
     @pulumi.getter(name="requiredStatusChecks")
     def required_status_checks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BranchProtectionRequiredStatusCheckArgs']]]]:
-        """
-        Enforce restrictions for required status checks. See Required Status Checks below for details.
-        """
         return pulumi.get(self, "required_status_checks")
 
     @required_status_checks.setter
@@ -430,68 +342,10 @@ class BranchProtection(pulumi.CustomResource):
                  required_status_checks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BranchProtectionRequiredStatusCheckArgs']]]]] = None,
                  __props__=None):
         """
-        Protects a GitHub branch.
-
-        This resource allows you to configure branch protection for repositories in your organization. When applied, the branch will be protected from forced pushes and deletion. Additional constraints, such as required status checks or restrictions on users, teams, and apps, can also be configured.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_github as github
-
-        example_repository = github.Repository("exampleRepository")
-        example_user = github.get_user(username="example")
-        example_team = github.Team("exampleTeam")
-        # Protect the main branch of the foo repository. Additionally, require that
-        # the "ci/travis" context to be passing and only allow the engineers team merge
-        # to the branch.
-        example_branch_protection = github.BranchProtection("exampleBranchProtection",
-            repository_id=example_repository.node_id,
-            pattern="main",
-            enforce_admins=True,
-            allows_deletions=True,
-            required_status_checks=[github.BranchProtectionRequiredStatusCheckArgs(
-                strict=False,
-                contexts=["ci/travis"],
-            )],
-            required_pull_request_reviews=[github.BranchProtectionRequiredPullRequestReviewArgs(
-                dismiss_stale_reviews=True,
-                restrict_dismissals=True,
-                dismissal_restrictions=[
-                    example_user.node_id,
-                    example_team.node_id,
-                ],
-            )],
-            push_restrictions=[example_user.node_id])
-        example_team_repository = github.TeamRepository("exampleTeamRepository",
-            team_id=example_team.id,
-            repository=example_repository.name,
-            permission="pull")
-        ```
-
-        ## Import
-
-        GitHub Branch Protection can be imported using an ID made up of `repository:pattern`, e.g.
-
-        ```sh
-         $ pulumi import github:index/branchProtection:BranchProtection terraform terraform:main
-        ```
-
+        Create a BranchProtection resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] allows_deletions: Boolean, setting this to `true` to allow the branch to be deleted.
-        :param pulumi.Input[bool] allows_force_pushes: Boolean, setting this to `true` to allow force pushes on the branch.
-        :param pulumi.Input[bool] blocks_creations: Boolean, setting this to `true` to block creating the branch.
-        :param pulumi.Input[bool] enforce_admins: Boolean, setting this to `true` enforces status checks for repository administrators.
-        :param pulumi.Input[str] pattern: Identifies the protection rule pattern.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] push_restrictions: The list of actor IDs that may push to the branch.
-        :param pulumi.Input[str] repository_id: The name or node ID of the repository associated with this branch protection rule.
-        :param pulumi.Input[bool] require_conversation_resolution: Boolean, setting this to `true` requires all conversations on code must be resolved before a pull request can be merged.
-        :param pulumi.Input[bool] require_signed_commits: Boolean, setting this to `true` requires all commits to be signed with GPG.
-        :param pulumi.Input[bool] required_linear_history: Boolean, setting this to `true` enforces a linear commit Git history, which prevents anyone from pushing merge commits to a branch
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BranchProtectionRequiredPullRequestReviewArgs']]]] required_pull_request_reviews: Enforce restrictions for pull request reviews. See Required Pull Request Reviews below for details.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BranchProtectionRequiredStatusCheckArgs']]]] required_status_checks: Enforce restrictions for required status checks. See Required Status Checks below for details.
+        :param pulumi.Input[str] repository_id: Node ID or name of repository
         """
         ...
     @overload
@@ -500,54 +354,7 @@ class BranchProtection(pulumi.CustomResource):
                  args: BranchProtectionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Protects a GitHub branch.
-
-        This resource allows you to configure branch protection for repositories in your organization. When applied, the branch will be protected from forced pushes and deletion. Additional constraints, such as required status checks or restrictions on users, teams, and apps, can also be configured.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_github as github
-
-        example_repository = github.Repository("exampleRepository")
-        example_user = github.get_user(username="example")
-        example_team = github.Team("exampleTeam")
-        # Protect the main branch of the foo repository. Additionally, require that
-        # the "ci/travis" context to be passing and only allow the engineers team merge
-        # to the branch.
-        example_branch_protection = github.BranchProtection("exampleBranchProtection",
-            repository_id=example_repository.node_id,
-            pattern="main",
-            enforce_admins=True,
-            allows_deletions=True,
-            required_status_checks=[github.BranchProtectionRequiredStatusCheckArgs(
-                strict=False,
-                contexts=["ci/travis"],
-            )],
-            required_pull_request_reviews=[github.BranchProtectionRequiredPullRequestReviewArgs(
-                dismiss_stale_reviews=True,
-                restrict_dismissals=True,
-                dismissal_restrictions=[
-                    example_user.node_id,
-                    example_team.node_id,
-                ],
-            )],
-            push_restrictions=[example_user.node_id])
-        example_team_repository = github.TeamRepository("exampleTeamRepository",
-            team_id=example_team.id,
-            repository=example_repository.name,
-            permission="pull")
-        ```
-
-        ## Import
-
-        GitHub Branch Protection can be imported using an ID made up of `repository:pattern`, e.g.
-
-        ```sh
-         $ pulumi import github:index/branchProtection:BranchProtection terraform terraform:main
-        ```
-
+        Create a BranchProtection resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param BranchProtectionArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -629,18 +436,7 @@ class BranchProtection(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] allows_deletions: Boolean, setting this to `true` to allow the branch to be deleted.
-        :param pulumi.Input[bool] allows_force_pushes: Boolean, setting this to `true` to allow force pushes on the branch.
-        :param pulumi.Input[bool] blocks_creations: Boolean, setting this to `true` to block creating the branch.
-        :param pulumi.Input[bool] enforce_admins: Boolean, setting this to `true` enforces status checks for repository administrators.
-        :param pulumi.Input[str] pattern: Identifies the protection rule pattern.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] push_restrictions: The list of actor IDs that may push to the branch.
-        :param pulumi.Input[str] repository_id: The name or node ID of the repository associated with this branch protection rule.
-        :param pulumi.Input[bool] require_conversation_resolution: Boolean, setting this to `true` requires all conversations on code must be resolved before a pull request can be merged.
-        :param pulumi.Input[bool] require_signed_commits: Boolean, setting this to `true` requires all commits to be signed with GPG.
-        :param pulumi.Input[bool] required_linear_history: Boolean, setting this to `true` enforces a linear commit Git history, which prevents anyone from pushing merge commits to a branch
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BranchProtectionRequiredPullRequestReviewArgs']]]] required_pull_request_reviews: Enforce restrictions for pull request reviews. See Required Pull Request Reviews below for details.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BranchProtectionRequiredStatusCheckArgs']]]] required_status_checks: Enforce restrictions for required status checks. See Required Status Checks below for details.
+        :param pulumi.Input[str] repository_id: Node ID or name of repository
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -663,96 +459,63 @@ class BranchProtection(pulumi.CustomResource):
     @property
     @pulumi.getter(name="allowsDeletions")
     def allows_deletions(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Boolean, setting this to `true` to allow the branch to be deleted.
-        """
         return pulumi.get(self, "allows_deletions")
 
     @property
     @pulumi.getter(name="allowsForcePushes")
     def allows_force_pushes(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Boolean, setting this to `true` to allow force pushes on the branch.
-        """
         return pulumi.get(self, "allows_force_pushes")
 
     @property
     @pulumi.getter(name="blocksCreations")
     def blocks_creations(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Boolean, setting this to `true` to block creating the branch.
-        """
         return pulumi.get(self, "blocks_creations")
 
     @property
     @pulumi.getter(name="enforceAdmins")
     def enforce_admins(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Boolean, setting this to `true` enforces status checks for repository administrators.
-        """
         return pulumi.get(self, "enforce_admins")
 
     @property
     @pulumi.getter
     def pattern(self) -> pulumi.Output[str]:
-        """
-        Identifies the protection rule pattern.
-        """
         return pulumi.get(self, "pattern")
 
     @property
     @pulumi.getter(name="pushRestrictions")
     def push_restrictions(self) -> pulumi.Output[Optional[Sequence[str]]]:
-        """
-        The list of actor IDs that may push to the branch.
-        """
         return pulumi.get(self, "push_restrictions")
 
     @property
     @pulumi.getter(name="repositoryId")
     def repository_id(self) -> pulumi.Output[str]:
         """
-        The name or node ID of the repository associated with this branch protection rule.
+        Node ID or name of repository
         """
         return pulumi.get(self, "repository_id")
 
     @property
     @pulumi.getter(name="requireConversationResolution")
     def require_conversation_resolution(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Boolean, setting this to `true` requires all conversations on code must be resolved before a pull request can be merged.
-        """
         return pulumi.get(self, "require_conversation_resolution")
 
     @property
     @pulumi.getter(name="requireSignedCommits")
     def require_signed_commits(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Boolean, setting this to `true` requires all commits to be signed with GPG.
-        """
         return pulumi.get(self, "require_signed_commits")
 
     @property
     @pulumi.getter(name="requiredLinearHistory")
     def required_linear_history(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Boolean, setting this to `true` enforces a linear commit Git history, which prevents anyone from pushing merge commits to a branch
-        """
         return pulumi.get(self, "required_linear_history")
 
     @property
     @pulumi.getter(name="requiredPullRequestReviews")
     def required_pull_request_reviews(self) -> pulumi.Output[Optional[Sequence['outputs.BranchProtectionRequiredPullRequestReview']]]:
-        """
-        Enforce restrictions for pull request reviews. See Required Pull Request Reviews below for details.
-        """
         return pulumi.get(self, "required_pull_request_reviews")
 
     @property
     @pulumi.getter(name="requiredStatusChecks")
     def required_status_checks(self) -> pulumi.Output[Optional[Sequence['outputs.BranchProtectionRequiredStatusCheck']]]:
-        """
-        Enforce restrictions for required status checks. See Required Status Checks below for details.
-        """
         return pulumi.get(self, "required_status_checks")
 

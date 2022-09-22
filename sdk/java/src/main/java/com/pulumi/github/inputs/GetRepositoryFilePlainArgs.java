@@ -14,49 +14,23 @@ public final class GetRepositoryFilePlainArgs extends com.pulumi.resources.Invok
 
     public static final GetRepositoryFilePlainArgs Empty = new GetRepositoryFilePlainArgs();
 
-    /**
-     * Git branch (defaults to `main`).
-     * The branch must already exist, it will not be created if it does not already exist.
-     * 
-     */
     @Import(name="branch")
     private @Nullable String branch;
 
-    /**
-     * @return Git branch (defaults to `main`).
-     * The branch must already exist, it will not be created if it does not already exist.
-     * 
-     */
     public Optional<String> branch() {
         return Optional.ofNullable(this.branch);
     }
 
-    /**
-     * The path of the file to manage.
-     * 
-     */
     @Import(name="file", required=true)
     private String file;
 
-    /**
-     * @return The path of the file to manage.
-     * 
-     */
     public String file() {
         return this.file;
     }
 
-    /**
-     * The repository to create the file in.
-     * 
-     */
     @Import(name="repository", required=true)
     private String repository;
 
-    /**
-     * @return The repository to create the file in.
-     * 
-     */
     public String repository() {
         return this.repository;
     }
@@ -87,35 +61,16 @@ public final class GetRepositoryFilePlainArgs extends com.pulumi.resources.Invok
             $ = new GetRepositoryFilePlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param branch Git branch (defaults to `main`).
-         * The branch must already exist, it will not be created if it does not already exist.
-         * 
-         * @return builder
-         * 
-         */
         public Builder branch(@Nullable String branch) {
             $.branch = branch;
             return this;
         }
 
-        /**
-         * @param file The path of the file to manage.
-         * 
-         * @return builder
-         * 
-         */
         public Builder file(String file) {
             $.file = file;
             return this;
         }
 
-        /**
-         * @param repository The repository to create the file in.
-         * 
-         * @return builder
-         * 
-         */
         public Builder repository(String repository) {
             $.repository = repository;
             return this;

@@ -9,96 +9,36 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Github
 {
-    /// <summary>
-    /// Provides a GitHub team resource.
-    /// 
-    /// This resource allows you to add/remove teams from your organization. When applied,
-    /// a new team will be created. When destroyed, that team will be removed.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Github = Pulumi.Github;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     // Add a team to the organization
-    ///     var someTeam = new Github.Team("someTeam", new()
-    ///     {
-    ///         Description = "Some cool team",
-    ///         Privacy = "closed",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// GitHub Teams can be imported using the GitHub team ID e.g.
-    /// 
-    /// ```sh
-    ///  $ pulumi import github:index/team:Team core 1234567
-    /// ```
-    /// </summary>
     [GithubResourceType("github:index/team:Team")]
     public partial class Team : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Adds a default maintainer to the team. Defaults to `false` and adds the creating user to the team when `true`.
-        /// </summary>
         [Output("createDefaultMaintainer")]
         public Output<bool?> CreateDefaultMaintainer { get; private set; } = null!;
 
-        /// <summary>
-        /// A description of the team.
-        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
         [Output("etag")]
         public Output<string> Etag { get; private set; } = null!;
 
-        /// <summary>
-        /// The LDAP Distinguished Name of the group where membership will be synchronized. Only available in GitHub Enterprise Server.
-        /// </summary>
         [Output("ldapDn")]
         public Output<string?> LdapDn { get; private set; } = null!;
 
         [Output("membersCount")]
         public Output<int> MembersCount { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the team.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// The Node ID of the created team.
-        /// </summary>
         [Output("nodeId")]
         public Output<string> NodeId { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID of the parent team, if this is a nested team.
-        /// </summary>
         [Output("parentTeamId")]
         public Output<int?> ParentTeamId { get; private set; } = null!;
 
-        /// <summary>
-        /// The level of privacy for the team. Must be one of `secret` or `closed`.
-        /// Defaults to `secret`.
-        /// </summary>
         [Output("privacy")]
         public Output<string?> Privacy { get; private set; } = null!;
 
-        /// <summary>
-        /// The slug of the created team, which may or may not differ from `name`,
-        /// depending on whether `name` contains "URL-unsafe" characters.
-        /// Useful when referencing the team in [`github.BranchProtection`](https://www.terraform.io/docs/providers/github/r/branch_protection.html).
-        /// </summary>
         [Output("slug")]
         public Output<string> Slug { get; private set; } = null!;
 
@@ -148,40 +88,21 @@ namespace Pulumi.Github
 
     public sealed class TeamArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Adds a default maintainer to the team. Defaults to `false` and adds the creating user to the team when `true`.
-        /// </summary>
         [Input("createDefaultMaintainer")]
         public Input<bool>? CreateDefaultMaintainer { get; set; }
 
-        /// <summary>
-        /// A description of the team.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// The LDAP Distinguished Name of the group where membership will be synchronized. Only available in GitHub Enterprise Server.
-        /// </summary>
         [Input("ldapDn")]
         public Input<string>? LdapDn { get; set; }
 
-        /// <summary>
-        /// The name of the team.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// The ID of the parent team, if this is a nested team.
-        /// </summary>
         [Input("parentTeamId")]
         public Input<int>? ParentTeamId { get; set; }
 
-        /// <summary>
-        /// The level of privacy for the team. Must be one of `secret` or `closed`.
-        /// Defaults to `secret`.
-        /// </summary>
         [Input("privacy")]
         public Input<string>? Privacy { get; set; }
 
@@ -193,60 +114,33 @@ namespace Pulumi.Github
 
     public sealed class TeamState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Adds a default maintainer to the team. Defaults to `false` and adds the creating user to the team when `true`.
-        /// </summary>
         [Input("createDefaultMaintainer")]
         public Input<bool>? CreateDefaultMaintainer { get; set; }
 
-        /// <summary>
-        /// A description of the team.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         [Input("etag")]
         public Input<string>? Etag { get; set; }
 
-        /// <summary>
-        /// The LDAP Distinguished Name of the group where membership will be synchronized. Only available in GitHub Enterprise Server.
-        /// </summary>
         [Input("ldapDn")]
         public Input<string>? LdapDn { get; set; }
 
         [Input("membersCount")]
         public Input<int>? MembersCount { get; set; }
 
-        /// <summary>
-        /// The name of the team.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// The Node ID of the created team.
-        /// </summary>
         [Input("nodeId")]
         public Input<string>? NodeId { get; set; }
 
-        /// <summary>
-        /// The ID of the parent team, if this is a nested team.
-        /// </summary>
         [Input("parentTeamId")]
         public Input<int>? ParentTeamId { get; set; }
 
-        /// <summary>
-        /// The level of privacy for the team. Must be one of `secret` or `closed`.
-        /// Defaults to `secret`.
-        /// </summary>
         [Input("privacy")]
         public Input<string>? Privacy { get; set; }
 
-        /// <summary>
-        /// The slug of the created team, which may or may not differ from `name`,
-        /// depending on whether `name` contains "URL-unsafe" characters.
-        /// Useful when referencing the team in [`github.BranchProtection`](https://www.terraform.io/docs/providers/github/r/branch_protection.html).
-        /// </summary>
         [Input("slug")]
         public Input<string>? Slug { get; set; }
 

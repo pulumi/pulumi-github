@@ -11,25 +11,27 @@ namespace Pulumi.Github.Outputs
 {
 
     [OutputType]
-    public sealed class GetRepositoryBranchResult
+    public sealed class GetActionsOrganizationSecretsSecretResult
     {
-        /// <summary>
-        /// The name of the repository.
-        /// </summary>
+        public readonly string CreatedAt;
         public readonly string Name;
-        /// <summary>
-        /// Whether the branch is protected.
-        /// </summary>
-        public readonly bool Protected;
+        public readonly string UpdatedAt;
+        public readonly string Visibility;
 
         [OutputConstructor]
-        private GetRepositoryBranchResult(
+        private GetActionsOrganizationSecretsSecretResult(
+            string createdAt,
+
             string name,
 
-            bool @protected)
+            string updatedAt,
+
+            string visibility)
         {
+            CreatedAt = createdAt;
             Name = name;
-            Protected = @protected;
+            UpdatedAt = updatedAt;
+            Visibility = visibility;
         }
     }
 }

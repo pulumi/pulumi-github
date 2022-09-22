@@ -16,141 +16,25 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a GitHub issue resource.
- * 
- * This resource allows you to create and manage issue within your
- * GitHub repository.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.github.Repository;
- * import com.pulumi.github.RepositoryArgs;
- * import com.pulumi.github.Issue;
- * import com.pulumi.github.IssueArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var testRepository = new Repository(&#34;testRepository&#34;, RepositoryArgs.builder()        
- *             .autoInit(true)
- *             .hasIssues(true)
- *             .build());
- * 
- *         var testIssue = new Issue(&#34;testIssue&#34;, IssueArgs.builder()        
- *             .repository(testRepository.name())
- *             .title(&#34;My issue title&#34;)
- *             .body(&#34;The body of my issue&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### With Milestone And Project Assignment
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.github.Repository;
- * import com.pulumi.github.RepositoryArgs;
- * import com.pulumi.github.RepositoryMilestone;
- * import com.pulumi.github.RepositoryMilestoneArgs;
- * import com.pulumi.github.Issue;
- * import com.pulumi.github.IssueArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var testRepository = new Repository(&#34;testRepository&#34;, RepositoryArgs.builder()        
- *             .autoInit(true)
- *             .hasIssues(true)
- *             .build());
- * 
- *         var testRepositoryMilestone = new RepositoryMilestone(&#34;testRepositoryMilestone&#34;, RepositoryMilestoneArgs.builder()        
- *             .owner(testRepository.fullName().applyValue(fullName -&gt; fullName.split(&#34;/&#34;)).applyValue(split -&gt; split[0]))
- *             .repository(testRepository.name())
- *             .title(&#34;v1.0.0&#34;)
- *             .description(&#34;General Availability&#34;)
- *             .dueDate(&#34;2022-11-22&#34;)
- *             .state(&#34;open&#34;)
- *             .build());
- * 
- *         var testIssue = new Issue(&#34;testIssue&#34;, IssueArgs.builder()        
- *             .repository(testRepository.name())
- *             .title(&#34;My issue&#34;)
- *             .body(&#34;My issue body&#34;)
- *             .labels(            
- *                 &#34;bug&#34;,
- *                 &#34;documentation&#34;)
- *             .assignees(&#34;bob-github&#34;)
- *             .milestoneNumber(testRepositoryMilestone.number())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * GitHub Issues can be imported using an ID made up of `repository:number`, e.g.
- * 
- * ```sh
- *  $ pulumi import github:index/issue:Issue issue_15 myrepo:15
- * ```
- * 
- */
 @ResourceType(type="github:index/issue:Issue")
 public class Issue extends com.pulumi.resources.CustomResource {
     /**
-     * List of Logins to assign the to the issue.
+     * List of Logins for Users to assign to this issue
      * 
      */
     @Export(name="assignees", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> assignees;
 
     /**
-     * @return List of Logins to assign the to the issue.
+     * @return List of Logins for Users to assign to this issue
      * 
      */
     public Output<Optional<List<String>>> assignees() {
         return Codegen.optional(this.assignees);
     }
-    /**
-     * Title of the issue.
-     * 
-     */
     @Export(name="body", type=String.class, parameters={})
     private Output</* @Nullable */ String> body;
 
-    /**
-     * @return Title of the issue.
-     * 
-     */
     public Output<Optional<String>> body() {
         return Codegen.optional(this.body);
     }
@@ -160,87 +44,47 @@ public class Issue extends com.pulumi.resources.CustomResource {
     public Output<String> etag() {
         return this.etag;
     }
-    /**
-     * (Computed) - The issue id
-     * 
-     */
     @Export(name="issueId", type=Integer.class, parameters={})
     private Output<Integer> issueId;
 
-    /**
-     * @return (Computed) - The issue id
-     * 
-     */
     public Output<Integer> issueId() {
         return this.issueId;
     }
     /**
-     * List of labels to attach to the issue.
+     * List of names of labels on the issue
      * 
      */
     @Export(name="labels", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> labels;
 
     /**
-     * @return List of labels to attach to the issue.
+     * @return List of names of labels on the issue
      * 
      */
     public Output<Optional<List<String>>> labels() {
         return Codegen.optional(this.labels);
     }
-    /**
-     * Milestone number to assign to the issue
-     * 
-     */
     @Export(name="milestoneNumber", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> milestoneNumber;
 
-    /**
-     * @return Milestone number to assign to the issue
-     * 
-     */
     public Output<Optional<Integer>> milestoneNumber() {
         return Codegen.optional(this.milestoneNumber);
     }
-    /**
-     * (Computed) - The issue number
-     * 
-     */
     @Export(name="number", type=Integer.class, parameters={})
     private Output<Integer> number;
 
-    /**
-     * @return (Computed) - The issue number
-     * 
-     */
     public Output<Integer> number() {
         return this.number;
     }
-    /**
-     * The GitHub repository name
-     * 
-     */
     @Export(name="repository", type=String.class, parameters={})
     private Output<String> repository;
 
-    /**
-     * @return The GitHub repository name
-     * 
-     */
     public Output<String> repository() {
         return this.repository;
     }
-    /**
-     * Title of the issue.
-     * 
-     */
     @Export(name="title", type=String.class, parameters={})
     private Output<String> title;
 
-    /**
-     * @return Title of the issue.
-     * 
-     */
     public Output<String> title() {
         return this.title;
     }

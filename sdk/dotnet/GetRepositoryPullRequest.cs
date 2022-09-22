@@ -11,59 +11,9 @@ namespace Pulumi.Github
 {
     public static class GetRepositoryPullRequest
     {
-        /// <summary>
-        /// Use this data source to retrieve information about a specific GitHub Pull Request in a repository.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Github = Pulumi.Github;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Github.GetRepositoryPullRequest.Invoke(new()
-        ///     {
-        ///         BaseRepository = "example_repository",
-        ///         Number = 1,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Task<GetRepositoryPullRequestResult> InvokeAsync(GetRepositoryPullRequestArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRepositoryPullRequestResult>("github:index/getRepositoryPullRequest:getRepositoryPullRequest", args ?? new GetRepositoryPullRequestArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Use this data source to retrieve information about a specific GitHub Pull Request in a repository.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Github = Pulumi.Github;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Github.GetRepositoryPullRequest.Invoke(new()
-        ///     {
-        ///         BaseRepository = "example_repository",
-        ///         Number = 1,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Output<GetRepositoryPullRequestResult> Invoke(GetRepositoryPullRequestInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetRepositoryPullRequestResult>("github:index/getRepositoryPullRequest:getRepositoryPullRequest", args ?? new GetRepositoryPullRequestInvokeArgs(), options.WithDefaults());
     }
@@ -71,21 +21,12 @@ namespace Pulumi.Github
 
     public sealed class GetRepositoryPullRequestArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Name of the base repository to retrieve the Pull Request from.
-        /// </summary>
         [Input("baseRepository", required: true)]
         public string BaseRepository { get; set; } = null!;
 
-        /// <summary>
-        /// The number of the Pull Request within the repository.
-        /// </summary>
         [Input("number", required: true)]
         public int Number { get; set; }
 
-        /// <summary>
-        /// Owner of the repository. If not provided, the provider's default owner is used.
-        /// </summary>
         [Input("owner")]
         public string? Owner { get; set; }
 
@@ -97,21 +38,12 @@ namespace Pulumi.Github
 
     public sealed class GetRepositoryPullRequestInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Name of the base repository to retrieve the Pull Request from.
-        /// </summary>
         [Input("baseRepository", required: true)]
         public Input<string> BaseRepository { get; set; } = null!;
 
-        /// <summary>
-        /// The number of the Pull Request within the repository.
-        /// </summary>
         [Input("number", required: true)]
         public Input<int> Number { get; set; } = null!;
 
-        /// <summary>
-        /// Owner of the repository. If not provided, the provider's default owner is used.
-        /// </summary>
         [Input("owner")]
         public Input<string>? Owner { get; set; }
 
@@ -125,69 +57,27 @@ namespace Pulumi.Github
     [OutputType]
     public sealed class GetRepositoryPullRequestResult
     {
-        /// <summary>
-        /// Name of the ref (branch) of the Pull Request base.
-        /// </summary>
         public readonly string BaseRef;
         public readonly string BaseRepository;
-        /// <summary>
-        /// Head commit SHA of the Pull Request base.
-        /// </summary>
         public readonly string BaseSha;
-        /// <summary>
-        /// Body of the Pull Request.
-        /// </summary>
         public readonly string Body;
-        /// <summary>
-        /// Indicates Whether this Pull Request is a draft.
-        /// </summary>
         public readonly bool Draft;
-        /// <summary>
-        /// Owner of the Pull Request head repository.
-        /// </summary>
         public readonly string HeadOwner;
         public readonly string HeadRef;
-        /// <summary>
-        /// Name of the Pull Request head repository.
-        /// </summary>
         public readonly string HeadRepository;
-        /// <summary>
-        /// Head commit SHA of the Pull Request head.
-        /// </summary>
         public readonly string HeadSha;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// List of label names set on the Pull Request.
-        /// </summary>
         public readonly ImmutableArray<string> Labels;
-        /// <summary>
-        /// Indicates whether the base repository maintainers can modify the Pull Request.
-        /// </summary>
         public readonly bool MaintainerCanModify;
         public readonly int Number;
-        /// <summary>
-        /// Unix timestamp indicating the Pull Request creation time.
-        /// </summary>
         public readonly int OpenedAt;
-        /// <summary>
-        /// GitHub login of the user who opened the Pull Request.
-        /// </summary>
         public readonly string OpenedBy;
         public readonly string? Owner;
-        /// <summary>
-        /// the current Pull Request state - can be "open", "closed" or "merged".
-        /// </summary>
         public readonly string State;
-        /// <summary>
-        /// The title of the Pull Request.
-        /// </summary>
         public readonly string Title;
-        /// <summary>
-        /// The timestamp of the last Pull Request update.
-        /// </summary>
         public readonly int UpdatedAt;
 
         [OutputConstructor]

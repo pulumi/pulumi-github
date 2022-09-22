@@ -13,17 +13,8 @@ namespace Pulumi.Github.Outputs
     [OutputType]
     public sealed class ActionsOrganizationPermissionsAllowedActionsConfig
     {
-        /// <summary>
-        /// Whether GitHub-owned actions are allowed in the organization.
-        /// </summary>
         public readonly bool GithubOwnedAllowed;
-        /// <summary>
-        /// Specifies a list of string-matching patterns to allow specific action(s). Wildcards, tags, and SHAs are allowed. For example, monalisa/octocat@*, monalisa/octocat@v2, monalisa/*."
-        /// </summary>
         public readonly ImmutableArray<string> PatternsAlloweds;
-        /// <summary>
-        /// Whether actions in GitHub Marketplace from verified creators are allowed. Set to true to allow all GitHub Marketplace actions by verified creators.
-        /// </summary>
         public readonly bool? VerifiedAllowed;
 
         [OutputConstructor]

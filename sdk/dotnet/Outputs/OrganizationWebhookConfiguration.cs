@@ -16,9 +16,6 @@ namespace Pulumi.Github.Outputs
         public readonly string? ContentType;
         public readonly bool? InsecureSsl;
         public readonly string? Secret;
-        /// <summary>
-        /// URL of the webhook
-        /// </summary>
         public readonly string Url;
 
         [OutputConstructor]

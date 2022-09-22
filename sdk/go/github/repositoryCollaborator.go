@@ -11,77 +11,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a GitHub repository collaborator resource.
-//
-// This resource allows you to add/remove collaborators from repositories in your
-// organization or personal account. For organization repositories, collaborators can
-// have explicit (and differing levels of) read, write, or administrator access to
-// specific repositories, without giving the user full organization membership.
-// For personal repositories, collaborators can only be granted write
-// (implictly includes read) permission.
-//
-// When applied, an invitation will be sent to the user to become a collaborator
-// on a repository. When destroyed, either the invitation will be cancelled or the
-// collaborator will be removed from the repository.
-//
-// Further documentation on GitHub collaborators:
-//
-// - [Adding outside collaborators to your personal repositories](https://help.github.com/en/github/setting-up-and-managing-your-github-user-account/managing-access-to-your-personal-repositories)
-// - [Adding outside collaborators to repositories in your organization](https://help.github.com/articles/adding-outside-collaborators-to-repositories-in-your-organization/)
-// - [Converting an organization member to an outside collaborator](https://help.github.com/articles/converting-an-organization-member-to-an-outside-collaborator/)
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-github/sdk/v4/go/github"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := github.NewRepositoryCollaborator(ctx, "aRepoCollaborator", &github.RepositoryCollaboratorArgs{
-//				Permission: pulumi.String("admin"),
-//				Repository: pulumi.String("our-cool-repo"),
-//				Username:   pulumi.String("SomeUser"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// GitHub Repository Collaborators can be imported using an ID made up of `repository:username`, e.g.
-//
-// ```sh
-//
-//	$ pulumi import github:index/repositoryCollaborator:RepositoryCollaborator collaborator terraform:someuser
-//
-// ```
 type RepositoryCollaborator struct {
 	pulumi.CustomResourceState
 
-	// ID of the invitation to be used in `UserInvitationAccepter`
-	InvitationId pulumi.StringOutput `pulumi:"invitationId"`
-	// The permission of the outside collaborator for the repository.
-	// Must be one of `pull`, `push`, `maintain`, `triage` or `admin` for organization-owned repositories.
-	// Must be `push` for personal repositories. Defaults to `push`.
-	Permission pulumi.StringPtrOutput `pulumi:"permission"`
-	// Suppress plan diffs for `triage` and `maintain`.  Defaults to `false`.
-	PermissionDiffSuppression pulumi.BoolPtrOutput `pulumi:"permissionDiffSuppression"`
-	// The GitHub repository
-	Repository pulumi.StringOutput `pulumi:"repository"`
-	// The user to add to the repository as a collaborator.
-	Username pulumi.StringOutput `pulumi:"username"`
+	InvitationId              pulumi.StringOutput    `pulumi:"invitationId"`
+	Permission                pulumi.StringPtrOutput `pulumi:"permission"`
+	PermissionDiffSuppression pulumi.BoolPtrOutput   `pulumi:"permissionDiffSuppression"`
+	Repository                pulumi.StringOutput    `pulumi:"repository"`
+	Username                  pulumi.StringOutput    `pulumi:"username"`
 }
 
 // NewRepositoryCollaborator registers a new resource with the given unique name, arguments, and options.
@@ -119,33 +56,19 @@ func GetRepositoryCollaborator(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RepositoryCollaborator resources.
 type repositoryCollaboratorState struct {
-	// ID of the invitation to be used in `UserInvitationAccepter`
-	InvitationId *string `pulumi:"invitationId"`
-	// The permission of the outside collaborator for the repository.
-	// Must be one of `pull`, `push`, `maintain`, `triage` or `admin` for organization-owned repositories.
-	// Must be `push` for personal repositories. Defaults to `push`.
-	Permission *string `pulumi:"permission"`
-	// Suppress plan diffs for `triage` and `maintain`.  Defaults to `false`.
-	PermissionDiffSuppression *bool `pulumi:"permissionDiffSuppression"`
-	// The GitHub repository
-	Repository *string `pulumi:"repository"`
-	// The user to add to the repository as a collaborator.
-	Username *string `pulumi:"username"`
+	InvitationId              *string `pulumi:"invitationId"`
+	Permission                *string `pulumi:"permission"`
+	PermissionDiffSuppression *bool   `pulumi:"permissionDiffSuppression"`
+	Repository                *string `pulumi:"repository"`
+	Username                  *string `pulumi:"username"`
 }
 
 type RepositoryCollaboratorState struct {
-	// ID of the invitation to be used in `UserInvitationAccepter`
-	InvitationId pulumi.StringPtrInput
-	// The permission of the outside collaborator for the repository.
-	// Must be one of `pull`, `push`, `maintain`, `triage` or `admin` for organization-owned repositories.
-	// Must be `push` for personal repositories. Defaults to `push`.
-	Permission pulumi.StringPtrInput
-	// Suppress plan diffs for `triage` and `maintain`.  Defaults to `false`.
+	InvitationId              pulumi.StringPtrInput
+	Permission                pulumi.StringPtrInput
 	PermissionDiffSuppression pulumi.BoolPtrInput
-	// The GitHub repository
-	Repository pulumi.StringPtrInput
-	// The user to add to the repository as a collaborator.
-	Username pulumi.StringPtrInput
+	Repository                pulumi.StringPtrInput
+	Username                  pulumi.StringPtrInput
 }
 
 func (RepositoryCollaboratorState) ElementType() reflect.Type {
@@ -153,30 +76,18 @@ func (RepositoryCollaboratorState) ElementType() reflect.Type {
 }
 
 type repositoryCollaboratorArgs struct {
-	// The permission of the outside collaborator for the repository.
-	// Must be one of `pull`, `push`, `maintain`, `triage` or `admin` for organization-owned repositories.
-	// Must be `push` for personal repositories. Defaults to `push`.
-	Permission *string `pulumi:"permission"`
-	// Suppress plan diffs for `triage` and `maintain`.  Defaults to `false`.
-	PermissionDiffSuppression *bool `pulumi:"permissionDiffSuppression"`
-	// The GitHub repository
-	Repository string `pulumi:"repository"`
-	// The user to add to the repository as a collaborator.
-	Username string `pulumi:"username"`
+	Permission                *string `pulumi:"permission"`
+	PermissionDiffSuppression *bool   `pulumi:"permissionDiffSuppression"`
+	Repository                string  `pulumi:"repository"`
+	Username                  string  `pulumi:"username"`
 }
 
 // The set of arguments for constructing a RepositoryCollaborator resource.
 type RepositoryCollaboratorArgs struct {
-	// The permission of the outside collaborator for the repository.
-	// Must be one of `pull`, `push`, `maintain`, `triage` or `admin` for organization-owned repositories.
-	// Must be `push` for personal repositories. Defaults to `push`.
-	Permission pulumi.StringPtrInput
-	// Suppress plan diffs for `triage` and `maintain`.  Defaults to `false`.
+	Permission                pulumi.StringPtrInput
 	PermissionDiffSuppression pulumi.BoolPtrInput
-	// The GitHub repository
-	Repository pulumi.StringInput
-	// The user to add to the repository as a collaborator.
-	Username pulumi.StringInput
+	Repository                pulumi.StringInput
+	Username                  pulumi.StringInput
 }
 
 func (RepositoryCollaboratorArgs) ElementType() reflect.Type {
@@ -266,29 +177,22 @@ func (o RepositoryCollaboratorOutput) ToRepositoryCollaboratorOutputWithContext(
 	return o
 }
 
-// ID of the invitation to be used in `UserInvitationAccepter`
 func (o RepositoryCollaboratorOutput) InvitationId() pulumi.StringOutput {
 	return o.ApplyT(func(v *RepositoryCollaborator) pulumi.StringOutput { return v.InvitationId }).(pulumi.StringOutput)
 }
 
-// The permission of the outside collaborator for the repository.
-// Must be one of `pull`, `push`, `maintain`, `triage` or `admin` for organization-owned repositories.
-// Must be `push` for personal repositories. Defaults to `push`.
 func (o RepositoryCollaboratorOutput) Permission() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RepositoryCollaborator) pulumi.StringPtrOutput { return v.Permission }).(pulumi.StringPtrOutput)
 }
 
-// Suppress plan diffs for `triage` and `maintain`.  Defaults to `false`.
 func (o RepositoryCollaboratorOutput) PermissionDiffSuppression() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RepositoryCollaborator) pulumi.BoolPtrOutput { return v.PermissionDiffSuppression }).(pulumi.BoolPtrOutput)
 }
 
-// The GitHub repository
 func (o RepositoryCollaboratorOutput) Repository() pulumi.StringOutput {
 	return o.ApplyT(func(v *RepositoryCollaborator) pulumi.StringOutput { return v.Repository }).(pulumi.StringOutput)
 }
 
-// The user to add to the repository as a collaborator.
 func (o RepositoryCollaboratorOutput) Username() pulumi.StringOutput {
 	return o.ApplyT(func(v *RepositoryCollaborator) pulumi.StringOutput { return v.Username }).(pulumi.StringOutput)
 }

@@ -15,30 +15,22 @@ public final class RepositoryAutolinkReferenceState extends com.pulumi.resources
 
     public static final RepositoryAutolinkReferenceState Empty = new RepositoryAutolinkReferenceState();
 
-    /**
-     * An etag representing the autolink reference object.
-     * 
-     */
     @Import(name="etag")
     private @Nullable Output<String> etag;
 
-    /**
-     * @return An etag representing the autolink reference object.
-     * 
-     */
     public Optional<Output<String>> etag() {
         return Optional.ofNullable(this.etag);
     }
 
     /**
-     * This prefix appended by a number will generate a link any time it is found in an issue, pull request, or commit.
+     * This prefix appended by a number will generate a link any time it is found in an issue, pull request, or commit
      * 
      */
     @Import(name="keyPrefix")
     private @Nullable Output<String> keyPrefix;
 
     /**
-     * @return This prefix appended by a number will generate a link any time it is found in an issue, pull request, or commit.
+     * @return This prefix appended by a number will generate a link any time it is found in an issue, pull request, or commit
      * 
      */
     public Optional<Output<String>> keyPrefix() {
@@ -46,14 +38,14 @@ public final class RepositoryAutolinkReferenceState extends com.pulumi.resources
     }
 
     /**
-     * The repository of the autolink reference.
+     * The repository name
      * 
      */
     @Import(name="repository")
     private @Nullable Output<String> repository;
 
     /**
-     * @return The repository of the autolink reference.
+     * @return The repository name
      * 
      */
     public Optional<Output<String>> repository() {
@@ -102,29 +94,17 @@ public final class RepositoryAutolinkReferenceState extends com.pulumi.resources
             $ = new RepositoryAutolinkReferenceState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param etag An etag representing the autolink reference object.
-         * 
-         * @return builder
-         * 
-         */
         public Builder etag(@Nullable Output<String> etag) {
             $.etag = etag;
             return this;
         }
 
-        /**
-         * @param etag An etag representing the autolink reference object.
-         * 
-         * @return builder
-         * 
-         */
         public Builder etag(String etag) {
             return etag(Output.of(etag));
         }
 
         /**
-         * @param keyPrefix This prefix appended by a number will generate a link any time it is found in an issue, pull request, or commit.
+         * @param keyPrefix This prefix appended by a number will generate a link any time it is found in an issue, pull request, or commit
          * 
          * @return builder
          * 
@@ -135,7 +115,7 @@ public final class RepositoryAutolinkReferenceState extends com.pulumi.resources
         }
 
         /**
-         * @param keyPrefix This prefix appended by a number will generate a link any time it is found in an issue, pull request, or commit.
+         * @param keyPrefix This prefix appended by a number will generate a link any time it is found in an issue, pull request, or commit
          * 
          * @return builder
          * 
@@ -145,7 +125,7 @@ public final class RepositoryAutolinkReferenceState extends com.pulumi.resources
         }
 
         /**
-         * @param repository The repository of the autolink reference.
+         * @param repository The repository name
          * 
          * @return builder
          * 
@@ -156,7 +136,7 @@ public final class RepositoryAutolinkReferenceState extends com.pulumi.resources
         }
 
         /**
-         * @param repository The repository of the autolink reference.
+         * @param repository The repository name
          * 
          * @return builder
          * 

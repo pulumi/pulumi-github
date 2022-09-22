@@ -12,77 +12,22 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetTeamResult {
-    /**
-     * @return the team&#39;s description.
-     * 
-     */
-    private final String description;
+    private String description;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    /**
-     * @return List of team members (list of GitHub usernames)
-     * 
-     */
-    private final List<String> members;
-    private final @Nullable String membershipType;
-    /**
-     * @return the team&#39;s full name.
-     * 
-     */
-    private final String name;
-    /**
-     * @return the Node ID of the team.
-     * 
-     */
-    private final String nodeId;
-    /**
-     * @return the team&#39;s permission level.
-     * 
-     */
-    private final String permission;
-    /**
-     * @return the team&#39;s privacy type.
-     * 
-     */
-    private final String privacy;
-    /**
-     * @return List of team repositories (list of repo names)
-     * 
-     */
-    private final List<String> repositories;
-    private final String slug;
+    private String id;
+    private List<String> members;
+    private @Nullable String membershipType;
+    private String name;
+    private String nodeId;
+    private String permission;
+    private String privacy;
+    private List<String> repositories;
+    private String slug;
 
-    @CustomType.Constructor
-    private GetTeamResult(
-        @CustomType.Parameter("description") String description,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("members") List<String> members,
-        @CustomType.Parameter("membershipType") @Nullable String membershipType,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("nodeId") String nodeId,
-        @CustomType.Parameter("permission") String permission,
-        @CustomType.Parameter("privacy") String privacy,
-        @CustomType.Parameter("repositories") List<String> repositories,
-        @CustomType.Parameter("slug") String slug) {
-        this.description = description;
-        this.id = id;
-        this.members = members;
-        this.membershipType = membershipType;
-        this.name = name;
-        this.nodeId = nodeId;
-        this.permission = permission;
-        this.privacy = privacy;
-        this.repositories = repositories;
-        this.slug = slug;
-    }
-
-    /**
-     * @return the team&#39;s description.
-     * 
-     */
+    private GetTeamResult() {}
     public String description() {
         return this.description;
     }
@@ -93,48 +38,24 @@ public final class GetTeamResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return List of team members (list of GitHub usernames)
-     * 
-     */
     public List<String> members() {
         return this.members;
     }
     public Optional<String> membershipType() {
         return Optional.ofNullable(this.membershipType);
     }
-    /**
-     * @return the team&#39;s full name.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return the Node ID of the team.
-     * 
-     */
     public String nodeId() {
         return this.nodeId;
     }
-    /**
-     * @return the team&#39;s permission level.
-     * 
-     */
     public String permission() {
         return this.permission;
     }
-    /**
-     * @return the team&#39;s privacy type.
-     * 
-     */
     public String privacy() {
         return this.privacy;
     }
-    /**
-     * @return List of team repositories (list of repo names)
-     * 
-     */
     public List<String> repositories() {
         return this.repositories;
     }
@@ -149,7 +70,7 @@ public final class GetTeamResult {
     public static Builder builder(GetTeamResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String description;
         private String id;
@@ -161,11 +82,7 @@ public final class GetTeamResult {
         private String privacy;
         private List<String> repositories;
         private String slug;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetTeamResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.description = defaults.description;
@@ -180,14 +97,17 @@ public final class GetTeamResult {
     	      this.slug = defaults.slug;
         }
 
+        @CustomType.Setter
         public Builder description(String description) {
             this.description = Objects.requireNonNull(description);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder members(List<String> members) {
             this.members = Objects.requireNonNull(members);
             return this;
@@ -195,26 +115,32 @@ public final class GetTeamResult {
         public Builder members(String... members) {
             return members(List.of(members));
         }
+        @CustomType.Setter
         public Builder membershipType(@Nullable String membershipType) {
             this.membershipType = membershipType;
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder nodeId(String nodeId) {
             this.nodeId = Objects.requireNonNull(nodeId);
             return this;
         }
+        @CustomType.Setter
         public Builder permission(String permission) {
             this.permission = Objects.requireNonNull(permission);
             return this;
         }
+        @CustomType.Setter
         public Builder privacy(String privacy) {
             this.privacy = Objects.requireNonNull(privacy);
             return this;
         }
+        @CustomType.Setter
         public Builder repositories(List<String> repositories) {
             this.repositories = Objects.requireNonNull(repositories);
             return this;
@@ -222,11 +148,24 @@ public final class GetTeamResult {
         public Builder repositories(String... repositories) {
             return repositories(List.of(repositories));
         }
+        @CustomType.Setter
         public Builder slug(String slug) {
             this.slug = Objects.requireNonNull(slug);
             return this;
-        }        public GetTeamResult build() {
-            return new GetTeamResult(description, id, members, membershipType, name, nodeId, permission, privacy, repositories, slug);
+        }
+        public GetTeamResult build() {
+            final var o = new GetTeamResult();
+            o.description = description;
+            o.id = id;
+            o.members = members;
+            o.membershipType = membershipType;
+            o.name = name;
+            o.nodeId = nodeId;
+            o.permission = permission;
+            o.privacy = privacy;
+            o.repositories = repositories;
+            o.slug = slug;
+            return o;
         }
     }
 }

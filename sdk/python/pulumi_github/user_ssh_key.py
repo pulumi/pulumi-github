@@ -18,8 +18,6 @@ class UserSshKeyArgs:
                  title: pulumi.Input[str]):
         """
         The set of arguments for constructing a UserSshKey resource.
-        :param pulumi.Input[str] key: The public SSH key to add to your GitHub account.
-        :param pulumi.Input[str] title: A descriptive name for the new key. e.g. `Personal MacBook Air`
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "title", title)
@@ -27,9 +25,6 @@ class UserSshKeyArgs:
     @property
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
-        """
-        The public SSH key to add to your GitHub account.
-        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -39,9 +34,6 @@ class UserSshKeyArgs:
     @property
     @pulumi.getter
     def title(self) -> pulumi.Input[str]:
-        """
-        A descriptive name for the new key. e.g. `Personal MacBook Air`
-        """
         return pulumi.get(self, "title")
 
     @title.setter
@@ -58,9 +50,6 @@ class _UserSshKeyState:
                  url: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering UserSshKey resources.
-        :param pulumi.Input[str] key: The public SSH key to add to your GitHub account.
-        :param pulumi.Input[str] title: A descriptive name for the new key. e.g. `Personal MacBook Air`
-        :param pulumi.Input[str] url: The URL of the SSH key
         """
         if etag is not None:
             pulumi.set(__self__, "etag", etag)
@@ -83,9 +72,6 @@ class _UserSshKeyState:
     @property
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[str]]:
-        """
-        The public SSH key to add to your GitHub account.
-        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -95,9 +81,6 @@ class _UserSshKeyState:
     @property
     @pulumi.getter
     def title(self) -> Optional[pulumi.Input[str]]:
-        """
-        A descriptive name for the new key. e.g. `Personal MacBook Air`
-        """
         return pulumi.get(self, "title")
 
     @title.setter
@@ -107,9 +90,6 @@ class _UserSshKeyState:
     @property
     @pulumi.getter
     def url(self) -> Optional[pulumi.Input[str]]:
-        """
-        The URL of the SSH key
-        """
         return pulumi.get(self, "url")
 
     @url.setter
@@ -126,33 +106,9 @@ class UserSshKey(pulumi.CustomResource):
                  title: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Provides a GitHub user's SSH key resource.
-
-        This resource allows you to add/remove SSH keys from your user account.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_github as github
-
-        example = github.UserSshKey("example",
-            title="example title",
-            key=(lambda path: open(path).read())("~/.ssh/id_rsa.pub"))
-        ```
-
-        ## Import
-
-        SSH keys can be imported using their ID e.g.
-
-        ```sh
-         $ pulumi import github:index/userSshKey:UserSshKey example 1234567
-        ```
-
+        Create a UserSshKey resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] key: The public SSH key to add to your GitHub account.
-        :param pulumi.Input[str] title: A descriptive name for the new key. e.g. `Personal MacBook Air`
         """
         ...
     @overload
@@ -161,29 +117,7 @@ class UserSshKey(pulumi.CustomResource):
                  args: UserSshKeyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a GitHub user's SSH key resource.
-
-        This resource allows you to add/remove SSH keys from your user account.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_github as github
-
-        example = github.UserSshKey("example",
-            title="example title",
-            key=(lambda path: open(path).read())("~/.ssh/id_rsa.pub"))
-        ```
-
-        ## Import
-
-        SSH keys can be imported using their ID e.g.
-
-        ```sh
-         $ pulumi import github:index/userSshKey:UserSshKey example 1234567
-        ```
-
+        Create a UserSshKey resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param UserSshKeyArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -239,9 +173,6 @@ class UserSshKey(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] key: The public SSH key to add to your GitHub account.
-        :param pulumi.Input[str] title: A descriptive name for the new key. e.g. `Personal MacBook Air`
-        :param pulumi.Input[str] url: The URL of the SSH key
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -261,24 +192,15 @@ class UserSshKey(pulumi.CustomResource):
     @property
     @pulumi.getter
     def key(self) -> pulumi.Output[str]:
-        """
-        The public SSH key to add to your GitHub account.
-        """
         return pulumi.get(self, "key")
 
     @property
     @pulumi.getter
     def title(self) -> pulumi.Output[str]:
-        """
-        A descriptive name for the new key. e.g. `Personal MacBook Air`
-        """
         return pulumi.get(self, "title")
 
     @property
     @pulumi.getter
     def url(self) -> pulumi.Output[str]:
-        """
-        The URL of the SSH key
-        """
         return pulumi.get(self, "url")
 

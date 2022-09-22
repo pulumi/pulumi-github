@@ -15,47 +15,23 @@ public final class GetCollaboratorsArgs extends com.pulumi.resources.InvokeArgs 
 
     public static final GetCollaboratorsArgs Empty = new GetCollaboratorsArgs();
 
-    /**
-     * Filter collaborators returned by their affiliation. Can be one of: `outside`, `direct`, `all`.  Defaults to `all`.
-     * 
-     */
     @Import(name="affiliation")
     private @Nullable Output<String> affiliation;
 
-    /**
-     * @return Filter collaborators returned by their affiliation. Can be one of: `outside`, `direct`, `all`.  Defaults to `all`.
-     * 
-     */
     public Optional<Output<String>> affiliation() {
         return Optional.ofNullable(this.affiliation);
     }
 
-    /**
-     * The organization that owns the repository.
-     * 
-     */
     @Import(name="owner", required=true)
     private Output<String> owner;
 
-    /**
-     * @return The organization that owns the repository.
-     * 
-     */
     public Output<String> owner() {
         return this.owner;
     }
 
-    /**
-     * The name of the repository.
-     * 
-     */
     @Import(name="repository", required=true)
     private Output<String> repository;
 
-    /**
-     * @return The name of the repository.
-     * 
-     */
     public Output<String> repository() {
         return this.repository;
     }
@@ -86,65 +62,29 @@ public final class GetCollaboratorsArgs extends com.pulumi.resources.InvokeArgs 
             $ = new GetCollaboratorsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param affiliation Filter collaborators returned by their affiliation. Can be one of: `outside`, `direct`, `all`.  Defaults to `all`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder affiliation(@Nullable Output<String> affiliation) {
             $.affiliation = affiliation;
             return this;
         }
 
-        /**
-         * @param affiliation Filter collaborators returned by their affiliation. Can be one of: `outside`, `direct`, `all`.  Defaults to `all`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder affiliation(String affiliation) {
             return affiliation(Output.of(affiliation));
         }
 
-        /**
-         * @param owner The organization that owns the repository.
-         * 
-         * @return builder
-         * 
-         */
         public Builder owner(Output<String> owner) {
             $.owner = owner;
             return this;
         }
 
-        /**
-         * @param owner The organization that owns the repository.
-         * 
-         * @return builder
-         * 
-         */
         public Builder owner(String owner) {
             return owner(Output.of(owner));
         }
 
-        /**
-         * @param repository The name of the repository.
-         * 
-         * @return builder
-         * 
-         */
         public Builder repository(Output<String> repository) {
             $.repository = repository;
             return this;
         }
 
-        /**
-         * @param repository The name of the repository.
-         * 
-         * @return builder
-         * 
-         */
         public Builder repository(String repository) {
             return repository(Output.of(repository));
         }

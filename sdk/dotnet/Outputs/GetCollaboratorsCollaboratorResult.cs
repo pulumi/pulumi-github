@@ -13,69 +13,21 @@ namespace Pulumi.Github.Outputs
     [OutputType]
     public sealed class GetCollaboratorsCollaboratorResult
     {
-        /// <summary>
-        /// The GitHub API URL for the collaborator's events.
-        /// </summary>
         public readonly string EventsUrl;
-        /// <summary>
-        /// The GitHub API URL for the collaborator's followers.
-        /// </summary>
         public readonly string FollowersUrl;
-        /// <summary>
-        /// The GitHub API URL for those following the collaborator.
-        /// </summary>
         public readonly string FollowingUrl;
-        /// <summary>
-        /// The GitHub API URL for the collaborator's gists.
-        /// </summary>
         public readonly string GistsUrl;
-        /// <summary>
-        /// The GitHub HTML URL for the collaborator.
-        /// </summary>
         public readonly string HtmlUrl;
-        /// <summary>
-        /// The ID of the collaborator.
-        /// </summary>
         public readonly int Id;
-        /// <summary>
-        /// The collaborator's login.
-        /// </summary>
         public readonly string Login;
-        /// <summary>
-        /// The GitHub API URL for the collaborator's organizations.
-        /// </summary>
         public readonly string OrganizationsUrl;
-        /// <summary>
-        /// The permission of the collaborator.
-        /// </summary>
         public readonly string Permission;
-        /// <summary>
-        /// The GitHub API URL for the collaborator's received events.
-        /// </summary>
         public readonly string ReceivedEventsUrl;
-        /// <summary>
-        /// The GitHub API URL for the collaborator's repositories.
-        /// </summary>
         public readonly string ReposUrl;
-        /// <summary>
-        /// Whether the user is a GitHub admin.
-        /// </summary>
         public readonly bool SiteAdmin;
-        /// <summary>
-        /// The GitHub API URL for the collaborator's starred repositories.
-        /// </summary>
         public readonly string StarredUrl;
-        /// <summary>
-        /// The GitHub API URL for the collaborator's subscribed repositories.
-        /// </summary>
         public readonly string SubscriptionsUrl;
-        /// <summary>
-        /// The type of the collaborator (ex. `user`).
-        /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// The GitHub API URL for the collaborator.
-        /// </summary>
         public readonly string Url;
 
         [OutputConstructor]

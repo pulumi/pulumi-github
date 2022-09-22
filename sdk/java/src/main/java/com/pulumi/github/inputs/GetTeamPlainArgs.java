@@ -14,32 +14,16 @@ public final class GetTeamPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetTeamPlainArgs Empty = new GetTeamPlainArgs();
 
-    /**
-     * Type of membershp to be requested to fill the list of members. Can be either &#34;all&#34; or &#34;immediate&#34;. Default: &#34;all&#34;
-     * 
-     */
     @Import(name="membershipType")
     private @Nullable String membershipType;
 
-    /**
-     * @return Type of membershp to be requested to fill the list of members. Can be either &#34;all&#34; or &#34;immediate&#34;. Default: &#34;all&#34;
-     * 
-     */
     public Optional<String> membershipType() {
         return Optional.ofNullable(this.membershipType);
     }
 
-    /**
-     * The team slug.
-     * 
-     */
     @Import(name="slug", required=true)
     private String slug;
 
-    /**
-     * @return The team slug.
-     * 
-     */
     public String slug() {
         return this.slug;
     }
@@ -69,23 +53,11 @@ public final class GetTeamPlainArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetTeamPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param membershipType Type of membershp to be requested to fill the list of members. Can be either &#34;all&#34; or &#34;immediate&#34;. Default: &#34;all&#34;
-         * 
-         * @return builder
-         * 
-         */
         public Builder membershipType(@Nullable String membershipType) {
             $.membershipType = membershipType;
             return this;
         }
 
-        /**
-         * @param slug The team slug.
-         * 
-         * @return builder
-         * 
-         */
         public Builder slug(String slug) {
             $.slug = slug;
             return this;

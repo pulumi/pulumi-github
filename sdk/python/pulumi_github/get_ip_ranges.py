@@ -100,121 +100,76 @@ class GetIpRangesResult:
     @property
     @pulumi.getter
     def actions(self) -> Sequence[str]:
-        """
-        An array of IP addresses in CIDR format specifying the addresses that incoming requests from GitHub actions will originate from.
-        """
         return pulumi.get(self, "actions")
 
     @property
     @pulumi.getter(name="actionsIpv4s")
     def actions_ipv4s(self) -> Sequence[str]:
-        """
-        A subset of the `actions` array that contains IP addresses in IPv4 CIDR format.
-        """
         return pulumi.get(self, "actions_ipv4s")
 
     @property
     @pulumi.getter(name="actionsIpv6s")
     def actions_ipv6s(self) -> Sequence[str]:
-        """
-        A subset of the `actions` array that contains IP addresses in IPv6 CIDR format.
-        """
         return pulumi.get(self, "actions_ipv6s")
 
     @property
     @pulumi.getter(name="apiIpv4s")
     def api_ipv4s(self) -> Sequence[str]:
-        """
-        A subset of the `api` array that contains IP addresses in IPv4 CIDR format.
-        """
         return pulumi.get(self, "api_ipv4s")
 
     @property
     @pulumi.getter(name="apiIpv6s")
     def api_ipv6s(self) -> Sequence[str]:
-        """
-        A subset of the `api` array that contains IP addresses in IPv6 CIDR format.
-        """
         return pulumi.get(self, "api_ipv6s")
 
     @property
     @pulumi.getter
     def apis(self) -> Sequence[str]:
-        """
-        An Array of IP addresses in CIDR format for the GitHub API.
-        """
         return pulumi.get(self, "apis")
 
     @property
     @pulumi.getter(name="dependabotIpv4s")
     def dependabot_ipv4s(self) -> Sequence[str]:
-        """
-        A subset of the `dependabot` array that contains IP addresses in IPv4 CIDR format.
-        """
         return pulumi.get(self, "dependabot_ipv4s")
 
     @property
     @pulumi.getter(name="dependabotIpv6s")
     def dependabot_ipv6s(self) -> Sequence[str]:
-        """
-        A subset of the `dependabot` array that contains IP addresses in IPv6 CIDR format.
-        """
         return pulumi.get(self, "dependabot_ipv6s")
 
     @property
     @pulumi.getter
     def dependabots(self) -> Sequence[str]:
-        """
-        An array of IP addresses in CIDR format specifying the A records for dependabot.
-        """
         return pulumi.get(self, "dependabots")
 
     @property
     @pulumi.getter(name="gitIpv4s")
     def git_ipv4s(self) -> Sequence[str]:
-        """
-        A subset of the `git` array that contains IP addresses in IPv4 CIDR format.
-        """
         return pulumi.get(self, "git_ipv4s")
 
     @property
     @pulumi.getter(name="gitIpv6s")
     def git_ipv6s(self) -> Sequence[str]:
-        """
-        A subset of the `git` array that contains IP addresses in IPv6 CIDR format.
-        """
         return pulumi.get(self, "git_ipv6s")
 
     @property
     @pulumi.getter
     def gits(self) -> Sequence[str]:
-        """
-        An Array of IP addresses in CIDR format specifying the Git servers.
-        """
         return pulumi.get(self, "gits")
 
     @property
     @pulumi.getter
     def hooks(self) -> Sequence[str]:
-        """
-        An Array of IP addresses in CIDR format specifying the addresses that incoming service hooks will originate from.
-        """
         return pulumi.get(self, "hooks")
 
     @property
     @pulumi.getter(name="hooksIpv4s")
     def hooks_ipv4s(self) -> Sequence[str]:
-        """
-        A subset of the `hooks` array that contains IP addresses in IPv4 CIDR format.
-        """
         return pulumi.get(self, "hooks_ipv4s")
 
     @property
     @pulumi.getter(name="hooksIpv6s")
     def hooks_ipv6s(self) -> Sequence[str]:
-        """
-        A subset of the `hooks` array that contains IP addresses in IPv6 CIDR format.
-        """
         return pulumi.get(self, "hooks_ipv6s")
 
     @property
@@ -228,73 +183,46 @@ class GetIpRangesResult:
     @property
     @pulumi.getter(name="importerIpv4s")
     def importer_ipv4s(self) -> Sequence[str]:
-        """
-        A subset of the `importer` array that contains IP addresses in IPv4 CIDR format.
-        """
         return pulumi.get(self, "importer_ipv4s")
 
     @property
     @pulumi.getter(name="importerIpv6s")
     def importer_ipv6s(self) -> Sequence[str]:
-        """
-        A subset of the `importer` array that contains IP addresses in IPv6 CIDR format.
-        """
         return pulumi.get(self, "importer_ipv6s")
 
     @property
     @pulumi.getter
     def importers(self) -> Sequence[str]:
-        """
-        An Array of IP addresses in CIDR format specifying the A records for GitHub Importer.
-        """
         return pulumi.get(self, "importers")
 
     @property
     @pulumi.getter
     def pages(self) -> Sequence[str]:
-        """
-        An Array of IP addresses in CIDR format specifying the A records for GitHub Pages.
-        """
         return pulumi.get(self, "pages")
 
     @property
     @pulumi.getter(name="pagesIpv4s")
     def pages_ipv4s(self) -> Sequence[str]:
-        """
-        A subset of the `pages` array that contains IP addresses in IPv4 CIDR format.
-        """
         return pulumi.get(self, "pages_ipv4s")
 
     @property
     @pulumi.getter(name="pagesIpv6s")
     def pages_ipv6s(self) -> Sequence[str]:
-        """
-        A subset of the `pages` array that contains IP addresses in IPv6 CIDR format.
-        """
         return pulumi.get(self, "pages_ipv6s")
 
     @property
     @pulumi.getter(name="webIpv4s")
     def web_ipv4s(self) -> Sequence[str]:
-        """
-        A subset of the `web` array that contains IP addresses in IPv4 CIDR format.
-        """
         return pulumi.get(self, "web_ipv4s")
 
     @property
     @pulumi.getter(name="webIpv6s")
     def web_ipv6s(self) -> Sequence[str]:
-        """
-        A subset of the `web` array that contains IP addresses in IPv6 CIDR format.
-        """
         return pulumi.get(self, "web_ipv6s")
 
     @property
     @pulumi.getter
     def webs(self) -> Sequence[str]:
-        """
-        An Array of IP addresses in CIDR format for GitHub Web.
-        """
         return pulumi.get(self, "webs")
 
 
@@ -333,16 +261,7 @@ class AwaitableGetIpRangesResult(GetIpRangesResult):
 
 def get_ip_ranges(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIpRangesResult:
     """
-    Use this data source to retrieve information about GitHub's IP addresses.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_github as github
-
-    test = github.get_ip_ranges()
-    ```
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)

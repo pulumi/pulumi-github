@@ -9,17 +9,10 @@ import java.util.Objects;
 
 @CustomType
 public final class GetRepositoryPageSource {
-    private final String branch;
-    private final String path;
+    private String branch;
+    private String path;
 
-    @CustomType.Constructor
-    private GetRepositoryPageSource(
-        @CustomType.Parameter("branch") String branch,
-        @CustomType.Parameter("path") String path) {
-        this.branch = branch;
-        this.path = path;
-    }
-
+    private GetRepositoryPageSource() {}
     public String branch() {
         return this.branch;
     }
@@ -34,30 +27,32 @@ public final class GetRepositoryPageSource {
     public static Builder builder(GetRepositoryPageSource defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String branch;
         private String path;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetRepositoryPageSource defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.branch = defaults.branch;
     	      this.path = defaults.path;
         }
 
+        @CustomType.Setter
         public Builder branch(String branch) {
             this.branch = Objects.requireNonNull(branch);
             return this;
         }
+        @CustomType.Setter
         public Builder path(String path) {
             this.path = Objects.requireNonNull(path);
             return this;
-        }        public GetRepositoryPageSource build() {
-            return new GetRepositoryPageSource(branch, path);
+        }
+        public GetRepositoryPageSource build() {
+            final var o = new GetRepositoryPageSource();
+            o.branch = branch;
+            o.path = path;
+            return o;
         }
     }
 }

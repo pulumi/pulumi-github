@@ -14,46 +14,6 @@ import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * This resource allows you to create and manage columns for GitHub projects.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.github.OrganizationProject;
- * import com.pulumi.github.OrganizationProjectArgs;
- * import com.pulumi.github.ProjectColumn;
- * import com.pulumi.github.ProjectColumnArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var project = new OrganizationProject(&#34;project&#34;, OrganizationProjectArgs.builder()        
- *             .body(&#34;This is an organization project.&#34;)
- *             .build());
- * 
- *         var column = new ProjectColumn(&#34;column&#34;, ProjectColumnArgs.builder()        
- *             .projectId(project.id())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- */
 @ResourceType(type="github:index/projectColumn:ProjectColumn")
 public class ProjectColumn extends com.pulumi.resources.CustomResource {
     @Export(name="columnId", type=Integer.class, parameters={})
@@ -68,31 +28,15 @@ public class ProjectColumn extends com.pulumi.resources.CustomResource {
     public Output<String> etag() {
         return this.etag;
     }
-    /**
-     * The name of the column.
-     * 
-     */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
-    /**
-     * @return The name of the column.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * The ID of an existing project that the column will be created in.
-     * 
-     */
     @Export(name="projectId", type=String.class, parameters={})
     private Output<String> projectId;
 
-    /**
-     * @return The ID of an existing project that the column will be created in.
-     * 
-     */
     public Output<String> projectId() {
         return this.projectId;
     }

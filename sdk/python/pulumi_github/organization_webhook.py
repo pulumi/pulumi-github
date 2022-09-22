@@ -21,9 +21,6 @@ class OrganizationWebhookArgs:
                  configuration: Optional[pulumi.Input['OrganizationWebhookConfigurationArgs']] = None):
         """
         The set of arguments for constructing a OrganizationWebhook resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] events: A list of events which should trigger the webhook. See a list of [available events](https://developer.github.com/v3/activity/events/types/)
-        :param pulumi.Input[bool] active: Indicate of the webhook should receive events. Defaults to `true`.
-        :param pulumi.Input['OrganizationWebhookConfigurationArgs'] configuration: key/value pair of configuration for this webhook. Available keys are `url`, `content_type`, `secret` and `insecure_ssl`.
         """
         pulumi.set(__self__, "events", events)
         if active is not None:
@@ -34,9 +31,6 @@ class OrganizationWebhookArgs:
     @property
     @pulumi.getter
     def events(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
-        """
-        A list of events which should trigger the webhook. See a list of [available events](https://developer.github.com/v3/activity/events/types/)
-        """
         return pulumi.get(self, "events")
 
     @events.setter
@@ -46,9 +40,6 @@ class OrganizationWebhookArgs:
     @property
     @pulumi.getter
     def active(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Indicate of the webhook should receive events. Defaults to `true`.
-        """
         return pulumi.get(self, "active")
 
     @active.setter
@@ -58,9 +49,6 @@ class OrganizationWebhookArgs:
     @property
     @pulumi.getter
     def configuration(self) -> Optional[pulumi.Input['OrganizationWebhookConfigurationArgs']]:
-        """
-        key/value pair of configuration for this webhook. Available keys are `url`, `content_type`, `secret` and `insecure_ssl`.
-        """
         return pulumi.get(self, "configuration")
 
     @configuration.setter
@@ -78,10 +66,6 @@ class _OrganizationWebhookState:
                  url: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering OrganizationWebhook resources.
-        :param pulumi.Input[bool] active: Indicate of the webhook should receive events. Defaults to `true`.
-        :param pulumi.Input['OrganizationWebhookConfigurationArgs'] configuration: key/value pair of configuration for this webhook. Available keys are `url`, `content_type`, `secret` and `insecure_ssl`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] events: A list of events which should trigger the webhook. See a list of [available events](https://developer.github.com/v3/activity/events/types/)
-        :param pulumi.Input[str] url: URL of the webhook
         """
         if active is not None:
             pulumi.set(__self__, "active", active)
@@ -97,9 +81,6 @@ class _OrganizationWebhookState:
     @property
     @pulumi.getter
     def active(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Indicate of the webhook should receive events. Defaults to `true`.
-        """
         return pulumi.get(self, "active")
 
     @active.setter
@@ -109,9 +90,6 @@ class _OrganizationWebhookState:
     @property
     @pulumi.getter
     def configuration(self) -> Optional[pulumi.Input['OrganizationWebhookConfigurationArgs']]:
-        """
-        key/value pair of configuration for this webhook. Available keys are `url`, `content_type`, `secret` and `insecure_ssl`.
-        """
         return pulumi.get(self, "configuration")
 
     @configuration.setter
@@ -130,9 +108,6 @@ class _OrganizationWebhookState:
     @property
     @pulumi.getter
     def events(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        A list of events which should trigger the webhook. See a list of [available events](https://developer.github.com/v3/activity/events/types/)
-        """
         return pulumi.get(self, "events")
 
     @events.setter
@@ -142,9 +117,6 @@ class _OrganizationWebhookState:
     @property
     @pulumi.getter
     def url(self) -> Optional[pulumi.Input[str]]:
-        """
-        URL of the webhook
-        """
         return pulumi.get(self, "url")
 
     @url.setter
@@ -162,39 +134,9 @@ class OrganizationWebhook(pulumi.CustomResource):
                  events: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        This resource allows you to create and manage webhooks for GitHub organization.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_github as github
-
-        foo = github.OrganizationWebhook("foo",
-            active=False,
-            configuration=github.OrganizationWebhookConfigurationArgs(
-                content_type="form",
-                insecure_ssl=False,
-                url="https://google.de/",
-            ),
-            events=["issues"])
-        ```
-
-        ## Import
-
-        Organization webhooks can be imported using the `id` of the webhook. The `id` of the webhook can be found in the URL of the webhook. For example, `"https://github.com/organizations/foo-org/settings/hooks/123456789"`.
-
-        ```sh
-         $ pulumi import github:index/organizationWebhook:OrganizationWebhook terraform 123456789
-        ```
-
-         If secret is populated in the webhook's configuration, the value will be imported as "********".
-
+        Create a OrganizationWebhook resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] active: Indicate of the webhook should receive events. Defaults to `true`.
-        :param pulumi.Input[pulumi.InputType['OrganizationWebhookConfigurationArgs']] configuration: key/value pair of configuration for this webhook. Available keys are `url`, `content_type`, `secret` and `insecure_ssl`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] events: A list of events which should trigger the webhook. See a list of [available events](https://developer.github.com/v3/activity/events/types/)
         """
         ...
     @overload
@@ -203,34 +145,7 @@ class OrganizationWebhook(pulumi.CustomResource):
                  args: OrganizationWebhookArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        This resource allows you to create and manage webhooks for GitHub organization.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_github as github
-
-        foo = github.OrganizationWebhook("foo",
-            active=False,
-            configuration=github.OrganizationWebhookConfigurationArgs(
-                content_type="form",
-                insecure_ssl=False,
-                url="https://google.de/",
-            ),
-            events=["issues"])
-        ```
-
-        ## Import
-
-        Organization webhooks can be imported using the `id` of the webhook. The `id` of the webhook can be found in the URL of the webhook. For example, `"https://github.com/organizations/foo-org/settings/hooks/123456789"`.
-
-        ```sh
-         $ pulumi import github:index/organizationWebhook:OrganizationWebhook terraform 123456789
-        ```
-
-         If secret is populated in the webhook's configuration, the value will be imported as "********".
-
+        Create a OrganizationWebhook resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param OrganizationWebhookArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -287,10 +202,6 @@ class OrganizationWebhook(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] active: Indicate of the webhook should receive events. Defaults to `true`.
-        :param pulumi.Input[pulumi.InputType['OrganizationWebhookConfigurationArgs']] configuration: key/value pair of configuration for this webhook. Available keys are `url`, `content_type`, `secret` and `insecure_ssl`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] events: A list of events which should trigger the webhook. See a list of [available events](https://developer.github.com/v3/activity/events/types/)
-        :param pulumi.Input[str] url: URL of the webhook
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -306,17 +217,11 @@ class OrganizationWebhook(pulumi.CustomResource):
     @property
     @pulumi.getter
     def active(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Indicate of the webhook should receive events. Defaults to `true`.
-        """
         return pulumi.get(self, "active")
 
     @property
     @pulumi.getter
     def configuration(self) -> pulumi.Output[Optional['outputs.OrganizationWebhookConfiguration']]:
-        """
-        key/value pair of configuration for this webhook. Available keys are `url`, `content_type`, `secret` and `insecure_ssl`.
-        """
         return pulumi.get(self, "configuration")
 
     @property
@@ -327,16 +232,10 @@ class OrganizationWebhook(pulumi.CustomResource):
     @property
     @pulumi.getter
     def events(self) -> pulumi.Output[Sequence[str]]:
-        """
-        A list of events which should trigger the webhook. See a list of [available events](https://developer.github.com/v3/activity/events/types/)
-        """
         return pulumi.get(self, "events")
 
     @property
     @pulumi.getter
     def url(self) -> pulumi.Output[str]:
-        """
-        URL of the webhook
-        """
         return pulumi.get(self, "url")
 

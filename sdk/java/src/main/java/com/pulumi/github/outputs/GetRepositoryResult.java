@@ -4,7 +4,6 @@
 package com.pulumi.github.outputs;
 
 import com.pulumi.core.annotations.CustomType;
-import com.pulumi.github.outputs.GetRepositoryBranch;
 import com.pulumi.github.outputs.GetRepositoryPage;
 import java.lang.Boolean;
 import java.lang.Integer;
@@ -16,339 +15,88 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetRepositoryResult {
-    /**
-     * @return Whether the repository allows auto-merging pull requests.
-     * 
-     */
-    private final Boolean allowAutoMerge;
-    /**
-     * @return Whether the repository allows merge commits.
-     * 
-     */
-    private final Boolean allowMergeCommit;
-    /**
-     * @return Whether the repository allows rebase merges.
-     * 
-     */
-    private final Boolean allowRebaseMerge;
-    /**
-     * @return Whether the repository allows squash merges.
-     * 
-     */
-    private final Boolean allowSquashMerge;
-    /**
-     * @return Whether the repository is archived.
-     * 
-     */
-    private final Boolean archived;
-    /**
-     * @return The list of this repository&#39;s branches. Each element of `branches` has the following attributes:
-     * 
-     */
-    private final List<GetRepositoryBranch> branches;
-    /**
-     * @return The name of the default branch of the repository.
-     * 
-     */
-    private final String defaultBranch;
-    /**
-     * @return A description of the repository.
-     * 
-     */
-    private final @Nullable String description;
-    private final String fullName;
-    /**
-     * @return URL that can be provided to `git clone` to clone the repository anonymously via the git protocol.
-     * 
-     */
-    private final String gitCloneUrl;
-    /**
-     * @return Whether the repository has Downloads feature enabled.
-     * 
-     */
-    private final Boolean hasDownloads;
-    /**
-     * @return Whether the repository has GitHub Issues enabled.
-     * 
-     */
-    private final Boolean hasIssues;
-    /**
-     * @return Whether the repository has the GitHub Projects enabled.
-     * 
-     */
-    private final Boolean hasProjects;
-    /**
-     * @return Whether the repository has the GitHub Wiki enabled.
-     * 
-     */
-    private final Boolean hasWiki;
-    /**
-     * @return URL of a page describing the project.
-     * 
-     */
-    private final @Nullable String homepageUrl;
-    /**
-     * @return URL to the repository on the web.
-     * 
-     */
-    private final String htmlUrl;
-    /**
-     * @return URL that can be provided to `git clone` to clone the repository via HTTPS.
-     * 
-     */
-    private final String httpCloneUrl;
+    private Boolean allowAutoMerge;
+    private Boolean allowMergeCommit;
+    private Boolean allowRebaseMerge;
+    private Boolean allowSquashMerge;
+    private Boolean archived;
+    private String defaultBranch;
+    private @Nullable String description;
+    private String fullName;
+    private String gitCloneUrl;
+    private Boolean hasDownloads;
+    private Boolean hasIssues;
+    private Boolean hasProjects;
+    private Boolean hasWiki;
+    private @Nullable String homepageUrl;
+    private String htmlUrl;
+    private String httpCloneUrl;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    /**
-     * @return The default value for a merge commit message.
-     * 
-     */
-    private final String mergeCommitMessage;
-    /**
-     * @return The default value for a merge commit title.
-     * 
-     */
-    private final String mergeCommitTitle;
-    /**
-     * @return Name of the branch.
-     * 
-     */
-    private final String name;
-    /**
-     * @return GraphQL global node id for use with v4 API
-     * 
-     */
-    private final String nodeId;
-    private final @Nullable Boolean onlyProtectedBranches;
-    /**
-     * @return The repository&#39;s GitHub Pages configuration.
-     * 
-     */
-    private final List<GetRepositoryPage> pages;
-    /**
-     * @return Whether the repository is private.
-     * 
-     */
-    private final Boolean private_;
-    /**
-     * @return GitHub ID for the repository
-     * 
-     */
-    private final Integer repoId;
-    /**
-     * @return The default value for a squash merge commit message.
-     * 
-     */
-    private final String squashMergeCommitMessage;
-    /**
-     * @return The default value for a squash merge commit title.
-     * 
-     */
-    private final String squashMergeCommitTitle;
-    /**
-     * @return URL that can be provided to `git clone` to clone the repository via SSH.
-     * 
-     */
-    private final String sshCloneUrl;
-    /**
-     * @return URL that can be provided to `svn checkout` to check out the repository via GitHub&#39;s Subversion protocol emulation.
-     * 
-     */
-    private final String svnUrl;
-    /**
-     * @return The list of topics of the repository.
-     * 
-     */
-    private final List<String> topics;
-    /**
-     * @return Whether the repository is public, private or internal.
-     * 
-     */
-    private final String visibility;
+    private String id;
+    private String mergeCommitMessage;
+    private String mergeCommitTitle;
+    private String name;
+    private String nodeId;
+    private @Nullable Boolean onlyProtectedBranches;
+    private List<GetRepositoryPage> pages;
+    private Boolean private_;
+    private Integer repoId;
+    private String squashMergeCommitMessage;
+    private String squashMergeCommitTitle;
+    private String sshCloneUrl;
+    private String svnUrl;
+    private List<String> topics;
+    private String visibility;
 
-    @CustomType.Constructor
-    private GetRepositoryResult(
-        @CustomType.Parameter("allowAutoMerge") Boolean allowAutoMerge,
-        @CustomType.Parameter("allowMergeCommit") Boolean allowMergeCommit,
-        @CustomType.Parameter("allowRebaseMerge") Boolean allowRebaseMerge,
-        @CustomType.Parameter("allowSquashMerge") Boolean allowSquashMerge,
-        @CustomType.Parameter("archived") Boolean archived,
-        @CustomType.Parameter("branches") List<GetRepositoryBranch> branches,
-        @CustomType.Parameter("defaultBranch") String defaultBranch,
-        @CustomType.Parameter("description") @Nullable String description,
-        @CustomType.Parameter("fullName") String fullName,
-        @CustomType.Parameter("gitCloneUrl") String gitCloneUrl,
-        @CustomType.Parameter("hasDownloads") Boolean hasDownloads,
-        @CustomType.Parameter("hasIssues") Boolean hasIssues,
-        @CustomType.Parameter("hasProjects") Boolean hasProjects,
-        @CustomType.Parameter("hasWiki") Boolean hasWiki,
-        @CustomType.Parameter("homepageUrl") @Nullable String homepageUrl,
-        @CustomType.Parameter("htmlUrl") String htmlUrl,
-        @CustomType.Parameter("httpCloneUrl") String httpCloneUrl,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("mergeCommitMessage") String mergeCommitMessage,
-        @CustomType.Parameter("mergeCommitTitle") String mergeCommitTitle,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("nodeId") String nodeId,
-        @CustomType.Parameter("onlyProtectedBranches") @Nullable Boolean onlyProtectedBranches,
-        @CustomType.Parameter("pages") List<GetRepositoryPage> pages,
-        @CustomType.Parameter("private") Boolean private_,
-        @CustomType.Parameter("repoId") Integer repoId,
-        @CustomType.Parameter("squashMergeCommitMessage") String squashMergeCommitMessage,
-        @CustomType.Parameter("squashMergeCommitTitle") String squashMergeCommitTitle,
-        @CustomType.Parameter("sshCloneUrl") String sshCloneUrl,
-        @CustomType.Parameter("svnUrl") String svnUrl,
-        @CustomType.Parameter("topics") List<String> topics,
-        @CustomType.Parameter("visibility") String visibility) {
-        this.allowAutoMerge = allowAutoMerge;
-        this.allowMergeCommit = allowMergeCommit;
-        this.allowRebaseMerge = allowRebaseMerge;
-        this.allowSquashMerge = allowSquashMerge;
-        this.archived = archived;
-        this.branches = branches;
-        this.defaultBranch = defaultBranch;
-        this.description = description;
-        this.fullName = fullName;
-        this.gitCloneUrl = gitCloneUrl;
-        this.hasDownloads = hasDownloads;
-        this.hasIssues = hasIssues;
-        this.hasProjects = hasProjects;
-        this.hasWiki = hasWiki;
-        this.homepageUrl = homepageUrl;
-        this.htmlUrl = htmlUrl;
-        this.httpCloneUrl = httpCloneUrl;
-        this.id = id;
-        this.mergeCommitMessage = mergeCommitMessage;
-        this.mergeCommitTitle = mergeCommitTitle;
-        this.name = name;
-        this.nodeId = nodeId;
-        this.onlyProtectedBranches = onlyProtectedBranches;
-        this.pages = pages;
-        this.private_ = private_;
-        this.repoId = repoId;
-        this.squashMergeCommitMessage = squashMergeCommitMessage;
-        this.squashMergeCommitTitle = squashMergeCommitTitle;
-        this.sshCloneUrl = sshCloneUrl;
-        this.svnUrl = svnUrl;
-        this.topics = topics;
-        this.visibility = visibility;
-    }
-
-    /**
-     * @return Whether the repository allows auto-merging pull requests.
-     * 
-     */
+    private GetRepositoryResult() {}
     public Boolean allowAutoMerge() {
         return this.allowAutoMerge;
     }
-    /**
-     * @return Whether the repository allows merge commits.
-     * 
-     */
     public Boolean allowMergeCommit() {
         return this.allowMergeCommit;
     }
-    /**
-     * @return Whether the repository allows rebase merges.
-     * 
-     */
     public Boolean allowRebaseMerge() {
         return this.allowRebaseMerge;
     }
-    /**
-     * @return Whether the repository allows squash merges.
-     * 
-     */
     public Boolean allowSquashMerge() {
         return this.allowSquashMerge;
     }
-    /**
-     * @return Whether the repository is archived.
-     * 
-     */
     public Boolean archived() {
         return this.archived;
     }
-    /**
-     * @return The list of this repository&#39;s branches. Each element of `branches` has the following attributes:
-     * 
-     */
-    public List<GetRepositoryBranch> branches() {
-        return this.branches;
-    }
-    /**
-     * @return The name of the default branch of the repository.
-     * 
-     */
     public String defaultBranch() {
         return this.defaultBranch;
     }
-    /**
-     * @return A description of the repository.
-     * 
-     */
     public Optional<String> description() {
         return Optional.ofNullable(this.description);
     }
     public String fullName() {
         return this.fullName;
     }
-    /**
-     * @return URL that can be provided to `git clone` to clone the repository anonymously via the git protocol.
-     * 
-     */
     public String gitCloneUrl() {
         return this.gitCloneUrl;
     }
-    /**
-     * @return Whether the repository has Downloads feature enabled.
-     * 
-     */
     public Boolean hasDownloads() {
         return this.hasDownloads;
     }
-    /**
-     * @return Whether the repository has GitHub Issues enabled.
-     * 
-     */
     public Boolean hasIssues() {
         return this.hasIssues;
     }
-    /**
-     * @return Whether the repository has the GitHub Projects enabled.
-     * 
-     */
     public Boolean hasProjects() {
         return this.hasProjects;
     }
-    /**
-     * @return Whether the repository has the GitHub Wiki enabled.
-     * 
-     */
     public Boolean hasWiki() {
         return this.hasWiki;
     }
-    /**
-     * @return URL of a page describing the project.
-     * 
-     */
     public Optional<String> homepageUrl() {
         return Optional.ofNullable(this.homepageUrl);
     }
-    /**
-     * @return URL to the repository on the web.
-     * 
-     */
     public String htmlUrl() {
         return this.htmlUrl;
     }
-    /**
-     * @return URL that can be provided to `git clone` to clone the repository via HTTPS.
-     * 
-     */
     public String httpCloneUrl() {
         return this.httpCloneUrl;
     }
@@ -359,97 +107,45 @@ public final class GetRepositoryResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return The default value for a merge commit message.
-     * 
-     */
     public String mergeCommitMessage() {
         return this.mergeCommitMessage;
     }
-    /**
-     * @return The default value for a merge commit title.
-     * 
-     */
     public String mergeCommitTitle() {
         return this.mergeCommitTitle;
     }
-    /**
-     * @return Name of the branch.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return GraphQL global node id for use with v4 API
-     * 
-     */
     public String nodeId() {
         return this.nodeId;
     }
     public Optional<Boolean> onlyProtectedBranches() {
         return Optional.ofNullable(this.onlyProtectedBranches);
     }
-    /**
-     * @return The repository&#39;s GitHub Pages configuration.
-     * 
-     */
     public List<GetRepositoryPage> pages() {
         return this.pages;
     }
-    /**
-     * @return Whether the repository is private.
-     * 
-     */
     public Boolean private_() {
         return this.private_;
     }
-    /**
-     * @return GitHub ID for the repository
-     * 
-     */
     public Integer repoId() {
         return this.repoId;
     }
-    /**
-     * @return The default value for a squash merge commit message.
-     * 
-     */
     public String squashMergeCommitMessage() {
         return this.squashMergeCommitMessage;
     }
-    /**
-     * @return The default value for a squash merge commit title.
-     * 
-     */
     public String squashMergeCommitTitle() {
         return this.squashMergeCommitTitle;
     }
-    /**
-     * @return URL that can be provided to `git clone` to clone the repository via SSH.
-     * 
-     */
     public String sshCloneUrl() {
         return this.sshCloneUrl;
     }
-    /**
-     * @return URL that can be provided to `svn checkout` to check out the repository via GitHub&#39;s Subversion protocol emulation.
-     * 
-     */
     public String svnUrl() {
         return this.svnUrl;
     }
-    /**
-     * @return The list of topics of the repository.
-     * 
-     */
     public List<String> topics() {
         return this.topics;
     }
-    /**
-     * @return Whether the repository is public, private or internal.
-     * 
-     */
     public String visibility() {
         return this.visibility;
     }
@@ -461,14 +157,13 @@ public final class GetRepositoryResult {
     public static Builder builder(GetRepositoryResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Boolean allowAutoMerge;
         private Boolean allowMergeCommit;
         private Boolean allowRebaseMerge;
         private Boolean allowSquashMerge;
         private Boolean archived;
-        private List<GetRepositoryBranch> branches;
         private String defaultBranch;
         private @Nullable String description;
         private String fullName;
@@ -495,11 +190,7 @@ public final class GetRepositoryResult {
         private String svnUrl;
         private List<String> topics;
         private String visibility;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetRepositoryResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.allowAutoMerge = defaults.allowAutoMerge;
@@ -507,7 +198,6 @@ public final class GetRepositoryResult {
     	      this.allowRebaseMerge = defaults.allowRebaseMerge;
     	      this.allowSquashMerge = defaults.allowSquashMerge;
     	      this.archived = defaults.archived;
-    	      this.branches = defaults.branches;
     	      this.defaultBranch = defaults.defaultBranch;
     	      this.description = defaults.description;
     	      this.fullName = defaults.fullName;
@@ -536,101 +226,117 @@ public final class GetRepositoryResult {
     	      this.visibility = defaults.visibility;
         }
 
+        @CustomType.Setter
         public Builder allowAutoMerge(Boolean allowAutoMerge) {
             this.allowAutoMerge = Objects.requireNonNull(allowAutoMerge);
             return this;
         }
+        @CustomType.Setter
         public Builder allowMergeCommit(Boolean allowMergeCommit) {
             this.allowMergeCommit = Objects.requireNonNull(allowMergeCommit);
             return this;
         }
+        @CustomType.Setter
         public Builder allowRebaseMerge(Boolean allowRebaseMerge) {
             this.allowRebaseMerge = Objects.requireNonNull(allowRebaseMerge);
             return this;
         }
+        @CustomType.Setter
         public Builder allowSquashMerge(Boolean allowSquashMerge) {
             this.allowSquashMerge = Objects.requireNonNull(allowSquashMerge);
             return this;
         }
+        @CustomType.Setter
         public Builder archived(Boolean archived) {
             this.archived = Objects.requireNonNull(archived);
             return this;
         }
-        public Builder branches(List<GetRepositoryBranch> branches) {
-            this.branches = Objects.requireNonNull(branches);
-            return this;
-        }
-        public Builder branches(GetRepositoryBranch... branches) {
-            return branches(List.of(branches));
-        }
+        @CustomType.Setter
         public Builder defaultBranch(String defaultBranch) {
             this.defaultBranch = Objects.requireNonNull(defaultBranch);
             return this;
         }
+        @CustomType.Setter
         public Builder description(@Nullable String description) {
             this.description = description;
             return this;
         }
+        @CustomType.Setter
         public Builder fullName(String fullName) {
             this.fullName = Objects.requireNonNull(fullName);
             return this;
         }
+        @CustomType.Setter
         public Builder gitCloneUrl(String gitCloneUrl) {
             this.gitCloneUrl = Objects.requireNonNull(gitCloneUrl);
             return this;
         }
+        @CustomType.Setter
         public Builder hasDownloads(Boolean hasDownloads) {
             this.hasDownloads = Objects.requireNonNull(hasDownloads);
             return this;
         }
+        @CustomType.Setter
         public Builder hasIssues(Boolean hasIssues) {
             this.hasIssues = Objects.requireNonNull(hasIssues);
             return this;
         }
+        @CustomType.Setter
         public Builder hasProjects(Boolean hasProjects) {
             this.hasProjects = Objects.requireNonNull(hasProjects);
             return this;
         }
+        @CustomType.Setter
         public Builder hasWiki(Boolean hasWiki) {
             this.hasWiki = Objects.requireNonNull(hasWiki);
             return this;
         }
+        @CustomType.Setter
         public Builder homepageUrl(@Nullable String homepageUrl) {
             this.homepageUrl = homepageUrl;
             return this;
         }
+        @CustomType.Setter
         public Builder htmlUrl(String htmlUrl) {
             this.htmlUrl = Objects.requireNonNull(htmlUrl);
             return this;
         }
+        @CustomType.Setter
         public Builder httpCloneUrl(String httpCloneUrl) {
             this.httpCloneUrl = Objects.requireNonNull(httpCloneUrl);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder mergeCommitMessage(String mergeCommitMessage) {
             this.mergeCommitMessage = Objects.requireNonNull(mergeCommitMessage);
             return this;
         }
+        @CustomType.Setter
         public Builder mergeCommitTitle(String mergeCommitTitle) {
             this.mergeCommitTitle = Objects.requireNonNull(mergeCommitTitle);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder nodeId(String nodeId) {
             this.nodeId = Objects.requireNonNull(nodeId);
             return this;
         }
+        @CustomType.Setter
         public Builder onlyProtectedBranches(@Nullable Boolean onlyProtectedBranches) {
             this.onlyProtectedBranches = onlyProtectedBranches;
             return this;
         }
+        @CustomType.Setter
         public Builder pages(List<GetRepositoryPage> pages) {
             this.pages = Objects.requireNonNull(pages);
             return this;
@@ -638,30 +344,37 @@ public final class GetRepositoryResult {
         public Builder pages(GetRepositoryPage... pages) {
             return pages(List.of(pages));
         }
+        @CustomType.Setter("private")
         public Builder private_(Boolean private_) {
             this.private_ = Objects.requireNonNull(private_);
             return this;
         }
+        @CustomType.Setter
         public Builder repoId(Integer repoId) {
             this.repoId = Objects.requireNonNull(repoId);
             return this;
         }
+        @CustomType.Setter
         public Builder squashMergeCommitMessage(String squashMergeCommitMessage) {
             this.squashMergeCommitMessage = Objects.requireNonNull(squashMergeCommitMessage);
             return this;
         }
+        @CustomType.Setter
         public Builder squashMergeCommitTitle(String squashMergeCommitTitle) {
             this.squashMergeCommitTitle = Objects.requireNonNull(squashMergeCommitTitle);
             return this;
         }
+        @CustomType.Setter
         public Builder sshCloneUrl(String sshCloneUrl) {
             this.sshCloneUrl = Objects.requireNonNull(sshCloneUrl);
             return this;
         }
+        @CustomType.Setter
         public Builder svnUrl(String svnUrl) {
             this.svnUrl = Objects.requireNonNull(svnUrl);
             return this;
         }
+        @CustomType.Setter
         public Builder topics(List<String> topics) {
             this.topics = Objects.requireNonNull(topics);
             return this;
@@ -669,11 +382,45 @@ public final class GetRepositoryResult {
         public Builder topics(String... topics) {
             return topics(List.of(topics));
         }
+        @CustomType.Setter
         public Builder visibility(String visibility) {
             this.visibility = Objects.requireNonNull(visibility);
             return this;
-        }        public GetRepositoryResult build() {
-            return new GetRepositoryResult(allowAutoMerge, allowMergeCommit, allowRebaseMerge, allowSquashMerge, archived, branches, defaultBranch, description, fullName, gitCloneUrl, hasDownloads, hasIssues, hasProjects, hasWiki, homepageUrl, htmlUrl, httpCloneUrl, id, mergeCommitMessage, mergeCommitTitle, name, nodeId, onlyProtectedBranches, pages, private_, repoId, squashMergeCommitMessage, squashMergeCommitTitle, sshCloneUrl, svnUrl, topics, visibility);
+        }
+        public GetRepositoryResult build() {
+            final var o = new GetRepositoryResult();
+            o.allowAutoMerge = allowAutoMerge;
+            o.allowMergeCommit = allowMergeCommit;
+            o.allowRebaseMerge = allowRebaseMerge;
+            o.allowSquashMerge = allowSquashMerge;
+            o.archived = archived;
+            o.defaultBranch = defaultBranch;
+            o.description = description;
+            o.fullName = fullName;
+            o.gitCloneUrl = gitCloneUrl;
+            o.hasDownloads = hasDownloads;
+            o.hasIssues = hasIssues;
+            o.hasProjects = hasProjects;
+            o.hasWiki = hasWiki;
+            o.homepageUrl = homepageUrl;
+            o.htmlUrl = htmlUrl;
+            o.httpCloneUrl = httpCloneUrl;
+            o.id = id;
+            o.mergeCommitMessage = mergeCommitMessage;
+            o.mergeCommitTitle = mergeCommitTitle;
+            o.name = name;
+            o.nodeId = nodeId;
+            o.onlyProtectedBranches = onlyProtectedBranches;
+            o.pages = pages;
+            o.private_ = private_;
+            o.repoId = repoId;
+            o.squashMergeCommitMessage = squashMergeCommitMessage;
+            o.squashMergeCommitTitle = squashMergeCommitTitle;
+            o.sshCloneUrl = sshCloneUrl;
+            o.svnUrl = svnUrl;
+            o.topics = topics;
+            o.visibility = visibility;
+            return o;
         }
     }
 }

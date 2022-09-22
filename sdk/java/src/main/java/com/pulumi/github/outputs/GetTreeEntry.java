@@ -10,26 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetTreeEntry {
-    private final String mode;
-    private final String path;
-    private final String sha;
-    private final Integer size;
-    private final String type;
+    private String mode;
+    private String path;
+    private String sha;
+    private Integer size;
+    private String type;
 
-    @CustomType.Constructor
-    private GetTreeEntry(
-        @CustomType.Parameter("mode") String mode,
-        @CustomType.Parameter("path") String path,
-        @CustomType.Parameter("sha") String sha,
-        @CustomType.Parameter("size") Integer size,
-        @CustomType.Parameter("type") String type) {
-        this.mode = mode;
-        this.path = path;
-        this.sha = sha;
-        this.size = size;
-        this.type = type;
-    }
-
+    private GetTreeEntry() {}
     public String mode() {
         return this.mode;
     }
@@ -53,18 +40,14 @@ public final class GetTreeEntry {
     public static Builder builder(GetTreeEntry defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String mode;
         private String path;
         private String sha;
         private Integer size;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetTreeEntry defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.mode = defaults.mode;
@@ -74,27 +57,39 @@ public final class GetTreeEntry {
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder mode(String mode) {
             this.mode = Objects.requireNonNull(mode);
             return this;
         }
+        @CustomType.Setter
         public Builder path(String path) {
             this.path = Objects.requireNonNull(path);
             return this;
         }
+        @CustomType.Setter
         public Builder sha(String sha) {
             this.sha = Objects.requireNonNull(sha);
             return this;
         }
+        @CustomType.Setter
         public Builder size(Integer size) {
             this.size = Objects.requireNonNull(size);
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public GetTreeEntry build() {
-            return new GetTreeEntry(mode, path, sha, size, type);
+        }
+        public GetTreeEntry build() {
+            final var o = new GetTreeEntry();
+            o.mode = mode;
+            o.path = path;
+            o.sha = sha;
+            o.size = size;
+            o.type = type;
+            return o;
         }
     }
 }

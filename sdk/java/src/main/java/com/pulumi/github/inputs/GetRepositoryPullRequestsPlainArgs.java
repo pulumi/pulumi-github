@@ -14,107 +14,51 @@ public final class GetRepositoryPullRequestsPlainArgs extends com.pulumi.resourc
 
     public static final GetRepositoryPullRequestsPlainArgs Empty = new GetRepositoryPullRequestsPlainArgs();
 
-    /**
-     * If set, filters Pull Requests by base branch name.
-     * 
-     */
     @Import(name="baseRef")
     private @Nullable String baseRef;
 
-    /**
-     * @return If set, filters Pull Requests by base branch name.
-     * 
-     */
     public Optional<String> baseRef() {
         return Optional.ofNullable(this.baseRef);
     }
 
-    /**
-     * Name of the base repository to retrieve the Pull Requests from.
-     * 
-     */
     @Import(name="baseRepository", required=true)
     private String baseRepository;
 
-    /**
-     * @return Name of the base repository to retrieve the Pull Requests from.
-     * 
-     */
     public String baseRepository() {
         return this.baseRepository;
     }
 
-    /**
-     * If set, filters Pull Requests by head user or head organization and branch name in the format of &#34;user:ref-name&#34; or &#34;organization:ref-name&#34;. For example: &#34;github:new-script-format&#34; or &#34;octocat:test-branch&#34;.
-     * 
-     */
     @Import(name="headRef")
     private @Nullable String headRef;
 
-    /**
-     * @return If set, filters Pull Requests by head user or head organization and branch name in the format of &#34;user:ref-name&#34; or &#34;organization:ref-name&#34;. For example: &#34;github:new-script-format&#34; or &#34;octocat:test-branch&#34;.
-     * 
-     */
     public Optional<String> headRef() {
         return Optional.ofNullable(this.headRef);
     }
 
-    /**
-     * Owner of the repository. If not provided, the provider&#39;s default owner is used.
-     * 
-     */
     @Import(name="owner")
     private @Nullable String owner;
 
-    /**
-     * @return Owner of the repository. If not provided, the provider&#39;s default owner is used.
-     * 
-     */
     public Optional<String> owner() {
         return Optional.ofNullable(this.owner);
     }
 
-    /**
-     * If set, indicates what to sort results by. Can be either &#34;created&#34;, &#34;updated&#34;, &#34;popularity&#34; (comment count) or &#34;long-running&#34; (age, filtering by pulls updated in the last month). Default: &#34;created&#34;.
-     * 
-     */
     @Import(name="sortBy")
     private @Nullable String sortBy;
 
-    /**
-     * @return If set, indicates what to sort results by. Can be either &#34;created&#34;, &#34;updated&#34;, &#34;popularity&#34; (comment count) or &#34;long-running&#34; (age, filtering by pulls updated in the last month). Default: &#34;created&#34;.
-     * 
-     */
     public Optional<String> sortBy() {
         return Optional.ofNullable(this.sortBy);
     }
 
-    /**
-     * If set, controls the direction of the sort. Can be either &#34;asc&#34; or &#34;desc&#34;. Default: &#34;asc&#34;.
-     * 
-     */
     @Import(name="sortDirection")
     private @Nullable String sortDirection;
 
-    /**
-     * @return If set, controls the direction of the sort. Can be either &#34;asc&#34; or &#34;desc&#34;. Default: &#34;asc&#34;.
-     * 
-     */
     public Optional<String> sortDirection() {
         return Optional.ofNullable(this.sortDirection);
     }
 
-    /**
-     * If set, filters Pull Requests by state. Can be &#34;open&#34;, &#34;closed&#34;, or &#34;all&#34;. Default: &#34;open&#34;.
-     * 
-     */
     @Import(name="state")
     private @Nullable String state;
 
-    /**
-     * @return If set, filters Pull Requests by state. Can be &#34;open&#34;, &#34;closed&#34;, or &#34;all&#34;. Default: &#34;open&#34;.
-     * 
-     */
     public Optional<String> state() {
         return Optional.ofNullable(this.state);
     }
@@ -149,78 +93,36 @@ public final class GetRepositoryPullRequestsPlainArgs extends com.pulumi.resourc
             $ = new GetRepositoryPullRequestsPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param baseRef If set, filters Pull Requests by base branch name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder baseRef(@Nullable String baseRef) {
             $.baseRef = baseRef;
             return this;
         }
 
-        /**
-         * @param baseRepository Name of the base repository to retrieve the Pull Requests from.
-         * 
-         * @return builder
-         * 
-         */
         public Builder baseRepository(String baseRepository) {
             $.baseRepository = baseRepository;
             return this;
         }
 
-        /**
-         * @param headRef If set, filters Pull Requests by head user or head organization and branch name in the format of &#34;user:ref-name&#34; or &#34;organization:ref-name&#34;. For example: &#34;github:new-script-format&#34; or &#34;octocat:test-branch&#34;.
-         * 
-         * @return builder
-         * 
-         */
         public Builder headRef(@Nullable String headRef) {
             $.headRef = headRef;
             return this;
         }
 
-        /**
-         * @param owner Owner of the repository. If not provided, the provider&#39;s default owner is used.
-         * 
-         * @return builder
-         * 
-         */
         public Builder owner(@Nullable String owner) {
             $.owner = owner;
             return this;
         }
 
-        /**
-         * @param sortBy If set, indicates what to sort results by. Can be either &#34;created&#34;, &#34;updated&#34;, &#34;popularity&#34; (comment count) or &#34;long-running&#34; (age, filtering by pulls updated in the last month). Default: &#34;created&#34;.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sortBy(@Nullable String sortBy) {
             $.sortBy = sortBy;
             return this;
         }
 
-        /**
-         * @param sortDirection If set, controls the direction of the sort. Can be either &#34;asc&#34; or &#34;desc&#34;. Default: &#34;asc&#34;.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sortDirection(@Nullable String sortDirection) {
             $.sortDirection = sortDirection;
             return this;
         }
 
-        /**
-         * @param state If set, filters Pull Requests by state. Can be &#34;open&#34;, &#34;closed&#34;, or &#34;all&#34;. Default: &#34;open&#34;.
-         * 
-         * @return builder
-         * 
-         */
         public Builder state(@Nullable String state) {
             $.state = state;
             return this;

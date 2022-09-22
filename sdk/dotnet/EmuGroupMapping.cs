@@ -9,51 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Github
 {
-    /// <summary>
-    /// This resource manages mappings between external groups for enterprise managed users and GitHub teams. It wraps the API detailed [here](https://docs.github.com/en/rest/reference/teams#external-groups). Note that this is a distinct resource from `github.TeamSyncGroupMapping`. `github.EmuGroupMapping` is special to the Enterprise Managed User (EMU) external group feature, whereas `github.TeamSyncGroupMapping` is specific to Identity Provider Groups.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Github = Pulumi.Github;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleEmuGroupMapping = new Github.EmuGroupMapping("exampleEmuGroupMapping", new()
-    ///     {
-    ///         GroupId = 28836,
-    ///         TeamSlug = "emu-test-team",
-    ///     });
-    /// 
-    ///     // The GitHub team name to modify
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// GitHub EMU External Group Mappings can be imported using the external `group_id`, e.g.
-    /// 
-    /// ```sh
-    ///  $ pulumi import github:index/emuGroupMapping:EmuGroupMapping example_emu_group_mapping 28836
-    /// ```
-    /// </summary>
     [GithubResourceType("github:index/emuGroupMapping:EmuGroupMapping")]
     public partial class EmuGroupMapping : global::Pulumi.CustomResource
     {
         [Output("etag")]
         public Output<string> Etag { get; private set; } = null!;
 
-        /// <summary>
-        /// Integer corresponding to the external group ID to be linked
-        /// </summary>
         [Output("groupId")]
         public Output<int> GroupId { get; private set; } = null!;
 
-        /// <summary>
-        /// Slug of the GitHub team
-        /// </summary>
         [Output("teamSlug")]
         public Output<string> TeamSlug { get; private set; } = null!;
 
@@ -103,15 +67,9 @@ namespace Pulumi.Github
 
     public sealed class EmuGroupMappingArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Integer corresponding to the external group ID to be linked
-        /// </summary>
         [Input("groupId", required: true)]
         public Input<int> GroupId { get; set; } = null!;
 
-        /// <summary>
-        /// Slug of the GitHub team
-        /// </summary>
         [Input("teamSlug", required: true)]
         public Input<string> TeamSlug { get; set; } = null!;
 
@@ -126,15 +84,9 @@ namespace Pulumi.Github
         [Input("etag")]
         public Input<string>? Etag { get; set; }
 
-        /// <summary>
-        /// Integer corresponding to the external group ID to be linked
-        /// </summary>
         [Input("groupId")]
         public Input<int>? GroupId { get; set; }
 
-        /// <summary>
-        /// Slug of the GitHub team
-        /// </summary>
         [Input("teamSlug")]
         public Input<string>? TeamSlug { get; set; }
 

@@ -11,57 +11,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a GitHub membership resource.
-//
-// This resource allows you to add/remove users from your organization. When applied,
-// an invitation will be sent to the user to become part of the organization. When
-// destroyed, either the invitation will be cancelled or the user will be removed.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-github/sdk/v4/go/github"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := github.NewMembership(ctx, "membershipForSomeUser", &github.MembershipArgs{
-//				Role:     pulumi.String("member"),
-//				Username: pulumi.String("SomeUser"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// GitHub Membership can be imported using an ID made up of `organization:username`, e.g.
-//
-// ```sh
-//
-//	$ pulumi import github:index/membership:Membership member hashicorp:someuser
-//
-// ```
 type Membership struct {
 	pulumi.CustomResourceState
 
-	Etag pulumi.StringOutput `pulumi:"etag"`
-	// The role of the user within the organization.
-	// Must be one of `member` or `admin`. Defaults to `member`.
-	Role pulumi.StringPtrOutput `pulumi:"role"`
-	// The user to add to the organization.
-	Username pulumi.StringOutput `pulumi:"username"`
+	Etag     pulumi.StringOutput    `pulumi:"etag"`
+	Role     pulumi.StringPtrOutput `pulumi:"role"`
+	Username pulumi.StringOutput    `pulumi:"username"`
 }
 
 // NewMembership registers a new resource with the given unique name, arguments, and options.
@@ -96,20 +51,14 @@ func GetMembership(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Membership resources.
 type membershipState struct {
-	Etag *string `pulumi:"etag"`
-	// The role of the user within the organization.
-	// Must be one of `member` or `admin`. Defaults to `member`.
-	Role *string `pulumi:"role"`
-	// The user to add to the organization.
+	Etag     *string `pulumi:"etag"`
+	Role     *string `pulumi:"role"`
 	Username *string `pulumi:"username"`
 }
 
 type MembershipState struct {
-	Etag pulumi.StringPtrInput
-	// The role of the user within the organization.
-	// Must be one of `member` or `admin`. Defaults to `member`.
-	Role pulumi.StringPtrInput
-	// The user to add to the organization.
+	Etag     pulumi.StringPtrInput
+	Role     pulumi.StringPtrInput
 	Username pulumi.StringPtrInput
 }
 
@@ -118,19 +67,13 @@ func (MembershipState) ElementType() reflect.Type {
 }
 
 type membershipArgs struct {
-	// The role of the user within the organization.
-	// Must be one of `member` or `admin`. Defaults to `member`.
-	Role *string `pulumi:"role"`
-	// The user to add to the organization.
-	Username string `pulumi:"username"`
+	Role     *string `pulumi:"role"`
+	Username string  `pulumi:"username"`
 }
 
 // The set of arguments for constructing a Membership resource.
 type MembershipArgs struct {
-	// The role of the user within the organization.
-	// Must be one of `member` or `admin`. Defaults to `member`.
-	Role pulumi.StringPtrInput
-	// The user to add to the organization.
+	Role     pulumi.StringPtrInput
 	Username pulumi.StringInput
 }
 
@@ -225,13 +168,10 @@ func (o MembershipOutput) Etag() pulumi.StringOutput {
 	return o.ApplyT(func(v *Membership) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
 }
 
-// The role of the user within the organization.
-// Must be one of `member` or `admin`. Defaults to `member`.
 func (o MembershipOutput) Role() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Membership) pulumi.StringPtrOutput { return v.Role }).(pulumi.StringPtrOutput)
 }
 
-// The user to add to the organization.
 func (o MembershipOutput) Username() pulumi.StringOutput {
 	return o.ApplyT(func(v *Membership) pulumi.StringOutput { return v.Username }).(pulumi.StringOutput)
 }

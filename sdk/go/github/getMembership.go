@@ -10,36 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Use this data source to find out if a user is a member of your organization, as well
-// as what role they have within it.
-// If the user's membership in the organization is pending their acceptance of an invite,
-// the role they would have once they accept will be returned.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-github/sdk/v4/go/github"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := github.LookupMembership(ctx, &GetMembershipArgs{
-//				Username: "SomeUser",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupMembership(ctx *pulumi.Context, args *LookupMembershipArgs, opts ...pulumi.InvokeOption) (*LookupMembershipResult, error) {
 	var rv LookupMembershipResult
 	err := ctx.Invoke("github:index/getMembership:getMembership", args, &rv, opts...)
@@ -51,23 +21,18 @@ func LookupMembership(ctx *pulumi.Context, args *LookupMembershipArgs, opts ...p
 
 // A collection of arguments for invoking getMembership.
 type LookupMembershipArgs struct {
-	// The organization to check for the above username.
 	Organization *string `pulumi:"organization"`
-	// The username to lookup in the organization.
-	Username string `pulumi:"username"`
+	Username     string  `pulumi:"username"`
 }
 
 // A collection of values returned by getMembership.
 type LookupMembershipResult struct {
-	// An etag representing the membership object.
 	Etag string `pulumi:"etag"`
 	// The provider-assigned unique ID for this managed resource.
 	Id           string  `pulumi:"id"`
 	Organization *string `pulumi:"organization"`
-	// `admin` or `member` -- the role the user has within the organization.
-	Role string `pulumi:"role"`
-	// The username.
-	Username string `pulumi:"username"`
+	Role         string  `pulumi:"role"`
+	Username     string  `pulumi:"username"`
 }
 
 func LookupMembershipOutput(ctx *pulumi.Context, args LookupMembershipOutputArgs, opts ...pulumi.InvokeOption) LookupMembershipResultOutput {
@@ -85,10 +50,8 @@ func LookupMembershipOutput(ctx *pulumi.Context, args LookupMembershipOutputArgs
 
 // A collection of arguments for invoking getMembership.
 type LookupMembershipOutputArgs struct {
-	// The organization to check for the above username.
 	Organization pulumi.StringPtrInput `pulumi:"organization"`
-	// The username to lookup in the organization.
-	Username pulumi.StringInput `pulumi:"username"`
+	Username     pulumi.StringInput    `pulumi:"username"`
 }
 
 func (LookupMembershipOutputArgs) ElementType() reflect.Type {
@@ -110,7 +73,6 @@ func (o LookupMembershipResultOutput) ToLookupMembershipResultOutputWithContext(
 	return o
 }
 
-// An etag representing the membership object.
 func (o LookupMembershipResultOutput) Etag() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupMembershipResult) string { return v.Etag }).(pulumi.StringOutput)
 }
@@ -124,12 +86,10 @@ func (o LookupMembershipResultOutput) Organization() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupMembershipResult) *string { return v.Organization }).(pulumi.StringPtrOutput)
 }
 
-// `admin` or `member` -- the role the user has within the organization.
 func (o LookupMembershipResultOutput) Role() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupMembershipResult) string { return v.Role }).(pulumi.StringOutput)
 }
 
-// The username.
 func (o LookupMembershipResultOutput) Username() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupMembershipResult) string { return v.Username }).(pulumi.StringOutput)
 }

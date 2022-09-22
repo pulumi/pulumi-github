@@ -4,28 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
-/**
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as github from "@pulumi/github";
- *
- * const examplePublicKey = github.getActionsPublicKey({
- *     repository: "example_repository",
- * });
- * const exampleSecretActionsSecret = new github.ActionsSecret("exampleSecretActionsSecret", {
- *     repository: "example_repository",
- *     secretName: "example_secret_name",
- *     plaintextValue: _var.some_secret_string,
- * });
- * const exampleSecretIndex_actionsSecretActionsSecret = new github.ActionsSecret("exampleSecretIndex/actionsSecretActionsSecret", {
- *     repository: "example_repository",
- *     secretName: "example_secret_name",
- *     encryptedValue: _var.some_encrypted_secret_string,
- * });
- * ```
- */
 export class ActionsSecret extends pulumi.CustomResource {
     /**
      * Get an existing ActionsSecret resource's state with the given name, ID, and optional extra
@@ -54,29 +32,11 @@ export class ActionsSecret extends pulumi.CustomResource {
         return obj['__pulumiType'] === ActionsSecret.__pulumiType;
     }
 
-    /**
-     * Date of actionsSecret creation.
-     */
     public /*out*/ readonly createdAt!: pulumi.Output<string>;
-    /**
-     * Encrypted value of the secret using the Github public key in Base64 format.
-     */
     public readonly encryptedValue!: pulumi.Output<string | undefined>;
-    /**
-     * Plaintext value of the secret to be encrypted
-     */
     public readonly plaintextValue!: pulumi.Output<string | undefined>;
-    /**
-     * Name of the repository
-     */
     public readonly repository!: pulumi.Output<string>;
-    /**
-     * Name of the secret
-     */
     public readonly secretName!: pulumi.Output<string>;
-    /**
-     * Date of actionsSecret update.
-     */
     public /*out*/ readonly updatedAt!: pulumi.Output<string>;
 
     /**
@@ -122,29 +82,11 @@ export class ActionsSecret extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ActionsSecret resources.
  */
 export interface ActionsSecretState {
-    /**
-     * Date of actionsSecret creation.
-     */
     createdAt?: pulumi.Input<string>;
-    /**
-     * Encrypted value of the secret using the Github public key in Base64 format.
-     */
     encryptedValue?: pulumi.Input<string>;
-    /**
-     * Plaintext value of the secret to be encrypted
-     */
     plaintextValue?: pulumi.Input<string>;
-    /**
-     * Name of the repository
-     */
     repository?: pulumi.Input<string>;
-    /**
-     * Name of the secret
-     */
     secretName?: pulumi.Input<string>;
-    /**
-     * Date of actionsSecret update.
-     */
     updatedAt?: pulumi.Input<string>;
 }
 
@@ -152,20 +94,8 @@ export interface ActionsSecretState {
  * The set of arguments for constructing a ActionsSecret resource.
  */
 export interface ActionsSecretArgs {
-    /**
-     * Encrypted value of the secret using the Github public key in Base64 format.
-     */
     encryptedValue?: pulumi.Input<string>;
-    /**
-     * Plaintext value of the secret to be encrypted
-     */
     plaintextValue?: pulumi.Input<string>;
-    /**
-     * Name of the repository
-     */
     repository: pulumi.Input<string>;
-    /**
-     * Name of the secret
-     */
     secretName: pulumi.Input<string>;
 }

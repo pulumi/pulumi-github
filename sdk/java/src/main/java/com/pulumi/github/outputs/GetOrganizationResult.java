@@ -10,70 +10,21 @@ import java.util.Objects;
 
 @CustomType
 public final class GetOrganizationResult {
-    /**
-     * @return The description the organization account
-     * 
-     */
-    private final String description;
+    private String description;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    /**
-     * @return The login of the organization account
-     * 
-     */
-    private final String login;
-    /**
-     * @return (`list`) A list with the members of the organization
-     * 
-     */
-    private final List<String> members;
-    /**
-     * @return The name of the organization account
-     * 
-     */
-    private final String name;
-    private final String nodeId;
-    private final String orgname;
-    /**
-     * @return The plan name for the organization account
-     * 
-     */
-    private final String plan;
-    /**
-     * @return (`list`) A list with the repositories on the organization
-     * 
-     */
-    private final List<String> repositories;
+    private String id;
+    private String login;
+    private List<String> members;
+    private String name;
+    private String nodeId;
+    private String orgname;
+    private String plan;
+    private List<String> repositories;
 
-    @CustomType.Constructor
-    private GetOrganizationResult(
-        @CustomType.Parameter("description") String description,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("login") String login,
-        @CustomType.Parameter("members") List<String> members,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("nodeId") String nodeId,
-        @CustomType.Parameter("orgname") String orgname,
-        @CustomType.Parameter("plan") String plan,
-        @CustomType.Parameter("repositories") List<String> repositories) {
-        this.description = description;
-        this.id = id;
-        this.login = login;
-        this.members = members;
-        this.name = name;
-        this.nodeId = nodeId;
-        this.orgname = orgname;
-        this.plan = plan;
-        this.repositories = repositories;
-    }
-
-    /**
-     * @return The description the organization account
-     * 
-     */
+    private GetOrganizationResult() {}
     public String description() {
         return this.description;
     }
@@ -84,24 +35,12 @@ public final class GetOrganizationResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return The login of the organization account
-     * 
-     */
     public String login() {
         return this.login;
     }
-    /**
-     * @return (`list`) A list with the members of the organization
-     * 
-     */
     public List<String> members() {
         return this.members;
     }
-    /**
-     * @return The name of the organization account
-     * 
-     */
     public String name() {
         return this.name;
     }
@@ -111,17 +50,9 @@ public final class GetOrganizationResult {
     public String orgname() {
         return this.orgname;
     }
-    /**
-     * @return The plan name for the organization account
-     * 
-     */
     public String plan() {
         return this.plan;
     }
-    /**
-     * @return (`list`) A list with the repositories on the organization
-     * 
-     */
     public List<String> repositories() {
         return this.repositories;
     }
@@ -133,7 +64,7 @@ public final class GetOrganizationResult {
     public static Builder builder(GetOrganizationResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String description;
         private String id;
@@ -144,11 +75,7 @@ public final class GetOrganizationResult {
         private String orgname;
         private String plan;
         private List<String> repositories;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetOrganizationResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.description = defaults.description;
@@ -162,18 +89,22 @@ public final class GetOrganizationResult {
     	      this.repositories = defaults.repositories;
         }
 
+        @CustomType.Setter
         public Builder description(String description) {
             this.description = Objects.requireNonNull(description);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder login(String login) {
             this.login = Objects.requireNonNull(login);
             return this;
         }
+        @CustomType.Setter
         public Builder members(List<String> members) {
             this.members = Objects.requireNonNull(members);
             return this;
@@ -181,30 +112,46 @@ public final class GetOrganizationResult {
         public Builder members(String... members) {
             return members(List.of(members));
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder nodeId(String nodeId) {
             this.nodeId = Objects.requireNonNull(nodeId);
             return this;
         }
+        @CustomType.Setter
         public Builder orgname(String orgname) {
             this.orgname = Objects.requireNonNull(orgname);
             return this;
         }
+        @CustomType.Setter
         public Builder plan(String plan) {
             this.plan = Objects.requireNonNull(plan);
             return this;
         }
+        @CustomType.Setter
         public Builder repositories(List<String> repositories) {
             this.repositories = Objects.requireNonNull(repositories);
             return this;
         }
         public Builder repositories(String... repositories) {
             return repositories(List.of(repositories));
-        }        public GetOrganizationResult build() {
-            return new GetOrganizationResult(description, id, login, members, name, nodeId, orgname, plan, repositories);
+        }
+        public GetOrganizationResult build() {
+            final var o = new GetOrganizationResult();
+            o.description = description;
+            o.id = id;
+            o.login = login;
+            o.members = members;
+            o.name = name;
+            o.nodeId = nodeId;
+            o.orgname = orgname;
+            o.plan = plan;
+            o.repositories = repositories;
+            return o;
         }
     }
 }

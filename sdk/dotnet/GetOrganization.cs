@@ -11,57 +11,9 @@ namespace Pulumi.Github
 {
     public static class GetOrganization
     {
-        /// <summary>
-        /// Use this data source to retrieve basic information about a GitHub Organization.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Github = Pulumi.Github;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Github.GetOrganization.Invoke(new()
-        ///     {
-        ///         Name = "github",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Task<GetOrganizationResult> InvokeAsync(GetOrganizationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetOrganizationResult>("github:index/getOrganization:getOrganization", args ?? new GetOrganizationArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Use this data source to retrieve basic information about a GitHub Organization.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Github = Pulumi.Github;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Github.GetOrganization.Invoke(new()
-        ///     {
-        ///         Name = "github",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Output<GetOrganizationResult> Invoke(GetOrganizationInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetOrganizationResult>("github:index/getOrganization:getOrganization", args ?? new GetOrganizationInvokeArgs(), options.WithDefaults());
     }
@@ -69,9 +21,6 @@ namespace Pulumi.Github
 
     public sealed class GetOrganizationArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The name of the organization account
-        /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
@@ -83,9 +32,6 @@ namespace Pulumi.Github
 
     public sealed class GetOrganizationInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The name of the organization account
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
@@ -99,35 +45,17 @@ namespace Pulumi.Github
     [OutputType]
     public sealed class GetOrganizationResult
     {
-        /// <summary>
-        /// The description the organization account
-        /// </summary>
         public readonly string Description;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// The login of the organization account
-        /// </summary>
         public readonly string Login;
-        /// <summary>
-        /// (`list`) A list with the members of the organization
-        /// </summary>
         public readonly ImmutableArray<string> Members;
-        /// <summary>
-        /// The name of the organization account
-        /// </summary>
         public readonly string Name;
         public readonly string NodeId;
         public readonly string Orgname;
-        /// <summary>
-        /// The plan name for the organization account
-        /// </summary>
         public readonly string Plan;
-        /// <summary>
-        /// (`list`) A list with the repositories on the organization
-        /// </summary>
         public readonly ImmutableArray<string> Repositories;
 
         [OutputConstructor]

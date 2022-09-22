@@ -10,50 +10,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetExternalGroupsExternalGroup {
-    /**
-     * @return the ID of the group.
-     * 
-     */
-    private final Integer groupId;
-    /**
-     * @return the name of the group.
-     * 
-     */
-    private final String groupName;
-    /**
-     * @return the date the group was last updated.
-     * 
-     */
-    private final String updatedAt;
+    private Integer groupId;
+    private String groupName;
+    private String updatedAt;
 
-    @CustomType.Constructor
-    private GetExternalGroupsExternalGroup(
-        @CustomType.Parameter("groupId") Integer groupId,
-        @CustomType.Parameter("groupName") String groupName,
-        @CustomType.Parameter("updatedAt") String updatedAt) {
-        this.groupId = groupId;
-        this.groupName = groupName;
-        this.updatedAt = updatedAt;
-    }
-
-    /**
-     * @return the ID of the group.
-     * 
-     */
+    private GetExternalGroupsExternalGroup() {}
     public Integer groupId() {
         return this.groupId;
     }
-    /**
-     * @return the name of the group.
-     * 
-     */
     public String groupName() {
         return this.groupName;
     }
-    /**
-     * @return the date the group was last updated.
-     * 
-     */
     public String updatedAt() {
         return this.updatedAt;
     }
@@ -65,16 +32,12 @@ public final class GetExternalGroupsExternalGroup {
     public static Builder builder(GetExternalGroupsExternalGroup defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer groupId;
         private String groupName;
         private String updatedAt;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetExternalGroupsExternalGroup defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.groupId = defaults.groupId;
@@ -82,19 +45,27 @@ public final class GetExternalGroupsExternalGroup {
     	      this.updatedAt = defaults.updatedAt;
         }
 
+        @CustomType.Setter
         public Builder groupId(Integer groupId) {
             this.groupId = Objects.requireNonNull(groupId);
             return this;
         }
+        @CustomType.Setter
         public Builder groupName(String groupName) {
             this.groupName = Objects.requireNonNull(groupName);
             return this;
         }
+        @CustomType.Setter
         public Builder updatedAt(String updatedAt) {
             this.updatedAt = Objects.requireNonNull(updatedAt);
             return this;
-        }        public GetExternalGroupsExternalGroup build() {
-            return new GetExternalGroupsExternalGroup(groupId, groupName, updatedAt);
+        }
+        public GetExternalGroupsExternalGroup build() {
+            final var o = new GetExternalGroupsExternalGroup();
+            o.groupId = groupId;
+            o.groupName = groupName;
+            o.updatedAt = updatedAt;
+            return o;
         }
     }
 }

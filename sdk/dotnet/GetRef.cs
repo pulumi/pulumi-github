@@ -11,59 +11,9 @@ namespace Pulumi.Github
 {
     public static class GetRef
     {
-        /// <summary>
-        /// Use this data source to retrieve information about a repository ref.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Github = Pulumi.Github;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var development = Github.GetRef.Invoke(new()
-        ///     {
-        ///         Ref = "heads/development",
-        ///         Repository = "example",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Task<GetRefResult> InvokeAsync(GetRefArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRefResult>("github:index/getRef:getRef", args ?? new GetRefArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Use this data source to retrieve information about a repository ref.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Github = Pulumi.Github;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var development = Github.GetRef.Invoke(new()
-        ///     {
-        ///         Ref = "heads/development",
-        ///         Repository = "example",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Output<GetRefResult> Invoke(GetRefInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetRefResult>("github:index/getRef:getRef", args ?? new GetRefInvokeArgs(), options.WithDefaults());
     }
@@ -71,15 +21,9 @@ namespace Pulumi.Github
 
     public sealed class GetRefArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The repository ref to look up. Must be formatted `heads/&lt;ref&gt;` for branches, and `tags/&lt;ref&gt;` for tags.
-        /// </summary>
         [Input("ref", required: true)]
         public string Ref { get; set; } = null!;
 
-        /// <summary>
-        /// The GitHub repository name.
-        /// </summary>
         [Input("repository", required: true)]
         public string Repository { get; set; } = null!;
 
@@ -91,15 +35,9 @@ namespace Pulumi.Github
 
     public sealed class GetRefInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The repository ref to look up. Must be formatted `heads/&lt;ref&gt;` for branches, and `tags/&lt;ref&gt;` for tags.
-        /// </summary>
         [Input("ref", required: true)]
         public Input<string> Ref { get; set; } = null!;
 
-        /// <summary>
-        /// The GitHub repository name.
-        /// </summary>
         [Input("repository", required: true)]
         public Input<string> Repository { get; set; } = null!;
 
@@ -113,9 +51,6 @@ namespace Pulumi.Github
     [OutputType]
     public sealed class GetRefResult
     {
-        /// <summary>
-        /// An etag representing the ref.
-        /// </summary>
         public readonly string Etag;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
@@ -123,9 +58,6 @@ namespace Pulumi.Github
         public readonly string Id;
         public readonly string Ref;
         public readonly string Repository;
-        /// <summary>
-        /// A string storing the reference's `HEAD` commit's SHA1.
-        /// </summary>
         public readonly string Sha;
 
         [OutputConstructor]

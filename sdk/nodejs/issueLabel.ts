@@ -4,28 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
-/**
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as github from "@pulumi/github";
- *
- * // Create a new, red colored label
- * const testRepo = new github.IssueLabel("test_repo", {
- *     color: "FF0000",
- *     repository: "test-repo",
- * });
- * ```
- *
- * ## Import
- *
- * GitHub Issue Labels can be imported using an ID made up of `repository:name`, e.g.
- *
- * ```sh
- *  $ pulumi import github:index/issueLabel:IssueLabel panic_label terraform:panic
- * ```
- */
 export class IssueLabel extends pulumi.CustomResource {
     /**
      * Get an existing IssueLabel resource's state with the given name, ID, and optional extra
@@ -54,26 +32,11 @@ export class IssueLabel extends pulumi.CustomResource {
         return obj['__pulumiType'] === IssueLabel.__pulumiType;
     }
 
-    /**
-     * A 6 character hex code, **without the leading #**, identifying the color of the label.
-     */
     public readonly color!: pulumi.Output<string>;
-    /**
-     * A short description of the label.
-     */
     public readonly description!: pulumi.Output<string | undefined>;
     public /*out*/ readonly etag!: pulumi.Output<string>;
-    /**
-     * The name of the label.
-     */
     public readonly name!: pulumi.Output<string>;
-    /**
-     * The GitHub repository
-     */
     public readonly repository!: pulumi.Output<string>;
-    /**
-     * The URL to the issue label
-     */
     public /*out*/ readonly url!: pulumi.Output<string>;
 
     /**
@@ -119,26 +82,11 @@ export class IssueLabel extends pulumi.CustomResource {
  * Input properties used for looking up and filtering IssueLabel resources.
  */
 export interface IssueLabelState {
-    /**
-     * A 6 character hex code, **without the leading #**, identifying the color of the label.
-     */
     color?: pulumi.Input<string>;
-    /**
-     * A short description of the label.
-     */
     description?: pulumi.Input<string>;
     etag?: pulumi.Input<string>;
-    /**
-     * The name of the label.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * The GitHub repository
-     */
     repository?: pulumi.Input<string>;
-    /**
-     * The URL to the issue label
-     */
     url?: pulumi.Input<string>;
 }
 
@@ -146,20 +94,8 @@ export interface IssueLabelState {
  * The set of arguments for constructing a IssueLabel resource.
  */
 export interface IssueLabelArgs {
-    /**
-     * A 6 character hex code, **without the leading #**, identifying the color of the label.
-     */
     color: pulumi.Input<string>;
-    /**
-     * A short description of the label.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * The name of the label.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * The GitHub repository
-     */
     repository: pulumi.Input<string>;
 }

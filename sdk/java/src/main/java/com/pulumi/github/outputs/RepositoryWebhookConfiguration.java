@@ -12,64 +12,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class RepositoryWebhookConfiguration {
-    /**
-     * @return The content type for the payload. Valid values are either `form` or `json`.
-     * 
-     */
-    private final @Nullable String contentType;
-    /**
-     * @return Insecure SSL boolean toggle. Defaults to `false`.
-     * 
-     */
-    private final @Nullable Boolean insecureSsl;
-    /**
-     * @return The shared secret for the webhook. [See API documentation](https://developer.github.com/v3/repos/hooks/#create-a-hook).
-     * 
-     */
-    private final @Nullable String secret;
-    /**
-     * @return The URL of the webhook.
-     * 
-     */
-    private final String url;
+    private @Nullable String contentType;
+    private @Nullable Boolean insecureSsl;
+    private @Nullable String secret;
+    private String url;
 
-    @CustomType.Constructor
-    private RepositoryWebhookConfiguration(
-        @CustomType.Parameter("contentType") @Nullable String contentType,
-        @CustomType.Parameter("insecureSsl") @Nullable Boolean insecureSsl,
-        @CustomType.Parameter("secret") @Nullable String secret,
-        @CustomType.Parameter("url") String url) {
-        this.contentType = contentType;
-        this.insecureSsl = insecureSsl;
-        this.secret = secret;
-        this.url = url;
-    }
-
-    /**
-     * @return The content type for the payload. Valid values are either `form` or `json`.
-     * 
-     */
+    private RepositoryWebhookConfiguration() {}
     public Optional<String> contentType() {
         return Optional.ofNullable(this.contentType);
     }
-    /**
-     * @return Insecure SSL boolean toggle. Defaults to `false`.
-     * 
-     */
     public Optional<Boolean> insecureSsl() {
         return Optional.ofNullable(this.insecureSsl);
     }
-    /**
-     * @return The shared secret for the webhook. [See API documentation](https://developer.github.com/v3/repos/hooks/#create-a-hook).
-     * 
-     */
     public Optional<String> secret() {
         return Optional.ofNullable(this.secret);
     }
-    /**
-     * @return The URL of the webhook.
-     * 
-     */
     public String url() {
         return this.url;
     }
@@ -81,17 +38,13 @@ public final class RepositoryWebhookConfiguration {
     public static Builder builder(RepositoryWebhookConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String contentType;
         private @Nullable Boolean insecureSsl;
         private @Nullable String secret;
         private String url;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RepositoryWebhookConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.contentType = defaults.contentType;
@@ -100,23 +53,33 @@ public final class RepositoryWebhookConfiguration {
     	      this.url = defaults.url;
         }
 
+        @CustomType.Setter
         public Builder contentType(@Nullable String contentType) {
             this.contentType = contentType;
             return this;
         }
+        @CustomType.Setter
         public Builder insecureSsl(@Nullable Boolean insecureSsl) {
             this.insecureSsl = insecureSsl;
             return this;
         }
+        @CustomType.Setter
         public Builder secret(@Nullable String secret) {
             this.secret = secret;
             return this;
         }
+        @CustomType.Setter
         public Builder url(String url) {
             this.url = Objects.requireNonNull(url);
             return this;
-        }        public RepositoryWebhookConfiguration build() {
-            return new RepositoryWebhookConfiguration(contentType, insecureSsl, secret, url);
+        }
+        public RepositoryWebhookConfiguration build() {
+            final var o = new RepositoryWebhookConfiguration();
+            o.contentType = contentType;
+            o.insecureSsl = insecureSsl;
+            o.secret = secret;
+            o.url = url;
+            return o;
         }
     }
 }

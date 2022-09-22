@@ -5,43 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
-/**
- * This resource allows you to create and manage webhooks for repositories within your
- * GitHub organization or personal account.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as github from "@pulumi/github";
- *
- * const repo = new github.Repository("repo", {
- *     description: "Terraform acceptance tests",
- *     homepageUrl: "http://example.com/",
- *     "private": false,
- * });
- * const foo = new github.RepositoryWebhook("foo", {
- *     repository: repo.name,
- *     configuration: {
- *         url: "https://google.de/",
- *         contentType: "form",
- *         insecureSsl: false,
- *     },
- *     active: false,
- *     events: ["issues"],
- * });
- * ```
- *
- * ## Import
- *
- * Repository webhooks can be imported using the `name` of the repository, combined with the `id` of the webhook, separated by a `/` character. The `id` of the webhook can be found in the URL of the webhook. For example`"https://github.com/foo-org/foo-repo/settings/hooks/14711452"`. Importing uses the name of the repository, as well as the ID of the webhook, e.g.
- *
- * ```sh
- *  $ pulumi import github:index/repositoryWebhook:RepositoryWebhook terraform terraform/11235813
- * ```
- *
- *  If secret is populated in the webhook's configuration, the value will be imported as "********".
- */
 export class RepositoryWebhook extends pulumi.CustomResource {
     /**
      * Get an existing RepositoryWebhook resource's state with the given name, ID, and optional extra
@@ -70,26 +33,11 @@ export class RepositoryWebhook extends pulumi.CustomResource {
         return obj['__pulumiType'] === RepositoryWebhook.__pulumiType;
     }
 
-    /**
-     * Indicate if the webhook should receive events. Defaults to `true`.
-     */
     public readonly active!: pulumi.Output<boolean | undefined>;
-    /**
-     * Configuration block for the webhook. Detailed below.
-     */
     public readonly configuration!: pulumi.Output<outputs.RepositoryWebhookConfiguration | undefined>;
     public /*out*/ readonly etag!: pulumi.Output<string>;
-    /**
-     * A list of events which should trigger the webhook. See a list of [available events](https://developer.github.com/v3/activity/events/types/).
-     */
     public readonly events!: pulumi.Output<string[]>;
-    /**
-     * The repository of the webhook.
-     */
     public readonly repository!: pulumi.Output<string>;
-    /**
-     * The URL of the webhook.
-     */
     public /*out*/ readonly url!: pulumi.Output<string>;
 
     /**
@@ -135,26 +83,11 @@ export class RepositoryWebhook extends pulumi.CustomResource {
  * Input properties used for looking up and filtering RepositoryWebhook resources.
  */
 export interface RepositoryWebhookState {
-    /**
-     * Indicate if the webhook should receive events. Defaults to `true`.
-     */
     active?: pulumi.Input<boolean>;
-    /**
-     * Configuration block for the webhook. Detailed below.
-     */
     configuration?: pulumi.Input<inputs.RepositoryWebhookConfiguration>;
     etag?: pulumi.Input<string>;
-    /**
-     * A list of events which should trigger the webhook. See a list of [available events](https://developer.github.com/v3/activity/events/types/).
-     */
     events?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * The repository of the webhook.
-     */
     repository?: pulumi.Input<string>;
-    /**
-     * The URL of the webhook.
-     */
     url?: pulumi.Input<string>;
 }
 
@@ -162,20 +95,8 @@ export interface RepositoryWebhookState {
  * The set of arguments for constructing a RepositoryWebhook resource.
  */
 export interface RepositoryWebhookArgs {
-    /**
-     * Indicate if the webhook should receive events. Defaults to `true`.
-     */
     active?: pulumi.Input<boolean>;
-    /**
-     * Configuration block for the webhook. Detailed below.
-     */
     configuration?: pulumi.Input<inputs.RepositoryWebhookConfiguration>;
-    /**
-     * A list of events which should trigger the webhook. See a list of [available events](https://developer.github.com/v3/activity/events/types/).
-     */
     events: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * The repository of the webhook.
-     */
     repository: pulumi.Input<string>;
 }

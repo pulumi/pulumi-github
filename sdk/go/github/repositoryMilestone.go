@@ -11,64 +11,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a GitHub repository milestone resource.
-//
-// This resource allows you to create and manage milestones for a GitHub Repository within an organization or user account.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-github/sdk/v4/go/github"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := github.NewRepositoryMilestone(ctx, "example", &github.RepositoryMilestoneArgs{
-//				Owner:      pulumi.String("example-owner"),
-//				Repository: pulumi.String("example-repository"),
-//				Title:      pulumi.String("v1.1.0"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// A GitHub Repository Milestone can be imported using an ID made up of `owner/repository/number`, e.g.
-//
-// ```sh
-//
-//	$ pulumi import github:index/repositoryMilestone:RepositoryMilestone example example-owner/example-repository/1
-//
-// ```
 type RepositoryMilestone struct {
 	pulumi.CustomResourceState
 
-	// A description of the milestone.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The milestone due date. In `yyyy-mm-dd` format.
-	DueDate pulumi.StringPtrOutput `pulumi:"dueDate"`
-	// The number of the milestone.
-	Number pulumi.IntOutput `pulumi:"number"`
-	// The owner of the GitHub Repository.
-	Owner pulumi.StringOutput `pulumi:"owner"`
-	// The name of the GitHub Repository.
-	Repository pulumi.StringOutput `pulumi:"repository"`
-	// The state of the milestone. Either `open` or `closed`. Default: `open`
-	State pulumi.StringPtrOutput `pulumi:"state"`
-	// The title of the milestone.
-	Title pulumi.StringOutput `pulumi:"title"`
+	// in yyyy-mm-dd format
+	DueDate    pulumi.StringPtrOutput `pulumi:"dueDate"`
+	Number     pulumi.IntOutput       `pulumi:"number"`
+	Owner      pulumi.StringOutput    `pulumi:"owner"`
+	Repository pulumi.StringOutput    `pulumi:"repository"`
+	State      pulumi.StringPtrOutput `pulumi:"state"`
+	Title      pulumi.StringOutput    `pulumi:"title"`
 }
 
 // NewRepositoryMilestone registers a new resource with the given unique name, arguments, and options.
@@ -109,37 +62,25 @@ func GetRepositoryMilestone(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RepositoryMilestone resources.
 type repositoryMilestoneState struct {
-	// A description of the milestone.
 	Description *string `pulumi:"description"`
-	// The milestone due date. In `yyyy-mm-dd` format.
-	DueDate *string `pulumi:"dueDate"`
-	// The number of the milestone.
-	Number *int `pulumi:"number"`
-	// The owner of the GitHub Repository.
-	Owner *string `pulumi:"owner"`
-	// The name of the GitHub Repository.
+	// in yyyy-mm-dd format
+	DueDate    *string `pulumi:"dueDate"`
+	Number     *int    `pulumi:"number"`
+	Owner      *string `pulumi:"owner"`
 	Repository *string `pulumi:"repository"`
-	// The state of the milestone. Either `open` or `closed`. Default: `open`
-	State *string `pulumi:"state"`
-	// The title of the milestone.
-	Title *string `pulumi:"title"`
+	State      *string `pulumi:"state"`
+	Title      *string `pulumi:"title"`
 }
 
 type RepositoryMilestoneState struct {
-	// A description of the milestone.
 	Description pulumi.StringPtrInput
-	// The milestone due date. In `yyyy-mm-dd` format.
-	DueDate pulumi.StringPtrInput
-	// The number of the milestone.
-	Number pulumi.IntPtrInput
-	// The owner of the GitHub Repository.
-	Owner pulumi.StringPtrInput
-	// The name of the GitHub Repository.
+	// in yyyy-mm-dd format
+	DueDate    pulumi.StringPtrInput
+	Number     pulumi.IntPtrInput
+	Owner      pulumi.StringPtrInput
 	Repository pulumi.StringPtrInput
-	// The state of the milestone. Either `open` or `closed`. Default: `open`
-	State pulumi.StringPtrInput
-	// The title of the milestone.
-	Title pulumi.StringPtrInput
+	State      pulumi.StringPtrInput
+	Title      pulumi.StringPtrInput
 }
 
 func (RepositoryMilestoneState) ElementType() reflect.Type {
@@ -147,34 +88,24 @@ func (RepositoryMilestoneState) ElementType() reflect.Type {
 }
 
 type repositoryMilestoneArgs struct {
-	// A description of the milestone.
 	Description *string `pulumi:"description"`
-	// The milestone due date. In `yyyy-mm-dd` format.
-	DueDate *string `pulumi:"dueDate"`
-	// The owner of the GitHub Repository.
-	Owner string `pulumi:"owner"`
-	// The name of the GitHub Repository.
-	Repository string `pulumi:"repository"`
-	// The state of the milestone. Either `open` or `closed`. Default: `open`
-	State *string `pulumi:"state"`
-	// The title of the milestone.
-	Title string `pulumi:"title"`
+	// in yyyy-mm-dd format
+	DueDate    *string `pulumi:"dueDate"`
+	Owner      string  `pulumi:"owner"`
+	Repository string  `pulumi:"repository"`
+	State      *string `pulumi:"state"`
+	Title      string  `pulumi:"title"`
 }
 
 // The set of arguments for constructing a RepositoryMilestone resource.
 type RepositoryMilestoneArgs struct {
-	// A description of the milestone.
 	Description pulumi.StringPtrInput
-	// The milestone due date. In `yyyy-mm-dd` format.
-	DueDate pulumi.StringPtrInput
-	// The owner of the GitHub Repository.
-	Owner pulumi.StringInput
-	// The name of the GitHub Repository.
+	// in yyyy-mm-dd format
+	DueDate    pulumi.StringPtrInput
+	Owner      pulumi.StringInput
 	Repository pulumi.StringInput
-	// The state of the milestone. Either `open` or `closed`. Default: `open`
-	State pulumi.StringPtrInput
-	// The title of the milestone.
-	Title pulumi.StringInput
+	State      pulumi.StringPtrInput
+	Title      pulumi.StringInput
 }
 
 func (RepositoryMilestoneArgs) ElementType() reflect.Type {
@@ -264,37 +195,31 @@ func (o RepositoryMilestoneOutput) ToRepositoryMilestoneOutputWithContext(ctx co
 	return o
 }
 
-// A description of the milestone.
 func (o RepositoryMilestoneOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RepositoryMilestone) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The milestone due date. In `yyyy-mm-dd` format.
+// in yyyy-mm-dd format
 func (o RepositoryMilestoneOutput) DueDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RepositoryMilestone) pulumi.StringPtrOutput { return v.DueDate }).(pulumi.StringPtrOutput)
 }
 
-// The number of the milestone.
 func (o RepositoryMilestoneOutput) Number() pulumi.IntOutput {
 	return o.ApplyT(func(v *RepositoryMilestone) pulumi.IntOutput { return v.Number }).(pulumi.IntOutput)
 }
 
-// The owner of the GitHub Repository.
 func (o RepositoryMilestoneOutput) Owner() pulumi.StringOutput {
 	return o.ApplyT(func(v *RepositoryMilestone) pulumi.StringOutput { return v.Owner }).(pulumi.StringOutput)
 }
 
-// The name of the GitHub Repository.
 func (o RepositoryMilestoneOutput) Repository() pulumi.StringOutput {
 	return o.ApplyT(func(v *RepositoryMilestone) pulumi.StringOutput { return v.Repository }).(pulumi.StringOutput)
 }
 
-// The state of the milestone. Either `open` or `closed`. Default: `open`
 func (o RepositoryMilestoneOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RepositoryMilestone) pulumi.StringPtrOutput { return v.State }).(pulumi.StringPtrOutput)
 }
 
-// The title of the milestone.
 func (o RepositoryMilestoneOutput) Title() pulumi.StringOutput {
 	return o.ApplyT(func(v *RepositoryMilestone) pulumi.StringOutput { return v.Title }).(pulumi.StringOutput)
 }

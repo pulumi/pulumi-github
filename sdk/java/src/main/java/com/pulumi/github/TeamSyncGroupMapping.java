@@ -16,22 +16,6 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * This resource allows you to create and manage Identity Provider (IdP) group connections within your GitHub teams.
- * You must have team synchronization enabled for organizations owned by enterprise accounts.
- * 
- * To learn more about team synchronization between IdPs and GitHub, please refer to:
- * https://help.github.com/en/github/setting-up-and-managing-organizations-and-teams/synchronizing-teams-between-your-identity-provider-and-github
- * 
- * ## Import
- * 
- * GitHub Team Sync Group Mappings can be imported using the GitHub team `slug` e.g.
- * 
- * ```sh
- *  $ pulumi import github:index/teamSyncGroupMapping:TeamSyncGroupMapping example some_team
- * ```
- * 
- */
 @ResourceType(type="github:index/teamSyncGroupMapping:TeamSyncGroupMapping")
 public class TeamSyncGroupMapping extends com.pulumi.resources.CustomResource {
     @Export(name="etag", type=String.class, parameters={})
@@ -40,33 +24,15 @@ public class TeamSyncGroupMapping extends com.pulumi.resources.CustomResource {
     public Output<String> etag() {
         return this.etag;
     }
-    /**
-     * An Array of GitHub Identity Provider Groups (or empty []).  Each `group` block consists of the fields documented below.
-     * ***
-     * 
-     */
     @Export(name="groups", type=List.class, parameters={TeamSyncGroupMappingGroup.class})
     private Output</* @Nullable */ List<TeamSyncGroupMappingGroup>> groups;
 
-    /**
-     * @return An Array of GitHub Identity Provider Groups (or empty []).  Each `group` block consists of the fields documented below.
-     * ***
-     * 
-     */
     public Output<Optional<List<TeamSyncGroupMappingGroup>>> groups() {
         return Codegen.optional(this.groups);
     }
-    /**
-     * Slug of the team
-     * 
-     */
     @Export(name="teamSlug", type=String.class, parameters={})
     private Output<String> teamSlug;
 
-    /**
-     * @return Slug of the team
-     * 
-     */
     public Output<String> teamSlug() {
         return this.teamSlug;
     }

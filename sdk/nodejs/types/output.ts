@@ -5,24 +5,12 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs } from "../types";
 
 export interface ActionsOrganizationPermissionsAllowedActionsConfig {
-    /**
-     * Whether GitHub-owned actions are allowed in the organization.
-     */
     githubOwnedAllowed: boolean;
-    /**
-     * Specifies a list of string-matching patterns to allow specific action(s). Wildcards, tags, and SHAs are allowed. For example, monalisa/octocat@*, monalisa/octocat@v2, monalisa/*."
-     */
     patternsAlloweds?: string[];
-    /**
-     * Whether actions in GitHub Marketplace from verified creators are allowed. Set to true to allow all GitHub Marketplace actions by verified creators.
-     */
     verifiedAllowed?: boolean;
 }
 
 export interface ActionsOrganizationPermissionsEnabledRepositoriesConfig {
-    /**
-     * List of repository IDs to enable for GitHub Actions.
-     */
     repositoryIds: number[];
 }
 
@@ -67,155 +55,64 @@ export interface BranchProtectionV3Restrictions {
     users?: string[];
 }
 
+export interface GetActionsOrganizationSecretsSecret {
+    createdAt: string;
+    name: string;
+    updatedAt: string;
+    visibility: string;
+}
+
+export interface GetActionsSecretsSecret {
+    createdAt: string;
+    name: string;
+    updatedAt: string;
+}
+
 export interface GetCollaboratorsCollaborator {
-    /**
-     * The GitHub API URL for the collaborator's events.
-     */
     eventsUrl: string;
-    /**
-     * The GitHub API URL for the collaborator's followers.
-     */
     followersUrl: string;
-    /**
-     * The GitHub API URL for those following the collaborator.
-     */
     followingUrl: string;
-    /**
-     * The GitHub API URL for the collaborator's gists.
-     */
     gistsUrl: string;
-    /**
-     * The GitHub HTML URL for the collaborator.
-     */
     htmlUrl: string;
-    /**
-     * The ID of the collaborator.
-     */
     id: number;
-    /**
-     * The collaborator's login.
-     */
     login: string;
-    /**
-     * The GitHub API URL for the collaborator's organizations.
-     */
     organizationsUrl: string;
-    /**
-     * The permission of the collaborator.
-     */
     permission: string;
-    /**
-     * The GitHub API URL for the collaborator's received events.
-     */
     receivedEventsUrl: string;
-    /**
-     * The GitHub API URL for the collaborator's repositories.
-     */
     reposUrl: string;
-    /**
-     * Whether the user is a GitHub admin.
-     */
     siteAdmin: boolean;
-    /**
-     * The GitHub API URL for the collaborator's starred repositories.
-     */
     starredUrl: string;
-    /**
-     * The GitHub API URL for the collaborator's subscribed repositories.
-     */
     subscriptionsUrl: string;
-    /**
-     * The type of the collaborator (ex. `user`).
-     */
     type: string;
-    /**
-     * The GitHub API URL for the collaborator.
-     */
     url: string;
 }
 
 export interface GetExternalGroupsExternalGroup {
-    /**
-     * the ID of the group.
-     */
     groupId: number;
-    /**
-     * the name of the group.
-     */
     groupName: string;
-    /**
-     * the date the group was last updated.
-     */
     updatedAt: string;
 }
 
 export interface GetOrganizationTeamSyncGroupsGroup {
-    /**
-     * The description of the IdP group.
-     */
     groupDescription: string;
-    /**
-     * The ID of the IdP group.
-     */
     groupId: string;
-    /**
-     * The name of the IdP group.
-     */
     groupName: string;
 }
 
 export interface GetOrganizationTeamsTeam {
-    /**
-     * the team's description.
-     */
     description: string;
-    /**
-     * the ID of the team.
-     */
     id: number;
-    /**
-     * List of team members.
-     */
     members: string[];
-    /**
-     * the team's full name.
-     */
     name: string;
-    /**
-     * the Node ID of the team.
-     */
     nodeId: string;
-    /**
-     * the team's privacy type.
-     */
     privacy: string;
-    /**
-     * List of team repositories.
-     */
     repositories: string[];
-    /**
-     * the slug of the team.
-     */
     slug: string;
-}
-
-export interface GetRepositoryBranch {
-    /**
-     * The name of the repository.
-     */
-    name: string;
-    /**
-     * Whether the branch is protected.
-     */
-    protected: boolean;
 }
 
 export interface GetRepositoryPage {
     cname: string;
     custom404: boolean;
-    /**
-     * URL to the repository on the web.
-     */
     htmlUrl: string;
     sources: outputs.GetRepositoryPageSource[];
     status: string;
@@ -228,70 +125,28 @@ export interface GetRepositoryPageSource {
 }
 
 export interface GetRepositoryPullRequestsResult {
-    /**
-     * If set, filters Pull Requests by base branch name.
-     */
     baseRef: string;
-    /**
-     * Head commit SHA of the Pull Request base.
-     */
     baseSha: string;
-    /**
-     * Body of the Pull Request.
-     */
     body: string;
-    /**
-     * Indicates Whether this Pull Request is a draft.
-     */
     draft: boolean;
-    /**
-     * Owner of the Pull Request head repository.
-     */
     headOwner: string;
-    /**
-     * If set, filters Pull Requests by head user or head organization and branch name in the format of "user:ref-name" or "organization:ref-name". For example: "github:new-script-format" or "octocat:test-branch".
-     */
     headRef: string;
-    /**
-     * Name of the Pull Request head repository.
-     */
     headRepository: string;
-    /**
-     * Head commit SHA of the Pull Request head.
-     */
     headSha: string;
-    /**
-     * List of label names set on the Pull Request.
-     */
     labels: string[];
-    /**
-     * Indicates whether the base repository maintainers can modify the Pull Request.
-     */
     maintainerCanModify: boolean;
-    /**
-     * The number of the Pull Request within the repository.
-     */
     number: number;
-    /**
-     * Unix timestamp indicating the Pull Request creation time.
-     */
     openedAt: number;
-    /**
-     * GitHub login of the user who opened the Pull Request.
-     */
     openedBy: string;
-    /**
-     * If set, filters Pull Requests by state. Can be "open", "closed", or "all". Default: "open".
-     */
     state: string;
-    /**
-     * The title of the Pull Request.
-     */
     title: string;
-    /**
-     * The timestamp of the last Pull Request update.
-     */
     updatedAt: number;
+}
+
+export interface GetRepositoryTeamsTeam {
+    name: string;
+    permission: string;
+    slug: string;
 }
 
 export interface GetTreeEntry {
@@ -306,77 +161,30 @@ export interface OrganizationWebhookConfiguration {
     contentType?: string;
     insecureSsl?: boolean;
     secret?: string;
-    /**
-     * URL of the webhook
-     */
     url: string;
 }
 
-export interface RepositoryBranch {
-    /**
-     * The name of the repository.
-     */
-    name: string;
-    /**
-     * Whether the branch is protected.
-     */
-    protected: boolean;
-}
-
 export interface RepositoryEnvironmentDeploymentBranchPolicy {
-    /**
-     * Whether only branches that match the specified name patterns can deploy to this environment.
-     */
     customBranchPolicies: boolean;
-    /**
-     * Whether only branches with branch protection rules can deploy to this environment.
-     */
     protectedBranches: boolean;
 }
 
 export interface RepositoryEnvironmentReviewer {
-    /**
-     * Up to 6 IDs for teams who may review jobs that reference the environment. Reviewers must have at least read access to the repository. Only one of the required reviewers needs to approve the job for it to proceed.
-     */
     teams?: number[];
-    /**
-     * Up to 6 IDs for users who may review jobs that reference the environment. Reviewers must have at least read access to the repository. Only one of the required reviewers needs to approve the job for it to proceed.
-     */
     users?: number[];
 }
 
 export interface RepositoryPages {
-    /**
-     * The custom domain for the repository. This can only be set after the repository has been created.
-     */
     cname?: string;
-    /**
-     * Whether the rendered GitHub Pages site has a custom 404 page.
-     */
     custom404: boolean;
-    /**
-     * The absolute URL (including scheme) of the rendered GitHub Pages site e.g. `https://username.github.io`.
-     */
     htmlUrl: string;
-    /**
-     * The source branch and directory for the rendered Pages site. See GitHub Pages Source below for details.
-     */
     source: outputs.RepositoryPagesSource;
-    /**
-     * The GitHub Pages site's build status e.g. `building` or `built`.
-     */
     status: string;
     url: string;
 }
 
 export interface RepositoryPagesSource {
-    /**
-     * The repository branch used to publish the site's source files. (i.e. `main` or `gh-pages`.
-     */
     branch: string;
-    /**
-     * The repository directory from which the site publishes (Default: `/`).
-     */
     path?: string;
 }
 
@@ -386,48 +194,20 @@ export interface RepositoryTemplate {
 }
 
 export interface RepositoryWebhookConfiguration {
-    /**
-     * The content type for the payload. Valid values are either `form` or `json`.
-     */
     contentType?: string;
-    /**
-     * Insecure SSL boolean toggle. Defaults to `false`.
-     */
     insecureSsl?: boolean;
-    /**
-     * The shared secret for the webhook. [See API documentation](https://developer.github.com/v3/repos/hooks/#create-a-hook).
-     */
     secret?: string;
-    /**
-     * The URL of the webhook.
-     */
     url: string;
 }
 
 export interface TeamMembersMember {
-    /**
-     * The role of the user within the team.
-     * Must be one of `member` or `maintainer`. Defaults to `member`.
-     */
     role?: string;
-    /**
-     * The user to add to the team.
-     */
     username: string;
 }
 
 export interface TeamSyncGroupMappingGroup {
-    /**
-     * The description of the IdP group.
-     */
     groupDescription: string;
-    /**
-     * The ID of the IdP group.
-     */
     groupId: string;
-    /**
-     * The name of the IdP group.
-     */
     groupName: string;
 }
 export namespace config {

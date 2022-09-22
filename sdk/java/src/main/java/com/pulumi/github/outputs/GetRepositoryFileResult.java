@@ -11,104 +11,37 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetRepositoryFileResult {
-    private final @Nullable String branch;
-    /**
-     * @return Committer author name.
-     * 
-     */
-    private final String commitAuthor;
-    /**
-     * @return Committer email address.
-     * 
-     */
-    private final String commitEmail;
-    /**
-     * @return Commit message when file was last updated.
-     * 
-     */
-    private final String commitMessage;
-    /**
-     * @return The SHA of the commit that modified the file.
-     * 
-     */
-    private final String commitSha;
-    /**
-     * @return The file content.
-     * 
-     */
-    private final String content;
-    private final String file;
+    private @Nullable String branch;
+    private String commitAuthor;
+    private String commitEmail;
+    private String commitMessage;
+    private String commitSha;
+    private String content;
+    private String file;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final String repository;
-    /**
-     * @return The SHA blob of the file.
-     * 
-     */
-    private final String sha;
+    private String id;
+    private String repository;
+    private String sha;
 
-    @CustomType.Constructor
-    private GetRepositoryFileResult(
-        @CustomType.Parameter("branch") @Nullable String branch,
-        @CustomType.Parameter("commitAuthor") String commitAuthor,
-        @CustomType.Parameter("commitEmail") String commitEmail,
-        @CustomType.Parameter("commitMessage") String commitMessage,
-        @CustomType.Parameter("commitSha") String commitSha,
-        @CustomType.Parameter("content") String content,
-        @CustomType.Parameter("file") String file,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("repository") String repository,
-        @CustomType.Parameter("sha") String sha) {
-        this.branch = branch;
-        this.commitAuthor = commitAuthor;
-        this.commitEmail = commitEmail;
-        this.commitMessage = commitMessage;
-        this.commitSha = commitSha;
-        this.content = content;
-        this.file = file;
-        this.id = id;
-        this.repository = repository;
-        this.sha = sha;
-    }
-
+    private GetRepositoryFileResult() {}
     public Optional<String> branch() {
         return Optional.ofNullable(this.branch);
     }
-    /**
-     * @return Committer author name.
-     * 
-     */
     public String commitAuthor() {
         return this.commitAuthor;
     }
-    /**
-     * @return Committer email address.
-     * 
-     */
     public String commitEmail() {
         return this.commitEmail;
     }
-    /**
-     * @return Commit message when file was last updated.
-     * 
-     */
     public String commitMessage() {
         return this.commitMessage;
     }
-    /**
-     * @return The SHA of the commit that modified the file.
-     * 
-     */
     public String commitSha() {
         return this.commitSha;
     }
-    /**
-     * @return The file content.
-     * 
-     */
     public String content() {
         return this.content;
     }
@@ -125,10 +58,6 @@ public final class GetRepositoryFileResult {
     public String repository() {
         return this.repository;
     }
-    /**
-     * @return The SHA blob of the file.
-     * 
-     */
     public String sha() {
         return this.sha;
     }
@@ -140,7 +69,7 @@ public final class GetRepositoryFileResult {
     public static Builder builder(GetRepositoryFileResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String branch;
         private String commitAuthor;
@@ -152,11 +81,7 @@ public final class GetRepositoryFileResult {
         private String id;
         private String repository;
         private String sha;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetRepositoryFileResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.branch = defaults.branch;
@@ -171,47 +96,69 @@ public final class GetRepositoryFileResult {
     	      this.sha = defaults.sha;
         }
 
+        @CustomType.Setter
         public Builder branch(@Nullable String branch) {
             this.branch = branch;
             return this;
         }
+        @CustomType.Setter
         public Builder commitAuthor(String commitAuthor) {
             this.commitAuthor = Objects.requireNonNull(commitAuthor);
             return this;
         }
+        @CustomType.Setter
         public Builder commitEmail(String commitEmail) {
             this.commitEmail = Objects.requireNonNull(commitEmail);
             return this;
         }
+        @CustomType.Setter
         public Builder commitMessage(String commitMessage) {
             this.commitMessage = Objects.requireNonNull(commitMessage);
             return this;
         }
+        @CustomType.Setter
         public Builder commitSha(String commitSha) {
             this.commitSha = Objects.requireNonNull(commitSha);
             return this;
         }
+        @CustomType.Setter
         public Builder content(String content) {
             this.content = Objects.requireNonNull(content);
             return this;
         }
+        @CustomType.Setter
         public Builder file(String file) {
             this.file = Objects.requireNonNull(file);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder repository(String repository) {
             this.repository = Objects.requireNonNull(repository);
             return this;
         }
+        @CustomType.Setter
         public Builder sha(String sha) {
             this.sha = Objects.requireNonNull(sha);
             return this;
-        }        public GetRepositoryFileResult build() {
-            return new GetRepositoryFileResult(branch, commitAuthor, commitEmail, commitMessage, commitSha, content, file, id, repository, sha);
+        }
+        public GetRepositoryFileResult build() {
+            final var o = new GetRepositoryFileResult();
+            o.branch = branch;
+            o.commitAuthor = commitAuthor;
+            o.commitEmail = commitEmail;
+            o.commitMessage = commitMessage;
+            o.commitSha = commitSha;
+            o.content = content;
+            o.file = file;
+            o.id = id;
+            o.repository = repository;
+            o.sha = sha;
+            return o;
         }
     }
 }

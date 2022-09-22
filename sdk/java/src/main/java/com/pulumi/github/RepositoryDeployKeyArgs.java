@@ -16,62 +16,30 @@ public final class RepositoryDeployKeyArgs extends com.pulumi.resources.Resource
 
     public static final RepositoryDeployKeyArgs Empty = new RepositoryDeployKeyArgs();
 
-    /**
-     * A SSH key.
-     * 
-     */
     @Import(name="key", required=true)
     private Output<String> key;
 
-    /**
-     * @return A SSH key.
-     * 
-     */
     public Output<String> key() {
         return this.key;
     }
 
-    /**
-     * A boolean qualifying the key to be either read only or read/write.
-     * 
-     */
     @Import(name="readOnly")
     private @Nullable Output<Boolean> readOnly;
 
-    /**
-     * @return A boolean qualifying the key to be either read only or read/write.
-     * 
-     */
     public Optional<Output<Boolean>> readOnly() {
         return Optional.ofNullable(this.readOnly);
     }
 
-    /**
-     * Name of the GitHub repository.
-     * 
-     */
     @Import(name="repository", required=true)
     private Output<String> repository;
 
-    /**
-     * @return Name of the GitHub repository.
-     * 
-     */
     public Output<String> repository() {
         return this.repository;
     }
 
-    /**
-     * A title.
-     * 
-     */
     @Import(name="title", required=true)
     private Output<String> title;
 
-    /**
-     * @return A title.
-     * 
-     */
     public Output<String> title() {
         return this.title;
     }
@@ -103,86 +71,38 @@ public final class RepositoryDeployKeyArgs extends com.pulumi.resources.Resource
             $ = new RepositoryDeployKeyArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param key A SSH key.
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(Output<String> key) {
             $.key = key;
             return this;
         }
 
-        /**
-         * @param key A SSH key.
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(String key) {
             return key(Output.of(key));
         }
 
-        /**
-         * @param readOnly A boolean qualifying the key to be either read only or read/write.
-         * 
-         * @return builder
-         * 
-         */
         public Builder readOnly(@Nullable Output<Boolean> readOnly) {
             $.readOnly = readOnly;
             return this;
         }
 
-        /**
-         * @param readOnly A boolean qualifying the key to be either read only or read/write.
-         * 
-         * @return builder
-         * 
-         */
         public Builder readOnly(Boolean readOnly) {
             return readOnly(Output.of(readOnly));
         }
 
-        /**
-         * @param repository Name of the GitHub repository.
-         * 
-         * @return builder
-         * 
-         */
         public Builder repository(Output<String> repository) {
             $.repository = repository;
             return this;
         }
 
-        /**
-         * @param repository Name of the GitHub repository.
-         * 
-         * @return builder
-         * 
-         */
         public Builder repository(String repository) {
             return repository(Output.of(repository));
         }
 
-        /**
-         * @param title A title.
-         * 
-         * @return builder
-         * 
-         */
         public Builder title(Output<String> title) {
             $.title = title;
             return this;
         }
 
-        /**
-         * @param title A title.
-         * 
-         * @return builder
-         * 
-         */
         public Builder title(String title) {
             return title(Output.of(title));
         }

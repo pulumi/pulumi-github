@@ -1,4 +1,5 @@
 env:
+  VERSION_PREFIX: 5.0.0
   GH_ORGANIZATION: ${{ secrets.GH_ORGANIZATION }}
   GH_TESTING_TOKEN: ${{ secrets.GH_TESTING_TOKEN }}
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

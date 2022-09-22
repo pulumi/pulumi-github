@@ -13,14 +13,7 @@ namespace Pulumi.Github.Outputs
     [OutputType]
     public sealed class TeamMembersMember
     {
-        /// <summary>
-        /// The role of the user within the team.
-        /// Must be one of `member` or `maintainer`. Defaults to `member`.
-        /// </summary>
         public readonly string? Role;
-        /// <summary>
-        /// The user to add to the team.
-        /// </summary>
         public readonly string Username;
 
         [OutputConstructor]

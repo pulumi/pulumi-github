@@ -9,63 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Github
 {
-    /// <summary>
-    /// &gt; **Note**: This resource is not compatible with the GitHub App Installation authentication method.
-    /// 
-    /// This resource manages relationships between app installations and repositories
-    /// in your GitHub organization.
-    /// 
-    /// Creating this resource installs a particular app on a particular repository.
-    /// 
-    /// The app installation and the repository must both belong to the same
-    /// organization on GitHub. Note: you can review your organization's installations
-    /// by the following the instructions at this
-    /// [link](https://docs.github.com/en/github/setting-up-and-managing-organizations-and-teams/reviewing-your-organizations-installed-integrations).
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Github = Pulumi.Github;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     // Create a repository.
-    ///     var someRepo = new Github.Repository("someRepo");
-    /// 
-    ///     var someAppRepo = new Github.AppInstallationRepository("someAppRepo", new()
-    ///     {
-    ///         InstallationId = "1234567",
-    ///         Repository = someRepo.Name,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// GitHub App Installation Repository can be imported using an ID made up of `installation_id:repository`, e.g.
-    /// 
-    /// ```sh
-    ///  $ pulumi import github:index/appInstallationRepository:AppInstallationRepository terraform_repo 1234567:terraform
-    /// ```
-    /// </summary>
     [GithubResourceType("github:index/appInstallationRepository:AppInstallationRepository")]
     public partial class AppInstallationRepository : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The GitHub app installation id.
-        /// </summary>
         [Output("installationId")]
         public Output<string> InstallationId { get; private set; } = null!;
 
         [Output("repoId")]
         public Output<int> RepoId { get; private set; } = null!;
 
-        /// <summary>
-        /// The repository to install the app on.
-        /// </summary>
         [Output("repository")]
         public Output<string> Repository { get; private set; } = null!;
 
@@ -115,15 +67,9 @@ namespace Pulumi.Github
 
     public sealed class AppInstallationRepositoryArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The GitHub app installation id.
-        /// </summary>
         [Input("installationId", required: true)]
         public Input<string> InstallationId { get; set; } = null!;
 
-        /// <summary>
-        /// The repository to install the app on.
-        /// </summary>
         [Input("repository", required: true)]
         public Input<string> Repository { get; set; } = null!;
 
@@ -135,18 +81,12 @@ namespace Pulumi.Github
 
     public sealed class AppInstallationRepositoryState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The GitHub app installation id.
-        /// </summary>
         [Input("installationId")]
         public Input<string>? InstallationId { get; set; }
 
         [Input("repoId")]
         public Input<int>? RepoId { get; set; }
 
-        /// <summary>
-        /// The repository to install the app on.
-        /// </summary>
         [Input("repository")]
         public Input<string>? Repository { get; set; }
 

@@ -37,17 +37,9 @@ public final class OrganizationWebhookConfigurationArgs extends com.pulumi.resou
         return Optional.ofNullable(this.secret);
     }
 
-    /**
-     * URL of the webhook
-     * 
-     */
     @Import(name="url", required=true)
     private Output<String> url;
 
-    /**
-     * @return URL of the webhook
-     * 
-     */
     public Output<String> url() {
         return this.url;
     }
@@ -106,23 +98,11 @@ public final class OrganizationWebhookConfigurationArgs extends com.pulumi.resou
             return secret(Output.of(secret));
         }
 
-        /**
-         * @param url URL of the webhook
-         * 
-         * @return builder
-         * 
-         */
         public Builder url(Output<String> url) {
             $.url = url;
             return this;
         }
 
-        /**
-         * @param url URL of the webhook
-         * 
-         * @return builder
-         * 
-         */
         public Builder url(String url) {
             return url(Output.of(url));
         }

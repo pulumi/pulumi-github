@@ -15,17 +15,9 @@ public final class UserInvitationAccepterState extends com.pulumi.resources.Reso
 
     public static final UserInvitationAccepterState Empty = new UserInvitationAccepterState();
 
-    /**
-     * ID of the invitation to accept
-     * 
-     */
     @Import(name="invitationId")
     private @Nullable Output<String> invitationId;
 
-    /**
-     * @return ID of the invitation to accept
-     * 
-     */
     public Optional<Output<String>> invitationId() {
         return Optional.ofNullable(this.invitationId);
     }
@@ -54,23 +46,11 @@ public final class UserInvitationAccepterState extends com.pulumi.resources.Reso
             $ = new UserInvitationAccepterState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param invitationId ID of the invitation to accept
-         * 
-         * @return builder
-         * 
-         */
         public Builder invitationId(@Nullable Output<String> invitationId) {
             $.invitationId = invitationId;
             return this;
         }
 
-        /**
-         * @param invitationId ID of the invitation to accept
-         * 
-         * @return builder
-         * 
-         */
         public Builder invitationId(String invitationId) {
             return invitationId(Output.of(invitationId));
         }

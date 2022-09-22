@@ -4,20 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
-/**
- * This resource allows you to create and manage projects for GitHub organization.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as github from "@pulumi/github";
- *
- * const project = new github.OrganizationProject("project", {
- *     body: "This is a organization project.",
- * });
- * ```
- */
 export class OrganizationProject extends pulumi.CustomResource {
     /**
      * Get an existing OrganizationProject resource's state with the given name, ID, and optional extra
@@ -46,18 +32,9 @@ export class OrganizationProject extends pulumi.CustomResource {
         return obj['__pulumiType'] === OrganizationProject.__pulumiType;
     }
 
-    /**
-     * The body of the project.
-     */
     public readonly body!: pulumi.Output<string | undefined>;
     public /*out*/ readonly etag!: pulumi.Output<string>;
-    /**
-     * The name of the project.
-     */
     public readonly name!: pulumi.Output<string>;
-    /**
-     * URL of the project
-     */
     public /*out*/ readonly url!: pulumi.Output<string>;
 
     /**
@@ -93,18 +70,9 @@ export class OrganizationProject extends pulumi.CustomResource {
  * Input properties used for looking up and filtering OrganizationProject resources.
  */
 export interface OrganizationProjectState {
-    /**
-     * The body of the project.
-     */
     body?: pulumi.Input<string>;
     etag?: pulumi.Input<string>;
-    /**
-     * The name of the project.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * URL of the project
-     */
     url?: pulumi.Input<string>;
 }
 
@@ -112,12 +80,6 @@ export interface OrganizationProjectState {
  * The set of arguments for constructing a OrganizationProject resource.
  */
 export interface OrganizationProjectArgs {
-    /**
-     * The body of the project.
-     */
     body?: pulumi.Input<string>;
-    /**
-     * The name of the project.
-     */
     name?: pulumi.Input<string>;
 }

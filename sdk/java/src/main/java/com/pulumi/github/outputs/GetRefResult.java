@@ -9,42 +9,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetRefResult {
-    /**
-     * @return An etag representing the ref.
-     * 
-     */
-    private final String etag;
+    private String etag;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final String ref;
-    private final String repository;
-    /**
-     * @return A string storing the reference&#39;s `HEAD` commit&#39;s SHA1.
-     * 
-     */
-    private final String sha;
+    private String id;
+    private String ref;
+    private String repository;
+    private String sha;
 
-    @CustomType.Constructor
-    private GetRefResult(
-        @CustomType.Parameter("etag") String etag,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("ref") String ref,
-        @CustomType.Parameter("repository") String repository,
-        @CustomType.Parameter("sha") String sha) {
-        this.etag = etag;
-        this.id = id;
-        this.ref = ref;
-        this.repository = repository;
-        this.sha = sha;
-    }
-
-    /**
-     * @return An etag representing the ref.
-     * 
-     */
+    private GetRefResult() {}
     public String etag() {
         return this.etag;
     }
@@ -61,10 +36,6 @@ public final class GetRefResult {
     public String repository() {
         return this.repository;
     }
-    /**
-     * @return A string storing the reference&#39;s `HEAD` commit&#39;s SHA1.
-     * 
-     */
     public String sha() {
         return this.sha;
     }
@@ -76,18 +47,14 @@ public final class GetRefResult {
     public static Builder builder(GetRefResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String etag;
         private String id;
         private String ref;
         private String repository;
         private String sha;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetRefResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.etag = defaults.etag;
@@ -97,27 +64,39 @@ public final class GetRefResult {
     	      this.sha = defaults.sha;
         }
 
+        @CustomType.Setter
         public Builder etag(String etag) {
             this.etag = Objects.requireNonNull(etag);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder ref(String ref) {
             this.ref = Objects.requireNonNull(ref);
             return this;
         }
+        @CustomType.Setter
         public Builder repository(String repository) {
             this.repository = Objects.requireNonNull(repository);
             return this;
         }
+        @CustomType.Setter
         public Builder sha(String sha) {
             this.sha = Objects.requireNonNull(sha);
             return this;
-        }        public GetRefResult build() {
-            return new GetRefResult(etag, id, ref, repository, sha);
+        }
+        public GetRefResult build() {
+            final var o = new GetRefResult();
+            o.etag = etag;
+            o.id = id;
+            o.ref = ref;
+            o.repository = repository;
+            o.sha = sha;
+            return o;
         }
     }
 }

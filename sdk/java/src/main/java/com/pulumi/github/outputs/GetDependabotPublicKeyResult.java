@@ -13,23 +13,12 @@ public final class GetDependabotPublicKeyResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final String key;
-    private final String keyId;
-    private final String repository;
+    private String id;
+    private String key;
+    private String keyId;
+    private String repository;
 
-    @CustomType.Constructor
-    private GetDependabotPublicKeyResult(
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("key") String key,
-        @CustomType.Parameter("keyId") String keyId,
-        @CustomType.Parameter("repository") String repository) {
-        this.id = id;
-        this.key = key;
-        this.keyId = keyId;
-        this.repository = repository;
-    }
-
+    private GetDependabotPublicKeyResult() {}
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -54,17 +43,13 @@ public final class GetDependabotPublicKeyResult {
     public static Builder builder(GetDependabotPublicKeyResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String id;
         private String key;
         private String keyId;
         private String repository;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetDependabotPublicKeyResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
@@ -73,23 +58,33 @@ public final class GetDependabotPublicKeyResult {
     	      this.repository = defaults.repository;
         }
 
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder key(String key) {
             this.key = Objects.requireNonNull(key);
             return this;
         }
+        @CustomType.Setter
         public Builder keyId(String keyId) {
             this.keyId = Objects.requireNonNull(keyId);
             return this;
         }
+        @CustomType.Setter
         public Builder repository(String repository) {
             this.repository = Objects.requireNonNull(repository);
             return this;
-        }        public GetDependabotPublicKeyResult build() {
-            return new GetDependabotPublicKeyResult(id, key, keyId, repository);
+        }
+        public GetDependabotPublicKeyResult build() {
+            final var o = new GetDependabotPublicKeyResult();
+            o.id = id;
+            o.key = key;
+            o.keyId = keyId;
+            o.repository = repository;
+            return o;
         }
     }
 }

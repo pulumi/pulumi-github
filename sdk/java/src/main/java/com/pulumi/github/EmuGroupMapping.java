@@ -14,49 +14,6 @@ import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * This resource manages mappings between external groups for enterprise managed users and GitHub teams. It wraps the API detailed [here](https://docs.github.com/en/rest/reference/teams#external-groups). Note that this is a distinct resource from `github.TeamSyncGroupMapping`. `github.EmuGroupMapping` is special to the Enterprise Managed User (EMU) external group feature, whereas `github.TeamSyncGroupMapping` is specific to Identity Provider Groups.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.github.EmuGroupMapping;
- * import com.pulumi.github.EmuGroupMappingArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var exampleEmuGroupMapping = new EmuGroupMapping(&#34;exampleEmuGroupMapping&#34;, EmuGroupMappingArgs.builder()        
- *             .groupId(28836)
- *             .teamSlug(&#34;emu-test-team&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * GitHub EMU External Group Mappings can be imported using the external `group_id`, e.g.
- * 
- * ```sh
- *  $ pulumi import github:index/emuGroupMapping:EmuGroupMapping example_emu_group_mapping 28836
- * ```
- * 
- */
 @ResourceType(type="github:index/emuGroupMapping:EmuGroupMapping")
 public class EmuGroupMapping extends com.pulumi.resources.CustomResource {
     @Export(name="etag", type=String.class, parameters={})
@@ -65,31 +22,15 @@ public class EmuGroupMapping extends com.pulumi.resources.CustomResource {
     public Output<String> etag() {
         return this.etag;
     }
-    /**
-     * Integer corresponding to the external group ID to be linked
-     * 
-     */
     @Export(name="groupId", type=Integer.class, parameters={})
     private Output<Integer> groupId;
 
-    /**
-     * @return Integer corresponding to the external group ID to be linked
-     * 
-     */
     public Output<Integer> groupId() {
         return this.groupId;
     }
-    /**
-     * Slug of the GitHub team
-     * 
-     */
     @Export(name="teamSlug", type=String.class, parameters={})
     private Output<String> teamSlug;
 
-    /**
-     * @return Slug of the GitHub team
-     * 
-     */
     public Output<String> teamSlug() {
         return this.teamSlug;
     }

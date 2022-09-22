@@ -13,32 +13,16 @@ public final class UserSshKeyArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final UserSshKeyArgs Empty = new UserSshKeyArgs();
 
-    /**
-     * The public SSH key to add to your GitHub account.
-     * 
-     */
     @Import(name="key", required=true)
     private Output<String> key;
 
-    /**
-     * @return The public SSH key to add to your GitHub account.
-     * 
-     */
     public Output<String> key() {
         return this.key;
     }
 
-    /**
-     * A descriptive name for the new key. e.g. `Personal MacBook Air`
-     * 
-     */
     @Import(name="title", required=true)
     private Output<String> title;
 
-    /**
-     * @return A descriptive name for the new key. e.g. `Personal MacBook Air`
-     * 
-     */
     public Output<String> title() {
         return this.title;
     }
@@ -68,44 +52,20 @@ public final class UserSshKeyArgs extends com.pulumi.resources.ResourceArgs {
             $ = new UserSshKeyArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param key The public SSH key to add to your GitHub account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(Output<String> key) {
             $.key = key;
             return this;
         }
 
-        /**
-         * @param key The public SSH key to add to your GitHub account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(String key) {
             return key(Output.of(key));
         }
 
-        /**
-         * @param title A descriptive name for the new key. e.g. `Personal MacBook Air`
-         * 
-         * @return builder
-         * 
-         */
         public Builder title(Output<String> title) {
             $.title = title;
             return this;
         }
 
-        /**
-         * @param title A descriptive name for the new key. e.g. `Personal MacBook Air`
-         * 
-         * @return builder
-         * 
-         */
         public Builder title(String title) {
             return title(Output.of(title));
         }

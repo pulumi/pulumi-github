@@ -11,75 +11,20 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a GitHub issue resource.
-//
-// This resource allows you to create and manage issue within your
-// GitHub repository.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-github/sdk/v4/go/github"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testRepository, err := github.NewRepository(ctx, "testRepository", &github.RepositoryArgs{
-//				AutoInit:  pulumi.Bool(true),
-//				HasIssues: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = github.NewIssue(ctx, "testIssue", &github.IssueArgs{
-//				Repository: testRepository.Name,
-//				Title:      pulumi.String("My issue title"),
-//				Body:       pulumi.String("The body of my issue"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// GitHub Issues can be imported using an ID made up of `repository:number`, e.g.
-//
-// ```sh
-//
-//	$ pulumi import github:index/issue:Issue issue_15 myrepo:15
-//
-// ```
 type Issue struct {
 	pulumi.CustomResourceState
 
-	// List of Logins to assign the to the issue.
+	// List of Logins for Users to assign to this issue
 	Assignees pulumi.StringArrayOutput `pulumi:"assignees"`
-	// Title of the issue.
-	Body pulumi.StringPtrOutput `pulumi:"body"`
-	Etag pulumi.StringOutput    `pulumi:"etag"`
-	// (Computed) - The issue id
-	IssueId pulumi.IntOutput `pulumi:"issueId"`
-	// List of labels to attach to the issue.
-	Labels pulumi.StringArrayOutput `pulumi:"labels"`
-	// Milestone number to assign to the issue
-	MilestoneNumber pulumi.IntPtrOutput `pulumi:"milestoneNumber"`
-	// (Computed) - The issue number
-	Number pulumi.IntOutput `pulumi:"number"`
-	// The GitHub repository name
-	Repository pulumi.StringOutput `pulumi:"repository"`
-	// Title of the issue.
-	Title pulumi.StringOutput `pulumi:"title"`
+	Body      pulumi.StringPtrOutput   `pulumi:"body"`
+	Etag      pulumi.StringOutput      `pulumi:"etag"`
+	IssueId   pulumi.IntOutput         `pulumi:"issueId"`
+	// List of names of labels on the issue
+	Labels          pulumi.StringArrayOutput `pulumi:"labels"`
+	MilestoneNumber pulumi.IntPtrOutput      `pulumi:"milestoneNumber"`
+	Number          pulumi.IntOutput         `pulumi:"number"`
+	Repository      pulumi.StringOutput      `pulumi:"repository"`
+	Title           pulumi.StringOutput      `pulumi:"title"`
 }
 
 // NewIssue registers a new resource with the given unique name, arguments, and options.
@@ -117,43 +62,31 @@ func GetIssue(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Issue resources.
 type issueState struct {
-	// List of Logins to assign the to the issue.
+	// List of Logins for Users to assign to this issue
 	Assignees []string `pulumi:"assignees"`
-	// Title of the issue.
-	Body *string `pulumi:"body"`
-	Etag *string `pulumi:"etag"`
-	// (Computed) - The issue id
-	IssueId *int `pulumi:"issueId"`
-	// List of labels to attach to the issue.
-	Labels []string `pulumi:"labels"`
-	// Milestone number to assign to the issue
-	MilestoneNumber *int `pulumi:"milestoneNumber"`
-	// (Computed) - The issue number
-	Number *int `pulumi:"number"`
-	// The GitHub repository name
-	Repository *string `pulumi:"repository"`
-	// Title of the issue.
-	Title *string `pulumi:"title"`
+	Body      *string  `pulumi:"body"`
+	Etag      *string  `pulumi:"etag"`
+	IssueId   *int     `pulumi:"issueId"`
+	// List of names of labels on the issue
+	Labels          []string `pulumi:"labels"`
+	MilestoneNumber *int     `pulumi:"milestoneNumber"`
+	Number          *int     `pulumi:"number"`
+	Repository      *string  `pulumi:"repository"`
+	Title           *string  `pulumi:"title"`
 }
 
 type IssueState struct {
-	// List of Logins to assign the to the issue.
+	// List of Logins for Users to assign to this issue
 	Assignees pulumi.StringArrayInput
-	// Title of the issue.
-	Body pulumi.StringPtrInput
-	Etag pulumi.StringPtrInput
-	// (Computed) - The issue id
-	IssueId pulumi.IntPtrInput
-	// List of labels to attach to the issue.
-	Labels pulumi.StringArrayInput
-	// Milestone number to assign to the issue
+	Body      pulumi.StringPtrInput
+	Etag      pulumi.StringPtrInput
+	IssueId   pulumi.IntPtrInput
+	// List of names of labels on the issue
+	Labels          pulumi.StringArrayInput
 	MilestoneNumber pulumi.IntPtrInput
-	// (Computed) - The issue number
-	Number pulumi.IntPtrInput
-	// The GitHub repository name
-	Repository pulumi.StringPtrInput
-	// Title of the issue.
-	Title pulumi.StringPtrInput
+	Number          pulumi.IntPtrInput
+	Repository      pulumi.StringPtrInput
+	Title           pulumi.StringPtrInput
 }
 
 func (IssueState) ElementType() reflect.Type {
@@ -161,34 +94,26 @@ func (IssueState) ElementType() reflect.Type {
 }
 
 type issueArgs struct {
-	// List of Logins to assign the to the issue.
+	// List of Logins for Users to assign to this issue
 	Assignees []string `pulumi:"assignees"`
-	// Title of the issue.
-	Body *string `pulumi:"body"`
-	// List of labels to attach to the issue.
-	Labels []string `pulumi:"labels"`
-	// Milestone number to assign to the issue
-	MilestoneNumber *int `pulumi:"milestoneNumber"`
-	// The GitHub repository name
-	Repository string `pulumi:"repository"`
-	// Title of the issue.
-	Title string `pulumi:"title"`
+	Body      *string  `pulumi:"body"`
+	// List of names of labels on the issue
+	Labels          []string `pulumi:"labels"`
+	MilestoneNumber *int     `pulumi:"milestoneNumber"`
+	Repository      string   `pulumi:"repository"`
+	Title           string   `pulumi:"title"`
 }
 
 // The set of arguments for constructing a Issue resource.
 type IssueArgs struct {
-	// List of Logins to assign the to the issue.
+	// List of Logins for Users to assign to this issue
 	Assignees pulumi.StringArrayInput
-	// Title of the issue.
-	Body pulumi.StringPtrInput
-	// List of labels to attach to the issue.
-	Labels pulumi.StringArrayInput
-	// Milestone number to assign to the issue
+	Body      pulumi.StringPtrInput
+	// List of names of labels on the issue
+	Labels          pulumi.StringArrayInput
 	MilestoneNumber pulumi.IntPtrInput
-	// The GitHub repository name
-	Repository pulumi.StringInput
-	// Title of the issue.
-	Title pulumi.StringInput
+	Repository      pulumi.StringInput
+	Title           pulumi.StringInput
 }
 
 func (IssueArgs) ElementType() reflect.Type {
@@ -278,12 +203,11 @@ func (o IssueOutput) ToIssueOutputWithContext(ctx context.Context) IssueOutput {
 	return o
 }
 
-// List of Logins to assign the to the issue.
+// List of Logins for Users to assign to this issue
 func (o IssueOutput) Assignees() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Issue) pulumi.StringArrayOutput { return v.Assignees }).(pulumi.StringArrayOutput)
 }
 
-// Title of the issue.
 func (o IssueOutput) Body() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Issue) pulumi.StringPtrOutput { return v.Body }).(pulumi.StringPtrOutput)
 }
@@ -292,32 +216,27 @@ func (o IssueOutput) Etag() pulumi.StringOutput {
 	return o.ApplyT(func(v *Issue) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
 }
 
-// (Computed) - The issue id
 func (o IssueOutput) IssueId() pulumi.IntOutput {
 	return o.ApplyT(func(v *Issue) pulumi.IntOutput { return v.IssueId }).(pulumi.IntOutput)
 }
 
-// List of labels to attach to the issue.
+// List of names of labels on the issue
 func (o IssueOutput) Labels() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Issue) pulumi.StringArrayOutput { return v.Labels }).(pulumi.StringArrayOutput)
 }
 
-// Milestone number to assign to the issue
 func (o IssueOutput) MilestoneNumber() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Issue) pulumi.IntPtrOutput { return v.MilestoneNumber }).(pulumi.IntPtrOutput)
 }
 
-// (Computed) - The issue number
 func (o IssueOutput) Number() pulumi.IntOutput {
 	return o.ApplyT(func(v *Issue) pulumi.IntOutput { return v.Number }).(pulumi.IntOutput)
 }
 
-// The GitHub repository name
 func (o IssueOutput) Repository() pulumi.StringOutput {
 	return o.ApplyT(func(v *Issue) pulumi.StringOutput { return v.Repository }).(pulumi.StringOutput)
 }
 
-// Title of the issue.
 func (o IssueOutput) Title() pulumi.StringOutput {
 	return o.ApplyT(func(v *Issue) pulumi.StringOutput { return v.Title }).(pulumi.StringOutput)
 }

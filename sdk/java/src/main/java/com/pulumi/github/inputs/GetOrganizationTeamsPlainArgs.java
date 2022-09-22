@@ -14,17 +14,9 @@ public final class GetOrganizationTeamsPlainArgs extends com.pulumi.resources.In
 
     public static final GetOrganizationTeamsPlainArgs Empty = new GetOrganizationTeamsPlainArgs();
 
-    /**
-     * Only return teams that are at the organization&#39;s root, i.e. no nested teams. Defaults to `false`.
-     * 
-     */
     @Import(name="rootTeamsOnly")
     private @Nullable Boolean rootTeamsOnly;
 
-    /**
-     * @return Only return teams that are at the organization&#39;s root, i.e. no nested teams. Defaults to `false`.
-     * 
-     */
     public Optional<Boolean> rootTeamsOnly() {
         return Optional.ofNullable(this.rootTeamsOnly);
     }
@@ -53,12 +45,6 @@ public final class GetOrganizationTeamsPlainArgs extends com.pulumi.resources.In
             $ = new GetOrganizationTeamsPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param rootTeamsOnly Only return teams that are at the organization&#39;s root, i.e. no nested teams. Defaults to `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder rootTeamsOnly(@Nullable Boolean rootTeamsOnly) {
             $.rootTeamsOnly = rootTeamsOnly;
             return this;

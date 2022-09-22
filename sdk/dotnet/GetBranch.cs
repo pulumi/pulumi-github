@@ -11,59 +11,9 @@ namespace Pulumi.Github
 {
     public static class GetBranch
     {
-        /// <summary>
-        /// Use this data source to retrieve information about a repository branch.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Github = Pulumi.Github;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var development = Github.GetBranch.Invoke(new()
-        ///     {
-        ///         Branch = "development",
-        ///         Repository = "example",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Task<GetBranchResult> InvokeAsync(GetBranchArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetBranchResult>("github:index/getBranch:getBranch", args ?? new GetBranchArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Use this data source to retrieve information about a repository branch.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Github = Pulumi.Github;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var development = Github.GetBranch.Invoke(new()
-        ///     {
-        ///         Branch = "development",
-        ///         Repository = "example",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Output<GetBranchResult> Invoke(GetBranchInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetBranchResult>("github:index/getBranch:getBranch", args ?? new GetBranchInvokeArgs(), options.WithDefaults());
     }
@@ -71,15 +21,9 @@ namespace Pulumi.Github
 
     public sealed class GetBranchArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The repository branch to create.
-        /// </summary>
         [Input("branch", required: true)]
         public string Branch { get; set; } = null!;
 
-        /// <summary>
-        /// The GitHub repository name.
-        /// </summary>
         [Input("repository", required: true)]
         public string Repository { get; set; } = null!;
 
@@ -91,15 +35,9 @@ namespace Pulumi.Github
 
     public sealed class GetBranchInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The repository branch to create.
-        /// </summary>
         [Input("branch", required: true)]
         public Input<string> Branch { get; set; } = null!;
 
-        /// <summary>
-        /// The GitHub repository name.
-        /// </summary>
         [Input("repository", required: true)]
         public Input<string> Repository { get; set; } = null!;
 
@@ -114,22 +52,13 @@ namespace Pulumi.Github
     public sealed class GetBranchResult
     {
         public readonly string Branch;
-        /// <summary>
-        /// An etag representing the Branch object.
-        /// </summary>
         public readonly string Etag;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// A string representing a branch reference, in the form of `refs/heads/&lt;branch&gt;`.
-        /// </summary>
         public readonly string Ref;
         public readonly string Repository;
-        /// <summary>
-        /// A string storing the reference's `HEAD` commit's SHA1.
-        /// </summary>
         public readonly string Sha;
 
         [OutputConstructor]

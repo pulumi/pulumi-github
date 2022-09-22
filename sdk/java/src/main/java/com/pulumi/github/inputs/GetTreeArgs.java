@@ -16,47 +16,23 @@ public final class GetTreeArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetTreeArgs Empty = new GetTreeArgs();
 
-    /**
-     * Setting this parameter to `true` returns the objects or subtrees referenced by the tree specified in `tree_sha`.
-     * 
-     */
     @Import(name="recursive")
     private @Nullable Output<Boolean> recursive;
 
-    /**
-     * @return Setting this parameter to `true` returns the objects or subtrees referenced by the tree specified in `tree_sha`.
-     * 
-     */
     public Optional<Output<Boolean>> recursive() {
         return Optional.ofNullable(this.recursive);
     }
 
-    /**
-     * The name of the repository.
-     * 
-     */
     @Import(name="repository", required=true)
     private Output<String> repository;
 
-    /**
-     * @return The name of the repository.
-     * 
-     */
     public Output<String> repository() {
         return this.repository;
     }
 
-    /**
-     * The SHA1 value for the tree.
-     * 
-     */
     @Import(name="treeSha", required=true)
     private Output<String> treeSha;
 
-    /**
-     * @return The SHA1 value for the tree.
-     * 
-     */
     public Output<String> treeSha() {
         return this.treeSha;
     }
@@ -87,65 +63,29 @@ public final class GetTreeArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetTreeArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param recursive Setting this parameter to `true` returns the objects or subtrees referenced by the tree specified in `tree_sha`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder recursive(@Nullable Output<Boolean> recursive) {
             $.recursive = recursive;
             return this;
         }
 
-        /**
-         * @param recursive Setting this parameter to `true` returns the objects or subtrees referenced by the tree specified in `tree_sha`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder recursive(Boolean recursive) {
             return recursive(Output.of(recursive));
         }
 
-        /**
-         * @param repository The name of the repository.
-         * 
-         * @return builder
-         * 
-         */
         public Builder repository(Output<String> repository) {
             $.repository = repository;
             return this;
         }
 
-        /**
-         * @param repository The name of the repository.
-         * 
-         * @return builder
-         * 
-         */
         public Builder repository(String repository) {
             return repository(Output.of(repository));
         }
 
-        /**
-         * @param treeSha The SHA1 value for the tree.
-         * 
-         * @return builder
-         * 
-         */
         public Builder treeSha(Output<String> treeSha) {
             $.treeSha = treeSha;
             return this;
         }
 
-        /**
-         * @param treeSha The SHA1 value for the tree.
-         * 
-         * @return builder
-         * 
-         */
         public Builder treeSha(String treeSha) {
             return treeSha(Output.of(treeSha));
         }

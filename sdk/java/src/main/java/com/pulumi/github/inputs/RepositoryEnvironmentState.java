@@ -26,32 +26,16 @@ public final class RepositoryEnvironmentState extends com.pulumi.resources.Resou
         return Optional.ofNullable(this.deploymentBranchPolicy);
     }
 
-    /**
-     * The name of the environment.
-     * 
-     */
     @Import(name="environment")
     private @Nullable Output<String> environment;
 
-    /**
-     * @return The name of the environment.
-     * 
-     */
     public Optional<Output<String>> environment() {
         return Optional.ofNullable(this.environment);
     }
 
-    /**
-     * The repository of the environment.
-     * 
-     */
     @Import(name="repository")
     private @Nullable Output<String> repository;
 
-    /**
-     * @return The repository of the environment.
-     * 
-     */
     public Optional<Output<String>> repository() {
         return Optional.ofNullable(this.repository);
     }
@@ -63,17 +47,9 @@ public final class RepositoryEnvironmentState extends com.pulumi.resources.Resou
         return Optional.ofNullable(this.reviewers);
     }
 
-    /**
-     * Amount of time to delay a job after the job is initially triggered.
-     * 
-     */
     @Import(name="waitTimer")
     private @Nullable Output<Integer> waitTimer;
 
-    /**
-     * @return Amount of time to delay a job after the job is initially triggered.
-     * 
-     */
     public Optional<Output<Integer>> waitTimer() {
         return Optional.ofNullable(this.waitTimer);
     }
@@ -115,44 +91,20 @@ public final class RepositoryEnvironmentState extends com.pulumi.resources.Resou
             return deploymentBranchPolicy(Output.of(deploymentBranchPolicy));
         }
 
-        /**
-         * @param environment The name of the environment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder environment(@Nullable Output<String> environment) {
             $.environment = environment;
             return this;
         }
 
-        /**
-         * @param environment The name of the environment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder environment(String environment) {
             return environment(Output.of(environment));
         }
 
-        /**
-         * @param repository The repository of the environment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder repository(@Nullable Output<String> repository) {
             $.repository = repository;
             return this;
         }
 
-        /**
-         * @param repository The repository of the environment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder repository(String repository) {
             return repository(Output.of(repository));
         }
@@ -170,23 +122,11 @@ public final class RepositoryEnvironmentState extends com.pulumi.resources.Resou
             return reviewers(List.of(reviewers));
         }
 
-        /**
-         * @param waitTimer Amount of time to delay a job after the job is initially triggered.
-         * 
-         * @return builder
-         * 
-         */
         public Builder waitTimer(@Nullable Output<Integer> waitTimer) {
             $.waitTimer = waitTimer;
             return this;
         }
 
-        /**
-         * @param waitTimer Amount of time to delay a job after the job is initially triggered.
-         * 
-         * @return builder
-         * 
-         */
         public Builder waitTimer(Integer waitTimer) {
             return waitTimer(Output.of(waitTimer));
         }

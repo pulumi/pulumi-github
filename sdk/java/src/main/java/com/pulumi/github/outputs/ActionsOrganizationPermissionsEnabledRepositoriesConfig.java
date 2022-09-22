@@ -10,21 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class ActionsOrganizationPermissionsEnabledRepositoriesConfig {
-    /**
-     * @return List of repository IDs to enable for GitHub Actions.
-     * 
-     */
-    private final List<Integer> repositoryIds;
+    private List<Integer> repositoryIds;
 
-    @CustomType.Constructor
-    private ActionsOrganizationPermissionsEnabledRepositoriesConfig(@CustomType.Parameter("repositoryIds") List<Integer> repositoryIds) {
-        this.repositoryIds = repositoryIds;
-    }
-
-    /**
-     * @return List of repository IDs to enable for GitHub Actions.
-     * 
-     */
+    private ActionsOrganizationPermissionsEnabledRepositoriesConfig() {}
     public List<Integer> repositoryIds() {
         return this.repositoryIds;
     }
@@ -36,27 +24,27 @@ public final class ActionsOrganizationPermissionsEnabledRepositoriesConfig {
     public static Builder builder(ActionsOrganizationPermissionsEnabledRepositoriesConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<Integer> repositoryIds;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ActionsOrganizationPermissionsEnabledRepositoriesConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.repositoryIds = defaults.repositoryIds;
         }
 
+        @CustomType.Setter
         public Builder repositoryIds(List<Integer> repositoryIds) {
             this.repositoryIds = Objects.requireNonNull(repositoryIds);
             return this;
         }
         public Builder repositoryIds(Integer... repositoryIds) {
             return repositoryIds(List.of(repositoryIds));
-        }        public ActionsOrganizationPermissionsEnabledRepositoriesConfig build() {
-            return new ActionsOrganizationPermissionsEnabledRepositoriesConfig(repositoryIds);
+        }
+        public ActionsOrganizationPermissionsEnabledRepositoriesConfig build() {
+            final var o = new ActionsOrganizationPermissionsEnabledRepositoriesConfig();
+            o.repositoryIds = repositoryIds;
+            return o;
         }
     }
 }

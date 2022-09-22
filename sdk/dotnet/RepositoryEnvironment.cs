@@ -9,84 +9,21 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Github
 {
-    /// <summary>
-    /// This resource allows you to create and manage environments for a GitHub repository.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Github = Pulumi.Github;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var current = Github.GetUser.Invoke(new()
-    ///     {
-    ///         Username = "",
-    ///     });
-    /// 
-    ///     var exampleRepository = new Github.Repository("exampleRepository", new()
-    ///     {
-    ///         Description = "My awesome codebase",
-    ///     });
-    /// 
-    ///     var exampleRepositoryEnvironment = new Github.RepositoryEnvironment("exampleRepositoryEnvironment", new()
-    ///     {
-    ///         Environment = "example",
-    ///         Repository = exampleRepository.Name,
-    ///         Reviewers = new[]
-    ///         {
-    ///             new Github.Inputs.RepositoryEnvironmentReviewerArgs
-    ///             {
-    ///                 Users = new[]
-    ///                 {
-    ///                     current.Apply(getUserResult =&gt; getUserResult.Id),
-    ///                 },
-    ///             },
-    ///         },
-    ///         DeploymentBranchPolicy = new Github.Inputs.RepositoryEnvironmentDeploymentBranchPolicyArgs
-    ///         {
-    ///             ProtectedBranches = true,
-    ///             CustomBranchPolicies = false,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// GitHub Repository Environment can be imported using an ID made up of `name` of the repository combined with the `environment` name of the environment, separated by a `:` character, e.g.
-    /// 
-    /// ```sh
-    ///  $ pulumi import github:index/repositoryEnvironment:RepositoryEnvironment daily terraform:daily
-    /// ```
-    /// </summary>
     [GithubResourceType("github:index/repositoryEnvironment:RepositoryEnvironment")]
     public partial class RepositoryEnvironment : global::Pulumi.CustomResource
     {
         [Output("deploymentBranchPolicy")]
         public Output<Outputs.RepositoryEnvironmentDeploymentBranchPolicy?> DeploymentBranchPolicy { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the environment.
-        /// </summary>
         [Output("environment")]
         public Output<string> Environment { get; private set; } = null!;
 
-        /// <summary>
-        /// The repository of the environment.
-        /// </summary>
         [Output("repository")]
         public Output<string> Repository { get; private set; } = null!;
 
         [Output("reviewers")]
         public Output<ImmutableArray<Outputs.RepositoryEnvironmentReviewer>> Reviewers { get; private set; } = null!;
 
-        /// <summary>
-        /// Amount of time to delay a job after the job is initially triggered.
-        /// </summary>
         [Output("waitTimer")]
         public Output<int?> WaitTimer { get; private set; } = null!;
 
@@ -139,15 +76,9 @@ namespace Pulumi.Github
         [Input("deploymentBranchPolicy")]
         public Input<Inputs.RepositoryEnvironmentDeploymentBranchPolicyArgs>? DeploymentBranchPolicy { get; set; }
 
-        /// <summary>
-        /// The name of the environment.
-        /// </summary>
         [Input("environment", required: true)]
         public Input<string> Environment { get; set; } = null!;
 
-        /// <summary>
-        /// The repository of the environment.
-        /// </summary>
         [Input("repository", required: true)]
         public Input<string> Repository { get; set; } = null!;
 
@@ -159,9 +90,6 @@ namespace Pulumi.Github
             set => _reviewers = value;
         }
 
-        /// <summary>
-        /// Amount of time to delay a job after the job is initially triggered.
-        /// </summary>
         [Input("waitTimer")]
         public Input<int>? WaitTimer { get; set; }
 
@@ -176,15 +104,9 @@ namespace Pulumi.Github
         [Input("deploymentBranchPolicy")]
         public Input<Inputs.RepositoryEnvironmentDeploymentBranchPolicyGetArgs>? DeploymentBranchPolicy { get; set; }
 
-        /// <summary>
-        /// The name of the environment.
-        /// </summary>
         [Input("environment")]
         public Input<string>? Environment { get; set; }
 
-        /// <summary>
-        /// The repository of the environment.
-        /// </summary>
         [Input("repository")]
         public Input<string>? Repository { get; set; }
 
@@ -196,9 +118,6 @@ namespace Pulumi.Github
             set => _reviewers = value;
         }
 
-        /// <summary>
-        /// Amount of time to delay a job after the job is initially triggered.
-        /// </summary>
         [Input("waitTimer")]
         public Input<int>? WaitTimer { get; set; }
 

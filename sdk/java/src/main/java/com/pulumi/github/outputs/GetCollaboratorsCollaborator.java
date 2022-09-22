@@ -11,232 +11,69 @@ import java.util.Objects;
 
 @CustomType
 public final class GetCollaboratorsCollaborator {
-    /**
-     * @return The GitHub API URL for the collaborator&#39;s events.
-     * 
-     */
-    private final String eventsUrl;
-    /**
-     * @return The GitHub API URL for the collaborator&#39;s followers.
-     * 
-     */
-    private final String followersUrl;
-    /**
-     * @return The GitHub API URL for those following the collaborator.
-     * 
-     */
-    private final String followingUrl;
-    /**
-     * @return The GitHub API URL for the collaborator&#39;s gists.
-     * 
-     */
-    private final String gistsUrl;
-    /**
-     * @return The GitHub HTML URL for the collaborator.
-     * 
-     */
-    private final String htmlUrl;
-    /**
-     * @return The ID of the collaborator.
-     * 
-     */
-    private final Integer id;
-    /**
-     * @return The collaborator&#39;s login.
-     * 
-     */
-    private final String login;
-    /**
-     * @return The GitHub API URL for the collaborator&#39;s organizations.
-     * 
-     */
-    private final String organizationsUrl;
-    /**
-     * @return The permission of the collaborator.
-     * 
-     */
-    private final String permission;
-    /**
-     * @return The GitHub API URL for the collaborator&#39;s received events.
-     * 
-     */
-    private final String receivedEventsUrl;
-    /**
-     * @return The GitHub API URL for the collaborator&#39;s repositories.
-     * 
-     */
-    private final String reposUrl;
-    /**
-     * @return Whether the user is a GitHub admin.
-     * 
-     */
-    private final Boolean siteAdmin;
-    /**
-     * @return The GitHub API URL for the collaborator&#39;s starred repositories.
-     * 
-     */
-    private final String starredUrl;
-    /**
-     * @return The GitHub API URL for the collaborator&#39;s subscribed repositories.
-     * 
-     */
-    private final String subscriptionsUrl;
-    /**
-     * @return The type of the collaborator (ex. `user`).
-     * 
-     */
-    private final String type;
-    /**
-     * @return The GitHub API URL for the collaborator.
-     * 
-     */
-    private final String url;
+    private String eventsUrl;
+    private String followersUrl;
+    private String followingUrl;
+    private String gistsUrl;
+    private String htmlUrl;
+    private Integer id;
+    private String login;
+    private String organizationsUrl;
+    private String permission;
+    private String receivedEventsUrl;
+    private String reposUrl;
+    private Boolean siteAdmin;
+    private String starredUrl;
+    private String subscriptionsUrl;
+    private String type;
+    private String url;
 
-    @CustomType.Constructor
-    private GetCollaboratorsCollaborator(
-        @CustomType.Parameter("eventsUrl") String eventsUrl,
-        @CustomType.Parameter("followersUrl") String followersUrl,
-        @CustomType.Parameter("followingUrl") String followingUrl,
-        @CustomType.Parameter("gistsUrl") String gistsUrl,
-        @CustomType.Parameter("htmlUrl") String htmlUrl,
-        @CustomType.Parameter("id") Integer id,
-        @CustomType.Parameter("login") String login,
-        @CustomType.Parameter("organizationsUrl") String organizationsUrl,
-        @CustomType.Parameter("permission") String permission,
-        @CustomType.Parameter("receivedEventsUrl") String receivedEventsUrl,
-        @CustomType.Parameter("reposUrl") String reposUrl,
-        @CustomType.Parameter("siteAdmin") Boolean siteAdmin,
-        @CustomType.Parameter("starredUrl") String starredUrl,
-        @CustomType.Parameter("subscriptionsUrl") String subscriptionsUrl,
-        @CustomType.Parameter("type") String type,
-        @CustomType.Parameter("url") String url) {
-        this.eventsUrl = eventsUrl;
-        this.followersUrl = followersUrl;
-        this.followingUrl = followingUrl;
-        this.gistsUrl = gistsUrl;
-        this.htmlUrl = htmlUrl;
-        this.id = id;
-        this.login = login;
-        this.organizationsUrl = organizationsUrl;
-        this.permission = permission;
-        this.receivedEventsUrl = receivedEventsUrl;
-        this.reposUrl = reposUrl;
-        this.siteAdmin = siteAdmin;
-        this.starredUrl = starredUrl;
-        this.subscriptionsUrl = subscriptionsUrl;
-        this.type = type;
-        this.url = url;
-    }
-
-    /**
-     * @return The GitHub API URL for the collaborator&#39;s events.
-     * 
-     */
+    private GetCollaboratorsCollaborator() {}
     public String eventsUrl() {
         return this.eventsUrl;
     }
-    /**
-     * @return The GitHub API URL for the collaborator&#39;s followers.
-     * 
-     */
     public String followersUrl() {
         return this.followersUrl;
     }
-    /**
-     * @return The GitHub API URL for those following the collaborator.
-     * 
-     */
     public String followingUrl() {
         return this.followingUrl;
     }
-    /**
-     * @return The GitHub API URL for the collaborator&#39;s gists.
-     * 
-     */
     public String gistsUrl() {
         return this.gistsUrl;
     }
-    /**
-     * @return The GitHub HTML URL for the collaborator.
-     * 
-     */
     public String htmlUrl() {
         return this.htmlUrl;
     }
-    /**
-     * @return The ID of the collaborator.
-     * 
-     */
     public Integer id() {
         return this.id;
     }
-    /**
-     * @return The collaborator&#39;s login.
-     * 
-     */
     public String login() {
         return this.login;
     }
-    /**
-     * @return The GitHub API URL for the collaborator&#39;s organizations.
-     * 
-     */
     public String organizationsUrl() {
         return this.organizationsUrl;
     }
-    /**
-     * @return The permission of the collaborator.
-     * 
-     */
     public String permission() {
         return this.permission;
     }
-    /**
-     * @return The GitHub API URL for the collaborator&#39;s received events.
-     * 
-     */
     public String receivedEventsUrl() {
         return this.receivedEventsUrl;
     }
-    /**
-     * @return The GitHub API URL for the collaborator&#39;s repositories.
-     * 
-     */
     public String reposUrl() {
         return this.reposUrl;
     }
-    /**
-     * @return Whether the user is a GitHub admin.
-     * 
-     */
     public Boolean siteAdmin() {
         return this.siteAdmin;
     }
-    /**
-     * @return The GitHub API URL for the collaborator&#39;s starred repositories.
-     * 
-     */
     public String starredUrl() {
         return this.starredUrl;
     }
-    /**
-     * @return The GitHub API URL for the collaborator&#39;s subscribed repositories.
-     * 
-     */
     public String subscriptionsUrl() {
         return this.subscriptionsUrl;
     }
-    /**
-     * @return The type of the collaborator (ex. `user`).
-     * 
-     */
     public String type() {
         return this.type;
     }
-    /**
-     * @return The GitHub API URL for the collaborator.
-     * 
-     */
     public String url() {
         return this.url;
     }
@@ -248,7 +85,7 @@ public final class GetCollaboratorsCollaborator {
     public static Builder builder(GetCollaboratorsCollaborator defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String eventsUrl;
         private String followersUrl;
@@ -266,11 +103,7 @@ public final class GetCollaboratorsCollaborator {
         private String subscriptionsUrl;
         private String type;
         private String url;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetCollaboratorsCollaborator defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.eventsUrl = defaults.eventsUrl;
@@ -291,71 +124,105 @@ public final class GetCollaboratorsCollaborator {
     	      this.url = defaults.url;
         }
 
+        @CustomType.Setter
         public Builder eventsUrl(String eventsUrl) {
             this.eventsUrl = Objects.requireNonNull(eventsUrl);
             return this;
         }
+        @CustomType.Setter
         public Builder followersUrl(String followersUrl) {
             this.followersUrl = Objects.requireNonNull(followersUrl);
             return this;
         }
+        @CustomType.Setter
         public Builder followingUrl(String followingUrl) {
             this.followingUrl = Objects.requireNonNull(followingUrl);
             return this;
         }
+        @CustomType.Setter
         public Builder gistsUrl(String gistsUrl) {
             this.gistsUrl = Objects.requireNonNull(gistsUrl);
             return this;
         }
+        @CustomType.Setter
         public Builder htmlUrl(String htmlUrl) {
             this.htmlUrl = Objects.requireNonNull(htmlUrl);
             return this;
         }
+        @CustomType.Setter
         public Builder id(Integer id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder login(String login) {
             this.login = Objects.requireNonNull(login);
             return this;
         }
+        @CustomType.Setter
         public Builder organizationsUrl(String organizationsUrl) {
             this.organizationsUrl = Objects.requireNonNull(organizationsUrl);
             return this;
         }
+        @CustomType.Setter
         public Builder permission(String permission) {
             this.permission = Objects.requireNonNull(permission);
             return this;
         }
+        @CustomType.Setter
         public Builder receivedEventsUrl(String receivedEventsUrl) {
             this.receivedEventsUrl = Objects.requireNonNull(receivedEventsUrl);
             return this;
         }
+        @CustomType.Setter
         public Builder reposUrl(String reposUrl) {
             this.reposUrl = Objects.requireNonNull(reposUrl);
             return this;
         }
+        @CustomType.Setter
         public Builder siteAdmin(Boolean siteAdmin) {
             this.siteAdmin = Objects.requireNonNull(siteAdmin);
             return this;
         }
+        @CustomType.Setter
         public Builder starredUrl(String starredUrl) {
             this.starredUrl = Objects.requireNonNull(starredUrl);
             return this;
         }
+        @CustomType.Setter
         public Builder subscriptionsUrl(String subscriptionsUrl) {
             this.subscriptionsUrl = Objects.requireNonNull(subscriptionsUrl);
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
         }
+        @CustomType.Setter
         public Builder url(String url) {
             this.url = Objects.requireNonNull(url);
             return this;
-        }        public GetCollaboratorsCollaborator build() {
-            return new GetCollaboratorsCollaborator(eventsUrl, followersUrl, followingUrl, gistsUrl, htmlUrl, id, login, organizationsUrl, permission, receivedEventsUrl, reposUrl, siteAdmin, starredUrl, subscriptionsUrl, type, url);
+        }
+        public GetCollaboratorsCollaborator build() {
+            final var o = new GetCollaboratorsCollaborator();
+            o.eventsUrl = eventsUrl;
+            o.followersUrl = followersUrl;
+            o.followingUrl = followingUrl;
+            o.gistsUrl = gistsUrl;
+            o.htmlUrl = htmlUrl;
+            o.id = id;
+            o.login = login;
+            o.organizationsUrl = organizationsUrl;
+            o.permission = permission;
+            o.receivedEventsUrl = receivedEventsUrl;
+            o.reposUrl = reposUrl;
+            o.siteAdmin = siteAdmin;
+            o.starredUrl = starredUrl;
+            o.subscriptionsUrl = subscriptionsUrl;
+            o.type = type;
+            o.url = url;
+            return o;
         }
     }
 }

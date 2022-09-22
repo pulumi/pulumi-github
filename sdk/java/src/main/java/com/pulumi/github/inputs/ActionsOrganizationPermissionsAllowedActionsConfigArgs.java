@@ -17,47 +17,23 @@ public final class ActionsOrganizationPermissionsAllowedActionsConfigArgs extend
 
     public static final ActionsOrganizationPermissionsAllowedActionsConfigArgs Empty = new ActionsOrganizationPermissionsAllowedActionsConfigArgs();
 
-    /**
-     * Whether GitHub-owned actions are allowed in the organization.
-     * 
-     */
     @Import(name="githubOwnedAllowed", required=true)
     private Output<Boolean> githubOwnedAllowed;
 
-    /**
-     * @return Whether GitHub-owned actions are allowed in the organization.
-     * 
-     */
     public Output<Boolean> githubOwnedAllowed() {
         return this.githubOwnedAllowed;
     }
 
-    /**
-     * Specifies a list of string-matching patterns to allow specific action(s). Wildcards, tags, and SHAs are allowed. For example, monalisa/octocat@*, monalisa/octocat@v2, monalisa/*.&#34;
-     * 
-     */
     @Import(name="patternsAlloweds")
     private @Nullable Output<List<String>> patternsAlloweds;
 
-    /**
-     * @return Specifies a list of string-matching patterns to allow specific action(s). Wildcards, tags, and SHAs are allowed. For example, monalisa/octocat@*, monalisa/octocat@v2, monalisa/*.&#34;
-     * 
-     */
     public Optional<Output<List<String>>> patternsAlloweds() {
         return Optional.ofNullable(this.patternsAlloweds);
     }
 
-    /**
-     * Whether actions in GitHub Marketplace from verified creators are allowed. Set to true to allow all GitHub Marketplace actions by verified creators.
-     * 
-     */
     @Import(name="verifiedAllowed")
     private @Nullable Output<Boolean> verifiedAllowed;
 
-    /**
-     * @return Whether actions in GitHub Marketplace from verified creators are allowed. Set to true to allow all GitHub Marketplace actions by verified creators.
-     * 
-     */
     public Optional<Output<Boolean>> verifiedAllowed() {
         return Optional.ofNullable(this.verifiedAllowed);
     }
@@ -88,75 +64,33 @@ public final class ActionsOrganizationPermissionsAllowedActionsConfigArgs extend
             $ = new ActionsOrganizationPermissionsAllowedActionsConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param githubOwnedAllowed Whether GitHub-owned actions are allowed in the organization.
-         * 
-         * @return builder
-         * 
-         */
         public Builder githubOwnedAllowed(Output<Boolean> githubOwnedAllowed) {
             $.githubOwnedAllowed = githubOwnedAllowed;
             return this;
         }
 
-        /**
-         * @param githubOwnedAllowed Whether GitHub-owned actions are allowed in the organization.
-         * 
-         * @return builder
-         * 
-         */
         public Builder githubOwnedAllowed(Boolean githubOwnedAllowed) {
             return githubOwnedAllowed(Output.of(githubOwnedAllowed));
         }
 
-        /**
-         * @param patternsAlloweds Specifies a list of string-matching patterns to allow specific action(s). Wildcards, tags, and SHAs are allowed. For example, monalisa/octocat@*, monalisa/octocat@v2, monalisa/*.&#34;
-         * 
-         * @return builder
-         * 
-         */
         public Builder patternsAlloweds(@Nullable Output<List<String>> patternsAlloweds) {
             $.patternsAlloweds = patternsAlloweds;
             return this;
         }
 
-        /**
-         * @param patternsAlloweds Specifies a list of string-matching patterns to allow specific action(s). Wildcards, tags, and SHAs are allowed. For example, monalisa/octocat@*, monalisa/octocat@v2, monalisa/*.&#34;
-         * 
-         * @return builder
-         * 
-         */
         public Builder patternsAlloweds(List<String> patternsAlloweds) {
             return patternsAlloweds(Output.of(patternsAlloweds));
         }
 
-        /**
-         * @param patternsAlloweds Specifies a list of string-matching patterns to allow specific action(s). Wildcards, tags, and SHAs are allowed. For example, monalisa/octocat@*, monalisa/octocat@v2, monalisa/*.&#34;
-         * 
-         * @return builder
-         * 
-         */
         public Builder patternsAlloweds(String... patternsAlloweds) {
             return patternsAlloweds(List.of(patternsAlloweds));
         }
 
-        /**
-         * @param verifiedAllowed Whether actions in GitHub Marketplace from verified creators are allowed. Set to true to allow all GitHub Marketplace actions by verified creators.
-         * 
-         * @return builder
-         * 
-         */
         public Builder verifiedAllowed(@Nullable Output<Boolean> verifiedAllowed) {
             $.verifiedAllowed = verifiedAllowed;
             return this;
         }
 
-        /**
-         * @param verifiedAllowed Whether actions in GitHub Marketplace from verified creators are allowed. Set to true to allow all GitHub Marketplace actions by verified creators.
-         * 
-         * @return builder
-         * 
-         */
         public Builder verifiedAllowed(Boolean verifiedAllowed) {
             return verifiedAllowed(Output.of(verifiedAllowed));
         }

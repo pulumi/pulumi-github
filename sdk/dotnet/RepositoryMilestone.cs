@@ -9,81 +9,30 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Github
 {
-    /// <summary>
-    /// Provides a GitHub repository milestone resource.
-    /// 
-    /// This resource allows you to create and manage milestones for a GitHub Repository within an organization or user account.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Github = Pulumi.Github;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     // Create a milestone for a repository
-    ///     var example = new Github.RepositoryMilestone("example", new()
-    ///     {
-    ///         Owner = "example-owner",
-    ///         Repository = "example-repository",
-    ///         Title = "v1.1.0",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// A GitHub Repository Milestone can be imported using an ID made up of `owner/repository/number`, e.g.
-    /// 
-    /// ```sh
-    ///  $ pulumi import github:index/repositoryMilestone:RepositoryMilestone example example-owner/example-repository/1
-    /// ```
-    /// </summary>
     [GithubResourceType("github:index/repositoryMilestone:RepositoryMilestone")]
     public partial class RepositoryMilestone : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// A description of the milestone.
-        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// The milestone due date. In `yyyy-mm-dd` format.
+        /// in yyyy-mm-dd format
         /// </summary>
         [Output("dueDate")]
         public Output<string?> DueDate { get; private set; } = null!;
 
-        /// <summary>
-        /// The number of the milestone.
-        /// </summary>
         [Output("number")]
         public Output<int> Number { get; private set; } = null!;
 
-        /// <summary>
-        /// The owner of the GitHub Repository.
-        /// </summary>
         [Output("owner")]
         public Output<string> Owner { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the GitHub Repository.
-        /// </summary>
         [Output("repository")]
         public Output<string> Repository { get; private set; } = null!;
 
-        /// <summary>
-        /// The state of the milestone. Either `open` or `closed`. Default: `open`
-        /// </summary>
         [Output("state")]
         public Output<string?> State { get; private set; } = null!;
 
-        /// <summary>
-        /// The title of the milestone.
-        /// </summary>
         [Output("title")]
         public Output<string> Title { get; private set; } = null!;
 
@@ -133,39 +82,24 @@ namespace Pulumi.Github
 
     public sealed class RepositoryMilestoneArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// A description of the milestone.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The milestone due date. In `yyyy-mm-dd` format.
+        /// in yyyy-mm-dd format
         /// </summary>
         [Input("dueDate")]
         public Input<string>? DueDate { get; set; }
 
-        /// <summary>
-        /// The owner of the GitHub Repository.
-        /// </summary>
         [Input("owner", required: true)]
         public Input<string> Owner { get; set; } = null!;
 
-        /// <summary>
-        /// The name of the GitHub Repository.
-        /// </summary>
         [Input("repository", required: true)]
         public Input<string> Repository { get; set; } = null!;
 
-        /// <summary>
-        /// The state of the milestone. Either `open` or `closed`. Default: `open`
-        /// </summary>
         [Input("state")]
         public Input<string>? State { get; set; }
 
-        /// <summary>
-        /// The title of the milestone.
-        /// </summary>
         [Input("title", required: true)]
         public Input<string> Title { get; set; } = null!;
 
@@ -177,45 +111,27 @@ namespace Pulumi.Github
 
     public sealed class RepositoryMilestoneState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// A description of the milestone.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The milestone due date. In `yyyy-mm-dd` format.
+        /// in yyyy-mm-dd format
         /// </summary>
         [Input("dueDate")]
         public Input<string>? DueDate { get; set; }
 
-        /// <summary>
-        /// The number of the milestone.
-        /// </summary>
         [Input("number")]
         public Input<int>? Number { get; set; }
 
-        /// <summary>
-        /// The owner of the GitHub Repository.
-        /// </summary>
         [Input("owner")]
         public Input<string>? Owner { get; set; }
 
-        /// <summary>
-        /// The name of the GitHub Repository.
-        /// </summary>
         [Input("repository")]
         public Input<string>? Repository { get; set; }
 
-        /// <summary>
-        /// The state of the milestone. Either `open` or `closed`. Default: `open`
-        /// </summary>
         [Input("state")]
         public Input<string>? State { get; set; }
 
-        /// <summary>
-        /// The title of the milestone.
-        /// </summary>
         [Input("title")]
         public Input<string>? Title { get; set; }
 

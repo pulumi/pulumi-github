@@ -11,25 +11,23 @@ namespace Pulumi.Github.Outputs
 {
 
     [OutputType]
-    public sealed class RepositoryBranch
+    public sealed class GetRepositoryTeamsTeamResult
     {
-        /// <summary>
-        /// The name of the repository.
-        /// </summary>
-        public readonly string? Name;
-        /// <summary>
-        /// Whether the branch is protected.
-        /// </summary>
-        public readonly bool? Protected;
+        public readonly string Name;
+        public readonly string Permission;
+        public readonly string Slug;
 
         [OutputConstructor]
-        private RepositoryBranch(
-            string? name,
+        private GetRepositoryTeamsTeamResult(
+            string name,
 
-            bool? @protected)
+            string permission,
+
+            string slug)
         {
             Name = name;
-            Protected = @protected;
+            Permission = permission;
+            Slug = slug;
         }
     }
 }

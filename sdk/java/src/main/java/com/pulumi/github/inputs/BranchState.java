@@ -15,107 +15,51 @@ public final class BranchState extends com.pulumi.resources.ResourceArgs {
 
     public static final BranchState Empty = new BranchState();
 
-    /**
-     * The repository branch to create.
-     * 
-     */
     @Import(name="branch")
     private @Nullable Output<String> branch;
 
-    /**
-     * @return The repository branch to create.
-     * 
-     */
     public Optional<Output<String>> branch() {
         return Optional.ofNullable(this.branch);
     }
 
-    /**
-     * An etag representing the Branch object.
-     * 
-     */
     @Import(name="etag")
     private @Nullable Output<String> etag;
 
-    /**
-     * @return An etag representing the Branch object.
-     * 
-     */
     public Optional<Output<String>> etag() {
         return Optional.ofNullable(this.etag);
     }
 
-    /**
-     * A string representing a branch reference, in the form of `refs/heads/&lt;branch&gt;`.
-     * 
-     */
     @Import(name="ref")
     private @Nullable Output<String> ref;
 
-    /**
-     * @return A string representing a branch reference, in the form of `refs/heads/&lt;branch&gt;`.
-     * 
-     */
     public Optional<Output<String>> ref() {
         return Optional.ofNullable(this.ref);
     }
 
-    /**
-     * The GitHub repository name.
-     * 
-     */
     @Import(name="repository")
     private @Nullable Output<String> repository;
 
-    /**
-     * @return The GitHub repository name.
-     * 
-     */
     public Optional<Output<String>> repository() {
         return Optional.ofNullable(this.repository);
     }
 
-    /**
-     * A string storing the reference&#39;s `HEAD` commit&#39;s SHA1.
-     * 
-     */
     @Import(name="sha")
     private @Nullable Output<String> sha;
 
-    /**
-     * @return A string storing the reference&#39;s `HEAD` commit&#39;s SHA1.
-     * 
-     */
     public Optional<Output<String>> sha() {
         return Optional.ofNullable(this.sha);
     }
 
-    /**
-     * The branch name to start from. Defaults to `main`.
-     * 
-     */
     @Import(name="sourceBranch")
     private @Nullable Output<String> sourceBranch;
 
-    /**
-     * @return The branch name to start from. Defaults to `main`.
-     * 
-     */
     public Optional<Output<String>> sourceBranch() {
         return Optional.ofNullable(this.sourceBranch);
     }
 
-    /**
-     * The commit hash to start from. Defaults to the tip of `source_branch`. If provided, `source_branch` is ignored.
-     * 
-     */
     @Import(name="sourceSha")
     private @Nullable Output<String> sourceSha;
 
-    /**
-     * @return The commit hash to start from. Defaults to the tip of `source_branch`. If provided, `source_branch` is ignored.
-     * 
-     */
     public Optional<Output<String>> sourceSha() {
         return Optional.ofNullable(this.sourceSha);
     }
@@ -150,149 +94,65 @@ public final class BranchState extends com.pulumi.resources.ResourceArgs {
             $ = new BranchState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param branch The repository branch to create.
-         * 
-         * @return builder
-         * 
-         */
         public Builder branch(@Nullable Output<String> branch) {
             $.branch = branch;
             return this;
         }
 
-        /**
-         * @param branch The repository branch to create.
-         * 
-         * @return builder
-         * 
-         */
         public Builder branch(String branch) {
             return branch(Output.of(branch));
         }
 
-        /**
-         * @param etag An etag representing the Branch object.
-         * 
-         * @return builder
-         * 
-         */
         public Builder etag(@Nullable Output<String> etag) {
             $.etag = etag;
             return this;
         }
 
-        /**
-         * @param etag An etag representing the Branch object.
-         * 
-         * @return builder
-         * 
-         */
         public Builder etag(String etag) {
             return etag(Output.of(etag));
         }
 
-        /**
-         * @param ref A string representing a branch reference, in the form of `refs/heads/&lt;branch&gt;`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ref(@Nullable Output<String> ref) {
             $.ref = ref;
             return this;
         }
 
-        /**
-         * @param ref A string representing a branch reference, in the form of `refs/heads/&lt;branch&gt;`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ref(String ref) {
             return ref(Output.of(ref));
         }
 
-        /**
-         * @param repository The GitHub repository name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder repository(@Nullable Output<String> repository) {
             $.repository = repository;
             return this;
         }
 
-        /**
-         * @param repository The GitHub repository name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder repository(String repository) {
             return repository(Output.of(repository));
         }
 
-        /**
-         * @param sha A string storing the reference&#39;s `HEAD` commit&#39;s SHA1.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sha(@Nullable Output<String> sha) {
             $.sha = sha;
             return this;
         }
 
-        /**
-         * @param sha A string storing the reference&#39;s `HEAD` commit&#39;s SHA1.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sha(String sha) {
             return sha(Output.of(sha));
         }
 
-        /**
-         * @param sourceBranch The branch name to start from. Defaults to `main`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceBranch(@Nullable Output<String> sourceBranch) {
             $.sourceBranch = sourceBranch;
             return this;
         }
 
-        /**
-         * @param sourceBranch The branch name to start from. Defaults to `main`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceBranch(String sourceBranch) {
             return sourceBranch(Output.of(sourceBranch));
         }
 
-        /**
-         * @param sourceSha The commit hash to start from. Defaults to the tip of `source_branch`. If provided, `source_branch` is ignored.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceSha(@Nullable Output<String> sourceSha) {
             $.sourceSha = sourceSha;
             return this;
         }
 
-        /**
-         * @param sourceSha The commit hash to start from. Defaults to the tip of `source_branch`. If provided, `source_branch` is ignored.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceSha(String sourceSha) {
             return sourceSha(Output.of(sourceSha));
         }

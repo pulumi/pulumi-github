@@ -11,38 +11,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class TeamMembersMember {
-    /**
-     * @return The role of the user within the team.
-     * Must be one of `member` or `maintainer`. Defaults to `member`.
-     * 
-     */
-    private final @Nullable String role;
-    /**
-     * @return The user to add to the team.
-     * 
-     */
-    private final String username;
+    private @Nullable String role;
+    private String username;
 
-    @CustomType.Constructor
-    private TeamMembersMember(
-        @CustomType.Parameter("role") @Nullable String role,
-        @CustomType.Parameter("username") String username) {
-        this.role = role;
-        this.username = username;
-    }
-
-    /**
-     * @return The role of the user within the team.
-     * Must be one of `member` or `maintainer`. Defaults to `member`.
-     * 
-     */
+    private TeamMembersMember() {}
     public Optional<String> role() {
         return Optional.ofNullable(this.role);
     }
-    /**
-     * @return The user to add to the team.
-     * 
-     */
     public String username() {
         return this.username;
     }
@@ -54,30 +29,32 @@ public final class TeamMembersMember {
     public static Builder builder(TeamMembersMember defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String role;
         private String username;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(TeamMembersMember defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.role = defaults.role;
     	      this.username = defaults.username;
         }
 
+        @CustomType.Setter
         public Builder role(@Nullable String role) {
             this.role = role;
             return this;
         }
+        @CustomType.Setter
         public Builder username(String username) {
             this.username = Objects.requireNonNull(username);
             return this;
-        }        public TeamMembersMember build() {
-            return new TeamMembersMember(role, username);
+        }
+        public TeamMembersMember build() {
+            final var o = new TeamMembersMember();
+            o.role = role;
+            o.username = username;
+            return o;
         }
     }
 }

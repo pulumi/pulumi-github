@@ -11,27 +11,6 @@ namespace Pulumi.Github
 {
     public static class GetOrganizationTeamSyncGroups
     {
-        /// <summary>
-        /// Use this data source to retrieve the identity provider (IdP) groups for an organization.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Github = Pulumi.Github;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Github.GetOrganizationTeamSyncGroups.Invoke();
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Task<GetOrganizationTeamSyncGroupsResult> InvokeAsync(InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetOrganizationTeamSyncGroupsResult>("github:index/getOrganizationTeamSyncGroups:getOrganizationTeamSyncGroups", InvokeArgs.Empty, options.WithDefaults());
     }
@@ -40,9 +19,6 @@ namespace Pulumi.Github
     [OutputType]
     public sealed class GetOrganizationTeamSyncGroupsResult
     {
-        /// <summary>
-        /// An Array of GitHub Identity Provider Groups.  Each `group` block consists of the fields documented below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetOrganizationTeamSyncGroupsGroupResult> Groups;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.

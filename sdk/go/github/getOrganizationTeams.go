@@ -10,59 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Use this data source to retrieve information about all GitHub teams in an organization.
-//
-// ## Example Usage
-//
-// To retrieve *all* teams of the organization:
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-github/sdk/v4/go/github"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := github.GetOrganizationTeams(ctx, nil, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// To retrieve only the team's at the root of the organization:
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-github/sdk/v4/go/github"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := github.GetOrganizationTeams(ctx, &GetOrganizationTeamsArgs{
-//				RootTeamsOnly: pulumi.BoolRef(true),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetOrganizationTeams(ctx *pulumi.Context, args *GetOrganizationTeamsArgs, opts ...pulumi.InvokeOption) (*GetOrganizationTeamsResult, error) {
 	var rv GetOrganizationTeamsResult
 	err := ctx.Invoke("github:index/getOrganizationTeams:getOrganizationTeams", args, &rv, opts...)
@@ -74,19 +21,15 @@ func GetOrganizationTeams(ctx *pulumi.Context, args *GetOrganizationTeamsArgs, o
 
 // A collection of arguments for invoking getOrganizationTeams.
 type GetOrganizationTeamsArgs struct {
-	// Only return teams that are at the organization's root, i.e. no nested teams. Defaults to `false`.
 	RootTeamsOnly *bool `pulumi:"rootTeamsOnly"`
 }
 
 // A collection of values returned by getOrganizationTeams.
 type GetOrganizationTeamsResult struct {
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// Only return teams that are at the organization's root, i.e. no nested teams. Defaults to `false`.
-	RootTeamsOnly *bool `pulumi:"rootTeamsOnly"`
-	// An Array of GitHub Teams.  Each `team` block consists of the fields documented below.
-	// ***
-	Teams []GetOrganizationTeamsTeam `pulumi:"teams"`
+	Id            string                     `pulumi:"id"`
+	RootTeamsOnly *bool                      `pulumi:"rootTeamsOnly"`
+	Teams         []GetOrganizationTeamsTeam `pulumi:"teams"`
 }
 
 func GetOrganizationTeamsOutput(ctx *pulumi.Context, args GetOrganizationTeamsOutputArgs, opts ...pulumi.InvokeOption) GetOrganizationTeamsResultOutput {
@@ -104,7 +47,6 @@ func GetOrganizationTeamsOutput(ctx *pulumi.Context, args GetOrganizationTeamsOu
 
 // A collection of arguments for invoking getOrganizationTeams.
 type GetOrganizationTeamsOutputArgs struct {
-	// Only return teams that are at the organization's root, i.e. no nested teams. Defaults to `false`.
 	RootTeamsOnly pulumi.BoolPtrInput `pulumi:"rootTeamsOnly"`
 }
 
@@ -132,13 +74,10 @@ func (o GetOrganizationTeamsResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetOrganizationTeamsResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Only return teams that are at the organization's root, i.e. no nested teams. Defaults to `false`.
 func (o GetOrganizationTeamsResultOutput) RootTeamsOnly() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetOrganizationTeamsResult) *bool { return v.RootTeamsOnly }).(pulumi.BoolPtrOutput)
 }
 
-// An Array of GitHub Teams.  Each `team` block consists of the fields documented below.
-// ***
 func (o GetOrganizationTeamsResultOutput) Teams() GetOrganizationTeamsTeamArrayOutput {
 	return o.ApplyT(func(v GetOrganizationTeamsResult) []GetOrganizationTeamsTeam { return v.Teams }).(GetOrganizationTeamsTeamArrayOutput)
 }

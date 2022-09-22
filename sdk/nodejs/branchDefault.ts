@@ -4,41 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
-/**
- * Provides a GitHub branch default resource.
- *
- * This resource allows you to set the default branch for a given repository.
- *
- * Note that use of this resource is incompatible with the `defaultBranch` option of the `github.Repository` resource.  Using both will result in plans always showing a diff.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as github from "@pulumi/github";
- *
- * const example = new github.Repository("example", {
- *     description: "My awesome codebase",
- *     autoInit: true,
- * });
- * const development = new github.Branch("development", {
- *     repository: example.name,
- *     branch: "development",
- * });
- * const _default = new github.BranchDefault("default", {
- *     repository: example.name,
- *     branch: development.branch,
- * });
- * ```
- *
- * ## Import
- *
- * GitHub Branch Defaults can be imported using an ID made up of `repository`, e.g.
- *
- * ```sh
- *  $ pulumi import github:index/branchDefault:BranchDefault branch_default my-repo
- * ```
- */
 export class BranchDefault extends pulumi.CustomResource {
     /**
      * Get an existing BranchDefault resource's state with the given name, ID, and optional extra
@@ -67,13 +32,7 @@ export class BranchDefault extends pulumi.CustomResource {
         return obj['__pulumiType'] === BranchDefault.__pulumiType;
     }
 
-    /**
-     * The branch (e.g. `main`)
-     */
     public readonly branch!: pulumi.Output<string>;
-    /**
-     * The GitHub repository
-     */
     public readonly repository!: pulumi.Output<string>;
 
     /**
@@ -111,13 +70,7 @@ export class BranchDefault extends pulumi.CustomResource {
  * Input properties used for looking up and filtering BranchDefault resources.
  */
 export interface BranchDefaultState {
-    /**
-     * The branch (e.g. `main`)
-     */
     branch?: pulumi.Input<string>;
-    /**
-     * The GitHub repository
-     */
     repository?: pulumi.Input<string>;
 }
 
@@ -125,12 +78,6 @@ export interface BranchDefaultState {
  * The set of arguments for constructing a BranchDefault resource.
  */
 export interface BranchDefaultArgs {
-    /**
-     * The branch (e.g. `main`)
-     */
     branch: pulumi.Input<string>;
-    /**
-     * The GitHub repository
-     */
     repository: pulumi.Input<string>;
 }

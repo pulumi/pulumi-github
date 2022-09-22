@@ -4,24 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
-/**
- * This resource allows you to create and manage PullRequests for repositories within your GitHub organization or personal account.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as github from "@pulumi/github";
- *
- * const example = new github.RepositoryPullRequest("example", {
- *     baseRef: "main",
- *     baseRepository: "example-repository",
- *     body: "This will change everything",
- *     headRef: "feature-branch",
- *     title: "My newest feature",
- * });
- * ```
- */
 export class RepositoryPullRequest extends pulumi.CustomResource {
     /**
      * Get an existing RepositoryPullRequest resource's state with the given name, ID, and optional extra
@@ -50,69 +32,27 @@ export class RepositoryPullRequest extends pulumi.CustomResource {
         return obj['__pulumiType'] === RepositoryPullRequest.__pulumiType;
     }
 
-    /**
-     * Name of the branch serving as the base of the Pull Request.
-     */
     public readonly baseRef!: pulumi.Output<string>;
-    /**
-     * Name of the base repository to retrieve the Pull Requests from.
-     */
     public readonly baseRepository!: pulumi.Output<string>;
-    /**
-     * Head commit SHA of the Pull Request base.
-     */
     public /*out*/ readonly baseSha!: pulumi.Output<string>;
-    /**
-     * Body of the Pull Request.
-     */
     public readonly body!: pulumi.Output<string | undefined>;
-    /**
-     * Indicates Whether this Pull Request is a draft.
-     */
     public /*out*/ readonly draft!: pulumi.Output<boolean>;
-    /**
-     * Name of the branch serving as the head of the Pull Request.
-     */
     public readonly headRef!: pulumi.Output<string>;
-    /**
-     * Head commit SHA of the Pull Request head.
-     */
     public /*out*/ readonly headSha!: pulumi.Output<string>;
     /**
-     * List of label names set on the Pull Request.
+     * List of names of labels on the PR
      */
     public /*out*/ readonly labels!: pulumi.Output<string[]>;
-    /**
-     * Controls whether the base repository maintainers can modify the Pull Request. Default: false.
-     */
     public readonly maintainerCanModify!: pulumi.Output<boolean | undefined>;
-    /**
-     * The number of the Pull Request within the repository.
-     */
     public /*out*/ readonly number!: pulumi.Output<number>;
-    /**
-     * Unix timestamp indicating the Pull Request creation time.
-     */
     public /*out*/ readonly openedAt!: pulumi.Output<number>;
     /**
-     * GitHub login of the user who opened the Pull Request.
+     * Username of the PR creator
      */
     public /*out*/ readonly openedBy!: pulumi.Output<string>;
-    /**
-     * Owner of the repository. If not provided, the provider's default owner is used.
-     */
     public readonly owner!: pulumi.Output<string | undefined>;
-    /**
-     * the current Pull Request state - can be "open", "closed" or "merged".
-     */
     public /*out*/ readonly state!: pulumi.Output<string>;
-    /**
-     * The title of the Pull Request.
-     */
     public readonly title!: pulumi.Output<string>;
-    /**
-     * The timestamp of the last Pull Request update.
-     */
     public /*out*/ readonly updatedAt!: pulumi.Output<number>;
 
     /**
@@ -184,69 +124,27 @@ export class RepositoryPullRequest extends pulumi.CustomResource {
  * Input properties used for looking up and filtering RepositoryPullRequest resources.
  */
 export interface RepositoryPullRequestState {
-    /**
-     * Name of the branch serving as the base of the Pull Request.
-     */
     baseRef?: pulumi.Input<string>;
-    /**
-     * Name of the base repository to retrieve the Pull Requests from.
-     */
     baseRepository?: pulumi.Input<string>;
-    /**
-     * Head commit SHA of the Pull Request base.
-     */
     baseSha?: pulumi.Input<string>;
-    /**
-     * Body of the Pull Request.
-     */
     body?: pulumi.Input<string>;
-    /**
-     * Indicates Whether this Pull Request is a draft.
-     */
     draft?: pulumi.Input<boolean>;
-    /**
-     * Name of the branch serving as the head of the Pull Request.
-     */
     headRef?: pulumi.Input<string>;
-    /**
-     * Head commit SHA of the Pull Request head.
-     */
     headSha?: pulumi.Input<string>;
     /**
-     * List of label names set on the Pull Request.
+     * List of names of labels on the PR
      */
     labels?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Controls whether the base repository maintainers can modify the Pull Request. Default: false.
-     */
     maintainerCanModify?: pulumi.Input<boolean>;
-    /**
-     * The number of the Pull Request within the repository.
-     */
     number?: pulumi.Input<number>;
-    /**
-     * Unix timestamp indicating the Pull Request creation time.
-     */
     openedAt?: pulumi.Input<number>;
     /**
-     * GitHub login of the user who opened the Pull Request.
+     * Username of the PR creator
      */
     openedBy?: pulumi.Input<string>;
-    /**
-     * Owner of the repository. If not provided, the provider's default owner is used.
-     */
     owner?: pulumi.Input<string>;
-    /**
-     * the current Pull Request state - can be "open", "closed" or "merged".
-     */
     state?: pulumi.Input<string>;
-    /**
-     * The title of the Pull Request.
-     */
     title?: pulumi.Input<string>;
-    /**
-     * The timestamp of the last Pull Request update.
-     */
     updatedAt?: pulumi.Input<number>;
 }
 
@@ -254,32 +152,11 @@ export interface RepositoryPullRequestState {
  * The set of arguments for constructing a RepositoryPullRequest resource.
  */
 export interface RepositoryPullRequestArgs {
-    /**
-     * Name of the branch serving as the base of the Pull Request.
-     */
     baseRef: pulumi.Input<string>;
-    /**
-     * Name of the base repository to retrieve the Pull Requests from.
-     */
     baseRepository: pulumi.Input<string>;
-    /**
-     * Body of the Pull Request.
-     */
     body?: pulumi.Input<string>;
-    /**
-     * Name of the branch serving as the head of the Pull Request.
-     */
     headRef: pulumi.Input<string>;
-    /**
-     * Controls whether the base repository maintainers can modify the Pull Request. Default: false.
-     */
     maintainerCanModify?: pulumi.Input<boolean>;
-    /**
-     * Owner of the repository. If not provided, the provider's default owner is used.
-     */
     owner?: pulumi.Input<string>;
-    /**
-     * The title of the Pull Request.
-     */
     title: pulumi.Input<string>;
 }

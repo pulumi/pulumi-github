@@ -12,228 +12,61 @@ import java.util.Objects;
 
 @CustomType
 public final class GetUserResult {
-    /**
-     * @return the user&#39;s avatar URL.
-     * 
-     */
-    private final String avatarUrl;
-    /**
-     * @return the user&#39;s bio.
-     * 
-     */
-    private final String bio;
-    /**
-     * @return the user&#39;s blog location.
-     * 
-     */
-    private final String blog;
-    /**
-     * @return the user&#39;s company name.
-     * 
-     */
-    private final String company;
-    /**
-     * @return the creation date.
-     * 
-     */
-    private final String createdAt;
-    /**
-     * @return the user&#39;s email.
-     * 
-     */
-    private final String email;
-    /**
-     * @return the number of followers.
-     * 
-     */
-    private final Integer followers;
-    /**
-     * @return the number of following users.
-     * 
-     */
-    private final Integer following;
-    /**
-     * @return list of user&#39;s GPG keys.
-     * 
-     */
-    private final List<String> gpgKeys;
-    /**
-     * @return the user&#39;s gravatar ID.
-     * 
-     */
-    private final String gravatarId;
+    private String avatarUrl;
+    private String bio;
+    private String blog;
+    private String company;
+    private String createdAt;
+    private String email;
+    private Integer followers;
+    private Integer following;
+    private List<String> gpgKeys;
+    private String gravatarId;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    /**
-     * @return the user&#39;s location.
-     * 
-     */
-    private final String location;
-    /**
-     * @return the user&#39;s login.
-     * 
-     */
-    private final String login;
-    /**
-     * @return the user&#39;s full name.
-     * 
-     */
-    private final String name;
-    /**
-     * @return the Node ID of the user.
-     * 
-     */
-    private final String nodeId;
-    /**
-     * @return the number of public gists.
-     * 
-     */
-    private final Integer publicGists;
-    /**
-     * @return the number of public repositories.
-     * 
-     */
-    private final Integer publicRepos;
-    /**
-     * @return whether the user is a GitHub admin.
-     * 
-     */
-    private final Boolean siteAdmin;
-    /**
-     * @return list of user&#39;s SSH keys.
-     * 
-     */
-    private final List<String> sshKeys;
-    /**
-     * @return the suspended date if the user is suspended.
-     * 
-     */
-    private final String suspendedAt;
-    /**
-     * @return the update date.
-     * 
-     */
-    private final String updatedAt;
-    private final String username;
+    private String id;
+    private String location;
+    private String login;
+    private String name;
+    private String nodeId;
+    private Integer publicGists;
+    private Integer publicRepos;
+    private Boolean siteAdmin;
+    private List<String> sshKeys;
+    private String suspendedAt;
+    private String updatedAt;
+    private String username;
 
-    @CustomType.Constructor
-    private GetUserResult(
-        @CustomType.Parameter("avatarUrl") String avatarUrl,
-        @CustomType.Parameter("bio") String bio,
-        @CustomType.Parameter("blog") String blog,
-        @CustomType.Parameter("company") String company,
-        @CustomType.Parameter("createdAt") String createdAt,
-        @CustomType.Parameter("email") String email,
-        @CustomType.Parameter("followers") Integer followers,
-        @CustomType.Parameter("following") Integer following,
-        @CustomType.Parameter("gpgKeys") List<String> gpgKeys,
-        @CustomType.Parameter("gravatarId") String gravatarId,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("location") String location,
-        @CustomType.Parameter("login") String login,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("nodeId") String nodeId,
-        @CustomType.Parameter("publicGists") Integer publicGists,
-        @CustomType.Parameter("publicRepos") Integer publicRepos,
-        @CustomType.Parameter("siteAdmin") Boolean siteAdmin,
-        @CustomType.Parameter("sshKeys") List<String> sshKeys,
-        @CustomType.Parameter("suspendedAt") String suspendedAt,
-        @CustomType.Parameter("updatedAt") String updatedAt,
-        @CustomType.Parameter("username") String username) {
-        this.avatarUrl = avatarUrl;
-        this.bio = bio;
-        this.blog = blog;
-        this.company = company;
-        this.createdAt = createdAt;
-        this.email = email;
-        this.followers = followers;
-        this.following = following;
-        this.gpgKeys = gpgKeys;
-        this.gravatarId = gravatarId;
-        this.id = id;
-        this.location = location;
-        this.login = login;
-        this.name = name;
-        this.nodeId = nodeId;
-        this.publicGists = publicGists;
-        this.publicRepos = publicRepos;
-        this.siteAdmin = siteAdmin;
-        this.sshKeys = sshKeys;
-        this.suspendedAt = suspendedAt;
-        this.updatedAt = updatedAt;
-        this.username = username;
-    }
-
-    /**
-     * @return the user&#39;s avatar URL.
-     * 
-     */
+    private GetUserResult() {}
     public String avatarUrl() {
         return this.avatarUrl;
     }
-    /**
-     * @return the user&#39;s bio.
-     * 
-     */
     public String bio() {
         return this.bio;
     }
-    /**
-     * @return the user&#39;s blog location.
-     * 
-     */
     public String blog() {
         return this.blog;
     }
-    /**
-     * @return the user&#39;s company name.
-     * 
-     */
     public String company() {
         return this.company;
     }
-    /**
-     * @return the creation date.
-     * 
-     */
     public String createdAt() {
         return this.createdAt;
     }
-    /**
-     * @return the user&#39;s email.
-     * 
-     */
     public String email() {
         return this.email;
     }
-    /**
-     * @return the number of followers.
-     * 
-     */
     public Integer followers() {
         return this.followers;
     }
-    /**
-     * @return the number of following users.
-     * 
-     */
     public Integer following() {
         return this.following;
     }
-    /**
-     * @return list of user&#39;s GPG keys.
-     * 
-     */
     public List<String> gpgKeys() {
         return this.gpgKeys;
     }
-    /**
-     * @return the user&#39;s gravatar ID.
-     * 
-     */
     public String gravatarId() {
         return this.gravatarId;
     }
@@ -244,73 +77,33 @@ public final class GetUserResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return the user&#39;s location.
-     * 
-     */
     public String location() {
         return this.location;
     }
-    /**
-     * @return the user&#39;s login.
-     * 
-     */
     public String login() {
         return this.login;
     }
-    /**
-     * @return the user&#39;s full name.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return the Node ID of the user.
-     * 
-     */
     public String nodeId() {
         return this.nodeId;
     }
-    /**
-     * @return the number of public gists.
-     * 
-     */
     public Integer publicGists() {
         return this.publicGists;
     }
-    /**
-     * @return the number of public repositories.
-     * 
-     */
     public Integer publicRepos() {
         return this.publicRepos;
     }
-    /**
-     * @return whether the user is a GitHub admin.
-     * 
-     */
     public Boolean siteAdmin() {
         return this.siteAdmin;
     }
-    /**
-     * @return list of user&#39;s SSH keys.
-     * 
-     */
     public List<String> sshKeys() {
         return this.sshKeys;
     }
-    /**
-     * @return the suspended date if the user is suspended.
-     * 
-     */
     public String suspendedAt() {
         return this.suspendedAt;
     }
-    /**
-     * @return the update date.
-     * 
-     */
     public String updatedAt() {
         return this.updatedAt;
     }
@@ -325,7 +118,7 @@ public final class GetUserResult {
     public static Builder builder(GetUserResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String avatarUrl;
         private String bio;
@@ -349,11 +142,7 @@ public final class GetUserResult {
         private String suspendedAt;
         private String updatedAt;
         private String username;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetUserResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.avatarUrl = defaults.avatarUrl;
@@ -380,38 +169,47 @@ public final class GetUserResult {
     	      this.username = defaults.username;
         }
 
+        @CustomType.Setter
         public Builder avatarUrl(String avatarUrl) {
             this.avatarUrl = Objects.requireNonNull(avatarUrl);
             return this;
         }
+        @CustomType.Setter
         public Builder bio(String bio) {
             this.bio = Objects.requireNonNull(bio);
             return this;
         }
+        @CustomType.Setter
         public Builder blog(String blog) {
             this.blog = Objects.requireNonNull(blog);
             return this;
         }
+        @CustomType.Setter
         public Builder company(String company) {
             this.company = Objects.requireNonNull(company);
             return this;
         }
+        @CustomType.Setter
         public Builder createdAt(String createdAt) {
             this.createdAt = Objects.requireNonNull(createdAt);
             return this;
         }
+        @CustomType.Setter
         public Builder email(String email) {
             this.email = Objects.requireNonNull(email);
             return this;
         }
+        @CustomType.Setter
         public Builder followers(Integer followers) {
             this.followers = Objects.requireNonNull(followers);
             return this;
         }
+        @CustomType.Setter
         public Builder following(Integer following) {
             this.following = Objects.requireNonNull(following);
             return this;
         }
+        @CustomType.Setter
         public Builder gpgKeys(List<String> gpgKeys) {
             this.gpgKeys = Objects.requireNonNull(gpgKeys);
             return this;
@@ -419,42 +217,52 @@ public final class GetUserResult {
         public Builder gpgKeys(String... gpgKeys) {
             return gpgKeys(List.of(gpgKeys));
         }
+        @CustomType.Setter
         public Builder gravatarId(String gravatarId) {
             this.gravatarId = Objects.requireNonNull(gravatarId);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder location(String location) {
             this.location = Objects.requireNonNull(location);
             return this;
         }
+        @CustomType.Setter
         public Builder login(String login) {
             this.login = Objects.requireNonNull(login);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder nodeId(String nodeId) {
             this.nodeId = Objects.requireNonNull(nodeId);
             return this;
         }
+        @CustomType.Setter
         public Builder publicGists(Integer publicGists) {
             this.publicGists = Objects.requireNonNull(publicGists);
             return this;
         }
+        @CustomType.Setter
         public Builder publicRepos(Integer publicRepos) {
             this.publicRepos = Objects.requireNonNull(publicRepos);
             return this;
         }
+        @CustomType.Setter
         public Builder siteAdmin(Boolean siteAdmin) {
             this.siteAdmin = Objects.requireNonNull(siteAdmin);
             return this;
         }
+        @CustomType.Setter
         public Builder sshKeys(List<String> sshKeys) {
             this.sshKeys = Objects.requireNonNull(sshKeys);
             return this;
@@ -462,19 +270,46 @@ public final class GetUserResult {
         public Builder sshKeys(String... sshKeys) {
             return sshKeys(List.of(sshKeys));
         }
+        @CustomType.Setter
         public Builder suspendedAt(String suspendedAt) {
             this.suspendedAt = Objects.requireNonNull(suspendedAt);
             return this;
         }
+        @CustomType.Setter
         public Builder updatedAt(String updatedAt) {
             this.updatedAt = Objects.requireNonNull(updatedAt);
             return this;
         }
+        @CustomType.Setter
         public Builder username(String username) {
             this.username = Objects.requireNonNull(username);
             return this;
-        }        public GetUserResult build() {
-            return new GetUserResult(avatarUrl, bio, blog, company, createdAt, email, followers, following, gpgKeys, gravatarId, id, location, login, name, nodeId, publicGists, publicRepos, siteAdmin, sshKeys, suspendedAt, updatedAt, username);
+        }
+        public GetUserResult build() {
+            final var o = new GetUserResult();
+            o.avatarUrl = avatarUrl;
+            o.bio = bio;
+            o.blog = blog;
+            o.company = company;
+            o.createdAt = createdAt;
+            o.email = email;
+            o.followers = followers;
+            o.following = following;
+            o.gpgKeys = gpgKeys;
+            o.gravatarId = gravatarId;
+            o.id = id;
+            o.location = location;
+            o.login = login;
+            o.name = name;
+            o.nodeId = nodeId;
+            o.publicGists = publicGists;
+            o.publicRepos = publicRepos;
+            o.siteAdmin = siteAdmin;
+            o.sshKeys = sshKeys;
+            o.suspendedAt = suspendedAt;
+            o.updatedAt = updatedAt;
+            o.username = username;
+            return o;
         }
     }
 }

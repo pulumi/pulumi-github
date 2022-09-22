@@ -14,53 +14,6 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a GitHub membership resource.
- * 
- * This resource allows you to add/remove users from your organization. When applied,
- * an invitation will be sent to the user to become part of the organization. When
- * destroyed, either the invitation will be cancelled or the user will be removed.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.github.Membership;
- * import com.pulumi.github.MembershipArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var membershipForSomeUser = new Membership(&#34;membershipForSomeUser&#34;, MembershipArgs.builder()        
- *             .role(&#34;member&#34;)
- *             .username(&#34;SomeUser&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * GitHub Membership can be imported using an ID made up of `organization:username`, e.g.
- * 
- * ```sh
- *  $ pulumi import github:index/membership:Membership member hashicorp:someuser
- * ```
- * 
- */
 @ResourceType(type="github:index/membership:Membership")
 public class Membership extends com.pulumi.resources.CustomResource {
     @Export(name="etag", type=String.class, parameters={})
@@ -69,33 +22,15 @@ public class Membership extends com.pulumi.resources.CustomResource {
     public Output<String> etag() {
         return this.etag;
     }
-    /**
-     * The role of the user within the organization.
-     * Must be one of `member` or `admin`. Defaults to `member`.
-     * 
-     */
     @Export(name="role", type=String.class, parameters={})
     private Output</* @Nullable */ String> role;
 
-    /**
-     * @return The role of the user within the organization.
-     * Must be one of `member` or `admin`. Defaults to `member`.
-     * 
-     */
     public Output<Optional<String>> role() {
         return Codegen.optional(this.role);
     }
-    /**
-     * The user to add to the organization.
-     * 
-     */
     @Export(name="username", type=String.class, parameters={})
     private Output<String> username;
 
-    /**
-     * @return The user to add to the organization.
-     * 
-     */
     public Output<String> username() {
         return this.username;
     }

@@ -5,72 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
-/**
- * Protects a GitHub branch.
- *
- * The `github.BranchProtection` resource has moved to the GraphQL API, while this resource will continue to leverage the REST API.
- *
- * This resource allows you to configure branch protection for repositories in your organization. When applied, the branch will be protected from forced pushes and deletion. Additional constraints, such as required status checks or restrictions on users, teams, and apps, can also be configured.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as github from "@pulumi/github";
- *
- * // Protect the main branch of the foo repository. Only allow a specific user to merge to the branch.
- * const example = new github.BranchProtectionV3("example", {
- *     repository: github_repository.example.name,
- *     branch: "main",
- *     restrictions: {
- *         users: ["foo-user"],
- *     },
- * });
- * ```
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as github from "@pulumi/github";
- *
- * const exampleRepository = new github.Repository("exampleRepository", {});
- * const exampleTeam = new github.Team("exampleTeam", {});
- * // Protect the main branch of the foo repository. Additionally, require that
- * // the "ci/travis" context to be passing and only allow the engineers team merge
- * // to the branch.
- * const exampleBranchProtectionV3 = new github.BranchProtectionV3("exampleBranchProtectionV3", {
- *     repository: exampleRepository.name,
- *     branch: "main",
- *     enforceAdmins: true,
- *     requiredStatusChecks: {
- *         strict: false,
- *         contexts: ["ci/travis"],
- *     },
- *     requiredPullRequestReviews: {
- *         dismissStaleReviews: true,
- *         dismissalUsers: ["foo-user"],
- *         dismissalTeams: [exampleTeam.slug],
- *     },
- *     restrictions: {
- *         users: ["foo-user"],
- *         teams: [exampleTeam.slug],
- *         apps: ["foo-app"],
- *     },
- * });
- * const exampleTeamRepository = new github.TeamRepository("exampleTeamRepository", {
- *     teamId: exampleTeam.id,
- *     repository: exampleRepository.name,
- *     permission: "pull",
- * });
- * ```
- *
- * ## Import
- *
- * GitHub Branch Protection can be imported using an ID made up of `repository:branch`, e.g.
- *
- * ```sh
- *  $ pulumi import github:index/branchProtectionV3:BranchProtectionV3 terraform terraform:main
- * ```
- */
 export class BranchProtectionV3 extends pulumi.CustomResource {
     /**
      * Get an existing BranchProtectionV3 resource's state with the given name, ID, and optional extra
@@ -99,38 +33,14 @@ export class BranchProtectionV3 extends pulumi.CustomResource {
         return obj['__pulumiType'] === BranchProtectionV3.__pulumiType;
     }
 
-    /**
-     * The Git branch to protect.
-     */
     public readonly branch!: pulumi.Output<string>;
-    /**
-     * Boolean, setting this to `true` enforces status checks for repository administrators.
-     */
     public readonly enforceAdmins!: pulumi.Output<boolean | undefined>;
     public /*out*/ readonly etag!: pulumi.Output<string>;
-    /**
-     * The GitHub repository name.
-     */
     public readonly repository!: pulumi.Output<string>;
-    /**
-     * Boolean, setting this to `true` requires all conversations on code must be resolved before a pull request can be merged.
-     */
     public readonly requireConversationResolution!: pulumi.Output<boolean | undefined>;
-    /**
-     * Boolean, setting this to `true` requires all commits to be signed with GPG.
-     */
     public readonly requireSignedCommits!: pulumi.Output<boolean | undefined>;
-    /**
-     * Enforce restrictions for pull request reviews. See Required Pull Request Reviews below for details.
-     */
     public readonly requiredPullRequestReviews!: pulumi.Output<outputs.BranchProtectionV3RequiredPullRequestReviews | undefined>;
-    /**
-     * Enforce restrictions for required status checks. See Required Status Checks below for details.
-     */
     public readonly requiredStatusChecks!: pulumi.Output<outputs.BranchProtectionV3RequiredStatusChecks | undefined>;
-    /**
-     * Enforce restrictions for the users and teams that may push to the branch. See Restrictions below for details.
-     */
     public readonly restrictions!: pulumi.Output<outputs.BranchProtectionV3Restrictions | undefined>;
 
     /**
@@ -182,38 +92,14 @@ export class BranchProtectionV3 extends pulumi.CustomResource {
  * Input properties used for looking up and filtering BranchProtectionV3 resources.
  */
 export interface BranchProtectionV3State {
-    /**
-     * The Git branch to protect.
-     */
     branch?: pulumi.Input<string>;
-    /**
-     * Boolean, setting this to `true` enforces status checks for repository administrators.
-     */
     enforceAdmins?: pulumi.Input<boolean>;
     etag?: pulumi.Input<string>;
-    /**
-     * The GitHub repository name.
-     */
     repository?: pulumi.Input<string>;
-    /**
-     * Boolean, setting this to `true` requires all conversations on code must be resolved before a pull request can be merged.
-     */
     requireConversationResolution?: pulumi.Input<boolean>;
-    /**
-     * Boolean, setting this to `true` requires all commits to be signed with GPG.
-     */
     requireSignedCommits?: pulumi.Input<boolean>;
-    /**
-     * Enforce restrictions for pull request reviews. See Required Pull Request Reviews below for details.
-     */
     requiredPullRequestReviews?: pulumi.Input<inputs.BranchProtectionV3RequiredPullRequestReviews>;
-    /**
-     * Enforce restrictions for required status checks. See Required Status Checks below for details.
-     */
     requiredStatusChecks?: pulumi.Input<inputs.BranchProtectionV3RequiredStatusChecks>;
-    /**
-     * Enforce restrictions for the users and teams that may push to the branch. See Restrictions below for details.
-     */
     restrictions?: pulumi.Input<inputs.BranchProtectionV3Restrictions>;
 }
 
@@ -221,36 +107,12 @@ export interface BranchProtectionV3State {
  * The set of arguments for constructing a BranchProtectionV3 resource.
  */
 export interface BranchProtectionV3Args {
-    /**
-     * The Git branch to protect.
-     */
     branch: pulumi.Input<string>;
-    /**
-     * Boolean, setting this to `true` enforces status checks for repository administrators.
-     */
     enforceAdmins?: pulumi.Input<boolean>;
-    /**
-     * The GitHub repository name.
-     */
     repository: pulumi.Input<string>;
-    /**
-     * Boolean, setting this to `true` requires all conversations on code must be resolved before a pull request can be merged.
-     */
     requireConversationResolution?: pulumi.Input<boolean>;
-    /**
-     * Boolean, setting this to `true` requires all commits to be signed with GPG.
-     */
     requireSignedCommits?: pulumi.Input<boolean>;
-    /**
-     * Enforce restrictions for pull request reviews. See Required Pull Request Reviews below for details.
-     */
     requiredPullRequestReviews?: pulumi.Input<inputs.BranchProtectionV3RequiredPullRequestReviews>;
-    /**
-     * Enforce restrictions for required status checks. See Required Status Checks below for details.
-     */
     requiredStatusChecks?: pulumi.Input<inputs.BranchProtectionV3RequiredStatusChecks>;
-    /**
-     * Enforce restrictions for the users and teams that may push to the branch. See Restrictions below for details.
-     */
     restrictions?: pulumi.Input<inputs.BranchProtectionV3Restrictions>;
 }

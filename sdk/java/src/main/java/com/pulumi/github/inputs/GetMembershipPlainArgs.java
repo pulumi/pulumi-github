@@ -14,32 +14,16 @@ public final class GetMembershipPlainArgs extends com.pulumi.resources.InvokeArg
 
     public static final GetMembershipPlainArgs Empty = new GetMembershipPlainArgs();
 
-    /**
-     * The organization to check for the above username.
-     * 
-     */
     @Import(name="organization")
     private @Nullable String organization;
 
-    /**
-     * @return The organization to check for the above username.
-     * 
-     */
     public Optional<String> organization() {
         return Optional.ofNullable(this.organization);
     }
 
-    /**
-     * The username to lookup in the organization.
-     * 
-     */
     @Import(name="username", required=true)
     private String username;
 
-    /**
-     * @return The username to lookup in the organization.
-     * 
-     */
     public String username() {
         return this.username;
     }
@@ -69,23 +53,11 @@ public final class GetMembershipPlainArgs extends com.pulumi.resources.InvokeArg
             $ = new GetMembershipPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param organization The organization to check for the above username.
-         * 
-         * @return builder
-         * 
-         */
         public Builder organization(@Nullable String organization) {
             $.organization = organization;
             return this;
         }
 
-        /**
-         * @param username The username to lookup in the organization.
-         * 
-         * @return builder
-         * 
-         */
         public Builder username(String username) {
             $.username = username;
             return this;

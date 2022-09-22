@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Use this data source to retrieve information about a GitHub release in a specific repository.
 func GetRelease(ctx *pulumi.Context, args *GetReleaseArgs, opts ...pulumi.InvokeOption) (*GetReleaseResult, error) {
 	var rv GetReleaseResult
 	err := ctx.Invoke("github:index/getRelease:getRelease", args, &rv, opts...)
@@ -22,55 +21,35 @@ func GetRelease(ctx *pulumi.Context, args *GetReleaseArgs, opts ...pulumi.Invoke
 
 // A collection of arguments for invoking getRelease.
 type GetReleaseArgs struct {
-	// Owner of the repository.
-	Owner string `pulumi:"owner"`
-	// ID of the release to retrieve. Must be specified when `retrieveBy` = `id`.
-	ReleaseId *int `pulumi:"releaseId"`
-	// Tag of the release to retrieve. Must be specified when `retrieveBy` = `tag`.
+	Owner      string  `pulumi:"owner"`
+	ReleaseId  *int    `pulumi:"releaseId"`
 	ReleaseTag *string `pulumi:"releaseTag"`
-	// Name of the repository to retrieve the release from.
-	Repository string `pulumi:"repository"`
-	// Describes how to fetch the release. Valid values are `id`, `tag`, `latest`.
-	RetrieveBy string `pulumi:"retrieveBy"`
+	Repository string  `pulumi:"repository"`
+	RetrieveBy string  `pulumi:"retrieveBy"`
 }
 
 // A collection of values returned by getRelease.
 type GetReleaseResult struct {
-	// URL of any associated assets with the release
 	AssertsUrl string `pulumi:"assertsUrl"`
-	// Contents of the description (body) of a release
-	Body string `pulumi:"body"`
-	// Date of release creation
-	CreatedAt string `pulumi:"createdAt"`
-	// (`Boolean`) indicates whether the release is a draft
-	Draft bool `pulumi:"draft"`
-	// URL directing to detailed information on the release
-	HtmlUrl string `pulumi:"htmlUrl"`
+	Body       string `pulumi:"body"`
+	CreatedAt  string `pulumi:"createdAt"`
+	Draft      bool   `pulumi:"draft"`
+	HtmlUrl    string `pulumi:"htmlUrl"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// Name of release
-	Name  string `pulumi:"name"`
-	Owner string `pulumi:"owner"`
-	// (`Boolean`) indicates whether the release is a prerelease
-	Prerelease bool `pulumi:"prerelease"`
-	// Date of release publishing
-	PublishedAt string `pulumi:"publishedAt"`
-	// ID of release
-	ReleaseId *int `pulumi:"releaseId"`
-	// Tag of release
-	ReleaseTag *string `pulumi:"releaseTag"`
-	Repository string  `pulumi:"repository"`
-	RetrieveBy string  `pulumi:"retrieveBy"`
-	// Download URL of a specific release in `tar.gz` format
-	TarballUrl string `pulumi:"tarballUrl"`
-	// Commitish value that determines where the Git release is created from
-	TargetCommitish string `pulumi:"targetCommitish"`
-	// URL that can be used to upload Assets to the release
-	UploadUrl string `pulumi:"uploadUrl"`
-	// Base URL of the release
-	Url string `pulumi:"url"`
-	// Download URL of a specific release in `zip` format
-	ZipballUrl string `pulumi:"zipballUrl"`
+	Id              string  `pulumi:"id"`
+	Name            string  `pulumi:"name"`
+	Owner           string  `pulumi:"owner"`
+	Prerelease      bool    `pulumi:"prerelease"`
+	PublishedAt     string  `pulumi:"publishedAt"`
+	ReleaseId       *int    `pulumi:"releaseId"`
+	ReleaseTag      *string `pulumi:"releaseTag"`
+	Repository      string  `pulumi:"repository"`
+	RetrieveBy      string  `pulumi:"retrieveBy"`
+	TarballUrl      string  `pulumi:"tarballUrl"`
+	TargetCommitish string  `pulumi:"targetCommitish"`
+	UploadUrl       string  `pulumi:"uploadUrl"`
+	Url             string  `pulumi:"url"`
+	ZipballUrl      string  `pulumi:"zipballUrl"`
 }
 
 func GetReleaseOutput(ctx *pulumi.Context, args GetReleaseOutputArgs, opts ...pulumi.InvokeOption) GetReleaseResultOutput {
@@ -88,16 +67,11 @@ func GetReleaseOutput(ctx *pulumi.Context, args GetReleaseOutputArgs, opts ...pu
 
 // A collection of arguments for invoking getRelease.
 type GetReleaseOutputArgs struct {
-	// Owner of the repository.
-	Owner pulumi.StringInput `pulumi:"owner"`
-	// ID of the release to retrieve. Must be specified when `retrieveBy` = `id`.
-	ReleaseId pulumi.IntPtrInput `pulumi:"releaseId"`
-	// Tag of the release to retrieve. Must be specified when `retrieveBy` = `tag`.
+	Owner      pulumi.StringInput    `pulumi:"owner"`
+	ReleaseId  pulumi.IntPtrInput    `pulumi:"releaseId"`
 	ReleaseTag pulumi.StringPtrInput `pulumi:"releaseTag"`
-	// Name of the repository to retrieve the release from.
-	Repository pulumi.StringInput `pulumi:"repository"`
-	// Describes how to fetch the release. Valid values are `id`, `tag`, `latest`.
-	RetrieveBy pulumi.StringInput `pulumi:"retrieveBy"`
+	Repository pulumi.StringInput    `pulumi:"repository"`
+	RetrieveBy pulumi.StringInput    `pulumi:"retrieveBy"`
 }
 
 func (GetReleaseOutputArgs) ElementType() reflect.Type {
@@ -119,27 +93,22 @@ func (o GetReleaseResultOutput) ToGetReleaseResultOutputWithContext(ctx context.
 	return o
 }
 
-// URL of any associated assets with the release
 func (o GetReleaseResultOutput) AssertsUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v GetReleaseResult) string { return v.AssertsUrl }).(pulumi.StringOutput)
 }
 
-// Contents of the description (body) of a release
 func (o GetReleaseResultOutput) Body() pulumi.StringOutput {
 	return o.ApplyT(func(v GetReleaseResult) string { return v.Body }).(pulumi.StringOutput)
 }
 
-// Date of release creation
 func (o GetReleaseResultOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v GetReleaseResult) string { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
-// (`Boolean`) indicates whether the release is a draft
 func (o GetReleaseResultOutput) Draft() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetReleaseResult) bool { return v.Draft }).(pulumi.BoolOutput)
 }
 
-// URL directing to detailed information on the release
 func (o GetReleaseResultOutput) HtmlUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v GetReleaseResult) string { return v.HtmlUrl }).(pulumi.StringOutput)
 }
@@ -149,7 +118,6 @@ func (o GetReleaseResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetReleaseResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Name of release
 func (o GetReleaseResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetReleaseResult) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -158,22 +126,18 @@ func (o GetReleaseResultOutput) Owner() pulumi.StringOutput {
 	return o.ApplyT(func(v GetReleaseResult) string { return v.Owner }).(pulumi.StringOutput)
 }
 
-// (`Boolean`) indicates whether the release is a prerelease
 func (o GetReleaseResultOutput) Prerelease() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetReleaseResult) bool { return v.Prerelease }).(pulumi.BoolOutput)
 }
 
-// Date of release publishing
 func (o GetReleaseResultOutput) PublishedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v GetReleaseResult) string { return v.PublishedAt }).(pulumi.StringOutput)
 }
 
-// ID of release
 func (o GetReleaseResultOutput) ReleaseId() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v GetReleaseResult) *int { return v.ReleaseId }).(pulumi.IntPtrOutput)
 }
 
-// Tag of release
 func (o GetReleaseResultOutput) ReleaseTag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetReleaseResult) *string { return v.ReleaseTag }).(pulumi.StringPtrOutput)
 }
@@ -186,27 +150,22 @@ func (o GetReleaseResultOutput) RetrieveBy() pulumi.StringOutput {
 	return o.ApplyT(func(v GetReleaseResult) string { return v.RetrieveBy }).(pulumi.StringOutput)
 }
 
-// Download URL of a specific release in `tar.gz` format
 func (o GetReleaseResultOutput) TarballUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v GetReleaseResult) string { return v.TarballUrl }).(pulumi.StringOutput)
 }
 
-// Commitish value that determines where the Git release is created from
 func (o GetReleaseResultOutput) TargetCommitish() pulumi.StringOutput {
 	return o.ApplyT(func(v GetReleaseResult) string { return v.TargetCommitish }).(pulumi.StringOutput)
 }
 
-// URL that can be used to upload Assets to the release
 func (o GetReleaseResultOutput) UploadUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v GetReleaseResult) string { return v.UploadUrl }).(pulumi.StringOutput)
 }
 
-// Base URL of the release
 func (o GetReleaseResultOutput) Url() pulumi.StringOutput {
 	return o.ApplyT(func(v GetReleaseResult) string { return v.Url }).(pulumi.StringOutput)
 }
 
-// Download URL of a specific release in `zip` format
 func (o GetReleaseResultOutput) ZipballUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v GetReleaseResult) string { return v.ZipballUrl }).(pulumi.StringOutput)
 }

@@ -9,51 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Github
 {
-    /// <summary>
-    /// Provides a GitHub user's GPG key resource.
-    /// 
-    /// This resource allows you to add/remove GPG keys from your user account.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Github = Pulumi.Github;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Github.UserGpgKey("example", new()
-    ///     {
-    ///         ArmoredPublicKey = @"-----BEGIN PGP PUBLIC KEY BLOCK-----
-    /// ...
-    /// -----END PGP PUBLIC KEY BLOCK-----
-    /// ",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// GPG keys are not importable due to the fact that [API](https://developer.github.com/v3/users/gpg_keys/#gpg-keys) does not return previously uploaded GPG key.
-    /// </summary>
     [GithubResourceType("github:index/userGpgKey:UserGpgKey")]
     public partial class UserGpgKey : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Your public GPG key, generated in ASCII-armored format.
-        /// See [Generating a new GPG key](https://help.github.com/articles/generating-a-new-gpg-key/) for help on creating a GPG key.
-        /// </summary>
         [Output("armoredPublicKey")]
         public Output<string> ArmoredPublicKey { get; private set; } = null!;
 
         [Output("etag")]
         public Output<string> Etag { get; private set; } = null!;
 
-        /// <summary>
-        /// The key ID of the GPG key, e.g. `3262EFF25BA0D270`
-        /// </summary>
         [Output("keyId")]
         public Output<string> KeyId { get; private set; } = null!;
 
@@ -103,10 +67,6 @@ namespace Pulumi.Github
 
     public sealed class UserGpgKeyArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Your public GPG key, generated in ASCII-armored format.
-        /// See [Generating a new GPG key](https://help.github.com/articles/generating-a-new-gpg-key/) for help on creating a GPG key.
-        /// </summary>
         [Input("armoredPublicKey", required: true)]
         public Input<string> ArmoredPublicKey { get; set; } = null!;
 
@@ -118,19 +78,12 @@ namespace Pulumi.Github
 
     public sealed class UserGpgKeyState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Your public GPG key, generated in ASCII-armored format.
-        /// See [Generating a new GPG key](https://help.github.com/articles/generating-a-new-gpg-key/) for help on creating a GPG key.
-        /// </summary>
         [Input("armoredPublicKey")]
         public Input<string>? ArmoredPublicKey { get; set; }
 
         [Input("etag")]
         public Input<string>? Etag { get; set; }
 
-        /// <summary>
-        /// The key ID of the GPG key, e.g. `3262EFF25BA0D270`
-        /// </summary>
         [Input("keyId")]
         public Input<string>? KeyId { get; set; }
 
