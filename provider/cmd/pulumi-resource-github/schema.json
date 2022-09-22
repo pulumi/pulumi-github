@@ -23,7 +23,7 @@
         "go": {
             "generateExtraInputTypes": true,
             "generateResourceContainerTypes": true,
-            "importBasePath": "github.com/pulumi/pulumi-github/sdk/v4/go/github"
+            "importBasePath": "github.com/pulumi/pulumi-github/sdk/v5/go/github"
         },
         "nodejs": {
             "compatibility": "tfbridge20",
