@@ -1072,6 +1072,130 @@ func (o BranchProtectionV3RestrictionsPtrOutput) Users() pulumi.StringArrayOutpu
 	}).(pulumi.StringArrayOutput)
 }
 
+type OrganizationIpAllowListIpAllowList struct {
+	AllowListValue string `pulumi:"allowListValue"`
+	CreatedAt      string `pulumi:"createdAt"`
+	Id             string `pulumi:"id"`
+	IsActive       bool   `pulumi:"isActive"`
+	Name           string `pulumi:"name"`
+	UpdatedAt      string `pulumi:"updatedAt"`
+}
+
+// OrganizationIpAllowListIpAllowListInput is an input type that accepts OrganizationIpAllowListIpAllowListArgs and OrganizationIpAllowListIpAllowListOutput values.
+// You can construct a concrete instance of `OrganizationIpAllowListIpAllowListInput` via:
+//
+//	OrganizationIpAllowListIpAllowListArgs{...}
+type OrganizationIpAllowListIpAllowListInput interface {
+	pulumi.Input
+
+	ToOrganizationIpAllowListIpAllowListOutput() OrganizationIpAllowListIpAllowListOutput
+	ToOrganizationIpAllowListIpAllowListOutputWithContext(context.Context) OrganizationIpAllowListIpAllowListOutput
+}
+
+type OrganizationIpAllowListIpAllowListArgs struct {
+	AllowListValue pulumi.StringInput `pulumi:"allowListValue"`
+	CreatedAt      pulumi.StringInput `pulumi:"createdAt"`
+	Id             pulumi.StringInput `pulumi:"id"`
+	IsActive       pulumi.BoolInput   `pulumi:"isActive"`
+	Name           pulumi.StringInput `pulumi:"name"`
+	UpdatedAt      pulumi.StringInput `pulumi:"updatedAt"`
+}
+
+func (OrganizationIpAllowListIpAllowListArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationIpAllowListIpAllowList)(nil)).Elem()
+}
+
+func (i OrganizationIpAllowListIpAllowListArgs) ToOrganizationIpAllowListIpAllowListOutput() OrganizationIpAllowListIpAllowListOutput {
+	return i.ToOrganizationIpAllowListIpAllowListOutputWithContext(context.Background())
+}
+
+func (i OrganizationIpAllowListIpAllowListArgs) ToOrganizationIpAllowListIpAllowListOutputWithContext(ctx context.Context) OrganizationIpAllowListIpAllowListOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationIpAllowListIpAllowListOutput)
+}
+
+// OrganizationIpAllowListIpAllowListArrayInput is an input type that accepts OrganizationIpAllowListIpAllowListArray and OrganizationIpAllowListIpAllowListArrayOutput values.
+// You can construct a concrete instance of `OrganizationIpAllowListIpAllowListArrayInput` via:
+//
+//	OrganizationIpAllowListIpAllowListArray{ OrganizationIpAllowListIpAllowListArgs{...} }
+type OrganizationIpAllowListIpAllowListArrayInput interface {
+	pulumi.Input
+
+	ToOrganizationIpAllowListIpAllowListArrayOutput() OrganizationIpAllowListIpAllowListArrayOutput
+	ToOrganizationIpAllowListIpAllowListArrayOutputWithContext(context.Context) OrganizationIpAllowListIpAllowListArrayOutput
+}
+
+type OrganizationIpAllowListIpAllowListArray []OrganizationIpAllowListIpAllowListInput
+
+func (OrganizationIpAllowListIpAllowListArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OrganizationIpAllowListIpAllowList)(nil)).Elem()
+}
+
+func (i OrganizationIpAllowListIpAllowListArray) ToOrganizationIpAllowListIpAllowListArrayOutput() OrganizationIpAllowListIpAllowListArrayOutput {
+	return i.ToOrganizationIpAllowListIpAllowListArrayOutputWithContext(context.Background())
+}
+
+func (i OrganizationIpAllowListIpAllowListArray) ToOrganizationIpAllowListIpAllowListArrayOutputWithContext(ctx context.Context) OrganizationIpAllowListIpAllowListArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationIpAllowListIpAllowListArrayOutput)
+}
+
+type OrganizationIpAllowListIpAllowListOutput struct{ *pulumi.OutputState }
+
+func (OrganizationIpAllowListIpAllowListOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationIpAllowListIpAllowList)(nil)).Elem()
+}
+
+func (o OrganizationIpAllowListIpAllowListOutput) ToOrganizationIpAllowListIpAllowListOutput() OrganizationIpAllowListIpAllowListOutput {
+	return o
+}
+
+func (o OrganizationIpAllowListIpAllowListOutput) ToOrganizationIpAllowListIpAllowListOutputWithContext(ctx context.Context) OrganizationIpAllowListIpAllowListOutput {
+	return o
+}
+
+func (o OrganizationIpAllowListIpAllowListOutput) AllowListValue() pulumi.StringOutput {
+	return o.ApplyT(func(v OrganizationIpAllowListIpAllowList) string { return v.AllowListValue }).(pulumi.StringOutput)
+}
+
+func (o OrganizationIpAllowListIpAllowListOutput) CreatedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v OrganizationIpAllowListIpAllowList) string { return v.CreatedAt }).(pulumi.StringOutput)
+}
+
+func (o OrganizationIpAllowListIpAllowListOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v OrganizationIpAllowListIpAllowList) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o OrganizationIpAllowListIpAllowListOutput) IsActive() pulumi.BoolOutput {
+	return o.ApplyT(func(v OrganizationIpAllowListIpAllowList) bool { return v.IsActive }).(pulumi.BoolOutput)
+}
+
+func (o OrganizationIpAllowListIpAllowListOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v OrganizationIpAllowListIpAllowList) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o OrganizationIpAllowListIpAllowListOutput) UpdatedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v OrganizationIpAllowListIpAllowList) string { return v.UpdatedAt }).(pulumi.StringOutput)
+}
+
+type OrganizationIpAllowListIpAllowListArrayOutput struct{ *pulumi.OutputState }
+
+func (OrganizationIpAllowListIpAllowListArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OrganizationIpAllowListIpAllowList)(nil)).Elem()
+}
+
+func (o OrganizationIpAllowListIpAllowListArrayOutput) ToOrganizationIpAllowListIpAllowListArrayOutput() OrganizationIpAllowListIpAllowListArrayOutput {
+	return o
+}
+
+func (o OrganizationIpAllowListIpAllowListArrayOutput) ToOrganizationIpAllowListIpAllowListArrayOutputWithContext(ctx context.Context) OrganizationIpAllowListIpAllowListArrayOutput {
+	return o
+}
+
+func (o OrganizationIpAllowListIpAllowListArrayOutput) Index(i pulumi.IntInput) OrganizationIpAllowListIpAllowListOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OrganizationIpAllowListIpAllowList {
+		return vs[0].([]OrganizationIpAllowListIpAllowList)[vs[1].(int)]
+	}).(OrganizationIpAllowListIpAllowListOutput)
+}
+
 type OrganizationWebhookConfiguration struct {
 	ContentType *string `pulumi:"contentType"`
 	InsecureSsl *bool   `pulumi:"insecureSsl"`
@@ -2951,6 +3075,224 @@ func (o GetCollaboratorsCollaboratorArrayOutput) Index(i pulumi.IntInput) GetCol
 	}).(GetCollaboratorsCollaboratorOutput)
 }
 
+type GetDependabotOrganizationSecretsSecret struct {
+	CreatedAt  string `pulumi:"createdAt"`
+	Name       string `pulumi:"name"`
+	UpdatedAt  string `pulumi:"updatedAt"`
+	Visibility string `pulumi:"visibility"`
+}
+
+// GetDependabotOrganizationSecretsSecretInput is an input type that accepts GetDependabotOrganizationSecretsSecretArgs and GetDependabotOrganizationSecretsSecretOutput values.
+// You can construct a concrete instance of `GetDependabotOrganizationSecretsSecretInput` via:
+//
+//	GetDependabotOrganizationSecretsSecretArgs{...}
+type GetDependabotOrganizationSecretsSecretInput interface {
+	pulumi.Input
+
+	ToGetDependabotOrganizationSecretsSecretOutput() GetDependabotOrganizationSecretsSecretOutput
+	ToGetDependabotOrganizationSecretsSecretOutputWithContext(context.Context) GetDependabotOrganizationSecretsSecretOutput
+}
+
+type GetDependabotOrganizationSecretsSecretArgs struct {
+	CreatedAt  pulumi.StringInput `pulumi:"createdAt"`
+	Name       pulumi.StringInput `pulumi:"name"`
+	UpdatedAt  pulumi.StringInput `pulumi:"updatedAt"`
+	Visibility pulumi.StringInput `pulumi:"visibility"`
+}
+
+func (GetDependabotOrganizationSecretsSecretArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDependabotOrganizationSecretsSecret)(nil)).Elem()
+}
+
+func (i GetDependabotOrganizationSecretsSecretArgs) ToGetDependabotOrganizationSecretsSecretOutput() GetDependabotOrganizationSecretsSecretOutput {
+	return i.ToGetDependabotOrganizationSecretsSecretOutputWithContext(context.Background())
+}
+
+func (i GetDependabotOrganizationSecretsSecretArgs) ToGetDependabotOrganizationSecretsSecretOutputWithContext(ctx context.Context) GetDependabotOrganizationSecretsSecretOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDependabotOrganizationSecretsSecretOutput)
+}
+
+// GetDependabotOrganizationSecretsSecretArrayInput is an input type that accepts GetDependabotOrganizationSecretsSecretArray and GetDependabotOrganizationSecretsSecretArrayOutput values.
+// You can construct a concrete instance of `GetDependabotOrganizationSecretsSecretArrayInput` via:
+//
+//	GetDependabotOrganizationSecretsSecretArray{ GetDependabotOrganizationSecretsSecretArgs{...} }
+type GetDependabotOrganizationSecretsSecretArrayInput interface {
+	pulumi.Input
+
+	ToGetDependabotOrganizationSecretsSecretArrayOutput() GetDependabotOrganizationSecretsSecretArrayOutput
+	ToGetDependabotOrganizationSecretsSecretArrayOutputWithContext(context.Context) GetDependabotOrganizationSecretsSecretArrayOutput
+}
+
+type GetDependabotOrganizationSecretsSecretArray []GetDependabotOrganizationSecretsSecretInput
+
+func (GetDependabotOrganizationSecretsSecretArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDependabotOrganizationSecretsSecret)(nil)).Elem()
+}
+
+func (i GetDependabotOrganizationSecretsSecretArray) ToGetDependabotOrganizationSecretsSecretArrayOutput() GetDependabotOrganizationSecretsSecretArrayOutput {
+	return i.ToGetDependabotOrganizationSecretsSecretArrayOutputWithContext(context.Background())
+}
+
+func (i GetDependabotOrganizationSecretsSecretArray) ToGetDependabotOrganizationSecretsSecretArrayOutputWithContext(ctx context.Context) GetDependabotOrganizationSecretsSecretArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDependabotOrganizationSecretsSecretArrayOutput)
+}
+
+type GetDependabotOrganizationSecretsSecretOutput struct{ *pulumi.OutputState }
+
+func (GetDependabotOrganizationSecretsSecretOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDependabotOrganizationSecretsSecret)(nil)).Elem()
+}
+
+func (o GetDependabotOrganizationSecretsSecretOutput) ToGetDependabotOrganizationSecretsSecretOutput() GetDependabotOrganizationSecretsSecretOutput {
+	return o
+}
+
+func (o GetDependabotOrganizationSecretsSecretOutput) ToGetDependabotOrganizationSecretsSecretOutputWithContext(ctx context.Context) GetDependabotOrganizationSecretsSecretOutput {
+	return o
+}
+
+func (o GetDependabotOrganizationSecretsSecretOutput) CreatedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDependabotOrganizationSecretsSecret) string { return v.CreatedAt }).(pulumi.StringOutput)
+}
+
+func (o GetDependabotOrganizationSecretsSecretOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDependabotOrganizationSecretsSecret) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GetDependabotOrganizationSecretsSecretOutput) UpdatedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDependabotOrganizationSecretsSecret) string { return v.UpdatedAt }).(pulumi.StringOutput)
+}
+
+func (o GetDependabotOrganizationSecretsSecretOutput) Visibility() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDependabotOrganizationSecretsSecret) string { return v.Visibility }).(pulumi.StringOutput)
+}
+
+type GetDependabotOrganizationSecretsSecretArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDependabotOrganizationSecretsSecretArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDependabotOrganizationSecretsSecret)(nil)).Elem()
+}
+
+func (o GetDependabotOrganizationSecretsSecretArrayOutput) ToGetDependabotOrganizationSecretsSecretArrayOutput() GetDependabotOrganizationSecretsSecretArrayOutput {
+	return o
+}
+
+func (o GetDependabotOrganizationSecretsSecretArrayOutput) ToGetDependabotOrganizationSecretsSecretArrayOutputWithContext(ctx context.Context) GetDependabotOrganizationSecretsSecretArrayOutput {
+	return o
+}
+
+func (o GetDependabotOrganizationSecretsSecretArrayOutput) Index(i pulumi.IntInput) GetDependabotOrganizationSecretsSecretOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDependabotOrganizationSecretsSecret {
+		return vs[0].([]GetDependabotOrganizationSecretsSecret)[vs[1].(int)]
+	}).(GetDependabotOrganizationSecretsSecretOutput)
+}
+
+type GetDependabotSecretsSecret struct {
+	CreatedAt string `pulumi:"createdAt"`
+	Name      string `pulumi:"name"`
+	UpdatedAt string `pulumi:"updatedAt"`
+}
+
+// GetDependabotSecretsSecretInput is an input type that accepts GetDependabotSecretsSecretArgs and GetDependabotSecretsSecretOutput values.
+// You can construct a concrete instance of `GetDependabotSecretsSecretInput` via:
+//
+//	GetDependabotSecretsSecretArgs{...}
+type GetDependabotSecretsSecretInput interface {
+	pulumi.Input
+
+	ToGetDependabotSecretsSecretOutput() GetDependabotSecretsSecretOutput
+	ToGetDependabotSecretsSecretOutputWithContext(context.Context) GetDependabotSecretsSecretOutput
+}
+
+type GetDependabotSecretsSecretArgs struct {
+	CreatedAt pulumi.StringInput `pulumi:"createdAt"`
+	Name      pulumi.StringInput `pulumi:"name"`
+	UpdatedAt pulumi.StringInput `pulumi:"updatedAt"`
+}
+
+func (GetDependabotSecretsSecretArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDependabotSecretsSecret)(nil)).Elem()
+}
+
+func (i GetDependabotSecretsSecretArgs) ToGetDependabotSecretsSecretOutput() GetDependabotSecretsSecretOutput {
+	return i.ToGetDependabotSecretsSecretOutputWithContext(context.Background())
+}
+
+func (i GetDependabotSecretsSecretArgs) ToGetDependabotSecretsSecretOutputWithContext(ctx context.Context) GetDependabotSecretsSecretOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDependabotSecretsSecretOutput)
+}
+
+// GetDependabotSecretsSecretArrayInput is an input type that accepts GetDependabotSecretsSecretArray and GetDependabotSecretsSecretArrayOutput values.
+// You can construct a concrete instance of `GetDependabotSecretsSecretArrayInput` via:
+//
+//	GetDependabotSecretsSecretArray{ GetDependabotSecretsSecretArgs{...} }
+type GetDependabotSecretsSecretArrayInput interface {
+	pulumi.Input
+
+	ToGetDependabotSecretsSecretArrayOutput() GetDependabotSecretsSecretArrayOutput
+	ToGetDependabotSecretsSecretArrayOutputWithContext(context.Context) GetDependabotSecretsSecretArrayOutput
+}
+
+type GetDependabotSecretsSecretArray []GetDependabotSecretsSecretInput
+
+func (GetDependabotSecretsSecretArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDependabotSecretsSecret)(nil)).Elem()
+}
+
+func (i GetDependabotSecretsSecretArray) ToGetDependabotSecretsSecretArrayOutput() GetDependabotSecretsSecretArrayOutput {
+	return i.ToGetDependabotSecretsSecretArrayOutputWithContext(context.Background())
+}
+
+func (i GetDependabotSecretsSecretArray) ToGetDependabotSecretsSecretArrayOutputWithContext(ctx context.Context) GetDependabotSecretsSecretArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDependabotSecretsSecretArrayOutput)
+}
+
+type GetDependabotSecretsSecretOutput struct{ *pulumi.OutputState }
+
+func (GetDependabotSecretsSecretOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDependabotSecretsSecret)(nil)).Elem()
+}
+
+func (o GetDependabotSecretsSecretOutput) ToGetDependabotSecretsSecretOutput() GetDependabotSecretsSecretOutput {
+	return o
+}
+
+func (o GetDependabotSecretsSecretOutput) ToGetDependabotSecretsSecretOutputWithContext(ctx context.Context) GetDependabotSecretsSecretOutput {
+	return o
+}
+
+func (o GetDependabotSecretsSecretOutput) CreatedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDependabotSecretsSecret) string { return v.CreatedAt }).(pulumi.StringOutput)
+}
+
+func (o GetDependabotSecretsSecretOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDependabotSecretsSecret) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GetDependabotSecretsSecretOutput) UpdatedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDependabotSecretsSecret) string { return v.UpdatedAt }).(pulumi.StringOutput)
+}
+
+type GetDependabotSecretsSecretArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDependabotSecretsSecretArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDependabotSecretsSecret)(nil)).Elem()
+}
+
+func (o GetDependabotSecretsSecretArrayOutput) ToGetDependabotSecretsSecretArrayOutput() GetDependabotSecretsSecretArrayOutput {
+	return o
+}
+
+func (o GetDependabotSecretsSecretArrayOutput) ToGetDependabotSecretsSecretArrayOutputWithContext(ctx context.Context) GetDependabotSecretsSecretArrayOutput {
+	return o
+}
+
+func (o GetDependabotSecretsSecretArrayOutput) Index(i pulumi.IntInput) GetDependabotSecretsSecretOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDependabotSecretsSecret {
+		return vs[0].([]GetDependabotSecretsSecret)[vs[1].(int)]
+	}).(GetDependabotSecretsSecretOutput)
+}
+
 type GetExternalGroupsExternalGroup struct {
 	GroupId   int    `pulumi:"groupId"`
 	GroupName string `pulumi:"groupName"`
@@ -3297,6 +3639,106 @@ func (o GetOrganizationTeamsTeamArrayOutput) Index(i pulumi.IntInput) GetOrganiz
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetOrganizationTeamsTeam {
 		return vs[0].([]GetOrganizationTeamsTeam)[vs[1].(int)]
 	}).(GetOrganizationTeamsTeamOutput)
+}
+
+type GetRepositoryBranchesBranch struct {
+	Name      string `pulumi:"name"`
+	Protected bool   `pulumi:"protected"`
+}
+
+// GetRepositoryBranchesBranchInput is an input type that accepts GetRepositoryBranchesBranchArgs and GetRepositoryBranchesBranchOutput values.
+// You can construct a concrete instance of `GetRepositoryBranchesBranchInput` via:
+//
+//	GetRepositoryBranchesBranchArgs{...}
+type GetRepositoryBranchesBranchInput interface {
+	pulumi.Input
+
+	ToGetRepositoryBranchesBranchOutput() GetRepositoryBranchesBranchOutput
+	ToGetRepositoryBranchesBranchOutputWithContext(context.Context) GetRepositoryBranchesBranchOutput
+}
+
+type GetRepositoryBranchesBranchArgs struct {
+	Name      pulumi.StringInput `pulumi:"name"`
+	Protected pulumi.BoolInput   `pulumi:"protected"`
+}
+
+func (GetRepositoryBranchesBranchArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRepositoryBranchesBranch)(nil)).Elem()
+}
+
+func (i GetRepositoryBranchesBranchArgs) ToGetRepositoryBranchesBranchOutput() GetRepositoryBranchesBranchOutput {
+	return i.ToGetRepositoryBranchesBranchOutputWithContext(context.Background())
+}
+
+func (i GetRepositoryBranchesBranchArgs) ToGetRepositoryBranchesBranchOutputWithContext(ctx context.Context) GetRepositoryBranchesBranchOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRepositoryBranchesBranchOutput)
+}
+
+// GetRepositoryBranchesBranchArrayInput is an input type that accepts GetRepositoryBranchesBranchArray and GetRepositoryBranchesBranchArrayOutput values.
+// You can construct a concrete instance of `GetRepositoryBranchesBranchArrayInput` via:
+//
+//	GetRepositoryBranchesBranchArray{ GetRepositoryBranchesBranchArgs{...} }
+type GetRepositoryBranchesBranchArrayInput interface {
+	pulumi.Input
+
+	ToGetRepositoryBranchesBranchArrayOutput() GetRepositoryBranchesBranchArrayOutput
+	ToGetRepositoryBranchesBranchArrayOutputWithContext(context.Context) GetRepositoryBranchesBranchArrayOutput
+}
+
+type GetRepositoryBranchesBranchArray []GetRepositoryBranchesBranchInput
+
+func (GetRepositoryBranchesBranchArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRepositoryBranchesBranch)(nil)).Elem()
+}
+
+func (i GetRepositoryBranchesBranchArray) ToGetRepositoryBranchesBranchArrayOutput() GetRepositoryBranchesBranchArrayOutput {
+	return i.ToGetRepositoryBranchesBranchArrayOutputWithContext(context.Background())
+}
+
+func (i GetRepositoryBranchesBranchArray) ToGetRepositoryBranchesBranchArrayOutputWithContext(ctx context.Context) GetRepositoryBranchesBranchArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRepositoryBranchesBranchArrayOutput)
+}
+
+type GetRepositoryBranchesBranchOutput struct{ *pulumi.OutputState }
+
+func (GetRepositoryBranchesBranchOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRepositoryBranchesBranch)(nil)).Elem()
+}
+
+func (o GetRepositoryBranchesBranchOutput) ToGetRepositoryBranchesBranchOutput() GetRepositoryBranchesBranchOutput {
+	return o
+}
+
+func (o GetRepositoryBranchesBranchOutput) ToGetRepositoryBranchesBranchOutputWithContext(ctx context.Context) GetRepositoryBranchesBranchOutput {
+	return o
+}
+
+func (o GetRepositoryBranchesBranchOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRepositoryBranchesBranch) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GetRepositoryBranchesBranchOutput) Protected() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetRepositoryBranchesBranch) bool { return v.Protected }).(pulumi.BoolOutput)
+}
+
+type GetRepositoryBranchesBranchArrayOutput struct{ *pulumi.OutputState }
+
+func (GetRepositoryBranchesBranchArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRepositoryBranchesBranch)(nil)).Elem()
+}
+
+func (o GetRepositoryBranchesBranchArrayOutput) ToGetRepositoryBranchesBranchArrayOutput() GetRepositoryBranchesBranchArrayOutput {
+	return o
+}
+
+func (o GetRepositoryBranchesBranchArrayOutput) ToGetRepositoryBranchesBranchArrayOutputWithContext(ctx context.Context) GetRepositoryBranchesBranchArrayOutput {
+	return o
+}
+
+func (o GetRepositoryBranchesBranchArrayOutput) Index(i pulumi.IntInput) GetRepositoryBranchesBranchOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRepositoryBranchesBranch {
+		return vs[0].([]GetRepositoryBranchesBranch)[vs[1].(int)]
+	}).(GetRepositoryBranchesBranchOutput)
 }
 
 type GetRepositoryPage struct {
@@ -3946,6 +4388,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BranchProtectionV3RequiredStatusChecksPtrInput)(nil)).Elem(), BranchProtectionV3RequiredStatusChecksArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BranchProtectionV3RestrictionsInput)(nil)).Elem(), BranchProtectionV3RestrictionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BranchProtectionV3RestrictionsPtrInput)(nil)).Elem(), BranchProtectionV3RestrictionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationIpAllowListIpAllowListInput)(nil)).Elem(), OrganizationIpAllowListIpAllowListArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationIpAllowListIpAllowListArrayInput)(nil)).Elem(), OrganizationIpAllowListIpAllowListArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationWebhookConfigurationInput)(nil)).Elem(), OrganizationWebhookConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationWebhookConfigurationPtrInput)(nil)).Elem(), OrganizationWebhookConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProviderAppAuthInput)(nil)).Elem(), ProviderAppAuthArgs{})
@@ -3972,12 +4416,18 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetActionsSecretsSecretArrayInput)(nil)).Elem(), GetActionsSecretsSecretArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCollaboratorsCollaboratorInput)(nil)).Elem(), GetCollaboratorsCollaboratorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCollaboratorsCollaboratorArrayInput)(nil)).Elem(), GetCollaboratorsCollaboratorArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDependabotOrganizationSecretsSecretInput)(nil)).Elem(), GetDependabotOrganizationSecretsSecretArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDependabotOrganizationSecretsSecretArrayInput)(nil)).Elem(), GetDependabotOrganizationSecretsSecretArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDependabotSecretsSecretInput)(nil)).Elem(), GetDependabotSecretsSecretArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDependabotSecretsSecretArrayInput)(nil)).Elem(), GetDependabotSecretsSecretArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetExternalGroupsExternalGroupInput)(nil)).Elem(), GetExternalGroupsExternalGroupArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetExternalGroupsExternalGroupArrayInput)(nil)).Elem(), GetExternalGroupsExternalGroupArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetOrganizationTeamSyncGroupsGroupInput)(nil)).Elem(), GetOrganizationTeamSyncGroupsGroupArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetOrganizationTeamSyncGroupsGroupArrayInput)(nil)).Elem(), GetOrganizationTeamSyncGroupsGroupArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetOrganizationTeamsTeamInput)(nil)).Elem(), GetOrganizationTeamsTeamArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetOrganizationTeamsTeamArrayInput)(nil)).Elem(), GetOrganizationTeamsTeamArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRepositoryBranchesBranchInput)(nil)).Elem(), GetRepositoryBranchesBranchArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRepositoryBranchesBranchArrayInput)(nil)).Elem(), GetRepositoryBranchesBranchArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRepositoryPageInput)(nil)).Elem(), GetRepositoryPageArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRepositoryPageArrayInput)(nil)).Elem(), GetRepositoryPageArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRepositoryPageSourceInput)(nil)).Elem(), GetRepositoryPageSourceArgs{})
@@ -4002,6 +4452,8 @@ func init() {
 	pulumi.RegisterOutputType(BranchProtectionV3RequiredStatusChecksPtrOutput{})
 	pulumi.RegisterOutputType(BranchProtectionV3RestrictionsOutput{})
 	pulumi.RegisterOutputType(BranchProtectionV3RestrictionsPtrOutput{})
+	pulumi.RegisterOutputType(OrganizationIpAllowListIpAllowListOutput{})
+	pulumi.RegisterOutputType(OrganizationIpAllowListIpAllowListArrayOutput{})
 	pulumi.RegisterOutputType(OrganizationWebhookConfigurationOutput{})
 	pulumi.RegisterOutputType(OrganizationWebhookConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ProviderAppAuthOutput{})
@@ -4028,12 +4480,18 @@ func init() {
 	pulumi.RegisterOutputType(GetActionsSecretsSecretArrayOutput{})
 	pulumi.RegisterOutputType(GetCollaboratorsCollaboratorOutput{})
 	pulumi.RegisterOutputType(GetCollaboratorsCollaboratorArrayOutput{})
+	pulumi.RegisterOutputType(GetDependabotOrganizationSecretsSecretOutput{})
+	pulumi.RegisterOutputType(GetDependabotOrganizationSecretsSecretArrayOutput{})
+	pulumi.RegisterOutputType(GetDependabotSecretsSecretOutput{})
+	pulumi.RegisterOutputType(GetDependabotSecretsSecretArrayOutput{})
 	pulumi.RegisterOutputType(GetExternalGroupsExternalGroupOutput{})
 	pulumi.RegisterOutputType(GetExternalGroupsExternalGroupArrayOutput{})
 	pulumi.RegisterOutputType(GetOrganizationTeamSyncGroupsGroupOutput{})
 	pulumi.RegisterOutputType(GetOrganizationTeamSyncGroupsGroupArrayOutput{})
 	pulumi.RegisterOutputType(GetOrganizationTeamsTeamOutput{})
 	pulumi.RegisterOutputType(GetOrganizationTeamsTeamArrayOutput{})
+	pulumi.RegisterOutputType(GetRepositoryBranchesBranchOutput{})
+	pulumi.RegisterOutputType(GetRepositoryBranchesBranchArrayOutput{})
 	pulumi.RegisterOutputType(GetRepositoryPageOutput{})
 	pulumi.RegisterOutputType(GetRepositoryPageArrayOutput{})
 	pulumi.RegisterOutputType(GetRepositoryPageSourceOutput{})

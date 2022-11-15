@@ -25,7 +25,9 @@ from .get_actions_public_key import *
 from .get_actions_secrets import *
 from .get_branch import *
 from .get_collaborators import *
+from .get_dependabot_organization_secrets import *
 from .get_dependabot_public_key import *
+from .get_dependabot_secrets import *
 from .get_external_groups import *
 from .get_ip_ranges import *
 from .get_membership import *
@@ -36,6 +38,7 @@ from .get_ref import *
 from .get_release import *
 from .get_repositories import *
 from .get_repository import *
+from .get_repository_branches import *
 from .get_repository_file import *
 from .get_repository_milestone import *
 from .get_repository_pull_request import *
@@ -49,6 +52,7 @@ from .issue import *
 from .issue_label import *
 from .membership import *
 from .organization_block import *
+from .organization_ip_allow_list import *
 from .organization_project import *
 from .organization_webhook import *
 from .project_card import *

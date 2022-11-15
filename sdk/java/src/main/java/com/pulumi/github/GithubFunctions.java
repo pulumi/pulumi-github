@@ -18,6 +18,8 @@ import com.pulumi.github.inputs.GetCollaboratorsArgs;
 import com.pulumi.github.inputs.GetCollaboratorsPlainArgs;
 import com.pulumi.github.inputs.GetDependabotPublicKeyArgs;
 import com.pulumi.github.inputs.GetDependabotPublicKeyPlainArgs;
+import com.pulumi.github.inputs.GetDependabotSecretsArgs;
+import com.pulumi.github.inputs.GetDependabotSecretsPlainArgs;
 import com.pulumi.github.inputs.GetMembershipArgs;
 import com.pulumi.github.inputs.GetMembershipPlainArgs;
 import com.pulumi.github.inputs.GetOrganizationArgs;
@@ -31,6 +33,8 @@ import com.pulumi.github.inputs.GetReleasePlainArgs;
 import com.pulumi.github.inputs.GetRepositoriesArgs;
 import com.pulumi.github.inputs.GetRepositoriesPlainArgs;
 import com.pulumi.github.inputs.GetRepositoryArgs;
+import com.pulumi.github.inputs.GetRepositoryBranchesArgs;
+import com.pulumi.github.inputs.GetRepositoryBranchesPlainArgs;
 import com.pulumi.github.inputs.GetRepositoryFileArgs;
 import com.pulumi.github.inputs.GetRepositoryFilePlainArgs;
 import com.pulumi.github.inputs.GetRepositoryMilestoneArgs;
@@ -55,7 +59,9 @@ import com.pulumi.github.outputs.GetActionsPublicKeyResult;
 import com.pulumi.github.outputs.GetActionsSecretsResult;
 import com.pulumi.github.outputs.GetBranchResult;
 import com.pulumi.github.outputs.GetCollaboratorsResult;
+import com.pulumi.github.outputs.GetDependabotOrganizationSecretsResult;
 import com.pulumi.github.outputs.GetDependabotPublicKeyResult;
+import com.pulumi.github.outputs.GetDependabotSecretsResult;
 import com.pulumi.github.outputs.GetExternalGroupsResult;
 import com.pulumi.github.outputs.GetIpRangesResult;
 import com.pulumi.github.outputs.GetMembershipResult;
@@ -65,6 +71,7 @@ import com.pulumi.github.outputs.GetOrganizationTeamsResult;
 import com.pulumi.github.outputs.GetRefResult;
 import com.pulumi.github.outputs.GetReleaseResult;
 import com.pulumi.github.outputs.GetRepositoriesResult;
+import com.pulumi.github.outputs.GetRepositoryBranchesResult;
 import com.pulumi.github.outputs.GetRepositoryFileResult;
 import com.pulumi.github.outputs.GetRepositoryMilestoneResult;
 import com.pulumi.github.outputs.GetRepositoryPullRequestResult;
@@ -75,6 +82,7 @@ import com.pulumi.github.outputs.GetTeamResult;
 import com.pulumi.github.outputs.GetTreeResult;
 import com.pulumi.github.outputs.GetUserResult;
 import com.pulumi.github.outputs.GetUsersResult;
+import com.pulumi.github.outputs.OrganizationIpAllowListResult;
 import com.pulumi.resources.InvokeArgs;
 import java.util.concurrent.CompletableFuture;
 
@@ -151,6 +159,24 @@ public final class GithubFunctions {
     public static CompletableFuture<GetCollaboratorsResult> getCollaboratorsPlain(GetCollaboratorsPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("github:index/getCollaborators:getCollaborators", TypeShape.of(GetCollaboratorsResult.class), args, Utilities.withVersion(options));
     }
+    public static Output<GetDependabotOrganizationSecretsResult> getDependabotOrganizationSecrets() {
+        return getDependabotOrganizationSecrets(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    public static CompletableFuture<GetDependabotOrganizationSecretsResult> getDependabotOrganizationSecretsPlain() {
+        return getDependabotOrganizationSecretsPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    public static Output<GetDependabotOrganizationSecretsResult> getDependabotOrganizationSecrets(InvokeArgs args) {
+        return getDependabotOrganizationSecrets(args, InvokeOptions.Empty);
+    }
+    public static CompletableFuture<GetDependabotOrganizationSecretsResult> getDependabotOrganizationSecretsPlain(InvokeArgs args) {
+        return getDependabotOrganizationSecretsPlain(args, InvokeOptions.Empty);
+    }
+    public static Output<GetDependabotOrganizationSecretsResult> getDependabotOrganizationSecrets(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("github:index/getDependabotOrganizationSecrets:getDependabotOrganizationSecrets", TypeShape.of(GetDependabotOrganizationSecretsResult.class), args, Utilities.withVersion(options));
+    }
+    public static CompletableFuture<GetDependabotOrganizationSecretsResult> getDependabotOrganizationSecretsPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("github:index/getDependabotOrganizationSecrets:getDependabotOrganizationSecrets", TypeShape.of(GetDependabotOrganizationSecretsResult.class), args, Utilities.withVersion(options));
+    }
     public static Output<GetDependabotPublicKeyResult> getDependabotPublicKey(GetDependabotPublicKeyArgs args) {
         return getDependabotPublicKey(args, InvokeOptions.Empty);
     }
@@ -162,6 +188,24 @@ public final class GithubFunctions {
     }
     public static CompletableFuture<GetDependabotPublicKeyResult> getDependabotPublicKeyPlain(GetDependabotPublicKeyPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("github:index/getDependabotPublicKey:getDependabotPublicKey", TypeShape.of(GetDependabotPublicKeyResult.class), args, Utilities.withVersion(options));
+    }
+    public static Output<GetDependabotSecretsResult> getDependabotSecrets() {
+        return getDependabotSecrets(GetDependabotSecretsArgs.Empty, InvokeOptions.Empty);
+    }
+    public static CompletableFuture<GetDependabotSecretsResult> getDependabotSecretsPlain() {
+        return getDependabotSecretsPlain(GetDependabotSecretsPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    public static Output<GetDependabotSecretsResult> getDependabotSecrets(GetDependabotSecretsArgs args) {
+        return getDependabotSecrets(args, InvokeOptions.Empty);
+    }
+    public static CompletableFuture<GetDependabotSecretsResult> getDependabotSecretsPlain(GetDependabotSecretsPlainArgs args) {
+        return getDependabotSecretsPlain(args, InvokeOptions.Empty);
+    }
+    public static Output<GetDependabotSecretsResult> getDependabotSecrets(GetDependabotSecretsArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("github:index/getDependabotSecrets:getDependabotSecrets", TypeShape.of(GetDependabotSecretsResult.class), args, Utilities.withVersion(options));
+    }
+    public static CompletableFuture<GetDependabotSecretsResult> getDependabotSecretsPlain(GetDependabotSecretsPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("github:index/getDependabotSecrets:getDependabotSecrets", TypeShape.of(GetDependabotSecretsResult.class), args, Utilities.withVersion(options));
     }
     public static Output<GetExternalGroupsResult> getExternalGroups() {
         return getExternalGroups(InvokeArgs.Empty, InvokeOptions.Empty);
@@ -313,6 +357,18 @@ public final class GithubFunctions {
     public static CompletableFuture<GetRepositoryResult> getRepositoryPlain(GetRepositoryPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("github:index/getRepository:getRepository", TypeShape.of(GetRepositoryResult.class), args, Utilities.withVersion(options));
     }
+    public static Output<GetRepositoryBranchesResult> getRepositoryBranches(GetRepositoryBranchesArgs args) {
+        return getRepositoryBranches(args, InvokeOptions.Empty);
+    }
+    public static CompletableFuture<GetRepositoryBranchesResult> getRepositoryBranchesPlain(GetRepositoryBranchesPlainArgs args) {
+        return getRepositoryBranchesPlain(args, InvokeOptions.Empty);
+    }
+    public static Output<GetRepositoryBranchesResult> getRepositoryBranches(GetRepositoryBranchesArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("github:index/getRepositoryBranches:getRepositoryBranches", TypeShape.of(GetRepositoryBranchesResult.class), args, Utilities.withVersion(options));
+    }
+    public static CompletableFuture<GetRepositoryBranchesResult> getRepositoryBranchesPlain(GetRepositoryBranchesPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("github:index/getRepositoryBranches:getRepositoryBranches", TypeShape.of(GetRepositoryBranchesResult.class), args, Utilities.withVersion(options));
+    }
     public static Output<GetRepositoryFileResult> getRepositoryFile(GetRepositoryFileArgs args) {
         return getRepositoryFile(args, InvokeOptions.Empty);
     }
@@ -426,5 +482,23 @@ public final class GithubFunctions {
     }
     public static CompletableFuture<GetUsersResult> getUsersPlain(GetUsersPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("github:index/getUsers:getUsers", TypeShape.of(GetUsersResult.class), args, Utilities.withVersion(options));
+    }
+    public static Output<OrganizationIpAllowListResult> organizationIpAllowList() {
+        return organizationIpAllowList(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    public static CompletableFuture<OrganizationIpAllowListResult> organizationIpAllowListPlain() {
+        return organizationIpAllowListPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    public static Output<OrganizationIpAllowListResult> organizationIpAllowList(InvokeArgs args) {
+        return organizationIpAllowList(args, InvokeOptions.Empty);
+    }
+    public static CompletableFuture<OrganizationIpAllowListResult> organizationIpAllowListPlain(InvokeArgs args) {
+        return organizationIpAllowListPlain(args, InvokeOptions.Empty);
+    }
+    public static Output<OrganizationIpAllowListResult> organizationIpAllowList(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("github:index/organizationIpAllowList:OrganizationIpAllowList", TypeShape.of(OrganizationIpAllowListResult.class), args, Utilities.withVersion(options));
+    }
+    public static CompletableFuture<OrganizationIpAllowListResult> organizationIpAllowListPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("github:index/organizationIpAllowList:OrganizationIpAllowList", TypeShape.of(OrganizationIpAllowListResult.class), args, Utilities.withVersion(options));
     }
 }

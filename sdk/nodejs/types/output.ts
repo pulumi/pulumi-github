@@ -87,6 +87,19 @@ export interface GetCollaboratorsCollaborator {
     url: string;
 }
 
+export interface GetDependabotOrganizationSecretsSecret {
+    createdAt: string;
+    name: string;
+    updatedAt: string;
+    visibility: string;
+}
+
+export interface GetDependabotSecretsSecret {
+    createdAt: string;
+    name: string;
+    updatedAt: string;
+}
+
 export interface GetExternalGroupsExternalGroup {
     groupId: number;
     groupName: string;
@@ -108,6 +121,11 @@ export interface GetOrganizationTeamsTeam {
     privacy: string;
     repositories: string[];
     slug: string;
+}
+
+export interface GetRepositoryBranchesBranch {
+    name: string;
+    protected: boolean;
 }
 
 export interface GetRepositoryPage {
@@ -155,6 +173,15 @@ export interface GetTreeEntry {
     sha: string;
     size: number;
     type: string;
+}
+
+export interface OrganizationIpAllowListIpAllowList {
+    allowListValue: string;
+    createdAt: string;
+    id: string;
+    isActive: boolean;
+    name: string;
+    updatedAt: string;
 }
 
 export interface OrganizationWebhookConfiguration {

@@ -18,6 +18,7 @@ __all__ = [
     'BranchProtectionV3RequiredPullRequestReviews',
     'BranchProtectionV3RequiredStatusChecks',
     'BranchProtectionV3Restrictions',
+    'OrganizationIpAllowListIpAllowListResult',
     'OrganizationWebhookConfiguration',
     'RepositoryEnvironmentDeploymentBranchPolicy',
     'RepositoryEnvironmentReviewer',
@@ -30,9 +31,12 @@ __all__ = [
     'GetActionsOrganizationSecretsSecretResult',
     'GetActionsSecretsSecretResult',
     'GetCollaboratorsCollaboratorResult',
+    'GetDependabotOrganizationSecretsSecretResult',
+    'GetDependabotSecretsSecretResult',
     'GetExternalGroupsExternalGroupResult',
     'GetOrganizationTeamSyncGroupsGroupResult',
     'GetOrganizationTeamsTeamResult',
+    'GetRepositoryBranchesBranchResult',
     'GetRepositoryPageResult',
     'GetRepositoryPageSourceResult',
     'GetRepositoryPullRequestsResultResult',
@@ -372,6 +376,53 @@ class BranchProtectionV3Restrictions(dict):
     @pulumi.getter
     def users(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "users")
+
+
+@pulumi.output_type
+class OrganizationIpAllowListIpAllowListResult(dict):
+    def __init__(__self__, *,
+                 allow_list_value: str,
+                 created_at: str,
+                 id: str,
+                 is_active: bool,
+                 name: str,
+                 updated_at: str):
+        pulumi.set(__self__, "allow_list_value", allow_list_value)
+        pulumi.set(__self__, "created_at", created_at)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "is_active", is_active)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "updated_at", updated_at)
+
+    @property
+    @pulumi.getter(name="allowListValue")
+    def allow_list_value(self) -> str:
+        return pulumi.get(self, "allow_list_value")
+
+    @property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> str:
+        return pulumi.get(self, "created_at")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="isActive")
+    def is_active(self) -> bool:
+        return pulumi.get(self, "is_active")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="updatedAt")
+    def updated_at(self) -> str:
+        return pulumi.get(self, "updated_at")
 
 
 @pulumi.output_type
@@ -895,6 +946,65 @@ class GetCollaboratorsCollaboratorResult(dict):
 
 
 @pulumi.output_type
+class GetDependabotOrganizationSecretsSecretResult(dict):
+    def __init__(__self__, *,
+                 created_at: str,
+                 name: str,
+                 updated_at: str,
+                 visibility: str):
+        pulumi.set(__self__, "created_at", created_at)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "updated_at", updated_at)
+        pulumi.set(__self__, "visibility", visibility)
+
+    @property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> str:
+        return pulumi.get(self, "created_at")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="updatedAt")
+    def updated_at(self) -> str:
+        return pulumi.get(self, "updated_at")
+
+    @property
+    @pulumi.getter
+    def visibility(self) -> str:
+        return pulumi.get(self, "visibility")
+
+
+@pulumi.output_type
+class GetDependabotSecretsSecretResult(dict):
+    def __init__(__self__, *,
+                 created_at: str,
+                 name: str,
+                 updated_at: str):
+        pulumi.set(__self__, "created_at", created_at)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "updated_at", updated_at)
+
+    @property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> str:
+        return pulumi.get(self, "created_at")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="updatedAt")
+    def updated_at(self) -> str:
+        return pulumi.get(self, "updated_at")
+
+
+@pulumi.output_type
 class GetExternalGroupsExternalGroupResult(dict):
     def __init__(__self__, *,
                  group_id: int,
@@ -1005,6 +1115,25 @@ class GetOrganizationTeamsTeamResult(dict):
     @pulumi.getter
     def slug(self) -> str:
         return pulumi.get(self, "slug")
+
+
+@pulumi.output_type
+class GetRepositoryBranchesBranchResult(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 protected: bool):
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "protected", protected)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def protected(self) -> bool:
+        return pulumi.get(self, "protected")
 
 
 @pulumi.output_type
