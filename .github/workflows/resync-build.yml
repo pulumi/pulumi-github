@@ -64,11 +64,7 @@ jobs:
       with:
         python-version: ${{matrix.pythonversion}}
     - name: Sync with ci-mgmt
-      run: >-
-        repo_name=$(sed -i "s|${{ github.repository }}|pulumi/pulumi-|g") cp -r
-        $RUNNER_TEMP/ci-mgmt/provider-ci/providers/$repo_name/repo/Makefile . &&
-                   cp -r $RUNNER_TEMP/ci-mgmt/provider-ci/providers/$repo_name/repo/.*.yml . &&
-                   cp -r $RUNNER_TEMP/ci-mgmt/provider-ci/providers/$repo_name/repo/.github .
+      run: cp -r $RUNNER_TEMP/ci-mgmt/provider-ci/providers/$PROVIDER/repo/* .
     - name: Add required lines into .gitignore
       run: |-
         cat <<- EOF > $RUNNER_TEMP/gitignore
