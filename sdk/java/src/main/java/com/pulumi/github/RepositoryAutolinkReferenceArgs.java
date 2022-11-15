@@ -5,13 +5,33 @@ package com.pulumi.github;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class RepositoryAutolinkReferenceArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final RepositoryAutolinkReferenceArgs Empty = new RepositoryAutolinkReferenceArgs();
+
+    /**
+     * Whether this autolink reference matches alphanumeric characters. If false, this autolink reference only matches numeric
+     * characters.
+     * 
+     */
+    @Import(name="isAlphanumeric")
+    private @Nullable Output<Boolean> isAlphanumeric;
+
+    /**
+     * @return Whether this autolink reference matches alphanumeric characters. If false, this autolink reference only matches numeric
+     * characters.
+     * 
+     */
+    public Optional<Output<Boolean>> isAlphanumeric() {
+        return Optional.ofNullable(this.isAlphanumeric);
+    }
 
     /**
      * This prefix appended by a number will generate a link any time it is found in an issue, pull request, or commit
@@ -61,6 +81,7 @@ public final class RepositoryAutolinkReferenceArgs extends com.pulumi.resources.
     private RepositoryAutolinkReferenceArgs() {}
 
     private RepositoryAutolinkReferenceArgs(RepositoryAutolinkReferenceArgs $) {
+        this.isAlphanumeric = $.isAlphanumeric;
         this.keyPrefix = $.keyPrefix;
         this.repository = $.repository;
         this.targetUrlTemplate = $.targetUrlTemplate;
@@ -82,6 +103,29 @@ public final class RepositoryAutolinkReferenceArgs extends com.pulumi.resources.
 
         public Builder(RepositoryAutolinkReferenceArgs defaults) {
             $ = new RepositoryAutolinkReferenceArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param isAlphanumeric Whether this autolink reference matches alphanumeric characters. If false, this autolink reference only matches numeric
+         * characters.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder isAlphanumeric(@Nullable Output<Boolean> isAlphanumeric) {
+            $.isAlphanumeric = isAlphanumeric;
+            return this;
+        }
+
+        /**
+         * @param isAlphanumeric Whether this autolink reference matches alphanumeric characters. If false, this autolink reference only matches numeric
+         * characters.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder isAlphanumeric(Boolean isAlphanumeric) {
+            return isAlphanumeric(Output.of(isAlphanumeric));
         }
 
         /**

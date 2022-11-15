@@ -21,15 +21,19 @@ func GetOrganizationTeams(ctx *pulumi.Context, args *GetOrganizationTeamsArgs, o
 
 // A collection of arguments for invoking getOrganizationTeams.
 type GetOrganizationTeamsArgs struct {
-	RootTeamsOnly *bool `pulumi:"rootTeamsOnly"`
+	ResultsPerPage *int  `pulumi:"resultsPerPage"`
+	RootTeamsOnly  *bool `pulumi:"rootTeamsOnly"`
+	SummaryOnly    *bool `pulumi:"summaryOnly"`
 }
 
 // A collection of values returned by getOrganizationTeams.
 type GetOrganizationTeamsResult struct {
 	// The provider-assigned unique ID for this managed resource.
-	Id            string                     `pulumi:"id"`
-	RootTeamsOnly *bool                      `pulumi:"rootTeamsOnly"`
-	Teams         []GetOrganizationTeamsTeam `pulumi:"teams"`
+	Id             string                     `pulumi:"id"`
+	ResultsPerPage *int                       `pulumi:"resultsPerPage"`
+	RootTeamsOnly  *bool                      `pulumi:"rootTeamsOnly"`
+	SummaryOnly    *bool                      `pulumi:"summaryOnly"`
+	Teams          []GetOrganizationTeamsTeam `pulumi:"teams"`
 }
 
 func GetOrganizationTeamsOutput(ctx *pulumi.Context, args GetOrganizationTeamsOutputArgs, opts ...pulumi.InvokeOption) GetOrganizationTeamsResultOutput {
@@ -47,7 +51,9 @@ func GetOrganizationTeamsOutput(ctx *pulumi.Context, args GetOrganizationTeamsOu
 
 // A collection of arguments for invoking getOrganizationTeams.
 type GetOrganizationTeamsOutputArgs struct {
-	RootTeamsOnly pulumi.BoolPtrInput `pulumi:"rootTeamsOnly"`
+	ResultsPerPage pulumi.IntPtrInput  `pulumi:"resultsPerPage"`
+	RootTeamsOnly  pulumi.BoolPtrInput `pulumi:"rootTeamsOnly"`
+	SummaryOnly    pulumi.BoolPtrInput `pulumi:"summaryOnly"`
 }
 
 func (GetOrganizationTeamsOutputArgs) ElementType() reflect.Type {
@@ -74,8 +80,16 @@ func (o GetOrganizationTeamsResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetOrganizationTeamsResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+func (o GetOrganizationTeamsResultOutput) ResultsPerPage() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetOrganizationTeamsResult) *int { return v.ResultsPerPage }).(pulumi.IntPtrOutput)
+}
+
 func (o GetOrganizationTeamsResultOutput) RootTeamsOnly() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetOrganizationTeamsResult) *bool { return v.RootTeamsOnly }).(pulumi.BoolPtrOutput)
+}
+
+func (o GetOrganizationTeamsResultOutput) SummaryOnly() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetOrganizationTeamsResult) *bool { return v.SummaryOnly }).(pulumi.BoolPtrOutput)
 }
 
 func (o GetOrganizationTeamsResultOutput) Teams() GetOrganizationTeamsTeamArrayOutput {

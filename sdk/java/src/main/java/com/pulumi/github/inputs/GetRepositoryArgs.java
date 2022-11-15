@@ -5,7 +5,6 @@ package com.pulumi.github.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -44,13 +43,6 @@ public final class GetRepositoryArgs extends com.pulumi.resources.InvokeArgs {
         return Optional.ofNullable(this.name);
     }
 
-    @Import(name="onlyProtectedBranches")
-    private @Nullable Output<Boolean> onlyProtectedBranches;
-
-    public Optional<Output<Boolean>> onlyProtectedBranches() {
-        return Optional.ofNullable(this.onlyProtectedBranches);
-    }
-
     private GetRepositoryArgs() {}
 
     private GetRepositoryArgs(GetRepositoryArgs $) {
@@ -58,7 +50,6 @@ public final class GetRepositoryArgs extends com.pulumi.resources.InvokeArgs {
         this.fullName = $.fullName;
         this.homepageUrl = $.homepageUrl;
         this.name = $.name;
-        this.onlyProtectedBranches = $.onlyProtectedBranches;
     }
 
     public static Builder builder() {
@@ -113,15 +104,6 @@ public final class GetRepositoryArgs extends com.pulumi.resources.InvokeArgs {
 
         public Builder name(String name) {
             return name(Output.of(name));
-        }
-
-        public Builder onlyProtectedBranches(@Nullable Output<Boolean> onlyProtectedBranches) {
-            $.onlyProtectedBranches = onlyProtectedBranches;
-            return this;
-        }
-
-        public Builder onlyProtectedBranches(Boolean onlyProtectedBranches) {
-            return onlyProtectedBranches(Output.of(onlyProtectedBranches));
         }
 
         public GetRepositoryArgs build() {

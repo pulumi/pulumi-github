@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 export function getOrganizationTeams(args?: GetOrganizationTeamsArgs, opts?: pulumi.InvokeOptions): Promise<GetOrganizationTeamsResult> {
@@ -13,7 +14,9 @@ export function getOrganizationTeams(args?: GetOrganizationTeamsArgs, opts?: pul
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("github:index/getOrganizationTeams:getOrganizationTeams", {
+        "resultsPerPage": args.resultsPerPage,
         "rootTeamsOnly": args.rootTeamsOnly,
+        "summaryOnly": args.summaryOnly,
     }, opts);
 }
 
@@ -21,7 +24,9 @@ export function getOrganizationTeams(args?: GetOrganizationTeamsArgs, opts?: pul
  * A collection of arguments for invoking getOrganizationTeams.
  */
 export interface GetOrganizationTeamsArgs {
+    resultsPerPage?: number;
     rootTeamsOnly?: boolean;
+    summaryOnly?: boolean;
 }
 
 /**
@@ -32,7 +37,9 @@ export interface GetOrganizationTeamsResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly resultsPerPage?: number;
     readonly rootTeamsOnly?: boolean;
+    readonly summaryOnly?: boolean;
     readonly teams: outputs.GetOrganizationTeamsTeam[];
 }
 
@@ -44,5 +51,7 @@ export function getOrganizationTeamsOutput(args?: GetOrganizationTeamsOutputArgs
  * A collection of arguments for invoking getOrganizationTeams.
  */
 export interface GetOrganizationTeamsOutputArgs {
+    resultsPerPage?: pulumi.Input<number>;
     rootTeamsOnly?: pulumi.Input<boolean>;
+    summaryOnly?: pulumi.Input<boolean>;
 }

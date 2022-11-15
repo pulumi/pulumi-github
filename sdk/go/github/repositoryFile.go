@@ -16,10 +16,12 @@ type RepositoryFile struct {
 
 	// The branch name, defaults to "main"
 	Branch pulumi.StringPtrOutput `pulumi:"branch"`
-	// The commit author name, defaults to the authenticated user's name
-	CommitAuthor pulumi.StringOutput `pulumi:"commitAuthor"`
-	// The commit author email address, defaults to the authenticated user's email address
-	CommitEmail pulumi.StringOutput `pulumi:"commitEmail"`
+	// The commit author name, defaults to the authenticated user's name. GitHub app users may omit author and email
+	// information so GitHub can verify commits as the GitHub App.
+	CommitAuthor pulumi.StringPtrOutput `pulumi:"commitAuthor"`
+	// The commit author email address, defaults to the authenticated user's email address. GitHub app users may omit author
+	// and email information so GitHub can verify commits as the GitHub App.
+	CommitEmail pulumi.StringPtrOutput `pulumi:"commitEmail"`
 	// The commit message when creating or updating the file
 	CommitMessage pulumi.StringOutput `pulumi:"commitMessage"`
 	// The SHA of the commit that modified the file
@@ -76,9 +78,11 @@ func GetRepositoryFile(ctx *pulumi.Context,
 type repositoryFileState struct {
 	// The branch name, defaults to "main"
 	Branch *string `pulumi:"branch"`
-	// The commit author name, defaults to the authenticated user's name
+	// The commit author name, defaults to the authenticated user's name. GitHub app users may omit author and email
+	// information so GitHub can verify commits as the GitHub App.
 	CommitAuthor *string `pulumi:"commitAuthor"`
-	// The commit author email address, defaults to the authenticated user's email address
+	// The commit author email address, defaults to the authenticated user's email address. GitHub app users may omit author
+	// and email information so GitHub can verify commits as the GitHub App.
 	CommitEmail *string `pulumi:"commitEmail"`
 	// The commit message when creating or updating the file
 	CommitMessage *string `pulumi:"commitMessage"`
@@ -99,9 +103,11 @@ type repositoryFileState struct {
 type RepositoryFileState struct {
 	// The branch name, defaults to "main"
 	Branch pulumi.StringPtrInput
-	// The commit author name, defaults to the authenticated user's name
+	// The commit author name, defaults to the authenticated user's name. GitHub app users may omit author and email
+	// information so GitHub can verify commits as the GitHub App.
 	CommitAuthor pulumi.StringPtrInput
-	// The commit author email address, defaults to the authenticated user's email address
+	// The commit author email address, defaults to the authenticated user's email address. GitHub app users may omit author
+	// and email information so GitHub can verify commits as the GitHub App.
 	CommitEmail pulumi.StringPtrInput
 	// The commit message when creating or updating the file
 	CommitMessage pulumi.StringPtrInput
@@ -126,9 +132,11 @@ func (RepositoryFileState) ElementType() reflect.Type {
 type repositoryFileArgs struct {
 	// The branch name, defaults to "main"
 	Branch *string `pulumi:"branch"`
-	// The commit author name, defaults to the authenticated user's name
+	// The commit author name, defaults to the authenticated user's name. GitHub app users may omit author and email
+	// information so GitHub can verify commits as the GitHub App.
 	CommitAuthor *string `pulumi:"commitAuthor"`
-	// The commit author email address, defaults to the authenticated user's email address
+	// The commit author email address, defaults to the authenticated user's email address. GitHub app users may omit author
+	// and email information so GitHub can verify commits as the GitHub App.
 	CommitEmail *string `pulumi:"commitEmail"`
 	// The commit message when creating or updating the file
 	CommitMessage *string `pulumi:"commitMessage"`
@@ -146,9 +154,11 @@ type repositoryFileArgs struct {
 type RepositoryFileArgs struct {
 	// The branch name, defaults to "main"
 	Branch pulumi.StringPtrInput
-	// The commit author name, defaults to the authenticated user's name
+	// The commit author name, defaults to the authenticated user's name. GitHub app users may omit author and email
+	// information so GitHub can verify commits as the GitHub App.
 	CommitAuthor pulumi.StringPtrInput
-	// The commit author email address, defaults to the authenticated user's email address
+	// The commit author email address, defaults to the authenticated user's email address. GitHub app users may omit author
+	// and email information so GitHub can verify commits as the GitHub App.
 	CommitEmail pulumi.StringPtrInput
 	// The commit message when creating or updating the file
 	CommitMessage pulumi.StringPtrInput
@@ -254,14 +264,16 @@ func (o RepositoryFileOutput) Branch() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RepositoryFile) pulumi.StringPtrOutput { return v.Branch }).(pulumi.StringPtrOutput)
 }
 
-// The commit author name, defaults to the authenticated user's name
-func (o RepositoryFileOutput) CommitAuthor() pulumi.StringOutput {
-	return o.ApplyT(func(v *RepositoryFile) pulumi.StringOutput { return v.CommitAuthor }).(pulumi.StringOutput)
+// The commit author name, defaults to the authenticated user's name. GitHub app users may omit author and email
+// information so GitHub can verify commits as the GitHub App.
+func (o RepositoryFileOutput) CommitAuthor() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RepositoryFile) pulumi.StringPtrOutput { return v.CommitAuthor }).(pulumi.StringPtrOutput)
 }
 
-// The commit author email address, defaults to the authenticated user's email address
-func (o RepositoryFileOutput) CommitEmail() pulumi.StringOutput {
-	return o.ApplyT(func(v *RepositoryFile) pulumi.StringOutput { return v.CommitEmail }).(pulumi.StringOutput)
+// The commit author email address, defaults to the authenticated user's email address. GitHub app users may omit author
+// and email information so GitHub can verify commits as the GitHub App.
+func (o RepositoryFileOutput) CommitEmail() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RepositoryFile) pulumi.StringPtrOutput { return v.CommitEmail }).(pulumi.StringPtrOutput)
 }
 
 // The commit message when creating or updating the file

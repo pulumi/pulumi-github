@@ -25,22 +25,30 @@ from .get_actions_public_key import *
 from .get_actions_secrets import *
 from .get_branch import *
 from .get_collaborators import *
+from .get_dependabot_organization_secrets import *
 from .get_dependabot_public_key import *
+from .get_dependabot_secrets import *
 from .get_external_groups import *
+from .get_github_app import *
 from .get_ip_ranges import *
 from .get_membership import *
 from .get_organization import *
+from .get_organization_ip_allow_list import *
 from .get_organization_team_sync_groups import *
 from .get_organization_teams import *
+from .get_organization_webhooks import *
 from .get_ref import *
 from .get_release import *
 from .get_repositories import *
 from .get_repository import *
+from .get_repository_branches import *
+from .get_repository_deploy_keys import *
 from .get_repository_file import *
 from .get_repository_milestone import *
 from .get_repository_pull_request import *
 from .get_repository_pull_requests import *
 from .get_repository_teams import *
+from .get_repository_webhooks import *
 from .get_team import *
 from .get_tree import *
 from .get_user import *
@@ -50,6 +58,7 @@ from .issue_label import *
 from .membership import *
 from .organization_block import *
 from .organization_project import *
+from .organization_settings import *
 from .organization_webhook import *
 from .project_card import *
 from .project_column import *
@@ -244,6 +253,14 @@ _utilities.register(
   "fqn": "pulumi_github",
   "classes": {
    "github:index/organizationProject:OrganizationProject": "OrganizationProject"
+  }
+ },
+ {
+  "pkg": "github",
+  "mod": "index/organizationSettings",
+  "fqn": "pulumi_github",
+  "classes": {
+   "github:index/organizationSettings:OrganizationSettings": "OrganizationSettings"
   }
  },
  {

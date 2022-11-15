@@ -36,6 +36,17 @@ func NewActionsOrganizationSecret(ctx *pulumi.Context,
 	if args.Visibility == nil {
 		return nil, errors.New("invalid value for required argument 'Visibility'")
 	}
+	if args.EncryptedValue != nil {
+		args.EncryptedValue = pulumi.ToSecret(args.EncryptedValue).(pulumi.StringPtrOutput)
+	}
+	if args.PlaintextValue != nil {
+		args.PlaintextValue = pulumi.ToSecret(args.PlaintextValue).(pulumi.StringPtrOutput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"encryptedValue",
+		"plaintextValue",
+	})
+	opts = append(opts, secrets)
 	var resource ActionsOrganizationSecret
 	err := ctx.RegisterResource("github:index/actionsOrganizationSecret:ActionsOrganizationSecret", name, args, &resource, opts...)
 	if err != nil {

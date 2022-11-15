@@ -16,6 +16,13 @@ namespace Pulumi.Github
         public Output<string> Etag { get; private set; } = null!;
 
         /// <summary>
+        /// Whether this autolink reference matches alphanumeric characters. If false, this autolink reference only matches numeric
+        /// characters.
+        /// </summary>
+        [Output("isAlphanumeric")]
+        public Output<bool?> IsAlphanumeric { get; private set; } = null!;
+
+        /// <summary>
         /// This prefix appended by a number will generate a link any time it is found in an issue, pull request, or commit
         /// </summary>
         [Output("keyPrefix")]
@@ -80,6 +87,13 @@ namespace Pulumi.Github
     public sealed class RepositoryAutolinkReferenceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Whether this autolink reference matches alphanumeric characters. If false, this autolink reference only matches numeric
+        /// characters.
+        /// </summary>
+        [Input("isAlphanumeric")]
+        public Input<bool>? IsAlphanumeric { get; set; }
+
+        /// <summary>
         /// This prefix appended by a number will generate a link any time it is found in an issue, pull request, or commit
         /// </summary>
         [Input("keyPrefix", required: true)]
@@ -107,6 +121,13 @@ namespace Pulumi.Github
     {
         [Input("etag")]
         public Input<string>? Etag { get; set; }
+
+        /// <summary>
+        /// Whether this autolink reference matches alphanumeric characters. If false, this autolink reference only matches numeric
+        /// characters.
+        /// </summary>
+        [Input("isAlphanumeric")]
+        public Input<bool>? IsAlphanumeric { get; set; }
 
         /// <summary>
         /// This prefix appended by a number will generate a link any time it is found in an issue, pull request, or commit

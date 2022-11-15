@@ -32,14 +32,16 @@ public final class RepositoryFileArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The commit author name, defaults to the authenticated user&#39;s name
+     * The commit author name, defaults to the authenticated user&#39;s name. GitHub app users may omit author and email
+     * information so GitHub can verify commits as the GitHub App.
      * 
      */
     @Import(name="commitAuthor")
     private @Nullable Output<String> commitAuthor;
 
     /**
-     * @return The commit author name, defaults to the authenticated user&#39;s name
+     * @return The commit author name, defaults to the authenticated user&#39;s name. GitHub app users may omit author and email
+     * information so GitHub can verify commits as the GitHub App.
      * 
      */
     public Optional<Output<String>> commitAuthor() {
@@ -47,14 +49,16 @@ public final class RepositoryFileArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The commit author email address, defaults to the authenticated user&#39;s email address
+     * The commit author email address, defaults to the authenticated user&#39;s email address. GitHub app users may omit author
+     * and email information so GitHub can verify commits as the GitHub App.
      * 
      */
     @Import(name="commitEmail")
     private @Nullable Output<String> commitEmail;
 
     /**
-     * @return The commit author email address, defaults to the authenticated user&#39;s email address
+     * @return The commit author email address, defaults to the authenticated user&#39;s email address. GitHub app users may omit author
+     * and email information so GitHub can verify commits as the GitHub App.
      * 
      */
     public Optional<Output<String>> commitEmail() {
@@ -189,7 +193,8 @@ public final class RepositoryFileArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param commitAuthor The commit author name, defaults to the authenticated user&#39;s name
+         * @param commitAuthor The commit author name, defaults to the authenticated user&#39;s name. GitHub app users may omit author and email
+         * information so GitHub can verify commits as the GitHub App.
          * 
          * @return builder
          * 
@@ -200,7 +205,8 @@ public final class RepositoryFileArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param commitAuthor The commit author name, defaults to the authenticated user&#39;s name
+         * @param commitAuthor The commit author name, defaults to the authenticated user&#39;s name. GitHub app users may omit author and email
+         * information so GitHub can verify commits as the GitHub App.
          * 
          * @return builder
          * 
@@ -210,7 +216,8 @@ public final class RepositoryFileArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param commitEmail The commit author email address, defaults to the authenticated user&#39;s email address
+         * @param commitEmail The commit author email address, defaults to the authenticated user&#39;s email address. GitHub app users may omit author
+         * and email information so GitHub can verify commits as the GitHub App.
          * 
          * @return builder
          * 
@@ -221,7 +228,8 @@ public final class RepositoryFileArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param commitEmail The commit author email address, defaults to the authenticated user&#39;s email address
+         * @param commitEmail The commit author email address, defaults to the authenticated user&#39;s email address. GitHub app users may omit author
+         * and email information so GitHub can verify commits as the GitHub App.
          * 
          * @return builder
          * 

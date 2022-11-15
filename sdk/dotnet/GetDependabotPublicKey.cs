@@ -12,10 +12,10 @@ namespace Pulumi.Github
     public static class GetDependabotPublicKey
     {
         public static Task<GetDependabotPublicKeyResult> InvokeAsync(GetDependabotPublicKeyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDependabotPublicKeyResult>("github:index/getDependabotPublicKey:getDependabotPublicKey", args ?? new GetDependabotPublicKeyArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetDependabotPublicKeyResult>("github:index/getDependabotPublicKey:getDependabotPublicKey", args ?? new GetDependabotPublicKeyArgs(), options.WithDefaults());
 
         public static Output<GetDependabotPublicKeyResult> Invoke(GetDependabotPublicKeyInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDependabotPublicKeyResult>("github:index/getDependabotPublicKey:getDependabotPublicKey", args ?? new GetDependabotPublicKeyInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetDependabotPublicKeyResult>("github:index/getDependabotPublicKey:getDependabotPublicKey", args ?? new GetDependabotPublicKeyInvokeArgs(), options.WithDefaults());
     }
 
 

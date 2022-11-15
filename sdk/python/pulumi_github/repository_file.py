@@ -28,8 +28,10 @@ class RepositoryFileArgs:
         :param pulumi.Input[str] file: The file path to manage
         :param pulumi.Input[str] repository: The repository name
         :param pulumi.Input[str] branch: The branch name, defaults to "main"
-        :param pulumi.Input[str] commit_author: The commit author name, defaults to the authenticated user's name
-        :param pulumi.Input[str] commit_email: The commit author email address, defaults to the authenticated user's email address
+        :param pulumi.Input[str] commit_author: The commit author name, defaults to the authenticated user's name. GitHub app users may omit author and email
+               information so GitHub can verify commits as the GitHub App.
+        :param pulumi.Input[str] commit_email: The commit author email address, defaults to the authenticated user's email address. GitHub app users may omit author
+               and email information so GitHub can verify commits as the GitHub App.
         :param pulumi.Input[str] commit_message: The commit message when creating or updating the file
         :param pulumi.Input[bool] overwrite_on_create: Enable overwriting existing files, defaults to "false"
         """
@@ -99,7 +101,8 @@ class RepositoryFileArgs:
     @pulumi.getter(name="commitAuthor")
     def commit_author(self) -> Optional[pulumi.Input[str]]:
         """
-        The commit author name, defaults to the authenticated user's name
+        The commit author name, defaults to the authenticated user's name. GitHub app users may omit author and email
+        information so GitHub can verify commits as the GitHub App.
         """
         return pulumi.get(self, "commit_author")
 
@@ -111,7 +114,8 @@ class RepositoryFileArgs:
     @pulumi.getter(name="commitEmail")
     def commit_email(self) -> Optional[pulumi.Input[str]]:
         """
-        The commit author email address, defaults to the authenticated user's email address
+        The commit author email address, defaults to the authenticated user's email address. GitHub app users may omit author
+        and email information so GitHub can verify commits as the GitHub App.
         """
         return pulumi.get(self, "commit_email")
 
@@ -160,8 +164,10 @@ class _RepositoryFileState:
         """
         Input properties used for looking up and filtering RepositoryFile resources.
         :param pulumi.Input[str] branch: The branch name, defaults to "main"
-        :param pulumi.Input[str] commit_author: The commit author name, defaults to the authenticated user's name
-        :param pulumi.Input[str] commit_email: The commit author email address, defaults to the authenticated user's email address
+        :param pulumi.Input[str] commit_author: The commit author name, defaults to the authenticated user's name. GitHub app users may omit author and email
+               information so GitHub can verify commits as the GitHub App.
+        :param pulumi.Input[str] commit_email: The commit author email address, defaults to the authenticated user's email address. GitHub app users may omit author
+               and email information so GitHub can verify commits as the GitHub App.
         :param pulumi.Input[str] commit_message: The commit message when creating or updating the file
         :param pulumi.Input[str] commit_sha: The SHA of the commit that modified the file
         :param pulumi.Input[str] content: The file's content
@@ -207,7 +213,8 @@ class _RepositoryFileState:
     @pulumi.getter(name="commitAuthor")
     def commit_author(self) -> Optional[pulumi.Input[str]]:
         """
-        The commit author name, defaults to the authenticated user's name
+        The commit author name, defaults to the authenticated user's name. GitHub app users may omit author and email
+        information so GitHub can verify commits as the GitHub App.
         """
         return pulumi.get(self, "commit_author")
 
@@ -219,7 +226,8 @@ class _RepositoryFileState:
     @pulumi.getter(name="commitEmail")
     def commit_email(self) -> Optional[pulumi.Input[str]]:
         """
-        The commit author email address, defaults to the authenticated user's email address
+        The commit author email address, defaults to the authenticated user's email address. GitHub app users may omit author
+        and email information so GitHub can verify commits as the GitHub App.
         """
         return pulumi.get(self, "commit_email")
 
@@ -331,8 +339,10 @@ class RepositoryFile(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] branch: The branch name, defaults to "main"
-        :param pulumi.Input[str] commit_author: The commit author name, defaults to the authenticated user's name
-        :param pulumi.Input[str] commit_email: The commit author email address, defaults to the authenticated user's email address
+        :param pulumi.Input[str] commit_author: The commit author name, defaults to the authenticated user's name. GitHub app users may omit author and email
+               information so GitHub can verify commits as the GitHub App.
+        :param pulumi.Input[str] commit_email: The commit author email address, defaults to the authenticated user's email address. GitHub app users may omit author
+               and email information so GitHub can verify commits as the GitHub App.
         :param pulumi.Input[str] commit_message: The commit message when creating or updating the file
         :param pulumi.Input[str] content: The file's content
         :param pulumi.Input[str] file: The file path to manage
@@ -423,8 +433,10 @@ class RepositoryFile(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] branch: The branch name, defaults to "main"
-        :param pulumi.Input[str] commit_author: The commit author name, defaults to the authenticated user's name
-        :param pulumi.Input[str] commit_email: The commit author email address, defaults to the authenticated user's email address
+        :param pulumi.Input[str] commit_author: The commit author name, defaults to the authenticated user's name. GitHub app users may omit author and email
+               information so GitHub can verify commits as the GitHub App.
+        :param pulumi.Input[str] commit_email: The commit author email address, defaults to the authenticated user's email address. GitHub app users may omit author
+               and email information so GitHub can verify commits as the GitHub App.
         :param pulumi.Input[str] commit_message: The commit message when creating or updating the file
         :param pulumi.Input[str] commit_sha: The SHA of the commit that modified the file
         :param pulumi.Input[str] content: The file's content
@@ -459,17 +471,19 @@ class RepositoryFile(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="commitAuthor")
-    def commit_author(self) -> pulumi.Output[str]:
+    def commit_author(self) -> pulumi.Output[Optional[str]]:
         """
-        The commit author name, defaults to the authenticated user's name
+        The commit author name, defaults to the authenticated user's name. GitHub app users may omit author and email
+        information so GitHub can verify commits as the GitHub App.
         """
         return pulumi.get(self, "commit_author")
 
     @property
     @pulumi.getter(name="commitEmail")
-    def commit_email(self) -> pulumi.Output[str]:
+    def commit_email(self) -> pulumi.Output[Optional[str]]:
         """
-        The commit author email address, defaults to the authenticated user's email address
+        The commit author email address, defaults to the authenticated user's email address. GitHub app users may omit author
+        and email information so GitHub can verify commits as the GitHub App.
         """
         return pulumi.get(self, "commit_email")
 

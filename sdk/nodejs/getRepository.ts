@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 export function getRepository(args?: GetRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetRepositoryResult> {
@@ -17,7 +18,6 @@ export function getRepository(args?: GetRepositoryArgs, opts?: pulumi.InvokeOpti
         "fullName": args.fullName,
         "homepageUrl": args.homepageUrl,
         "name": args.name,
-        "onlyProtectedBranches": args.onlyProtectedBranches,
     }, opts);
 }
 
@@ -29,7 +29,6 @@ export interface GetRepositoryArgs {
     fullName?: string;
     homepageUrl?: string;
     name?: string;
-    onlyProtectedBranches?: boolean;
 }
 
 /**
@@ -60,7 +59,6 @@ export interface GetRepositoryResult {
     readonly mergeCommitTitle: string;
     readonly name: string;
     readonly nodeId: string;
-    readonly onlyProtectedBranches?: boolean;
     readonly pages: outputs.GetRepositoryPage[];
     readonly private: boolean;
     readonly repoId: number;
@@ -84,5 +82,4 @@ export interface GetRepositoryOutputArgs {
     fullName?: pulumi.Input<string>;
     homepageUrl?: pulumi.Input<string>;
     name?: pulumi.Input<string>;
-    onlyProtectedBranches?: pulumi.Input<boolean>;
 }

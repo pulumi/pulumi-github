@@ -19,6 +19,7 @@ public final class GetMembershipResult {
     private String id;
     private @Nullable String organization;
     private String role;
+    private String state;
     private String username;
 
     private GetMembershipResult() {}
@@ -38,6 +39,9 @@ public final class GetMembershipResult {
     public String role() {
         return this.role;
     }
+    public String state() {
+        return this.state;
+    }
     public String username() {
         return this.username;
     }
@@ -55,6 +59,7 @@ public final class GetMembershipResult {
         private String id;
         private @Nullable String organization;
         private String role;
+        private String state;
         private String username;
         public Builder() {}
         public Builder(GetMembershipResult defaults) {
@@ -63,6 +68,7 @@ public final class GetMembershipResult {
     	      this.id = defaults.id;
     	      this.organization = defaults.organization;
     	      this.role = defaults.role;
+    	      this.state = defaults.state;
     	      this.username = defaults.username;
         }
 
@@ -87,6 +93,11 @@ public final class GetMembershipResult {
             return this;
         }
         @CustomType.Setter
+        public Builder state(String state) {
+            this.state = Objects.requireNonNull(state);
+            return this;
+        }
+        @CustomType.Setter
         public Builder username(String username) {
             this.username = Objects.requireNonNull(username);
             return this;
@@ -97,6 +108,7 @@ public final class GetMembershipResult {
             o.id = id;
             o.organization = organization;
             o.role = role;
+            o.state = state;
             o.username = username;
             return o;
         }

@@ -30,11 +30,12 @@ type GetReleaseArgs struct {
 
 // A collection of values returned by getRelease.
 type GetReleaseResult struct {
-	AssertsUrl string `pulumi:"assertsUrl"`
-	Body       string `pulumi:"body"`
-	CreatedAt  string `pulumi:"createdAt"`
-	Draft      bool   `pulumi:"draft"`
-	HtmlUrl    string `pulumi:"htmlUrl"`
+	AssertsUrl string            `pulumi:"assertsUrl"`
+	Assets     []GetReleaseAsset `pulumi:"assets"`
+	Body       string            `pulumi:"body"`
+	CreatedAt  string            `pulumi:"createdAt"`
+	Draft      bool              `pulumi:"draft"`
+	HtmlUrl    string            `pulumi:"htmlUrl"`
 	// The provider-assigned unique ID for this managed resource.
 	Id              string  `pulumi:"id"`
 	Name            string  `pulumi:"name"`
@@ -95,6 +96,10 @@ func (o GetReleaseResultOutput) ToGetReleaseResultOutputWithContext(ctx context.
 
 func (o GetReleaseResultOutput) AssertsUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v GetReleaseResult) string { return v.AssertsUrl }).(pulumi.StringOutput)
+}
+
+func (o GetReleaseResultOutput) Assets() GetReleaseAssetArrayOutput {
+	return o.ApplyT(func(v GetReleaseResult) []GetReleaseAsset { return v.Assets }).(GetReleaseAssetArrayOutput)
 }
 
 func (o GetReleaseResultOutput) Body() pulumi.StringOutput {

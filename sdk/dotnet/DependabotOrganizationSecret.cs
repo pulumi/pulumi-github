@@ -56,6 +56,11 @@ namespace Pulumi.Github
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "encryptedValue",
+                    "plaintextValue",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -80,10 +85,28 @@ namespace Pulumi.Github
     public sealed class DependabotOrganizationSecretArgs : global::Pulumi.ResourceArgs
     {
         [Input("encryptedValue")]
-        public Input<string>? EncryptedValue { get; set; }
+        private Input<string>? _encryptedValue;
+        public Input<string>? EncryptedValue
+        {
+            get => _encryptedValue;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _encryptedValue = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         [Input("plaintextValue")]
-        public Input<string>? PlaintextValue { get; set; }
+        private Input<string>? _plaintextValue;
+        public Input<string>? PlaintextValue
+        {
+            get => _plaintextValue;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _plaintextValue = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         [Input("secretName", required: true)]
         public Input<string> SecretName { get; set; } = null!;
@@ -111,10 +134,28 @@ namespace Pulumi.Github
         public Input<string>? CreatedAt { get; set; }
 
         [Input("encryptedValue")]
-        public Input<string>? EncryptedValue { get; set; }
+        private Input<string>? _encryptedValue;
+        public Input<string>? EncryptedValue
+        {
+            get => _encryptedValue;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _encryptedValue = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         [Input("plaintextValue")]
-        public Input<string>? PlaintextValue { get; set; }
+        private Input<string>? _plaintextValue;
+        public Input<string>? PlaintextValue
+        {
+            get => _plaintextValue;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _plaintextValue = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         [Input("secretName")]
         public Input<string>? SecretName { get; set; }

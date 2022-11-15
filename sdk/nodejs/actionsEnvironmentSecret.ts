@@ -71,15 +71,17 @@ export class ActionsEnvironmentSecret extends pulumi.CustomResource {
             if ((!args || args.secretName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'secretName'");
             }
-            resourceInputs["encryptedValue"] = args ? args.encryptedValue : undefined;
+            resourceInputs["encryptedValue"] = args?.encryptedValue ? pulumi.secret(args.encryptedValue) : undefined;
             resourceInputs["environment"] = args ? args.environment : undefined;
-            resourceInputs["plaintextValue"] = args ? args.plaintextValue : undefined;
+            resourceInputs["plaintextValue"] = args?.plaintextValue ? pulumi.secret(args.plaintextValue) : undefined;
             resourceInputs["repository"] = args ? args.repository : undefined;
             resourceInputs["secretName"] = args ? args.secretName : undefined;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["updatedAt"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["encryptedValue", "plaintextValue"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(ActionsEnvironmentSecret.__pulumiType, name, resourceInputs, opts);
     }
 }

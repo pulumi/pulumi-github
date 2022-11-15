@@ -35,6 +35,7 @@ export interface GetMembershipResult {
     readonly id: string;
     readonly organization?: string;
     readonly role: string;
+    readonly state: string;
     readonly username: string;
 }
 

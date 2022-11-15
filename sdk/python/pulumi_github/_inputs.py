@@ -610,9 +610,12 @@ class RepositoryPagesSourceArgs:
 class RepositoryTemplateArgs:
     def __init__(__self__, *,
                  owner: pulumi.Input[str],
-                 repository: pulumi.Input[str]):
+                 repository: pulumi.Input[str],
+                 include_all_branches: Optional[pulumi.Input[bool]] = None):
         pulumi.set(__self__, "owner", owner)
         pulumi.set(__self__, "repository", repository)
+        if include_all_branches is not None:
+            pulumi.set(__self__, "include_all_branches", include_all_branches)
 
     @property
     @pulumi.getter
@@ -631,6 +634,15 @@ class RepositoryTemplateArgs:
     @repository.setter
     def repository(self, value: pulumi.Input[str]):
         pulumi.set(self, "repository", value)
+
+    @property
+    @pulumi.getter(name="includeAllBranches")
+    def include_all_branches(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "include_all_branches")
+
+    @include_all_branches.setter
+    def include_all_branches(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "include_all_branches", value)
 
 
 @pulumi.input_type

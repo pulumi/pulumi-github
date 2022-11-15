@@ -21,11 +21,10 @@ func LookupRepository(ctx *pulumi.Context, args *LookupRepositoryArgs, opts ...p
 
 // A collection of arguments for invoking getRepository.
 type LookupRepositoryArgs struct {
-	Description           *string `pulumi:"description"`
-	FullName              *string `pulumi:"fullName"`
-	HomepageUrl           *string `pulumi:"homepageUrl"`
-	Name                  *string `pulumi:"name"`
-	OnlyProtectedBranches *bool   `pulumi:"onlyProtectedBranches"`
+	Description *string `pulumi:"description"`
+	FullName    *string `pulumi:"fullName"`
+	HomepageUrl *string `pulumi:"homepageUrl"`
+	Name        *string `pulumi:"name"`
 }
 
 // A collection of values returned by getRepository.
@@ -52,7 +51,6 @@ type LookupRepositoryResult struct {
 	MergeCommitTitle         string              `pulumi:"mergeCommitTitle"`
 	Name                     string              `pulumi:"name"`
 	NodeId                   string              `pulumi:"nodeId"`
-	OnlyProtectedBranches    *bool               `pulumi:"onlyProtectedBranches"`
 	Pages                    []GetRepositoryPage `pulumi:"pages"`
 	Private                  bool                `pulumi:"private"`
 	RepoId                   int                 `pulumi:"repoId"`
@@ -79,11 +77,10 @@ func LookupRepositoryOutput(ctx *pulumi.Context, args LookupRepositoryOutputArgs
 
 // A collection of arguments for invoking getRepository.
 type LookupRepositoryOutputArgs struct {
-	Description           pulumi.StringPtrInput `pulumi:"description"`
-	FullName              pulumi.StringPtrInput `pulumi:"fullName"`
-	HomepageUrl           pulumi.StringPtrInput `pulumi:"homepageUrl"`
-	Name                  pulumi.StringPtrInput `pulumi:"name"`
-	OnlyProtectedBranches pulumi.BoolPtrInput   `pulumi:"onlyProtectedBranches"`
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	FullName    pulumi.StringPtrInput `pulumi:"fullName"`
+	HomepageUrl pulumi.StringPtrInput `pulumi:"homepageUrl"`
+	Name        pulumi.StringPtrInput `pulumi:"name"`
 }
 
 func (LookupRepositoryOutputArgs) ElementType() reflect.Type {
@@ -188,10 +185,6 @@ func (o LookupRepositoryResultOutput) Name() pulumi.StringOutput {
 
 func (o LookupRepositoryResultOutput) NodeId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRepositoryResult) string { return v.NodeId }).(pulumi.StringOutput)
-}
-
-func (o LookupRepositoryResultOutput) OnlyProtectedBranches() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v LookupRepositoryResult) *bool { return v.OnlyProtectedBranches }).(pulumi.BoolPtrOutput)
 }
 
 func (o LookupRepositoryResultOutput) Pages() GetRepositoryPageArrayOutput {

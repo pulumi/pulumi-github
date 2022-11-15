@@ -12,7 +12,7 @@ namespace Pulumi.Github
     public static class GetExternalGroups
     {
         public static Task<GetExternalGroupsResult> InvokeAsync(InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetExternalGroupsResult>("github:index/getExternalGroups:getExternalGroups", InvokeArgs.Empty, options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetExternalGroupsResult>("github:index/getExternalGroups:getExternalGroups", InvokeArgs.Empty, options.WithDefaults());
     }
 
 

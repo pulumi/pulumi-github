@@ -40,7 +40,6 @@ public final class GetRepositoryResult {
     private String mergeCommitTitle;
     private String name;
     private String nodeId;
-    private @Nullable Boolean onlyProtectedBranches;
     private List<GetRepositoryPage> pages;
     private Boolean private_;
     private Integer repoId;
@@ -119,9 +118,6 @@ public final class GetRepositoryResult {
     public String nodeId() {
         return this.nodeId;
     }
-    public Optional<Boolean> onlyProtectedBranches() {
-        return Optional.ofNullable(this.onlyProtectedBranches);
-    }
     public List<GetRepositoryPage> pages() {
         return this.pages;
     }
@@ -180,7 +176,6 @@ public final class GetRepositoryResult {
         private String mergeCommitTitle;
         private String name;
         private String nodeId;
-        private @Nullable Boolean onlyProtectedBranches;
         private List<GetRepositoryPage> pages;
         private Boolean private_;
         private Integer repoId;
@@ -214,7 +209,6 @@ public final class GetRepositoryResult {
     	      this.mergeCommitTitle = defaults.mergeCommitTitle;
     	      this.name = defaults.name;
     	      this.nodeId = defaults.nodeId;
-    	      this.onlyProtectedBranches = defaults.onlyProtectedBranches;
     	      this.pages = defaults.pages;
     	      this.private_ = defaults.private_;
     	      this.repoId = defaults.repoId;
@@ -332,11 +326,6 @@ public final class GetRepositoryResult {
             return this;
         }
         @CustomType.Setter
-        public Builder onlyProtectedBranches(@Nullable Boolean onlyProtectedBranches) {
-            this.onlyProtectedBranches = onlyProtectedBranches;
-            return this;
-        }
-        @CustomType.Setter
         public Builder pages(List<GetRepositoryPage> pages) {
             this.pages = Objects.requireNonNull(pages);
             return this;
@@ -410,7 +399,6 @@ public final class GetRepositoryResult {
             o.mergeCommitTitle = mergeCommitTitle;
             o.name = name;
             o.nodeId = nodeId;
-            o.onlyProtectedBranches = onlyProtectedBranches;
             o.pages = pages;
             o.private_ = private_;
             o.repoId = repoId;

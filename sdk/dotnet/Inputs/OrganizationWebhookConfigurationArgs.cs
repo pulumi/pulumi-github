@@ -19,10 +19,28 @@ namespace Pulumi.Github.Inputs
         public Input<bool>? InsecureSsl { get; set; }
 
         [Input("secret")]
-        public Input<string>? Secret { get; set; }
+        private Input<string>? _secret;
+        public Input<string>? Secret
+        {
+            get => _secret;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _secret = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         [Input("url", required: true)]
-        public Input<string> Url { get; set; } = null!;
+        private Input<string>? _url;
+        public Input<string>? Url
+        {
+            get => _url;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _url = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         public OrganizationWebhookConfigurationArgs()
         {

@@ -32,6 +32,7 @@ type LookupMembershipResult struct {
 	Id           string  `pulumi:"id"`
 	Organization *string `pulumi:"organization"`
 	Role         string  `pulumi:"role"`
+	State        string  `pulumi:"state"`
 	Username     string  `pulumi:"username"`
 }
 
@@ -88,6 +89,10 @@ func (o LookupMembershipResultOutput) Organization() pulumi.StringPtrOutput {
 
 func (o LookupMembershipResultOutput) Role() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupMembershipResult) string { return v.Role }).(pulumi.StringOutput)
+}
+
+func (o LookupMembershipResultOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupMembershipResult) string { return v.State }).(pulumi.StringOutput)
 }
 
 func (o LookupMembershipResultOutput) Username() pulumi.StringOutput {

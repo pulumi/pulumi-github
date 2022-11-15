@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 export class Repository extends pulumi.CustomResource {
@@ -37,6 +38,7 @@ export class Repository extends pulumi.CustomResource {
     public readonly allowMergeCommit!: pulumi.Output<boolean | undefined>;
     public readonly allowRebaseMerge!: pulumi.Output<boolean | undefined>;
     public readonly allowSquashMerge!: pulumi.Output<boolean | undefined>;
+    public readonly allowUpdateBranch!: pulumi.Output<boolean | undefined>;
     public readonly archiveOnDestroy!: pulumi.Output<boolean | undefined>;
     public readonly archived!: pulumi.Output<boolean | undefined>;
     public readonly autoInit!: pulumi.Output<boolean | undefined>;
@@ -98,6 +100,7 @@ export class Repository extends pulumi.CustomResource {
             resourceInputs["allowMergeCommit"] = state ? state.allowMergeCommit : undefined;
             resourceInputs["allowRebaseMerge"] = state ? state.allowRebaseMerge : undefined;
             resourceInputs["allowSquashMerge"] = state ? state.allowSquashMerge : undefined;
+            resourceInputs["allowUpdateBranch"] = state ? state.allowUpdateBranch : undefined;
             resourceInputs["archiveOnDestroy"] = state ? state.archiveOnDestroy : undefined;
             resourceInputs["archived"] = state ? state.archived : undefined;
             resourceInputs["autoInit"] = state ? state.autoInit : undefined;
@@ -139,6 +142,7 @@ export class Repository extends pulumi.CustomResource {
             resourceInputs["allowMergeCommit"] = args ? args.allowMergeCommit : undefined;
             resourceInputs["allowRebaseMerge"] = args ? args.allowRebaseMerge : undefined;
             resourceInputs["allowSquashMerge"] = args ? args.allowSquashMerge : undefined;
+            resourceInputs["allowUpdateBranch"] = args ? args.allowUpdateBranch : undefined;
             resourceInputs["archiveOnDestroy"] = args ? args.archiveOnDestroy : undefined;
             resourceInputs["archived"] = args ? args.archived : undefined;
             resourceInputs["autoInit"] = args ? args.autoInit : undefined;
@@ -188,6 +192,7 @@ export interface RepositoryState {
     allowMergeCommit?: pulumi.Input<boolean>;
     allowRebaseMerge?: pulumi.Input<boolean>;
     allowSquashMerge?: pulumi.Input<boolean>;
+    allowUpdateBranch?: pulumi.Input<boolean>;
     archiveOnDestroy?: pulumi.Input<boolean>;
     archived?: pulumi.Input<boolean>;
     autoInit?: pulumi.Input<boolean>;
@@ -241,6 +246,7 @@ export interface RepositoryArgs {
     allowMergeCommit?: pulumi.Input<boolean>;
     allowRebaseMerge?: pulumi.Input<boolean>;
     allowSquashMerge?: pulumi.Input<boolean>;
+    allowUpdateBranch?: pulumi.Input<boolean>;
     archiveOnDestroy?: pulumi.Input<boolean>;
     archived?: pulumi.Input<boolean>;
     autoInit?: pulumi.Input<boolean>;

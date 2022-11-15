@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 
 export interface ActionsOrganizationPermissionsAllowedActionsConfig {
     githubOwnedAllowed: pulumi.Input<boolean>;
@@ -93,6 +94,7 @@ export interface RepositoryPagesSource {
 }
 
 export interface RepositoryTemplate {
+    includeAllBranches?: pulumi.Input<boolean>;
     owner: pulumi.Input<string>;
     repository: pulumi.Input<string>;
 }
@@ -114,6 +116,5 @@ export interface TeamSyncGroupMappingGroup {
     groupId: pulumi.Input<string>;
     groupName: pulumi.Input<string>;
 }
-
 export namespace config {
 }

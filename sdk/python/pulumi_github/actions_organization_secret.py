@@ -222,8 +222,8 @@ class ActionsOrganizationSecret(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ActionsOrganizationSecretArgs.__new__(ActionsOrganizationSecretArgs)
 
-            __props__.__dict__["encrypted_value"] = encrypted_value
-            __props__.__dict__["plaintext_value"] = plaintext_value
+            __props__.__dict__["encrypted_value"] = None if encrypted_value is None else pulumi.Output.secret(encrypted_value)
+            __props__.__dict__["plaintext_value"] = None if plaintext_value is None else pulumi.Output.secret(plaintext_value)
             if secret_name is None and not opts.urn:
                 raise TypeError("Missing required property 'secret_name'")
             __props__.__dict__["secret_name"] = secret_name
@@ -233,6 +233,8 @@ class ActionsOrganizationSecret(pulumi.CustomResource):
             __props__.__dict__["visibility"] = visibility
             __props__.__dict__["created_at"] = None
             __props__.__dict__["updated_at"] = None
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["encryptedValue", "plaintextValue"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ActionsOrganizationSecret, __self__).__init__(
             'github:index/actionsOrganizationSecret:ActionsOrganizationSecret',
             resource_name,

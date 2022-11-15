@@ -12,17 +12,23 @@ namespace Pulumi.Github
     public static class GetOrganizationTeams
     {
         public static Task<GetOrganizationTeamsResult> InvokeAsync(GetOrganizationTeamsArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetOrganizationTeamsResult>("github:index/getOrganizationTeams:getOrganizationTeams", args ?? new GetOrganizationTeamsArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetOrganizationTeamsResult>("github:index/getOrganizationTeams:getOrganizationTeams", args ?? new GetOrganizationTeamsArgs(), options.WithDefaults());
 
         public static Output<GetOrganizationTeamsResult> Invoke(GetOrganizationTeamsInvokeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetOrganizationTeamsResult>("github:index/getOrganizationTeams:getOrganizationTeams", args ?? new GetOrganizationTeamsInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetOrganizationTeamsResult>("github:index/getOrganizationTeams:getOrganizationTeams", args ?? new GetOrganizationTeamsInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetOrganizationTeamsArgs : global::Pulumi.InvokeArgs
     {
+        [Input("resultsPerPage")]
+        public int? ResultsPerPage { get; set; }
+
         [Input("rootTeamsOnly")]
         public bool? RootTeamsOnly { get; set; }
+
+        [Input("summaryOnly")]
+        public bool? SummaryOnly { get; set; }
 
         public GetOrganizationTeamsArgs()
         {
@@ -32,8 +38,14 @@ namespace Pulumi.Github
 
     public sealed class GetOrganizationTeamsInvokeArgs : global::Pulumi.InvokeArgs
     {
+        [Input("resultsPerPage")]
+        public Input<int>? ResultsPerPage { get; set; }
+
         [Input("rootTeamsOnly")]
         public Input<bool>? RootTeamsOnly { get; set; }
+
+        [Input("summaryOnly")]
+        public Input<bool>? SummaryOnly { get; set; }
 
         public GetOrganizationTeamsInvokeArgs()
         {
@@ -49,19 +61,27 @@ namespace Pulumi.Github
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        public readonly int? ResultsPerPage;
         public readonly bool? RootTeamsOnly;
+        public readonly bool? SummaryOnly;
         public readonly ImmutableArray<Outputs.GetOrganizationTeamsTeamResult> Teams;
 
         [OutputConstructor]
         private GetOrganizationTeamsResult(
             string id,
 
+            int? resultsPerPage,
+
             bool? rootTeamsOnly,
+
+            bool? summaryOnly,
 
             ImmutableArray<Outputs.GetOrganizationTeamsTeamResult> teams)
         {
             Id = id;
+            ResultsPerPage = resultsPerPage;
             RootTeamsOnly = rootTeamsOnly;
+            SummaryOnly = summaryOnly;
             Teams = teams;
         }
     }

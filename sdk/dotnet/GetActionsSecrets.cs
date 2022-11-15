@@ -12,10 +12,10 @@ namespace Pulumi.Github
     public static class GetActionsSecrets
     {
         public static Task<GetActionsSecretsResult> InvokeAsync(GetActionsSecretsArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetActionsSecretsResult>("github:index/getActionsSecrets:getActionsSecrets", args ?? new GetActionsSecretsArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetActionsSecretsResult>("github:index/getActionsSecrets:getActionsSecrets", args ?? new GetActionsSecretsArgs(), options.WithDefaults());
 
         public static Output<GetActionsSecretsResult> Invoke(GetActionsSecretsInvokeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetActionsSecretsResult>("github:index/getActionsSecrets:getActionsSecrets", args ?? new GetActionsSecretsInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetActionsSecretsResult>("github:index/getActionsSecrets:getActionsSecrets", args ?? new GetActionsSecretsInvokeArgs(), options.WithDefaults());
     }
 
 

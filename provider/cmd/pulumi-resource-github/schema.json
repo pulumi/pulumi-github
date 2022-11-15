@@ -101,7 +101,8 @@
                     "type": "string"
                 },
                 "pemFile": {
-                    "type": "string"
+                    "type": "string",
+                    "secret": true
                 }
             },
             "type": "object",
@@ -408,7 +409,8 @@
                         "python": {
                             "mapCase": false
                         }
-                    }
+                    },
+                    "secret": true
                 },
                 "url": {
                     "type": "string",
@@ -416,7 +418,8 @@
                         "python": {
                             "mapCase": false
                         }
-                    }
+                    },
+                    "secret": true
                 }
             },
             "type": "object",
@@ -448,7 +451,8 @@
                         "python": {
                             "mapCase": false
                         }
-                    }
+                    },
+                    "secret": true
                 }
             },
             "type": "object",
@@ -608,6 +612,14 @@
         },
         "github:index/RepositoryTemplate:RepositoryTemplate": {
             "properties": {
+                "includeAllBranches": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
                 "owner": {
                     "type": "string",
                     "language": {
@@ -655,7 +667,8 @@
                         "python": {
                             "mapCase": false
                         }
-                    }
+                    },
+                    "secret": true
                 },
                 "url": {
                     "type": "string",
@@ -663,7 +676,8 @@
                         "python": {
                             "mapCase": false
                         }
-                    }
+                    },
+                    "secret": true
                 }
             },
             "type": "object",
@@ -972,6 +986,93 @@
                 }
             }
         },
+        "github:index/getDependabotOrganizationSecretsSecret:getDependabotOrganizationSecretsSecret": {
+            "properties": {
+                "createdAt": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "updatedAt": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "visibility": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "createdAt",
+                "name",
+                "updatedAt",
+                "visibility"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "github:index/getDependabotSecretsSecret:getDependabotSecretsSecret": {
+            "properties": {
+                "createdAt": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "updatedAt": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "createdAt",
+                "name",
+                "updatedAt"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
         "github:index/getExternalGroupsExternalGroup:getExternalGroupsExternalGroup": {
             "properties": {
                 "groupId": {
@@ -1003,6 +1104,72 @@
             "required": [
                 "groupId",
                 "groupName",
+                "updatedAt"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "github:index/getOrganizationIpAllowListIpAllowList:getOrganizationIpAllowListIpAllowList": {
+            "properties": {
+                "allowListValue": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "createdAt": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "id": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "isActive": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "updatedAt": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "allowListValue",
+                "createdAt",
+                "id",
+                "isActive",
+                "name",
                 "updatedAt"
             ],
             "language": {
@@ -1133,6 +1300,243 @@
                 "privacy",
                 "repositories",
                 "slug"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "github:index/getOrganizationWebhooksWebhook:getOrganizationWebhooksWebhook": {
+            "properties": {
+                "active": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "id": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "type": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "url": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "active",
+                "id",
+                "name",
+                "type",
+                "url"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "github:index/getReleaseAsset:getReleaseAsset": {
+            "properties": {
+                "browserDownloadUrl": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "contentType": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "createdAt": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "id": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "label": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "nodeId": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "size": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "updatedAt": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "url": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "browserDownloadUrl",
+                "contentType",
+                "createdAt",
+                "id",
+                "label",
+                "name",
+                "nodeId",
+                "size",
+                "updatedAt",
+                "url"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "github:index/getRepositoryBranchesBranch:getRepositoryBranchesBranch": {
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "protected": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "name",
+                "protected"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "github:index/getRepositoryDeployKeysKey:getRepositoryDeployKeysKey": {
+            "properties": {
+                "id": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "key": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "title": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "verified": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "id",
+                "key",
+                "title",
+                "verified"
             ],
             "language": {
                 "nodejs": {
@@ -1437,6 +1841,63 @@
                 }
             }
         },
+        "github:index/getRepositoryWebhooksWebhook:getRepositoryWebhooksWebhook": {
+            "properties": {
+                "active": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "id": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "type": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "url": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "active",
+                "id",
+                "name",
+                "type",
+                "url"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
         "github:index/getTreeEntry:getTreeEntry": {
             "properties": {
                 "mode": {
@@ -1581,13 +2042,15 @@
                     "type": "string"
                 },
                 "encryptedValue": {
-                    "type": "string"
+                    "type": "string",
+                    "secret": true
                 },
                 "environment": {
                     "type": "string"
                 },
                 "plaintextValue": {
-                    "type": "string"
+                    "type": "string",
+                    "secret": true
                 },
                 "repository": {
                     "type": "string"
@@ -1609,6 +2072,7 @@
             "inputProperties": {
                 "encryptedValue": {
                     "type": "string",
+                    "secret": true,
                     "willReplaceOnChanges": true
                 },
                 "environment": {
@@ -1617,6 +2081,7 @@
                 },
                 "plaintextValue": {
                     "type": "string",
+                    "secret": true,
                     "willReplaceOnChanges": true
                 },
                 "repository": {
@@ -1641,6 +2106,7 @@
                     },
                     "encryptedValue": {
                         "type": "string",
+                        "secret": true,
                         "willReplaceOnChanges": true
                     },
                     "environment": {
@@ -1649,6 +2115,7 @@
                     },
                     "plaintextValue": {
                         "type": "string",
+                        "secret": true,
                         "willReplaceOnChanges": true
                     },
                     "repository": {
@@ -1726,10 +2193,12 @@
                     "type": "string"
                 },
                 "encryptedValue": {
-                    "type": "string"
+                    "type": "string",
+                    "secret": true
                 },
                 "plaintextValue": {
-                    "type": "string"
+                    "type": "string",
+                    "secret": true
                 },
                 "secretName": {
                     "type": "string"
@@ -1756,10 +2225,12 @@
             "inputProperties": {
                 "encryptedValue": {
                     "type": "string",
+                    "secret": true,
                     "willReplaceOnChanges": true
                 },
                 "plaintextValue": {
                     "type": "string",
+                    "secret": true,
                     "willReplaceOnChanges": true
                 },
                 "secretName": {
@@ -1789,10 +2260,12 @@
                     },
                     "encryptedValue": {
                         "type": "string",
+                        "secret": true,
                         "willReplaceOnChanges": true
                     },
                     "plaintextValue": {
                         "type": "string",
+                        "secret": true,
                         "willReplaceOnChanges": true
                     },
                     "secretName": {
@@ -1968,10 +2441,12 @@
                     "type": "string"
                 },
                 "encryptedValue": {
-                    "type": "string"
+                    "type": "string",
+                    "secret": true
                 },
                 "plaintextValue": {
-                    "type": "string"
+                    "type": "string",
+                    "secret": true
                 },
                 "repository": {
                     "type": "string"
@@ -1992,10 +2467,12 @@
             "inputProperties": {
                 "encryptedValue": {
                     "type": "string",
+                    "secret": true,
                     "willReplaceOnChanges": true
                 },
                 "plaintextValue": {
                     "type": "string",
+                    "secret": true,
                     "willReplaceOnChanges": true
                 },
                 "repository": {
@@ -2018,10 +2495,12 @@
                     },
                     "encryptedValue": {
                         "type": "string",
+                        "secret": true,
                         "willReplaceOnChanges": true
                     },
                     "plaintextValue": {
                         "type": "string",
+                        "secret": true,
                         "willReplaceOnChanges": true
                     },
                     "repository": {
@@ -2497,10 +2976,12 @@
                     "type": "string"
                 },
                 "encryptedValue": {
-                    "type": "string"
+                    "type": "string",
+                    "secret": true
                 },
                 "plaintextValue": {
-                    "type": "string"
+                    "type": "string",
+                    "secret": true
                 },
                 "secretName": {
                     "type": "string"
@@ -2527,10 +3008,12 @@
             "inputProperties": {
                 "encryptedValue": {
                     "type": "string",
+                    "secret": true,
                     "willReplaceOnChanges": true
                 },
                 "plaintextValue": {
                     "type": "string",
+                    "secret": true,
                     "willReplaceOnChanges": true
                 },
                 "secretName": {
@@ -2560,10 +3043,12 @@
                     },
                     "encryptedValue": {
                         "type": "string",
+                        "secret": true,
                         "willReplaceOnChanges": true
                     },
                     "plaintextValue": {
                         "type": "string",
+                        "secret": true,
                         "willReplaceOnChanges": true
                     },
                     "secretName": {
@@ -2642,10 +3127,12 @@
                     "type": "string"
                 },
                 "encryptedValue": {
-                    "type": "string"
+                    "type": "string",
+                    "secret": true
                 },
                 "plaintextValue": {
-                    "type": "string"
+                    "type": "string",
+                    "secret": true
                 },
                 "repository": {
                     "type": "string"
@@ -2666,10 +3153,12 @@
             "inputProperties": {
                 "encryptedValue": {
                     "type": "string",
+                    "secret": true,
                     "willReplaceOnChanges": true
                 },
                 "plaintextValue": {
                     "type": "string",
+                    "secret": true,
                     "willReplaceOnChanges": true
                 },
                 "repository": {
@@ -2692,10 +3181,12 @@
                     },
                     "encryptedValue": {
                         "type": "string",
+                        "secret": true,
                         "willReplaceOnChanges": true
                     },
                     "plaintextValue": {
                         "type": "string",
+                        "secret": true,
                         "willReplaceOnChanges": true
                     },
                     "repository": {
@@ -3079,6 +3570,262 @@
                 "type": "object"
             }
         },
+        "github:index/organizationSettings:OrganizationSettings": {
+            "properties": {
+                "advancedSecurityEnabledForNewRepositories": {
+                    "type": "boolean"
+                },
+                "billingEmail": {
+                    "type": "string"
+                },
+                "blog": {
+                    "type": "string"
+                },
+                "company": {
+                    "type": "string"
+                },
+                "defaultRepositoryPermission": {
+                    "type": "string"
+                },
+                "dependabotAlertsEnabledForNewRepositories": {
+                    "type": "boolean"
+                },
+                "dependabotSecurityUpdatesEnabledForNewRepositories": {
+                    "type": "boolean"
+                },
+                "dependencyGraphEnabledForNewRepositories": {
+                    "type": "boolean"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "email": {
+                    "type": "string"
+                },
+                "hasOrganizationProjects": {
+                    "type": "boolean"
+                },
+                "hasRepositoryProjects": {
+                    "type": "boolean"
+                },
+                "location": {
+                    "type": "string"
+                },
+                "membersCanCreateInternalRepositories": {
+                    "type": "boolean",
+                    "description": "Setting to true allows organization members to create internal repositories. Only available to Enterprise Organizations.\n"
+                },
+                "membersCanCreatePages": {
+                    "type": "boolean"
+                },
+                "membersCanCreatePrivatePages": {
+                    "type": "boolean"
+                },
+                "membersCanCreatePrivateRepositories": {
+                    "type": "boolean"
+                },
+                "membersCanCreatePublicPages": {
+                    "type": "boolean"
+                },
+                "membersCanCreatePublicRepositories": {
+                    "type": "boolean"
+                },
+                "membersCanCreateRepositories": {
+                    "type": "boolean"
+                },
+                "membersCanForkPrivateRepositories": {
+                    "type": "boolean"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "secretScanningEnabledForNewRepositories": {
+                    "type": "boolean"
+                },
+                "secretScanningPushProtectionEnabledForNewRepositories": {
+                    "type": "boolean"
+                },
+                "twitterUsername": {
+                    "type": "string"
+                },
+                "webCommitSignoffRequired": {
+                    "type": "boolean"
+                }
+            },
+            "required": [
+                "billingEmail",
+                "name"
+            ],
+            "inputProperties": {
+                "advancedSecurityEnabledForNewRepositories": {
+                    "type": "boolean"
+                },
+                "billingEmail": {
+                    "type": "string"
+                },
+                "blog": {
+                    "type": "string"
+                },
+                "company": {
+                    "type": "string"
+                },
+                "defaultRepositoryPermission": {
+                    "type": "string"
+                },
+                "dependabotAlertsEnabledForNewRepositories": {
+                    "type": "boolean"
+                },
+                "dependabotSecurityUpdatesEnabledForNewRepositories": {
+                    "type": "boolean"
+                },
+                "dependencyGraphEnabledForNewRepositories": {
+                    "type": "boolean"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "email": {
+                    "type": "string"
+                },
+                "hasOrganizationProjects": {
+                    "type": "boolean"
+                },
+                "hasRepositoryProjects": {
+                    "type": "boolean"
+                },
+                "location": {
+                    "type": "string"
+                },
+                "membersCanCreateInternalRepositories": {
+                    "type": "boolean",
+                    "description": "Setting to true allows organization members to create internal repositories. Only available to Enterprise Organizations.\n"
+                },
+                "membersCanCreatePages": {
+                    "type": "boolean"
+                },
+                "membersCanCreatePrivatePages": {
+                    "type": "boolean"
+                },
+                "membersCanCreatePrivateRepositories": {
+                    "type": "boolean"
+                },
+                "membersCanCreatePublicPages": {
+                    "type": "boolean"
+                },
+                "membersCanCreatePublicRepositories": {
+                    "type": "boolean"
+                },
+                "membersCanCreateRepositories": {
+                    "type": "boolean"
+                },
+                "membersCanForkPrivateRepositories": {
+                    "type": "boolean"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "secretScanningEnabledForNewRepositories": {
+                    "type": "boolean"
+                },
+                "secretScanningPushProtectionEnabledForNewRepositories": {
+                    "type": "boolean"
+                },
+                "twitterUsername": {
+                    "type": "string"
+                },
+                "webCommitSignoffRequired": {
+                    "type": "boolean"
+                }
+            },
+            "requiredInputs": [
+                "billingEmail"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering OrganizationSettings resources.\n",
+                "properties": {
+                    "advancedSecurityEnabledForNewRepositories": {
+                        "type": "boolean"
+                    },
+                    "billingEmail": {
+                        "type": "string"
+                    },
+                    "blog": {
+                        "type": "string"
+                    },
+                    "company": {
+                        "type": "string"
+                    },
+                    "defaultRepositoryPermission": {
+                        "type": "string"
+                    },
+                    "dependabotAlertsEnabledForNewRepositories": {
+                        "type": "boolean"
+                    },
+                    "dependabotSecurityUpdatesEnabledForNewRepositories": {
+                        "type": "boolean"
+                    },
+                    "dependencyGraphEnabledForNewRepositories": {
+                        "type": "boolean"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "email": {
+                        "type": "string"
+                    },
+                    "hasOrganizationProjects": {
+                        "type": "boolean"
+                    },
+                    "hasRepositoryProjects": {
+                        "type": "boolean"
+                    },
+                    "location": {
+                        "type": "string"
+                    },
+                    "membersCanCreateInternalRepositories": {
+                        "type": "boolean",
+                        "description": "Setting to true allows organization members to create internal repositories. Only available to Enterprise Organizations.\n"
+                    },
+                    "membersCanCreatePages": {
+                        "type": "boolean"
+                    },
+                    "membersCanCreatePrivatePages": {
+                        "type": "boolean"
+                    },
+                    "membersCanCreatePrivateRepositories": {
+                        "type": "boolean"
+                    },
+                    "membersCanCreatePublicPages": {
+                        "type": "boolean"
+                    },
+                    "membersCanCreatePublicRepositories": {
+                        "type": "boolean"
+                    },
+                    "membersCanCreateRepositories": {
+                        "type": "boolean"
+                    },
+                    "membersCanForkPrivateRepositories": {
+                        "type": "boolean"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "secretScanningEnabledForNewRepositories": {
+                        "type": "boolean"
+                    },
+                    "secretScanningPushProtectionEnabledForNewRepositories": {
+                        "type": "boolean"
+                    },
+                    "twitterUsername": {
+                        "type": "string"
+                    },
+                    "webCommitSignoffRequired": {
+                        "type": "boolean"
+                    }
+                },
+                "type": "object"
+            }
+        },
         "github:index/organizationWebhook:OrganizationWebhook": {
             "properties": {
                 "active": {
@@ -3284,6 +4031,9 @@
                 "allowSquashMerge": {
                     "type": "boolean"
                 },
+                "allowUpdateBranch": {
+                    "type": "boolean"
+                },
                 "archiveOnDestroy": {
                     "type": "boolean"
                 },
@@ -3424,6 +4174,9 @@
                 "allowSquashMerge": {
                     "type": "boolean"
                 },
+                "allowUpdateBranch": {
+                    "type": "boolean"
+                },
                 "archiveOnDestroy": {
                     "type": "boolean"
                 },
@@ -3522,6 +4275,9 @@
                         "type": "boolean"
                     },
                     "allowSquashMerge": {
+                        "type": "boolean"
+                    },
+                    "allowUpdateBranch": {
                         "type": "boolean"
                     },
                     "archiveOnDestroy": {
@@ -3644,6 +4400,10 @@
                 "etag": {
                     "type": "string"
                 },
+                "isAlphanumeric": {
+                    "type": "boolean",
+                    "description": "Whether this autolink reference matches alphanumeric characters. If false, this autolink reference only matches numeric\ncharacters.\n"
+                },
                 "keyPrefix": {
                     "type": "string",
                     "description": "This prefix appended by a number will generate a link any time it is found in an issue, pull request, or commit\n"
@@ -3664,6 +4424,11 @@
                 "targetUrlTemplate"
             ],
             "inputProperties": {
+                "isAlphanumeric": {
+                    "type": "boolean",
+                    "description": "Whether this autolink reference matches alphanumeric characters. If false, this autolink reference only matches numeric\ncharacters.\n",
+                    "willReplaceOnChanges": true
+                },
                 "keyPrefix": {
                     "type": "string",
                     "description": "This prefix appended by a number will generate a link any time it is found in an issue, pull request, or commit\n",
@@ -3690,6 +4455,11 @@
                 "properties": {
                     "etag": {
                         "type": "string"
+                    },
+                    "isAlphanumeric": {
+                        "type": "boolean",
+                        "description": "Whether this autolink reference matches alphanumeric characters. If false, this autolink reference only matches numeric\ncharacters.\n",
+                        "willReplaceOnChanges": true
                     },
                     "keyPrefix": {
                         "type": "string",
@@ -3938,11 +4708,11 @@
                 },
                 "commitAuthor": {
                     "type": "string",
-                    "description": "The commit author name, defaults to the authenticated user's name\n"
+                    "description": "The commit author name, defaults to the authenticated user's name. GitHub app users may omit author and email\ninformation so GitHub can verify commits as the GitHub App.\n"
                 },
                 "commitEmail": {
                     "type": "string",
-                    "description": "The commit author email address, defaults to the authenticated user's email address\n"
+                    "description": "The commit author email address, defaults to the authenticated user's email address. GitHub app users may omit author\nand email information so GitHub can verify commits as the GitHub App.\n"
                 },
                 "commitMessage": {
                     "type": "string",
@@ -3974,8 +4744,6 @@
                 }
             },
             "required": [
-                "commitAuthor",
-                "commitEmail",
                 "commitMessage",
                 "commitSha",
                 "content",
@@ -3991,11 +4759,11 @@
                 },
                 "commitAuthor": {
                     "type": "string",
-                    "description": "The commit author name, defaults to the authenticated user's name\n"
+                    "description": "The commit author name, defaults to the authenticated user's name. GitHub app users may omit author and email\ninformation so GitHub can verify commits as the GitHub App.\n"
                 },
                 "commitEmail": {
                     "type": "string",
-                    "description": "The commit author email address, defaults to the authenticated user's email address\n"
+                    "description": "The commit author email address, defaults to the authenticated user's email address. GitHub app users may omit author\nand email information so GitHub can verify commits as the GitHub App.\n"
                 },
                 "commitMessage": {
                     "type": "string",
@@ -4035,11 +4803,11 @@
                     },
                     "commitAuthor": {
                         "type": "string",
-                        "description": "The commit author name, defaults to the authenticated user's name\n"
+                        "description": "The commit author name, defaults to the authenticated user's name. GitHub app users may omit author and email\ninformation so GitHub can verify commits as the GitHub App.\n"
                     },
                     "commitEmail": {
                         "type": "string",
-                        "description": "The commit author email address, defaults to the authenticated user's email address\n"
+                        "description": "The commit author email address, defaults to the authenticated user's email address. GitHub app users may omit author\nand email information so GitHub can verify commits as the GitHub App.\n"
                     },
                     "commitMessage": {
                         "type": "string",
@@ -5183,6 +5951,28 @@
                 ]
             }
         },
+        "github:index/getDependabotOrganizationSecrets:getDependabotOrganizationSecrets": {
+            "outputs": {
+                "description": "A collection of values returned by getDependabotOrganizationSecrets.\n",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "secrets": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/github:index/getDependabotOrganizationSecretsSecret:getDependabotOrganizationSecretsSecret"
+                        }
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "secrets",
+                    "id"
+                ]
+            }
+        },
         "github:index/getDependabotPublicKey:getDependabotPublicKey": {
             "inputs": {
                 "description": "A collection of arguments for invoking getDependabotPublicKey.\n",
@@ -5222,6 +6012,48 @@
                 ]
             }
         },
+        "github:index/getDependabotSecrets:getDependabotSecrets": {
+            "inputs": {
+                "description": "A collection of arguments for invoking getDependabotSecrets.\n",
+                "properties": {
+                    "fullName": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "outputs": {
+                "description": "A collection of values returned by getDependabotSecrets.\n",
+                "properties": {
+                    "fullName": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "secrets": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/github:index/getDependabotSecretsSecret:getDependabotSecretsSecret"
+                        }
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "fullName",
+                    "name",
+                    "secrets",
+                    "id"
+                ]
+            }
+        },
         "github:index/getExternalGroups:getExternalGroups": {
             "outputs": {
                 "description": "A collection of values returned by getExternalGroups.\n",
@@ -5240,6 +6072,49 @@
                 "type": "object",
                 "required": [
                     "externalGroups",
+                    "id"
+                ]
+            }
+        },
+        "github:index/getGithubApp:getGithubApp": {
+            "inputs": {
+                "description": "A collection of arguments for invoking getGithubApp.\n",
+                "properties": {
+                    "slug": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "slug"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getGithubApp.\n",
+                "properties": {
+                    "description": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "nodeId": {
+                        "type": "string"
+                    },
+                    "slug": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "description",
+                    "name",
+                    "nodeId",
+                    "slug",
                     "id"
                 ]
             }
@@ -5459,6 +6334,9 @@
                     "role": {
                         "type": "string"
                     },
+                    "state": {
+                        "type": "string"
+                    },
                     "username": {
                         "type": "string"
                     }
@@ -5467,6 +6345,7 @@
                 "required": [
                     "etag",
                     "role",
+                    "state",
                     "username",
                     "id"
                 ]
@@ -5537,6 +6416,28 @@
                 ]
             }
         },
+        "github:index/getOrganizationIpAllowList:getOrganizationIpAllowList": {
+            "outputs": {
+                "description": "A collection of values returned by getOrganizationIpAllowList.\n",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "ipAllowLists": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/github:index/getOrganizationIpAllowListIpAllowList:getOrganizationIpAllowListIpAllowList"
+                        }
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "ipAllowLists",
+                    "id"
+                ]
+            }
+        },
         "github:index/getOrganizationTeamSyncGroups:getOrganizationTeamSyncGroups": {
             "outputs": {
                 "description": "A collection of values returned by getOrganizationTeamSyncGroups.\n",
@@ -5563,7 +6464,13 @@
             "inputs": {
                 "description": "A collection of arguments for invoking getOrganizationTeams.\n",
                 "properties": {
+                    "resultsPerPage": {
+                        "type": "integer"
+                    },
                     "rootTeamsOnly": {
+                        "type": "boolean"
+                    },
+                    "summaryOnly": {
                         "type": "boolean"
                     }
                 },
@@ -5576,7 +6483,13 @@
                         "type": "string",
                         "description": "The provider-assigned unique ID for this managed resource.\n"
                     },
+                    "resultsPerPage": {
+                        "type": "integer"
+                    },
                     "rootTeamsOnly": {
+                        "type": "boolean"
+                    },
+                    "summaryOnly": {
                         "type": "boolean"
                     },
                     "teams": {
@@ -5589,6 +6502,28 @@
                 "type": "object",
                 "required": [
                     "teams",
+                    "id"
+                ]
+            }
+        },
+        "github:index/getOrganizationWebhooks:getOrganizationWebhooks": {
+            "outputs": {
+                "description": "A collection of values returned by getOrganizationWebhooks.\n",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "webhooks": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/github:index/getOrganizationWebhooksWebhook:getOrganizationWebhooksWebhook"
+                        }
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "webhooks",
                     "id"
                 ]
             }
@@ -5675,6 +6610,12 @@
                     "assertsUrl": {
                         "type": "string"
                     },
+                    "assets": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/github:index/getReleaseAsset:getReleaseAsset"
+                        }
+                    },
                     "body": {
                         "type": "string"
                     },
@@ -5734,6 +6675,7 @@
                 "type": "object",
                 "required": [
                     "assertsUrl",
+                    "assets",
                     "body",
                     "createdAt",
                     "draft",
@@ -5819,9 +6761,6 @@
                     },
                     "name": {
                         "type": "string"
-                    },
-                    "onlyProtectedBranches": {
-                        "type": "boolean"
                     }
                 },
                 "type": "object"
@@ -5893,9 +6832,6 @@
                     "nodeId": {
                         "type": "string"
                     },
-                    "onlyProtectedBranches": {
-                        "type": "boolean"
-                    },
                     "pages": {
                         "type": "array",
                         "items": {
@@ -5959,6 +6895,94 @@
                     "svnUrl",
                     "topics",
                     "visibility",
+                    "id"
+                ]
+            }
+        },
+        "github:index/getRepositoryBranches:getRepositoryBranches": {
+            "inputs": {
+                "description": "A collection of arguments for invoking getRepositoryBranches.\n",
+                "properties": {
+                    "onlyNonProtectedBranches": {
+                        "type": "boolean"
+                    },
+                    "onlyProtectedBranches": {
+                        "type": "boolean"
+                    },
+                    "repository": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "repository"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getRepositoryBranches.\n",
+                "properties": {
+                    "branches": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/github:index/getRepositoryBranchesBranch:getRepositoryBranchesBranch"
+                        }
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "onlyNonProtectedBranches": {
+                        "type": "boolean"
+                    },
+                    "onlyProtectedBranches": {
+                        "type": "boolean"
+                    },
+                    "repository": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "branches",
+                    "repository",
+                    "id"
+                ]
+            }
+        },
+        "github:index/getRepositoryDeployKeys:getRepositoryDeployKeys": {
+            "inputs": {
+                "description": "A collection of arguments for invoking getRepositoryDeployKeys.\n",
+                "properties": {
+                    "repository": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "repository"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getRepositoryDeployKeys.\n",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "keys": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/github:index/getRepositoryDeployKeysKey:getRepositoryDeployKeysKey"
+                        }
+                    },
+                    "repository": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "keys",
+                    "repository",
                     "id"
                 ]
             }
@@ -6315,6 +7339,44 @@
                     "fullName",
                     "name",
                     "teams",
+                    "id"
+                ]
+            }
+        },
+        "github:index/getRepositoryWebhooks:getRepositoryWebhooks": {
+            "inputs": {
+                "description": "A collection of arguments for invoking getRepositoryWebhooks.\n",
+                "properties": {
+                    "repository": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "repository"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getRepositoryWebhooks.\n",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "repository": {
+                        "type": "string"
+                    },
+                    "webhooks": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/github:index/getRepositoryWebhooksWebhook:getRepositoryWebhooksWebhook"
+                        }
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "repository",
+                    "webhooks",
                     "id"
                 ]
             }

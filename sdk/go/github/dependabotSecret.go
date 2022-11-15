@@ -35,6 +35,17 @@ func NewDependabotSecret(ctx *pulumi.Context,
 	if args.SecretName == nil {
 		return nil, errors.New("invalid value for required argument 'SecretName'")
 	}
+	if args.EncryptedValue != nil {
+		args.EncryptedValue = pulumi.ToSecret(args.EncryptedValue).(pulumi.StringPtrOutput)
+	}
+	if args.PlaintextValue != nil {
+		args.PlaintextValue = pulumi.ToSecret(args.PlaintextValue).(pulumi.StringPtrOutput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"encryptedValue",
+		"plaintextValue",
+	})
+	opts = append(opts, secrets)
 	var resource DependabotSecret
 	err := ctx.RegisterResource("github:index/dependabotSecret:DependabotSecret", name, args, &resource, opts...)
 	if err != nil {

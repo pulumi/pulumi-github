@@ -4,9 +4,11 @@
 package com.pulumi.github.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.github.outputs.GetReleaseAsset;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -14,6 +16,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetReleaseResult {
     private String assertsUrl;
+    private List<GetReleaseAsset> assets;
     private String body;
     private String createdAt;
     private Boolean draft;
@@ -40,6 +43,9 @@ public final class GetReleaseResult {
     private GetReleaseResult() {}
     public String assertsUrl() {
         return this.assertsUrl;
+    }
+    public List<GetReleaseAsset> assets() {
+        return this.assets;
     }
     public String body() {
         return this.body;
@@ -110,6 +116,7 @@ public final class GetReleaseResult {
     @CustomType.Builder
     public static final class Builder {
         private String assertsUrl;
+        private List<GetReleaseAsset> assets;
         private String body;
         private String createdAt;
         private Boolean draft;
@@ -132,6 +139,7 @@ public final class GetReleaseResult {
         public Builder(GetReleaseResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.assertsUrl = defaults.assertsUrl;
+    	      this.assets = defaults.assets;
     	      this.body = defaults.body;
     	      this.createdAt = defaults.createdAt;
     	      this.draft = defaults.draft;
@@ -156,6 +164,14 @@ public final class GetReleaseResult {
         public Builder assertsUrl(String assertsUrl) {
             this.assertsUrl = Objects.requireNonNull(assertsUrl);
             return this;
+        }
+        @CustomType.Setter
+        public Builder assets(List<GetReleaseAsset> assets) {
+            this.assets = Objects.requireNonNull(assets);
+            return this;
+        }
+        public Builder assets(GetReleaseAsset... assets) {
+            return assets(List.of(assets));
         }
         @CustomType.Setter
         public Builder body(String body) {
@@ -250,6 +266,7 @@ public final class GetReleaseResult {
         public GetReleaseResult build() {
             final var o = new GetReleaseResult();
             o.assertsUrl = assertsUrl;
+            o.assets = assets;
             o.body = body;
             o.createdAt = createdAt;
             o.draft = draft;

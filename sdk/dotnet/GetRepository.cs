@@ -12,10 +12,10 @@ namespace Pulumi.Github
     public static class GetRepository
     {
         public static Task<GetRepositoryResult> InvokeAsync(GetRepositoryArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRepositoryResult>("github:index/getRepository:getRepository", args ?? new GetRepositoryArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetRepositoryResult>("github:index/getRepository:getRepository", args ?? new GetRepositoryArgs(), options.WithDefaults());
 
         public static Output<GetRepositoryResult> Invoke(GetRepositoryInvokeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetRepositoryResult>("github:index/getRepository:getRepository", args ?? new GetRepositoryInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetRepositoryResult>("github:index/getRepository:getRepository", args ?? new GetRepositoryInvokeArgs(), options.WithDefaults());
     }
 
 
@@ -32,9 +32,6 @@ namespace Pulumi.Github
 
         [Input("name")]
         public string? Name { get; set; }
-
-        [Input("onlyProtectedBranches")]
-        public bool? OnlyProtectedBranches { get; set; }
 
         public GetRepositoryArgs()
         {
@@ -55,9 +52,6 @@ namespace Pulumi.Github
 
         [Input("name")]
         public Input<string>? Name { get; set; }
-
-        [Input("onlyProtectedBranches")]
-        public Input<bool>? OnlyProtectedBranches { get; set; }
 
         public GetRepositoryInvokeArgs()
         {
@@ -93,7 +87,6 @@ namespace Pulumi.Github
         public readonly string MergeCommitTitle;
         public readonly string Name;
         public readonly string NodeId;
-        public readonly bool? OnlyProtectedBranches;
         public readonly ImmutableArray<Outputs.GetRepositoryPageResult> Pages;
         public readonly bool Private;
         public readonly int RepoId;
@@ -148,8 +141,6 @@ namespace Pulumi.Github
 
             string nodeId,
 
-            bool? onlyProtectedBranches,
-
             ImmutableArray<Outputs.GetRepositoryPageResult> pages,
 
             bool @private,
@@ -189,7 +180,6 @@ namespace Pulumi.Github
             MergeCommitTitle = mergeCommitTitle;
             Name = name;
             NodeId = nodeId;
-            OnlyProtectedBranches = onlyProtectedBranches;
             Pages = pages;
             Private = @private;
             RepoId = repoId;

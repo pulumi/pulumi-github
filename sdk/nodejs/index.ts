@@ -5,74 +5,384 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 // Export members:
-export * from "./actionsEnvironmentSecret";
-export * from "./actionsOrganizationPermissions";
-export * from "./actionsOrganizationSecret";
-export * from "./actionsOrganizationSecretRepositories";
-export * from "./actionsRunnerGroup";
-export * from "./actionsSecret";
-export * from "./appInstallationRepository";
-export * from "./branch";
-export * from "./branchDefault";
-export * from "./branchProtection";
-export * from "./branchProtectionV3";
-export * from "./dependabotOrganizationSecret";
-export * from "./dependabotOrganizationSecretRepositories";
-export * from "./dependabotSecret";
-export * from "./emuGroupMapping";
-export * from "./getActionsOrganizationSecrets";
-export * from "./getActionsPublicKey";
-export * from "./getActionsSecrets";
-export * from "./getBranch";
-export * from "./getCollaborators";
-export * from "./getDependabotPublicKey";
-export * from "./getExternalGroups";
-export * from "./getIpRanges";
-export * from "./getMembership";
-export * from "./getOrganization";
-export * from "./getOrganizationTeamSyncGroups";
-export * from "./getOrganizationTeams";
-export * from "./getRef";
-export * from "./getRelease";
-export * from "./getRepositories";
-export * from "./getRepository";
-export * from "./getRepositoryFile";
-export * from "./getRepositoryMilestone";
-export * from "./getRepositoryPullRequest";
-export * from "./getRepositoryPullRequests";
-export * from "./getRepositoryTeams";
-export * from "./getTeam";
-export * from "./getTree";
-export * from "./getUser";
-export * from "./getUsers";
-export * from "./issue";
-export * from "./issueLabel";
-export * from "./membership";
-export * from "./organizationBlock";
-export * from "./organizationProject";
-export * from "./organizationWebhook";
-export * from "./projectCard";
-export * from "./projectColumn";
-export * from "./provider";
-export * from "./repository";
-export * from "./repositoryAutolinkReference";
-export * from "./repositoryCollaborator";
-export * from "./repositoryDeployKey";
-export * from "./repositoryEnvironment";
-export * from "./repositoryFile";
-export * from "./repositoryMilestone";
-export * from "./repositoryProject";
-export * from "./repositoryPullRequest";
-export * from "./repositoryTagProtection";
-export * from "./repositoryWebhook";
-export * from "./team";
-export * from "./teamMembers";
-export * from "./teamMembership";
-export * from "./teamRepository";
-export * from "./teamSyncGroupMapping";
-export * from "./userGpgKey";
-export * from "./userInvitationAccepter";
-export * from "./userSshKey";
+export { ActionsEnvironmentSecretArgs, ActionsEnvironmentSecretState } from "./actionsEnvironmentSecret";
+export type ActionsEnvironmentSecret = import("./actionsEnvironmentSecret").ActionsEnvironmentSecret;
+export const ActionsEnvironmentSecret: typeof import("./actionsEnvironmentSecret").ActionsEnvironmentSecret = null as any;
+utilities.lazyLoad(exports, ["ActionsEnvironmentSecret"], () => require("./actionsEnvironmentSecret"));
+
+export { ActionsOrganizationPermissionsArgs, ActionsOrganizationPermissionsState } from "./actionsOrganizationPermissions";
+export type ActionsOrganizationPermissions = import("./actionsOrganizationPermissions").ActionsOrganizationPermissions;
+export const ActionsOrganizationPermissions: typeof import("./actionsOrganizationPermissions").ActionsOrganizationPermissions = null as any;
+utilities.lazyLoad(exports, ["ActionsOrganizationPermissions"], () => require("./actionsOrganizationPermissions"));
+
+export { ActionsOrganizationSecretArgs, ActionsOrganizationSecretState } from "./actionsOrganizationSecret";
+export type ActionsOrganizationSecret = import("./actionsOrganizationSecret").ActionsOrganizationSecret;
+export const ActionsOrganizationSecret: typeof import("./actionsOrganizationSecret").ActionsOrganizationSecret = null as any;
+utilities.lazyLoad(exports, ["ActionsOrganizationSecret"], () => require("./actionsOrganizationSecret"));
+
+export { ActionsOrganizationSecretRepositoriesArgs, ActionsOrganizationSecretRepositoriesState } from "./actionsOrganizationSecretRepositories";
+export type ActionsOrganizationSecretRepositories = import("./actionsOrganizationSecretRepositories").ActionsOrganizationSecretRepositories;
+export const ActionsOrganizationSecretRepositories: typeof import("./actionsOrganizationSecretRepositories").ActionsOrganizationSecretRepositories = null as any;
+utilities.lazyLoad(exports, ["ActionsOrganizationSecretRepositories"], () => require("./actionsOrganizationSecretRepositories"));
+
+export { ActionsRunnerGroupArgs, ActionsRunnerGroupState } from "./actionsRunnerGroup";
+export type ActionsRunnerGroup = import("./actionsRunnerGroup").ActionsRunnerGroup;
+export const ActionsRunnerGroup: typeof import("./actionsRunnerGroup").ActionsRunnerGroup = null as any;
+utilities.lazyLoad(exports, ["ActionsRunnerGroup"], () => require("./actionsRunnerGroup"));
+
+export { ActionsSecretArgs, ActionsSecretState } from "./actionsSecret";
+export type ActionsSecret = import("./actionsSecret").ActionsSecret;
+export const ActionsSecret: typeof import("./actionsSecret").ActionsSecret = null as any;
+utilities.lazyLoad(exports, ["ActionsSecret"], () => require("./actionsSecret"));
+
+export { AppInstallationRepositoryArgs, AppInstallationRepositoryState } from "./appInstallationRepository";
+export type AppInstallationRepository = import("./appInstallationRepository").AppInstallationRepository;
+export const AppInstallationRepository: typeof import("./appInstallationRepository").AppInstallationRepository = null as any;
+utilities.lazyLoad(exports, ["AppInstallationRepository"], () => require("./appInstallationRepository"));
+
+export { BranchArgs, BranchState } from "./branch";
+export type Branch = import("./branch").Branch;
+export const Branch: typeof import("./branch").Branch = null as any;
+utilities.lazyLoad(exports, ["Branch"], () => require("./branch"));
+
+export { BranchDefaultArgs, BranchDefaultState } from "./branchDefault";
+export type BranchDefault = import("./branchDefault").BranchDefault;
+export const BranchDefault: typeof import("./branchDefault").BranchDefault = null as any;
+utilities.lazyLoad(exports, ["BranchDefault"], () => require("./branchDefault"));
+
+export { BranchProtectionArgs, BranchProtectionState } from "./branchProtection";
+export type BranchProtection = import("./branchProtection").BranchProtection;
+export const BranchProtection: typeof import("./branchProtection").BranchProtection = null as any;
+utilities.lazyLoad(exports, ["BranchProtection"], () => require("./branchProtection"));
+
+export { BranchProtectionV3Args, BranchProtectionV3State } from "./branchProtectionV3";
+export type BranchProtectionV3 = import("./branchProtectionV3").BranchProtectionV3;
+export const BranchProtectionV3: typeof import("./branchProtectionV3").BranchProtectionV3 = null as any;
+utilities.lazyLoad(exports, ["BranchProtectionV3"], () => require("./branchProtectionV3"));
+
+export { DependabotOrganizationSecretArgs, DependabotOrganizationSecretState } from "./dependabotOrganizationSecret";
+export type DependabotOrganizationSecret = import("./dependabotOrganizationSecret").DependabotOrganizationSecret;
+export const DependabotOrganizationSecret: typeof import("./dependabotOrganizationSecret").DependabotOrganizationSecret = null as any;
+utilities.lazyLoad(exports, ["DependabotOrganizationSecret"], () => require("./dependabotOrganizationSecret"));
+
+export { DependabotOrganizationSecretRepositoriesArgs, DependabotOrganizationSecretRepositoriesState } from "./dependabotOrganizationSecretRepositories";
+export type DependabotOrganizationSecretRepositories = import("./dependabotOrganizationSecretRepositories").DependabotOrganizationSecretRepositories;
+export const DependabotOrganizationSecretRepositories: typeof import("./dependabotOrganizationSecretRepositories").DependabotOrganizationSecretRepositories = null as any;
+utilities.lazyLoad(exports, ["DependabotOrganizationSecretRepositories"], () => require("./dependabotOrganizationSecretRepositories"));
+
+export { DependabotSecretArgs, DependabotSecretState } from "./dependabotSecret";
+export type DependabotSecret = import("./dependabotSecret").DependabotSecret;
+export const DependabotSecret: typeof import("./dependabotSecret").DependabotSecret = null as any;
+utilities.lazyLoad(exports, ["DependabotSecret"], () => require("./dependabotSecret"));
+
+export { EmuGroupMappingArgs, EmuGroupMappingState } from "./emuGroupMapping";
+export type EmuGroupMapping = import("./emuGroupMapping").EmuGroupMapping;
+export const EmuGroupMapping: typeof import("./emuGroupMapping").EmuGroupMapping = null as any;
+utilities.lazyLoad(exports, ["EmuGroupMapping"], () => require("./emuGroupMapping"));
+
+export { GetActionsOrganizationSecretsResult } from "./getActionsOrganizationSecrets";
+export const getActionsOrganizationSecrets: typeof import("./getActionsOrganizationSecrets").getActionsOrganizationSecrets = null as any;
+utilities.lazyLoad(exports, ["getActionsOrganizationSecrets"], () => require("./getActionsOrganizationSecrets"));
+
+export { GetActionsPublicKeyArgs, GetActionsPublicKeyResult, GetActionsPublicKeyOutputArgs } from "./getActionsPublicKey";
+export const getActionsPublicKey: typeof import("./getActionsPublicKey").getActionsPublicKey = null as any;
+export const getActionsPublicKeyOutput: typeof import("./getActionsPublicKey").getActionsPublicKeyOutput = null as any;
+utilities.lazyLoad(exports, ["getActionsPublicKey","getActionsPublicKeyOutput"], () => require("./getActionsPublicKey"));
+
+export { GetActionsSecretsArgs, GetActionsSecretsResult, GetActionsSecretsOutputArgs } from "./getActionsSecrets";
+export const getActionsSecrets: typeof import("./getActionsSecrets").getActionsSecrets = null as any;
+export const getActionsSecretsOutput: typeof import("./getActionsSecrets").getActionsSecretsOutput = null as any;
+utilities.lazyLoad(exports, ["getActionsSecrets","getActionsSecretsOutput"], () => require("./getActionsSecrets"));
+
+export { GetBranchArgs, GetBranchResult, GetBranchOutputArgs } from "./getBranch";
+export const getBranch: typeof import("./getBranch").getBranch = null as any;
+export const getBranchOutput: typeof import("./getBranch").getBranchOutput = null as any;
+utilities.lazyLoad(exports, ["getBranch","getBranchOutput"], () => require("./getBranch"));
+
+export { GetCollaboratorsArgs, GetCollaboratorsResult, GetCollaboratorsOutputArgs } from "./getCollaborators";
+export const getCollaborators: typeof import("./getCollaborators").getCollaborators = null as any;
+export const getCollaboratorsOutput: typeof import("./getCollaborators").getCollaboratorsOutput = null as any;
+utilities.lazyLoad(exports, ["getCollaborators","getCollaboratorsOutput"], () => require("./getCollaborators"));
+
+export { GetDependabotOrganizationSecretsResult } from "./getDependabotOrganizationSecrets";
+export const getDependabotOrganizationSecrets: typeof import("./getDependabotOrganizationSecrets").getDependabotOrganizationSecrets = null as any;
+utilities.lazyLoad(exports, ["getDependabotOrganizationSecrets"], () => require("./getDependabotOrganizationSecrets"));
+
+export { GetDependabotPublicKeyArgs, GetDependabotPublicKeyResult, GetDependabotPublicKeyOutputArgs } from "./getDependabotPublicKey";
+export const getDependabotPublicKey: typeof import("./getDependabotPublicKey").getDependabotPublicKey = null as any;
+export const getDependabotPublicKeyOutput: typeof import("./getDependabotPublicKey").getDependabotPublicKeyOutput = null as any;
+utilities.lazyLoad(exports, ["getDependabotPublicKey","getDependabotPublicKeyOutput"], () => require("./getDependabotPublicKey"));
+
+export { GetDependabotSecretsArgs, GetDependabotSecretsResult, GetDependabotSecretsOutputArgs } from "./getDependabotSecrets";
+export const getDependabotSecrets: typeof import("./getDependabotSecrets").getDependabotSecrets = null as any;
+export const getDependabotSecretsOutput: typeof import("./getDependabotSecrets").getDependabotSecretsOutput = null as any;
+utilities.lazyLoad(exports, ["getDependabotSecrets","getDependabotSecretsOutput"], () => require("./getDependabotSecrets"));
+
+export { GetExternalGroupsResult } from "./getExternalGroups";
+export const getExternalGroups: typeof import("./getExternalGroups").getExternalGroups = null as any;
+utilities.lazyLoad(exports, ["getExternalGroups"], () => require("./getExternalGroups"));
+
+export { GetGithubAppArgs, GetGithubAppResult, GetGithubAppOutputArgs } from "./getGithubApp";
+export const getGithubApp: typeof import("./getGithubApp").getGithubApp = null as any;
+export const getGithubAppOutput: typeof import("./getGithubApp").getGithubAppOutput = null as any;
+utilities.lazyLoad(exports, ["getGithubApp","getGithubAppOutput"], () => require("./getGithubApp"));
+
+export { GetIpRangesResult } from "./getIpRanges";
+export const getIpRanges: typeof import("./getIpRanges").getIpRanges = null as any;
+utilities.lazyLoad(exports, ["getIpRanges"], () => require("./getIpRanges"));
+
+export { GetMembershipArgs, GetMembershipResult, GetMembershipOutputArgs } from "./getMembership";
+export const getMembership: typeof import("./getMembership").getMembership = null as any;
+export const getMembershipOutput: typeof import("./getMembership").getMembershipOutput = null as any;
+utilities.lazyLoad(exports, ["getMembership","getMembershipOutput"], () => require("./getMembership"));
+
+export { GetOrganizationArgs, GetOrganizationResult, GetOrganizationOutputArgs } from "./getOrganization";
+export const getOrganization: typeof import("./getOrganization").getOrganization = null as any;
+export const getOrganizationOutput: typeof import("./getOrganization").getOrganizationOutput = null as any;
+utilities.lazyLoad(exports, ["getOrganization","getOrganizationOutput"], () => require("./getOrganization"));
+
+export { GetOrganizationIpAllowListResult } from "./getOrganizationIpAllowList";
+export const getOrganizationIpAllowList: typeof import("./getOrganizationIpAllowList").getOrganizationIpAllowList = null as any;
+utilities.lazyLoad(exports, ["getOrganizationIpAllowList"], () => require("./getOrganizationIpAllowList"));
+
+export { GetOrganizationTeamSyncGroupsResult } from "./getOrganizationTeamSyncGroups";
+export const getOrganizationTeamSyncGroups: typeof import("./getOrganizationTeamSyncGroups").getOrganizationTeamSyncGroups = null as any;
+utilities.lazyLoad(exports, ["getOrganizationTeamSyncGroups"], () => require("./getOrganizationTeamSyncGroups"));
+
+export { GetOrganizationTeamsArgs, GetOrganizationTeamsResult, GetOrganizationTeamsOutputArgs } from "./getOrganizationTeams";
+export const getOrganizationTeams: typeof import("./getOrganizationTeams").getOrganizationTeams = null as any;
+export const getOrganizationTeamsOutput: typeof import("./getOrganizationTeams").getOrganizationTeamsOutput = null as any;
+utilities.lazyLoad(exports, ["getOrganizationTeams","getOrganizationTeamsOutput"], () => require("./getOrganizationTeams"));
+
+export { GetOrganizationWebhooksResult } from "./getOrganizationWebhooks";
+export const getOrganizationWebhooks: typeof import("./getOrganizationWebhooks").getOrganizationWebhooks = null as any;
+utilities.lazyLoad(exports, ["getOrganizationWebhooks"], () => require("./getOrganizationWebhooks"));
+
+export { GetRefArgs, GetRefResult, GetRefOutputArgs } from "./getRef";
+export const getRef: typeof import("./getRef").getRef = null as any;
+export const getRefOutput: typeof import("./getRef").getRefOutput = null as any;
+utilities.lazyLoad(exports, ["getRef","getRefOutput"], () => require("./getRef"));
+
+export { GetReleaseArgs, GetReleaseResult, GetReleaseOutputArgs } from "./getRelease";
+export const getRelease: typeof import("./getRelease").getRelease = null as any;
+export const getReleaseOutput: typeof import("./getRelease").getReleaseOutput = null as any;
+utilities.lazyLoad(exports, ["getRelease","getReleaseOutput"], () => require("./getRelease"));
+
+export { GetRepositoriesArgs, GetRepositoriesResult, GetRepositoriesOutputArgs } from "./getRepositories";
+export const getRepositories: typeof import("./getRepositories").getRepositories = null as any;
+export const getRepositoriesOutput: typeof import("./getRepositories").getRepositoriesOutput = null as any;
+utilities.lazyLoad(exports, ["getRepositories","getRepositoriesOutput"], () => require("./getRepositories"));
+
+export { GetRepositoryArgs, GetRepositoryResult, GetRepositoryOutputArgs } from "./getRepository";
+export const getRepository: typeof import("./getRepository").getRepository = null as any;
+export const getRepositoryOutput: typeof import("./getRepository").getRepositoryOutput = null as any;
+utilities.lazyLoad(exports, ["getRepository","getRepositoryOutput"], () => require("./getRepository"));
+
+export { GetRepositoryBranchesArgs, GetRepositoryBranchesResult, GetRepositoryBranchesOutputArgs } from "./getRepositoryBranches";
+export const getRepositoryBranches: typeof import("./getRepositoryBranches").getRepositoryBranches = null as any;
+export const getRepositoryBranchesOutput: typeof import("./getRepositoryBranches").getRepositoryBranchesOutput = null as any;
+utilities.lazyLoad(exports, ["getRepositoryBranches","getRepositoryBranchesOutput"], () => require("./getRepositoryBranches"));
+
+export { GetRepositoryDeployKeysArgs, GetRepositoryDeployKeysResult, GetRepositoryDeployKeysOutputArgs } from "./getRepositoryDeployKeys";
+export const getRepositoryDeployKeys: typeof import("./getRepositoryDeployKeys").getRepositoryDeployKeys = null as any;
+export const getRepositoryDeployKeysOutput: typeof import("./getRepositoryDeployKeys").getRepositoryDeployKeysOutput = null as any;
+utilities.lazyLoad(exports, ["getRepositoryDeployKeys","getRepositoryDeployKeysOutput"], () => require("./getRepositoryDeployKeys"));
+
+export { GetRepositoryFileArgs, GetRepositoryFileResult, GetRepositoryFileOutputArgs } from "./getRepositoryFile";
+export const getRepositoryFile: typeof import("./getRepositoryFile").getRepositoryFile = null as any;
+export const getRepositoryFileOutput: typeof import("./getRepositoryFile").getRepositoryFileOutput = null as any;
+utilities.lazyLoad(exports, ["getRepositoryFile","getRepositoryFileOutput"], () => require("./getRepositoryFile"));
+
+export { GetRepositoryMilestoneArgs, GetRepositoryMilestoneResult, GetRepositoryMilestoneOutputArgs } from "./getRepositoryMilestone";
+export const getRepositoryMilestone: typeof import("./getRepositoryMilestone").getRepositoryMilestone = null as any;
+export const getRepositoryMilestoneOutput: typeof import("./getRepositoryMilestone").getRepositoryMilestoneOutput = null as any;
+utilities.lazyLoad(exports, ["getRepositoryMilestone","getRepositoryMilestoneOutput"], () => require("./getRepositoryMilestone"));
+
+export { GetRepositoryPullRequestArgs, GetRepositoryPullRequestResult, GetRepositoryPullRequestOutputArgs } from "./getRepositoryPullRequest";
+export const getRepositoryPullRequest: typeof import("./getRepositoryPullRequest").getRepositoryPullRequest = null as any;
+export const getRepositoryPullRequestOutput: typeof import("./getRepositoryPullRequest").getRepositoryPullRequestOutput = null as any;
+utilities.lazyLoad(exports, ["getRepositoryPullRequest","getRepositoryPullRequestOutput"], () => require("./getRepositoryPullRequest"));
+
+export { GetRepositoryPullRequestsArgs, GetRepositoryPullRequestsResult, GetRepositoryPullRequestsOutputArgs } from "./getRepositoryPullRequests";
+export const getRepositoryPullRequests: typeof import("./getRepositoryPullRequests").getRepositoryPullRequests = null as any;
+export const getRepositoryPullRequestsOutput: typeof import("./getRepositoryPullRequests").getRepositoryPullRequestsOutput = null as any;
+utilities.lazyLoad(exports, ["getRepositoryPullRequests","getRepositoryPullRequestsOutput"], () => require("./getRepositoryPullRequests"));
+
+export { GetRepositoryTeamsArgs, GetRepositoryTeamsResult, GetRepositoryTeamsOutputArgs } from "./getRepositoryTeams";
+export const getRepositoryTeams: typeof import("./getRepositoryTeams").getRepositoryTeams = null as any;
+export const getRepositoryTeamsOutput: typeof import("./getRepositoryTeams").getRepositoryTeamsOutput = null as any;
+utilities.lazyLoad(exports, ["getRepositoryTeams","getRepositoryTeamsOutput"], () => require("./getRepositoryTeams"));
+
+export { GetRepositoryWebhooksArgs, GetRepositoryWebhooksResult, GetRepositoryWebhooksOutputArgs } from "./getRepositoryWebhooks";
+export const getRepositoryWebhooks: typeof import("./getRepositoryWebhooks").getRepositoryWebhooks = null as any;
+export const getRepositoryWebhooksOutput: typeof import("./getRepositoryWebhooks").getRepositoryWebhooksOutput = null as any;
+utilities.lazyLoad(exports, ["getRepositoryWebhooks","getRepositoryWebhooksOutput"], () => require("./getRepositoryWebhooks"));
+
+export { GetTeamArgs, GetTeamResult, GetTeamOutputArgs } from "./getTeam";
+export const getTeam: typeof import("./getTeam").getTeam = null as any;
+export const getTeamOutput: typeof import("./getTeam").getTeamOutput = null as any;
+utilities.lazyLoad(exports, ["getTeam","getTeamOutput"], () => require("./getTeam"));
+
+export { GetTreeArgs, GetTreeResult, GetTreeOutputArgs } from "./getTree";
+export const getTree: typeof import("./getTree").getTree = null as any;
+export const getTreeOutput: typeof import("./getTree").getTreeOutput = null as any;
+utilities.lazyLoad(exports, ["getTree","getTreeOutput"], () => require("./getTree"));
+
+export { GetUserArgs, GetUserResult, GetUserOutputArgs } from "./getUser";
+export const getUser: typeof import("./getUser").getUser = null as any;
+export const getUserOutput: typeof import("./getUser").getUserOutput = null as any;
+utilities.lazyLoad(exports, ["getUser","getUserOutput"], () => require("./getUser"));
+
+export { GetUsersArgs, GetUsersResult, GetUsersOutputArgs } from "./getUsers";
+export const getUsers: typeof import("./getUsers").getUsers = null as any;
+export const getUsersOutput: typeof import("./getUsers").getUsersOutput = null as any;
+utilities.lazyLoad(exports, ["getUsers","getUsersOutput"], () => require("./getUsers"));
+
+export { IssueArgs, IssueState } from "./issue";
+export type Issue = import("./issue").Issue;
+export const Issue: typeof import("./issue").Issue = null as any;
+utilities.lazyLoad(exports, ["Issue"], () => require("./issue"));
+
+export { IssueLabelArgs, IssueLabelState } from "./issueLabel";
+export type IssueLabel = import("./issueLabel").IssueLabel;
+export const IssueLabel: typeof import("./issueLabel").IssueLabel = null as any;
+utilities.lazyLoad(exports, ["IssueLabel"], () => require("./issueLabel"));
+
+export { MembershipArgs, MembershipState } from "./membership";
+export type Membership = import("./membership").Membership;
+export const Membership: typeof import("./membership").Membership = null as any;
+utilities.lazyLoad(exports, ["Membership"], () => require("./membership"));
+
+export { OrganizationBlockArgs, OrganizationBlockState } from "./organizationBlock";
+export type OrganizationBlock = import("./organizationBlock").OrganizationBlock;
+export const OrganizationBlock: typeof import("./organizationBlock").OrganizationBlock = null as any;
+utilities.lazyLoad(exports, ["OrganizationBlock"], () => require("./organizationBlock"));
+
+export { OrganizationProjectArgs, OrganizationProjectState } from "./organizationProject";
+export type OrganizationProject = import("./organizationProject").OrganizationProject;
+export const OrganizationProject: typeof import("./organizationProject").OrganizationProject = null as any;
+utilities.lazyLoad(exports, ["OrganizationProject"], () => require("./organizationProject"));
+
+export { OrganizationSettingsArgs, OrganizationSettingsState } from "./organizationSettings";
+export type OrganizationSettings = import("./organizationSettings").OrganizationSettings;
+export const OrganizationSettings: typeof import("./organizationSettings").OrganizationSettings = null as any;
+utilities.lazyLoad(exports, ["OrganizationSettings"], () => require("./organizationSettings"));
+
+export { OrganizationWebhookArgs, OrganizationWebhookState } from "./organizationWebhook";
+export type OrganizationWebhook = import("./organizationWebhook").OrganizationWebhook;
+export const OrganizationWebhook: typeof import("./organizationWebhook").OrganizationWebhook = null as any;
+utilities.lazyLoad(exports, ["OrganizationWebhook"], () => require("./organizationWebhook"));
+
+export { ProjectCardArgs, ProjectCardState } from "./projectCard";
+export type ProjectCard = import("./projectCard").ProjectCard;
+export const ProjectCard: typeof import("./projectCard").ProjectCard = null as any;
+utilities.lazyLoad(exports, ["ProjectCard"], () => require("./projectCard"));
+
+export { ProjectColumnArgs, ProjectColumnState } from "./projectColumn";
+export type ProjectColumn = import("./projectColumn").ProjectColumn;
+export const ProjectColumn: typeof import("./projectColumn").ProjectColumn = null as any;
+utilities.lazyLoad(exports, ["ProjectColumn"], () => require("./projectColumn"));
+
+export { ProviderArgs } from "./provider";
+export type Provider = import("./provider").Provider;
+export const Provider: typeof import("./provider").Provider = null as any;
+utilities.lazyLoad(exports, ["Provider"], () => require("./provider"));
+
+export { RepositoryArgs, RepositoryState } from "./repository";
+export type Repository = import("./repository").Repository;
+export const Repository: typeof import("./repository").Repository = null as any;
+utilities.lazyLoad(exports, ["Repository"], () => require("./repository"));
+
+export { RepositoryAutolinkReferenceArgs, RepositoryAutolinkReferenceState } from "./repositoryAutolinkReference";
+export type RepositoryAutolinkReference = import("./repositoryAutolinkReference").RepositoryAutolinkReference;
+export const RepositoryAutolinkReference: typeof import("./repositoryAutolinkReference").RepositoryAutolinkReference = null as any;
+utilities.lazyLoad(exports, ["RepositoryAutolinkReference"], () => require("./repositoryAutolinkReference"));
+
+export { RepositoryCollaboratorArgs, RepositoryCollaboratorState } from "./repositoryCollaborator";
+export type RepositoryCollaborator = import("./repositoryCollaborator").RepositoryCollaborator;
+export const RepositoryCollaborator: typeof import("./repositoryCollaborator").RepositoryCollaborator = null as any;
+utilities.lazyLoad(exports, ["RepositoryCollaborator"], () => require("./repositoryCollaborator"));
+
+export { RepositoryDeployKeyArgs, RepositoryDeployKeyState } from "./repositoryDeployKey";
+export type RepositoryDeployKey = import("./repositoryDeployKey").RepositoryDeployKey;
+export const RepositoryDeployKey: typeof import("./repositoryDeployKey").RepositoryDeployKey = null as any;
+utilities.lazyLoad(exports, ["RepositoryDeployKey"], () => require("./repositoryDeployKey"));
+
+export { RepositoryEnvironmentArgs, RepositoryEnvironmentState } from "./repositoryEnvironment";
+export type RepositoryEnvironment = import("./repositoryEnvironment").RepositoryEnvironment;
+export const RepositoryEnvironment: typeof import("./repositoryEnvironment").RepositoryEnvironment = null as any;
+utilities.lazyLoad(exports, ["RepositoryEnvironment"], () => require("./repositoryEnvironment"));
+
+export { RepositoryFileArgs, RepositoryFileState } from "./repositoryFile";
+export type RepositoryFile = import("./repositoryFile").RepositoryFile;
+export const RepositoryFile: typeof import("./repositoryFile").RepositoryFile = null as any;
+utilities.lazyLoad(exports, ["RepositoryFile"], () => require("./repositoryFile"));
+
+export { RepositoryMilestoneArgs, RepositoryMilestoneState } from "./repositoryMilestone";
+export type RepositoryMilestone = import("./repositoryMilestone").RepositoryMilestone;
+export const RepositoryMilestone: typeof import("./repositoryMilestone").RepositoryMilestone = null as any;
+utilities.lazyLoad(exports, ["RepositoryMilestone"], () => require("./repositoryMilestone"));
+
+export { RepositoryProjectArgs, RepositoryProjectState } from "./repositoryProject";
+export type RepositoryProject = import("./repositoryProject").RepositoryProject;
+export const RepositoryProject: typeof import("./repositoryProject").RepositoryProject = null as any;
+utilities.lazyLoad(exports, ["RepositoryProject"], () => require("./repositoryProject"));
+
+export { RepositoryPullRequestArgs, RepositoryPullRequestState } from "./repositoryPullRequest";
+export type RepositoryPullRequest = import("./repositoryPullRequest").RepositoryPullRequest;
+export const RepositoryPullRequest: typeof import("./repositoryPullRequest").RepositoryPullRequest = null as any;
+utilities.lazyLoad(exports, ["RepositoryPullRequest"], () => require("./repositoryPullRequest"));
+
+export { RepositoryTagProtectionArgs, RepositoryTagProtectionState } from "./repositoryTagProtection";
+export type RepositoryTagProtection = import("./repositoryTagProtection").RepositoryTagProtection;
+export const RepositoryTagProtection: typeof import("./repositoryTagProtection").RepositoryTagProtection = null as any;
+utilities.lazyLoad(exports, ["RepositoryTagProtection"], () => require("./repositoryTagProtection"));
+
+export { RepositoryWebhookArgs, RepositoryWebhookState } from "./repositoryWebhook";
+export type RepositoryWebhook = import("./repositoryWebhook").RepositoryWebhook;
+export const RepositoryWebhook: typeof import("./repositoryWebhook").RepositoryWebhook = null as any;
+utilities.lazyLoad(exports, ["RepositoryWebhook"], () => require("./repositoryWebhook"));
+
+export { TeamArgs, TeamState } from "./team";
+export type Team = import("./team").Team;
+export const Team: typeof import("./team").Team = null as any;
+utilities.lazyLoad(exports, ["Team"], () => require("./team"));
+
+export { TeamMembersArgs, TeamMembersState } from "./teamMembers";
+export type TeamMembers = import("./teamMembers").TeamMembers;
+export const TeamMembers: typeof import("./teamMembers").TeamMembers = null as any;
+utilities.lazyLoad(exports, ["TeamMembers"], () => require("./teamMembers"));
+
+export { TeamMembershipArgs, TeamMembershipState } from "./teamMembership";
+export type TeamMembership = import("./teamMembership").TeamMembership;
+export const TeamMembership: typeof import("./teamMembership").TeamMembership = null as any;
+utilities.lazyLoad(exports, ["TeamMembership"], () => require("./teamMembership"));
+
+export { TeamRepositoryArgs, TeamRepositoryState } from "./teamRepository";
+export type TeamRepository = import("./teamRepository").TeamRepository;
+export const TeamRepository: typeof import("./teamRepository").TeamRepository = null as any;
+utilities.lazyLoad(exports, ["TeamRepository"], () => require("./teamRepository"));
+
+export { TeamSyncGroupMappingArgs, TeamSyncGroupMappingState } from "./teamSyncGroupMapping";
+export type TeamSyncGroupMapping = import("./teamSyncGroupMapping").TeamSyncGroupMapping;
+export const TeamSyncGroupMapping: typeof import("./teamSyncGroupMapping").TeamSyncGroupMapping = null as any;
+utilities.lazyLoad(exports, ["TeamSyncGroupMapping"], () => require("./teamSyncGroupMapping"));
+
+export { UserGpgKeyArgs, UserGpgKeyState } from "./userGpgKey";
+export type UserGpgKey = import("./userGpgKey").UserGpgKey;
+export const UserGpgKey: typeof import("./userGpgKey").UserGpgKey = null as any;
+utilities.lazyLoad(exports, ["UserGpgKey"], () => require("./userGpgKey"));
+
+export { UserInvitationAccepterArgs, UserInvitationAccepterState } from "./userInvitationAccepter";
+export type UserInvitationAccepter = import("./userInvitationAccepter").UserInvitationAccepter;
+export const UserInvitationAccepter: typeof import("./userInvitationAccepter").UserInvitationAccepter = null as any;
+utilities.lazyLoad(exports, ["UserInvitationAccepter"], () => require("./userInvitationAccepter"));
+
+export { UserSshKeyArgs, UserSshKeyState } from "./userSshKey";
+export type UserSshKey = import("./userSshKey").UserSshKey;
+export const UserSshKey: typeof import("./userSshKey").UserSshKey = null as any;
+utilities.lazyLoad(exports, ["UserSshKey"], () => require("./userSshKey"));
+
 
 // Export sub-modules:
 import * as config from "./config";
@@ -82,50 +392,6 @@ export {
     config,
     types,
 };
-
-// Import resources to register:
-import { ActionsEnvironmentSecret } from "./actionsEnvironmentSecret";
-import { ActionsOrganizationPermissions } from "./actionsOrganizationPermissions";
-import { ActionsOrganizationSecret } from "./actionsOrganizationSecret";
-import { ActionsOrganizationSecretRepositories } from "./actionsOrganizationSecretRepositories";
-import { ActionsRunnerGroup } from "./actionsRunnerGroup";
-import { ActionsSecret } from "./actionsSecret";
-import { AppInstallationRepository } from "./appInstallationRepository";
-import { Branch } from "./branch";
-import { BranchDefault } from "./branchDefault";
-import { BranchProtection } from "./branchProtection";
-import { BranchProtectionV3 } from "./branchProtectionV3";
-import { DependabotOrganizationSecret } from "./dependabotOrganizationSecret";
-import { DependabotOrganizationSecretRepositories } from "./dependabotOrganizationSecretRepositories";
-import { DependabotSecret } from "./dependabotSecret";
-import { EmuGroupMapping } from "./emuGroupMapping";
-import { Issue } from "./issue";
-import { IssueLabel } from "./issueLabel";
-import { Membership } from "./membership";
-import { OrganizationBlock } from "./organizationBlock";
-import { OrganizationProject } from "./organizationProject";
-import { OrganizationWebhook } from "./organizationWebhook";
-import { ProjectCard } from "./projectCard";
-import { ProjectColumn } from "./projectColumn";
-import { Repository } from "./repository";
-import { RepositoryAutolinkReference } from "./repositoryAutolinkReference";
-import { RepositoryCollaborator } from "./repositoryCollaborator";
-import { RepositoryDeployKey } from "./repositoryDeployKey";
-import { RepositoryEnvironment } from "./repositoryEnvironment";
-import { RepositoryFile } from "./repositoryFile";
-import { RepositoryMilestone } from "./repositoryMilestone";
-import { RepositoryProject } from "./repositoryProject";
-import { RepositoryPullRequest } from "./repositoryPullRequest";
-import { RepositoryTagProtection } from "./repositoryTagProtection";
-import { RepositoryWebhook } from "./repositoryWebhook";
-import { Team } from "./team";
-import { TeamMembers } from "./teamMembers";
-import { TeamMembership } from "./teamMembership";
-import { TeamRepository } from "./teamRepository";
-import { TeamSyncGroupMapping } from "./teamSyncGroupMapping";
-import { UserGpgKey } from "./userGpgKey";
-import { UserInvitationAccepter } from "./userInvitationAccepter";
-import { UserSshKey } from "./userSshKey";
 
 const _module = {
     version: utilities.getVersion(),
@@ -171,6 +437,8 @@ const _module = {
                 return new OrganizationBlock(name, <any>undefined, { urn })
             case "github:index/organizationProject:OrganizationProject":
                 return new OrganizationProject(name, <any>undefined, { urn })
+            case "github:index/organizationSettings:OrganizationSettings":
+                return new OrganizationSettings(name, <any>undefined, { urn })
             case "github:index/organizationWebhook:OrganizationWebhook":
                 return new OrganizationWebhook(name, <any>undefined, { urn })
             case "github:index/projectCard:ProjectCard":
@@ -240,6 +508,7 @@ pulumi.runtime.registerResourceModule("github", "index/issueLabel", _module)
 pulumi.runtime.registerResourceModule("github", "index/membership", _module)
 pulumi.runtime.registerResourceModule("github", "index/organizationBlock", _module)
 pulumi.runtime.registerResourceModule("github", "index/organizationProject", _module)
+pulumi.runtime.registerResourceModule("github", "index/organizationSettings", _module)
 pulumi.runtime.registerResourceModule("github", "index/organizationWebhook", _module)
 pulumi.runtime.registerResourceModule("github", "index/projectCard", _module)
 pulumi.runtime.registerResourceModule("github", "index/projectColumn", _module)
@@ -262,9 +531,6 @@ pulumi.runtime.registerResourceModule("github", "index/teamSyncGroupMapping", _m
 pulumi.runtime.registerResourceModule("github", "index/userGpgKey", _module)
 pulumi.runtime.registerResourceModule("github", "index/userInvitationAccepter", _module)
 pulumi.runtime.registerResourceModule("github", "index/userSshKey", _module)
-
-import { Provider } from "./provider";
-
 pulumi.runtime.registerResourcePackage("github", {
     version: utilities.getVersion(),
     constructProvider: (name: string, type: string, urn: string): pulumi.ProviderResource => {

@@ -24,6 +24,9 @@ namespace Pulumi.Github
         [Output("allowSquashMerge")]
         public Output<bool?> AllowSquashMerge { get; private set; } = null!;
 
+        [Output("allowUpdateBranch")]
+        public Output<bool?> AllowUpdateBranch { get; private set; } = null!;
+
         [Output("archiveOnDestroy")]
         public Output<bool?> ArchiveOnDestroy { get; private set; } = null!;
 
@@ -190,6 +193,9 @@ namespace Pulumi.Github
         [Input("allowSquashMerge")]
         public Input<bool>? AllowSquashMerge { get; set; }
 
+        [Input("allowUpdateBranch")]
+        public Input<bool>? AllowUpdateBranch { get; set; }
+
         [Input("archiveOnDestroy")]
         public Input<bool>? ArchiveOnDestroy { get; set; }
 
@@ -295,6 +301,9 @@ namespace Pulumi.Github
 
         [Input("allowSquashMerge")]
         public Input<bool>? AllowSquashMerge { get; set; }
+
+        [Input("allowUpdateBranch")]
+        public Input<bool>? AllowUpdateBranch { get; set; }
 
         [Input("archiveOnDestroy")]
         public Input<bool>? ArchiveOnDestroy { get; set; }

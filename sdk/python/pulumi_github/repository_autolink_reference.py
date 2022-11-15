@@ -16,16 +16,21 @@ class RepositoryAutolinkReferenceArgs:
     def __init__(__self__, *,
                  key_prefix: pulumi.Input[str],
                  repository: pulumi.Input[str],
-                 target_url_template: pulumi.Input[str]):
+                 target_url_template: pulumi.Input[str],
+                 is_alphanumeric: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a RepositoryAutolinkReference resource.
         :param pulumi.Input[str] key_prefix: This prefix appended by a number will generate a link any time it is found in an issue, pull request, or commit
         :param pulumi.Input[str] repository: The repository name
         :param pulumi.Input[str] target_url_template: The template of the target URL used for the links; must be a valid URL and contain `<num>` for the reference number
+        :param pulumi.Input[bool] is_alphanumeric: Whether this autolink reference matches alphanumeric characters. If false, this autolink reference only matches numeric
+               characters.
         """
         pulumi.set(__self__, "key_prefix", key_prefix)
         pulumi.set(__self__, "repository", repository)
         pulumi.set(__self__, "target_url_template", target_url_template)
+        if is_alphanumeric is not None:
+            pulumi.set(__self__, "is_alphanumeric", is_alphanumeric)
 
     @property
     @pulumi.getter(name="keyPrefix")
@@ -63,22 +68,40 @@ class RepositoryAutolinkReferenceArgs:
     def target_url_template(self, value: pulumi.Input[str]):
         pulumi.set(self, "target_url_template", value)
 
+    @property
+    @pulumi.getter(name="isAlphanumeric")
+    def is_alphanumeric(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether this autolink reference matches alphanumeric characters. If false, this autolink reference only matches numeric
+        characters.
+        """
+        return pulumi.get(self, "is_alphanumeric")
+
+    @is_alphanumeric.setter
+    def is_alphanumeric(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_alphanumeric", value)
+
 
 @pulumi.input_type
 class _RepositoryAutolinkReferenceState:
     def __init__(__self__, *,
                  etag: Optional[pulumi.Input[str]] = None,
+                 is_alphanumeric: Optional[pulumi.Input[bool]] = None,
                  key_prefix: Optional[pulumi.Input[str]] = None,
                  repository: Optional[pulumi.Input[str]] = None,
                  target_url_template: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering RepositoryAutolinkReference resources.
+        :param pulumi.Input[bool] is_alphanumeric: Whether this autolink reference matches alphanumeric characters. If false, this autolink reference only matches numeric
+               characters.
         :param pulumi.Input[str] key_prefix: This prefix appended by a number will generate a link any time it is found in an issue, pull request, or commit
         :param pulumi.Input[str] repository: The repository name
         :param pulumi.Input[str] target_url_template: The template of the target URL used for the links; must be a valid URL and contain `<num>` for the reference number
         """
         if etag is not None:
             pulumi.set(__self__, "etag", etag)
+        if is_alphanumeric is not None:
+            pulumi.set(__self__, "is_alphanumeric", is_alphanumeric)
         if key_prefix is not None:
             pulumi.set(__self__, "key_prefix", key_prefix)
         if repository is not None:
@@ -94,6 +117,19 @@ class _RepositoryAutolinkReferenceState:
     @etag.setter
     def etag(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "etag", value)
+
+    @property
+    @pulumi.getter(name="isAlphanumeric")
+    def is_alphanumeric(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether this autolink reference matches alphanumeric characters. If false, this autolink reference only matches numeric
+        characters.
+        """
+        return pulumi.get(self, "is_alphanumeric")
+
+    @is_alphanumeric.setter
+    def is_alphanumeric(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_alphanumeric", value)
 
     @property
     @pulumi.getter(name="keyPrefix")
@@ -137,6 +173,7 @@ class RepositoryAutolinkReference(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 is_alphanumeric: Optional[pulumi.Input[bool]] = None,
                  key_prefix: Optional[pulumi.Input[str]] = None,
                  repository: Optional[pulumi.Input[str]] = None,
                  target_url_template: Optional[pulumi.Input[str]] = None,
@@ -145,6 +182,8 @@ class RepositoryAutolinkReference(pulumi.CustomResource):
         Create a RepositoryAutolinkReference resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] is_alphanumeric: Whether this autolink reference matches alphanumeric characters. If false, this autolink reference only matches numeric
+               characters.
         :param pulumi.Input[str] key_prefix: This prefix appended by a number will generate a link any time it is found in an issue, pull request, or commit
         :param pulumi.Input[str] repository: The repository name
         :param pulumi.Input[str] target_url_template: The template of the target URL used for the links; must be a valid URL and contain `<num>` for the reference number
@@ -172,6 +211,7 @@ class RepositoryAutolinkReference(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 is_alphanumeric: Optional[pulumi.Input[bool]] = None,
                  key_prefix: Optional[pulumi.Input[str]] = None,
                  repository: Optional[pulumi.Input[str]] = None,
                  target_url_template: Optional[pulumi.Input[str]] = None,
@@ -184,6 +224,7 @@ class RepositoryAutolinkReference(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = RepositoryAutolinkReferenceArgs.__new__(RepositoryAutolinkReferenceArgs)
 
+            __props__.__dict__["is_alphanumeric"] = is_alphanumeric
             if key_prefix is None and not opts.urn:
                 raise TypeError("Missing required property 'key_prefix'")
             __props__.__dict__["key_prefix"] = key_prefix
@@ -205,6 +246,7 @@ class RepositoryAutolinkReference(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             etag: Optional[pulumi.Input[str]] = None,
+            is_alphanumeric: Optional[pulumi.Input[bool]] = None,
             key_prefix: Optional[pulumi.Input[str]] = None,
             repository: Optional[pulumi.Input[str]] = None,
             target_url_template: Optional[pulumi.Input[str]] = None) -> 'RepositoryAutolinkReference':
@@ -215,6 +257,8 @@ class RepositoryAutolinkReference(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] is_alphanumeric: Whether this autolink reference matches alphanumeric characters. If false, this autolink reference only matches numeric
+               characters.
         :param pulumi.Input[str] key_prefix: This prefix appended by a number will generate a link any time it is found in an issue, pull request, or commit
         :param pulumi.Input[str] repository: The repository name
         :param pulumi.Input[str] target_url_template: The template of the target URL used for the links; must be a valid URL and contain `<num>` for the reference number
@@ -224,6 +268,7 @@ class RepositoryAutolinkReference(pulumi.CustomResource):
         __props__ = _RepositoryAutolinkReferenceState.__new__(_RepositoryAutolinkReferenceState)
 
         __props__.__dict__["etag"] = etag
+        __props__.__dict__["is_alphanumeric"] = is_alphanumeric
         __props__.__dict__["key_prefix"] = key_prefix
         __props__.__dict__["repository"] = repository
         __props__.__dict__["target_url_template"] = target_url_template
@@ -233,6 +278,15 @@ class RepositoryAutolinkReference(pulumi.CustomResource):
     @pulumi.getter
     def etag(self) -> pulumi.Output[str]:
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="isAlphanumeric")
+    def is_alphanumeric(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether this autolink reference matches alphanumeric characters. If false, this autolink reference only matches numeric
+        characters.
+        """
+        return pulumi.get(self, "is_alphanumeric")
 
     @property
     @pulumi.getter(name="keyPrefix")

@@ -12,6 +12,9 @@ namespace Pulumi.Github.Inputs
 
     public sealed class RepositoryTemplateArgs : global::Pulumi.ResourceArgs
     {
+        [Input("includeAllBranches")]
+        public Input<bool>? IncludeAllBranches { get; set; }
+
         [Input("owner", required: true)]
         public Input<string> Owner { get; set; } = null!;
 

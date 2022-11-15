@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 
 export interface ActionsOrganizationPermissionsAllowedActionsConfig {
     githubOwnedAllowed: boolean;
@@ -87,9 +88,31 @@ export interface GetCollaboratorsCollaborator {
     url: string;
 }
 
+export interface GetDependabotOrganizationSecretsSecret {
+    createdAt: string;
+    name: string;
+    updatedAt: string;
+    visibility: string;
+}
+
+export interface GetDependabotSecretsSecret {
+    createdAt: string;
+    name: string;
+    updatedAt: string;
+}
+
 export interface GetExternalGroupsExternalGroup {
     groupId: number;
     groupName: string;
+    updatedAt: string;
+}
+
+export interface GetOrganizationIpAllowListIpAllowList {
+    allowListValue: string;
+    createdAt: string;
+    id: string;
+    isActive: boolean;
+    name: string;
     updatedAt: string;
 }
 
@@ -108,6 +131,39 @@ export interface GetOrganizationTeamsTeam {
     privacy: string;
     repositories: string[];
     slug: string;
+}
+
+export interface GetOrganizationWebhooksWebhook {
+    active: boolean;
+    id: number;
+    name: string;
+    type: string;
+    url: string;
+}
+
+export interface GetReleaseAsset {
+    browserDownloadUrl: string;
+    contentType: string;
+    createdAt: string;
+    id: number;
+    label: string;
+    name: string;
+    nodeId: string;
+    size: number;
+    updatedAt: string;
+    url: string;
+}
+
+export interface GetRepositoryBranchesBranch {
+    name: string;
+    protected: boolean;
+}
+
+export interface GetRepositoryDeployKeysKey {
+    id: number;
+    key: string;
+    title: string;
+    verified: boolean;
 }
 
 export interface GetRepositoryPage {
@@ -147,6 +203,14 @@ export interface GetRepositoryTeamsTeam {
     name: string;
     permission: string;
     slug: string;
+}
+
+export interface GetRepositoryWebhooksWebhook {
+    active: boolean;
+    id: number;
+    name: string;
+    type: string;
+    url: string;
 }
 
 export interface GetTreeEntry {
@@ -189,6 +253,7 @@ export interface RepositoryPagesSource {
 }
 
 export interface RepositoryTemplate {
+    includeAllBranches?: boolean;
     owner: string;
     repository: string;
 }
@@ -210,6 +275,7 @@ export interface TeamSyncGroupMappingGroup {
     groupId: string;
     groupName: string;
 }
+
 export namespace config {
     export interface AppAuth {
         id: string;

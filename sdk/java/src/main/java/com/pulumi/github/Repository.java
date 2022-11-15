@@ -45,6 +45,12 @@ public class Repository extends com.pulumi.resources.CustomResource {
     public Output<Optional<Boolean>> allowSquashMerge() {
         return Codegen.optional(this.allowSquashMerge);
     }
+    @Export(name="allowUpdateBranch", type=Boolean.class, parameters={})
+    private Output</* @Nullable */ Boolean> allowUpdateBranch;
+
+    public Output<Optional<Boolean>> allowUpdateBranch() {
+        return Codegen.optional(this.allowUpdateBranch);
+    }
     @Export(name="archiveOnDestroy", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> archiveOnDestroy;
 

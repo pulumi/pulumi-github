@@ -34,6 +34,11 @@ export class RepositoryAutolinkReference extends pulumi.CustomResource {
 
     public /*out*/ readonly etag!: pulumi.Output<string>;
     /**
+     * Whether this autolink reference matches alphanumeric characters. If false, this autolink reference only matches numeric
+     * characters.
+     */
+    public readonly isAlphanumeric!: pulumi.Output<boolean | undefined>;
+    /**
      * This prefix appended by a number will generate a link any time it is found in an issue, pull request, or commit
      */
     public readonly keyPrefix!: pulumi.Output<string>;
@@ -60,6 +65,7 @@ export class RepositoryAutolinkReference extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as RepositoryAutolinkReferenceState | undefined;
             resourceInputs["etag"] = state ? state.etag : undefined;
+            resourceInputs["isAlphanumeric"] = state ? state.isAlphanumeric : undefined;
             resourceInputs["keyPrefix"] = state ? state.keyPrefix : undefined;
             resourceInputs["repository"] = state ? state.repository : undefined;
             resourceInputs["targetUrlTemplate"] = state ? state.targetUrlTemplate : undefined;
@@ -74,6 +80,7 @@ export class RepositoryAutolinkReference extends pulumi.CustomResource {
             if ((!args || args.targetUrlTemplate === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'targetUrlTemplate'");
             }
+            resourceInputs["isAlphanumeric"] = args ? args.isAlphanumeric : undefined;
             resourceInputs["keyPrefix"] = args ? args.keyPrefix : undefined;
             resourceInputs["repository"] = args ? args.repository : undefined;
             resourceInputs["targetUrlTemplate"] = args ? args.targetUrlTemplate : undefined;
@@ -89,6 +96,11 @@ export class RepositoryAutolinkReference extends pulumi.CustomResource {
  */
 export interface RepositoryAutolinkReferenceState {
     etag?: pulumi.Input<string>;
+    /**
+     * Whether this autolink reference matches alphanumeric characters. If false, this autolink reference only matches numeric
+     * characters.
+     */
+    isAlphanumeric?: pulumi.Input<boolean>;
     /**
      * This prefix appended by a number will generate a link any time it is found in an issue, pull request, or commit
      */
@@ -107,6 +119,11 @@ export interface RepositoryAutolinkReferenceState {
  * The set of arguments for constructing a RepositoryAutolinkReference resource.
  */
 export interface RepositoryAutolinkReferenceArgs {
+    /**
+     * Whether this autolink reference matches alphanumeric characters. If false, this autolink reference only matches numeric
+     * characters.
+     */
+    isAlphanumeric?: pulumi.Input<boolean>;
     /**
      * This prefix appended by a number will generate a link any time it is found in an issue, pull request, or commit
      */

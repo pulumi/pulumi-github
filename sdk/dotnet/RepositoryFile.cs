@@ -19,16 +19,18 @@ namespace Pulumi.Github
         public Output<string?> Branch { get; private set; } = null!;
 
         /// <summary>
-        /// The commit author name, defaults to the authenticated user's name
+        /// The commit author name, defaults to the authenticated user's name. GitHub app users may omit author and email
+        /// information so GitHub can verify commits as the GitHub App.
         /// </summary>
         [Output("commitAuthor")]
-        public Output<string> CommitAuthor { get; private set; } = null!;
+        public Output<string?> CommitAuthor { get; private set; } = null!;
 
         /// <summary>
-        /// The commit author email address, defaults to the authenticated user's email address
+        /// The commit author email address, defaults to the authenticated user's email address. GitHub app users may omit author
+        /// and email information so GitHub can verify commits as the GitHub App.
         /// </summary>
         [Output("commitEmail")]
-        public Output<string> CommitEmail { get; private set; } = null!;
+        public Output<string?> CommitEmail { get; private set; } = null!;
 
         /// <summary>
         /// The commit message when creating or updating the file
@@ -125,13 +127,15 @@ namespace Pulumi.Github
         public Input<string>? Branch { get; set; }
 
         /// <summary>
-        /// The commit author name, defaults to the authenticated user's name
+        /// The commit author name, defaults to the authenticated user's name. GitHub app users may omit author and email
+        /// information so GitHub can verify commits as the GitHub App.
         /// </summary>
         [Input("commitAuthor")]
         public Input<string>? CommitAuthor { get; set; }
 
         /// <summary>
-        /// The commit author email address, defaults to the authenticated user's email address
+        /// The commit author email address, defaults to the authenticated user's email address. GitHub app users may omit author
+        /// and email information so GitHub can verify commits as the GitHub App.
         /// </summary>
         [Input("commitEmail")]
         public Input<string>? CommitEmail { get; set; }
@@ -181,13 +185,15 @@ namespace Pulumi.Github
         public Input<string>? Branch { get; set; }
 
         /// <summary>
-        /// The commit author name, defaults to the authenticated user's name
+        /// The commit author name, defaults to the authenticated user's name. GitHub app users may omit author and email
+        /// information so GitHub can verify commits as the GitHub App.
         /// </summary>
         [Input("commitAuthor")]
         public Input<string>? CommitAuthor { get; set; }
 
         /// <summary>
-        /// The commit author email address, defaults to the authenticated user's email address
+        /// The commit author email address, defaults to the authenticated user's email address. GitHub app users may omit author
+        /// and email information so GitHub can verify commits as the GitHub App.
         /// </summary>
         [Input("commitEmail")]
         public Input<string>? CommitEmail { get; set; }

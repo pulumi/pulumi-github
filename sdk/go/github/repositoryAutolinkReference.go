@@ -15,6 +15,9 @@ type RepositoryAutolinkReference struct {
 	pulumi.CustomResourceState
 
 	Etag pulumi.StringOutput `pulumi:"etag"`
+	// Whether this autolink reference matches alphanumeric characters. If false, this autolink reference only matches numeric
+	// characters.
+	IsAlphanumeric pulumi.BoolPtrOutput `pulumi:"isAlphanumeric"`
 	// This prefix appended by a number will generate a link any time it is found in an issue, pull request, or commit
 	KeyPrefix pulumi.StringOutput `pulumi:"keyPrefix"`
 	// The repository name
@@ -62,6 +65,9 @@ func GetRepositoryAutolinkReference(ctx *pulumi.Context,
 // Input properties used for looking up and filtering RepositoryAutolinkReference resources.
 type repositoryAutolinkReferenceState struct {
 	Etag *string `pulumi:"etag"`
+	// Whether this autolink reference matches alphanumeric characters. If false, this autolink reference only matches numeric
+	// characters.
+	IsAlphanumeric *bool `pulumi:"isAlphanumeric"`
 	// This prefix appended by a number will generate a link any time it is found in an issue, pull request, or commit
 	KeyPrefix *string `pulumi:"keyPrefix"`
 	// The repository name
@@ -72,6 +78,9 @@ type repositoryAutolinkReferenceState struct {
 
 type RepositoryAutolinkReferenceState struct {
 	Etag pulumi.StringPtrInput
+	// Whether this autolink reference matches alphanumeric characters. If false, this autolink reference only matches numeric
+	// characters.
+	IsAlphanumeric pulumi.BoolPtrInput
 	// This prefix appended by a number will generate a link any time it is found in an issue, pull request, or commit
 	KeyPrefix pulumi.StringPtrInput
 	// The repository name
@@ -85,6 +94,9 @@ func (RepositoryAutolinkReferenceState) ElementType() reflect.Type {
 }
 
 type repositoryAutolinkReferenceArgs struct {
+	// Whether this autolink reference matches alphanumeric characters. If false, this autolink reference only matches numeric
+	// characters.
+	IsAlphanumeric *bool `pulumi:"isAlphanumeric"`
 	// This prefix appended by a number will generate a link any time it is found in an issue, pull request, or commit
 	KeyPrefix string `pulumi:"keyPrefix"`
 	// The repository name
@@ -95,6 +107,9 @@ type repositoryAutolinkReferenceArgs struct {
 
 // The set of arguments for constructing a RepositoryAutolinkReference resource.
 type RepositoryAutolinkReferenceArgs struct {
+	// Whether this autolink reference matches alphanumeric characters. If false, this autolink reference only matches numeric
+	// characters.
+	IsAlphanumeric pulumi.BoolPtrInput
 	// This prefix appended by a number will generate a link any time it is found in an issue, pull request, or commit
 	KeyPrefix pulumi.StringInput
 	// The repository name
@@ -192,6 +207,12 @@ func (o RepositoryAutolinkReferenceOutput) ToRepositoryAutolinkReferenceOutputWi
 
 func (o RepositoryAutolinkReferenceOutput) Etag() pulumi.StringOutput {
 	return o.ApplyT(func(v *RepositoryAutolinkReference) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// Whether this autolink reference matches alphanumeric characters. If false, this autolink reference only matches numeric
+// characters.
+func (o RepositoryAutolinkReferenceOutput) IsAlphanumeric() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RepositoryAutolinkReference) pulumi.BoolPtrOutput { return v.IsAlphanumeric }).(pulumi.BoolPtrOutput)
 }
 
 // This prefix appended by a number will generate a link any time it is found in an issue, pull request, or commit

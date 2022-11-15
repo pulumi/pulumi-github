@@ -12,10 +12,10 @@ namespace Pulumi.Github
     public static class GetRef
     {
         public static Task<GetRefResult> InvokeAsync(GetRefArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRefResult>("github:index/getRef:getRef", args ?? new GetRefArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetRefResult>("github:index/getRef:getRef", args ?? new GetRefArgs(), options.WithDefaults());
 
         public static Output<GetRefResult> Invoke(GetRefInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetRefResult>("github:index/getRef:getRef", args ?? new GetRefInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetRefResult>("github:index/getRef:getRef", args ?? new GetRefInvokeArgs(), options.WithDefaults());
     }
 
 

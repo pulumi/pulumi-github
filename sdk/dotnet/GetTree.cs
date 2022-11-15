@@ -12,10 +12,10 @@ namespace Pulumi.Github
     public static class GetTree
     {
         public static Task<GetTreeResult> InvokeAsync(GetTreeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTreeResult>("github:index/getTree:getTree", args ?? new GetTreeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetTreeResult>("github:index/getTree:getTree", args ?? new GetTreeArgs(), options.WithDefaults());
 
         public static Output<GetTreeResult> Invoke(GetTreeInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetTreeResult>("github:index/getTree:getTree", args ?? new GetTreeInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetTreeResult>("github:index/getTree:getTree", args ?? new GetTreeInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -5,13 +5,23 @@ package com.pulumi.github.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class RepositoryTemplateArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final RepositoryTemplateArgs Empty = new RepositoryTemplateArgs();
+
+    @Import(name="includeAllBranches")
+    private @Nullable Output<Boolean> includeAllBranches;
+
+    public Optional<Output<Boolean>> includeAllBranches() {
+        return Optional.ofNullable(this.includeAllBranches);
+    }
 
     @Import(name="owner", required=true)
     private Output<String> owner;
@@ -30,6 +40,7 @@ public final class RepositoryTemplateArgs extends com.pulumi.resources.ResourceA
     private RepositoryTemplateArgs() {}
 
     private RepositoryTemplateArgs(RepositoryTemplateArgs $) {
+        this.includeAllBranches = $.includeAllBranches;
         this.owner = $.owner;
         this.repository = $.repository;
     }
@@ -50,6 +61,15 @@ public final class RepositoryTemplateArgs extends com.pulumi.resources.ResourceA
 
         public Builder(RepositoryTemplateArgs defaults) {
             $ = new RepositoryTemplateArgs(Objects.requireNonNull(defaults));
+        }
+
+        public Builder includeAllBranches(@Nullable Output<Boolean> includeAllBranches) {
+            $.includeAllBranches = includeAllBranches;
+            return this;
+        }
+
+        public Builder includeAllBranches(Boolean includeAllBranches) {
+            return includeAllBranches(Output.of(includeAllBranches));
         }
 
         public Builder owner(Output<String> owner) {

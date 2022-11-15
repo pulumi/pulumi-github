@@ -6,6 +6,7 @@ package com.pulumi.github.outputs;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.github.outputs.GetOrganizationTeamsTeam;
 import java.lang.Boolean;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -19,7 +20,9 @@ public final class GetOrganizationTeamsResult {
      * 
      */
     private String id;
+    private @Nullable Integer resultsPerPage;
     private @Nullable Boolean rootTeamsOnly;
+    private @Nullable Boolean summaryOnly;
     private List<GetOrganizationTeamsTeam> teams;
 
     private GetOrganizationTeamsResult() {}
@@ -30,8 +33,14 @@ public final class GetOrganizationTeamsResult {
     public String id() {
         return this.id;
     }
+    public Optional<Integer> resultsPerPage() {
+        return Optional.ofNullable(this.resultsPerPage);
+    }
     public Optional<Boolean> rootTeamsOnly() {
         return Optional.ofNullable(this.rootTeamsOnly);
+    }
+    public Optional<Boolean> summaryOnly() {
+        return Optional.ofNullable(this.summaryOnly);
     }
     public List<GetOrganizationTeamsTeam> teams() {
         return this.teams;
@@ -47,13 +56,17 @@ public final class GetOrganizationTeamsResult {
     @CustomType.Builder
     public static final class Builder {
         private String id;
+        private @Nullable Integer resultsPerPage;
         private @Nullable Boolean rootTeamsOnly;
+        private @Nullable Boolean summaryOnly;
         private List<GetOrganizationTeamsTeam> teams;
         public Builder() {}
         public Builder(GetOrganizationTeamsResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
+    	      this.resultsPerPage = defaults.resultsPerPage;
     	      this.rootTeamsOnly = defaults.rootTeamsOnly;
+    	      this.summaryOnly = defaults.summaryOnly;
     	      this.teams = defaults.teams;
         }
 
@@ -63,8 +76,18 @@ public final class GetOrganizationTeamsResult {
             return this;
         }
         @CustomType.Setter
+        public Builder resultsPerPage(@Nullable Integer resultsPerPage) {
+            this.resultsPerPage = resultsPerPage;
+            return this;
+        }
+        @CustomType.Setter
         public Builder rootTeamsOnly(@Nullable Boolean rootTeamsOnly) {
             this.rootTeamsOnly = rootTeamsOnly;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder summaryOnly(@Nullable Boolean summaryOnly) {
+            this.summaryOnly = summaryOnly;
             return this;
         }
         @CustomType.Setter
@@ -78,7 +101,9 @@ public final class GetOrganizationTeamsResult {
         public GetOrganizationTeamsResult build() {
             final var o = new GetOrganizationTeamsResult();
             o.id = id;
+            o.resultsPerPage = resultsPerPage;
             o.rootTeamsOnly = rootTeamsOnly;
+            o.summaryOnly = summaryOnly;
             o.teams = teams;
             return o;
         }
