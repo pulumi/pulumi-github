@@ -37,13 +37,15 @@ export class RepositoryFile extends pulumi.CustomResource {
      */
     public readonly branch!: pulumi.Output<string | undefined>;
     /**
-     * The commit author name, defaults to the authenticated user's name
+     * The commit author name, defaults to the authenticated user's name. GitHub app users may omit author and email
+     * information so GitHub can verify commits as the GitHub App.
      */
-    public readonly commitAuthor!: pulumi.Output<string>;
+    public readonly commitAuthor!: pulumi.Output<string | undefined>;
     /**
-     * The commit author email address, defaults to the authenticated user's email address
+     * The commit author email address, defaults to the authenticated user's email address. GitHub app users may omit author
+     * and email information so GitHub can verify commits as the GitHub App.
      */
-    public readonly commitEmail!: pulumi.Output<string>;
+    public readonly commitEmail!: pulumi.Output<string | undefined>;
     /**
      * The commit message when creating or updating the file
      */
@@ -132,11 +134,13 @@ export interface RepositoryFileState {
      */
     branch?: pulumi.Input<string>;
     /**
-     * The commit author name, defaults to the authenticated user's name
+     * The commit author name, defaults to the authenticated user's name. GitHub app users may omit author and email
+     * information so GitHub can verify commits as the GitHub App.
      */
     commitAuthor?: pulumi.Input<string>;
     /**
-     * The commit author email address, defaults to the authenticated user's email address
+     * The commit author email address, defaults to the authenticated user's email address. GitHub app users may omit author
+     * and email information so GitHub can verify commits as the GitHub App.
      */
     commitEmail?: pulumi.Input<string>;
     /**
@@ -178,11 +182,13 @@ export interface RepositoryFileArgs {
      */
     branch?: pulumi.Input<string>;
     /**
-     * The commit author name, defaults to the authenticated user's name
+     * The commit author name, defaults to the authenticated user's name. GitHub app users may omit author and email
+     * information so GitHub can verify commits as the GitHub App.
      */
     commitAuthor?: pulumi.Input<string>;
     /**
-     * The commit author email address, defaults to the authenticated user's email address
+     * The commit author email address, defaults to the authenticated user's email address. GitHub app users may omit author
+     * and email information so GitHub can verify commits as the GitHub App.
      */
     commitEmail?: pulumi.Input<string>;
     /**

@@ -10,7 +10,9 @@ import com.pulumi.core.internal.Codegen;
 import com.pulumi.github.RepositoryAutolinkReferenceArgs;
 import com.pulumi.github.Utilities;
 import com.pulumi.github.inputs.RepositoryAutolinkReferenceState;
+import java.lang.Boolean;
 import java.lang.String;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 @ResourceType(type="github:index/repositoryAutolinkReference:RepositoryAutolinkReference")
@@ -20,6 +22,22 @@ public class RepositoryAutolinkReference extends com.pulumi.resources.CustomReso
 
     public Output<String> etag() {
         return this.etag;
+    }
+    /**
+     * Whether this autolink reference matches alphanumeric characters. If false, this autolink reference only matches numeric
+     * characters.
+     * 
+     */
+    @Export(name="isAlphanumeric", type=Boolean.class, parameters={})
+    private Output</* @Nullable */ Boolean> isAlphanumeric;
+
+    /**
+     * @return Whether this autolink reference matches alphanumeric characters. If false, this autolink reference only matches numeric
+     * characters.
+     * 
+     */
+    public Output<Optional<Boolean>> isAlphanumeric() {
+        return Codegen.optional(this.isAlphanumeric);
     }
     /**
      * This prefix appended by a number will generate a link any time it is found in an issue, pull request, or commit

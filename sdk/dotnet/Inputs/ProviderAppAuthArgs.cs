@@ -19,7 +19,16 @@ namespace Pulumi.Github.Inputs
         public Input<string> InstallationId { get; set; } = null!;
 
         [Input("pemFile", required: true)]
-        public Input<string> PemFile { get; set; } = null!;
+        private Input<string>? _pemFile;
+        public Input<string>? PemFile
+        {
+            get => _pemFile;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _pemFile = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         public ProviderAppAuthArgs()
         {

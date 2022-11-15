@@ -20,6 +20,7 @@ class RepositoryArgs:
                  allow_merge_commit: Optional[pulumi.Input[bool]] = None,
                  allow_rebase_merge: Optional[pulumi.Input[bool]] = None,
                  allow_squash_merge: Optional[pulumi.Input[bool]] = None,
+                 allow_update_branch: Optional[pulumi.Input[bool]] = None,
                  archive_on_destroy: Optional[pulumi.Input[bool]] = None,
                  archived: Optional[pulumi.Input[bool]] = None,
                  auto_init: Optional[pulumi.Input[bool]] = None,
@@ -58,6 +59,8 @@ class RepositoryArgs:
             pulumi.set(__self__, "allow_rebase_merge", allow_rebase_merge)
         if allow_squash_merge is not None:
             pulumi.set(__self__, "allow_squash_merge", allow_squash_merge)
+        if allow_update_branch is not None:
+            pulumi.set(__self__, "allow_update_branch", allow_update_branch)
         if archive_on_destroy is not None:
             pulumi.set(__self__, "archive_on_destroy", archive_on_destroy)
         if archived is not None:
@@ -152,6 +155,15 @@ class RepositoryArgs:
     @allow_squash_merge.setter
     def allow_squash_merge(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "allow_squash_merge", value)
+
+    @property
+    @pulumi.getter(name="allowUpdateBranch")
+    def allow_update_branch(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "allow_update_branch")
+
+    @allow_update_branch.setter
+    def allow_update_branch(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "allow_update_branch", value)
 
     @property
     @pulumi.getter(name="archiveOnDestroy")
@@ -398,6 +410,7 @@ class _RepositoryState:
                  allow_merge_commit: Optional[pulumi.Input[bool]] = None,
                  allow_rebase_merge: Optional[pulumi.Input[bool]] = None,
                  allow_squash_merge: Optional[pulumi.Input[bool]] = None,
+                 allow_update_branch: Optional[pulumi.Input[bool]] = None,
                  archive_on_destroy: Optional[pulumi.Input[bool]] = None,
                  archived: Optional[pulumi.Input[bool]] = None,
                  auto_init: Optional[pulumi.Input[bool]] = None,
@@ -445,6 +458,8 @@ class _RepositoryState:
             pulumi.set(__self__, "allow_rebase_merge", allow_rebase_merge)
         if allow_squash_merge is not None:
             pulumi.set(__self__, "allow_squash_merge", allow_squash_merge)
+        if allow_update_branch is not None:
+            pulumi.set(__self__, "allow_update_branch", allow_update_branch)
         if archive_on_destroy is not None:
             pulumi.set(__self__, "archive_on_destroy", archive_on_destroy)
         if archived is not None:
@@ -557,6 +572,15 @@ class _RepositoryState:
     @allow_squash_merge.setter
     def allow_squash_merge(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "allow_squash_merge", value)
+
+    @property
+    @pulumi.getter(name="allowUpdateBranch")
+    def allow_update_branch(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "allow_update_branch")
+
+    @allow_update_branch.setter
+    def allow_update_branch(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "allow_update_branch", value)
 
     @property
     @pulumi.getter(name="archiveOnDestroy")
@@ -886,6 +910,7 @@ class Repository(pulumi.CustomResource):
                  allow_merge_commit: Optional[pulumi.Input[bool]] = None,
                  allow_rebase_merge: Optional[pulumi.Input[bool]] = None,
                  allow_squash_merge: Optional[pulumi.Input[bool]] = None,
+                 allow_update_branch: Optional[pulumi.Input[bool]] = None,
                  archive_on_destroy: Optional[pulumi.Input[bool]] = None,
                  archived: Optional[pulumi.Input[bool]] = None,
                  auto_init: Optional[pulumi.Input[bool]] = None,
@@ -946,6 +971,7 @@ class Repository(pulumi.CustomResource):
                  allow_merge_commit: Optional[pulumi.Input[bool]] = None,
                  allow_rebase_merge: Optional[pulumi.Input[bool]] = None,
                  allow_squash_merge: Optional[pulumi.Input[bool]] = None,
+                 allow_update_branch: Optional[pulumi.Input[bool]] = None,
                  archive_on_destroy: Optional[pulumi.Input[bool]] = None,
                  archived: Optional[pulumi.Input[bool]] = None,
                  auto_init: Optional[pulumi.Input[bool]] = None,
@@ -985,6 +1011,7 @@ class Repository(pulumi.CustomResource):
             __props__.__dict__["allow_merge_commit"] = allow_merge_commit
             __props__.__dict__["allow_rebase_merge"] = allow_rebase_merge
             __props__.__dict__["allow_squash_merge"] = allow_squash_merge
+            __props__.__dict__["allow_update_branch"] = allow_update_branch
             __props__.__dict__["archive_on_destroy"] = archive_on_destroy
             __props__.__dict__["archived"] = archived
             __props__.__dict__["auto_init"] = auto_init
@@ -1040,6 +1067,7 @@ class Repository(pulumi.CustomResource):
             allow_merge_commit: Optional[pulumi.Input[bool]] = None,
             allow_rebase_merge: Optional[pulumi.Input[bool]] = None,
             allow_squash_merge: Optional[pulumi.Input[bool]] = None,
+            allow_update_branch: Optional[pulumi.Input[bool]] = None,
             archive_on_destroy: Optional[pulumi.Input[bool]] = None,
             archived: Optional[pulumi.Input[bool]] = None,
             auto_init: Optional[pulumi.Input[bool]] = None,
@@ -1092,6 +1120,7 @@ class Repository(pulumi.CustomResource):
         __props__.__dict__["allow_merge_commit"] = allow_merge_commit
         __props__.__dict__["allow_rebase_merge"] = allow_rebase_merge
         __props__.__dict__["allow_squash_merge"] = allow_squash_merge
+        __props__.__dict__["allow_update_branch"] = allow_update_branch
         __props__.__dict__["archive_on_destroy"] = archive_on_destroy
         __props__.__dict__["archived"] = archived
         __props__.__dict__["auto_init"] = auto_init
@@ -1148,6 +1177,11 @@ class Repository(pulumi.CustomResource):
     @pulumi.getter(name="allowSquashMerge")
     def allow_squash_merge(self) -> pulumi.Output[Optional[bool]]:
         return pulumi.get(self, "allow_squash_merge")
+
+    @property
+    @pulumi.getter(name="allowUpdateBranch")
+    def allow_update_branch(self) -> pulumi.Output[Optional[bool]]:
+        return pulumi.get(self, "allow_update_branch")
 
     @property
     @pulumi.getter(name="archiveOnDestroy")

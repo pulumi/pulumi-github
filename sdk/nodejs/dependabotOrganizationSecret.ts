@@ -68,8 +68,8 @@ export class DependabotOrganizationSecret extends pulumi.CustomResource {
             if ((!args || args.visibility === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'visibility'");
             }
-            resourceInputs["encryptedValue"] = args ? args.encryptedValue : undefined;
-            resourceInputs["plaintextValue"] = args ? args.plaintextValue : undefined;
+            resourceInputs["encryptedValue"] = args?.encryptedValue ? pulumi.secret(args.encryptedValue) : undefined;
+            resourceInputs["plaintextValue"] = args?.plaintextValue ? pulumi.secret(args.plaintextValue) : undefined;
             resourceInputs["secretName"] = args ? args.secretName : undefined;
             resourceInputs["selectedRepositoryIds"] = args ? args.selectedRepositoryIds : undefined;
             resourceInputs["visibility"] = args ? args.visibility : undefined;
@@ -77,6 +77,8 @@ export class DependabotOrganizationSecret extends pulumi.CustomResource {
             resourceInputs["updatedAt"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["encryptedValue", "plaintextValue"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(DependabotOrganizationSecret.__pulumiType, name, resourceInputs, opts);
     }
 }

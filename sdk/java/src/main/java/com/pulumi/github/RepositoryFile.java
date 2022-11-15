@@ -32,32 +32,36 @@ public class RepositoryFile extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.branch);
     }
     /**
-     * The commit author name, defaults to the authenticated user&#39;s name
+     * The commit author name, defaults to the authenticated user&#39;s name. GitHub app users may omit author and email
+     * information so GitHub can verify commits as the GitHub App.
      * 
      */
     @Export(name="commitAuthor", type=String.class, parameters={})
-    private Output<String> commitAuthor;
+    private Output</* @Nullable */ String> commitAuthor;
 
     /**
-     * @return The commit author name, defaults to the authenticated user&#39;s name
+     * @return The commit author name, defaults to the authenticated user&#39;s name. GitHub app users may omit author and email
+     * information so GitHub can verify commits as the GitHub App.
      * 
      */
-    public Output<String> commitAuthor() {
-        return this.commitAuthor;
+    public Output<Optional<String>> commitAuthor() {
+        return Codegen.optional(this.commitAuthor);
     }
     /**
-     * The commit author email address, defaults to the authenticated user&#39;s email address
+     * The commit author email address, defaults to the authenticated user&#39;s email address. GitHub app users may omit author
+     * and email information so GitHub can verify commits as the GitHub App.
      * 
      */
     @Export(name="commitEmail", type=String.class, parameters={})
-    private Output<String> commitEmail;
+    private Output</* @Nullable */ String> commitEmail;
 
     /**
-     * @return The commit author email address, defaults to the authenticated user&#39;s email address
+     * @return The commit author email address, defaults to the authenticated user&#39;s email address. GitHub app users may omit author
+     * and email information so GitHub can verify commits as the GitHub App.
      * 
      */
-    public Output<String> commitEmail() {
-        return this.commitEmail;
+    public Output<Optional<String>> commitEmail() {
+        return Codegen.optional(this.commitEmail);
     }
     /**
      * The commit message when creating or updating the file

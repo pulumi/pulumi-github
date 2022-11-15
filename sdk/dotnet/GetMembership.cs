@@ -12,10 +12,10 @@ namespace Pulumi.Github
     public static class GetMembership
     {
         public static Task<GetMembershipResult> InvokeAsync(GetMembershipArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetMembershipResult>("github:index/getMembership:getMembership", args ?? new GetMembershipArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetMembershipResult>("github:index/getMembership:getMembership", args ?? new GetMembershipArgs(), options.WithDefaults());
 
         public static Output<GetMembershipResult> Invoke(GetMembershipInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetMembershipResult>("github:index/getMembership:getMembership", args ?? new GetMembershipInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetMembershipResult>("github:index/getMembership:getMembership", args ?? new GetMembershipInvokeArgs(), options.WithDefaults());
     }
 
 
@@ -58,6 +58,7 @@ namespace Pulumi.Github
         public readonly string Id;
         public readonly string? Organization;
         public readonly string Role;
+        public readonly string State;
         public readonly string Username;
 
         [OutputConstructor]
@@ -70,12 +71,15 @@ namespace Pulumi.Github
 
             string role,
 
+            string state,
+
             string username)
         {
             Etag = etag;
             Id = id;
             Organization = organization;
             Role = role;
+            State = state;
             Username = username;
         }
     }

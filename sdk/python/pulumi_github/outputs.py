@@ -30,13 +30,21 @@ __all__ = [
     'GetActionsOrganizationSecretsSecretResult',
     'GetActionsSecretsSecretResult',
     'GetCollaboratorsCollaboratorResult',
+    'GetDependabotOrganizationSecretsSecretResult',
+    'GetDependabotSecretsSecretResult',
     'GetExternalGroupsExternalGroupResult',
+    'GetOrganizationIpAllowListIpAllowListResult',
     'GetOrganizationTeamSyncGroupsGroupResult',
     'GetOrganizationTeamsTeamResult',
+    'GetOrganizationWebhooksWebhookResult',
+    'GetReleaseAssetResult',
+    'GetRepositoryBranchesBranchResult',
+    'GetRepositoryDeployKeysKeyResult',
     'GetRepositoryPageResult',
     'GetRepositoryPageSourceResult',
     'GetRepositoryPullRequestsResultResult',
     'GetRepositoryTeamsTeamResult',
+    'GetRepositoryWebhooksWebhookResult',
     'GetTreeEntryResult',
 ]
 
@@ -579,11 +587,31 @@ class RepositoryPagesSource(dict):
 
 @pulumi.output_type
 class RepositoryTemplate(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "includeAllBranches":
+            suggest = "include_all_branches"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RepositoryTemplate. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RepositoryTemplate.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RepositoryTemplate.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  owner: str,
-                 repository: str):
+                 repository: str,
+                 include_all_branches: Optional[bool] = None):
         pulumi.set(__self__, "owner", owner)
         pulumi.set(__self__, "repository", repository)
+        if include_all_branches is not None:
+            pulumi.set(__self__, "include_all_branches", include_all_branches)
 
     @property
     @pulumi.getter
@@ -594,6 +622,11 @@ class RepositoryTemplate(dict):
     @pulumi.getter
     def repository(self) -> str:
         return pulumi.get(self, "repository")
+
+    @property
+    @pulumi.getter(name="includeAllBranches")
+    def include_all_branches(self) -> Optional[bool]:
+        return pulumi.get(self, "include_all_branches")
 
 
 @pulumi.output_type
@@ -895,6 +928,65 @@ class GetCollaboratorsCollaboratorResult(dict):
 
 
 @pulumi.output_type
+class GetDependabotOrganizationSecretsSecretResult(dict):
+    def __init__(__self__, *,
+                 created_at: str,
+                 name: str,
+                 updated_at: str,
+                 visibility: str):
+        pulumi.set(__self__, "created_at", created_at)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "updated_at", updated_at)
+        pulumi.set(__self__, "visibility", visibility)
+
+    @property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> str:
+        return pulumi.get(self, "created_at")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="updatedAt")
+    def updated_at(self) -> str:
+        return pulumi.get(self, "updated_at")
+
+    @property
+    @pulumi.getter
+    def visibility(self) -> str:
+        return pulumi.get(self, "visibility")
+
+
+@pulumi.output_type
+class GetDependabotSecretsSecretResult(dict):
+    def __init__(__self__, *,
+                 created_at: str,
+                 name: str,
+                 updated_at: str):
+        pulumi.set(__self__, "created_at", created_at)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "updated_at", updated_at)
+
+    @property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> str:
+        return pulumi.get(self, "created_at")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="updatedAt")
+    def updated_at(self) -> str:
+        return pulumi.get(self, "updated_at")
+
+
+@pulumi.output_type
 class GetExternalGroupsExternalGroupResult(dict):
     def __init__(__self__, *,
                  group_id: int,
@@ -913,6 +1005,53 @@ class GetExternalGroupsExternalGroupResult(dict):
     @pulumi.getter(name="groupName")
     def group_name(self) -> str:
         return pulumi.get(self, "group_name")
+
+    @property
+    @pulumi.getter(name="updatedAt")
+    def updated_at(self) -> str:
+        return pulumi.get(self, "updated_at")
+
+
+@pulumi.output_type
+class GetOrganizationIpAllowListIpAllowListResult(dict):
+    def __init__(__self__, *,
+                 allow_list_value: str,
+                 created_at: str,
+                 id: str,
+                 is_active: bool,
+                 name: str,
+                 updated_at: str):
+        pulumi.set(__self__, "allow_list_value", allow_list_value)
+        pulumi.set(__self__, "created_at", created_at)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "is_active", is_active)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "updated_at", updated_at)
+
+    @property
+    @pulumi.getter(name="allowListValue")
+    def allow_list_value(self) -> str:
+        return pulumi.get(self, "allow_list_value")
+
+    @property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> str:
+        return pulumi.get(self, "created_at")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="isActive")
+    def is_active(self) -> bool:
+        return pulumi.get(self, "is_active")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="updatedAt")
@@ -1005,6 +1144,173 @@ class GetOrganizationTeamsTeamResult(dict):
     @pulumi.getter
     def slug(self) -> str:
         return pulumi.get(self, "slug")
+
+
+@pulumi.output_type
+class GetOrganizationWebhooksWebhookResult(dict):
+    def __init__(__self__, *,
+                 active: bool,
+                 id: int,
+                 name: str,
+                 type: str,
+                 url: str):
+        pulumi.set(__self__, "active", active)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter
+    def active(self) -> bool:
+        return pulumi.get(self, "active")
+
+    @property
+    @pulumi.getter
+    def id(self) -> int:
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def url(self) -> str:
+        return pulumi.get(self, "url")
+
+
+@pulumi.output_type
+class GetReleaseAssetResult(dict):
+    def __init__(__self__, *,
+                 browser_download_url: str,
+                 content_type: str,
+                 created_at: str,
+                 id: int,
+                 label: str,
+                 name: str,
+                 node_id: str,
+                 size: int,
+                 updated_at: str,
+                 url: str):
+        pulumi.set(__self__, "browser_download_url", browser_download_url)
+        pulumi.set(__self__, "content_type", content_type)
+        pulumi.set(__self__, "created_at", created_at)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "label", label)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "node_id", node_id)
+        pulumi.set(__self__, "size", size)
+        pulumi.set(__self__, "updated_at", updated_at)
+        pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter(name="browserDownloadUrl")
+    def browser_download_url(self) -> str:
+        return pulumi.get(self, "browser_download_url")
+
+    @property
+    @pulumi.getter(name="contentType")
+    def content_type(self) -> str:
+        return pulumi.get(self, "content_type")
+
+    @property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> str:
+        return pulumi.get(self, "created_at")
+
+    @property
+    @pulumi.getter
+    def id(self) -> int:
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def label(self) -> str:
+        return pulumi.get(self, "label")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="nodeId")
+    def node_id(self) -> str:
+        return pulumi.get(self, "node_id")
+
+    @property
+    @pulumi.getter
+    def size(self) -> int:
+        return pulumi.get(self, "size")
+
+    @property
+    @pulumi.getter(name="updatedAt")
+    def updated_at(self) -> str:
+        return pulumi.get(self, "updated_at")
+
+    @property
+    @pulumi.getter
+    def url(self) -> str:
+        return pulumi.get(self, "url")
+
+
+@pulumi.output_type
+class GetRepositoryBranchesBranchResult(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 protected: bool):
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "protected", protected)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def protected(self) -> bool:
+        return pulumi.get(self, "protected")
+
+
+@pulumi.output_type
+class GetRepositoryDeployKeysKeyResult(dict):
+    def __init__(__self__, *,
+                 id: int,
+                 key: str,
+                 title: str,
+                 verified: bool):
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "title", title)
+        pulumi.set(__self__, "verified", verified)
+
+    @property
+    @pulumi.getter
+    def id(self) -> int:
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def title(self) -> str:
+        return pulumi.get(self, "title")
+
+    @property
+    @pulumi.getter
+    def verified(self) -> bool:
+        return pulumi.get(self, "verified")
 
 
 @pulumi.output_type
@@ -1214,6 +1520,46 @@ class GetRepositoryTeamsTeamResult(dict):
     @pulumi.getter
     def slug(self) -> str:
         return pulumi.get(self, "slug")
+
+
+@pulumi.output_type
+class GetRepositoryWebhooksWebhookResult(dict):
+    def __init__(__self__, *,
+                 active: bool,
+                 id: int,
+                 name: str,
+                 type: str,
+                 url: str):
+        pulumi.set(__self__, "active", active)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter
+    def active(self) -> bool:
+        return pulumi.get(self, "active")
+
+    @property
+    @pulumi.getter
+    def id(self) -> int:
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def url(self) -> str:
+        return pulumi.get(self, "url")
 
 
 @pulumi.output_type

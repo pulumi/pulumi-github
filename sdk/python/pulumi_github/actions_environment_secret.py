@@ -221,11 +221,11 @@ class ActionsEnvironmentSecret(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ActionsEnvironmentSecretArgs.__new__(ActionsEnvironmentSecretArgs)
 
-            __props__.__dict__["encrypted_value"] = encrypted_value
+            __props__.__dict__["encrypted_value"] = None if encrypted_value is None else pulumi.Output.secret(encrypted_value)
             if environment is None and not opts.urn:
                 raise TypeError("Missing required property 'environment'")
             __props__.__dict__["environment"] = environment
-            __props__.__dict__["plaintext_value"] = plaintext_value
+            __props__.__dict__["plaintext_value"] = None if plaintext_value is None else pulumi.Output.secret(plaintext_value)
             if repository is None and not opts.urn:
                 raise TypeError("Missing required property 'repository'")
             __props__.__dict__["repository"] = repository
@@ -234,6 +234,8 @@ class ActionsEnvironmentSecret(pulumi.CustomResource):
             __props__.__dict__["secret_name"] = secret_name
             __props__.__dict__["created_at"] = None
             __props__.__dict__["updated_at"] = None
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["encryptedValue", "plaintextValue"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ActionsEnvironmentSecret, __self__).__init__(
             'github:index/actionsEnvironmentSecret:ActionsEnvironmentSecret',
             resource_name,

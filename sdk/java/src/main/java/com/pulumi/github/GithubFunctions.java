@@ -18,6 +18,10 @@ import com.pulumi.github.inputs.GetCollaboratorsArgs;
 import com.pulumi.github.inputs.GetCollaboratorsPlainArgs;
 import com.pulumi.github.inputs.GetDependabotPublicKeyArgs;
 import com.pulumi.github.inputs.GetDependabotPublicKeyPlainArgs;
+import com.pulumi.github.inputs.GetDependabotSecretsArgs;
+import com.pulumi.github.inputs.GetDependabotSecretsPlainArgs;
+import com.pulumi.github.inputs.GetGithubAppArgs;
+import com.pulumi.github.inputs.GetGithubAppPlainArgs;
 import com.pulumi.github.inputs.GetMembershipArgs;
 import com.pulumi.github.inputs.GetMembershipPlainArgs;
 import com.pulumi.github.inputs.GetOrganizationArgs;
@@ -31,6 +35,10 @@ import com.pulumi.github.inputs.GetReleasePlainArgs;
 import com.pulumi.github.inputs.GetRepositoriesArgs;
 import com.pulumi.github.inputs.GetRepositoriesPlainArgs;
 import com.pulumi.github.inputs.GetRepositoryArgs;
+import com.pulumi.github.inputs.GetRepositoryBranchesArgs;
+import com.pulumi.github.inputs.GetRepositoryBranchesPlainArgs;
+import com.pulumi.github.inputs.GetRepositoryDeployKeysArgs;
+import com.pulumi.github.inputs.GetRepositoryDeployKeysPlainArgs;
 import com.pulumi.github.inputs.GetRepositoryFileArgs;
 import com.pulumi.github.inputs.GetRepositoryFilePlainArgs;
 import com.pulumi.github.inputs.GetRepositoryMilestoneArgs;
@@ -42,6 +50,8 @@ import com.pulumi.github.inputs.GetRepositoryPullRequestsArgs;
 import com.pulumi.github.inputs.GetRepositoryPullRequestsPlainArgs;
 import com.pulumi.github.inputs.GetRepositoryTeamsArgs;
 import com.pulumi.github.inputs.GetRepositoryTeamsPlainArgs;
+import com.pulumi.github.inputs.GetRepositoryWebhooksArgs;
+import com.pulumi.github.inputs.GetRepositoryWebhooksPlainArgs;
 import com.pulumi.github.inputs.GetTeamArgs;
 import com.pulumi.github.inputs.GetTeamPlainArgs;
 import com.pulumi.github.inputs.GetTreeArgs;
@@ -55,22 +65,30 @@ import com.pulumi.github.outputs.GetActionsPublicKeyResult;
 import com.pulumi.github.outputs.GetActionsSecretsResult;
 import com.pulumi.github.outputs.GetBranchResult;
 import com.pulumi.github.outputs.GetCollaboratorsResult;
+import com.pulumi.github.outputs.GetDependabotOrganizationSecretsResult;
 import com.pulumi.github.outputs.GetDependabotPublicKeyResult;
+import com.pulumi.github.outputs.GetDependabotSecretsResult;
 import com.pulumi.github.outputs.GetExternalGroupsResult;
+import com.pulumi.github.outputs.GetGithubAppResult;
 import com.pulumi.github.outputs.GetIpRangesResult;
 import com.pulumi.github.outputs.GetMembershipResult;
+import com.pulumi.github.outputs.GetOrganizationIpAllowListResult;
 import com.pulumi.github.outputs.GetOrganizationResult;
 import com.pulumi.github.outputs.GetOrganizationTeamSyncGroupsResult;
 import com.pulumi.github.outputs.GetOrganizationTeamsResult;
+import com.pulumi.github.outputs.GetOrganizationWebhooksResult;
 import com.pulumi.github.outputs.GetRefResult;
 import com.pulumi.github.outputs.GetReleaseResult;
 import com.pulumi.github.outputs.GetRepositoriesResult;
+import com.pulumi.github.outputs.GetRepositoryBranchesResult;
+import com.pulumi.github.outputs.GetRepositoryDeployKeysResult;
 import com.pulumi.github.outputs.GetRepositoryFileResult;
 import com.pulumi.github.outputs.GetRepositoryMilestoneResult;
 import com.pulumi.github.outputs.GetRepositoryPullRequestResult;
 import com.pulumi.github.outputs.GetRepositoryPullRequestsInvokeResult;
 import com.pulumi.github.outputs.GetRepositoryResult;
 import com.pulumi.github.outputs.GetRepositoryTeamsResult;
+import com.pulumi.github.outputs.GetRepositoryWebhooksResult;
 import com.pulumi.github.outputs.GetTeamResult;
 import com.pulumi.github.outputs.GetTreeResult;
 import com.pulumi.github.outputs.GetUserResult;
@@ -151,6 +169,24 @@ public final class GithubFunctions {
     public static CompletableFuture<GetCollaboratorsResult> getCollaboratorsPlain(GetCollaboratorsPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("github:index/getCollaborators:getCollaborators", TypeShape.of(GetCollaboratorsResult.class), args, Utilities.withVersion(options));
     }
+    public static Output<GetDependabotOrganizationSecretsResult> getDependabotOrganizationSecrets() {
+        return getDependabotOrganizationSecrets(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    public static CompletableFuture<GetDependabotOrganizationSecretsResult> getDependabotOrganizationSecretsPlain() {
+        return getDependabotOrganizationSecretsPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    public static Output<GetDependabotOrganizationSecretsResult> getDependabotOrganizationSecrets(InvokeArgs args) {
+        return getDependabotOrganizationSecrets(args, InvokeOptions.Empty);
+    }
+    public static CompletableFuture<GetDependabotOrganizationSecretsResult> getDependabotOrganizationSecretsPlain(InvokeArgs args) {
+        return getDependabotOrganizationSecretsPlain(args, InvokeOptions.Empty);
+    }
+    public static Output<GetDependabotOrganizationSecretsResult> getDependabotOrganizationSecrets(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("github:index/getDependabotOrganizationSecrets:getDependabotOrganizationSecrets", TypeShape.of(GetDependabotOrganizationSecretsResult.class), args, Utilities.withVersion(options));
+    }
+    public static CompletableFuture<GetDependabotOrganizationSecretsResult> getDependabotOrganizationSecretsPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("github:index/getDependabotOrganizationSecrets:getDependabotOrganizationSecrets", TypeShape.of(GetDependabotOrganizationSecretsResult.class), args, Utilities.withVersion(options));
+    }
     public static Output<GetDependabotPublicKeyResult> getDependabotPublicKey(GetDependabotPublicKeyArgs args) {
         return getDependabotPublicKey(args, InvokeOptions.Empty);
     }
@@ -162,6 +198,24 @@ public final class GithubFunctions {
     }
     public static CompletableFuture<GetDependabotPublicKeyResult> getDependabotPublicKeyPlain(GetDependabotPublicKeyPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("github:index/getDependabotPublicKey:getDependabotPublicKey", TypeShape.of(GetDependabotPublicKeyResult.class), args, Utilities.withVersion(options));
+    }
+    public static Output<GetDependabotSecretsResult> getDependabotSecrets() {
+        return getDependabotSecrets(GetDependabotSecretsArgs.Empty, InvokeOptions.Empty);
+    }
+    public static CompletableFuture<GetDependabotSecretsResult> getDependabotSecretsPlain() {
+        return getDependabotSecretsPlain(GetDependabotSecretsPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    public static Output<GetDependabotSecretsResult> getDependabotSecrets(GetDependabotSecretsArgs args) {
+        return getDependabotSecrets(args, InvokeOptions.Empty);
+    }
+    public static CompletableFuture<GetDependabotSecretsResult> getDependabotSecretsPlain(GetDependabotSecretsPlainArgs args) {
+        return getDependabotSecretsPlain(args, InvokeOptions.Empty);
+    }
+    public static Output<GetDependabotSecretsResult> getDependabotSecrets(GetDependabotSecretsArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("github:index/getDependabotSecrets:getDependabotSecrets", TypeShape.of(GetDependabotSecretsResult.class), args, Utilities.withVersion(options));
+    }
+    public static CompletableFuture<GetDependabotSecretsResult> getDependabotSecretsPlain(GetDependabotSecretsPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("github:index/getDependabotSecrets:getDependabotSecrets", TypeShape.of(GetDependabotSecretsResult.class), args, Utilities.withVersion(options));
     }
     public static Output<GetExternalGroupsResult> getExternalGroups() {
         return getExternalGroups(InvokeArgs.Empty, InvokeOptions.Empty);
@@ -180,6 +234,18 @@ public final class GithubFunctions {
     }
     public static CompletableFuture<GetExternalGroupsResult> getExternalGroupsPlain(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("github:index/getExternalGroups:getExternalGroups", TypeShape.of(GetExternalGroupsResult.class), args, Utilities.withVersion(options));
+    }
+    public static Output<GetGithubAppResult> getGithubApp(GetGithubAppArgs args) {
+        return getGithubApp(args, InvokeOptions.Empty);
+    }
+    public static CompletableFuture<GetGithubAppResult> getGithubAppPlain(GetGithubAppPlainArgs args) {
+        return getGithubAppPlain(args, InvokeOptions.Empty);
+    }
+    public static Output<GetGithubAppResult> getGithubApp(GetGithubAppArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("github:index/getGithubApp:getGithubApp", TypeShape.of(GetGithubAppResult.class), args, Utilities.withVersion(options));
+    }
+    public static CompletableFuture<GetGithubAppResult> getGithubAppPlain(GetGithubAppPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("github:index/getGithubApp:getGithubApp", TypeShape.of(GetGithubAppResult.class), args, Utilities.withVersion(options));
     }
     public static Output<GetIpRangesResult> getIpRanges() {
         return getIpRanges(InvokeArgs.Empty, InvokeOptions.Empty);
@@ -223,6 +289,24 @@ public final class GithubFunctions {
     public static CompletableFuture<GetOrganizationResult> getOrganizationPlain(GetOrganizationPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("github:index/getOrganization:getOrganization", TypeShape.of(GetOrganizationResult.class), args, Utilities.withVersion(options));
     }
+    public static Output<GetOrganizationIpAllowListResult> getOrganizationIpAllowList() {
+        return getOrganizationIpAllowList(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    public static CompletableFuture<GetOrganizationIpAllowListResult> getOrganizationIpAllowListPlain() {
+        return getOrganizationIpAllowListPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    public static Output<GetOrganizationIpAllowListResult> getOrganizationIpAllowList(InvokeArgs args) {
+        return getOrganizationIpAllowList(args, InvokeOptions.Empty);
+    }
+    public static CompletableFuture<GetOrganizationIpAllowListResult> getOrganizationIpAllowListPlain(InvokeArgs args) {
+        return getOrganizationIpAllowListPlain(args, InvokeOptions.Empty);
+    }
+    public static Output<GetOrganizationIpAllowListResult> getOrganizationIpAllowList(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("github:index/getOrganizationIpAllowList:getOrganizationIpAllowList", TypeShape.of(GetOrganizationIpAllowListResult.class), args, Utilities.withVersion(options));
+    }
+    public static CompletableFuture<GetOrganizationIpAllowListResult> getOrganizationIpAllowListPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("github:index/getOrganizationIpAllowList:getOrganizationIpAllowList", TypeShape.of(GetOrganizationIpAllowListResult.class), args, Utilities.withVersion(options));
+    }
     public static Output<GetOrganizationTeamSyncGroupsResult> getOrganizationTeamSyncGroups() {
         return getOrganizationTeamSyncGroups(InvokeArgs.Empty, InvokeOptions.Empty);
     }
@@ -258,6 +342,24 @@ public final class GithubFunctions {
     }
     public static CompletableFuture<GetOrganizationTeamsResult> getOrganizationTeamsPlain(GetOrganizationTeamsPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("github:index/getOrganizationTeams:getOrganizationTeams", TypeShape.of(GetOrganizationTeamsResult.class), args, Utilities.withVersion(options));
+    }
+    public static Output<GetOrganizationWebhooksResult> getOrganizationWebhooks() {
+        return getOrganizationWebhooks(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    public static CompletableFuture<GetOrganizationWebhooksResult> getOrganizationWebhooksPlain() {
+        return getOrganizationWebhooksPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    public static Output<GetOrganizationWebhooksResult> getOrganizationWebhooks(InvokeArgs args) {
+        return getOrganizationWebhooks(args, InvokeOptions.Empty);
+    }
+    public static CompletableFuture<GetOrganizationWebhooksResult> getOrganizationWebhooksPlain(InvokeArgs args) {
+        return getOrganizationWebhooksPlain(args, InvokeOptions.Empty);
+    }
+    public static Output<GetOrganizationWebhooksResult> getOrganizationWebhooks(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("github:index/getOrganizationWebhooks:getOrganizationWebhooks", TypeShape.of(GetOrganizationWebhooksResult.class), args, Utilities.withVersion(options));
+    }
+    public static CompletableFuture<GetOrganizationWebhooksResult> getOrganizationWebhooksPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("github:index/getOrganizationWebhooks:getOrganizationWebhooks", TypeShape.of(GetOrganizationWebhooksResult.class), args, Utilities.withVersion(options));
     }
     public static Output<GetRefResult> getRef(GetRefArgs args) {
         return getRef(args, InvokeOptions.Empty);
@@ -312,6 +414,30 @@ public final class GithubFunctions {
     }
     public static CompletableFuture<GetRepositoryResult> getRepositoryPlain(GetRepositoryPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("github:index/getRepository:getRepository", TypeShape.of(GetRepositoryResult.class), args, Utilities.withVersion(options));
+    }
+    public static Output<GetRepositoryBranchesResult> getRepositoryBranches(GetRepositoryBranchesArgs args) {
+        return getRepositoryBranches(args, InvokeOptions.Empty);
+    }
+    public static CompletableFuture<GetRepositoryBranchesResult> getRepositoryBranchesPlain(GetRepositoryBranchesPlainArgs args) {
+        return getRepositoryBranchesPlain(args, InvokeOptions.Empty);
+    }
+    public static Output<GetRepositoryBranchesResult> getRepositoryBranches(GetRepositoryBranchesArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("github:index/getRepositoryBranches:getRepositoryBranches", TypeShape.of(GetRepositoryBranchesResult.class), args, Utilities.withVersion(options));
+    }
+    public static CompletableFuture<GetRepositoryBranchesResult> getRepositoryBranchesPlain(GetRepositoryBranchesPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("github:index/getRepositoryBranches:getRepositoryBranches", TypeShape.of(GetRepositoryBranchesResult.class), args, Utilities.withVersion(options));
+    }
+    public static Output<GetRepositoryDeployKeysResult> getRepositoryDeployKeys(GetRepositoryDeployKeysArgs args) {
+        return getRepositoryDeployKeys(args, InvokeOptions.Empty);
+    }
+    public static CompletableFuture<GetRepositoryDeployKeysResult> getRepositoryDeployKeysPlain(GetRepositoryDeployKeysPlainArgs args) {
+        return getRepositoryDeployKeysPlain(args, InvokeOptions.Empty);
+    }
+    public static Output<GetRepositoryDeployKeysResult> getRepositoryDeployKeys(GetRepositoryDeployKeysArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("github:index/getRepositoryDeployKeys:getRepositoryDeployKeys", TypeShape.of(GetRepositoryDeployKeysResult.class), args, Utilities.withVersion(options));
+    }
+    public static CompletableFuture<GetRepositoryDeployKeysResult> getRepositoryDeployKeysPlain(GetRepositoryDeployKeysPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("github:index/getRepositoryDeployKeys:getRepositoryDeployKeys", TypeShape.of(GetRepositoryDeployKeysResult.class), args, Utilities.withVersion(options));
     }
     public static Output<GetRepositoryFileResult> getRepositoryFile(GetRepositoryFileArgs args) {
         return getRepositoryFile(args, InvokeOptions.Empty);
@@ -378,6 +504,18 @@ public final class GithubFunctions {
     }
     public static CompletableFuture<GetRepositoryTeamsResult> getRepositoryTeamsPlain(GetRepositoryTeamsPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("github:index/getRepositoryTeams:getRepositoryTeams", TypeShape.of(GetRepositoryTeamsResult.class), args, Utilities.withVersion(options));
+    }
+    public static Output<GetRepositoryWebhooksResult> getRepositoryWebhooks(GetRepositoryWebhooksArgs args) {
+        return getRepositoryWebhooks(args, InvokeOptions.Empty);
+    }
+    public static CompletableFuture<GetRepositoryWebhooksResult> getRepositoryWebhooksPlain(GetRepositoryWebhooksPlainArgs args) {
+        return getRepositoryWebhooksPlain(args, InvokeOptions.Empty);
+    }
+    public static Output<GetRepositoryWebhooksResult> getRepositoryWebhooks(GetRepositoryWebhooksArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("github:index/getRepositoryWebhooks:getRepositoryWebhooks", TypeShape.of(GetRepositoryWebhooksResult.class), args, Utilities.withVersion(options));
+    }
+    public static CompletableFuture<GetRepositoryWebhooksResult> getRepositoryWebhooksPlain(GetRepositoryWebhooksPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("github:index/getRepositoryWebhooks:getRepositoryWebhooks", TypeShape.of(GetRepositoryWebhooksResult.class), args, Utilities.withVersion(options));
     }
     public static Output<GetTeamResult> getTeam(GetTeamArgs args) {
         return getTeam(args, InvokeOptions.Empty);

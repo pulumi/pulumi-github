@@ -12,10 +12,10 @@ namespace Pulumi.Github
     public static class GetRelease
     {
         public static Task<GetReleaseResult> InvokeAsync(GetReleaseArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetReleaseResult>("github:index/getRelease:getRelease", args ?? new GetReleaseArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetReleaseResult>("github:index/getRelease:getRelease", args ?? new GetReleaseArgs(), options.WithDefaults());
 
         public static Output<GetReleaseResult> Invoke(GetReleaseInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetReleaseResult>("github:index/getRelease:getRelease", args ?? new GetReleaseInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetReleaseResult>("github:index/getRelease:getRelease", args ?? new GetReleaseInvokeArgs(), options.WithDefaults());
     }
 
 
@@ -70,6 +70,7 @@ namespace Pulumi.Github
     public sealed class GetReleaseResult
     {
         public readonly string AssertsUrl;
+        public readonly ImmutableArray<Outputs.GetReleaseAssetResult> Assets;
         public readonly string Body;
         public readonly string CreatedAt;
         public readonly bool Draft;
@@ -95,6 +96,8 @@ namespace Pulumi.Github
         [OutputConstructor]
         private GetReleaseResult(
             string assertsUrl,
+
+            ImmutableArray<Outputs.GetReleaseAssetResult> assets,
 
             string body,
 
@@ -133,6 +136,7 @@ namespace Pulumi.Github
             string zipballUrl)
         {
             AssertsUrl = assertsUrl;
+            Assets = assets;
             Body = body;
             CreatedAt = createdAt;
             Draft = draft;

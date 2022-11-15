@@ -13,13 +13,14 @@ import (
 type Repository struct {
 	pulumi.CustomResourceState
 
-	AllowAutoMerge   pulumi.BoolPtrOutput `pulumi:"allowAutoMerge"`
-	AllowMergeCommit pulumi.BoolPtrOutput `pulumi:"allowMergeCommit"`
-	AllowRebaseMerge pulumi.BoolPtrOutput `pulumi:"allowRebaseMerge"`
-	AllowSquashMerge pulumi.BoolPtrOutput `pulumi:"allowSquashMerge"`
-	ArchiveOnDestroy pulumi.BoolPtrOutput `pulumi:"archiveOnDestroy"`
-	Archived         pulumi.BoolPtrOutput `pulumi:"archived"`
-	AutoInit         pulumi.BoolPtrOutput `pulumi:"autoInit"`
+	AllowAutoMerge    pulumi.BoolPtrOutput `pulumi:"allowAutoMerge"`
+	AllowMergeCommit  pulumi.BoolPtrOutput `pulumi:"allowMergeCommit"`
+	AllowRebaseMerge  pulumi.BoolPtrOutput `pulumi:"allowRebaseMerge"`
+	AllowSquashMerge  pulumi.BoolPtrOutput `pulumi:"allowSquashMerge"`
+	AllowUpdateBranch pulumi.BoolPtrOutput `pulumi:"allowUpdateBranch"`
+	ArchiveOnDestroy  pulumi.BoolPtrOutput `pulumi:"archiveOnDestroy"`
+	Archived          pulumi.BoolPtrOutput `pulumi:"archived"`
+	AutoInit          pulumi.BoolPtrOutput `pulumi:"autoInit"`
 	// Can only be set after initial repository creation, and only if the target branch exists
 	//
 	// Deprecated: Use the github_branch_default resource instead
@@ -87,13 +88,14 @@ func GetRepository(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Repository resources.
 type repositoryState struct {
-	AllowAutoMerge   *bool `pulumi:"allowAutoMerge"`
-	AllowMergeCommit *bool `pulumi:"allowMergeCommit"`
-	AllowRebaseMerge *bool `pulumi:"allowRebaseMerge"`
-	AllowSquashMerge *bool `pulumi:"allowSquashMerge"`
-	ArchiveOnDestroy *bool `pulumi:"archiveOnDestroy"`
-	Archived         *bool `pulumi:"archived"`
-	AutoInit         *bool `pulumi:"autoInit"`
+	AllowAutoMerge    *bool `pulumi:"allowAutoMerge"`
+	AllowMergeCommit  *bool `pulumi:"allowMergeCommit"`
+	AllowRebaseMerge  *bool `pulumi:"allowRebaseMerge"`
+	AllowSquashMerge  *bool `pulumi:"allowSquashMerge"`
+	AllowUpdateBranch *bool `pulumi:"allowUpdateBranch"`
+	ArchiveOnDestroy  *bool `pulumi:"archiveOnDestroy"`
+	Archived          *bool `pulumi:"archived"`
+	AutoInit          *bool `pulumi:"autoInit"`
 	// Can only be set after initial repository creation, and only if the target branch exists
 	//
 	// Deprecated: Use the github_branch_default resource instead
@@ -133,13 +135,14 @@ type repositoryState struct {
 }
 
 type RepositoryState struct {
-	AllowAutoMerge   pulumi.BoolPtrInput
-	AllowMergeCommit pulumi.BoolPtrInput
-	AllowRebaseMerge pulumi.BoolPtrInput
-	AllowSquashMerge pulumi.BoolPtrInput
-	ArchiveOnDestroy pulumi.BoolPtrInput
-	Archived         pulumi.BoolPtrInput
-	AutoInit         pulumi.BoolPtrInput
+	AllowAutoMerge    pulumi.BoolPtrInput
+	AllowMergeCommit  pulumi.BoolPtrInput
+	AllowRebaseMerge  pulumi.BoolPtrInput
+	AllowSquashMerge  pulumi.BoolPtrInput
+	AllowUpdateBranch pulumi.BoolPtrInput
+	ArchiveOnDestroy  pulumi.BoolPtrInput
+	Archived          pulumi.BoolPtrInput
+	AutoInit          pulumi.BoolPtrInput
 	// Can only be set after initial repository creation, and only if the target branch exists
 	//
 	// Deprecated: Use the github_branch_default resource instead
@@ -183,13 +186,14 @@ func (RepositoryState) ElementType() reflect.Type {
 }
 
 type repositoryArgs struct {
-	AllowAutoMerge   *bool `pulumi:"allowAutoMerge"`
-	AllowMergeCommit *bool `pulumi:"allowMergeCommit"`
-	AllowRebaseMerge *bool `pulumi:"allowRebaseMerge"`
-	AllowSquashMerge *bool `pulumi:"allowSquashMerge"`
-	ArchiveOnDestroy *bool `pulumi:"archiveOnDestroy"`
-	Archived         *bool `pulumi:"archived"`
-	AutoInit         *bool `pulumi:"autoInit"`
+	AllowAutoMerge    *bool `pulumi:"allowAutoMerge"`
+	AllowMergeCommit  *bool `pulumi:"allowMergeCommit"`
+	AllowRebaseMerge  *bool `pulumi:"allowRebaseMerge"`
+	AllowSquashMerge  *bool `pulumi:"allowSquashMerge"`
+	AllowUpdateBranch *bool `pulumi:"allowUpdateBranch"`
+	ArchiveOnDestroy  *bool `pulumi:"archiveOnDestroy"`
+	Archived          *bool `pulumi:"archived"`
+	AutoInit          *bool `pulumi:"autoInit"`
 	// Can only be set after initial repository creation, and only if the target branch exists
 	//
 	// Deprecated: Use the github_branch_default resource instead
@@ -221,13 +225,14 @@ type repositoryArgs struct {
 
 // The set of arguments for constructing a Repository resource.
 type RepositoryArgs struct {
-	AllowAutoMerge   pulumi.BoolPtrInput
-	AllowMergeCommit pulumi.BoolPtrInput
-	AllowRebaseMerge pulumi.BoolPtrInput
-	AllowSquashMerge pulumi.BoolPtrInput
-	ArchiveOnDestroy pulumi.BoolPtrInput
-	Archived         pulumi.BoolPtrInput
-	AutoInit         pulumi.BoolPtrInput
+	AllowAutoMerge    pulumi.BoolPtrInput
+	AllowMergeCommit  pulumi.BoolPtrInput
+	AllowRebaseMerge  pulumi.BoolPtrInput
+	AllowSquashMerge  pulumi.BoolPtrInput
+	AllowUpdateBranch pulumi.BoolPtrInput
+	ArchiveOnDestroy  pulumi.BoolPtrInput
+	Archived          pulumi.BoolPtrInput
+	AutoInit          pulumi.BoolPtrInput
 	// Can only be set after initial repository creation, and only if the target branch exists
 	//
 	// Deprecated: Use the github_branch_default resource instead
@@ -358,6 +363,10 @@ func (o RepositoryOutput) AllowRebaseMerge() pulumi.BoolPtrOutput {
 
 func (o RepositoryOutput) AllowSquashMerge() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Repository) pulumi.BoolPtrOutput { return v.AllowSquashMerge }).(pulumi.BoolPtrOutput)
+}
+
+func (o RepositoryOutput) AllowUpdateBranch() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Repository) pulumi.BoolPtrOutput { return v.AllowUpdateBranch }).(pulumi.BoolPtrOutput)
 }
 
 func (o RepositoryOutput) ArchiveOnDestroy() pulumi.BoolPtrOutput {

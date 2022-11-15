@@ -60,6 +60,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &OrganizationBlock{}
 	case "github:index/organizationProject:OrganizationProject":
 		r = &OrganizationProject{}
+	case "github:index/organizationSettings:OrganizationSettings":
+		r = &OrganizationSettings{}
 	case "github:index/organizationWebhook:OrganizationWebhook":
 		r = &OrganizationWebhook{}
 	case "github:index/projectCard:ProjectCard":
@@ -230,6 +232,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"github",
 		"index/organizationProject",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"github",
+		"index/organizationSettings",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

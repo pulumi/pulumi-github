@@ -47,6 +47,13 @@ public final class RepositoryArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.allowSquashMerge);
     }
 
+    @Import(name="allowUpdateBranch")
+    private @Nullable Output<Boolean> allowUpdateBranch;
+
+    public Optional<Output<Boolean>> allowUpdateBranch() {
+        return Optional.ofNullable(this.allowUpdateBranch);
+    }
+
     @Import(name="archiveOnDestroy")
     private @Nullable Output<Boolean> archiveOnDestroy;
 
@@ -264,6 +271,7 @@ public final class RepositoryArgs extends com.pulumi.resources.ResourceArgs {
         this.allowMergeCommit = $.allowMergeCommit;
         this.allowRebaseMerge = $.allowRebaseMerge;
         this.allowSquashMerge = $.allowSquashMerge;
+        this.allowUpdateBranch = $.allowUpdateBranch;
         this.archiveOnDestroy = $.archiveOnDestroy;
         this.archived = $.archived;
         this.autoInit = $.autoInit;
@@ -344,6 +352,15 @@ public final class RepositoryArgs extends com.pulumi.resources.ResourceArgs {
 
         public Builder allowSquashMerge(Boolean allowSquashMerge) {
             return allowSquashMerge(Output.of(allowSquashMerge));
+        }
+
+        public Builder allowUpdateBranch(@Nullable Output<Boolean> allowUpdateBranch) {
+            $.allowUpdateBranch = allowUpdateBranch;
+            return this;
+        }
+
+        public Builder allowUpdateBranch(Boolean allowUpdateBranch) {
+            return allowUpdateBranch(Output.of(allowUpdateBranch));
         }
 
         public Builder archiveOnDestroy(@Nullable Output<Boolean> archiveOnDestroy) {

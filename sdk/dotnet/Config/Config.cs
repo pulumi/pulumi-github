@@ -30,7 +30,7 @@ namespace Pulumi.Github
             }
         }
 
-        private static readonly Pulumi.Config __config = new Pulumi.Config("github");
+        private static readonly global::Pulumi.Config __config = new global::Pulumi.Config("github");
 
         private static readonly __Value<Pulumi.Github.Config.Types.AppAuth?> _appAuth = new __Value<Pulumi.Github.Config.Types.AppAuth?>(() => __config.GetObject<Pulumi.Github.Config.Types.AppAuth>("appAuth"));
         /// <summary>

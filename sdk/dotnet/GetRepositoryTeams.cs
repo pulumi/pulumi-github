@@ -12,10 +12,10 @@ namespace Pulumi.Github
     public static class GetRepositoryTeams
     {
         public static Task<GetRepositoryTeamsResult> InvokeAsync(GetRepositoryTeamsArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRepositoryTeamsResult>("github:index/getRepositoryTeams:getRepositoryTeams", args ?? new GetRepositoryTeamsArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetRepositoryTeamsResult>("github:index/getRepositoryTeams:getRepositoryTeams", args ?? new GetRepositoryTeamsArgs(), options.WithDefaults());
 
         public static Output<GetRepositoryTeamsResult> Invoke(GetRepositoryTeamsInvokeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetRepositoryTeamsResult>("github:index/getRepositoryTeams:getRepositoryTeams", args ?? new GetRepositoryTeamsInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetRepositoryTeamsResult>("github:index/getRepositoryTeams:getRepositoryTeams", args ?? new GetRepositoryTeamsInvokeArgs(), options.WithDefaults());
     }
 
 

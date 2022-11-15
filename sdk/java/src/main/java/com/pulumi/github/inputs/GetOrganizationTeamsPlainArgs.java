@@ -5,6 +5,7 @@ package com.pulumi.github.inputs;
 
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
+import java.lang.Integer;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -14,6 +15,13 @@ public final class GetOrganizationTeamsPlainArgs extends com.pulumi.resources.In
 
     public static final GetOrganizationTeamsPlainArgs Empty = new GetOrganizationTeamsPlainArgs();
 
+    @Import(name="resultsPerPage")
+    private @Nullable Integer resultsPerPage;
+
+    public Optional<Integer> resultsPerPage() {
+        return Optional.ofNullable(this.resultsPerPage);
+    }
+
     @Import(name="rootTeamsOnly")
     private @Nullable Boolean rootTeamsOnly;
 
@@ -21,10 +29,19 @@ public final class GetOrganizationTeamsPlainArgs extends com.pulumi.resources.In
         return Optional.ofNullable(this.rootTeamsOnly);
     }
 
+    @Import(name="summaryOnly")
+    private @Nullable Boolean summaryOnly;
+
+    public Optional<Boolean> summaryOnly() {
+        return Optional.ofNullable(this.summaryOnly);
+    }
+
     private GetOrganizationTeamsPlainArgs() {}
 
     private GetOrganizationTeamsPlainArgs(GetOrganizationTeamsPlainArgs $) {
+        this.resultsPerPage = $.resultsPerPage;
         this.rootTeamsOnly = $.rootTeamsOnly;
+        this.summaryOnly = $.summaryOnly;
     }
 
     public static Builder builder() {
@@ -45,8 +62,18 @@ public final class GetOrganizationTeamsPlainArgs extends com.pulumi.resources.In
             $ = new GetOrganizationTeamsPlainArgs(Objects.requireNonNull(defaults));
         }
 
+        public Builder resultsPerPage(@Nullable Integer resultsPerPage) {
+            $.resultsPerPage = resultsPerPage;
+            return this;
+        }
+
         public Builder rootTeamsOnly(@Nullable Boolean rootTeamsOnly) {
             $.rootTeamsOnly = rootTeamsOnly;
+            return this;
+        }
+
+        public Builder summaryOnly(@Nullable Boolean summaryOnly) {
+            $.summaryOnly = summaryOnly;
             return this;
         }
 

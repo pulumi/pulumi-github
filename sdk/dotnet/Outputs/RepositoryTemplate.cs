@@ -13,15 +13,19 @@ namespace Pulumi.Github.Outputs
     [OutputType]
     public sealed class RepositoryTemplate
     {
+        public readonly bool? IncludeAllBranches;
         public readonly string Owner;
         public readonly string Repository;
 
         [OutputConstructor]
         private RepositoryTemplate(
+            bool? includeAllBranches,
+
             string owner,
 
             string repository)
         {
+            IncludeAllBranches = includeAllBranches;
             Owner = owner;
             Repository = repository;
         }

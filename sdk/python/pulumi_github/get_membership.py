@@ -21,7 +21,7 @@ class GetMembershipResult:
     """
     A collection of values returned by getMembership.
     """
-    def __init__(__self__, etag=None, id=None, organization=None, role=None, username=None):
+    def __init__(__self__, etag=None, id=None, organization=None, role=None, state=None, username=None):
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
@@ -34,6 +34,9 @@ class GetMembershipResult:
         if role and not isinstance(role, str):
             raise TypeError("Expected argument 'role' to be a str")
         pulumi.set(__self__, "role", role)
+        if state and not isinstance(state, str):
+            raise TypeError("Expected argument 'state' to be a str")
+        pulumi.set(__self__, "state", state)
         if username and not isinstance(username, str):
             raise TypeError("Expected argument 'username' to be a str")
         pulumi.set(__self__, "username", username)
@@ -63,6 +66,11 @@ class GetMembershipResult:
 
     @property
     @pulumi.getter
+    def state(self) -> str:
+        return pulumi.get(self, "state")
+
+    @property
+    @pulumi.getter
     def username(self) -> str:
         return pulumi.get(self, "username")
 
@@ -77,6 +85,7 @@ class AwaitableGetMembershipResult(GetMembershipResult):
             id=self.id,
             organization=self.organization,
             role=self.role,
+            state=self.state,
             username=self.username)
 
 
@@ -97,6 +106,7 @@ def get_membership(organization: Optional[str] = None,
         id=__ret__.id,
         organization=__ret__.organization,
         role=__ret__.role,
+        state=__ret__.state,
         username=__ret__.username)
 
 
