@@ -384,6 +384,72 @@
             },
             "type": "object"
         },
+        "github:index/OrganizationIpAllowListIpAllowList:OrganizationIpAllowListIpAllowList": {
+            "properties": {
+                "allowListValue": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "createdAt": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "id": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "isActive": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "updatedAt": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "allowListValue",
+                "createdAt",
+                "id",
+                "isActive",
+                "name",
+                "updatedAt"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
         "github:index/OrganizationWebhookConfiguration:OrganizationWebhookConfiguration": {
             "properties": {
                 "contentType": {
@@ -972,6 +1038,93 @@
                 }
             }
         },
+        "github:index/getDependabotOrganizationSecretsSecret:getDependabotOrganizationSecretsSecret": {
+            "properties": {
+                "createdAt": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "updatedAt": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "visibility": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "createdAt",
+                "name",
+                "updatedAt",
+                "visibility"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "github:index/getDependabotSecretsSecret:getDependabotSecretsSecret": {
+            "properties": {
+                "createdAt": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "updatedAt": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "createdAt",
+                "name",
+                "updatedAt"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
         "github:index/getExternalGroupsExternalGroup:getExternalGroupsExternalGroup": {
             "properties": {
                 "groupId": {
@@ -1133,6 +1286,36 @@
                 "privacy",
                 "repositories",
                 "slug"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "github:index/getRepositoryBranchesBranch:getRepositoryBranchesBranch": {
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "protected": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "name",
+                "protected"
             ],
             "language": {
                 "nodejs": {
@@ -5183,6 +5366,28 @@
                 ]
             }
         },
+        "github:index/getDependabotOrganizationSecrets:getDependabotOrganizationSecrets": {
+            "outputs": {
+                "description": "A collection of values returned by getDependabotOrganizationSecrets.\n",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "secrets": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/github:index/getDependabotOrganizationSecretsSecret:getDependabotOrganizationSecretsSecret"
+                        }
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "secrets",
+                    "id"
+                ]
+            }
+        },
         "github:index/getDependabotPublicKey:getDependabotPublicKey": {
             "inputs": {
                 "description": "A collection of arguments for invoking getDependabotPublicKey.\n",
@@ -5218,6 +5423,48 @@
                     "key",
                     "keyId",
                     "repository",
+                    "id"
+                ]
+            }
+        },
+        "github:index/getDependabotSecrets:getDependabotSecrets": {
+            "inputs": {
+                "description": "A collection of arguments for invoking getDependabotSecrets.\n",
+                "properties": {
+                    "fullName": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "outputs": {
+                "description": "A collection of values returned by getDependabotSecrets.\n",
+                "properties": {
+                    "fullName": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "secrets": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/github:index/getDependabotSecretsSecret:getDependabotSecretsSecret"
+                        }
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "fullName",
+                    "name",
+                    "secrets",
                     "id"
                 ]
             }
@@ -5963,6 +6210,44 @@
                 ]
             }
         },
+        "github:index/getRepositoryBranches:getRepositoryBranches": {
+            "inputs": {
+                "description": "A collection of arguments for invoking getRepositoryBranches.\n",
+                "properties": {
+                    "repository": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "repository"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getRepositoryBranches.\n",
+                "properties": {
+                    "branches": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/github:index/getRepositoryBranchesBranch:getRepositoryBranchesBranch"
+                        }
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "repository": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "branches",
+                    "repository",
+                    "id"
+                ]
+            }
+        },
         "github:index/getRepositoryFile:getRepositoryFile": {
             "inputs": {
                 "description": "A collection of arguments for invoking getRepositoryFile.\n",
@@ -6613,6 +6898,28 @@
                     "nodeIds",
                     "unknownLogins",
                     "usernames",
+                    "id"
+                ]
+            }
+        },
+        "github:index/organizationIpAllowList:OrganizationIpAllowList": {
+            "outputs": {
+                "description": "A collection of values returned by OrganizationIpAllowList.\n",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "ipAllowLists": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/github:index/OrganizationIpAllowListIpAllowList:OrganizationIpAllowListIpAllowList"
+                        }
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "ipAllowLists",
                     "id"
                 ]
             }
