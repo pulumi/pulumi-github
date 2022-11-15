@@ -23,26 +23,17 @@ env:
   SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
   TRAVIS_OS_NAME: linux
 jobs:
-  checkout:
-    name: checkout repositories
-    runs-on: ubuntu-latest
-    steps:
-    - name: Checkout repo
-      uses: actions/checkout@v3
-      with:
-        path: ci-mgmt
-        repository: pulumi/ci-mgmt
-    - name: Checkout repo
-      uses: actions/checkout@v3
-      with:
-        path: provider_repo
-  update_upstream_provider:
-    defaults:
-      run:
-        working-directory: provider_repo
+  resync_build:
     name: resync-build
     runs-on: ubuntu-latest
     steps:
+    - name: Checkout repo
+      uses: actions/checkout@v3
+      with:
+        path: ${{ env.RUNNER_TEMP }}
+        repository: pulumi/ci-mgmt
+    - name: Checkout Repo
+      uses: actions/checkout@v3
     - id: run-url
       name: Create URL to the run output
       run: echo ::set-output
@@ -75,9 +66,9 @@ jobs:
     - name: Sync with ci-mgmt
       run: >-
         repo_name=$(sed -i "s|${{ github.repository }}|pulumi/pulumi-|g") cp -r
-        ../ci-mgmt/provider-ci/providers/$repo_name/repo/Makefile . &&
-                   cp -r ../ci-mgmt/provider-ci/providers/$repo_name/repo/.*.yml . &&
-                   cp -r ../ci-mgmt/provider-ci/providers/$repo_name/repo/.github .
+        $RUNNER_TEMP/ci-mgmt/provider-ci/providers/$repo_name/repo/Makefile . &&
+                   cp -r $RUNNER_TEMP/ci-mgmt/provider-ci/providers/$repo_name/repo/.*.yml . &&
+                   cp -r $RUNNER_TEMP/ci-mgmt/provider-ci/providers/$repo_name/repo/.github .
     - name: Add required lines into .gitignore
       run: |-
         cat <<- EOF > $RUNNER_TEMP/gitignore
