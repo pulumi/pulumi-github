@@ -24,14 +24,14 @@ env:
   TRAVIS_OS_NAME: linux
 jobs:
   checkout:
-    name: checkout
+    name: checkout repositories
     runs-on: ubuntu-latest
     steps:
     - name: Checkout repo
       uses: actions/checkout@v3
       with:
         path: ci-mgmt
-        repo: pulumi/ci-mgmt
+        repository: pulumi/ci-mgmt
     - name: Checkout repo
       uses: actions/checkout@v3
       with:
