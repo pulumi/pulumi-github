@@ -71,6 +71,7 @@ namespace Pulumi.Github
     {
         public readonly string AssertsUrl;
         public readonly ImmutableArray<Outputs.GetReleaseAssetResult> Assets;
+        public readonly string AssetsUrl;
         public readonly string Body;
         public readonly string CreatedAt;
         public readonly bool Draft;
@@ -98,6 +99,8 @@ namespace Pulumi.Github
             string assertsUrl,
 
             ImmutableArray<Outputs.GetReleaseAssetResult> assets,
+
+            string assetsUrl,
 
             string body,
 
@@ -137,6 +140,7 @@ namespace Pulumi.Github
         {
             AssertsUrl = assertsUrl;
             Assets = assets;
+            AssetsUrl = assetsUrl;
             Body = body;
             CreatedAt = createdAt;
             Draft = draft;

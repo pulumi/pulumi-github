@@ -102,7 +102,7 @@ func (i *OrganizationProject) ToOrganizationProjectOutputWithContext(ctx context
 // OrganizationProjectArrayInput is an input type that accepts OrganizationProjectArray and OrganizationProjectArrayOutput values.
 // You can construct a concrete instance of `OrganizationProjectArrayInput` via:
 //
-//	OrganizationProjectArray{ OrganizationProjectArgs{...} }
+//          OrganizationProjectArray{ OrganizationProjectArgs{...} }
 type OrganizationProjectArrayInput interface {
 	pulumi.Input
 
@@ -127,7 +127,7 @@ func (i OrganizationProjectArray) ToOrganizationProjectArrayOutputWithContext(ct
 // OrganizationProjectMapInput is an input type that accepts OrganizationProjectMap and OrganizationProjectMapOutput values.
 // You can construct a concrete instance of `OrganizationProjectMapInput` via:
 //
-//	OrganizationProjectMap{ "key": OrganizationProjectArgs{...} }
+//          OrganizationProjectMap{ "key": OrganizationProjectArgs{...} }
 type OrganizationProjectMapInput interface {
 	pulumi.Input
 

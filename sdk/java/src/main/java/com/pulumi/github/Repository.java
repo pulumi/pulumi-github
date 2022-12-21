@@ -11,6 +11,7 @@ import com.pulumi.github.RepositoryArgs;
 import com.pulumi.github.Utilities;
 import com.pulumi.github.inputs.RepositoryState;
 import com.pulumi.github.outputs.RepositoryPages;
+import com.pulumi.github.outputs.RepositorySecurityAndAnalysis;
 import com.pulumi.github.outputs.RepositoryTemplate;
 import java.lang.Boolean;
 import java.lang.Integer;
@@ -230,6 +231,22 @@ public class Repository extends com.pulumi.resources.CustomResource {
 
     public Output<Integer> repoId() {
         return this.repoId;
+    }
+    /**
+     * Security and analysis settings for the repository. To use this parameter you must have admin permissions for the
+     * repository or be an owner or security manager for the organization that owns the repository.
+     * 
+     */
+    @Export(name="securityAndAnalysis", type=RepositorySecurityAndAnalysis.class, parameters={})
+    private Output</* @Nullable */ RepositorySecurityAndAnalysis> securityAndAnalysis;
+
+    /**
+     * @return Security and analysis settings for the repository. To use this parameter you must have admin permissions for the
+     * repository or be an owner or security manager for the organization that owns the repository.
+     * 
+     */
+    public Output<Optional<RepositorySecurityAndAnalysis>> securityAndAnalysis() {
+        return Codegen.optional(this.securityAndAnalysis);
     }
     @Export(name="squashMergeCommitMessage", type=String.class, parameters={})
     private Output</* @Nullable */ String> squashMergeCommitMessage;

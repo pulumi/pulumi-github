@@ -55,6 +55,7 @@ export interface GetRepositoryResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly isTemplate: boolean;
     readonly mergeCommitMessage: string;
     readonly mergeCommitTitle: string;
     readonly name: string;
@@ -66,6 +67,7 @@ export interface GetRepositoryResult {
     readonly squashMergeCommitTitle: string;
     readonly sshCloneUrl: string;
     readonly svnUrl: string;
+    readonly template: outputs.GetRepositoryTemplate;
     readonly topics: string[];
     readonly visibility: string;
 }

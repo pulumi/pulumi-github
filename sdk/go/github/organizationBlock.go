@@ -98,7 +98,7 @@ func (i *OrganizationBlock) ToOrganizationBlockOutputWithContext(ctx context.Con
 // OrganizationBlockArrayInput is an input type that accepts OrganizationBlockArray and OrganizationBlockArrayOutput values.
 // You can construct a concrete instance of `OrganizationBlockArrayInput` via:
 //
-//	OrganizationBlockArray{ OrganizationBlockArgs{...} }
+//          OrganizationBlockArray{ OrganizationBlockArgs{...} }
 type OrganizationBlockArrayInput interface {
 	pulumi.Input
 
@@ -123,7 +123,7 @@ func (i OrganizationBlockArray) ToOrganizationBlockArrayOutputWithContext(ctx co
 // OrganizationBlockMapInput is an input type that accepts OrganizationBlockMap and OrganizationBlockMapOutput values.
 // You can construct a concrete instance of `OrganizationBlockMapInput` via:
 //
-//	OrganizationBlockMap{ "key": OrganizationBlockArgs{...} }
+//          OrganizationBlockMap{ "key": OrganizationBlockArgs{...} }
 type OrganizationBlockMapInput interface {
 	pulumi.Input
 

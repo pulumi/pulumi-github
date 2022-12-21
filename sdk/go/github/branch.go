@@ -122,7 +122,7 @@ func (i *Branch) ToBranchOutputWithContext(ctx context.Context) BranchOutput {
 // BranchArrayInput is an input type that accepts BranchArray and BranchArrayOutput values.
 // You can construct a concrete instance of `BranchArrayInput` via:
 //
-//	BranchArray{ BranchArgs{...} }
+//          BranchArray{ BranchArgs{...} }
 type BranchArrayInput interface {
 	pulumi.Input
 
@@ -147,7 +147,7 @@ func (i BranchArray) ToBranchArrayOutputWithContext(ctx context.Context) BranchA
 // BranchMapInput is an input type that accepts BranchMap and BranchMapOutput values.
 // You can construct a concrete instance of `BranchMapInput` via:
 //
-//	BranchMap{ "key": BranchArgs{...} }
+//          BranchMap{ "key": BranchArgs{...} }
 type BranchMapInput interface {
 	pulumi.Input
 

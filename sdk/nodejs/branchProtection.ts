@@ -38,6 +38,7 @@ export class BranchProtection extends pulumi.CustomResource {
     public readonly allowsForcePushes!: pulumi.Output<boolean | undefined>;
     public readonly blocksCreations!: pulumi.Output<boolean | undefined>;
     public readonly enforceAdmins!: pulumi.Output<boolean | undefined>;
+    public readonly lockBranch!: pulumi.Output<boolean | undefined>;
     public readonly pattern!: pulumi.Output<string>;
     public readonly pushRestrictions!: pulumi.Output<string[] | undefined>;
     /**
@@ -67,6 +68,7 @@ export class BranchProtection extends pulumi.CustomResource {
             resourceInputs["allowsForcePushes"] = state ? state.allowsForcePushes : undefined;
             resourceInputs["blocksCreations"] = state ? state.blocksCreations : undefined;
             resourceInputs["enforceAdmins"] = state ? state.enforceAdmins : undefined;
+            resourceInputs["lockBranch"] = state ? state.lockBranch : undefined;
             resourceInputs["pattern"] = state ? state.pattern : undefined;
             resourceInputs["pushRestrictions"] = state ? state.pushRestrictions : undefined;
             resourceInputs["repositoryId"] = state ? state.repositoryId : undefined;
@@ -87,6 +89,7 @@ export class BranchProtection extends pulumi.CustomResource {
             resourceInputs["allowsForcePushes"] = args ? args.allowsForcePushes : undefined;
             resourceInputs["blocksCreations"] = args ? args.blocksCreations : undefined;
             resourceInputs["enforceAdmins"] = args ? args.enforceAdmins : undefined;
+            resourceInputs["lockBranch"] = args ? args.lockBranch : undefined;
             resourceInputs["pattern"] = args ? args.pattern : undefined;
             resourceInputs["pushRestrictions"] = args ? args.pushRestrictions : undefined;
             resourceInputs["repositoryId"] = args ? args.repositoryId : undefined;
@@ -109,6 +112,7 @@ export interface BranchProtectionState {
     allowsForcePushes?: pulumi.Input<boolean>;
     blocksCreations?: pulumi.Input<boolean>;
     enforceAdmins?: pulumi.Input<boolean>;
+    lockBranch?: pulumi.Input<boolean>;
     pattern?: pulumi.Input<string>;
     pushRestrictions?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -130,6 +134,7 @@ export interface BranchProtectionArgs {
     allowsForcePushes?: pulumi.Input<boolean>;
     blocksCreations?: pulumi.Input<boolean>;
     enforceAdmins?: pulumi.Input<boolean>;
+    lockBranch?: pulumi.Input<boolean>;
     pattern: pulumi.Input<string>;
     pushRestrictions?: pulumi.Input<pulumi.Input<string>[]>;
     /**

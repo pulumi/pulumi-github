@@ -19,7 +19,7 @@ type ActionsOrganizationPermissionsAllowedActionsConfig struct {
 // ActionsOrganizationPermissionsAllowedActionsConfigInput is an input type that accepts ActionsOrganizationPermissionsAllowedActionsConfigArgs and ActionsOrganizationPermissionsAllowedActionsConfigOutput values.
 // You can construct a concrete instance of `ActionsOrganizationPermissionsAllowedActionsConfigInput` via:
 //
-//	ActionsOrganizationPermissionsAllowedActionsConfigArgs{...}
+//          ActionsOrganizationPermissionsAllowedActionsConfigArgs{...}
 type ActionsOrganizationPermissionsAllowedActionsConfigInput interface {
 	pulumi.Input
 
@@ -56,11 +56,11 @@ func (i ActionsOrganizationPermissionsAllowedActionsConfigArgs) ToActionsOrganiz
 // ActionsOrganizationPermissionsAllowedActionsConfigPtrInput is an input type that accepts ActionsOrganizationPermissionsAllowedActionsConfigArgs, ActionsOrganizationPermissionsAllowedActionsConfigPtr and ActionsOrganizationPermissionsAllowedActionsConfigPtrOutput values.
 // You can construct a concrete instance of `ActionsOrganizationPermissionsAllowedActionsConfigPtrInput` via:
 //
-//	        ActionsOrganizationPermissionsAllowedActionsConfigArgs{...}
+//          ActionsOrganizationPermissionsAllowedActionsConfigArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type ActionsOrganizationPermissionsAllowedActionsConfigPtrInput interface {
 	pulumi.Input
 
@@ -180,7 +180,7 @@ type ActionsOrganizationPermissionsEnabledRepositoriesConfig struct {
 // ActionsOrganizationPermissionsEnabledRepositoriesConfigInput is an input type that accepts ActionsOrganizationPermissionsEnabledRepositoriesConfigArgs and ActionsOrganizationPermissionsEnabledRepositoriesConfigOutput values.
 // You can construct a concrete instance of `ActionsOrganizationPermissionsEnabledRepositoriesConfigInput` via:
 //
-//	ActionsOrganizationPermissionsEnabledRepositoriesConfigArgs{...}
+//          ActionsOrganizationPermissionsEnabledRepositoriesConfigArgs{...}
 type ActionsOrganizationPermissionsEnabledRepositoriesConfigInput interface {
 	pulumi.Input
 
@@ -215,11 +215,11 @@ func (i ActionsOrganizationPermissionsEnabledRepositoriesConfigArgs) ToActionsOr
 // ActionsOrganizationPermissionsEnabledRepositoriesConfigPtrInput is an input type that accepts ActionsOrganizationPermissionsEnabledRepositoriesConfigArgs, ActionsOrganizationPermissionsEnabledRepositoriesConfigPtr and ActionsOrganizationPermissionsEnabledRepositoriesConfigPtrOutput values.
 // You can construct a concrete instance of `ActionsOrganizationPermissionsEnabledRepositoriesConfigPtrInput` via:
 //
-//	        ActionsOrganizationPermissionsEnabledRepositoriesConfigArgs{...}
+//          ActionsOrganizationPermissionsEnabledRepositoriesConfigArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type ActionsOrganizationPermissionsEnabledRepositoriesConfigPtrInput interface {
 	pulumi.Input
 
@@ -306,11 +306,175 @@ func (o ActionsOrganizationPermissionsEnabledRepositoriesConfigPtrOutput) Reposi
 	}).(pulumi.IntArrayOutput)
 }
 
+type ActionsRepositoryPermissionsAllowedActionsConfig struct {
+	GithubOwnedAllowed bool     `pulumi:"githubOwnedAllowed"`
+	PatternsAlloweds   []string `pulumi:"patternsAlloweds"`
+	VerifiedAllowed    *bool    `pulumi:"verifiedAllowed"`
+}
+
+// ActionsRepositoryPermissionsAllowedActionsConfigInput is an input type that accepts ActionsRepositoryPermissionsAllowedActionsConfigArgs and ActionsRepositoryPermissionsAllowedActionsConfigOutput values.
+// You can construct a concrete instance of `ActionsRepositoryPermissionsAllowedActionsConfigInput` via:
+//
+//          ActionsRepositoryPermissionsAllowedActionsConfigArgs{...}
+type ActionsRepositoryPermissionsAllowedActionsConfigInput interface {
+	pulumi.Input
+
+	ToActionsRepositoryPermissionsAllowedActionsConfigOutput() ActionsRepositoryPermissionsAllowedActionsConfigOutput
+	ToActionsRepositoryPermissionsAllowedActionsConfigOutputWithContext(context.Context) ActionsRepositoryPermissionsAllowedActionsConfigOutput
+}
+
+type ActionsRepositoryPermissionsAllowedActionsConfigArgs struct {
+	GithubOwnedAllowed pulumi.BoolInput        `pulumi:"githubOwnedAllowed"`
+	PatternsAlloweds   pulumi.StringArrayInput `pulumi:"patternsAlloweds"`
+	VerifiedAllowed    pulumi.BoolPtrInput     `pulumi:"verifiedAllowed"`
+}
+
+func (ActionsRepositoryPermissionsAllowedActionsConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionsRepositoryPermissionsAllowedActionsConfig)(nil)).Elem()
+}
+
+func (i ActionsRepositoryPermissionsAllowedActionsConfigArgs) ToActionsRepositoryPermissionsAllowedActionsConfigOutput() ActionsRepositoryPermissionsAllowedActionsConfigOutput {
+	return i.ToActionsRepositoryPermissionsAllowedActionsConfigOutputWithContext(context.Background())
+}
+
+func (i ActionsRepositoryPermissionsAllowedActionsConfigArgs) ToActionsRepositoryPermissionsAllowedActionsConfigOutputWithContext(ctx context.Context) ActionsRepositoryPermissionsAllowedActionsConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionsRepositoryPermissionsAllowedActionsConfigOutput)
+}
+
+func (i ActionsRepositoryPermissionsAllowedActionsConfigArgs) ToActionsRepositoryPermissionsAllowedActionsConfigPtrOutput() ActionsRepositoryPermissionsAllowedActionsConfigPtrOutput {
+	return i.ToActionsRepositoryPermissionsAllowedActionsConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ActionsRepositoryPermissionsAllowedActionsConfigArgs) ToActionsRepositoryPermissionsAllowedActionsConfigPtrOutputWithContext(ctx context.Context) ActionsRepositoryPermissionsAllowedActionsConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionsRepositoryPermissionsAllowedActionsConfigOutput).ToActionsRepositoryPermissionsAllowedActionsConfigPtrOutputWithContext(ctx)
+}
+
+// ActionsRepositoryPermissionsAllowedActionsConfigPtrInput is an input type that accepts ActionsRepositoryPermissionsAllowedActionsConfigArgs, ActionsRepositoryPermissionsAllowedActionsConfigPtr and ActionsRepositoryPermissionsAllowedActionsConfigPtrOutput values.
+// You can construct a concrete instance of `ActionsRepositoryPermissionsAllowedActionsConfigPtrInput` via:
+//
+//          ActionsRepositoryPermissionsAllowedActionsConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type ActionsRepositoryPermissionsAllowedActionsConfigPtrInput interface {
+	pulumi.Input
+
+	ToActionsRepositoryPermissionsAllowedActionsConfigPtrOutput() ActionsRepositoryPermissionsAllowedActionsConfigPtrOutput
+	ToActionsRepositoryPermissionsAllowedActionsConfigPtrOutputWithContext(context.Context) ActionsRepositoryPermissionsAllowedActionsConfigPtrOutput
+}
+
+type actionsRepositoryPermissionsAllowedActionsConfigPtrType ActionsRepositoryPermissionsAllowedActionsConfigArgs
+
+func ActionsRepositoryPermissionsAllowedActionsConfigPtr(v *ActionsRepositoryPermissionsAllowedActionsConfigArgs) ActionsRepositoryPermissionsAllowedActionsConfigPtrInput {
+	return (*actionsRepositoryPermissionsAllowedActionsConfigPtrType)(v)
+}
+
+func (*actionsRepositoryPermissionsAllowedActionsConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionsRepositoryPermissionsAllowedActionsConfig)(nil)).Elem()
+}
+
+func (i *actionsRepositoryPermissionsAllowedActionsConfigPtrType) ToActionsRepositoryPermissionsAllowedActionsConfigPtrOutput() ActionsRepositoryPermissionsAllowedActionsConfigPtrOutput {
+	return i.ToActionsRepositoryPermissionsAllowedActionsConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *actionsRepositoryPermissionsAllowedActionsConfigPtrType) ToActionsRepositoryPermissionsAllowedActionsConfigPtrOutputWithContext(ctx context.Context) ActionsRepositoryPermissionsAllowedActionsConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionsRepositoryPermissionsAllowedActionsConfigPtrOutput)
+}
+
+type ActionsRepositoryPermissionsAllowedActionsConfigOutput struct{ *pulumi.OutputState }
+
+func (ActionsRepositoryPermissionsAllowedActionsConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionsRepositoryPermissionsAllowedActionsConfig)(nil)).Elem()
+}
+
+func (o ActionsRepositoryPermissionsAllowedActionsConfigOutput) ToActionsRepositoryPermissionsAllowedActionsConfigOutput() ActionsRepositoryPermissionsAllowedActionsConfigOutput {
+	return o
+}
+
+func (o ActionsRepositoryPermissionsAllowedActionsConfigOutput) ToActionsRepositoryPermissionsAllowedActionsConfigOutputWithContext(ctx context.Context) ActionsRepositoryPermissionsAllowedActionsConfigOutput {
+	return o
+}
+
+func (o ActionsRepositoryPermissionsAllowedActionsConfigOutput) ToActionsRepositoryPermissionsAllowedActionsConfigPtrOutput() ActionsRepositoryPermissionsAllowedActionsConfigPtrOutput {
+	return o.ToActionsRepositoryPermissionsAllowedActionsConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ActionsRepositoryPermissionsAllowedActionsConfigOutput) ToActionsRepositoryPermissionsAllowedActionsConfigPtrOutputWithContext(ctx context.Context) ActionsRepositoryPermissionsAllowedActionsConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActionsRepositoryPermissionsAllowedActionsConfig) *ActionsRepositoryPermissionsAllowedActionsConfig {
+		return &v
+	}).(ActionsRepositoryPermissionsAllowedActionsConfigPtrOutput)
+}
+
+func (o ActionsRepositoryPermissionsAllowedActionsConfigOutput) GithubOwnedAllowed() pulumi.BoolOutput {
+	return o.ApplyT(func(v ActionsRepositoryPermissionsAllowedActionsConfig) bool { return v.GithubOwnedAllowed }).(pulumi.BoolOutput)
+}
+
+func (o ActionsRepositoryPermissionsAllowedActionsConfigOutput) PatternsAlloweds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ActionsRepositoryPermissionsAllowedActionsConfig) []string { return v.PatternsAlloweds }).(pulumi.StringArrayOutput)
+}
+
+func (o ActionsRepositoryPermissionsAllowedActionsConfigOutput) VerifiedAllowed() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ActionsRepositoryPermissionsAllowedActionsConfig) *bool { return v.VerifiedAllowed }).(pulumi.BoolPtrOutput)
+}
+
+type ActionsRepositoryPermissionsAllowedActionsConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ActionsRepositoryPermissionsAllowedActionsConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionsRepositoryPermissionsAllowedActionsConfig)(nil)).Elem()
+}
+
+func (o ActionsRepositoryPermissionsAllowedActionsConfigPtrOutput) ToActionsRepositoryPermissionsAllowedActionsConfigPtrOutput() ActionsRepositoryPermissionsAllowedActionsConfigPtrOutput {
+	return o
+}
+
+func (o ActionsRepositoryPermissionsAllowedActionsConfigPtrOutput) ToActionsRepositoryPermissionsAllowedActionsConfigPtrOutputWithContext(ctx context.Context) ActionsRepositoryPermissionsAllowedActionsConfigPtrOutput {
+	return o
+}
+
+func (o ActionsRepositoryPermissionsAllowedActionsConfigPtrOutput) Elem() ActionsRepositoryPermissionsAllowedActionsConfigOutput {
+	return o.ApplyT(func(v *ActionsRepositoryPermissionsAllowedActionsConfig) ActionsRepositoryPermissionsAllowedActionsConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ActionsRepositoryPermissionsAllowedActionsConfig
+		return ret
+	}).(ActionsRepositoryPermissionsAllowedActionsConfigOutput)
+}
+
+func (o ActionsRepositoryPermissionsAllowedActionsConfigPtrOutput) GithubOwnedAllowed() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ActionsRepositoryPermissionsAllowedActionsConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.GithubOwnedAllowed
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o ActionsRepositoryPermissionsAllowedActionsConfigPtrOutput) PatternsAlloweds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ActionsRepositoryPermissionsAllowedActionsConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.PatternsAlloweds
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o ActionsRepositoryPermissionsAllowedActionsConfigPtrOutput) VerifiedAllowed() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ActionsRepositoryPermissionsAllowedActionsConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.VerifiedAllowed
+	}).(pulumi.BoolPtrOutput)
+}
+
 type BranchProtectionRequiredPullRequestReview struct {
 	DismissStaleReviews          *bool    `pulumi:"dismissStaleReviews"`
 	DismissalRestrictions        []string `pulumi:"dismissalRestrictions"`
 	PullRequestBypassers         []string `pulumi:"pullRequestBypassers"`
 	RequireCodeOwnerReviews      *bool    `pulumi:"requireCodeOwnerReviews"`
+	RequireLastPushApproval      *bool    `pulumi:"requireLastPushApproval"`
 	RequiredApprovingReviewCount *int     `pulumi:"requiredApprovingReviewCount"`
 	RestrictDismissals           *bool    `pulumi:"restrictDismissals"`
 }
@@ -318,7 +482,7 @@ type BranchProtectionRequiredPullRequestReview struct {
 // BranchProtectionRequiredPullRequestReviewInput is an input type that accepts BranchProtectionRequiredPullRequestReviewArgs and BranchProtectionRequiredPullRequestReviewOutput values.
 // You can construct a concrete instance of `BranchProtectionRequiredPullRequestReviewInput` via:
 //
-//	BranchProtectionRequiredPullRequestReviewArgs{...}
+//          BranchProtectionRequiredPullRequestReviewArgs{...}
 type BranchProtectionRequiredPullRequestReviewInput interface {
 	pulumi.Input
 
@@ -331,6 +495,7 @@ type BranchProtectionRequiredPullRequestReviewArgs struct {
 	DismissalRestrictions        pulumi.StringArrayInput `pulumi:"dismissalRestrictions"`
 	PullRequestBypassers         pulumi.StringArrayInput `pulumi:"pullRequestBypassers"`
 	RequireCodeOwnerReviews      pulumi.BoolPtrInput     `pulumi:"requireCodeOwnerReviews"`
+	RequireLastPushApproval      pulumi.BoolPtrInput     `pulumi:"requireLastPushApproval"`
 	RequiredApprovingReviewCount pulumi.IntPtrInput      `pulumi:"requiredApprovingReviewCount"`
 	RestrictDismissals           pulumi.BoolPtrInput     `pulumi:"restrictDismissals"`
 }
@@ -350,7 +515,7 @@ func (i BranchProtectionRequiredPullRequestReviewArgs) ToBranchProtectionRequire
 // BranchProtectionRequiredPullRequestReviewArrayInput is an input type that accepts BranchProtectionRequiredPullRequestReviewArray and BranchProtectionRequiredPullRequestReviewArrayOutput values.
 // You can construct a concrete instance of `BranchProtectionRequiredPullRequestReviewArrayInput` via:
 //
-//	BranchProtectionRequiredPullRequestReviewArray{ BranchProtectionRequiredPullRequestReviewArgs{...} }
+//          BranchProtectionRequiredPullRequestReviewArray{ BranchProtectionRequiredPullRequestReviewArgs{...} }
 type BranchProtectionRequiredPullRequestReviewArrayInput interface {
 	pulumi.Input
 
@@ -402,6 +567,10 @@ func (o BranchProtectionRequiredPullRequestReviewOutput) RequireCodeOwnerReviews
 	return o.ApplyT(func(v BranchProtectionRequiredPullRequestReview) *bool { return v.RequireCodeOwnerReviews }).(pulumi.BoolPtrOutput)
 }
 
+func (o BranchProtectionRequiredPullRequestReviewOutput) RequireLastPushApproval() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v BranchProtectionRequiredPullRequestReview) *bool { return v.RequireLastPushApproval }).(pulumi.BoolPtrOutput)
+}
+
 func (o BranchProtectionRequiredPullRequestReviewOutput) RequiredApprovingReviewCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v BranchProtectionRequiredPullRequestReview) *int { return v.RequiredApprovingReviewCount }).(pulumi.IntPtrOutput)
 }
@@ -438,7 +607,7 @@ type BranchProtectionRequiredStatusCheck struct {
 // BranchProtectionRequiredStatusCheckInput is an input type that accepts BranchProtectionRequiredStatusCheckArgs and BranchProtectionRequiredStatusCheckOutput values.
 // You can construct a concrete instance of `BranchProtectionRequiredStatusCheckInput` via:
 //
-//	BranchProtectionRequiredStatusCheckArgs{...}
+//          BranchProtectionRequiredStatusCheckArgs{...}
 type BranchProtectionRequiredStatusCheckInput interface {
 	pulumi.Input
 
@@ -466,7 +635,7 @@ func (i BranchProtectionRequiredStatusCheckArgs) ToBranchProtectionRequiredStatu
 // BranchProtectionRequiredStatusCheckArrayInput is an input type that accepts BranchProtectionRequiredStatusCheckArray and BranchProtectionRequiredStatusCheckArrayOutput values.
 // You can construct a concrete instance of `BranchProtectionRequiredStatusCheckArrayInput` via:
 //
-//	BranchProtectionRequiredStatusCheckArray{ BranchProtectionRequiredStatusCheckArgs{...} }
+//          BranchProtectionRequiredStatusCheckArray{ BranchProtectionRequiredStatusCheckArgs{...} }
 type BranchProtectionRequiredStatusCheckArrayInput interface {
 	pulumi.Input
 
@@ -543,7 +712,7 @@ type BranchProtectionV3RequiredPullRequestReviews struct {
 // BranchProtectionV3RequiredPullRequestReviewsInput is an input type that accepts BranchProtectionV3RequiredPullRequestReviewsArgs and BranchProtectionV3RequiredPullRequestReviewsOutput values.
 // You can construct a concrete instance of `BranchProtectionV3RequiredPullRequestReviewsInput` via:
 //
-//	BranchProtectionV3RequiredPullRequestReviewsArgs{...}
+//          BranchProtectionV3RequiredPullRequestReviewsArgs{...}
 type BranchProtectionV3RequiredPullRequestReviewsInput interface {
 	pulumi.Input
 
@@ -584,11 +753,11 @@ func (i BranchProtectionV3RequiredPullRequestReviewsArgs) ToBranchProtectionV3Re
 // BranchProtectionV3RequiredPullRequestReviewsPtrInput is an input type that accepts BranchProtectionV3RequiredPullRequestReviewsArgs, BranchProtectionV3RequiredPullRequestReviewsPtr and BranchProtectionV3RequiredPullRequestReviewsPtrOutput values.
 // You can construct a concrete instance of `BranchProtectionV3RequiredPullRequestReviewsPtrInput` via:
 //
-//	        BranchProtectionV3RequiredPullRequestReviewsArgs{...}
+//          BranchProtectionV3RequiredPullRequestReviewsArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type BranchProtectionV3RequiredPullRequestReviewsPtrInput interface {
 	pulumi.Input
 
@@ -752,7 +921,7 @@ type BranchProtectionV3RequiredStatusChecks struct {
 // BranchProtectionV3RequiredStatusChecksInput is an input type that accepts BranchProtectionV3RequiredStatusChecksArgs and BranchProtectionV3RequiredStatusChecksOutput values.
 // You can construct a concrete instance of `BranchProtectionV3RequiredStatusChecksInput` via:
 //
-//	BranchProtectionV3RequiredStatusChecksArgs{...}
+//          BranchProtectionV3RequiredStatusChecksArgs{...}
 type BranchProtectionV3RequiredStatusChecksInput interface {
 	pulumi.Input
 
@@ -790,11 +959,11 @@ func (i BranchProtectionV3RequiredStatusChecksArgs) ToBranchProtectionV3Required
 // BranchProtectionV3RequiredStatusChecksPtrInput is an input type that accepts BranchProtectionV3RequiredStatusChecksArgs, BranchProtectionV3RequiredStatusChecksPtr and BranchProtectionV3RequiredStatusChecksPtrOutput values.
 // You can construct a concrete instance of `BranchProtectionV3RequiredStatusChecksPtrInput` via:
 //
-//	        BranchProtectionV3RequiredStatusChecksArgs{...}
+//          BranchProtectionV3RequiredStatusChecksArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type BranchProtectionV3RequiredStatusChecksPtrInput interface {
 	pulumi.Input
 
@@ -918,7 +1087,7 @@ type BranchProtectionV3Restrictions struct {
 // BranchProtectionV3RestrictionsInput is an input type that accepts BranchProtectionV3RestrictionsArgs and BranchProtectionV3RestrictionsOutput values.
 // You can construct a concrete instance of `BranchProtectionV3RestrictionsInput` via:
 //
-//	BranchProtectionV3RestrictionsArgs{...}
+//          BranchProtectionV3RestrictionsArgs{...}
 type BranchProtectionV3RestrictionsInput interface {
 	pulumi.Input
 
@@ -955,11 +1124,11 @@ func (i BranchProtectionV3RestrictionsArgs) ToBranchProtectionV3RestrictionsPtrO
 // BranchProtectionV3RestrictionsPtrInput is an input type that accepts BranchProtectionV3RestrictionsArgs, BranchProtectionV3RestrictionsPtr and BranchProtectionV3RestrictionsPtrOutput values.
 // You can construct a concrete instance of `BranchProtectionV3RestrictionsPtrInput` via:
 //
-//	        BranchProtectionV3RestrictionsArgs{...}
+//          BranchProtectionV3RestrictionsArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type BranchProtectionV3RestrictionsPtrInput interface {
 	pulumi.Input
 
@@ -1082,7 +1251,7 @@ type OrganizationWebhookConfiguration struct {
 // OrganizationWebhookConfigurationInput is an input type that accepts OrganizationWebhookConfigurationArgs and OrganizationWebhookConfigurationOutput values.
 // You can construct a concrete instance of `OrganizationWebhookConfigurationInput` via:
 //
-//	OrganizationWebhookConfigurationArgs{...}
+//          OrganizationWebhookConfigurationArgs{...}
 type OrganizationWebhookConfigurationInput interface {
 	pulumi.Input
 
@@ -1120,11 +1289,11 @@ func (i OrganizationWebhookConfigurationArgs) ToOrganizationWebhookConfiguration
 // OrganizationWebhookConfigurationPtrInput is an input type that accepts OrganizationWebhookConfigurationArgs, OrganizationWebhookConfigurationPtr and OrganizationWebhookConfigurationPtrOutput values.
 // You can construct a concrete instance of `OrganizationWebhookConfigurationPtrInput` via:
 //
-//	        OrganizationWebhookConfigurationArgs{...}
+//          OrganizationWebhookConfigurationArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type OrganizationWebhookConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -1259,7 +1428,7 @@ type ProviderAppAuth struct {
 // ProviderAppAuthInput is an input type that accepts ProviderAppAuthArgs and ProviderAppAuthOutput values.
 // You can construct a concrete instance of `ProviderAppAuthInput` via:
 //
-//	ProviderAppAuthArgs{...}
+//          ProviderAppAuthArgs{...}
 type ProviderAppAuthInput interface {
 	pulumi.Input
 
@@ -1296,11 +1465,11 @@ func (i ProviderAppAuthArgs) ToProviderAppAuthPtrOutputWithContext(ctx context.C
 // ProviderAppAuthPtrInput is an input type that accepts ProviderAppAuthArgs, ProviderAppAuthPtr and ProviderAppAuthPtrOutput values.
 // You can construct a concrete instance of `ProviderAppAuthPtrInput` via:
 //
-//	        ProviderAppAuthArgs{...}
+//          ProviderAppAuthArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type ProviderAppAuthPtrInput interface {
 	pulumi.Input
 
@@ -1421,7 +1590,7 @@ type RepositoryEnvironmentDeploymentBranchPolicy struct {
 // RepositoryEnvironmentDeploymentBranchPolicyInput is an input type that accepts RepositoryEnvironmentDeploymentBranchPolicyArgs and RepositoryEnvironmentDeploymentBranchPolicyOutput values.
 // You can construct a concrete instance of `RepositoryEnvironmentDeploymentBranchPolicyInput` via:
 //
-//	RepositoryEnvironmentDeploymentBranchPolicyArgs{...}
+//          RepositoryEnvironmentDeploymentBranchPolicyArgs{...}
 type RepositoryEnvironmentDeploymentBranchPolicyInput interface {
 	pulumi.Input
 
@@ -1457,11 +1626,11 @@ func (i RepositoryEnvironmentDeploymentBranchPolicyArgs) ToRepositoryEnvironment
 // RepositoryEnvironmentDeploymentBranchPolicyPtrInput is an input type that accepts RepositoryEnvironmentDeploymentBranchPolicyArgs, RepositoryEnvironmentDeploymentBranchPolicyPtr and RepositoryEnvironmentDeploymentBranchPolicyPtrOutput values.
 // You can construct a concrete instance of `RepositoryEnvironmentDeploymentBranchPolicyPtrInput` via:
 //
-//	        RepositoryEnvironmentDeploymentBranchPolicyArgs{...}
+//          RepositoryEnvironmentDeploymentBranchPolicyArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type RepositoryEnvironmentDeploymentBranchPolicyPtrInput interface {
 	pulumi.Input
 
@@ -1569,7 +1738,7 @@ type RepositoryEnvironmentReviewer struct {
 // RepositoryEnvironmentReviewerInput is an input type that accepts RepositoryEnvironmentReviewerArgs and RepositoryEnvironmentReviewerOutput values.
 // You can construct a concrete instance of `RepositoryEnvironmentReviewerInput` via:
 //
-//	RepositoryEnvironmentReviewerArgs{...}
+//          RepositoryEnvironmentReviewerArgs{...}
 type RepositoryEnvironmentReviewerInput interface {
 	pulumi.Input
 
@@ -1597,7 +1766,7 @@ func (i RepositoryEnvironmentReviewerArgs) ToRepositoryEnvironmentReviewerOutput
 // RepositoryEnvironmentReviewerArrayInput is an input type that accepts RepositoryEnvironmentReviewerArray and RepositoryEnvironmentReviewerArrayOutput values.
 // You can construct a concrete instance of `RepositoryEnvironmentReviewerArrayInput` via:
 //
-//	RepositoryEnvironmentReviewerArray{ RepositoryEnvironmentReviewerArgs{...} }
+//          RepositoryEnvironmentReviewerArray{ RepositoryEnvironmentReviewerArgs{...} }
 type RepositoryEnvironmentReviewerArrayInput interface {
 	pulumi.Input
 
@@ -1673,7 +1842,7 @@ type RepositoryPages struct {
 // RepositoryPagesInput is an input type that accepts RepositoryPagesArgs and RepositoryPagesOutput values.
 // You can construct a concrete instance of `RepositoryPagesInput` via:
 //
-//	RepositoryPagesArgs{...}
+//          RepositoryPagesArgs{...}
 type RepositoryPagesInput interface {
 	pulumi.Input
 
@@ -1713,11 +1882,11 @@ func (i RepositoryPagesArgs) ToRepositoryPagesPtrOutputWithContext(ctx context.C
 // RepositoryPagesPtrInput is an input type that accepts RepositoryPagesArgs, RepositoryPagesPtr and RepositoryPagesPtrOutput values.
 // You can construct a concrete instance of `RepositoryPagesPtrInput` via:
 //
-//	        RepositoryPagesArgs{...}
+//          RepositoryPagesArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type RepositoryPagesPtrInput interface {
 	pulumi.Input
 
@@ -1877,7 +2046,7 @@ type RepositoryPagesSource struct {
 // RepositoryPagesSourceInput is an input type that accepts RepositoryPagesSourceArgs and RepositoryPagesSourceOutput values.
 // You can construct a concrete instance of `RepositoryPagesSourceInput` via:
 //
-//	RepositoryPagesSourceArgs{...}
+//          RepositoryPagesSourceArgs{...}
 type RepositoryPagesSourceInput interface {
 	pulumi.Input
 
@@ -1913,11 +2082,11 @@ func (i RepositoryPagesSourceArgs) ToRepositoryPagesSourcePtrOutputWithContext(c
 // RepositoryPagesSourcePtrInput is an input type that accepts RepositoryPagesSourceArgs, RepositoryPagesSourcePtr and RepositoryPagesSourcePtrOutput values.
 // You can construct a concrete instance of `RepositoryPagesSourcePtrInput` via:
 //
-//	        RepositoryPagesSourceArgs{...}
+//          RepositoryPagesSourceArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type RepositoryPagesSourcePtrInput interface {
 	pulumi.Input
 
@@ -2017,6 +2186,574 @@ func (o RepositoryPagesSourcePtrOutput) Path() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type RepositorySecurityAndAnalysis struct {
+	AdvancedSecurity             RepositorySecurityAndAnalysisAdvancedSecurity             `pulumi:"advancedSecurity"`
+	SecretScanning               RepositorySecurityAndAnalysisSecretScanning               `pulumi:"secretScanning"`
+	SecretScanningPushProtection RepositorySecurityAndAnalysisSecretScanningPushProtection `pulumi:"secretScanningPushProtection"`
+}
+
+// RepositorySecurityAndAnalysisInput is an input type that accepts RepositorySecurityAndAnalysisArgs and RepositorySecurityAndAnalysisOutput values.
+// You can construct a concrete instance of `RepositorySecurityAndAnalysisInput` via:
+//
+//          RepositorySecurityAndAnalysisArgs{...}
+type RepositorySecurityAndAnalysisInput interface {
+	pulumi.Input
+
+	ToRepositorySecurityAndAnalysisOutput() RepositorySecurityAndAnalysisOutput
+	ToRepositorySecurityAndAnalysisOutputWithContext(context.Context) RepositorySecurityAndAnalysisOutput
+}
+
+type RepositorySecurityAndAnalysisArgs struct {
+	AdvancedSecurity             RepositorySecurityAndAnalysisAdvancedSecurityInput             `pulumi:"advancedSecurity"`
+	SecretScanning               RepositorySecurityAndAnalysisSecretScanningInput               `pulumi:"secretScanning"`
+	SecretScanningPushProtection RepositorySecurityAndAnalysisSecretScanningPushProtectionInput `pulumi:"secretScanningPushProtection"`
+}
+
+func (RepositorySecurityAndAnalysisArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositorySecurityAndAnalysis)(nil)).Elem()
+}
+
+func (i RepositorySecurityAndAnalysisArgs) ToRepositorySecurityAndAnalysisOutput() RepositorySecurityAndAnalysisOutput {
+	return i.ToRepositorySecurityAndAnalysisOutputWithContext(context.Background())
+}
+
+func (i RepositorySecurityAndAnalysisArgs) ToRepositorySecurityAndAnalysisOutputWithContext(ctx context.Context) RepositorySecurityAndAnalysisOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositorySecurityAndAnalysisOutput)
+}
+
+func (i RepositorySecurityAndAnalysisArgs) ToRepositorySecurityAndAnalysisPtrOutput() RepositorySecurityAndAnalysisPtrOutput {
+	return i.ToRepositorySecurityAndAnalysisPtrOutputWithContext(context.Background())
+}
+
+func (i RepositorySecurityAndAnalysisArgs) ToRepositorySecurityAndAnalysisPtrOutputWithContext(ctx context.Context) RepositorySecurityAndAnalysisPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositorySecurityAndAnalysisOutput).ToRepositorySecurityAndAnalysisPtrOutputWithContext(ctx)
+}
+
+// RepositorySecurityAndAnalysisPtrInput is an input type that accepts RepositorySecurityAndAnalysisArgs, RepositorySecurityAndAnalysisPtr and RepositorySecurityAndAnalysisPtrOutput values.
+// You can construct a concrete instance of `RepositorySecurityAndAnalysisPtrInput` via:
+//
+//          RepositorySecurityAndAnalysisArgs{...}
+//
+//  or:
+//
+//          nil
+type RepositorySecurityAndAnalysisPtrInput interface {
+	pulumi.Input
+
+	ToRepositorySecurityAndAnalysisPtrOutput() RepositorySecurityAndAnalysisPtrOutput
+	ToRepositorySecurityAndAnalysisPtrOutputWithContext(context.Context) RepositorySecurityAndAnalysisPtrOutput
+}
+
+type repositorySecurityAndAnalysisPtrType RepositorySecurityAndAnalysisArgs
+
+func RepositorySecurityAndAnalysisPtr(v *RepositorySecurityAndAnalysisArgs) RepositorySecurityAndAnalysisPtrInput {
+	return (*repositorySecurityAndAnalysisPtrType)(v)
+}
+
+func (*repositorySecurityAndAnalysisPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RepositorySecurityAndAnalysis)(nil)).Elem()
+}
+
+func (i *repositorySecurityAndAnalysisPtrType) ToRepositorySecurityAndAnalysisPtrOutput() RepositorySecurityAndAnalysisPtrOutput {
+	return i.ToRepositorySecurityAndAnalysisPtrOutputWithContext(context.Background())
+}
+
+func (i *repositorySecurityAndAnalysisPtrType) ToRepositorySecurityAndAnalysisPtrOutputWithContext(ctx context.Context) RepositorySecurityAndAnalysisPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositorySecurityAndAnalysisPtrOutput)
+}
+
+type RepositorySecurityAndAnalysisOutput struct{ *pulumi.OutputState }
+
+func (RepositorySecurityAndAnalysisOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositorySecurityAndAnalysis)(nil)).Elem()
+}
+
+func (o RepositorySecurityAndAnalysisOutput) ToRepositorySecurityAndAnalysisOutput() RepositorySecurityAndAnalysisOutput {
+	return o
+}
+
+func (o RepositorySecurityAndAnalysisOutput) ToRepositorySecurityAndAnalysisOutputWithContext(ctx context.Context) RepositorySecurityAndAnalysisOutput {
+	return o
+}
+
+func (o RepositorySecurityAndAnalysisOutput) ToRepositorySecurityAndAnalysisPtrOutput() RepositorySecurityAndAnalysisPtrOutput {
+	return o.ToRepositorySecurityAndAnalysisPtrOutputWithContext(context.Background())
+}
+
+func (o RepositorySecurityAndAnalysisOutput) ToRepositorySecurityAndAnalysisPtrOutputWithContext(ctx context.Context) RepositorySecurityAndAnalysisPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RepositorySecurityAndAnalysis) *RepositorySecurityAndAnalysis {
+		return &v
+	}).(RepositorySecurityAndAnalysisPtrOutput)
+}
+
+func (o RepositorySecurityAndAnalysisOutput) AdvancedSecurity() RepositorySecurityAndAnalysisAdvancedSecurityOutput {
+	return o.ApplyT(func(v RepositorySecurityAndAnalysis) RepositorySecurityAndAnalysisAdvancedSecurity {
+		return v.AdvancedSecurity
+	}).(RepositorySecurityAndAnalysisAdvancedSecurityOutput)
+}
+
+func (o RepositorySecurityAndAnalysisOutput) SecretScanning() RepositorySecurityAndAnalysisSecretScanningOutput {
+	return o.ApplyT(func(v RepositorySecurityAndAnalysis) RepositorySecurityAndAnalysisSecretScanning {
+		return v.SecretScanning
+	}).(RepositorySecurityAndAnalysisSecretScanningOutput)
+}
+
+func (o RepositorySecurityAndAnalysisOutput) SecretScanningPushProtection() RepositorySecurityAndAnalysisSecretScanningPushProtectionOutput {
+	return o.ApplyT(func(v RepositorySecurityAndAnalysis) RepositorySecurityAndAnalysisSecretScanningPushProtection {
+		return v.SecretScanningPushProtection
+	}).(RepositorySecurityAndAnalysisSecretScanningPushProtectionOutput)
+}
+
+type RepositorySecurityAndAnalysisPtrOutput struct{ *pulumi.OutputState }
+
+func (RepositorySecurityAndAnalysisPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RepositorySecurityAndAnalysis)(nil)).Elem()
+}
+
+func (o RepositorySecurityAndAnalysisPtrOutput) ToRepositorySecurityAndAnalysisPtrOutput() RepositorySecurityAndAnalysisPtrOutput {
+	return o
+}
+
+func (o RepositorySecurityAndAnalysisPtrOutput) ToRepositorySecurityAndAnalysisPtrOutputWithContext(ctx context.Context) RepositorySecurityAndAnalysisPtrOutput {
+	return o
+}
+
+func (o RepositorySecurityAndAnalysisPtrOutput) Elem() RepositorySecurityAndAnalysisOutput {
+	return o.ApplyT(func(v *RepositorySecurityAndAnalysis) RepositorySecurityAndAnalysis {
+		if v != nil {
+			return *v
+		}
+		var ret RepositorySecurityAndAnalysis
+		return ret
+	}).(RepositorySecurityAndAnalysisOutput)
+}
+
+func (o RepositorySecurityAndAnalysisPtrOutput) AdvancedSecurity() RepositorySecurityAndAnalysisAdvancedSecurityPtrOutput {
+	return o.ApplyT(func(v *RepositorySecurityAndAnalysis) *RepositorySecurityAndAnalysisAdvancedSecurity {
+		if v == nil {
+			return nil
+		}
+		return &v.AdvancedSecurity
+	}).(RepositorySecurityAndAnalysisAdvancedSecurityPtrOutput)
+}
+
+func (o RepositorySecurityAndAnalysisPtrOutput) SecretScanning() RepositorySecurityAndAnalysisSecretScanningPtrOutput {
+	return o.ApplyT(func(v *RepositorySecurityAndAnalysis) *RepositorySecurityAndAnalysisSecretScanning {
+		if v == nil {
+			return nil
+		}
+		return &v.SecretScanning
+	}).(RepositorySecurityAndAnalysisSecretScanningPtrOutput)
+}
+
+func (o RepositorySecurityAndAnalysisPtrOutput) SecretScanningPushProtection() RepositorySecurityAndAnalysisSecretScanningPushProtectionPtrOutput {
+	return o.ApplyT(func(v *RepositorySecurityAndAnalysis) *RepositorySecurityAndAnalysisSecretScanningPushProtection {
+		if v == nil {
+			return nil
+		}
+		return &v.SecretScanningPushProtection
+	}).(RepositorySecurityAndAnalysisSecretScanningPushProtectionPtrOutput)
+}
+
+type RepositorySecurityAndAnalysisAdvancedSecurity struct {
+	Status string `pulumi:"status"`
+}
+
+// RepositorySecurityAndAnalysisAdvancedSecurityInput is an input type that accepts RepositorySecurityAndAnalysisAdvancedSecurityArgs and RepositorySecurityAndAnalysisAdvancedSecurityOutput values.
+// You can construct a concrete instance of `RepositorySecurityAndAnalysisAdvancedSecurityInput` via:
+//
+//          RepositorySecurityAndAnalysisAdvancedSecurityArgs{...}
+type RepositorySecurityAndAnalysisAdvancedSecurityInput interface {
+	pulumi.Input
+
+	ToRepositorySecurityAndAnalysisAdvancedSecurityOutput() RepositorySecurityAndAnalysisAdvancedSecurityOutput
+	ToRepositorySecurityAndAnalysisAdvancedSecurityOutputWithContext(context.Context) RepositorySecurityAndAnalysisAdvancedSecurityOutput
+}
+
+type RepositorySecurityAndAnalysisAdvancedSecurityArgs struct {
+	Status pulumi.StringInput `pulumi:"status"`
+}
+
+func (RepositorySecurityAndAnalysisAdvancedSecurityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositorySecurityAndAnalysisAdvancedSecurity)(nil)).Elem()
+}
+
+func (i RepositorySecurityAndAnalysisAdvancedSecurityArgs) ToRepositorySecurityAndAnalysisAdvancedSecurityOutput() RepositorySecurityAndAnalysisAdvancedSecurityOutput {
+	return i.ToRepositorySecurityAndAnalysisAdvancedSecurityOutputWithContext(context.Background())
+}
+
+func (i RepositorySecurityAndAnalysisAdvancedSecurityArgs) ToRepositorySecurityAndAnalysisAdvancedSecurityOutputWithContext(ctx context.Context) RepositorySecurityAndAnalysisAdvancedSecurityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositorySecurityAndAnalysisAdvancedSecurityOutput)
+}
+
+func (i RepositorySecurityAndAnalysisAdvancedSecurityArgs) ToRepositorySecurityAndAnalysisAdvancedSecurityPtrOutput() RepositorySecurityAndAnalysisAdvancedSecurityPtrOutput {
+	return i.ToRepositorySecurityAndAnalysisAdvancedSecurityPtrOutputWithContext(context.Background())
+}
+
+func (i RepositorySecurityAndAnalysisAdvancedSecurityArgs) ToRepositorySecurityAndAnalysisAdvancedSecurityPtrOutputWithContext(ctx context.Context) RepositorySecurityAndAnalysisAdvancedSecurityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositorySecurityAndAnalysisAdvancedSecurityOutput).ToRepositorySecurityAndAnalysisAdvancedSecurityPtrOutputWithContext(ctx)
+}
+
+// RepositorySecurityAndAnalysisAdvancedSecurityPtrInput is an input type that accepts RepositorySecurityAndAnalysisAdvancedSecurityArgs, RepositorySecurityAndAnalysisAdvancedSecurityPtr and RepositorySecurityAndAnalysisAdvancedSecurityPtrOutput values.
+// You can construct a concrete instance of `RepositorySecurityAndAnalysisAdvancedSecurityPtrInput` via:
+//
+//          RepositorySecurityAndAnalysisAdvancedSecurityArgs{...}
+//
+//  or:
+//
+//          nil
+type RepositorySecurityAndAnalysisAdvancedSecurityPtrInput interface {
+	pulumi.Input
+
+	ToRepositorySecurityAndAnalysisAdvancedSecurityPtrOutput() RepositorySecurityAndAnalysisAdvancedSecurityPtrOutput
+	ToRepositorySecurityAndAnalysisAdvancedSecurityPtrOutputWithContext(context.Context) RepositorySecurityAndAnalysisAdvancedSecurityPtrOutput
+}
+
+type repositorySecurityAndAnalysisAdvancedSecurityPtrType RepositorySecurityAndAnalysisAdvancedSecurityArgs
+
+func RepositorySecurityAndAnalysisAdvancedSecurityPtr(v *RepositorySecurityAndAnalysisAdvancedSecurityArgs) RepositorySecurityAndAnalysisAdvancedSecurityPtrInput {
+	return (*repositorySecurityAndAnalysisAdvancedSecurityPtrType)(v)
+}
+
+func (*repositorySecurityAndAnalysisAdvancedSecurityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RepositorySecurityAndAnalysisAdvancedSecurity)(nil)).Elem()
+}
+
+func (i *repositorySecurityAndAnalysisAdvancedSecurityPtrType) ToRepositorySecurityAndAnalysisAdvancedSecurityPtrOutput() RepositorySecurityAndAnalysisAdvancedSecurityPtrOutput {
+	return i.ToRepositorySecurityAndAnalysisAdvancedSecurityPtrOutputWithContext(context.Background())
+}
+
+func (i *repositorySecurityAndAnalysisAdvancedSecurityPtrType) ToRepositorySecurityAndAnalysisAdvancedSecurityPtrOutputWithContext(ctx context.Context) RepositorySecurityAndAnalysisAdvancedSecurityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositorySecurityAndAnalysisAdvancedSecurityPtrOutput)
+}
+
+type RepositorySecurityAndAnalysisAdvancedSecurityOutput struct{ *pulumi.OutputState }
+
+func (RepositorySecurityAndAnalysisAdvancedSecurityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositorySecurityAndAnalysisAdvancedSecurity)(nil)).Elem()
+}
+
+func (o RepositorySecurityAndAnalysisAdvancedSecurityOutput) ToRepositorySecurityAndAnalysisAdvancedSecurityOutput() RepositorySecurityAndAnalysisAdvancedSecurityOutput {
+	return o
+}
+
+func (o RepositorySecurityAndAnalysisAdvancedSecurityOutput) ToRepositorySecurityAndAnalysisAdvancedSecurityOutputWithContext(ctx context.Context) RepositorySecurityAndAnalysisAdvancedSecurityOutput {
+	return o
+}
+
+func (o RepositorySecurityAndAnalysisAdvancedSecurityOutput) ToRepositorySecurityAndAnalysisAdvancedSecurityPtrOutput() RepositorySecurityAndAnalysisAdvancedSecurityPtrOutput {
+	return o.ToRepositorySecurityAndAnalysisAdvancedSecurityPtrOutputWithContext(context.Background())
+}
+
+func (o RepositorySecurityAndAnalysisAdvancedSecurityOutput) ToRepositorySecurityAndAnalysisAdvancedSecurityPtrOutputWithContext(ctx context.Context) RepositorySecurityAndAnalysisAdvancedSecurityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RepositorySecurityAndAnalysisAdvancedSecurity) *RepositorySecurityAndAnalysisAdvancedSecurity {
+		return &v
+	}).(RepositorySecurityAndAnalysisAdvancedSecurityPtrOutput)
+}
+
+func (o RepositorySecurityAndAnalysisAdvancedSecurityOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v RepositorySecurityAndAnalysisAdvancedSecurity) string { return v.Status }).(pulumi.StringOutput)
+}
+
+type RepositorySecurityAndAnalysisAdvancedSecurityPtrOutput struct{ *pulumi.OutputState }
+
+func (RepositorySecurityAndAnalysisAdvancedSecurityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RepositorySecurityAndAnalysisAdvancedSecurity)(nil)).Elem()
+}
+
+func (o RepositorySecurityAndAnalysisAdvancedSecurityPtrOutput) ToRepositorySecurityAndAnalysisAdvancedSecurityPtrOutput() RepositorySecurityAndAnalysisAdvancedSecurityPtrOutput {
+	return o
+}
+
+func (o RepositorySecurityAndAnalysisAdvancedSecurityPtrOutput) ToRepositorySecurityAndAnalysisAdvancedSecurityPtrOutputWithContext(ctx context.Context) RepositorySecurityAndAnalysisAdvancedSecurityPtrOutput {
+	return o
+}
+
+func (o RepositorySecurityAndAnalysisAdvancedSecurityPtrOutput) Elem() RepositorySecurityAndAnalysisAdvancedSecurityOutput {
+	return o.ApplyT(func(v *RepositorySecurityAndAnalysisAdvancedSecurity) RepositorySecurityAndAnalysisAdvancedSecurity {
+		if v != nil {
+			return *v
+		}
+		var ret RepositorySecurityAndAnalysisAdvancedSecurity
+		return ret
+	}).(RepositorySecurityAndAnalysisAdvancedSecurityOutput)
+}
+
+func (o RepositorySecurityAndAnalysisAdvancedSecurityPtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RepositorySecurityAndAnalysisAdvancedSecurity) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Status
+	}).(pulumi.StringPtrOutput)
+}
+
+type RepositorySecurityAndAnalysisSecretScanning struct {
+	Status string `pulumi:"status"`
+}
+
+// RepositorySecurityAndAnalysisSecretScanningInput is an input type that accepts RepositorySecurityAndAnalysisSecretScanningArgs and RepositorySecurityAndAnalysisSecretScanningOutput values.
+// You can construct a concrete instance of `RepositorySecurityAndAnalysisSecretScanningInput` via:
+//
+//          RepositorySecurityAndAnalysisSecretScanningArgs{...}
+type RepositorySecurityAndAnalysisSecretScanningInput interface {
+	pulumi.Input
+
+	ToRepositorySecurityAndAnalysisSecretScanningOutput() RepositorySecurityAndAnalysisSecretScanningOutput
+	ToRepositorySecurityAndAnalysisSecretScanningOutputWithContext(context.Context) RepositorySecurityAndAnalysisSecretScanningOutput
+}
+
+type RepositorySecurityAndAnalysisSecretScanningArgs struct {
+	Status pulumi.StringInput `pulumi:"status"`
+}
+
+func (RepositorySecurityAndAnalysisSecretScanningArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositorySecurityAndAnalysisSecretScanning)(nil)).Elem()
+}
+
+func (i RepositorySecurityAndAnalysisSecretScanningArgs) ToRepositorySecurityAndAnalysisSecretScanningOutput() RepositorySecurityAndAnalysisSecretScanningOutput {
+	return i.ToRepositorySecurityAndAnalysisSecretScanningOutputWithContext(context.Background())
+}
+
+func (i RepositorySecurityAndAnalysisSecretScanningArgs) ToRepositorySecurityAndAnalysisSecretScanningOutputWithContext(ctx context.Context) RepositorySecurityAndAnalysisSecretScanningOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositorySecurityAndAnalysisSecretScanningOutput)
+}
+
+func (i RepositorySecurityAndAnalysisSecretScanningArgs) ToRepositorySecurityAndAnalysisSecretScanningPtrOutput() RepositorySecurityAndAnalysisSecretScanningPtrOutput {
+	return i.ToRepositorySecurityAndAnalysisSecretScanningPtrOutputWithContext(context.Background())
+}
+
+func (i RepositorySecurityAndAnalysisSecretScanningArgs) ToRepositorySecurityAndAnalysisSecretScanningPtrOutputWithContext(ctx context.Context) RepositorySecurityAndAnalysisSecretScanningPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositorySecurityAndAnalysisSecretScanningOutput).ToRepositorySecurityAndAnalysisSecretScanningPtrOutputWithContext(ctx)
+}
+
+// RepositorySecurityAndAnalysisSecretScanningPtrInput is an input type that accepts RepositorySecurityAndAnalysisSecretScanningArgs, RepositorySecurityAndAnalysisSecretScanningPtr and RepositorySecurityAndAnalysisSecretScanningPtrOutput values.
+// You can construct a concrete instance of `RepositorySecurityAndAnalysisSecretScanningPtrInput` via:
+//
+//          RepositorySecurityAndAnalysisSecretScanningArgs{...}
+//
+//  or:
+//
+//          nil
+type RepositorySecurityAndAnalysisSecretScanningPtrInput interface {
+	pulumi.Input
+
+	ToRepositorySecurityAndAnalysisSecretScanningPtrOutput() RepositorySecurityAndAnalysisSecretScanningPtrOutput
+	ToRepositorySecurityAndAnalysisSecretScanningPtrOutputWithContext(context.Context) RepositorySecurityAndAnalysisSecretScanningPtrOutput
+}
+
+type repositorySecurityAndAnalysisSecretScanningPtrType RepositorySecurityAndAnalysisSecretScanningArgs
+
+func RepositorySecurityAndAnalysisSecretScanningPtr(v *RepositorySecurityAndAnalysisSecretScanningArgs) RepositorySecurityAndAnalysisSecretScanningPtrInput {
+	return (*repositorySecurityAndAnalysisSecretScanningPtrType)(v)
+}
+
+func (*repositorySecurityAndAnalysisSecretScanningPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RepositorySecurityAndAnalysisSecretScanning)(nil)).Elem()
+}
+
+func (i *repositorySecurityAndAnalysisSecretScanningPtrType) ToRepositorySecurityAndAnalysisSecretScanningPtrOutput() RepositorySecurityAndAnalysisSecretScanningPtrOutput {
+	return i.ToRepositorySecurityAndAnalysisSecretScanningPtrOutputWithContext(context.Background())
+}
+
+func (i *repositorySecurityAndAnalysisSecretScanningPtrType) ToRepositorySecurityAndAnalysisSecretScanningPtrOutputWithContext(ctx context.Context) RepositorySecurityAndAnalysisSecretScanningPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositorySecurityAndAnalysisSecretScanningPtrOutput)
+}
+
+type RepositorySecurityAndAnalysisSecretScanningOutput struct{ *pulumi.OutputState }
+
+func (RepositorySecurityAndAnalysisSecretScanningOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositorySecurityAndAnalysisSecretScanning)(nil)).Elem()
+}
+
+func (o RepositorySecurityAndAnalysisSecretScanningOutput) ToRepositorySecurityAndAnalysisSecretScanningOutput() RepositorySecurityAndAnalysisSecretScanningOutput {
+	return o
+}
+
+func (o RepositorySecurityAndAnalysisSecretScanningOutput) ToRepositorySecurityAndAnalysisSecretScanningOutputWithContext(ctx context.Context) RepositorySecurityAndAnalysisSecretScanningOutput {
+	return o
+}
+
+func (o RepositorySecurityAndAnalysisSecretScanningOutput) ToRepositorySecurityAndAnalysisSecretScanningPtrOutput() RepositorySecurityAndAnalysisSecretScanningPtrOutput {
+	return o.ToRepositorySecurityAndAnalysisSecretScanningPtrOutputWithContext(context.Background())
+}
+
+func (o RepositorySecurityAndAnalysisSecretScanningOutput) ToRepositorySecurityAndAnalysisSecretScanningPtrOutputWithContext(ctx context.Context) RepositorySecurityAndAnalysisSecretScanningPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RepositorySecurityAndAnalysisSecretScanning) *RepositorySecurityAndAnalysisSecretScanning {
+		return &v
+	}).(RepositorySecurityAndAnalysisSecretScanningPtrOutput)
+}
+
+func (o RepositorySecurityAndAnalysisSecretScanningOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v RepositorySecurityAndAnalysisSecretScanning) string { return v.Status }).(pulumi.StringOutput)
+}
+
+type RepositorySecurityAndAnalysisSecretScanningPtrOutput struct{ *pulumi.OutputState }
+
+func (RepositorySecurityAndAnalysisSecretScanningPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RepositorySecurityAndAnalysisSecretScanning)(nil)).Elem()
+}
+
+func (o RepositorySecurityAndAnalysisSecretScanningPtrOutput) ToRepositorySecurityAndAnalysisSecretScanningPtrOutput() RepositorySecurityAndAnalysisSecretScanningPtrOutput {
+	return o
+}
+
+func (o RepositorySecurityAndAnalysisSecretScanningPtrOutput) ToRepositorySecurityAndAnalysisSecretScanningPtrOutputWithContext(ctx context.Context) RepositorySecurityAndAnalysisSecretScanningPtrOutput {
+	return o
+}
+
+func (o RepositorySecurityAndAnalysisSecretScanningPtrOutput) Elem() RepositorySecurityAndAnalysisSecretScanningOutput {
+	return o.ApplyT(func(v *RepositorySecurityAndAnalysisSecretScanning) RepositorySecurityAndAnalysisSecretScanning {
+		if v != nil {
+			return *v
+		}
+		var ret RepositorySecurityAndAnalysisSecretScanning
+		return ret
+	}).(RepositorySecurityAndAnalysisSecretScanningOutput)
+}
+
+func (o RepositorySecurityAndAnalysisSecretScanningPtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RepositorySecurityAndAnalysisSecretScanning) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Status
+	}).(pulumi.StringPtrOutput)
+}
+
+type RepositorySecurityAndAnalysisSecretScanningPushProtection struct {
+	Status string `pulumi:"status"`
+}
+
+// RepositorySecurityAndAnalysisSecretScanningPushProtectionInput is an input type that accepts RepositorySecurityAndAnalysisSecretScanningPushProtectionArgs and RepositorySecurityAndAnalysisSecretScanningPushProtectionOutput values.
+// You can construct a concrete instance of `RepositorySecurityAndAnalysisSecretScanningPushProtectionInput` via:
+//
+//          RepositorySecurityAndAnalysisSecretScanningPushProtectionArgs{...}
+type RepositorySecurityAndAnalysisSecretScanningPushProtectionInput interface {
+	pulumi.Input
+
+	ToRepositorySecurityAndAnalysisSecretScanningPushProtectionOutput() RepositorySecurityAndAnalysisSecretScanningPushProtectionOutput
+	ToRepositorySecurityAndAnalysisSecretScanningPushProtectionOutputWithContext(context.Context) RepositorySecurityAndAnalysisSecretScanningPushProtectionOutput
+}
+
+type RepositorySecurityAndAnalysisSecretScanningPushProtectionArgs struct {
+	Status pulumi.StringInput `pulumi:"status"`
+}
+
+func (RepositorySecurityAndAnalysisSecretScanningPushProtectionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositorySecurityAndAnalysisSecretScanningPushProtection)(nil)).Elem()
+}
+
+func (i RepositorySecurityAndAnalysisSecretScanningPushProtectionArgs) ToRepositorySecurityAndAnalysisSecretScanningPushProtectionOutput() RepositorySecurityAndAnalysisSecretScanningPushProtectionOutput {
+	return i.ToRepositorySecurityAndAnalysisSecretScanningPushProtectionOutputWithContext(context.Background())
+}
+
+func (i RepositorySecurityAndAnalysisSecretScanningPushProtectionArgs) ToRepositorySecurityAndAnalysisSecretScanningPushProtectionOutputWithContext(ctx context.Context) RepositorySecurityAndAnalysisSecretScanningPushProtectionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositorySecurityAndAnalysisSecretScanningPushProtectionOutput)
+}
+
+func (i RepositorySecurityAndAnalysisSecretScanningPushProtectionArgs) ToRepositorySecurityAndAnalysisSecretScanningPushProtectionPtrOutput() RepositorySecurityAndAnalysisSecretScanningPushProtectionPtrOutput {
+	return i.ToRepositorySecurityAndAnalysisSecretScanningPushProtectionPtrOutputWithContext(context.Background())
+}
+
+func (i RepositorySecurityAndAnalysisSecretScanningPushProtectionArgs) ToRepositorySecurityAndAnalysisSecretScanningPushProtectionPtrOutputWithContext(ctx context.Context) RepositorySecurityAndAnalysisSecretScanningPushProtectionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositorySecurityAndAnalysisSecretScanningPushProtectionOutput).ToRepositorySecurityAndAnalysisSecretScanningPushProtectionPtrOutputWithContext(ctx)
+}
+
+// RepositorySecurityAndAnalysisSecretScanningPushProtectionPtrInput is an input type that accepts RepositorySecurityAndAnalysisSecretScanningPushProtectionArgs, RepositorySecurityAndAnalysisSecretScanningPushProtectionPtr and RepositorySecurityAndAnalysisSecretScanningPushProtectionPtrOutput values.
+// You can construct a concrete instance of `RepositorySecurityAndAnalysisSecretScanningPushProtectionPtrInput` via:
+//
+//          RepositorySecurityAndAnalysisSecretScanningPushProtectionArgs{...}
+//
+//  or:
+//
+//          nil
+type RepositorySecurityAndAnalysisSecretScanningPushProtectionPtrInput interface {
+	pulumi.Input
+
+	ToRepositorySecurityAndAnalysisSecretScanningPushProtectionPtrOutput() RepositorySecurityAndAnalysisSecretScanningPushProtectionPtrOutput
+	ToRepositorySecurityAndAnalysisSecretScanningPushProtectionPtrOutputWithContext(context.Context) RepositorySecurityAndAnalysisSecretScanningPushProtectionPtrOutput
+}
+
+type repositorySecurityAndAnalysisSecretScanningPushProtectionPtrType RepositorySecurityAndAnalysisSecretScanningPushProtectionArgs
+
+func RepositorySecurityAndAnalysisSecretScanningPushProtectionPtr(v *RepositorySecurityAndAnalysisSecretScanningPushProtectionArgs) RepositorySecurityAndAnalysisSecretScanningPushProtectionPtrInput {
+	return (*repositorySecurityAndAnalysisSecretScanningPushProtectionPtrType)(v)
+}
+
+func (*repositorySecurityAndAnalysisSecretScanningPushProtectionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RepositorySecurityAndAnalysisSecretScanningPushProtection)(nil)).Elem()
+}
+
+func (i *repositorySecurityAndAnalysisSecretScanningPushProtectionPtrType) ToRepositorySecurityAndAnalysisSecretScanningPushProtectionPtrOutput() RepositorySecurityAndAnalysisSecretScanningPushProtectionPtrOutput {
+	return i.ToRepositorySecurityAndAnalysisSecretScanningPushProtectionPtrOutputWithContext(context.Background())
+}
+
+func (i *repositorySecurityAndAnalysisSecretScanningPushProtectionPtrType) ToRepositorySecurityAndAnalysisSecretScanningPushProtectionPtrOutputWithContext(ctx context.Context) RepositorySecurityAndAnalysisSecretScanningPushProtectionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositorySecurityAndAnalysisSecretScanningPushProtectionPtrOutput)
+}
+
+type RepositorySecurityAndAnalysisSecretScanningPushProtectionOutput struct{ *pulumi.OutputState }
+
+func (RepositorySecurityAndAnalysisSecretScanningPushProtectionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositorySecurityAndAnalysisSecretScanningPushProtection)(nil)).Elem()
+}
+
+func (o RepositorySecurityAndAnalysisSecretScanningPushProtectionOutput) ToRepositorySecurityAndAnalysisSecretScanningPushProtectionOutput() RepositorySecurityAndAnalysisSecretScanningPushProtectionOutput {
+	return o
+}
+
+func (o RepositorySecurityAndAnalysisSecretScanningPushProtectionOutput) ToRepositorySecurityAndAnalysisSecretScanningPushProtectionOutputWithContext(ctx context.Context) RepositorySecurityAndAnalysisSecretScanningPushProtectionOutput {
+	return o
+}
+
+func (o RepositorySecurityAndAnalysisSecretScanningPushProtectionOutput) ToRepositorySecurityAndAnalysisSecretScanningPushProtectionPtrOutput() RepositorySecurityAndAnalysisSecretScanningPushProtectionPtrOutput {
+	return o.ToRepositorySecurityAndAnalysisSecretScanningPushProtectionPtrOutputWithContext(context.Background())
+}
+
+func (o RepositorySecurityAndAnalysisSecretScanningPushProtectionOutput) ToRepositorySecurityAndAnalysisSecretScanningPushProtectionPtrOutputWithContext(ctx context.Context) RepositorySecurityAndAnalysisSecretScanningPushProtectionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RepositorySecurityAndAnalysisSecretScanningPushProtection) *RepositorySecurityAndAnalysisSecretScanningPushProtection {
+		return &v
+	}).(RepositorySecurityAndAnalysisSecretScanningPushProtectionPtrOutput)
+}
+
+func (o RepositorySecurityAndAnalysisSecretScanningPushProtectionOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v RepositorySecurityAndAnalysisSecretScanningPushProtection) string { return v.Status }).(pulumi.StringOutput)
+}
+
+type RepositorySecurityAndAnalysisSecretScanningPushProtectionPtrOutput struct{ *pulumi.OutputState }
+
+func (RepositorySecurityAndAnalysisSecretScanningPushProtectionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RepositorySecurityAndAnalysisSecretScanningPushProtection)(nil)).Elem()
+}
+
+func (o RepositorySecurityAndAnalysisSecretScanningPushProtectionPtrOutput) ToRepositorySecurityAndAnalysisSecretScanningPushProtectionPtrOutput() RepositorySecurityAndAnalysisSecretScanningPushProtectionPtrOutput {
+	return o
+}
+
+func (o RepositorySecurityAndAnalysisSecretScanningPushProtectionPtrOutput) ToRepositorySecurityAndAnalysisSecretScanningPushProtectionPtrOutputWithContext(ctx context.Context) RepositorySecurityAndAnalysisSecretScanningPushProtectionPtrOutput {
+	return o
+}
+
+func (o RepositorySecurityAndAnalysisSecretScanningPushProtectionPtrOutput) Elem() RepositorySecurityAndAnalysisSecretScanningPushProtectionOutput {
+	return o.ApplyT(func(v *RepositorySecurityAndAnalysisSecretScanningPushProtection) RepositorySecurityAndAnalysisSecretScanningPushProtection {
+		if v != nil {
+			return *v
+		}
+		var ret RepositorySecurityAndAnalysisSecretScanningPushProtection
+		return ret
+	}).(RepositorySecurityAndAnalysisSecretScanningPushProtectionOutput)
+}
+
+func (o RepositorySecurityAndAnalysisSecretScanningPushProtectionPtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RepositorySecurityAndAnalysisSecretScanningPushProtection) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Status
+	}).(pulumi.StringPtrOutput)
+}
+
 type RepositoryTemplate struct {
 	IncludeAllBranches *bool  `pulumi:"includeAllBranches"`
 	Owner              string `pulumi:"owner"`
@@ -2026,7 +2763,7 @@ type RepositoryTemplate struct {
 // RepositoryTemplateInput is an input type that accepts RepositoryTemplateArgs and RepositoryTemplateOutput values.
 // You can construct a concrete instance of `RepositoryTemplateInput` via:
 //
-//	RepositoryTemplateArgs{...}
+//          RepositoryTemplateArgs{...}
 type RepositoryTemplateInput interface {
 	pulumi.Input
 
@@ -2063,11 +2800,11 @@ func (i RepositoryTemplateArgs) ToRepositoryTemplatePtrOutputWithContext(ctx con
 // RepositoryTemplatePtrInput is an input type that accepts RepositoryTemplateArgs, RepositoryTemplatePtr and RepositoryTemplatePtrOutput values.
 // You can construct a concrete instance of `RepositoryTemplatePtrInput` via:
 //
-//	        RepositoryTemplateArgs{...}
+//          RepositoryTemplateArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type RepositoryTemplatePtrInput interface {
 	pulumi.Input
 
@@ -2190,7 +2927,7 @@ type RepositoryWebhookConfiguration struct {
 // RepositoryWebhookConfigurationInput is an input type that accepts RepositoryWebhookConfigurationArgs and RepositoryWebhookConfigurationOutput values.
 // You can construct a concrete instance of `RepositoryWebhookConfigurationInput` via:
 //
-//	RepositoryWebhookConfigurationArgs{...}
+//          RepositoryWebhookConfigurationArgs{...}
 type RepositoryWebhookConfigurationInput interface {
 	pulumi.Input
 
@@ -2228,11 +2965,11 @@ func (i RepositoryWebhookConfigurationArgs) ToRepositoryWebhookConfigurationPtrO
 // RepositoryWebhookConfigurationPtrInput is an input type that accepts RepositoryWebhookConfigurationArgs, RepositoryWebhookConfigurationPtr and RepositoryWebhookConfigurationPtrOutput values.
 // You can construct a concrete instance of `RepositoryWebhookConfigurationPtrInput` via:
 //
-//	        RepositoryWebhookConfigurationArgs{...}
+//          RepositoryWebhookConfigurationArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type RepositoryWebhookConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -2366,7 +3103,7 @@ type TeamMembersMember struct {
 // TeamMembersMemberInput is an input type that accepts TeamMembersMemberArgs and TeamMembersMemberOutput values.
 // You can construct a concrete instance of `TeamMembersMemberInput` via:
 //
-//	TeamMembersMemberArgs{...}
+//          TeamMembersMemberArgs{...}
 type TeamMembersMemberInput interface {
 	pulumi.Input
 
@@ -2394,7 +3131,7 @@ func (i TeamMembersMemberArgs) ToTeamMembersMemberOutputWithContext(ctx context.
 // TeamMembersMemberArrayInput is an input type that accepts TeamMembersMemberArray and TeamMembersMemberArrayOutput values.
 // You can construct a concrete instance of `TeamMembersMemberArrayInput` via:
 //
-//	TeamMembersMemberArray{ TeamMembersMemberArgs{...} }
+//          TeamMembersMemberArray{ TeamMembersMemberArgs{...} }
 type TeamMembersMemberArrayInput interface {
 	pulumi.Input
 
@@ -2458,6 +3195,169 @@ func (o TeamMembersMemberArrayOutput) Index(i pulumi.IntInput) TeamMembersMember
 	}).(TeamMembersMemberOutput)
 }
 
+type TeamSettingsReviewRequestDelegation struct {
+	Algorithm   *string `pulumi:"algorithm"`
+	MemberCount *int    `pulumi:"memberCount"`
+	Notify      *bool   `pulumi:"notify"`
+}
+
+// TeamSettingsReviewRequestDelegationInput is an input type that accepts TeamSettingsReviewRequestDelegationArgs and TeamSettingsReviewRequestDelegationOutput values.
+// You can construct a concrete instance of `TeamSettingsReviewRequestDelegationInput` via:
+//
+//          TeamSettingsReviewRequestDelegationArgs{...}
+type TeamSettingsReviewRequestDelegationInput interface {
+	pulumi.Input
+
+	ToTeamSettingsReviewRequestDelegationOutput() TeamSettingsReviewRequestDelegationOutput
+	ToTeamSettingsReviewRequestDelegationOutputWithContext(context.Context) TeamSettingsReviewRequestDelegationOutput
+}
+
+type TeamSettingsReviewRequestDelegationArgs struct {
+	Algorithm   pulumi.StringPtrInput `pulumi:"algorithm"`
+	MemberCount pulumi.IntPtrInput    `pulumi:"memberCount"`
+	Notify      pulumi.BoolPtrInput   `pulumi:"notify"`
+}
+
+func (TeamSettingsReviewRequestDelegationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TeamSettingsReviewRequestDelegation)(nil)).Elem()
+}
+
+func (i TeamSettingsReviewRequestDelegationArgs) ToTeamSettingsReviewRequestDelegationOutput() TeamSettingsReviewRequestDelegationOutput {
+	return i.ToTeamSettingsReviewRequestDelegationOutputWithContext(context.Background())
+}
+
+func (i TeamSettingsReviewRequestDelegationArgs) ToTeamSettingsReviewRequestDelegationOutputWithContext(ctx context.Context) TeamSettingsReviewRequestDelegationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TeamSettingsReviewRequestDelegationOutput)
+}
+
+func (i TeamSettingsReviewRequestDelegationArgs) ToTeamSettingsReviewRequestDelegationPtrOutput() TeamSettingsReviewRequestDelegationPtrOutput {
+	return i.ToTeamSettingsReviewRequestDelegationPtrOutputWithContext(context.Background())
+}
+
+func (i TeamSettingsReviewRequestDelegationArgs) ToTeamSettingsReviewRequestDelegationPtrOutputWithContext(ctx context.Context) TeamSettingsReviewRequestDelegationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TeamSettingsReviewRequestDelegationOutput).ToTeamSettingsReviewRequestDelegationPtrOutputWithContext(ctx)
+}
+
+// TeamSettingsReviewRequestDelegationPtrInput is an input type that accepts TeamSettingsReviewRequestDelegationArgs, TeamSettingsReviewRequestDelegationPtr and TeamSettingsReviewRequestDelegationPtrOutput values.
+// You can construct a concrete instance of `TeamSettingsReviewRequestDelegationPtrInput` via:
+//
+//          TeamSettingsReviewRequestDelegationArgs{...}
+//
+//  or:
+//
+//          nil
+type TeamSettingsReviewRequestDelegationPtrInput interface {
+	pulumi.Input
+
+	ToTeamSettingsReviewRequestDelegationPtrOutput() TeamSettingsReviewRequestDelegationPtrOutput
+	ToTeamSettingsReviewRequestDelegationPtrOutputWithContext(context.Context) TeamSettingsReviewRequestDelegationPtrOutput
+}
+
+type teamSettingsReviewRequestDelegationPtrType TeamSettingsReviewRequestDelegationArgs
+
+func TeamSettingsReviewRequestDelegationPtr(v *TeamSettingsReviewRequestDelegationArgs) TeamSettingsReviewRequestDelegationPtrInput {
+	return (*teamSettingsReviewRequestDelegationPtrType)(v)
+}
+
+func (*teamSettingsReviewRequestDelegationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TeamSettingsReviewRequestDelegation)(nil)).Elem()
+}
+
+func (i *teamSettingsReviewRequestDelegationPtrType) ToTeamSettingsReviewRequestDelegationPtrOutput() TeamSettingsReviewRequestDelegationPtrOutput {
+	return i.ToTeamSettingsReviewRequestDelegationPtrOutputWithContext(context.Background())
+}
+
+func (i *teamSettingsReviewRequestDelegationPtrType) ToTeamSettingsReviewRequestDelegationPtrOutputWithContext(ctx context.Context) TeamSettingsReviewRequestDelegationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TeamSettingsReviewRequestDelegationPtrOutput)
+}
+
+type TeamSettingsReviewRequestDelegationOutput struct{ *pulumi.OutputState }
+
+func (TeamSettingsReviewRequestDelegationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TeamSettingsReviewRequestDelegation)(nil)).Elem()
+}
+
+func (o TeamSettingsReviewRequestDelegationOutput) ToTeamSettingsReviewRequestDelegationOutput() TeamSettingsReviewRequestDelegationOutput {
+	return o
+}
+
+func (o TeamSettingsReviewRequestDelegationOutput) ToTeamSettingsReviewRequestDelegationOutputWithContext(ctx context.Context) TeamSettingsReviewRequestDelegationOutput {
+	return o
+}
+
+func (o TeamSettingsReviewRequestDelegationOutput) ToTeamSettingsReviewRequestDelegationPtrOutput() TeamSettingsReviewRequestDelegationPtrOutput {
+	return o.ToTeamSettingsReviewRequestDelegationPtrOutputWithContext(context.Background())
+}
+
+func (o TeamSettingsReviewRequestDelegationOutput) ToTeamSettingsReviewRequestDelegationPtrOutputWithContext(ctx context.Context) TeamSettingsReviewRequestDelegationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TeamSettingsReviewRequestDelegation) *TeamSettingsReviewRequestDelegation {
+		return &v
+	}).(TeamSettingsReviewRequestDelegationPtrOutput)
+}
+
+func (o TeamSettingsReviewRequestDelegationOutput) Algorithm() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TeamSettingsReviewRequestDelegation) *string { return v.Algorithm }).(pulumi.StringPtrOutput)
+}
+
+func (o TeamSettingsReviewRequestDelegationOutput) MemberCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v TeamSettingsReviewRequestDelegation) *int { return v.MemberCount }).(pulumi.IntPtrOutput)
+}
+
+func (o TeamSettingsReviewRequestDelegationOutput) Notify() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v TeamSettingsReviewRequestDelegation) *bool { return v.Notify }).(pulumi.BoolPtrOutput)
+}
+
+type TeamSettingsReviewRequestDelegationPtrOutput struct{ *pulumi.OutputState }
+
+func (TeamSettingsReviewRequestDelegationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TeamSettingsReviewRequestDelegation)(nil)).Elem()
+}
+
+func (o TeamSettingsReviewRequestDelegationPtrOutput) ToTeamSettingsReviewRequestDelegationPtrOutput() TeamSettingsReviewRequestDelegationPtrOutput {
+	return o
+}
+
+func (o TeamSettingsReviewRequestDelegationPtrOutput) ToTeamSettingsReviewRequestDelegationPtrOutputWithContext(ctx context.Context) TeamSettingsReviewRequestDelegationPtrOutput {
+	return o
+}
+
+func (o TeamSettingsReviewRequestDelegationPtrOutput) Elem() TeamSettingsReviewRequestDelegationOutput {
+	return o.ApplyT(func(v *TeamSettingsReviewRequestDelegation) TeamSettingsReviewRequestDelegation {
+		if v != nil {
+			return *v
+		}
+		var ret TeamSettingsReviewRequestDelegation
+		return ret
+	}).(TeamSettingsReviewRequestDelegationOutput)
+}
+
+func (o TeamSettingsReviewRequestDelegationPtrOutput) Algorithm() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TeamSettingsReviewRequestDelegation) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Algorithm
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o TeamSettingsReviewRequestDelegationPtrOutput) MemberCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TeamSettingsReviewRequestDelegation) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MemberCount
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o TeamSettingsReviewRequestDelegationPtrOutput) Notify() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TeamSettingsReviewRequestDelegation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Notify
+	}).(pulumi.BoolPtrOutput)
+}
+
 type TeamSyncGroupMappingGroup struct {
 	GroupDescription string `pulumi:"groupDescription"`
 	GroupId          string `pulumi:"groupId"`
@@ -2467,7 +3367,7 @@ type TeamSyncGroupMappingGroup struct {
 // TeamSyncGroupMappingGroupInput is an input type that accepts TeamSyncGroupMappingGroupArgs and TeamSyncGroupMappingGroupOutput values.
 // You can construct a concrete instance of `TeamSyncGroupMappingGroupInput` via:
 //
-//	TeamSyncGroupMappingGroupArgs{...}
+//          TeamSyncGroupMappingGroupArgs{...}
 type TeamSyncGroupMappingGroupInput interface {
 	pulumi.Input
 
@@ -2496,7 +3396,7 @@ func (i TeamSyncGroupMappingGroupArgs) ToTeamSyncGroupMappingGroupOutputWithCont
 // TeamSyncGroupMappingGroupArrayInput is an input type that accepts TeamSyncGroupMappingGroupArray and TeamSyncGroupMappingGroupArrayOutput values.
 // You can construct a concrete instance of `TeamSyncGroupMappingGroupArrayInput` via:
 //
-//	TeamSyncGroupMappingGroupArray{ TeamSyncGroupMappingGroupArgs{...} }
+//          TeamSyncGroupMappingGroupArray{ TeamSyncGroupMappingGroupArgs{...} }
 type TeamSyncGroupMappingGroupArrayInput interface {
 	pulumi.Input
 
@@ -2574,7 +3474,7 @@ type GetActionsOrganizationSecretsSecret struct {
 // GetActionsOrganizationSecretsSecretInput is an input type that accepts GetActionsOrganizationSecretsSecretArgs and GetActionsOrganizationSecretsSecretOutput values.
 // You can construct a concrete instance of `GetActionsOrganizationSecretsSecretInput` via:
 //
-//	GetActionsOrganizationSecretsSecretArgs{...}
+//          GetActionsOrganizationSecretsSecretArgs{...}
 type GetActionsOrganizationSecretsSecretInput interface {
 	pulumi.Input
 
@@ -2604,7 +3504,7 @@ func (i GetActionsOrganizationSecretsSecretArgs) ToGetActionsOrganizationSecrets
 // GetActionsOrganizationSecretsSecretArrayInput is an input type that accepts GetActionsOrganizationSecretsSecretArray and GetActionsOrganizationSecretsSecretArrayOutput values.
 // You can construct a concrete instance of `GetActionsOrganizationSecretsSecretArrayInput` via:
 //
-//	GetActionsOrganizationSecretsSecretArray{ GetActionsOrganizationSecretsSecretArgs{...} }
+//          GetActionsOrganizationSecretsSecretArray{ GetActionsOrganizationSecretsSecretArgs{...} }
 type GetActionsOrganizationSecretsSecretArrayInput interface {
 	pulumi.Input
 
@@ -2685,7 +3585,7 @@ type GetActionsSecretsSecret struct {
 // GetActionsSecretsSecretInput is an input type that accepts GetActionsSecretsSecretArgs and GetActionsSecretsSecretOutput values.
 // You can construct a concrete instance of `GetActionsSecretsSecretInput` via:
 //
-//	GetActionsSecretsSecretArgs{...}
+//          GetActionsSecretsSecretArgs{...}
 type GetActionsSecretsSecretInput interface {
 	pulumi.Input
 
@@ -2714,7 +3614,7 @@ func (i GetActionsSecretsSecretArgs) ToGetActionsSecretsSecretOutputWithContext(
 // GetActionsSecretsSecretArrayInput is an input type that accepts GetActionsSecretsSecretArray and GetActionsSecretsSecretArrayOutput values.
 // You can construct a concrete instance of `GetActionsSecretsSecretArrayInput` via:
 //
-//	GetActionsSecretsSecretArray{ GetActionsSecretsSecretArgs{...} }
+//          GetActionsSecretsSecretArray{ GetActionsSecretsSecretArgs{...} }
 type GetActionsSecretsSecretArrayInput interface {
 	pulumi.Input
 
@@ -2804,7 +3704,7 @@ type GetCollaboratorsCollaborator struct {
 // GetCollaboratorsCollaboratorInput is an input type that accepts GetCollaboratorsCollaboratorArgs and GetCollaboratorsCollaboratorOutput values.
 // You can construct a concrete instance of `GetCollaboratorsCollaboratorInput` via:
 //
-//	GetCollaboratorsCollaboratorArgs{...}
+//          GetCollaboratorsCollaboratorArgs{...}
 type GetCollaboratorsCollaboratorInput interface {
 	pulumi.Input
 
@@ -2846,7 +3746,7 @@ func (i GetCollaboratorsCollaboratorArgs) ToGetCollaboratorsCollaboratorOutputWi
 // GetCollaboratorsCollaboratorArrayInput is an input type that accepts GetCollaboratorsCollaboratorArray and GetCollaboratorsCollaboratorArrayOutput values.
 // You can construct a concrete instance of `GetCollaboratorsCollaboratorArrayInput` via:
 //
-//	GetCollaboratorsCollaboratorArray{ GetCollaboratorsCollaboratorArgs{...} }
+//          GetCollaboratorsCollaboratorArray{ GetCollaboratorsCollaboratorArgs{...} }
 type GetCollaboratorsCollaboratorArrayInput interface {
 	pulumi.Input
 
@@ -2976,7 +3876,7 @@ type GetDependabotOrganizationSecretsSecret struct {
 // GetDependabotOrganizationSecretsSecretInput is an input type that accepts GetDependabotOrganizationSecretsSecretArgs and GetDependabotOrganizationSecretsSecretOutput values.
 // You can construct a concrete instance of `GetDependabotOrganizationSecretsSecretInput` via:
 //
-//	GetDependabotOrganizationSecretsSecretArgs{...}
+//          GetDependabotOrganizationSecretsSecretArgs{...}
 type GetDependabotOrganizationSecretsSecretInput interface {
 	pulumi.Input
 
@@ -3006,7 +3906,7 @@ func (i GetDependabotOrganizationSecretsSecretArgs) ToGetDependabotOrganizationS
 // GetDependabotOrganizationSecretsSecretArrayInput is an input type that accepts GetDependabotOrganizationSecretsSecretArray and GetDependabotOrganizationSecretsSecretArrayOutput values.
 // You can construct a concrete instance of `GetDependabotOrganizationSecretsSecretArrayInput` via:
 //
-//	GetDependabotOrganizationSecretsSecretArray{ GetDependabotOrganizationSecretsSecretArgs{...} }
+//          GetDependabotOrganizationSecretsSecretArray{ GetDependabotOrganizationSecretsSecretArgs{...} }
 type GetDependabotOrganizationSecretsSecretArrayInput interface {
 	pulumi.Input
 
@@ -3087,7 +3987,7 @@ type GetDependabotSecretsSecret struct {
 // GetDependabotSecretsSecretInput is an input type that accepts GetDependabotSecretsSecretArgs and GetDependabotSecretsSecretOutput values.
 // You can construct a concrete instance of `GetDependabotSecretsSecretInput` via:
 //
-//	GetDependabotSecretsSecretArgs{...}
+//          GetDependabotSecretsSecretArgs{...}
 type GetDependabotSecretsSecretInput interface {
 	pulumi.Input
 
@@ -3116,7 +4016,7 @@ func (i GetDependabotSecretsSecretArgs) ToGetDependabotSecretsSecretOutputWithCo
 // GetDependabotSecretsSecretArrayInput is an input type that accepts GetDependabotSecretsSecretArray and GetDependabotSecretsSecretArrayOutput values.
 // You can construct a concrete instance of `GetDependabotSecretsSecretArrayInput` via:
 //
-//	GetDependabotSecretsSecretArray{ GetDependabotSecretsSecretArgs{...} }
+//          GetDependabotSecretsSecretArray{ GetDependabotSecretsSecretArgs{...} }
 type GetDependabotSecretsSecretArrayInput interface {
 	pulumi.Input
 
@@ -3193,7 +4093,7 @@ type GetExternalGroupsExternalGroup struct {
 // GetExternalGroupsExternalGroupInput is an input type that accepts GetExternalGroupsExternalGroupArgs and GetExternalGroupsExternalGroupOutput values.
 // You can construct a concrete instance of `GetExternalGroupsExternalGroupInput` via:
 //
-//	GetExternalGroupsExternalGroupArgs{...}
+//          GetExternalGroupsExternalGroupArgs{...}
 type GetExternalGroupsExternalGroupInput interface {
 	pulumi.Input
 
@@ -3222,7 +4122,7 @@ func (i GetExternalGroupsExternalGroupArgs) ToGetExternalGroupsExternalGroupOutp
 // GetExternalGroupsExternalGroupArrayInput is an input type that accepts GetExternalGroupsExternalGroupArray and GetExternalGroupsExternalGroupArrayOutput values.
 // You can construct a concrete instance of `GetExternalGroupsExternalGroupArrayInput` via:
 //
-//	GetExternalGroupsExternalGroupArray{ GetExternalGroupsExternalGroupArgs{...} }
+//          GetExternalGroupsExternalGroupArray{ GetExternalGroupsExternalGroupArgs{...} }
 type GetExternalGroupsExternalGroupArrayInput interface {
 	pulumi.Input
 
@@ -3302,7 +4202,7 @@ type GetOrganizationIpAllowListIpAllowList struct {
 // GetOrganizationIpAllowListIpAllowListInput is an input type that accepts GetOrganizationIpAllowListIpAllowListArgs and GetOrganizationIpAllowListIpAllowListOutput values.
 // You can construct a concrete instance of `GetOrganizationIpAllowListIpAllowListInput` via:
 //
-//	GetOrganizationIpAllowListIpAllowListArgs{...}
+//          GetOrganizationIpAllowListIpAllowListArgs{...}
 type GetOrganizationIpAllowListIpAllowListInput interface {
 	pulumi.Input
 
@@ -3334,7 +4234,7 @@ func (i GetOrganizationIpAllowListIpAllowListArgs) ToGetOrganizationIpAllowListI
 // GetOrganizationIpAllowListIpAllowListArrayInput is an input type that accepts GetOrganizationIpAllowListIpAllowListArray and GetOrganizationIpAllowListIpAllowListArrayOutput values.
 // You can construct a concrete instance of `GetOrganizationIpAllowListIpAllowListArrayInput` via:
 //
-//	GetOrganizationIpAllowListIpAllowListArray{ GetOrganizationIpAllowListIpAllowListArgs{...} }
+//          GetOrganizationIpAllowListIpAllowListArray{ GetOrganizationIpAllowListIpAllowListArgs{...} }
 type GetOrganizationIpAllowListIpAllowListArrayInput interface {
 	pulumi.Input
 
@@ -3423,7 +4323,7 @@ type GetOrganizationTeamSyncGroupsGroup struct {
 // GetOrganizationTeamSyncGroupsGroupInput is an input type that accepts GetOrganizationTeamSyncGroupsGroupArgs and GetOrganizationTeamSyncGroupsGroupOutput values.
 // You can construct a concrete instance of `GetOrganizationTeamSyncGroupsGroupInput` via:
 //
-//	GetOrganizationTeamSyncGroupsGroupArgs{...}
+//          GetOrganizationTeamSyncGroupsGroupArgs{...}
 type GetOrganizationTeamSyncGroupsGroupInput interface {
 	pulumi.Input
 
@@ -3452,7 +4352,7 @@ func (i GetOrganizationTeamSyncGroupsGroupArgs) ToGetOrganizationTeamSyncGroupsG
 // GetOrganizationTeamSyncGroupsGroupArrayInput is an input type that accepts GetOrganizationTeamSyncGroupsGroupArray and GetOrganizationTeamSyncGroupsGroupArrayOutput values.
 // You can construct a concrete instance of `GetOrganizationTeamSyncGroupsGroupArrayInput` via:
 //
-//	GetOrganizationTeamSyncGroupsGroupArray{ GetOrganizationTeamSyncGroupsGroupArgs{...} }
+//          GetOrganizationTeamSyncGroupsGroupArray{ GetOrganizationTeamSyncGroupsGroupArgs{...} }
 type GetOrganizationTeamSyncGroupsGroupArrayInput interface {
 	pulumi.Input
 
@@ -3534,7 +4434,7 @@ type GetOrganizationTeamsTeam struct {
 // GetOrganizationTeamsTeamInput is an input type that accepts GetOrganizationTeamsTeamArgs and GetOrganizationTeamsTeamOutput values.
 // You can construct a concrete instance of `GetOrganizationTeamsTeamInput` via:
 //
-//	GetOrganizationTeamsTeamArgs{...}
+//          GetOrganizationTeamsTeamArgs{...}
 type GetOrganizationTeamsTeamInput interface {
 	pulumi.Input
 
@@ -3568,7 +4468,7 @@ func (i GetOrganizationTeamsTeamArgs) ToGetOrganizationTeamsTeamOutputWithContex
 // GetOrganizationTeamsTeamArrayInput is an input type that accepts GetOrganizationTeamsTeamArray and GetOrganizationTeamsTeamArrayOutput values.
 // You can construct a concrete instance of `GetOrganizationTeamsTeamArrayInput` via:
 //
-//	GetOrganizationTeamsTeamArray{ GetOrganizationTeamsTeamArgs{...} }
+//          GetOrganizationTeamsTeamArray{ GetOrganizationTeamsTeamArgs{...} }
 type GetOrganizationTeamsTeamArrayInput interface {
 	pulumi.Input
 
@@ -3667,7 +4567,7 @@ type GetOrganizationWebhooksWebhook struct {
 // GetOrganizationWebhooksWebhookInput is an input type that accepts GetOrganizationWebhooksWebhookArgs and GetOrganizationWebhooksWebhookOutput values.
 // You can construct a concrete instance of `GetOrganizationWebhooksWebhookInput` via:
 //
-//	GetOrganizationWebhooksWebhookArgs{...}
+//          GetOrganizationWebhooksWebhookArgs{...}
 type GetOrganizationWebhooksWebhookInput interface {
 	pulumi.Input
 
@@ -3698,7 +4598,7 @@ func (i GetOrganizationWebhooksWebhookArgs) ToGetOrganizationWebhooksWebhookOutp
 // GetOrganizationWebhooksWebhookArrayInput is an input type that accepts GetOrganizationWebhooksWebhookArray and GetOrganizationWebhooksWebhookArrayOutput values.
 // You can construct a concrete instance of `GetOrganizationWebhooksWebhookArrayInput` via:
 //
-//	GetOrganizationWebhooksWebhookArray{ GetOrganizationWebhooksWebhookArgs{...} }
+//          GetOrganizationWebhooksWebhookArray{ GetOrganizationWebhooksWebhookArgs{...} }
 type GetOrganizationWebhooksWebhookArrayInput interface {
 	pulumi.Input
 
@@ -3790,7 +4690,7 @@ type GetReleaseAsset struct {
 // GetReleaseAssetInput is an input type that accepts GetReleaseAssetArgs and GetReleaseAssetOutput values.
 // You can construct a concrete instance of `GetReleaseAssetInput` via:
 //
-//	GetReleaseAssetArgs{...}
+//          GetReleaseAssetArgs{...}
 type GetReleaseAssetInput interface {
 	pulumi.Input
 
@@ -3826,7 +4726,7 @@ func (i GetReleaseAssetArgs) ToGetReleaseAssetOutputWithContext(ctx context.Cont
 // GetReleaseAssetArrayInput is an input type that accepts GetReleaseAssetArray and GetReleaseAssetArrayOutput values.
 // You can construct a concrete instance of `GetReleaseAssetArrayInput` via:
 //
-//	GetReleaseAssetArray{ GetReleaseAssetArgs{...} }
+//          GetReleaseAssetArray{ GetReleaseAssetArgs{...} }
 type GetReleaseAssetArrayInput interface {
 	pulumi.Input
 
@@ -3930,7 +4830,7 @@ type GetRepositoryBranchesBranch struct {
 // GetRepositoryBranchesBranchInput is an input type that accepts GetRepositoryBranchesBranchArgs and GetRepositoryBranchesBranchOutput values.
 // You can construct a concrete instance of `GetRepositoryBranchesBranchInput` via:
 //
-//	GetRepositoryBranchesBranchArgs{...}
+//          GetRepositoryBranchesBranchArgs{...}
 type GetRepositoryBranchesBranchInput interface {
 	pulumi.Input
 
@@ -3958,7 +4858,7 @@ func (i GetRepositoryBranchesBranchArgs) ToGetRepositoryBranchesBranchOutputWith
 // GetRepositoryBranchesBranchArrayInput is an input type that accepts GetRepositoryBranchesBranchArray and GetRepositoryBranchesBranchArrayOutput values.
 // You can construct a concrete instance of `GetRepositoryBranchesBranchArrayInput` via:
 //
-//	GetRepositoryBranchesBranchArray{ GetRepositoryBranchesBranchArgs{...} }
+//          GetRepositoryBranchesBranchArray{ GetRepositoryBranchesBranchArgs{...} }
 type GetRepositoryBranchesBranchArrayInput interface {
 	pulumi.Input
 
@@ -4032,7 +4932,7 @@ type GetRepositoryDeployKeysKey struct {
 // GetRepositoryDeployKeysKeyInput is an input type that accepts GetRepositoryDeployKeysKeyArgs and GetRepositoryDeployKeysKeyOutput values.
 // You can construct a concrete instance of `GetRepositoryDeployKeysKeyInput` via:
 //
-//	GetRepositoryDeployKeysKeyArgs{...}
+//          GetRepositoryDeployKeysKeyArgs{...}
 type GetRepositoryDeployKeysKeyInput interface {
 	pulumi.Input
 
@@ -4062,7 +4962,7 @@ func (i GetRepositoryDeployKeysKeyArgs) ToGetRepositoryDeployKeysKeyOutputWithCo
 // GetRepositoryDeployKeysKeyArrayInput is an input type that accepts GetRepositoryDeployKeysKeyArray and GetRepositoryDeployKeysKeyArrayOutput values.
 // You can construct a concrete instance of `GetRepositoryDeployKeysKeyArrayInput` via:
 //
-//	GetRepositoryDeployKeysKeyArray{ GetRepositoryDeployKeysKeyArgs{...} }
+//          GetRepositoryDeployKeysKeyArray{ GetRepositoryDeployKeysKeyArgs{...} }
 type GetRepositoryDeployKeysKeyArrayInput interface {
 	pulumi.Input
 
@@ -4146,7 +5046,7 @@ type GetRepositoryPage struct {
 // GetRepositoryPageInput is an input type that accepts GetRepositoryPageArgs and GetRepositoryPageOutput values.
 // You can construct a concrete instance of `GetRepositoryPageInput` via:
 //
-//	GetRepositoryPageArgs{...}
+//          GetRepositoryPageArgs{...}
 type GetRepositoryPageInput interface {
 	pulumi.Input
 
@@ -4178,7 +5078,7 @@ func (i GetRepositoryPageArgs) ToGetRepositoryPageOutputWithContext(ctx context.
 // GetRepositoryPageArrayInput is an input type that accepts GetRepositoryPageArray and GetRepositoryPageArrayOutput values.
 // You can construct a concrete instance of `GetRepositoryPageArrayInput` via:
 //
-//	GetRepositoryPageArray{ GetRepositoryPageArgs{...} }
+//          GetRepositoryPageArray{ GetRepositoryPageArgs{...} }
 type GetRepositoryPageArrayInput interface {
 	pulumi.Input
 
@@ -4266,7 +5166,7 @@ type GetRepositoryPageSource struct {
 // GetRepositoryPageSourceInput is an input type that accepts GetRepositoryPageSourceArgs and GetRepositoryPageSourceOutput values.
 // You can construct a concrete instance of `GetRepositoryPageSourceInput` via:
 //
-//	GetRepositoryPageSourceArgs{...}
+//          GetRepositoryPageSourceArgs{...}
 type GetRepositoryPageSourceInput interface {
 	pulumi.Input
 
@@ -4294,7 +5194,7 @@ func (i GetRepositoryPageSourceArgs) ToGetRepositoryPageSourceOutputWithContext(
 // GetRepositoryPageSourceArrayInput is an input type that accepts GetRepositoryPageSourceArray and GetRepositoryPageSourceArrayOutput values.
 // You can construct a concrete instance of `GetRepositoryPageSourceArrayInput` via:
 //
-//	GetRepositoryPageSourceArray{ GetRepositoryPageSourceArgs{...} }
+//          GetRepositoryPageSourceArray{ GetRepositoryPageSourceArgs{...} }
 type GetRepositoryPageSourceArrayInput interface {
 	pulumi.Input
 
@@ -4380,7 +5280,7 @@ type GetRepositoryPullRequestsResult struct {
 // GetRepositoryPullRequestsResultInput is an input type that accepts GetRepositoryPullRequestsResultArgs and GetRepositoryPullRequestsResultOutput values.
 // You can construct a concrete instance of `GetRepositoryPullRequestsResultInput` via:
 //
-//	GetRepositoryPullRequestsResultArgs{...}
+//          GetRepositoryPullRequestsResultArgs{...}
 type GetRepositoryPullRequestsResultInput interface {
 	pulumi.Input
 
@@ -4422,7 +5322,7 @@ func (i GetRepositoryPullRequestsResultArgs) ToGetRepositoryPullRequestsResultOu
 // GetRepositoryPullRequestsResultArrayInput is an input type that accepts GetRepositoryPullRequestsResultArray and GetRepositoryPullRequestsResultArrayOutput values.
 // You can construct a concrete instance of `GetRepositoryPullRequestsResultArrayInput` via:
 //
-//	GetRepositoryPullRequestsResultArray{ GetRepositoryPullRequestsResultArgs{...} }
+//          GetRepositoryPullRequestsResultArray{ GetRepositoryPullRequestsResultArgs{...} }
 type GetRepositoryPullRequestsResultArrayInput interface {
 	pulumi.Input
 
@@ -4551,7 +5451,7 @@ type GetRepositoryTeamsTeam struct {
 // GetRepositoryTeamsTeamInput is an input type that accepts GetRepositoryTeamsTeamArgs and GetRepositoryTeamsTeamOutput values.
 // You can construct a concrete instance of `GetRepositoryTeamsTeamInput` via:
 //
-//	GetRepositoryTeamsTeamArgs{...}
+//          GetRepositoryTeamsTeamArgs{...}
 type GetRepositoryTeamsTeamInput interface {
 	pulumi.Input
 
@@ -4580,7 +5480,7 @@ func (i GetRepositoryTeamsTeamArgs) ToGetRepositoryTeamsTeamOutputWithContext(ct
 // GetRepositoryTeamsTeamArrayInput is an input type that accepts GetRepositoryTeamsTeamArray and GetRepositoryTeamsTeamArrayOutput values.
 // You can construct a concrete instance of `GetRepositoryTeamsTeamArrayInput` via:
 //
-//	GetRepositoryTeamsTeamArray{ GetRepositoryTeamsTeamArgs{...} }
+//          GetRepositoryTeamsTeamArray{ GetRepositoryTeamsTeamArgs{...} }
 type GetRepositoryTeamsTeamArrayInput interface {
 	pulumi.Input
 
@@ -4648,6 +5548,61 @@ func (o GetRepositoryTeamsTeamArrayOutput) Index(i pulumi.IntInput) GetRepositor
 	}).(GetRepositoryTeamsTeamOutput)
 }
 
+type GetRepositoryTemplate struct {
+	Owner      string `pulumi:"owner"`
+	Repository string `pulumi:"repository"`
+}
+
+// GetRepositoryTemplateInput is an input type that accepts GetRepositoryTemplateArgs and GetRepositoryTemplateOutput values.
+// You can construct a concrete instance of `GetRepositoryTemplateInput` via:
+//
+//          GetRepositoryTemplateArgs{...}
+type GetRepositoryTemplateInput interface {
+	pulumi.Input
+
+	ToGetRepositoryTemplateOutput() GetRepositoryTemplateOutput
+	ToGetRepositoryTemplateOutputWithContext(context.Context) GetRepositoryTemplateOutput
+}
+
+type GetRepositoryTemplateArgs struct {
+	Owner      pulumi.StringInput `pulumi:"owner"`
+	Repository pulumi.StringInput `pulumi:"repository"`
+}
+
+func (GetRepositoryTemplateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRepositoryTemplate)(nil)).Elem()
+}
+
+func (i GetRepositoryTemplateArgs) ToGetRepositoryTemplateOutput() GetRepositoryTemplateOutput {
+	return i.ToGetRepositoryTemplateOutputWithContext(context.Background())
+}
+
+func (i GetRepositoryTemplateArgs) ToGetRepositoryTemplateOutputWithContext(ctx context.Context) GetRepositoryTemplateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRepositoryTemplateOutput)
+}
+
+type GetRepositoryTemplateOutput struct{ *pulumi.OutputState }
+
+func (GetRepositoryTemplateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRepositoryTemplate)(nil)).Elem()
+}
+
+func (o GetRepositoryTemplateOutput) ToGetRepositoryTemplateOutput() GetRepositoryTemplateOutput {
+	return o
+}
+
+func (o GetRepositoryTemplateOutput) ToGetRepositoryTemplateOutputWithContext(ctx context.Context) GetRepositoryTemplateOutput {
+	return o
+}
+
+func (o GetRepositoryTemplateOutput) Owner() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRepositoryTemplate) string { return v.Owner }).(pulumi.StringOutput)
+}
+
+func (o GetRepositoryTemplateOutput) Repository() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRepositoryTemplate) string { return v.Repository }).(pulumi.StringOutput)
+}
+
 type GetRepositoryWebhooksWebhook struct {
 	Active bool   `pulumi:"active"`
 	Id     int    `pulumi:"id"`
@@ -4659,7 +5614,7 @@ type GetRepositoryWebhooksWebhook struct {
 // GetRepositoryWebhooksWebhookInput is an input type that accepts GetRepositoryWebhooksWebhookArgs and GetRepositoryWebhooksWebhookOutput values.
 // You can construct a concrete instance of `GetRepositoryWebhooksWebhookInput` via:
 //
-//	GetRepositoryWebhooksWebhookArgs{...}
+//          GetRepositoryWebhooksWebhookArgs{...}
 type GetRepositoryWebhooksWebhookInput interface {
 	pulumi.Input
 
@@ -4690,7 +5645,7 @@ func (i GetRepositoryWebhooksWebhookArgs) ToGetRepositoryWebhooksWebhookOutputWi
 // GetRepositoryWebhooksWebhookArrayInput is an input type that accepts GetRepositoryWebhooksWebhookArray and GetRepositoryWebhooksWebhookArrayOutput values.
 // You can construct a concrete instance of `GetRepositoryWebhooksWebhookArrayInput` via:
 //
-//	GetRepositoryWebhooksWebhookArray{ GetRepositoryWebhooksWebhookArgs{...} }
+//          GetRepositoryWebhooksWebhookArray{ GetRepositoryWebhooksWebhookArgs{...} }
 type GetRepositoryWebhooksWebhookArrayInput interface {
 	pulumi.Input
 
@@ -4777,7 +5732,7 @@ type GetTreeEntry struct {
 // GetTreeEntryInput is an input type that accepts GetTreeEntryArgs and GetTreeEntryOutput values.
 // You can construct a concrete instance of `GetTreeEntryInput` via:
 //
-//	GetTreeEntryArgs{...}
+//          GetTreeEntryArgs{...}
 type GetTreeEntryInput interface {
 	pulumi.Input
 
@@ -4808,7 +5763,7 @@ func (i GetTreeEntryArgs) ToGetTreeEntryOutputWithContext(ctx context.Context) G
 // GetTreeEntryArrayInput is an input type that accepts GetTreeEntryArray and GetTreeEntryArrayOutput values.
 // You can construct a concrete instance of `GetTreeEntryArrayInput` via:
 //
-//	GetTreeEntryArray{ GetTreeEntryArgs{...} }
+//          GetTreeEntryArray{ GetTreeEntryArgs{...} }
 type GetTreeEntryArrayInput interface {
 	pulumi.Input
 
@@ -4889,6 +5844,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionsOrganizationPermissionsAllowedActionsConfigPtrInput)(nil)).Elem(), ActionsOrganizationPermissionsAllowedActionsConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionsOrganizationPermissionsEnabledRepositoriesConfigInput)(nil)).Elem(), ActionsOrganizationPermissionsEnabledRepositoriesConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionsOrganizationPermissionsEnabledRepositoriesConfigPtrInput)(nil)).Elem(), ActionsOrganizationPermissionsEnabledRepositoriesConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ActionsRepositoryPermissionsAllowedActionsConfigInput)(nil)).Elem(), ActionsRepositoryPermissionsAllowedActionsConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ActionsRepositoryPermissionsAllowedActionsConfigPtrInput)(nil)).Elem(), ActionsRepositoryPermissionsAllowedActionsConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BranchProtectionRequiredPullRequestReviewInput)(nil)).Elem(), BranchProtectionRequiredPullRequestReviewArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BranchProtectionRequiredPullRequestReviewArrayInput)(nil)).Elem(), BranchProtectionRequiredPullRequestReviewArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BranchProtectionRequiredStatusCheckInput)(nil)).Elem(), BranchProtectionRequiredStatusCheckArgs{})
@@ -4911,12 +5868,22 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryPagesPtrInput)(nil)).Elem(), RepositoryPagesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryPagesSourceInput)(nil)).Elem(), RepositoryPagesSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryPagesSourcePtrInput)(nil)).Elem(), RepositoryPagesSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositorySecurityAndAnalysisInput)(nil)).Elem(), RepositorySecurityAndAnalysisArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositorySecurityAndAnalysisPtrInput)(nil)).Elem(), RepositorySecurityAndAnalysisArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositorySecurityAndAnalysisAdvancedSecurityInput)(nil)).Elem(), RepositorySecurityAndAnalysisAdvancedSecurityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositorySecurityAndAnalysisAdvancedSecurityPtrInput)(nil)).Elem(), RepositorySecurityAndAnalysisAdvancedSecurityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositorySecurityAndAnalysisSecretScanningInput)(nil)).Elem(), RepositorySecurityAndAnalysisSecretScanningArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositorySecurityAndAnalysisSecretScanningPtrInput)(nil)).Elem(), RepositorySecurityAndAnalysisSecretScanningArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositorySecurityAndAnalysisSecretScanningPushProtectionInput)(nil)).Elem(), RepositorySecurityAndAnalysisSecretScanningPushProtectionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositorySecurityAndAnalysisSecretScanningPushProtectionPtrInput)(nil)).Elem(), RepositorySecurityAndAnalysisSecretScanningPushProtectionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryTemplateInput)(nil)).Elem(), RepositoryTemplateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryTemplatePtrInput)(nil)).Elem(), RepositoryTemplateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryWebhookConfigurationInput)(nil)).Elem(), RepositoryWebhookConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryWebhookConfigurationPtrInput)(nil)).Elem(), RepositoryWebhookConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TeamMembersMemberInput)(nil)).Elem(), TeamMembersMemberArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TeamMembersMemberArrayInput)(nil)).Elem(), TeamMembersMemberArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TeamSettingsReviewRequestDelegationInput)(nil)).Elem(), TeamSettingsReviewRequestDelegationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TeamSettingsReviewRequestDelegationPtrInput)(nil)).Elem(), TeamSettingsReviewRequestDelegationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TeamSyncGroupMappingGroupInput)(nil)).Elem(), TeamSyncGroupMappingGroupArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TeamSyncGroupMappingGroupArrayInput)(nil)).Elem(), TeamSyncGroupMappingGroupArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetActionsOrganizationSecretsSecretInput)(nil)).Elem(), GetActionsOrganizationSecretsSecretArgs{})
@@ -4953,6 +5920,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRepositoryPullRequestsResultArrayInput)(nil)).Elem(), GetRepositoryPullRequestsResultArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRepositoryTeamsTeamInput)(nil)).Elem(), GetRepositoryTeamsTeamArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRepositoryTeamsTeamArrayInput)(nil)).Elem(), GetRepositoryTeamsTeamArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRepositoryTemplateInput)(nil)).Elem(), GetRepositoryTemplateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRepositoryWebhooksWebhookInput)(nil)).Elem(), GetRepositoryWebhooksWebhookArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRepositoryWebhooksWebhookArrayInput)(nil)).Elem(), GetRepositoryWebhooksWebhookArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTreeEntryInput)(nil)).Elem(), GetTreeEntryArgs{})
@@ -4961,6 +5929,8 @@ func init() {
 	pulumi.RegisterOutputType(ActionsOrganizationPermissionsAllowedActionsConfigPtrOutput{})
 	pulumi.RegisterOutputType(ActionsOrganizationPermissionsEnabledRepositoriesConfigOutput{})
 	pulumi.RegisterOutputType(ActionsOrganizationPermissionsEnabledRepositoriesConfigPtrOutput{})
+	pulumi.RegisterOutputType(ActionsRepositoryPermissionsAllowedActionsConfigOutput{})
+	pulumi.RegisterOutputType(ActionsRepositoryPermissionsAllowedActionsConfigPtrOutput{})
 	pulumi.RegisterOutputType(BranchProtectionRequiredPullRequestReviewOutput{})
 	pulumi.RegisterOutputType(BranchProtectionRequiredPullRequestReviewArrayOutput{})
 	pulumi.RegisterOutputType(BranchProtectionRequiredStatusCheckOutput{})
@@ -4983,12 +5953,22 @@ func init() {
 	pulumi.RegisterOutputType(RepositoryPagesPtrOutput{})
 	pulumi.RegisterOutputType(RepositoryPagesSourceOutput{})
 	pulumi.RegisterOutputType(RepositoryPagesSourcePtrOutput{})
+	pulumi.RegisterOutputType(RepositorySecurityAndAnalysisOutput{})
+	pulumi.RegisterOutputType(RepositorySecurityAndAnalysisPtrOutput{})
+	pulumi.RegisterOutputType(RepositorySecurityAndAnalysisAdvancedSecurityOutput{})
+	pulumi.RegisterOutputType(RepositorySecurityAndAnalysisAdvancedSecurityPtrOutput{})
+	pulumi.RegisterOutputType(RepositorySecurityAndAnalysisSecretScanningOutput{})
+	pulumi.RegisterOutputType(RepositorySecurityAndAnalysisSecretScanningPtrOutput{})
+	pulumi.RegisterOutputType(RepositorySecurityAndAnalysisSecretScanningPushProtectionOutput{})
+	pulumi.RegisterOutputType(RepositorySecurityAndAnalysisSecretScanningPushProtectionPtrOutput{})
 	pulumi.RegisterOutputType(RepositoryTemplateOutput{})
 	pulumi.RegisterOutputType(RepositoryTemplatePtrOutput{})
 	pulumi.RegisterOutputType(RepositoryWebhookConfigurationOutput{})
 	pulumi.RegisterOutputType(RepositoryWebhookConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(TeamMembersMemberOutput{})
 	pulumi.RegisterOutputType(TeamMembersMemberArrayOutput{})
+	pulumi.RegisterOutputType(TeamSettingsReviewRequestDelegationOutput{})
+	pulumi.RegisterOutputType(TeamSettingsReviewRequestDelegationPtrOutput{})
 	pulumi.RegisterOutputType(TeamSyncGroupMappingGroupOutput{})
 	pulumi.RegisterOutputType(TeamSyncGroupMappingGroupArrayOutput{})
 	pulumi.RegisterOutputType(GetActionsOrganizationSecretsSecretOutput{})
@@ -5025,6 +6005,7 @@ func init() {
 	pulumi.RegisterOutputType(GetRepositoryPullRequestsResultArrayOutput{})
 	pulumi.RegisterOutputType(GetRepositoryTeamsTeamOutput{})
 	pulumi.RegisterOutputType(GetRepositoryTeamsTeamArrayOutput{})
+	pulumi.RegisterOutputType(GetRepositoryTemplateOutput{})
 	pulumi.RegisterOutputType(GetRepositoryWebhooksWebhookOutput{})
 	pulumi.RegisterOutputType(GetRepositoryWebhooksWebhookArrayOutput{})
 	pulumi.RegisterOutputType(GetTreeEntryOutput{})

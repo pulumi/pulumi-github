@@ -142,7 +142,7 @@ func (i *Issue) ToIssueOutputWithContext(ctx context.Context) IssueOutput {
 // IssueArrayInput is an input type that accepts IssueArray and IssueArrayOutput values.
 // You can construct a concrete instance of `IssueArrayInput` via:
 //
-//	IssueArray{ IssueArgs{...} }
+//          IssueArray{ IssueArgs{...} }
 type IssueArrayInput interface {
 	pulumi.Input
 
@@ -167,7 +167,7 @@ func (i IssueArray) ToIssueArrayOutputWithContext(ctx context.Context) IssueArra
 // IssueMapInput is an input type that accepts IssueMap and IssueMapOutput values.
 // You can construct a concrete instance of `IssueMapInput` via:
 //
-//	IssueMap{ "key": IssueArgs{...} }
+//          IssueMap{ "key": IssueArgs{...} }
 type IssueMapInput interface {
 	pulumi.Input
 

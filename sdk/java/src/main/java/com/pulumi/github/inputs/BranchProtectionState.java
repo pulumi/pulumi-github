@@ -47,6 +47,13 @@ public final class BranchProtectionState extends com.pulumi.resources.ResourceAr
         return Optional.ofNullable(this.enforceAdmins);
     }
 
+    @Import(name="lockBranch")
+    private @Nullable Output<Boolean> lockBranch;
+
+    public Optional<Output<Boolean>> lockBranch() {
+        return Optional.ofNullable(this.lockBranch);
+    }
+
     @Import(name="pattern")
     private @Nullable Output<String> pattern;
 
@@ -118,6 +125,7 @@ public final class BranchProtectionState extends com.pulumi.resources.ResourceAr
         this.allowsForcePushes = $.allowsForcePushes;
         this.blocksCreations = $.blocksCreations;
         this.enforceAdmins = $.enforceAdmins;
+        this.lockBranch = $.lockBranch;
         this.pattern = $.pattern;
         this.pushRestrictions = $.pushRestrictions;
         this.repositoryId = $.repositoryId;
@@ -180,6 +188,15 @@ public final class BranchProtectionState extends com.pulumi.resources.ResourceAr
 
         public Builder enforceAdmins(Boolean enforceAdmins) {
             return enforceAdmins(Output.of(enforceAdmins));
+        }
+
+        public Builder lockBranch(@Nullable Output<Boolean> lockBranch) {
+            $.lockBranch = lockBranch;
+            return this;
+        }
+
+        public Builder lockBranch(Boolean lockBranch) {
+            return lockBranch(Output.of(lockBranch));
         }
 
         public Builder pattern(@Nullable Output<String> pattern) {

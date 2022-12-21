@@ -21,7 +21,7 @@ class GetTeamResult:
     """
     A collection of values returned by getTeam.
     """
-    def __init__(__self__, description=None, id=None, members=None, membership_type=None, name=None, node_id=None, permission=None, privacy=None, repositories=None, slug=None):
+    def __init__(__self__, description=None, id=None, members=None, membership_type=None, name=None, node_id=None, permission=None, privacy=None, repositories=None, results_per_page=None, slug=None, summary_only=None):
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -49,9 +49,15 @@ class GetTeamResult:
         if repositories and not isinstance(repositories, list):
             raise TypeError("Expected argument 'repositories' to be a list")
         pulumi.set(__self__, "repositories", repositories)
+        if results_per_page and not isinstance(results_per_page, int):
+            raise TypeError("Expected argument 'results_per_page' to be a int")
+        pulumi.set(__self__, "results_per_page", results_per_page)
         if slug and not isinstance(slug, str):
             raise TypeError("Expected argument 'slug' to be a str")
         pulumi.set(__self__, "slug", slug)
+        if summary_only and not isinstance(summary_only, bool):
+            raise TypeError("Expected argument 'summary_only' to be a bool")
+        pulumi.set(__self__, "summary_only", summary_only)
 
     @property
     @pulumi.getter
@@ -102,9 +108,19 @@ class GetTeamResult:
         return pulumi.get(self, "repositories")
 
     @property
+    @pulumi.getter(name="resultsPerPage")
+    def results_per_page(self) -> Optional[int]:
+        return pulumi.get(self, "results_per_page")
+
+    @property
     @pulumi.getter
     def slug(self) -> str:
         return pulumi.get(self, "slug")
+
+    @property
+    @pulumi.getter(name="summaryOnly")
+    def summary_only(self) -> Optional[bool]:
+        return pulumi.get(self, "summary_only")
 
 
 class AwaitableGetTeamResult(GetTeamResult):
@@ -122,18 +138,24 @@ class AwaitableGetTeamResult(GetTeamResult):
             permission=self.permission,
             privacy=self.privacy,
             repositories=self.repositories,
-            slug=self.slug)
+            results_per_page=self.results_per_page,
+            slug=self.slug,
+            summary_only=self.summary_only)
 
 
 def get_team(membership_type: Optional[str] = None,
+             results_per_page: Optional[int] = None,
              slug: Optional[str] = None,
+             summary_only: Optional[bool] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTeamResult:
     """
     Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['membershipType'] = membership_type
+    __args__['resultsPerPage'] = results_per_page
     __args__['slug'] = slug
+    __args__['summaryOnly'] = summary_only
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('github:index/getTeam:getTeam', __args__, opts=opts, typ=GetTeamResult).value
 
@@ -147,12 +169,16 @@ def get_team(membership_type: Optional[str] = None,
         permission=__ret__.permission,
         privacy=__ret__.privacy,
         repositories=__ret__.repositories,
-        slug=__ret__.slug)
+        results_per_page=__ret__.results_per_page,
+        slug=__ret__.slug,
+        summary_only=__ret__.summary_only)
 
 
 @_utilities.lift_output_func(get_team)
 def get_team_output(membership_type: Optional[pulumi.Input[Optional[str]]] = None,
+                    results_per_page: Optional[pulumi.Input[Optional[int]]] = None,
                     slug: Optional[pulumi.Input[str]] = None,
+                    summary_only: Optional[pulumi.Input[Optional[bool]]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTeamResult]:
     """
     Use this data source to access information about an existing resource.

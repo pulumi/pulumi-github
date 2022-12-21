@@ -24,8 +24,14 @@ namespace Pulumi.Github
         [Input("membershipType")]
         public string? MembershipType { get; set; }
 
+        [Input("resultsPerPage")]
+        public int? ResultsPerPage { get; set; }
+
         [Input("slug", required: true)]
         public string Slug { get; set; } = null!;
+
+        [Input("summaryOnly")]
+        public bool? SummaryOnly { get; set; }
 
         public GetTeamArgs()
         {
@@ -38,8 +44,14 @@ namespace Pulumi.Github
         [Input("membershipType")]
         public Input<string>? MembershipType { get; set; }
 
+        [Input("resultsPerPage")]
+        public Input<int>? ResultsPerPage { get; set; }
+
         [Input("slug", required: true)]
         public Input<string> Slug { get; set; } = null!;
+
+        [Input("summaryOnly")]
+        public Input<bool>? SummaryOnly { get; set; }
 
         public GetTeamInvokeArgs()
         {
@@ -63,7 +75,9 @@ namespace Pulumi.Github
         public readonly string Permission;
         public readonly string Privacy;
         public readonly ImmutableArray<string> Repositories;
+        public readonly int? ResultsPerPage;
         public readonly string Slug;
+        public readonly bool? SummaryOnly;
 
         [OutputConstructor]
         private GetTeamResult(
@@ -85,7 +99,11 @@ namespace Pulumi.Github
 
             ImmutableArray<string> repositories,
 
-            string slug)
+            int? resultsPerPage,
+
+            string slug,
+
+            bool? summaryOnly)
         {
             Description = description;
             Id = id;
@@ -96,7 +114,9 @@ namespace Pulumi.Github
             Permission = permission;
             Privacy = privacy;
             Repositories = repositories;
+            ResultsPerPage = resultsPerPage;
             Slug = slug;
+            SummaryOnly = summaryOnly;
         }
     }
 }

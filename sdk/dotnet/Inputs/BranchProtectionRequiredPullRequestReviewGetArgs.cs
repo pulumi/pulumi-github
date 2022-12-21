@@ -34,6 +34,9 @@ namespace Pulumi.Github.Inputs
         [Input("requireCodeOwnerReviews")]
         public Input<bool>? RequireCodeOwnerReviews { get; set; }
 
+        [Input("requireLastPushApproval")]
+        public Input<bool>? RequireLastPushApproval { get; set; }
+
         [Input("requiredApprovingReviewCount")]
         public Input<int>? RequiredApprovingReviewCount { get; set; }
 

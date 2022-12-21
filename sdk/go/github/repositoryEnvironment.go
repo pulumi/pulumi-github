@@ -118,7 +118,7 @@ func (i *RepositoryEnvironment) ToRepositoryEnvironmentOutputWithContext(ctx con
 // RepositoryEnvironmentArrayInput is an input type that accepts RepositoryEnvironmentArray and RepositoryEnvironmentArrayOutput values.
 // You can construct a concrete instance of `RepositoryEnvironmentArrayInput` via:
 //
-//	RepositoryEnvironmentArray{ RepositoryEnvironmentArgs{...} }
+//          RepositoryEnvironmentArray{ RepositoryEnvironmentArgs{...} }
 type RepositoryEnvironmentArrayInput interface {
 	pulumi.Input
 
@@ -143,7 +143,7 @@ func (i RepositoryEnvironmentArray) ToRepositoryEnvironmentArrayOutputWithContex
 // RepositoryEnvironmentMapInput is an input type that accepts RepositoryEnvironmentMap and RepositoryEnvironmentMapOutput values.
 // You can construct a concrete instance of `RepositoryEnvironmentMapInput` via:
 //
-//	RepositoryEnvironmentMap{ "key": RepositoryEnvironmentArgs{...} }
+//          RepositoryEnvironmentMap{ "key": RepositoryEnvironmentArgs{...} }
 type RepositoryEnvironmentMapInput interface {
 	pulumi.Input
 

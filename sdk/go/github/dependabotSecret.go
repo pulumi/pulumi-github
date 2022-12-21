@@ -130,7 +130,7 @@ func (i *DependabotSecret) ToDependabotSecretOutputWithContext(ctx context.Conte
 // DependabotSecretArrayInput is an input type that accepts DependabotSecretArray and DependabotSecretArrayOutput values.
 // You can construct a concrete instance of `DependabotSecretArrayInput` via:
 //
-//	DependabotSecretArray{ DependabotSecretArgs{...} }
+//          DependabotSecretArray{ DependabotSecretArgs{...} }
 type DependabotSecretArrayInput interface {
 	pulumi.Input
 
@@ -155,7 +155,7 @@ func (i DependabotSecretArray) ToDependabotSecretArrayOutputWithContext(ctx cont
 // DependabotSecretMapInput is an input type that accepts DependabotSecretMap and DependabotSecretMapOutput values.
 // You can construct a concrete instance of `DependabotSecretMapInput` via:
 //
-//	DependabotSecretMap{ "key": DependabotSecretArgs{...} }
+//          DependabotSecretMap{ "key": DependabotSecretArgs{...} }
 type DependabotSecretMapInput interface {
 	pulumi.Input
 

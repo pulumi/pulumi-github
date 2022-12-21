@@ -109,7 +109,7 @@ func (i *UserSshKey) ToUserSshKeyOutputWithContext(ctx context.Context) UserSshK
 // UserSshKeyArrayInput is an input type that accepts UserSshKeyArray and UserSshKeyArrayOutput values.
 // You can construct a concrete instance of `UserSshKeyArrayInput` via:
 //
-//	UserSshKeyArray{ UserSshKeyArgs{...} }
+//          UserSshKeyArray{ UserSshKeyArgs{...} }
 type UserSshKeyArrayInput interface {
 	pulumi.Input
 
@@ -134,7 +134,7 @@ func (i UserSshKeyArray) ToUserSshKeyArrayOutputWithContext(ctx context.Context)
 // UserSshKeyMapInput is an input type that accepts UserSshKeyMap and UserSshKeyMapOutput values.
 // You can construct a concrete instance of `UserSshKeyMapInput` via:
 //
-//	UserSshKeyMap{ "key": UserSshKeyArgs{...} }
+//          UserSshKeyMap{ "key": UserSshKeyArgs{...} }
 type UserSshKeyMapInput interface {
 	pulumi.Input
 

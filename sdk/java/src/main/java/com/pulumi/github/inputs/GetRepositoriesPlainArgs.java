@@ -4,6 +4,8 @@
 package com.pulumi.github.inputs;
 
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -14,11 +16,25 @@ public final class GetRepositoriesPlainArgs extends com.pulumi.resources.InvokeA
 
     public static final GetRepositoriesPlainArgs Empty = new GetRepositoriesPlainArgs();
 
+    @Import(name="includeRepoId")
+    private @Nullable Boolean includeRepoId;
+
+    public Optional<Boolean> includeRepoId() {
+        return Optional.ofNullable(this.includeRepoId);
+    }
+
     @Import(name="query", required=true)
     private String query;
 
     public String query() {
         return this.query;
+    }
+
+    @Import(name="resultsPerPage")
+    private @Nullable Integer resultsPerPage;
+
+    public Optional<Integer> resultsPerPage() {
+        return Optional.ofNullable(this.resultsPerPage);
     }
 
     @Import(name="sort")
@@ -31,7 +47,9 @@ public final class GetRepositoriesPlainArgs extends com.pulumi.resources.InvokeA
     private GetRepositoriesPlainArgs() {}
 
     private GetRepositoriesPlainArgs(GetRepositoriesPlainArgs $) {
+        this.includeRepoId = $.includeRepoId;
         this.query = $.query;
+        this.resultsPerPage = $.resultsPerPage;
         this.sort = $.sort;
     }
 
@@ -53,8 +71,18 @@ public final class GetRepositoriesPlainArgs extends com.pulumi.resources.InvokeA
             $ = new GetRepositoriesPlainArgs(Objects.requireNonNull(defaults));
         }
 
+        public Builder includeRepoId(@Nullable Boolean includeRepoId) {
+            $.includeRepoId = includeRepoId;
+            return this;
+        }
+
         public Builder query(String query) {
             $.query = query;
+            return this;
+        }
+
+        public Builder resultsPerPage(@Nullable Integer resultsPerPage) {
+            $.resultsPerPage = resultsPerPage;
             return this;
         }
 

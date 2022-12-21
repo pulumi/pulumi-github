@@ -5,6 +5,7 @@ package com.pulumi.github.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.github.outputs.GetRepositoryPage;
+import com.pulumi.github.outputs.GetRepositoryTemplate;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -36,6 +37,7 @@ public final class GetRepositoryResult {
      * 
      */
     private String id;
+    private Boolean isTemplate;
     private String mergeCommitMessage;
     private String mergeCommitTitle;
     private String name;
@@ -47,6 +49,7 @@ public final class GetRepositoryResult {
     private String squashMergeCommitTitle;
     private String sshCloneUrl;
     private String svnUrl;
+    private GetRepositoryTemplate template;
     private List<String> topics;
     private String visibility;
 
@@ -106,6 +109,9 @@ public final class GetRepositoryResult {
     public String id() {
         return this.id;
     }
+    public Boolean isTemplate() {
+        return this.isTemplate;
+    }
     public String mergeCommitMessage() {
         return this.mergeCommitMessage;
     }
@@ -138,6 +144,9 @@ public final class GetRepositoryResult {
     }
     public String svnUrl() {
         return this.svnUrl;
+    }
+    public GetRepositoryTemplate template() {
+        return this.template;
     }
     public List<String> topics() {
         return this.topics;
@@ -172,6 +181,7 @@ public final class GetRepositoryResult {
         private String htmlUrl;
         private String httpCloneUrl;
         private String id;
+        private Boolean isTemplate;
         private String mergeCommitMessage;
         private String mergeCommitTitle;
         private String name;
@@ -183,6 +193,7 @@ public final class GetRepositoryResult {
         private String squashMergeCommitTitle;
         private String sshCloneUrl;
         private String svnUrl;
+        private GetRepositoryTemplate template;
         private List<String> topics;
         private String visibility;
         public Builder() {}
@@ -205,6 +216,7 @@ public final class GetRepositoryResult {
     	      this.htmlUrl = defaults.htmlUrl;
     	      this.httpCloneUrl = defaults.httpCloneUrl;
     	      this.id = defaults.id;
+    	      this.isTemplate = defaults.isTemplate;
     	      this.mergeCommitMessage = defaults.mergeCommitMessage;
     	      this.mergeCommitTitle = defaults.mergeCommitTitle;
     	      this.name = defaults.name;
@@ -216,6 +228,7 @@ public final class GetRepositoryResult {
     	      this.squashMergeCommitTitle = defaults.squashMergeCommitTitle;
     	      this.sshCloneUrl = defaults.sshCloneUrl;
     	      this.svnUrl = defaults.svnUrl;
+    	      this.template = defaults.template;
     	      this.topics = defaults.topics;
     	      this.visibility = defaults.visibility;
         }
@@ -306,6 +319,11 @@ public final class GetRepositoryResult {
             return this;
         }
         @CustomType.Setter
+        public Builder isTemplate(Boolean isTemplate) {
+            this.isTemplate = Objects.requireNonNull(isTemplate);
+            return this;
+        }
+        @CustomType.Setter
         public Builder mergeCommitMessage(String mergeCommitMessage) {
             this.mergeCommitMessage = Objects.requireNonNull(mergeCommitMessage);
             return this;
@@ -364,6 +382,11 @@ public final class GetRepositoryResult {
             return this;
         }
         @CustomType.Setter
+        public Builder template(GetRepositoryTemplate template) {
+            this.template = Objects.requireNonNull(template);
+            return this;
+        }
+        @CustomType.Setter
         public Builder topics(List<String> topics) {
             this.topics = Objects.requireNonNull(topics);
             return this;
@@ -395,6 +418,7 @@ public final class GetRepositoryResult {
             o.htmlUrl = htmlUrl;
             o.httpCloneUrl = httpCloneUrl;
             o.id = id;
+            o.isTemplate = isTemplate;
             o.mergeCommitMessage = mergeCommitMessage;
             o.mergeCommitTitle = mergeCommitTitle;
             o.name = name;
@@ -406,6 +430,7 @@ public final class GetRepositoryResult {
             o.squashMergeCommitTitle = squashMergeCommitTitle;
             o.sshCloneUrl = sshCloneUrl;
             o.svnUrl = svnUrl;
+            o.template = template;
             o.topics = topics;
             o.visibility = visibility;
             return o;

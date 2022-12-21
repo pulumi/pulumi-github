@@ -116,7 +116,7 @@ func (i *RepositoryCollaborator) ToRepositoryCollaboratorOutputWithContext(ctx c
 // RepositoryCollaboratorArrayInput is an input type that accepts RepositoryCollaboratorArray and RepositoryCollaboratorArrayOutput values.
 // You can construct a concrete instance of `RepositoryCollaboratorArrayInput` via:
 //
-//	RepositoryCollaboratorArray{ RepositoryCollaboratorArgs{...} }
+//          RepositoryCollaboratorArray{ RepositoryCollaboratorArgs{...} }
 type RepositoryCollaboratorArrayInput interface {
 	pulumi.Input
 
@@ -141,7 +141,7 @@ func (i RepositoryCollaboratorArray) ToRepositoryCollaboratorArrayOutputWithCont
 // RepositoryCollaboratorMapInput is an input type that accepts RepositoryCollaboratorMap and RepositoryCollaboratorMapOutput values.
 // You can construct a concrete instance of `RepositoryCollaboratorMapInput` via:
 //
-//	RepositoryCollaboratorMap{ "key": RepositoryCollaboratorArgs{...} }
+//          RepositoryCollaboratorMap{ "key": RepositoryCollaboratorArgs{...} }
 type RepositoryCollaboratorMapInput interface {
 	pulumi.Input
 

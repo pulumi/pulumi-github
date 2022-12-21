@@ -21,19 +21,28 @@ class GetRepositoriesResult:
     """
     A collection of values returned by getRepositories.
     """
-    def __init__(__self__, full_names=None, id=None, names=None, query=None, sort=None):
+    def __init__(__self__, full_names=None, id=None, include_repo_id=None, names=None, query=None, repo_ids=None, results_per_page=None, sort=None):
         if full_names and not isinstance(full_names, list):
             raise TypeError("Expected argument 'full_names' to be a list")
         pulumi.set(__self__, "full_names", full_names)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if include_repo_id and not isinstance(include_repo_id, bool):
+            raise TypeError("Expected argument 'include_repo_id' to be a bool")
+        pulumi.set(__self__, "include_repo_id", include_repo_id)
         if names and not isinstance(names, list):
             raise TypeError("Expected argument 'names' to be a list")
         pulumi.set(__self__, "names", names)
         if query and not isinstance(query, str):
             raise TypeError("Expected argument 'query' to be a str")
         pulumi.set(__self__, "query", query)
+        if repo_ids and not isinstance(repo_ids, list):
+            raise TypeError("Expected argument 'repo_ids' to be a list")
+        pulumi.set(__self__, "repo_ids", repo_ids)
+        if results_per_page and not isinstance(results_per_page, int):
+            raise TypeError("Expected argument 'results_per_page' to be a int")
+        pulumi.set(__self__, "results_per_page", results_per_page)
         if sort and not isinstance(sort, str):
             raise TypeError("Expected argument 'sort' to be a str")
         pulumi.set(__self__, "sort", sort)
@@ -52,6 +61,11 @@ class GetRepositoriesResult:
         return pulumi.get(self, "id")
 
     @property
+    @pulumi.getter(name="includeRepoId")
+    def include_repo_id(self) -> Optional[bool]:
+        return pulumi.get(self, "include_repo_id")
+
+    @property
     @pulumi.getter
     def names(self) -> Sequence[str]:
         return pulumi.get(self, "names")
@@ -60,6 +74,16 @@ class GetRepositoriesResult:
     @pulumi.getter
     def query(self) -> str:
         return pulumi.get(self, "query")
+
+    @property
+    @pulumi.getter(name="repoIds")
+    def repo_ids(self) -> Sequence[int]:
+        return pulumi.get(self, "repo_ids")
+
+    @property
+    @pulumi.getter(name="resultsPerPage")
+    def results_per_page(self) -> Optional[int]:
+        return pulumi.get(self, "results_per_page")
 
     @property
     @pulumi.getter
@@ -75,19 +99,26 @@ class AwaitableGetRepositoriesResult(GetRepositoriesResult):
         return GetRepositoriesResult(
             full_names=self.full_names,
             id=self.id,
+            include_repo_id=self.include_repo_id,
             names=self.names,
             query=self.query,
+            repo_ids=self.repo_ids,
+            results_per_page=self.results_per_page,
             sort=self.sort)
 
 
-def get_repositories(query: Optional[str] = None,
+def get_repositories(include_repo_id: Optional[bool] = None,
+                     query: Optional[str] = None,
+                     results_per_page: Optional[int] = None,
                      sort: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRepositoriesResult:
     """
     Use this data source to access information about an existing resource.
     """
     __args__ = dict()
+    __args__['includeRepoId'] = include_repo_id
     __args__['query'] = query
+    __args__['resultsPerPage'] = results_per_page
     __args__['sort'] = sort
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('github:index/getRepositories:getRepositories', __args__, opts=opts, typ=GetRepositoriesResult).value
@@ -95,13 +126,18 @@ def get_repositories(query: Optional[str] = None,
     return AwaitableGetRepositoriesResult(
         full_names=__ret__.full_names,
         id=__ret__.id,
+        include_repo_id=__ret__.include_repo_id,
         names=__ret__.names,
         query=__ret__.query,
+        repo_ids=__ret__.repo_ids,
+        results_per_page=__ret__.results_per_page,
         sort=__ret__.sort)
 
 
 @_utilities.lift_output_func(get_repositories)
-def get_repositories_output(query: Optional[pulumi.Input[str]] = None,
+def get_repositories_output(include_repo_id: Optional[pulumi.Input[Optional[bool]]] = None,
+                            query: Optional[pulumi.Input[str]] = None,
+                            results_per_page: Optional[pulumi.Input[Optional[int]]] = None,
                             sort: Optional[pulumi.Input[Optional[str]]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRepositoriesResult]:
     """

@@ -74,6 +74,11 @@ export class Repository extends pulumi.CustomResource {
      */
     public readonly private!: pulumi.Output<boolean>;
     public /*out*/ readonly repoId!: pulumi.Output<number>;
+    /**
+     * Security and analysis settings for the repository. To use this parameter you must have admin permissions for the
+     * repository or be an owner or security manager for the organization that owns the repository.
+     */
+    public readonly securityAndAnalysis!: pulumi.Output<outputs.RepositorySecurityAndAnalysis | undefined>;
     public readonly squashMergeCommitMessage!: pulumi.Output<string | undefined>;
     public readonly squashMergeCommitTitle!: pulumi.Output<string | undefined>;
     public /*out*/ readonly sshCloneUrl!: pulumi.Output<string>;
@@ -128,6 +133,7 @@ export class Repository extends pulumi.CustomResource {
             resourceInputs["pages"] = state ? state.pages : undefined;
             resourceInputs["private"] = state ? state.private : undefined;
             resourceInputs["repoId"] = state ? state.repoId : undefined;
+            resourceInputs["securityAndAnalysis"] = state ? state.securityAndAnalysis : undefined;
             resourceInputs["squashMergeCommitMessage"] = state ? state.squashMergeCommitMessage : undefined;
             resourceInputs["squashMergeCommitTitle"] = state ? state.squashMergeCommitTitle : undefined;
             resourceInputs["sshCloneUrl"] = state ? state.sshCloneUrl : undefined;
@@ -163,6 +169,7 @@ export class Repository extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["pages"] = args ? args.pages : undefined;
             resourceInputs["private"] = args ? args.private : undefined;
+            resourceInputs["securityAndAnalysis"] = args ? args.securityAndAnalysis : undefined;
             resourceInputs["squashMergeCommitMessage"] = args ? args.squashMergeCommitMessage : undefined;
             resourceInputs["squashMergeCommitTitle"] = args ? args.squashMergeCommitTitle : undefined;
             resourceInputs["template"] = args ? args.template : undefined;
@@ -228,6 +235,11 @@ export interface RepositoryState {
      */
     private?: pulumi.Input<boolean>;
     repoId?: pulumi.Input<number>;
+    /**
+     * Security and analysis settings for the repository. To use this parameter you must have admin permissions for the
+     * repository or be an owner or security manager for the organization that owns the repository.
+     */
+    securityAndAnalysis?: pulumi.Input<inputs.RepositorySecurityAndAnalysis>;
     squashMergeCommitMessage?: pulumi.Input<string>;
     squashMergeCommitTitle?: pulumi.Input<string>;
     sshCloneUrl?: pulumi.Input<string>;
@@ -275,6 +287,11 @@ export interface RepositoryArgs {
      * @deprecated use visibility instead
      */
     private?: pulumi.Input<boolean>;
+    /**
+     * Security and analysis settings for the repository. To use this parameter you must have admin permissions for the
+     * repository or be an owner or security manager for the organization that owns the repository.
+     */
+    securityAndAnalysis?: pulumi.Input<inputs.RepositorySecurityAndAnalysis>;
     squashMergeCommitMessage?: pulumi.Input<string>;
     squashMergeCommitTitle?: pulumi.Input<string>;
     template?: pulumi.Input<inputs.RepositoryTemplate>;

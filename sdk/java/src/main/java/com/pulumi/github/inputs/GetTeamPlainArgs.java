@@ -4,6 +4,8 @@
 package com.pulumi.github.inputs;
 
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -21,6 +23,13 @@ public final class GetTeamPlainArgs extends com.pulumi.resources.InvokeArgs {
         return Optional.ofNullable(this.membershipType);
     }
 
+    @Import(name="resultsPerPage")
+    private @Nullable Integer resultsPerPage;
+
+    public Optional<Integer> resultsPerPage() {
+        return Optional.ofNullable(this.resultsPerPage);
+    }
+
     @Import(name="slug", required=true)
     private String slug;
 
@@ -28,11 +37,20 @@ public final class GetTeamPlainArgs extends com.pulumi.resources.InvokeArgs {
         return this.slug;
     }
 
+    @Import(name="summaryOnly")
+    private @Nullable Boolean summaryOnly;
+
+    public Optional<Boolean> summaryOnly() {
+        return Optional.ofNullable(this.summaryOnly);
+    }
+
     private GetTeamPlainArgs() {}
 
     private GetTeamPlainArgs(GetTeamPlainArgs $) {
         this.membershipType = $.membershipType;
+        this.resultsPerPage = $.resultsPerPage;
         this.slug = $.slug;
+        this.summaryOnly = $.summaryOnly;
     }
 
     public static Builder builder() {
@@ -58,8 +76,18 @@ public final class GetTeamPlainArgs extends com.pulumi.resources.InvokeArgs {
             return this;
         }
 
+        public Builder resultsPerPage(@Nullable Integer resultsPerPage) {
+            $.resultsPerPage = resultsPerPage;
+            return this;
+        }
+
         public Builder slug(String slug) {
             $.slug = slug;
+            return this;
+        }
+
+        public Builder summaryOnly(@Nullable Boolean summaryOnly) {
+            $.summaryOnly = summaryOnly;
             return this;
         }
 

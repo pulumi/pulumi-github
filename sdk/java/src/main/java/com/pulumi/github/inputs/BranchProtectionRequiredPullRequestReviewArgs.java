@@ -46,6 +46,13 @@ public final class BranchProtectionRequiredPullRequestReviewArgs extends com.pul
         return Optional.ofNullable(this.requireCodeOwnerReviews);
     }
 
+    @Import(name="requireLastPushApproval")
+    private @Nullable Output<Boolean> requireLastPushApproval;
+
+    public Optional<Output<Boolean>> requireLastPushApproval() {
+        return Optional.ofNullable(this.requireLastPushApproval);
+    }
+
     @Import(name="requiredApprovingReviewCount")
     private @Nullable Output<Integer> requiredApprovingReviewCount;
 
@@ -67,6 +74,7 @@ public final class BranchProtectionRequiredPullRequestReviewArgs extends com.pul
         this.dismissalRestrictions = $.dismissalRestrictions;
         this.pullRequestBypassers = $.pullRequestBypassers;
         this.requireCodeOwnerReviews = $.requireCodeOwnerReviews;
+        this.requireLastPushApproval = $.requireLastPushApproval;
         this.requiredApprovingReviewCount = $.requiredApprovingReviewCount;
         this.restrictDismissals = $.restrictDismissals;
     }
@@ -131,6 +139,15 @@ public final class BranchProtectionRequiredPullRequestReviewArgs extends com.pul
 
         public Builder requireCodeOwnerReviews(Boolean requireCodeOwnerReviews) {
             return requireCodeOwnerReviews(Output.of(requireCodeOwnerReviews));
+        }
+
+        public Builder requireLastPushApproval(@Nullable Output<Boolean> requireLastPushApproval) {
+            $.requireLastPushApproval = requireLastPushApproval;
+            return this;
+        }
+
+        public Builder requireLastPushApproval(Boolean requireLastPushApproval) {
+            return requireLastPushApproval(Output.of(requireLastPushApproval));
         }
 
         public Builder requiredApprovingReviewCount(@Nullable Output<Integer> requiredApprovingReviewCount) {

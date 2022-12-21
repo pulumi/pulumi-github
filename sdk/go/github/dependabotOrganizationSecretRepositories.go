@@ -103,7 +103,7 @@ func (i *DependabotOrganizationSecretRepositories) ToDependabotOrganizationSecre
 // DependabotOrganizationSecretRepositoriesArrayInput is an input type that accepts DependabotOrganizationSecretRepositoriesArray and DependabotOrganizationSecretRepositoriesArrayOutput values.
 // You can construct a concrete instance of `DependabotOrganizationSecretRepositoriesArrayInput` via:
 //
-//	DependabotOrganizationSecretRepositoriesArray{ DependabotOrganizationSecretRepositoriesArgs{...} }
+//          DependabotOrganizationSecretRepositoriesArray{ DependabotOrganizationSecretRepositoriesArgs{...} }
 type DependabotOrganizationSecretRepositoriesArrayInput interface {
 	pulumi.Input
 
@@ -128,7 +128,7 @@ func (i DependabotOrganizationSecretRepositoriesArray) ToDependabotOrganizationS
 // DependabotOrganizationSecretRepositoriesMapInput is an input type that accepts DependabotOrganizationSecretRepositoriesMap and DependabotOrganizationSecretRepositoriesMapOutput values.
 // You can construct a concrete instance of `DependabotOrganizationSecretRepositoriesMapInput` via:
 //
-//	DependabotOrganizationSecretRepositoriesMap{ "key": DependabotOrganizationSecretRepositoriesArgs{...} }
+//          DependabotOrganizationSecretRepositoriesMap{ "key": DependabotOrganizationSecretRepositoriesArgs{...} }
 type DependabotOrganizationSecretRepositoriesMapInput interface {
 	pulumi.Input
 

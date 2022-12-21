@@ -225,7 +225,7 @@ func (i *OrganizationSettings) ToOrganizationSettingsOutputWithContext(ctx conte
 // OrganizationSettingsArrayInput is an input type that accepts OrganizationSettingsArray and OrganizationSettingsArrayOutput values.
 // You can construct a concrete instance of `OrganizationSettingsArrayInput` via:
 //
-//	OrganizationSettingsArray{ OrganizationSettingsArgs{...} }
+//          OrganizationSettingsArray{ OrganizationSettingsArgs{...} }
 type OrganizationSettingsArrayInput interface {
 	pulumi.Input
 
@@ -250,7 +250,7 @@ func (i OrganizationSettingsArray) ToOrganizationSettingsArrayOutputWithContext(
 // OrganizationSettingsMapInput is an input type that accepts OrganizationSettingsMap and OrganizationSettingsMapOutput values.
 // You can construct a concrete instance of `OrganizationSettingsMapInput` via:
 //
-//	OrganizationSettingsMap{ "key": OrganizationSettingsArgs{...} }
+//          OrganizationSettingsMap{ "key": OrganizationSettingsArgs{...} }
 type OrganizationSettingsMapInput interface {
 	pulumi.Input
 

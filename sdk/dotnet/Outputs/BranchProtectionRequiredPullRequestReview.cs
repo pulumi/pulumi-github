@@ -17,6 +17,7 @@ namespace Pulumi.Github.Outputs
         public readonly ImmutableArray<string> DismissalRestrictions;
         public readonly ImmutableArray<string> PullRequestBypassers;
         public readonly bool? RequireCodeOwnerReviews;
+        public readonly bool? RequireLastPushApproval;
         public readonly int? RequiredApprovingReviewCount;
         public readonly bool? RestrictDismissals;
 
@@ -30,6 +31,8 @@ namespace Pulumi.Github.Outputs
 
             bool? requireCodeOwnerReviews,
 
+            bool? requireLastPushApproval,
+
             int? requiredApprovingReviewCount,
 
             bool? restrictDismissals)
@@ -38,6 +41,7 @@ namespace Pulumi.Github.Outputs
             DismissalRestrictions = dismissalRestrictions;
             PullRequestBypassers = pullRequestBypassers;
             RequireCodeOwnerReviews = requireCodeOwnerReviews;
+            RequireLastPushApproval = requireLastPushApproval;
             RequiredApprovingReviewCount = requiredApprovingReviewCount;
             RestrictDismissals = restrictDismissals;
         }

@@ -15,11 +15,18 @@ export interface ActionsOrganizationPermissionsEnabledRepositoriesConfig {
     repositoryIds: number[];
 }
 
+export interface ActionsRepositoryPermissionsAllowedActionsConfig {
+    githubOwnedAllowed: boolean;
+    patternsAlloweds?: string[];
+    verifiedAllowed?: boolean;
+}
+
 export interface BranchProtectionRequiredPullRequestReview {
     dismissStaleReviews?: boolean;
     dismissalRestrictions?: string[];
     pullRequestBypassers?: string[];
     requireCodeOwnerReviews?: boolean;
+    requireLastPushApproval?: boolean;
     requiredApprovingReviewCount?: number;
     restrictDismissals?: boolean;
 }
@@ -205,6 +212,11 @@ export interface GetRepositoryTeamsTeam {
     slug: string;
 }
 
+export interface GetRepositoryTemplate {
+    owner: string;
+    repository: string;
+}
+
 export interface GetRepositoryWebhooksWebhook {
     active: boolean;
     id: number;
@@ -252,6 +264,24 @@ export interface RepositoryPagesSource {
     path?: string;
 }
 
+export interface RepositorySecurityAndAnalysis {
+    advancedSecurity: outputs.RepositorySecurityAndAnalysisAdvancedSecurity;
+    secretScanning: outputs.RepositorySecurityAndAnalysisSecretScanning;
+    secretScanningPushProtection: outputs.RepositorySecurityAndAnalysisSecretScanningPushProtection;
+}
+
+export interface RepositorySecurityAndAnalysisAdvancedSecurity {
+    status: string;
+}
+
+export interface RepositorySecurityAndAnalysisSecretScanning {
+    status: string;
+}
+
+export interface RepositorySecurityAndAnalysisSecretScanningPushProtection {
+    status: string;
+}
+
 export interface RepositoryTemplate {
     includeAllBranches?: boolean;
     owner: string;
@@ -268,6 +298,12 @@ export interface RepositoryWebhookConfiguration {
 export interface TeamMembersMember {
     role?: string;
     username: string;
+}
+
+export interface TeamSettingsReviewRequestDelegation {
+    algorithm?: string;
+    memberCount?: number;
+    notify?: boolean;
 }
 
 export interface TeamSyncGroupMappingGroup {

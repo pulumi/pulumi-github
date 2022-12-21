@@ -130,7 +130,7 @@ func (i *ActionsSecret) ToActionsSecretOutputWithContext(ctx context.Context) Ac
 // ActionsSecretArrayInput is an input type that accepts ActionsSecretArray and ActionsSecretArrayOutput values.
 // You can construct a concrete instance of `ActionsSecretArrayInput` via:
 //
-//	ActionsSecretArray{ ActionsSecretArgs{...} }
+//          ActionsSecretArray{ ActionsSecretArgs{...} }
 type ActionsSecretArrayInput interface {
 	pulumi.Input
 
@@ -155,7 +155,7 @@ func (i ActionsSecretArray) ToActionsSecretArrayOutputWithContext(ctx context.Co
 // ActionsSecretMapInput is an input type that accepts ActionsSecretMap and ActionsSecretMapOutput values.
 // You can construct a concrete instance of `ActionsSecretMapInput` via:
 //
-//	ActionsSecretMap{ "key": ActionsSecretArgs{...} }
+//          ActionsSecretMap{ "key": ActionsSecretArgs{...} }
 type ActionsSecretMapInput interface {
 	pulumi.Input
 

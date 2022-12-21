@@ -6,6 +6,7 @@ package com.pulumi.github.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.github.inputs.RepositoryPagesArgs;
+import com.pulumi.github.inputs.RepositorySecurityAndAnalysisArgs;
 import com.pulumi.github.inputs.RepositoryTemplateArgs;
 import java.lang.Boolean;
 import java.lang.Integer;
@@ -272,6 +273,23 @@ public final class RepositoryState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.repoId);
     }
 
+    /**
+     * Security and analysis settings for the repository. To use this parameter you must have admin permissions for the
+     * repository or be an owner or security manager for the organization that owns the repository.
+     * 
+     */
+    @Import(name="securityAndAnalysis")
+    private @Nullable Output<RepositorySecurityAndAnalysisArgs> securityAndAnalysis;
+
+    /**
+     * @return Security and analysis settings for the repository. To use this parameter you must have admin permissions for the
+     * repository or be an owner or security manager for the organization that owns the repository.
+     * 
+     */
+    public Optional<Output<RepositorySecurityAndAnalysisArgs>> securityAndAnalysis() {
+        return Optional.ofNullable(this.securityAndAnalysis);
+    }
+
     @Import(name="squashMergeCommitMessage")
     private @Nullable Output<String> squashMergeCommitMessage;
 
@@ -363,6 +381,7 @@ public final class RepositoryState extends com.pulumi.resources.ResourceArgs {
         this.pages = $.pages;
         this.private_ = $.private_;
         this.repoId = $.repoId;
+        this.securityAndAnalysis = $.securityAndAnalysis;
         this.squashMergeCommitMessage = $.squashMergeCommitMessage;
         this.squashMergeCommitTitle = $.squashMergeCommitTitle;
         this.sshCloneUrl = $.sshCloneUrl;
@@ -713,6 +732,29 @@ public final class RepositoryState extends com.pulumi.resources.ResourceArgs {
 
         public Builder repoId(Integer repoId) {
             return repoId(Output.of(repoId));
+        }
+
+        /**
+         * @param securityAndAnalysis Security and analysis settings for the repository. To use this parameter you must have admin permissions for the
+         * repository or be an owner or security manager for the organization that owns the repository.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder securityAndAnalysis(@Nullable Output<RepositorySecurityAndAnalysisArgs> securityAndAnalysis) {
+            $.securityAndAnalysis = securityAndAnalysis;
+            return this;
+        }
+
+        /**
+         * @param securityAndAnalysis Security and analysis settings for the repository. To use this parameter you must have admin permissions for the
+         * repository or be an owner or security manager for the organization that owns the repository.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder securityAndAnalysis(RepositorySecurityAndAnalysisArgs securityAndAnalysis) {
+            return securityAndAnalysis(Output.of(securityAndAnalysis));
         }
 
         public Builder squashMergeCommitMessage(@Nullable Output<String> squashMergeCommitMessage) {

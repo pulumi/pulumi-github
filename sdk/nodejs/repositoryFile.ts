@@ -47,7 +47,7 @@ export class RepositoryFile extends pulumi.CustomResource {
      */
     public readonly commitEmail!: pulumi.Output<string | undefined>;
     /**
-     * The commit message when creating or updating the file
+     * The commit message when creating, updating or deleting the file
      */
     public readonly commitMessage!: pulumi.Output<string>;
     /**
@@ -144,7 +144,7 @@ export interface RepositoryFileState {
      */
     commitEmail?: pulumi.Input<string>;
     /**
-     * The commit message when creating or updating the file
+     * The commit message when creating, updating or deleting the file
      */
     commitMessage?: pulumi.Input<string>;
     /**
@@ -192,7 +192,7 @@ export interface RepositoryFileArgs {
      */
     commitEmail?: pulumi.Input<string>;
     /**
-     * The commit message when creating or updating the file
+     * The commit message when creating, updating or deleting the file
      */
     commitMessage?: pulumi.Input<string>;
     /**

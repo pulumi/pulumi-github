@@ -101,7 +101,7 @@ func (i *UserGpgKey) ToUserGpgKeyOutputWithContext(ctx context.Context) UserGpgK
 // UserGpgKeyArrayInput is an input type that accepts UserGpgKeyArray and UserGpgKeyArrayOutput values.
 // You can construct a concrete instance of `UserGpgKeyArrayInput` via:
 //
-//	UserGpgKeyArray{ UserGpgKeyArgs{...} }
+//          UserGpgKeyArray{ UserGpgKeyArgs{...} }
 type UserGpgKeyArrayInput interface {
 	pulumi.Input
 
@@ -126,7 +126,7 @@ func (i UserGpgKeyArray) ToUserGpgKeyArrayOutputWithContext(ctx context.Context)
 // UserGpgKeyMapInput is an input type that accepts UserGpgKeyMap and UserGpgKeyMapOutput values.
 // You can construct a concrete instance of `UserGpgKeyMapInput` via:
 //
-//	UserGpgKeyMap{ "key": UserGpgKeyArgs{...} }
+//          UserGpgKeyMap{ "key": UserGpgKeyArgs{...} }
 type UserGpgKeyMapInput interface {
 	pulumi.Input
 

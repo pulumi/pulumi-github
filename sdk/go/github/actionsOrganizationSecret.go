@@ -135,7 +135,7 @@ func (i *ActionsOrganizationSecret) ToActionsOrganizationSecretOutputWithContext
 // ActionsOrganizationSecretArrayInput is an input type that accepts ActionsOrganizationSecretArray and ActionsOrganizationSecretArrayOutput values.
 // You can construct a concrete instance of `ActionsOrganizationSecretArrayInput` via:
 //
-//	ActionsOrganizationSecretArray{ ActionsOrganizationSecretArgs{...} }
+//          ActionsOrganizationSecretArray{ ActionsOrganizationSecretArgs{...} }
 type ActionsOrganizationSecretArrayInput interface {
 	pulumi.Input
 
@@ -160,7 +160,7 @@ func (i ActionsOrganizationSecretArray) ToActionsOrganizationSecretArrayOutputWi
 // ActionsOrganizationSecretMapInput is an input type that accepts ActionsOrganizationSecretMap and ActionsOrganizationSecretMapOutput values.
 // You can construct a concrete instance of `ActionsOrganizationSecretMapInput` via:
 //
-//	ActionsOrganizationSecretMap{ "key": ActionsOrganizationSecretArgs{...} }
+//          ActionsOrganizationSecretMap{ "key": ActionsOrganizationSecretArgs{...} }
 type ActionsOrganizationSecretMapInput interface {
 	pulumi.Input
 

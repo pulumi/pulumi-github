@@ -22,7 +22,7 @@ type RepositoryFile struct {
 	// The commit author email address, defaults to the authenticated user's email address. GitHub app users may omit author
 	// and email information so GitHub can verify commits as the GitHub App.
 	CommitEmail pulumi.StringPtrOutput `pulumi:"commitEmail"`
-	// The commit message when creating or updating the file
+	// The commit message when creating, updating or deleting the file
 	CommitMessage pulumi.StringOutput `pulumi:"commitMessage"`
 	// The SHA of the commit that modified the file
 	CommitSha pulumi.StringOutput `pulumi:"commitSha"`
@@ -84,7 +84,7 @@ type repositoryFileState struct {
 	// The commit author email address, defaults to the authenticated user's email address. GitHub app users may omit author
 	// and email information so GitHub can verify commits as the GitHub App.
 	CommitEmail *string `pulumi:"commitEmail"`
-	// The commit message when creating or updating the file
+	// The commit message when creating, updating or deleting the file
 	CommitMessage *string `pulumi:"commitMessage"`
 	// The SHA of the commit that modified the file
 	CommitSha *string `pulumi:"commitSha"`
@@ -109,7 +109,7 @@ type RepositoryFileState struct {
 	// The commit author email address, defaults to the authenticated user's email address. GitHub app users may omit author
 	// and email information so GitHub can verify commits as the GitHub App.
 	CommitEmail pulumi.StringPtrInput
-	// The commit message when creating or updating the file
+	// The commit message when creating, updating or deleting the file
 	CommitMessage pulumi.StringPtrInput
 	// The SHA of the commit that modified the file
 	CommitSha pulumi.StringPtrInput
@@ -138,7 +138,7 @@ type repositoryFileArgs struct {
 	// The commit author email address, defaults to the authenticated user's email address. GitHub app users may omit author
 	// and email information so GitHub can verify commits as the GitHub App.
 	CommitEmail *string `pulumi:"commitEmail"`
-	// The commit message when creating or updating the file
+	// The commit message when creating, updating or deleting the file
 	CommitMessage *string `pulumi:"commitMessage"`
 	// The file's content
 	Content string `pulumi:"content"`
@@ -160,7 +160,7 @@ type RepositoryFileArgs struct {
 	// The commit author email address, defaults to the authenticated user's email address. GitHub app users may omit author
 	// and email information so GitHub can verify commits as the GitHub App.
 	CommitEmail pulumi.StringPtrInput
-	// The commit message when creating or updating the file
+	// The commit message when creating, updating or deleting the file
 	CommitMessage pulumi.StringPtrInput
 	// The file's content
 	Content pulumi.StringInput
@@ -198,7 +198,7 @@ func (i *RepositoryFile) ToRepositoryFileOutputWithContext(ctx context.Context) 
 // RepositoryFileArrayInput is an input type that accepts RepositoryFileArray and RepositoryFileArrayOutput values.
 // You can construct a concrete instance of `RepositoryFileArrayInput` via:
 //
-//	RepositoryFileArray{ RepositoryFileArgs{...} }
+//          RepositoryFileArray{ RepositoryFileArgs{...} }
 type RepositoryFileArrayInput interface {
 	pulumi.Input
 
@@ -223,7 +223,7 @@ func (i RepositoryFileArray) ToRepositoryFileArrayOutputWithContext(ctx context.
 // RepositoryFileMapInput is an input type that accepts RepositoryFileMap and RepositoryFileMapOutput values.
 // You can construct a concrete instance of `RepositoryFileMapInput` via:
 //
-//	RepositoryFileMap{ "key": RepositoryFileArgs{...} }
+//          RepositoryFileMap{ "key": RepositoryFileArgs{...} }
 type RepositoryFileMapInput interface {
 	pulumi.Input
 
@@ -276,7 +276,7 @@ func (o RepositoryFileOutput) CommitEmail() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RepositoryFile) pulumi.StringPtrOutput { return v.CommitEmail }).(pulumi.StringPtrOutput)
 }
 
-// The commit message when creating or updating the file
+// The commit message when creating, updating or deleting the file
 func (o RepositoryFileOutput) CommitMessage() pulumi.StringOutput {
 	return o.ApplyT(func(v *RepositoryFile) pulumi.StringOutput { return v.CommitMessage }).(pulumi.StringOutput)
 }

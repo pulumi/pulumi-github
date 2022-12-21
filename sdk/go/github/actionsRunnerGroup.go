@@ -123,7 +123,7 @@ func (i *ActionsRunnerGroup) ToActionsRunnerGroupOutputWithContext(ctx context.C
 // ActionsRunnerGroupArrayInput is an input type that accepts ActionsRunnerGroupArray and ActionsRunnerGroupArrayOutput values.
 // You can construct a concrete instance of `ActionsRunnerGroupArrayInput` via:
 //
-//	ActionsRunnerGroupArray{ ActionsRunnerGroupArgs{...} }
+//          ActionsRunnerGroupArray{ ActionsRunnerGroupArgs{...} }
 type ActionsRunnerGroupArrayInput interface {
 	pulumi.Input
 
@@ -148,7 +148,7 @@ func (i ActionsRunnerGroupArray) ToActionsRunnerGroupArrayOutputWithContext(ctx 
 // ActionsRunnerGroupMapInput is an input type that accepts ActionsRunnerGroupMap and ActionsRunnerGroupMapOutput values.
 // You can construct a concrete instance of `ActionsRunnerGroupMapInput` via:
 //
-//	ActionsRunnerGroupMap{ "key": ActionsRunnerGroupArgs{...} }
+//          ActionsRunnerGroupMap{ "key": ActionsRunnerGroupArgs{...} }
 type ActionsRunnerGroupMapInput interface {
 	pulumi.Input
 

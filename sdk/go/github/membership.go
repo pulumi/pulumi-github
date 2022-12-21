@@ -103,7 +103,7 @@ func (i *Membership) ToMembershipOutputWithContext(ctx context.Context) Membersh
 // MembershipArrayInput is an input type that accepts MembershipArray and MembershipArrayOutput values.
 // You can construct a concrete instance of `MembershipArrayInput` via:
 //
-//	MembershipArray{ MembershipArgs{...} }
+//          MembershipArray{ MembershipArgs{...} }
 type MembershipArrayInput interface {
 	pulumi.Input
 
@@ -128,7 +128,7 @@ func (i MembershipArray) ToMembershipArrayOutputWithContext(ctx context.Context)
 // MembershipMapInput is an input type that accepts MembershipMap and MembershipMapOutput values.
 // You can construct a concrete instance of `MembershipMapInput` via:
 //
-//	MembershipMap{ "key": MembershipArgs{...} }
+//          MembershipMap{ "key": MembershipArgs{...} }
 type MembershipMapInput interface {
 	pulumi.Input
 

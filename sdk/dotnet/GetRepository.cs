@@ -83,6 +83,7 @@ namespace Pulumi.Github
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        public readonly bool IsTemplate;
         public readonly string MergeCommitMessage;
         public readonly string MergeCommitTitle;
         public readonly string Name;
@@ -94,6 +95,7 @@ namespace Pulumi.Github
         public readonly string SquashMergeCommitTitle;
         public readonly string SshCloneUrl;
         public readonly string SvnUrl;
+        public readonly Outputs.GetRepositoryTemplateResult Template;
         public readonly ImmutableArray<string> Topics;
         public readonly string Visibility;
 
@@ -133,6 +135,8 @@ namespace Pulumi.Github
 
             string id,
 
+            bool isTemplate,
+
             string mergeCommitMessage,
 
             string mergeCommitTitle,
@@ -155,6 +159,8 @@ namespace Pulumi.Github
 
             string svnUrl,
 
+            Outputs.GetRepositoryTemplateResult template,
+
             ImmutableArray<string> topics,
 
             string visibility)
@@ -176,6 +182,7 @@ namespace Pulumi.Github
             HtmlUrl = htmlUrl;
             HttpCloneUrl = httpCloneUrl;
             Id = id;
+            IsTemplate = isTemplate;
             MergeCommitMessage = mergeCommitMessage;
             MergeCommitTitle = mergeCommitTitle;
             Name = name;
@@ -187,6 +194,7 @@ namespace Pulumi.Github
             SquashMergeCommitTitle = squashMergeCommitTitle;
             SshCloneUrl = sshCloneUrl;
             SvnUrl = svnUrl;
+            Template = template;
             Topics = topics;
             Visibility = visibility;
         }

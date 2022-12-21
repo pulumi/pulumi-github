@@ -144,7 +144,7 @@ func (i *RepositoryAutolinkReference) ToRepositoryAutolinkReferenceOutputWithCon
 // RepositoryAutolinkReferenceArrayInput is an input type that accepts RepositoryAutolinkReferenceArray and RepositoryAutolinkReferenceArrayOutput values.
 // You can construct a concrete instance of `RepositoryAutolinkReferenceArrayInput` via:
 //
-//	RepositoryAutolinkReferenceArray{ RepositoryAutolinkReferenceArgs{...} }
+//          RepositoryAutolinkReferenceArray{ RepositoryAutolinkReferenceArgs{...} }
 type RepositoryAutolinkReferenceArrayInput interface {
 	pulumi.Input
 
@@ -169,7 +169,7 @@ func (i RepositoryAutolinkReferenceArray) ToRepositoryAutolinkReferenceArrayOutp
 // RepositoryAutolinkReferenceMapInput is an input type that accepts RepositoryAutolinkReferenceMap and RepositoryAutolinkReferenceMapOutput values.
 // You can construct a concrete instance of `RepositoryAutolinkReferenceMapInput` via:
 //
-//	RepositoryAutolinkReferenceMap{ "key": RepositoryAutolinkReferenceArgs{...} }
+//          RepositoryAutolinkReferenceMap{ "key": RepositoryAutolinkReferenceArgs{...} }
 type RepositoryAutolinkReferenceMapInput interface {
 	pulumi.Input
 

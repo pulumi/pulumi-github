@@ -116,7 +116,7 @@ func (i *ProjectCard) ToProjectCardOutputWithContext(ctx context.Context) Projec
 // ProjectCardArrayInput is an input type that accepts ProjectCardArray and ProjectCardArrayOutput values.
 // You can construct a concrete instance of `ProjectCardArrayInput` via:
 //
-//	ProjectCardArray{ ProjectCardArgs{...} }
+//          ProjectCardArray{ ProjectCardArgs{...} }
 type ProjectCardArrayInput interface {
 	pulumi.Input
 
@@ -141,7 +141,7 @@ func (i ProjectCardArray) ToProjectCardArrayOutputWithContext(ctx context.Contex
 // ProjectCardMapInput is an input type that accepts ProjectCardMap and ProjectCardMapOutput values.
 // You can construct a concrete instance of `ProjectCardMapInput` via:
 //
-//	ProjectCardMap{ "key": ProjectCardArgs{...} }
+//          ProjectCardMap{ "key": ProjectCardArgs{...} }
 type ProjectCardMapInput interface {
 	pulumi.Input
 

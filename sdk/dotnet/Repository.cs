@@ -111,6 +111,13 @@ namespace Pulumi.Github
         [Output("repoId")]
         public Output<int> RepoId { get; private set; } = null!;
 
+        /// <summary>
+        /// Security and analysis settings for the repository. To use this parameter you must have admin permissions for the
+        /// repository or be an owner or security manager for the organization that owns the repository.
+        /// </summary>
+        [Output("securityAndAnalysis")]
+        public Output<Outputs.RepositorySecurityAndAnalysis?> SecurityAndAnalysis { get; private set; } = null!;
+
         [Output("squashMergeCommitMessage")]
         public Output<string?> SquashMergeCommitMessage { get; private set; } = null!;
 
@@ -259,6 +266,13 @@ namespace Pulumi.Github
         [Input("private")]
         public Input<bool>? Private { get; set; }
 
+        /// <summary>
+        /// Security and analysis settings for the repository. To use this parameter you must have admin permissions for the
+        /// repository or be an owner or security manager for the organization that owns the repository.
+        /// </summary>
+        [Input("securityAndAnalysis")]
+        public Input<Inputs.RepositorySecurityAndAnalysisArgs>? SecurityAndAnalysis { get; set; }
+
         [Input("squashMergeCommitMessage")]
         public Input<string>? SquashMergeCommitMessage { get; set; }
 
@@ -388,6 +402,13 @@ namespace Pulumi.Github
 
         [Input("repoId")]
         public Input<int>? RepoId { get; set; }
+
+        /// <summary>
+        /// Security and analysis settings for the repository. To use this parameter you must have admin permissions for the
+        /// repository or be an owner or security manager for the organization that owns the repository.
+        /// </summary>
+        [Input("securityAndAnalysis")]
+        public Input<Inputs.RepositorySecurityAndAnalysisGetArgs>? SecurityAndAnalysis { get; set; }
 
         [Input("squashMergeCommitMessage")]
         public Input<string>? SquashMergeCommitMessage { get; set; }

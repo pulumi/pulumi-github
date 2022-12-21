@@ -46,20 +46,22 @@ type LookupRepositoryResult struct {
 	HtmlUrl          string  `pulumi:"htmlUrl"`
 	HttpCloneUrl     string  `pulumi:"httpCloneUrl"`
 	// The provider-assigned unique ID for this managed resource.
-	Id                       string              `pulumi:"id"`
-	MergeCommitMessage       string              `pulumi:"mergeCommitMessage"`
-	MergeCommitTitle         string              `pulumi:"mergeCommitTitle"`
-	Name                     string              `pulumi:"name"`
-	NodeId                   string              `pulumi:"nodeId"`
-	Pages                    []GetRepositoryPage `pulumi:"pages"`
-	Private                  bool                `pulumi:"private"`
-	RepoId                   int                 `pulumi:"repoId"`
-	SquashMergeCommitMessage string              `pulumi:"squashMergeCommitMessage"`
-	SquashMergeCommitTitle   string              `pulumi:"squashMergeCommitTitle"`
-	SshCloneUrl              string              `pulumi:"sshCloneUrl"`
-	SvnUrl                   string              `pulumi:"svnUrl"`
-	Topics                   []string            `pulumi:"topics"`
-	Visibility               string              `pulumi:"visibility"`
+	Id                       string                `pulumi:"id"`
+	IsTemplate               bool                  `pulumi:"isTemplate"`
+	MergeCommitMessage       string                `pulumi:"mergeCommitMessage"`
+	MergeCommitTitle         string                `pulumi:"mergeCommitTitle"`
+	Name                     string                `pulumi:"name"`
+	NodeId                   string                `pulumi:"nodeId"`
+	Pages                    []GetRepositoryPage   `pulumi:"pages"`
+	Private                  bool                  `pulumi:"private"`
+	RepoId                   int                   `pulumi:"repoId"`
+	SquashMergeCommitMessage string                `pulumi:"squashMergeCommitMessage"`
+	SquashMergeCommitTitle   string                `pulumi:"squashMergeCommitTitle"`
+	SshCloneUrl              string                `pulumi:"sshCloneUrl"`
+	SvnUrl                   string                `pulumi:"svnUrl"`
+	Template                 GetRepositoryTemplate `pulumi:"template"`
+	Topics                   []string              `pulumi:"topics"`
+	Visibility               string                `pulumi:"visibility"`
 }
 
 func LookupRepositoryOutput(ctx *pulumi.Context, args LookupRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupRepositoryResultOutput {
@@ -171,6 +173,10 @@ func (o LookupRepositoryResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRepositoryResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+func (o LookupRepositoryResultOutput) IsTemplate() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupRepositoryResult) bool { return v.IsTemplate }).(pulumi.BoolOutput)
+}
+
 func (o LookupRepositoryResultOutput) MergeCommitMessage() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRepositoryResult) string { return v.MergeCommitMessage }).(pulumi.StringOutput)
 }
@@ -213,6 +219,10 @@ func (o LookupRepositoryResultOutput) SshCloneUrl() pulumi.StringOutput {
 
 func (o LookupRepositoryResultOutput) SvnUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRepositoryResult) string { return v.SvnUrl }).(pulumi.StringOutput)
+}
+
+func (o LookupRepositoryResultOutput) Template() GetRepositoryTemplateOutput {
+	return o.ApplyT(func(v LookupRepositoryResult) GetRepositoryTemplate { return v.Template }).(GetRepositoryTemplateOutput)
 }
 
 func (o LookupRepositoryResultOutput) Topics() pulumi.StringArrayOutput {

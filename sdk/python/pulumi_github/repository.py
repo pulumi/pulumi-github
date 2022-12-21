@@ -41,6 +41,7 @@ class RepositoryArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  pages: Optional[pulumi.Input['RepositoryPagesArgs']] = None,
                  private: Optional[pulumi.Input[bool]] = None,
+                 security_and_analysis: Optional[pulumi.Input['RepositorySecurityAndAnalysisArgs']] = None,
                  squash_merge_commit_message: Optional[pulumi.Input[str]] = None,
                  squash_merge_commit_title: Optional[pulumi.Input[str]] = None,
                  template: Optional[pulumi.Input['RepositoryTemplateArgs']] = None,
@@ -50,6 +51,8 @@ class RepositoryArgs:
         """
         The set of arguments for constructing a Repository resource.
         :param pulumi.Input[str] default_branch: Can only be set after initial repository creation, and only if the target branch exists
+        :param pulumi.Input['RepositorySecurityAndAnalysisArgs'] security_and_analysis: Security and analysis settings for the repository. To use this parameter you must have admin permissions for the
+               repository or be an owner or security manager for the organization that owns the repository.
         """
         if allow_auto_merge is not None:
             pulumi.set(__self__, "allow_auto_merge", allow_auto_merge)
@@ -107,6 +110,8 @@ class RepositoryArgs:
             pulumi.log.warn("""private is deprecated: use visibility instead""")
         if private is not None:
             pulumi.set(__self__, "private", private)
+        if security_and_analysis is not None:
+            pulumi.set(__self__, "security_and_analysis", security_and_analysis)
         if squash_merge_commit_message is not None:
             pulumi.set(__self__, "squash_merge_commit_message", squash_merge_commit_message)
         if squash_merge_commit_title is not None:
@@ -349,6 +354,19 @@ class RepositoryArgs:
         pulumi.set(self, "private", value)
 
     @property
+    @pulumi.getter(name="securityAndAnalysis")
+    def security_and_analysis(self) -> Optional[pulumi.Input['RepositorySecurityAndAnalysisArgs']]:
+        """
+        Security and analysis settings for the repository. To use this parameter you must have admin permissions for the
+        repository or be an owner or security manager for the organization that owns the repository.
+        """
+        return pulumi.get(self, "security_and_analysis")
+
+    @security_and_analysis.setter
+    def security_and_analysis(self, value: Optional[pulumi.Input['RepositorySecurityAndAnalysisArgs']]):
+        pulumi.set(self, "security_and_analysis", value)
+
+    @property
     @pulumi.getter(name="squashMergeCommitMessage")
     def squash_merge_commit_message(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "squash_merge_commit_message")
@@ -438,6 +456,7 @@ class _RepositoryState:
                  pages: Optional[pulumi.Input['RepositoryPagesArgs']] = None,
                  private: Optional[pulumi.Input[bool]] = None,
                  repo_id: Optional[pulumi.Input[int]] = None,
+                 security_and_analysis: Optional[pulumi.Input['RepositorySecurityAndAnalysisArgs']] = None,
                  squash_merge_commit_message: Optional[pulumi.Input[str]] = None,
                  squash_merge_commit_title: Optional[pulumi.Input[str]] = None,
                  ssh_clone_url: Optional[pulumi.Input[str]] = None,
@@ -449,6 +468,8 @@ class _RepositoryState:
         """
         Input properties used for looking up and filtering Repository resources.
         :param pulumi.Input[str] default_branch: Can only be set after initial repository creation, and only if the target branch exists
+        :param pulumi.Input['RepositorySecurityAndAnalysisArgs'] security_and_analysis: Security and analysis settings for the repository. To use this parameter you must have admin permissions for the
+               repository or be an owner or security manager for the organization that owns the repository.
         """
         if allow_auto_merge is not None:
             pulumi.set(__self__, "allow_auto_merge", allow_auto_merge)
@@ -520,6 +541,8 @@ class _RepositoryState:
             pulumi.set(__self__, "private", private)
         if repo_id is not None:
             pulumi.set(__self__, "repo_id", repo_id)
+        if security_and_analysis is not None:
+            pulumi.set(__self__, "security_and_analysis", security_and_analysis)
         if squash_merge_commit_message is not None:
             pulumi.set(__self__, "squash_merge_commit_message", squash_merge_commit_message)
         if squash_merge_commit_title is not None:
@@ -829,6 +852,19 @@ class _RepositoryState:
         pulumi.set(self, "repo_id", value)
 
     @property
+    @pulumi.getter(name="securityAndAnalysis")
+    def security_and_analysis(self) -> Optional[pulumi.Input['RepositorySecurityAndAnalysisArgs']]:
+        """
+        Security and analysis settings for the repository. To use this parameter you must have admin permissions for the
+        repository or be an owner or security manager for the organization that owns the repository.
+        """
+        return pulumi.get(self, "security_and_analysis")
+
+    @security_and_analysis.setter
+    def security_and_analysis(self, value: Optional[pulumi.Input['RepositorySecurityAndAnalysisArgs']]):
+        pulumi.set(self, "security_and_analysis", value)
+
+    @property
     @pulumi.getter(name="squashMergeCommitMessage")
     def squash_merge_commit_message(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "squash_merge_commit_message")
@@ -931,6 +967,7 @@ class Repository(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  pages: Optional[pulumi.Input[pulumi.InputType['RepositoryPagesArgs']]] = None,
                  private: Optional[pulumi.Input[bool]] = None,
+                 security_and_analysis: Optional[pulumi.Input[pulumi.InputType['RepositorySecurityAndAnalysisArgs']]] = None,
                  squash_merge_commit_message: Optional[pulumi.Input[str]] = None,
                  squash_merge_commit_title: Optional[pulumi.Input[str]] = None,
                  template: Optional[pulumi.Input[pulumi.InputType['RepositoryTemplateArgs']]] = None,
@@ -943,6 +980,8 @@ class Repository(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] default_branch: Can only be set after initial repository creation, and only if the target branch exists
+        :param pulumi.Input[pulumi.InputType['RepositorySecurityAndAnalysisArgs']] security_and_analysis: Security and analysis settings for the repository. To use this parameter you must have admin permissions for the
+               repository or be an owner or security manager for the organization that owns the repository.
         """
         ...
     @overload
@@ -992,6 +1031,7 @@ class Repository(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  pages: Optional[pulumi.Input[pulumi.InputType['RepositoryPagesArgs']]] = None,
                  private: Optional[pulumi.Input[bool]] = None,
+                 security_and_analysis: Optional[pulumi.Input[pulumi.InputType['RepositorySecurityAndAnalysisArgs']]] = None,
                  squash_merge_commit_message: Optional[pulumi.Input[str]] = None,
                  squash_merge_commit_title: Optional[pulumi.Input[str]] = None,
                  template: Optional[pulumi.Input[pulumi.InputType['RepositoryTemplateArgs']]] = None,
@@ -1038,6 +1078,7 @@ class Repository(pulumi.CustomResource):
                 warnings.warn("""use visibility instead""", DeprecationWarning)
                 pulumi.log.warn("""private is deprecated: use visibility instead""")
             __props__.__dict__["private"] = private
+            __props__.__dict__["security_and_analysis"] = security_and_analysis
             __props__.__dict__["squash_merge_commit_message"] = squash_merge_commit_message
             __props__.__dict__["squash_merge_commit_title"] = squash_merge_commit_title
             __props__.__dict__["template"] = template
@@ -1095,6 +1136,7 @@ class Repository(pulumi.CustomResource):
             pages: Optional[pulumi.Input[pulumi.InputType['RepositoryPagesArgs']]] = None,
             private: Optional[pulumi.Input[bool]] = None,
             repo_id: Optional[pulumi.Input[int]] = None,
+            security_and_analysis: Optional[pulumi.Input[pulumi.InputType['RepositorySecurityAndAnalysisArgs']]] = None,
             squash_merge_commit_message: Optional[pulumi.Input[str]] = None,
             squash_merge_commit_title: Optional[pulumi.Input[str]] = None,
             ssh_clone_url: Optional[pulumi.Input[str]] = None,
@@ -1111,6 +1153,8 @@ class Repository(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] default_branch: Can only be set after initial repository creation, and only if the target branch exists
+        :param pulumi.Input[pulumi.InputType['RepositorySecurityAndAnalysisArgs']] security_and_analysis: Security and analysis settings for the repository. To use this parameter you must have admin permissions for the
+               repository or be an owner or security manager for the organization that owns the repository.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1148,6 +1192,7 @@ class Repository(pulumi.CustomResource):
         __props__.__dict__["pages"] = pages
         __props__.__dict__["private"] = private
         __props__.__dict__["repo_id"] = repo_id
+        __props__.__dict__["security_and_analysis"] = security_and_analysis
         __props__.__dict__["squash_merge_commit_message"] = squash_merge_commit_message
         __props__.__dict__["squash_merge_commit_title"] = squash_merge_commit_title
         __props__.__dict__["ssh_clone_url"] = ssh_clone_url
@@ -1320,6 +1365,15 @@ class Repository(pulumi.CustomResource):
     @pulumi.getter(name="repoId")
     def repo_id(self) -> pulumi.Output[int]:
         return pulumi.get(self, "repo_id")
+
+    @property
+    @pulumi.getter(name="securityAndAnalysis")
+    def security_and_analysis(self) -> pulumi.Output[Optional['outputs.RepositorySecurityAndAnalysis']]:
+        """
+        Security and analysis settings for the repository. To use this parameter you must have admin permissions for the
+        repository or be an owner or security manager for the organization that owns the repository.
+        """
+        return pulumi.get(self, "security_and_analysis")
 
     @property
     @pulumi.getter(name="squashMergeCommitMessage")

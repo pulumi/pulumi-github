@@ -4,6 +4,8 @@
 package com.pulumi.github.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import java.lang.Boolean;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -25,7 +27,9 @@ public final class GetTeamResult {
     private String permission;
     private String privacy;
     private List<String> repositories;
+    private @Nullable Integer resultsPerPage;
     private String slug;
+    private @Nullable Boolean summaryOnly;
 
     private GetTeamResult() {}
     public String description() {
@@ -59,8 +63,14 @@ public final class GetTeamResult {
     public List<String> repositories() {
         return this.repositories;
     }
+    public Optional<Integer> resultsPerPage() {
+        return Optional.ofNullable(this.resultsPerPage);
+    }
     public String slug() {
         return this.slug;
+    }
+    public Optional<Boolean> summaryOnly() {
+        return Optional.ofNullable(this.summaryOnly);
     }
 
     public static Builder builder() {
@@ -81,7 +91,9 @@ public final class GetTeamResult {
         private String permission;
         private String privacy;
         private List<String> repositories;
+        private @Nullable Integer resultsPerPage;
         private String slug;
+        private @Nullable Boolean summaryOnly;
         public Builder() {}
         public Builder(GetTeamResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -94,7 +106,9 @@ public final class GetTeamResult {
     	      this.permission = defaults.permission;
     	      this.privacy = defaults.privacy;
     	      this.repositories = defaults.repositories;
+    	      this.resultsPerPage = defaults.resultsPerPage;
     	      this.slug = defaults.slug;
+    	      this.summaryOnly = defaults.summaryOnly;
         }
 
         @CustomType.Setter
@@ -149,8 +163,18 @@ public final class GetTeamResult {
             return repositories(List.of(repositories));
         }
         @CustomType.Setter
+        public Builder resultsPerPage(@Nullable Integer resultsPerPage) {
+            this.resultsPerPage = resultsPerPage;
+            return this;
+        }
+        @CustomType.Setter
         public Builder slug(String slug) {
             this.slug = Objects.requireNonNull(slug);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder summaryOnly(@Nullable Boolean summaryOnly) {
+            this.summaryOnly = summaryOnly;
             return this;
         }
         public GetTeamResult build() {
@@ -164,7 +188,9 @@ public final class GetTeamResult {
             o.permission = permission;
             o.privacy = privacy;
             o.repositories = repositories;
+            o.resultsPerPage = resultsPerPage;
             o.slug = slug;
+            o.summaryOnly = summaryOnly;
             return o;
         }
     }

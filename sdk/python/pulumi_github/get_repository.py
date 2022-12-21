@@ -22,7 +22,7 @@ class GetRepositoryResult:
     """
     A collection of values returned by getRepository.
     """
-    def __init__(__self__, allow_auto_merge=None, allow_merge_commit=None, allow_rebase_merge=None, allow_squash_merge=None, archived=None, default_branch=None, description=None, full_name=None, git_clone_url=None, has_downloads=None, has_issues=None, has_projects=None, has_wiki=None, homepage_url=None, html_url=None, http_clone_url=None, id=None, merge_commit_message=None, merge_commit_title=None, name=None, node_id=None, pages=None, private=None, repo_id=None, squash_merge_commit_message=None, squash_merge_commit_title=None, ssh_clone_url=None, svn_url=None, topics=None, visibility=None):
+    def __init__(__self__, allow_auto_merge=None, allow_merge_commit=None, allow_rebase_merge=None, allow_squash_merge=None, archived=None, default_branch=None, description=None, full_name=None, git_clone_url=None, has_downloads=None, has_issues=None, has_projects=None, has_wiki=None, homepage_url=None, html_url=None, http_clone_url=None, id=None, is_template=None, merge_commit_message=None, merge_commit_title=None, name=None, node_id=None, pages=None, private=None, repo_id=None, squash_merge_commit_message=None, squash_merge_commit_title=None, ssh_clone_url=None, svn_url=None, template=None, topics=None, visibility=None):
         if allow_auto_merge and not isinstance(allow_auto_merge, bool):
             raise TypeError("Expected argument 'allow_auto_merge' to be a bool")
         pulumi.set(__self__, "allow_auto_merge", allow_auto_merge)
@@ -74,6 +74,9 @@ class GetRepositoryResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if is_template and not isinstance(is_template, bool):
+            raise TypeError("Expected argument 'is_template' to be a bool")
+        pulumi.set(__self__, "is_template", is_template)
         if merge_commit_message and not isinstance(merge_commit_message, str):
             raise TypeError("Expected argument 'merge_commit_message' to be a str")
         pulumi.set(__self__, "merge_commit_message", merge_commit_message)
@@ -107,6 +110,9 @@ class GetRepositoryResult:
         if svn_url and not isinstance(svn_url, str):
             raise TypeError("Expected argument 'svn_url' to be a str")
         pulumi.set(__self__, "svn_url", svn_url)
+        if template and not isinstance(template, dict):
+            raise TypeError("Expected argument 'template' to be a dict")
+        pulumi.set(__self__, "template", template)
         if topics and not isinstance(topics, list):
             raise TypeError("Expected argument 'topics' to be a list")
         pulumi.set(__self__, "topics", topics)
@@ -203,6 +209,11 @@ class GetRepositoryResult:
         return pulumi.get(self, "id")
 
     @property
+    @pulumi.getter(name="isTemplate")
+    def is_template(self) -> bool:
+        return pulumi.get(self, "is_template")
+
+    @property
     @pulumi.getter(name="mergeCommitMessage")
     def merge_commit_message(self) -> str:
         return pulumi.get(self, "merge_commit_message")
@@ -259,6 +270,11 @@ class GetRepositoryResult:
 
     @property
     @pulumi.getter
+    def template(self) -> 'outputs.GetRepositoryTemplateResult':
+        return pulumi.get(self, "template")
+
+    @property
+    @pulumi.getter
     def topics(self) -> Sequence[str]:
         return pulumi.get(self, "topics")
 
@@ -291,6 +307,7 @@ class AwaitableGetRepositoryResult(GetRepositoryResult):
             html_url=self.html_url,
             http_clone_url=self.http_clone_url,
             id=self.id,
+            is_template=self.is_template,
             merge_commit_message=self.merge_commit_message,
             merge_commit_title=self.merge_commit_title,
             name=self.name,
@@ -302,6 +319,7 @@ class AwaitableGetRepositoryResult(GetRepositoryResult):
             squash_merge_commit_title=self.squash_merge_commit_title,
             ssh_clone_url=self.ssh_clone_url,
             svn_url=self.svn_url,
+            template=self.template,
             topics=self.topics,
             visibility=self.visibility)
 
@@ -340,6 +358,7 @@ def get_repository(description: Optional[str] = None,
         html_url=__ret__.html_url,
         http_clone_url=__ret__.http_clone_url,
         id=__ret__.id,
+        is_template=__ret__.is_template,
         merge_commit_message=__ret__.merge_commit_message,
         merge_commit_title=__ret__.merge_commit_title,
         name=__ret__.name,
@@ -351,6 +370,7 @@ def get_repository(description: Optional[str] = None,
         squash_merge_commit_title=__ret__.squash_merge_commit_title,
         ssh_clone_url=__ret__.ssh_clone_url,
         svn_url=__ret__.svn_url,
+        template=__ret__.template,
         topics=__ret__.topics,
         visibility=__ret__.visibility)
 

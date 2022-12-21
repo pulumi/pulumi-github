@@ -32,7 +32,7 @@ class RepositoryFileArgs:
                information so GitHub can verify commits as the GitHub App.
         :param pulumi.Input[str] commit_email: The commit author email address, defaults to the authenticated user's email address. GitHub app users may omit author
                and email information so GitHub can verify commits as the GitHub App.
-        :param pulumi.Input[str] commit_message: The commit message when creating or updating the file
+        :param pulumi.Input[str] commit_message: The commit message when creating, updating or deleting the file
         :param pulumi.Input[bool] overwrite_on_create: Enable overwriting existing files, defaults to "false"
         """
         pulumi.set(__self__, "content", content)
@@ -127,7 +127,7 @@ class RepositoryFileArgs:
     @pulumi.getter(name="commitMessage")
     def commit_message(self) -> Optional[pulumi.Input[str]]:
         """
-        The commit message when creating or updating the file
+        The commit message when creating, updating or deleting the file
         """
         return pulumi.get(self, "commit_message")
 
@@ -168,7 +168,7 @@ class _RepositoryFileState:
                information so GitHub can verify commits as the GitHub App.
         :param pulumi.Input[str] commit_email: The commit author email address, defaults to the authenticated user's email address. GitHub app users may omit author
                and email information so GitHub can verify commits as the GitHub App.
-        :param pulumi.Input[str] commit_message: The commit message when creating or updating the file
+        :param pulumi.Input[str] commit_message: The commit message when creating, updating or deleting the file
         :param pulumi.Input[str] commit_sha: The SHA of the commit that modified the file
         :param pulumi.Input[str] content: The file's content
         :param pulumi.Input[str] file: The file path to manage
@@ -239,7 +239,7 @@ class _RepositoryFileState:
     @pulumi.getter(name="commitMessage")
     def commit_message(self) -> Optional[pulumi.Input[str]]:
         """
-        The commit message when creating or updating the file
+        The commit message when creating, updating or deleting the file
         """
         return pulumi.get(self, "commit_message")
 
@@ -343,7 +343,7 @@ class RepositoryFile(pulumi.CustomResource):
                information so GitHub can verify commits as the GitHub App.
         :param pulumi.Input[str] commit_email: The commit author email address, defaults to the authenticated user's email address. GitHub app users may omit author
                and email information so GitHub can verify commits as the GitHub App.
-        :param pulumi.Input[str] commit_message: The commit message when creating or updating the file
+        :param pulumi.Input[str] commit_message: The commit message when creating, updating or deleting the file
         :param pulumi.Input[str] content: The file's content
         :param pulumi.Input[str] file: The file path to manage
         :param pulumi.Input[bool] overwrite_on_create: Enable overwriting existing files, defaults to "false"
@@ -437,7 +437,7 @@ class RepositoryFile(pulumi.CustomResource):
                information so GitHub can verify commits as the GitHub App.
         :param pulumi.Input[str] commit_email: The commit author email address, defaults to the authenticated user's email address. GitHub app users may omit author
                and email information so GitHub can verify commits as the GitHub App.
-        :param pulumi.Input[str] commit_message: The commit message when creating or updating the file
+        :param pulumi.Input[str] commit_message: The commit message when creating, updating or deleting the file
         :param pulumi.Input[str] commit_sha: The SHA of the commit that modified the file
         :param pulumi.Input[str] content: The file's content
         :param pulumi.Input[str] file: The file path to manage
@@ -491,7 +491,7 @@ class RepositoryFile(pulumi.CustomResource):
     @pulumi.getter(name="commitMessage")
     def commit_message(self) -> pulumi.Output[str]:
         """
-        The commit message when creating or updating the file
+        The commit message when creating, updating or deleting the file
         """
         return pulumi.get(self, "commit_message")
 

@@ -106,7 +106,7 @@ func (i *TeamMembers) ToTeamMembersOutputWithContext(ctx context.Context) TeamMe
 // TeamMembersArrayInput is an input type that accepts TeamMembersArray and TeamMembersArrayOutput values.
 // You can construct a concrete instance of `TeamMembersArrayInput` via:
 //
-//	TeamMembersArray{ TeamMembersArgs{...} }
+//          TeamMembersArray{ TeamMembersArgs{...} }
 type TeamMembersArrayInput interface {
 	pulumi.Input
 
@@ -131,7 +131,7 @@ func (i TeamMembersArray) ToTeamMembersArrayOutputWithContext(ctx context.Contex
 // TeamMembersMapInput is an input type that accepts TeamMembersMap and TeamMembersMapOutput values.
 // You can construct a concrete instance of `TeamMembersMapInput` via:
 //
-//	TeamMembersMap{ "key": TeamMembersArgs{...} }
+//          TeamMembersMap{ "key": TeamMembersArgs{...} }
 type TeamMembersMapInput interface {
 	pulumi.Input
 

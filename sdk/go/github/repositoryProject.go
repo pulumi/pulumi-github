@@ -111,7 +111,7 @@ func (i *RepositoryProject) ToRepositoryProjectOutputWithContext(ctx context.Con
 // RepositoryProjectArrayInput is an input type that accepts RepositoryProjectArray and RepositoryProjectArrayOutput values.
 // You can construct a concrete instance of `RepositoryProjectArrayInput` via:
 //
-//	RepositoryProjectArray{ RepositoryProjectArgs{...} }
+//          RepositoryProjectArray{ RepositoryProjectArgs{...} }
 type RepositoryProjectArrayInput interface {
 	pulumi.Input
 
@@ -136,7 +136,7 @@ func (i RepositoryProjectArray) ToRepositoryProjectArrayOutputWithContext(ctx co
 // RepositoryProjectMapInput is an input type that accepts RepositoryProjectMap and RepositoryProjectMapOutput values.
 // You can construct a concrete instance of `RepositoryProjectMapInput` via:
 //
-//	RepositoryProjectMap{ "key": RepositoryProjectArgs{...} }
+//          RepositoryProjectMap{ "key": RepositoryProjectArgs{...} }
 type RepositoryProjectMapInput interface {
 	pulumi.Input
 

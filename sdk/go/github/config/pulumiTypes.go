@@ -19,7 +19,7 @@ type AppAuth struct {
 // AppAuthInput is an input type that accepts AppAuthArgs and AppAuthOutput values.
 // You can construct a concrete instance of `AppAuthInput` via:
 //
-//	AppAuthArgs{...}
+//          AppAuthArgs{...}
 type AppAuthInput interface {
 	pulumi.Input
 

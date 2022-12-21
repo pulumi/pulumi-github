@@ -119,7 +119,7 @@ func (i *RepositoryWebhook) ToRepositoryWebhookOutputWithContext(ctx context.Con
 // RepositoryWebhookArrayInput is an input type that accepts RepositoryWebhookArray and RepositoryWebhookArrayOutput values.
 // You can construct a concrete instance of `RepositoryWebhookArrayInput` via:
 //
-//	RepositoryWebhookArray{ RepositoryWebhookArgs{...} }
+//          RepositoryWebhookArray{ RepositoryWebhookArgs{...} }
 type RepositoryWebhookArrayInput interface {
 	pulumi.Input
 
@@ -144,7 +144,7 @@ func (i RepositoryWebhookArray) ToRepositoryWebhookArrayOutputWithContext(ctx co
 // RepositoryWebhookMapInput is an input type that accepts RepositoryWebhookMap and RepositoryWebhookMapOutput values.
 // You can construct a concrete instance of `RepositoryWebhookMapInput` via:
 //
-//	RepositoryWebhookMap{ "key": RepositoryWebhookArgs{...} }
+//          RepositoryWebhookMap{ "key": RepositoryWebhookArgs{...} }
 type RepositoryWebhookMapInput interface {
 	pulumi.Input
 

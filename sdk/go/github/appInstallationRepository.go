@@ -106,7 +106,7 @@ func (i *AppInstallationRepository) ToAppInstallationRepositoryOutputWithContext
 // AppInstallationRepositoryArrayInput is an input type that accepts AppInstallationRepositoryArray and AppInstallationRepositoryArrayOutput values.
 // You can construct a concrete instance of `AppInstallationRepositoryArrayInput` via:
 //
-//	AppInstallationRepositoryArray{ AppInstallationRepositoryArgs{...} }
+//          AppInstallationRepositoryArray{ AppInstallationRepositoryArgs{...} }
 type AppInstallationRepositoryArrayInput interface {
 	pulumi.Input
 
@@ -131,7 +131,7 @@ func (i AppInstallationRepositoryArray) ToAppInstallationRepositoryArrayOutputWi
 // AppInstallationRepositoryMapInput is an input type that accepts AppInstallationRepositoryMap and AppInstallationRepositoryMapOutput values.
 // You can construct a concrete instance of `AppInstallationRepositoryMapInput` via:
 //
-//	AppInstallationRepositoryMap{ "key": AppInstallationRepositoryArgs{...} }
+//          AppInstallationRepositoryMap{ "key": AppInstallationRepositoryArgs{...} }
 type AppInstallationRepositoryMapInput interface {
 	pulumi.Input
 

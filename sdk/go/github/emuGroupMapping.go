@@ -106,7 +106,7 @@ func (i *EmuGroupMapping) ToEmuGroupMappingOutputWithContext(ctx context.Context
 // EmuGroupMappingArrayInput is an input type that accepts EmuGroupMappingArray and EmuGroupMappingArrayOutput values.
 // You can construct a concrete instance of `EmuGroupMappingArrayInput` via:
 //
-//	EmuGroupMappingArray{ EmuGroupMappingArgs{...} }
+//          EmuGroupMappingArray{ EmuGroupMappingArgs{...} }
 type EmuGroupMappingArrayInput interface {
 	pulumi.Input
 
@@ -131,7 +131,7 @@ func (i EmuGroupMappingArray) ToEmuGroupMappingArrayOutputWithContext(ctx contex
 // EmuGroupMappingMapInput is an input type that accepts EmuGroupMappingMap and EmuGroupMappingMapOutput values.
 // You can construct a concrete instance of `EmuGroupMappingMapInput` via:
 //
-//	EmuGroupMappingMap{ "key": EmuGroupMappingArgs{...} }
+//          EmuGroupMappingMap{ "key": EmuGroupMappingArgs{...} }
 type EmuGroupMappingMapInput interface {
 	pulumi.Input
 

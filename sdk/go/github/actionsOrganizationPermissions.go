@@ -110,7 +110,7 @@ func (i *ActionsOrganizationPermissions) ToActionsOrganizationPermissionsOutputW
 // ActionsOrganizationPermissionsArrayInput is an input type that accepts ActionsOrganizationPermissionsArray and ActionsOrganizationPermissionsArrayOutput values.
 // You can construct a concrete instance of `ActionsOrganizationPermissionsArrayInput` via:
 //
-//	ActionsOrganizationPermissionsArray{ ActionsOrganizationPermissionsArgs{...} }
+//          ActionsOrganizationPermissionsArray{ ActionsOrganizationPermissionsArgs{...} }
 type ActionsOrganizationPermissionsArrayInput interface {
 	pulumi.Input
 
@@ -135,7 +135,7 @@ func (i ActionsOrganizationPermissionsArray) ToActionsOrganizationPermissionsArr
 // ActionsOrganizationPermissionsMapInput is an input type that accepts ActionsOrganizationPermissionsMap and ActionsOrganizationPermissionsMapOutput values.
 // You can construct a concrete instance of `ActionsOrganizationPermissionsMapInput` via:
 //
-//	ActionsOrganizationPermissionsMap{ "key": ActionsOrganizationPermissionsArgs{...} }
+//          ActionsOrganizationPermissionsMap{ "key": ActionsOrganizationPermissionsArgs{...} }
 type ActionsOrganizationPermissionsMapInput interface {
 	pulumi.Input
 

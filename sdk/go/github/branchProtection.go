@@ -18,6 +18,7 @@ type BranchProtection struct {
 	AllowsForcePushes pulumi.BoolPtrOutput     `pulumi:"allowsForcePushes"`
 	BlocksCreations   pulumi.BoolPtrOutput     `pulumi:"blocksCreations"`
 	EnforceAdmins     pulumi.BoolPtrOutput     `pulumi:"enforceAdmins"`
+	LockBranch        pulumi.BoolPtrOutput     `pulumi:"lockBranch"`
 	Pattern           pulumi.StringOutput      `pulumi:"pattern"`
 	PushRestrictions  pulumi.StringArrayOutput `pulumi:"pushRestrictions"`
 	// Node ID or name of repository
@@ -68,6 +69,7 @@ type branchProtectionState struct {
 	AllowsForcePushes *bool    `pulumi:"allowsForcePushes"`
 	BlocksCreations   *bool    `pulumi:"blocksCreations"`
 	EnforceAdmins     *bool    `pulumi:"enforceAdmins"`
+	LockBranch        *bool    `pulumi:"lockBranch"`
 	Pattern           *string  `pulumi:"pattern"`
 	PushRestrictions  []string `pulumi:"pushRestrictions"`
 	// Node ID or name of repository
@@ -84,6 +86,7 @@ type BranchProtectionState struct {
 	AllowsForcePushes pulumi.BoolPtrInput
 	BlocksCreations   pulumi.BoolPtrInput
 	EnforceAdmins     pulumi.BoolPtrInput
+	LockBranch        pulumi.BoolPtrInput
 	Pattern           pulumi.StringPtrInput
 	PushRestrictions  pulumi.StringArrayInput
 	// Node ID or name of repository
@@ -104,6 +107,7 @@ type branchProtectionArgs struct {
 	AllowsForcePushes *bool    `pulumi:"allowsForcePushes"`
 	BlocksCreations   *bool    `pulumi:"blocksCreations"`
 	EnforceAdmins     *bool    `pulumi:"enforceAdmins"`
+	LockBranch        *bool    `pulumi:"lockBranch"`
 	Pattern           string   `pulumi:"pattern"`
 	PushRestrictions  []string `pulumi:"pushRestrictions"`
 	// Node ID or name of repository
@@ -121,6 +125,7 @@ type BranchProtectionArgs struct {
 	AllowsForcePushes pulumi.BoolPtrInput
 	BlocksCreations   pulumi.BoolPtrInput
 	EnforceAdmins     pulumi.BoolPtrInput
+	LockBranch        pulumi.BoolPtrInput
 	Pattern           pulumi.StringInput
 	PushRestrictions  pulumi.StringArrayInput
 	// Node ID or name of repository
@@ -158,7 +163,7 @@ func (i *BranchProtection) ToBranchProtectionOutputWithContext(ctx context.Conte
 // BranchProtectionArrayInput is an input type that accepts BranchProtectionArray and BranchProtectionArrayOutput values.
 // You can construct a concrete instance of `BranchProtectionArrayInput` via:
 //
-//	BranchProtectionArray{ BranchProtectionArgs{...} }
+//          BranchProtectionArray{ BranchProtectionArgs{...} }
 type BranchProtectionArrayInput interface {
 	pulumi.Input
 
@@ -183,7 +188,7 @@ func (i BranchProtectionArray) ToBranchProtectionArrayOutputWithContext(ctx cont
 // BranchProtectionMapInput is an input type that accepts BranchProtectionMap and BranchProtectionMapOutput values.
 // You can construct a concrete instance of `BranchProtectionMapInput` via:
 //
-//	BranchProtectionMap{ "key": BranchProtectionArgs{...} }
+//          BranchProtectionMap{ "key": BranchProtectionArgs{...} }
 type BranchProtectionMapInput interface {
 	pulumi.Input
 
@@ -233,6 +238,10 @@ func (o BranchProtectionOutput) BlocksCreations() pulumi.BoolPtrOutput {
 
 func (o BranchProtectionOutput) EnforceAdmins() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *BranchProtection) pulumi.BoolPtrOutput { return v.EnforceAdmins }).(pulumi.BoolPtrOutput)
+}
+
+func (o BranchProtectionOutput) LockBranch() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BranchProtection) pulumi.BoolPtrOutput { return v.LockBranch }).(pulumi.BoolPtrOutput)
 }
 
 func (o BranchProtectionOutput) Pattern() pulumi.StringOutput {

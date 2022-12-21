@@ -21,18 +21,23 @@ func GetRepositories(ctx *pulumi.Context, args *GetRepositoriesArgs, opts ...pul
 
 // A collection of arguments for invoking getRepositories.
 type GetRepositoriesArgs struct {
-	Query string  `pulumi:"query"`
-	Sort  *string `pulumi:"sort"`
+	IncludeRepoId  *bool   `pulumi:"includeRepoId"`
+	Query          string  `pulumi:"query"`
+	ResultsPerPage *int    `pulumi:"resultsPerPage"`
+	Sort           *string `pulumi:"sort"`
 }
 
 // A collection of values returned by getRepositories.
 type GetRepositoriesResult struct {
 	FullNames []string `pulumi:"fullNames"`
 	// The provider-assigned unique ID for this managed resource.
-	Id    string   `pulumi:"id"`
-	Names []string `pulumi:"names"`
-	Query string   `pulumi:"query"`
-	Sort  *string  `pulumi:"sort"`
+	Id             string   `pulumi:"id"`
+	IncludeRepoId  *bool    `pulumi:"includeRepoId"`
+	Names          []string `pulumi:"names"`
+	Query          string   `pulumi:"query"`
+	RepoIds        []int    `pulumi:"repoIds"`
+	ResultsPerPage *int     `pulumi:"resultsPerPage"`
+	Sort           *string  `pulumi:"sort"`
 }
 
 func GetRepositoriesOutput(ctx *pulumi.Context, args GetRepositoriesOutputArgs, opts ...pulumi.InvokeOption) GetRepositoriesResultOutput {
@@ -50,8 +55,10 @@ func GetRepositoriesOutput(ctx *pulumi.Context, args GetRepositoriesOutputArgs, 
 
 // A collection of arguments for invoking getRepositories.
 type GetRepositoriesOutputArgs struct {
-	Query pulumi.StringInput    `pulumi:"query"`
-	Sort  pulumi.StringPtrInput `pulumi:"sort"`
+	IncludeRepoId  pulumi.BoolPtrInput   `pulumi:"includeRepoId"`
+	Query          pulumi.StringInput    `pulumi:"query"`
+	ResultsPerPage pulumi.IntPtrInput    `pulumi:"resultsPerPage"`
+	Sort           pulumi.StringPtrInput `pulumi:"sort"`
 }
 
 func (GetRepositoriesOutputArgs) ElementType() reflect.Type {
@@ -82,12 +89,24 @@ func (o GetRepositoriesResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRepositoriesResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+func (o GetRepositoriesResultOutput) IncludeRepoId() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRepositoriesResult) *bool { return v.IncludeRepoId }).(pulumi.BoolPtrOutput)
+}
+
 func (o GetRepositoriesResultOutput) Names() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetRepositoriesResult) []string { return v.Names }).(pulumi.StringArrayOutput)
 }
 
 func (o GetRepositoriesResultOutput) Query() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRepositoriesResult) string { return v.Query }).(pulumi.StringOutput)
+}
+
+func (o GetRepositoriesResultOutput) RepoIds() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v GetRepositoriesResult) []int { return v.RepoIds }).(pulumi.IntArrayOutput)
+}
+
+func (o GetRepositoriesResultOutput) ResultsPerPage() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetRepositoriesResult) *int { return v.ResultsPerPage }).(pulumi.IntPtrOutput)
 }
 
 func (o GetRepositoriesResultOutput) Sort() pulumi.StringPtrOutput {

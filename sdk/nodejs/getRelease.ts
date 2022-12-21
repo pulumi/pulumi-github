@@ -36,8 +36,12 @@ export interface GetReleaseArgs {
  * A collection of values returned by getRelease.
  */
 export interface GetReleaseResult {
+    /**
+     * @deprecated use assets_url instead
+     */
     readonly assertsUrl: string;
     readonly assets: outputs.GetReleaseAsset[];
+    readonly assetsUrl: string;
     readonly body: string;
     readonly createdAt: string;
     readonly draft: boolean;

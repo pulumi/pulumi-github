@@ -33,7 +33,7 @@ namespace Pulumi.Github
         public Output<string?> CommitEmail { get; private set; } = null!;
 
         /// <summary>
-        /// The commit message when creating or updating the file
+        /// The commit message when creating, updating or deleting the file
         /// </summary>
         [Output("commitMessage")]
         public Output<string> CommitMessage { get; private set; } = null!;
@@ -141,7 +141,7 @@ namespace Pulumi.Github
         public Input<string>? CommitEmail { get; set; }
 
         /// <summary>
-        /// The commit message when creating or updating the file
+        /// The commit message when creating, updating or deleting the file
         /// </summary>
         [Input("commitMessage")]
         public Input<string>? CommitMessage { get; set; }
@@ -199,7 +199,7 @@ namespace Pulumi.Github
         public Input<string>? CommitEmail { get; set; }
 
         /// <summary>
-        /// The commit message when creating or updating the file
+        /// The commit message when creating, updating or deleting the file
         /// </summary>
         [Input("commitMessage")]
         public Input<string>? CommitMessage { get; set; }

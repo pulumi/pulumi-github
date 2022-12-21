@@ -66,14 +66,14 @@ public final class RepositoryFileArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The commit message when creating or updating the file
+     * The commit message when creating, updating or deleting the file
      * 
      */
     @Import(name="commitMessage")
     private @Nullable Output<String> commitMessage;
 
     /**
-     * @return The commit message when creating or updating the file
+     * @return The commit message when creating, updating or deleting the file
      * 
      */
     public Optional<Output<String>> commitMessage() {
@@ -239,7 +239,7 @@ public final class RepositoryFileArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param commitMessage The commit message when creating or updating the file
+         * @param commitMessage The commit message when creating, updating or deleting the file
          * 
          * @return builder
          * 
@@ -250,7 +250,7 @@ public final class RepositoryFileArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param commitMessage The commit message when creating or updating the file
+         * @param commitMessage The commit message when creating, updating or deleting the file
          * 
          * @return builder
          * 

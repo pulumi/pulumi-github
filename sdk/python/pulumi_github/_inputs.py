@@ -12,6 +12,7 @@ from . import _utilities
 __all__ = [
     'ActionsOrganizationPermissionsAllowedActionsConfigArgs',
     'ActionsOrganizationPermissionsEnabledRepositoriesConfigArgs',
+    'ActionsRepositoryPermissionsAllowedActionsConfigArgs',
     'BranchProtectionRequiredPullRequestReviewArgs',
     'BranchProtectionRequiredStatusCheckArgs',
     'BranchProtectionV3RequiredPullRequestReviewsArgs',
@@ -23,9 +24,14 @@ __all__ = [
     'RepositoryEnvironmentReviewerArgs',
     'RepositoryPagesArgs',
     'RepositoryPagesSourceArgs',
+    'RepositorySecurityAndAnalysisArgs',
+    'RepositorySecurityAndAnalysisAdvancedSecurityArgs',
+    'RepositorySecurityAndAnalysisSecretScanningArgs',
+    'RepositorySecurityAndAnalysisSecretScanningPushProtectionArgs',
     'RepositoryTemplateArgs',
     'RepositoryWebhookConfigurationArgs',
     'TeamMembersMemberArgs',
+    'TeamSettingsReviewRequestDelegationArgs',
     'TeamSyncGroupMappingGroupArgs',
 ]
 
@@ -86,12 +92,53 @@ class ActionsOrganizationPermissionsEnabledRepositoriesConfigArgs:
 
 
 @pulumi.input_type
+class ActionsRepositoryPermissionsAllowedActionsConfigArgs:
+    def __init__(__self__, *,
+                 github_owned_allowed: pulumi.Input[bool],
+                 patterns_alloweds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 verified_allowed: Optional[pulumi.Input[bool]] = None):
+        pulumi.set(__self__, "github_owned_allowed", github_owned_allowed)
+        if patterns_alloweds is not None:
+            pulumi.set(__self__, "patterns_alloweds", patterns_alloweds)
+        if verified_allowed is not None:
+            pulumi.set(__self__, "verified_allowed", verified_allowed)
+
+    @property
+    @pulumi.getter(name="githubOwnedAllowed")
+    def github_owned_allowed(self) -> pulumi.Input[bool]:
+        return pulumi.get(self, "github_owned_allowed")
+
+    @github_owned_allowed.setter
+    def github_owned_allowed(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "github_owned_allowed", value)
+
+    @property
+    @pulumi.getter(name="patternsAlloweds")
+    def patterns_alloweds(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "patterns_alloweds")
+
+    @patterns_alloweds.setter
+    def patterns_alloweds(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "patterns_alloweds", value)
+
+    @property
+    @pulumi.getter(name="verifiedAllowed")
+    def verified_allowed(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "verified_allowed")
+
+    @verified_allowed.setter
+    def verified_allowed(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "verified_allowed", value)
+
+
+@pulumi.input_type
 class BranchProtectionRequiredPullRequestReviewArgs:
     def __init__(__self__, *,
                  dismiss_stale_reviews: Optional[pulumi.Input[bool]] = None,
                  dismissal_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  pull_request_bypassers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  require_code_owner_reviews: Optional[pulumi.Input[bool]] = None,
+                 require_last_push_approval: Optional[pulumi.Input[bool]] = None,
                  required_approving_review_count: Optional[pulumi.Input[int]] = None,
                  restrict_dismissals: Optional[pulumi.Input[bool]] = None):
         if dismiss_stale_reviews is not None:
@@ -102,6 +149,8 @@ class BranchProtectionRequiredPullRequestReviewArgs:
             pulumi.set(__self__, "pull_request_bypassers", pull_request_bypassers)
         if require_code_owner_reviews is not None:
             pulumi.set(__self__, "require_code_owner_reviews", require_code_owner_reviews)
+        if require_last_push_approval is not None:
+            pulumi.set(__self__, "require_last_push_approval", require_last_push_approval)
         if required_approving_review_count is not None:
             pulumi.set(__self__, "required_approving_review_count", required_approving_review_count)
         if restrict_dismissals is not None:
@@ -142,6 +191,15 @@ class BranchProtectionRequiredPullRequestReviewArgs:
     @require_code_owner_reviews.setter
     def require_code_owner_reviews(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "require_code_owner_reviews", value)
+
+    @property
+    @pulumi.getter(name="requireLastPushApproval")
+    def require_last_push_approval(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "require_last_push_approval")
+
+    @require_last_push_approval.setter
+    def require_last_push_approval(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "require_last_push_approval", value)
 
     @property
     @pulumi.getter(name="requiredApprovingReviewCount")
@@ -607,6 +665,92 @@ class RepositoryPagesSourceArgs:
 
 
 @pulumi.input_type
+class RepositorySecurityAndAnalysisArgs:
+    def __init__(__self__, *,
+                 advanced_security: pulumi.Input['RepositorySecurityAndAnalysisAdvancedSecurityArgs'],
+                 secret_scanning: pulumi.Input['RepositorySecurityAndAnalysisSecretScanningArgs'],
+                 secret_scanning_push_protection: pulumi.Input['RepositorySecurityAndAnalysisSecretScanningPushProtectionArgs']):
+        pulumi.set(__self__, "advanced_security", advanced_security)
+        pulumi.set(__self__, "secret_scanning", secret_scanning)
+        pulumi.set(__self__, "secret_scanning_push_protection", secret_scanning_push_protection)
+
+    @property
+    @pulumi.getter(name="advancedSecurity")
+    def advanced_security(self) -> pulumi.Input['RepositorySecurityAndAnalysisAdvancedSecurityArgs']:
+        return pulumi.get(self, "advanced_security")
+
+    @advanced_security.setter
+    def advanced_security(self, value: pulumi.Input['RepositorySecurityAndAnalysisAdvancedSecurityArgs']):
+        pulumi.set(self, "advanced_security", value)
+
+    @property
+    @pulumi.getter(name="secretScanning")
+    def secret_scanning(self) -> pulumi.Input['RepositorySecurityAndAnalysisSecretScanningArgs']:
+        return pulumi.get(self, "secret_scanning")
+
+    @secret_scanning.setter
+    def secret_scanning(self, value: pulumi.Input['RepositorySecurityAndAnalysisSecretScanningArgs']):
+        pulumi.set(self, "secret_scanning", value)
+
+    @property
+    @pulumi.getter(name="secretScanningPushProtection")
+    def secret_scanning_push_protection(self) -> pulumi.Input['RepositorySecurityAndAnalysisSecretScanningPushProtectionArgs']:
+        return pulumi.get(self, "secret_scanning_push_protection")
+
+    @secret_scanning_push_protection.setter
+    def secret_scanning_push_protection(self, value: pulumi.Input['RepositorySecurityAndAnalysisSecretScanningPushProtectionArgs']):
+        pulumi.set(self, "secret_scanning_push_protection", value)
+
+
+@pulumi.input_type
+class RepositorySecurityAndAnalysisAdvancedSecurityArgs:
+    def __init__(__self__, *,
+                 status: pulumi.Input[str]):
+        pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter
+    def status(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: pulumi.Input[str]):
+        pulumi.set(self, "status", value)
+
+
+@pulumi.input_type
+class RepositorySecurityAndAnalysisSecretScanningArgs:
+    def __init__(__self__, *,
+                 status: pulumi.Input[str]):
+        pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter
+    def status(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: pulumi.Input[str]):
+        pulumi.set(self, "status", value)
+
+
+@pulumi.input_type
+class RepositorySecurityAndAnalysisSecretScanningPushProtectionArgs:
+    def __init__(__self__, *,
+                 status: pulumi.Input[str]):
+        pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter
+    def status(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: pulumi.Input[str]):
+        pulumi.set(self, "status", value)
+
+
+@pulumi.input_type
 class RepositoryTemplateArgs:
     def __init__(__self__, *,
                  owner: pulumi.Input[str],
@@ -723,6 +867,47 @@ class TeamMembersMemberArgs:
     @role.setter
     def role(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "role", value)
+
+
+@pulumi.input_type
+class TeamSettingsReviewRequestDelegationArgs:
+    def __init__(__self__, *,
+                 algorithm: Optional[pulumi.Input[str]] = None,
+                 member_count: Optional[pulumi.Input[int]] = None,
+                 notify: Optional[pulumi.Input[bool]] = None):
+        if algorithm is not None:
+            pulumi.set(__self__, "algorithm", algorithm)
+        if member_count is not None:
+            pulumi.set(__self__, "member_count", member_count)
+        if notify is not None:
+            pulumi.set(__self__, "notify", notify)
+
+    @property
+    @pulumi.getter
+    def algorithm(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "algorithm")
+
+    @algorithm.setter
+    def algorithm(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "algorithm", value)
+
+    @property
+    @pulumi.getter(name="memberCount")
+    def member_count(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "member_count")
+
+    @member_count.setter
+    def member_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "member_count", value)
+
+    @property
+    @pulumi.getter
+    def notify(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "notify")
+
+    @notify.setter
+    def notify(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "notify", value)
 
 
 @pulumi.input_type

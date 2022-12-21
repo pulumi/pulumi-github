@@ -106,7 +106,7 @@ func (i *RepositoryTagProtection) ToRepositoryTagProtectionOutputWithContext(ctx
 // RepositoryTagProtectionArrayInput is an input type that accepts RepositoryTagProtectionArray and RepositoryTagProtectionArrayOutput values.
 // You can construct a concrete instance of `RepositoryTagProtectionArrayInput` via:
 //
-//	RepositoryTagProtectionArray{ RepositoryTagProtectionArgs{...} }
+//          RepositoryTagProtectionArray{ RepositoryTagProtectionArgs{...} }
 type RepositoryTagProtectionArrayInput interface {
 	pulumi.Input
 
@@ -131,7 +131,7 @@ func (i RepositoryTagProtectionArray) ToRepositoryTagProtectionArrayOutputWithCo
 // RepositoryTagProtectionMapInput is an input type that accepts RepositoryTagProtectionMap and RepositoryTagProtectionMapOutput values.
 // You can construct a concrete instance of `RepositoryTagProtectionMapInput` via:
 //
-//	RepositoryTagProtectionMap{ "key": RepositoryTagProtectionArgs{...} }
+//          RepositoryTagProtectionMap{ "key": RepositoryTagProtectionArgs{...} }
 type RepositoryTagProtectionMapInput interface {
 	pulumi.Input
 

@@ -64,14 +64,14 @@ public class RepositoryFile extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.commitEmail);
     }
     /**
-     * The commit message when creating or updating the file
+     * The commit message when creating, updating or deleting the file
      * 
      */
     @Export(name="commitMessage", type=String.class, parameters={})
     private Output<String> commitMessage;
 
     /**
-     * @return The commit message when creating or updating the file
+     * @return The commit message when creating, updating or deleting the file
      * 
      */
     public Output<String> commitMessage() {

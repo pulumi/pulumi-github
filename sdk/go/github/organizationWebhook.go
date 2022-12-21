@@ -111,7 +111,7 @@ func (i *OrganizationWebhook) ToOrganizationWebhookOutputWithContext(ctx context
 // OrganizationWebhookArrayInput is an input type that accepts OrganizationWebhookArray and OrganizationWebhookArrayOutput values.
 // You can construct a concrete instance of `OrganizationWebhookArrayInput` via:
 //
-//	OrganizationWebhookArray{ OrganizationWebhookArgs{...} }
+//          OrganizationWebhookArray{ OrganizationWebhookArgs{...} }
 type OrganizationWebhookArrayInput interface {
 	pulumi.Input
 
@@ -136,7 +136,7 @@ func (i OrganizationWebhookArray) ToOrganizationWebhookArrayOutputWithContext(ct
 // OrganizationWebhookMapInput is an input type that accepts OrganizationWebhookMap and OrganizationWebhookMapOutput values.
 // You can construct a concrete instance of `OrganizationWebhookMapInput` via:
 //
-//	OrganizationWebhookMap{ "key": OrganizationWebhookArgs{...} }
+//          OrganizationWebhookMap{ "key": OrganizationWebhookArgs{...} }
 type OrganizationWebhookMapInput interface {
 	pulumi.Input
 

@@ -106,7 +106,7 @@ func (i *ProjectColumn) ToProjectColumnOutputWithContext(ctx context.Context) Pr
 // ProjectColumnArrayInput is an input type that accepts ProjectColumnArray and ProjectColumnArrayOutput values.
 // You can construct a concrete instance of `ProjectColumnArrayInput` via:
 //
-//	ProjectColumnArray{ ProjectColumnArgs{...} }
+//          ProjectColumnArray{ ProjectColumnArgs{...} }
 type ProjectColumnArrayInput interface {
 	pulumi.Input
 
@@ -131,7 +131,7 @@ func (i ProjectColumnArray) ToProjectColumnArrayOutputWithContext(ctx context.Co
 // ProjectColumnMapInput is an input type that accepts ProjectColumnMap and ProjectColumnMapOutput values.
 // You can construct a concrete instance of `ProjectColumnMapInput` via:
 //
-//	ProjectColumnMap{ "key": ProjectColumnArgs{...} }
+//          ProjectColumnMap{ "key": ProjectColumnArgs{...} }
 type ProjectColumnMapInput interface {
 	pulumi.Input
 

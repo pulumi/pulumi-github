@@ -13,6 +13,7 @@ from . import outputs
 __all__ = [
     'ActionsOrganizationPermissionsAllowedActionsConfig',
     'ActionsOrganizationPermissionsEnabledRepositoriesConfig',
+    'ActionsRepositoryPermissionsAllowedActionsConfig',
     'BranchProtectionRequiredPullRequestReview',
     'BranchProtectionRequiredStatusCheck',
     'BranchProtectionV3RequiredPullRequestReviews',
@@ -23,9 +24,14 @@ __all__ = [
     'RepositoryEnvironmentReviewer',
     'RepositoryPages',
     'RepositoryPagesSource',
+    'RepositorySecurityAndAnalysis',
+    'RepositorySecurityAndAnalysisAdvancedSecurity',
+    'RepositorySecurityAndAnalysisSecretScanning',
+    'RepositorySecurityAndAnalysisSecretScanningPushProtection',
     'RepositoryTemplate',
     'RepositoryWebhookConfiguration',
     'TeamMembersMember',
+    'TeamSettingsReviewRequestDelegation',
     'TeamSyncGroupMappingGroup',
     'GetActionsOrganizationSecretsSecretResult',
     'GetActionsSecretsSecretResult',
@@ -44,6 +50,7 @@ __all__ = [
     'GetRepositoryPageSourceResult',
     'GetRepositoryPullRequestsResultResult',
     'GetRepositoryTeamsTeamResult',
+    'GetRepositoryTemplateResult',
     'GetRepositoryWebhooksWebhookResult',
     'GetTreeEntryResult',
 ]
@@ -127,6 +134,55 @@ class ActionsOrganizationPermissionsEnabledRepositoriesConfig(dict):
 
 
 @pulumi.output_type
+class ActionsRepositoryPermissionsAllowedActionsConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "githubOwnedAllowed":
+            suggest = "github_owned_allowed"
+        elif key == "patternsAlloweds":
+            suggest = "patterns_alloweds"
+        elif key == "verifiedAllowed":
+            suggest = "verified_allowed"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ActionsRepositoryPermissionsAllowedActionsConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ActionsRepositoryPermissionsAllowedActionsConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ActionsRepositoryPermissionsAllowedActionsConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 github_owned_allowed: bool,
+                 patterns_alloweds: Optional[Sequence[str]] = None,
+                 verified_allowed: Optional[bool] = None):
+        pulumi.set(__self__, "github_owned_allowed", github_owned_allowed)
+        if patterns_alloweds is not None:
+            pulumi.set(__self__, "patterns_alloweds", patterns_alloweds)
+        if verified_allowed is not None:
+            pulumi.set(__self__, "verified_allowed", verified_allowed)
+
+    @property
+    @pulumi.getter(name="githubOwnedAllowed")
+    def github_owned_allowed(self) -> bool:
+        return pulumi.get(self, "github_owned_allowed")
+
+    @property
+    @pulumi.getter(name="patternsAlloweds")
+    def patterns_alloweds(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "patterns_alloweds")
+
+    @property
+    @pulumi.getter(name="verifiedAllowed")
+    def verified_allowed(self) -> Optional[bool]:
+        return pulumi.get(self, "verified_allowed")
+
+
+@pulumi.output_type
 class BranchProtectionRequiredPullRequestReview(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -139,6 +195,8 @@ class BranchProtectionRequiredPullRequestReview(dict):
             suggest = "pull_request_bypassers"
         elif key == "requireCodeOwnerReviews":
             suggest = "require_code_owner_reviews"
+        elif key == "requireLastPushApproval":
+            suggest = "require_last_push_approval"
         elif key == "requiredApprovingReviewCount":
             suggest = "required_approving_review_count"
         elif key == "restrictDismissals":
@@ -160,6 +218,7 @@ class BranchProtectionRequiredPullRequestReview(dict):
                  dismissal_restrictions: Optional[Sequence[str]] = None,
                  pull_request_bypassers: Optional[Sequence[str]] = None,
                  require_code_owner_reviews: Optional[bool] = None,
+                 require_last_push_approval: Optional[bool] = None,
                  required_approving_review_count: Optional[int] = None,
                  restrict_dismissals: Optional[bool] = None):
         if dismiss_stale_reviews is not None:
@@ -170,6 +229,8 @@ class BranchProtectionRequiredPullRequestReview(dict):
             pulumi.set(__self__, "pull_request_bypassers", pull_request_bypassers)
         if require_code_owner_reviews is not None:
             pulumi.set(__self__, "require_code_owner_reviews", require_code_owner_reviews)
+        if require_last_push_approval is not None:
+            pulumi.set(__self__, "require_last_push_approval", require_last_push_approval)
         if required_approving_review_count is not None:
             pulumi.set(__self__, "required_approving_review_count", required_approving_review_count)
         if restrict_dismissals is not None:
@@ -194,6 +255,11 @@ class BranchProtectionRequiredPullRequestReview(dict):
     @pulumi.getter(name="requireCodeOwnerReviews")
     def require_code_owner_reviews(self) -> Optional[bool]:
         return pulumi.get(self, "require_code_owner_reviews")
+
+    @property
+    @pulumi.getter(name="requireLastPushApproval")
+    def require_last_push_approval(self) -> Optional[bool]:
+        return pulumi.get(self, "require_last_push_approval")
 
     @property
     @pulumi.getter(name="requiredApprovingReviewCount")
@@ -586,6 +652,89 @@ class RepositoryPagesSource(dict):
 
 
 @pulumi.output_type
+class RepositorySecurityAndAnalysis(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "advancedSecurity":
+            suggest = "advanced_security"
+        elif key == "secretScanning":
+            suggest = "secret_scanning"
+        elif key == "secretScanningPushProtection":
+            suggest = "secret_scanning_push_protection"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RepositorySecurityAndAnalysis. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RepositorySecurityAndAnalysis.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RepositorySecurityAndAnalysis.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 advanced_security: 'outputs.RepositorySecurityAndAnalysisAdvancedSecurity',
+                 secret_scanning: 'outputs.RepositorySecurityAndAnalysisSecretScanning',
+                 secret_scanning_push_protection: 'outputs.RepositorySecurityAndAnalysisSecretScanningPushProtection'):
+        pulumi.set(__self__, "advanced_security", advanced_security)
+        pulumi.set(__self__, "secret_scanning", secret_scanning)
+        pulumi.set(__self__, "secret_scanning_push_protection", secret_scanning_push_protection)
+
+    @property
+    @pulumi.getter(name="advancedSecurity")
+    def advanced_security(self) -> 'outputs.RepositorySecurityAndAnalysisAdvancedSecurity':
+        return pulumi.get(self, "advanced_security")
+
+    @property
+    @pulumi.getter(name="secretScanning")
+    def secret_scanning(self) -> 'outputs.RepositorySecurityAndAnalysisSecretScanning':
+        return pulumi.get(self, "secret_scanning")
+
+    @property
+    @pulumi.getter(name="secretScanningPushProtection")
+    def secret_scanning_push_protection(self) -> 'outputs.RepositorySecurityAndAnalysisSecretScanningPushProtection':
+        return pulumi.get(self, "secret_scanning_push_protection")
+
+
+@pulumi.output_type
+class RepositorySecurityAndAnalysisAdvancedSecurity(dict):
+    def __init__(__self__, *,
+                 status: str):
+        pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        return pulumi.get(self, "status")
+
+
+@pulumi.output_type
+class RepositorySecurityAndAnalysisSecretScanning(dict):
+    def __init__(__self__, *,
+                 status: str):
+        pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        return pulumi.get(self, "status")
+
+
+@pulumi.output_type
+class RepositorySecurityAndAnalysisSecretScanningPushProtection(dict):
+    def __init__(__self__, *,
+                 status: str):
+        pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        return pulumi.get(self, "status")
+
+
+@pulumi.output_type
 class RepositoryTemplate(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -702,6 +851,52 @@ class TeamMembersMember(dict):
     @pulumi.getter
     def role(self) -> Optional[str]:
         return pulumi.get(self, "role")
+
+
+@pulumi.output_type
+class TeamSettingsReviewRequestDelegation(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "memberCount":
+            suggest = "member_count"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TeamSettingsReviewRequestDelegation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TeamSettingsReviewRequestDelegation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TeamSettingsReviewRequestDelegation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 algorithm: Optional[str] = None,
+                 member_count: Optional[int] = None,
+                 notify: Optional[bool] = None):
+        if algorithm is not None:
+            pulumi.set(__self__, "algorithm", algorithm)
+        if member_count is not None:
+            pulumi.set(__self__, "member_count", member_count)
+        if notify is not None:
+            pulumi.set(__self__, "notify", notify)
+
+    @property
+    @pulumi.getter
+    def algorithm(self) -> Optional[str]:
+        return pulumi.get(self, "algorithm")
+
+    @property
+    @pulumi.getter(name="memberCount")
+    def member_count(self) -> Optional[int]:
+        return pulumi.get(self, "member_count")
+
+    @property
+    @pulumi.getter
+    def notify(self) -> Optional[bool]:
+        return pulumi.get(self, "notify")
 
 
 @pulumi.output_type
@@ -1520,6 +1715,25 @@ class GetRepositoryTeamsTeamResult(dict):
     @pulumi.getter
     def slug(self) -> str:
         return pulumi.get(self, "slug")
+
+
+@pulumi.output_type
+class GetRepositoryTemplateResult(dict):
+    def __init__(__self__, *,
+                 owner: str,
+                 repository: str):
+        pulumi.set(__self__, "owner", owner)
+        pulumi.set(__self__, "repository", repository)
+
+    @property
+    @pulumi.getter
+    def owner(self) -> str:
+        return pulumi.get(self, "owner")
+
+    @property
+    @pulumi.getter
+    def repository(self) -> str:
+        return pulumi.get(self, "repository")
 
 
 @pulumi.output_type

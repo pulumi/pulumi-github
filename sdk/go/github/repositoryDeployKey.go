@@ -119,7 +119,7 @@ func (i *RepositoryDeployKey) ToRepositoryDeployKeyOutputWithContext(ctx context
 // RepositoryDeployKeyArrayInput is an input type that accepts RepositoryDeployKeyArray and RepositoryDeployKeyArrayOutput values.
 // You can construct a concrete instance of `RepositoryDeployKeyArrayInput` via:
 //
-//	RepositoryDeployKeyArray{ RepositoryDeployKeyArgs{...} }
+//          RepositoryDeployKeyArray{ RepositoryDeployKeyArgs{...} }
 type RepositoryDeployKeyArrayInput interface {
 	pulumi.Input
 
@@ -144,7 +144,7 @@ func (i RepositoryDeployKeyArray) ToRepositoryDeployKeyArrayOutputWithContext(ct
 // RepositoryDeployKeyMapInput is an input type that accepts RepositoryDeployKeyMap and RepositoryDeployKeyMapOutput values.
 // You can construct a concrete instance of `RepositoryDeployKeyMapInput` via:
 //
-//	RepositoryDeployKeyMap{ "key": RepositoryDeployKeyArgs{...} }
+//          RepositoryDeployKeyMap{ "key": RepositoryDeployKeyArgs{...} }
 type RepositoryDeployKeyMapInput interface {
 	pulumi.Input
 

@@ -22,13 +22,20 @@ class GetReleaseResult:
     """
     A collection of values returned by getRelease.
     """
-    def __init__(__self__, asserts_url=None, assets=None, body=None, created_at=None, draft=None, html_url=None, id=None, name=None, owner=None, prerelease=None, published_at=None, release_id=None, release_tag=None, repository=None, retrieve_by=None, tarball_url=None, target_commitish=None, upload_url=None, url=None, zipball_url=None):
+    def __init__(__self__, asserts_url=None, assets=None, assets_url=None, body=None, created_at=None, draft=None, html_url=None, id=None, name=None, owner=None, prerelease=None, published_at=None, release_id=None, release_tag=None, repository=None, retrieve_by=None, tarball_url=None, target_commitish=None, upload_url=None, url=None, zipball_url=None):
         if asserts_url and not isinstance(asserts_url, str):
             raise TypeError("Expected argument 'asserts_url' to be a str")
+        if asserts_url is not None:
+            warnings.warn("""use assets_url instead""", DeprecationWarning)
+            pulumi.log.warn("""asserts_url is deprecated: use assets_url instead""")
+
         pulumi.set(__self__, "asserts_url", asserts_url)
         if assets and not isinstance(assets, list):
             raise TypeError("Expected argument 'assets' to be a list")
         pulumi.set(__self__, "assets", assets)
+        if assets_url and not isinstance(assets_url, str):
+            raise TypeError("Expected argument 'assets_url' to be a str")
+        pulumi.set(__self__, "assets_url", assets_url)
         if body and not isinstance(body, str):
             raise TypeError("Expected argument 'body' to be a str")
         pulumi.set(__self__, "body", body)
@@ -93,6 +100,11 @@ class GetReleaseResult:
     @pulumi.getter
     def assets(self) -> Sequence['outputs.GetReleaseAssetResult']:
         return pulumi.get(self, "assets")
+
+    @property
+    @pulumi.getter(name="assetsUrl")
+    def assets_url(self) -> str:
+        return pulumi.get(self, "assets_url")
 
     @property
     @pulumi.getter
@@ -196,6 +208,7 @@ class AwaitableGetReleaseResult(GetReleaseResult):
         return GetReleaseResult(
             asserts_url=self.asserts_url,
             assets=self.assets,
+            assets_url=self.assets_url,
             body=self.body,
             created_at=self.created_at,
             draft=self.draft,
@@ -237,6 +250,7 @@ def get_release(owner: Optional[str] = None,
     return AwaitableGetReleaseResult(
         asserts_url=__ret__.asserts_url,
         assets=__ret__.assets,
+        assets_url=__ret__.assets_url,
         body=__ret__.body,
         created_at=__ret__.created_at,
         draft=__ret__.draft,

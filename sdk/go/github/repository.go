@@ -47,16 +47,19 @@ type Repository struct {
 	NodeId                              pulumi.StringOutput      `pulumi:"nodeId"`
 	Pages                               RepositoryPagesPtrOutput `pulumi:"pages"`
 	// Deprecated: use visibility instead
-	Private                  pulumi.BoolOutput           `pulumi:"private"`
-	RepoId                   pulumi.IntOutput            `pulumi:"repoId"`
-	SquashMergeCommitMessage pulumi.StringPtrOutput      `pulumi:"squashMergeCommitMessage"`
-	SquashMergeCommitTitle   pulumi.StringPtrOutput      `pulumi:"squashMergeCommitTitle"`
-	SshCloneUrl              pulumi.StringOutput         `pulumi:"sshCloneUrl"`
-	SvnUrl                   pulumi.StringOutput         `pulumi:"svnUrl"`
-	Template                 RepositoryTemplatePtrOutput `pulumi:"template"`
-	Topics                   pulumi.StringArrayOutput    `pulumi:"topics"`
-	Visibility               pulumi.StringOutput         `pulumi:"visibility"`
-	VulnerabilityAlerts      pulumi.BoolPtrOutput        `pulumi:"vulnerabilityAlerts"`
+	Private pulumi.BoolOutput `pulumi:"private"`
+	RepoId  pulumi.IntOutput  `pulumi:"repoId"`
+	// Security and analysis settings for the repository. To use this parameter you must have admin permissions for the
+	// repository or be an owner or security manager for the organization that owns the repository.
+	SecurityAndAnalysis      RepositorySecurityAndAnalysisPtrOutput `pulumi:"securityAndAnalysis"`
+	SquashMergeCommitMessage pulumi.StringPtrOutput                 `pulumi:"squashMergeCommitMessage"`
+	SquashMergeCommitTitle   pulumi.StringPtrOutput                 `pulumi:"squashMergeCommitTitle"`
+	SshCloneUrl              pulumi.StringOutput                    `pulumi:"sshCloneUrl"`
+	SvnUrl                   pulumi.StringOutput                    `pulumi:"svnUrl"`
+	Template                 RepositoryTemplatePtrOutput            `pulumi:"template"`
+	Topics                   pulumi.StringArrayOutput               `pulumi:"topics"`
+	Visibility               pulumi.StringOutput                    `pulumi:"visibility"`
+	VulnerabilityAlerts      pulumi.BoolPtrOutput                   `pulumi:"vulnerabilityAlerts"`
 }
 
 // NewRepository registers a new resource with the given unique name, arguments, and options.
@@ -122,16 +125,19 @@ type repositoryState struct {
 	NodeId                              *string          `pulumi:"nodeId"`
 	Pages                               *RepositoryPages `pulumi:"pages"`
 	// Deprecated: use visibility instead
-	Private                  *bool               `pulumi:"private"`
-	RepoId                   *int                `pulumi:"repoId"`
-	SquashMergeCommitMessage *string             `pulumi:"squashMergeCommitMessage"`
-	SquashMergeCommitTitle   *string             `pulumi:"squashMergeCommitTitle"`
-	SshCloneUrl              *string             `pulumi:"sshCloneUrl"`
-	SvnUrl                   *string             `pulumi:"svnUrl"`
-	Template                 *RepositoryTemplate `pulumi:"template"`
-	Topics                   []string            `pulumi:"topics"`
-	Visibility               *string             `pulumi:"visibility"`
-	VulnerabilityAlerts      *bool               `pulumi:"vulnerabilityAlerts"`
+	Private *bool `pulumi:"private"`
+	RepoId  *int  `pulumi:"repoId"`
+	// Security and analysis settings for the repository. To use this parameter you must have admin permissions for the
+	// repository or be an owner or security manager for the organization that owns the repository.
+	SecurityAndAnalysis      *RepositorySecurityAndAnalysis `pulumi:"securityAndAnalysis"`
+	SquashMergeCommitMessage *string                        `pulumi:"squashMergeCommitMessage"`
+	SquashMergeCommitTitle   *string                        `pulumi:"squashMergeCommitTitle"`
+	SshCloneUrl              *string                        `pulumi:"sshCloneUrl"`
+	SvnUrl                   *string                        `pulumi:"svnUrl"`
+	Template                 *RepositoryTemplate            `pulumi:"template"`
+	Topics                   []string                       `pulumi:"topics"`
+	Visibility               *string                        `pulumi:"visibility"`
+	VulnerabilityAlerts      *bool                          `pulumi:"vulnerabilityAlerts"`
 }
 
 type RepositoryState struct {
@@ -169,8 +175,11 @@ type RepositoryState struct {
 	NodeId                              pulumi.StringPtrInput
 	Pages                               RepositoryPagesPtrInput
 	// Deprecated: use visibility instead
-	Private                  pulumi.BoolPtrInput
-	RepoId                   pulumi.IntPtrInput
+	Private pulumi.BoolPtrInput
+	RepoId  pulumi.IntPtrInput
+	// Security and analysis settings for the repository. To use this parameter you must have admin permissions for the
+	// repository or be an owner or security manager for the organization that owns the repository.
+	SecurityAndAnalysis      RepositorySecurityAndAnalysisPtrInput
 	SquashMergeCommitMessage pulumi.StringPtrInput
 	SquashMergeCommitTitle   pulumi.StringPtrInput
 	SshCloneUrl              pulumi.StringPtrInput
@@ -214,13 +223,16 @@ type repositoryArgs struct {
 	Name                                *string          `pulumi:"name"`
 	Pages                               *RepositoryPages `pulumi:"pages"`
 	// Deprecated: use visibility instead
-	Private                  *bool               `pulumi:"private"`
-	SquashMergeCommitMessage *string             `pulumi:"squashMergeCommitMessage"`
-	SquashMergeCommitTitle   *string             `pulumi:"squashMergeCommitTitle"`
-	Template                 *RepositoryTemplate `pulumi:"template"`
-	Topics                   []string            `pulumi:"topics"`
-	Visibility               *string             `pulumi:"visibility"`
-	VulnerabilityAlerts      *bool               `pulumi:"vulnerabilityAlerts"`
+	Private *bool `pulumi:"private"`
+	// Security and analysis settings for the repository. To use this parameter you must have admin permissions for the
+	// repository or be an owner or security manager for the organization that owns the repository.
+	SecurityAndAnalysis      *RepositorySecurityAndAnalysis `pulumi:"securityAndAnalysis"`
+	SquashMergeCommitMessage *string                        `pulumi:"squashMergeCommitMessage"`
+	SquashMergeCommitTitle   *string                        `pulumi:"squashMergeCommitTitle"`
+	Template                 *RepositoryTemplate            `pulumi:"template"`
+	Topics                   []string                       `pulumi:"topics"`
+	Visibility               *string                        `pulumi:"visibility"`
+	VulnerabilityAlerts      *bool                          `pulumi:"vulnerabilityAlerts"`
 }
 
 // The set of arguments for constructing a Repository resource.
@@ -253,7 +265,10 @@ type RepositoryArgs struct {
 	Name                                pulumi.StringPtrInput
 	Pages                               RepositoryPagesPtrInput
 	// Deprecated: use visibility instead
-	Private                  pulumi.BoolPtrInput
+	Private pulumi.BoolPtrInput
+	// Security and analysis settings for the repository. To use this parameter you must have admin permissions for the
+	// repository or be an owner or security manager for the organization that owns the repository.
+	SecurityAndAnalysis      RepositorySecurityAndAnalysisPtrInput
 	SquashMergeCommitMessage pulumi.StringPtrInput
 	SquashMergeCommitTitle   pulumi.StringPtrInput
 	Template                 RepositoryTemplatePtrInput
@@ -288,7 +303,7 @@ func (i *Repository) ToRepositoryOutputWithContext(ctx context.Context) Reposito
 // RepositoryArrayInput is an input type that accepts RepositoryArray and RepositoryArrayOutput values.
 // You can construct a concrete instance of `RepositoryArrayInput` via:
 //
-//	RepositoryArray{ RepositoryArgs{...} }
+//          RepositoryArray{ RepositoryArgs{...} }
 type RepositoryArrayInput interface {
 	pulumi.Input
 
@@ -313,7 +328,7 @@ func (i RepositoryArray) ToRepositoryArrayOutputWithContext(ctx context.Context)
 // RepositoryMapInput is an input type that accepts RepositoryMap and RepositoryMapOutput values.
 // You can construct a concrete instance of `RepositoryMapInput` via:
 //
-//	RepositoryMap{ "key": RepositoryArgs{...} }
+//          RepositoryMap{ "key": RepositoryArgs{...} }
 type RepositoryMapInput interface {
 	pulumi.Input
 
@@ -479,6 +494,12 @@ func (o RepositoryOutput) Private() pulumi.BoolOutput {
 
 func (o RepositoryOutput) RepoId() pulumi.IntOutput {
 	return o.ApplyT(func(v *Repository) pulumi.IntOutput { return v.RepoId }).(pulumi.IntOutput)
+}
+
+// Security and analysis settings for the repository. To use this parameter you must have admin permissions for the
+// repository or be an owner or security manager for the organization that owns the repository.
+func (o RepositoryOutput) SecurityAndAnalysis() RepositorySecurityAndAnalysisPtrOutput {
+	return o.ApplyT(func(v *Repository) RepositorySecurityAndAnalysisPtrOutput { return v.SecurityAndAnalysis }).(RepositorySecurityAndAnalysisPtrOutput)
 }
 
 func (o RepositoryOutput) SquashMergeCommitMessage() pulumi.StringPtrOutput {

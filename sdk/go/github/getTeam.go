@@ -22,7 +22,9 @@ func LookupTeam(ctx *pulumi.Context, args *LookupTeamArgs, opts ...pulumi.Invoke
 // A collection of arguments for invoking getTeam.
 type LookupTeamArgs struct {
 	MembershipType *string `pulumi:"membershipType"`
+	ResultsPerPage *int    `pulumi:"resultsPerPage"`
 	Slug           string  `pulumi:"slug"`
+	SummaryOnly    *bool   `pulumi:"summaryOnly"`
 }
 
 // A collection of values returned by getTeam.
@@ -37,7 +39,9 @@ type LookupTeamResult struct {
 	Permission     string   `pulumi:"permission"`
 	Privacy        string   `pulumi:"privacy"`
 	Repositories   []string `pulumi:"repositories"`
+	ResultsPerPage *int     `pulumi:"resultsPerPage"`
 	Slug           string   `pulumi:"slug"`
+	SummaryOnly    *bool    `pulumi:"summaryOnly"`
 }
 
 func LookupTeamOutput(ctx *pulumi.Context, args LookupTeamOutputArgs, opts ...pulumi.InvokeOption) LookupTeamResultOutput {
@@ -56,7 +60,9 @@ func LookupTeamOutput(ctx *pulumi.Context, args LookupTeamOutputArgs, opts ...pu
 // A collection of arguments for invoking getTeam.
 type LookupTeamOutputArgs struct {
 	MembershipType pulumi.StringPtrInput `pulumi:"membershipType"`
+	ResultsPerPage pulumi.IntPtrInput    `pulumi:"resultsPerPage"`
 	Slug           pulumi.StringInput    `pulumi:"slug"`
+	SummaryOnly    pulumi.BoolPtrInput   `pulumi:"summaryOnly"`
 }
 
 func (LookupTeamOutputArgs) ElementType() reflect.Type {
@@ -115,8 +121,16 @@ func (o LookupTeamResultOutput) Repositories() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupTeamResult) []string { return v.Repositories }).(pulumi.StringArrayOutput)
 }
 
+func (o LookupTeamResultOutput) ResultsPerPage() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupTeamResult) *int { return v.ResultsPerPage }).(pulumi.IntPtrOutput)
+}
+
 func (o LookupTeamResultOutput) Slug() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupTeamResult) string { return v.Slug }).(pulumi.StringOutput)
+}
+
+func (o LookupTeamResultOutput) SummaryOnly() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupTeamResult) *bool { return v.SummaryOnly }).(pulumi.BoolPtrOutput)
 }
 
 func init() {

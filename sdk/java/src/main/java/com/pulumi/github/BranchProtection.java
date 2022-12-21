@@ -44,6 +44,12 @@ public class BranchProtection extends com.pulumi.resources.CustomResource {
     public Output<Optional<Boolean>> enforceAdmins() {
         return Codegen.optional(this.enforceAdmins);
     }
+    @Export(name="lockBranch", type=Boolean.class, parameters={})
+    private Output</* @Nullable */ Boolean> lockBranch;
+
+    public Output<Optional<Boolean>> lockBranch() {
+        return Codegen.optional(this.lockBranch);
+    }
     @Export(name="pattern", type=String.class, parameters={})
     private Output<String> pattern;
 

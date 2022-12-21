@@ -18,6 +18,7 @@ public final class BranchProtectionRequiredPullRequestReview {
     private @Nullable List<String> dismissalRestrictions;
     private @Nullable List<String> pullRequestBypassers;
     private @Nullable Boolean requireCodeOwnerReviews;
+    private @Nullable Boolean requireLastPushApproval;
     private @Nullable Integer requiredApprovingReviewCount;
     private @Nullable Boolean restrictDismissals;
 
@@ -33,6 +34,9 @@ public final class BranchProtectionRequiredPullRequestReview {
     }
     public Optional<Boolean> requireCodeOwnerReviews() {
         return Optional.ofNullable(this.requireCodeOwnerReviews);
+    }
+    public Optional<Boolean> requireLastPushApproval() {
+        return Optional.ofNullable(this.requireLastPushApproval);
     }
     public Optional<Integer> requiredApprovingReviewCount() {
         return Optional.ofNullable(this.requiredApprovingReviewCount);
@@ -54,6 +58,7 @@ public final class BranchProtectionRequiredPullRequestReview {
         private @Nullable List<String> dismissalRestrictions;
         private @Nullable List<String> pullRequestBypassers;
         private @Nullable Boolean requireCodeOwnerReviews;
+        private @Nullable Boolean requireLastPushApproval;
         private @Nullable Integer requiredApprovingReviewCount;
         private @Nullable Boolean restrictDismissals;
         public Builder() {}
@@ -63,6 +68,7 @@ public final class BranchProtectionRequiredPullRequestReview {
     	      this.dismissalRestrictions = defaults.dismissalRestrictions;
     	      this.pullRequestBypassers = defaults.pullRequestBypassers;
     	      this.requireCodeOwnerReviews = defaults.requireCodeOwnerReviews;
+    	      this.requireLastPushApproval = defaults.requireLastPushApproval;
     	      this.requiredApprovingReviewCount = defaults.requiredApprovingReviewCount;
     	      this.restrictDismissals = defaults.restrictDismissals;
         }
@@ -94,6 +100,11 @@ public final class BranchProtectionRequiredPullRequestReview {
             return this;
         }
         @CustomType.Setter
+        public Builder requireLastPushApproval(@Nullable Boolean requireLastPushApproval) {
+            this.requireLastPushApproval = requireLastPushApproval;
+            return this;
+        }
+        @CustomType.Setter
         public Builder requiredApprovingReviewCount(@Nullable Integer requiredApprovingReviewCount) {
             this.requiredApprovingReviewCount = requiredApprovingReviewCount;
             return this;
@@ -109,6 +120,7 @@ public final class BranchProtectionRequiredPullRequestReview {
             o.dismissalRestrictions = dismissalRestrictions;
             o.pullRequestBypassers = pullRequestBypassers;
             o.requireCodeOwnerReviews = requireCodeOwnerReviews;
+            o.requireLastPushApproval = requireLastPushApproval;
             o.requiredApprovingReviewCount = requiredApprovingReviewCount;
             o.restrictDismissals = restrictDismissals;
             return o;

@@ -12,7 +12,9 @@ export function getTeam(args: GetTeamArgs, opts?: pulumi.InvokeOptions): Promise
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("github:index/getTeam:getTeam", {
         "membershipType": args.membershipType,
+        "resultsPerPage": args.resultsPerPage,
         "slug": args.slug,
+        "summaryOnly": args.summaryOnly,
     }, opts);
 }
 
@@ -21,7 +23,9 @@ export function getTeam(args: GetTeamArgs, opts?: pulumi.InvokeOptions): Promise
  */
 export interface GetTeamArgs {
     membershipType?: string;
+    resultsPerPage?: number;
     slug: string;
+    summaryOnly?: boolean;
 }
 
 /**
@@ -40,7 +44,9 @@ export interface GetTeamResult {
     readonly permission: string;
     readonly privacy: string;
     readonly repositories: string[];
+    readonly resultsPerPage?: number;
     readonly slug: string;
+    readonly summaryOnly?: boolean;
 }
 
 export function getTeamOutput(args: GetTeamOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTeamResult> {
@@ -52,5 +58,7 @@ export function getTeamOutput(args: GetTeamOutputArgs, opts?: pulumi.InvokeOptio
  */
 export interface GetTeamOutputArgs {
     membershipType?: pulumi.Input<string>;
+    resultsPerPage?: pulumi.Input<number>;
     slug: pulumi.Input<string>;
+    summaryOnly?: pulumi.Input<boolean>;
 }

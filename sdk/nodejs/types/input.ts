@@ -15,11 +15,18 @@ export interface ActionsOrganizationPermissionsEnabledRepositoriesConfig {
     repositoryIds: pulumi.Input<pulumi.Input<number>[]>;
 }
 
+export interface ActionsRepositoryPermissionsAllowedActionsConfig {
+    githubOwnedAllowed: pulumi.Input<boolean>;
+    patternsAlloweds?: pulumi.Input<pulumi.Input<string>[]>;
+    verifiedAllowed?: pulumi.Input<boolean>;
+}
+
 export interface BranchProtectionRequiredPullRequestReview {
     dismissStaleReviews?: pulumi.Input<boolean>;
     dismissalRestrictions?: pulumi.Input<pulumi.Input<string>[]>;
     pullRequestBypassers?: pulumi.Input<pulumi.Input<string>[]>;
     requireCodeOwnerReviews?: pulumi.Input<boolean>;
+    requireLastPushApproval?: pulumi.Input<boolean>;
     requiredApprovingReviewCount?: pulumi.Input<number>;
     restrictDismissals?: pulumi.Input<boolean>;
 }
@@ -93,6 +100,24 @@ export interface RepositoryPagesSource {
     path?: pulumi.Input<string>;
 }
 
+export interface RepositorySecurityAndAnalysis {
+    advancedSecurity: pulumi.Input<inputs.RepositorySecurityAndAnalysisAdvancedSecurity>;
+    secretScanning: pulumi.Input<inputs.RepositorySecurityAndAnalysisSecretScanning>;
+    secretScanningPushProtection: pulumi.Input<inputs.RepositorySecurityAndAnalysisSecretScanningPushProtection>;
+}
+
+export interface RepositorySecurityAndAnalysisAdvancedSecurity {
+    status: pulumi.Input<string>;
+}
+
+export interface RepositorySecurityAndAnalysisSecretScanning {
+    status: pulumi.Input<string>;
+}
+
+export interface RepositorySecurityAndAnalysisSecretScanningPushProtection {
+    status: pulumi.Input<string>;
+}
+
 export interface RepositoryTemplate {
     includeAllBranches?: pulumi.Input<boolean>;
     owner: pulumi.Input<string>;
@@ -109,6 +134,12 @@ export interface RepositoryWebhookConfiguration {
 export interface TeamMembersMember {
     role?: pulumi.Input<string>;
     username: pulumi.Input<string>;
+}
+
+export interface TeamSettingsReviewRequestDelegation {
+    algorithm?: pulumi.Input<string>;
+    memberCount?: pulumi.Input<number>;
+    notify?: pulumi.Input<boolean>;
 }
 
 export interface TeamSyncGroupMappingGroup {

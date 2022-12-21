@@ -24,6 +24,9 @@ namespace Pulumi.Github
         [Output("enforceAdmins")]
         public Output<bool?> EnforceAdmins { get; private set; } = null!;
 
+        [Output("lockBranch")]
+        public Output<bool?> LockBranch { get; private set; } = null!;
+
         [Output("pattern")]
         public Output<string> Pattern { get; private set; } = null!;
 
@@ -109,6 +112,9 @@ namespace Pulumi.Github
         [Input("enforceAdmins")]
         public Input<bool>? EnforceAdmins { get; set; }
 
+        [Input("lockBranch")]
+        public Input<bool>? LockBranch { get; set; }
+
         [Input("pattern", required: true)]
         public Input<string> Pattern { get; set; } = null!;
 
@@ -170,6 +176,9 @@ namespace Pulumi.Github
 
         [Input("enforceAdmins")]
         public Input<bool>? EnforceAdmins { get; set; }
+
+        [Input("lockBranch")]
+        public Input<bool>? LockBranch { get; set; }
 
         [Input("pattern")]
         public Input<string>? Pattern { get; set; }

@@ -103,7 +103,7 @@ func (i *BranchDefault) ToBranchDefaultOutputWithContext(ctx context.Context) Br
 // BranchDefaultArrayInput is an input type that accepts BranchDefaultArray and BranchDefaultArrayOutput values.
 // You can construct a concrete instance of `BranchDefaultArrayInput` via:
 //
-//	BranchDefaultArray{ BranchDefaultArgs{...} }
+//          BranchDefaultArray{ BranchDefaultArgs{...} }
 type BranchDefaultArrayInput interface {
 	pulumi.Input
 
@@ -128,7 +128,7 @@ func (i BranchDefaultArray) ToBranchDefaultArrayOutputWithContext(ctx context.Co
 // BranchDefaultMapInput is an input type that accepts BranchDefaultMap and BranchDefaultMapOutput values.
 // You can construct a concrete instance of `BranchDefaultMapInput` via:
 //
-//	BranchDefaultMap{ "key": BranchDefaultArgs{...} }
+//          BranchDefaultMap{ "key": BranchDefaultArgs{...} }
 type BranchDefaultMapInput interface {
 	pulumi.Input
 

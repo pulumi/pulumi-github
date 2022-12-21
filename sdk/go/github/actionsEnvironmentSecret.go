@@ -138,7 +138,7 @@ func (i *ActionsEnvironmentSecret) ToActionsEnvironmentSecretOutputWithContext(c
 // ActionsEnvironmentSecretArrayInput is an input type that accepts ActionsEnvironmentSecretArray and ActionsEnvironmentSecretArrayOutput values.
 // You can construct a concrete instance of `ActionsEnvironmentSecretArrayInput` via:
 //
-//	ActionsEnvironmentSecretArray{ ActionsEnvironmentSecretArgs{...} }
+//          ActionsEnvironmentSecretArray{ ActionsEnvironmentSecretArgs{...} }
 type ActionsEnvironmentSecretArrayInput interface {
 	pulumi.Input
 
@@ -163,7 +163,7 @@ func (i ActionsEnvironmentSecretArray) ToActionsEnvironmentSecretArrayOutputWith
 // ActionsEnvironmentSecretMapInput is an input type that accepts ActionsEnvironmentSecretMap and ActionsEnvironmentSecretMapOutput values.
 // You can construct a concrete instance of `ActionsEnvironmentSecretMapInput` via:
 //
-//	ActionsEnvironmentSecretMap{ "key": ActionsEnvironmentSecretArgs{...} }
+//          ActionsEnvironmentSecretMap{ "key": ActionsEnvironmentSecretArgs{...} }
 type ActionsEnvironmentSecretMapInput interface {
 	pulumi.Input
 

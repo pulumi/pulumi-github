@@ -22,6 +22,7 @@ class BranchProtectionArgs:
                  allows_force_pushes: Optional[pulumi.Input[bool]] = None,
                  blocks_creations: Optional[pulumi.Input[bool]] = None,
                  enforce_admins: Optional[pulumi.Input[bool]] = None,
+                 lock_branch: Optional[pulumi.Input[bool]] = None,
                  push_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  require_conversation_resolution: Optional[pulumi.Input[bool]] = None,
                  require_signed_commits: Optional[pulumi.Input[bool]] = None,
@@ -42,6 +43,8 @@ class BranchProtectionArgs:
             pulumi.set(__self__, "blocks_creations", blocks_creations)
         if enforce_admins is not None:
             pulumi.set(__self__, "enforce_admins", enforce_admins)
+        if lock_branch is not None:
+            pulumi.set(__self__, "lock_branch", lock_branch)
         if push_restrictions is not None:
             pulumi.set(__self__, "push_restrictions", push_restrictions)
         if require_conversation_resolution is not None:
@@ -113,6 +116,15 @@ class BranchProtectionArgs:
         pulumi.set(self, "enforce_admins", value)
 
     @property
+    @pulumi.getter(name="lockBranch")
+    def lock_branch(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "lock_branch")
+
+    @lock_branch.setter
+    def lock_branch(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "lock_branch", value)
+
+    @property
     @pulumi.getter(name="pushRestrictions")
     def push_restrictions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         return pulumi.get(self, "push_restrictions")
@@ -174,6 +186,7 @@ class _BranchProtectionState:
                  allows_force_pushes: Optional[pulumi.Input[bool]] = None,
                  blocks_creations: Optional[pulumi.Input[bool]] = None,
                  enforce_admins: Optional[pulumi.Input[bool]] = None,
+                 lock_branch: Optional[pulumi.Input[bool]] = None,
                  pattern: Optional[pulumi.Input[str]] = None,
                  push_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  repository_id: Optional[pulumi.Input[str]] = None,
@@ -194,6 +207,8 @@ class _BranchProtectionState:
             pulumi.set(__self__, "blocks_creations", blocks_creations)
         if enforce_admins is not None:
             pulumi.set(__self__, "enforce_admins", enforce_admins)
+        if lock_branch is not None:
+            pulumi.set(__self__, "lock_branch", lock_branch)
         if pattern is not None:
             pulumi.set(__self__, "pattern", pattern)
         if push_restrictions is not None:
@@ -246,6 +261,15 @@ class _BranchProtectionState:
     @enforce_admins.setter
     def enforce_admins(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enforce_admins", value)
+
+    @property
+    @pulumi.getter(name="lockBranch")
+    def lock_branch(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "lock_branch")
+
+    @lock_branch.setter
+    def lock_branch(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "lock_branch", value)
 
     @property
     @pulumi.getter
@@ -332,6 +356,7 @@ class BranchProtection(pulumi.CustomResource):
                  allows_force_pushes: Optional[pulumi.Input[bool]] = None,
                  blocks_creations: Optional[pulumi.Input[bool]] = None,
                  enforce_admins: Optional[pulumi.Input[bool]] = None,
+                 lock_branch: Optional[pulumi.Input[bool]] = None,
                  pattern: Optional[pulumi.Input[str]] = None,
                  push_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  repository_id: Optional[pulumi.Input[str]] = None,
@@ -374,6 +399,7 @@ class BranchProtection(pulumi.CustomResource):
                  allows_force_pushes: Optional[pulumi.Input[bool]] = None,
                  blocks_creations: Optional[pulumi.Input[bool]] = None,
                  enforce_admins: Optional[pulumi.Input[bool]] = None,
+                 lock_branch: Optional[pulumi.Input[bool]] = None,
                  pattern: Optional[pulumi.Input[str]] = None,
                  push_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  repository_id: Optional[pulumi.Input[str]] = None,
@@ -395,6 +421,7 @@ class BranchProtection(pulumi.CustomResource):
             __props__.__dict__["allows_force_pushes"] = allows_force_pushes
             __props__.__dict__["blocks_creations"] = blocks_creations
             __props__.__dict__["enforce_admins"] = enforce_admins
+            __props__.__dict__["lock_branch"] = lock_branch
             if pattern is None and not opts.urn:
                 raise TypeError("Missing required property 'pattern'")
             __props__.__dict__["pattern"] = pattern
@@ -421,6 +448,7 @@ class BranchProtection(pulumi.CustomResource):
             allows_force_pushes: Optional[pulumi.Input[bool]] = None,
             blocks_creations: Optional[pulumi.Input[bool]] = None,
             enforce_admins: Optional[pulumi.Input[bool]] = None,
+            lock_branch: Optional[pulumi.Input[bool]] = None,
             pattern: Optional[pulumi.Input[str]] = None,
             push_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             repository_id: Optional[pulumi.Input[str]] = None,
@@ -446,6 +474,7 @@ class BranchProtection(pulumi.CustomResource):
         __props__.__dict__["allows_force_pushes"] = allows_force_pushes
         __props__.__dict__["blocks_creations"] = blocks_creations
         __props__.__dict__["enforce_admins"] = enforce_admins
+        __props__.__dict__["lock_branch"] = lock_branch
         __props__.__dict__["pattern"] = pattern
         __props__.__dict__["push_restrictions"] = push_restrictions
         __props__.__dict__["repository_id"] = repository_id
@@ -475,6 +504,11 @@ class BranchProtection(pulumi.CustomResource):
     @pulumi.getter(name="enforceAdmins")
     def enforce_admins(self) -> pulumi.Output[Optional[bool]]:
         return pulumi.get(self, "enforce_admins")
+
+    @property
+    @pulumi.getter(name="lockBranch")
+    def lock_branch(self) -> pulumi.Output[Optional[bool]]:
+        return pulumi.get(self, "lock_branch")
 
     @property
     @pulumi.getter

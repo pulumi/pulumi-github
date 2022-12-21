@@ -134,7 +134,7 @@ func (i *RepositoryMilestone) ToRepositoryMilestoneOutputWithContext(ctx context
 // RepositoryMilestoneArrayInput is an input type that accepts RepositoryMilestoneArray and RepositoryMilestoneArrayOutput values.
 // You can construct a concrete instance of `RepositoryMilestoneArrayInput` via:
 //
-//	RepositoryMilestoneArray{ RepositoryMilestoneArgs{...} }
+//          RepositoryMilestoneArray{ RepositoryMilestoneArgs{...} }
 type RepositoryMilestoneArrayInput interface {
 	pulumi.Input
 
@@ -159,7 +159,7 @@ func (i RepositoryMilestoneArray) ToRepositoryMilestoneArrayOutputWithContext(ct
 // RepositoryMilestoneMapInput is an input type that accepts RepositoryMilestoneMap and RepositoryMilestoneMapOutput values.
 // You can construct a concrete instance of `RepositoryMilestoneMapInput` via:
 //
-//	RepositoryMilestoneMap{ "key": RepositoryMilestoneArgs{...} }
+//          RepositoryMilestoneMap{ "key": RepositoryMilestoneArgs{...} }
 type RepositoryMilestoneMapInput interface {
 	pulumi.Input
 

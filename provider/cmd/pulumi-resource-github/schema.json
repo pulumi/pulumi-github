@@ -171,6 +171,41 @@
                 "repositoryIds"
             ]
         },
+        "github:index/ActionsRepositoryPermissionsAllowedActionsConfig:ActionsRepositoryPermissionsAllowedActionsConfig": {
+            "properties": {
+                "githubOwnedAllowed": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "patternsAlloweds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "verifiedAllowed": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "githubOwnedAllowed"
+            ]
+        },
         "github:index/BranchProtectionRequiredPullRequestReview:BranchProtectionRequiredPullRequestReview": {
             "properties": {
                 "dismissStaleReviews": {
@@ -204,6 +239,14 @@
                     }
                 },
                 "requireCodeOwnerReviews": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "requireLastPushApproval": {
                     "type": "boolean",
                     "language": {
                         "python": {
@@ -610,6 +653,88 @@
                 "branch"
             ]
         },
+        "github:index/RepositorySecurityAndAnalysis:RepositorySecurityAndAnalysis": {
+            "properties": {
+                "advancedSecurity": {
+                    "$ref": "#/types/github:index/RepositorySecurityAndAnalysisAdvancedSecurity:RepositorySecurityAndAnalysisAdvancedSecurity",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "secretScanning": {
+                    "$ref": "#/types/github:index/RepositorySecurityAndAnalysisSecretScanning:RepositorySecurityAndAnalysisSecretScanning",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "secretScanningPushProtection": {
+                    "$ref": "#/types/github:index/RepositorySecurityAndAnalysisSecretScanningPushProtection:RepositorySecurityAndAnalysisSecretScanningPushProtection",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "advancedSecurity",
+                "secretScanning",
+                "secretScanningPushProtection"
+            ]
+        },
+        "github:index/RepositorySecurityAndAnalysisAdvancedSecurity:RepositorySecurityAndAnalysisAdvancedSecurity": {
+            "properties": {
+                "status": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "status"
+            ]
+        },
+        "github:index/RepositorySecurityAndAnalysisSecretScanning:RepositorySecurityAndAnalysisSecretScanning": {
+            "properties": {
+                "status": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "status"
+            ]
+        },
+        "github:index/RepositorySecurityAndAnalysisSecretScanningPushProtection:RepositorySecurityAndAnalysisSecretScanningPushProtection": {
+            "properties": {
+                "status": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "status"
+            ]
+        },
         "github:index/RepositoryTemplate:RepositoryTemplate": {
             "properties": {
                 "includeAllBranches": {
@@ -708,6 +833,35 @@
             "required": [
                 "username"
             ]
+        },
+        "github:index/TeamSettingsReviewRequestDelegation:TeamSettingsReviewRequestDelegation": {
+            "properties": {
+                "algorithm": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "memberCount": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "notify": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
         },
         "github:index/TeamSyncGroupMappingGroup:TeamSyncGroupMappingGroup": {
             "properties": {
@@ -1841,6 +1995,36 @@
                 }
             }
         },
+        "github:index/getRepositoryTemplate:getRepositoryTemplate": {
+            "properties": {
+                "owner": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "repository": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "owner",
+                "repository"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
         "github:index/getRepositoryWebhooksWebhook:getRepositoryWebhooksWebhook": {
             "properties": {
                 "active": {
@@ -2338,6 +2522,60 @@
                 "type": "object"
             }
         },
+        "github:index/actionsRepositoryPermissions:ActionsRepositoryPermissions": {
+            "properties": {
+                "allowedActions": {
+                    "type": "string"
+                },
+                "allowedActionsConfig": {
+                    "$ref": "#/types/github:index/ActionsRepositoryPermissionsAllowedActionsConfig:ActionsRepositoryPermissionsAllowedActionsConfig"
+                },
+                "enabled": {
+                    "type": "boolean"
+                },
+                "repository": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "repository"
+            ],
+            "inputProperties": {
+                "allowedActions": {
+                    "type": "string"
+                },
+                "allowedActionsConfig": {
+                    "$ref": "#/types/github:index/ActionsRepositoryPermissionsAllowedActionsConfig:ActionsRepositoryPermissionsAllowedActionsConfig"
+                },
+                "enabled": {
+                    "type": "boolean"
+                },
+                "repository": {
+                    "type": "string"
+                }
+            },
+            "requiredInputs": [
+                "repository"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering ActionsRepositoryPermissions resources.\n",
+                "properties": {
+                    "allowedActions": {
+                        "type": "string"
+                    },
+                    "allowedActionsConfig": {
+                        "$ref": "#/types/github:index/ActionsRepositoryPermissionsAllowedActionsConfig:ActionsRepositoryPermissionsAllowedActionsConfig"
+                    },
+                    "enabled": {
+                        "type": "boolean"
+                    },
+                    "repository": {
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            }
+        },
         "github:index/actionsRunnerGroup:ActionsRunnerGroup": {
             "properties": {
                 "allowsPublicRepositories": {
@@ -2512,6 +2750,55 @@
                     },
                     "updatedAt": {
                         "type": "string"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "github:index/appInstallationRepositories:AppInstallationRepositories": {
+            "properties": {
+                "installationId": {
+                    "type": "string"
+                },
+                "selectedRepositories": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            },
+            "required": [
+                "installationId",
+                "selectedRepositories"
+            ],
+            "inputProperties": {
+                "installationId": {
+                    "type": "string",
+                    "willReplaceOnChanges": true
+                },
+                "selectedRepositories": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            },
+            "requiredInputs": [
+                "installationId",
+                "selectedRepositories"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering AppInstallationRepositories resources.\n",
+                "properties": {
+                    "installationId": {
+                        "type": "string",
+                        "willReplaceOnChanges": true
+                    },
+                    "selectedRepositories": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
                     }
                 },
                 "type": "object"
@@ -2721,6 +3008,9 @@
                 "enforceAdmins": {
                     "type": "boolean"
                 },
+                "lockBranch": {
+                    "type": "boolean"
+                },
                 "pattern": {
                     "type": "string"
                 },
@@ -2771,6 +3061,9 @@
                     "type": "boolean"
                 },
                 "enforceAdmins": {
+                    "type": "boolean"
+                },
+                "lockBranch": {
                     "type": "boolean"
                 },
                 "pattern": {
@@ -2826,6 +3119,9 @@
                         "type": "boolean"
                     },
                     "enforceAdmins": {
+                        "type": "boolean"
+                    },
+                    "lockBranch": {
                         "type": "boolean"
                     },
                     "pattern": {
@@ -3570,6 +3866,33 @@
                 "type": "object"
             }
         },
+        "github:index/organizationSecurityManager:OrganizationSecurityManager": {
+            "properties": {
+                "teamSlug": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "teamSlug"
+            ],
+            "inputProperties": {
+                "teamSlug": {
+                    "type": "string"
+                }
+            },
+            "requiredInputs": [
+                "teamSlug"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering OrganizationSecurityManager resources.\n",
+                "properties": {
+                    "teamSlug": {
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            }
+        },
         "github:index/organizationSettings:OrganizationSettings": {
             "properties": {
                 "advancedSecurityEnabledForNewRepositories": {
@@ -4017,6 +4340,125 @@
                 "type": "object"
             }
         },
+        "github:index/release:Release": {
+            "properties": {
+                "body": {
+                    "type": "string"
+                },
+                "discussionCategoryName": {
+                    "type": "string"
+                },
+                "draft": {
+                    "type": "boolean"
+                },
+                "etag": {
+                    "type": "string"
+                },
+                "generateReleaseNotes": {
+                    "type": "boolean"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "prerelease": {
+                    "type": "boolean"
+                },
+                "repository": {
+                    "type": "string"
+                },
+                "tagName": {
+                    "type": "string"
+                },
+                "targetCommitish": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "etag",
+                "name",
+                "repository",
+                "tagName"
+            ],
+            "inputProperties": {
+                "body": {
+                    "type": "string"
+                },
+                "discussionCategoryName": {
+                    "type": "string",
+                    "willReplaceOnChanges": true
+                },
+                "draft": {
+                    "type": "boolean",
+                    "willReplaceOnChanges": true
+                },
+                "generateReleaseNotes": {
+                    "type": "boolean"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "prerelease": {
+                    "type": "boolean"
+                },
+                "repository": {
+                    "type": "string",
+                    "willReplaceOnChanges": true
+                },
+                "tagName": {
+                    "type": "string",
+                    "willReplaceOnChanges": true
+                },
+                "targetCommitish": {
+                    "type": "string",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "requiredInputs": [
+                "repository",
+                "tagName"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Release resources.\n",
+                "properties": {
+                    "body": {
+                        "type": "string"
+                    },
+                    "discussionCategoryName": {
+                        "type": "string",
+                        "willReplaceOnChanges": true
+                    },
+                    "draft": {
+                        "type": "boolean",
+                        "willReplaceOnChanges": true
+                    },
+                    "etag": {
+                        "type": "string"
+                    },
+                    "generateReleaseNotes": {
+                        "type": "boolean"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "prerelease": {
+                        "type": "boolean"
+                    },
+                    "repository": {
+                        "type": "string",
+                        "willReplaceOnChanges": true
+                    },
+                    "tagName": {
+                        "type": "string",
+                        "willReplaceOnChanges": true
+                    },
+                    "targetCommitish": {
+                        "type": "string",
+                        "willReplaceOnChanges": true
+                    }
+                },
+                "type": "object"
+            }
+        },
         "github:index/repository:Repository": {
             "properties": {
                 "allowAutoMerge": {
@@ -4117,6 +4559,10 @@
                 },
                 "repoId": {
                     "type": "integer"
+                },
+                "securityAndAnalysis": {
+                    "$ref": "#/types/github:index/RepositorySecurityAndAnalysis:RepositorySecurityAndAnalysis",
+                    "description": "Security and analysis settings for the repository. To use this parameter you must have admin permissions for the\nrepository or be an owner or security manager for the organization that owns the repository.\n"
                 },
                 "squashMergeCommitMessage": {
                     "type": "string"
@@ -4239,6 +4685,10 @@
                 "private": {
                     "type": "boolean",
                     "deprecationMessage": "use visibility instead"
+                },
+                "securityAndAnalysis": {
+                    "$ref": "#/types/github:index/RepositorySecurityAndAnalysis:RepositorySecurityAndAnalysis",
+                    "description": "Security and analysis settings for the repository. To use this parameter you must have admin permissions for the\nrepository or be an owner or security manager for the organization that owns the repository.\n"
                 },
                 "squashMergeCommitMessage": {
                     "type": "string"
@@ -4363,6 +4813,10 @@
                     },
                     "repoId": {
                         "type": "integer"
+                    },
+                    "securityAndAnalysis": {
+                        "$ref": "#/types/github:index/RepositorySecurityAndAnalysis:RepositorySecurityAndAnalysis",
+                        "description": "Security and analysis settings for the repository. To use this parameter you must have admin permissions for the\nrepository or be an owner or security manager for the organization that owns the repository.\n"
                     },
                     "squashMergeCommitMessage": {
                         "type": "string"
@@ -4716,7 +5170,7 @@
                 },
                 "commitMessage": {
                     "type": "string",
-                    "description": "The commit message when creating or updating the file\n"
+                    "description": "The commit message when creating, updating or deleting the file\n"
                 },
                 "commitSha": {
                     "type": "string",
@@ -4767,7 +5221,7 @@
                 },
                 "commitMessage": {
                     "type": "string",
-                    "description": "The commit message when creating or updating the file\n"
+                    "description": "The commit message when creating, updating or deleting the file\n"
                 },
                 "content": {
                     "type": "string",
@@ -4811,7 +5265,7 @@
                     },
                     "commitMessage": {
                         "type": "string",
-                        "description": "The commit message when creating or updating the file\n"
+                        "description": "The commit message when creating, updating or deleting the file\n"
                     },
                     "commitSha": {
                         "type": "string",
@@ -5554,6 +6008,65 @@
                         "type": "string",
                         "description": "ID or slug of team\n",
                         "willReplaceOnChanges": true
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "github:index/teamSettings:TeamSettings": {
+            "properties": {
+                "reviewRequestDelegation": {
+                    "$ref": "#/types/github:index/TeamSettingsReviewRequestDelegation:TeamSettingsReviewRequestDelegation"
+                },
+                "teamId": {
+                    "type": "string",
+                    "description": "ID or slug of team\n"
+                },
+                "teamSlug": {
+                    "type": "string",
+                    "description": "The slug of the Team within the Organization\n"
+                },
+                "teamUid": {
+                    "type": "string",
+                    "description": "The unique ID of the Team on GitHub. Corresponds to the ID of the github_team_settings resource\n"
+                }
+            },
+            "required": [
+                "teamId",
+                "teamSlug",
+                "teamUid"
+            ],
+            "inputProperties": {
+                "reviewRequestDelegation": {
+                    "$ref": "#/types/github:index/TeamSettingsReviewRequestDelegation:TeamSettingsReviewRequestDelegation"
+                },
+                "teamId": {
+                    "type": "string",
+                    "description": "ID or slug of team\n",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "requiredInputs": [
+                "teamId"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering TeamSettings resources.\n",
+                "properties": {
+                    "reviewRequestDelegation": {
+                        "$ref": "#/types/github:index/TeamSettingsReviewRequestDelegation:TeamSettingsReviewRequestDelegation"
+                    },
+                    "teamId": {
+                        "type": "string",
+                        "description": "ID or slug of team\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "teamSlug": {
+                        "type": "string",
+                        "description": "The slug of the Team within the Organization\n"
+                    },
+                    "teamUid": {
+                        "type": "string",
+                        "description": "The unique ID of the Team on GitHub. Corresponds to the ID of the github_team_settings resource\n"
                     }
                 },
                 "type": "object"
@@ -6608,13 +7121,17 @@
                 "description": "A collection of values returned by getRelease.\n",
                 "properties": {
                     "assertsUrl": {
-                        "type": "string"
+                        "type": "string",
+                        "deprecationMessage": "use assets_url instead"
                     },
                     "assets": {
                         "type": "array",
                         "items": {
                             "$ref": "#/types/github:index/getReleaseAsset:getReleaseAsset"
                         }
+                    },
+                    "assetsUrl": {
+                        "type": "string"
                     },
                     "body": {
                         "type": "string"
@@ -6676,6 +7193,7 @@
                 "required": [
                     "assertsUrl",
                     "assets",
+                    "assetsUrl",
                     "body",
                     "createdAt",
                     "draft",
@@ -6699,8 +7217,14 @@
             "inputs": {
                 "description": "A collection of arguments for invoking getRepositories.\n",
                 "properties": {
+                    "includeRepoId": {
+                        "type": "boolean"
+                    },
                     "query": {
                         "type": "string"
+                    },
+                    "resultsPerPage": {
+                        "type": "integer"
                     },
                     "sort": {
                         "type": "string"
@@ -6724,6 +7248,9 @@
                         "type": "string",
                         "description": "The provider-assigned unique ID for this managed resource.\n"
                     },
+                    "includeRepoId": {
+                        "type": "boolean"
+                    },
                     "names": {
                         "type": "array",
                         "items": {
@@ -6732,6 +7259,15 @@
                     },
                     "query": {
                         "type": "string"
+                    },
+                    "repoIds": {
+                        "type": "array",
+                        "items": {
+                            "type": "integer"
+                        }
+                    },
+                    "resultsPerPage": {
+                        "type": "integer"
                     },
                     "sort": {
                         "type": "string"
@@ -6742,6 +7278,7 @@
                     "fullNames",
                     "names",
                     "query",
+                    "repoIds",
                     "id"
                 ]
             }
@@ -6820,6 +7357,9 @@
                         "type": "string",
                         "description": "The provider-assigned unique ID for this managed resource.\n"
                     },
+                    "isTemplate": {
+                        "type": "boolean"
+                    },
                     "mergeCommitMessage": {
                         "type": "string"
                     },
@@ -6856,6 +7396,9 @@
                     "svnUrl": {
                         "type": "string"
                     },
+                    "template": {
+                        "$ref": "#/types/github:index/getRepositoryTemplate:getRepositoryTemplate"
+                    },
                     "topics": {
                         "type": "array",
                         "items": {
@@ -6882,6 +7425,7 @@
                     "hasWiki",
                     "htmlUrl",
                     "httpCloneUrl",
+                    "isTemplate",
                     "mergeCommitMessage",
                     "mergeCommitTitle",
                     "name",
@@ -6893,6 +7437,7 @@
                     "squashMergeCommitTitle",
                     "sshCloneUrl",
                     "svnUrl",
+                    "template",
                     "topics",
                     "visibility",
                     "id"
@@ -7388,8 +7933,14 @@
                     "membershipType": {
                         "type": "string"
                     },
+                    "resultsPerPage": {
+                        "type": "integer"
+                    },
                     "slug": {
                         "type": "string"
+                    },
+                    "summaryOnly": {
+                        "type": "boolean"
                     }
                 },
                 "type": "object",
@@ -7434,8 +7985,14 @@
                             "type": "string"
                         }
                     },
+                    "resultsPerPage": {
+                        "type": "integer"
+                    },
                     "slug": {
                         "type": "string"
+                    },
+                    "summaryOnly": {
+                        "type": "boolean"
                     }
                 },
                 "type": "object",

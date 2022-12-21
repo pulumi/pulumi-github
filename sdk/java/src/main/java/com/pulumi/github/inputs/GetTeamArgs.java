@@ -5,6 +5,8 @@ package com.pulumi.github.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -22,6 +24,13 @@ public final class GetTeamArgs extends com.pulumi.resources.InvokeArgs {
         return Optional.ofNullable(this.membershipType);
     }
 
+    @Import(name="resultsPerPage")
+    private @Nullable Output<Integer> resultsPerPage;
+
+    public Optional<Output<Integer>> resultsPerPage() {
+        return Optional.ofNullable(this.resultsPerPage);
+    }
+
     @Import(name="slug", required=true)
     private Output<String> slug;
 
@@ -29,11 +38,20 @@ public final class GetTeamArgs extends com.pulumi.resources.InvokeArgs {
         return this.slug;
     }
 
+    @Import(name="summaryOnly")
+    private @Nullable Output<Boolean> summaryOnly;
+
+    public Optional<Output<Boolean>> summaryOnly() {
+        return Optional.ofNullable(this.summaryOnly);
+    }
+
     private GetTeamArgs() {}
 
     private GetTeamArgs(GetTeamArgs $) {
         this.membershipType = $.membershipType;
+        this.resultsPerPage = $.resultsPerPage;
         this.slug = $.slug;
+        this.summaryOnly = $.summaryOnly;
     }
 
     public static Builder builder() {
@@ -63,6 +81,15 @@ public final class GetTeamArgs extends com.pulumi.resources.InvokeArgs {
             return membershipType(Output.of(membershipType));
         }
 
+        public Builder resultsPerPage(@Nullable Output<Integer> resultsPerPage) {
+            $.resultsPerPage = resultsPerPage;
+            return this;
+        }
+
+        public Builder resultsPerPage(Integer resultsPerPage) {
+            return resultsPerPage(Output.of(resultsPerPage));
+        }
+
         public Builder slug(Output<String> slug) {
             $.slug = slug;
             return this;
@@ -70,6 +97,15 @@ public final class GetTeamArgs extends com.pulumi.resources.InvokeArgs {
 
         public Builder slug(String slug) {
             return slug(Output.of(slug));
+        }
+
+        public Builder summaryOnly(@Nullable Output<Boolean> summaryOnly) {
+            $.summaryOnly = summaryOnly;
+            return this;
+        }
+
+        public Builder summaryOnly(Boolean summaryOnly) {
+            return summaryOnly(Output.of(summaryOnly));
         }
 
         public GetTeamArgs build() {

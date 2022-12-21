@@ -103,7 +103,7 @@ func (i *ActionsOrganizationSecretRepositories) ToActionsOrganizationSecretRepos
 // ActionsOrganizationSecretRepositoriesArrayInput is an input type that accepts ActionsOrganizationSecretRepositoriesArray and ActionsOrganizationSecretRepositoriesArrayOutput values.
 // You can construct a concrete instance of `ActionsOrganizationSecretRepositoriesArrayInput` via:
 //
-//	ActionsOrganizationSecretRepositoriesArray{ ActionsOrganizationSecretRepositoriesArgs{...} }
+//          ActionsOrganizationSecretRepositoriesArray{ ActionsOrganizationSecretRepositoriesArgs{...} }
 type ActionsOrganizationSecretRepositoriesArrayInput interface {
 	pulumi.Input
 
@@ -128,7 +128,7 @@ func (i ActionsOrganizationSecretRepositoriesArray) ToActionsOrganizationSecretR
 // ActionsOrganizationSecretRepositoriesMapInput is an input type that accepts ActionsOrganizationSecretRepositoriesMap and ActionsOrganizationSecretRepositoriesMapOutput values.
 // You can construct a concrete instance of `ActionsOrganizationSecretRepositoriesMapInput` via:
 //
-//	ActionsOrganizationSecretRepositoriesMap{ "key": ActionsOrganizationSecretRepositoriesArgs{...} }
+//          ActionsOrganizationSecretRepositoriesMap{ "key": ActionsOrganizationSecretRepositoriesArgs{...} }
 type ActionsOrganizationSecretRepositoriesMapInput interface {
 	pulumi.Input
 

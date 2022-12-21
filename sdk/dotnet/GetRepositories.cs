@@ -21,8 +21,14 @@ namespace Pulumi.Github
 
     public sealed class GetRepositoriesArgs : global::Pulumi.InvokeArgs
     {
+        [Input("includeRepoId")]
+        public bool? IncludeRepoId { get; set; }
+
         [Input("query", required: true)]
         public string Query { get; set; } = null!;
+
+        [Input("resultsPerPage")]
+        public int? ResultsPerPage { get; set; }
 
         [Input("sort")]
         public string? Sort { get; set; }
@@ -35,8 +41,14 @@ namespace Pulumi.Github
 
     public sealed class GetRepositoriesInvokeArgs : global::Pulumi.InvokeArgs
     {
+        [Input("includeRepoId")]
+        public Input<bool>? IncludeRepoId { get; set; }
+
         [Input("query", required: true)]
         public Input<string> Query { get; set; } = null!;
+
+        [Input("resultsPerPage")]
+        public Input<int>? ResultsPerPage { get; set; }
 
         [Input("sort")]
         public Input<string>? Sort { get; set; }
@@ -56,8 +68,11 @@ namespace Pulumi.Github
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        public readonly bool? IncludeRepoId;
         public readonly ImmutableArray<string> Names;
         public readonly string Query;
+        public readonly ImmutableArray<int> RepoIds;
+        public readonly int? ResultsPerPage;
         public readonly string? Sort;
 
         [OutputConstructor]
@@ -66,16 +81,25 @@ namespace Pulumi.Github
 
             string id,
 
+            bool? includeRepoId,
+
             ImmutableArray<string> names,
 
             string query,
+
+            ImmutableArray<int> repoIds,
+
+            int? resultsPerPage,
 
             string? sort)
         {
             FullNames = fullNames;
             Id = id;
+            IncludeRepoId = includeRepoId;
             Names = names;
             Query = query;
+            RepoIds = repoIds;
+            ResultsPerPage = resultsPerPage;
             Sort = sort;
         }
     }

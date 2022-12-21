@@ -116,7 +116,7 @@ func (i *TeamRepository) ToTeamRepositoryOutputWithContext(ctx context.Context) 
 // TeamRepositoryArrayInput is an input type that accepts TeamRepositoryArray and TeamRepositoryArrayOutput values.
 // You can construct a concrete instance of `TeamRepositoryArrayInput` via:
 //
-//	TeamRepositoryArray{ TeamRepositoryArgs{...} }
+//          TeamRepositoryArray{ TeamRepositoryArgs{...} }
 type TeamRepositoryArrayInput interface {
 	pulumi.Input
 
@@ -141,7 +141,7 @@ func (i TeamRepositoryArray) ToTeamRepositoryArrayOutputWithContext(ctx context.
 // TeamRepositoryMapInput is an input type that accepts TeamRepositoryMap and TeamRepositoryMapOutput values.
 // You can construct a concrete instance of `TeamRepositoryMapInput` via:
 //
-//	TeamRepositoryMap{ "key": TeamRepositoryArgs{...} }
+//          TeamRepositoryMap{ "key": TeamRepositoryArgs{...} }
 type TeamRepositoryMapInput interface {
 	pulumi.Input
 

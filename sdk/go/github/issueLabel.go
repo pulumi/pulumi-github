@@ -119,7 +119,7 @@ func (i *IssueLabel) ToIssueLabelOutputWithContext(ctx context.Context) IssueLab
 // IssueLabelArrayInput is an input type that accepts IssueLabelArray and IssueLabelArrayOutput values.
 // You can construct a concrete instance of `IssueLabelArrayInput` via:
 //
-//	IssueLabelArray{ IssueLabelArgs{...} }
+//          IssueLabelArray{ IssueLabelArgs{...} }
 type IssueLabelArrayInput interface {
 	pulumi.Input
 
@@ -144,7 +144,7 @@ func (i IssueLabelArray) ToIssueLabelArrayOutputWithContext(ctx context.Context)
 // IssueLabelMapInput is an input type that accepts IssueLabelMap and IssueLabelMapOutput values.
 // You can construct a concrete instance of `IssueLabelMapInput` via:
 //
-//	IssueLabelMap{ "key": IssueLabelArgs{...} }
+//          IssueLabelMap{ "key": IssueLabelArgs{...} }
 type IssueLabelMapInput interface {
 	pulumi.Input
 

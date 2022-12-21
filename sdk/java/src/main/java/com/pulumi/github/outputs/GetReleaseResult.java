@@ -15,8 +15,15 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetReleaseResult {
+    /**
+     * @deprecated
+     * use assets_url instead
+     * 
+     */
+    @Deprecated /* use assets_url instead */
     private String assertsUrl;
     private List<GetReleaseAsset> assets;
+    private String assetsUrl;
     private String body;
     private String createdAt;
     private Boolean draft;
@@ -41,11 +48,20 @@ public final class GetReleaseResult {
     private String zipballUrl;
 
     private GetReleaseResult() {}
+    /**
+     * @deprecated
+     * use assets_url instead
+     * 
+     */
+    @Deprecated /* use assets_url instead */
     public String assertsUrl() {
         return this.assertsUrl;
     }
     public List<GetReleaseAsset> assets() {
         return this.assets;
+    }
+    public String assetsUrl() {
+        return this.assetsUrl;
     }
     public String body() {
         return this.body;
@@ -117,6 +133,7 @@ public final class GetReleaseResult {
     public static final class Builder {
         private String assertsUrl;
         private List<GetReleaseAsset> assets;
+        private String assetsUrl;
         private String body;
         private String createdAt;
         private Boolean draft;
@@ -140,6 +157,7 @@ public final class GetReleaseResult {
     	      Objects.requireNonNull(defaults);
     	      this.assertsUrl = defaults.assertsUrl;
     	      this.assets = defaults.assets;
+    	      this.assetsUrl = defaults.assetsUrl;
     	      this.body = defaults.body;
     	      this.createdAt = defaults.createdAt;
     	      this.draft = defaults.draft;
@@ -172,6 +190,11 @@ public final class GetReleaseResult {
         }
         public Builder assets(GetReleaseAsset... assets) {
             return assets(List.of(assets));
+        }
+        @CustomType.Setter
+        public Builder assetsUrl(String assetsUrl) {
+            this.assetsUrl = Objects.requireNonNull(assetsUrl);
+            return this;
         }
         @CustomType.Setter
         public Builder body(String body) {
@@ -267,6 +290,7 @@ public final class GetReleaseResult {
             final var o = new GetReleaseResult();
             o.assertsUrl = assertsUrl;
             o.assets = assets;
+            o.assetsUrl = assetsUrl;
             o.body = body;
             o.createdAt = createdAt;
             o.draft = draft;

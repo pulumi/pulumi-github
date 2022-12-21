@@ -95,7 +95,7 @@ func (i *UserInvitationAccepter) ToUserInvitationAccepterOutputWithContext(ctx c
 // UserInvitationAccepterArrayInput is an input type that accepts UserInvitationAccepterArray and UserInvitationAccepterArrayOutput values.
 // You can construct a concrete instance of `UserInvitationAccepterArrayInput` via:
 //
-//	UserInvitationAccepterArray{ UserInvitationAccepterArgs{...} }
+//          UserInvitationAccepterArray{ UserInvitationAccepterArgs{...} }
 type UserInvitationAccepterArrayInput interface {
 	pulumi.Input
 
@@ -120,7 +120,7 @@ func (i UserInvitationAccepterArray) ToUserInvitationAccepterArrayOutputWithCont
 // UserInvitationAccepterMapInput is an input type that accepts UserInvitationAccepterMap and UserInvitationAccepterMapOutput values.
 // You can construct a concrete instance of `UserInvitationAccepterMapInput` via:
 //
-//	UserInvitationAccepterMap{ "key": UserInvitationAccepterArgs{...} }
+//          UserInvitationAccepterMap{ "key": UserInvitationAccepterArgs{...} }
 type UserInvitationAccepterMapInput interface {
 	pulumi.Input
 

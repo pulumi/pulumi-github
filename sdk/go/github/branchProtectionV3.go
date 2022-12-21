@@ -136,7 +136,7 @@ func (i *BranchProtectionV3) ToBranchProtectionV3OutputWithContext(ctx context.C
 // BranchProtectionV3ArrayInput is an input type that accepts BranchProtectionV3Array and BranchProtectionV3ArrayOutput values.
 // You can construct a concrete instance of `BranchProtectionV3ArrayInput` via:
 //
-//	BranchProtectionV3Array{ BranchProtectionV3Args{...} }
+//          BranchProtectionV3Array{ BranchProtectionV3Args{...} }
 type BranchProtectionV3ArrayInput interface {
 	pulumi.Input
 
@@ -161,7 +161,7 @@ func (i BranchProtectionV3Array) ToBranchProtectionV3ArrayOutputWithContext(ctx 
 // BranchProtectionV3MapInput is an input type that accepts BranchProtectionV3Map and BranchProtectionV3MapOutput values.
 // You can construct a concrete instance of `BranchProtectionV3MapInput` via:
 //
-//	BranchProtectionV3Map{ "key": BranchProtectionV3Args{...} }
+//          BranchProtectionV3Map{ "key": BranchProtectionV3Args{...} }
 type BranchProtectionV3MapInput interface {
 	pulumi.Input
 

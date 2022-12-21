@@ -11,7 +11,9 @@ export function getRepositories(args: GetRepositoriesArgs, opts?: pulumi.InvokeO
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("github:index/getRepositories:getRepositories", {
+        "includeRepoId": args.includeRepoId,
         "query": args.query,
+        "resultsPerPage": args.resultsPerPage,
         "sort": args.sort,
     }, opts);
 }
@@ -20,7 +22,9 @@ export function getRepositories(args: GetRepositoriesArgs, opts?: pulumi.InvokeO
  * A collection of arguments for invoking getRepositories.
  */
 export interface GetRepositoriesArgs {
+    includeRepoId?: boolean;
     query: string;
+    resultsPerPage?: number;
     sort?: string;
 }
 
@@ -33,8 +37,11 @@ export interface GetRepositoriesResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly includeRepoId?: boolean;
     readonly names: string[];
     readonly query: string;
+    readonly repoIds: number[];
+    readonly resultsPerPage?: number;
     readonly sort?: string;
 }
 
@@ -46,6 +53,8 @@ export function getRepositoriesOutput(args: GetRepositoriesOutputArgs, opts?: pu
  * A collection of arguments for invoking getRepositories.
  */
 export interface GetRepositoriesOutputArgs {
+    includeRepoId?: pulumi.Input<boolean>;
     query: pulumi.Input<string>;
+    resultsPerPage?: pulumi.Input<number>;
     sort?: pulumi.Input<string>;
 }
