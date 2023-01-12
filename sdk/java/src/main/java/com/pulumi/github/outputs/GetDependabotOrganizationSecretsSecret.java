@@ -9,21 +9,53 @@ import java.util.Objects;
 
 @CustomType
 public final class GetDependabotOrganizationSecretsSecret {
+    /**
+     * @return Timestamp of the secret creation
+     * 
+     */
     private String createdAt;
+    /**
+     * @return Secret name
+     * 
+     */
     private String name;
+    /**
+     * @return Timestamp of the secret last update
+     * 
+     */
     private String updatedAt;
+    /**
+     * @return Secret visibility
+     * 
+     */
     private String visibility;
 
     private GetDependabotOrganizationSecretsSecret() {}
+    /**
+     * @return Timestamp of the secret creation
+     * 
+     */
     public String createdAt() {
         return this.createdAt;
     }
+    /**
+     * @return Secret name
+     * 
+     */
     public String name() {
         return this.name;
     }
+    /**
+     * @return Timestamp of the secret last update
+     * 
+     */
     public String updatedAt() {
         return this.updatedAt;
     }
+    /**
+     * @return Secret visibility
+     * 
+     */
     public String visibility() {
         return this.visibility;
     }

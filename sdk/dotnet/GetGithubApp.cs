@@ -11,9 +11,57 @@ namespace Pulumi.Github
 {
     public static class GetGithubApp
     {
+        /// <summary>
+        /// Use this data source to retrieve information about an app.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Github = Pulumi.Github;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var foobar = Github.GetGithubApp.Invoke(new()
+        ///     {
+        ///         Slug = "foobar",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetGithubAppResult> InvokeAsync(GetGithubAppArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetGithubAppResult>("github:index/getGithubApp:getGithubApp", args ?? new GetGithubAppArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Use this data source to retrieve information about an app.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Github = Pulumi.Github;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var foobar = Github.GetGithubApp.Invoke(new()
+        ///     {
+        ///         Slug = "foobar",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Output<GetGithubAppResult> Invoke(GetGithubAppInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGithubAppResult>("github:index/getGithubApp:getGithubApp", args ?? new GetGithubAppInvokeArgs(), options.WithDefaults());
     }
@@ -21,6 +69,9 @@ namespace Pulumi.Github
 
     public sealed class GetGithubAppArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The URL-friendly name of your GitHub App.
+        /// </summary>
         [Input("slug", required: true)]
         public string Slug { get; set; } = null!;
 
@@ -32,6 +83,9 @@ namespace Pulumi.Github
 
     public sealed class GetGithubAppInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The URL-friendly name of your GitHub App.
+        /// </summary>
         [Input("slug", required: true)]
         public Input<string> Slug { get; set; } = null!;
 
@@ -45,12 +99,21 @@ namespace Pulumi.Github
     [OutputType]
     public sealed class GetGithubAppResult
     {
+        /// <summary>
+        /// The app's description.
+        /// </summary>
         public readonly string Description;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// The app's full name.
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The Node ID of the app.
+        /// </summary>
         public readonly string NodeId;
         public readonly string Slug;
 

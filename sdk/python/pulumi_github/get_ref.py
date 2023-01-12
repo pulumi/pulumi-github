@@ -41,6 +41,9 @@ class GetRefResult:
     @property
     @pulumi.getter
     def etag(self) -> str:
+        """
+        An etag representing the ref.
+        """
         return pulumi.get(self, "etag")
 
     @property
@@ -64,6 +67,9 @@ class GetRefResult:
     @property
     @pulumi.getter
     def sha(self) -> str:
+        """
+        A string storing the reference's `HEAD` commit's SHA1.
+        """
         return pulumi.get(self, "sha")
 
 
@@ -84,7 +90,21 @@ def get_ref(ref: Optional[str] = None,
             repository: Optional[str] = None,
             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRefResult:
     """
-    Use this data source to access information about an existing resource.
+    Use this data source to retrieve information about a repository ref.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_github as github
+
+    development = github.get_ref(ref="heads/development",
+        repository="example")
+    ```
+
+
+    :param str ref: The repository ref to look up. Must be formatted `heads/<ref>` for branches, and `tags/<ref>` for tags.
+    :param str repository: The GitHub repository name.
     """
     __args__ = dict()
     __args__['ref'] = ref
@@ -105,6 +125,20 @@ def get_ref_output(ref: Optional[pulumi.Input[str]] = None,
                    repository: Optional[pulumi.Input[str]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRefResult]:
     """
-    Use this data source to access information about an existing resource.
+    Use this data source to retrieve information about a repository ref.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_github as github
+
+    development = github.get_ref(ref="heads/development",
+        repository="example")
+    ```
+
+
+    :param str ref: The repository ref to look up. Must be formatted `heads/<ref>` for branches, and `tags/<ref>` for tags.
+    :param str repository: The GitHub repository name.
     """
     ...

@@ -13,11 +13,34 @@ namespace Pulumi.Github.Outputs
     [OutputType]
     public sealed class BranchProtectionRequiredPullRequestReview
     {
+        /// <summary>
+        /// Dismiss approved reviews automatically when a new commit is pushed. Defaults to `false`.
+        /// </summary>
         public readonly bool? DismissStaleReviews;
+        /// <summary>
+        /// The list of actor Names/IDs with dismissal access. If not empty, `restrict_dismissals` is ignored. Actor names must either begin with a "/" for users or the organization name followed by a "/" for teams.
+        /// </summary>
         public readonly ImmutableArray<string> DismissalRestrictions;
+        /// <summary>
+        /// The list of actor Names/IDs that are allowed to bypass pull request requirements. Actor names must either begin with a "/" for users or the organization name followed by a "/" for teams.
+        /// </summary>
         public readonly ImmutableArray<string> PullRequestBypassers;
+        /// <summary>
+        /// Require an approved review in pull requests including files with a designated code owner. Defaults to `false`.
+        /// </summary>
         public readonly bool? RequireCodeOwnerReviews;
+        /// <summary>
+        /// Require that The most recent push must be approved by someone other than the last pusher.  Defaults to `false`
+        /// </summary>
+        public readonly bool? RequireLastPushApproval;
+        /// <summary>
+        /// Require x number of approvals to satisfy branch protection requirements. If this is specified it must be a number between 0-6. This requirement matches GitHub's API, see the upstream [documentation](https://developer.github.com/v3/repos/branches/#parameters-1) for more information.
+        /// (https://developer.github.com/v3/repos/branches/#parameters-1) for more information.
+        /// </summary>
         public readonly int? RequiredApprovingReviewCount;
+        /// <summary>
+        /// Restrict pull request review dismissals.
+        /// </summary>
         public readonly bool? RestrictDismissals;
 
         [OutputConstructor]
@@ -30,6 +53,8 @@ namespace Pulumi.Github.Outputs
 
             bool? requireCodeOwnerReviews,
 
+            bool? requireLastPushApproval,
+
             int? requiredApprovingReviewCount,
 
             bool? restrictDismissals)
@@ -38,6 +63,7 @@ namespace Pulumi.Github.Outputs
             DismissalRestrictions = dismissalRestrictions;
             PullRequestBypassers = pullRequestBypassers;
             RequireCodeOwnerReviews = requireCodeOwnerReviews;
+            RequireLastPushApproval = requireLastPushApproval;
             RequiredApprovingReviewCount = requiredApprovingReviewCount;
             RestrictDismissals = restrictDismissals;
         }

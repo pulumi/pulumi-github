@@ -13,23 +13,47 @@ public final class GetRepositoryMilestonePlainArgs extends com.pulumi.resources.
 
     public static final GetRepositoryMilestonePlainArgs Empty = new GetRepositoryMilestonePlainArgs();
 
+    /**
+     * The number of the milestone.
+     * 
+     */
     @Import(name="number", required=true)
     private Integer number;
 
+    /**
+     * @return The number of the milestone.
+     * 
+     */
     public Integer number() {
         return this.number;
     }
 
+    /**
+     * Owner of the repository.
+     * 
+     */
     @Import(name="owner", required=true)
     private String owner;
 
+    /**
+     * @return Owner of the repository.
+     * 
+     */
     public String owner() {
         return this.owner;
     }
 
+    /**
+     * Name of the repository to retrieve the milestone from.
+     * 
+     */
     @Import(name="repository", required=true)
     private String repository;
 
+    /**
+     * @return Name of the repository to retrieve the milestone from.
+     * 
+     */
     public String repository() {
         return this.repository;
     }
@@ -60,16 +84,34 @@ public final class GetRepositoryMilestonePlainArgs extends com.pulumi.resources.
             $ = new GetRepositoryMilestonePlainArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param number The number of the milestone.
+         * 
+         * @return builder
+         * 
+         */
         public Builder number(Integer number) {
             $.number = number;
             return this;
         }
 
+        /**
+         * @param owner Owner of the repository.
+         * 
+         * @return builder
+         * 
+         */
         public Builder owner(String owner) {
             $.owner = owner;
             return this;
         }
 
+        /**
+         * @param repository Name of the repository to retrieve the milestone from.
+         * 
+         * @return builder
+         * 
+         */
         public Builder repository(String repository) {
             $.repository = repository;
             return this;

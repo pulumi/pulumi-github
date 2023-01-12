@@ -6,6 +6,36 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
+/**
+ * This resource allows you to create and manage webhooks for GitHub organization.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const foo = new github.OrganizationWebhook("foo", {
+ *     active: false,
+ *     configuration: {
+ *         contentType: "form",
+ *         insecureSsl: false,
+ *         url: "https://google.de/",
+ *     },
+ *     events: ["issues"],
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * Organization webhooks can be imported using the `id` of the webhook. The `id` of the webhook can be found in the URL of the webhook. For example, `"https://github.com/organizations/foo-org/settings/hooks/123456789"`.
+ *
+ * ```sh
+ *  $ pulumi import github:index/organizationWebhook:OrganizationWebhook terraform 123456789
+ * ```
+ *
+ *  If secret is populated in the webhook's configuration, the value will be imported as "********".
+ */
 export class OrganizationWebhook extends pulumi.CustomResource {
     /**
      * Get an existing OrganizationWebhook resource's state with the given name, ID, and optional extra
@@ -34,10 +64,22 @@ export class OrganizationWebhook extends pulumi.CustomResource {
         return obj['__pulumiType'] === OrganizationWebhook.__pulumiType;
     }
 
+    /**
+     * Indicate of the webhook should receive events. Defaults to `true`.
+     */
     public readonly active!: pulumi.Output<boolean | undefined>;
+    /**
+     * key/value pair of configuration for this webhook. Available keys are `url`, `contentType`, `secret` and `insecureSsl`.
+     */
     public readonly configuration!: pulumi.Output<outputs.OrganizationWebhookConfiguration | undefined>;
     public /*out*/ readonly etag!: pulumi.Output<string>;
+    /**
+     * A list of events which should trigger the webhook. See a list of [available events](https://developer.github.com/v3/activity/events/types/)
+     */
     public readonly events!: pulumi.Output<string[]>;
+    /**
+     * URL of the webhook
+     */
     public /*out*/ readonly url!: pulumi.Output<string>;
 
     /**
@@ -78,10 +120,22 @@ export class OrganizationWebhook extends pulumi.CustomResource {
  * Input properties used for looking up and filtering OrganizationWebhook resources.
  */
 export interface OrganizationWebhookState {
+    /**
+     * Indicate of the webhook should receive events. Defaults to `true`.
+     */
     active?: pulumi.Input<boolean>;
+    /**
+     * key/value pair of configuration for this webhook. Available keys are `url`, `contentType`, `secret` and `insecureSsl`.
+     */
     configuration?: pulumi.Input<inputs.OrganizationWebhookConfiguration>;
     etag?: pulumi.Input<string>;
+    /**
+     * A list of events which should trigger the webhook. See a list of [available events](https://developer.github.com/v3/activity/events/types/)
+     */
     events?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * URL of the webhook
+     */
     url?: pulumi.Input<string>;
 }
 
@@ -89,7 +143,16 @@ export interface OrganizationWebhookState {
  * The set of arguments for constructing a OrganizationWebhook resource.
  */
 export interface OrganizationWebhookArgs {
+    /**
+     * Indicate of the webhook should receive events. Defaults to `true`.
+     */
     active?: pulumi.Input<boolean>;
+    /**
+     * key/value pair of configuration for this webhook. Available keys are `url`, `contentType`, `secret` and `insecureSsl`.
+     */
     configuration?: pulumi.Input<inputs.OrganizationWebhookConfiguration>;
+    /**
+     * A list of events which should trigger the webhook. See a list of [available events](https://developer.github.com/v3/activity/events/types/)
+     */
     events: pulumi.Input<pulumi.Input<string>[]>;
 }

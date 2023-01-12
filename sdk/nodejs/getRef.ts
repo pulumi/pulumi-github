@@ -4,12 +4,24 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * Use this data source to retrieve information about a repository ref.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const development = github.getRef({
+ *     ref: "heads/development",
+ *     repository: "example",
+ * });
+ * ```
+ */
 export function getRef(args: GetRefArgs, opts?: pulumi.InvokeOptions): Promise<GetRefResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("github:index/getRef:getRef", {
         "ref": args.ref,
         "repository": args.repository,
@@ -20,7 +32,13 @@ export function getRef(args: GetRefArgs, opts?: pulumi.InvokeOptions): Promise<G
  * A collection of arguments for invoking getRef.
  */
 export interface GetRefArgs {
+    /**
+     * The repository ref to look up. Must be formatted `heads/<ref>` for branches, and `tags/<ref>` for tags.
+     */
     ref: string;
+    /**
+     * The GitHub repository name.
+     */
     repository: string;
 }
 
@@ -28,6 +46,9 @@ export interface GetRefArgs {
  * A collection of values returned by getRef.
  */
 export interface GetRefResult {
+    /**
+     * An etag representing the ref.
+     */
     readonly etag: string;
     /**
      * The provider-assigned unique ID for this managed resource.
@@ -35,17 +56,40 @@ export interface GetRefResult {
     readonly id: string;
     readonly ref: string;
     readonly repository: string;
+    /**
+     * A string storing the reference's `HEAD` commit's SHA1.
+     */
     readonly sha: string;
 }
-
+/**
+ * Use this data source to retrieve information about a repository ref.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const development = github.getRef({
+ *     ref: "heads/development",
+ *     repository: "example",
+ * });
+ * ```
+ */
 export function getRefOutput(args: GetRefOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRefResult> {
-    return pulumi.output(args).apply(a => getRef(a, opts))
+    return pulumi.output(args).apply((a: any) => getRef(a, opts))
 }
 
 /**
  * A collection of arguments for invoking getRef.
  */
 export interface GetRefOutputArgs {
+    /**
+     * The repository ref to look up. Must be formatted `heads/<ref>` for branches, and `tags/<ref>` for tags.
+     */
     ref: pulumi.Input<string>;
+    /**
+     * The GitHub repository name.
+     */
     repository: pulumi.Input<string>;
 }

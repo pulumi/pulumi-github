@@ -15,6 +15,120 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * This resource allows you to create and manage cards for GitHub projects.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.github.OrganizationProject;
+ * import com.pulumi.github.OrganizationProjectArgs;
+ * import com.pulumi.github.ProjectColumn;
+ * import com.pulumi.github.ProjectColumnArgs;
+ * import com.pulumi.github.ProjectCard;
+ * import com.pulumi.github.ProjectCardArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var project = new OrganizationProject(&#34;project&#34;, OrganizationProjectArgs.builder()        
+ *             .body(&#34;This is an organization project.&#34;)
+ *             .build());
+ * 
+ *         var column = new ProjectColumn(&#34;column&#34;, ProjectColumnArgs.builder()        
+ *             .projectId(project.id())
+ *             .build());
+ * 
+ *         var card = new ProjectCard(&#34;card&#34;, ProjectCardArgs.builder()        
+ *             .columnId(column.columnId())
+ *             .note(&#34;## Unaccepted 👇&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### Adding An Issue To A Project
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.github.Repository;
+ * import com.pulumi.github.RepositoryArgs;
+ * import com.pulumi.github.Issue;
+ * import com.pulumi.github.IssueArgs;
+ * import com.pulumi.github.RepositoryProject;
+ * import com.pulumi.github.RepositoryProjectArgs;
+ * import com.pulumi.github.ProjectColumn;
+ * import com.pulumi.github.ProjectColumnArgs;
+ * import com.pulumi.github.ProjectCard;
+ * import com.pulumi.github.ProjectCardArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var testRepository = new Repository(&#34;testRepository&#34;, RepositoryArgs.builder()        
+ *             .hasProjects(true)
+ *             .hasIssues(true)
+ *             .build());
+ * 
+ *         var testIssue = new Issue(&#34;testIssue&#34;, IssueArgs.builder()        
+ *             .repository(testRepository.id())
+ *             .title(&#34;Test issue title&#34;)
+ *             .body(&#34;Test issue body&#34;)
+ *             .build());
+ * 
+ *         var testRepositoryProject = new RepositoryProject(&#34;testRepositoryProject&#34;, RepositoryProjectArgs.builder()        
+ *             .repository(testRepository.name())
+ *             .body(&#34;this is a test project&#34;)
+ *             .build());
+ * 
+ *         var testProjectColumn = new ProjectColumn(&#34;testProjectColumn&#34;, ProjectColumnArgs.builder()        
+ *             .projectId(testRepositoryProject.id())
+ *             .build());
+ * 
+ *         var testProjectCard = new ProjectCard(&#34;testProjectCard&#34;, ProjectCardArgs.builder()        
+ *             .columnId(testProjectColumn.columnId())
+ *             .contentId(testIssue.issueId())
+ *             .contentType(&#34;Issue&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * A GitHub Project Card can be imported using its [Card ID](https://developer.github.com/v3/projects/cards/#get-a-project-card)
+ * 
+ * ```sh
+ *  $ pulumi import github:index/projectCard:ProjectCard card 01234567
+ * ```
+ * 
+ */
 @ResourceType(type="github:index/projectCard:ProjectCard")
 public class ProjectCard extends com.pulumi.resources.CustomResource {
     @Export(name="cardId", type=Integer.class, parameters={})
@@ -23,21 +137,45 @@ public class ProjectCard extends com.pulumi.resources.CustomResource {
     public Output<Integer> cardId() {
         return this.cardId;
     }
+    /**
+     * The ID of the card.
+     * 
+     */
     @Export(name="columnId", type=String.class, parameters={})
     private Output<String> columnId;
 
+    /**
+     * @return The ID of the card.
+     * 
+     */
     public Output<String> columnId() {
         return this.columnId;
     }
+    /**
+     * `github_issue.issue_id`.
+     * 
+     */
     @Export(name="contentId", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> contentId;
 
+    /**
+     * @return `github_issue.issue_id`.
+     * 
+     */
     public Output<Optional<Integer>> contentId() {
         return Codegen.optional(this.contentId);
     }
+    /**
+     * Must be either `Issue` or `PullRequest`
+     * 
+     */
     @Export(name="contentType", type=String.class, parameters={})
     private Output</* @Nullable */ String> contentType;
 
+    /**
+     * @return Must be either `Issue` or `PullRequest`
+     * 
+     */
     public Output<Optional<String>> contentType() {
         return Codegen.optional(this.contentType);
     }
@@ -47,9 +185,17 @@ public class ProjectCard extends com.pulumi.resources.CustomResource {
     public Output<String> etag() {
         return this.etag;
     }
+    /**
+     * The note contents of the card. Markdown supported.
+     * 
+     */
     @Export(name="note", type=String.class, parameters={})
     private Output</* @Nullable */ String> note;
 
+    /**
+     * @return The note contents of the card. Markdown supported.
+     * 
+     */
     public Output<Optional<String>> note() {
         return Codegen.optional(this.note);
     }

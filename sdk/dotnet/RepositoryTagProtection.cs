@@ -9,12 +9,47 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Github
 {
+    /// <summary>
+    /// This resource allows you to create and manage a repository tag protection for repositories within your GitHub organization or personal account.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Github = Pulumi.Github;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Github.RepositoryTagProtection("example", new()
+    ///     {
+    ///         Pattern = "v*",
+    ///         Repository = "example-repository",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Repository tag protections can be imported using the `name` of the repository, combined with the `id` of the tag protection, separated by a `/` character. The `id` of the tag protection can be found using the [GitHub API](https://docs.github.com/en/rest/repos/tags#list-tag-protection-states-for-a-repository). Importing uses the name of the repository, as well as the ID of the tag protection, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import github:index/repositoryTagProtection:RepositoryTagProtection terraform my-repo/31077
+    /// ```
+    /// </summary>
     [GithubResourceType("github:index/repositoryTagProtection:RepositoryTagProtection")]
     public partial class RepositoryTagProtection : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The pattern of the tag to protect.
+        /// </summary>
         [Output("pattern")]
         public Output<string> Pattern { get; private set; } = null!;
 
+        /// <summary>
+        /// Name of the repository to add the tag protection to.
+        /// </summary>
         [Output("repository")]
         public Output<string> Repository { get; private set; } = null!;
 
@@ -67,9 +102,15 @@ namespace Pulumi.Github
 
     public sealed class RepositoryTagProtectionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The pattern of the tag to protect.
+        /// </summary>
         [Input("pattern", required: true)]
         public Input<string> Pattern { get; set; } = null!;
 
+        /// <summary>
+        /// Name of the repository to add the tag protection to.
+        /// </summary>
         [Input("repository", required: true)]
         public Input<string> Repository { get; set; } = null!;
 
@@ -81,9 +122,15 @@ namespace Pulumi.Github
 
     public sealed class RepositoryTagProtectionState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The pattern of the tag to protect.
+        /// </summary>
         [Input("pattern")]
         public Input<string>? Pattern { get; set; }
 
+        /// <summary>
+        /// Name of the repository to add the tag protection to.
+        /// </summary>
         [Input("repository")]
         public Input<string>? Repository { get; set; }
 

@@ -10,9 +10,17 @@ import java.util.Objects;
 
 @CustomType
 public final class ActionsOrganizationPermissionsEnabledRepositoriesConfig {
+    /**
+     * @return List of repository IDs to enable for GitHub Actions.
+     * 
+     */
     private List<Integer> repositoryIds;
 
     private ActionsOrganizationPermissionsEnabledRepositoriesConfig() {}
+    /**
+     * @return List of repository IDs to enable for GitHub Actions.
+     * 
+     */
     public List<Integer> repositoryIds() {
         return this.repositoryIds;
     }

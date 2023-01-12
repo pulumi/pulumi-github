@@ -15,6 +15,74 @@ import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
 
+/**
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.github.Membership;
+ * import com.pulumi.github.MembershipArgs;
+ * import com.pulumi.github.Team;
+ * import com.pulumi.github.TeamArgs;
+ * import com.pulumi.github.TeamMembers;
+ * import com.pulumi.github.TeamMembersArgs;
+ * import com.pulumi.github.inputs.TeamMembersMemberArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var membershipForSomeUser = new Membership(&#34;membershipForSomeUser&#34;, MembershipArgs.builder()        
+ *             .username(&#34;SomeUser&#34;)
+ *             .role(&#34;member&#34;)
+ *             .build());
+ * 
+ *         var membershipForAnotherUser = new Membership(&#34;membershipForAnotherUser&#34;, MembershipArgs.builder()        
+ *             .username(&#34;AnotherUser&#34;)
+ *             .role(&#34;member&#34;)
+ *             .build());
+ * 
+ *         var someTeam = new Team(&#34;someTeam&#34;, TeamArgs.builder()        
+ *             .description(&#34;Some cool team&#34;)
+ *             .build());
+ * 
+ *         var someTeamMembers = new TeamMembers(&#34;someTeamMembers&#34;, TeamMembersArgs.builder()        
+ *             .teamId(someTeam.id())
+ *             .members(            
+ *                 TeamMembersMemberArgs.builder()
+ *                     .username(&#34;SomeUser&#34;)
+ *                     .role(&#34;maintainer&#34;)
+ *                     .build(),
+ *                 TeamMembersMemberArgs.builder()
+ *                     .username(&#34;AnotherUser&#34;)
+ *                     .role(&#34;member&#34;)
+ *                     .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * GitHub Team Membership can be imported using the team ID `teamid`, e.g.
+ * 
+ * ```sh
+ *  $ pulumi import github:index/teamMembers:TeamMembers some_team 1234567
+ * ```
+ * 
+ */
 @ResourceType(type="github:index/teamMembers:TeamMembers")
 public class TeamMembers extends com.pulumi.resources.CustomResource {
     @Export(name="etag", type=String.class, parameters={})
@@ -23,15 +91,31 @@ public class TeamMembers extends com.pulumi.resources.CustomResource {
     public Output<String> etag() {
         return this.etag;
     }
+    /**
+     * List of team members. See Members below for details.
+     * 
+     */
     @Export(name="members", type=List.class, parameters={TeamMembersMember.class})
     private Output<List<TeamMembersMember>> members;
 
+    /**
+     * @return List of team members. See Members below for details.
+     * 
+     */
     public Output<List<TeamMembersMember>> members() {
         return this.members;
     }
+    /**
+     * The GitHub team id
+     * 
+     */
     @Export(name="teamId", type=String.class, parameters={})
     private Output<String> teamId;
 
+    /**
+     * @return The GitHub team id
+     * 
+     */
     public Output<String> teamId() {
         return this.teamId;
     }

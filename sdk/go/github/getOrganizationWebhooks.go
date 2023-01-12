@@ -7,6 +7,33 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Use this data source to retrieve all webhooks of the organization.
+//
+// ## Example Usage
+//
+// To retrieve *all* webhooks of the organization:
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-github/sdk/v5/go/github"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := github.GetOrganizationWebhooks(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func GetOrganizationWebhooks(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetOrganizationWebhooksResult, error) {
 	var rv GetOrganizationWebhooksResult
 	err := ctx.Invoke("github:index/getOrganizationWebhooks:getOrganizationWebhooks", nil, &rv, opts...)
@@ -19,6 +46,8 @@ func GetOrganizationWebhooks(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (
 // A collection of values returned by getOrganizationWebhooks.
 type GetOrganizationWebhooksResult struct {
 	// The provider-assigned unique ID for this managed resource.
-	Id       string                           `pulumi:"id"`
+	Id string `pulumi:"id"`
+	// An Array of GitHub Webhooks.  Each `webhook` block consists of the fields documented below.
+	// ***
 	Webhooks []GetOrganizationWebhooksWebhook `pulumi:"webhooks"`
 }

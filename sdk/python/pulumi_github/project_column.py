@@ -18,6 +18,8 @@ class ProjectColumnArgs:
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ProjectColumn resource.
+        :param pulumi.Input[str] project_id: The ID of an existing project that the column will be created in.
+        :param pulumi.Input[str] name: The name of the column.
         """
         pulumi.set(__self__, "project_id", project_id)
         if name is not None:
@@ -26,6 +28,9 @@ class ProjectColumnArgs:
     @property
     @pulumi.getter(name="projectId")
     def project_id(self) -> pulumi.Input[str]:
+        """
+        The ID of an existing project that the column will be created in.
+        """
         return pulumi.get(self, "project_id")
 
     @project_id.setter
@@ -35,6 +40,9 @@ class ProjectColumnArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the column.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -51,6 +59,8 @@ class _ProjectColumnState:
                  project_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering ProjectColumn resources.
+        :param pulumi.Input[str] name: The name of the column.
+        :param pulumi.Input[str] project_id: The ID of an existing project that the column will be created in.
         """
         if column_id is not None:
             pulumi.set(__self__, "column_id", column_id)
@@ -82,6 +92,9 @@ class _ProjectColumnState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the column.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -91,6 +104,9 @@ class _ProjectColumnState:
     @property
     @pulumi.getter(name="projectId")
     def project_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of an existing project that the column will be created in.
+        """
         return pulumi.get(self, "project_id")
 
     @project_id.setter
@@ -107,9 +123,22 @@ class ProjectColumn(pulumi.CustomResource):
                  project_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a ProjectColumn resource with the given unique name, props, and options.
+        This resource allows you to create and manage columns for GitHub projects.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        project = github.OrganizationProject("project", body="This is an organization project.")
+        column = github.ProjectColumn("column", project_id=project.id)
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] name: The name of the column.
+        :param pulumi.Input[str] project_id: The ID of an existing project that the column will be created in.
         """
         ...
     @overload
@@ -118,7 +147,18 @@ class ProjectColumn(pulumi.CustomResource):
                  args: ProjectColumnArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a ProjectColumn resource with the given unique name, props, and options.
+        This resource allows you to create and manage columns for GitHub projects.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        project = github.OrganizationProject("project", body="This is an organization project.")
+        column = github.ProjectColumn("column", project_id=project.id)
+        ```
+
         :param str resource_name: The name of the resource.
         :param ProjectColumnArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -172,6 +212,8 @@ class ProjectColumn(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] name: The name of the column.
+        :param pulumi.Input[str] project_id: The ID of an existing project that the column will be created in.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -196,10 +238,16 @@ class ProjectColumn(pulumi.CustomResource):
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        The name of the column.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="projectId")
     def project_id(self) -> pulumi.Output[str]:
+        """
+        The ID of an existing project that the column will be created in.
+        """
         return pulumi.get(self, "project_id")
 

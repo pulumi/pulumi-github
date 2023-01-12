@@ -83,6 +83,9 @@ class GetRepositoryPullRequestResult:
     @property
     @pulumi.getter(name="baseRef")
     def base_ref(self) -> str:
+        """
+        Name of the ref (branch) of the Pull Request base.
+        """
         return pulumi.get(self, "base_ref")
 
     @property
@@ -93,21 +96,33 @@ class GetRepositoryPullRequestResult:
     @property
     @pulumi.getter(name="baseSha")
     def base_sha(self) -> str:
+        """
+        Head commit SHA of the Pull Request base.
+        """
         return pulumi.get(self, "base_sha")
 
     @property
     @pulumi.getter
     def body(self) -> str:
+        """
+        Body of the Pull Request.
+        """
         return pulumi.get(self, "body")
 
     @property
     @pulumi.getter
     def draft(self) -> bool:
+        """
+        Indicates Whether this Pull Request is a draft.
+        """
         return pulumi.get(self, "draft")
 
     @property
     @pulumi.getter(name="headOwner")
     def head_owner(self) -> str:
+        """
+        Owner of the Pull Request head repository.
+        """
         return pulumi.get(self, "head_owner")
 
     @property
@@ -118,11 +133,17 @@ class GetRepositoryPullRequestResult:
     @property
     @pulumi.getter(name="headRepository")
     def head_repository(self) -> str:
+        """
+        Name of the Pull Request head repository.
+        """
         return pulumi.get(self, "head_repository")
 
     @property
     @pulumi.getter(name="headSha")
     def head_sha(self) -> str:
+        """
+        Head commit SHA of the Pull Request head.
+        """
         return pulumi.get(self, "head_sha")
 
     @property
@@ -136,11 +157,17 @@ class GetRepositoryPullRequestResult:
     @property
     @pulumi.getter
     def labels(self) -> Sequence[str]:
+        """
+        List of label names set on the Pull Request.
+        """
         return pulumi.get(self, "labels")
 
     @property
     @pulumi.getter(name="maintainerCanModify")
     def maintainer_can_modify(self) -> bool:
+        """
+        Indicates whether the base repository maintainers can modify the Pull Request.
+        """
         return pulumi.get(self, "maintainer_can_modify")
 
     @property
@@ -151,11 +178,17 @@ class GetRepositoryPullRequestResult:
     @property
     @pulumi.getter(name="openedAt")
     def opened_at(self) -> int:
+        """
+        Unix timestamp indicating the Pull Request creation time.
+        """
         return pulumi.get(self, "opened_at")
 
     @property
     @pulumi.getter(name="openedBy")
     def opened_by(self) -> str:
+        """
+        GitHub login of the user who opened the Pull Request.
+        """
         return pulumi.get(self, "opened_by")
 
     @property
@@ -166,16 +199,25 @@ class GetRepositoryPullRequestResult:
     @property
     @pulumi.getter
     def state(self) -> str:
+        """
+        the current Pull Request state - can be "open", "closed" or "merged".
+        """
         return pulumi.get(self, "state")
 
     @property
     @pulumi.getter
     def title(self) -> str:
+        """
+        The title of the Pull Request.
+        """
         return pulumi.get(self, "title")
 
     @property
     @pulumi.getter(name="updatedAt")
     def updated_at(self) -> int:
+        """
+        The timestamp of the last Pull Request update.
+        """
         return pulumi.get(self, "updated_at")
 
 
@@ -211,7 +253,22 @@ def get_repository_pull_request(base_repository: Optional[str] = None,
                                 owner: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRepositoryPullRequestResult:
     """
-    Use this data source to access information about an existing resource.
+    Use this data source to retrieve information about a specific GitHub Pull Request in a repository.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_github as github
+
+    example = github.get_repository_pull_request(base_repository="example_repository",
+        number=1)
+    ```
+
+
+    :param str base_repository: Name of the base repository to retrieve the Pull Request from.
+    :param int number: The number of the Pull Request within the repository.
+    :param str owner: Owner of the repository. If not provided, the provider's default owner is used.
     """
     __args__ = dict()
     __args__['baseRepository'] = base_repository
@@ -248,6 +305,21 @@ def get_repository_pull_request_output(base_repository: Optional[pulumi.Input[st
                                        owner: Optional[pulumi.Input[Optional[str]]] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRepositoryPullRequestResult]:
     """
-    Use this data source to access information about an existing resource.
+    Use this data source to retrieve information about a specific GitHub Pull Request in a repository.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_github as github
+
+    example = github.get_repository_pull_request(base_repository="example_repository",
+        number=1)
+    ```
+
+
+    :param str base_repository: Name of the base repository to retrieve the Pull Request from.
+    :param int number: The number of the Pull Request within the repository.
+    :param str owner: Owner of the repository. If not provided, the provider's default owner is used.
     """
     ...

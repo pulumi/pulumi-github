@@ -15,9 +15,19 @@ public final class UserGpgKeyState extends com.pulumi.resources.ResourceArgs {
 
     public static final UserGpgKeyState Empty = new UserGpgKeyState();
 
+    /**
+     * Your public GPG key, generated in ASCII-armored format.
+     * See [Generating a new GPG key](https://help.github.com/articles/generating-a-new-gpg-key/) for help on creating a GPG key.
+     * 
+     */
     @Import(name="armoredPublicKey")
     private @Nullable Output<String> armoredPublicKey;
 
+    /**
+     * @return Your public GPG key, generated in ASCII-armored format.
+     * See [Generating a new GPG key](https://help.github.com/articles/generating-a-new-gpg-key/) for help on creating a GPG key.
+     * 
+     */
     public Optional<Output<String>> armoredPublicKey() {
         return Optional.ofNullable(this.armoredPublicKey);
     }
@@ -29,9 +39,17 @@ public final class UserGpgKeyState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.etag);
     }
 
+    /**
+     * The key ID of the GPG key, e.g. `3262EFF25BA0D270`
+     * 
+     */
     @Import(name="keyId")
     private @Nullable Output<String> keyId;
 
+    /**
+     * @return The key ID of the GPG key, e.g. `3262EFF25BA0D270`
+     * 
+     */
     public Optional<Output<String>> keyId() {
         return Optional.ofNullable(this.keyId);
     }
@@ -62,11 +80,25 @@ public final class UserGpgKeyState extends com.pulumi.resources.ResourceArgs {
             $ = new UserGpgKeyState(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param armoredPublicKey Your public GPG key, generated in ASCII-armored format.
+         * See [Generating a new GPG key](https://help.github.com/articles/generating-a-new-gpg-key/) for help on creating a GPG key.
+         * 
+         * @return builder
+         * 
+         */
         public Builder armoredPublicKey(@Nullable Output<String> armoredPublicKey) {
             $.armoredPublicKey = armoredPublicKey;
             return this;
         }
 
+        /**
+         * @param armoredPublicKey Your public GPG key, generated in ASCII-armored format.
+         * See [Generating a new GPG key](https://help.github.com/articles/generating-a-new-gpg-key/) for help on creating a GPG key.
+         * 
+         * @return builder
+         * 
+         */
         public Builder armoredPublicKey(String armoredPublicKey) {
             return armoredPublicKey(Output.of(armoredPublicKey));
         }
@@ -80,11 +112,23 @@ public final class UserGpgKeyState extends com.pulumi.resources.ResourceArgs {
             return etag(Output.of(etag));
         }
 
+        /**
+         * @param keyId The key ID of the GPG key, e.g. `3262EFF25BA0D270`
+         * 
+         * @return builder
+         * 
+         */
         public Builder keyId(@Nullable Output<String> keyId) {
             $.keyId = keyId;
             return this;
         }
 
+        /**
+         * @param keyId The key ID of the GPG key, e.g. `3262EFF25BA0D270`
+         * 
+         * @return builder
+         * 
+         */
         public Builder keyId(String keyId) {
             return keyId(Output.of(keyId));
         }

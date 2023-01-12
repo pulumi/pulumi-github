@@ -17,7 +17,15 @@ public final class GetActionsSecretsResult {
      * 
      */
     private String id;
+    /**
+     * @return Secret name
+     * 
+     */
     private String name;
+    /**
+     * @return list of secrets for the repository
+     * 
+     */
     private List<GetActionsSecretsSecret> secrets;
 
     private GetActionsSecretsResult() {}
@@ -31,9 +39,17 @@ public final class GetActionsSecretsResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return Secret name
+     * 
+     */
     public String name() {
         return this.name;
     }
+    /**
+     * @return list of secrets for the repository
+     * 
+     */
     public List<GetActionsSecretsSecret> secrets() {
         return this.secrets;
     }

@@ -13,9 +13,17 @@ public final class GetRepositoryDeployKeysArgs extends com.pulumi.resources.Invo
 
     public static final GetRepositoryDeployKeysArgs Empty = new GetRepositoryDeployKeysArgs();
 
+    /**
+     * Name of the repository to retrieve the branches from.
+     * 
+     */
     @Import(name="repository", required=true)
     private Output<String> repository;
 
+    /**
+     * @return Name of the repository to retrieve the branches from.
+     * 
+     */
     public Output<String> repository() {
         return this.repository;
     }
@@ -44,11 +52,23 @@ public final class GetRepositoryDeployKeysArgs extends com.pulumi.resources.Invo
             $ = new GetRepositoryDeployKeysArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param repository Name of the repository to retrieve the branches from.
+         * 
+         * @return builder
+         * 
+         */
         public Builder repository(Output<String> repository) {
             $.repository = repository;
             return this;
         }
 
+        /**
+         * @param repository Name of the repository to retrieve the branches from.
+         * 
+         * @return builder
+         * 
+         */
         public Builder repository(String repository) {
             return repository(Output.of(repository));
         }

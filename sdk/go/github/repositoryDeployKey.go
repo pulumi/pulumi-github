@@ -11,14 +11,67 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides a GitHub repository deploy key resource.
+//
+// A deploy key is an SSH key that is stored on your server and grants
+// access to a single GitHub repository. This key is attached directly to the repository instead of to a personal user
+// account.
+//
+// This resource allows you to add/remove repository deploy keys.
+//
+// Further documentation on GitHub repository deploy keys:
+// - [About deploy keys](https://developer.github.com/guides/managing-deploy-keys/#deploy-keys)
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-github/sdk/v5/go/github"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := github.NewRepositoryDeployKey(ctx, "exampleRepositoryDeployKey", &github.RepositoryDeployKeyArgs{
+//				Key:        pulumi.String("ssh-rsa AAA..."),
+//				ReadOnly:   pulumi.Bool(false),
+//				Repository: pulumi.String("test-repo"),
+//				Title:      pulumi.String("Repository test key"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// Repository deploy keys can be imported using a colon-separated pair of repository name and GitHub's key id. The latter can be obtained by GitHub's SDKs and API.
+//
+// ```sh
+//
+//	$ pulumi import github:index/repositoryDeployKey:RepositoryDeployKey foo test-repo:23824728
+//
+// ```
 type RepositoryDeployKey struct {
 	pulumi.CustomResourceState
 
-	Etag       pulumi.StringOutput  `pulumi:"etag"`
-	Key        pulumi.StringOutput  `pulumi:"key"`
-	ReadOnly   pulumi.BoolPtrOutput `pulumi:"readOnly"`
-	Repository pulumi.StringOutput  `pulumi:"repository"`
-	Title      pulumi.StringOutput  `pulumi:"title"`
+	Etag pulumi.StringOutput `pulumi:"etag"`
+	// A SSH key.
+	Key pulumi.StringOutput `pulumi:"key"`
+	// A boolean qualifying the key to be either read only or read/write.
+	ReadOnly pulumi.BoolPtrOutput `pulumi:"readOnly"`
+	// Name of the GitHub repository.
+	Repository pulumi.StringOutput `pulumi:"repository"`
+	// A title.
+	Title pulumi.StringOutput `pulumi:"title"`
 }
 
 // NewRepositoryDeployKey registers a new resource with the given unique name, arguments, and options.
@@ -59,19 +112,27 @@ func GetRepositoryDeployKey(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RepositoryDeployKey resources.
 type repositoryDeployKeyState struct {
-	Etag       *string `pulumi:"etag"`
-	Key        *string `pulumi:"key"`
-	ReadOnly   *bool   `pulumi:"readOnly"`
+	Etag *string `pulumi:"etag"`
+	// A SSH key.
+	Key *string `pulumi:"key"`
+	// A boolean qualifying the key to be either read only or read/write.
+	ReadOnly *bool `pulumi:"readOnly"`
+	// Name of the GitHub repository.
 	Repository *string `pulumi:"repository"`
-	Title      *string `pulumi:"title"`
+	// A title.
+	Title *string `pulumi:"title"`
 }
 
 type RepositoryDeployKeyState struct {
-	Etag       pulumi.StringPtrInput
-	Key        pulumi.StringPtrInput
-	ReadOnly   pulumi.BoolPtrInput
+	Etag pulumi.StringPtrInput
+	// A SSH key.
+	Key pulumi.StringPtrInput
+	// A boolean qualifying the key to be either read only or read/write.
+	ReadOnly pulumi.BoolPtrInput
+	// Name of the GitHub repository.
 	Repository pulumi.StringPtrInput
-	Title      pulumi.StringPtrInput
+	// A title.
+	Title pulumi.StringPtrInput
 }
 
 func (RepositoryDeployKeyState) ElementType() reflect.Type {
@@ -79,18 +140,26 @@ func (RepositoryDeployKeyState) ElementType() reflect.Type {
 }
 
 type repositoryDeployKeyArgs struct {
-	Key        string `pulumi:"key"`
-	ReadOnly   *bool  `pulumi:"readOnly"`
+	// A SSH key.
+	Key string `pulumi:"key"`
+	// A boolean qualifying the key to be either read only or read/write.
+	ReadOnly *bool `pulumi:"readOnly"`
+	// Name of the GitHub repository.
 	Repository string `pulumi:"repository"`
-	Title      string `pulumi:"title"`
+	// A title.
+	Title string `pulumi:"title"`
 }
 
 // The set of arguments for constructing a RepositoryDeployKey resource.
 type RepositoryDeployKeyArgs struct {
-	Key        pulumi.StringInput
-	ReadOnly   pulumi.BoolPtrInput
+	// A SSH key.
+	Key pulumi.StringInput
+	// A boolean qualifying the key to be either read only or read/write.
+	ReadOnly pulumi.BoolPtrInput
+	// Name of the GitHub repository.
 	Repository pulumi.StringInput
-	Title      pulumi.StringInput
+	// A title.
+	Title pulumi.StringInput
 }
 
 func (RepositoryDeployKeyArgs) ElementType() reflect.Type {
@@ -184,18 +253,22 @@ func (o RepositoryDeployKeyOutput) Etag() pulumi.StringOutput {
 	return o.ApplyT(func(v *RepositoryDeployKey) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
 }
 
+// A SSH key.
 func (o RepositoryDeployKeyOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v *RepositoryDeployKey) pulumi.StringOutput { return v.Key }).(pulumi.StringOutput)
 }
 
+// A boolean qualifying the key to be either read only or read/write.
 func (o RepositoryDeployKeyOutput) ReadOnly() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RepositoryDeployKey) pulumi.BoolPtrOutput { return v.ReadOnly }).(pulumi.BoolPtrOutput)
 }
 
+// Name of the GitHub repository.
 func (o RepositoryDeployKeyOutput) Repository() pulumi.StringOutput {
 	return o.ApplyT(func(v *RepositoryDeployKey) pulumi.StringOutput { return v.Repository }).(pulumi.StringOutput)
 }
 
+// A title.
 func (o RepositoryDeployKeyOutput) Title() pulumi.StringOutput {
 	return o.ApplyT(func(v *RepositoryDeployKey) pulumi.StringOutput { return v.Title }).(pulumi.StringOutput)
 }

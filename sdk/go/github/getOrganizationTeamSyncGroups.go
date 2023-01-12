@@ -7,6 +7,31 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Use this data source to retrieve the identity provider (IdP) groups for an organization.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-github/sdk/v5/go/github"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := github.GetOrganizationTeamSyncGroups(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func GetOrganizationTeamSyncGroups(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetOrganizationTeamSyncGroupsResult, error) {
 	var rv GetOrganizationTeamSyncGroupsResult
 	err := ctx.Invoke("github:index/getOrganizationTeamSyncGroups:getOrganizationTeamSyncGroups", nil, &rv, opts...)
@@ -18,6 +43,7 @@ func GetOrganizationTeamSyncGroups(ctx *pulumi.Context, opts ...pulumi.InvokeOpt
 
 // A collection of values returned by getOrganizationTeamSyncGroups.
 type GetOrganizationTeamSyncGroupsResult struct {
+	// An Array of GitHub Identity Provider Groups.  Each `group` block consists of the fields documented below.
 	Groups []GetOrganizationTeamSyncGroupsGroup `pulumi:"groups"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`

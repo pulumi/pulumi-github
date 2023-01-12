@@ -11,9 +11,55 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides a resource to manage GitHub repository collaborator invitations.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-github/sdk/v5/go/github"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleRepository, err := github.NewRepository(ctx, "exampleRepository", nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleRepositoryCollaborator, err := github.NewRepositoryCollaborator(ctx, "exampleRepositoryCollaborator", &github.RepositoryCollaboratorArgs{
+//				Repository: exampleRepository.Name,
+//				Username:   pulumi.String("example-username"),
+//				Permission: pulumi.String("push"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = github.NewProvider(ctx, "invitee", &github.ProviderArgs{
+//				Token: pulumi.Any(_var.Invitee_token),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = github.NewUserInvitationAccepter(ctx, "exampleUserInvitationAccepter", &github.UserInvitationAccepterArgs{
+//				InvitationId: exampleRepositoryCollaborator.InvitationId,
+//			}, pulumi.Provider("github.invitee"))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 type UserInvitationAccepter struct {
 	pulumi.CustomResourceState
 
+	// ID of the invitation to accept
 	InvitationId pulumi.StringOutput `pulumi:"invitationId"`
 }
 
@@ -49,10 +95,12 @@ func GetUserInvitationAccepter(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering UserInvitationAccepter resources.
 type userInvitationAccepterState struct {
+	// ID of the invitation to accept
 	InvitationId *string `pulumi:"invitationId"`
 }
 
 type UserInvitationAccepterState struct {
+	// ID of the invitation to accept
 	InvitationId pulumi.StringPtrInput
 }
 
@@ -61,11 +109,13 @@ func (UserInvitationAccepterState) ElementType() reflect.Type {
 }
 
 type userInvitationAccepterArgs struct {
+	// ID of the invitation to accept
 	InvitationId string `pulumi:"invitationId"`
 }
 
 // The set of arguments for constructing a UserInvitationAccepter resource.
 type UserInvitationAccepterArgs struct {
+	// ID of the invitation to accept
 	InvitationId pulumi.StringInput
 }
 
@@ -156,6 +206,7 @@ func (o UserInvitationAccepterOutput) ToUserInvitationAccepterOutputWithContext(
 	return o
 }
 
+// ID of the invitation to accept
 func (o UserInvitationAccepterOutput) InvitationId() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserInvitationAccepter) pulumi.StringOutput { return v.InvitationId }).(pulumi.StringOutput)
 }

@@ -17,7 +17,15 @@ public final class GetRepositoryTeamsResult {
      * 
      */
     private String id;
+    /**
+     * @return Team name
+     * 
+     */
     private String name;
+    /**
+     * @return List of teams which have access to the repository
+     * 
+     */
     private List<GetRepositoryTeamsTeam> teams;
 
     private GetRepositoryTeamsResult() {}
@@ -31,9 +39,17 @@ public final class GetRepositoryTeamsResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return Team name
+     * 
+     */
     public String name() {
         return this.name;
     }
+    /**
+     * @return List of teams which have access to the repository
+     * 
+     */
     public List<GetRepositoryTeamsTeam> teams() {
         return this.teams;
     }

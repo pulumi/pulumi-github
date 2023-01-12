@@ -13,8 +13,18 @@ namespace Pulumi.Github.Outputs
     [OutputType]
     public sealed class BranchProtectionV3Restrictions
     {
+        /// <summary>
+        /// The list of app slugs with push access.
+        /// </summary>
         public readonly ImmutableArray<string> Apps;
+        /// <summary>
+        /// The list of team slugs with push access.
+        /// Always use `slug` of the team, **not** its name. Each team already **has** to have access to the repository.
+        /// </summary>
         public readonly ImmutableArray<string> Teams;
+        /// <summary>
+        /// The list of user logins with push access.
+        /// </summary>
         public readonly ImmutableArray<string> Users;
 
         [OutputConstructor]

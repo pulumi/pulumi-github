@@ -18,23 +18,49 @@ public final class BranchProtectionV3RequiredPullRequestReviewsArgs extends com.
 
     public static final BranchProtectionV3RequiredPullRequestReviewsArgs Empty = new BranchProtectionV3RequiredPullRequestReviewsArgs();
 
+    /**
+     * Dismiss approved reviews automatically when a new commit is pushed. Defaults to `false`.
+     * 
+     */
     @Import(name="dismissStaleReviews")
     private @Nullable Output<Boolean> dismissStaleReviews;
 
+    /**
+     * @return Dismiss approved reviews automatically when a new commit is pushed. Defaults to `false`.
+     * 
+     */
     public Optional<Output<Boolean>> dismissStaleReviews() {
         return Optional.ofNullable(this.dismissStaleReviews);
     }
 
+    /**
+     * The list of team slugs with dismissal access.
+     * Always use `slug` of the team, **not** its name. Each team already **has** to have access to the repository.
+     * 
+     */
     @Import(name="dismissalTeams")
     private @Nullable Output<List<String>> dismissalTeams;
 
+    /**
+     * @return The list of team slugs with dismissal access.
+     * Always use `slug` of the team, **not** its name. Each team already **has** to have access to the repository.
+     * 
+     */
     public Optional<Output<List<String>>> dismissalTeams() {
         return Optional.ofNullable(this.dismissalTeams);
     }
 
+    /**
+     * The list of user logins with dismissal access
+     * 
+     */
     @Import(name="dismissalUsers")
     private @Nullable Output<List<String>> dismissalUsers;
 
+    /**
+     * @return The list of user logins with dismissal access
+     * 
+     */
     public Optional<Output<List<String>>> dismissalUsers() {
         return Optional.ofNullable(this.dismissalUsers);
     }
@@ -58,16 +84,32 @@ public final class BranchProtectionV3RequiredPullRequestReviewsArgs extends com.
         return Optional.ofNullable(this.includeAdmins);
     }
 
+    /**
+     * Require an approved review in pull requests including files with a designated code owner. Defaults to `false`.
+     * 
+     */
     @Import(name="requireCodeOwnerReviews")
     private @Nullable Output<Boolean> requireCodeOwnerReviews;
 
+    /**
+     * @return Require an approved review in pull requests including files with a designated code owner. Defaults to `false`.
+     * 
+     */
     public Optional<Output<Boolean>> requireCodeOwnerReviews() {
         return Optional.ofNullable(this.requireCodeOwnerReviews);
     }
 
+    /**
+     * Require x number of approvals to satisfy branch protection requirements. If this is specified it must be a number between 0-6. This requirement matches GitHub&#39;s API, see the upstream [documentation](https://developer.github.com/v3/repos/branches/#parameters-1) for more information.
+     * 
+     */
     @Import(name="requiredApprovingReviewCount")
     private @Nullable Output<Integer> requiredApprovingReviewCount;
 
+    /**
+     * @return Require x number of approvals to satisfy branch protection requirements. If this is specified it must be a number between 0-6. This requirement matches GitHub&#39;s API, see the upstream [documentation](https://developer.github.com/v3/repos/branches/#parameters-1) for more information.
+     * 
+     */
     public Optional<Output<Integer>> requiredApprovingReviewCount() {
         return Optional.ofNullable(this.requiredApprovingReviewCount);
     }
@@ -101,37 +143,88 @@ public final class BranchProtectionV3RequiredPullRequestReviewsArgs extends com.
             $ = new BranchProtectionV3RequiredPullRequestReviewsArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param dismissStaleReviews Dismiss approved reviews automatically when a new commit is pushed. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dismissStaleReviews(@Nullable Output<Boolean> dismissStaleReviews) {
             $.dismissStaleReviews = dismissStaleReviews;
             return this;
         }
 
+        /**
+         * @param dismissStaleReviews Dismiss approved reviews automatically when a new commit is pushed. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dismissStaleReviews(Boolean dismissStaleReviews) {
             return dismissStaleReviews(Output.of(dismissStaleReviews));
         }
 
+        /**
+         * @param dismissalTeams The list of team slugs with dismissal access.
+         * Always use `slug` of the team, **not** its name. Each team already **has** to have access to the repository.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dismissalTeams(@Nullable Output<List<String>> dismissalTeams) {
             $.dismissalTeams = dismissalTeams;
             return this;
         }
 
+        /**
+         * @param dismissalTeams The list of team slugs with dismissal access.
+         * Always use `slug` of the team, **not** its name. Each team already **has** to have access to the repository.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dismissalTeams(List<String> dismissalTeams) {
             return dismissalTeams(Output.of(dismissalTeams));
         }
 
+        /**
+         * @param dismissalTeams The list of team slugs with dismissal access.
+         * Always use `slug` of the team, **not** its name. Each team already **has** to have access to the repository.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dismissalTeams(String... dismissalTeams) {
             return dismissalTeams(List.of(dismissalTeams));
         }
 
+        /**
+         * @param dismissalUsers The list of user logins with dismissal access
+         * 
+         * @return builder
+         * 
+         */
         public Builder dismissalUsers(@Nullable Output<List<String>> dismissalUsers) {
             $.dismissalUsers = dismissalUsers;
             return this;
         }
 
+        /**
+         * @param dismissalUsers The list of user logins with dismissal access
+         * 
+         * @return builder
+         * 
+         */
         public Builder dismissalUsers(List<String> dismissalUsers) {
             return dismissalUsers(Output.of(dismissalUsers));
         }
 
+        /**
+         * @param dismissalUsers The list of user logins with dismissal access
+         * 
+         * @return builder
+         * 
+         */
         public Builder dismissalUsers(String... dismissalUsers) {
             return dismissalUsers(List.of(dismissalUsers));
         }
@@ -161,20 +254,44 @@ public final class BranchProtectionV3RequiredPullRequestReviewsArgs extends com.
             return includeAdmins(Output.of(includeAdmins));
         }
 
+        /**
+         * @param requireCodeOwnerReviews Require an approved review in pull requests including files with a designated code owner. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder requireCodeOwnerReviews(@Nullable Output<Boolean> requireCodeOwnerReviews) {
             $.requireCodeOwnerReviews = requireCodeOwnerReviews;
             return this;
         }
 
+        /**
+         * @param requireCodeOwnerReviews Require an approved review in pull requests including files with a designated code owner. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder requireCodeOwnerReviews(Boolean requireCodeOwnerReviews) {
             return requireCodeOwnerReviews(Output.of(requireCodeOwnerReviews));
         }
 
+        /**
+         * @param requiredApprovingReviewCount Require x number of approvals to satisfy branch protection requirements. If this is specified it must be a number between 0-6. This requirement matches GitHub&#39;s API, see the upstream [documentation](https://developer.github.com/v3/repos/branches/#parameters-1) for more information.
+         * 
+         * @return builder
+         * 
+         */
         public Builder requiredApprovingReviewCount(@Nullable Output<Integer> requiredApprovingReviewCount) {
             $.requiredApprovingReviewCount = requiredApprovingReviewCount;
             return this;
         }
 
+        /**
+         * @param requiredApprovingReviewCount Require x number of approvals to satisfy branch protection requirements. If this is specified it must be a number between 0-6. This requirement matches GitHub&#39;s API, see the upstream [documentation](https://developer.github.com/v3/repos/branches/#parameters-1) for more information.
+         * 
+         * @return builder
+         * 
+         */
         public Builder requiredApprovingReviewCount(Integer requiredApprovingReviewCount) {
             return requiredApprovingReviewCount(Output.of(requiredApprovingReviewCount));
         }

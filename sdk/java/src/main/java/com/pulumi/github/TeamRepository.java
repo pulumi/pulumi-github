@@ -14,6 +14,67 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * This resource manages relationships between teams and repositories
+ * in your GitHub organization.
+ * 
+ * Creating this resource grants a particular team permissions on a
+ * particular repository.
+ * 
+ * The repository and the team must both belong to the same organization
+ * on GitHub. This resource does not actually *create* any repositories;
+ * to do that, see `github.Repository`.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.github.Team;
+ * import com.pulumi.github.TeamArgs;
+ * import com.pulumi.github.Repository;
+ * import com.pulumi.github.TeamRepository;
+ * import com.pulumi.github.TeamRepositoryArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var someTeam = new Team(&#34;someTeam&#34;, TeamArgs.builder()        
+ *             .description(&#34;Some cool team&#34;)
+ *             .build());
+ * 
+ *         var someRepo = new Repository(&#34;someRepo&#34;);
+ * 
+ *         var someTeamRepo = new TeamRepository(&#34;someTeamRepo&#34;, TeamRepositoryArgs.builder()        
+ *             .teamId(someTeam.id())
+ *             .repository(someRepo.name())
+ *             .permission(&#34;pull&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * GitHub Team Repository can be imported using an ID made up of `teamid:repository`, e.g.
+ * 
+ * ```sh
+ *  $ pulumi import github:index/teamRepository:TeamRepository terraform_repo 1234567:terraform
+ * ```
+ * 
+ */
 @ResourceType(type="github:index/teamRepository:TeamRepository")
 public class TeamRepository extends com.pulumi.resources.CustomResource {
     @Export(name="etag", type=String.class, parameters={})
@@ -22,27 +83,45 @@ public class TeamRepository extends com.pulumi.resources.CustomResource {
     public Output<String> etag() {
         return this.etag;
     }
+    /**
+     * The permissions of team members regarding the repository.
+     * Must be one of `pull`, `triage`, `push`, `maintain`, `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organisation. Defaults to `pull`.
+     * 
+     */
     @Export(name="permission", type=String.class, parameters={})
     private Output</* @Nullable */ String> permission;
 
+    /**
+     * @return The permissions of team members regarding the repository.
+     * Must be one of `pull`, `triage`, `push`, `maintain`, `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organisation. Defaults to `pull`.
+     * 
+     */
     public Output<Optional<String>> permission() {
         return Codegen.optional(this.permission);
     }
+    /**
+     * The repository to add to the team.
+     * 
+     */
     @Export(name="repository", type=String.class, parameters={})
     private Output<String> repository;
 
+    /**
+     * @return The repository to add to the team.
+     * 
+     */
     public Output<String> repository() {
         return this.repository;
     }
     /**
-     * ID or slug of team
+     * The GitHub team id or the GitHub team slug
      * 
      */
     @Export(name="teamId", type=String.class, parameters={})
     private Output<String> teamId;
 
     /**
-     * @return ID or slug of team
+     * @return The GitHub team id or the GitHub team slug
      * 
      */
     public Output<String> teamId() {

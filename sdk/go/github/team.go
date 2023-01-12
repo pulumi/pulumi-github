@@ -10,19 +10,71 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides a GitHub team resource.
+//
+// This resource allows you to add/remove teams from your organization. When applied,
+// a new team will be created. When destroyed, that team will be removed.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-github/sdk/v5/go/github"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := github.NewTeam(ctx, "someTeam", &github.TeamArgs{
+//				Description: pulumi.String("Some cool team"),
+//				Privacy:     pulumi.String("closed"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// GitHub Teams can be imported using the GitHub team ID e.g.
+//
+// ```sh
+//
+//	$ pulumi import github:index/team:Team core 1234567
+//
+// ```
 type Team struct {
 	pulumi.CustomResourceState
 
-	CreateDefaultMaintainer pulumi.BoolPtrOutput   `pulumi:"createDefaultMaintainer"`
-	Description             pulumi.StringPtrOutput `pulumi:"description"`
-	Etag                    pulumi.StringOutput    `pulumi:"etag"`
-	LdapDn                  pulumi.StringPtrOutput `pulumi:"ldapDn"`
-	MembersCount            pulumi.IntOutput       `pulumi:"membersCount"`
-	Name                    pulumi.StringOutput    `pulumi:"name"`
-	NodeId                  pulumi.StringOutput    `pulumi:"nodeId"`
-	ParentTeamId            pulumi.IntPtrOutput    `pulumi:"parentTeamId"`
-	Privacy                 pulumi.StringPtrOutput `pulumi:"privacy"`
-	Slug                    pulumi.StringOutput    `pulumi:"slug"`
+	// Adds a default maintainer to the team. Defaults to `false` and adds the creating user to the team when `true`.
+	CreateDefaultMaintainer pulumi.BoolPtrOutput `pulumi:"createDefaultMaintainer"`
+	// A description of the team.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	Etag        pulumi.StringOutput    `pulumi:"etag"`
+	// The LDAP Distinguished Name of the group where membership will be synchronized. Only available in GitHub Enterprise Server.
+	LdapDn       pulumi.StringPtrOutput `pulumi:"ldapDn"`
+	MembersCount pulumi.IntOutput       `pulumi:"membersCount"`
+	// The name of the team.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// The Node ID of the created team.
+	NodeId pulumi.StringOutput `pulumi:"nodeId"`
+	// The ID of the parent team, if this is a nested team.
+	ParentTeamId pulumi.IntPtrOutput `pulumi:"parentTeamId"`
+	// The level of privacy for the team. Must be one of `secret` or `closed`.
+	// Defaults to `secret`.
+	Privacy pulumi.StringPtrOutput `pulumi:"privacy"`
+	// The slug of the created team, which may or may not differ from `name`,
+	// depending on whether `name` contains "URL-unsafe" characters.
+	// Useful when referencing the team in [`BranchProtection`](https://www.terraform.io/docs/providers/github/r/branch_protection.html).
+	Slug pulumi.StringOutput `pulumi:"slug"`
 }
 
 // NewTeam registers a new resource with the given unique name, arguments, and options.
@@ -54,29 +106,51 @@ func GetTeam(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Team resources.
 type teamState struct {
-	CreateDefaultMaintainer *bool   `pulumi:"createDefaultMaintainer"`
-	Description             *string `pulumi:"description"`
-	Etag                    *string `pulumi:"etag"`
-	LdapDn                  *string `pulumi:"ldapDn"`
-	MembersCount            *int    `pulumi:"membersCount"`
-	Name                    *string `pulumi:"name"`
-	NodeId                  *string `pulumi:"nodeId"`
-	ParentTeamId            *int    `pulumi:"parentTeamId"`
-	Privacy                 *string `pulumi:"privacy"`
-	Slug                    *string `pulumi:"slug"`
+	// Adds a default maintainer to the team. Defaults to `false` and adds the creating user to the team when `true`.
+	CreateDefaultMaintainer *bool `pulumi:"createDefaultMaintainer"`
+	// A description of the team.
+	Description *string `pulumi:"description"`
+	Etag        *string `pulumi:"etag"`
+	// The LDAP Distinguished Name of the group where membership will be synchronized. Only available in GitHub Enterprise Server.
+	LdapDn       *string `pulumi:"ldapDn"`
+	MembersCount *int    `pulumi:"membersCount"`
+	// The name of the team.
+	Name *string `pulumi:"name"`
+	// The Node ID of the created team.
+	NodeId *string `pulumi:"nodeId"`
+	// The ID of the parent team, if this is a nested team.
+	ParentTeamId *int `pulumi:"parentTeamId"`
+	// The level of privacy for the team. Must be one of `secret` or `closed`.
+	// Defaults to `secret`.
+	Privacy *string `pulumi:"privacy"`
+	// The slug of the created team, which may or may not differ from `name`,
+	// depending on whether `name` contains "URL-unsafe" characters.
+	// Useful when referencing the team in [`BranchProtection`](https://www.terraform.io/docs/providers/github/r/branch_protection.html).
+	Slug *string `pulumi:"slug"`
 }
 
 type TeamState struct {
+	// Adds a default maintainer to the team. Defaults to `false` and adds the creating user to the team when `true`.
 	CreateDefaultMaintainer pulumi.BoolPtrInput
-	Description             pulumi.StringPtrInput
-	Etag                    pulumi.StringPtrInput
-	LdapDn                  pulumi.StringPtrInput
-	MembersCount            pulumi.IntPtrInput
-	Name                    pulumi.StringPtrInput
-	NodeId                  pulumi.StringPtrInput
-	ParentTeamId            pulumi.IntPtrInput
-	Privacy                 pulumi.StringPtrInput
-	Slug                    pulumi.StringPtrInput
+	// A description of the team.
+	Description pulumi.StringPtrInput
+	Etag        pulumi.StringPtrInput
+	// The LDAP Distinguished Name of the group where membership will be synchronized. Only available in GitHub Enterprise Server.
+	LdapDn       pulumi.StringPtrInput
+	MembersCount pulumi.IntPtrInput
+	// The name of the team.
+	Name pulumi.StringPtrInput
+	// The Node ID of the created team.
+	NodeId pulumi.StringPtrInput
+	// The ID of the parent team, if this is a nested team.
+	ParentTeamId pulumi.IntPtrInput
+	// The level of privacy for the team. Must be one of `secret` or `closed`.
+	// Defaults to `secret`.
+	Privacy pulumi.StringPtrInput
+	// The slug of the created team, which may or may not differ from `name`,
+	// depending on whether `name` contains "URL-unsafe" characters.
+	// Useful when referencing the team in [`BranchProtection`](https://www.terraform.io/docs/providers/github/r/branch_protection.html).
+	Slug pulumi.StringPtrInput
 }
 
 func (TeamState) ElementType() reflect.Type {
@@ -84,22 +158,36 @@ func (TeamState) ElementType() reflect.Type {
 }
 
 type teamArgs struct {
-	CreateDefaultMaintainer *bool   `pulumi:"createDefaultMaintainer"`
-	Description             *string `pulumi:"description"`
-	LdapDn                  *string `pulumi:"ldapDn"`
-	Name                    *string `pulumi:"name"`
-	ParentTeamId            *int    `pulumi:"parentTeamId"`
-	Privacy                 *string `pulumi:"privacy"`
+	// Adds a default maintainer to the team. Defaults to `false` and adds the creating user to the team when `true`.
+	CreateDefaultMaintainer *bool `pulumi:"createDefaultMaintainer"`
+	// A description of the team.
+	Description *string `pulumi:"description"`
+	// The LDAP Distinguished Name of the group where membership will be synchronized. Only available in GitHub Enterprise Server.
+	LdapDn *string `pulumi:"ldapDn"`
+	// The name of the team.
+	Name *string `pulumi:"name"`
+	// The ID of the parent team, if this is a nested team.
+	ParentTeamId *int `pulumi:"parentTeamId"`
+	// The level of privacy for the team. Must be one of `secret` or `closed`.
+	// Defaults to `secret`.
+	Privacy *string `pulumi:"privacy"`
 }
 
 // The set of arguments for constructing a Team resource.
 type TeamArgs struct {
+	// Adds a default maintainer to the team. Defaults to `false` and adds the creating user to the team when `true`.
 	CreateDefaultMaintainer pulumi.BoolPtrInput
-	Description             pulumi.StringPtrInput
-	LdapDn                  pulumi.StringPtrInput
-	Name                    pulumi.StringPtrInput
-	ParentTeamId            pulumi.IntPtrInput
-	Privacy                 pulumi.StringPtrInput
+	// A description of the team.
+	Description pulumi.StringPtrInput
+	// The LDAP Distinguished Name of the group where membership will be synchronized. Only available in GitHub Enterprise Server.
+	LdapDn pulumi.StringPtrInput
+	// The name of the team.
+	Name pulumi.StringPtrInput
+	// The ID of the parent team, if this is a nested team.
+	ParentTeamId pulumi.IntPtrInput
+	// The level of privacy for the team. Must be one of `secret` or `closed`.
+	// Defaults to `secret`.
+	Privacy pulumi.StringPtrInput
 }
 
 func (TeamArgs) ElementType() reflect.Type {
@@ -189,10 +277,12 @@ func (o TeamOutput) ToTeamOutputWithContext(ctx context.Context) TeamOutput {
 	return o
 }
 
+// Adds a default maintainer to the team. Defaults to `false` and adds the creating user to the team when `true`.
 func (o TeamOutput) CreateDefaultMaintainer() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Team) pulumi.BoolPtrOutput { return v.CreateDefaultMaintainer }).(pulumi.BoolPtrOutput)
 }
 
+// A description of the team.
 func (o TeamOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Team) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
@@ -201,6 +291,7 @@ func (o TeamOutput) Etag() pulumi.StringOutput {
 	return o.ApplyT(func(v *Team) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
 }
 
+// The LDAP Distinguished Name of the group where membership will be synchronized. Only available in GitHub Enterprise Server.
 func (o TeamOutput) LdapDn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Team) pulumi.StringPtrOutput { return v.LdapDn }).(pulumi.StringPtrOutput)
 }
@@ -209,22 +300,30 @@ func (o TeamOutput) MembersCount() pulumi.IntOutput {
 	return o.ApplyT(func(v *Team) pulumi.IntOutput { return v.MembersCount }).(pulumi.IntOutput)
 }
 
+// The name of the team.
 func (o TeamOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Team) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// The Node ID of the created team.
 func (o TeamOutput) NodeId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Team) pulumi.StringOutput { return v.NodeId }).(pulumi.StringOutput)
 }
 
+// The ID of the parent team, if this is a nested team.
 func (o TeamOutput) ParentTeamId() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Team) pulumi.IntPtrOutput { return v.ParentTeamId }).(pulumi.IntPtrOutput)
 }
 
+// The level of privacy for the team. Must be one of `secret` or `closed`.
+// Defaults to `secret`.
 func (o TeamOutput) Privacy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Team) pulumi.StringPtrOutput { return v.Privacy }).(pulumi.StringPtrOutput)
 }
 
+// The slug of the created team, which may or may not differ from `name`,
+// depending on whether `name` contains "URL-unsafe" characters.
+// Useful when referencing the team in [`BranchProtection`](https://www.terraform.io/docs/providers/github/r/branch_protection.html).
 func (o TeamOutput) Slug() pulumi.StringOutput {
 	return o.ApplyT(func(v *Team) pulumi.StringOutput { return v.Slug }).(pulumi.StringOutput)
 }

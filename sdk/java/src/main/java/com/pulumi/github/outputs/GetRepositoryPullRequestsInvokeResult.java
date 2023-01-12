@@ -13,8 +13,16 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetRepositoryPullRequestsInvokeResult {
+    /**
+     * @return Name of the ref (branch) of the Pull Request base.
+     * 
+     */
     private @Nullable String baseRef;
     private String baseRepository;
+    /**
+     * @return Value of the Pull Request `HEAD` reference.
+     * 
+     */
     private @Nullable String headRef;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -22,18 +30,34 @@ public final class GetRepositoryPullRequestsInvokeResult {
      */
     private String id;
     private @Nullable String owner;
+    /**
+     * @return Collection of Pull Requests matching the filters. Each of the results conforms to the following scheme:
+     * 
+     */
     private List<GetRepositoryPullRequestsResult> results;
     private @Nullable String sortBy;
     private @Nullable String sortDirection;
+    /**
+     * @return the current Pull Request state - can be &#34;open&#34;, &#34;closed&#34; or &#34;merged&#34;.
+     * 
+     */
     private @Nullable String state;
 
     private GetRepositoryPullRequestsInvokeResult() {}
+    /**
+     * @return Name of the ref (branch) of the Pull Request base.
+     * 
+     */
     public Optional<String> baseRef() {
         return Optional.ofNullable(this.baseRef);
     }
     public String baseRepository() {
         return this.baseRepository;
     }
+    /**
+     * @return Value of the Pull Request `HEAD` reference.
+     * 
+     */
     public Optional<String> headRef() {
         return Optional.ofNullable(this.headRef);
     }
@@ -47,6 +71,10 @@ public final class GetRepositoryPullRequestsInvokeResult {
     public Optional<String> owner() {
         return Optional.ofNullable(this.owner);
     }
+    /**
+     * @return Collection of Pull Requests matching the filters. Each of the results conforms to the following scheme:
+     * 
+     */
     public List<GetRepositoryPullRequestsResult> results() {
         return this.results;
     }
@@ -56,6 +84,10 @@ public final class GetRepositoryPullRequestsInvokeResult {
     public Optional<String> sortDirection() {
         return Optional.ofNullable(this.sortDirection);
     }
+    /**
+     * @return the current Pull Request state - can be &#34;open&#34;, &#34;closed&#34; or &#34;merged&#34;.
+     * 
+     */
     public Optional<String> state() {
         return Optional.ofNullable(this.state);
     }

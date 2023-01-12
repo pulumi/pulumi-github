@@ -13,15 +13,45 @@ namespace Pulumi.Github.Outputs
     [OutputType]
     public sealed class GetReleaseAssetResult
     {
+        /// <summary>
+        /// Browser download URL
+        /// </summary>
         public readonly string BrowserDownloadUrl;
+        /// <summary>
+        /// MIME type of the asset
+        /// </summary>
         public readonly string ContentType;
+        /// <summary>
+        /// Date the asset was created
+        /// </summary>
         public readonly string CreatedAt;
+        /// <summary>
+        /// ID of the asset
+        /// </summary>
         public readonly int Id;
+        /// <summary>
+        /// Label for the asset
+        /// </summary>
         public readonly string Label;
+        /// <summary>
+        /// The file name of the asset
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Node ID of the asset
+        /// </summary>
         public readonly string NodeId;
+        /// <summary>
+        /// Size in byte
+        /// </summary>
         public readonly int Size;
+        /// <summary>
+        /// Date the asset was last updated
+        /// </summary>
         public readonly string UpdatedAt;
+        /// <summary>
+        /// URL of the asset
+        /// </summary>
         public readonly string Url;
 
         [OutputConstructor]

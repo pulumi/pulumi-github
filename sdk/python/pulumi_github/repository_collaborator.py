@@ -20,6 +20,12 @@ class RepositoryCollaboratorArgs:
                  permission_diff_suppression: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a RepositoryCollaborator resource.
+        :param pulumi.Input[str] repository: The GitHub repository
+        :param pulumi.Input[str] username: The user to add to the repository as a collaborator.
+        :param pulumi.Input[str] permission: The permission of the outside collaborator for the repository.
+               Must be one of `pull`, `push`, `maintain`, `triage` or `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organization for organization-owned repositories.
+               Must be `push` for personal repositories. Defaults to `push`.
+        :param pulumi.Input[bool] permission_diff_suppression: Suppress plan diffs for `triage` and `maintain`.  Defaults to `false`.
         """
         pulumi.set(__self__, "repository", repository)
         pulumi.set(__self__, "username", username)
@@ -31,6 +37,9 @@ class RepositoryCollaboratorArgs:
     @property
     @pulumi.getter
     def repository(self) -> pulumi.Input[str]:
+        """
+        The GitHub repository
+        """
         return pulumi.get(self, "repository")
 
     @repository.setter
@@ -40,6 +49,9 @@ class RepositoryCollaboratorArgs:
     @property
     @pulumi.getter
     def username(self) -> pulumi.Input[str]:
+        """
+        The user to add to the repository as a collaborator.
+        """
         return pulumi.get(self, "username")
 
     @username.setter
@@ -49,6 +61,11 @@ class RepositoryCollaboratorArgs:
     @property
     @pulumi.getter
     def permission(self) -> Optional[pulumi.Input[str]]:
+        """
+        The permission of the outside collaborator for the repository.
+        Must be one of `pull`, `push`, `maintain`, `triage` or `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organization for organization-owned repositories.
+        Must be `push` for personal repositories. Defaults to `push`.
+        """
         return pulumi.get(self, "permission")
 
     @permission.setter
@@ -58,6 +75,9 @@ class RepositoryCollaboratorArgs:
     @property
     @pulumi.getter(name="permissionDiffSuppression")
     def permission_diff_suppression(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Suppress plan diffs for `triage` and `maintain`.  Defaults to `false`.
+        """
         return pulumi.get(self, "permission_diff_suppression")
 
     @permission_diff_suppression.setter
@@ -75,6 +95,13 @@ class _RepositoryCollaboratorState:
                  username: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering RepositoryCollaborator resources.
+        :param pulumi.Input[str] invitation_id: ID of the invitation to be used in `UserInvitationAccepter`
+        :param pulumi.Input[str] permission: The permission of the outside collaborator for the repository.
+               Must be one of `pull`, `push`, `maintain`, `triage` or `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organization for organization-owned repositories.
+               Must be `push` for personal repositories. Defaults to `push`.
+        :param pulumi.Input[bool] permission_diff_suppression: Suppress plan diffs for `triage` and `maintain`.  Defaults to `false`.
+        :param pulumi.Input[str] repository: The GitHub repository
+        :param pulumi.Input[str] username: The user to add to the repository as a collaborator.
         """
         if invitation_id is not None:
             pulumi.set(__self__, "invitation_id", invitation_id)
@@ -90,6 +117,9 @@ class _RepositoryCollaboratorState:
     @property
     @pulumi.getter(name="invitationId")
     def invitation_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID of the invitation to be used in `UserInvitationAccepter`
+        """
         return pulumi.get(self, "invitation_id")
 
     @invitation_id.setter
@@ -99,6 +129,11 @@ class _RepositoryCollaboratorState:
     @property
     @pulumi.getter
     def permission(self) -> Optional[pulumi.Input[str]]:
+        """
+        The permission of the outside collaborator for the repository.
+        Must be one of `pull`, `push`, `maintain`, `triage` or `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organization for organization-owned repositories.
+        Must be `push` for personal repositories. Defaults to `push`.
+        """
         return pulumi.get(self, "permission")
 
     @permission.setter
@@ -108,6 +143,9 @@ class _RepositoryCollaboratorState:
     @property
     @pulumi.getter(name="permissionDiffSuppression")
     def permission_diff_suppression(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Suppress plan diffs for `triage` and `maintain`.  Defaults to `false`.
+        """
         return pulumi.get(self, "permission_diff_suppression")
 
     @permission_diff_suppression.setter
@@ -117,6 +155,9 @@ class _RepositoryCollaboratorState:
     @property
     @pulumi.getter
     def repository(self) -> Optional[pulumi.Input[str]]:
+        """
+        The GitHub repository
+        """
         return pulumi.get(self, "repository")
 
     @repository.setter
@@ -126,6 +167,9 @@ class _RepositoryCollaboratorState:
     @property
     @pulumi.getter
     def username(self) -> Optional[pulumi.Input[str]]:
+        """
+        The user to add to the repository as a collaborator.
+        """
         return pulumi.get(self, "username")
 
     @username.setter
@@ -144,9 +188,54 @@ class RepositoryCollaborator(pulumi.CustomResource):
                  username: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a RepositoryCollaborator resource with the given unique name, props, and options.
+        Provides a GitHub repository collaborator resource.
+
+        This resource allows you to add/remove collaborators from repositories in your
+        organization or personal account. For organization repositories, collaborators can
+        have explicit (and differing levels of) read, write, or administrator access to
+        specific repositories, without giving the user full organization membership.
+        For personal repositories, collaborators can only be granted write
+        (implictly includes read) permission.
+
+        When applied, an invitation will be sent to the user to become a collaborator
+        on a repository. When destroyed, either the invitation will be cancelled or the
+        collaborator will be removed from the repository.
+
+        Further documentation on GitHub collaborators:
+
+        - [Adding outside collaborators to your personal repositories](https://help.github.com/en/github/setting-up-and-managing-your-github-user-account/managing-access-to-your-personal-repositories)
+        - [Adding outside collaborators to repositories in your organization](https://help.github.com/articles/adding-outside-collaborators-to-repositories-in-your-organization/)
+        - [Converting an organization member to an outside collaborator](https://help.github.com/articles/converting-an-organization-member-to-an-outside-collaborator/)
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        # Add a collaborator to a repository
+        a_repo_collaborator = github.RepositoryCollaborator("aRepoCollaborator",
+            permission="admin",
+            repository="our-cool-repo",
+            username="SomeUser")
+        ```
+
+        ## Import
+
+        GitHub Repository Collaborators can be imported using an ID made up of `repository:username`, e.g.
+
+        ```sh
+         $ pulumi import github:index/repositoryCollaborator:RepositoryCollaborator collaborator terraform:someuser
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] permission: The permission of the outside collaborator for the repository.
+               Must be one of `pull`, `push`, `maintain`, `triage` or `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organization for organization-owned repositories.
+               Must be `push` for personal repositories. Defaults to `push`.
+        :param pulumi.Input[bool] permission_diff_suppression: Suppress plan diffs for `triage` and `maintain`.  Defaults to `false`.
+        :param pulumi.Input[str] repository: The GitHub repository
+        :param pulumi.Input[str] username: The user to add to the repository as a collaborator.
         """
         ...
     @overload
@@ -155,7 +244,46 @@ class RepositoryCollaborator(pulumi.CustomResource):
                  args: RepositoryCollaboratorArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a RepositoryCollaborator resource with the given unique name, props, and options.
+        Provides a GitHub repository collaborator resource.
+
+        This resource allows you to add/remove collaborators from repositories in your
+        organization or personal account. For organization repositories, collaborators can
+        have explicit (and differing levels of) read, write, or administrator access to
+        specific repositories, without giving the user full organization membership.
+        For personal repositories, collaborators can only be granted write
+        (implictly includes read) permission.
+
+        When applied, an invitation will be sent to the user to become a collaborator
+        on a repository. When destroyed, either the invitation will be cancelled or the
+        collaborator will be removed from the repository.
+
+        Further documentation on GitHub collaborators:
+
+        - [Adding outside collaborators to your personal repositories](https://help.github.com/en/github/setting-up-and-managing-your-github-user-account/managing-access-to-your-personal-repositories)
+        - [Adding outside collaborators to repositories in your organization](https://help.github.com/articles/adding-outside-collaborators-to-repositories-in-your-organization/)
+        - [Converting an organization member to an outside collaborator](https://help.github.com/articles/converting-an-organization-member-to-an-outside-collaborator/)
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        # Add a collaborator to a repository
+        a_repo_collaborator = github.RepositoryCollaborator("aRepoCollaborator",
+            permission="admin",
+            repository="our-cool-repo",
+            username="SomeUser")
+        ```
+
+        ## Import
+
+        GitHub Repository Collaborators can be imported using an ID made up of `repository:username`, e.g.
+
+        ```sh
+         $ pulumi import github:index/repositoryCollaborator:RepositoryCollaborator collaborator terraform:someuser
+        ```
+
         :param str resource_name: The name of the resource.
         :param RepositoryCollaboratorArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -215,6 +343,13 @@ class RepositoryCollaborator(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] invitation_id: ID of the invitation to be used in `UserInvitationAccepter`
+        :param pulumi.Input[str] permission: The permission of the outside collaborator for the repository.
+               Must be one of `pull`, `push`, `maintain`, `triage` or `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organization for organization-owned repositories.
+               Must be `push` for personal repositories. Defaults to `push`.
+        :param pulumi.Input[bool] permission_diff_suppression: Suppress plan diffs for `triage` and `maintain`.  Defaults to `false`.
+        :param pulumi.Input[str] repository: The GitHub repository
+        :param pulumi.Input[str] username: The user to add to the repository as a collaborator.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -230,25 +365,42 @@ class RepositoryCollaborator(pulumi.CustomResource):
     @property
     @pulumi.getter(name="invitationId")
     def invitation_id(self) -> pulumi.Output[str]:
+        """
+        ID of the invitation to be used in `UserInvitationAccepter`
+        """
         return pulumi.get(self, "invitation_id")
 
     @property
     @pulumi.getter
     def permission(self) -> pulumi.Output[Optional[str]]:
+        """
+        The permission of the outside collaborator for the repository.
+        Must be one of `pull`, `push`, `maintain`, `triage` or `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organization for organization-owned repositories.
+        Must be `push` for personal repositories. Defaults to `push`.
+        """
         return pulumi.get(self, "permission")
 
     @property
     @pulumi.getter(name="permissionDiffSuppression")
     def permission_diff_suppression(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Suppress plan diffs for `triage` and `maintain`.  Defaults to `false`.
+        """
         return pulumi.get(self, "permission_diff_suppression")
 
     @property
     @pulumi.getter
     def repository(self) -> pulumi.Output[str]:
+        """
+        The GitHub repository
+        """
         return pulumi.get(self, "repository")
 
     @property
     @pulumi.getter
     def username(self) -> pulumi.Output[str]:
+        """
+        The user to add to the repository as a collaborator.
+        """
         return pulumi.get(self, "username")
 

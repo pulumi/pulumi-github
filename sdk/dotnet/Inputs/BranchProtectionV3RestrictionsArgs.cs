@@ -14,6 +14,10 @@ namespace Pulumi.Github.Inputs
     {
         [Input("apps")]
         private InputList<string>? _apps;
+
+        /// <summary>
+        /// The list of app slugs with push access.
+        /// </summary>
         public InputList<string> Apps
         {
             get => _apps ?? (_apps = new InputList<string>());
@@ -22,6 +26,11 @@ namespace Pulumi.Github.Inputs
 
         [Input("teams")]
         private InputList<string>? _teams;
+
+        /// <summary>
+        /// The list of team slugs with push access.
+        /// Always use `slug` of the team, **not** its name. Each team already **has** to have access to the repository.
+        /// </summary>
         public InputList<string> Teams
         {
             get => _teams ?? (_teams = new InputList<string>());
@@ -30,6 +39,10 @@ namespace Pulumi.Github.Inputs
 
         [Input("users")]
         private InputList<string>? _users;
+
+        /// <summary>
+        /// The list of user logins with push access.
+        /// </summary>
         public InputList<string> Users
         {
             get => _users ?? (_users = new InputList<string>());

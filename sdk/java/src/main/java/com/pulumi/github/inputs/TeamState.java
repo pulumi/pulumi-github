@@ -17,16 +17,32 @@ public final class TeamState extends com.pulumi.resources.ResourceArgs {
 
     public static final TeamState Empty = new TeamState();
 
+    /**
+     * Adds a default maintainer to the team. Defaults to `false` and adds the creating user to the team when `true`.
+     * 
+     */
     @Import(name="createDefaultMaintainer")
     private @Nullable Output<Boolean> createDefaultMaintainer;
 
+    /**
+     * @return Adds a default maintainer to the team. Defaults to `false` and adds the creating user to the team when `true`.
+     * 
+     */
     public Optional<Output<Boolean>> createDefaultMaintainer() {
         return Optional.ofNullable(this.createDefaultMaintainer);
     }
 
+    /**
+     * A description of the team.
+     * 
+     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
+    /**
+     * @return A description of the team.
+     * 
+     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
@@ -38,9 +54,17 @@ public final class TeamState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.etag);
     }
 
+    /**
+     * The LDAP Distinguished Name of the group where membership will be synchronized. Only available in GitHub Enterprise Server.
+     * 
+     */
     @Import(name="ldapDn")
     private @Nullable Output<String> ldapDn;
 
+    /**
+     * @return The LDAP Distinguished Name of the group where membership will be synchronized. Only available in GitHub Enterprise Server.
+     * 
+     */
     public Optional<Output<String>> ldapDn() {
         return Optional.ofNullable(this.ldapDn);
     }
@@ -52,37 +76,83 @@ public final class TeamState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.membersCount);
     }
 
+    /**
+     * The name of the team.
+     * 
+     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
+    /**
+     * @return The name of the team.
+     * 
+     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
+    /**
+     * The Node ID of the created team.
+     * 
+     */
     @Import(name="nodeId")
     private @Nullable Output<String> nodeId;
 
+    /**
+     * @return The Node ID of the created team.
+     * 
+     */
     public Optional<Output<String>> nodeId() {
         return Optional.ofNullable(this.nodeId);
     }
 
+    /**
+     * The ID of the parent team, if this is a nested team.
+     * 
+     */
     @Import(name="parentTeamId")
     private @Nullable Output<Integer> parentTeamId;
 
+    /**
+     * @return The ID of the parent team, if this is a nested team.
+     * 
+     */
     public Optional<Output<Integer>> parentTeamId() {
         return Optional.ofNullable(this.parentTeamId);
     }
 
+    /**
+     * The level of privacy for the team. Must be one of `secret` or `closed`.
+     * Defaults to `secret`.
+     * 
+     */
     @Import(name="privacy")
     private @Nullable Output<String> privacy;
 
+    /**
+     * @return The level of privacy for the team. Must be one of `secret` or `closed`.
+     * Defaults to `secret`.
+     * 
+     */
     public Optional<Output<String>> privacy() {
         return Optional.ofNullable(this.privacy);
     }
 
+    /**
+     * The slug of the created team, which may or may not differ from `name`,
+     * depending on whether `name` contains &#34;URL-unsafe&#34; characters.
+     * Useful when referencing the team in [`github.BranchProtection`](https://www.terraform.io/docs/providers/github/r/branch_protection.html).
+     * 
+     */
     @Import(name="slug")
     private @Nullable Output<String> slug;
 
+    /**
+     * @return The slug of the created team, which may or may not differ from `name`,
+     * depending on whether `name` contains &#34;URL-unsafe&#34; characters.
+     * Useful when referencing the team in [`github.BranchProtection`](https://www.terraform.io/docs/providers/github/r/branch_protection.html).
+     * 
+     */
     public Optional<Output<String>> slug() {
         return Optional.ofNullable(this.slug);
     }
@@ -120,20 +190,44 @@ public final class TeamState extends com.pulumi.resources.ResourceArgs {
             $ = new TeamState(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param createDefaultMaintainer Adds a default maintainer to the team. Defaults to `false` and adds the creating user to the team when `true`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder createDefaultMaintainer(@Nullable Output<Boolean> createDefaultMaintainer) {
             $.createDefaultMaintainer = createDefaultMaintainer;
             return this;
         }
 
+        /**
+         * @param createDefaultMaintainer Adds a default maintainer to the team. Defaults to `false` and adds the creating user to the team when `true`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder createDefaultMaintainer(Boolean createDefaultMaintainer) {
             return createDefaultMaintainer(Output.of(createDefaultMaintainer));
         }
 
+        /**
+         * @param description A description of the team.
+         * 
+         * @return builder
+         * 
+         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
+        /**
+         * @param description A description of the team.
+         * 
+         * @return builder
+         * 
+         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
@@ -147,11 +241,23 @@ public final class TeamState extends com.pulumi.resources.ResourceArgs {
             return etag(Output.of(etag));
         }
 
+        /**
+         * @param ldapDn The LDAP Distinguished Name of the group where membership will be synchronized. Only available in GitHub Enterprise Server.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ldapDn(@Nullable Output<String> ldapDn) {
             $.ldapDn = ldapDn;
             return this;
         }
 
+        /**
+         * @param ldapDn The LDAP Distinguished Name of the group where membership will be synchronized. Only available in GitHub Enterprise Server.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ldapDn(String ldapDn) {
             return ldapDn(Output.of(ldapDn));
         }
@@ -165,47 +271,113 @@ public final class TeamState extends com.pulumi.resources.ResourceArgs {
             return membersCount(Output.of(membersCount));
         }
 
+        /**
+         * @param name The name of the team.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param name The name of the team.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
+        /**
+         * @param nodeId The Node ID of the created team.
+         * 
+         * @return builder
+         * 
+         */
         public Builder nodeId(@Nullable Output<String> nodeId) {
             $.nodeId = nodeId;
             return this;
         }
 
+        /**
+         * @param nodeId The Node ID of the created team.
+         * 
+         * @return builder
+         * 
+         */
         public Builder nodeId(String nodeId) {
             return nodeId(Output.of(nodeId));
         }
 
+        /**
+         * @param parentTeamId The ID of the parent team, if this is a nested team.
+         * 
+         * @return builder
+         * 
+         */
         public Builder parentTeamId(@Nullable Output<Integer> parentTeamId) {
             $.parentTeamId = parentTeamId;
             return this;
         }
 
+        /**
+         * @param parentTeamId The ID of the parent team, if this is a nested team.
+         * 
+         * @return builder
+         * 
+         */
         public Builder parentTeamId(Integer parentTeamId) {
             return parentTeamId(Output.of(parentTeamId));
         }
 
+        /**
+         * @param privacy The level of privacy for the team. Must be one of `secret` or `closed`.
+         * Defaults to `secret`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder privacy(@Nullable Output<String> privacy) {
             $.privacy = privacy;
             return this;
         }
 
+        /**
+         * @param privacy The level of privacy for the team. Must be one of `secret` or `closed`.
+         * Defaults to `secret`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder privacy(String privacy) {
             return privacy(Output.of(privacy));
         }
 
+        /**
+         * @param slug The slug of the created team, which may or may not differ from `name`,
+         * depending on whether `name` contains &#34;URL-unsafe&#34; characters.
+         * Useful when referencing the team in [`github.BranchProtection`](https://www.terraform.io/docs/providers/github/r/branch_protection.html).
+         * 
+         * @return builder
+         * 
+         */
         public Builder slug(@Nullable Output<String> slug) {
             $.slug = slug;
             return this;
         }
 
+        /**
+         * @param slug The slug of the created team, which may or may not differ from `name`,
+         * depending on whether `name` contains &#34;URL-unsafe&#34; characters.
+         * Useful when referencing the team in [`github.BranchProtection`](https://www.terraform.io/docs/providers/github/r/branch_protection.html).
+         * 
+         * @return builder
+         * 
+         */
         public Builder slug(String slug) {
             return slug(Output.of(slug));
         }

@@ -6,13 +6,24 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
+/**
+ * Use this data source to retrieve the list of teams which have access to a GitHub repository.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const example = github.getRepositoryTeams({
+ *     name: "example",
+ * });
+ * ```
+ */
 export function getRepositoryTeams(args?: GetRepositoryTeamsArgs, opts?: pulumi.InvokeOptions): Promise<GetRepositoryTeamsResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("github:index/getRepositoryTeams:getRepositoryTeams", {
         "fullName": args.fullName,
         "name": args.name,
@@ -23,7 +34,13 @@ export function getRepositoryTeams(args?: GetRepositoryTeamsArgs, opts?: pulumi.
  * A collection of arguments for invoking getRepositoryTeams.
  */
 export interface GetRepositoryTeamsArgs {
+    /**
+     * Full name of the repository (in `org/name` format).
+     */
     fullName?: string;
+    /**
+     * The name of the repository.
+     */
     name?: string;
 }
 
@@ -36,18 +53,43 @@ export interface GetRepositoryTeamsResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * Team name
+     */
     readonly name: string;
+    /**
+     * List of teams which have access to the repository
+     */
     readonly teams: outputs.GetRepositoryTeamsTeam[];
 }
-
+/**
+ * Use this data source to retrieve the list of teams which have access to a GitHub repository.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const example = github.getRepositoryTeams({
+ *     name: "example",
+ * });
+ * ```
+ */
 export function getRepositoryTeamsOutput(args?: GetRepositoryTeamsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRepositoryTeamsResult> {
-    return pulumi.output(args).apply(a => getRepositoryTeams(a, opts))
+    return pulumi.output(args).apply((a: any) => getRepositoryTeams(a, opts))
 }
 
 /**
  * A collection of arguments for invoking getRepositoryTeams.
  */
 export interface GetRepositoryTeamsOutputArgs {
+    /**
+     * Full name of the repository (in `org/name` format).
+     */
     fullName?: pulumi.Input<string>;
+    /**
+     * The name of the repository.
+     */
     name?: pulumi.Input<string>;
 }

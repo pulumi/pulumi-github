@@ -15,55 +15,149 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Provides a GitHub repository milestone resource.
+ * 
+ * This resource allows you to create and manage milestones for a GitHub Repository within an organization or user account.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.github.RepositoryMilestone;
+ * import com.pulumi.github.RepositoryMilestoneArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new RepositoryMilestone(&#34;example&#34;, RepositoryMilestoneArgs.builder()        
+ *             .owner(&#34;example-owner&#34;)
+ *             .repository(&#34;example-repository&#34;)
+ *             .title(&#34;v1.1.0&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * A GitHub Repository Milestone can be imported using an ID made up of `owner/repository/number`, e.g.
+ * 
+ * ```sh
+ *  $ pulumi import github:index/repositoryMilestone:RepositoryMilestone example example-owner/example-repository/1
+ * ```
+ * 
+ */
 @ResourceType(type="github:index/repositoryMilestone:RepositoryMilestone")
 public class RepositoryMilestone extends com.pulumi.resources.CustomResource {
+    /**
+     * A description of the milestone.
+     * 
+     */
     @Export(name="description", type=String.class, parameters={})
     private Output</* @Nullable */ String> description;
 
+    /**
+     * @return A description of the milestone.
+     * 
+     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
     /**
-     * in yyyy-mm-dd format
+     * The milestone due date. In `yyyy-mm-dd` format.
      * 
      */
     @Export(name="dueDate", type=String.class, parameters={})
     private Output</* @Nullable */ String> dueDate;
 
     /**
-     * @return in yyyy-mm-dd format
+     * @return The milestone due date. In `yyyy-mm-dd` format.
      * 
      */
     public Output<Optional<String>> dueDate() {
         return Codegen.optional(this.dueDate);
     }
+    /**
+     * The number of the milestone.
+     * 
+     */
     @Export(name="number", type=Integer.class, parameters={})
     private Output<Integer> number;
 
+    /**
+     * @return The number of the milestone.
+     * 
+     */
     public Output<Integer> number() {
         return this.number;
     }
+    /**
+     * The owner of the GitHub Repository.
+     * 
+     */
     @Export(name="owner", type=String.class, parameters={})
     private Output<String> owner;
 
+    /**
+     * @return The owner of the GitHub Repository.
+     * 
+     */
     public Output<String> owner() {
         return this.owner;
     }
+    /**
+     * The name of the GitHub Repository.
+     * 
+     */
     @Export(name="repository", type=String.class, parameters={})
     private Output<String> repository;
 
+    /**
+     * @return The name of the GitHub Repository.
+     * 
+     */
     public Output<String> repository() {
         return this.repository;
     }
+    /**
+     * The state of the milestone. Either `open` or `closed`. Default: `open`
+     * 
+     */
     @Export(name="state", type=String.class, parameters={})
     private Output</* @Nullable */ String> state;
 
+    /**
+     * @return The state of the milestone. Either `open` or `closed`. Default: `open`
+     * 
+     */
     public Output<Optional<String>> state() {
         return Codegen.optional(this.state);
     }
+    /**
+     * The title of the milestone.
+     * 
+     */
     @Export(name="title", type=String.class, parameters={})
     private Output<String> title;
 
+    /**
+     * @return The title of the milestone.
+     * 
+     */
     public Output<String> title() {
         return this.title;
     }

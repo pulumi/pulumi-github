@@ -11,15 +11,56 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-github/sdk/v5/go/github"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := github.NewIssueLabel(ctx, "testRepo", &github.IssueLabelArgs{
+//				Color:      pulumi.String("FF0000"),
+//				Repository: pulumi.String("test-repo"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// GitHub Issue Labels can be imported using an ID made up of `repository:name`, e.g.
+//
+// ```sh
+//
+//	$ pulumi import github:index/issueLabel:IssueLabel panic_label terraform:panic
+//
+// ```
 type IssueLabel struct {
 	pulumi.CustomResourceState
 
-	Color       pulumi.StringOutput    `pulumi:"color"`
+	// A 6 character hex code, **without the leading #**, identifying the color of the label.
+	Color pulumi.StringOutput `pulumi:"color"`
+	// A short description of the label.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	Etag        pulumi.StringOutput    `pulumi:"etag"`
-	Name        pulumi.StringOutput    `pulumi:"name"`
-	Repository  pulumi.StringOutput    `pulumi:"repository"`
-	Url         pulumi.StringOutput    `pulumi:"url"`
+	// The name of the label.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// The GitHub repository
+	Repository pulumi.StringOutput `pulumi:"repository"`
+	// The URL to the issue label
+	Url pulumi.StringOutput `pulumi:"url"`
 }
 
 // NewIssueLabel registers a new resource with the given unique name, arguments, and options.
@@ -57,21 +98,31 @@ func GetIssueLabel(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering IssueLabel resources.
 type issueLabelState struct {
-	Color       *string `pulumi:"color"`
+	// A 6 character hex code, **without the leading #**, identifying the color of the label.
+	Color *string `pulumi:"color"`
+	// A short description of the label.
 	Description *string `pulumi:"description"`
 	Etag        *string `pulumi:"etag"`
-	Name        *string `pulumi:"name"`
-	Repository  *string `pulumi:"repository"`
-	Url         *string `pulumi:"url"`
+	// The name of the label.
+	Name *string `pulumi:"name"`
+	// The GitHub repository
+	Repository *string `pulumi:"repository"`
+	// The URL to the issue label
+	Url *string `pulumi:"url"`
 }
 
 type IssueLabelState struct {
-	Color       pulumi.StringPtrInput
+	// A 6 character hex code, **without the leading #**, identifying the color of the label.
+	Color pulumi.StringPtrInput
+	// A short description of the label.
 	Description pulumi.StringPtrInput
 	Etag        pulumi.StringPtrInput
-	Name        pulumi.StringPtrInput
-	Repository  pulumi.StringPtrInput
-	Url         pulumi.StringPtrInput
+	// The name of the label.
+	Name pulumi.StringPtrInput
+	// The GitHub repository
+	Repository pulumi.StringPtrInput
+	// The URL to the issue label
+	Url pulumi.StringPtrInput
 }
 
 func (IssueLabelState) ElementType() reflect.Type {
@@ -79,18 +130,26 @@ func (IssueLabelState) ElementType() reflect.Type {
 }
 
 type issueLabelArgs struct {
-	Color       string  `pulumi:"color"`
+	// A 6 character hex code, **without the leading #**, identifying the color of the label.
+	Color string `pulumi:"color"`
+	// A short description of the label.
 	Description *string `pulumi:"description"`
-	Name        *string `pulumi:"name"`
-	Repository  string  `pulumi:"repository"`
+	// The name of the label.
+	Name *string `pulumi:"name"`
+	// The GitHub repository
+	Repository string `pulumi:"repository"`
 }
 
 // The set of arguments for constructing a IssueLabel resource.
 type IssueLabelArgs struct {
-	Color       pulumi.StringInput
+	// A 6 character hex code, **without the leading #**, identifying the color of the label.
+	Color pulumi.StringInput
+	// A short description of the label.
 	Description pulumi.StringPtrInput
-	Name        pulumi.StringPtrInput
-	Repository  pulumi.StringInput
+	// The name of the label.
+	Name pulumi.StringPtrInput
+	// The GitHub repository
+	Repository pulumi.StringInput
 }
 
 func (IssueLabelArgs) ElementType() reflect.Type {
@@ -180,10 +239,12 @@ func (o IssueLabelOutput) ToIssueLabelOutputWithContext(ctx context.Context) Iss
 	return o
 }
 
+// A 6 character hex code, **without the leading #**, identifying the color of the label.
 func (o IssueLabelOutput) Color() pulumi.StringOutput {
 	return o.ApplyT(func(v *IssueLabel) pulumi.StringOutput { return v.Color }).(pulumi.StringOutput)
 }
 
+// A short description of the label.
 func (o IssueLabelOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IssueLabel) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
@@ -192,14 +253,17 @@ func (o IssueLabelOutput) Etag() pulumi.StringOutput {
 	return o.ApplyT(func(v *IssueLabel) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
 }
 
+// The name of the label.
 func (o IssueLabelOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *IssueLabel) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// The GitHub repository
 func (o IssueLabelOutput) Repository() pulumi.StringOutput {
 	return o.ApplyT(func(v *IssueLabel) pulumi.StringOutput { return v.Repository }).(pulumi.StringOutput)
 }
 
+// The URL to the issue label
 func (o IssueLabelOutput) Url() pulumi.StringOutput {
 	return o.ApplyT(func(v *IssueLabel) pulumi.StringOutput { return v.Url }).(pulumi.StringOutput)
 }

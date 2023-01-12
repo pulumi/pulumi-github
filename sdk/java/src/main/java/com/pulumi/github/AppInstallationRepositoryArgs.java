@@ -13,16 +13,32 @@ public final class AppInstallationRepositoryArgs extends com.pulumi.resources.Re
 
     public static final AppInstallationRepositoryArgs Empty = new AppInstallationRepositoryArgs();
 
+    /**
+     * The GitHub app installation id.
+     * 
+     */
     @Import(name="installationId", required=true)
     private Output<String> installationId;
 
+    /**
+     * @return The GitHub app installation id.
+     * 
+     */
     public Output<String> installationId() {
         return this.installationId;
     }
 
+    /**
+     * The repository to install the app on.
+     * 
+     */
     @Import(name="repository", required=true)
     private Output<String> repository;
 
+    /**
+     * @return The repository to install the app on.
+     * 
+     */
     public Output<String> repository() {
         return this.repository;
     }
@@ -52,20 +68,44 @@ public final class AppInstallationRepositoryArgs extends com.pulumi.resources.Re
             $ = new AppInstallationRepositoryArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param installationId The GitHub app installation id.
+         * 
+         * @return builder
+         * 
+         */
         public Builder installationId(Output<String> installationId) {
             $.installationId = installationId;
             return this;
         }
 
+        /**
+         * @param installationId The GitHub app installation id.
+         * 
+         * @return builder
+         * 
+         */
         public Builder installationId(String installationId) {
             return installationId(Output.of(installationId));
         }
 
+        /**
+         * @param repository The repository to install the app on.
+         * 
+         * @return builder
+         * 
+         */
         public Builder repository(Output<String> repository) {
             $.repository = repository;
             return this;
         }
 
+        /**
+         * @param repository The repository to install the app on.
+         * 
+         * @return builder
+         * 
+         */
         public Builder repository(String repository) {
             return repository(Output.of(repository));
         }

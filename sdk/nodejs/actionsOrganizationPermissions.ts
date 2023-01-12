@@ -6,6 +6,42 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
+/**
+ * This resource allows you to create and manage GitHub Actions permissions within your GitHub enterprise organizations.
+ * You must have admin access to an organization to use this resource.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const example = new github.Repository("example", {});
+ * const test = new github.ActionsOrganizationPermissions("test", {
+ *     allowedActions: "selected",
+ *     enabledRepositories: "selected",
+ *     allowedActionsConfig: {
+ *         githubOwnedAllowed: true,
+ *         patternsAlloweds: [
+ *             "actions/cache@*",
+ *             "actions/checkout@*",
+ *         ],
+ *         verifiedAllowed: true,
+ *     },
+ *     enabledRepositoriesConfig: {
+ *         repositoryIds: [example.repoId],
+ *     },
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * This resource can be imported using the ID of the GitHub organization
+ *
+ * ```sh
+ *  $ pulumi import github:index/actionsOrganizationPermissions:ActionsOrganizationPermissions test <github_organization_name>
+ * ```
+ */
 export class ActionsOrganizationPermissions extends pulumi.CustomResource {
     /**
      * Get an existing ActionsOrganizationPermissions resource's state with the given name, ID, and optional extra
@@ -34,9 +70,21 @@ export class ActionsOrganizationPermissions extends pulumi.CustomResource {
         return obj['__pulumiType'] === ActionsOrganizationPermissions.__pulumiType;
     }
 
+    /**
+     * The permissions policy that controls the actions that are allowed to run. Can be one of: `all`, `localOnly`, or `selected`.
+     */
     public readonly allowedActions!: pulumi.Output<string | undefined>;
+    /**
+     * Sets the actions that are allowed in an organization. Only available when `allowedActions` = `selected`. See Allowed Actions Config below for details.
+     */
     public readonly allowedActionsConfig!: pulumi.Output<outputs.ActionsOrganizationPermissionsAllowedActionsConfig | undefined>;
+    /**
+     * The policy that controls the repositories in the organization that are allowed to run GitHub Actions. Can be one of: `all`, `none`, or `selected`.
+     */
     public readonly enabledRepositories!: pulumi.Output<string>;
+    /**
+     * Sets the list of selected repositories that are enabled for GitHub Actions in an organization. Only available when `enabledRepositories` = `selected`. See Enabled Repositories Config below for details.
+     */
     public readonly enabledRepositoriesConfig!: pulumi.Output<outputs.ActionsOrganizationPermissionsEnabledRepositoriesConfig | undefined>;
 
     /**
@@ -75,9 +123,21 @@ export class ActionsOrganizationPermissions extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ActionsOrganizationPermissions resources.
  */
 export interface ActionsOrganizationPermissionsState {
+    /**
+     * The permissions policy that controls the actions that are allowed to run. Can be one of: `all`, `localOnly`, or `selected`.
+     */
     allowedActions?: pulumi.Input<string>;
+    /**
+     * Sets the actions that are allowed in an organization. Only available when `allowedActions` = `selected`. See Allowed Actions Config below for details.
+     */
     allowedActionsConfig?: pulumi.Input<inputs.ActionsOrganizationPermissionsAllowedActionsConfig>;
+    /**
+     * The policy that controls the repositories in the organization that are allowed to run GitHub Actions. Can be one of: `all`, `none`, or `selected`.
+     */
     enabledRepositories?: pulumi.Input<string>;
+    /**
+     * Sets the list of selected repositories that are enabled for GitHub Actions in an organization. Only available when `enabledRepositories` = `selected`. See Enabled Repositories Config below for details.
+     */
     enabledRepositoriesConfig?: pulumi.Input<inputs.ActionsOrganizationPermissionsEnabledRepositoriesConfig>;
 }
 
@@ -85,8 +145,20 @@ export interface ActionsOrganizationPermissionsState {
  * The set of arguments for constructing a ActionsOrganizationPermissions resource.
  */
 export interface ActionsOrganizationPermissionsArgs {
+    /**
+     * The permissions policy that controls the actions that are allowed to run. Can be one of: `all`, `localOnly`, or `selected`.
+     */
     allowedActions?: pulumi.Input<string>;
+    /**
+     * Sets the actions that are allowed in an organization. Only available when `allowedActions` = `selected`. See Allowed Actions Config below for details.
+     */
     allowedActionsConfig?: pulumi.Input<inputs.ActionsOrganizationPermissionsAllowedActionsConfig>;
+    /**
+     * The policy that controls the repositories in the organization that are allowed to run GitHub Actions. Can be one of: `all`, `none`, or `selected`.
+     */
     enabledRepositories: pulumi.Input<string>;
+    /**
+     * Sets the list of selected repositories that are enabled for GitHub Actions in an organization. Only available when `enabledRepositories` = `selected`. See Enabled Repositories Config below for details.
+     */
     enabledRepositoriesConfig?: pulumi.Input<inputs.ActionsOrganizationPermissionsEnabledRepositoriesConfig>;
 }

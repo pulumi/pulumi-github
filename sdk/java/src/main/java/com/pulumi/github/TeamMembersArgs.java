@@ -15,16 +15,32 @@ public final class TeamMembersArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final TeamMembersArgs Empty = new TeamMembersArgs();
 
+    /**
+     * List of team members. See Members below for details.
+     * 
+     */
     @Import(name="members", required=true)
     private Output<List<TeamMembersMemberArgs>> members;
 
+    /**
+     * @return List of team members. See Members below for details.
+     * 
+     */
     public Output<List<TeamMembersMemberArgs>> members() {
         return this.members;
     }
 
+    /**
+     * The GitHub team id
+     * 
+     */
     @Import(name="teamId", required=true)
     private Output<String> teamId;
 
+    /**
+     * @return The GitHub team id
+     * 
+     */
     public Output<String> teamId() {
         return this.teamId;
     }
@@ -54,24 +70,54 @@ public final class TeamMembersArgs extends com.pulumi.resources.ResourceArgs {
             $ = new TeamMembersArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param members List of team members. See Members below for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder members(Output<List<TeamMembersMemberArgs>> members) {
             $.members = members;
             return this;
         }
 
+        /**
+         * @param members List of team members. See Members below for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder members(List<TeamMembersMemberArgs> members) {
             return members(Output.of(members));
         }
 
+        /**
+         * @param members List of team members. See Members below for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder members(TeamMembersMemberArgs... members) {
             return members(List.of(members));
         }
 
+        /**
+         * @param teamId The GitHub team id
+         * 
+         * @return builder
+         * 
+         */
         public Builder teamId(Output<String> teamId) {
             $.teamId = teamId;
             return this;
         }
 
+        /**
+         * @param teamId The GitHub team id
+         * 
+         * @return builder
+         * 
+         */
         public Builder teamId(String teamId) {
             return teamId(Output.of(teamId));
         }

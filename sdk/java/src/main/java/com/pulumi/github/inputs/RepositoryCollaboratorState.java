@@ -16,37 +16,81 @@ public final class RepositoryCollaboratorState extends com.pulumi.resources.Reso
 
     public static final RepositoryCollaboratorState Empty = new RepositoryCollaboratorState();
 
+    /**
+     * ID of the invitation to be used in `github.UserInvitationAccepter`
+     * 
+     */
     @Import(name="invitationId")
     private @Nullable Output<String> invitationId;
 
+    /**
+     * @return ID of the invitation to be used in `github.UserInvitationAccepter`
+     * 
+     */
     public Optional<Output<String>> invitationId() {
         return Optional.ofNullable(this.invitationId);
     }
 
+    /**
+     * The permission of the outside collaborator for the repository.
+     * Must be one of `pull`, `push`, `maintain`, `triage` or `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organization for organization-owned repositories.
+     * Must be `push` for personal repositories. Defaults to `push`.
+     * 
+     */
     @Import(name="permission")
     private @Nullable Output<String> permission;
 
+    /**
+     * @return The permission of the outside collaborator for the repository.
+     * Must be one of `pull`, `push`, `maintain`, `triage` or `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organization for organization-owned repositories.
+     * Must be `push` for personal repositories. Defaults to `push`.
+     * 
+     */
     public Optional<Output<String>> permission() {
         return Optional.ofNullable(this.permission);
     }
 
+    /**
+     * Suppress plan diffs for `triage` and `maintain`.  Defaults to `false`.
+     * 
+     */
     @Import(name="permissionDiffSuppression")
     private @Nullable Output<Boolean> permissionDiffSuppression;
 
+    /**
+     * @return Suppress plan diffs for `triage` and `maintain`.  Defaults to `false`.
+     * 
+     */
     public Optional<Output<Boolean>> permissionDiffSuppression() {
         return Optional.ofNullable(this.permissionDiffSuppression);
     }
 
+    /**
+     * The GitHub repository
+     * 
+     */
     @Import(name="repository")
     private @Nullable Output<String> repository;
 
+    /**
+     * @return The GitHub repository
+     * 
+     */
     public Optional<Output<String>> repository() {
         return Optional.ofNullable(this.repository);
     }
 
+    /**
+     * The user to add to the repository as a collaborator.
+     * 
+     */
     @Import(name="username")
     private @Nullable Output<String> username;
 
+    /**
+     * @return The user to add to the repository as a collaborator.
+     * 
+     */
     public Optional<Output<String>> username() {
         return Optional.ofNullable(this.username);
     }
@@ -79,47 +123,111 @@ public final class RepositoryCollaboratorState extends com.pulumi.resources.Reso
             $ = new RepositoryCollaboratorState(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param invitationId ID of the invitation to be used in `github.UserInvitationAccepter`
+         * 
+         * @return builder
+         * 
+         */
         public Builder invitationId(@Nullable Output<String> invitationId) {
             $.invitationId = invitationId;
             return this;
         }
 
+        /**
+         * @param invitationId ID of the invitation to be used in `github.UserInvitationAccepter`
+         * 
+         * @return builder
+         * 
+         */
         public Builder invitationId(String invitationId) {
             return invitationId(Output.of(invitationId));
         }
 
+        /**
+         * @param permission The permission of the outside collaborator for the repository.
+         * Must be one of `pull`, `push`, `maintain`, `triage` or `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organization for organization-owned repositories.
+         * Must be `push` for personal repositories. Defaults to `push`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder permission(@Nullable Output<String> permission) {
             $.permission = permission;
             return this;
         }
 
+        /**
+         * @param permission The permission of the outside collaborator for the repository.
+         * Must be one of `pull`, `push`, `maintain`, `triage` or `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organization for organization-owned repositories.
+         * Must be `push` for personal repositories. Defaults to `push`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder permission(String permission) {
             return permission(Output.of(permission));
         }
 
+        /**
+         * @param permissionDiffSuppression Suppress plan diffs for `triage` and `maintain`.  Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder permissionDiffSuppression(@Nullable Output<Boolean> permissionDiffSuppression) {
             $.permissionDiffSuppression = permissionDiffSuppression;
             return this;
         }
 
+        /**
+         * @param permissionDiffSuppression Suppress plan diffs for `triage` and `maintain`.  Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder permissionDiffSuppression(Boolean permissionDiffSuppression) {
             return permissionDiffSuppression(Output.of(permissionDiffSuppression));
         }
 
+        /**
+         * @param repository The GitHub repository
+         * 
+         * @return builder
+         * 
+         */
         public Builder repository(@Nullable Output<String> repository) {
             $.repository = repository;
             return this;
         }
 
+        /**
+         * @param repository The GitHub repository
+         * 
+         * @return builder
+         * 
+         */
         public Builder repository(String repository) {
             return repository(Output.of(repository));
         }
 
+        /**
+         * @param username The user to add to the repository as a collaborator.
+         * 
+         * @return builder
+         * 
+         */
         public Builder username(@Nullable Output<String> username) {
             $.username = username;
             return this;
         }
 
+        /**
+         * @param username The user to add to the repository as a collaborator.
+         * 
+         * @return builder
+         * 
+         */
         public Builder username(String username) {
             return username(Output.of(username));
         }

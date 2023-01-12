@@ -14,6 +14,10 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetTreeResult {
+    /**
+     * @return Objects (of `path`, `mode`, `type`, `size`, and `sha`) specifying a tree structure.
+     * 
+     */
     private List<GetTreeEntry> entries;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -25,6 +29,10 @@ public final class GetTreeResult {
     private String treeSha;
 
     private GetTreeResult() {}
+    /**
+     * @return Objects (of `path`, `mode`, `type`, `size`, and `sha`) specifying a tree structure.
+     * 
+     */
     public List<GetTreeEntry> entries() {
         return this.entries;
     }

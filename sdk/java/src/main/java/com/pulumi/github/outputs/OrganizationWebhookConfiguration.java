@@ -15,6 +15,10 @@ public final class OrganizationWebhookConfiguration {
     private @Nullable String contentType;
     private @Nullable Boolean insecureSsl;
     private @Nullable String secret;
+    /**
+     * @return URL of the webhook
+     * 
+     */
     private String url;
 
     private OrganizationWebhookConfiguration() {}
@@ -27,6 +31,10 @@ public final class OrganizationWebhookConfiguration {
     public Optional<String> secret() {
         return Optional.ofNullable(this.secret);
     }
+    /**
+     * @return URL of the webhook
+     * 
+     */
     public String url() {
         return this.url;
     }

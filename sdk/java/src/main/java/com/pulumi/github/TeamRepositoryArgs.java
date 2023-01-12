@@ -15,29 +15,47 @@ public final class TeamRepositoryArgs extends com.pulumi.resources.ResourceArgs 
 
     public static final TeamRepositoryArgs Empty = new TeamRepositoryArgs();
 
+    /**
+     * The permissions of team members regarding the repository.
+     * Must be one of `pull`, `triage`, `push`, `maintain`, `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organisation. Defaults to `pull`.
+     * 
+     */
     @Import(name="permission")
     private @Nullable Output<String> permission;
 
+    /**
+     * @return The permissions of team members regarding the repository.
+     * Must be one of `pull`, `triage`, `push`, `maintain`, `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organisation. Defaults to `pull`.
+     * 
+     */
     public Optional<Output<String>> permission() {
         return Optional.ofNullable(this.permission);
     }
 
+    /**
+     * The repository to add to the team.
+     * 
+     */
     @Import(name="repository", required=true)
     private Output<String> repository;
 
+    /**
+     * @return The repository to add to the team.
+     * 
+     */
     public Output<String> repository() {
         return this.repository;
     }
 
     /**
-     * ID or slug of team
+     * The GitHub team id or the GitHub team slug
      * 
      */
     @Import(name="teamId", required=true)
     private Output<String> teamId;
 
     /**
-     * @return ID or slug of team
+     * @return The GitHub team id or the GitHub team slug
      * 
      */
     public Output<String> teamId() {
@@ -70,26 +88,52 @@ public final class TeamRepositoryArgs extends com.pulumi.resources.ResourceArgs 
             $ = new TeamRepositoryArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param permission The permissions of team members regarding the repository.
+         * Must be one of `pull`, `triage`, `push`, `maintain`, `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organisation. Defaults to `pull`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder permission(@Nullable Output<String> permission) {
             $.permission = permission;
             return this;
         }
 
+        /**
+         * @param permission The permissions of team members regarding the repository.
+         * Must be one of `pull`, `triage`, `push`, `maintain`, `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organisation. Defaults to `pull`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder permission(String permission) {
             return permission(Output.of(permission));
         }
 
+        /**
+         * @param repository The repository to add to the team.
+         * 
+         * @return builder
+         * 
+         */
         public Builder repository(Output<String> repository) {
             $.repository = repository;
             return this;
         }
 
+        /**
+         * @param repository The repository to add to the team.
+         * 
+         * @return builder
+         * 
+         */
         public Builder repository(String repository) {
             return repository(Output.of(repository));
         }
 
         /**
-         * @param teamId ID or slug of team
+         * @param teamId The GitHub team id or the GitHub team slug
          * 
          * @return builder
          * 
@@ -100,7 +144,7 @@ public final class TeamRepositoryArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param teamId ID or slug of team
+         * @param teamId The GitHub team id or the GitHub team slug
          * 
          * @return builder
          * 

@@ -4,6 +4,33 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * Provides a GitHub repository milestone resource.
+ *
+ * This resource allows you to create and manage milestones for a GitHub Repository within an organization or user account.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * // Create a milestone for a repository
+ * const example = new github.RepositoryMilestone("example", {
+ *     owner: "example-owner",
+ *     repository: "example-repository",
+ *     title: "v1.1.0",
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * A GitHub Repository Milestone can be imported using an ID made up of `owner/repository/number`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import github:index/repositoryMilestone:RepositoryMilestone example example-owner/example-repository/1
+ * ```
+ */
 export class RepositoryMilestone extends pulumi.CustomResource {
     /**
      * Get an existing RepositoryMilestone resource's state with the given name, ID, and optional extra
@@ -32,15 +59,33 @@ export class RepositoryMilestone extends pulumi.CustomResource {
         return obj['__pulumiType'] === RepositoryMilestone.__pulumiType;
     }
 
+    /**
+     * A description of the milestone.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * in yyyy-mm-dd format
+     * The milestone due date. In `yyyy-mm-dd` format.
      */
     public readonly dueDate!: pulumi.Output<string | undefined>;
+    /**
+     * The number of the milestone.
+     */
     public /*out*/ readonly number!: pulumi.Output<number>;
+    /**
+     * The owner of the GitHub Repository.
+     */
     public readonly owner!: pulumi.Output<string>;
+    /**
+     * The name of the GitHub Repository.
+     */
     public readonly repository!: pulumi.Output<string>;
+    /**
+     * The state of the milestone. Either `open` or `closed`. Default: `open`
+     */
     public readonly state!: pulumi.Output<string | undefined>;
+    /**
+     * The title of the milestone.
+     */
     public readonly title!: pulumi.Output<string>;
 
     /**
@@ -91,15 +136,33 @@ export class RepositoryMilestone extends pulumi.CustomResource {
  * Input properties used for looking up and filtering RepositoryMilestone resources.
  */
 export interface RepositoryMilestoneState {
+    /**
+     * A description of the milestone.
+     */
     description?: pulumi.Input<string>;
     /**
-     * in yyyy-mm-dd format
+     * The milestone due date. In `yyyy-mm-dd` format.
      */
     dueDate?: pulumi.Input<string>;
+    /**
+     * The number of the milestone.
+     */
     number?: pulumi.Input<number>;
+    /**
+     * The owner of the GitHub Repository.
+     */
     owner?: pulumi.Input<string>;
+    /**
+     * The name of the GitHub Repository.
+     */
     repository?: pulumi.Input<string>;
+    /**
+     * The state of the milestone. Either `open` or `closed`. Default: `open`
+     */
     state?: pulumi.Input<string>;
+    /**
+     * The title of the milestone.
+     */
     title?: pulumi.Input<string>;
 }
 
@@ -107,13 +170,28 @@ export interface RepositoryMilestoneState {
  * The set of arguments for constructing a RepositoryMilestone resource.
  */
 export interface RepositoryMilestoneArgs {
+    /**
+     * A description of the milestone.
+     */
     description?: pulumi.Input<string>;
     /**
-     * in yyyy-mm-dd format
+     * The milestone due date. In `yyyy-mm-dd` format.
      */
     dueDate?: pulumi.Input<string>;
+    /**
+     * The owner of the GitHub Repository.
+     */
     owner: pulumi.Input<string>;
+    /**
+     * The name of the GitHub Repository.
+     */
     repository: pulumi.Input<string>;
+    /**
+     * The state of the milestone. Either `open` or `closed`. Default: `open`
+     */
     state?: pulumi.Input<string>;
+    /**
+     * The title of the milestone.
+     */
     title: pulumi.Input<string>;
 }

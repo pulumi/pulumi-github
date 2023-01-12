@@ -11,6 +11,33 @@ namespace Pulumi.Github
 {
     public static class GetExternalGroups
     {
+        /// <summary>
+        /// Use this data source to retrieve external groups belonging to an organization.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Github = Pulumi.Github;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var exampleExternalGroups = Github.GetExternalGroups.Invoke();
+        /// 
+        ///     var localGroups = exampleExternalGroups.Apply(getExternalGroupsResult =&gt; getExternalGroupsResult);
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["groups"] = localGroups,
+        ///     };
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetExternalGroupsResult> InvokeAsync(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetExternalGroupsResult>("github:index/getExternalGroups:getExternalGroups", InvokeArgs.Empty, options.WithDefaults());
     }
@@ -19,6 +46,9 @@ namespace Pulumi.Github
     [OutputType]
     public sealed class GetExternalGroupsResult
     {
+        /// <summary>
+        /// an array of external groups belonging to the organization. Each group consists of the fields documented below.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetExternalGroupsExternalGroupResult> ExternalGroups;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.

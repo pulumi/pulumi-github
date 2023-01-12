@@ -10,6 +10,59 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Use this data source to retrieve information about all GitHub teams in an organization.
+//
+// ## Example Usage
+//
+// To retrieve *all* teams of the organization:
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-github/sdk/v5/go/github"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := github.GetOrganizationTeams(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// To retrieve only the team's at the root of the organization:
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-github/sdk/v5/go/github"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := github.GetOrganizationTeams(ctx, &github.GetOrganizationTeamsArgs{
+//				RootTeamsOnly: pulumi.BoolRef(true),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func GetOrganizationTeams(ctx *pulumi.Context, args *GetOrganizationTeamsArgs, opts ...pulumi.InvokeOption) (*GetOrganizationTeamsResult, error) {
 	var rv GetOrganizationTeamsResult
 	err := ctx.Invoke("github:index/getOrganizationTeams:getOrganizationTeams", args, &rv, opts...)
@@ -21,19 +74,26 @@ func GetOrganizationTeams(ctx *pulumi.Context, args *GetOrganizationTeamsArgs, o
 
 // A collection of arguments for invoking getOrganizationTeams.
 type GetOrganizationTeamsArgs struct {
-	ResultsPerPage *int  `pulumi:"resultsPerPage"`
-	RootTeamsOnly  *bool `pulumi:"rootTeamsOnly"`
-	SummaryOnly    *bool `pulumi:"summaryOnly"`
+	// (Optional) Set the number of results per graphql query. Reducing this number can alleviate timeout errors. Accepts a value between 0 - 100. Defaults to `100`.
+	ResultsPerPage *int `pulumi:"resultsPerPage"`
+	// (Optional) Only return teams that are at the organization's root, i.e. no nested teams. Defaults to `false`.
+	RootTeamsOnly *bool `pulumi:"rootTeamsOnly"`
+	// (Optional) Exclude the members and repositories of the team from the returned result. Defaults to `false`.
+	SummaryOnly *bool `pulumi:"summaryOnly"`
 }
 
 // A collection of values returned by getOrganizationTeams.
 type GetOrganizationTeamsResult struct {
 	// The provider-assigned unique ID for this managed resource.
-	Id             string                     `pulumi:"id"`
-	ResultsPerPage *int                       `pulumi:"resultsPerPage"`
-	RootTeamsOnly  *bool                      `pulumi:"rootTeamsOnly"`
-	SummaryOnly    *bool                      `pulumi:"summaryOnly"`
-	Teams          []GetOrganizationTeamsTeam `pulumi:"teams"`
+	Id string `pulumi:"id"`
+	// (Optional) Set the number of results per graphql query. Reducing this number can alleviate timeout errors. Accepts a value between 0 - 100. Defaults to `100`.
+	ResultsPerPage *int `pulumi:"resultsPerPage"`
+	// (Optional) Only return teams that are at the organization's root, i.e. no nested teams. Defaults to `false`.
+	RootTeamsOnly *bool `pulumi:"rootTeamsOnly"`
+	// (Optional) Exclude the members and repositories of the team from the returned result. Defaults to `false`.
+	SummaryOnly *bool `pulumi:"summaryOnly"`
+	// (Required) An Array of GitHub Teams.  Each `team` block consists of the fields documented below.
+	Teams []GetOrganizationTeamsTeam `pulumi:"teams"`
 }
 
 func GetOrganizationTeamsOutput(ctx *pulumi.Context, args GetOrganizationTeamsOutputArgs, opts ...pulumi.InvokeOption) GetOrganizationTeamsResultOutput {
@@ -51,9 +111,12 @@ func GetOrganizationTeamsOutput(ctx *pulumi.Context, args GetOrganizationTeamsOu
 
 // A collection of arguments for invoking getOrganizationTeams.
 type GetOrganizationTeamsOutputArgs struct {
-	ResultsPerPage pulumi.IntPtrInput  `pulumi:"resultsPerPage"`
-	RootTeamsOnly  pulumi.BoolPtrInput `pulumi:"rootTeamsOnly"`
-	SummaryOnly    pulumi.BoolPtrInput `pulumi:"summaryOnly"`
+	// (Optional) Set the number of results per graphql query. Reducing this number can alleviate timeout errors. Accepts a value between 0 - 100. Defaults to `100`.
+	ResultsPerPage pulumi.IntPtrInput `pulumi:"resultsPerPage"`
+	// (Optional) Only return teams that are at the organization's root, i.e. no nested teams. Defaults to `false`.
+	RootTeamsOnly pulumi.BoolPtrInput `pulumi:"rootTeamsOnly"`
+	// (Optional) Exclude the members and repositories of the team from the returned result. Defaults to `false`.
+	SummaryOnly pulumi.BoolPtrInput `pulumi:"summaryOnly"`
 }
 
 func (GetOrganizationTeamsOutputArgs) ElementType() reflect.Type {
@@ -80,18 +143,22 @@ func (o GetOrganizationTeamsResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetOrganizationTeamsResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// (Optional) Set the number of results per graphql query. Reducing this number can alleviate timeout errors. Accepts a value between 0 - 100. Defaults to `100`.
 func (o GetOrganizationTeamsResultOutput) ResultsPerPage() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v GetOrganizationTeamsResult) *int { return v.ResultsPerPage }).(pulumi.IntPtrOutput)
 }
 
+// (Optional) Only return teams that are at the organization's root, i.e. no nested teams. Defaults to `false`.
 func (o GetOrganizationTeamsResultOutput) RootTeamsOnly() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetOrganizationTeamsResult) *bool { return v.RootTeamsOnly }).(pulumi.BoolPtrOutput)
 }
 
+// (Optional) Exclude the members and repositories of the team from the returned result. Defaults to `false`.
 func (o GetOrganizationTeamsResultOutput) SummaryOnly() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetOrganizationTeamsResult) *bool { return v.SummaryOnly }).(pulumi.BoolPtrOutput)
 }
 
+// (Required) An Array of GitHub Teams.  Each `team` block consists of the fields documented below.
 func (o GetOrganizationTeamsResultOutput) Teams() GetOrganizationTeamsTeamArrayOutput {
 	return o.ApplyT(func(v GetOrganizationTeamsResult) []GetOrganizationTeamsTeam { return v.Teams }).(GetOrganizationTeamsTeamArrayOutput)
 }

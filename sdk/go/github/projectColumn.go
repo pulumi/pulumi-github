@@ -11,12 +11,47 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// This resource allows you to create and manage columns for GitHub projects.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-github/sdk/v5/go/github"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			project, err := github.NewOrganizationProject(ctx, "project", &github.OrganizationProjectArgs{
+//				Body: pulumi.String("This is an organization project."),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = github.NewProjectColumn(ctx, "column", &github.ProjectColumnArgs{
+//				ProjectId: project.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 type ProjectColumn struct {
 	pulumi.CustomResourceState
 
-	ColumnId  pulumi.IntOutput    `pulumi:"columnId"`
-	Etag      pulumi.StringOutput `pulumi:"etag"`
-	Name      pulumi.StringOutput `pulumi:"name"`
+	ColumnId pulumi.IntOutput    `pulumi:"columnId"`
+	Etag     pulumi.StringOutput `pulumi:"etag"`
+	// The name of the column.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// The ID of an existing project that the column will be created in.
 	ProjectId pulumi.StringOutput `pulumi:"projectId"`
 }
 
@@ -52,16 +87,20 @@ func GetProjectColumn(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ProjectColumn resources.
 type projectColumnState struct {
-	ColumnId  *int    `pulumi:"columnId"`
-	Etag      *string `pulumi:"etag"`
-	Name      *string `pulumi:"name"`
+	ColumnId *int    `pulumi:"columnId"`
+	Etag     *string `pulumi:"etag"`
+	// The name of the column.
+	Name *string `pulumi:"name"`
+	// The ID of an existing project that the column will be created in.
 	ProjectId *string `pulumi:"projectId"`
 }
 
 type ProjectColumnState struct {
-	ColumnId  pulumi.IntPtrInput
-	Etag      pulumi.StringPtrInput
-	Name      pulumi.StringPtrInput
+	ColumnId pulumi.IntPtrInput
+	Etag     pulumi.StringPtrInput
+	// The name of the column.
+	Name pulumi.StringPtrInput
+	// The ID of an existing project that the column will be created in.
 	ProjectId pulumi.StringPtrInput
 }
 
@@ -70,13 +109,17 @@ func (ProjectColumnState) ElementType() reflect.Type {
 }
 
 type projectColumnArgs struct {
-	Name      *string `pulumi:"name"`
-	ProjectId string  `pulumi:"projectId"`
+	// The name of the column.
+	Name *string `pulumi:"name"`
+	// The ID of an existing project that the column will be created in.
+	ProjectId string `pulumi:"projectId"`
 }
 
 // The set of arguments for constructing a ProjectColumn resource.
 type ProjectColumnArgs struct {
-	Name      pulumi.StringPtrInput
+	// The name of the column.
+	Name pulumi.StringPtrInput
+	// The ID of an existing project that the column will be created in.
 	ProjectId pulumi.StringInput
 }
 
@@ -175,10 +218,12 @@ func (o ProjectColumnOutput) Etag() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProjectColumn) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
 }
 
+// The name of the column.
 func (o ProjectColumnOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProjectColumn) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// The ID of an existing project that the column will be created in.
 func (o ProjectColumnOutput) ProjectId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProjectColumn) pulumi.StringOutput { return v.ProjectId }).(pulumi.StringOutput)
 }

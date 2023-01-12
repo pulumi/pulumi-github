@@ -6,12 +6,23 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
+/**
+ * Use this data source to retrieve all deploy keys of a repository.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const example = github.getRepositoryDeployKeys({
+ *     repository: "example-repository",
+ * });
+ * ```
+ */
 export function getRepositoryDeployKeys(args: GetRepositoryDeployKeysArgs, opts?: pulumi.InvokeOptions): Promise<GetRepositoryDeployKeysResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("github:index/getRepositoryDeployKeys:getRepositoryDeployKeys", {
         "repository": args.repository,
     }, opts);
@@ -21,6 +32,9 @@ export function getRepositoryDeployKeys(args: GetRepositoryDeployKeysArgs, opts?
  * A collection of arguments for invoking getRepositoryDeployKeys.
  */
 export interface GetRepositoryDeployKeysArgs {
+    /**
+     * Name of the repository to retrieve the branches from.
+     */
     repository: string;
 }
 
@@ -32,17 +46,36 @@ export interface GetRepositoryDeployKeysResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * The list of this repository's deploy keys. Each element of `keys` has the following attributes:
+     */
     readonly keys: outputs.GetRepositoryDeployKeysKey[];
     readonly repository: string;
 }
-
+/**
+ * Use this data source to retrieve all deploy keys of a repository.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const example = github.getRepositoryDeployKeys({
+ *     repository: "example-repository",
+ * });
+ * ```
+ */
 export function getRepositoryDeployKeysOutput(args: GetRepositoryDeployKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRepositoryDeployKeysResult> {
-    return pulumi.output(args).apply(a => getRepositoryDeployKeys(a, opts))
+    return pulumi.output(args).apply((a: any) => getRepositoryDeployKeys(a, opts))
 }
 
 /**
  * A collection of arguments for invoking getRepositoryDeployKeys.
  */
 export interface GetRepositoryDeployKeysOutputArgs {
+    /**
+     * Name of the repository to retrieve the branches from.
+     */
     repository: pulumi.Input<string>;
 }

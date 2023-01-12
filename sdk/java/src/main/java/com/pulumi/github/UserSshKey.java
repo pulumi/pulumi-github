@@ -13,6 +13,51 @@ import com.pulumi.github.inputs.UserSshKeyState;
 import java.lang.String;
 import javax.annotation.Nullable;
 
+/**
+ * Provides a GitHub user&#39;s SSH key resource.
+ * 
+ * This resource allows you to add/remove SSH keys from your user account.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.github.UserSshKey;
+ * import com.pulumi.github.UserSshKeyArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new UserSshKey(&#34;example&#34;, UserSshKeyArgs.builder()        
+ *             .title(&#34;example title&#34;)
+ *             .key(Files.readString(Paths.get(&#34;~/.ssh/id_rsa.pub&#34;)))
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * SSH keys can be imported using their ID e.g.
+ * 
+ * ```sh
+ *  $ pulumi import github:index/userSshKey:UserSshKey example 1234567
+ * ```
+ * 
+ */
 @ResourceType(type="github:index/userSshKey:UserSshKey")
 public class UserSshKey extends com.pulumi.resources.CustomResource {
     @Export(name="etag", type=String.class, parameters={})
@@ -21,21 +66,45 @@ public class UserSshKey extends com.pulumi.resources.CustomResource {
     public Output<String> etag() {
         return this.etag;
     }
+    /**
+     * The public SSH key to add to your GitHub account.
+     * 
+     */
     @Export(name="key", type=String.class, parameters={})
     private Output<String> key;
 
+    /**
+     * @return The public SSH key to add to your GitHub account.
+     * 
+     */
     public Output<String> key() {
         return this.key;
     }
+    /**
+     * A descriptive name for the new key. e.g. `Personal MacBook Air`
+     * 
+     */
     @Export(name="title", type=String.class, parameters={})
     private Output<String> title;
 
+    /**
+     * @return A descriptive name for the new key. e.g. `Personal MacBook Air`
+     * 
+     */
     public Output<String> title() {
         return this.title;
     }
+    /**
+     * The URL of the SSH key
+     * 
+     */
     @Export(name="url", type=String.class, parameters={})
     private Output<String> url;
 
+    /**
+     * @return The URL of the SSH key
+     * 
+     */
     public Output<String> url() {
         return this.url;
     }

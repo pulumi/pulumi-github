@@ -11,9 +11,61 @@ namespace Pulumi.Github
 {
     public static class GetRepositoryMilestone
     {
+        /// <summary>
+        /// Use this data source to retrieve information about a specific GitHub milestone in a repository.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Github = Pulumi.Github;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Github.GetRepositoryMilestone.Invoke(new()
+        ///     {
+        ///         Number = 1,
+        ///         Owner = "example-owner",
+        ///         Repository = "example-repository",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetRepositoryMilestoneResult> InvokeAsync(GetRepositoryMilestoneArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRepositoryMilestoneResult>("github:index/getRepositoryMilestone:getRepositoryMilestone", args ?? new GetRepositoryMilestoneArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Use this data source to retrieve information about a specific GitHub milestone in a repository.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Github = Pulumi.Github;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Github.GetRepositoryMilestone.Invoke(new()
+        ///     {
+        ///         Number = 1,
+        ///         Owner = "example-owner",
+        ///         Repository = "example-repository",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Output<GetRepositoryMilestoneResult> Invoke(GetRepositoryMilestoneInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRepositoryMilestoneResult>("github:index/getRepositoryMilestone:getRepositoryMilestone", args ?? new GetRepositoryMilestoneInvokeArgs(), options.WithDefaults());
     }
@@ -21,12 +73,21 @@ namespace Pulumi.Github
 
     public sealed class GetRepositoryMilestoneArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The number of the milestone.
+        /// </summary>
         [Input("number", required: true)]
         public int Number { get; set; }
 
+        /// <summary>
+        /// Owner of the repository.
+        /// </summary>
         [Input("owner", required: true)]
         public string Owner { get; set; } = null!;
 
+        /// <summary>
+        /// Name of the repository to retrieve the milestone from.
+        /// </summary>
         [Input("repository", required: true)]
         public string Repository { get; set; } = null!;
 
@@ -38,12 +99,21 @@ namespace Pulumi.Github
 
     public sealed class GetRepositoryMilestoneInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The number of the milestone.
+        /// </summary>
         [Input("number", required: true)]
         public Input<int> Number { get; set; } = null!;
 
+        /// <summary>
+        /// Owner of the repository.
+        /// </summary>
         [Input("owner", required: true)]
         public Input<string> Owner { get; set; } = null!;
 
+        /// <summary>
+        /// Name of the repository to retrieve the milestone from.
+        /// </summary>
         [Input("repository", required: true)]
         public Input<string> Repository { get; set; } = null!;
 
@@ -57,7 +127,13 @@ namespace Pulumi.Github
     [OutputType]
     public sealed class GetRepositoryMilestoneResult
     {
+        /// <summary>
+        /// Description of the milestone.
+        /// </summary>
         public readonly string Description;
+        /// <summary>
+        /// The milestone due date (in ISO-8601 `yyyy-mm-dd` format).
+        /// </summary>
         public readonly string DueDate;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
@@ -66,7 +142,13 @@ namespace Pulumi.Github
         public readonly int Number;
         public readonly string Owner;
         public readonly string Repository;
+        /// <summary>
+        /// State of the milestone.
+        /// </summary>
         public readonly string State;
+        /// <summary>
+        /// Title of the milestone.
+        /// </summary>
         public readonly string Title;
 
         [OutputConstructor]

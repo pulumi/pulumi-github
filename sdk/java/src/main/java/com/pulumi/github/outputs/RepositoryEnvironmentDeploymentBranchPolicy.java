@@ -9,13 +9,29 @@ import java.util.Objects;
 
 @CustomType
 public final class RepositoryEnvironmentDeploymentBranchPolicy {
+    /**
+     * @return Whether only branches that match the specified name patterns can deploy to this environment.
+     * 
+     */
     private Boolean customBranchPolicies;
+    /**
+     * @return Whether only branches with branch protection rules can deploy to this environment.
+     * 
+     */
     private Boolean protectedBranches;
 
     private RepositoryEnvironmentDeploymentBranchPolicy() {}
+    /**
+     * @return Whether only branches that match the specified name patterns can deploy to this environment.
+     * 
+     */
     public Boolean customBranchPolicies() {
         return this.customBranchPolicies;
     }
+    /**
+     * @return Whether only branches with branch protection rules can deploy to this environment.
+     * 
+     */
     public Boolean protectedBranches() {
         return this.protectedBranches;
     }

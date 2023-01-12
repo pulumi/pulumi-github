@@ -9,15 +9,78 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Github
 {
+    /// <summary>
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Github = Pulumi.Github;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     // Add a user to the organization
+    ///     var membershipForSomeUser = new Github.Membership("membershipForSomeUser", new()
+    ///     {
+    ///         Username = "SomeUser",
+    ///         Role = "member",
+    ///     });
+    /// 
+    ///     var membershipForAnotherUser = new Github.Membership("membershipForAnotherUser", new()
+    ///     {
+    ///         Username = "AnotherUser",
+    ///         Role = "member",
+    ///     });
+    /// 
+    ///     var someTeam = new Github.Team("someTeam", new()
+    ///     {
+    ///         Description = "Some cool team",
+    ///     });
+    /// 
+    ///     var someTeamMembers = new Github.TeamMembers("someTeamMembers", new()
+    ///     {
+    ///         TeamId = someTeam.Id,
+    ///         Members = new[]
+    ///         {
+    ///             new Github.Inputs.TeamMembersMemberArgs
+    ///             {
+    ///                 Username = "SomeUser",
+    ///                 Role = "maintainer",
+    ///             },
+    ///             new Github.Inputs.TeamMembersMemberArgs
+    ///             {
+    ///                 Username = "AnotherUser",
+    ///                 Role = "member",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// GitHub Team Membership can be imported using the team ID `teamid`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import github:index/teamMembers:TeamMembers some_team 1234567
+    /// ```
+    /// </summary>
     [GithubResourceType("github:index/teamMembers:TeamMembers")]
     public partial class TeamMembers : global::Pulumi.CustomResource
     {
         [Output("etag")]
         public Output<string> Etag { get; private set; } = null!;
 
+        /// <summary>
+        /// List of team members. See Members below for details.
+        /// </summary>
         [Output("members")]
         public Output<ImmutableArray<Outputs.TeamMembersMember>> Members { get; private set; } = null!;
 
+        /// <summary>
+        /// The GitHub team id
+        /// </summary>
         [Output("teamId")]
         public Output<string> TeamId { get; private set; } = null!;
 
@@ -69,12 +132,19 @@ namespace Pulumi.Github
     {
         [Input("members", required: true)]
         private InputList<Inputs.TeamMembersMemberArgs>? _members;
+
+        /// <summary>
+        /// List of team members. See Members below for details.
+        /// </summary>
         public InputList<Inputs.TeamMembersMemberArgs> Members
         {
             get => _members ?? (_members = new InputList<Inputs.TeamMembersMemberArgs>());
             set => _members = value;
         }
 
+        /// <summary>
+        /// The GitHub team id
+        /// </summary>
         [Input("teamId", required: true)]
         public Input<string> TeamId { get; set; } = null!;
 
@@ -91,12 +161,19 @@ namespace Pulumi.Github
 
         [Input("members")]
         private InputList<Inputs.TeamMembersMemberGetArgs>? _members;
+
+        /// <summary>
+        /// List of team members. See Members below for details.
+        /// </summary>
         public InputList<Inputs.TeamMembersMemberGetArgs> Members
         {
             get => _members ?? (_members = new InputList<Inputs.TeamMembersMemberGetArgs>());
             set => _members = value;
         }
 
+        /// <summary>
+        /// The GitHub team id
+        /// </summary>
         [Input("teamId")]
         public Input<string>? TeamId { get; set; }
 

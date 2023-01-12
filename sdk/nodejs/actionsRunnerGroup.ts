@@ -4,6 +4,31 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * This resource allows you to create and manage GitHub Actions runner groups within your GitHub enterprise organizations.
+ * You must have admin access to an organization to use this resource.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const exampleRepository = new github.Repository("exampleRepository", {});
+ * const exampleActionsRunnerGroup = new github.ActionsRunnerGroup("exampleActionsRunnerGroup", {
+ *     visibility: "selected",
+ *     selectedRepositoryIds: [exampleRepository.repoId],
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * This resource can be imported using the ID of the runner group
+ *
+ * ```sh
+ *  $ pulumi import github:index/actionsRunnerGroup:ActionsRunnerGroup test 7
+ * ```
+ */
 export class ActionsRunnerGroup extends pulumi.CustomResource {
     /**
      * Get an existing ActionsRunnerGroup resource's state with the given name, ID, and optional extra
@@ -32,14 +57,41 @@ export class ActionsRunnerGroup extends pulumi.CustomResource {
         return obj['__pulumiType'] === ActionsRunnerGroup.__pulumiType;
     }
 
+    /**
+     * Whether public repositories can be added to the runner group
+     */
     public /*out*/ readonly allowsPublicRepositories!: pulumi.Output<boolean>;
+    /**
+     * Whether this is the default runner group
+     */
     public /*out*/ readonly default!: pulumi.Output<boolean>;
+    /**
+     * An etag representing the runner group object
+     */
     public /*out*/ readonly etag!: pulumi.Output<string>;
+    /**
+     * Whether the runner group is inherited from the enterprise level
+     */
     public /*out*/ readonly inherited!: pulumi.Output<boolean>;
+    /**
+     * Name of the runner group
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * The GitHub API URL for the runner group's runners
+     */
     public /*out*/ readonly runnersUrl!: pulumi.Output<string>;
+    /**
+     * Github API URL for the runner group's repositories
+     */
     public /*out*/ readonly selectedRepositoriesUrl!: pulumi.Output<string>;
+    /**
+     * IDs of the repositories which should be added to the runner group
+     */
     public readonly selectedRepositoryIds!: pulumi.Output<number[] | undefined>;
+    /**
+     * Visibility of a runner group. Whether the runner group can include `all`, `selected`, or `private` repositories. A value of `private` is not currently supported due to limitations in the GitHub API.
+     */
     public readonly visibility!: pulumi.Output<string>;
 
     /**
@@ -88,14 +140,41 @@ export class ActionsRunnerGroup extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ActionsRunnerGroup resources.
  */
 export interface ActionsRunnerGroupState {
+    /**
+     * Whether public repositories can be added to the runner group
+     */
     allowsPublicRepositories?: pulumi.Input<boolean>;
+    /**
+     * Whether this is the default runner group
+     */
     default?: pulumi.Input<boolean>;
+    /**
+     * An etag representing the runner group object
+     */
     etag?: pulumi.Input<string>;
+    /**
+     * Whether the runner group is inherited from the enterprise level
+     */
     inherited?: pulumi.Input<boolean>;
+    /**
+     * Name of the runner group
+     */
     name?: pulumi.Input<string>;
+    /**
+     * The GitHub API URL for the runner group's runners
+     */
     runnersUrl?: pulumi.Input<string>;
+    /**
+     * Github API URL for the runner group's repositories
+     */
     selectedRepositoriesUrl?: pulumi.Input<string>;
+    /**
+     * IDs of the repositories which should be added to the runner group
+     */
     selectedRepositoryIds?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * Visibility of a runner group. Whether the runner group can include `all`, `selected`, or `private` repositories. A value of `private` is not currently supported due to limitations in the GitHub API.
+     */
     visibility?: pulumi.Input<string>;
 }
 
@@ -103,7 +182,16 @@ export interface ActionsRunnerGroupState {
  * The set of arguments for constructing a ActionsRunnerGroup resource.
  */
 export interface ActionsRunnerGroupArgs {
+    /**
+     * Name of the runner group
+     */
     name?: pulumi.Input<string>;
+    /**
+     * IDs of the repositories which should be added to the runner group
+     */
     selectedRepositoryIds?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * Visibility of a runner group. Whether the runner group can include `all`, `selected`, or `private` repositories. A value of `private` is not currently supported due to limitations in the GitHub API.
+     */
     visibility: pulumi.Input<string>;
 }

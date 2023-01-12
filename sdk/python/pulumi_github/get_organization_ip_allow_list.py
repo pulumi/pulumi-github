@@ -40,6 +40,10 @@ class GetOrganizationIpAllowListResult:
     @property
     @pulumi.getter(name="ipAllowLists")
     def ip_allow_lists(self) -> Sequence['outputs.GetOrganizationIpAllowListIpAllowListResult']:
+        """
+        An Array of allowed IP addresses.
+        ___
+        """
         return pulumi.get(self, "ip_allow_lists")
 
 
@@ -55,7 +59,18 @@ class AwaitableGetOrganizationIpAllowListResult(GetOrganizationIpAllowListResult
 
 def get_organization_ip_allow_list(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOrganizationIpAllowListResult:
     """
-    Use this data source to access information about an existing resource.
+    Use this data source to retrieve information about the IP allow list of an organization.
+    The allow list for IP addresses will block access to private resources via the web, API,
+    and Git from any IP addresses that are not on the allow list.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_github as github
+
+    all = github.get_organization_ip_allow_list()
+    ```
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)

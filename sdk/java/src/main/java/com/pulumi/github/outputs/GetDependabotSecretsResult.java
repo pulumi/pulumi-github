@@ -17,7 +17,15 @@ public final class GetDependabotSecretsResult {
      * 
      */
     private String id;
+    /**
+     * @return Secret name
+     * 
+     */
     private String name;
+    /**
+     * @return list of dependabot secrets for the repository
+     * 
+     */
     private List<GetDependabotSecretsSecret> secrets;
 
     private GetDependabotSecretsResult() {}
@@ -31,9 +39,17 @@ public final class GetDependabotSecretsResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return Secret name
+     * 
+     */
     public String name() {
         return this.name;
     }
+    /**
+     * @return list of dependabot secrets for the repository
+     * 
+     */
     public List<GetDependabotSecretsSecret> secrets() {
         return this.secrets;
     }

@@ -11,10 +11,68 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides a GitHub branch default resource.
+//
+// This resource allows you to set the default branch for a given repository.
+//
+// Note that use of this resource is incompatible with the `defaultBranch` option of the `Repository` resource.  Using both will result in plans always showing a diff.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-github/sdk/v5/go/github"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := github.NewRepository(ctx, "example", &github.RepositoryArgs{
+//				Description: pulumi.String("My awesome codebase"),
+//				AutoInit:    pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			development, err := github.NewBranch(ctx, "development", &github.BranchArgs{
+//				Repository: example.Name,
+//				Branch:     pulumi.String("development"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = github.NewBranchDefault(ctx, "default", &github.BranchDefaultArgs{
+//				Repository: example.Name,
+//				Branch:     development.Branch,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// GitHub Branch Defaults can be imported using an ID made up of `repository`, e.g.
+//
+// ```sh
+//
+//	$ pulumi import github:index/branchDefault:BranchDefault branch_default my-repo
+//
+// ```
 type BranchDefault struct {
 	pulumi.CustomResourceState
 
-	Branch     pulumi.StringOutput `pulumi:"branch"`
+	// The branch (e.g. `main`)
+	Branch pulumi.StringOutput `pulumi:"branch"`
+	// The GitHub repository
 	Repository pulumi.StringOutput `pulumi:"repository"`
 }
 
@@ -53,12 +111,16 @@ func GetBranchDefault(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering BranchDefault resources.
 type branchDefaultState struct {
-	Branch     *string `pulumi:"branch"`
+	// The branch (e.g. `main`)
+	Branch *string `pulumi:"branch"`
+	// The GitHub repository
 	Repository *string `pulumi:"repository"`
 }
 
 type BranchDefaultState struct {
-	Branch     pulumi.StringPtrInput
+	// The branch (e.g. `main`)
+	Branch pulumi.StringPtrInput
+	// The GitHub repository
 	Repository pulumi.StringPtrInput
 }
 
@@ -67,13 +129,17 @@ func (BranchDefaultState) ElementType() reflect.Type {
 }
 
 type branchDefaultArgs struct {
-	Branch     string `pulumi:"branch"`
+	// The branch (e.g. `main`)
+	Branch string `pulumi:"branch"`
+	// The GitHub repository
 	Repository string `pulumi:"repository"`
 }
 
 // The set of arguments for constructing a BranchDefault resource.
 type BranchDefaultArgs struct {
-	Branch     pulumi.StringInput
+	// The branch (e.g. `main`)
+	Branch pulumi.StringInput
+	// The GitHub repository
 	Repository pulumi.StringInput
 }
 
@@ -164,10 +230,12 @@ func (o BranchDefaultOutput) ToBranchDefaultOutputWithContext(ctx context.Contex
 	return o
 }
 
+// The branch (e.g. `main`)
 func (o BranchDefaultOutput) Branch() pulumi.StringOutput {
 	return o.ApplyT(func(v *BranchDefault) pulumi.StringOutput { return v.Branch }).(pulumi.StringOutput)
 }
 
+// The GitHub repository
 func (o BranchDefaultOutput) Repository() pulumi.StringOutput {
 	return o.ApplyT(func(v *BranchDefault) pulumi.StringOutput { return v.Repository }).(pulumi.StringOutput)
 }

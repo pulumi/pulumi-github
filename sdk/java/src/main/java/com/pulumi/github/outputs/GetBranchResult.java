@@ -10,20 +10,36 @@ import java.util.Objects;
 @CustomType
 public final class GetBranchResult {
     private String branch;
+    /**
+     * @return An etag representing the Branch object.
+     * 
+     */
     private String etag;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
+    /**
+     * @return A string representing a branch reference, in the form of `refs/heads/&lt;branch&gt;`.
+     * 
+     */
     private String ref;
     private String repository;
+    /**
+     * @return A string storing the reference&#39;s `HEAD` commit&#39;s SHA1.
+     * 
+     */
     private String sha;
 
     private GetBranchResult() {}
     public String branch() {
         return this.branch;
     }
+    /**
+     * @return An etag representing the Branch object.
+     * 
+     */
     public String etag() {
         return this.etag;
     }
@@ -34,12 +50,20 @@ public final class GetBranchResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return A string representing a branch reference, in the form of `refs/heads/&lt;branch&gt;`.
+     * 
+     */
     public String ref() {
         return this.ref;
     }
     public String repository() {
         return this.repository;
     }
+    /**
+     * @return A string storing the reference&#39;s `HEAD` commit&#39;s SHA1.
+     * 
+     */
     public String sha() {
         return this.sha;
     }

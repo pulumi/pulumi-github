@@ -9,27 +9,67 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Github
 {
+    /// <summary>
+    /// This resource allows you to create and manage an autolink reference for a single repository.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Github = Pulumi.Github;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var repo = new Github.Repository("repo", new()
+    ///     {
+    ///         Description = "GitHub repo managed by Terraform",
+    ///         Private = false,
+    ///     });
+    /// 
+    ///     var autolink = new Github.RepositoryAutolinkReference("autolink", new()
+    ///     {
+    ///         Repository = repo.Name,
+    ///         KeyPrefix = "TICKET-",
+    ///         TargetUrlTemplate = "https://example.com/TICKET?query=&lt;num&gt;",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Autolink references can be imported using the `name` of the repository, combined with the `id` of the autolink reference and a `/` character for separating components, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import github:index/repositoryAutolinkReference:RepositoryAutolinkReference auto my-repo/123
+    /// ```
+    /// 
+    ///  See the GitHub documentation for how to [list all autolinks of a repository](https://docs.github.com/en/rest/repos/autolinks#list-all-autolinks-of-a-repository) to learn the autolink ids to use with the import command.
+    /// </summary>
     [GithubResourceType("github:index/repositoryAutolinkReference:RepositoryAutolinkReference")]
     public partial class RepositoryAutolinkReference : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// An etag representing the autolink reference object.
+        /// </summary>
         [Output("etag")]
         public Output<string> Etag { get; private set; } = null!;
 
         /// <summary>
-        /// Whether this autolink reference matches alphanumeric characters. If false, this autolink reference only matches numeric
-        /// characters.
+        /// Whether this autolink reference matches alphanumeric characters. If false, this autolink reference only matches numeric characters. Default is true.
         /// </summary>
         [Output("isAlphanumeric")]
         public Output<bool?> IsAlphanumeric { get; private set; } = null!;
 
         /// <summary>
-        /// This prefix appended by a number will generate a link any time it is found in an issue, pull request, or commit
+        /// This prefix appended by a number will generate a link any time it is found in an issue, pull request, or commit.
         /// </summary>
         [Output("keyPrefix")]
         public Output<string> KeyPrefix { get; private set; } = null!;
 
         /// <summary>
-        /// The repository name
+        /// The repository of the autolink reference.
         /// </summary>
         [Output("repository")]
         public Output<string> Repository { get; private set; } = null!;
@@ -87,20 +127,19 @@ namespace Pulumi.Github
     public sealed class RepositoryAutolinkReferenceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether this autolink reference matches alphanumeric characters. If false, this autolink reference only matches numeric
-        /// characters.
+        /// Whether this autolink reference matches alphanumeric characters. If false, this autolink reference only matches numeric characters. Default is true.
         /// </summary>
         [Input("isAlphanumeric")]
         public Input<bool>? IsAlphanumeric { get; set; }
 
         /// <summary>
-        /// This prefix appended by a number will generate a link any time it is found in an issue, pull request, or commit
+        /// This prefix appended by a number will generate a link any time it is found in an issue, pull request, or commit.
         /// </summary>
         [Input("keyPrefix", required: true)]
         public Input<string> KeyPrefix { get; set; } = null!;
 
         /// <summary>
-        /// The repository name
+        /// The repository of the autolink reference.
         /// </summary>
         [Input("repository", required: true)]
         public Input<string> Repository { get; set; } = null!;
@@ -119,24 +158,26 @@ namespace Pulumi.Github
 
     public sealed class RepositoryAutolinkReferenceState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// An etag representing the autolink reference object.
+        /// </summary>
         [Input("etag")]
         public Input<string>? Etag { get; set; }
 
         /// <summary>
-        /// Whether this autolink reference matches alphanumeric characters. If false, this autolink reference only matches numeric
-        /// characters.
+        /// Whether this autolink reference matches alphanumeric characters. If false, this autolink reference only matches numeric characters. Default is true.
         /// </summary>
         [Input("isAlphanumeric")]
         public Input<bool>? IsAlphanumeric { get; set; }
 
         /// <summary>
-        /// This prefix appended by a number will generate a link any time it is found in an issue, pull request, or commit
+        /// This prefix appended by a number will generate a link any time it is found in an issue, pull request, or commit.
         /// </summary>
         [Input("keyPrefix")]
         public Input<string>? KeyPrefix { get; set; }
 
         /// <summary>
-        /// The repository name
+        /// The repository of the autolink reference.
         /// </summary>
         [Input("repository")]
         public Input<string>? Repository { get; set; }

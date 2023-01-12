@@ -14,12 +14,19 @@ namespace Pulumi.Github.Inputs
     {
         [Input("contexts")]
         private InputList<string>? _contexts;
+
+        /// <summary>
+        /// The list of status checks to require in order to merge into this branch. No status checks are required by default.
+        /// </summary>
         public InputList<string> Contexts
         {
             get => _contexts ?? (_contexts = new InputList<string>());
             set => _contexts = value;
         }
 
+        /// <summary>
+        /// Require branches to be up to date before merging. Defaults to `false`.
+        /// </summary>
         [Input("strict")]
         public Input<bool>? Strict { get; set; }
 

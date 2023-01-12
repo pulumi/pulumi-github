@@ -16,6 +16,10 @@ public final class GetDependabotOrganizationSecretsResult {
      * 
      */
     private String id;
+    /**
+     * @return list of secrets for the repository
+     * 
+     */
     private List<GetDependabotOrganizationSecretsSecret> secrets;
 
     private GetDependabotOrganizationSecretsResult() {}
@@ -26,6 +30,10 @@ public final class GetDependabotOrganizationSecretsResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return list of secrets for the repository
+     * 
+     */
     public List<GetDependabotOrganizationSecretsSecret> secrets() {
         return this.secrets;
     }

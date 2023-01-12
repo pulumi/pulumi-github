@@ -12,17 +12,27 @@ namespace Pulumi.Github.Inputs
 
     public sealed class ActionsOrganizationPermissionsAllowedActionsConfigArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Whether GitHub-owned actions are allowed in the organization.
+        /// </summary>
         [Input("githubOwnedAllowed", required: true)]
         public Input<bool> GithubOwnedAllowed { get; set; } = null!;
 
         [Input("patternsAlloweds")]
         private InputList<string>? _patternsAlloweds;
+
+        /// <summary>
+        /// Specifies a list of string-matching patterns to allow specific action(s). Wildcards, tags, and SHAs are allowed. For example, monalisa/octocat@*, monalisa/octocat@v2, monalisa/*."
+        /// </summary>
         public InputList<string> PatternsAlloweds
         {
             get => _patternsAlloweds ?? (_patternsAlloweds = new InputList<string>());
             set => _patternsAlloweds = value;
         }
 
+        /// <summary>
+        /// Whether actions in GitHub Marketplace from verified creators are allowed. Set to true to allow all GitHub Marketplace actions by verified creators.
+        /// </summary>
         [Input("verifiedAllowed")]
         public Input<bool>? VerifiedAllowed { get; set; }
 

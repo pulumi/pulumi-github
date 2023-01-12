@@ -16,23 +16,49 @@ public final class BranchProtectionV3RestrictionsArgs extends com.pulumi.resourc
 
     public static final BranchProtectionV3RestrictionsArgs Empty = new BranchProtectionV3RestrictionsArgs();
 
+    /**
+     * The list of app slugs with push access.
+     * 
+     */
     @Import(name="apps")
     private @Nullable Output<List<String>> apps;
 
+    /**
+     * @return The list of app slugs with push access.
+     * 
+     */
     public Optional<Output<List<String>>> apps() {
         return Optional.ofNullable(this.apps);
     }
 
+    /**
+     * The list of team slugs with push access.
+     * Always use `slug` of the team, **not** its name. Each team already **has** to have access to the repository.
+     * 
+     */
     @Import(name="teams")
     private @Nullable Output<List<String>> teams;
 
+    /**
+     * @return The list of team slugs with push access.
+     * Always use `slug` of the team, **not** its name. Each team already **has** to have access to the repository.
+     * 
+     */
     public Optional<Output<List<String>>> teams() {
         return Optional.ofNullable(this.teams);
     }
 
+    /**
+     * The list of user logins with push access.
+     * 
+     */
     @Import(name="users")
     private @Nullable Output<List<String>> users;
 
+    /**
+     * @return The list of user logins with push access.
+     * 
+     */
     public Optional<Output<List<String>>> users() {
         return Optional.ofNullable(this.users);
     }
@@ -63,41 +89,98 @@ public final class BranchProtectionV3RestrictionsArgs extends com.pulumi.resourc
             $ = new BranchProtectionV3RestrictionsArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param apps The list of app slugs with push access.
+         * 
+         * @return builder
+         * 
+         */
         public Builder apps(@Nullable Output<List<String>> apps) {
             $.apps = apps;
             return this;
         }
 
+        /**
+         * @param apps The list of app slugs with push access.
+         * 
+         * @return builder
+         * 
+         */
         public Builder apps(List<String> apps) {
             return apps(Output.of(apps));
         }
 
+        /**
+         * @param apps The list of app slugs with push access.
+         * 
+         * @return builder
+         * 
+         */
         public Builder apps(String... apps) {
             return apps(List.of(apps));
         }
 
+        /**
+         * @param teams The list of team slugs with push access.
+         * Always use `slug` of the team, **not** its name. Each team already **has** to have access to the repository.
+         * 
+         * @return builder
+         * 
+         */
         public Builder teams(@Nullable Output<List<String>> teams) {
             $.teams = teams;
             return this;
         }
 
+        /**
+         * @param teams The list of team slugs with push access.
+         * Always use `slug` of the team, **not** its name. Each team already **has** to have access to the repository.
+         * 
+         * @return builder
+         * 
+         */
         public Builder teams(List<String> teams) {
             return teams(Output.of(teams));
         }
 
+        /**
+         * @param teams The list of team slugs with push access.
+         * Always use `slug` of the team, **not** its name. Each team already **has** to have access to the repository.
+         * 
+         * @return builder
+         * 
+         */
         public Builder teams(String... teams) {
             return teams(List.of(teams));
         }
 
+        /**
+         * @param users The list of user logins with push access.
+         * 
+         * @return builder
+         * 
+         */
         public Builder users(@Nullable Output<List<String>> users) {
             $.users = users;
             return this;
         }
 
+        /**
+         * @param users The list of user logins with push access.
+         * 
+         * @return builder
+         * 
+         */
         public Builder users(List<String> users) {
             return users(Output.of(users));
         }
 
+        /**
+         * @param users The list of user logins with push access.
+         * 
+         * @return builder
+         * 
+         */
         public Builder users(String... users) {
             return users(List.of(users));
         }

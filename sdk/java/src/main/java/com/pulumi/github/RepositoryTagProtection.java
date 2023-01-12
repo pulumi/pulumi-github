@@ -14,17 +14,76 @@ import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
 
+/**
+ * This resource allows you to create and manage a repository tag protection for repositories within your GitHub organization or personal account.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.github.RepositoryTagProtection;
+ * import com.pulumi.github.RepositoryTagProtectionArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new RepositoryTagProtection(&#34;example&#34;, RepositoryTagProtectionArgs.builder()        
+ *             .pattern(&#34;v*&#34;)
+ *             .repository(&#34;example-repository&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * Repository tag protections can be imported using the `name` of the repository, combined with the `id` of the tag protection, separated by a `/` character. The `id` of the tag protection can be found using the [GitHub API](https://docs.github.com/en/rest/repos/tags#list-tag-protection-states-for-a-repository). Importing uses the name of the repository, as well as the ID of the tag protection, e.g.
+ * 
+ * ```sh
+ *  $ pulumi import github:index/repositoryTagProtection:RepositoryTagProtection terraform my-repo/31077
+ * ```
+ * 
+ */
 @ResourceType(type="github:index/repositoryTagProtection:RepositoryTagProtection")
 public class RepositoryTagProtection extends com.pulumi.resources.CustomResource {
+    /**
+     * The pattern of the tag to protect.
+     * 
+     */
     @Export(name="pattern", type=String.class, parameters={})
     private Output<String> pattern;
 
+    /**
+     * @return The pattern of the tag to protect.
+     * 
+     */
     public Output<String> pattern() {
         return this.pattern;
     }
+    /**
+     * Name of the repository to add the tag protection to.
+     * 
+     */
     @Export(name="repository", type=String.class, parameters={})
     private Output<String> repository;
 
+    /**
+     * @return Name of the repository to add the tag protection to.
+     * 
+     */
     public Output<String> repository() {
         return this.repository;
     }

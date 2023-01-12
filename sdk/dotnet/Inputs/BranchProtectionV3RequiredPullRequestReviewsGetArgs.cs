@@ -12,11 +12,19 @@ namespace Pulumi.Github.Inputs
 
     public sealed class BranchProtectionV3RequiredPullRequestReviewsGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Dismiss approved reviews automatically when a new commit is pushed. Defaults to `false`.
+        /// </summary>
         [Input("dismissStaleReviews")]
         public Input<bool>? DismissStaleReviews { get; set; }
 
         [Input("dismissalTeams")]
         private InputList<string>? _dismissalTeams;
+
+        /// <summary>
+        /// The list of team slugs with dismissal access.
+        /// Always use `slug` of the team, **not** its name. Each team already **has** to have access to the repository.
+        /// </summary>
         public InputList<string> DismissalTeams
         {
             get => _dismissalTeams ?? (_dismissalTeams = new InputList<string>());
@@ -25,6 +33,10 @@ namespace Pulumi.Github.Inputs
 
         [Input("dismissalUsers")]
         private InputList<string>? _dismissalUsers;
+
+        /// <summary>
+        /// The list of user logins with dismissal access
+        /// </summary>
         public InputList<string> DismissalUsers
         {
             get => _dismissalUsers ?? (_dismissalUsers = new InputList<string>());
@@ -34,9 +46,15 @@ namespace Pulumi.Github.Inputs
         [Input("includeAdmins")]
         public Input<bool>? IncludeAdmins { get; set; }
 
+        /// <summary>
+        /// Require an approved review in pull requests including files with a designated code owner. Defaults to `false`.
+        /// </summary>
         [Input("requireCodeOwnerReviews")]
         public Input<bool>? RequireCodeOwnerReviews { get; set; }
 
+        /// <summary>
+        /// Require x number of approvals to satisfy branch protection requirements. If this is specified it must be a number between 0-6. This requirement matches GitHub's API, see the upstream [documentation](https://developer.github.com/v3/repos/branches/#parameters-1) for more information.
+        /// </summary>
         [Input("requiredApprovingReviewCount")]
         public Input<int>? RequiredApprovingReviewCount { get; set; }
 

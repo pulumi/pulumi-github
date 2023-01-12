@@ -15,23 +15,47 @@ public final class GetRepositoryBranchesPlainArgs extends com.pulumi.resources.I
 
     public static final GetRepositoryBranchesPlainArgs Empty = new GetRepositoryBranchesPlainArgs();
 
+    /**
+     * . If true, the `branches` attributes will be populated only with non protected branches. Default: `false`.
+     * 
+     */
     @Import(name="onlyNonProtectedBranches")
     private @Nullable Boolean onlyNonProtectedBranches;
 
+    /**
+     * @return . If true, the `branches` attributes will be populated only with non protected branches. Default: `false`.
+     * 
+     */
     public Optional<Boolean> onlyNonProtectedBranches() {
         return Optional.ofNullable(this.onlyNonProtectedBranches);
     }
 
+    /**
+     * . If true, the `branches` attributes will be populated only with protected branches. Default: `false`.
+     * 
+     */
     @Import(name="onlyProtectedBranches")
     private @Nullable Boolean onlyProtectedBranches;
 
+    /**
+     * @return . If true, the `branches` attributes will be populated only with protected branches. Default: `false`.
+     * 
+     */
     public Optional<Boolean> onlyProtectedBranches() {
         return Optional.ofNullable(this.onlyProtectedBranches);
     }
 
+    /**
+     * Name of the repository to retrieve the branches from.
+     * 
+     */
     @Import(name="repository", required=true)
     private String repository;
 
+    /**
+     * @return Name of the repository to retrieve the branches from.
+     * 
+     */
     public String repository() {
         return this.repository;
     }
@@ -62,16 +86,34 @@ public final class GetRepositoryBranchesPlainArgs extends com.pulumi.resources.I
             $ = new GetRepositoryBranchesPlainArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param onlyNonProtectedBranches . If true, the `branches` attributes will be populated only with non protected branches. Default: `false`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder onlyNonProtectedBranches(@Nullable Boolean onlyNonProtectedBranches) {
             $.onlyNonProtectedBranches = onlyNonProtectedBranches;
             return this;
         }
 
+        /**
+         * @param onlyProtectedBranches . If true, the `branches` attributes will be populated only with protected branches. Default: `false`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder onlyProtectedBranches(@Nullable Boolean onlyProtectedBranches) {
             $.onlyProtectedBranches = onlyProtectedBranches;
             return this;
         }
 
+        /**
+         * @param repository Name of the repository to retrieve the branches from.
+         * 
+         * @return builder
+         * 
+         */
         public Builder repository(String repository) {
             $.repository = repository;
             return this;

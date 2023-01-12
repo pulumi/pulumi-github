@@ -16,16 +16,32 @@ public final class RepositoryTagProtectionState extends com.pulumi.resources.Res
 
     public static final RepositoryTagProtectionState Empty = new RepositoryTagProtectionState();
 
+    /**
+     * The pattern of the tag to protect.
+     * 
+     */
     @Import(name="pattern")
     private @Nullable Output<String> pattern;
 
+    /**
+     * @return The pattern of the tag to protect.
+     * 
+     */
     public Optional<Output<String>> pattern() {
         return Optional.ofNullable(this.pattern);
     }
 
+    /**
+     * Name of the repository to add the tag protection to.
+     * 
+     */
     @Import(name="repository")
     private @Nullable Output<String> repository;
 
+    /**
+     * @return Name of the repository to add the tag protection to.
+     * 
+     */
     public Optional<Output<String>> repository() {
         return Optional.ofNullable(this.repository);
     }
@@ -63,20 +79,44 @@ public final class RepositoryTagProtectionState extends com.pulumi.resources.Res
             $ = new RepositoryTagProtectionState(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param pattern The pattern of the tag to protect.
+         * 
+         * @return builder
+         * 
+         */
         public Builder pattern(@Nullable Output<String> pattern) {
             $.pattern = pattern;
             return this;
         }
 
+        /**
+         * @param pattern The pattern of the tag to protect.
+         * 
+         * @return builder
+         * 
+         */
         public Builder pattern(String pattern) {
             return pattern(Output.of(pattern));
         }
 
+        /**
+         * @param repository Name of the repository to add the tag protection to.
+         * 
+         * @return builder
+         * 
+         */
         public Builder repository(@Nullable Output<String> repository) {
             $.repository = repository;
             return this;
         }
 
+        /**
+         * @param repository Name of the repository to add the tag protection to.
+         * 
+         * @return builder
+         * 
+         */
         public Builder repository(String repository) {
             return repository(Output.of(repository));
         }

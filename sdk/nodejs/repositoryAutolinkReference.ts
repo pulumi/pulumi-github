@@ -4,6 +4,36 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * This resource allows you to create and manage an autolink reference for a single repository.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const repo = new github.Repository("repo", {
+ *     description: "GitHub repo managed by Terraform",
+ *     "private": false,
+ * });
+ * const autolink = new github.RepositoryAutolinkReference("autolink", {
+ *     repository: repo.name,
+ *     keyPrefix: "TICKET-",
+ *     targetUrlTemplate: "https://example.com/TICKET?query=<num>",
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * Autolink references can be imported using the `name` of the repository, combined with the `id` of the autolink reference and a `/` character for separating components, e.g.
+ *
+ * ```sh
+ *  $ pulumi import github:index/repositoryAutolinkReference:RepositoryAutolinkReference auto my-repo/123
+ * ```
+ *
+ *  See the GitHub documentation for how to [list all autolinks of a repository](https://docs.github.com/en/rest/repos/autolinks#list-all-autolinks-of-a-repository) to learn the autolink ids to use with the import command.
+ */
 export class RepositoryAutolinkReference extends pulumi.CustomResource {
     /**
      * Get an existing RepositoryAutolinkReference resource's state with the given name, ID, and optional extra
@@ -32,18 +62,20 @@ export class RepositoryAutolinkReference extends pulumi.CustomResource {
         return obj['__pulumiType'] === RepositoryAutolinkReference.__pulumiType;
     }
 
+    /**
+     * An etag representing the autolink reference object.
+     */
     public /*out*/ readonly etag!: pulumi.Output<string>;
     /**
-     * Whether this autolink reference matches alphanumeric characters. If false, this autolink reference only matches numeric
-     * characters.
+     * Whether this autolink reference matches alphanumeric characters. If false, this autolink reference only matches numeric characters. Default is true.
      */
     public readonly isAlphanumeric!: pulumi.Output<boolean | undefined>;
     /**
-     * This prefix appended by a number will generate a link any time it is found in an issue, pull request, or commit
+     * This prefix appended by a number will generate a link any time it is found in an issue, pull request, or commit.
      */
     public readonly keyPrefix!: pulumi.Output<string>;
     /**
-     * The repository name
+     * The repository of the autolink reference.
      */
     public readonly repository!: pulumi.Output<string>;
     /**
@@ -95,18 +127,20 @@ export class RepositoryAutolinkReference extends pulumi.CustomResource {
  * Input properties used for looking up and filtering RepositoryAutolinkReference resources.
  */
 export interface RepositoryAutolinkReferenceState {
+    /**
+     * An etag representing the autolink reference object.
+     */
     etag?: pulumi.Input<string>;
     /**
-     * Whether this autolink reference matches alphanumeric characters. If false, this autolink reference only matches numeric
-     * characters.
+     * Whether this autolink reference matches alphanumeric characters. If false, this autolink reference only matches numeric characters. Default is true.
      */
     isAlphanumeric?: pulumi.Input<boolean>;
     /**
-     * This prefix appended by a number will generate a link any time it is found in an issue, pull request, or commit
+     * This prefix appended by a number will generate a link any time it is found in an issue, pull request, or commit.
      */
     keyPrefix?: pulumi.Input<string>;
     /**
-     * The repository name
+     * The repository of the autolink reference.
      */
     repository?: pulumi.Input<string>;
     /**
@@ -120,16 +154,15 @@ export interface RepositoryAutolinkReferenceState {
  */
 export interface RepositoryAutolinkReferenceArgs {
     /**
-     * Whether this autolink reference matches alphanumeric characters. If false, this autolink reference only matches numeric
-     * characters.
+     * Whether this autolink reference matches alphanumeric characters. If false, this autolink reference only matches numeric characters. Default is true.
      */
     isAlphanumeric?: pulumi.Input<boolean>;
     /**
-     * This prefix appended by a number will generate a link any time it is found in an issue, pull request, or commit
+     * This prefix appended by a number will generate a link any time it is found in an issue, pull request, or commit.
      */
     keyPrefix: pulumi.Input<string>;
     /**
-     * The repository name
+     * The repository of the autolink reference.
      */
     repository: pulumi.Input<string>;
     /**

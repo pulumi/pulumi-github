@@ -11,25 +11,65 @@ import java.util.Objects;
 
 @CustomType
 public final class GetOrganizationWebhooksWebhook {
+    /**
+     * @return `true` if the webhook is active.
+     * 
+     */
     private Boolean active;
+    /**
+     * @return the ID of the webhook.
+     * 
+     */
     private Integer id;
+    /**
+     * @return the name of the webhook.
+     * 
+     */
     private String name;
+    /**
+     * @return the type of the webhook.
+     * 
+     */
     private String type;
+    /**
+     * @return the url of the webhook.
+     * 
+     */
     private String url;
 
     private GetOrganizationWebhooksWebhook() {}
+    /**
+     * @return `true` if the webhook is active.
+     * 
+     */
     public Boolean active() {
         return this.active;
     }
+    /**
+     * @return the ID of the webhook.
+     * 
+     */
     public Integer id() {
         return this.id;
     }
+    /**
+     * @return the name of the webhook.
+     * 
+     */
     public String name() {
         return this.name;
     }
+    /**
+     * @return the type of the webhook.
+     * 
+     */
     public String type() {
         return this.type;
     }
+    /**
+     * @return the url of the webhook.
+     * 
+     */
     public String url() {
         return this.url;
     }

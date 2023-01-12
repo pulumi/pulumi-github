@@ -42,6 +42,9 @@ class GetTreeResult:
     @property
     @pulumi.getter
     def entries(self) -> Sequence['outputs.GetTreeEntryResult']:
+        """
+        Objects (of `path`, `mode`, `type`, `size`, and `sha`) specifying a tree structure.
+        """
         return pulumi.get(self, "entries")
 
     @property
@@ -86,7 +89,27 @@ def get_tree(recursive: Optional[bool] = None,
              tree_sha: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTreeResult:
     """
-    Use this data source to access information about an existing resource.
+    Use this data source to retrieve information about a single tree.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_github as github
+
+    this_repository = github.get_repository(name="example")
+    this_branch = github.get_branch(branch=this_repository.default_branch,
+        repository=this_repository.name)
+    this_tree = github.get_tree(recursive=False,
+        repository=this_repository.name,
+        tree_sha=this_branch.sha)
+    pulumi.export("entries", this_tree.entries)
+    ```
+
+
+    :param bool recursive: Setting this parameter to `true` returns the objects or subtrees referenced by the tree specified in `tree_sha`.
+    :param str repository: The name of the repository.
+    :param str tree_sha: The SHA1 value for the tree.
     """
     __args__ = dict()
     __args__['recursive'] = recursive
@@ -109,6 +132,26 @@ def get_tree_output(recursive: Optional[pulumi.Input[Optional[bool]]] = None,
                     tree_sha: Optional[pulumi.Input[str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTreeResult]:
     """
-    Use this data source to access information about an existing resource.
+    Use this data source to retrieve information about a single tree.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_github as github
+
+    this_repository = github.get_repository(name="example")
+    this_branch = github.get_branch(branch=this_repository.default_branch,
+        repository=this_repository.name)
+    this_tree = github.get_tree(recursive=False,
+        repository=this_repository.name,
+        tree_sha=this_branch.sha)
+    pulumi.export("entries", this_tree.entries)
+    ```
+
+
+    :param bool recursive: Setting this parameter to `true` returns the objects or subtrees referenced by the tree specified in `tree_sha`.
+    :param str repository: The name of the repository.
+    :param str tree_sha: The SHA1 value for the tree.
     """
     ...

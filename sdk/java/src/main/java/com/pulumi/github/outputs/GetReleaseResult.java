@@ -15,47 +15,155 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetReleaseResult {
+    /**
+     * @return **Deprecated**: Use `assets_url` resource instead
+     * 
+     * @deprecated
+     * use assets_url instead
+     * 
+     */
+    @Deprecated /* use assets_url instead */
     private String assertsUrl;
+    /**
+     * @return Collection of assets for the release. Each asset conforms to the following schema:
+     * 
+     */
     private List<GetReleaseAsset> assets;
+    /**
+     * @return URL of any associated assets with the release
+     * 
+     */
+    private String assetsUrl;
+    /**
+     * @return Contents of the description (body) of a release
+     * 
+     */
     private String body;
+    /**
+     * @return Date the asset was created
+     * 
+     */
     private String createdAt;
+    /**
+     * @return (`Boolean`) indicates whether the release is a draft
+     * 
+     */
     private Boolean draft;
+    /**
+     * @return URL directing to detailed information on the release
+     * 
+     */
     private String htmlUrl;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
+    /**
+     * @return The file name of the asset
+     * 
+     */
     private String name;
     private String owner;
+    /**
+     * @return (`Boolean`) indicates whether the release is a prerelease
+     * 
+     */
     private Boolean prerelease;
+    /**
+     * @return Date of release publishing
+     * 
+     */
     private String publishedAt;
+    /**
+     * @return ID of release
+     * 
+     */
     private @Nullable Integer releaseId;
+    /**
+     * @return Tag of release
+     * 
+     */
     private @Nullable String releaseTag;
     private String repository;
     private String retrieveBy;
+    /**
+     * @return Download URL of a specific release in `tar.gz` format
+     * 
+     */
     private String tarballUrl;
+    /**
+     * @return Commitish value that determines where the Git release is created from
+     * 
+     */
     private String targetCommitish;
+    /**
+     * @return URL that can be used to upload Assets to the release
+     * 
+     */
     private String uploadUrl;
+    /**
+     * @return URL of the asset
+     * 
+     */
     private String url;
+    /**
+     * @return Download URL of a specific release in `zip` format
+     * 
+     */
     private String zipballUrl;
 
     private GetReleaseResult() {}
+    /**
+     * @return **Deprecated**: Use `assets_url` resource instead
+     * 
+     * @deprecated
+     * use assets_url instead
+     * 
+     */
+    @Deprecated /* use assets_url instead */
     public String assertsUrl() {
         return this.assertsUrl;
     }
+    /**
+     * @return Collection of assets for the release. Each asset conforms to the following schema:
+     * 
+     */
     public List<GetReleaseAsset> assets() {
         return this.assets;
     }
+    /**
+     * @return URL of any associated assets with the release
+     * 
+     */
+    public String assetsUrl() {
+        return this.assetsUrl;
+    }
+    /**
+     * @return Contents of the description (body) of a release
+     * 
+     */
     public String body() {
         return this.body;
     }
+    /**
+     * @return Date the asset was created
+     * 
+     */
     public String createdAt() {
         return this.createdAt;
     }
+    /**
+     * @return (`Boolean`) indicates whether the release is a draft
+     * 
+     */
     public Boolean draft() {
         return this.draft;
     }
+    /**
+     * @return URL directing to detailed information on the release
+     * 
+     */
     public String htmlUrl() {
         return this.htmlUrl;
     }
@@ -66,21 +174,41 @@ public final class GetReleaseResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return The file name of the asset
+     * 
+     */
     public String name() {
         return this.name;
     }
     public String owner() {
         return this.owner;
     }
+    /**
+     * @return (`Boolean`) indicates whether the release is a prerelease
+     * 
+     */
     public Boolean prerelease() {
         return this.prerelease;
     }
+    /**
+     * @return Date of release publishing
+     * 
+     */
     public String publishedAt() {
         return this.publishedAt;
     }
+    /**
+     * @return ID of release
+     * 
+     */
     public Optional<Integer> releaseId() {
         return Optional.ofNullable(this.releaseId);
     }
+    /**
+     * @return Tag of release
+     * 
+     */
     public Optional<String> releaseTag() {
         return Optional.ofNullable(this.releaseTag);
     }
@@ -90,18 +218,38 @@ public final class GetReleaseResult {
     public String retrieveBy() {
         return this.retrieveBy;
     }
+    /**
+     * @return Download URL of a specific release in `tar.gz` format
+     * 
+     */
     public String tarballUrl() {
         return this.tarballUrl;
     }
+    /**
+     * @return Commitish value that determines where the Git release is created from
+     * 
+     */
     public String targetCommitish() {
         return this.targetCommitish;
     }
+    /**
+     * @return URL that can be used to upload Assets to the release
+     * 
+     */
     public String uploadUrl() {
         return this.uploadUrl;
     }
+    /**
+     * @return URL of the asset
+     * 
+     */
     public String url() {
         return this.url;
     }
+    /**
+     * @return Download URL of a specific release in `zip` format
+     * 
+     */
     public String zipballUrl() {
         return this.zipballUrl;
     }
@@ -117,6 +265,7 @@ public final class GetReleaseResult {
     public static final class Builder {
         private String assertsUrl;
         private List<GetReleaseAsset> assets;
+        private String assetsUrl;
         private String body;
         private String createdAt;
         private Boolean draft;
@@ -140,6 +289,7 @@ public final class GetReleaseResult {
     	      Objects.requireNonNull(defaults);
     	      this.assertsUrl = defaults.assertsUrl;
     	      this.assets = defaults.assets;
+    	      this.assetsUrl = defaults.assetsUrl;
     	      this.body = defaults.body;
     	      this.createdAt = defaults.createdAt;
     	      this.draft = defaults.draft;
@@ -172,6 +322,11 @@ public final class GetReleaseResult {
         }
         public Builder assets(GetReleaseAsset... assets) {
             return assets(List.of(assets));
+        }
+        @CustomType.Setter
+        public Builder assetsUrl(String assetsUrl) {
+            this.assetsUrl = Objects.requireNonNull(assetsUrl);
+            return this;
         }
         @CustomType.Setter
         public Builder body(String body) {
@@ -267,6 +422,7 @@ public final class GetReleaseResult {
             final var o = new GetReleaseResult();
             o.assertsUrl = assertsUrl;
             o.assets = assets;
+            o.assetsUrl = assetsUrl;
             o.body = body;
             o.createdAt = createdAt;
             o.draft = draft;

@@ -13,9 +13,17 @@ public final class GetActionsPublicKeyArgs extends com.pulumi.resources.InvokeAr
 
     public static final GetActionsPublicKeyArgs Empty = new GetActionsPublicKeyArgs();
 
+    /**
+     * Name of the repository to get public key from.
+     * 
+     */
     @Import(name="repository", required=true)
     private Output<String> repository;
 
+    /**
+     * @return Name of the repository to get public key from.
+     * 
+     */
     public Output<String> repository() {
         return this.repository;
     }
@@ -44,11 +52,23 @@ public final class GetActionsPublicKeyArgs extends com.pulumi.resources.InvokeAr
             $ = new GetActionsPublicKeyArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param repository Name of the repository to get public key from.
+         * 
+         * @return builder
+         * 
+         */
         public Builder repository(Output<String> repository) {
             $.repository = repository;
             return this;
         }
 
+        /**
+         * @param repository Name of the repository to get public key from.
+         * 
+         * @return builder
+         * 
+         */
         public Builder repository(String repository) {
             return repository(Output.of(repository));
         }

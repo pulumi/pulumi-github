@@ -11,37 +11,101 @@ import java.util.Objects;
 
 @CustomType
 public final class GetOrganizationTeamsTeam {
+    /**
+     * @return the team&#39;s description.
+     * 
+     */
     private String description;
+    /**
+     * @return the ID of the team.
+     * 
+     */
     private Integer id;
+    /**
+     * @return List of team members. Not returned if `summary_only = true`
+     * 
+     */
     private List<String> members;
+    /**
+     * @return the team&#39;s full name.
+     * 
+     */
     private String name;
+    /**
+     * @return the Node ID of the team.
+     * 
+     */
     private String nodeId;
+    /**
+     * @return the team&#39;s privacy type.
+     * 
+     */
     private String privacy;
+    /**
+     * @return List of team repositories. Not returned if `summary_only = true`
+     * 
+     */
     private List<String> repositories;
+    /**
+     * @return the slug of the team.
+     * 
+     */
     private String slug;
 
     private GetOrganizationTeamsTeam() {}
+    /**
+     * @return the team&#39;s description.
+     * 
+     */
     public String description() {
         return this.description;
     }
+    /**
+     * @return the ID of the team.
+     * 
+     */
     public Integer id() {
         return this.id;
     }
+    /**
+     * @return List of team members. Not returned if `summary_only = true`
+     * 
+     */
     public List<String> members() {
         return this.members;
     }
+    /**
+     * @return the team&#39;s full name.
+     * 
+     */
     public String name() {
         return this.name;
     }
+    /**
+     * @return the Node ID of the team.
+     * 
+     */
     public String nodeId() {
         return this.nodeId;
     }
+    /**
+     * @return the team&#39;s privacy type.
+     * 
+     */
     public String privacy() {
         return this.privacy;
     }
+    /**
+     * @return List of team repositories. Not returned if `summary_only = true`
+     * 
+     */
     public List<String> repositories() {
         return this.repositories;
     }
+    /**
+     * @return the slug of the team.
+     * 
+     */
     public String slug() {
         return this.slug;
     }

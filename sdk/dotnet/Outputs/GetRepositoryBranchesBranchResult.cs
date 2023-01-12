@@ -13,7 +13,13 @@ namespace Pulumi.Github.Outputs
     [OutputType]
     public sealed class GetRepositoryBranchesBranchResult
     {
+        /// <summary>
+        /// Name of the branch.
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Whether the branch is protected.
+        /// </summary>
         public readonly bool Protected;
 
         [OutputConstructor]

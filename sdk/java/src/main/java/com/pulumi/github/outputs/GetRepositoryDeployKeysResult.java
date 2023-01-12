@@ -16,6 +16,10 @@ public final class GetRepositoryDeployKeysResult {
      * 
      */
     private String id;
+    /**
+     * @return The list of this repository&#39;s deploy keys. Each element of `keys` has the following attributes:
+     * 
+     */
     private List<GetRepositoryDeployKeysKey> keys;
     private String repository;
 
@@ -27,6 +31,10 @@ public final class GetRepositoryDeployKeysResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return The list of this repository&#39;s deploy keys. Each element of `keys` has the following attributes:
+     * 
+     */
     public List<GetRepositoryDeployKeysKey> keys() {
         return this.keys;
     }

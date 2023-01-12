@@ -13,9 +13,21 @@ namespace Pulumi.Github.Outputs
     [OutputType]
     public sealed class GetRepositoryDeployKeysKeyResult
     {
+        /// <summary>
+        /// Key id
+        /// </summary>
         public readonly int Id;
+        /// <summary>
+        /// Key itself
+        /// </summary>
         public readonly string Key;
+        /// <summary>
+        /// Key title
+        /// </summary>
         public readonly string Title;
+        /// <summary>
+        /// `true` if the key was verified.
+        /// </summary>
         public readonly bool Verified;
 
         [OutputConstructor]

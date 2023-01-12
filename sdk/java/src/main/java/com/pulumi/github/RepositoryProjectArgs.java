@@ -15,23 +15,47 @@ public final class RepositoryProjectArgs extends com.pulumi.resources.ResourceAr
 
     public static final RepositoryProjectArgs Empty = new RepositoryProjectArgs();
 
+    /**
+     * The body of the project.
+     * 
+     */
     @Import(name="body")
     private @Nullable Output<String> body;
 
+    /**
+     * @return The body of the project.
+     * 
+     */
     public Optional<Output<String>> body() {
         return Optional.ofNullable(this.body);
     }
 
+    /**
+     * The name of the project.
+     * 
+     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
+    /**
+     * @return The name of the project.
+     * 
+     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
+    /**
+     * The repository of the project.
+     * 
+     */
     @Import(name="repository", required=true)
     private Output<String> repository;
 
+    /**
+     * @return The repository of the project.
+     * 
+     */
     public Output<String> repository() {
         return this.repository;
     }
@@ -62,29 +86,65 @@ public final class RepositoryProjectArgs extends com.pulumi.resources.ResourceAr
             $ = new RepositoryProjectArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param body The body of the project.
+         * 
+         * @return builder
+         * 
+         */
         public Builder body(@Nullable Output<String> body) {
             $.body = body;
             return this;
         }
 
+        /**
+         * @param body The body of the project.
+         * 
+         * @return builder
+         * 
+         */
         public Builder body(String body) {
             return body(Output.of(body));
         }
 
+        /**
+         * @param name The name of the project.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param name The name of the project.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
+        /**
+         * @param repository The repository of the project.
+         * 
+         * @return builder
+         * 
+         */
         public Builder repository(Output<String> repository) {
             $.repository = repository;
             return this;
         }
 
+        /**
+         * @param repository The repository of the project.
+         * 
+         * @return builder
+         * 
+         */
         public Builder repository(String repository) {
             return repository(Output.of(repository));
         }

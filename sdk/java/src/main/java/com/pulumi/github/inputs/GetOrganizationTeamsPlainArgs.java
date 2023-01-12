@@ -15,23 +15,47 @@ public final class GetOrganizationTeamsPlainArgs extends com.pulumi.resources.In
 
     public static final GetOrganizationTeamsPlainArgs Empty = new GetOrganizationTeamsPlainArgs();
 
+    /**
+     * (Optional) Set the number of results per graphql query. Reducing this number can alleviate timeout errors. Accepts a value between 0 - 100. Defaults to `100`.
+     * 
+     */
     @Import(name="resultsPerPage")
     private @Nullable Integer resultsPerPage;
 
+    /**
+     * @return (Optional) Set the number of results per graphql query. Reducing this number can alleviate timeout errors. Accepts a value between 0 - 100. Defaults to `100`.
+     * 
+     */
     public Optional<Integer> resultsPerPage() {
         return Optional.ofNullable(this.resultsPerPage);
     }
 
+    /**
+     * (Optional) Only return teams that are at the organization&#39;s root, i.e. no nested teams. Defaults to `false`.
+     * 
+     */
     @Import(name="rootTeamsOnly")
     private @Nullable Boolean rootTeamsOnly;
 
+    /**
+     * @return (Optional) Only return teams that are at the organization&#39;s root, i.e. no nested teams. Defaults to `false`.
+     * 
+     */
     public Optional<Boolean> rootTeamsOnly() {
         return Optional.ofNullable(this.rootTeamsOnly);
     }
 
+    /**
+     * (Optional) Exclude the members and repositories of the team from the returned result. Defaults to `false`.
+     * 
+     */
     @Import(name="summaryOnly")
     private @Nullable Boolean summaryOnly;
 
+    /**
+     * @return (Optional) Exclude the members and repositories of the team from the returned result. Defaults to `false`.
+     * 
+     */
     public Optional<Boolean> summaryOnly() {
         return Optional.ofNullable(this.summaryOnly);
     }
@@ -62,16 +86,34 @@ public final class GetOrganizationTeamsPlainArgs extends com.pulumi.resources.In
             $ = new GetOrganizationTeamsPlainArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param resultsPerPage (Optional) Set the number of results per graphql query. Reducing this number can alleviate timeout errors. Accepts a value between 0 - 100. Defaults to `100`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder resultsPerPage(@Nullable Integer resultsPerPage) {
             $.resultsPerPage = resultsPerPage;
             return this;
         }
 
+        /**
+         * @param rootTeamsOnly (Optional) Only return teams that are at the organization&#39;s root, i.e. no nested teams. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder rootTeamsOnly(@Nullable Boolean rootTeamsOnly) {
             $.rootTeamsOnly = rootTeamsOnly;
             return this;
         }
 
+        /**
+         * @param summaryOnly (Optional) Exclude the members and repositories of the team from the returned result. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder summaryOnly(@Nullable Boolean summaryOnly) {
             $.summaryOnly = summaryOnly;
             return this;

@@ -18,44 +18,109 @@ public final class BranchProtectionRequiredPullRequestReviewArgs extends com.pul
 
     public static final BranchProtectionRequiredPullRequestReviewArgs Empty = new BranchProtectionRequiredPullRequestReviewArgs();
 
+    /**
+     * Dismiss approved reviews automatically when a new commit is pushed. Defaults to `false`.
+     * 
+     */
     @Import(name="dismissStaleReviews")
     private @Nullable Output<Boolean> dismissStaleReviews;
 
+    /**
+     * @return Dismiss approved reviews automatically when a new commit is pushed. Defaults to `false`.
+     * 
+     */
     public Optional<Output<Boolean>> dismissStaleReviews() {
         return Optional.ofNullable(this.dismissStaleReviews);
     }
 
+    /**
+     * The list of actor Names/IDs with dismissal access. If not empty, `restrict_dismissals` is ignored. Actor names must either begin with a &#34;/&#34; for users or the organization name followed by a &#34;/&#34; for teams.
+     * 
+     */
     @Import(name="dismissalRestrictions")
     private @Nullable Output<List<String>> dismissalRestrictions;
 
+    /**
+     * @return The list of actor Names/IDs with dismissal access. If not empty, `restrict_dismissals` is ignored. Actor names must either begin with a &#34;/&#34; for users or the organization name followed by a &#34;/&#34; for teams.
+     * 
+     */
     public Optional<Output<List<String>>> dismissalRestrictions() {
         return Optional.ofNullable(this.dismissalRestrictions);
     }
 
+    /**
+     * The list of actor Names/IDs that are allowed to bypass pull request requirements. Actor names must either begin with a &#34;/&#34; for users or the organization name followed by a &#34;/&#34; for teams.
+     * 
+     */
     @Import(name="pullRequestBypassers")
     private @Nullable Output<List<String>> pullRequestBypassers;
 
+    /**
+     * @return The list of actor Names/IDs that are allowed to bypass pull request requirements. Actor names must either begin with a &#34;/&#34; for users or the organization name followed by a &#34;/&#34; for teams.
+     * 
+     */
     public Optional<Output<List<String>>> pullRequestBypassers() {
         return Optional.ofNullable(this.pullRequestBypassers);
     }
 
+    /**
+     * Require an approved review in pull requests including files with a designated code owner. Defaults to `false`.
+     * 
+     */
     @Import(name="requireCodeOwnerReviews")
     private @Nullable Output<Boolean> requireCodeOwnerReviews;
 
+    /**
+     * @return Require an approved review in pull requests including files with a designated code owner. Defaults to `false`.
+     * 
+     */
     public Optional<Output<Boolean>> requireCodeOwnerReviews() {
         return Optional.ofNullable(this.requireCodeOwnerReviews);
     }
 
+    /**
+     * Require that The most recent push must be approved by someone other than the last pusher.  Defaults to `false`
+     * 
+     */
+    @Import(name="requireLastPushApproval")
+    private @Nullable Output<Boolean> requireLastPushApproval;
+
+    /**
+     * @return Require that The most recent push must be approved by someone other than the last pusher.  Defaults to `false`
+     * 
+     */
+    public Optional<Output<Boolean>> requireLastPushApproval() {
+        return Optional.ofNullable(this.requireLastPushApproval);
+    }
+
+    /**
+     * Require x number of approvals to satisfy branch protection requirements. If this is specified it must be a number between 0-6. This requirement matches GitHub&#39;s API, see the upstream [documentation](https://developer.github.com/v3/repos/branches/#parameters-1) for more information.
+     * (https://developer.github.com/v3/repos/branches/#parameters-1) for more information.
+     * 
+     */
     @Import(name="requiredApprovingReviewCount")
     private @Nullable Output<Integer> requiredApprovingReviewCount;
 
+    /**
+     * @return Require x number of approvals to satisfy branch protection requirements. If this is specified it must be a number between 0-6. This requirement matches GitHub&#39;s API, see the upstream [documentation](https://developer.github.com/v3/repos/branches/#parameters-1) for more information.
+     * (https://developer.github.com/v3/repos/branches/#parameters-1) for more information.
+     * 
+     */
     public Optional<Output<Integer>> requiredApprovingReviewCount() {
         return Optional.ofNullable(this.requiredApprovingReviewCount);
     }
 
+    /**
+     * Restrict pull request review dismissals.
+     * 
+     */
     @Import(name="restrictDismissals")
     private @Nullable Output<Boolean> restrictDismissals;
 
+    /**
+     * @return Restrict pull request review dismissals.
+     * 
+     */
     public Optional<Output<Boolean>> restrictDismissals() {
         return Optional.ofNullable(this.restrictDismissals);
     }
@@ -67,6 +132,7 @@ public final class BranchProtectionRequiredPullRequestReviewArgs extends com.pul
         this.dismissalRestrictions = $.dismissalRestrictions;
         this.pullRequestBypassers = $.pullRequestBypassers;
         this.requireCodeOwnerReviews = $.requireCodeOwnerReviews;
+        this.requireLastPushApproval = $.requireLastPushApproval;
         this.requiredApprovingReviewCount = $.requiredApprovingReviewCount;
         this.restrictDismissals = $.restrictDismissals;
     }
@@ -89,64 +155,171 @@ public final class BranchProtectionRequiredPullRequestReviewArgs extends com.pul
             $ = new BranchProtectionRequiredPullRequestReviewArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param dismissStaleReviews Dismiss approved reviews automatically when a new commit is pushed. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dismissStaleReviews(@Nullable Output<Boolean> dismissStaleReviews) {
             $.dismissStaleReviews = dismissStaleReviews;
             return this;
         }
 
+        /**
+         * @param dismissStaleReviews Dismiss approved reviews automatically when a new commit is pushed. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dismissStaleReviews(Boolean dismissStaleReviews) {
             return dismissStaleReviews(Output.of(dismissStaleReviews));
         }
 
+        /**
+         * @param dismissalRestrictions The list of actor Names/IDs with dismissal access. If not empty, `restrict_dismissals` is ignored. Actor names must either begin with a &#34;/&#34; for users or the organization name followed by a &#34;/&#34; for teams.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dismissalRestrictions(@Nullable Output<List<String>> dismissalRestrictions) {
             $.dismissalRestrictions = dismissalRestrictions;
             return this;
         }
 
+        /**
+         * @param dismissalRestrictions The list of actor Names/IDs with dismissal access. If not empty, `restrict_dismissals` is ignored. Actor names must either begin with a &#34;/&#34; for users or the organization name followed by a &#34;/&#34; for teams.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dismissalRestrictions(List<String> dismissalRestrictions) {
             return dismissalRestrictions(Output.of(dismissalRestrictions));
         }
 
+        /**
+         * @param dismissalRestrictions The list of actor Names/IDs with dismissal access. If not empty, `restrict_dismissals` is ignored. Actor names must either begin with a &#34;/&#34; for users or the organization name followed by a &#34;/&#34; for teams.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dismissalRestrictions(String... dismissalRestrictions) {
             return dismissalRestrictions(List.of(dismissalRestrictions));
         }
 
+        /**
+         * @param pullRequestBypassers The list of actor Names/IDs that are allowed to bypass pull request requirements. Actor names must either begin with a &#34;/&#34; for users or the organization name followed by a &#34;/&#34; for teams.
+         * 
+         * @return builder
+         * 
+         */
         public Builder pullRequestBypassers(@Nullable Output<List<String>> pullRequestBypassers) {
             $.pullRequestBypassers = pullRequestBypassers;
             return this;
         }
 
+        /**
+         * @param pullRequestBypassers The list of actor Names/IDs that are allowed to bypass pull request requirements. Actor names must either begin with a &#34;/&#34; for users or the organization name followed by a &#34;/&#34; for teams.
+         * 
+         * @return builder
+         * 
+         */
         public Builder pullRequestBypassers(List<String> pullRequestBypassers) {
             return pullRequestBypassers(Output.of(pullRequestBypassers));
         }
 
+        /**
+         * @param pullRequestBypassers The list of actor Names/IDs that are allowed to bypass pull request requirements. Actor names must either begin with a &#34;/&#34; for users or the organization name followed by a &#34;/&#34; for teams.
+         * 
+         * @return builder
+         * 
+         */
         public Builder pullRequestBypassers(String... pullRequestBypassers) {
             return pullRequestBypassers(List.of(pullRequestBypassers));
         }
 
+        /**
+         * @param requireCodeOwnerReviews Require an approved review in pull requests including files with a designated code owner. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder requireCodeOwnerReviews(@Nullable Output<Boolean> requireCodeOwnerReviews) {
             $.requireCodeOwnerReviews = requireCodeOwnerReviews;
             return this;
         }
 
+        /**
+         * @param requireCodeOwnerReviews Require an approved review in pull requests including files with a designated code owner. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder requireCodeOwnerReviews(Boolean requireCodeOwnerReviews) {
             return requireCodeOwnerReviews(Output.of(requireCodeOwnerReviews));
         }
 
+        /**
+         * @param requireLastPushApproval Require that The most recent push must be approved by someone other than the last pusher.  Defaults to `false`
+         * 
+         * @return builder
+         * 
+         */
+        public Builder requireLastPushApproval(@Nullable Output<Boolean> requireLastPushApproval) {
+            $.requireLastPushApproval = requireLastPushApproval;
+            return this;
+        }
+
+        /**
+         * @param requireLastPushApproval Require that The most recent push must be approved by someone other than the last pusher.  Defaults to `false`
+         * 
+         * @return builder
+         * 
+         */
+        public Builder requireLastPushApproval(Boolean requireLastPushApproval) {
+            return requireLastPushApproval(Output.of(requireLastPushApproval));
+        }
+
+        /**
+         * @param requiredApprovingReviewCount Require x number of approvals to satisfy branch protection requirements. If this is specified it must be a number between 0-6. This requirement matches GitHub&#39;s API, see the upstream [documentation](https://developer.github.com/v3/repos/branches/#parameters-1) for more information.
+         * (https://developer.github.com/v3/repos/branches/#parameters-1) for more information.
+         * 
+         * @return builder
+         * 
+         */
         public Builder requiredApprovingReviewCount(@Nullable Output<Integer> requiredApprovingReviewCount) {
             $.requiredApprovingReviewCount = requiredApprovingReviewCount;
             return this;
         }
 
+        /**
+         * @param requiredApprovingReviewCount Require x number of approvals to satisfy branch protection requirements. If this is specified it must be a number between 0-6. This requirement matches GitHub&#39;s API, see the upstream [documentation](https://developer.github.com/v3/repos/branches/#parameters-1) for more information.
+         * (https://developer.github.com/v3/repos/branches/#parameters-1) for more information.
+         * 
+         * @return builder
+         * 
+         */
         public Builder requiredApprovingReviewCount(Integer requiredApprovingReviewCount) {
             return requiredApprovingReviewCount(Output.of(requiredApprovingReviewCount));
         }
 
+        /**
+         * @param restrictDismissals Restrict pull request review dismissals.
+         * 
+         * @return builder
+         * 
+         */
         public Builder restrictDismissals(@Nullable Output<Boolean> restrictDismissals) {
             $.restrictDismissals = restrictDismissals;
             return this;
         }
 
+        /**
+         * @param restrictDismissals Restrict pull request review dismissals.
+         * 
+         * @return builder
+         * 
+         */
         public Builder restrictDismissals(Boolean restrictDismissals) {
             return restrictDismissals(Output.of(restrictDismissals));
         }

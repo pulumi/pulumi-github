@@ -9,17 +9,41 @@ import java.util.Objects;
 
 @CustomType
 public final class GetRepositoryTeamsTeam {
+    /**
+     * @return The name of the repository.
+     * 
+     */
     private String name;
+    /**
+     * @return Team permission
+     * 
+     */
     private String permission;
+    /**
+     * @return Team slug
+     * 
+     */
     private String slug;
 
     private GetRepositoryTeamsTeam() {}
+    /**
+     * @return The name of the repository.
+     * 
+     */
     public String name() {
         return this.name;
     }
+    /**
+     * @return Team permission
+     * 
+     */
     public String permission() {
         return this.permission;
     }
+    /**
+     * @return Team slug
+     * 
+     */
     public String slug() {
         return this.slug;
     }

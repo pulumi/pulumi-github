@@ -12,9 +12,17 @@ public final class GetOrganizationPlainArgs extends com.pulumi.resources.InvokeA
 
     public static final GetOrganizationPlainArgs Empty = new GetOrganizationPlainArgs();
 
+    /**
+     * The organization&#39;s public profile name
+     * 
+     */
     @Import(name="name", required=true)
     private String name;
 
+    /**
+     * @return The organization&#39;s public profile name
+     * 
+     */
     public String name() {
         return this.name;
     }
@@ -43,6 +51,12 @@ public final class GetOrganizationPlainArgs extends com.pulumi.resources.InvokeA
             $ = new GetOrganizationPlainArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param name The organization&#39;s public profile name
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             $.name = name;
             return this;

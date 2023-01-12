@@ -16,24 +16,30 @@ public final class RepositoryAutolinkReferenceState extends com.pulumi.resources
 
     public static final RepositoryAutolinkReferenceState Empty = new RepositoryAutolinkReferenceState();
 
+    /**
+     * An etag representing the autolink reference object.
+     * 
+     */
     @Import(name="etag")
     private @Nullable Output<String> etag;
 
+    /**
+     * @return An etag representing the autolink reference object.
+     * 
+     */
     public Optional<Output<String>> etag() {
         return Optional.ofNullable(this.etag);
     }
 
     /**
-     * Whether this autolink reference matches alphanumeric characters. If false, this autolink reference only matches numeric
-     * characters.
+     * Whether this autolink reference matches alphanumeric characters. If false, this autolink reference only matches numeric characters. Default is true.
      * 
      */
     @Import(name="isAlphanumeric")
     private @Nullable Output<Boolean> isAlphanumeric;
 
     /**
-     * @return Whether this autolink reference matches alphanumeric characters. If false, this autolink reference only matches numeric
-     * characters.
+     * @return Whether this autolink reference matches alphanumeric characters. If false, this autolink reference only matches numeric characters. Default is true.
      * 
      */
     public Optional<Output<Boolean>> isAlphanumeric() {
@@ -41,14 +47,14 @@ public final class RepositoryAutolinkReferenceState extends com.pulumi.resources
     }
 
     /**
-     * This prefix appended by a number will generate a link any time it is found in an issue, pull request, or commit
+     * This prefix appended by a number will generate a link any time it is found in an issue, pull request, or commit.
      * 
      */
     @Import(name="keyPrefix")
     private @Nullable Output<String> keyPrefix;
 
     /**
-     * @return This prefix appended by a number will generate a link any time it is found in an issue, pull request, or commit
+     * @return This prefix appended by a number will generate a link any time it is found in an issue, pull request, or commit.
      * 
      */
     public Optional<Output<String>> keyPrefix() {
@@ -56,14 +62,14 @@ public final class RepositoryAutolinkReferenceState extends com.pulumi.resources
     }
 
     /**
-     * The repository name
+     * The repository of the autolink reference.
      * 
      */
     @Import(name="repository")
     private @Nullable Output<String> repository;
 
     /**
-     * @return The repository name
+     * @return The repository of the autolink reference.
      * 
      */
     public Optional<Output<String>> repository() {
@@ -113,18 +119,29 @@ public final class RepositoryAutolinkReferenceState extends com.pulumi.resources
             $ = new RepositoryAutolinkReferenceState(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param etag An etag representing the autolink reference object.
+         * 
+         * @return builder
+         * 
+         */
         public Builder etag(@Nullable Output<String> etag) {
             $.etag = etag;
             return this;
         }
 
+        /**
+         * @param etag An etag representing the autolink reference object.
+         * 
+         * @return builder
+         * 
+         */
         public Builder etag(String etag) {
             return etag(Output.of(etag));
         }
 
         /**
-         * @param isAlphanumeric Whether this autolink reference matches alphanumeric characters. If false, this autolink reference only matches numeric
-         * characters.
+         * @param isAlphanumeric Whether this autolink reference matches alphanumeric characters. If false, this autolink reference only matches numeric characters. Default is true.
          * 
          * @return builder
          * 
@@ -135,8 +152,7 @@ public final class RepositoryAutolinkReferenceState extends com.pulumi.resources
         }
 
         /**
-         * @param isAlphanumeric Whether this autolink reference matches alphanumeric characters. If false, this autolink reference only matches numeric
-         * characters.
+         * @param isAlphanumeric Whether this autolink reference matches alphanumeric characters. If false, this autolink reference only matches numeric characters. Default is true.
          * 
          * @return builder
          * 
@@ -146,7 +162,7 @@ public final class RepositoryAutolinkReferenceState extends com.pulumi.resources
         }
 
         /**
-         * @param keyPrefix This prefix appended by a number will generate a link any time it is found in an issue, pull request, or commit
+         * @param keyPrefix This prefix appended by a number will generate a link any time it is found in an issue, pull request, or commit.
          * 
          * @return builder
          * 
@@ -157,7 +173,7 @@ public final class RepositoryAutolinkReferenceState extends com.pulumi.resources
         }
 
         /**
-         * @param keyPrefix This prefix appended by a number will generate a link any time it is found in an issue, pull request, or commit
+         * @param keyPrefix This prefix appended by a number will generate a link any time it is found in an issue, pull request, or commit.
          * 
          * @return builder
          * 
@@ -167,7 +183,7 @@ public final class RepositoryAutolinkReferenceState extends com.pulumi.resources
         }
 
         /**
-         * @param repository The repository name
+         * @param repository The repository of the autolink reference.
          * 
          * @return builder
          * 
@@ -178,7 +194,7 @@ public final class RepositoryAutolinkReferenceState extends com.pulumi.resources
         }
 
         /**
-         * @param repository The repository name
+         * @param repository The repository of the autolink reference.
          * 
          * @return builder
          * 

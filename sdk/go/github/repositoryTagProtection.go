@@ -11,10 +11,50 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// This resource allows you to create and manage a repository tag protection for repositories within your GitHub organization or personal account.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-github/sdk/v5/go/github"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := github.NewRepositoryTagProtection(ctx, "example", &github.RepositoryTagProtectionArgs{
+//				Pattern:    pulumi.String("v*"),
+//				Repository: pulumi.String("example-repository"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// Repository tag protections can be imported using the `name` of the repository, combined with the `id` of the tag protection, separated by a `/` character. The `id` of the tag protection can be found using the [GitHub API](https://docs.github.com/en/rest/repos/tags#list-tag-protection-states-for-a-repository). Importing uses the name of the repository, as well as the ID of the tag protection, e.g.
+//
+// ```sh
+//
+//	$ pulumi import github:index/repositoryTagProtection:RepositoryTagProtection terraform my-repo/31077
+//
+// ```
 type RepositoryTagProtection struct {
 	pulumi.CustomResourceState
 
-	Pattern         pulumi.StringOutput `pulumi:"pattern"`
+	// The pattern of the tag to protect.
+	Pattern pulumi.StringOutput `pulumi:"pattern"`
+	// Name of the repository to add the tag protection to.
 	Repository      pulumi.StringOutput `pulumi:"repository"`
 	TagProtectionId pulumi.IntOutput    `pulumi:"tagProtectionId"`
 }
@@ -54,13 +94,17 @@ func GetRepositoryTagProtection(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RepositoryTagProtection resources.
 type repositoryTagProtectionState struct {
-	Pattern         *string `pulumi:"pattern"`
+	// The pattern of the tag to protect.
+	Pattern *string `pulumi:"pattern"`
+	// Name of the repository to add the tag protection to.
 	Repository      *string `pulumi:"repository"`
 	TagProtectionId *int    `pulumi:"tagProtectionId"`
 }
 
 type RepositoryTagProtectionState struct {
-	Pattern         pulumi.StringPtrInput
+	// The pattern of the tag to protect.
+	Pattern pulumi.StringPtrInput
+	// Name of the repository to add the tag protection to.
 	Repository      pulumi.StringPtrInput
 	TagProtectionId pulumi.IntPtrInput
 }
@@ -70,13 +114,17 @@ func (RepositoryTagProtectionState) ElementType() reflect.Type {
 }
 
 type repositoryTagProtectionArgs struct {
-	Pattern    string `pulumi:"pattern"`
+	// The pattern of the tag to protect.
+	Pattern string `pulumi:"pattern"`
+	// Name of the repository to add the tag protection to.
 	Repository string `pulumi:"repository"`
 }
 
 // The set of arguments for constructing a RepositoryTagProtection resource.
 type RepositoryTagProtectionArgs struct {
-	Pattern    pulumi.StringInput
+	// The pattern of the tag to protect.
+	Pattern pulumi.StringInput
+	// Name of the repository to add the tag protection to.
 	Repository pulumi.StringInput
 }
 
@@ -167,10 +215,12 @@ func (o RepositoryTagProtectionOutput) ToRepositoryTagProtectionOutputWithContex
 	return o
 }
 
+// The pattern of the tag to protect.
 func (o RepositoryTagProtectionOutput) Pattern() pulumi.StringOutput {
 	return o.ApplyT(func(v *RepositoryTagProtection) pulumi.StringOutput { return v.Pattern }).(pulumi.StringOutput)
 }
 
+// Name of the repository to add the tag protection to.
 func (o RepositoryTagProtectionOutput) Repository() pulumi.StringOutput {
 	return o.ApplyT(func(v *RepositoryTagProtection) pulumi.StringOutput { return v.Repository }).(pulumi.StringOutput)
 }

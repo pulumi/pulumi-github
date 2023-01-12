@@ -12,21 +12,53 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class RepositoryWebhookConfiguration {
+    /**
+     * @return The content type for the payload. Valid values are either `form` or `json`.
+     * 
+     */
     private @Nullable String contentType;
+    /**
+     * @return Insecure SSL boolean toggle. Defaults to `false`.
+     * 
+     */
     private @Nullable Boolean insecureSsl;
+    /**
+     * @return The shared secret for the webhook. [See API documentation](https://developer.github.com/v3/repos/hooks/#create-a-hook).
+     * 
+     */
     private @Nullable String secret;
+    /**
+     * @return The URL of the webhook.
+     * 
+     */
     private String url;
 
     private RepositoryWebhookConfiguration() {}
+    /**
+     * @return The content type for the payload. Valid values are either `form` or `json`.
+     * 
+     */
     public Optional<String> contentType() {
         return Optional.ofNullable(this.contentType);
     }
+    /**
+     * @return Insecure SSL boolean toggle. Defaults to `false`.
+     * 
+     */
     public Optional<Boolean> insecureSsl() {
         return Optional.ofNullable(this.insecureSsl);
     }
+    /**
+     * @return The shared secret for the webhook. [See API documentation](https://developer.github.com/v3/repos/hooks/#create-a-hook).
+     * 
+     */
     public Optional<String> secret() {
         return Optional.ofNullable(this.secret);
     }
+    /**
+     * @return The URL of the webhook.
+     * 
+     */
     public String url() {
         return this.url;
     }

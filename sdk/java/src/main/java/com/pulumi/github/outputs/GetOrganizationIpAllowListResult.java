@@ -16,6 +16,11 @@ public final class GetOrganizationIpAllowListResult {
      * 
      */
     private String id;
+    /**
+     * @return An Array of allowed IP addresses.
+     * ***
+     * 
+     */
     private List<GetOrganizationIpAllowListIpAllowList> ipAllowLists;
 
     private GetOrganizationIpAllowListResult() {}
@@ -26,6 +31,11 @@ public final class GetOrganizationIpAllowListResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return An Array of allowed IP addresses.
+     * ***
+     * 
+     */
     public List<GetOrganizationIpAllowListIpAllowList> ipAllowLists() {
         return this.ipAllowLists;
     }

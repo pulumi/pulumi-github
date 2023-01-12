@@ -4,6 +4,27 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * Provides a resource to manage GitHub repository collaborator invitations.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const exampleRepository = new github.Repository("exampleRepository", {});
+ * const exampleRepositoryCollaborator = new github.RepositoryCollaborator("exampleRepositoryCollaborator", {
+ *     repository: exampleRepository.name,
+ *     username: "example-username",
+ *     permission: "push",
+ * });
+ * const invitee = new github.Provider("invitee", {token: _var.invitee_token});
+ * const exampleUserInvitationAccepter = new github.UserInvitationAccepter("exampleUserInvitationAccepter", {invitationId: exampleRepositoryCollaborator.invitationId}, {
+ *     provider: "github.invitee",
+ * });
+ * ```
+ */
 export class UserInvitationAccepter extends pulumi.CustomResource {
     /**
      * Get an existing UserInvitationAccepter resource's state with the given name, ID, and optional extra
@@ -32,6 +53,9 @@ export class UserInvitationAccepter extends pulumi.CustomResource {
         return obj['__pulumiType'] === UserInvitationAccepter.__pulumiType;
     }
 
+    /**
+     * ID of the invitation to accept
+     */
     public readonly invitationId!: pulumi.Output<string>;
 
     /**
@@ -64,6 +88,9 @@ export class UserInvitationAccepter extends pulumi.CustomResource {
  * Input properties used for looking up and filtering UserInvitationAccepter resources.
  */
 export interface UserInvitationAccepterState {
+    /**
+     * ID of the invitation to accept
+     */
     invitationId?: pulumi.Input<string>;
 }
 
@@ -71,5 +98,8 @@ export interface UserInvitationAccepterState {
  * The set of arguments for constructing a UserInvitationAccepter resource.
  */
 export interface UserInvitationAccepterArgs {
+    /**
+     * ID of the invitation to accept
+     */
     invitationId: pulumi.Input<string>;
 }

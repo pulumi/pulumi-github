@@ -4,6 +4,41 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * This resource manages relationships between teams and repositories
+ * in your GitHub organization.
+ *
+ * Creating this resource grants a particular team permissions on a
+ * particular repository.
+ *
+ * The repository and the team must both belong to the same organization
+ * on GitHub. This resource does not actually *create* any repositories;
+ * to do that, see `github.Repository`.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * // Add a repository to the team
+ * const someTeam = new github.Team("someTeam", {description: "Some cool team"});
+ * const someRepo = new github.Repository("someRepo", {});
+ * const someTeamRepo = new github.TeamRepository("someTeamRepo", {
+ *     teamId: someTeam.id,
+ *     repository: someRepo.name,
+ *     permission: "pull",
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * GitHub Team Repository can be imported using an ID made up of `teamid:repository`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import github:index/teamRepository:TeamRepository terraform_repo 1234567:terraform
+ * ```
+ */
 export class TeamRepository extends pulumi.CustomResource {
     /**
      * Get an existing TeamRepository resource's state with the given name, ID, and optional extra
@@ -33,10 +68,17 @@ export class TeamRepository extends pulumi.CustomResource {
     }
 
     public /*out*/ readonly etag!: pulumi.Output<string>;
+    /**
+     * The permissions of team members regarding the repository.
+     * Must be one of `pull`, `triage`, `push`, `maintain`, `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organisation. Defaults to `pull`.
+     */
     public readonly permission!: pulumi.Output<string | undefined>;
+    /**
+     * The repository to add to the team.
+     */
     public readonly repository!: pulumi.Output<string>;
     /**
-     * ID or slug of team
+     * The GitHub team id or the GitHub team slug
      */
     public readonly teamId!: pulumi.Output<string>;
 
@@ -80,10 +122,17 @@ export class TeamRepository extends pulumi.CustomResource {
  */
 export interface TeamRepositoryState {
     etag?: pulumi.Input<string>;
+    /**
+     * The permissions of team members regarding the repository.
+     * Must be one of `pull`, `triage`, `push`, `maintain`, `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organisation. Defaults to `pull`.
+     */
     permission?: pulumi.Input<string>;
+    /**
+     * The repository to add to the team.
+     */
     repository?: pulumi.Input<string>;
     /**
-     * ID or slug of team
+     * The GitHub team id or the GitHub team slug
      */
     teamId?: pulumi.Input<string>;
 }
@@ -92,10 +141,17 @@ export interface TeamRepositoryState {
  * The set of arguments for constructing a TeamRepository resource.
  */
 export interface TeamRepositoryArgs {
+    /**
+     * The permissions of team members regarding the repository.
+     * Must be one of `pull`, `triage`, `push`, `maintain`, `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organisation. Defaults to `pull`.
+     */
     permission?: pulumi.Input<string>;
+    /**
+     * The repository to add to the team.
+     */
     repository: pulumi.Input<string>;
     /**
-     * ID or slug of team
+     * The GitHub team id or the GitHub team slug
      */
     teamId: pulumi.Input<string>;
 }

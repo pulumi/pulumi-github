@@ -13,6 +13,7 @@ from . import outputs
 __all__ = [
     'ActionsOrganizationPermissionsAllowedActionsConfig',
     'ActionsOrganizationPermissionsEnabledRepositoriesConfig',
+    'ActionsRepositoryPermissionsAllowedActionsConfig',
     'BranchProtectionRequiredPullRequestReview',
     'BranchProtectionRequiredStatusCheck',
     'BranchProtectionV3RequiredPullRequestReviews',
@@ -23,9 +24,14 @@ __all__ = [
     'RepositoryEnvironmentReviewer',
     'RepositoryPages',
     'RepositoryPagesSource',
+    'RepositorySecurityAndAnalysis',
+    'RepositorySecurityAndAnalysisAdvancedSecurity',
+    'RepositorySecurityAndAnalysisSecretScanning',
+    'RepositorySecurityAndAnalysisSecretScanningPushProtection',
     'RepositoryTemplate',
     'RepositoryWebhookConfiguration',
     'TeamMembersMember',
+    'TeamSettingsReviewRequestDelegation',
     'TeamSyncGroupMappingGroup',
     'GetActionsOrganizationSecretsSecretResult',
     'GetActionsSecretsSecretResult',
@@ -44,6 +50,7 @@ __all__ = [
     'GetRepositoryPageSourceResult',
     'GetRepositoryPullRequestsResultResult',
     'GetRepositoryTeamsTeamResult',
+    'GetRepositoryTemplateResult',
     'GetRepositoryWebhooksWebhookResult',
     'GetTreeEntryResult',
 ]
@@ -75,6 +82,11 @@ class ActionsOrganizationPermissionsAllowedActionsConfig(dict):
                  github_owned_allowed: bool,
                  patterns_alloweds: Optional[Sequence[str]] = None,
                  verified_allowed: Optional[bool] = None):
+        """
+        :param bool github_owned_allowed: Whether GitHub-owned actions are allowed in the organization.
+        :param Sequence[str] patterns_alloweds: Specifies a list of string-matching patterns to allow specific action(s). Wildcards, tags, and SHAs are allowed. For example, monalisa/octocat@*, monalisa/octocat@v2, monalisa/*."
+        :param bool verified_allowed: Whether actions in GitHub Marketplace from verified creators are allowed. Set to true to allow all GitHub Marketplace actions by verified creators.
+        """
         pulumi.set(__self__, "github_owned_allowed", github_owned_allowed)
         if patterns_alloweds is not None:
             pulumi.set(__self__, "patterns_alloweds", patterns_alloweds)
@@ -84,16 +96,25 @@ class ActionsOrganizationPermissionsAllowedActionsConfig(dict):
     @property
     @pulumi.getter(name="githubOwnedAllowed")
     def github_owned_allowed(self) -> bool:
+        """
+        Whether GitHub-owned actions are allowed in the organization.
+        """
         return pulumi.get(self, "github_owned_allowed")
 
     @property
     @pulumi.getter(name="patternsAlloweds")
     def patterns_alloweds(self) -> Optional[Sequence[str]]:
+        """
+        Specifies a list of string-matching patterns to allow specific action(s). Wildcards, tags, and SHAs are allowed. For example, monalisa/octocat@*, monalisa/octocat@v2, monalisa/*."
+        """
         return pulumi.get(self, "patterns_alloweds")
 
     @property
     @pulumi.getter(name="verifiedAllowed")
     def verified_allowed(self) -> Optional[bool]:
+        """
+        Whether actions in GitHub Marketplace from verified creators are allowed. Set to true to allow all GitHub Marketplace actions by verified creators.
+        """
         return pulumi.get(self, "verified_allowed")
 
 
@@ -118,12 +139,81 @@ class ActionsOrganizationPermissionsEnabledRepositoriesConfig(dict):
 
     def __init__(__self__, *,
                  repository_ids: Sequence[int]):
+        """
+        :param Sequence[int] repository_ids: List of repository IDs to enable for GitHub Actions.
+        """
         pulumi.set(__self__, "repository_ids", repository_ids)
 
     @property
     @pulumi.getter(name="repositoryIds")
     def repository_ids(self) -> Sequence[int]:
+        """
+        List of repository IDs to enable for GitHub Actions.
+        """
         return pulumi.get(self, "repository_ids")
+
+
+@pulumi.output_type
+class ActionsRepositoryPermissionsAllowedActionsConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "githubOwnedAllowed":
+            suggest = "github_owned_allowed"
+        elif key == "patternsAlloweds":
+            suggest = "patterns_alloweds"
+        elif key == "verifiedAllowed":
+            suggest = "verified_allowed"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ActionsRepositoryPermissionsAllowedActionsConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ActionsRepositoryPermissionsAllowedActionsConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ActionsRepositoryPermissionsAllowedActionsConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 github_owned_allowed: bool,
+                 patterns_alloweds: Optional[Sequence[str]] = None,
+                 verified_allowed: Optional[bool] = None):
+        """
+        :param bool github_owned_allowed: Whether GitHub-owned actions are allowed in the repository.
+        :param Sequence[str] patterns_alloweds: Specifies a list of string-matching patterns to allow specific action(s). Wildcards, tags, and SHAs are allowed. For example, monalisa/octocat@*, monalisa/octocat@v2, monalisa/*."
+        :param bool verified_allowed: Whether actions in GitHub Marketplace from verified creators are allowed. Set to true to allow all GitHub Marketplace actions by verified creators.
+        """
+        pulumi.set(__self__, "github_owned_allowed", github_owned_allowed)
+        if patterns_alloweds is not None:
+            pulumi.set(__self__, "patterns_alloweds", patterns_alloweds)
+        if verified_allowed is not None:
+            pulumi.set(__self__, "verified_allowed", verified_allowed)
+
+    @property
+    @pulumi.getter(name="githubOwnedAllowed")
+    def github_owned_allowed(self) -> bool:
+        """
+        Whether GitHub-owned actions are allowed in the repository.
+        """
+        return pulumi.get(self, "github_owned_allowed")
+
+    @property
+    @pulumi.getter(name="patternsAlloweds")
+    def patterns_alloweds(self) -> Optional[Sequence[str]]:
+        """
+        Specifies a list of string-matching patterns to allow specific action(s). Wildcards, tags, and SHAs are allowed. For example, monalisa/octocat@*, monalisa/octocat@v2, monalisa/*."
+        """
+        return pulumi.get(self, "patterns_alloweds")
+
+    @property
+    @pulumi.getter(name="verifiedAllowed")
+    def verified_allowed(self) -> Optional[bool]:
+        """
+        Whether actions in GitHub Marketplace from verified creators are allowed. Set to true to allow all GitHub Marketplace actions by verified creators.
+        """
+        return pulumi.get(self, "verified_allowed")
 
 
 @pulumi.output_type
@@ -139,6 +229,8 @@ class BranchProtectionRequiredPullRequestReview(dict):
             suggest = "pull_request_bypassers"
         elif key == "requireCodeOwnerReviews":
             suggest = "require_code_owner_reviews"
+        elif key == "requireLastPushApproval":
+            suggest = "require_last_push_approval"
         elif key == "requiredApprovingReviewCount":
             suggest = "required_approving_review_count"
         elif key == "restrictDismissals":
@@ -160,8 +252,19 @@ class BranchProtectionRequiredPullRequestReview(dict):
                  dismissal_restrictions: Optional[Sequence[str]] = None,
                  pull_request_bypassers: Optional[Sequence[str]] = None,
                  require_code_owner_reviews: Optional[bool] = None,
+                 require_last_push_approval: Optional[bool] = None,
                  required_approving_review_count: Optional[int] = None,
                  restrict_dismissals: Optional[bool] = None):
+        """
+        :param bool dismiss_stale_reviews: Dismiss approved reviews automatically when a new commit is pushed. Defaults to `false`.
+        :param Sequence[str] dismissal_restrictions: The list of actor Names/IDs with dismissal access. If not empty, `restrict_dismissals` is ignored. Actor names must either begin with a "/" for users or the organization name followed by a "/" for teams.
+        :param Sequence[str] pull_request_bypassers: The list of actor Names/IDs that are allowed to bypass pull request requirements. Actor names must either begin with a "/" for users or the organization name followed by a "/" for teams.
+        :param bool require_code_owner_reviews: Require an approved review in pull requests including files with a designated code owner. Defaults to `false`.
+        :param bool require_last_push_approval: Require that The most recent push must be approved by someone other than the last pusher.  Defaults to `false`
+        :param int required_approving_review_count: Require x number of approvals to satisfy branch protection requirements. If this is specified it must be a number between 0-6. This requirement matches GitHub's API, see the upstream [documentation](https://developer.github.com/v3/repos/branches/#parameters-1) for more information.
+               (https://developer.github.com/v3/repos/branches/#parameters-1) for more information.
+        :param bool restrict_dismissals: Restrict pull request review dismissals.
+        """
         if dismiss_stale_reviews is not None:
             pulumi.set(__self__, "dismiss_stale_reviews", dismiss_stale_reviews)
         if dismissal_restrictions is not None:
@@ -170,6 +273,8 @@ class BranchProtectionRequiredPullRequestReview(dict):
             pulumi.set(__self__, "pull_request_bypassers", pull_request_bypassers)
         if require_code_owner_reviews is not None:
             pulumi.set(__self__, "require_code_owner_reviews", require_code_owner_reviews)
+        if require_last_push_approval is not None:
+            pulumi.set(__self__, "require_last_push_approval", require_last_push_approval)
         if required_approving_review_count is not None:
             pulumi.set(__self__, "required_approving_review_count", required_approving_review_count)
         if restrict_dismissals is not None:
@@ -178,31 +283,58 @@ class BranchProtectionRequiredPullRequestReview(dict):
     @property
     @pulumi.getter(name="dismissStaleReviews")
     def dismiss_stale_reviews(self) -> Optional[bool]:
+        """
+        Dismiss approved reviews automatically when a new commit is pushed. Defaults to `false`.
+        """
         return pulumi.get(self, "dismiss_stale_reviews")
 
     @property
     @pulumi.getter(name="dismissalRestrictions")
     def dismissal_restrictions(self) -> Optional[Sequence[str]]:
+        """
+        The list of actor Names/IDs with dismissal access. If not empty, `restrict_dismissals` is ignored. Actor names must either begin with a "/" for users or the organization name followed by a "/" for teams.
+        """
         return pulumi.get(self, "dismissal_restrictions")
 
     @property
     @pulumi.getter(name="pullRequestBypassers")
     def pull_request_bypassers(self) -> Optional[Sequence[str]]:
+        """
+        The list of actor Names/IDs that are allowed to bypass pull request requirements. Actor names must either begin with a "/" for users or the organization name followed by a "/" for teams.
+        """
         return pulumi.get(self, "pull_request_bypassers")
 
     @property
     @pulumi.getter(name="requireCodeOwnerReviews")
     def require_code_owner_reviews(self) -> Optional[bool]:
+        """
+        Require an approved review in pull requests including files with a designated code owner. Defaults to `false`.
+        """
         return pulumi.get(self, "require_code_owner_reviews")
+
+    @property
+    @pulumi.getter(name="requireLastPushApproval")
+    def require_last_push_approval(self) -> Optional[bool]:
+        """
+        Require that The most recent push must be approved by someone other than the last pusher.  Defaults to `false`
+        """
+        return pulumi.get(self, "require_last_push_approval")
 
     @property
     @pulumi.getter(name="requiredApprovingReviewCount")
     def required_approving_review_count(self) -> Optional[int]:
+        """
+        Require x number of approvals to satisfy branch protection requirements. If this is specified it must be a number between 0-6. This requirement matches GitHub's API, see the upstream [documentation](https://developer.github.com/v3/repos/branches/#parameters-1) for more information.
+        (https://developer.github.com/v3/repos/branches/#parameters-1) for more information.
+        """
         return pulumi.get(self, "required_approving_review_count")
 
     @property
     @pulumi.getter(name="restrictDismissals")
     def restrict_dismissals(self) -> Optional[bool]:
+        """
+        Restrict pull request review dismissals.
+        """
         return pulumi.get(self, "restrict_dismissals")
 
 
@@ -211,6 +343,10 @@ class BranchProtectionRequiredStatusCheck(dict):
     def __init__(__self__, *,
                  contexts: Optional[Sequence[str]] = None,
                  strict: Optional[bool] = None):
+        """
+        :param Sequence[str] contexts: The list of status checks to require in order to merge into this branch. No status checks are required by default.
+        :param bool strict: Require branches to be up to date before merging. Defaults to `false`.
+        """
         if contexts is not None:
             pulumi.set(__self__, "contexts", contexts)
         if strict is not None:
@@ -219,11 +355,17 @@ class BranchProtectionRequiredStatusCheck(dict):
     @property
     @pulumi.getter
     def contexts(self) -> Optional[Sequence[str]]:
+        """
+        The list of status checks to require in order to merge into this branch. No status checks are required by default.
+        """
         return pulumi.get(self, "contexts")
 
     @property
     @pulumi.getter
     def strict(self) -> Optional[bool]:
+        """
+        Require branches to be up to date before merging. Defaults to `false`.
+        """
         return pulumi.get(self, "strict")
 
 
@@ -263,6 +405,14 @@ class BranchProtectionV3RequiredPullRequestReviews(dict):
                  include_admins: Optional[bool] = None,
                  require_code_owner_reviews: Optional[bool] = None,
                  required_approving_review_count: Optional[int] = None):
+        """
+        :param bool dismiss_stale_reviews: Dismiss approved reviews automatically when a new commit is pushed. Defaults to `false`.
+        :param Sequence[str] dismissal_teams: The list of team slugs with dismissal access.
+               Always use `slug` of the team, **not** its name. Each team already **has** to have access to the repository.
+        :param Sequence[str] dismissal_users: The list of user logins with dismissal access
+        :param bool require_code_owner_reviews: Require an approved review in pull requests including files with a designated code owner. Defaults to `false`.
+        :param int required_approving_review_count: Require x number of approvals to satisfy branch protection requirements. If this is specified it must be a number between 0-6. This requirement matches GitHub's API, see the upstream [documentation](https://developer.github.com/v3/repos/branches/#parameters-1) for more information.
+        """
         if dismiss_stale_reviews is not None:
             pulumi.set(__self__, "dismiss_stale_reviews", dismiss_stale_reviews)
         if dismissal_teams is not None:
@@ -279,16 +429,26 @@ class BranchProtectionV3RequiredPullRequestReviews(dict):
     @property
     @pulumi.getter(name="dismissStaleReviews")
     def dismiss_stale_reviews(self) -> Optional[bool]:
+        """
+        Dismiss approved reviews automatically when a new commit is pushed. Defaults to `false`.
+        """
         return pulumi.get(self, "dismiss_stale_reviews")
 
     @property
     @pulumi.getter(name="dismissalTeams")
     def dismissal_teams(self) -> Optional[Sequence[str]]:
+        """
+        The list of team slugs with dismissal access.
+        Always use `slug` of the team, **not** its name. Each team already **has** to have access to the repository.
+        """
         return pulumi.get(self, "dismissal_teams")
 
     @property
     @pulumi.getter(name="dismissalUsers")
     def dismissal_users(self) -> Optional[Sequence[str]]:
+        """
+        The list of user logins with dismissal access
+        """
         return pulumi.get(self, "dismissal_users")
 
     @property
@@ -299,11 +459,17 @@ class BranchProtectionV3RequiredPullRequestReviews(dict):
     @property
     @pulumi.getter(name="requireCodeOwnerReviews")
     def require_code_owner_reviews(self) -> Optional[bool]:
+        """
+        Require an approved review in pull requests including files with a designated code owner. Defaults to `false`.
+        """
         return pulumi.get(self, "require_code_owner_reviews")
 
     @property
     @pulumi.getter(name="requiredApprovingReviewCount")
     def required_approving_review_count(self) -> Optional[int]:
+        """
+        Require x number of approvals to satisfy branch protection requirements. If this is specified it must be a number between 0-6. This requirement matches GitHub's API, see the upstream [documentation](https://developer.github.com/v3/repos/branches/#parameters-1) for more information.
+        """
         return pulumi.get(self, "required_approving_review_count")
 
 
@@ -330,6 +496,10 @@ class BranchProtectionV3RequiredStatusChecks(dict):
                  contexts: Optional[Sequence[str]] = None,
                  include_admins: Optional[bool] = None,
                  strict: Optional[bool] = None):
+        """
+        :param Sequence[str] contexts: The list of status checks to require in order to merge into this branch. No status checks are required by default.
+        :param bool strict: Require branches to be up to date before merging. Defaults to `false`.
+        """
         if contexts is not None:
             pulumi.set(__self__, "contexts", contexts)
         if include_admins is not None:
@@ -340,6 +510,9 @@ class BranchProtectionV3RequiredStatusChecks(dict):
     @property
     @pulumi.getter
     def contexts(self) -> Optional[Sequence[str]]:
+        """
+        The list of status checks to require in order to merge into this branch. No status checks are required by default.
+        """
         return pulumi.get(self, "contexts")
 
     @property
@@ -350,6 +523,9 @@ class BranchProtectionV3RequiredStatusChecks(dict):
     @property
     @pulumi.getter
     def strict(self) -> Optional[bool]:
+        """
+        Require branches to be up to date before merging. Defaults to `false`.
+        """
         return pulumi.get(self, "strict")
 
 
@@ -359,6 +535,12 @@ class BranchProtectionV3Restrictions(dict):
                  apps: Optional[Sequence[str]] = None,
                  teams: Optional[Sequence[str]] = None,
                  users: Optional[Sequence[str]] = None):
+        """
+        :param Sequence[str] apps: The list of app slugs with push access.
+        :param Sequence[str] teams: The list of team slugs with push access.
+               Always use `slug` of the team, **not** its name. Each team already **has** to have access to the repository.
+        :param Sequence[str] users: The list of user logins with push access.
+        """
         if apps is not None:
             pulumi.set(__self__, "apps", apps)
         if teams is not None:
@@ -369,16 +551,26 @@ class BranchProtectionV3Restrictions(dict):
     @property
     @pulumi.getter
     def apps(self) -> Optional[Sequence[str]]:
+        """
+        The list of app slugs with push access.
+        """
         return pulumi.get(self, "apps")
 
     @property
     @pulumi.getter
     def teams(self) -> Optional[Sequence[str]]:
+        """
+        The list of team slugs with push access.
+        Always use `slug` of the team, **not** its name. Each team already **has** to have access to the repository.
+        """
         return pulumi.get(self, "teams")
 
     @property
     @pulumi.getter
     def users(self) -> Optional[Sequence[str]]:
+        """
+        The list of user logins with push access.
+        """
         return pulumi.get(self, "users")
 
 
@@ -408,6 +600,9 @@ class OrganizationWebhookConfiguration(dict):
                  content_type: Optional[str] = None,
                  insecure_ssl: Optional[bool] = None,
                  secret: Optional[str] = None):
+        """
+        :param str url: URL of the webhook
+        """
         pulumi.set(__self__, "url", url)
         if content_type is not None:
             pulumi.set(__self__, "content_type", content_type)
@@ -419,6 +614,9 @@ class OrganizationWebhookConfiguration(dict):
     @property
     @pulumi.getter
     def url(self) -> str:
+        """
+        URL of the webhook
+        """
         return pulumi.get(self, "url")
 
     @property
@@ -461,17 +659,27 @@ class RepositoryEnvironmentDeploymentBranchPolicy(dict):
     def __init__(__self__, *,
                  custom_branch_policies: bool,
                  protected_branches: bool):
+        """
+        :param bool custom_branch_policies: Whether only branches that match the specified name patterns can deploy to this environment.
+        :param bool protected_branches: Whether only branches with branch protection rules can deploy to this environment.
+        """
         pulumi.set(__self__, "custom_branch_policies", custom_branch_policies)
         pulumi.set(__self__, "protected_branches", protected_branches)
 
     @property
     @pulumi.getter(name="customBranchPolicies")
     def custom_branch_policies(self) -> bool:
+        """
+        Whether only branches that match the specified name patterns can deploy to this environment.
+        """
         return pulumi.get(self, "custom_branch_policies")
 
     @property
     @pulumi.getter(name="protectedBranches")
     def protected_branches(self) -> bool:
+        """
+        Whether only branches with branch protection rules can deploy to this environment.
+        """
         return pulumi.get(self, "protected_branches")
 
 
@@ -480,6 +688,10 @@ class RepositoryEnvironmentReviewer(dict):
     def __init__(__self__, *,
                  teams: Optional[Sequence[int]] = None,
                  users: Optional[Sequence[int]] = None):
+        """
+        :param Sequence[int] teams: Up to 6 IDs for teams who may review jobs that reference the environment. Reviewers must have at least read access to the repository. Only one of the required reviewers needs to approve the job for it to proceed.
+        :param Sequence[int] users: Up to 6 IDs for users who may review jobs that reference the environment. Reviewers must have at least read access to the repository. Only one of the required reviewers needs to approve the job for it to proceed.
+        """
         if teams is not None:
             pulumi.set(__self__, "teams", teams)
         if users is not None:
@@ -488,11 +700,17 @@ class RepositoryEnvironmentReviewer(dict):
     @property
     @pulumi.getter
     def teams(self) -> Optional[Sequence[int]]:
+        """
+        Up to 6 IDs for teams who may review jobs that reference the environment. Reviewers must have at least read access to the repository. Only one of the required reviewers needs to approve the job for it to proceed.
+        """
         return pulumi.get(self, "teams")
 
     @property
     @pulumi.getter
     def users(self) -> Optional[Sequence[int]]:
+        """
+        Up to 6 IDs for users who may review jobs that reference the environment. Reviewers must have at least read access to the repository. Only one of the required reviewers needs to approve the job for it to proceed.
+        """
         return pulumi.get(self, "users")
 
 
@@ -522,6 +740,13 @@ class RepositoryPages(dict):
                  html_url: Optional[str] = None,
                  status: Optional[str] = None,
                  url: Optional[str] = None):
+        """
+        :param 'RepositoryPagesSourceArgs' source: The source branch and directory for the rendered Pages site. See GitHub Pages Source below for details.
+        :param str cname: The custom domain for the repository. This can only be set after the repository has been created.
+        :param bool custom404: Whether the rendered GitHub Pages site has a custom 404 page.
+        :param str html_url: The absolute URL (including scheme) of the rendered GitHub Pages site e.g. `https://username.github.io`.
+        :param str status: Set to `enabled` to enable advanced security features on the repository. Can be `enabled` or `disabled`.
+        """
         pulumi.set(__self__, "source", source)
         if cname is not None:
             pulumi.set(__self__, "cname", cname)
@@ -537,26 +762,41 @@ class RepositoryPages(dict):
     @property
     @pulumi.getter
     def source(self) -> 'outputs.RepositoryPagesSource':
+        """
+        The source branch and directory for the rendered Pages site. See GitHub Pages Source below for details.
+        """
         return pulumi.get(self, "source")
 
     @property
     @pulumi.getter
     def cname(self) -> Optional[str]:
+        """
+        The custom domain for the repository. This can only be set after the repository has been created.
+        """
         return pulumi.get(self, "cname")
 
     @property
     @pulumi.getter
     def custom404(self) -> Optional[bool]:
+        """
+        Whether the rendered GitHub Pages site has a custom 404 page.
+        """
         return pulumi.get(self, "custom404")
 
     @property
     @pulumi.getter(name="htmlUrl")
     def html_url(self) -> Optional[str]:
+        """
+        The absolute URL (including scheme) of the rendered GitHub Pages site e.g. `https://username.github.io`.
+        """
         return pulumi.get(self, "html_url")
 
     @property
     @pulumi.getter
     def status(self) -> Optional[str]:
+        """
+        Set to `enabled` to enable advanced security features on the repository. Can be `enabled` or `disabled`.
+        """
         return pulumi.get(self, "status")
 
     @property
@@ -570,6 +810,10 @@ class RepositoryPagesSource(dict):
     def __init__(__self__, *,
                  branch: str,
                  path: Optional[str] = None):
+        """
+        :param str branch: The repository branch used to publish the site's source files. (i.e. `main` or `gh-pages`.
+        :param str path: The repository directory from which the site publishes (Default: `/`).
+        """
         pulumi.set(__self__, "branch", branch)
         if path is not None:
             pulumi.set(__self__, "path", path)
@@ -577,12 +821,133 @@ class RepositoryPagesSource(dict):
     @property
     @pulumi.getter
     def branch(self) -> str:
+        """
+        The repository branch used to publish the site's source files. (i.e. `main` or `gh-pages`.
+        """
         return pulumi.get(self, "branch")
 
     @property
     @pulumi.getter
     def path(self) -> Optional[str]:
+        """
+        The repository directory from which the site publishes (Default: `/`).
+        """
         return pulumi.get(self, "path")
+
+
+@pulumi.output_type
+class RepositorySecurityAndAnalysis(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "advancedSecurity":
+            suggest = "advanced_security"
+        elif key == "secretScanning":
+            suggest = "secret_scanning"
+        elif key == "secretScanningPushProtection":
+            suggest = "secret_scanning_push_protection"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RepositorySecurityAndAnalysis. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RepositorySecurityAndAnalysis.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RepositorySecurityAndAnalysis.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 advanced_security: 'outputs.RepositorySecurityAndAnalysisAdvancedSecurity',
+                 secret_scanning: 'outputs.RepositorySecurityAndAnalysisSecretScanning',
+                 secret_scanning_push_protection: 'outputs.RepositorySecurityAndAnalysisSecretScanningPushProtection'):
+        """
+        :param 'RepositorySecurityAndAnalysisAdvancedSecurityArgs' advanced_security: The advanced security configuration for the repository. See Advanced Security Configuration below for details.
+        :param 'RepositorySecurityAndAnalysisSecretScanningArgs' secret_scanning: The secret scanning configuration for the repository. See Secret Scanning Configuration below for details.
+        :param 'RepositorySecurityAndAnalysisSecretScanningPushProtectionArgs' secret_scanning_push_protection: The secret scanning push protection configuration for the repository. See Secret Scanning Push Protection Configuration below for details.
+        """
+        pulumi.set(__self__, "advanced_security", advanced_security)
+        pulumi.set(__self__, "secret_scanning", secret_scanning)
+        pulumi.set(__self__, "secret_scanning_push_protection", secret_scanning_push_protection)
+
+    @property
+    @pulumi.getter(name="advancedSecurity")
+    def advanced_security(self) -> 'outputs.RepositorySecurityAndAnalysisAdvancedSecurity':
+        """
+        The advanced security configuration for the repository. See Advanced Security Configuration below for details.
+        """
+        return pulumi.get(self, "advanced_security")
+
+    @property
+    @pulumi.getter(name="secretScanning")
+    def secret_scanning(self) -> 'outputs.RepositorySecurityAndAnalysisSecretScanning':
+        """
+        The secret scanning configuration for the repository. See Secret Scanning Configuration below for details.
+        """
+        return pulumi.get(self, "secret_scanning")
+
+    @property
+    @pulumi.getter(name="secretScanningPushProtection")
+    def secret_scanning_push_protection(self) -> 'outputs.RepositorySecurityAndAnalysisSecretScanningPushProtection':
+        """
+        The secret scanning push protection configuration for the repository. See Secret Scanning Push Protection Configuration below for details.
+        """
+        return pulumi.get(self, "secret_scanning_push_protection")
+
+
+@pulumi.output_type
+class RepositorySecurityAndAnalysisAdvancedSecurity(dict):
+    def __init__(__self__, *,
+                 status: str):
+        """
+        :param str status: Set to `enabled` to enable advanced security features on the repository. Can be `enabled` or `disabled`.
+        """
+        pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        """
+        Set to `enabled` to enable advanced security features on the repository. Can be `enabled` or `disabled`.
+        """
+        return pulumi.get(self, "status")
+
+
+@pulumi.output_type
+class RepositorySecurityAndAnalysisSecretScanning(dict):
+    def __init__(__self__, *,
+                 status: str):
+        """
+        :param str status: Set to `enabled` to enable advanced security features on the repository. Can be `enabled` or `disabled`.
+        """
+        pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        """
+        Set to `enabled` to enable advanced security features on the repository. Can be `enabled` or `disabled`.
+        """
+        return pulumi.get(self, "status")
+
+
+@pulumi.output_type
+class RepositorySecurityAndAnalysisSecretScanningPushProtection(dict):
+    def __init__(__self__, *,
+                 status: str):
+        """
+        :param str status: Set to `enabled` to enable advanced security features on the repository. Can be `enabled` or `disabled`.
+        """
+        pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        """
+        Set to `enabled` to enable advanced security features on the repository. Can be `enabled` or `disabled`.
+        """
+        return pulumi.get(self, "status")
 
 
 @pulumi.output_type
@@ -608,6 +973,11 @@ class RepositoryTemplate(dict):
                  owner: str,
                  repository: str,
                  include_all_branches: Optional[bool] = None):
+        """
+        :param str owner: The GitHub organization or user the template repository is owned by.
+        :param str repository: The name of the template repository.
+        :param bool include_all_branches: Whether the new repository should include all the branches from the template repository (defaults to false, which includes only the default branch from the template).
+        """
         pulumi.set(__self__, "owner", owner)
         pulumi.set(__self__, "repository", repository)
         if include_all_branches is not None:
@@ -616,16 +986,25 @@ class RepositoryTemplate(dict):
     @property
     @pulumi.getter
     def owner(self) -> str:
+        """
+        The GitHub organization or user the template repository is owned by.
+        """
         return pulumi.get(self, "owner")
 
     @property
     @pulumi.getter
     def repository(self) -> str:
+        """
+        The name of the template repository.
+        """
         return pulumi.get(self, "repository")
 
     @property
     @pulumi.getter(name="includeAllBranches")
     def include_all_branches(self) -> Optional[bool]:
+        """
+        Whether the new repository should include all the branches from the template repository (defaults to false, which includes only the default branch from the template).
+        """
         return pulumi.get(self, "include_all_branches")
 
 
@@ -655,6 +1034,12 @@ class RepositoryWebhookConfiguration(dict):
                  content_type: Optional[str] = None,
                  insecure_ssl: Optional[bool] = None,
                  secret: Optional[str] = None):
+        """
+        :param str url: The URL of the webhook.
+        :param str content_type: The content type for the payload. Valid values are either `form` or `json`.
+        :param bool insecure_ssl: Insecure SSL boolean toggle. Defaults to `false`.
+        :param str secret: The shared secret for the webhook. [See API documentation](https://developer.github.com/v3/repos/hooks/#create-a-hook).
+        """
         pulumi.set(__self__, "url", url)
         if content_type is not None:
             pulumi.set(__self__, "content_type", content_type)
@@ -666,21 +1051,33 @@ class RepositoryWebhookConfiguration(dict):
     @property
     @pulumi.getter
     def url(self) -> str:
+        """
+        The URL of the webhook.
+        """
         return pulumi.get(self, "url")
 
     @property
     @pulumi.getter(name="contentType")
     def content_type(self) -> Optional[str]:
+        """
+        The content type for the payload. Valid values are either `form` or `json`.
+        """
         return pulumi.get(self, "content_type")
 
     @property
     @pulumi.getter(name="insecureSsl")
     def insecure_ssl(self) -> Optional[bool]:
+        """
+        Insecure SSL boolean toggle. Defaults to `false`.
+        """
         return pulumi.get(self, "insecure_ssl")
 
     @property
     @pulumi.getter
     def secret(self) -> Optional[str]:
+        """
+        The shared secret for the webhook. [See API documentation](https://developer.github.com/v3/repos/hooks/#create-a-hook).
+        """
         return pulumi.get(self, "secret")
 
 
@@ -689,6 +1086,11 @@ class TeamMembersMember(dict):
     def __init__(__self__, *,
                  username: str,
                  role: Optional[str] = None):
+        """
+        :param str username: The user to add to the team.
+        :param str role: The role of the user within the team.
+               Must be one of `member` or `maintainer`. Defaults to `member`.
+        """
         pulumi.set(__self__, "username", username)
         if role is not None:
             pulumi.set(__self__, "role", role)
@@ -696,12 +1098,79 @@ class TeamMembersMember(dict):
     @property
     @pulumi.getter
     def username(self) -> str:
+        """
+        The user to add to the team.
+        """
         return pulumi.get(self, "username")
 
     @property
     @pulumi.getter
     def role(self) -> Optional[str]:
+        """
+        The role of the user within the team.
+        Must be one of `member` or `maintainer`. Defaults to `member`.
+        """
         return pulumi.get(self, "role")
+
+
+@pulumi.output_type
+class TeamSettingsReviewRequestDelegation(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "memberCount":
+            suggest = "member_count"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TeamSettingsReviewRequestDelegation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TeamSettingsReviewRequestDelegation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TeamSettingsReviewRequestDelegation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 algorithm: Optional[str] = None,
+                 member_count: Optional[int] = None,
+                 notify: Optional[bool] = None):
+        """
+        :param str algorithm: The algorithm to use when assigning pull requests to team members. Supported values are `ROUND_ROBIN` and `LOAD_BALANCE`. Default value is `ROUND_ROBIN`
+        :param int member_count: The number of team members to assign to a pull request
+        :param bool notify: whether to notify the entire team when at least one member is also assigned to the pull request
+        """
+        if algorithm is not None:
+            pulumi.set(__self__, "algorithm", algorithm)
+        if member_count is not None:
+            pulumi.set(__self__, "member_count", member_count)
+        if notify is not None:
+            pulumi.set(__self__, "notify", notify)
+
+    @property
+    @pulumi.getter
+    def algorithm(self) -> Optional[str]:
+        """
+        The algorithm to use when assigning pull requests to team members. Supported values are `ROUND_ROBIN` and `LOAD_BALANCE`. Default value is `ROUND_ROBIN`
+        """
+        return pulumi.get(self, "algorithm")
+
+    @property
+    @pulumi.getter(name="memberCount")
+    def member_count(self) -> Optional[int]:
+        """
+        The number of team members to assign to a pull request
+        """
+        return pulumi.get(self, "member_count")
+
+    @property
+    @pulumi.getter
+    def notify(self) -> Optional[bool]:
+        """
+        whether to notify the entire team when at least one member is also assigned to the pull request
+        """
+        return pulumi.get(self, "notify")
 
 
 @pulumi.output_type
@@ -731,6 +1200,11 @@ class TeamSyncGroupMappingGroup(dict):
                  group_description: str,
                  group_id: str,
                  group_name: str):
+        """
+        :param str group_description: The description of the IdP group.
+        :param str group_id: The ID of the IdP group.
+        :param str group_name: The name of the IdP group.
+        """
         pulumi.set(__self__, "group_description", group_description)
         pulumi.set(__self__, "group_id", group_id)
         pulumi.set(__self__, "group_name", group_name)
@@ -738,16 +1212,25 @@ class TeamSyncGroupMappingGroup(dict):
     @property
     @pulumi.getter(name="groupDescription")
     def group_description(self) -> str:
+        """
+        The description of the IdP group.
+        """
         return pulumi.get(self, "group_description")
 
     @property
     @pulumi.getter(name="groupId")
     def group_id(self) -> str:
+        """
+        The ID of the IdP group.
+        """
         return pulumi.get(self, "group_id")
 
     @property
     @pulumi.getter(name="groupName")
     def group_name(self) -> str:
+        """
+        The name of the IdP group.
+        """
         return pulumi.get(self, "group_name")
 
 
@@ -758,6 +1241,12 @@ class GetActionsOrganizationSecretsSecretResult(dict):
                  name: str,
                  updated_at: str,
                  visibility: str):
+        """
+        :param str created_at: Timestamp of the secret creation
+        :param str name: Secret name
+        :param str updated_at: Timestamp of the secret last update
+        :param str visibility: Secret visibility
+        """
         pulumi.set(__self__, "created_at", created_at)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "updated_at", updated_at)
@@ -766,21 +1255,33 @@ class GetActionsOrganizationSecretsSecretResult(dict):
     @property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> str:
+        """
+        Timestamp of the secret creation
+        """
         return pulumi.get(self, "created_at")
 
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        Secret name
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="updatedAt")
     def updated_at(self) -> str:
+        """
+        Timestamp of the secret last update
+        """
         return pulumi.get(self, "updated_at")
 
     @property
     @pulumi.getter
     def visibility(self) -> str:
+        """
+        Secret visibility
+        """
         return pulumi.get(self, "visibility")
 
 
@@ -790,6 +1291,11 @@ class GetActionsSecretsSecretResult(dict):
                  created_at: str,
                  name: str,
                  updated_at: str):
+        """
+        :param str created_at: Timestamp of the secret creation
+        :param str name: The name of the repository.
+        :param str updated_at: Timestamp of the secret last update
+        """
         pulumi.set(__self__, "created_at", created_at)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "updated_at", updated_at)
@@ -797,16 +1303,25 @@ class GetActionsSecretsSecretResult(dict):
     @property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> str:
+        """
+        Timestamp of the secret creation
+        """
         return pulumi.get(self, "created_at")
 
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        The name of the repository.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="updatedAt")
     def updated_at(self) -> str:
+        """
+        Timestamp of the secret last update
+        """
         return pulumi.get(self, "updated_at")
 
 
@@ -829,6 +1344,24 @@ class GetCollaboratorsCollaboratorResult(dict):
                  subscriptions_url: str,
                  type: str,
                  url: str):
+        """
+        :param str events_url: The GitHub API URL for the collaborator's events.
+        :param str followers_url: The GitHub API URL for the collaborator's followers.
+        :param str following_url: The GitHub API URL for those following the collaborator.
+        :param str gists_url: The GitHub API URL for the collaborator's gists.
+        :param str html_url: The GitHub HTML URL for the collaborator.
+        :param int id: The ID of the collaborator.
+        :param str login: The collaborator's login.
+        :param str organizations_url: The GitHub API URL for the collaborator's organizations.
+        :param str permission: The permission of the collaborator.
+        :param str received_events_url: The GitHub API URL for the collaborator's received events.
+        :param str repos_url: The GitHub API URL for the collaborator's repositories.
+        :param bool site_admin: Whether the user is a GitHub admin.
+        :param str starred_url: The GitHub API URL for the collaborator's starred repositories.
+        :param str subscriptions_url: The GitHub API URL for the collaborator's subscribed repositories.
+        :param str type: The type of the collaborator (ex. `user`).
+        :param str url: The GitHub API URL for the collaborator.
+        """
         pulumi.set(__self__, "events_url", events_url)
         pulumi.set(__self__, "followers_url", followers_url)
         pulumi.set(__self__, "following_url", following_url)
@@ -849,81 +1382,129 @@ class GetCollaboratorsCollaboratorResult(dict):
     @property
     @pulumi.getter(name="eventsUrl")
     def events_url(self) -> str:
+        """
+        The GitHub API URL for the collaborator's events.
+        """
         return pulumi.get(self, "events_url")
 
     @property
     @pulumi.getter(name="followersUrl")
     def followers_url(self) -> str:
+        """
+        The GitHub API URL for the collaborator's followers.
+        """
         return pulumi.get(self, "followers_url")
 
     @property
     @pulumi.getter(name="followingUrl")
     def following_url(self) -> str:
+        """
+        The GitHub API URL for those following the collaborator.
+        """
         return pulumi.get(self, "following_url")
 
     @property
     @pulumi.getter(name="gistsUrl")
     def gists_url(self) -> str:
+        """
+        The GitHub API URL for the collaborator's gists.
+        """
         return pulumi.get(self, "gists_url")
 
     @property
     @pulumi.getter(name="htmlUrl")
     def html_url(self) -> str:
+        """
+        The GitHub HTML URL for the collaborator.
+        """
         return pulumi.get(self, "html_url")
 
     @property
     @pulumi.getter
     def id(self) -> int:
+        """
+        The ID of the collaborator.
+        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
     def login(self) -> str:
+        """
+        The collaborator's login.
+        """
         return pulumi.get(self, "login")
 
     @property
     @pulumi.getter(name="organizationsUrl")
     def organizations_url(self) -> str:
+        """
+        The GitHub API URL for the collaborator's organizations.
+        """
         return pulumi.get(self, "organizations_url")
 
     @property
     @pulumi.getter
     def permission(self) -> str:
+        """
+        The permission of the collaborator.
+        """
         return pulumi.get(self, "permission")
 
     @property
     @pulumi.getter(name="receivedEventsUrl")
     def received_events_url(self) -> str:
+        """
+        The GitHub API URL for the collaborator's received events.
+        """
         return pulumi.get(self, "received_events_url")
 
     @property
     @pulumi.getter(name="reposUrl")
     def repos_url(self) -> str:
+        """
+        The GitHub API URL for the collaborator's repositories.
+        """
         return pulumi.get(self, "repos_url")
 
     @property
     @pulumi.getter(name="siteAdmin")
     def site_admin(self) -> bool:
+        """
+        Whether the user is a GitHub admin.
+        """
         return pulumi.get(self, "site_admin")
 
     @property
     @pulumi.getter(name="starredUrl")
     def starred_url(self) -> str:
+        """
+        The GitHub API URL for the collaborator's starred repositories.
+        """
         return pulumi.get(self, "starred_url")
 
     @property
     @pulumi.getter(name="subscriptionsUrl")
     def subscriptions_url(self) -> str:
+        """
+        The GitHub API URL for the collaborator's subscribed repositories.
+        """
         return pulumi.get(self, "subscriptions_url")
 
     @property
     @pulumi.getter
     def type(self) -> str:
+        """
+        The type of the collaborator (ex. `user`).
+        """
         return pulumi.get(self, "type")
 
     @property
     @pulumi.getter
     def url(self) -> str:
+        """
+        The GitHub API URL for the collaborator.
+        """
         return pulumi.get(self, "url")
 
 
@@ -934,6 +1515,12 @@ class GetDependabotOrganizationSecretsSecretResult(dict):
                  name: str,
                  updated_at: str,
                  visibility: str):
+        """
+        :param str created_at: Timestamp of the secret creation
+        :param str name: Secret name
+        :param str updated_at: Timestamp of the secret last update
+        :param str visibility: Secret visibility
+        """
         pulumi.set(__self__, "created_at", created_at)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "updated_at", updated_at)
@@ -942,21 +1529,33 @@ class GetDependabotOrganizationSecretsSecretResult(dict):
     @property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> str:
+        """
+        Timestamp of the secret creation
+        """
         return pulumi.get(self, "created_at")
 
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        Secret name
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="updatedAt")
     def updated_at(self) -> str:
+        """
+        Timestamp of the secret last update
+        """
         return pulumi.get(self, "updated_at")
 
     @property
     @pulumi.getter
     def visibility(self) -> str:
+        """
+        Secret visibility
+        """
         return pulumi.get(self, "visibility")
 
 
@@ -966,6 +1565,11 @@ class GetDependabotSecretsSecretResult(dict):
                  created_at: str,
                  name: str,
                  updated_at: str):
+        """
+        :param str created_at: Timestamp of the secret creation
+        :param str name: The name of the repository.
+        :param str updated_at: Timestamp of the secret last update
+        """
         pulumi.set(__self__, "created_at", created_at)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "updated_at", updated_at)
@@ -973,16 +1577,25 @@ class GetDependabotSecretsSecretResult(dict):
     @property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> str:
+        """
+        Timestamp of the secret creation
+        """
         return pulumi.get(self, "created_at")
 
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        The name of the repository.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="updatedAt")
     def updated_at(self) -> str:
+        """
+        Timestamp of the secret last update
+        """
         return pulumi.get(self, "updated_at")
 
 
@@ -992,6 +1605,11 @@ class GetExternalGroupsExternalGroupResult(dict):
                  group_id: int,
                  group_name: str,
                  updated_at: str):
+        """
+        :param int group_id: the ID of the group.
+        :param str group_name: the name of the group.
+        :param str updated_at: the date the group was last updated.
+        """
         pulumi.set(__self__, "group_id", group_id)
         pulumi.set(__self__, "group_name", group_name)
         pulumi.set(__self__, "updated_at", updated_at)
@@ -999,16 +1617,25 @@ class GetExternalGroupsExternalGroupResult(dict):
     @property
     @pulumi.getter(name="groupId")
     def group_id(self) -> int:
+        """
+        the ID of the group.
+        """
         return pulumi.get(self, "group_id")
 
     @property
     @pulumi.getter(name="groupName")
     def group_name(self) -> str:
+        """
+        the name of the group.
+        """
         return pulumi.get(self, "group_name")
 
     @property
     @pulumi.getter(name="updatedAt")
     def updated_at(self) -> str:
+        """
+        the date the group was last updated.
+        """
         return pulumi.get(self, "updated_at")
 
 
@@ -1021,6 +1648,14 @@ class GetOrganizationIpAllowListIpAllowListResult(dict):
                  is_active: bool,
                  name: str,
                  updated_at: str):
+        """
+        :param str allow_list_value: A single IP address or range of IP addresses in CIDR notation.
+        :param str created_at: Identifies the date and time when the object was created.
+        :param str id: The ID of the IP allow list entry.
+        :param bool is_active: Whether the entry is currently active.
+        :param str name: The name of the IP allow list entry.
+        :param str updated_at: Identifies the date and time when the object was last updated.
+        """
         pulumi.set(__self__, "allow_list_value", allow_list_value)
         pulumi.set(__self__, "created_at", created_at)
         pulumi.set(__self__, "id", id)
@@ -1031,31 +1666,49 @@ class GetOrganizationIpAllowListIpAllowListResult(dict):
     @property
     @pulumi.getter(name="allowListValue")
     def allow_list_value(self) -> str:
+        """
+        A single IP address or range of IP addresses in CIDR notation.
+        """
         return pulumi.get(self, "allow_list_value")
 
     @property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> str:
+        """
+        Identifies the date and time when the object was created.
+        """
         return pulumi.get(self, "created_at")
 
     @property
     @pulumi.getter
     def id(self) -> str:
+        """
+        The ID of the IP allow list entry.
+        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="isActive")
     def is_active(self) -> bool:
+        """
+        Whether the entry is currently active.
+        """
         return pulumi.get(self, "is_active")
 
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        The name of the IP allow list entry.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="updatedAt")
     def updated_at(self) -> str:
+        """
+        Identifies the date and time when the object was last updated.
+        """
         return pulumi.get(self, "updated_at")
 
 
@@ -1065,6 +1718,11 @@ class GetOrganizationTeamSyncGroupsGroupResult(dict):
                  group_description: str,
                  group_id: str,
                  group_name: str):
+        """
+        :param str group_description: The description of the IdP group.
+        :param str group_id: The ID of the IdP group.
+        :param str group_name: The name of the IdP group.
+        """
         pulumi.set(__self__, "group_description", group_description)
         pulumi.set(__self__, "group_id", group_id)
         pulumi.set(__self__, "group_name", group_name)
@@ -1072,16 +1730,25 @@ class GetOrganizationTeamSyncGroupsGroupResult(dict):
     @property
     @pulumi.getter(name="groupDescription")
     def group_description(self) -> str:
+        """
+        The description of the IdP group.
+        """
         return pulumi.get(self, "group_description")
 
     @property
     @pulumi.getter(name="groupId")
     def group_id(self) -> str:
+        """
+        The ID of the IdP group.
+        """
         return pulumi.get(self, "group_id")
 
     @property
     @pulumi.getter(name="groupName")
     def group_name(self) -> str:
+        """
+        The name of the IdP group.
+        """
         return pulumi.get(self, "group_name")
 
 
@@ -1096,6 +1763,16 @@ class GetOrganizationTeamsTeamResult(dict):
                  privacy: str,
                  repositories: Sequence[str],
                  slug: str):
+        """
+        :param str description: the team's description.
+        :param int id: the ID of the team.
+        :param Sequence[str] members: List of team members. Not returned if `summary_only = true`
+        :param str name: the team's full name.
+        :param str node_id: the Node ID of the team.
+        :param str privacy: the team's privacy type.
+        :param Sequence[str] repositories: List of team repositories. Not returned if `summary_only = true`
+        :param str slug: the slug of the team.
+        """
         pulumi.set(__self__, "description", description)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "members", members)
@@ -1108,41 +1785,65 @@ class GetOrganizationTeamsTeamResult(dict):
     @property
     @pulumi.getter
     def description(self) -> str:
+        """
+        the team's description.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
     def id(self) -> int:
+        """
+        the ID of the team.
+        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
     def members(self) -> Sequence[str]:
+        """
+        List of team members. Not returned if `summary_only = true`
+        """
         return pulumi.get(self, "members")
 
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        the team's full name.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="nodeId")
     def node_id(self) -> str:
+        """
+        the Node ID of the team.
+        """
         return pulumi.get(self, "node_id")
 
     @property
     @pulumi.getter
     def privacy(self) -> str:
+        """
+        the team's privacy type.
+        """
         return pulumi.get(self, "privacy")
 
     @property
     @pulumi.getter
     def repositories(self) -> Sequence[str]:
+        """
+        List of team repositories. Not returned if `summary_only = true`
+        """
         return pulumi.get(self, "repositories")
 
     @property
     @pulumi.getter
     def slug(self) -> str:
+        """
+        the slug of the team.
+        """
         return pulumi.get(self, "slug")
 
 
@@ -1154,6 +1855,13 @@ class GetOrganizationWebhooksWebhookResult(dict):
                  name: str,
                  type: str,
                  url: str):
+        """
+        :param bool active: `true` if the webhook is active.
+        :param int id: the ID of the webhook.
+        :param str name: the name of the webhook.
+        :param str type: the type of the webhook.
+        :param str url: the url of the webhook.
+        """
         pulumi.set(__self__, "active", active)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
@@ -1163,26 +1871,41 @@ class GetOrganizationWebhooksWebhookResult(dict):
     @property
     @pulumi.getter
     def active(self) -> bool:
+        """
+        `true` if the webhook is active.
+        """
         return pulumi.get(self, "active")
 
     @property
     @pulumi.getter
     def id(self) -> int:
+        """
+        the ID of the webhook.
+        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        the name of the webhook.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def type(self) -> str:
+        """
+        the type of the webhook.
+        """
         return pulumi.get(self, "type")
 
     @property
     @pulumi.getter
     def url(self) -> str:
+        """
+        the url of the webhook.
+        """
         return pulumi.get(self, "url")
 
 
@@ -1199,6 +1922,18 @@ class GetReleaseAssetResult(dict):
                  size: int,
                  updated_at: str,
                  url: str):
+        """
+        :param str browser_download_url: Browser download URL
+        :param str content_type: MIME type of the asset
+        :param str created_at: Date the asset was created
+        :param int id: ID of the asset
+        :param str label: Label for the asset
+        :param str name: The file name of the asset
+        :param str node_id: Node ID of the asset
+        :param int size: Size in byte
+        :param str updated_at: Date the asset was last updated
+        :param str url: URL of the asset
+        """
         pulumi.set(__self__, "browser_download_url", browser_download_url)
         pulumi.set(__self__, "content_type", content_type)
         pulumi.set(__self__, "created_at", created_at)
@@ -1213,51 +1948,81 @@ class GetReleaseAssetResult(dict):
     @property
     @pulumi.getter(name="browserDownloadUrl")
     def browser_download_url(self) -> str:
+        """
+        Browser download URL
+        """
         return pulumi.get(self, "browser_download_url")
 
     @property
     @pulumi.getter(name="contentType")
     def content_type(self) -> str:
+        """
+        MIME type of the asset
+        """
         return pulumi.get(self, "content_type")
 
     @property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> str:
+        """
+        Date the asset was created
+        """
         return pulumi.get(self, "created_at")
 
     @property
     @pulumi.getter
     def id(self) -> int:
+        """
+        ID of the asset
+        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
     def label(self) -> str:
+        """
+        Label for the asset
+        """
         return pulumi.get(self, "label")
 
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        The file name of the asset
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="nodeId")
     def node_id(self) -> str:
+        """
+        Node ID of the asset
+        """
         return pulumi.get(self, "node_id")
 
     @property
     @pulumi.getter
     def size(self) -> int:
+        """
+        Size in byte
+        """
         return pulumi.get(self, "size")
 
     @property
     @pulumi.getter(name="updatedAt")
     def updated_at(self) -> str:
+        """
+        Date the asset was last updated
+        """
         return pulumi.get(self, "updated_at")
 
     @property
     @pulumi.getter
     def url(self) -> str:
+        """
+        URL of the asset
+        """
         return pulumi.get(self, "url")
 
 
@@ -1266,17 +2031,27 @@ class GetRepositoryBranchesBranchResult(dict):
     def __init__(__self__, *,
                  name: str,
                  protected: bool):
+        """
+        :param str name: Name of the branch.
+        :param bool protected: Whether the branch is protected.
+        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "protected", protected)
 
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        Name of the branch.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def protected(self) -> bool:
+        """
+        Whether the branch is protected.
+        """
         return pulumi.get(self, "protected")
 
 
@@ -1287,6 +2062,12 @@ class GetRepositoryDeployKeysKeyResult(dict):
                  key: str,
                  title: str,
                  verified: bool):
+        """
+        :param int id: Key id
+        :param str key: Key itself
+        :param str title: Key title
+        :param bool verified: `true` if the key was verified.
+        """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "title", title)
@@ -1295,21 +2076,33 @@ class GetRepositoryDeployKeysKeyResult(dict):
     @property
     @pulumi.getter
     def id(self) -> int:
+        """
+        Key id
+        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
     def key(self) -> str:
+        """
+        Key itself
+        """
         return pulumi.get(self, "key")
 
     @property
     @pulumi.getter
     def title(self) -> str:
+        """
+        Key title
+        """
         return pulumi.get(self, "title")
 
     @property
     @pulumi.getter
     def verified(self) -> bool:
+        """
+        `true` if the key was verified.
+        """
         return pulumi.get(self, "verified")
 
 
@@ -1322,6 +2115,9 @@ class GetRepositoryPageResult(dict):
                  sources: Sequence['outputs.GetRepositoryPageSourceResult'],
                  status: str,
                  url: str):
+        """
+        :param str html_url: URL to the repository on the web.
+        """
         pulumi.set(__self__, "cname", cname)
         pulumi.set(__self__, "custom404", custom404)
         pulumi.set(__self__, "html_url", html_url)
@@ -1342,6 +2138,9 @@ class GetRepositoryPageResult(dict):
     @property
     @pulumi.getter(name="htmlUrl")
     def html_url(self) -> str:
+        """
+        URL to the repository on the web.
+        """
         return pulumi.get(self, "html_url")
 
     @property
@@ -1398,6 +2197,24 @@ class GetRepositoryPullRequestsResultResult(dict):
                  state: str,
                  title: str,
                  updated_at: int):
+        """
+        :param str base_ref: If set, filters Pull Requests by base branch name.
+        :param str base_sha: Head commit SHA of the Pull Request base.
+        :param str body: Body of the Pull Request.
+        :param bool draft: Indicates Whether this Pull Request is a draft.
+        :param str head_owner: Owner of the Pull Request head repository.
+        :param str head_ref: If set, filters Pull Requests by head user or head organization and branch name in the format of "user:ref-name" or "organization:ref-name". For example: "github:new-script-format" or "octocat:test-branch".
+        :param str head_repository: Name of the Pull Request head repository.
+        :param str head_sha: Head commit SHA of the Pull Request head.
+        :param Sequence[str] labels: List of label names set on the Pull Request.
+        :param bool maintainer_can_modify: Indicates whether the base repository maintainers can modify the Pull Request.
+        :param int number: The number of the Pull Request within the repository.
+        :param int opened_at: Unix timestamp indicating the Pull Request creation time.
+        :param str opened_by: GitHub login of the user who opened the Pull Request.
+        :param str state: If set, filters Pull Requests by state. Can be "open", "closed", or "all". Default: "open".
+        :param str title: The title of the Pull Request.
+        :param int updated_at: The timestamp of the last Pull Request update.
+        """
         pulumi.set(__self__, "base_ref", base_ref)
         pulumi.set(__self__, "base_sha", base_sha)
         pulumi.set(__self__, "body", body)
@@ -1418,81 +2235,129 @@ class GetRepositoryPullRequestsResultResult(dict):
     @property
     @pulumi.getter(name="baseRef")
     def base_ref(self) -> str:
+        """
+        If set, filters Pull Requests by base branch name.
+        """
         return pulumi.get(self, "base_ref")
 
     @property
     @pulumi.getter(name="baseSha")
     def base_sha(self) -> str:
+        """
+        Head commit SHA of the Pull Request base.
+        """
         return pulumi.get(self, "base_sha")
 
     @property
     @pulumi.getter
     def body(self) -> str:
+        """
+        Body of the Pull Request.
+        """
         return pulumi.get(self, "body")
 
     @property
     @pulumi.getter
     def draft(self) -> bool:
+        """
+        Indicates Whether this Pull Request is a draft.
+        """
         return pulumi.get(self, "draft")
 
     @property
     @pulumi.getter(name="headOwner")
     def head_owner(self) -> str:
+        """
+        Owner of the Pull Request head repository.
+        """
         return pulumi.get(self, "head_owner")
 
     @property
     @pulumi.getter(name="headRef")
     def head_ref(self) -> str:
+        """
+        If set, filters Pull Requests by head user or head organization and branch name in the format of "user:ref-name" or "organization:ref-name". For example: "github:new-script-format" or "octocat:test-branch".
+        """
         return pulumi.get(self, "head_ref")
 
     @property
     @pulumi.getter(name="headRepository")
     def head_repository(self) -> str:
+        """
+        Name of the Pull Request head repository.
+        """
         return pulumi.get(self, "head_repository")
 
     @property
     @pulumi.getter(name="headSha")
     def head_sha(self) -> str:
+        """
+        Head commit SHA of the Pull Request head.
+        """
         return pulumi.get(self, "head_sha")
 
     @property
     @pulumi.getter
     def labels(self) -> Sequence[str]:
+        """
+        List of label names set on the Pull Request.
+        """
         return pulumi.get(self, "labels")
 
     @property
     @pulumi.getter(name="maintainerCanModify")
     def maintainer_can_modify(self) -> bool:
+        """
+        Indicates whether the base repository maintainers can modify the Pull Request.
+        """
         return pulumi.get(self, "maintainer_can_modify")
 
     @property
     @pulumi.getter
     def number(self) -> int:
+        """
+        The number of the Pull Request within the repository.
+        """
         return pulumi.get(self, "number")
 
     @property
     @pulumi.getter(name="openedAt")
     def opened_at(self) -> int:
+        """
+        Unix timestamp indicating the Pull Request creation time.
+        """
         return pulumi.get(self, "opened_at")
 
     @property
     @pulumi.getter(name="openedBy")
     def opened_by(self) -> str:
+        """
+        GitHub login of the user who opened the Pull Request.
+        """
         return pulumi.get(self, "opened_by")
 
     @property
     @pulumi.getter
     def state(self) -> str:
+        """
+        If set, filters Pull Requests by state. Can be "open", "closed", or "all". Default: "open".
+        """
         return pulumi.get(self, "state")
 
     @property
     @pulumi.getter
     def title(self) -> str:
+        """
+        The title of the Pull Request.
+        """
         return pulumi.get(self, "title")
 
     @property
     @pulumi.getter(name="updatedAt")
     def updated_at(self) -> int:
+        """
+        The timestamp of the last Pull Request update.
+        """
         return pulumi.get(self, "updated_at")
 
 
@@ -1502,6 +2367,11 @@ class GetRepositoryTeamsTeamResult(dict):
                  name: str,
                  permission: str,
                  slug: str):
+        """
+        :param str name: The name of the repository.
+        :param str permission: Team permission
+        :param str slug: Team slug
+        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "permission", permission)
         pulumi.set(__self__, "slug", slug)
@@ -1509,17 +2379,45 @@ class GetRepositoryTeamsTeamResult(dict):
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        The name of the repository.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def permission(self) -> str:
+        """
+        Team permission
+        """
         return pulumi.get(self, "permission")
 
     @property
     @pulumi.getter
     def slug(self) -> str:
+        """
+        Team slug
+        """
         return pulumi.get(self, "slug")
+
+
+@pulumi.output_type
+class GetRepositoryTemplateResult(dict):
+    def __init__(__self__, *,
+                 owner: str,
+                 repository: str):
+        pulumi.set(__self__, "owner", owner)
+        pulumi.set(__self__, "repository", repository)
+
+    @property
+    @pulumi.getter
+    def owner(self) -> str:
+        return pulumi.get(self, "owner")
+
+    @property
+    @pulumi.getter
+    def repository(self) -> str:
+        return pulumi.get(self, "repository")
 
 
 @pulumi.output_type
@@ -1530,6 +2428,13 @@ class GetRepositoryWebhooksWebhookResult(dict):
                  name: str,
                  type: str,
                  url: str):
+        """
+        :param bool active: `true` if the webhook is active.
+        :param int id: the ID of the webhook.
+        :param str name: the name of the webhook.
+        :param str type: the type of the webhook.
+        :param str url: the url of the webhook.
+        """
         pulumi.set(__self__, "active", active)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
@@ -1539,26 +2444,41 @@ class GetRepositoryWebhooksWebhookResult(dict):
     @property
     @pulumi.getter
     def active(self) -> bool:
+        """
+        `true` if the webhook is active.
+        """
         return pulumi.get(self, "active")
 
     @property
     @pulumi.getter
     def id(self) -> int:
+        """
+        the ID of the webhook.
+        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        the name of the webhook.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def type(self) -> str:
+        """
+        the type of the webhook.
+        """
         return pulumi.get(self, "type")
 
     @property
     @pulumi.getter
     def url(self) -> str:
+        """
+        the url of the webhook.
+        """
         return pulumi.get(self, "url")
 
 

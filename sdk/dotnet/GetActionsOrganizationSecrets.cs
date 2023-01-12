@@ -11,6 +11,27 @@ namespace Pulumi.Github
 {
     public static class GetActionsOrganizationSecrets
     {
+        /// <summary>
+        /// Use this data source to retrieve the list of secrets of the organization.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Github = Pulumi.Github;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Github.GetActionsOrganizationSecrets.Invoke();
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetActionsOrganizationSecretsResult> InvokeAsync(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetActionsOrganizationSecretsResult>("github:index/getActionsOrganizationSecrets:getActionsOrganizationSecrets", InvokeArgs.Empty, options.WithDefaults());
     }
@@ -23,6 +44,9 @@ namespace Pulumi.Github
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// list of secrets for the repository
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetActionsOrganizationSecretsSecretResult> Secrets;
 
         [OutputConstructor]

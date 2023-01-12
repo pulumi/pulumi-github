@@ -9,39 +9,142 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Github
 {
+    /// <summary>
+    /// Provides a GitHub issue resource.
+    /// 
+    /// This resource allows you to create and manage issue within your
+    /// GitHub repository.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Github = Pulumi.Github;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     // Create a simple issue
+    ///     var testRepository = new Github.Repository("testRepository", new()
+    ///     {
+    ///         AutoInit = true,
+    ///         HasIssues = true,
+    ///     });
+    /// 
+    ///     var testIssue = new Github.Issue("testIssue", new()
+    ///     {
+    ///         Repository = testRepository.Name,
+    ///         Title = "My issue title",
+    ///         Body = "The body of my issue",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### With Milestone And Project Assignment
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Github = Pulumi.Github;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     // Create an issue with milestone and project assignment
+    ///     var testRepository = new Github.Repository("testRepository", new()
+    ///     {
+    ///         AutoInit = true,
+    ///         HasIssues = true,
+    ///     });
+    /// 
+    ///     var testRepositoryMilestone = new Github.RepositoryMilestone("testRepositoryMilestone", new()
+    ///     {
+    ///         Owner = testRepository.FullName.Apply(fullName =&gt; fullName.Split("/")).Apply(split =&gt; split[0]),
+    ///         Repository = testRepository.Name,
+    ///         Title = "v1.0.0",
+    ///         Description = "General Availability",
+    ///         DueDate = "2022-11-22",
+    ///         State = "open",
+    ///     });
+    /// 
+    ///     var testIssue = new Github.Issue("testIssue", new()
+    ///     {
+    ///         Repository = testRepository.Name,
+    ///         Title = "My issue",
+    ///         Body = "My issue body",
+    ///         Labels = new[]
+    ///         {
+    ///             "bug",
+    ///             "documentation",
+    ///         },
+    ///         Assignees = new[]
+    ///         {
+    ///             "bob-github",
+    ///         },
+    ///         MilestoneNumber = testRepositoryMilestone.Number,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// GitHub Issues can be imported using an ID made up of `repository:number`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import github:index/issue:Issue issue_15 myrepo:15
+    /// ```
+    /// </summary>
     [GithubResourceType("github:index/issue:Issue")]
     public partial class Issue : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// List of Logins for Users to assign to this issue
+        /// List of Logins to assign the to the issue
         /// </summary>
         [Output("assignees")]
         public Output<ImmutableArray<string>> Assignees { get; private set; } = null!;
 
+        /// <summary>
+        /// Body of the issue
+        /// </summary>
         [Output("body")]
         public Output<string?> Body { get; private set; } = null!;
 
         [Output("etag")]
         public Output<string> Etag { get; private set; } = null!;
 
+        /// <summary>
+        /// (Computed) - The issue id
+        /// </summary>
         [Output("issueId")]
         public Output<int> IssueId { get; private set; } = null!;
 
         /// <summary>
-        /// List of names of labels on the issue
+        /// List of labels to attach to the issue
         /// </summary>
         [Output("labels")]
         public Output<ImmutableArray<string>> Labels { get; private set; } = null!;
 
+        /// <summary>
+        /// Milestone number to assign to the issue
+        /// </summary>
         [Output("milestoneNumber")]
         public Output<int?> MilestoneNumber { get; private set; } = null!;
 
+        /// <summary>
+        /// (Computed) - The issue number
+        /// </summary>
         [Output("number")]
         public Output<int> Number { get; private set; } = null!;
 
+        /// <summary>
+        /// The GitHub repository name
+        /// </summary>
         [Output("repository")]
         public Output<string> Repository { get; private set; } = null!;
 
+        /// <summary>
+        /// Title of the issue
+        /// </summary>
         [Output("title")]
         public Output<string> Title { get; private set; } = null!;
 
@@ -95,7 +198,7 @@ namespace Pulumi.Github
         private InputList<string>? _assignees;
 
         /// <summary>
-        /// List of Logins for Users to assign to this issue
+        /// List of Logins to assign the to the issue
         /// </summary>
         public InputList<string> Assignees
         {
@@ -103,6 +206,9 @@ namespace Pulumi.Github
             set => _assignees = value;
         }
 
+        /// <summary>
+        /// Body of the issue
+        /// </summary>
         [Input("body")]
         public Input<string>? Body { get; set; }
 
@@ -110,7 +216,7 @@ namespace Pulumi.Github
         private InputList<string>? _labels;
 
         /// <summary>
-        /// List of names of labels on the issue
+        /// List of labels to attach to the issue
         /// </summary>
         public InputList<string> Labels
         {
@@ -118,12 +224,21 @@ namespace Pulumi.Github
             set => _labels = value;
         }
 
+        /// <summary>
+        /// Milestone number to assign to the issue
+        /// </summary>
         [Input("milestoneNumber")]
         public Input<int>? MilestoneNumber { get; set; }
 
+        /// <summary>
+        /// The GitHub repository name
+        /// </summary>
         [Input("repository", required: true)]
         public Input<string> Repository { get; set; } = null!;
 
+        /// <summary>
+        /// Title of the issue
+        /// </summary>
         [Input("title", required: true)]
         public Input<string> Title { get; set; } = null!;
 
@@ -139,7 +254,7 @@ namespace Pulumi.Github
         private InputList<string>? _assignees;
 
         /// <summary>
-        /// List of Logins for Users to assign to this issue
+        /// List of Logins to assign the to the issue
         /// </summary>
         public InputList<string> Assignees
         {
@@ -147,12 +262,18 @@ namespace Pulumi.Github
             set => _assignees = value;
         }
 
+        /// <summary>
+        /// Body of the issue
+        /// </summary>
         [Input("body")]
         public Input<string>? Body { get; set; }
 
         [Input("etag")]
         public Input<string>? Etag { get; set; }
 
+        /// <summary>
+        /// (Computed) - The issue id
+        /// </summary>
         [Input("issueId")]
         public Input<int>? IssueId { get; set; }
 
@@ -160,7 +281,7 @@ namespace Pulumi.Github
         private InputList<string>? _labels;
 
         /// <summary>
-        /// List of names of labels on the issue
+        /// List of labels to attach to the issue
         /// </summary>
         public InputList<string> Labels
         {
@@ -168,15 +289,27 @@ namespace Pulumi.Github
             set => _labels = value;
         }
 
+        /// <summary>
+        /// Milestone number to assign to the issue
+        /// </summary>
         [Input("milestoneNumber")]
         public Input<int>? MilestoneNumber { get; set; }
 
+        /// <summary>
+        /// (Computed) - The issue number
+        /// </summary>
         [Input("number")]
         public Input<int>? Number { get; set; }
 
+        /// <summary>
+        /// The GitHub repository name
+        /// </summary>
         [Input("repository")]
         public Input<string>? Repository { get; set; }
 
+        /// <summary>
+        /// Title of the issue
+        /// </summary>
         [Input("title")]
         public Input<string>? Title { get; set; }
 

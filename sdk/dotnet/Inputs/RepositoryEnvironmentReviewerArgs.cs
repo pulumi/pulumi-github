@@ -14,6 +14,10 @@ namespace Pulumi.Github.Inputs
     {
         [Input("teams")]
         private InputList<int>? _teams;
+
+        /// <summary>
+        /// Up to 6 IDs for teams who may review jobs that reference the environment. Reviewers must have at least read access to the repository. Only one of the required reviewers needs to approve the job for it to proceed.
+        /// </summary>
         public InputList<int> Teams
         {
             get => _teams ?? (_teams = new InputList<int>());
@@ -22,6 +26,10 @@ namespace Pulumi.Github.Inputs
 
         [Input("users")]
         private InputList<int>? _users;
+
+        /// <summary>
+        /// Up to 6 IDs for users who may review jobs that reference the environment. Reviewers must have at least read access to the repository. Only one of the required reviewers needs to approve the job for it to proceed.
+        /// </summary>
         public InputList<int> Users
         {
             get => _users ?? (_users = new InputList<int>());

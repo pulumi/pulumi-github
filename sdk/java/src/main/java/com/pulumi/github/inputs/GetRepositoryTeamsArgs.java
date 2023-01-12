@@ -15,16 +15,32 @@ public final class GetRepositoryTeamsArgs extends com.pulumi.resources.InvokeArg
 
     public static final GetRepositoryTeamsArgs Empty = new GetRepositoryTeamsArgs();
 
+    /**
+     * Full name of the repository (in `org/name` format).
+     * 
+     */
     @Import(name="fullName")
     private @Nullable Output<String> fullName;
 
+    /**
+     * @return Full name of the repository (in `org/name` format).
+     * 
+     */
     public Optional<Output<String>> fullName() {
         return Optional.ofNullable(this.fullName);
     }
 
+    /**
+     * The name of the repository.
+     * 
+     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
+    /**
+     * @return The name of the repository.
+     * 
+     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
@@ -54,20 +70,44 @@ public final class GetRepositoryTeamsArgs extends com.pulumi.resources.InvokeArg
             $ = new GetRepositoryTeamsArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param fullName Full name of the repository (in `org/name` format).
+         * 
+         * @return builder
+         * 
+         */
         public Builder fullName(@Nullable Output<String> fullName) {
             $.fullName = fullName;
             return this;
         }
 
+        /**
+         * @param fullName Full name of the repository (in `org/name` format).
+         * 
+         * @return builder
+         * 
+         */
         public Builder fullName(String fullName) {
             return fullName(Output.of(fullName));
         }
 
+        /**
+         * @param name The name of the repository.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param name The name of the repository.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             return name(Output.of(name));
         }

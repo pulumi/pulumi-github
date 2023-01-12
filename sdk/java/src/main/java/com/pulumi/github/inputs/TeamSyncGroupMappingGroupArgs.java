@@ -13,23 +13,47 @@ public final class TeamSyncGroupMappingGroupArgs extends com.pulumi.resources.Re
 
     public static final TeamSyncGroupMappingGroupArgs Empty = new TeamSyncGroupMappingGroupArgs();
 
+    /**
+     * The description of the IdP group.
+     * 
+     */
     @Import(name="groupDescription", required=true)
     private Output<String> groupDescription;
 
+    /**
+     * @return The description of the IdP group.
+     * 
+     */
     public Output<String> groupDescription() {
         return this.groupDescription;
     }
 
+    /**
+     * The ID of the IdP group.
+     * 
+     */
     @Import(name="groupId", required=true)
     private Output<String> groupId;
 
+    /**
+     * @return The ID of the IdP group.
+     * 
+     */
     public Output<String> groupId() {
         return this.groupId;
     }
 
+    /**
+     * The name of the IdP group.
+     * 
+     */
     @Import(name="groupName", required=true)
     private Output<String> groupName;
 
+    /**
+     * @return The name of the IdP group.
+     * 
+     */
     public Output<String> groupName() {
         return this.groupName;
     }
@@ -60,29 +84,65 @@ public final class TeamSyncGroupMappingGroupArgs extends com.pulumi.resources.Re
             $ = new TeamSyncGroupMappingGroupArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param groupDescription The description of the IdP group.
+         * 
+         * @return builder
+         * 
+         */
         public Builder groupDescription(Output<String> groupDescription) {
             $.groupDescription = groupDescription;
             return this;
         }
 
+        /**
+         * @param groupDescription The description of the IdP group.
+         * 
+         * @return builder
+         * 
+         */
         public Builder groupDescription(String groupDescription) {
             return groupDescription(Output.of(groupDescription));
         }
 
+        /**
+         * @param groupId The ID of the IdP group.
+         * 
+         * @return builder
+         * 
+         */
         public Builder groupId(Output<String> groupId) {
             $.groupId = groupId;
             return this;
         }
 
+        /**
+         * @param groupId The ID of the IdP group.
+         * 
+         * @return builder
+         * 
+         */
         public Builder groupId(String groupId) {
             return groupId(Output.of(groupId));
         }
 
+        /**
+         * @param groupName The name of the IdP group.
+         * 
+         * @return builder
+         * 
+         */
         public Builder groupName(Output<String> groupName) {
             $.groupName = groupName;
             return this;
         }
 
+        /**
+         * @param groupName The name of the IdP group.
+         * 
+         * @return builder
+         * 
+         */
         public Builder groupName(String groupName) {
             return groupName(Output.of(groupName));
         }

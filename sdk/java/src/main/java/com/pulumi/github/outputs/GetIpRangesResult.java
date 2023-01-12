@@ -10,79 +10,235 @@ import java.util.Objects;
 
 @CustomType
 public final class GetIpRangesResult {
+    /**
+     * @return An array of IP addresses in CIDR format specifying the addresses that incoming requests from GitHub actions will originate from.
+     * 
+     */
     private List<String> actions;
+    /**
+     * @return A subset of the `actions` array that contains IP addresses in IPv4 CIDR format.
+     * 
+     */
     private List<String> actionsIpv4s;
+    /**
+     * @return A subset of the `actions` array that contains IP addresses in IPv6 CIDR format.
+     * 
+     */
     private List<String> actionsIpv6s;
+    /**
+     * @return A subset of the `api` array that contains IP addresses in IPv4 CIDR format.
+     * 
+     */
     private List<String> apiIpv4s;
+    /**
+     * @return A subset of the `api` array that contains IP addresses in IPv6 CIDR format.
+     * 
+     */
     private List<String> apiIpv6s;
+    /**
+     * @return An Array of IP addresses in CIDR format for the GitHub API.
+     * 
+     */
     private List<String> apis;
+    /**
+     * @return A subset of the `dependabot` array that contains IP addresses in IPv4 CIDR format.
+     * 
+     */
     private List<String> dependabotIpv4s;
+    /**
+     * @return A subset of the `dependabot` array that contains IP addresses in IPv6 CIDR format.
+     * 
+     */
     private List<String> dependabotIpv6s;
+    /**
+     * @return An array of IP addresses in CIDR format specifying the A records for dependabot.
+     * 
+     */
     private List<String> dependabots;
+    /**
+     * @return A subset of the `git` array that contains IP addresses in IPv4 CIDR format.
+     * 
+     */
     private List<String> gitIpv4s;
+    /**
+     * @return A subset of the `git` array that contains IP addresses in IPv6 CIDR format.
+     * 
+     */
     private List<String> gitIpv6s;
+    /**
+     * @return An Array of IP addresses in CIDR format specifying the Git servers.
+     * 
+     */
     private List<String> gits;
+    /**
+     * @return An Array of IP addresses in CIDR format specifying the addresses that incoming service hooks will originate from.
+     * 
+     */
     private List<String> hooks;
+    /**
+     * @return A subset of the `hooks` array that contains IP addresses in IPv4 CIDR format.
+     * 
+     */
     private List<String> hooksIpv4s;
+    /**
+     * @return A subset of the `hooks` array that contains IP addresses in IPv6 CIDR format.
+     * 
+     */
     private List<String> hooksIpv6s;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
+    /**
+     * @return A subset of the `importer` array that contains IP addresses in IPv4 CIDR format.
+     * 
+     */
     private List<String> importerIpv4s;
+    /**
+     * @return A subset of the `importer` array that contains IP addresses in IPv6 CIDR format.
+     * 
+     */
     private List<String> importerIpv6s;
+    /**
+     * @return An Array of IP addresses in CIDR format specifying the A records for GitHub Importer.
+     * 
+     */
     private List<String> importers;
+    /**
+     * @return An Array of IP addresses in CIDR format specifying the A records for GitHub Pages.
+     * 
+     */
     private List<String> pages;
+    /**
+     * @return A subset of the `pages` array that contains IP addresses in IPv4 CIDR format.
+     * 
+     */
     private List<String> pagesIpv4s;
+    /**
+     * @return A subset of the `pages` array that contains IP addresses in IPv6 CIDR format.
+     * 
+     */
     private List<String> pagesIpv6s;
+    /**
+     * @return A subset of the `web` array that contains IP addresses in IPv4 CIDR format.
+     * 
+     */
     private List<String> webIpv4s;
+    /**
+     * @return A subset of the `web` array that contains IP addresses in IPv6 CIDR format.
+     * 
+     */
     private List<String> webIpv6s;
+    /**
+     * @return An Array of IP addresses in CIDR format for GitHub Web.
+     * 
+     */
     private List<String> webs;
 
     private GetIpRangesResult() {}
+    /**
+     * @return An array of IP addresses in CIDR format specifying the addresses that incoming requests from GitHub actions will originate from.
+     * 
+     */
     public List<String> actions() {
         return this.actions;
     }
+    /**
+     * @return A subset of the `actions` array that contains IP addresses in IPv4 CIDR format.
+     * 
+     */
     public List<String> actionsIpv4s() {
         return this.actionsIpv4s;
     }
+    /**
+     * @return A subset of the `actions` array that contains IP addresses in IPv6 CIDR format.
+     * 
+     */
     public List<String> actionsIpv6s() {
         return this.actionsIpv6s;
     }
+    /**
+     * @return A subset of the `api` array that contains IP addresses in IPv4 CIDR format.
+     * 
+     */
     public List<String> apiIpv4s() {
         return this.apiIpv4s;
     }
+    /**
+     * @return A subset of the `api` array that contains IP addresses in IPv6 CIDR format.
+     * 
+     */
     public List<String> apiIpv6s() {
         return this.apiIpv6s;
     }
+    /**
+     * @return An Array of IP addresses in CIDR format for the GitHub API.
+     * 
+     */
     public List<String> apis() {
         return this.apis;
     }
+    /**
+     * @return A subset of the `dependabot` array that contains IP addresses in IPv4 CIDR format.
+     * 
+     */
     public List<String> dependabotIpv4s() {
         return this.dependabotIpv4s;
     }
+    /**
+     * @return A subset of the `dependabot` array that contains IP addresses in IPv6 CIDR format.
+     * 
+     */
     public List<String> dependabotIpv6s() {
         return this.dependabotIpv6s;
     }
+    /**
+     * @return An array of IP addresses in CIDR format specifying the A records for dependabot.
+     * 
+     */
     public List<String> dependabots() {
         return this.dependabots;
     }
+    /**
+     * @return A subset of the `git` array that contains IP addresses in IPv4 CIDR format.
+     * 
+     */
     public List<String> gitIpv4s() {
         return this.gitIpv4s;
     }
+    /**
+     * @return A subset of the `git` array that contains IP addresses in IPv6 CIDR format.
+     * 
+     */
     public List<String> gitIpv6s() {
         return this.gitIpv6s;
     }
+    /**
+     * @return An Array of IP addresses in CIDR format specifying the Git servers.
+     * 
+     */
     public List<String> gits() {
         return this.gits;
     }
+    /**
+     * @return An Array of IP addresses in CIDR format specifying the addresses that incoming service hooks will originate from.
+     * 
+     */
     public List<String> hooks() {
         return this.hooks;
     }
+    /**
+     * @return A subset of the `hooks` array that contains IP addresses in IPv4 CIDR format.
+     * 
+     */
     public List<String> hooksIpv4s() {
         return this.hooksIpv4s;
     }
+    /**
+     * @return A subset of the `hooks` array that contains IP addresses in IPv6 CIDR format.
+     * 
+     */
     public List<String> hooksIpv6s() {
         return this.hooksIpv6s;
     }
@@ -93,30 +249,66 @@ public final class GetIpRangesResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return A subset of the `importer` array that contains IP addresses in IPv4 CIDR format.
+     * 
+     */
     public List<String> importerIpv4s() {
         return this.importerIpv4s;
     }
+    /**
+     * @return A subset of the `importer` array that contains IP addresses in IPv6 CIDR format.
+     * 
+     */
     public List<String> importerIpv6s() {
         return this.importerIpv6s;
     }
+    /**
+     * @return An Array of IP addresses in CIDR format specifying the A records for GitHub Importer.
+     * 
+     */
     public List<String> importers() {
         return this.importers;
     }
+    /**
+     * @return An Array of IP addresses in CIDR format specifying the A records for GitHub Pages.
+     * 
+     */
     public List<String> pages() {
         return this.pages;
     }
+    /**
+     * @return A subset of the `pages` array that contains IP addresses in IPv4 CIDR format.
+     * 
+     */
     public List<String> pagesIpv4s() {
         return this.pagesIpv4s;
     }
+    /**
+     * @return A subset of the `pages` array that contains IP addresses in IPv6 CIDR format.
+     * 
+     */
     public List<String> pagesIpv6s() {
         return this.pagesIpv6s;
     }
+    /**
+     * @return A subset of the `web` array that contains IP addresses in IPv4 CIDR format.
+     * 
+     */
     public List<String> webIpv4s() {
         return this.webIpv4s;
     }
+    /**
+     * @return A subset of the `web` array that contains IP addresses in IPv6 CIDR format.
+     * 
+     */
     public List<String> webIpv6s() {
         return this.webIpv6s;
     }
+    /**
+     * @return An Array of IP addresses in CIDR format for GitHub Web.
+     * 
+     */
     public List<String> webs() {
         return this.webs;
     }

@@ -13,17 +13,41 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ActionsOrganizationPermissionsAllowedActionsConfig {
+    /**
+     * @return Whether GitHub-owned actions are allowed in the organization.
+     * 
+     */
     private Boolean githubOwnedAllowed;
+    /**
+     * @return Specifies a list of string-matching patterns to allow specific action(s). Wildcards, tags, and SHAs are allowed. For example, monalisa/octocat@*, monalisa/octocat@v2, monalisa/*.&#34;
+     * 
+     */
     private @Nullable List<String> patternsAlloweds;
+    /**
+     * @return Whether actions in GitHub Marketplace from verified creators are allowed. Set to true to allow all GitHub Marketplace actions by verified creators.
+     * 
+     */
     private @Nullable Boolean verifiedAllowed;
 
     private ActionsOrganizationPermissionsAllowedActionsConfig() {}
+    /**
+     * @return Whether GitHub-owned actions are allowed in the organization.
+     * 
+     */
     public Boolean githubOwnedAllowed() {
         return this.githubOwnedAllowed;
     }
+    /**
+     * @return Specifies a list of string-matching patterns to allow specific action(s). Wildcards, tags, and SHAs are allowed. For example, monalisa/octocat@*, monalisa/octocat@v2, monalisa/*.&#34;
+     * 
+     */
     public List<String> patternsAlloweds() {
         return this.patternsAlloweds == null ? List.of() : this.patternsAlloweds;
     }
+    /**
+     * @return Whether actions in GitHub Marketplace from verified creators are allowed. Set to true to allow all GitHub Marketplace actions by verified creators.
+     * 
+     */
     public Optional<Boolean> verifiedAllowed() {
         return Optional.ofNullable(this.verifiedAllowed);
     }

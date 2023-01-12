@@ -20,6 +20,10 @@ class IssueLabelArgs:
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a IssueLabel resource.
+        :param pulumi.Input[str] color: A 6 character hex code, **without the leading #**, identifying the color of the label.
+        :param pulumi.Input[str] repository: The GitHub repository
+        :param pulumi.Input[str] description: A short description of the label.
+        :param pulumi.Input[str] name: The name of the label.
         """
         pulumi.set(__self__, "color", color)
         pulumi.set(__self__, "repository", repository)
@@ -31,6 +35,9 @@ class IssueLabelArgs:
     @property
     @pulumi.getter
     def color(self) -> pulumi.Input[str]:
+        """
+        A 6 character hex code, **without the leading #**, identifying the color of the label.
+        """
         return pulumi.get(self, "color")
 
     @color.setter
@@ -40,6 +47,9 @@ class IssueLabelArgs:
     @property
     @pulumi.getter
     def repository(self) -> pulumi.Input[str]:
+        """
+        The GitHub repository
+        """
         return pulumi.get(self, "repository")
 
     @repository.setter
@@ -49,6 +59,9 @@ class IssueLabelArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A short description of the label.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -58,6 +71,9 @@ class IssueLabelArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the label.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -76,6 +92,11 @@ class _IssueLabelState:
                  url: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering IssueLabel resources.
+        :param pulumi.Input[str] color: A 6 character hex code, **without the leading #**, identifying the color of the label.
+        :param pulumi.Input[str] description: A short description of the label.
+        :param pulumi.Input[str] name: The name of the label.
+        :param pulumi.Input[str] repository: The GitHub repository
+        :param pulumi.Input[str] url: The URL to the issue label
         """
         if color is not None:
             pulumi.set(__self__, "color", color)
@@ -93,6 +114,9 @@ class _IssueLabelState:
     @property
     @pulumi.getter
     def color(self) -> Optional[pulumi.Input[str]]:
+        """
+        A 6 character hex code, **without the leading #**, identifying the color of the label.
+        """
         return pulumi.get(self, "color")
 
     @color.setter
@@ -102,6 +126,9 @@ class _IssueLabelState:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A short description of the label.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -120,6 +147,9 @@ class _IssueLabelState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the label.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -129,6 +159,9 @@ class _IssueLabelState:
     @property
     @pulumi.getter
     def repository(self) -> Optional[pulumi.Input[str]]:
+        """
+        The GitHub repository
+        """
         return pulumi.get(self, "repository")
 
     @repository.setter
@@ -138,6 +171,9 @@ class _IssueLabelState:
     @property
     @pulumi.getter
     def url(self) -> Optional[pulumi.Input[str]]:
+        """
+        The URL to the issue label
+        """
         return pulumi.get(self, "url")
 
     @url.setter
@@ -156,9 +192,32 @@ class IssueLabel(pulumi.CustomResource):
                  repository: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a IssueLabel resource with the given unique name, props, and options.
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        # Create a new, red colored label
+        test_repo = github.IssueLabel("testRepo",
+            color="FF0000",
+            repository="test-repo")
+        ```
+
+        ## Import
+
+        GitHub Issue Labels can be imported using an ID made up of `repository:name`, e.g.
+
+        ```sh
+         $ pulumi import github:index/issueLabel:IssueLabel panic_label terraform:panic
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] color: A 6 character hex code, **without the leading #**, identifying the color of the label.
+        :param pulumi.Input[str] description: A short description of the label.
+        :param pulumi.Input[str] name: The name of the label.
+        :param pulumi.Input[str] repository: The GitHub repository
         """
         ...
     @overload
@@ -167,7 +226,26 @@ class IssueLabel(pulumi.CustomResource):
                  args: IssueLabelArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a IssueLabel resource with the given unique name, props, and options.
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        # Create a new, red colored label
+        test_repo = github.IssueLabel("testRepo",
+            color="FF0000",
+            repository="test-repo")
+        ```
+
+        ## Import
+
+        GitHub Issue Labels can be imported using an ID made up of `repository:name`, e.g.
+
+        ```sh
+         $ pulumi import github:index/issueLabel:IssueLabel panic_label terraform:panic
+        ```
+
         :param str resource_name: The name of the resource.
         :param IssueLabelArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -229,6 +307,11 @@ class IssueLabel(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] color: A 6 character hex code, **without the leading #**, identifying the color of the label.
+        :param pulumi.Input[str] description: A short description of the label.
+        :param pulumi.Input[str] name: The name of the label.
+        :param pulumi.Input[str] repository: The GitHub repository
+        :param pulumi.Input[str] url: The URL to the issue label
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -245,11 +328,17 @@ class IssueLabel(pulumi.CustomResource):
     @property
     @pulumi.getter
     def color(self) -> pulumi.Output[str]:
+        """
+        A 6 character hex code, **without the leading #**, identifying the color of the label.
+        """
         return pulumi.get(self, "color")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        A short description of the label.
+        """
         return pulumi.get(self, "description")
 
     @property
@@ -260,15 +349,24 @@ class IssueLabel(pulumi.CustomResource):
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        The name of the label.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def repository(self) -> pulumi.Output[str]:
+        """
+        The GitHub repository
+        """
         return pulumi.get(self, "repository")
 
     @property
     @pulumi.getter
     def url(self) -> pulumi.Output[str]:
+        """
+        The URL to the issue label
+        """
         return pulumi.get(self, "url")
 

@@ -6,13 +6,24 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
+/**
+ * Use this data source to retrieve the list of secrets for a GitHub repository.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const example = github.getActionsSecrets({
+ *     name: "example",
+ * });
+ * ```
+ */
 export function getActionsSecrets(args?: GetActionsSecretsArgs, opts?: pulumi.InvokeOptions): Promise<GetActionsSecretsResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("github:index/getActionsSecrets:getActionsSecrets", {
         "fullName": args.fullName,
         "name": args.name,
@@ -23,7 +34,13 @@ export function getActionsSecrets(args?: GetActionsSecretsArgs, opts?: pulumi.In
  * A collection of arguments for invoking getActionsSecrets.
  */
 export interface GetActionsSecretsArgs {
+    /**
+     * Full name of the repository (in `org/name` format).
+     */
     fullName?: string;
+    /**
+     * The name of the repository.
+     */
     name?: string;
 }
 
@@ -36,18 +53,43 @@ export interface GetActionsSecretsResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * Secret name
+     */
     readonly name: string;
+    /**
+     * list of secrets for the repository
+     */
     readonly secrets: outputs.GetActionsSecretsSecret[];
 }
-
+/**
+ * Use this data source to retrieve the list of secrets for a GitHub repository.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const example = github.getActionsSecrets({
+ *     name: "example",
+ * });
+ * ```
+ */
 export function getActionsSecretsOutput(args?: GetActionsSecretsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetActionsSecretsResult> {
-    return pulumi.output(args).apply(a => getActionsSecrets(a, opts))
+    return pulumi.output(args).apply((a: any) => getActionsSecrets(a, opts))
 }
 
 /**
  * A collection of arguments for invoking getActionsSecrets.
  */
 export interface GetActionsSecretsOutputArgs {
+    /**
+     * Full name of the repository (in `org/name` format).
+     */
     fullName?: pulumi.Input<string>;
+    /**
+     * The name of the repository.
+     */
     name?: pulumi.Input<string>;
 }

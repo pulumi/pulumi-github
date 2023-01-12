@@ -6,12 +6,23 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
+/**
+ * Use this data source to retrieve information about branches in a repository.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const example = github.getRepositoryBranches({
+ *     repository: "example-repository",
+ * });
+ * ```
+ */
 export function getRepositoryBranches(args: GetRepositoryBranchesArgs, opts?: pulumi.InvokeOptions): Promise<GetRepositoryBranchesResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("github:index/getRepositoryBranches:getRepositoryBranches", {
         "onlyNonProtectedBranches": args.onlyNonProtectedBranches,
         "onlyProtectedBranches": args.onlyProtectedBranches,
@@ -23,8 +34,17 @@ export function getRepositoryBranches(args: GetRepositoryBranchesArgs, opts?: pu
  * A collection of arguments for invoking getRepositoryBranches.
  */
 export interface GetRepositoryBranchesArgs {
+    /**
+     * . If true, the `branches` attributes will be populated only with non protected branches. Default: `false`.
+     */
     onlyNonProtectedBranches?: boolean;
+    /**
+     * . If true, the `branches` attributes will be populated only with protected branches. Default: `false`.
+     */
     onlyProtectedBranches?: boolean;
+    /**
+     * Name of the repository to retrieve the branches from.
+     */
     repository: string;
 }
 
@@ -32,6 +52,9 @@ export interface GetRepositoryBranchesArgs {
  * A collection of values returned by getRepositoryBranches.
  */
 export interface GetRepositoryBranchesResult {
+    /**
+     * The list of this repository's branches. Each element of `branches` has the following attributes:
+     */
     readonly branches: outputs.GetRepositoryBranchesBranch[];
     /**
      * The provider-assigned unique ID for this managed resource.
@@ -41,16 +64,38 @@ export interface GetRepositoryBranchesResult {
     readonly onlyProtectedBranches?: boolean;
     readonly repository: string;
 }
-
+/**
+ * Use this data source to retrieve information about branches in a repository.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const example = github.getRepositoryBranches({
+ *     repository: "example-repository",
+ * });
+ * ```
+ */
 export function getRepositoryBranchesOutput(args: GetRepositoryBranchesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRepositoryBranchesResult> {
-    return pulumi.output(args).apply(a => getRepositoryBranches(a, opts))
+    return pulumi.output(args).apply((a: any) => getRepositoryBranches(a, opts))
 }
 
 /**
  * A collection of arguments for invoking getRepositoryBranches.
  */
 export interface GetRepositoryBranchesOutputArgs {
+    /**
+     * . If true, the `branches` attributes will be populated only with non protected branches. Default: `false`.
+     */
     onlyNonProtectedBranches?: pulumi.Input<boolean>;
+    /**
+     * . If true, the `branches` attributes will be populated only with protected branches. Default: `false`.
+     */
     onlyProtectedBranches?: pulumi.Input<boolean>;
+    /**
+     * Name of the repository to retrieve the branches from.
+     */
     repository: pulumi.Input<string>;
 }

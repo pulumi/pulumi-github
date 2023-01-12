@@ -20,6 +20,10 @@ class BranchArgs:
                  source_sha: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Branch resource.
+        :param pulumi.Input[str] branch: The repository branch to create.
+        :param pulumi.Input[str] repository: The GitHub repository name.
+        :param pulumi.Input[str] source_branch: The branch name to start from. Defaults to `main`.
+        :param pulumi.Input[str] source_sha: The commit hash to start from. Defaults to the tip of `source_branch`. If provided, `source_branch` is ignored.
         """
         pulumi.set(__self__, "branch", branch)
         pulumi.set(__self__, "repository", repository)
@@ -31,6 +35,9 @@ class BranchArgs:
     @property
     @pulumi.getter
     def branch(self) -> pulumi.Input[str]:
+        """
+        The repository branch to create.
+        """
         return pulumi.get(self, "branch")
 
     @branch.setter
@@ -40,6 +47,9 @@ class BranchArgs:
     @property
     @pulumi.getter
     def repository(self) -> pulumi.Input[str]:
+        """
+        The GitHub repository name.
+        """
         return pulumi.get(self, "repository")
 
     @repository.setter
@@ -49,6 +59,9 @@ class BranchArgs:
     @property
     @pulumi.getter(name="sourceBranch")
     def source_branch(self) -> Optional[pulumi.Input[str]]:
+        """
+        The branch name to start from. Defaults to `main`.
+        """
         return pulumi.get(self, "source_branch")
 
     @source_branch.setter
@@ -58,6 +71,9 @@ class BranchArgs:
     @property
     @pulumi.getter(name="sourceSha")
     def source_sha(self) -> Optional[pulumi.Input[str]]:
+        """
+        The commit hash to start from. Defaults to the tip of `source_branch`. If provided, `source_branch` is ignored.
+        """
         return pulumi.get(self, "source_sha")
 
     @source_sha.setter
@@ -77,6 +93,13 @@ class _BranchState:
                  source_sha: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Branch resources.
+        :param pulumi.Input[str] branch: The repository branch to create.
+        :param pulumi.Input[str] etag: An etag representing the Branch object.
+        :param pulumi.Input[str] ref: A string representing a branch reference, in the form of `refs/heads/<branch>`.
+        :param pulumi.Input[str] repository: The GitHub repository name.
+        :param pulumi.Input[str] sha: A string storing the reference's `HEAD` commit's SHA1.
+        :param pulumi.Input[str] source_branch: The branch name to start from. Defaults to `main`.
+        :param pulumi.Input[str] source_sha: The commit hash to start from. Defaults to the tip of `source_branch`. If provided, `source_branch` is ignored.
         """
         if branch is not None:
             pulumi.set(__self__, "branch", branch)
@@ -96,6 +119,9 @@ class _BranchState:
     @property
     @pulumi.getter
     def branch(self) -> Optional[pulumi.Input[str]]:
+        """
+        The repository branch to create.
+        """
         return pulumi.get(self, "branch")
 
     @branch.setter
@@ -105,6 +131,9 @@ class _BranchState:
     @property
     @pulumi.getter
     def etag(self) -> Optional[pulumi.Input[str]]:
+        """
+        An etag representing the Branch object.
+        """
         return pulumi.get(self, "etag")
 
     @etag.setter
@@ -114,6 +143,9 @@ class _BranchState:
     @property
     @pulumi.getter
     def ref(self) -> Optional[pulumi.Input[str]]:
+        """
+        A string representing a branch reference, in the form of `refs/heads/<branch>`.
+        """
         return pulumi.get(self, "ref")
 
     @ref.setter
@@ -123,6 +155,9 @@ class _BranchState:
     @property
     @pulumi.getter
     def repository(self) -> Optional[pulumi.Input[str]]:
+        """
+        The GitHub repository name.
+        """
         return pulumi.get(self, "repository")
 
     @repository.setter
@@ -132,6 +167,9 @@ class _BranchState:
     @property
     @pulumi.getter
     def sha(self) -> Optional[pulumi.Input[str]]:
+        """
+        A string storing the reference's `HEAD` commit's SHA1.
+        """
         return pulumi.get(self, "sha")
 
     @sha.setter
@@ -141,6 +179,9 @@ class _BranchState:
     @property
     @pulumi.getter(name="sourceBranch")
     def source_branch(self) -> Optional[pulumi.Input[str]]:
+        """
+        The branch name to start from. Defaults to `main`.
+        """
         return pulumi.get(self, "source_branch")
 
     @source_branch.setter
@@ -150,6 +191,9 @@ class _BranchState:
     @property
     @pulumi.getter(name="sourceSha")
     def source_sha(self) -> Optional[pulumi.Input[str]]:
+        """
+        The commit hash to start from. Defaults to the tip of `source_branch`. If provided, `source_branch` is ignored.
+        """
         return pulumi.get(self, "source_sha")
 
     @source_sha.setter
@@ -168,9 +212,48 @@ class Branch(pulumi.CustomResource):
                  source_sha: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a Branch resource with the given unique name, props, and options.
+        This resource allows you to create and manage branches within your repository.
+
+        Additional constraints can be applied to ensure your branch is created from
+        another branch or commit.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        development = github.Branch("development",
+            branch="development",
+            repository="example")
+        ```
+
+        ## Import
+
+        GitHub Branch can be imported using an ID made up of `repository:branch`, e.g.
+
+        ```sh
+         $ pulumi import github:index/branch:Branch terraform terraform:main
+        ```
+
+         Importing github branch into an instance object (when using a for each block to manage multiple branches)
+
+        ```sh
+         $ pulumi import github:index/branch:Branch terraform["terraform"] terraform:main
+        ```
+
+         Optionally, a source branch may be specified using an ID of `repository:branch:source_branch`. This is useful for importing branches that do not branch directly off main.
+
+        ```sh
+         $ pulumi import github:index/branch:Branch terraform terraform:feature-branch:dev
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] branch: The repository branch to create.
+        :param pulumi.Input[str] repository: The GitHub repository name.
+        :param pulumi.Input[str] source_branch: The branch name to start from. Defaults to `main`.
+        :param pulumi.Input[str] source_sha: The commit hash to start from. Defaults to the tip of `source_branch`. If provided, `source_branch` is ignored.
         """
         ...
     @overload
@@ -179,7 +262,42 @@ class Branch(pulumi.CustomResource):
                  args: BranchArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a Branch resource with the given unique name, props, and options.
+        This resource allows you to create and manage branches within your repository.
+
+        Additional constraints can be applied to ensure your branch is created from
+        another branch or commit.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        development = github.Branch("development",
+            branch="development",
+            repository="example")
+        ```
+
+        ## Import
+
+        GitHub Branch can be imported using an ID made up of `repository:branch`, e.g.
+
+        ```sh
+         $ pulumi import github:index/branch:Branch terraform terraform:main
+        ```
+
+         Importing github branch into an instance object (when using a for each block to manage multiple branches)
+
+        ```sh
+         $ pulumi import github:index/branch:Branch terraform["terraform"] terraform:main
+        ```
+
+         Optionally, a source branch may be specified using an ID of `repository:branch:source_branch`. This is useful for importing branches that do not branch directly off main.
+
+        ```sh
+         $ pulumi import github:index/branch:Branch terraform terraform:feature-branch:dev
+        ```
+
         :param str resource_name: The name of the resource.
         :param BranchArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -243,6 +361,13 @@ class Branch(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] branch: The repository branch to create.
+        :param pulumi.Input[str] etag: An etag representing the Branch object.
+        :param pulumi.Input[str] ref: A string representing a branch reference, in the form of `refs/heads/<branch>`.
+        :param pulumi.Input[str] repository: The GitHub repository name.
+        :param pulumi.Input[str] sha: A string storing the reference's `HEAD` commit's SHA1.
+        :param pulumi.Input[str] source_branch: The branch name to start from. Defaults to `main`.
+        :param pulumi.Input[str] source_sha: The commit hash to start from. Defaults to the tip of `source_branch`. If provided, `source_branch` is ignored.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -260,35 +385,56 @@ class Branch(pulumi.CustomResource):
     @property
     @pulumi.getter
     def branch(self) -> pulumi.Output[str]:
+        """
+        The repository branch to create.
+        """
         return pulumi.get(self, "branch")
 
     @property
     @pulumi.getter
     def etag(self) -> pulumi.Output[str]:
+        """
+        An etag representing the Branch object.
+        """
         return pulumi.get(self, "etag")
 
     @property
     @pulumi.getter
     def ref(self) -> pulumi.Output[str]:
+        """
+        A string representing a branch reference, in the form of `refs/heads/<branch>`.
+        """
         return pulumi.get(self, "ref")
 
     @property
     @pulumi.getter
     def repository(self) -> pulumi.Output[str]:
+        """
+        The GitHub repository name.
+        """
         return pulumi.get(self, "repository")
 
     @property
     @pulumi.getter
     def sha(self) -> pulumi.Output[str]:
+        """
+        A string storing the reference's `HEAD` commit's SHA1.
+        """
         return pulumi.get(self, "sha")
 
     @property
     @pulumi.getter(name="sourceBranch")
     def source_branch(self) -> pulumi.Output[Optional[str]]:
+        """
+        The branch name to start from. Defaults to `main`.
+        """
         return pulumi.get(self, "source_branch")
 
     @property
     @pulumi.getter(name="sourceSha")
     def source_sha(self) -> pulumi.Output[str]:
+        """
+        The commit hash to start from. Defaults to the tip of `source_branch`. If provided, `source_branch` is ignored.
+        """
         return pulumi.get(self, "source_sha")
 

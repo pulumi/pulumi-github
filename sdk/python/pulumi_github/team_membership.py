@@ -19,6 +19,10 @@ class TeamMembershipArgs:
                  role: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a TeamMembership resource.
+        :param pulumi.Input[str] team_id: The GitHub team id
+        :param pulumi.Input[str] username: The user to add to the team.
+        :param pulumi.Input[str] role: The role of the user within the team.
+               Must be one of `member` or `maintainer`. Defaults to `member`.
         """
         pulumi.set(__self__, "team_id", team_id)
         pulumi.set(__self__, "username", username)
@@ -28,6 +32,9 @@ class TeamMembershipArgs:
     @property
     @pulumi.getter(name="teamId")
     def team_id(self) -> pulumi.Input[str]:
+        """
+        The GitHub team id
+        """
         return pulumi.get(self, "team_id")
 
     @team_id.setter
@@ -37,6 +44,9 @@ class TeamMembershipArgs:
     @property
     @pulumi.getter
     def username(self) -> pulumi.Input[str]:
+        """
+        The user to add to the team.
+        """
         return pulumi.get(self, "username")
 
     @username.setter
@@ -46,6 +56,10 @@ class TeamMembershipArgs:
     @property
     @pulumi.getter
     def role(self) -> Optional[pulumi.Input[str]]:
+        """
+        The role of the user within the team.
+        Must be one of `member` or `maintainer`. Defaults to `member`.
+        """
         return pulumi.get(self, "role")
 
     @role.setter
@@ -62,6 +76,10 @@ class _TeamMembershipState:
                  username: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering TeamMembership resources.
+        :param pulumi.Input[str] role: The role of the user within the team.
+               Must be one of `member` or `maintainer`. Defaults to `member`.
+        :param pulumi.Input[str] team_id: The GitHub team id
+        :param pulumi.Input[str] username: The user to add to the team.
         """
         if etag is not None:
             pulumi.set(__self__, "etag", etag)
@@ -84,6 +102,10 @@ class _TeamMembershipState:
     @property
     @pulumi.getter
     def role(self) -> Optional[pulumi.Input[str]]:
+        """
+        The role of the user within the team.
+        Must be one of `member` or `maintainer`. Defaults to `member`.
+        """
         return pulumi.get(self, "role")
 
     @role.setter
@@ -93,6 +115,9 @@ class _TeamMembershipState:
     @property
     @pulumi.getter(name="teamId")
     def team_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The GitHub team id
+        """
         return pulumi.get(self, "team_id")
 
     @team_id.setter
@@ -102,6 +127,9 @@ class _TeamMembershipState:
     @property
     @pulumi.getter
     def username(self) -> Optional[pulumi.Input[str]]:
+        """
+        The user to add to the team.
+        """
         return pulumi.get(self, "username")
 
     @username.setter
@@ -119,9 +147,46 @@ class TeamMembership(pulumi.CustomResource):
                  username: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a TeamMembership resource with the given unique name, props, and options.
+        Provides a GitHub team membership resource.
+
+        This resource allows you to add/remove users from teams in your organization. When applied,
+        the user will be added to the team. If the user hasn't accepted their invitation to the
+        organization, they won't be part of the team until they do. When
+        destroyed, the user will be removed from the team.
+
+        > **Note**: This resource is not compatible with `TeamMembers`. Use either `TeamMembers` or `TeamMembership`.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        # Add a user to the organization
+        membership_for_some_user = github.Membership("membershipForSomeUser",
+            username="SomeUser",
+            role="member")
+        some_team = github.Team("someTeam", description="Some cool team")
+        some_team_membership = github.TeamMembership("someTeamMembership",
+            team_id=some_team.id,
+            username="SomeUser",
+            role="member")
+        ```
+
+        ## Import
+
+        GitHub Team Membership can be imported using an ID made up of `teamid:username`, e.g.
+
+        ```sh
+         $ pulumi import github:index/teamMembership:TeamMembership member 1234567:someuser
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] role: The role of the user within the team.
+               Must be one of `member` or `maintainer`. Defaults to `member`.
+        :param pulumi.Input[str] team_id: The GitHub team id
+        :param pulumi.Input[str] username: The user to add to the team.
         """
         ...
     @overload
@@ -130,7 +195,40 @@ class TeamMembership(pulumi.CustomResource):
                  args: TeamMembershipArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a TeamMembership resource with the given unique name, props, and options.
+        Provides a GitHub team membership resource.
+
+        This resource allows you to add/remove users from teams in your organization. When applied,
+        the user will be added to the team. If the user hasn't accepted their invitation to the
+        organization, they won't be part of the team until they do. When
+        destroyed, the user will be removed from the team.
+
+        > **Note**: This resource is not compatible with `TeamMembers`. Use either `TeamMembers` or `TeamMembership`.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        # Add a user to the organization
+        membership_for_some_user = github.Membership("membershipForSomeUser",
+            username="SomeUser",
+            role="member")
+        some_team = github.Team("someTeam", description="Some cool team")
+        some_team_membership = github.TeamMembership("someTeamMembership",
+            team_id=some_team.id,
+            username="SomeUser",
+            role="member")
+        ```
+
+        ## Import
+
+        GitHub Team Membership can be imported using an ID made up of `teamid:username`, e.g.
+
+        ```sh
+         $ pulumi import github:index/teamMembership:TeamMembership member 1234567:someuser
+        ```
+
         :param str resource_name: The name of the resource.
         :param TeamMembershipArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -187,6 +285,10 @@ class TeamMembership(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] role: The role of the user within the team.
+               Must be one of `member` or `maintainer`. Defaults to `member`.
+        :param pulumi.Input[str] team_id: The GitHub team id
+        :param pulumi.Input[str] username: The user to add to the team.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -206,15 +308,25 @@ class TeamMembership(pulumi.CustomResource):
     @property
     @pulumi.getter
     def role(self) -> pulumi.Output[Optional[str]]:
+        """
+        The role of the user within the team.
+        Must be one of `member` or `maintainer`. Defaults to `member`.
+        """
         return pulumi.get(self, "role")
 
     @property
     @pulumi.getter(name="teamId")
     def team_id(self) -> pulumi.Output[str]:
+        """
+        The GitHub team id
+        """
         return pulumi.get(self, "team_id")
 
     @property
     @pulumi.getter
     def username(self) -> pulumi.Output[str]:
+        """
+        The user to add to the team.
+        """
         return pulumi.get(self, "username")
 

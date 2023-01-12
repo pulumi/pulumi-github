@@ -9,24 +9,67 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Github
 {
+    /// <summary>
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Github = Pulumi.Github;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     // Create a new, red colored label
+    ///     var testRepo = new Github.IssueLabel("testRepo", new()
+    ///     {
+    ///         Color = "FF0000",
+    ///         Repository = "test-repo",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// GitHub Issue Labels can be imported using an ID made up of `repository:name`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import github:index/issueLabel:IssueLabel panic_label terraform:panic
+    /// ```
+    /// </summary>
     [GithubResourceType("github:index/issueLabel:IssueLabel")]
     public partial class IssueLabel : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// A 6 character hex code, **without the leading #**, identifying the color of the label.
+        /// </summary>
         [Output("color")]
         public Output<string> Color { get; private set; } = null!;
 
+        /// <summary>
+        /// A short description of the label.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
         [Output("etag")]
         public Output<string> Etag { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the label.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The GitHub repository
+        /// </summary>
         [Output("repository")]
         public Output<string> Repository { get; private set; } = null!;
 
+        /// <summary>
+        /// The URL to the issue label
+        /// </summary>
         [Output("url")]
         public Output<string> Url { get; private set; } = null!;
 
@@ -76,15 +119,27 @@ namespace Pulumi.Github
 
     public sealed class IssueLabelArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A 6 character hex code, **without the leading #**, identifying the color of the label.
+        /// </summary>
         [Input("color", required: true)]
         public Input<string> Color { get; set; } = null!;
 
+        /// <summary>
+        /// A short description of the label.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// The name of the label.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The GitHub repository
+        /// </summary>
         [Input("repository", required: true)]
         public Input<string> Repository { get; set; } = null!;
 
@@ -96,21 +151,36 @@ namespace Pulumi.Github
 
     public sealed class IssueLabelState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A 6 character hex code, **without the leading #**, identifying the color of the label.
+        /// </summary>
         [Input("color")]
         public Input<string>? Color { get; set; }
 
+        /// <summary>
+        /// A short description of the label.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         [Input("etag")]
         public Input<string>? Etag { get; set; }
 
+        /// <summary>
+        /// The name of the label.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The GitHub repository
+        /// </summary>
         [Input("repository")]
         public Input<string>? Repository { get; set; }
 
+        /// <summary>
+        /// The URL to the issue label
+        /// </summary>
         [Input("url")]
         public Input<string>? Url { get; set; }
 

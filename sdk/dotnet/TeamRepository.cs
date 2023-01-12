@@ -9,20 +9,73 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Github
 {
+    /// <summary>
+    /// This resource manages relationships between teams and repositories
+    /// in your GitHub organization.
+    /// 
+    /// Creating this resource grants a particular team permissions on a
+    /// particular repository.
+    /// 
+    /// The repository and the team must both belong to the same organization
+    /// on GitHub. This resource does not actually *create* any repositories;
+    /// to do that, see `github.Repository`.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Github = Pulumi.Github;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     // Add a repository to the team
+    ///     var someTeam = new Github.Team("someTeam", new()
+    ///     {
+    ///         Description = "Some cool team",
+    ///     });
+    /// 
+    ///     var someRepo = new Github.Repository("someRepo");
+    /// 
+    ///     var someTeamRepo = new Github.TeamRepository("someTeamRepo", new()
+    ///     {
+    ///         TeamId = someTeam.Id,
+    ///         Repository = someRepo.Name,
+    ///         Permission = "pull",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// GitHub Team Repository can be imported using an ID made up of `teamid:repository`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import github:index/teamRepository:TeamRepository terraform_repo 1234567:terraform
+    /// ```
+    /// </summary>
     [GithubResourceType("github:index/teamRepository:TeamRepository")]
     public partial class TeamRepository : global::Pulumi.CustomResource
     {
         [Output("etag")]
         public Output<string> Etag { get; private set; } = null!;
 
+        /// <summary>
+        /// The permissions of team members regarding the repository.
+        /// Must be one of `pull`, `triage`, `push`, `maintain`, `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organisation. Defaults to `pull`.
+        /// </summary>
         [Output("permission")]
         public Output<string?> Permission { get; private set; } = null!;
 
+        /// <summary>
+        /// The repository to add to the team.
+        /// </summary>
         [Output("repository")]
         public Output<string> Repository { get; private set; } = null!;
 
         /// <summary>
-        /// ID or slug of team
+        /// The GitHub team id or the GitHub team slug
         /// </summary>
         [Output("teamId")]
         public Output<string> TeamId { get; private set; } = null!;
@@ -73,14 +126,21 @@ namespace Pulumi.Github
 
     public sealed class TeamRepositoryArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The permissions of team members regarding the repository.
+        /// Must be one of `pull`, `triage`, `push`, `maintain`, `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organisation. Defaults to `pull`.
+        /// </summary>
         [Input("permission")]
         public Input<string>? Permission { get; set; }
 
+        /// <summary>
+        /// The repository to add to the team.
+        /// </summary>
         [Input("repository", required: true)]
         public Input<string> Repository { get; set; } = null!;
 
         /// <summary>
-        /// ID or slug of team
+        /// The GitHub team id or the GitHub team slug
         /// </summary>
         [Input("teamId", required: true)]
         public Input<string> TeamId { get; set; } = null!;
@@ -96,14 +156,21 @@ namespace Pulumi.Github
         [Input("etag")]
         public Input<string>? Etag { get; set; }
 
+        /// <summary>
+        /// The permissions of team members regarding the repository.
+        /// Must be one of `pull`, `triage`, `push`, `maintain`, `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organisation. Defaults to `pull`.
+        /// </summary>
         [Input("permission")]
         public Input<string>? Permission { get; set; }
 
+        /// <summary>
+        /// The repository to add to the team.
+        /// </summary>
         [Input("repository")]
         public Input<string>? Repository { get; set; }
 
         /// <summary>
-        /// ID or slug of team
+        /// The GitHub team id or the GitHub team slug
         /// </summary>
         [Input("teamId")]
         public Input<string>? TeamId { get; set; }

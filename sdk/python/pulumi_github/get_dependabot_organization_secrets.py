@@ -40,6 +40,9 @@ class GetDependabotOrganizationSecretsResult:
     @property
     @pulumi.getter
     def secrets(self) -> Sequence['outputs.GetDependabotOrganizationSecretsSecretResult']:
+        """
+        list of secrets for the repository
+        """
         return pulumi.get(self, "secrets")
 
 
@@ -55,7 +58,16 @@ class AwaitableGetDependabotOrganizationSecretsResult(GetDependabotOrganizationS
 
 def get_dependabot_organization_secrets(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDependabotOrganizationSecretsResult:
     """
-    Use this data source to access information about an existing resource.
+    Use this data source to retrieve the list of dependabot secrets of the organization.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_github as github
+
+    example = github.get_dependabot_organization_secrets()
+    ```
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)

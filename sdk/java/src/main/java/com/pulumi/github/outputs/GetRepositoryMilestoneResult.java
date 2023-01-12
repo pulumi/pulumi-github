@@ -10,7 +10,15 @@ import java.util.Objects;
 
 @CustomType
 public final class GetRepositoryMilestoneResult {
+    /**
+     * @return Description of the milestone.
+     * 
+     */
     private String description;
+    /**
+     * @return The milestone due date (in ISO-8601 `yyyy-mm-dd` format).
+     * 
+     */
     private String dueDate;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -20,13 +28,29 @@ public final class GetRepositoryMilestoneResult {
     private Integer number;
     private String owner;
     private String repository;
+    /**
+     * @return State of the milestone.
+     * 
+     */
     private String state;
+    /**
+     * @return Title of the milestone.
+     * 
+     */
     private String title;
 
     private GetRepositoryMilestoneResult() {}
+    /**
+     * @return Description of the milestone.
+     * 
+     */
     public String description() {
         return this.description;
     }
+    /**
+     * @return The milestone due date (in ISO-8601 `yyyy-mm-dd` format).
+     * 
+     */
     public String dueDate() {
         return this.dueDate;
     }
@@ -46,9 +70,17 @@ public final class GetRepositoryMilestoneResult {
     public String repository() {
         return this.repository;
     }
+    /**
+     * @return State of the milestone.
+     * 
+     */
     public String state() {
         return this.state;
     }
+    /**
+     * @return Title of the milestone.
+     * 
+     */
     public String title() {
         return this.title;
     }

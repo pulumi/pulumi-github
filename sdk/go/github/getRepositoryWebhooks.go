@@ -10,6 +10,35 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Use this data source to retrieve webhooks for a given repository.
+//
+// ## Example Usage
+//
+// To retrieve webhooks of a repository:
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-github/sdk/v5/go/github"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := github.GetRepositoryWebhooks(ctx, &github.GetRepositoryWebhooksArgs{
+//				Repository: "foo",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func GetRepositoryWebhooks(ctx *pulumi.Context, args *GetRepositoryWebhooksArgs, opts ...pulumi.InvokeOption) (*GetRepositoryWebhooksResult, error) {
 	var rv GetRepositoryWebhooksResult
 	err := ctx.Invoke("github:index/getRepositoryWebhooks:getRepositoryWebhooks", args, &rv, opts...)
@@ -27,9 +56,11 @@ type GetRepositoryWebhooksArgs struct {
 // A collection of values returned by getRepositoryWebhooks.
 type GetRepositoryWebhooksResult struct {
 	// The provider-assigned unique ID for this managed resource.
-	Id         string                         `pulumi:"id"`
-	Repository string                         `pulumi:"repository"`
-	Webhooks   []GetRepositoryWebhooksWebhook `pulumi:"webhooks"`
+	Id         string `pulumi:"id"`
+	Repository string `pulumi:"repository"`
+	// An Array of GitHub Webhooks.  Each `webhook` block consists of the fields documented below.
+	// ***
+	Webhooks []GetRepositoryWebhooksWebhook `pulumi:"webhooks"`
 }
 
 func GetRepositoryWebhooksOutput(ctx *pulumi.Context, args GetRepositoryWebhooksOutputArgs, opts ...pulumi.InvokeOption) GetRepositoryWebhooksResultOutput {
@@ -78,6 +109,8 @@ func (o GetRepositoryWebhooksResultOutput) Repository() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRepositoryWebhooksResult) string { return v.Repository }).(pulumi.StringOutput)
 }
 
+// An Array of GitHub Webhooks.  Each `webhook` block consists of the fields documented below.
+// ***
 func (o GetRepositoryWebhooksResultOutput) Webhooks() GetRepositoryWebhooksWebhookArrayOutput {
 	return o.ApplyT(func(v GetRepositoryWebhooksResult) []GetRepositoryWebhooksWebhook { return v.Webhooks }).(GetRepositoryWebhooksWebhookArrayOutput)
 }

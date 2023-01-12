@@ -13,7 +13,13 @@ namespace Pulumi.Github.Outputs
     [OutputType]
     public sealed class BranchProtectionRequiredStatusCheck
     {
+        /// <summary>
+        /// The list of status checks to require in order to merge into this branch. No status checks are required by default.
+        /// </summary>
         public readonly ImmutableArray<string> Contexts;
+        /// <summary>
+        /// Require branches to be up to date before merging. Defaults to `false`.
+        /// </summary>
         public readonly bool? Strict;
 
         [OutputConstructor]

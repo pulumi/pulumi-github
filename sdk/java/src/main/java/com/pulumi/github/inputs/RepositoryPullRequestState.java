@@ -18,130 +18,242 @@ public final class RepositoryPullRequestState extends com.pulumi.resources.Resou
 
     public static final RepositoryPullRequestState Empty = new RepositoryPullRequestState();
 
+    /**
+     * Name of the branch serving as the base of the Pull Request.
+     * 
+     */
     @Import(name="baseRef")
     private @Nullable Output<String> baseRef;
 
+    /**
+     * @return Name of the branch serving as the base of the Pull Request.
+     * 
+     */
     public Optional<Output<String>> baseRef() {
         return Optional.ofNullable(this.baseRef);
     }
 
+    /**
+     * Name of the base repository to retrieve the Pull Requests from.
+     * 
+     */
     @Import(name="baseRepository")
     private @Nullable Output<String> baseRepository;
 
+    /**
+     * @return Name of the base repository to retrieve the Pull Requests from.
+     * 
+     */
     public Optional<Output<String>> baseRepository() {
         return Optional.ofNullable(this.baseRepository);
     }
 
+    /**
+     * Head commit SHA of the Pull Request base.
+     * 
+     */
     @Import(name="baseSha")
     private @Nullable Output<String> baseSha;
 
+    /**
+     * @return Head commit SHA of the Pull Request base.
+     * 
+     */
     public Optional<Output<String>> baseSha() {
         return Optional.ofNullable(this.baseSha);
     }
 
+    /**
+     * Body of the Pull Request.
+     * 
+     */
     @Import(name="body")
     private @Nullable Output<String> body;
 
+    /**
+     * @return Body of the Pull Request.
+     * 
+     */
     public Optional<Output<String>> body() {
         return Optional.ofNullable(this.body);
     }
 
+    /**
+     * Indicates Whether this Pull Request is a draft.
+     * 
+     */
     @Import(name="draft")
     private @Nullable Output<Boolean> draft;
 
+    /**
+     * @return Indicates Whether this Pull Request is a draft.
+     * 
+     */
     public Optional<Output<Boolean>> draft() {
         return Optional.ofNullable(this.draft);
     }
 
+    /**
+     * Name of the branch serving as the head of the Pull Request.
+     * 
+     */
     @Import(name="headRef")
     private @Nullable Output<String> headRef;
 
+    /**
+     * @return Name of the branch serving as the head of the Pull Request.
+     * 
+     */
     public Optional<Output<String>> headRef() {
         return Optional.ofNullable(this.headRef);
     }
 
+    /**
+     * Head commit SHA of the Pull Request head.
+     * 
+     */
     @Import(name="headSha")
     private @Nullable Output<String> headSha;
 
+    /**
+     * @return Head commit SHA of the Pull Request head.
+     * 
+     */
     public Optional<Output<String>> headSha() {
         return Optional.ofNullable(this.headSha);
     }
 
     /**
-     * List of names of labels on the PR
+     * List of label names set on the Pull Request.
      * 
      */
     @Import(name="labels")
     private @Nullable Output<List<String>> labels;
 
     /**
-     * @return List of names of labels on the PR
+     * @return List of label names set on the Pull Request.
      * 
      */
     public Optional<Output<List<String>>> labels() {
         return Optional.ofNullable(this.labels);
     }
 
+    /**
+     * Controls whether the base repository maintainers can modify the Pull Request. Default: false.
+     * 
+     */
     @Import(name="maintainerCanModify")
     private @Nullable Output<Boolean> maintainerCanModify;
 
+    /**
+     * @return Controls whether the base repository maintainers can modify the Pull Request. Default: false.
+     * 
+     */
     public Optional<Output<Boolean>> maintainerCanModify() {
         return Optional.ofNullable(this.maintainerCanModify);
     }
 
+    /**
+     * The number of the Pull Request within the repository.
+     * 
+     */
     @Import(name="number")
     private @Nullable Output<Integer> number;
 
+    /**
+     * @return The number of the Pull Request within the repository.
+     * 
+     */
     public Optional<Output<Integer>> number() {
         return Optional.ofNullable(this.number);
     }
 
+    /**
+     * Unix timestamp indicating the Pull Request creation time.
+     * 
+     */
     @Import(name="openedAt")
     private @Nullable Output<Integer> openedAt;
 
+    /**
+     * @return Unix timestamp indicating the Pull Request creation time.
+     * 
+     */
     public Optional<Output<Integer>> openedAt() {
         return Optional.ofNullable(this.openedAt);
     }
 
     /**
-     * Username of the PR creator
+     * GitHub login of the user who opened the Pull Request.
      * 
      */
     @Import(name="openedBy")
     private @Nullable Output<String> openedBy;
 
     /**
-     * @return Username of the PR creator
+     * @return GitHub login of the user who opened the Pull Request.
      * 
      */
     public Optional<Output<String>> openedBy() {
         return Optional.ofNullable(this.openedBy);
     }
 
+    /**
+     * Owner of the repository. If not provided, the provider&#39;s default owner is used.
+     * 
+     */
     @Import(name="owner")
     private @Nullable Output<String> owner;
 
+    /**
+     * @return Owner of the repository. If not provided, the provider&#39;s default owner is used.
+     * 
+     */
     public Optional<Output<String>> owner() {
         return Optional.ofNullable(this.owner);
     }
 
+    /**
+     * the current Pull Request state - can be &#34;open&#34;, &#34;closed&#34; or &#34;merged&#34;.
+     * 
+     */
     @Import(name="state")
     private @Nullable Output<String> state;
 
+    /**
+     * @return the current Pull Request state - can be &#34;open&#34;, &#34;closed&#34; or &#34;merged&#34;.
+     * 
+     */
     public Optional<Output<String>> state() {
         return Optional.ofNullable(this.state);
     }
 
+    /**
+     * The title of the Pull Request.
+     * 
+     */
     @Import(name="title")
     private @Nullable Output<String> title;
 
+    /**
+     * @return The title of the Pull Request.
+     * 
+     */
     public Optional<Output<String>> title() {
         return Optional.ofNullable(this.title);
     }
 
+    /**
+     * The timestamp of the last Pull Request update.
+     * 
+     */
     @Import(name="updatedAt")
     private @Nullable Output<Integer> updatedAt;
 
+    /**
+     * @return The timestamp of the last Pull Request update.
+     * 
+     */
     public Optional<Output<Integer>> updatedAt() {
         return Optional.ofNullable(this.updatedAt);
     }
@@ -185,71 +297,155 @@ public final class RepositoryPullRequestState extends com.pulumi.resources.Resou
             $ = new RepositoryPullRequestState(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param baseRef Name of the branch serving as the base of the Pull Request.
+         * 
+         * @return builder
+         * 
+         */
         public Builder baseRef(@Nullable Output<String> baseRef) {
             $.baseRef = baseRef;
             return this;
         }
 
+        /**
+         * @param baseRef Name of the branch serving as the base of the Pull Request.
+         * 
+         * @return builder
+         * 
+         */
         public Builder baseRef(String baseRef) {
             return baseRef(Output.of(baseRef));
         }
 
+        /**
+         * @param baseRepository Name of the base repository to retrieve the Pull Requests from.
+         * 
+         * @return builder
+         * 
+         */
         public Builder baseRepository(@Nullable Output<String> baseRepository) {
             $.baseRepository = baseRepository;
             return this;
         }
 
+        /**
+         * @param baseRepository Name of the base repository to retrieve the Pull Requests from.
+         * 
+         * @return builder
+         * 
+         */
         public Builder baseRepository(String baseRepository) {
             return baseRepository(Output.of(baseRepository));
         }
 
+        /**
+         * @param baseSha Head commit SHA of the Pull Request base.
+         * 
+         * @return builder
+         * 
+         */
         public Builder baseSha(@Nullable Output<String> baseSha) {
             $.baseSha = baseSha;
             return this;
         }
 
+        /**
+         * @param baseSha Head commit SHA of the Pull Request base.
+         * 
+         * @return builder
+         * 
+         */
         public Builder baseSha(String baseSha) {
             return baseSha(Output.of(baseSha));
         }
 
+        /**
+         * @param body Body of the Pull Request.
+         * 
+         * @return builder
+         * 
+         */
         public Builder body(@Nullable Output<String> body) {
             $.body = body;
             return this;
         }
 
+        /**
+         * @param body Body of the Pull Request.
+         * 
+         * @return builder
+         * 
+         */
         public Builder body(String body) {
             return body(Output.of(body));
         }
 
+        /**
+         * @param draft Indicates Whether this Pull Request is a draft.
+         * 
+         * @return builder
+         * 
+         */
         public Builder draft(@Nullable Output<Boolean> draft) {
             $.draft = draft;
             return this;
         }
 
+        /**
+         * @param draft Indicates Whether this Pull Request is a draft.
+         * 
+         * @return builder
+         * 
+         */
         public Builder draft(Boolean draft) {
             return draft(Output.of(draft));
         }
 
+        /**
+         * @param headRef Name of the branch serving as the head of the Pull Request.
+         * 
+         * @return builder
+         * 
+         */
         public Builder headRef(@Nullable Output<String> headRef) {
             $.headRef = headRef;
             return this;
         }
 
+        /**
+         * @param headRef Name of the branch serving as the head of the Pull Request.
+         * 
+         * @return builder
+         * 
+         */
         public Builder headRef(String headRef) {
             return headRef(Output.of(headRef));
         }
 
+        /**
+         * @param headSha Head commit SHA of the Pull Request head.
+         * 
+         * @return builder
+         * 
+         */
         public Builder headSha(@Nullable Output<String> headSha) {
             $.headSha = headSha;
             return this;
         }
 
+        /**
+         * @param headSha Head commit SHA of the Pull Request head.
+         * 
+         * @return builder
+         * 
+         */
         public Builder headSha(String headSha) {
             return headSha(Output.of(headSha));
         }
 
         /**
-         * @param labels List of names of labels on the PR
+         * @param labels List of label names set on the Pull Request.
          * 
          * @return builder
          * 
@@ -260,7 +456,7 @@ public final class RepositoryPullRequestState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param labels List of names of labels on the PR
+         * @param labels List of label names set on the Pull Request.
          * 
          * @return builder
          * 
@@ -270,7 +466,7 @@ public final class RepositoryPullRequestState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param labels List of names of labels on the PR
+         * @param labels List of label names set on the Pull Request.
          * 
          * @return builder
          * 
@@ -279,35 +475,71 @@ public final class RepositoryPullRequestState extends com.pulumi.resources.Resou
             return labels(List.of(labels));
         }
 
+        /**
+         * @param maintainerCanModify Controls whether the base repository maintainers can modify the Pull Request. Default: false.
+         * 
+         * @return builder
+         * 
+         */
         public Builder maintainerCanModify(@Nullable Output<Boolean> maintainerCanModify) {
             $.maintainerCanModify = maintainerCanModify;
             return this;
         }
 
+        /**
+         * @param maintainerCanModify Controls whether the base repository maintainers can modify the Pull Request. Default: false.
+         * 
+         * @return builder
+         * 
+         */
         public Builder maintainerCanModify(Boolean maintainerCanModify) {
             return maintainerCanModify(Output.of(maintainerCanModify));
         }
 
+        /**
+         * @param number The number of the Pull Request within the repository.
+         * 
+         * @return builder
+         * 
+         */
         public Builder number(@Nullable Output<Integer> number) {
             $.number = number;
             return this;
         }
 
+        /**
+         * @param number The number of the Pull Request within the repository.
+         * 
+         * @return builder
+         * 
+         */
         public Builder number(Integer number) {
             return number(Output.of(number));
         }
 
+        /**
+         * @param openedAt Unix timestamp indicating the Pull Request creation time.
+         * 
+         * @return builder
+         * 
+         */
         public Builder openedAt(@Nullable Output<Integer> openedAt) {
             $.openedAt = openedAt;
             return this;
         }
 
+        /**
+         * @param openedAt Unix timestamp indicating the Pull Request creation time.
+         * 
+         * @return builder
+         * 
+         */
         public Builder openedAt(Integer openedAt) {
             return openedAt(Output.of(openedAt));
         }
 
         /**
-         * @param openedBy Username of the PR creator
+         * @param openedBy GitHub login of the user who opened the Pull Request.
          * 
          * @return builder
          * 
@@ -318,7 +550,7 @@ public final class RepositoryPullRequestState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param openedBy Username of the PR creator
+         * @param openedBy GitHub login of the user who opened the Pull Request.
          * 
          * @return builder
          * 
@@ -327,38 +559,86 @@ public final class RepositoryPullRequestState extends com.pulumi.resources.Resou
             return openedBy(Output.of(openedBy));
         }
 
+        /**
+         * @param owner Owner of the repository. If not provided, the provider&#39;s default owner is used.
+         * 
+         * @return builder
+         * 
+         */
         public Builder owner(@Nullable Output<String> owner) {
             $.owner = owner;
             return this;
         }
 
+        /**
+         * @param owner Owner of the repository. If not provided, the provider&#39;s default owner is used.
+         * 
+         * @return builder
+         * 
+         */
         public Builder owner(String owner) {
             return owner(Output.of(owner));
         }
 
+        /**
+         * @param state the current Pull Request state - can be &#34;open&#34;, &#34;closed&#34; or &#34;merged&#34;.
+         * 
+         * @return builder
+         * 
+         */
         public Builder state(@Nullable Output<String> state) {
             $.state = state;
             return this;
         }
 
+        /**
+         * @param state the current Pull Request state - can be &#34;open&#34;, &#34;closed&#34; or &#34;merged&#34;.
+         * 
+         * @return builder
+         * 
+         */
         public Builder state(String state) {
             return state(Output.of(state));
         }
 
+        /**
+         * @param title The title of the Pull Request.
+         * 
+         * @return builder
+         * 
+         */
         public Builder title(@Nullable Output<String> title) {
             $.title = title;
             return this;
         }
 
+        /**
+         * @param title The title of the Pull Request.
+         * 
+         * @return builder
+         * 
+         */
         public Builder title(String title) {
             return title(Output.of(title));
         }
 
+        /**
+         * @param updatedAt The timestamp of the last Pull Request update.
+         * 
+         * @return builder
+         * 
+         */
         public Builder updatedAt(@Nullable Output<Integer> updatedAt) {
             $.updatedAt = updatedAt;
             return this;
         }
 
+        /**
+         * @param updatedAt The timestamp of the last Pull Request update.
+         * 
+         * @return builder
+         * 
+         */
         public Builder updatedAt(Integer updatedAt) {
             return updatedAt(Output.of(updatedAt));
         }

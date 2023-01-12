@@ -32,6 +32,9 @@ class GetExternalGroupsResult:
     @property
     @pulumi.getter(name="externalGroups")
     def external_groups(self) -> Sequence['outputs.GetExternalGroupsExternalGroupResult']:
+        """
+        an array of external groups belonging to the organization. Each group consists of the fields documented below.
+        """
         return pulumi.get(self, "external_groups")
 
     @property
@@ -55,7 +58,18 @@ class AwaitableGetExternalGroupsResult(GetExternalGroupsResult):
 
 def get_external_groups(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetExternalGroupsResult:
     """
-    Use this data source to access information about an existing resource.
+    Use this data source to retrieve external groups belonging to an organization.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_github as github
+
+    example_external_groups = github.get_external_groups()
+    local_groups = example_external_groups
+    pulumi.export("groups", local_groups)
+    ```
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)

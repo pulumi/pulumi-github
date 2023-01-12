@@ -15,16 +15,32 @@ public final class RepositoryPagesSourceArgs extends com.pulumi.resources.Resour
 
     public static final RepositoryPagesSourceArgs Empty = new RepositoryPagesSourceArgs();
 
+    /**
+     * The repository branch used to publish the site&#39;s source files. (i.e. `main` or `gh-pages`.
+     * 
+     */
     @Import(name="branch", required=true)
     private Output<String> branch;
 
+    /**
+     * @return The repository branch used to publish the site&#39;s source files. (i.e. `main` or `gh-pages`.
+     * 
+     */
     public Output<String> branch() {
         return this.branch;
     }
 
+    /**
+     * The repository directory from which the site publishes (Default: `/`).
+     * 
+     */
     @Import(name="path")
     private @Nullable Output<String> path;
 
+    /**
+     * @return The repository directory from which the site publishes (Default: `/`).
+     * 
+     */
     public Optional<Output<String>> path() {
         return Optional.ofNullable(this.path);
     }
@@ -54,20 +70,44 @@ public final class RepositoryPagesSourceArgs extends com.pulumi.resources.Resour
             $ = new RepositoryPagesSourceArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param branch The repository branch used to publish the site&#39;s source files. (i.e. `main` or `gh-pages`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder branch(Output<String> branch) {
             $.branch = branch;
             return this;
         }
 
+        /**
+         * @param branch The repository branch used to publish the site&#39;s source files. (i.e. `main` or `gh-pages`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder branch(String branch) {
             return branch(Output.of(branch));
         }
 
+        /**
+         * @param path The repository directory from which the site publishes (Default: `/`).
+         * 
+         * @return builder
+         * 
+         */
         public Builder path(@Nullable Output<String> path) {
             $.path = path;
             return this;
         }
 
+        /**
+         * @param path The repository directory from which the site publishes (Default: `/`).
+         * 
+         * @return builder
+         * 
+         */
         public Builder path(String path) {
             return path(Output.of(path));
         }

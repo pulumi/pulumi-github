@@ -12,14 +12,24 @@ namespace Pulumi.Github.Inputs
 
     public sealed class RepositoryWebhookConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The content type for the payload. Valid values are either `form` or `json`.
+        /// </summary>
         [Input("contentType")]
         public Input<string>? ContentType { get; set; }
 
+        /// <summary>
+        /// Insecure SSL boolean toggle. Defaults to `false`.
+        /// </summary>
         [Input("insecureSsl")]
         public Input<bool>? InsecureSsl { get; set; }
 
         [Input("secret")]
         private Input<string>? _secret;
+
+        /// <summary>
+        /// The shared secret for the webhook. [See API documentation](https://developer.github.com/v3/repos/hooks/#create-a-hook).
+        /// </summary>
         public Input<string>? Secret
         {
             get => _secret;
@@ -32,6 +42,10 @@ namespace Pulumi.Github.Inputs
 
         [Input("url", required: true)]
         private Input<string>? _url;
+
+        /// <summary>
+        /// The URL of the webhook.
+        /// </summary>
         public Input<string>? Url
         {
             get => _url;

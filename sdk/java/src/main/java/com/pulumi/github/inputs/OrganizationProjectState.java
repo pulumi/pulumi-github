@@ -15,9 +15,17 @@ public final class OrganizationProjectState extends com.pulumi.resources.Resourc
 
     public static final OrganizationProjectState Empty = new OrganizationProjectState();
 
+    /**
+     * The body of the project.
+     * 
+     */
     @Import(name="body")
     private @Nullable Output<String> body;
 
+    /**
+     * @return The body of the project.
+     * 
+     */
     public Optional<Output<String>> body() {
         return Optional.ofNullable(this.body);
     }
@@ -29,16 +37,32 @@ public final class OrganizationProjectState extends com.pulumi.resources.Resourc
         return Optional.ofNullable(this.etag);
     }
 
+    /**
+     * The name of the project.
+     * 
+     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
+    /**
+     * @return The name of the project.
+     * 
+     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
+    /**
+     * URL of the project
+     * 
+     */
     @Import(name="url")
     private @Nullable Output<String> url;
 
+    /**
+     * @return URL of the project
+     * 
+     */
     public Optional<Output<String>> url() {
         return Optional.ofNullable(this.url);
     }
@@ -70,11 +94,23 @@ public final class OrganizationProjectState extends com.pulumi.resources.Resourc
             $ = new OrganizationProjectState(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param body The body of the project.
+         * 
+         * @return builder
+         * 
+         */
         public Builder body(@Nullable Output<String> body) {
             $.body = body;
             return this;
         }
 
+        /**
+         * @param body The body of the project.
+         * 
+         * @return builder
+         * 
+         */
         public Builder body(String body) {
             return body(Output.of(body));
         }
@@ -88,20 +124,44 @@ public final class OrganizationProjectState extends com.pulumi.resources.Resourc
             return etag(Output.of(etag));
         }
 
+        /**
+         * @param name The name of the project.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param name The name of the project.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
+        /**
+         * @param url URL of the project
+         * 
+         * @return builder
+         * 
+         */
         public Builder url(@Nullable Output<String> url) {
             $.url = url;
             return this;
         }
 
+        /**
+         * @param url URL of the project
+         * 
+         * @return builder
+         * 
+         */
         public Builder url(String url) {
             return url(Output.of(url));
         }

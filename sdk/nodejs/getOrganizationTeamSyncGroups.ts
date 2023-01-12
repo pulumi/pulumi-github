@@ -6,12 +6,21 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
+/**
+ * Use this data source to retrieve the identity provider (IdP) groups for an organization.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const test = github.getOrganizationTeamSyncGroups({});
+ * ```
+ */
 export function getOrganizationTeamSyncGroups(opts?: pulumi.InvokeOptions): Promise<GetOrganizationTeamSyncGroupsResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("github:index/getOrganizationTeamSyncGroups:getOrganizationTeamSyncGroups", {
     }, opts);
 }
@@ -20,6 +29,9 @@ export function getOrganizationTeamSyncGroups(opts?: pulumi.InvokeOptions): Prom
  * A collection of values returned by getOrganizationTeamSyncGroups.
  */
 export interface GetOrganizationTeamSyncGroupsResult {
+    /**
+     * An Array of GitHub Identity Provider Groups.  Each `group` block consists of the fields documented below.
+     */
     readonly groups: outputs.GetOrganizationTeamSyncGroupsGroup[];
     /**
      * The provider-assigned unique ID for this managed resource.

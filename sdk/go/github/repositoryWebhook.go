@@ -11,15 +11,77 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// This resource allows you to create and manage webhooks for repositories within your
+// GitHub organization or personal account.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-github/sdk/v5/go/github"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			repo, err := github.NewRepository(ctx, "repo", &github.RepositoryArgs{
+//				Description: pulumi.String("Terraform acceptance tests"),
+//				HomepageUrl: pulumi.String("http://example.com/"),
+//				Private:     pulumi.Bool(false),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = github.NewRepositoryWebhook(ctx, "foo", &github.RepositoryWebhookArgs{
+//				Repository: repo.Name,
+//				Configuration: &github.RepositoryWebhookConfigurationArgs{
+//					Url:         pulumi.String("https://google.de/"),
+//					ContentType: pulumi.String("form"),
+//					InsecureSsl: pulumi.Bool(false),
+//				},
+//				Active: pulumi.Bool(false),
+//				Events: pulumi.StringArray{
+//					pulumi.String("issues"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// Repository webhooks can be imported using the `name` of the repository, combined with the `id` of the webhook, separated by a `/` character. The `id` of the webhook can be found in the URL of the webhook. For example`"https://github.com/foo-org/foo-repo/settings/hooks/14711452"`. Importing uses the name of the repository, as well as the ID of the webhook, e.g.
+//
+// ```sh
+//
+//	$ pulumi import github:index/repositoryWebhook:RepositoryWebhook terraform terraform/11235813
+//
+// ```
+//
+//	If secret is populated in the webhook's configuration, the value will be imported as "********".
 type RepositoryWebhook struct {
 	pulumi.CustomResourceState
 
-	Active        pulumi.BoolPtrOutput                    `pulumi:"active"`
+	// Indicate if the webhook should receive events. Defaults to `true`.
+	Active pulumi.BoolPtrOutput `pulumi:"active"`
+	// Configuration block for the webhook. Detailed below.
 	Configuration RepositoryWebhookConfigurationPtrOutput `pulumi:"configuration"`
 	Etag          pulumi.StringOutput                     `pulumi:"etag"`
-	Events        pulumi.StringArrayOutput                `pulumi:"events"`
-	Repository    pulumi.StringOutput                     `pulumi:"repository"`
-	Url           pulumi.StringOutput                     `pulumi:"url"`
+	// A list of events which should trigger the webhook. See a list of [available events](https://developer.github.com/v3/activity/events/types/).
+	Events pulumi.StringArrayOutput `pulumi:"events"`
+	// The repository of the webhook.
+	Repository pulumi.StringOutput `pulumi:"repository"`
+	// The URL of the webhook.
+	Url pulumi.StringOutput `pulumi:"url"`
 }
 
 // NewRepositoryWebhook registers a new resource with the given unique name, arguments, and options.
@@ -57,21 +119,31 @@ func GetRepositoryWebhook(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RepositoryWebhook resources.
 type repositoryWebhookState struct {
-	Active        *bool                           `pulumi:"active"`
+	// Indicate if the webhook should receive events. Defaults to `true`.
+	Active *bool `pulumi:"active"`
+	// Configuration block for the webhook. Detailed below.
 	Configuration *RepositoryWebhookConfiguration `pulumi:"configuration"`
 	Etag          *string                         `pulumi:"etag"`
-	Events        []string                        `pulumi:"events"`
-	Repository    *string                         `pulumi:"repository"`
-	Url           *string                         `pulumi:"url"`
+	// A list of events which should trigger the webhook. See a list of [available events](https://developer.github.com/v3/activity/events/types/).
+	Events []string `pulumi:"events"`
+	// The repository of the webhook.
+	Repository *string `pulumi:"repository"`
+	// The URL of the webhook.
+	Url *string `pulumi:"url"`
 }
 
 type RepositoryWebhookState struct {
-	Active        pulumi.BoolPtrInput
+	// Indicate if the webhook should receive events. Defaults to `true`.
+	Active pulumi.BoolPtrInput
+	// Configuration block for the webhook. Detailed below.
 	Configuration RepositoryWebhookConfigurationPtrInput
 	Etag          pulumi.StringPtrInput
-	Events        pulumi.StringArrayInput
-	Repository    pulumi.StringPtrInput
-	Url           pulumi.StringPtrInput
+	// A list of events which should trigger the webhook. See a list of [available events](https://developer.github.com/v3/activity/events/types/).
+	Events pulumi.StringArrayInput
+	// The repository of the webhook.
+	Repository pulumi.StringPtrInput
+	// The URL of the webhook.
+	Url pulumi.StringPtrInput
 }
 
 func (RepositoryWebhookState) ElementType() reflect.Type {
@@ -79,18 +151,26 @@ func (RepositoryWebhookState) ElementType() reflect.Type {
 }
 
 type repositoryWebhookArgs struct {
-	Active        *bool                           `pulumi:"active"`
+	// Indicate if the webhook should receive events. Defaults to `true`.
+	Active *bool `pulumi:"active"`
+	// Configuration block for the webhook. Detailed below.
 	Configuration *RepositoryWebhookConfiguration `pulumi:"configuration"`
-	Events        []string                        `pulumi:"events"`
-	Repository    string                          `pulumi:"repository"`
+	// A list of events which should trigger the webhook. See a list of [available events](https://developer.github.com/v3/activity/events/types/).
+	Events []string `pulumi:"events"`
+	// The repository of the webhook.
+	Repository string `pulumi:"repository"`
 }
 
 // The set of arguments for constructing a RepositoryWebhook resource.
 type RepositoryWebhookArgs struct {
-	Active        pulumi.BoolPtrInput
+	// Indicate if the webhook should receive events. Defaults to `true`.
+	Active pulumi.BoolPtrInput
+	// Configuration block for the webhook. Detailed below.
 	Configuration RepositoryWebhookConfigurationPtrInput
-	Events        pulumi.StringArrayInput
-	Repository    pulumi.StringInput
+	// A list of events which should trigger the webhook. See a list of [available events](https://developer.github.com/v3/activity/events/types/).
+	Events pulumi.StringArrayInput
+	// The repository of the webhook.
+	Repository pulumi.StringInput
 }
 
 func (RepositoryWebhookArgs) ElementType() reflect.Type {
@@ -180,10 +260,12 @@ func (o RepositoryWebhookOutput) ToRepositoryWebhookOutputWithContext(ctx contex
 	return o
 }
 
+// Indicate if the webhook should receive events. Defaults to `true`.
 func (o RepositoryWebhookOutput) Active() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RepositoryWebhook) pulumi.BoolPtrOutput { return v.Active }).(pulumi.BoolPtrOutput)
 }
 
+// Configuration block for the webhook. Detailed below.
 func (o RepositoryWebhookOutput) Configuration() RepositoryWebhookConfigurationPtrOutput {
 	return o.ApplyT(func(v *RepositoryWebhook) RepositoryWebhookConfigurationPtrOutput { return v.Configuration }).(RepositoryWebhookConfigurationPtrOutput)
 }
@@ -192,14 +274,17 @@ func (o RepositoryWebhookOutput) Etag() pulumi.StringOutput {
 	return o.ApplyT(func(v *RepositoryWebhook) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
 }
 
+// A list of events which should trigger the webhook. See a list of [available events](https://developer.github.com/v3/activity/events/types/).
 func (o RepositoryWebhookOutput) Events() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *RepositoryWebhook) pulumi.StringArrayOutput { return v.Events }).(pulumi.StringArrayOutput)
 }
 
+// The repository of the webhook.
 func (o RepositoryWebhookOutput) Repository() pulumi.StringOutput {
 	return o.ApplyT(func(v *RepositoryWebhook) pulumi.StringOutput { return v.Repository }).(pulumi.StringOutput)
 }
 
+// The URL of the webhook.
 func (o RepositoryWebhookOutput) Url() pulumi.StringOutput {
 	return o.ApplyT(func(v *RepositoryWebhook) pulumi.StringOutput { return v.Url }).(pulumi.StringOutput)
 }

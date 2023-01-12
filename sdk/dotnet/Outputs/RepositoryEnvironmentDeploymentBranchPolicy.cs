@@ -13,7 +13,13 @@ namespace Pulumi.Github.Outputs
     [OutputType]
     public sealed class RepositoryEnvironmentDeploymentBranchPolicy
     {
+        /// <summary>
+        /// Whether only branches that match the specified name patterns can deploy to this environment.
+        /// </summary>
         public readonly bool CustomBranchPolicies;
+        /// <summary>
+        /// Whether only branches with branch protection rules can deploy to this environment.
+        /// </summary>
         public readonly bool ProtectedBranches;
 
         [OutputConstructor]

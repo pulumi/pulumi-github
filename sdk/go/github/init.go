@@ -28,10 +28,14 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ActionsOrganizationSecret{}
 	case "github:index/actionsOrganizationSecretRepositories:ActionsOrganizationSecretRepositories":
 		r = &ActionsOrganizationSecretRepositories{}
+	case "github:index/actionsRepositoryPermissions:ActionsRepositoryPermissions":
+		r = &ActionsRepositoryPermissions{}
 	case "github:index/actionsRunnerGroup:ActionsRunnerGroup":
 		r = &ActionsRunnerGroup{}
 	case "github:index/actionsSecret:ActionsSecret":
 		r = &ActionsSecret{}
+	case "github:index/appInstallationRepositories:AppInstallationRepositories":
+		r = &AppInstallationRepositories{}
 	case "github:index/appInstallationRepository:AppInstallationRepository":
 		r = &AppInstallationRepository{}
 	case "github:index/branch:Branch":
@@ -60,6 +64,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &OrganizationBlock{}
 	case "github:index/organizationProject:OrganizationProject":
 		r = &OrganizationProject{}
+	case "github:index/organizationSecurityManager:OrganizationSecurityManager":
+		r = &OrganizationSecurityManager{}
 	case "github:index/organizationSettings:OrganizationSettings":
 		r = &OrganizationSettings{}
 	case "github:index/organizationWebhook:OrganizationWebhook":
@@ -68,6 +74,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ProjectCard{}
 	case "github:index/projectColumn:ProjectColumn":
 		r = &ProjectColumn{}
+	case "github:index/release:Release":
+		r = &Release{}
 	case "github:index/repository:Repository":
 		r = &Repository{}
 	case "github:index/repositoryAutolinkReference:RepositoryAutolinkReference":
@@ -98,6 +106,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &TeamMembership{}
 	case "github:index/teamRepository:TeamRepository":
 		r = &TeamRepository{}
+	case "github:index/teamSettings:TeamSettings":
+		r = &TeamSettings{}
 	case "github:index/teamSyncGroupMapping:TeamSyncGroupMapping":
 		r = &TeamSyncGroupMapping{}
 	case "github:index/userGpgKey:UserGpgKey":
@@ -156,12 +166,22 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"github",
+		"index/actionsRepositoryPermissions",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"github",
 		"index/actionsRunnerGroup",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
 		"github",
 		"index/actionsSecret",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"github",
+		"index/appInstallationRepositories",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -236,6 +256,11 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"github",
+		"index/organizationSecurityManager",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"github",
 		"index/organizationSettings",
 		&module{version},
 	)
@@ -252,6 +277,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"github",
 		"index/projectColumn",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"github",
+		"index/release",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -327,6 +357,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"github",
 		"index/teamRepository",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"github",
+		"index/teamSettings",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

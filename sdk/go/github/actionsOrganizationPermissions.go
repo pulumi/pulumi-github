@@ -11,12 +11,72 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// This resource allows you to create and manage GitHub Actions permissions within your GitHub enterprise organizations.
+// You must have admin access to an organization to use this resource.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-github/sdk/v5/go/github"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := github.NewRepository(ctx, "example", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = github.NewActionsOrganizationPermissions(ctx, "test", &github.ActionsOrganizationPermissionsArgs{
+//				AllowedActions:      pulumi.String("selected"),
+//				EnabledRepositories: pulumi.String("selected"),
+//				AllowedActionsConfig: &github.ActionsOrganizationPermissionsAllowedActionsConfigArgs{
+//					GithubOwnedAllowed: pulumi.Bool(true),
+//					PatternsAlloweds: pulumi.StringArray{
+//						pulumi.String("actions/cache@*"),
+//						pulumi.String("actions/checkout@*"),
+//					},
+//					VerifiedAllowed: pulumi.Bool(true),
+//				},
+//				EnabledRepositoriesConfig: &github.ActionsOrganizationPermissionsEnabledRepositoriesConfigArgs{
+//					RepositoryIds: pulumi.IntArray{
+//						example.RepoId,
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// # This resource can be imported using the ID of the GitHub organization
+//
+// ```sh
+//
+//	$ pulumi import github:index/actionsOrganizationPermissions:ActionsOrganizationPermissions test <github_organization_name>
+//
+// ```
 type ActionsOrganizationPermissions struct {
 	pulumi.CustomResourceState
 
-	AllowedActions            pulumi.StringPtrOutput                                           `pulumi:"allowedActions"`
-	AllowedActionsConfig      ActionsOrganizationPermissionsAllowedActionsConfigPtrOutput      `pulumi:"allowedActionsConfig"`
-	EnabledRepositories       pulumi.StringOutput                                              `pulumi:"enabledRepositories"`
+	// The permissions policy that controls the actions that are allowed to run. Can be one of: `all`, `localOnly`, or `selected`.
+	AllowedActions pulumi.StringPtrOutput `pulumi:"allowedActions"`
+	// Sets the actions that are allowed in an organization. Only available when `allowedActions` = `selected`. See Allowed Actions Config below for details.
+	AllowedActionsConfig ActionsOrganizationPermissionsAllowedActionsConfigPtrOutput `pulumi:"allowedActionsConfig"`
+	// The policy that controls the repositories in the organization that are allowed to run GitHub Actions. Can be one of: `all`, `none`, or `selected`.
+	EnabledRepositories pulumi.StringOutput `pulumi:"enabledRepositories"`
+	// Sets the list of selected repositories that are enabled for GitHub Actions in an organization. Only available when `enabledRepositories` = `selected`. See Enabled Repositories Config below for details.
 	EnabledRepositoriesConfig ActionsOrganizationPermissionsEnabledRepositoriesConfigPtrOutput `pulumi:"enabledRepositoriesConfig"`
 }
 
@@ -52,16 +112,24 @@ func GetActionsOrganizationPermissions(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ActionsOrganizationPermissions resources.
 type actionsOrganizationPermissionsState struct {
-	AllowedActions            *string                                                  `pulumi:"allowedActions"`
-	AllowedActionsConfig      *ActionsOrganizationPermissionsAllowedActionsConfig      `pulumi:"allowedActionsConfig"`
-	EnabledRepositories       *string                                                  `pulumi:"enabledRepositories"`
+	// The permissions policy that controls the actions that are allowed to run. Can be one of: `all`, `localOnly`, or `selected`.
+	AllowedActions *string `pulumi:"allowedActions"`
+	// Sets the actions that are allowed in an organization. Only available when `allowedActions` = `selected`. See Allowed Actions Config below for details.
+	AllowedActionsConfig *ActionsOrganizationPermissionsAllowedActionsConfig `pulumi:"allowedActionsConfig"`
+	// The policy that controls the repositories in the organization that are allowed to run GitHub Actions. Can be one of: `all`, `none`, or `selected`.
+	EnabledRepositories *string `pulumi:"enabledRepositories"`
+	// Sets the list of selected repositories that are enabled for GitHub Actions in an organization. Only available when `enabledRepositories` = `selected`. See Enabled Repositories Config below for details.
 	EnabledRepositoriesConfig *ActionsOrganizationPermissionsEnabledRepositoriesConfig `pulumi:"enabledRepositoriesConfig"`
 }
 
 type ActionsOrganizationPermissionsState struct {
-	AllowedActions            pulumi.StringPtrInput
-	AllowedActionsConfig      ActionsOrganizationPermissionsAllowedActionsConfigPtrInput
-	EnabledRepositories       pulumi.StringPtrInput
+	// The permissions policy that controls the actions that are allowed to run. Can be one of: `all`, `localOnly`, or `selected`.
+	AllowedActions pulumi.StringPtrInput
+	// Sets the actions that are allowed in an organization. Only available when `allowedActions` = `selected`. See Allowed Actions Config below for details.
+	AllowedActionsConfig ActionsOrganizationPermissionsAllowedActionsConfigPtrInput
+	// The policy that controls the repositories in the organization that are allowed to run GitHub Actions. Can be one of: `all`, `none`, or `selected`.
+	EnabledRepositories pulumi.StringPtrInput
+	// Sets the list of selected repositories that are enabled for GitHub Actions in an organization. Only available when `enabledRepositories` = `selected`. See Enabled Repositories Config below for details.
 	EnabledRepositoriesConfig ActionsOrganizationPermissionsEnabledRepositoriesConfigPtrInput
 }
 
@@ -70,17 +138,25 @@ func (ActionsOrganizationPermissionsState) ElementType() reflect.Type {
 }
 
 type actionsOrganizationPermissionsArgs struct {
-	AllowedActions            *string                                                  `pulumi:"allowedActions"`
-	AllowedActionsConfig      *ActionsOrganizationPermissionsAllowedActionsConfig      `pulumi:"allowedActionsConfig"`
-	EnabledRepositories       string                                                   `pulumi:"enabledRepositories"`
+	// The permissions policy that controls the actions that are allowed to run. Can be one of: `all`, `localOnly`, or `selected`.
+	AllowedActions *string `pulumi:"allowedActions"`
+	// Sets the actions that are allowed in an organization. Only available when `allowedActions` = `selected`. See Allowed Actions Config below for details.
+	AllowedActionsConfig *ActionsOrganizationPermissionsAllowedActionsConfig `pulumi:"allowedActionsConfig"`
+	// The policy that controls the repositories in the organization that are allowed to run GitHub Actions. Can be one of: `all`, `none`, or `selected`.
+	EnabledRepositories string `pulumi:"enabledRepositories"`
+	// Sets the list of selected repositories that are enabled for GitHub Actions in an organization. Only available when `enabledRepositories` = `selected`. See Enabled Repositories Config below for details.
 	EnabledRepositoriesConfig *ActionsOrganizationPermissionsEnabledRepositoriesConfig `pulumi:"enabledRepositoriesConfig"`
 }
 
 // The set of arguments for constructing a ActionsOrganizationPermissions resource.
 type ActionsOrganizationPermissionsArgs struct {
-	AllowedActions            pulumi.StringPtrInput
-	AllowedActionsConfig      ActionsOrganizationPermissionsAllowedActionsConfigPtrInput
-	EnabledRepositories       pulumi.StringInput
+	// The permissions policy that controls the actions that are allowed to run. Can be one of: `all`, `localOnly`, or `selected`.
+	AllowedActions pulumi.StringPtrInput
+	// Sets the actions that are allowed in an organization. Only available when `allowedActions` = `selected`. See Allowed Actions Config below for details.
+	AllowedActionsConfig ActionsOrganizationPermissionsAllowedActionsConfigPtrInput
+	// The policy that controls the repositories in the organization that are allowed to run GitHub Actions. Can be one of: `all`, `none`, or `selected`.
+	EnabledRepositories pulumi.StringInput
+	// Sets the list of selected repositories that are enabled for GitHub Actions in an organization. Only available when `enabledRepositories` = `selected`. See Enabled Repositories Config below for details.
 	EnabledRepositoriesConfig ActionsOrganizationPermissionsEnabledRepositoriesConfigPtrInput
 }
 
@@ -171,20 +247,24 @@ func (o ActionsOrganizationPermissionsOutput) ToActionsOrganizationPermissionsOu
 	return o
 }
 
+// The permissions policy that controls the actions that are allowed to run. Can be one of: `all`, `localOnly`, or `selected`.
 func (o ActionsOrganizationPermissionsOutput) AllowedActions() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ActionsOrganizationPermissions) pulumi.StringPtrOutput { return v.AllowedActions }).(pulumi.StringPtrOutput)
 }
 
+// Sets the actions that are allowed in an organization. Only available when `allowedActions` = `selected`. See Allowed Actions Config below for details.
 func (o ActionsOrganizationPermissionsOutput) AllowedActionsConfig() ActionsOrganizationPermissionsAllowedActionsConfigPtrOutput {
 	return o.ApplyT(func(v *ActionsOrganizationPermissions) ActionsOrganizationPermissionsAllowedActionsConfigPtrOutput {
 		return v.AllowedActionsConfig
 	}).(ActionsOrganizationPermissionsAllowedActionsConfigPtrOutput)
 }
 
+// The policy that controls the repositories in the organization that are allowed to run GitHub Actions. Can be one of: `all`, `none`, or `selected`.
 func (o ActionsOrganizationPermissionsOutput) EnabledRepositories() pulumi.StringOutput {
 	return o.ApplyT(func(v *ActionsOrganizationPermissions) pulumi.StringOutput { return v.EnabledRepositories }).(pulumi.StringOutput)
 }
 
+// Sets the list of selected repositories that are enabled for GitHub Actions in an organization. Only available when `enabledRepositories` = `selected`. See Enabled Repositories Config below for details.
 func (o ActionsOrganizationPermissionsOutput) EnabledRepositoriesConfig() ActionsOrganizationPermissionsEnabledRepositoriesConfigPtrOutput {
 	return o.ApplyT(func(v *ActionsOrganizationPermissions) ActionsOrganizationPermissionsEnabledRepositoriesConfigPtrOutput {
 		return v.EnabledRepositoriesConfig

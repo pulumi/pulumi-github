@@ -10,6 +10,38 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// > **Note:** The data source will return a maximum of `1000` repositories
+//
+//	[as documented in official API docs](https://developer.github.com/v3/search/#about-the-search-api).
+//
+// Use this data source to retrieve a list of GitHub repositories using a search query.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-github/sdk/v5/go/github"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := github.GetRepositories(ctx, &github.GetRepositoriesArgs{
+//				IncludeRepoId: pulumi.BoolRef(true),
+//				Query:         "org:hashicorp language:Go",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func GetRepositories(ctx *pulumi.Context, args *GetRepositoriesArgs, opts ...pulumi.InvokeOption) (*GetRepositoriesResult, error) {
 	var rv GetRepositoriesResult
 	err := ctx.Invoke("github:index/getRepositories:getRepositories", args, &rv, opts...)
@@ -21,18 +53,28 @@ func GetRepositories(ctx *pulumi.Context, args *GetRepositoriesArgs, opts ...pul
 
 // A collection of arguments for invoking getRepositories.
 type GetRepositoriesArgs struct {
-	Query string  `pulumi:"query"`
-	Sort  *string `pulumi:"sort"`
+	// Returns a list of found repository IDs
+	IncludeRepoId *bool `pulumi:"includeRepoId"`
+	// Search query. See [documentation for the search syntax](https://help.github.com/articles/understanding-the-search-syntax/).
+	Query string `pulumi:"query"`
+	// Set the number of repositories requested per API call. Can be useful to decrease if requests are timing out or to increase to reduce the number of API calls. Defaults to 100.
+	ResultsPerPage *int `pulumi:"resultsPerPage"`
+	// Sorts the repositories returned by the specified attribute. Valid values include `stars`, `fork`, and `updated`. Defaults to `updated`.
+	Sort *string `pulumi:"sort"`
 }
 
 // A collection of values returned by getRepositories.
 type GetRepositoriesResult struct {
 	FullNames []string `pulumi:"fullNames"`
 	// The provider-assigned unique ID for this managed resource.
-	Id    string   `pulumi:"id"`
-	Names []string `pulumi:"names"`
-	Query string   `pulumi:"query"`
-	Sort  *string  `pulumi:"sort"`
+	Id            string   `pulumi:"id"`
+	IncludeRepoId *bool    `pulumi:"includeRepoId"`
+	Names         []string `pulumi:"names"`
+	Query         string   `pulumi:"query"`
+	// (Optional) A list of found repository IDs (e.g. `449898861`)
+	RepoIds        []int   `pulumi:"repoIds"`
+	ResultsPerPage *int    `pulumi:"resultsPerPage"`
+	Sort           *string `pulumi:"sort"`
 }
 
 func GetRepositoriesOutput(ctx *pulumi.Context, args GetRepositoriesOutputArgs, opts ...pulumi.InvokeOption) GetRepositoriesResultOutput {
@@ -50,8 +92,14 @@ func GetRepositoriesOutput(ctx *pulumi.Context, args GetRepositoriesOutputArgs, 
 
 // A collection of arguments for invoking getRepositories.
 type GetRepositoriesOutputArgs struct {
-	Query pulumi.StringInput    `pulumi:"query"`
-	Sort  pulumi.StringPtrInput `pulumi:"sort"`
+	// Returns a list of found repository IDs
+	IncludeRepoId pulumi.BoolPtrInput `pulumi:"includeRepoId"`
+	// Search query. See [documentation for the search syntax](https://help.github.com/articles/understanding-the-search-syntax/).
+	Query pulumi.StringInput `pulumi:"query"`
+	// Set the number of repositories requested per API call. Can be useful to decrease if requests are timing out or to increase to reduce the number of API calls. Defaults to 100.
+	ResultsPerPage pulumi.IntPtrInput `pulumi:"resultsPerPage"`
+	// Sorts the repositories returned by the specified attribute. Valid values include `stars`, `fork`, and `updated`. Defaults to `updated`.
+	Sort pulumi.StringPtrInput `pulumi:"sort"`
 }
 
 func (GetRepositoriesOutputArgs) ElementType() reflect.Type {
@@ -82,12 +130,25 @@ func (o GetRepositoriesResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRepositoriesResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+func (o GetRepositoriesResultOutput) IncludeRepoId() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRepositoriesResult) *bool { return v.IncludeRepoId }).(pulumi.BoolPtrOutput)
+}
+
 func (o GetRepositoriesResultOutput) Names() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetRepositoriesResult) []string { return v.Names }).(pulumi.StringArrayOutput)
 }
 
 func (o GetRepositoriesResultOutput) Query() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRepositoriesResult) string { return v.Query }).(pulumi.StringOutput)
+}
+
+// (Optional) A list of found repository IDs (e.g. `449898861`)
+func (o GetRepositoriesResultOutput) RepoIds() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v GetRepositoriesResult) []int { return v.RepoIds }).(pulumi.IntArrayOutput)
+}
+
+func (o GetRepositoriesResultOutput) ResultsPerPage() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetRepositoriesResult) *int { return v.ResultsPerPage }).(pulumi.IntPtrOutput)
 }
 
 func (o GetRepositoriesResultOutput) Sort() pulumi.StringPtrOutput {

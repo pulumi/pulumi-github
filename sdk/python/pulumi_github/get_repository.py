@@ -22,7 +22,7 @@ class GetRepositoryResult:
     """
     A collection of values returned by getRepository.
     """
-    def __init__(__self__, allow_auto_merge=None, allow_merge_commit=None, allow_rebase_merge=None, allow_squash_merge=None, archived=None, default_branch=None, description=None, full_name=None, git_clone_url=None, has_downloads=None, has_issues=None, has_projects=None, has_wiki=None, homepage_url=None, html_url=None, http_clone_url=None, id=None, merge_commit_message=None, merge_commit_title=None, name=None, node_id=None, pages=None, private=None, repo_id=None, squash_merge_commit_message=None, squash_merge_commit_title=None, ssh_clone_url=None, svn_url=None, topics=None, visibility=None):
+    def __init__(__self__, allow_auto_merge=None, allow_merge_commit=None, allow_rebase_merge=None, allow_squash_merge=None, archived=None, default_branch=None, description=None, full_name=None, git_clone_url=None, has_downloads=None, has_issues=None, has_projects=None, has_wiki=None, homepage_url=None, html_url=None, http_clone_url=None, id=None, is_template=None, merge_commit_message=None, merge_commit_title=None, name=None, node_id=None, pages=None, private=None, repo_id=None, squash_merge_commit_message=None, squash_merge_commit_title=None, ssh_clone_url=None, svn_url=None, template=None, topics=None, visibility=None):
         if allow_auto_merge and not isinstance(allow_auto_merge, bool):
             raise TypeError("Expected argument 'allow_auto_merge' to be a bool")
         pulumi.set(__self__, "allow_auto_merge", allow_auto_merge)
@@ -74,6 +74,9 @@ class GetRepositoryResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if is_template and not isinstance(is_template, bool):
+            raise TypeError("Expected argument 'is_template' to be a bool")
+        pulumi.set(__self__, "is_template", is_template)
         if merge_commit_message and not isinstance(merge_commit_message, str):
             raise TypeError("Expected argument 'merge_commit_message' to be a str")
         pulumi.set(__self__, "merge_commit_message", merge_commit_message)
@@ -107,6 +110,9 @@ class GetRepositoryResult:
         if svn_url and not isinstance(svn_url, str):
             raise TypeError("Expected argument 'svn_url' to be a str")
         pulumi.set(__self__, "svn_url", svn_url)
+        if template and not isinstance(template, dict):
+            raise TypeError("Expected argument 'template' to be a dict")
+        pulumi.set(__self__, "template", template)
         if topics and not isinstance(topics, list):
             raise TypeError("Expected argument 'topics' to be a list")
         pulumi.set(__self__, "topics", topics)
@@ -117,36 +123,57 @@ class GetRepositoryResult:
     @property
     @pulumi.getter(name="allowAutoMerge")
     def allow_auto_merge(self) -> bool:
+        """
+        Whether the repository allows auto-merging pull requests.
+        """
         return pulumi.get(self, "allow_auto_merge")
 
     @property
     @pulumi.getter(name="allowMergeCommit")
     def allow_merge_commit(self) -> bool:
+        """
+        Whether the repository allows merge commits.
+        """
         return pulumi.get(self, "allow_merge_commit")
 
     @property
     @pulumi.getter(name="allowRebaseMerge")
     def allow_rebase_merge(self) -> bool:
+        """
+        Whether the repository allows rebase merges.
+        """
         return pulumi.get(self, "allow_rebase_merge")
 
     @property
     @pulumi.getter(name="allowSquashMerge")
     def allow_squash_merge(self) -> bool:
+        """
+        Whether the repository allows squash merges.
+        """
         return pulumi.get(self, "allow_squash_merge")
 
     @property
     @pulumi.getter
     def archived(self) -> bool:
+        """
+        Whether the repository is archived.
+        """
         return pulumi.get(self, "archived")
 
     @property
     @pulumi.getter(name="defaultBranch")
     def default_branch(self) -> str:
+        """
+        The name of the default branch of the repository.
+        """
         return pulumi.get(self, "default_branch")
 
     @property
     @pulumi.getter
     def description(self) -> Optional[str]:
+        """
+        A description of the repository.
+        """
         return pulumi.get(self, "description")
 
     @property
@@ -157,41 +184,65 @@ class GetRepositoryResult:
     @property
     @pulumi.getter(name="gitCloneUrl")
     def git_clone_url(self) -> str:
+        """
+        URL that can be provided to `git clone` to clone the repository anonymously via the git protocol.
+        """
         return pulumi.get(self, "git_clone_url")
 
     @property
     @pulumi.getter(name="hasDownloads")
     def has_downloads(self) -> bool:
+        """
+        Whether the repository has Downloads feature enabled.
+        """
         return pulumi.get(self, "has_downloads")
 
     @property
     @pulumi.getter(name="hasIssues")
     def has_issues(self) -> bool:
+        """
+        Whether the repository has GitHub Issues enabled.
+        """
         return pulumi.get(self, "has_issues")
 
     @property
     @pulumi.getter(name="hasProjects")
     def has_projects(self) -> bool:
+        """
+        Whether the repository has the GitHub Projects enabled.
+        """
         return pulumi.get(self, "has_projects")
 
     @property
     @pulumi.getter(name="hasWiki")
     def has_wiki(self) -> bool:
+        """
+        Whether the repository has the GitHub Wiki enabled.
+        """
         return pulumi.get(self, "has_wiki")
 
     @property
     @pulumi.getter(name="homepageUrl")
     def homepage_url(self) -> Optional[str]:
+        """
+        URL of a page describing the project.
+        """
         return pulumi.get(self, "homepage_url")
 
     @property
     @pulumi.getter(name="htmlUrl")
     def html_url(self) -> str:
+        """
+        URL to the repository on the web.
+        """
         return pulumi.get(self, "html_url")
 
     @property
     @pulumi.getter(name="httpCloneUrl")
     def http_clone_url(self) -> str:
+        """
+        URL that can be provided to `git clone` to clone the repository via HTTPS.
+        """
         return pulumi.get(self, "http_clone_url")
 
     @property
@@ -203,13 +254,27 @@ class GetRepositoryResult:
         return pulumi.get(self, "id")
 
     @property
+    @pulumi.getter(name="isTemplate")
+    def is_template(self) -> bool:
+        """
+        Whether the repository is a template repository.
+        """
+        return pulumi.get(self, "is_template")
+
+    @property
     @pulumi.getter(name="mergeCommitMessage")
     def merge_commit_message(self) -> str:
+        """
+        The default value for a merge commit message.
+        """
         return pulumi.get(self, "merge_commit_message")
 
     @property
     @pulumi.getter(name="mergeCommitTitle")
     def merge_commit_title(self) -> str:
+        """
+        The default value for a merge commit title.
+        """
         return pulumi.get(self, "merge_commit_title")
 
     @property
@@ -220,51 +285,89 @@ class GetRepositoryResult:
     @property
     @pulumi.getter(name="nodeId")
     def node_id(self) -> str:
+        """
+        GraphQL global node id for use with v4 API
+        """
         return pulumi.get(self, "node_id")
 
     @property
     @pulumi.getter
     def pages(self) -> Sequence['outputs.GetRepositoryPageResult']:
+        """
+        The repository's GitHub Pages configuration.
+        """
         return pulumi.get(self, "pages")
 
     @property
     @pulumi.getter
     def private(self) -> bool:
+        """
+        Whether the repository is private.
+        """
         return pulumi.get(self, "private")
 
     @property
     @pulumi.getter(name="repoId")
     def repo_id(self) -> int:
+        """
+        GitHub ID for the repository
+        """
         return pulumi.get(self, "repo_id")
 
     @property
     @pulumi.getter(name="squashMergeCommitMessage")
     def squash_merge_commit_message(self) -> str:
+        """
+        The default value for a squash merge commit message.
+        """
         return pulumi.get(self, "squash_merge_commit_message")
 
     @property
     @pulumi.getter(name="squashMergeCommitTitle")
     def squash_merge_commit_title(self) -> str:
+        """
+        The default value for a squash merge commit title.
+        """
         return pulumi.get(self, "squash_merge_commit_title")
 
     @property
     @pulumi.getter(name="sshCloneUrl")
     def ssh_clone_url(self) -> str:
+        """
+        URL that can be provided to `git clone` to clone the repository via SSH.
+        """
         return pulumi.get(self, "ssh_clone_url")
 
     @property
     @pulumi.getter(name="svnUrl")
     def svn_url(self) -> str:
+        """
+        URL that can be provided to `svn checkout` to check out the repository via GitHub's Subversion protocol emulation.
+        """
         return pulumi.get(self, "svn_url")
 
     @property
     @pulumi.getter
+    def template(self) -> 'outputs.GetRepositoryTemplateResult':
+        """
+        The repository source template configuration.
+        """
+        return pulumi.get(self, "template")
+
+    @property
+    @pulumi.getter
     def topics(self) -> Sequence[str]:
+        """
+        The list of topics of the repository.
+        """
         return pulumi.get(self, "topics")
 
     @property
     @pulumi.getter
     def visibility(self) -> str:
+        """
+        Whether the repository is public, private or internal.
+        """
         return pulumi.get(self, "visibility")
 
 
@@ -291,6 +394,7 @@ class AwaitableGetRepositoryResult(GetRepositoryResult):
             html_url=self.html_url,
             http_clone_url=self.http_clone_url,
             id=self.id,
+            is_template=self.is_template,
             merge_commit_message=self.merge_commit_message,
             merge_commit_title=self.merge_commit_title,
             name=self.name,
@@ -302,6 +406,7 @@ class AwaitableGetRepositoryResult(GetRepositoryResult):
             squash_merge_commit_title=self.squash_merge_commit_title,
             ssh_clone_url=self.ssh_clone_url,
             svn_url=self.svn_url,
+            template=self.template,
             topics=self.topics,
             visibility=self.visibility)
 
@@ -312,7 +417,22 @@ def get_repository(description: Optional[str] = None,
                    name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRepositoryResult:
     """
-    Use this data source to access information about an existing resource.
+    Use this data source to retrieve information about a GitHub repository.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_github as github
+
+    example = github.get_repository(full_name="hashicorp/terraform")
+    ```
+
+
+    :param str description: A description of the repository.
+    :param str full_name: Full name of the repository (in `org/name` format).
+    :param str homepage_url: URL of a page describing the project.
+    :param str name: The name of the repository.
     """
     __args__ = dict()
     __args__['description'] = description
@@ -340,6 +460,7 @@ def get_repository(description: Optional[str] = None,
         html_url=__ret__.html_url,
         http_clone_url=__ret__.http_clone_url,
         id=__ret__.id,
+        is_template=__ret__.is_template,
         merge_commit_message=__ret__.merge_commit_message,
         merge_commit_title=__ret__.merge_commit_title,
         name=__ret__.name,
@@ -351,6 +472,7 @@ def get_repository(description: Optional[str] = None,
         squash_merge_commit_title=__ret__.squash_merge_commit_title,
         ssh_clone_url=__ret__.ssh_clone_url,
         svn_url=__ret__.svn_url,
+        template=__ret__.template,
         topics=__ret__.topics,
         visibility=__ret__.visibility)
 
@@ -362,6 +484,21 @@ def get_repository_output(description: Optional[pulumi.Input[Optional[str]]] = N
                           name: Optional[pulumi.Input[Optional[str]]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRepositoryResult]:
     """
-    Use this data source to access information about an existing resource.
+    Use this data source to retrieve information about a GitHub repository.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_github as github
+
+    example = github.get_repository(full_name="hashicorp/terraform")
+    ```
+
+
+    :param str description: A description of the repository.
+    :param str full_name: Full name of the repository (in `org/name` format).
+    :param str homepage_url: URL of a page describing the project.
+    :param str name: The name of the repository.
     """
     ...

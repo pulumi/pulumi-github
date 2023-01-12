@@ -11,9 +11,12 @@ import (
 )
 
 type ActionsOrganizationPermissionsAllowedActionsConfig struct {
-	GithubOwnedAllowed bool     `pulumi:"githubOwnedAllowed"`
-	PatternsAlloweds   []string `pulumi:"patternsAlloweds"`
-	VerifiedAllowed    *bool    `pulumi:"verifiedAllowed"`
+	// Whether GitHub-owned actions are allowed in the organization.
+	GithubOwnedAllowed bool `pulumi:"githubOwnedAllowed"`
+	// Specifies a list of string-matching patterns to allow specific action(s). Wildcards, tags, and SHAs are allowed. For example, monalisa/octocat@*, monalisa/octocat@v2, monalisa/*."
+	PatternsAlloweds []string `pulumi:"patternsAlloweds"`
+	// Whether actions in GitHub Marketplace from verified creators are allowed. Set to true to allow all GitHub Marketplace actions by verified creators.
+	VerifiedAllowed *bool `pulumi:"verifiedAllowed"`
 }
 
 // ActionsOrganizationPermissionsAllowedActionsConfigInput is an input type that accepts ActionsOrganizationPermissionsAllowedActionsConfigArgs and ActionsOrganizationPermissionsAllowedActionsConfigOutput values.
@@ -28,9 +31,12 @@ type ActionsOrganizationPermissionsAllowedActionsConfigInput interface {
 }
 
 type ActionsOrganizationPermissionsAllowedActionsConfigArgs struct {
-	GithubOwnedAllowed pulumi.BoolInput        `pulumi:"githubOwnedAllowed"`
-	PatternsAlloweds   pulumi.StringArrayInput `pulumi:"patternsAlloweds"`
-	VerifiedAllowed    pulumi.BoolPtrInput     `pulumi:"verifiedAllowed"`
+	// Whether GitHub-owned actions are allowed in the organization.
+	GithubOwnedAllowed pulumi.BoolInput `pulumi:"githubOwnedAllowed"`
+	// Specifies a list of string-matching patterns to allow specific action(s). Wildcards, tags, and SHAs are allowed. For example, monalisa/octocat@*, monalisa/octocat@v2, monalisa/*."
+	PatternsAlloweds pulumi.StringArrayInput `pulumi:"patternsAlloweds"`
+	// Whether actions in GitHub Marketplace from verified creators are allowed. Set to true to allow all GitHub Marketplace actions by verified creators.
+	VerifiedAllowed pulumi.BoolPtrInput `pulumi:"verifiedAllowed"`
 }
 
 func (ActionsOrganizationPermissionsAllowedActionsConfigArgs) ElementType() reflect.Type {
@@ -110,14 +116,17 @@ func (o ActionsOrganizationPermissionsAllowedActionsConfigOutput) ToActionsOrgan
 	}).(ActionsOrganizationPermissionsAllowedActionsConfigPtrOutput)
 }
 
+// Whether GitHub-owned actions are allowed in the organization.
 func (o ActionsOrganizationPermissionsAllowedActionsConfigOutput) GithubOwnedAllowed() pulumi.BoolOutput {
 	return o.ApplyT(func(v ActionsOrganizationPermissionsAllowedActionsConfig) bool { return v.GithubOwnedAllowed }).(pulumi.BoolOutput)
 }
 
+// Specifies a list of string-matching patterns to allow specific action(s). Wildcards, tags, and SHAs are allowed. For example, monalisa/octocat@*, monalisa/octocat@v2, monalisa/*."
 func (o ActionsOrganizationPermissionsAllowedActionsConfigOutput) PatternsAlloweds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ActionsOrganizationPermissionsAllowedActionsConfig) []string { return v.PatternsAlloweds }).(pulumi.StringArrayOutput)
 }
 
+// Whether actions in GitHub Marketplace from verified creators are allowed. Set to true to allow all GitHub Marketplace actions by verified creators.
 func (o ActionsOrganizationPermissionsAllowedActionsConfigOutput) VerifiedAllowed() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ActionsOrganizationPermissionsAllowedActionsConfig) *bool { return v.VerifiedAllowed }).(pulumi.BoolPtrOutput)
 }
@@ -146,6 +155,7 @@ func (o ActionsOrganizationPermissionsAllowedActionsConfigPtrOutput) Elem() Acti
 	}).(ActionsOrganizationPermissionsAllowedActionsConfigOutput)
 }
 
+// Whether GitHub-owned actions are allowed in the organization.
 func (o ActionsOrganizationPermissionsAllowedActionsConfigPtrOutput) GithubOwnedAllowed() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ActionsOrganizationPermissionsAllowedActionsConfig) *bool {
 		if v == nil {
@@ -155,6 +165,7 @@ func (o ActionsOrganizationPermissionsAllowedActionsConfigPtrOutput) GithubOwned
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Specifies a list of string-matching patterns to allow specific action(s). Wildcards, tags, and SHAs are allowed. For example, monalisa/octocat@*, monalisa/octocat@v2, monalisa/*."
 func (o ActionsOrganizationPermissionsAllowedActionsConfigPtrOutput) PatternsAlloweds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ActionsOrganizationPermissionsAllowedActionsConfig) []string {
 		if v == nil {
@@ -164,6 +175,7 @@ func (o ActionsOrganizationPermissionsAllowedActionsConfigPtrOutput) PatternsAll
 	}).(pulumi.StringArrayOutput)
 }
 
+// Whether actions in GitHub Marketplace from verified creators are allowed. Set to true to allow all GitHub Marketplace actions by verified creators.
 func (o ActionsOrganizationPermissionsAllowedActionsConfigPtrOutput) VerifiedAllowed() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ActionsOrganizationPermissionsAllowedActionsConfig) *bool {
 		if v == nil {
@@ -174,6 +186,7 @@ func (o ActionsOrganizationPermissionsAllowedActionsConfigPtrOutput) VerifiedAll
 }
 
 type ActionsOrganizationPermissionsEnabledRepositoriesConfig struct {
+	// List of repository IDs to enable for GitHub Actions.
 	RepositoryIds []int `pulumi:"repositoryIds"`
 }
 
@@ -189,6 +202,7 @@ type ActionsOrganizationPermissionsEnabledRepositoriesConfigInput interface {
 }
 
 type ActionsOrganizationPermissionsEnabledRepositoriesConfigArgs struct {
+	// List of repository IDs to enable for GitHub Actions.
 	RepositoryIds pulumi.IntArrayInput `pulumi:"repositoryIds"`
 }
 
@@ -269,6 +283,7 @@ func (o ActionsOrganizationPermissionsEnabledRepositoriesConfigOutput) ToActions
 	}).(ActionsOrganizationPermissionsEnabledRepositoriesConfigPtrOutput)
 }
 
+// List of repository IDs to enable for GitHub Actions.
 func (o ActionsOrganizationPermissionsEnabledRepositoriesConfigOutput) RepositoryIds() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v ActionsOrganizationPermissionsEnabledRepositoriesConfig) []int { return v.RepositoryIds }).(pulumi.IntArrayOutput)
 }
@@ -297,6 +312,7 @@ func (o ActionsOrganizationPermissionsEnabledRepositoriesConfigPtrOutput) Elem()
 	}).(ActionsOrganizationPermissionsEnabledRepositoriesConfigOutput)
 }
 
+// List of repository IDs to enable for GitHub Actions.
 func (o ActionsOrganizationPermissionsEnabledRepositoriesConfigPtrOutput) RepositoryIds() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *ActionsOrganizationPermissionsEnabledRepositoriesConfig) []int {
 		if v == nil {
@@ -306,13 +322,197 @@ func (o ActionsOrganizationPermissionsEnabledRepositoriesConfigPtrOutput) Reposi
 	}).(pulumi.IntArrayOutput)
 }
 
+type ActionsRepositoryPermissionsAllowedActionsConfig struct {
+	// Whether GitHub-owned actions are allowed in the repository.
+	GithubOwnedAllowed bool `pulumi:"githubOwnedAllowed"`
+	// Specifies a list of string-matching patterns to allow specific action(s). Wildcards, tags, and SHAs are allowed. For example, monalisa/octocat@*, monalisa/octocat@v2, monalisa/*."
+	PatternsAlloweds []string `pulumi:"patternsAlloweds"`
+	// Whether actions in GitHub Marketplace from verified creators are allowed. Set to true to allow all GitHub Marketplace actions by verified creators.
+	VerifiedAllowed *bool `pulumi:"verifiedAllowed"`
+}
+
+// ActionsRepositoryPermissionsAllowedActionsConfigInput is an input type that accepts ActionsRepositoryPermissionsAllowedActionsConfigArgs and ActionsRepositoryPermissionsAllowedActionsConfigOutput values.
+// You can construct a concrete instance of `ActionsRepositoryPermissionsAllowedActionsConfigInput` via:
+//
+//	ActionsRepositoryPermissionsAllowedActionsConfigArgs{...}
+type ActionsRepositoryPermissionsAllowedActionsConfigInput interface {
+	pulumi.Input
+
+	ToActionsRepositoryPermissionsAllowedActionsConfigOutput() ActionsRepositoryPermissionsAllowedActionsConfigOutput
+	ToActionsRepositoryPermissionsAllowedActionsConfigOutputWithContext(context.Context) ActionsRepositoryPermissionsAllowedActionsConfigOutput
+}
+
+type ActionsRepositoryPermissionsAllowedActionsConfigArgs struct {
+	// Whether GitHub-owned actions are allowed in the repository.
+	GithubOwnedAllowed pulumi.BoolInput `pulumi:"githubOwnedAllowed"`
+	// Specifies a list of string-matching patterns to allow specific action(s). Wildcards, tags, and SHAs are allowed. For example, monalisa/octocat@*, monalisa/octocat@v2, monalisa/*."
+	PatternsAlloweds pulumi.StringArrayInput `pulumi:"patternsAlloweds"`
+	// Whether actions in GitHub Marketplace from verified creators are allowed. Set to true to allow all GitHub Marketplace actions by verified creators.
+	VerifiedAllowed pulumi.BoolPtrInput `pulumi:"verifiedAllowed"`
+}
+
+func (ActionsRepositoryPermissionsAllowedActionsConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionsRepositoryPermissionsAllowedActionsConfig)(nil)).Elem()
+}
+
+func (i ActionsRepositoryPermissionsAllowedActionsConfigArgs) ToActionsRepositoryPermissionsAllowedActionsConfigOutput() ActionsRepositoryPermissionsAllowedActionsConfigOutput {
+	return i.ToActionsRepositoryPermissionsAllowedActionsConfigOutputWithContext(context.Background())
+}
+
+func (i ActionsRepositoryPermissionsAllowedActionsConfigArgs) ToActionsRepositoryPermissionsAllowedActionsConfigOutputWithContext(ctx context.Context) ActionsRepositoryPermissionsAllowedActionsConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionsRepositoryPermissionsAllowedActionsConfigOutput)
+}
+
+func (i ActionsRepositoryPermissionsAllowedActionsConfigArgs) ToActionsRepositoryPermissionsAllowedActionsConfigPtrOutput() ActionsRepositoryPermissionsAllowedActionsConfigPtrOutput {
+	return i.ToActionsRepositoryPermissionsAllowedActionsConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ActionsRepositoryPermissionsAllowedActionsConfigArgs) ToActionsRepositoryPermissionsAllowedActionsConfigPtrOutputWithContext(ctx context.Context) ActionsRepositoryPermissionsAllowedActionsConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionsRepositoryPermissionsAllowedActionsConfigOutput).ToActionsRepositoryPermissionsAllowedActionsConfigPtrOutputWithContext(ctx)
+}
+
+// ActionsRepositoryPermissionsAllowedActionsConfigPtrInput is an input type that accepts ActionsRepositoryPermissionsAllowedActionsConfigArgs, ActionsRepositoryPermissionsAllowedActionsConfigPtr and ActionsRepositoryPermissionsAllowedActionsConfigPtrOutput values.
+// You can construct a concrete instance of `ActionsRepositoryPermissionsAllowedActionsConfigPtrInput` via:
+//
+//	        ActionsRepositoryPermissionsAllowedActionsConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type ActionsRepositoryPermissionsAllowedActionsConfigPtrInput interface {
+	pulumi.Input
+
+	ToActionsRepositoryPermissionsAllowedActionsConfigPtrOutput() ActionsRepositoryPermissionsAllowedActionsConfigPtrOutput
+	ToActionsRepositoryPermissionsAllowedActionsConfigPtrOutputWithContext(context.Context) ActionsRepositoryPermissionsAllowedActionsConfigPtrOutput
+}
+
+type actionsRepositoryPermissionsAllowedActionsConfigPtrType ActionsRepositoryPermissionsAllowedActionsConfigArgs
+
+func ActionsRepositoryPermissionsAllowedActionsConfigPtr(v *ActionsRepositoryPermissionsAllowedActionsConfigArgs) ActionsRepositoryPermissionsAllowedActionsConfigPtrInput {
+	return (*actionsRepositoryPermissionsAllowedActionsConfigPtrType)(v)
+}
+
+func (*actionsRepositoryPermissionsAllowedActionsConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionsRepositoryPermissionsAllowedActionsConfig)(nil)).Elem()
+}
+
+func (i *actionsRepositoryPermissionsAllowedActionsConfigPtrType) ToActionsRepositoryPermissionsAllowedActionsConfigPtrOutput() ActionsRepositoryPermissionsAllowedActionsConfigPtrOutput {
+	return i.ToActionsRepositoryPermissionsAllowedActionsConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *actionsRepositoryPermissionsAllowedActionsConfigPtrType) ToActionsRepositoryPermissionsAllowedActionsConfigPtrOutputWithContext(ctx context.Context) ActionsRepositoryPermissionsAllowedActionsConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionsRepositoryPermissionsAllowedActionsConfigPtrOutput)
+}
+
+type ActionsRepositoryPermissionsAllowedActionsConfigOutput struct{ *pulumi.OutputState }
+
+func (ActionsRepositoryPermissionsAllowedActionsConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionsRepositoryPermissionsAllowedActionsConfig)(nil)).Elem()
+}
+
+func (o ActionsRepositoryPermissionsAllowedActionsConfigOutput) ToActionsRepositoryPermissionsAllowedActionsConfigOutput() ActionsRepositoryPermissionsAllowedActionsConfigOutput {
+	return o
+}
+
+func (o ActionsRepositoryPermissionsAllowedActionsConfigOutput) ToActionsRepositoryPermissionsAllowedActionsConfigOutputWithContext(ctx context.Context) ActionsRepositoryPermissionsAllowedActionsConfigOutput {
+	return o
+}
+
+func (o ActionsRepositoryPermissionsAllowedActionsConfigOutput) ToActionsRepositoryPermissionsAllowedActionsConfigPtrOutput() ActionsRepositoryPermissionsAllowedActionsConfigPtrOutput {
+	return o.ToActionsRepositoryPermissionsAllowedActionsConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ActionsRepositoryPermissionsAllowedActionsConfigOutput) ToActionsRepositoryPermissionsAllowedActionsConfigPtrOutputWithContext(ctx context.Context) ActionsRepositoryPermissionsAllowedActionsConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActionsRepositoryPermissionsAllowedActionsConfig) *ActionsRepositoryPermissionsAllowedActionsConfig {
+		return &v
+	}).(ActionsRepositoryPermissionsAllowedActionsConfigPtrOutput)
+}
+
+// Whether GitHub-owned actions are allowed in the repository.
+func (o ActionsRepositoryPermissionsAllowedActionsConfigOutput) GithubOwnedAllowed() pulumi.BoolOutput {
+	return o.ApplyT(func(v ActionsRepositoryPermissionsAllowedActionsConfig) bool { return v.GithubOwnedAllowed }).(pulumi.BoolOutput)
+}
+
+// Specifies a list of string-matching patterns to allow specific action(s). Wildcards, tags, and SHAs are allowed. For example, monalisa/octocat@*, monalisa/octocat@v2, monalisa/*."
+func (o ActionsRepositoryPermissionsAllowedActionsConfigOutput) PatternsAlloweds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ActionsRepositoryPermissionsAllowedActionsConfig) []string { return v.PatternsAlloweds }).(pulumi.StringArrayOutput)
+}
+
+// Whether actions in GitHub Marketplace from verified creators are allowed. Set to true to allow all GitHub Marketplace actions by verified creators.
+func (o ActionsRepositoryPermissionsAllowedActionsConfigOutput) VerifiedAllowed() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ActionsRepositoryPermissionsAllowedActionsConfig) *bool { return v.VerifiedAllowed }).(pulumi.BoolPtrOutput)
+}
+
+type ActionsRepositoryPermissionsAllowedActionsConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ActionsRepositoryPermissionsAllowedActionsConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionsRepositoryPermissionsAllowedActionsConfig)(nil)).Elem()
+}
+
+func (o ActionsRepositoryPermissionsAllowedActionsConfigPtrOutput) ToActionsRepositoryPermissionsAllowedActionsConfigPtrOutput() ActionsRepositoryPermissionsAllowedActionsConfigPtrOutput {
+	return o
+}
+
+func (o ActionsRepositoryPermissionsAllowedActionsConfigPtrOutput) ToActionsRepositoryPermissionsAllowedActionsConfigPtrOutputWithContext(ctx context.Context) ActionsRepositoryPermissionsAllowedActionsConfigPtrOutput {
+	return o
+}
+
+func (o ActionsRepositoryPermissionsAllowedActionsConfigPtrOutput) Elem() ActionsRepositoryPermissionsAllowedActionsConfigOutput {
+	return o.ApplyT(func(v *ActionsRepositoryPermissionsAllowedActionsConfig) ActionsRepositoryPermissionsAllowedActionsConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ActionsRepositoryPermissionsAllowedActionsConfig
+		return ret
+	}).(ActionsRepositoryPermissionsAllowedActionsConfigOutput)
+}
+
+// Whether GitHub-owned actions are allowed in the repository.
+func (o ActionsRepositoryPermissionsAllowedActionsConfigPtrOutput) GithubOwnedAllowed() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ActionsRepositoryPermissionsAllowedActionsConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.GithubOwnedAllowed
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Specifies a list of string-matching patterns to allow specific action(s). Wildcards, tags, and SHAs are allowed. For example, monalisa/octocat@*, monalisa/octocat@v2, monalisa/*."
+func (o ActionsRepositoryPermissionsAllowedActionsConfigPtrOutput) PatternsAlloweds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ActionsRepositoryPermissionsAllowedActionsConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.PatternsAlloweds
+	}).(pulumi.StringArrayOutput)
+}
+
+// Whether actions in GitHub Marketplace from verified creators are allowed. Set to true to allow all GitHub Marketplace actions by verified creators.
+func (o ActionsRepositoryPermissionsAllowedActionsConfigPtrOutput) VerifiedAllowed() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ActionsRepositoryPermissionsAllowedActionsConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.VerifiedAllowed
+	}).(pulumi.BoolPtrOutput)
+}
+
 type BranchProtectionRequiredPullRequestReview struct {
-	DismissStaleReviews          *bool    `pulumi:"dismissStaleReviews"`
-	DismissalRestrictions        []string `pulumi:"dismissalRestrictions"`
-	PullRequestBypassers         []string `pulumi:"pullRequestBypassers"`
-	RequireCodeOwnerReviews      *bool    `pulumi:"requireCodeOwnerReviews"`
-	RequiredApprovingReviewCount *int     `pulumi:"requiredApprovingReviewCount"`
-	RestrictDismissals           *bool    `pulumi:"restrictDismissals"`
+	// Dismiss approved reviews automatically when a new commit is pushed. Defaults to `false`.
+	DismissStaleReviews *bool `pulumi:"dismissStaleReviews"`
+	// The list of actor Names/IDs with dismissal access. If not empty, `restrictDismissals` is ignored. Actor names must either begin with a "/" for users or the organization name followed by a "/" for teams.
+	DismissalRestrictions []string `pulumi:"dismissalRestrictions"`
+	// The list of actor Names/IDs that are allowed to bypass pull request requirements. Actor names must either begin with a "/" for users or the organization name followed by a "/" for teams.
+	PullRequestBypassers []string `pulumi:"pullRequestBypassers"`
+	// Require an approved review in pull requests including files with a designated code owner. Defaults to `false`.
+	RequireCodeOwnerReviews *bool `pulumi:"requireCodeOwnerReviews"`
+	// Require that The most recent push must be approved by someone other than the last pusher.  Defaults to `false`
+	RequireLastPushApproval *bool `pulumi:"requireLastPushApproval"`
+	// Require x number of approvals to satisfy branch protection requirements. If this is specified it must be a number between 0-6. This requirement matches GitHub's API, see the upstream [documentation](https://developer.github.com/v3/repos/branches/#parameters-1) for more information.
+	// (https://developer.github.com/v3/repos/branches/#parameters-1) for more information.
+	RequiredApprovingReviewCount *int `pulumi:"requiredApprovingReviewCount"`
+	// Restrict pull request review dismissals.
+	RestrictDismissals *bool `pulumi:"restrictDismissals"`
 }
 
 // BranchProtectionRequiredPullRequestReviewInput is an input type that accepts BranchProtectionRequiredPullRequestReviewArgs and BranchProtectionRequiredPullRequestReviewOutput values.
@@ -327,12 +527,21 @@ type BranchProtectionRequiredPullRequestReviewInput interface {
 }
 
 type BranchProtectionRequiredPullRequestReviewArgs struct {
-	DismissStaleReviews          pulumi.BoolPtrInput     `pulumi:"dismissStaleReviews"`
-	DismissalRestrictions        pulumi.StringArrayInput `pulumi:"dismissalRestrictions"`
-	PullRequestBypassers         pulumi.StringArrayInput `pulumi:"pullRequestBypassers"`
-	RequireCodeOwnerReviews      pulumi.BoolPtrInput     `pulumi:"requireCodeOwnerReviews"`
-	RequiredApprovingReviewCount pulumi.IntPtrInput      `pulumi:"requiredApprovingReviewCount"`
-	RestrictDismissals           pulumi.BoolPtrInput     `pulumi:"restrictDismissals"`
+	// Dismiss approved reviews automatically when a new commit is pushed. Defaults to `false`.
+	DismissStaleReviews pulumi.BoolPtrInput `pulumi:"dismissStaleReviews"`
+	// The list of actor Names/IDs with dismissal access. If not empty, `restrictDismissals` is ignored. Actor names must either begin with a "/" for users or the organization name followed by a "/" for teams.
+	DismissalRestrictions pulumi.StringArrayInput `pulumi:"dismissalRestrictions"`
+	// The list of actor Names/IDs that are allowed to bypass pull request requirements. Actor names must either begin with a "/" for users or the organization name followed by a "/" for teams.
+	PullRequestBypassers pulumi.StringArrayInput `pulumi:"pullRequestBypassers"`
+	// Require an approved review in pull requests including files with a designated code owner. Defaults to `false`.
+	RequireCodeOwnerReviews pulumi.BoolPtrInput `pulumi:"requireCodeOwnerReviews"`
+	// Require that The most recent push must be approved by someone other than the last pusher.  Defaults to `false`
+	RequireLastPushApproval pulumi.BoolPtrInput `pulumi:"requireLastPushApproval"`
+	// Require x number of approvals to satisfy branch protection requirements. If this is specified it must be a number between 0-6. This requirement matches GitHub's API, see the upstream [documentation](https://developer.github.com/v3/repos/branches/#parameters-1) for more information.
+	// (https://developer.github.com/v3/repos/branches/#parameters-1) for more information.
+	RequiredApprovingReviewCount pulumi.IntPtrInput `pulumi:"requiredApprovingReviewCount"`
+	// Restrict pull request review dismissals.
+	RestrictDismissals pulumi.BoolPtrInput `pulumi:"restrictDismissals"`
 }
 
 func (BranchProtectionRequiredPullRequestReviewArgs) ElementType() reflect.Type {
@@ -386,26 +595,38 @@ func (o BranchProtectionRequiredPullRequestReviewOutput) ToBranchProtectionRequi
 	return o
 }
 
+// Dismiss approved reviews automatically when a new commit is pushed. Defaults to `false`.
 func (o BranchProtectionRequiredPullRequestReviewOutput) DismissStaleReviews() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BranchProtectionRequiredPullRequestReview) *bool { return v.DismissStaleReviews }).(pulumi.BoolPtrOutput)
 }
 
+// The list of actor Names/IDs with dismissal access. If not empty, `restrictDismissals` is ignored. Actor names must either begin with a "/" for users or the organization name followed by a "/" for teams.
 func (o BranchProtectionRequiredPullRequestReviewOutput) DismissalRestrictions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BranchProtectionRequiredPullRequestReview) []string { return v.DismissalRestrictions }).(pulumi.StringArrayOutput)
 }
 
+// The list of actor Names/IDs that are allowed to bypass pull request requirements. Actor names must either begin with a "/" for users or the organization name followed by a "/" for teams.
 func (o BranchProtectionRequiredPullRequestReviewOutput) PullRequestBypassers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BranchProtectionRequiredPullRequestReview) []string { return v.PullRequestBypassers }).(pulumi.StringArrayOutput)
 }
 
+// Require an approved review in pull requests including files with a designated code owner. Defaults to `false`.
 func (o BranchProtectionRequiredPullRequestReviewOutput) RequireCodeOwnerReviews() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BranchProtectionRequiredPullRequestReview) *bool { return v.RequireCodeOwnerReviews }).(pulumi.BoolPtrOutput)
 }
 
+// Require that The most recent push must be approved by someone other than the last pusher.  Defaults to `false`
+func (o BranchProtectionRequiredPullRequestReviewOutput) RequireLastPushApproval() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v BranchProtectionRequiredPullRequestReview) *bool { return v.RequireLastPushApproval }).(pulumi.BoolPtrOutput)
+}
+
+// Require x number of approvals to satisfy branch protection requirements. If this is specified it must be a number between 0-6. This requirement matches GitHub's API, see the upstream [documentation](https://developer.github.com/v3/repos/branches/#parameters-1) for more information.
+// (https://developer.github.com/v3/repos/branches/#parameters-1) for more information.
 func (o BranchProtectionRequiredPullRequestReviewOutput) RequiredApprovingReviewCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v BranchProtectionRequiredPullRequestReview) *int { return v.RequiredApprovingReviewCount }).(pulumi.IntPtrOutput)
 }
 
+// Restrict pull request review dismissals.
 func (o BranchProtectionRequiredPullRequestReviewOutput) RestrictDismissals() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BranchProtectionRequiredPullRequestReview) *bool { return v.RestrictDismissals }).(pulumi.BoolPtrOutput)
 }
@@ -431,8 +652,10 @@ func (o BranchProtectionRequiredPullRequestReviewArrayOutput) Index(i pulumi.Int
 }
 
 type BranchProtectionRequiredStatusCheck struct {
+	// The list of status checks to require in order to merge into this branch. No status checks are required by default.
 	Contexts []string `pulumi:"contexts"`
-	Strict   *bool    `pulumi:"strict"`
+	// Require branches to be up to date before merging. Defaults to `false`.
+	Strict *bool `pulumi:"strict"`
 }
 
 // BranchProtectionRequiredStatusCheckInput is an input type that accepts BranchProtectionRequiredStatusCheckArgs and BranchProtectionRequiredStatusCheckOutput values.
@@ -447,8 +670,10 @@ type BranchProtectionRequiredStatusCheckInput interface {
 }
 
 type BranchProtectionRequiredStatusCheckArgs struct {
+	// The list of status checks to require in order to merge into this branch. No status checks are required by default.
 	Contexts pulumi.StringArrayInput `pulumi:"contexts"`
-	Strict   pulumi.BoolPtrInput     `pulumi:"strict"`
+	// Require branches to be up to date before merging. Defaults to `false`.
+	Strict pulumi.BoolPtrInput `pulumi:"strict"`
 }
 
 func (BranchProtectionRequiredStatusCheckArgs) ElementType() reflect.Type {
@@ -502,10 +727,12 @@ func (o BranchProtectionRequiredStatusCheckOutput) ToBranchProtectionRequiredSta
 	return o
 }
 
+// The list of status checks to require in order to merge into this branch. No status checks are required by default.
 func (o BranchProtectionRequiredStatusCheckOutput) Contexts() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BranchProtectionRequiredStatusCheck) []string { return v.Contexts }).(pulumi.StringArrayOutput)
 }
 
+// Require branches to be up to date before merging. Defaults to `false`.
 func (o BranchProtectionRequiredStatusCheckOutput) Strict() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BranchProtectionRequiredStatusCheck) *bool { return v.Strict }).(pulumi.BoolPtrOutput)
 }
@@ -531,13 +758,19 @@ func (o BranchProtectionRequiredStatusCheckArrayOutput) Index(i pulumi.IntInput)
 }
 
 type BranchProtectionV3RequiredPullRequestReviews struct {
-	DismissStaleReviews *bool    `pulumi:"dismissStaleReviews"`
-	DismissalTeams      []string `pulumi:"dismissalTeams"`
-	DismissalUsers      []string `pulumi:"dismissalUsers"`
+	// Dismiss approved reviews automatically when a new commit is pushed. Defaults to `false`.
+	DismissStaleReviews *bool `pulumi:"dismissStaleReviews"`
+	// The list of team slugs with dismissal access.
+	// Always use `slug` of the team, **not** its name. Each team already **has** to have access to the repository.
+	DismissalTeams []string `pulumi:"dismissalTeams"`
+	// The list of user logins with dismissal access
+	DismissalUsers []string `pulumi:"dismissalUsers"`
 	// Deprecated: Use enforce_admins instead
-	IncludeAdmins                *bool `pulumi:"includeAdmins"`
-	RequireCodeOwnerReviews      *bool `pulumi:"requireCodeOwnerReviews"`
-	RequiredApprovingReviewCount *int  `pulumi:"requiredApprovingReviewCount"`
+	IncludeAdmins *bool `pulumi:"includeAdmins"`
+	// Require an approved review in pull requests including files with a designated code owner. Defaults to `false`.
+	RequireCodeOwnerReviews *bool `pulumi:"requireCodeOwnerReviews"`
+	// Require x number of approvals to satisfy branch protection requirements. If this is specified it must be a number between 0-6. This requirement matches GitHub's API, see the upstream [documentation](https://developer.github.com/v3/repos/branches/#parameters-1) for more information.
+	RequiredApprovingReviewCount *int `pulumi:"requiredApprovingReviewCount"`
 }
 
 // BranchProtectionV3RequiredPullRequestReviewsInput is an input type that accepts BranchProtectionV3RequiredPullRequestReviewsArgs and BranchProtectionV3RequiredPullRequestReviewsOutput values.
@@ -552,13 +785,19 @@ type BranchProtectionV3RequiredPullRequestReviewsInput interface {
 }
 
 type BranchProtectionV3RequiredPullRequestReviewsArgs struct {
-	DismissStaleReviews pulumi.BoolPtrInput     `pulumi:"dismissStaleReviews"`
-	DismissalTeams      pulumi.StringArrayInput `pulumi:"dismissalTeams"`
-	DismissalUsers      pulumi.StringArrayInput `pulumi:"dismissalUsers"`
+	// Dismiss approved reviews automatically when a new commit is pushed. Defaults to `false`.
+	DismissStaleReviews pulumi.BoolPtrInput `pulumi:"dismissStaleReviews"`
+	// The list of team slugs with dismissal access.
+	// Always use `slug` of the team, **not** its name. Each team already **has** to have access to the repository.
+	DismissalTeams pulumi.StringArrayInput `pulumi:"dismissalTeams"`
+	// The list of user logins with dismissal access
+	DismissalUsers pulumi.StringArrayInput `pulumi:"dismissalUsers"`
 	// Deprecated: Use enforce_admins instead
-	IncludeAdmins                pulumi.BoolPtrInput `pulumi:"includeAdmins"`
-	RequireCodeOwnerReviews      pulumi.BoolPtrInput `pulumi:"requireCodeOwnerReviews"`
-	RequiredApprovingReviewCount pulumi.IntPtrInput  `pulumi:"requiredApprovingReviewCount"`
+	IncludeAdmins pulumi.BoolPtrInput `pulumi:"includeAdmins"`
+	// Require an approved review in pull requests including files with a designated code owner. Defaults to `false`.
+	RequireCodeOwnerReviews pulumi.BoolPtrInput `pulumi:"requireCodeOwnerReviews"`
+	// Require x number of approvals to satisfy branch protection requirements. If this is specified it must be a number between 0-6. This requirement matches GitHub's API, see the upstream [documentation](https://developer.github.com/v3/repos/branches/#parameters-1) for more information.
+	RequiredApprovingReviewCount pulumi.IntPtrInput `pulumi:"requiredApprovingReviewCount"`
 }
 
 func (BranchProtectionV3RequiredPullRequestReviewsArgs) ElementType() reflect.Type {
@@ -638,14 +877,18 @@ func (o BranchProtectionV3RequiredPullRequestReviewsOutput) ToBranchProtectionV3
 	}).(BranchProtectionV3RequiredPullRequestReviewsPtrOutput)
 }
 
+// Dismiss approved reviews automatically when a new commit is pushed. Defaults to `false`.
 func (o BranchProtectionV3RequiredPullRequestReviewsOutput) DismissStaleReviews() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BranchProtectionV3RequiredPullRequestReviews) *bool { return v.DismissStaleReviews }).(pulumi.BoolPtrOutput)
 }
 
+// The list of team slugs with dismissal access.
+// Always use `slug` of the team, **not** its name. Each team already **has** to have access to the repository.
 func (o BranchProtectionV3RequiredPullRequestReviewsOutput) DismissalTeams() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BranchProtectionV3RequiredPullRequestReviews) []string { return v.DismissalTeams }).(pulumi.StringArrayOutput)
 }
 
+// The list of user logins with dismissal access
 func (o BranchProtectionV3RequiredPullRequestReviewsOutput) DismissalUsers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BranchProtectionV3RequiredPullRequestReviews) []string { return v.DismissalUsers }).(pulumi.StringArrayOutput)
 }
@@ -655,10 +898,12 @@ func (o BranchProtectionV3RequiredPullRequestReviewsOutput) IncludeAdmins() pulu
 	return o.ApplyT(func(v BranchProtectionV3RequiredPullRequestReviews) *bool { return v.IncludeAdmins }).(pulumi.BoolPtrOutput)
 }
 
+// Require an approved review in pull requests including files with a designated code owner. Defaults to `false`.
 func (o BranchProtectionV3RequiredPullRequestReviewsOutput) RequireCodeOwnerReviews() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BranchProtectionV3RequiredPullRequestReviews) *bool { return v.RequireCodeOwnerReviews }).(pulumi.BoolPtrOutput)
 }
 
+// Require x number of approvals to satisfy branch protection requirements. If this is specified it must be a number between 0-6. This requirement matches GitHub's API, see the upstream [documentation](https://developer.github.com/v3/repos/branches/#parameters-1) for more information.
 func (o BranchProtectionV3RequiredPullRequestReviewsOutput) RequiredApprovingReviewCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v BranchProtectionV3RequiredPullRequestReviews) *int { return v.RequiredApprovingReviewCount }).(pulumi.IntPtrOutput)
 }
@@ -687,6 +932,7 @@ func (o BranchProtectionV3RequiredPullRequestReviewsPtrOutput) Elem() BranchProt
 	}).(BranchProtectionV3RequiredPullRequestReviewsOutput)
 }
 
+// Dismiss approved reviews automatically when a new commit is pushed. Defaults to `false`.
 func (o BranchProtectionV3RequiredPullRequestReviewsPtrOutput) DismissStaleReviews() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *BranchProtectionV3RequiredPullRequestReviews) *bool {
 		if v == nil {
@@ -696,6 +942,8 @@ func (o BranchProtectionV3RequiredPullRequestReviewsPtrOutput) DismissStaleRevie
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The list of team slugs with dismissal access.
+// Always use `slug` of the team, **not** its name. Each team already **has** to have access to the repository.
 func (o BranchProtectionV3RequiredPullRequestReviewsPtrOutput) DismissalTeams() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BranchProtectionV3RequiredPullRequestReviews) []string {
 		if v == nil {
@@ -705,6 +953,7 @@ func (o BranchProtectionV3RequiredPullRequestReviewsPtrOutput) DismissalTeams() 
 	}).(pulumi.StringArrayOutput)
 }
 
+// The list of user logins with dismissal access
 func (o BranchProtectionV3RequiredPullRequestReviewsPtrOutput) DismissalUsers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BranchProtectionV3RequiredPullRequestReviews) []string {
 		if v == nil {
@@ -724,6 +973,7 @@ func (o BranchProtectionV3RequiredPullRequestReviewsPtrOutput) IncludeAdmins() p
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Require an approved review in pull requests including files with a designated code owner. Defaults to `false`.
 func (o BranchProtectionV3RequiredPullRequestReviewsPtrOutput) RequireCodeOwnerReviews() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *BranchProtectionV3RequiredPullRequestReviews) *bool {
 		if v == nil {
@@ -733,6 +983,7 @@ func (o BranchProtectionV3RequiredPullRequestReviewsPtrOutput) RequireCodeOwnerR
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Require x number of approvals to satisfy branch protection requirements. If this is specified it must be a number between 0-6. This requirement matches GitHub's API, see the upstream [documentation](https://developer.github.com/v3/repos/branches/#parameters-1) for more information.
 func (o BranchProtectionV3RequiredPullRequestReviewsPtrOutput) RequiredApprovingReviewCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *BranchProtectionV3RequiredPullRequestReviews) *int {
 		if v == nil {
@@ -743,10 +994,12 @@ func (o BranchProtectionV3RequiredPullRequestReviewsPtrOutput) RequiredApproving
 }
 
 type BranchProtectionV3RequiredStatusChecks struct {
+	// The list of status checks to require in order to merge into this branch. No status checks are required by default.
 	Contexts []string `pulumi:"contexts"`
 	// Deprecated: Use enforce_admins instead
 	IncludeAdmins *bool `pulumi:"includeAdmins"`
-	Strict        *bool `pulumi:"strict"`
+	// Require branches to be up to date before merging. Defaults to `false`.
+	Strict *bool `pulumi:"strict"`
 }
 
 // BranchProtectionV3RequiredStatusChecksInput is an input type that accepts BranchProtectionV3RequiredStatusChecksArgs and BranchProtectionV3RequiredStatusChecksOutput values.
@@ -761,10 +1014,12 @@ type BranchProtectionV3RequiredStatusChecksInput interface {
 }
 
 type BranchProtectionV3RequiredStatusChecksArgs struct {
+	// The list of status checks to require in order to merge into this branch. No status checks are required by default.
 	Contexts pulumi.StringArrayInput `pulumi:"contexts"`
 	// Deprecated: Use enforce_admins instead
 	IncludeAdmins pulumi.BoolPtrInput `pulumi:"includeAdmins"`
-	Strict        pulumi.BoolPtrInput `pulumi:"strict"`
+	// Require branches to be up to date before merging. Defaults to `false`.
+	Strict pulumi.BoolPtrInput `pulumi:"strict"`
 }
 
 func (BranchProtectionV3RequiredStatusChecksArgs) ElementType() reflect.Type {
@@ -844,6 +1099,7 @@ func (o BranchProtectionV3RequiredStatusChecksOutput) ToBranchProtectionV3Requir
 	}).(BranchProtectionV3RequiredStatusChecksPtrOutput)
 }
 
+// The list of status checks to require in order to merge into this branch. No status checks are required by default.
 func (o BranchProtectionV3RequiredStatusChecksOutput) Contexts() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BranchProtectionV3RequiredStatusChecks) []string { return v.Contexts }).(pulumi.StringArrayOutput)
 }
@@ -853,6 +1109,7 @@ func (o BranchProtectionV3RequiredStatusChecksOutput) IncludeAdmins() pulumi.Boo
 	return o.ApplyT(func(v BranchProtectionV3RequiredStatusChecks) *bool { return v.IncludeAdmins }).(pulumi.BoolPtrOutput)
 }
 
+// Require branches to be up to date before merging. Defaults to `false`.
 func (o BranchProtectionV3RequiredStatusChecksOutput) Strict() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BranchProtectionV3RequiredStatusChecks) *bool { return v.Strict }).(pulumi.BoolPtrOutput)
 }
@@ -881,6 +1138,7 @@ func (o BranchProtectionV3RequiredStatusChecksPtrOutput) Elem() BranchProtection
 	}).(BranchProtectionV3RequiredStatusChecksOutput)
 }
 
+// The list of status checks to require in order to merge into this branch. No status checks are required by default.
 func (o BranchProtectionV3RequiredStatusChecksPtrOutput) Contexts() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BranchProtectionV3RequiredStatusChecks) []string {
 		if v == nil {
@@ -900,6 +1158,7 @@ func (o BranchProtectionV3RequiredStatusChecksPtrOutput) IncludeAdmins() pulumi.
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Require branches to be up to date before merging. Defaults to `false`.
 func (o BranchProtectionV3RequiredStatusChecksPtrOutput) Strict() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *BranchProtectionV3RequiredStatusChecks) *bool {
 		if v == nil {
@@ -910,8 +1169,12 @@ func (o BranchProtectionV3RequiredStatusChecksPtrOutput) Strict() pulumi.BoolPtr
 }
 
 type BranchProtectionV3Restrictions struct {
-	Apps  []string `pulumi:"apps"`
+	// The list of app slugs with push access.
+	Apps []string `pulumi:"apps"`
+	// The list of team slugs with push access.
+	// Always use `slug` of the team, **not** its name. Each team already **has** to have access to the repository.
 	Teams []string `pulumi:"teams"`
+	// The list of user logins with push access.
 	Users []string `pulumi:"users"`
 }
 
@@ -927,8 +1190,12 @@ type BranchProtectionV3RestrictionsInput interface {
 }
 
 type BranchProtectionV3RestrictionsArgs struct {
-	Apps  pulumi.StringArrayInput `pulumi:"apps"`
+	// The list of app slugs with push access.
+	Apps pulumi.StringArrayInput `pulumi:"apps"`
+	// The list of team slugs with push access.
+	// Always use `slug` of the team, **not** its name. Each team already **has** to have access to the repository.
 	Teams pulumi.StringArrayInput `pulumi:"teams"`
+	// The list of user logins with push access.
 	Users pulumi.StringArrayInput `pulumi:"users"`
 }
 
@@ -1009,14 +1276,18 @@ func (o BranchProtectionV3RestrictionsOutput) ToBranchProtectionV3RestrictionsPt
 	}).(BranchProtectionV3RestrictionsPtrOutput)
 }
 
+// The list of app slugs with push access.
 func (o BranchProtectionV3RestrictionsOutput) Apps() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BranchProtectionV3Restrictions) []string { return v.Apps }).(pulumi.StringArrayOutput)
 }
 
+// The list of team slugs with push access.
+// Always use `slug` of the team, **not** its name. Each team already **has** to have access to the repository.
 func (o BranchProtectionV3RestrictionsOutput) Teams() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BranchProtectionV3Restrictions) []string { return v.Teams }).(pulumi.StringArrayOutput)
 }
 
+// The list of user logins with push access.
 func (o BranchProtectionV3RestrictionsOutput) Users() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BranchProtectionV3Restrictions) []string { return v.Users }).(pulumi.StringArrayOutput)
 }
@@ -1045,6 +1316,7 @@ func (o BranchProtectionV3RestrictionsPtrOutput) Elem() BranchProtectionV3Restri
 	}).(BranchProtectionV3RestrictionsOutput)
 }
 
+// The list of app slugs with push access.
 func (o BranchProtectionV3RestrictionsPtrOutput) Apps() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BranchProtectionV3Restrictions) []string {
 		if v == nil {
@@ -1054,6 +1326,8 @@ func (o BranchProtectionV3RestrictionsPtrOutput) Apps() pulumi.StringArrayOutput
 	}).(pulumi.StringArrayOutput)
 }
 
+// The list of team slugs with push access.
+// Always use `slug` of the team, **not** its name. Each team already **has** to have access to the repository.
 func (o BranchProtectionV3RestrictionsPtrOutput) Teams() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BranchProtectionV3Restrictions) []string {
 		if v == nil {
@@ -1063,6 +1337,7 @@ func (o BranchProtectionV3RestrictionsPtrOutput) Teams() pulumi.StringArrayOutpu
 	}).(pulumi.StringArrayOutput)
 }
 
+// The list of user logins with push access.
 func (o BranchProtectionV3RestrictionsPtrOutput) Users() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BranchProtectionV3Restrictions) []string {
 		if v == nil {
@@ -1076,7 +1351,8 @@ type OrganizationWebhookConfiguration struct {
 	ContentType *string `pulumi:"contentType"`
 	InsecureSsl *bool   `pulumi:"insecureSsl"`
 	Secret      *string `pulumi:"secret"`
-	Url         string  `pulumi:"url"`
+	// URL of the webhook
+	Url string `pulumi:"url"`
 }
 
 // OrganizationWebhookConfigurationInput is an input type that accepts OrganizationWebhookConfigurationArgs and OrganizationWebhookConfigurationOutput values.
@@ -1094,7 +1370,8 @@ type OrganizationWebhookConfigurationArgs struct {
 	ContentType pulumi.StringPtrInput `pulumi:"contentType"`
 	InsecureSsl pulumi.BoolPtrInput   `pulumi:"insecureSsl"`
 	Secret      pulumi.StringPtrInput `pulumi:"secret"`
-	Url         pulumi.StringInput    `pulumi:"url"`
+	// URL of the webhook
+	Url pulumi.StringInput `pulumi:"url"`
 }
 
 func (OrganizationWebhookConfigurationArgs) ElementType() reflect.Type {
@@ -1186,6 +1463,7 @@ func (o OrganizationWebhookConfigurationOutput) Secret() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v OrganizationWebhookConfiguration) *string { return v.Secret }).(pulumi.StringPtrOutput)
 }
 
+// URL of the webhook
 func (o OrganizationWebhookConfigurationOutput) Url() pulumi.StringOutput {
 	return o.ApplyT(func(v OrganizationWebhookConfiguration) string { return v.Url }).(pulumi.StringOutput)
 }
@@ -1241,6 +1519,7 @@ func (o OrganizationWebhookConfigurationPtrOutput) Secret() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+// URL of the webhook
 func (o OrganizationWebhookConfigurationPtrOutput) Url() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OrganizationWebhookConfiguration) *string {
 		if v == nil {
@@ -1414,8 +1693,10 @@ func (o ProviderAppAuthPtrOutput) PemFile() pulumi.StringPtrOutput {
 }
 
 type RepositoryEnvironmentDeploymentBranchPolicy struct {
+	// Whether only branches that match the specified name patterns can deploy to this environment.
 	CustomBranchPolicies bool `pulumi:"customBranchPolicies"`
-	ProtectedBranches    bool `pulumi:"protectedBranches"`
+	// Whether only branches with branch protection rules can deploy to this environment.
+	ProtectedBranches bool `pulumi:"protectedBranches"`
 }
 
 // RepositoryEnvironmentDeploymentBranchPolicyInput is an input type that accepts RepositoryEnvironmentDeploymentBranchPolicyArgs and RepositoryEnvironmentDeploymentBranchPolicyOutput values.
@@ -1430,8 +1711,10 @@ type RepositoryEnvironmentDeploymentBranchPolicyInput interface {
 }
 
 type RepositoryEnvironmentDeploymentBranchPolicyArgs struct {
+	// Whether only branches that match the specified name patterns can deploy to this environment.
 	CustomBranchPolicies pulumi.BoolInput `pulumi:"customBranchPolicies"`
-	ProtectedBranches    pulumi.BoolInput `pulumi:"protectedBranches"`
+	// Whether only branches with branch protection rules can deploy to this environment.
+	ProtectedBranches pulumi.BoolInput `pulumi:"protectedBranches"`
 }
 
 func (RepositoryEnvironmentDeploymentBranchPolicyArgs) ElementType() reflect.Type {
@@ -1511,10 +1794,12 @@ func (o RepositoryEnvironmentDeploymentBranchPolicyOutput) ToRepositoryEnvironme
 	}).(RepositoryEnvironmentDeploymentBranchPolicyPtrOutput)
 }
 
+// Whether only branches that match the specified name patterns can deploy to this environment.
 func (o RepositoryEnvironmentDeploymentBranchPolicyOutput) CustomBranchPolicies() pulumi.BoolOutput {
 	return o.ApplyT(func(v RepositoryEnvironmentDeploymentBranchPolicy) bool { return v.CustomBranchPolicies }).(pulumi.BoolOutput)
 }
 
+// Whether only branches with branch protection rules can deploy to this environment.
 func (o RepositoryEnvironmentDeploymentBranchPolicyOutput) ProtectedBranches() pulumi.BoolOutput {
 	return o.ApplyT(func(v RepositoryEnvironmentDeploymentBranchPolicy) bool { return v.ProtectedBranches }).(pulumi.BoolOutput)
 }
@@ -1543,6 +1828,7 @@ func (o RepositoryEnvironmentDeploymentBranchPolicyPtrOutput) Elem() RepositoryE
 	}).(RepositoryEnvironmentDeploymentBranchPolicyOutput)
 }
 
+// Whether only branches that match the specified name patterns can deploy to this environment.
 func (o RepositoryEnvironmentDeploymentBranchPolicyPtrOutput) CustomBranchPolicies() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RepositoryEnvironmentDeploymentBranchPolicy) *bool {
 		if v == nil {
@@ -1552,6 +1838,7 @@ func (o RepositoryEnvironmentDeploymentBranchPolicyPtrOutput) CustomBranchPolici
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Whether only branches with branch protection rules can deploy to this environment.
 func (o RepositoryEnvironmentDeploymentBranchPolicyPtrOutput) ProtectedBranches() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RepositoryEnvironmentDeploymentBranchPolicy) *bool {
 		if v == nil {
@@ -1562,7 +1849,9 @@ func (o RepositoryEnvironmentDeploymentBranchPolicyPtrOutput) ProtectedBranches(
 }
 
 type RepositoryEnvironmentReviewer struct {
+	// Up to 6 IDs for teams who may review jobs that reference the environment. Reviewers must have at least read access to the repository. Only one of the required reviewers needs to approve the job for it to proceed.
 	Teams []int `pulumi:"teams"`
+	// Up to 6 IDs for users who may review jobs that reference the environment. Reviewers must have at least read access to the repository. Only one of the required reviewers needs to approve the job for it to proceed.
 	Users []int `pulumi:"users"`
 }
 
@@ -1578,7 +1867,9 @@ type RepositoryEnvironmentReviewerInput interface {
 }
 
 type RepositoryEnvironmentReviewerArgs struct {
+	// Up to 6 IDs for teams who may review jobs that reference the environment. Reviewers must have at least read access to the repository. Only one of the required reviewers needs to approve the job for it to proceed.
 	Teams pulumi.IntArrayInput `pulumi:"teams"`
+	// Up to 6 IDs for users who may review jobs that reference the environment. Reviewers must have at least read access to the repository. Only one of the required reviewers needs to approve the job for it to proceed.
 	Users pulumi.IntArrayInput `pulumi:"users"`
 }
 
@@ -1633,10 +1924,12 @@ func (o RepositoryEnvironmentReviewerOutput) ToRepositoryEnvironmentReviewerOutp
 	return o
 }
 
+// Up to 6 IDs for teams who may review jobs that reference the environment. Reviewers must have at least read access to the repository. Only one of the required reviewers needs to approve the job for it to proceed.
 func (o RepositoryEnvironmentReviewerOutput) Teams() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v RepositoryEnvironmentReviewer) []int { return v.Teams }).(pulumi.IntArrayOutput)
 }
 
+// Up to 6 IDs for users who may review jobs that reference the environment. Reviewers must have at least read access to the repository. Only one of the required reviewers needs to approve the job for it to proceed.
 func (o RepositoryEnvironmentReviewerOutput) Users() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v RepositoryEnvironmentReviewer) []int { return v.Users }).(pulumi.IntArrayOutput)
 }
@@ -1662,12 +1955,17 @@ func (o RepositoryEnvironmentReviewerArrayOutput) Index(i pulumi.IntInput) Repos
 }
 
 type RepositoryPages struct {
-	Cname     *string               `pulumi:"cname"`
-	Custom404 *bool                 `pulumi:"custom404"`
-	HtmlUrl   *string               `pulumi:"htmlUrl"`
-	Source    RepositoryPagesSource `pulumi:"source"`
-	Status    *string               `pulumi:"status"`
-	Url       *string               `pulumi:"url"`
+	// The custom domain for the repository. This can only be set after the repository has been created.
+	Cname *string `pulumi:"cname"`
+	// Whether the rendered GitHub Pages site has a custom 404 page.
+	Custom404 *bool `pulumi:"custom404"`
+	// The absolute URL (including scheme) of the rendered GitHub Pages site e.g. `https://username.github.io`.
+	HtmlUrl *string `pulumi:"htmlUrl"`
+	// The source branch and directory for the rendered Pages site. See GitHub Pages Source below for details.
+	Source RepositoryPagesSource `pulumi:"source"`
+	// Set to `enabled` to enable advanced security features on the repository. Can be `enabled` or `disabled`.
+	Status *string `pulumi:"status"`
+	Url    *string `pulumi:"url"`
 }
 
 // RepositoryPagesInput is an input type that accepts RepositoryPagesArgs and RepositoryPagesOutput values.
@@ -1682,12 +1980,17 @@ type RepositoryPagesInput interface {
 }
 
 type RepositoryPagesArgs struct {
-	Cname     pulumi.StringPtrInput      `pulumi:"cname"`
-	Custom404 pulumi.BoolPtrInput        `pulumi:"custom404"`
-	HtmlUrl   pulumi.StringPtrInput      `pulumi:"htmlUrl"`
-	Source    RepositoryPagesSourceInput `pulumi:"source"`
-	Status    pulumi.StringPtrInput      `pulumi:"status"`
-	Url       pulumi.StringPtrInput      `pulumi:"url"`
+	// The custom domain for the repository. This can only be set after the repository has been created.
+	Cname pulumi.StringPtrInput `pulumi:"cname"`
+	// Whether the rendered GitHub Pages site has a custom 404 page.
+	Custom404 pulumi.BoolPtrInput `pulumi:"custom404"`
+	// The absolute URL (including scheme) of the rendered GitHub Pages site e.g. `https://username.github.io`.
+	HtmlUrl pulumi.StringPtrInput `pulumi:"htmlUrl"`
+	// The source branch and directory for the rendered Pages site. See GitHub Pages Source below for details.
+	Source RepositoryPagesSourceInput `pulumi:"source"`
+	// Set to `enabled` to enable advanced security features on the repository. Can be `enabled` or `disabled`.
+	Status pulumi.StringPtrInput `pulumi:"status"`
+	Url    pulumi.StringPtrInput `pulumi:"url"`
 }
 
 func (RepositoryPagesArgs) ElementType() reflect.Type {
@@ -1767,22 +2070,27 @@ func (o RepositoryPagesOutput) ToRepositoryPagesPtrOutputWithContext(ctx context
 	}).(RepositoryPagesPtrOutput)
 }
 
+// The custom domain for the repository. This can only be set after the repository has been created.
 func (o RepositoryPagesOutput) Cname() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RepositoryPages) *string { return v.Cname }).(pulumi.StringPtrOutput)
 }
 
+// Whether the rendered GitHub Pages site has a custom 404 page.
 func (o RepositoryPagesOutput) Custom404() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RepositoryPages) *bool { return v.Custom404 }).(pulumi.BoolPtrOutput)
 }
 
+// The absolute URL (including scheme) of the rendered GitHub Pages site e.g. `https://username.github.io`.
 func (o RepositoryPagesOutput) HtmlUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RepositoryPages) *string { return v.HtmlUrl }).(pulumi.StringPtrOutput)
 }
 
+// The source branch and directory for the rendered Pages site. See GitHub Pages Source below for details.
 func (o RepositoryPagesOutput) Source() RepositoryPagesSourceOutput {
 	return o.ApplyT(func(v RepositoryPages) RepositoryPagesSource { return v.Source }).(RepositoryPagesSourceOutput)
 }
 
+// Set to `enabled` to enable advanced security features on the repository. Can be `enabled` or `disabled`.
 func (o RepositoryPagesOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RepositoryPages) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
@@ -1815,6 +2123,7 @@ func (o RepositoryPagesPtrOutput) Elem() RepositoryPagesOutput {
 	}).(RepositoryPagesOutput)
 }
 
+// The custom domain for the repository. This can only be set after the repository has been created.
 func (o RepositoryPagesPtrOutput) Cname() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RepositoryPages) *string {
 		if v == nil {
@@ -1824,6 +2133,7 @@ func (o RepositoryPagesPtrOutput) Cname() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Whether the rendered GitHub Pages site has a custom 404 page.
 func (o RepositoryPagesPtrOutput) Custom404() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RepositoryPages) *bool {
 		if v == nil {
@@ -1833,6 +2143,7 @@ func (o RepositoryPagesPtrOutput) Custom404() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The absolute URL (including scheme) of the rendered GitHub Pages site e.g. `https://username.github.io`.
 func (o RepositoryPagesPtrOutput) HtmlUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RepositoryPages) *string {
 		if v == nil {
@@ -1842,6 +2153,7 @@ func (o RepositoryPagesPtrOutput) HtmlUrl() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The source branch and directory for the rendered Pages site. See GitHub Pages Source below for details.
 func (o RepositoryPagesPtrOutput) Source() RepositoryPagesSourcePtrOutput {
 	return o.ApplyT(func(v *RepositoryPages) *RepositoryPagesSource {
 		if v == nil {
@@ -1851,6 +2163,7 @@ func (o RepositoryPagesPtrOutput) Source() RepositoryPagesSourcePtrOutput {
 	}).(RepositoryPagesSourcePtrOutput)
 }
 
+// Set to `enabled` to enable advanced security features on the repository. Can be `enabled` or `disabled`.
 func (o RepositoryPagesPtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RepositoryPages) *string {
 		if v == nil {
@@ -1870,8 +2183,10 @@ func (o RepositoryPagesPtrOutput) Url() pulumi.StringPtrOutput {
 }
 
 type RepositoryPagesSource struct {
-	Branch string  `pulumi:"branch"`
-	Path   *string `pulumi:"path"`
+	// The repository branch used to publish the site's source files. (i.e. `main` or `gh-pages`.
+	Branch string `pulumi:"branch"`
+	// The repository directory from which the site publishes (Default: `/`).
+	Path *string `pulumi:"path"`
 }
 
 // RepositoryPagesSourceInput is an input type that accepts RepositoryPagesSourceArgs and RepositoryPagesSourceOutput values.
@@ -1886,8 +2201,10 @@ type RepositoryPagesSourceInput interface {
 }
 
 type RepositoryPagesSourceArgs struct {
-	Branch pulumi.StringInput    `pulumi:"branch"`
-	Path   pulumi.StringPtrInput `pulumi:"path"`
+	// The repository branch used to publish the site's source files. (i.e. `main` or `gh-pages`.
+	Branch pulumi.StringInput `pulumi:"branch"`
+	// The repository directory from which the site publishes (Default: `/`).
+	Path pulumi.StringPtrInput `pulumi:"path"`
 }
 
 func (RepositoryPagesSourceArgs) ElementType() reflect.Type {
@@ -1967,10 +2284,12 @@ func (o RepositoryPagesSourceOutput) ToRepositoryPagesSourcePtrOutputWithContext
 	}).(RepositoryPagesSourcePtrOutput)
 }
 
+// The repository branch used to publish the site's source files. (i.e. `main` or `gh-pages`.
 func (o RepositoryPagesSourceOutput) Branch() pulumi.StringOutput {
 	return o.ApplyT(func(v RepositoryPagesSource) string { return v.Branch }).(pulumi.StringOutput)
 }
 
+// The repository directory from which the site publishes (Default: `/`).
 func (o RepositoryPagesSourceOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RepositoryPagesSource) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
@@ -1999,6 +2318,7 @@ func (o RepositoryPagesSourcePtrOutput) Elem() RepositoryPagesSourceOutput {
 	}).(RepositoryPagesSourceOutput)
 }
 
+// The repository branch used to publish the site's source files. (i.e. `main` or `gh-pages`.
 func (o RepositoryPagesSourcePtrOutput) Branch() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RepositoryPagesSource) *string {
 		if v == nil {
@@ -2008,6 +2328,7 @@ func (o RepositoryPagesSourcePtrOutput) Branch() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The repository directory from which the site publishes (Default: `/`).
 func (o RepositoryPagesSourcePtrOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RepositoryPagesSource) *string {
 		if v == nil {
@@ -2017,10 +2338,605 @@ func (o RepositoryPagesSourcePtrOutput) Path() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type RepositorySecurityAndAnalysis struct {
+	// The advanced security configuration for the repository. See Advanced Security Configuration below for details.
+	AdvancedSecurity RepositorySecurityAndAnalysisAdvancedSecurity `pulumi:"advancedSecurity"`
+	// The secret scanning configuration for the repository. See Secret Scanning Configuration below for details.
+	SecretScanning RepositorySecurityAndAnalysisSecretScanning `pulumi:"secretScanning"`
+	// The secret scanning push protection configuration for the repository. See Secret Scanning Push Protection Configuration below for details.
+	SecretScanningPushProtection RepositorySecurityAndAnalysisSecretScanningPushProtection `pulumi:"secretScanningPushProtection"`
+}
+
+// RepositorySecurityAndAnalysisInput is an input type that accepts RepositorySecurityAndAnalysisArgs and RepositorySecurityAndAnalysisOutput values.
+// You can construct a concrete instance of `RepositorySecurityAndAnalysisInput` via:
+//
+//	RepositorySecurityAndAnalysisArgs{...}
+type RepositorySecurityAndAnalysisInput interface {
+	pulumi.Input
+
+	ToRepositorySecurityAndAnalysisOutput() RepositorySecurityAndAnalysisOutput
+	ToRepositorySecurityAndAnalysisOutputWithContext(context.Context) RepositorySecurityAndAnalysisOutput
+}
+
+type RepositorySecurityAndAnalysisArgs struct {
+	// The advanced security configuration for the repository. See Advanced Security Configuration below for details.
+	AdvancedSecurity RepositorySecurityAndAnalysisAdvancedSecurityInput `pulumi:"advancedSecurity"`
+	// The secret scanning configuration for the repository. See Secret Scanning Configuration below for details.
+	SecretScanning RepositorySecurityAndAnalysisSecretScanningInput `pulumi:"secretScanning"`
+	// The secret scanning push protection configuration for the repository. See Secret Scanning Push Protection Configuration below for details.
+	SecretScanningPushProtection RepositorySecurityAndAnalysisSecretScanningPushProtectionInput `pulumi:"secretScanningPushProtection"`
+}
+
+func (RepositorySecurityAndAnalysisArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositorySecurityAndAnalysis)(nil)).Elem()
+}
+
+func (i RepositorySecurityAndAnalysisArgs) ToRepositorySecurityAndAnalysisOutput() RepositorySecurityAndAnalysisOutput {
+	return i.ToRepositorySecurityAndAnalysisOutputWithContext(context.Background())
+}
+
+func (i RepositorySecurityAndAnalysisArgs) ToRepositorySecurityAndAnalysisOutputWithContext(ctx context.Context) RepositorySecurityAndAnalysisOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositorySecurityAndAnalysisOutput)
+}
+
+func (i RepositorySecurityAndAnalysisArgs) ToRepositorySecurityAndAnalysisPtrOutput() RepositorySecurityAndAnalysisPtrOutput {
+	return i.ToRepositorySecurityAndAnalysisPtrOutputWithContext(context.Background())
+}
+
+func (i RepositorySecurityAndAnalysisArgs) ToRepositorySecurityAndAnalysisPtrOutputWithContext(ctx context.Context) RepositorySecurityAndAnalysisPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositorySecurityAndAnalysisOutput).ToRepositorySecurityAndAnalysisPtrOutputWithContext(ctx)
+}
+
+// RepositorySecurityAndAnalysisPtrInput is an input type that accepts RepositorySecurityAndAnalysisArgs, RepositorySecurityAndAnalysisPtr and RepositorySecurityAndAnalysisPtrOutput values.
+// You can construct a concrete instance of `RepositorySecurityAndAnalysisPtrInput` via:
+//
+//	        RepositorySecurityAndAnalysisArgs{...}
+//
+//	or:
+//
+//	        nil
+type RepositorySecurityAndAnalysisPtrInput interface {
+	pulumi.Input
+
+	ToRepositorySecurityAndAnalysisPtrOutput() RepositorySecurityAndAnalysisPtrOutput
+	ToRepositorySecurityAndAnalysisPtrOutputWithContext(context.Context) RepositorySecurityAndAnalysisPtrOutput
+}
+
+type repositorySecurityAndAnalysisPtrType RepositorySecurityAndAnalysisArgs
+
+func RepositorySecurityAndAnalysisPtr(v *RepositorySecurityAndAnalysisArgs) RepositorySecurityAndAnalysisPtrInput {
+	return (*repositorySecurityAndAnalysisPtrType)(v)
+}
+
+func (*repositorySecurityAndAnalysisPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RepositorySecurityAndAnalysis)(nil)).Elem()
+}
+
+func (i *repositorySecurityAndAnalysisPtrType) ToRepositorySecurityAndAnalysisPtrOutput() RepositorySecurityAndAnalysisPtrOutput {
+	return i.ToRepositorySecurityAndAnalysisPtrOutputWithContext(context.Background())
+}
+
+func (i *repositorySecurityAndAnalysisPtrType) ToRepositorySecurityAndAnalysisPtrOutputWithContext(ctx context.Context) RepositorySecurityAndAnalysisPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositorySecurityAndAnalysisPtrOutput)
+}
+
+type RepositorySecurityAndAnalysisOutput struct{ *pulumi.OutputState }
+
+func (RepositorySecurityAndAnalysisOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositorySecurityAndAnalysis)(nil)).Elem()
+}
+
+func (o RepositorySecurityAndAnalysisOutput) ToRepositorySecurityAndAnalysisOutput() RepositorySecurityAndAnalysisOutput {
+	return o
+}
+
+func (o RepositorySecurityAndAnalysisOutput) ToRepositorySecurityAndAnalysisOutputWithContext(ctx context.Context) RepositorySecurityAndAnalysisOutput {
+	return o
+}
+
+func (o RepositorySecurityAndAnalysisOutput) ToRepositorySecurityAndAnalysisPtrOutput() RepositorySecurityAndAnalysisPtrOutput {
+	return o.ToRepositorySecurityAndAnalysisPtrOutputWithContext(context.Background())
+}
+
+func (o RepositorySecurityAndAnalysisOutput) ToRepositorySecurityAndAnalysisPtrOutputWithContext(ctx context.Context) RepositorySecurityAndAnalysisPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RepositorySecurityAndAnalysis) *RepositorySecurityAndAnalysis {
+		return &v
+	}).(RepositorySecurityAndAnalysisPtrOutput)
+}
+
+// The advanced security configuration for the repository. See Advanced Security Configuration below for details.
+func (o RepositorySecurityAndAnalysisOutput) AdvancedSecurity() RepositorySecurityAndAnalysisAdvancedSecurityOutput {
+	return o.ApplyT(func(v RepositorySecurityAndAnalysis) RepositorySecurityAndAnalysisAdvancedSecurity {
+		return v.AdvancedSecurity
+	}).(RepositorySecurityAndAnalysisAdvancedSecurityOutput)
+}
+
+// The secret scanning configuration for the repository. See Secret Scanning Configuration below for details.
+func (o RepositorySecurityAndAnalysisOutput) SecretScanning() RepositorySecurityAndAnalysisSecretScanningOutput {
+	return o.ApplyT(func(v RepositorySecurityAndAnalysis) RepositorySecurityAndAnalysisSecretScanning {
+		return v.SecretScanning
+	}).(RepositorySecurityAndAnalysisSecretScanningOutput)
+}
+
+// The secret scanning push protection configuration for the repository. See Secret Scanning Push Protection Configuration below for details.
+func (o RepositorySecurityAndAnalysisOutput) SecretScanningPushProtection() RepositorySecurityAndAnalysisSecretScanningPushProtectionOutput {
+	return o.ApplyT(func(v RepositorySecurityAndAnalysis) RepositorySecurityAndAnalysisSecretScanningPushProtection {
+		return v.SecretScanningPushProtection
+	}).(RepositorySecurityAndAnalysisSecretScanningPushProtectionOutput)
+}
+
+type RepositorySecurityAndAnalysisPtrOutput struct{ *pulumi.OutputState }
+
+func (RepositorySecurityAndAnalysisPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RepositorySecurityAndAnalysis)(nil)).Elem()
+}
+
+func (o RepositorySecurityAndAnalysisPtrOutput) ToRepositorySecurityAndAnalysisPtrOutput() RepositorySecurityAndAnalysisPtrOutput {
+	return o
+}
+
+func (o RepositorySecurityAndAnalysisPtrOutput) ToRepositorySecurityAndAnalysisPtrOutputWithContext(ctx context.Context) RepositorySecurityAndAnalysisPtrOutput {
+	return o
+}
+
+func (o RepositorySecurityAndAnalysisPtrOutput) Elem() RepositorySecurityAndAnalysisOutput {
+	return o.ApplyT(func(v *RepositorySecurityAndAnalysis) RepositorySecurityAndAnalysis {
+		if v != nil {
+			return *v
+		}
+		var ret RepositorySecurityAndAnalysis
+		return ret
+	}).(RepositorySecurityAndAnalysisOutput)
+}
+
+// The advanced security configuration for the repository. See Advanced Security Configuration below for details.
+func (o RepositorySecurityAndAnalysisPtrOutput) AdvancedSecurity() RepositorySecurityAndAnalysisAdvancedSecurityPtrOutput {
+	return o.ApplyT(func(v *RepositorySecurityAndAnalysis) *RepositorySecurityAndAnalysisAdvancedSecurity {
+		if v == nil {
+			return nil
+		}
+		return &v.AdvancedSecurity
+	}).(RepositorySecurityAndAnalysisAdvancedSecurityPtrOutput)
+}
+
+// The secret scanning configuration for the repository. See Secret Scanning Configuration below for details.
+func (o RepositorySecurityAndAnalysisPtrOutput) SecretScanning() RepositorySecurityAndAnalysisSecretScanningPtrOutput {
+	return o.ApplyT(func(v *RepositorySecurityAndAnalysis) *RepositorySecurityAndAnalysisSecretScanning {
+		if v == nil {
+			return nil
+		}
+		return &v.SecretScanning
+	}).(RepositorySecurityAndAnalysisSecretScanningPtrOutput)
+}
+
+// The secret scanning push protection configuration for the repository. See Secret Scanning Push Protection Configuration below for details.
+func (o RepositorySecurityAndAnalysisPtrOutput) SecretScanningPushProtection() RepositorySecurityAndAnalysisSecretScanningPushProtectionPtrOutput {
+	return o.ApplyT(func(v *RepositorySecurityAndAnalysis) *RepositorySecurityAndAnalysisSecretScanningPushProtection {
+		if v == nil {
+			return nil
+		}
+		return &v.SecretScanningPushProtection
+	}).(RepositorySecurityAndAnalysisSecretScanningPushProtectionPtrOutput)
+}
+
+type RepositorySecurityAndAnalysisAdvancedSecurity struct {
+	// Set to `enabled` to enable advanced security features on the repository. Can be `enabled` or `disabled`.
+	Status string `pulumi:"status"`
+}
+
+// RepositorySecurityAndAnalysisAdvancedSecurityInput is an input type that accepts RepositorySecurityAndAnalysisAdvancedSecurityArgs and RepositorySecurityAndAnalysisAdvancedSecurityOutput values.
+// You can construct a concrete instance of `RepositorySecurityAndAnalysisAdvancedSecurityInput` via:
+//
+//	RepositorySecurityAndAnalysisAdvancedSecurityArgs{...}
+type RepositorySecurityAndAnalysisAdvancedSecurityInput interface {
+	pulumi.Input
+
+	ToRepositorySecurityAndAnalysisAdvancedSecurityOutput() RepositorySecurityAndAnalysisAdvancedSecurityOutput
+	ToRepositorySecurityAndAnalysisAdvancedSecurityOutputWithContext(context.Context) RepositorySecurityAndAnalysisAdvancedSecurityOutput
+}
+
+type RepositorySecurityAndAnalysisAdvancedSecurityArgs struct {
+	// Set to `enabled` to enable advanced security features on the repository. Can be `enabled` or `disabled`.
+	Status pulumi.StringInput `pulumi:"status"`
+}
+
+func (RepositorySecurityAndAnalysisAdvancedSecurityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositorySecurityAndAnalysisAdvancedSecurity)(nil)).Elem()
+}
+
+func (i RepositorySecurityAndAnalysisAdvancedSecurityArgs) ToRepositorySecurityAndAnalysisAdvancedSecurityOutput() RepositorySecurityAndAnalysisAdvancedSecurityOutput {
+	return i.ToRepositorySecurityAndAnalysisAdvancedSecurityOutputWithContext(context.Background())
+}
+
+func (i RepositorySecurityAndAnalysisAdvancedSecurityArgs) ToRepositorySecurityAndAnalysisAdvancedSecurityOutputWithContext(ctx context.Context) RepositorySecurityAndAnalysisAdvancedSecurityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositorySecurityAndAnalysisAdvancedSecurityOutput)
+}
+
+func (i RepositorySecurityAndAnalysisAdvancedSecurityArgs) ToRepositorySecurityAndAnalysisAdvancedSecurityPtrOutput() RepositorySecurityAndAnalysisAdvancedSecurityPtrOutput {
+	return i.ToRepositorySecurityAndAnalysisAdvancedSecurityPtrOutputWithContext(context.Background())
+}
+
+func (i RepositorySecurityAndAnalysisAdvancedSecurityArgs) ToRepositorySecurityAndAnalysisAdvancedSecurityPtrOutputWithContext(ctx context.Context) RepositorySecurityAndAnalysisAdvancedSecurityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositorySecurityAndAnalysisAdvancedSecurityOutput).ToRepositorySecurityAndAnalysisAdvancedSecurityPtrOutputWithContext(ctx)
+}
+
+// RepositorySecurityAndAnalysisAdvancedSecurityPtrInput is an input type that accepts RepositorySecurityAndAnalysisAdvancedSecurityArgs, RepositorySecurityAndAnalysisAdvancedSecurityPtr and RepositorySecurityAndAnalysisAdvancedSecurityPtrOutput values.
+// You can construct a concrete instance of `RepositorySecurityAndAnalysisAdvancedSecurityPtrInput` via:
+//
+//	        RepositorySecurityAndAnalysisAdvancedSecurityArgs{...}
+//
+//	or:
+//
+//	        nil
+type RepositorySecurityAndAnalysisAdvancedSecurityPtrInput interface {
+	pulumi.Input
+
+	ToRepositorySecurityAndAnalysisAdvancedSecurityPtrOutput() RepositorySecurityAndAnalysisAdvancedSecurityPtrOutput
+	ToRepositorySecurityAndAnalysisAdvancedSecurityPtrOutputWithContext(context.Context) RepositorySecurityAndAnalysisAdvancedSecurityPtrOutput
+}
+
+type repositorySecurityAndAnalysisAdvancedSecurityPtrType RepositorySecurityAndAnalysisAdvancedSecurityArgs
+
+func RepositorySecurityAndAnalysisAdvancedSecurityPtr(v *RepositorySecurityAndAnalysisAdvancedSecurityArgs) RepositorySecurityAndAnalysisAdvancedSecurityPtrInput {
+	return (*repositorySecurityAndAnalysisAdvancedSecurityPtrType)(v)
+}
+
+func (*repositorySecurityAndAnalysisAdvancedSecurityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RepositorySecurityAndAnalysisAdvancedSecurity)(nil)).Elem()
+}
+
+func (i *repositorySecurityAndAnalysisAdvancedSecurityPtrType) ToRepositorySecurityAndAnalysisAdvancedSecurityPtrOutput() RepositorySecurityAndAnalysisAdvancedSecurityPtrOutput {
+	return i.ToRepositorySecurityAndAnalysisAdvancedSecurityPtrOutputWithContext(context.Background())
+}
+
+func (i *repositorySecurityAndAnalysisAdvancedSecurityPtrType) ToRepositorySecurityAndAnalysisAdvancedSecurityPtrOutputWithContext(ctx context.Context) RepositorySecurityAndAnalysisAdvancedSecurityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositorySecurityAndAnalysisAdvancedSecurityPtrOutput)
+}
+
+type RepositorySecurityAndAnalysisAdvancedSecurityOutput struct{ *pulumi.OutputState }
+
+func (RepositorySecurityAndAnalysisAdvancedSecurityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositorySecurityAndAnalysisAdvancedSecurity)(nil)).Elem()
+}
+
+func (o RepositorySecurityAndAnalysisAdvancedSecurityOutput) ToRepositorySecurityAndAnalysisAdvancedSecurityOutput() RepositorySecurityAndAnalysisAdvancedSecurityOutput {
+	return o
+}
+
+func (o RepositorySecurityAndAnalysisAdvancedSecurityOutput) ToRepositorySecurityAndAnalysisAdvancedSecurityOutputWithContext(ctx context.Context) RepositorySecurityAndAnalysisAdvancedSecurityOutput {
+	return o
+}
+
+func (o RepositorySecurityAndAnalysisAdvancedSecurityOutput) ToRepositorySecurityAndAnalysisAdvancedSecurityPtrOutput() RepositorySecurityAndAnalysisAdvancedSecurityPtrOutput {
+	return o.ToRepositorySecurityAndAnalysisAdvancedSecurityPtrOutputWithContext(context.Background())
+}
+
+func (o RepositorySecurityAndAnalysisAdvancedSecurityOutput) ToRepositorySecurityAndAnalysisAdvancedSecurityPtrOutputWithContext(ctx context.Context) RepositorySecurityAndAnalysisAdvancedSecurityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RepositorySecurityAndAnalysisAdvancedSecurity) *RepositorySecurityAndAnalysisAdvancedSecurity {
+		return &v
+	}).(RepositorySecurityAndAnalysisAdvancedSecurityPtrOutput)
+}
+
+// Set to `enabled` to enable advanced security features on the repository. Can be `enabled` or `disabled`.
+func (o RepositorySecurityAndAnalysisAdvancedSecurityOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v RepositorySecurityAndAnalysisAdvancedSecurity) string { return v.Status }).(pulumi.StringOutput)
+}
+
+type RepositorySecurityAndAnalysisAdvancedSecurityPtrOutput struct{ *pulumi.OutputState }
+
+func (RepositorySecurityAndAnalysisAdvancedSecurityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RepositorySecurityAndAnalysisAdvancedSecurity)(nil)).Elem()
+}
+
+func (o RepositorySecurityAndAnalysisAdvancedSecurityPtrOutput) ToRepositorySecurityAndAnalysisAdvancedSecurityPtrOutput() RepositorySecurityAndAnalysisAdvancedSecurityPtrOutput {
+	return o
+}
+
+func (o RepositorySecurityAndAnalysisAdvancedSecurityPtrOutput) ToRepositorySecurityAndAnalysisAdvancedSecurityPtrOutputWithContext(ctx context.Context) RepositorySecurityAndAnalysisAdvancedSecurityPtrOutput {
+	return o
+}
+
+func (o RepositorySecurityAndAnalysisAdvancedSecurityPtrOutput) Elem() RepositorySecurityAndAnalysisAdvancedSecurityOutput {
+	return o.ApplyT(func(v *RepositorySecurityAndAnalysisAdvancedSecurity) RepositorySecurityAndAnalysisAdvancedSecurity {
+		if v != nil {
+			return *v
+		}
+		var ret RepositorySecurityAndAnalysisAdvancedSecurity
+		return ret
+	}).(RepositorySecurityAndAnalysisAdvancedSecurityOutput)
+}
+
+// Set to `enabled` to enable advanced security features on the repository. Can be `enabled` or `disabled`.
+func (o RepositorySecurityAndAnalysisAdvancedSecurityPtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RepositorySecurityAndAnalysisAdvancedSecurity) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Status
+	}).(pulumi.StringPtrOutput)
+}
+
+type RepositorySecurityAndAnalysisSecretScanning struct {
+	// Set to `enabled` to enable advanced security features on the repository. Can be `enabled` or `disabled`.
+	Status string `pulumi:"status"`
+}
+
+// RepositorySecurityAndAnalysisSecretScanningInput is an input type that accepts RepositorySecurityAndAnalysisSecretScanningArgs and RepositorySecurityAndAnalysisSecretScanningOutput values.
+// You can construct a concrete instance of `RepositorySecurityAndAnalysisSecretScanningInput` via:
+//
+//	RepositorySecurityAndAnalysisSecretScanningArgs{...}
+type RepositorySecurityAndAnalysisSecretScanningInput interface {
+	pulumi.Input
+
+	ToRepositorySecurityAndAnalysisSecretScanningOutput() RepositorySecurityAndAnalysisSecretScanningOutput
+	ToRepositorySecurityAndAnalysisSecretScanningOutputWithContext(context.Context) RepositorySecurityAndAnalysisSecretScanningOutput
+}
+
+type RepositorySecurityAndAnalysisSecretScanningArgs struct {
+	// Set to `enabled` to enable advanced security features on the repository. Can be `enabled` or `disabled`.
+	Status pulumi.StringInput `pulumi:"status"`
+}
+
+func (RepositorySecurityAndAnalysisSecretScanningArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositorySecurityAndAnalysisSecretScanning)(nil)).Elem()
+}
+
+func (i RepositorySecurityAndAnalysisSecretScanningArgs) ToRepositorySecurityAndAnalysisSecretScanningOutput() RepositorySecurityAndAnalysisSecretScanningOutput {
+	return i.ToRepositorySecurityAndAnalysisSecretScanningOutputWithContext(context.Background())
+}
+
+func (i RepositorySecurityAndAnalysisSecretScanningArgs) ToRepositorySecurityAndAnalysisSecretScanningOutputWithContext(ctx context.Context) RepositorySecurityAndAnalysisSecretScanningOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositorySecurityAndAnalysisSecretScanningOutput)
+}
+
+func (i RepositorySecurityAndAnalysisSecretScanningArgs) ToRepositorySecurityAndAnalysisSecretScanningPtrOutput() RepositorySecurityAndAnalysisSecretScanningPtrOutput {
+	return i.ToRepositorySecurityAndAnalysisSecretScanningPtrOutputWithContext(context.Background())
+}
+
+func (i RepositorySecurityAndAnalysisSecretScanningArgs) ToRepositorySecurityAndAnalysisSecretScanningPtrOutputWithContext(ctx context.Context) RepositorySecurityAndAnalysisSecretScanningPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositorySecurityAndAnalysisSecretScanningOutput).ToRepositorySecurityAndAnalysisSecretScanningPtrOutputWithContext(ctx)
+}
+
+// RepositorySecurityAndAnalysisSecretScanningPtrInput is an input type that accepts RepositorySecurityAndAnalysisSecretScanningArgs, RepositorySecurityAndAnalysisSecretScanningPtr and RepositorySecurityAndAnalysisSecretScanningPtrOutput values.
+// You can construct a concrete instance of `RepositorySecurityAndAnalysisSecretScanningPtrInput` via:
+//
+//	        RepositorySecurityAndAnalysisSecretScanningArgs{...}
+//
+//	or:
+//
+//	        nil
+type RepositorySecurityAndAnalysisSecretScanningPtrInput interface {
+	pulumi.Input
+
+	ToRepositorySecurityAndAnalysisSecretScanningPtrOutput() RepositorySecurityAndAnalysisSecretScanningPtrOutput
+	ToRepositorySecurityAndAnalysisSecretScanningPtrOutputWithContext(context.Context) RepositorySecurityAndAnalysisSecretScanningPtrOutput
+}
+
+type repositorySecurityAndAnalysisSecretScanningPtrType RepositorySecurityAndAnalysisSecretScanningArgs
+
+func RepositorySecurityAndAnalysisSecretScanningPtr(v *RepositorySecurityAndAnalysisSecretScanningArgs) RepositorySecurityAndAnalysisSecretScanningPtrInput {
+	return (*repositorySecurityAndAnalysisSecretScanningPtrType)(v)
+}
+
+func (*repositorySecurityAndAnalysisSecretScanningPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RepositorySecurityAndAnalysisSecretScanning)(nil)).Elem()
+}
+
+func (i *repositorySecurityAndAnalysisSecretScanningPtrType) ToRepositorySecurityAndAnalysisSecretScanningPtrOutput() RepositorySecurityAndAnalysisSecretScanningPtrOutput {
+	return i.ToRepositorySecurityAndAnalysisSecretScanningPtrOutputWithContext(context.Background())
+}
+
+func (i *repositorySecurityAndAnalysisSecretScanningPtrType) ToRepositorySecurityAndAnalysisSecretScanningPtrOutputWithContext(ctx context.Context) RepositorySecurityAndAnalysisSecretScanningPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositorySecurityAndAnalysisSecretScanningPtrOutput)
+}
+
+type RepositorySecurityAndAnalysisSecretScanningOutput struct{ *pulumi.OutputState }
+
+func (RepositorySecurityAndAnalysisSecretScanningOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositorySecurityAndAnalysisSecretScanning)(nil)).Elem()
+}
+
+func (o RepositorySecurityAndAnalysisSecretScanningOutput) ToRepositorySecurityAndAnalysisSecretScanningOutput() RepositorySecurityAndAnalysisSecretScanningOutput {
+	return o
+}
+
+func (o RepositorySecurityAndAnalysisSecretScanningOutput) ToRepositorySecurityAndAnalysisSecretScanningOutputWithContext(ctx context.Context) RepositorySecurityAndAnalysisSecretScanningOutput {
+	return o
+}
+
+func (o RepositorySecurityAndAnalysisSecretScanningOutput) ToRepositorySecurityAndAnalysisSecretScanningPtrOutput() RepositorySecurityAndAnalysisSecretScanningPtrOutput {
+	return o.ToRepositorySecurityAndAnalysisSecretScanningPtrOutputWithContext(context.Background())
+}
+
+func (o RepositorySecurityAndAnalysisSecretScanningOutput) ToRepositorySecurityAndAnalysisSecretScanningPtrOutputWithContext(ctx context.Context) RepositorySecurityAndAnalysisSecretScanningPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RepositorySecurityAndAnalysisSecretScanning) *RepositorySecurityAndAnalysisSecretScanning {
+		return &v
+	}).(RepositorySecurityAndAnalysisSecretScanningPtrOutput)
+}
+
+// Set to `enabled` to enable advanced security features on the repository. Can be `enabled` or `disabled`.
+func (o RepositorySecurityAndAnalysisSecretScanningOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v RepositorySecurityAndAnalysisSecretScanning) string { return v.Status }).(pulumi.StringOutput)
+}
+
+type RepositorySecurityAndAnalysisSecretScanningPtrOutput struct{ *pulumi.OutputState }
+
+func (RepositorySecurityAndAnalysisSecretScanningPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RepositorySecurityAndAnalysisSecretScanning)(nil)).Elem()
+}
+
+func (o RepositorySecurityAndAnalysisSecretScanningPtrOutput) ToRepositorySecurityAndAnalysisSecretScanningPtrOutput() RepositorySecurityAndAnalysisSecretScanningPtrOutput {
+	return o
+}
+
+func (o RepositorySecurityAndAnalysisSecretScanningPtrOutput) ToRepositorySecurityAndAnalysisSecretScanningPtrOutputWithContext(ctx context.Context) RepositorySecurityAndAnalysisSecretScanningPtrOutput {
+	return o
+}
+
+func (o RepositorySecurityAndAnalysisSecretScanningPtrOutput) Elem() RepositorySecurityAndAnalysisSecretScanningOutput {
+	return o.ApplyT(func(v *RepositorySecurityAndAnalysisSecretScanning) RepositorySecurityAndAnalysisSecretScanning {
+		if v != nil {
+			return *v
+		}
+		var ret RepositorySecurityAndAnalysisSecretScanning
+		return ret
+	}).(RepositorySecurityAndAnalysisSecretScanningOutput)
+}
+
+// Set to `enabled` to enable advanced security features on the repository. Can be `enabled` or `disabled`.
+func (o RepositorySecurityAndAnalysisSecretScanningPtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RepositorySecurityAndAnalysisSecretScanning) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Status
+	}).(pulumi.StringPtrOutput)
+}
+
+type RepositorySecurityAndAnalysisSecretScanningPushProtection struct {
+	// Set to `enabled` to enable advanced security features on the repository. Can be `enabled` or `disabled`.
+	Status string `pulumi:"status"`
+}
+
+// RepositorySecurityAndAnalysisSecretScanningPushProtectionInput is an input type that accepts RepositorySecurityAndAnalysisSecretScanningPushProtectionArgs and RepositorySecurityAndAnalysisSecretScanningPushProtectionOutput values.
+// You can construct a concrete instance of `RepositorySecurityAndAnalysisSecretScanningPushProtectionInput` via:
+//
+//	RepositorySecurityAndAnalysisSecretScanningPushProtectionArgs{...}
+type RepositorySecurityAndAnalysisSecretScanningPushProtectionInput interface {
+	pulumi.Input
+
+	ToRepositorySecurityAndAnalysisSecretScanningPushProtectionOutput() RepositorySecurityAndAnalysisSecretScanningPushProtectionOutput
+	ToRepositorySecurityAndAnalysisSecretScanningPushProtectionOutputWithContext(context.Context) RepositorySecurityAndAnalysisSecretScanningPushProtectionOutput
+}
+
+type RepositorySecurityAndAnalysisSecretScanningPushProtectionArgs struct {
+	// Set to `enabled` to enable advanced security features on the repository. Can be `enabled` or `disabled`.
+	Status pulumi.StringInput `pulumi:"status"`
+}
+
+func (RepositorySecurityAndAnalysisSecretScanningPushProtectionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositorySecurityAndAnalysisSecretScanningPushProtection)(nil)).Elem()
+}
+
+func (i RepositorySecurityAndAnalysisSecretScanningPushProtectionArgs) ToRepositorySecurityAndAnalysisSecretScanningPushProtectionOutput() RepositorySecurityAndAnalysisSecretScanningPushProtectionOutput {
+	return i.ToRepositorySecurityAndAnalysisSecretScanningPushProtectionOutputWithContext(context.Background())
+}
+
+func (i RepositorySecurityAndAnalysisSecretScanningPushProtectionArgs) ToRepositorySecurityAndAnalysisSecretScanningPushProtectionOutputWithContext(ctx context.Context) RepositorySecurityAndAnalysisSecretScanningPushProtectionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositorySecurityAndAnalysisSecretScanningPushProtectionOutput)
+}
+
+func (i RepositorySecurityAndAnalysisSecretScanningPushProtectionArgs) ToRepositorySecurityAndAnalysisSecretScanningPushProtectionPtrOutput() RepositorySecurityAndAnalysisSecretScanningPushProtectionPtrOutput {
+	return i.ToRepositorySecurityAndAnalysisSecretScanningPushProtectionPtrOutputWithContext(context.Background())
+}
+
+func (i RepositorySecurityAndAnalysisSecretScanningPushProtectionArgs) ToRepositorySecurityAndAnalysisSecretScanningPushProtectionPtrOutputWithContext(ctx context.Context) RepositorySecurityAndAnalysisSecretScanningPushProtectionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositorySecurityAndAnalysisSecretScanningPushProtectionOutput).ToRepositorySecurityAndAnalysisSecretScanningPushProtectionPtrOutputWithContext(ctx)
+}
+
+// RepositorySecurityAndAnalysisSecretScanningPushProtectionPtrInput is an input type that accepts RepositorySecurityAndAnalysisSecretScanningPushProtectionArgs, RepositorySecurityAndAnalysisSecretScanningPushProtectionPtr and RepositorySecurityAndAnalysisSecretScanningPushProtectionPtrOutput values.
+// You can construct a concrete instance of `RepositorySecurityAndAnalysisSecretScanningPushProtectionPtrInput` via:
+//
+//	        RepositorySecurityAndAnalysisSecretScanningPushProtectionArgs{...}
+//
+//	or:
+//
+//	        nil
+type RepositorySecurityAndAnalysisSecretScanningPushProtectionPtrInput interface {
+	pulumi.Input
+
+	ToRepositorySecurityAndAnalysisSecretScanningPushProtectionPtrOutput() RepositorySecurityAndAnalysisSecretScanningPushProtectionPtrOutput
+	ToRepositorySecurityAndAnalysisSecretScanningPushProtectionPtrOutputWithContext(context.Context) RepositorySecurityAndAnalysisSecretScanningPushProtectionPtrOutput
+}
+
+type repositorySecurityAndAnalysisSecretScanningPushProtectionPtrType RepositorySecurityAndAnalysisSecretScanningPushProtectionArgs
+
+func RepositorySecurityAndAnalysisSecretScanningPushProtectionPtr(v *RepositorySecurityAndAnalysisSecretScanningPushProtectionArgs) RepositorySecurityAndAnalysisSecretScanningPushProtectionPtrInput {
+	return (*repositorySecurityAndAnalysisSecretScanningPushProtectionPtrType)(v)
+}
+
+func (*repositorySecurityAndAnalysisSecretScanningPushProtectionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RepositorySecurityAndAnalysisSecretScanningPushProtection)(nil)).Elem()
+}
+
+func (i *repositorySecurityAndAnalysisSecretScanningPushProtectionPtrType) ToRepositorySecurityAndAnalysisSecretScanningPushProtectionPtrOutput() RepositorySecurityAndAnalysisSecretScanningPushProtectionPtrOutput {
+	return i.ToRepositorySecurityAndAnalysisSecretScanningPushProtectionPtrOutputWithContext(context.Background())
+}
+
+func (i *repositorySecurityAndAnalysisSecretScanningPushProtectionPtrType) ToRepositorySecurityAndAnalysisSecretScanningPushProtectionPtrOutputWithContext(ctx context.Context) RepositorySecurityAndAnalysisSecretScanningPushProtectionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositorySecurityAndAnalysisSecretScanningPushProtectionPtrOutput)
+}
+
+type RepositorySecurityAndAnalysisSecretScanningPushProtectionOutput struct{ *pulumi.OutputState }
+
+func (RepositorySecurityAndAnalysisSecretScanningPushProtectionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositorySecurityAndAnalysisSecretScanningPushProtection)(nil)).Elem()
+}
+
+func (o RepositorySecurityAndAnalysisSecretScanningPushProtectionOutput) ToRepositorySecurityAndAnalysisSecretScanningPushProtectionOutput() RepositorySecurityAndAnalysisSecretScanningPushProtectionOutput {
+	return o
+}
+
+func (o RepositorySecurityAndAnalysisSecretScanningPushProtectionOutput) ToRepositorySecurityAndAnalysisSecretScanningPushProtectionOutputWithContext(ctx context.Context) RepositorySecurityAndAnalysisSecretScanningPushProtectionOutput {
+	return o
+}
+
+func (o RepositorySecurityAndAnalysisSecretScanningPushProtectionOutput) ToRepositorySecurityAndAnalysisSecretScanningPushProtectionPtrOutput() RepositorySecurityAndAnalysisSecretScanningPushProtectionPtrOutput {
+	return o.ToRepositorySecurityAndAnalysisSecretScanningPushProtectionPtrOutputWithContext(context.Background())
+}
+
+func (o RepositorySecurityAndAnalysisSecretScanningPushProtectionOutput) ToRepositorySecurityAndAnalysisSecretScanningPushProtectionPtrOutputWithContext(ctx context.Context) RepositorySecurityAndAnalysisSecretScanningPushProtectionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RepositorySecurityAndAnalysisSecretScanningPushProtection) *RepositorySecurityAndAnalysisSecretScanningPushProtection {
+		return &v
+	}).(RepositorySecurityAndAnalysisSecretScanningPushProtectionPtrOutput)
+}
+
+// Set to `enabled` to enable advanced security features on the repository. Can be `enabled` or `disabled`.
+func (o RepositorySecurityAndAnalysisSecretScanningPushProtectionOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v RepositorySecurityAndAnalysisSecretScanningPushProtection) string { return v.Status }).(pulumi.StringOutput)
+}
+
+type RepositorySecurityAndAnalysisSecretScanningPushProtectionPtrOutput struct{ *pulumi.OutputState }
+
+func (RepositorySecurityAndAnalysisSecretScanningPushProtectionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RepositorySecurityAndAnalysisSecretScanningPushProtection)(nil)).Elem()
+}
+
+func (o RepositorySecurityAndAnalysisSecretScanningPushProtectionPtrOutput) ToRepositorySecurityAndAnalysisSecretScanningPushProtectionPtrOutput() RepositorySecurityAndAnalysisSecretScanningPushProtectionPtrOutput {
+	return o
+}
+
+func (o RepositorySecurityAndAnalysisSecretScanningPushProtectionPtrOutput) ToRepositorySecurityAndAnalysisSecretScanningPushProtectionPtrOutputWithContext(ctx context.Context) RepositorySecurityAndAnalysisSecretScanningPushProtectionPtrOutput {
+	return o
+}
+
+func (o RepositorySecurityAndAnalysisSecretScanningPushProtectionPtrOutput) Elem() RepositorySecurityAndAnalysisSecretScanningPushProtectionOutput {
+	return o.ApplyT(func(v *RepositorySecurityAndAnalysisSecretScanningPushProtection) RepositorySecurityAndAnalysisSecretScanningPushProtection {
+		if v != nil {
+			return *v
+		}
+		var ret RepositorySecurityAndAnalysisSecretScanningPushProtection
+		return ret
+	}).(RepositorySecurityAndAnalysisSecretScanningPushProtectionOutput)
+}
+
+// Set to `enabled` to enable advanced security features on the repository. Can be `enabled` or `disabled`.
+func (o RepositorySecurityAndAnalysisSecretScanningPushProtectionPtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RepositorySecurityAndAnalysisSecretScanningPushProtection) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Status
+	}).(pulumi.StringPtrOutput)
+}
+
 type RepositoryTemplate struct {
-	IncludeAllBranches *bool  `pulumi:"includeAllBranches"`
-	Owner              string `pulumi:"owner"`
-	Repository         string `pulumi:"repository"`
+	// Whether the new repository should include all the branches from the template repository (defaults to false, which includes only the default branch from the template).
+	IncludeAllBranches *bool `pulumi:"includeAllBranches"`
+	// The GitHub organization or user the template repository is owned by.
+	Owner string `pulumi:"owner"`
+	// The name of the template repository.
+	Repository string `pulumi:"repository"`
 }
 
 // RepositoryTemplateInput is an input type that accepts RepositoryTemplateArgs and RepositoryTemplateOutput values.
@@ -2035,9 +2951,12 @@ type RepositoryTemplateInput interface {
 }
 
 type RepositoryTemplateArgs struct {
+	// Whether the new repository should include all the branches from the template repository (defaults to false, which includes only the default branch from the template).
 	IncludeAllBranches pulumi.BoolPtrInput `pulumi:"includeAllBranches"`
-	Owner              pulumi.StringInput  `pulumi:"owner"`
-	Repository         pulumi.StringInput  `pulumi:"repository"`
+	// The GitHub organization or user the template repository is owned by.
+	Owner pulumi.StringInput `pulumi:"owner"`
+	// The name of the template repository.
+	Repository pulumi.StringInput `pulumi:"repository"`
 }
 
 func (RepositoryTemplateArgs) ElementType() reflect.Type {
@@ -2117,14 +3036,17 @@ func (o RepositoryTemplateOutput) ToRepositoryTemplatePtrOutputWithContext(ctx c
 	}).(RepositoryTemplatePtrOutput)
 }
 
+// Whether the new repository should include all the branches from the template repository (defaults to false, which includes only the default branch from the template).
 func (o RepositoryTemplateOutput) IncludeAllBranches() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RepositoryTemplate) *bool { return v.IncludeAllBranches }).(pulumi.BoolPtrOutput)
 }
 
+// The GitHub organization or user the template repository is owned by.
 func (o RepositoryTemplateOutput) Owner() pulumi.StringOutput {
 	return o.ApplyT(func(v RepositoryTemplate) string { return v.Owner }).(pulumi.StringOutput)
 }
 
+// The name of the template repository.
 func (o RepositoryTemplateOutput) Repository() pulumi.StringOutput {
 	return o.ApplyT(func(v RepositoryTemplate) string { return v.Repository }).(pulumi.StringOutput)
 }
@@ -2153,6 +3075,7 @@ func (o RepositoryTemplatePtrOutput) Elem() RepositoryTemplateOutput {
 	}).(RepositoryTemplateOutput)
 }
 
+// Whether the new repository should include all the branches from the template repository (defaults to false, which includes only the default branch from the template).
 func (o RepositoryTemplatePtrOutput) IncludeAllBranches() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RepositoryTemplate) *bool {
 		if v == nil {
@@ -2162,6 +3085,7 @@ func (o RepositoryTemplatePtrOutput) IncludeAllBranches() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The GitHub organization or user the template repository is owned by.
 func (o RepositoryTemplatePtrOutput) Owner() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RepositoryTemplate) *string {
 		if v == nil {
@@ -2171,6 +3095,7 @@ func (o RepositoryTemplatePtrOutput) Owner() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The name of the template repository.
 func (o RepositoryTemplatePtrOutput) Repository() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RepositoryTemplate) *string {
 		if v == nil {
@@ -2181,10 +3106,14 @@ func (o RepositoryTemplatePtrOutput) Repository() pulumi.StringPtrOutput {
 }
 
 type RepositoryWebhookConfiguration struct {
+	// The content type for the payload. Valid values are either `form` or `json`.
 	ContentType *string `pulumi:"contentType"`
-	InsecureSsl *bool   `pulumi:"insecureSsl"`
-	Secret      *string `pulumi:"secret"`
-	Url         string  `pulumi:"url"`
+	// Insecure SSL boolean toggle. Defaults to `false`.
+	InsecureSsl *bool `pulumi:"insecureSsl"`
+	// The shared secret for the webhook. [See API documentation](https://developer.github.com/v3/repos/hooks/#create-a-hook).
+	Secret *string `pulumi:"secret"`
+	// The URL of the webhook.
+	Url string `pulumi:"url"`
 }
 
 // RepositoryWebhookConfigurationInput is an input type that accepts RepositoryWebhookConfigurationArgs and RepositoryWebhookConfigurationOutput values.
@@ -2199,10 +3128,14 @@ type RepositoryWebhookConfigurationInput interface {
 }
 
 type RepositoryWebhookConfigurationArgs struct {
+	// The content type for the payload. Valid values are either `form` or `json`.
 	ContentType pulumi.StringPtrInput `pulumi:"contentType"`
-	InsecureSsl pulumi.BoolPtrInput   `pulumi:"insecureSsl"`
-	Secret      pulumi.StringPtrInput `pulumi:"secret"`
-	Url         pulumi.StringInput    `pulumi:"url"`
+	// Insecure SSL boolean toggle. Defaults to `false`.
+	InsecureSsl pulumi.BoolPtrInput `pulumi:"insecureSsl"`
+	// The shared secret for the webhook. [See API documentation](https://developer.github.com/v3/repos/hooks/#create-a-hook).
+	Secret pulumi.StringPtrInput `pulumi:"secret"`
+	// The URL of the webhook.
+	Url pulumi.StringInput `pulumi:"url"`
 }
 
 func (RepositoryWebhookConfigurationArgs) ElementType() reflect.Type {
@@ -2282,18 +3215,22 @@ func (o RepositoryWebhookConfigurationOutput) ToRepositoryWebhookConfigurationPt
 	}).(RepositoryWebhookConfigurationPtrOutput)
 }
 
+// The content type for the payload. Valid values are either `form` or `json`.
 func (o RepositoryWebhookConfigurationOutput) ContentType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RepositoryWebhookConfiguration) *string { return v.ContentType }).(pulumi.StringPtrOutput)
 }
 
+// Insecure SSL boolean toggle. Defaults to `false`.
 func (o RepositoryWebhookConfigurationOutput) InsecureSsl() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RepositoryWebhookConfiguration) *bool { return v.InsecureSsl }).(pulumi.BoolPtrOutput)
 }
 
+// The shared secret for the webhook. [See API documentation](https://developer.github.com/v3/repos/hooks/#create-a-hook).
 func (o RepositoryWebhookConfigurationOutput) Secret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RepositoryWebhookConfiguration) *string { return v.Secret }).(pulumi.StringPtrOutput)
 }
 
+// The URL of the webhook.
 func (o RepositoryWebhookConfigurationOutput) Url() pulumi.StringOutput {
 	return o.ApplyT(func(v RepositoryWebhookConfiguration) string { return v.Url }).(pulumi.StringOutput)
 }
@@ -2322,6 +3259,7 @@ func (o RepositoryWebhookConfigurationPtrOutput) Elem() RepositoryWebhookConfigu
 	}).(RepositoryWebhookConfigurationOutput)
 }
 
+// The content type for the payload. Valid values are either `form` or `json`.
 func (o RepositoryWebhookConfigurationPtrOutput) ContentType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RepositoryWebhookConfiguration) *string {
 		if v == nil {
@@ -2331,6 +3269,7 @@ func (o RepositoryWebhookConfigurationPtrOutput) ContentType() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
+// Insecure SSL boolean toggle. Defaults to `false`.
 func (o RepositoryWebhookConfigurationPtrOutput) InsecureSsl() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RepositoryWebhookConfiguration) *bool {
 		if v == nil {
@@ -2340,6 +3279,7 @@ func (o RepositoryWebhookConfigurationPtrOutput) InsecureSsl() pulumi.BoolPtrOut
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The shared secret for the webhook. [See API documentation](https://developer.github.com/v3/repos/hooks/#create-a-hook).
 func (o RepositoryWebhookConfigurationPtrOutput) Secret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RepositoryWebhookConfiguration) *string {
 		if v == nil {
@@ -2349,6 +3289,7 @@ func (o RepositoryWebhookConfigurationPtrOutput) Secret() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
+// The URL of the webhook.
 func (o RepositoryWebhookConfigurationPtrOutput) Url() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RepositoryWebhookConfiguration) *string {
 		if v == nil {
@@ -2359,8 +3300,11 @@ func (o RepositoryWebhookConfigurationPtrOutput) Url() pulumi.StringPtrOutput {
 }
 
 type TeamMembersMember struct {
-	Role     *string `pulumi:"role"`
-	Username string  `pulumi:"username"`
+	// The role of the user within the team.
+	// Must be one of `member` or `maintainer`. Defaults to `member`.
+	Role *string `pulumi:"role"`
+	// The user to add to the team.
+	Username string `pulumi:"username"`
 }
 
 // TeamMembersMemberInput is an input type that accepts TeamMembersMemberArgs and TeamMembersMemberOutput values.
@@ -2375,8 +3319,11 @@ type TeamMembersMemberInput interface {
 }
 
 type TeamMembersMemberArgs struct {
-	Role     pulumi.StringPtrInput `pulumi:"role"`
-	Username pulumi.StringInput    `pulumi:"username"`
+	// The role of the user within the team.
+	// Must be one of `member` or `maintainer`. Defaults to `member`.
+	Role pulumi.StringPtrInput `pulumi:"role"`
+	// The user to add to the team.
+	Username pulumi.StringInput `pulumi:"username"`
 }
 
 func (TeamMembersMemberArgs) ElementType() reflect.Type {
@@ -2430,10 +3377,13 @@ func (o TeamMembersMemberOutput) ToTeamMembersMemberOutputWithContext(ctx contex
 	return o
 }
 
+// The role of the user within the team.
+// Must be one of `member` or `maintainer`. Defaults to `member`.
 func (o TeamMembersMemberOutput) Role() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TeamMembersMember) *string { return v.Role }).(pulumi.StringPtrOutput)
 }
 
+// The user to add to the team.
 func (o TeamMembersMemberOutput) Username() pulumi.StringOutput {
 	return o.ApplyT(func(v TeamMembersMember) string { return v.Username }).(pulumi.StringOutput)
 }
@@ -2458,10 +3408,188 @@ func (o TeamMembersMemberArrayOutput) Index(i pulumi.IntInput) TeamMembersMember
 	}).(TeamMembersMemberOutput)
 }
 
+type TeamSettingsReviewRequestDelegation struct {
+	// The algorithm to use when assigning pull requests to team members. Supported values are `ROUND_ROBIN` and `LOAD_BALANCE`. Default value is `ROUND_ROBIN`
+	Algorithm *string `pulumi:"algorithm"`
+	// The number of team members to assign to a pull request
+	MemberCount *int `pulumi:"memberCount"`
+	// whether to notify the entire team when at least one member is also assigned to the pull request
+	Notify *bool `pulumi:"notify"`
+}
+
+// TeamSettingsReviewRequestDelegationInput is an input type that accepts TeamSettingsReviewRequestDelegationArgs and TeamSettingsReviewRequestDelegationOutput values.
+// You can construct a concrete instance of `TeamSettingsReviewRequestDelegationInput` via:
+//
+//	TeamSettingsReviewRequestDelegationArgs{...}
+type TeamSettingsReviewRequestDelegationInput interface {
+	pulumi.Input
+
+	ToTeamSettingsReviewRequestDelegationOutput() TeamSettingsReviewRequestDelegationOutput
+	ToTeamSettingsReviewRequestDelegationOutputWithContext(context.Context) TeamSettingsReviewRequestDelegationOutput
+}
+
+type TeamSettingsReviewRequestDelegationArgs struct {
+	// The algorithm to use when assigning pull requests to team members. Supported values are `ROUND_ROBIN` and `LOAD_BALANCE`. Default value is `ROUND_ROBIN`
+	Algorithm pulumi.StringPtrInput `pulumi:"algorithm"`
+	// The number of team members to assign to a pull request
+	MemberCount pulumi.IntPtrInput `pulumi:"memberCount"`
+	// whether to notify the entire team when at least one member is also assigned to the pull request
+	Notify pulumi.BoolPtrInput `pulumi:"notify"`
+}
+
+func (TeamSettingsReviewRequestDelegationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TeamSettingsReviewRequestDelegation)(nil)).Elem()
+}
+
+func (i TeamSettingsReviewRequestDelegationArgs) ToTeamSettingsReviewRequestDelegationOutput() TeamSettingsReviewRequestDelegationOutput {
+	return i.ToTeamSettingsReviewRequestDelegationOutputWithContext(context.Background())
+}
+
+func (i TeamSettingsReviewRequestDelegationArgs) ToTeamSettingsReviewRequestDelegationOutputWithContext(ctx context.Context) TeamSettingsReviewRequestDelegationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TeamSettingsReviewRequestDelegationOutput)
+}
+
+func (i TeamSettingsReviewRequestDelegationArgs) ToTeamSettingsReviewRequestDelegationPtrOutput() TeamSettingsReviewRequestDelegationPtrOutput {
+	return i.ToTeamSettingsReviewRequestDelegationPtrOutputWithContext(context.Background())
+}
+
+func (i TeamSettingsReviewRequestDelegationArgs) ToTeamSettingsReviewRequestDelegationPtrOutputWithContext(ctx context.Context) TeamSettingsReviewRequestDelegationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TeamSettingsReviewRequestDelegationOutput).ToTeamSettingsReviewRequestDelegationPtrOutputWithContext(ctx)
+}
+
+// TeamSettingsReviewRequestDelegationPtrInput is an input type that accepts TeamSettingsReviewRequestDelegationArgs, TeamSettingsReviewRequestDelegationPtr and TeamSettingsReviewRequestDelegationPtrOutput values.
+// You can construct a concrete instance of `TeamSettingsReviewRequestDelegationPtrInput` via:
+//
+//	        TeamSettingsReviewRequestDelegationArgs{...}
+//
+//	or:
+//
+//	        nil
+type TeamSettingsReviewRequestDelegationPtrInput interface {
+	pulumi.Input
+
+	ToTeamSettingsReviewRequestDelegationPtrOutput() TeamSettingsReviewRequestDelegationPtrOutput
+	ToTeamSettingsReviewRequestDelegationPtrOutputWithContext(context.Context) TeamSettingsReviewRequestDelegationPtrOutput
+}
+
+type teamSettingsReviewRequestDelegationPtrType TeamSettingsReviewRequestDelegationArgs
+
+func TeamSettingsReviewRequestDelegationPtr(v *TeamSettingsReviewRequestDelegationArgs) TeamSettingsReviewRequestDelegationPtrInput {
+	return (*teamSettingsReviewRequestDelegationPtrType)(v)
+}
+
+func (*teamSettingsReviewRequestDelegationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TeamSettingsReviewRequestDelegation)(nil)).Elem()
+}
+
+func (i *teamSettingsReviewRequestDelegationPtrType) ToTeamSettingsReviewRequestDelegationPtrOutput() TeamSettingsReviewRequestDelegationPtrOutput {
+	return i.ToTeamSettingsReviewRequestDelegationPtrOutputWithContext(context.Background())
+}
+
+func (i *teamSettingsReviewRequestDelegationPtrType) ToTeamSettingsReviewRequestDelegationPtrOutputWithContext(ctx context.Context) TeamSettingsReviewRequestDelegationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TeamSettingsReviewRequestDelegationPtrOutput)
+}
+
+type TeamSettingsReviewRequestDelegationOutput struct{ *pulumi.OutputState }
+
+func (TeamSettingsReviewRequestDelegationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TeamSettingsReviewRequestDelegation)(nil)).Elem()
+}
+
+func (o TeamSettingsReviewRequestDelegationOutput) ToTeamSettingsReviewRequestDelegationOutput() TeamSettingsReviewRequestDelegationOutput {
+	return o
+}
+
+func (o TeamSettingsReviewRequestDelegationOutput) ToTeamSettingsReviewRequestDelegationOutputWithContext(ctx context.Context) TeamSettingsReviewRequestDelegationOutput {
+	return o
+}
+
+func (o TeamSettingsReviewRequestDelegationOutput) ToTeamSettingsReviewRequestDelegationPtrOutput() TeamSettingsReviewRequestDelegationPtrOutput {
+	return o.ToTeamSettingsReviewRequestDelegationPtrOutputWithContext(context.Background())
+}
+
+func (o TeamSettingsReviewRequestDelegationOutput) ToTeamSettingsReviewRequestDelegationPtrOutputWithContext(ctx context.Context) TeamSettingsReviewRequestDelegationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TeamSettingsReviewRequestDelegation) *TeamSettingsReviewRequestDelegation {
+		return &v
+	}).(TeamSettingsReviewRequestDelegationPtrOutput)
+}
+
+// The algorithm to use when assigning pull requests to team members. Supported values are `ROUND_ROBIN` and `LOAD_BALANCE`. Default value is `ROUND_ROBIN`
+func (o TeamSettingsReviewRequestDelegationOutput) Algorithm() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TeamSettingsReviewRequestDelegation) *string { return v.Algorithm }).(pulumi.StringPtrOutput)
+}
+
+// The number of team members to assign to a pull request
+func (o TeamSettingsReviewRequestDelegationOutput) MemberCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v TeamSettingsReviewRequestDelegation) *int { return v.MemberCount }).(pulumi.IntPtrOutput)
+}
+
+// whether to notify the entire team when at least one member is also assigned to the pull request
+func (o TeamSettingsReviewRequestDelegationOutput) Notify() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v TeamSettingsReviewRequestDelegation) *bool { return v.Notify }).(pulumi.BoolPtrOutput)
+}
+
+type TeamSettingsReviewRequestDelegationPtrOutput struct{ *pulumi.OutputState }
+
+func (TeamSettingsReviewRequestDelegationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TeamSettingsReviewRequestDelegation)(nil)).Elem()
+}
+
+func (o TeamSettingsReviewRequestDelegationPtrOutput) ToTeamSettingsReviewRequestDelegationPtrOutput() TeamSettingsReviewRequestDelegationPtrOutput {
+	return o
+}
+
+func (o TeamSettingsReviewRequestDelegationPtrOutput) ToTeamSettingsReviewRequestDelegationPtrOutputWithContext(ctx context.Context) TeamSettingsReviewRequestDelegationPtrOutput {
+	return o
+}
+
+func (o TeamSettingsReviewRequestDelegationPtrOutput) Elem() TeamSettingsReviewRequestDelegationOutput {
+	return o.ApplyT(func(v *TeamSettingsReviewRequestDelegation) TeamSettingsReviewRequestDelegation {
+		if v != nil {
+			return *v
+		}
+		var ret TeamSettingsReviewRequestDelegation
+		return ret
+	}).(TeamSettingsReviewRequestDelegationOutput)
+}
+
+// The algorithm to use when assigning pull requests to team members. Supported values are `ROUND_ROBIN` and `LOAD_BALANCE`. Default value is `ROUND_ROBIN`
+func (o TeamSettingsReviewRequestDelegationPtrOutput) Algorithm() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TeamSettingsReviewRequestDelegation) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Algorithm
+	}).(pulumi.StringPtrOutput)
+}
+
+// The number of team members to assign to a pull request
+func (o TeamSettingsReviewRequestDelegationPtrOutput) MemberCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TeamSettingsReviewRequestDelegation) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MemberCount
+	}).(pulumi.IntPtrOutput)
+}
+
+// whether to notify the entire team when at least one member is also assigned to the pull request
+func (o TeamSettingsReviewRequestDelegationPtrOutput) Notify() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TeamSettingsReviewRequestDelegation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Notify
+	}).(pulumi.BoolPtrOutput)
+}
+
 type TeamSyncGroupMappingGroup struct {
+	// The description of the IdP group.
 	GroupDescription string `pulumi:"groupDescription"`
-	GroupId          string `pulumi:"groupId"`
-	GroupName        string `pulumi:"groupName"`
+	// The ID of the IdP group.
+	GroupId string `pulumi:"groupId"`
+	// The name of the IdP group.
+	GroupName string `pulumi:"groupName"`
 }
 
 // TeamSyncGroupMappingGroupInput is an input type that accepts TeamSyncGroupMappingGroupArgs and TeamSyncGroupMappingGroupOutput values.
@@ -2476,9 +3604,12 @@ type TeamSyncGroupMappingGroupInput interface {
 }
 
 type TeamSyncGroupMappingGroupArgs struct {
+	// The description of the IdP group.
 	GroupDescription pulumi.StringInput `pulumi:"groupDescription"`
-	GroupId          pulumi.StringInput `pulumi:"groupId"`
-	GroupName        pulumi.StringInput `pulumi:"groupName"`
+	// The ID of the IdP group.
+	GroupId pulumi.StringInput `pulumi:"groupId"`
+	// The name of the IdP group.
+	GroupName pulumi.StringInput `pulumi:"groupName"`
 }
 
 func (TeamSyncGroupMappingGroupArgs) ElementType() reflect.Type {
@@ -2532,14 +3663,17 @@ func (o TeamSyncGroupMappingGroupOutput) ToTeamSyncGroupMappingGroupOutputWithCo
 	return o
 }
 
+// The description of the IdP group.
 func (o TeamSyncGroupMappingGroupOutput) GroupDescription() pulumi.StringOutput {
 	return o.ApplyT(func(v TeamSyncGroupMappingGroup) string { return v.GroupDescription }).(pulumi.StringOutput)
 }
 
+// The ID of the IdP group.
 func (o TeamSyncGroupMappingGroupOutput) GroupId() pulumi.StringOutput {
 	return o.ApplyT(func(v TeamSyncGroupMappingGroup) string { return v.GroupId }).(pulumi.StringOutput)
 }
 
+// The name of the IdP group.
 func (o TeamSyncGroupMappingGroupOutput) GroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v TeamSyncGroupMappingGroup) string { return v.GroupName }).(pulumi.StringOutput)
 }
@@ -2565,9 +3699,13 @@ func (o TeamSyncGroupMappingGroupArrayOutput) Index(i pulumi.IntInput) TeamSyncG
 }
 
 type GetActionsOrganizationSecretsSecret struct {
-	CreatedAt  string `pulumi:"createdAt"`
-	Name       string `pulumi:"name"`
-	UpdatedAt  string `pulumi:"updatedAt"`
+	// Timestamp of the secret creation
+	CreatedAt string `pulumi:"createdAt"`
+	// Secret name
+	Name string `pulumi:"name"`
+	// Timestamp of the secret last update
+	UpdatedAt string `pulumi:"updatedAt"`
+	// Secret visibility
 	Visibility string `pulumi:"visibility"`
 }
 
@@ -2583,9 +3721,13 @@ type GetActionsOrganizationSecretsSecretInput interface {
 }
 
 type GetActionsOrganizationSecretsSecretArgs struct {
-	CreatedAt  pulumi.StringInput `pulumi:"createdAt"`
-	Name       pulumi.StringInput `pulumi:"name"`
-	UpdatedAt  pulumi.StringInput `pulumi:"updatedAt"`
+	// Timestamp of the secret creation
+	CreatedAt pulumi.StringInput `pulumi:"createdAt"`
+	// Secret name
+	Name pulumi.StringInput `pulumi:"name"`
+	// Timestamp of the secret last update
+	UpdatedAt pulumi.StringInput `pulumi:"updatedAt"`
+	// Secret visibility
 	Visibility pulumi.StringInput `pulumi:"visibility"`
 }
 
@@ -2640,18 +3782,22 @@ func (o GetActionsOrganizationSecretsSecretOutput) ToGetActionsOrganizationSecre
 	return o
 }
 
+// Timestamp of the secret creation
 func (o GetActionsOrganizationSecretsSecretOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v GetActionsOrganizationSecretsSecret) string { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
+// Secret name
 func (o GetActionsOrganizationSecretsSecretOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetActionsOrganizationSecretsSecret) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Timestamp of the secret last update
 func (o GetActionsOrganizationSecretsSecretOutput) UpdatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v GetActionsOrganizationSecretsSecret) string { return v.UpdatedAt }).(pulumi.StringOutput)
 }
 
+// Secret visibility
 func (o GetActionsOrganizationSecretsSecretOutput) Visibility() pulumi.StringOutput {
 	return o.ApplyT(func(v GetActionsOrganizationSecretsSecret) string { return v.Visibility }).(pulumi.StringOutput)
 }
@@ -2677,8 +3823,11 @@ func (o GetActionsOrganizationSecretsSecretArrayOutput) Index(i pulumi.IntInput)
 }
 
 type GetActionsSecretsSecret struct {
+	// Timestamp of the secret creation
 	CreatedAt string `pulumi:"createdAt"`
-	Name      string `pulumi:"name"`
+	// The name of the repository.
+	Name string `pulumi:"name"`
+	// Timestamp of the secret last update
 	UpdatedAt string `pulumi:"updatedAt"`
 }
 
@@ -2694,8 +3843,11 @@ type GetActionsSecretsSecretInput interface {
 }
 
 type GetActionsSecretsSecretArgs struct {
+	// Timestamp of the secret creation
 	CreatedAt pulumi.StringInput `pulumi:"createdAt"`
-	Name      pulumi.StringInput `pulumi:"name"`
+	// The name of the repository.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Timestamp of the secret last update
 	UpdatedAt pulumi.StringInput `pulumi:"updatedAt"`
 }
 
@@ -2750,14 +3902,17 @@ func (o GetActionsSecretsSecretOutput) ToGetActionsSecretsSecretOutputWithContex
 	return o
 }
 
+// Timestamp of the secret creation
 func (o GetActionsSecretsSecretOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v GetActionsSecretsSecret) string { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
+// The name of the repository.
 func (o GetActionsSecretsSecretOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetActionsSecretsSecret) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Timestamp of the secret last update
 func (o GetActionsSecretsSecretOutput) UpdatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v GetActionsSecretsSecret) string { return v.UpdatedAt }).(pulumi.StringOutput)
 }
@@ -2783,22 +3938,38 @@ func (o GetActionsSecretsSecretArrayOutput) Index(i pulumi.IntInput) GetActionsS
 }
 
 type GetCollaboratorsCollaborator struct {
-	EventsUrl         string `pulumi:"eventsUrl"`
-	FollowersUrl      string `pulumi:"followersUrl"`
-	FollowingUrl      string `pulumi:"followingUrl"`
-	GistsUrl          string `pulumi:"gistsUrl"`
-	HtmlUrl           string `pulumi:"htmlUrl"`
-	Id                int    `pulumi:"id"`
-	Login             string `pulumi:"login"`
-	OrganizationsUrl  string `pulumi:"organizationsUrl"`
-	Permission        string `pulumi:"permission"`
+	// The GitHub API URL for the collaborator's events.
+	EventsUrl string `pulumi:"eventsUrl"`
+	// The GitHub API URL for the collaborator's followers.
+	FollowersUrl string `pulumi:"followersUrl"`
+	// The GitHub API URL for those following the collaborator.
+	FollowingUrl string `pulumi:"followingUrl"`
+	// The GitHub API URL for the collaborator's gists.
+	GistsUrl string `pulumi:"gistsUrl"`
+	// The GitHub HTML URL for the collaborator.
+	HtmlUrl string `pulumi:"htmlUrl"`
+	// The ID of the collaborator.
+	Id int `pulumi:"id"`
+	// The collaborator's login.
+	Login string `pulumi:"login"`
+	// The GitHub API URL for the collaborator's organizations.
+	OrganizationsUrl string `pulumi:"organizationsUrl"`
+	// The permission of the collaborator.
+	Permission string `pulumi:"permission"`
+	// The GitHub API URL for the collaborator's received events.
 	ReceivedEventsUrl string `pulumi:"receivedEventsUrl"`
-	ReposUrl          string `pulumi:"reposUrl"`
-	SiteAdmin         bool   `pulumi:"siteAdmin"`
-	StarredUrl        string `pulumi:"starredUrl"`
-	SubscriptionsUrl  string `pulumi:"subscriptionsUrl"`
-	Type              string `pulumi:"type"`
-	Url               string `pulumi:"url"`
+	// The GitHub API URL for the collaborator's repositories.
+	ReposUrl string `pulumi:"reposUrl"`
+	// Whether the user is a GitHub admin.
+	SiteAdmin bool `pulumi:"siteAdmin"`
+	// The GitHub API URL for the collaborator's starred repositories.
+	StarredUrl string `pulumi:"starredUrl"`
+	// The GitHub API URL for the collaborator's subscribed repositories.
+	SubscriptionsUrl string `pulumi:"subscriptionsUrl"`
+	// The type of the collaborator (ex. `user`).
+	Type string `pulumi:"type"`
+	// The GitHub API URL for the collaborator.
+	Url string `pulumi:"url"`
 }
 
 // GetCollaboratorsCollaboratorInput is an input type that accepts GetCollaboratorsCollaboratorArgs and GetCollaboratorsCollaboratorOutput values.
@@ -2813,22 +3984,38 @@ type GetCollaboratorsCollaboratorInput interface {
 }
 
 type GetCollaboratorsCollaboratorArgs struct {
-	EventsUrl         pulumi.StringInput `pulumi:"eventsUrl"`
-	FollowersUrl      pulumi.StringInput `pulumi:"followersUrl"`
-	FollowingUrl      pulumi.StringInput `pulumi:"followingUrl"`
-	GistsUrl          pulumi.StringInput `pulumi:"gistsUrl"`
-	HtmlUrl           pulumi.StringInput `pulumi:"htmlUrl"`
-	Id                pulumi.IntInput    `pulumi:"id"`
-	Login             pulumi.StringInput `pulumi:"login"`
-	OrganizationsUrl  pulumi.StringInput `pulumi:"organizationsUrl"`
-	Permission        pulumi.StringInput `pulumi:"permission"`
+	// The GitHub API URL for the collaborator's events.
+	EventsUrl pulumi.StringInput `pulumi:"eventsUrl"`
+	// The GitHub API URL for the collaborator's followers.
+	FollowersUrl pulumi.StringInput `pulumi:"followersUrl"`
+	// The GitHub API URL for those following the collaborator.
+	FollowingUrl pulumi.StringInput `pulumi:"followingUrl"`
+	// The GitHub API URL for the collaborator's gists.
+	GistsUrl pulumi.StringInput `pulumi:"gistsUrl"`
+	// The GitHub HTML URL for the collaborator.
+	HtmlUrl pulumi.StringInput `pulumi:"htmlUrl"`
+	// The ID of the collaborator.
+	Id pulumi.IntInput `pulumi:"id"`
+	// The collaborator's login.
+	Login pulumi.StringInput `pulumi:"login"`
+	// The GitHub API URL for the collaborator's organizations.
+	OrganizationsUrl pulumi.StringInput `pulumi:"organizationsUrl"`
+	// The permission of the collaborator.
+	Permission pulumi.StringInput `pulumi:"permission"`
+	// The GitHub API URL for the collaborator's received events.
 	ReceivedEventsUrl pulumi.StringInput `pulumi:"receivedEventsUrl"`
-	ReposUrl          pulumi.StringInput `pulumi:"reposUrl"`
-	SiteAdmin         pulumi.BoolInput   `pulumi:"siteAdmin"`
-	StarredUrl        pulumi.StringInput `pulumi:"starredUrl"`
-	SubscriptionsUrl  pulumi.StringInput `pulumi:"subscriptionsUrl"`
-	Type              pulumi.StringInput `pulumi:"type"`
-	Url               pulumi.StringInput `pulumi:"url"`
+	// The GitHub API URL for the collaborator's repositories.
+	ReposUrl pulumi.StringInput `pulumi:"reposUrl"`
+	// Whether the user is a GitHub admin.
+	SiteAdmin pulumi.BoolInput `pulumi:"siteAdmin"`
+	// The GitHub API URL for the collaborator's starred repositories.
+	StarredUrl pulumi.StringInput `pulumi:"starredUrl"`
+	// The GitHub API URL for the collaborator's subscribed repositories.
+	SubscriptionsUrl pulumi.StringInput `pulumi:"subscriptionsUrl"`
+	// The type of the collaborator (ex. `user`).
+	Type pulumi.StringInput `pulumi:"type"`
+	// The GitHub API URL for the collaborator.
+	Url pulumi.StringInput `pulumi:"url"`
 }
 
 func (GetCollaboratorsCollaboratorArgs) ElementType() reflect.Type {
@@ -2882,66 +4069,82 @@ func (o GetCollaboratorsCollaboratorOutput) ToGetCollaboratorsCollaboratorOutput
 	return o
 }
 
+// The GitHub API URL for the collaborator's events.
 func (o GetCollaboratorsCollaboratorOutput) EventsUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCollaboratorsCollaborator) string { return v.EventsUrl }).(pulumi.StringOutput)
 }
 
+// The GitHub API URL for the collaborator's followers.
 func (o GetCollaboratorsCollaboratorOutput) FollowersUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCollaboratorsCollaborator) string { return v.FollowersUrl }).(pulumi.StringOutput)
 }
 
+// The GitHub API URL for those following the collaborator.
 func (o GetCollaboratorsCollaboratorOutput) FollowingUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCollaboratorsCollaborator) string { return v.FollowingUrl }).(pulumi.StringOutput)
 }
 
+// The GitHub API URL for the collaborator's gists.
 func (o GetCollaboratorsCollaboratorOutput) GistsUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCollaboratorsCollaborator) string { return v.GistsUrl }).(pulumi.StringOutput)
 }
 
+// The GitHub HTML URL for the collaborator.
 func (o GetCollaboratorsCollaboratorOutput) HtmlUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCollaboratorsCollaborator) string { return v.HtmlUrl }).(pulumi.StringOutput)
 }
 
+// The ID of the collaborator.
 func (o GetCollaboratorsCollaboratorOutput) Id() pulumi.IntOutput {
 	return o.ApplyT(func(v GetCollaboratorsCollaborator) int { return v.Id }).(pulumi.IntOutput)
 }
 
+// The collaborator's login.
 func (o GetCollaboratorsCollaboratorOutput) Login() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCollaboratorsCollaborator) string { return v.Login }).(pulumi.StringOutput)
 }
 
+// The GitHub API URL for the collaborator's organizations.
 func (o GetCollaboratorsCollaboratorOutput) OrganizationsUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCollaboratorsCollaborator) string { return v.OrganizationsUrl }).(pulumi.StringOutput)
 }
 
+// The permission of the collaborator.
 func (o GetCollaboratorsCollaboratorOutput) Permission() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCollaboratorsCollaborator) string { return v.Permission }).(pulumi.StringOutput)
 }
 
+// The GitHub API URL for the collaborator's received events.
 func (o GetCollaboratorsCollaboratorOutput) ReceivedEventsUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCollaboratorsCollaborator) string { return v.ReceivedEventsUrl }).(pulumi.StringOutput)
 }
 
+// The GitHub API URL for the collaborator's repositories.
 func (o GetCollaboratorsCollaboratorOutput) ReposUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCollaboratorsCollaborator) string { return v.ReposUrl }).(pulumi.StringOutput)
 }
 
+// Whether the user is a GitHub admin.
 func (o GetCollaboratorsCollaboratorOutput) SiteAdmin() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetCollaboratorsCollaborator) bool { return v.SiteAdmin }).(pulumi.BoolOutput)
 }
 
+// The GitHub API URL for the collaborator's starred repositories.
 func (o GetCollaboratorsCollaboratorOutput) StarredUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCollaboratorsCollaborator) string { return v.StarredUrl }).(pulumi.StringOutput)
 }
 
+// The GitHub API URL for the collaborator's subscribed repositories.
 func (o GetCollaboratorsCollaboratorOutput) SubscriptionsUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCollaboratorsCollaborator) string { return v.SubscriptionsUrl }).(pulumi.StringOutput)
 }
 
+// The type of the collaborator (ex. `user`).
 func (o GetCollaboratorsCollaboratorOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCollaboratorsCollaborator) string { return v.Type }).(pulumi.StringOutput)
 }
 
+// The GitHub API URL for the collaborator.
 func (o GetCollaboratorsCollaboratorOutput) Url() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCollaboratorsCollaborator) string { return v.Url }).(pulumi.StringOutput)
 }
@@ -2967,9 +4170,13 @@ func (o GetCollaboratorsCollaboratorArrayOutput) Index(i pulumi.IntInput) GetCol
 }
 
 type GetDependabotOrganizationSecretsSecret struct {
-	CreatedAt  string `pulumi:"createdAt"`
-	Name       string `pulumi:"name"`
-	UpdatedAt  string `pulumi:"updatedAt"`
+	// Timestamp of the secret creation
+	CreatedAt string `pulumi:"createdAt"`
+	// Secret name
+	Name string `pulumi:"name"`
+	// Timestamp of the secret last update
+	UpdatedAt string `pulumi:"updatedAt"`
+	// Secret visibility
 	Visibility string `pulumi:"visibility"`
 }
 
@@ -2985,9 +4192,13 @@ type GetDependabotOrganizationSecretsSecretInput interface {
 }
 
 type GetDependabotOrganizationSecretsSecretArgs struct {
-	CreatedAt  pulumi.StringInput `pulumi:"createdAt"`
-	Name       pulumi.StringInput `pulumi:"name"`
-	UpdatedAt  pulumi.StringInput `pulumi:"updatedAt"`
+	// Timestamp of the secret creation
+	CreatedAt pulumi.StringInput `pulumi:"createdAt"`
+	// Secret name
+	Name pulumi.StringInput `pulumi:"name"`
+	// Timestamp of the secret last update
+	UpdatedAt pulumi.StringInput `pulumi:"updatedAt"`
+	// Secret visibility
 	Visibility pulumi.StringInput `pulumi:"visibility"`
 }
 
@@ -3042,18 +4253,22 @@ func (o GetDependabotOrganizationSecretsSecretOutput) ToGetDependabotOrganizatio
 	return o
 }
 
+// Timestamp of the secret creation
 func (o GetDependabotOrganizationSecretsSecretOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDependabotOrganizationSecretsSecret) string { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
+// Secret name
 func (o GetDependabotOrganizationSecretsSecretOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDependabotOrganizationSecretsSecret) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Timestamp of the secret last update
 func (o GetDependabotOrganizationSecretsSecretOutput) UpdatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDependabotOrganizationSecretsSecret) string { return v.UpdatedAt }).(pulumi.StringOutput)
 }
 
+// Secret visibility
 func (o GetDependabotOrganizationSecretsSecretOutput) Visibility() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDependabotOrganizationSecretsSecret) string { return v.Visibility }).(pulumi.StringOutput)
 }
@@ -3079,8 +4294,11 @@ func (o GetDependabotOrganizationSecretsSecretArrayOutput) Index(i pulumi.IntInp
 }
 
 type GetDependabotSecretsSecret struct {
+	// Timestamp of the secret creation
 	CreatedAt string `pulumi:"createdAt"`
-	Name      string `pulumi:"name"`
+	// The name of the repository.
+	Name string `pulumi:"name"`
+	// Timestamp of the secret last update
 	UpdatedAt string `pulumi:"updatedAt"`
 }
 
@@ -3096,8 +4314,11 @@ type GetDependabotSecretsSecretInput interface {
 }
 
 type GetDependabotSecretsSecretArgs struct {
+	// Timestamp of the secret creation
 	CreatedAt pulumi.StringInput `pulumi:"createdAt"`
-	Name      pulumi.StringInput `pulumi:"name"`
+	// The name of the repository.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Timestamp of the secret last update
 	UpdatedAt pulumi.StringInput `pulumi:"updatedAt"`
 }
 
@@ -3152,14 +4373,17 @@ func (o GetDependabotSecretsSecretOutput) ToGetDependabotSecretsSecretOutputWith
 	return o
 }
 
+// Timestamp of the secret creation
 func (o GetDependabotSecretsSecretOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDependabotSecretsSecret) string { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
+// The name of the repository.
 func (o GetDependabotSecretsSecretOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDependabotSecretsSecret) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Timestamp of the secret last update
 func (o GetDependabotSecretsSecretOutput) UpdatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDependabotSecretsSecret) string { return v.UpdatedAt }).(pulumi.StringOutput)
 }
@@ -3185,8 +4409,11 @@ func (o GetDependabotSecretsSecretArrayOutput) Index(i pulumi.IntInput) GetDepen
 }
 
 type GetExternalGroupsExternalGroup struct {
-	GroupId   int    `pulumi:"groupId"`
+	// the ID of the group.
+	GroupId int `pulumi:"groupId"`
+	// the name of the group.
 	GroupName string `pulumi:"groupName"`
+	// the date the group was last updated.
 	UpdatedAt string `pulumi:"updatedAt"`
 }
 
@@ -3202,8 +4429,11 @@ type GetExternalGroupsExternalGroupInput interface {
 }
 
 type GetExternalGroupsExternalGroupArgs struct {
-	GroupId   pulumi.IntInput    `pulumi:"groupId"`
+	// the ID of the group.
+	GroupId pulumi.IntInput `pulumi:"groupId"`
+	// the name of the group.
 	GroupName pulumi.StringInput `pulumi:"groupName"`
+	// the date the group was last updated.
 	UpdatedAt pulumi.StringInput `pulumi:"updatedAt"`
 }
 
@@ -3258,14 +4488,17 @@ func (o GetExternalGroupsExternalGroupOutput) ToGetExternalGroupsExternalGroupOu
 	return o
 }
 
+// the ID of the group.
 func (o GetExternalGroupsExternalGroupOutput) GroupId() pulumi.IntOutput {
 	return o.ApplyT(func(v GetExternalGroupsExternalGroup) int { return v.GroupId }).(pulumi.IntOutput)
 }
 
+// the name of the group.
 func (o GetExternalGroupsExternalGroupOutput) GroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetExternalGroupsExternalGroup) string { return v.GroupName }).(pulumi.StringOutput)
 }
 
+// the date the group was last updated.
 func (o GetExternalGroupsExternalGroupOutput) UpdatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v GetExternalGroupsExternalGroup) string { return v.UpdatedAt }).(pulumi.StringOutput)
 }
@@ -3291,12 +4524,18 @@ func (o GetExternalGroupsExternalGroupArrayOutput) Index(i pulumi.IntInput) GetE
 }
 
 type GetOrganizationIpAllowListIpAllowList struct {
+	// A single IP address or range of IP addresses in CIDR notation.
 	AllowListValue string `pulumi:"allowListValue"`
-	CreatedAt      string `pulumi:"createdAt"`
-	Id             string `pulumi:"id"`
-	IsActive       bool   `pulumi:"isActive"`
-	Name           string `pulumi:"name"`
-	UpdatedAt      string `pulumi:"updatedAt"`
+	// Identifies the date and time when the object was created.
+	CreatedAt string `pulumi:"createdAt"`
+	// The ID of the IP allow list entry.
+	Id string `pulumi:"id"`
+	// Whether the entry is currently active.
+	IsActive bool `pulumi:"isActive"`
+	// The name of the IP allow list entry.
+	Name string `pulumi:"name"`
+	// Identifies the date and time when the object was last updated.
+	UpdatedAt string `pulumi:"updatedAt"`
 }
 
 // GetOrganizationIpAllowListIpAllowListInput is an input type that accepts GetOrganizationIpAllowListIpAllowListArgs and GetOrganizationIpAllowListIpAllowListOutput values.
@@ -3311,12 +4550,18 @@ type GetOrganizationIpAllowListIpAllowListInput interface {
 }
 
 type GetOrganizationIpAllowListIpAllowListArgs struct {
+	// A single IP address or range of IP addresses in CIDR notation.
 	AllowListValue pulumi.StringInput `pulumi:"allowListValue"`
-	CreatedAt      pulumi.StringInput `pulumi:"createdAt"`
-	Id             pulumi.StringInput `pulumi:"id"`
-	IsActive       pulumi.BoolInput   `pulumi:"isActive"`
-	Name           pulumi.StringInput `pulumi:"name"`
-	UpdatedAt      pulumi.StringInput `pulumi:"updatedAt"`
+	// Identifies the date and time when the object was created.
+	CreatedAt pulumi.StringInput `pulumi:"createdAt"`
+	// The ID of the IP allow list entry.
+	Id pulumi.StringInput `pulumi:"id"`
+	// Whether the entry is currently active.
+	IsActive pulumi.BoolInput `pulumi:"isActive"`
+	// The name of the IP allow list entry.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Identifies the date and time when the object was last updated.
+	UpdatedAt pulumi.StringInput `pulumi:"updatedAt"`
 }
 
 func (GetOrganizationIpAllowListIpAllowListArgs) ElementType() reflect.Type {
@@ -3370,26 +4615,32 @@ func (o GetOrganizationIpAllowListIpAllowListOutput) ToGetOrganizationIpAllowLis
 	return o
 }
 
+// A single IP address or range of IP addresses in CIDR notation.
 func (o GetOrganizationIpAllowListIpAllowListOutput) AllowListValue() pulumi.StringOutput {
 	return o.ApplyT(func(v GetOrganizationIpAllowListIpAllowList) string { return v.AllowListValue }).(pulumi.StringOutput)
 }
 
+// Identifies the date and time when the object was created.
 func (o GetOrganizationIpAllowListIpAllowListOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v GetOrganizationIpAllowListIpAllowList) string { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
+// The ID of the IP allow list entry.
 func (o GetOrganizationIpAllowListIpAllowListOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetOrganizationIpAllowListIpAllowList) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// Whether the entry is currently active.
 func (o GetOrganizationIpAllowListIpAllowListOutput) IsActive() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetOrganizationIpAllowListIpAllowList) bool { return v.IsActive }).(pulumi.BoolOutput)
 }
 
+// The name of the IP allow list entry.
 func (o GetOrganizationIpAllowListIpAllowListOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetOrganizationIpAllowListIpAllowList) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Identifies the date and time when the object was last updated.
 func (o GetOrganizationIpAllowListIpAllowListOutput) UpdatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v GetOrganizationIpAllowListIpAllowList) string { return v.UpdatedAt }).(pulumi.StringOutput)
 }
@@ -3415,9 +4666,12 @@ func (o GetOrganizationIpAllowListIpAllowListArrayOutput) Index(i pulumi.IntInpu
 }
 
 type GetOrganizationTeamSyncGroupsGroup struct {
+	// The description of the IdP group.
 	GroupDescription string `pulumi:"groupDescription"`
-	GroupId          string `pulumi:"groupId"`
-	GroupName        string `pulumi:"groupName"`
+	// The ID of the IdP group.
+	GroupId string `pulumi:"groupId"`
+	// The name of the IdP group.
+	GroupName string `pulumi:"groupName"`
 }
 
 // GetOrganizationTeamSyncGroupsGroupInput is an input type that accepts GetOrganizationTeamSyncGroupsGroupArgs and GetOrganizationTeamSyncGroupsGroupOutput values.
@@ -3432,9 +4686,12 @@ type GetOrganizationTeamSyncGroupsGroupInput interface {
 }
 
 type GetOrganizationTeamSyncGroupsGroupArgs struct {
+	// The description of the IdP group.
 	GroupDescription pulumi.StringInput `pulumi:"groupDescription"`
-	GroupId          pulumi.StringInput `pulumi:"groupId"`
-	GroupName        pulumi.StringInput `pulumi:"groupName"`
+	// The ID of the IdP group.
+	GroupId pulumi.StringInput `pulumi:"groupId"`
+	// The name of the IdP group.
+	GroupName pulumi.StringInput `pulumi:"groupName"`
 }
 
 func (GetOrganizationTeamSyncGroupsGroupArgs) ElementType() reflect.Type {
@@ -3488,14 +4745,17 @@ func (o GetOrganizationTeamSyncGroupsGroupOutput) ToGetOrganizationTeamSyncGroup
 	return o
 }
 
+// The description of the IdP group.
 func (o GetOrganizationTeamSyncGroupsGroupOutput) GroupDescription() pulumi.StringOutput {
 	return o.ApplyT(func(v GetOrganizationTeamSyncGroupsGroup) string { return v.GroupDescription }).(pulumi.StringOutput)
 }
 
+// The ID of the IdP group.
 func (o GetOrganizationTeamSyncGroupsGroupOutput) GroupId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetOrganizationTeamSyncGroupsGroup) string { return v.GroupId }).(pulumi.StringOutput)
 }
 
+// The name of the IdP group.
 func (o GetOrganizationTeamSyncGroupsGroupOutput) GroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetOrganizationTeamSyncGroupsGroup) string { return v.GroupName }).(pulumi.StringOutput)
 }
@@ -3521,14 +4781,22 @@ func (o GetOrganizationTeamSyncGroupsGroupArrayOutput) Index(i pulumi.IntInput) 
 }
 
 type GetOrganizationTeamsTeam struct {
-	Description  string   `pulumi:"description"`
-	Id           int      `pulumi:"id"`
-	Members      []string `pulumi:"members"`
-	Name         string   `pulumi:"name"`
-	NodeId       string   `pulumi:"nodeId"`
-	Privacy      string   `pulumi:"privacy"`
+	// the team's description.
+	Description string `pulumi:"description"`
+	// the ID of the team.
+	Id int `pulumi:"id"`
+	// List of team members. Not returned if `summaryOnly = true`
+	Members []string `pulumi:"members"`
+	// the team's full name.
+	Name string `pulumi:"name"`
+	// the Node ID of the team.
+	NodeId string `pulumi:"nodeId"`
+	// the team's privacy type.
+	Privacy string `pulumi:"privacy"`
+	// List of team repositories. Not returned if `summaryOnly = true`
 	Repositories []string `pulumi:"repositories"`
-	Slug         string   `pulumi:"slug"`
+	// the slug of the team.
+	Slug string `pulumi:"slug"`
 }
 
 // GetOrganizationTeamsTeamInput is an input type that accepts GetOrganizationTeamsTeamArgs and GetOrganizationTeamsTeamOutput values.
@@ -3543,14 +4811,22 @@ type GetOrganizationTeamsTeamInput interface {
 }
 
 type GetOrganizationTeamsTeamArgs struct {
-	Description  pulumi.StringInput      `pulumi:"description"`
-	Id           pulumi.IntInput         `pulumi:"id"`
-	Members      pulumi.StringArrayInput `pulumi:"members"`
-	Name         pulumi.StringInput      `pulumi:"name"`
-	NodeId       pulumi.StringInput      `pulumi:"nodeId"`
-	Privacy      pulumi.StringInput      `pulumi:"privacy"`
+	// the team's description.
+	Description pulumi.StringInput `pulumi:"description"`
+	// the ID of the team.
+	Id pulumi.IntInput `pulumi:"id"`
+	// List of team members. Not returned if `summaryOnly = true`
+	Members pulumi.StringArrayInput `pulumi:"members"`
+	// the team's full name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// the Node ID of the team.
+	NodeId pulumi.StringInput `pulumi:"nodeId"`
+	// the team's privacy type.
+	Privacy pulumi.StringInput `pulumi:"privacy"`
+	// List of team repositories. Not returned if `summaryOnly = true`
 	Repositories pulumi.StringArrayInput `pulumi:"repositories"`
-	Slug         pulumi.StringInput      `pulumi:"slug"`
+	// the slug of the team.
+	Slug pulumi.StringInput `pulumi:"slug"`
 }
 
 func (GetOrganizationTeamsTeamArgs) ElementType() reflect.Type {
@@ -3604,34 +4880,42 @@ func (o GetOrganizationTeamsTeamOutput) ToGetOrganizationTeamsTeamOutputWithCont
 	return o
 }
 
+// the team's description.
 func (o GetOrganizationTeamsTeamOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v GetOrganizationTeamsTeam) string { return v.Description }).(pulumi.StringOutput)
 }
 
+// the ID of the team.
 func (o GetOrganizationTeamsTeamOutput) Id() pulumi.IntOutput {
 	return o.ApplyT(func(v GetOrganizationTeamsTeam) int { return v.Id }).(pulumi.IntOutput)
 }
 
+// List of team members. Not returned if `summaryOnly = true`
 func (o GetOrganizationTeamsTeamOutput) Members() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetOrganizationTeamsTeam) []string { return v.Members }).(pulumi.StringArrayOutput)
 }
 
+// the team's full name.
 func (o GetOrganizationTeamsTeamOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetOrganizationTeamsTeam) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// the Node ID of the team.
 func (o GetOrganizationTeamsTeamOutput) NodeId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetOrganizationTeamsTeam) string { return v.NodeId }).(pulumi.StringOutput)
 }
 
+// the team's privacy type.
 func (o GetOrganizationTeamsTeamOutput) Privacy() pulumi.StringOutput {
 	return o.ApplyT(func(v GetOrganizationTeamsTeam) string { return v.Privacy }).(pulumi.StringOutput)
 }
 
+// List of team repositories. Not returned if `summaryOnly = true`
 func (o GetOrganizationTeamsTeamOutput) Repositories() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetOrganizationTeamsTeam) []string { return v.Repositories }).(pulumi.StringArrayOutput)
 }
 
+// the slug of the team.
 func (o GetOrganizationTeamsTeamOutput) Slug() pulumi.StringOutput {
 	return o.ApplyT(func(v GetOrganizationTeamsTeam) string { return v.Slug }).(pulumi.StringOutput)
 }
@@ -3657,11 +4941,16 @@ func (o GetOrganizationTeamsTeamArrayOutput) Index(i pulumi.IntInput) GetOrganiz
 }
 
 type GetOrganizationWebhooksWebhook struct {
-	Active bool   `pulumi:"active"`
-	Id     int    `pulumi:"id"`
-	Name   string `pulumi:"name"`
-	Type   string `pulumi:"type"`
-	Url    string `pulumi:"url"`
+	// `true` if the webhook is active.
+	Active bool `pulumi:"active"`
+	// the ID of the webhook.
+	Id int `pulumi:"id"`
+	// the name of the webhook.
+	Name string `pulumi:"name"`
+	// the type of the webhook.
+	Type string `pulumi:"type"`
+	// the url of the webhook.
+	Url string `pulumi:"url"`
 }
 
 // GetOrganizationWebhooksWebhookInput is an input type that accepts GetOrganizationWebhooksWebhookArgs and GetOrganizationWebhooksWebhookOutput values.
@@ -3676,11 +4965,16 @@ type GetOrganizationWebhooksWebhookInput interface {
 }
 
 type GetOrganizationWebhooksWebhookArgs struct {
-	Active pulumi.BoolInput   `pulumi:"active"`
-	Id     pulumi.IntInput    `pulumi:"id"`
-	Name   pulumi.StringInput `pulumi:"name"`
-	Type   pulumi.StringInput `pulumi:"type"`
-	Url    pulumi.StringInput `pulumi:"url"`
+	// `true` if the webhook is active.
+	Active pulumi.BoolInput `pulumi:"active"`
+	// the ID of the webhook.
+	Id pulumi.IntInput `pulumi:"id"`
+	// the name of the webhook.
+	Name pulumi.StringInput `pulumi:"name"`
+	// the type of the webhook.
+	Type pulumi.StringInput `pulumi:"type"`
+	// the url of the webhook.
+	Url pulumi.StringInput `pulumi:"url"`
 }
 
 func (GetOrganizationWebhooksWebhookArgs) ElementType() reflect.Type {
@@ -3734,22 +5028,27 @@ func (o GetOrganizationWebhooksWebhookOutput) ToGetOrganizationWebhooksWebhookOu
 	return o
 }
 
+// `true` if the webhook is active.
 func (o GetOrganizationWebhooksWebhookOutput) Active() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetOrganizationWebhooksWebhook) bool { return v.Active }).(pulumi.BoolOutput)
 }
 
+// the ID of the webhook.
 func (o GetOrganizationWebhooksWebhookOutput) Id() pulumi.IntOutput {
 	return o.ApplyT(func(v GetOrganizationWebhooksWebhook) int { return v.Id }).(pulumi.IntOutput)
 }
 
+// the name of the webhook.
 func (o GetOrganizationWebhooksWebhookOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetOrganizationWebhooksWebhook) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// the type of the webhook.
 func (o GetOrganizationWebhooksWebhookOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GetOrganizationWebhooksWebhook) string { return v.Type }).(pulumi.StringOutput)
 }
 
+// the url of the webhook.
 func (o GetOrganizationWebhooksWebhookOutput) Url() pulumi.StringOutput {
 	return o.ApplyT(func(v GetOrganizationWebhooksWebhook) string { return v.Url }).(pulumi.StringOutput)
 }
@@ -3775,16 +5074,26 @@ func (o GetOrganizationWebhooksWebhookArrayOutput) Index(i pulumi.IntInput) GetO
 }
 
 type GetReleaseAsset struct {
+	// Browser download URL
 	BrowserDownloadUrl string `pulumi:"browserDownloadUrl"`
-	ContentType        string `pulumi:"contentType"`
-	CreatedAt          string `pulumi:"createdAt"`
-	Id                 int    `pulumi:"id"`
-	Label              string `pulumi:"label"`
-	Name               string `pulumi:"name"`
-	NodeId             string `pulumi:"nodeId"`
-	Size               int    `pulumi:"size"`
-	UpdatedAt          string `pulumi:"updatedAt"`
-	Url                string `pulumi:"url"`
+	// MIME type of the asset
+	ContentType string `pulumi:"contentType"`
+	// Date the asset was created
+	CreatedAt string `pulumi:"createdAt"`
+	// ID of the asset
+	Id int `pulumi:"id"`
+	// Label for the asset
+	Label string `pulumi:"label"`
+	// The file name of the asset
+	Name string `pulumi:"name"`
+	// Node ID of the asset
+	NodeId string `pulumi:"nodeId"`
+	// Size in byte
+	Size int `pulumi:"size"`
+	// Date the asset was last updated
+	UpdatedAt string `pulumi:"updatedAt"`
+	// URL of the asset
+	Url string `pulumi:"url"`
 }
 
 // GetReleaseAssetInput is an input type that accepts GetReleaseAssetArgs and GetReleaseAssetOutput values.
@@ -3799,16 +5108,26 @@ type GetReleaseAssetInput interface {
 }
 
 type GetReleaseAssetArgs struct {
+	// Browser download URL
 	BrowserDownloadUrl pulumi.StringInput `pulumi:"browserDownloadUrl"`
-	ContentType        pulumi.StringInput `pulumi:"contentType"`
-	CreatedAt          pulumi.StringInput `pulumi:"createdAt"`
-	Id                 pulumi.IntInput    `pulumi:"id"`
-	Label              pulumi.StringInput `pulumi:"label"`
-	Name               pulumi.StringInput `pulumi:"name"`
-	NodeId             pulumi.StringInput `pulumi:"nodeId"`
-	Size               pulumi.IntInput    `pulumi:"size"`
-	UpdatedAt          pulumi.StringInput `pulumi:"updatedAt"`
-	Url                pulumi.StringInput `pulumi:"url"`
+	// MIME type of the asset
+	ContentType pulumi.StringInput `pulumi:"contentType"`
+	// Date the asset was created
+	CreatedAt pulumi.StringInput `pulumi:"createdAt"`
+	// ID of the asset
+	Id pulumi.IntInput `pulumi:"id"`
+	// Label for the asset
+	Label pulumi.StringInput `pulumi:"label"`
+	// The file name of the asset
+	Name pulumi.StringInput `pulumi:"name"`
+	// Node ID of the asset
+	NodeId pulumi.StringInput `pulumi:"nodeId"`
+	// Size in byte
+	Size pulumi.IntInput `pulumi:"size"`
+	// Date the asset was last updated
+	UpdatedAt pulumi.StringInput `pulumi:"updatedAt"`
+	// URL of the asset
+	Url pulumi.StringInput `pulumi:"url"`
 }
 
 func (GetReleaseAssetArgs) ElementType() reflect.Type {
@@ -3862,42 +5181,52 @@ func (o GetReleaseAssetOutput) ToGetReleaseAssetOutputWithContext(ctx context.Co
 	return o
 }
 
+// Browser download URL
 func (o GetReleaseAssetOutput) BrowserDownloadUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v GetReleaseAsset) string { return v.BrowserDownloadUrl }).(pulumi.StringOutput)
 }
 
+// MIME type of the asset
 func (o GetReleaseAssetOutput) ContentType() pulumi.StringOutput {
 	return o.ApplyT(func(v GetReleaseAsset) string { return v.ContentType }).(pulumi.StringOutput)
 }
 
+// Date the asset was created
 func (o GetReleaseAssetOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v GetReleaseAsset) string { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
+// ID of the asset
 func (o GetReleaseAssetOutput) Id() pulumi.IntOutput {
 	return o.ApplyT(func(v GetReleaseAsset) int { return v.Id }).(pulumi.IntOutput)
 }
 
+// Label for the asset
 func (o GetReleaseAssetOutput) Label() pulumi.StringOutput {
 	return o.ApplyT(func(v GetReleaseAsset) string { return v.Label }).(pulumi.StringOutput)
 }
 
+// The file name of the asset
 func (o GetReleaseAssetOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetReleaseAsset) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Node ID of the asset
 func (o GetReleaseAssetOutput) NodeId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetReleaseAsset) string { return v.NodeId }).(pulumi.StringOutput)
 }
 
+// Size in byte
 func (o GetReleaseAssetOutput) Size() pulumi.IntOutput {
 	return o.ApplyT(func(v GetReleaseAsset) int { return v.Size }).(pulumi.IntOutput)
 }
 
+// Date the asset was last updated
 func (o GetReleaseAssetOutput) UpdatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v GetReleaseAsset) string { return v.UpdatedAt }).(pulumi.StringOutput)
 }
 
+// URL of the asset
 func (o GetReleaseAssetOutput) Url() pulumi.StringOutput {
 	return o.ApplyT(func(v GetReleaseAsset) string { return v.Url }).(pulumi.StringOutput)
 }
@@ -3923,8 +5252,10 @@ func (o GetReleaseAssetArrayOutput) Index(i pulumi.IntInput) GetReleaseAssetOutp
 }
 
 type GetRepositoryBranchesBranch struct {
-	Name      string `pulumi:"name"`
-	Protected bool   `pulumi:"protected"`
+	// Name of the branch.
+	Name string `pulumi:"name"`
+	// Whether the branch is protected.
+	Protected bool `pulumi:"protected"`
 }
 
 // GetRepositoryBranchesBranchInput is an input type that accepts GetRepositoryBranchesBranchArgs and GetRepositoryBranchesBranchOutput values.
@@ -3939,8 +5270,10 @@ type GetRepositoryBranchesBranchInput interface {
 }
 
 type GetRepositoryBranchesBranchArgs struct {
-	Name      pulumi.StringInput `pulumi:"name"`
-	Protected pulumi.BoolInput   `pulumi:"protected"`
+	// Name of the branch.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Whether the branch is protected.
+	Protected pulumi.BoolInput `pulumi:"protected"`
 }
 
 func (GetRepositoryBranchesBranchArgs) ElementType() reflect.Type {
@@ -3994,10 +5327,12 @@ func (o GetRepositoryBranchesBranchOutput) ToGetRepositoryBranchesBranchOutputWi
 	return o
 }
 
+// Name of the branch.
 func (o GetRepositoryBranchesBranchOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRepositoryBranchesBranch) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Whether the branch is protected.
 func (o GetRepositoryBranchesBranchOutput) Protected() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetRepositoryBranchesBranch) bool { return v.Protected }).(pulumi.BoolOutput)
 }
@@ -4023,10 +5358,14 @@ func (o GetRepositoryBranchesBranchArrayOutput) Index(i pulumi.IntInput) GetRepo
 }
 
 type GetRepositoryDeployKeysKey struct {
-	Id       int    `pulumi:"id"`
-	Key      string `pulumi:"key"`
-	Title    string `pulumi:"title"`
-	Verified bool   `pulumi:"verified"`
+	// Key id
+	Id int `pulumi:"id"`
+	// Key itself
+	Key string `pulumi:"key"`
+	// Key title
+	Title string `pulumi:"title"`
+	// `true` if the key was verified.
+	Verified bool `pulumi:"verified"`
 }
 
 // GetRepositoryDeployKeysKeyInput is an input type that accepts GetRepositoryDeployKeysKeyArgs and GetRepositoryDeployKeysKeyOutput values.
@@ -4041,10 +5380,14 @@ type GetRepositoryDeployKeysKeyInput interface {
 }
 
 type GetRepositoryDeployKeysKeyArgs struct {
-	Id       pulumi.IntInput    `pulumi:"id"`
-	Key      pulumi.StringInput `pulumi:"key"`
-	Title    pulumi.StringInput `pulumi:"title"`
-	Verified pulumi.BoolInput   `pulumi:"verified"`
+	// Key id
+	Id pulumi.IntInput `pulumi:"id"`
+	// Key itself
+	Key pulumi.StringInput `pulumi:"key"`
+	// Key title
+	Title pulumi.StringInput `pulumi:"title"`
+	// `true` if the key was verified.
+	Verified pulumi.BoolInput `pulumi:"verified"`
 }
 
 func (GetRepositoryDeployKeysKeyArgs) ElementType() reflect.Type {
@@ -4098,18 +5441,22 @@ func (o GetRepositoryDeployKeysKeyOutput) ToGetRepositoryDeployKeysKeyOutputWith
 	return o
 }
 
+// Key id
 func (o GetRepositoryDeployKeysKeyOutput) Id() pulumi.IntOutput {
 	return o.ApplyT(func(v GetRepositoryDeployKeysKey) int { return v.Id }).(pulumi.IntOutput)
 }
 
+// Key itself
 func (o GetRepositoryDeployKeysKeyOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRepositoryDeployKeysKey) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// Key title
 func (o GetRepositoryDeployKeysKeyOutput) Title() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRepositoryDeployKeysKey) string { return v.Title }).(pulumi.StringOutput)
 }
 
+// `true` if the key was verified.
 func (o GetRepositoryDeployKeysKeyOutput) Verified() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetRepositoryDeployKeysKey) bool { return v.Verified }).(pulumi.BoolOutput)
 }
@@ -4135,12 +5482,13 @@ func (o GetRepositoryDeployKeysKeyArrayOutput) Index(i pulumi.IntInput) GetRepos
 }
 
 type GetRepositoryPage struct {
-	Cname     string                    `pulumi:"cname"`
-	Custom404 bool                      `pulumi:"custom404"`
-	HtmlUrl   string                    `pulumi:"htmlUrl"`
-	Sources   []GetRepositoryPageSource `pulumi:"sources"`
-	Status    string                    `pulumi:"status"`
-	Url       string                    `pulumi:"url"`
+	Cname     string `pulumi:"cname"`
+	Custom404 bool   `pulumi:"custom404"`
+	// URL to the repository on the web.
+	HtmlUrl string                    `pulumi:"htmlUrl"`
+	Sources []GetRepositoryPageSource `pulumi:"sources"`
+	Status  string                    `pulumi:"status"`
+	Url     string                    `pulumi:"url"`
 }
 
 // GetRepositoryPageInput is an input type that accepts GetRepositoryPageArgs and GetRepositoryPageOutput values.
@@ -4155,12 +5503,13 @@ type GetRepositoryPageInput interface {
 }
 
 type GetRepositoryPageArgs struct {
-	Cname     pulumi.StringInput                `pulumi:"cname"`
-	Custom404 pulumi.BoolInput                  `pulumi:"custom404"`
-	HtmlUrl   pulumi.StringInput                `pulumi:"htmlUrl"`
-	Sources   GetRepositoryPageSourceArrayInput `pulumi:"sources"`
-	Status    pulumi.StringInput                `pulumi:"status"`
-	Url       pulumi.StringInput                `pulumi:"url"`
+	Cname     pulumi.StringInput `pulumi:"cname"`
+	Custom404 pulumi.BoolInput   `pulumi:"custom404"`
+	// URL to the repository on the web.
+	HtmlUrl pulumi.StringInput                `pulumi:"htmlUrl"`
+	Sources GetRepositoryPageSourceArrayInput `pulumi:"sources"`
+	Status  pulumi.StringInput                `pulumi:"status"`
+	Url     pulumi.StringInput                `pulumi:"url"`
 }
 
 func (GetRepositoryPageArgs) ElementType() reflect.Type {
@@ -4222,6 +5571,7 @@ func (o GetRepositoryPageOutput) Custom404() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetRepositoryPage) bool { return v.Custom404 }).(pulumi.BoolOutput)
 }
 
+// URL to the repository on the web.
 func (o GetRepositoryPageOutput) HtmlUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRepositoryPage) string { return v.HtmlUrl }).(pulumi.StringOutput)
 }
@@ -4359,22 +5709,38 @@ func (o GetRepositoryPageSourceArrayOutput) Index(i pulumi.IntInput) GetReposito
 }
 
 type GetRepositoryPullRequestsResult struct {
-	BaseRef             string   `pulumi:"baseRef"`
-	BaseSha             string   `pulumi:"baseSha"`
-	Body                string   `pulumi:"body"`
-	Draft               bool     `pulumi:"draft"`
-	HeadOwner           string   `pulumi:"headOwner"`
-	HeadRef             string   `pulumi:"headRef"`
-	HeadRepository      string   `pulumi:"headRepository"`
-	HeadSha             string   `pulumi:"headSha"`
-	Labels              []string `pulumi:"labels"`
-	MaintainerCanModify bool     `pulumi:"maintainerCanModify"`
-	Number              int      `pulumi:"number"`
-	OpenedAt            int      `pulumi:"openedAt"`
-	OpenedBy            string   `pulumi:"openedBy"`
-	State               string   `pulumi:"state"`
-	Title               string   `pulumi:"title"`
-	UpdatedAt           int      `pulumi:"updatedAt"`
+	// If set, filters Pull Requests by base branch name.
+	BaseRef string `pulumi:"baseRef"`
+	// Head commit SHA of the Pull Request base.
+	BaseSha string `pulumi:"baseSha"`
+	// Body of the Pull Request.
+	Body string `pulumi:"body"`
+	// Indicates Whether this Pull Request is a draft.
+	Draft bool `pulumi:"draft"`
+	// Owner of the Pull Request head repository.
+	HeadOwner string `pulumi:"headOwner"`
+	// If set, filters Pull Requests by head user or head organization and branch name in the format of "user:ref-name" or "organization:ref-name". For example: "github:new-script-format" or "octocat:test-branch".
+	HeadRef string `pulumi:"headRef"`
+	// Name of the Pull Request head repository.
+	HeadRepository string `pulumi:"headRepository"`
+	// Head commit SHA of the Pull Request head.
+	HeadSha string `pulumi:"headSha"`
+	// List of label names set on the Pull Request.
+	Labels []string `pulumi:"labels"`
+	// Indicates whether the base repository maintainers can modify the Pull Request.
+	MaintainerCanModify bool `pulumi:"maintainerCanModify"`
+	// The number of the Pull Request within the repository.
+	Number int `pulumi:"number"`
+	// Unix timestamp indicating the Pull Request creation time.
+	OpenedAt int `pulumi:"openedAt"`
+	// GitHub login of the user who opened the Pull Request.
+	OpenedBy string `pulumi:"openedBy"`
+	// If set, filters Pull Requests by state. Can be "open", "closed", or "all". Default: "open".
+	State string `pulumi:"state"`
+	// The title of the Pull Request.
+	Title string `pulumi:"title"`
+	// The timestamp of the last Pull Request update.
+	UpdatedAt int `pulumi:"updatedAt"`
 }
 
 // GetRepositoryPullRequestsResultInput is an input type that accepts GetRepositoryPullRequestsResultArgs and GetRepositoryPullRequestsResultOutput values.
@@ -4389,22 +5755,38 @@ type GetRepositoryPullRequestsResultInput interface {
 }
 
 type GetRepositoryPullRequestsResultArgs struct {
-	BaseRef             pulumi.StringInput      `pulumi:"baseRef"`
-	BaseSha             pulumi.StringInput      `pulumi:"baseSha"`
-	Body                pulumi.StringInput      `pulumi:"body"`
-	Draft               pulumi.BoolInput        `pulumi:"draft"`
-	HeadOwner           pulumi.StringInput      `pulumi:"headOwner"`
-	HeadRef             pulumi.StringInput      `pulumi:"headRef"`
-	HeadRepository      pulumi.StringInput      `pulumi:"headRepository"`
-	HeadSha             pulumi.StringInput      `pulumi:"headSha"`
-	Labels              pulumi.StringArrayInput `pulumi:"labels"`
-	MaintainerCanModify pulumi.BoolInput        `pulumi:"maintainerCanModify"`
-	Number              pulumi.IntInput         `pulumi:"number"`
-	OpenedAt            pulumi.IntInput         `pulumi:"openedAt"`
-	OpenedBy            pulumi.StringInput      `pulumi:"openedBy"`
-	State               pulumi.StringInput      `pulumi:"state"`
-	Title               pulumi.StringInput      `pulumi:"title"`
-	UpdatedAt           pulumi.IntInput         `pulumi:"updatedAt"`
+	// If set, filters Pull Requests by base branch name.
+	BaseRef pulumi.StringInput `pulumi:"baseRef"`
+	// Head commit SHA of the Pull Request base.
+	BaseSha pulumi.StringInput `pulumi:"baseSha"`
+	// Body of the Pull Request.
+	Body pulumi.StringInput `pulumi:"body"`
+	// Indicates Whether this Pull Request is a draft.
+	Draft pulumi.BoolInput `pulumi:"draft"`
+	// Owner of the Pull Request head repository.
+	HeadOwner pulumi.StringInput `pulumi:"headOwner"`
+	// If set, filters Pull Requests by head user or head organization and branch name in the format of "user:ref-name" or "organization:ref-name". For example: "github:new-script-format" or "octocat:test-branch".
+	HeadRef pulumi.StringInput `pulumi:"headRef"`
+	// Name of the Pull Request head repository.
+	HeadRepository pulumi.StringInput `pulumi:"headRepository"`
+	// Head commit SHA of the Pull Request head.
+	HeadSha pulumi.StringInput `pulumi:"headSha"`
+	// List of label names set on the Pull Request.
+	Labels pulumi.StringArrayInput `pulumi:"labels"`
+	// Indicates whether the base repository maintainers can modify the Pull Request.
+	MaintainerCanModify pulumi.BoolInput `pulumi:"maintainerCanModify"`
+	// The number of the Pull Request within the repository.
+	Number pulumi.IntInput `pulumi:"number"`
+	// Unix timestamp indicating the Pull Request creation time.
+	OpenedAt pulumi.IntInput `pulumi:"openedAt"`
+	// GitHub login of the user who opened the Pull Request.
+	OpenedBy pulumi.StringInput `pulumi:"openedBy"`
+	// If set, filters Pull Requests by state. Can be "open", "closed", or "all". Default: "open".
+	State pulumi.StringInput `pulumi:"state"`
+	// The title of the Pull Request.
+	Title pulumi.StringInput `pulumi:"title"`
+	// The timestamp of the last Pull Request update.
+	UpdatedAt pulumi.IntInput `pulumi:"updatedAt"`
 }
 
 func (GetRepositoryPullRequestsResultArgs) ElementType() reflect.Type {
@@ -4458,66 +5840,82 @@ func (o GetRepositoryPullRequestsResultOutput) ToGetRepositoryPullRequestsResult
 	return o
 }
 
+// If set, filters Pull Requests by base branch name.
 func (o GetRepositoryPullRequestsResultOutput) BaseRef() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRepositoryPullRequestsResult) string { return v.BaseRef }).(pulumi.StringOutput)
 }
 
+// Head commit SHA of the Pull Request base.
 func (o GetRepositoryPullRequestsResultOutput) BaseSha() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRepositoryPullRequestsResult) string { return v.BaseSha }).(pulumi.StringOutput)
 }
 
+// Body of the Pull Request.
 func (o GetRepositoryPullRequestsResultOutput) Body() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRepositoryPullRequestsResult) string { return v.Body }).(pulumi.StringOutput)
 }
 
+// Indicates Whether this Pull Request is a draft.
 func (o GetRepositoryPullRequestsResultOutput) Draft() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetRepositoryPullRequestsResult) bool { return v.Draft }).(pulumi.BoolOutput)
 }
 
+// Owner of the Pull Request head repository.
 func (o GetRepositoryPullRequestsResultOutput) HeadOwner() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRepositoryPullRequestsResult) string { return v.HeadOwner }).(pulumi.StringOutput)
 }
 
+// If set, filters Pull Requests by head user or head organization and branch name in the format of "user:ref-name" or "organization:ref-name". For example: "github:new-script-format" or "octocat:test-branch".
 func (o GetRepositoryPullRequestsResultOutput) HeadRef() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRepositoryPullRequestsResult) string { return v.HeadRef }).(pulumi.StringOutput)
 }
 
+// Name of the Pull Request head repository.
 func (o GetRepositoryPullRequestsResultOutput) HeadRepository() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRepositoryPullRequestsResult) string { return v.HeadRepository }).(pulumi.StringOutput)
 }
 
+// Head commit SHA of the Pull Request head.
 func (o GetRepositoryPullRequestsResultOutput) HeadSha() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRepositoryPullRequestsResult) string { return v.HeadSha }).(pulumi.StringOutput)
 }
 
+// List of label names set on the Pull Request.
 func (o GetRepositoryPullRequestsResultOutput) Labels() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetRepositoryPullRequestsResult) []string { return v.Labels }).(pulumi.StringArrayOutput)
 }
 
+// Indicates whether the base repository maintainers can modify the Pull Request.
 func (o GetRepositoryPullRequestsResultOutput) MaintainerCanModify() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetRepositoryPullRequestsResult) bool { return v.MaintainerCanModify }).(pulumi.BoolOutput)
 }
 
+// The number of the Pull Request within the repository.
 func (o GetRepositoryPullRequestsResultOutput) Number() pulumi.IntOutput {
 	return o.ApplyT(func(v GetRepositoryPullRequestsResult) int { return v.Number }).(pulumi.IntOutput)
 }
 
+// Unix timestamp indicating the Pull Request creation time.
 func (o GetRepositoryPullRequestsResultOutput) OpenedAt() pulumi.IntOutput {
 	return o.ApplyT(func(v GetRepositoryPullRequestsResult) int { return v.OpenedAt }).(pulumi.IntOutput)
 }
 
+// GitHub login of the user who opened the Pull Request.
 func (o GetRepositoryPullRequestsResultOutput) OpenedBy() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRepositoryPullRequestsResult) string { return v.OpenedBy }).(pulumi.StringOutput)
 }
 
+// If set, filters Pull Requests by state. Can be "open", "closed", or "all". Default: "open".
 func (o GetRepositoryPullRequestsResultOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRepositoryPullRequestsResult) string { return v.State }).(pulumi.StringOutput)
 }
 
+// The title of the Pull Request.
 func (o GetRepositoryPullRequestsResultOutput) Title() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRepositoryPullRequestsResult) string { return v.Title }).(pulumi.StringOutput)
 }
 
+// The timestamp of the last Pull Request update.
 func (o GetRepositoryPullRequestsResultOutput) UpdatedAt() pulumi.IntOutput {
 	return o.ApplyT(func(v GetRepositoryPullRequestsResult) int { return v.UpdatedAt }).(pulumi.IntOutput)
 }
@@ -4543,9 +5941,12 @@ func (o GetRepositoryPullRequestsResultArrayOutput) Index(i pulumi.IntInput) Get
 }
 
 type GetRepositoryTeamsTeam struct {
-	Name       string `pulumi:"name"`
+	// The name of the repository.
+	Name string `pulumi:"name"`
+	// Team permission
 	Permission string `pulumi:"permission"`
-	Slug       string `pulumi:"slug"`
+	// Team slug
+	Slug string `pulumi:"slug"`
 }
 
 // GetRepositoryTeamsTeamInput is an input type that accepts GetRepositoryTeamsTeamArgs and GetRepositoryTeamsTeamOutput values.
@@ -4560,9 +5961,12 @@ type GetRepositoryTeamsTeamInput interface {
 }
 
 type GetRepositoryTeamsTeamArgs struct {
-	Name       pulumi.StringInput `pulumi:"name"`
+	// The name of the repository.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Team permission
 	Permission pulumi.StringInput `pulumi:"permission"`
-	Slug       pulumi.StringInput `pulumi:"slug"`
+	// Team slug
+	Slug pulumi.StringInput `pulumi:"slug"`
 }
 
 func (GetRepositoryTeamsTeamArgs) ElementType() reflect.Type {
@@ -4616,14 +6020,17 @@ func (o GetRepositoryTeamsTeamOutput) ToGetRepositoryTeamsTeamOutputWithContext(
 	return o
 }
 
+// The name of the repository.
 func (o GetRepositoryTeamsTeamOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRepositoryTeamsTeam) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Team permission
 func (o GetRepositoryTeamsTeamOutput) Permission() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRepositoryTeamsTeam) string { return v.Permission }).(pulumi.StringOutput)
 }
 
+// Team slug
 func (o GetRepositoryTeamsTeamOutput) Slug() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRepositoryTeamsTeam) string { return v.Slug }).(pulumi.StringOutput)
 }
@@ -4648,12 +6055,72 @@ func (o GetRepositoryTeamsTeamArrayOutput) Index(i pulumi.IntInput) GetRepositor
 	}).(GetRepositoryTeamsTeamOutput)
 }
 
+type GetRepositoryTemplate struct {
+	Owner      string `pulumi:"owner"`
+	Repository string `pulumi:"repository"`
+}
+
+// GetRepositoryTemplateInput is an input type that accepts GetRepositoryTemplateArgs and GetRepositoryTemplateOutput values.
+// You can construct a concrete instance of `GetRepositoryTemplateInput` via:
+//
+//	GetRepositoryTemplateArgs{...}
+type GetRepositoryTemplateInput interface {
+	pulumi.Input
+
+	ToGetRepositoryTemplateOutput() GetRepositoryTemplateOutput
+	ToGetRepositoryTemplateOutputWithContext(context.Context) GetRepositoryTemplateOutput
+}
+
+type GetRepositoryTemplateArgs struct {
+	Owner      pulumi.StringInput `pulumi:"owner"`
+	Repository pulumi.StringInput `pulumi:"repository"`
+}
+
+func (GetRepositoryTemplateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRepositoryTemplate)(nil)).Elem()
+}
+
+func (i GetRepositoryTemplateArgs) ToGetRepositoryTemplateOutput() GetRepositoryTemplateOutput {
+	return i.ToGetRepositoryTemplateOutputWithContext(context.Background())
+}
+
+func (i GetRepositoryTemplateArgs) ToGetRepositoryTemplateOutputWithContext(ctx context.Context) GetRepositoryTemplateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRepositoryTemplateOutput)
+}
+
+type GetRepositoryTemplateOutput struct{ *pulumi.OutputState }
+
+func (GetRepositoryTemplateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRepositoryTemplate)(nil)).Elem()
+}
+
+func (o GetRepositoryTemplateOutput) ToGetRepositoryTemplateOutput() GetRepositoryTemplateOutput {
+	return o
+}
+
+func (o GetRepositoryTemplateOutput) ToGetRepositoryTemplateOutputWithContext(ctx context.Context) GetRepositoryTemplateOutput {
+	return o
+}
+
+func (o GetRepositoryTemplateOutput) Owner() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRepositoryTemplate) string { return v.Owner }).(pulumi.StringOutput)
+}
+
+func (o GetRepositoryTemplateOutput) Repository() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRepositoryTemplate) string { return v.Repository }).(pulumi.StringOutput)
+}
+
 type GetRepositoryWebhooksWebhook struct {
-	Active bool   `pulumi:"active"`
-	Id     int    `pulumi:"id"`
-	Name   string `pulumi:"name"`
-	Type   string `pulumi:"type"`
-	Url    string `pulumi:"url"`
+	// `true` if the webhook is active.
+	Active bool `pulumi:"active"`
+	// the ID of the webhook.
+	Id int `pulumi:"id"`
+	// the name of the webhook.
+	Name string `pulumi:"name"`
+	// the type of the webhook.
+	Type string `pulumi:"type"`
+	// the url of the webhook.
+	Url string `pulumi:"url"`
 }
 
 // GetRepositoryWebhooksWebhookInput is an input type that accepts GetRepositoryWebhooksWebhookArgs and GetRepositoryWebhooksWebhookOutput values.
@@ -4668,11 +6135,16 @@ type GetRepositoryWebhooksWebhookInput interface {
 }
 
 type GetRepositoryWebhooksWebhookArgs struct {
-	Active pulumi.BoolInput   `pulumi:"active"`
-	Id     pulumi.IntInput    `pulumi:"id"`
-	Name   pulumi.StringInput `pulumi:"name"`
-	Type   pulumi.StringInput `pulumi:"type"`
-	Url    pulumi.StringInput `pulumi:"url"`
+	// `true` if the webhook is active.
+	Active pulumi.BoolInput `pulumi:"active"`
+	// the ID of the webhook.
+	Id pulumi.IntInput `pulumi:"id"`
+	// the name of the webhook.
+	Name pulumi.StringInput `pulumi:"name"`
+	// the type of the webhook.
+	Type pulumi.StringInput `pulumi:"type"`
+	// the url of the webhook.
+	Url pulumi.StringInput `pulumi:"url"`
 }
 
 func (GetRepositoryWebhooksWebhookArgs) ElementType() reflect.Type {
@@ -4726,22 +6198,27 @@ func (o GetRepositoryWebhooksWebhookOutput) ToGetRepositoryWebhooksWebhookOutput
 	return o
 }
 
+// `true` if the webhook is active.
 func (o GetRepositoryWebhooksWebhookOutput) Active() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetRepositoryWebhooksWebhook) bool { return v.Active }).(pulumi.BoolOutput)
 }
 
+// the ID of the webhook.
 func (o GetRepositoryWebhooksWebhookOutput) Id() pulumi.IntOutput {
 	return o.ApplyT(func(v GetRepositoryWebhooksWebhook) int { return v.Id }).(pulumi.IntOutput)
 }
 
+// the name of the webhook.
 func (o GetRepositoryWebhooksWebhookOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRepositoryWebhooksWebhook) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// the type of the webhook.
 func (o GetRepositoryWebhooksWebhookOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRepositoryWebhooksWebhook) string { return v.Type }).(pulumi.StringOutput)
 }
 
+// the url of the webhook.
 func (o GetRepositoryWebhooksWebhookOutput) Url() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRepositoryWebhooksWebhook) string { return v.Url }).(pulumi.StringOutput)
 }
@@ -4889,6 +6366,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionsOrganizationPermissionsAllowedActionsConfigPtrInput)(nil)).Elem(), ActionsOrganizationPermissionsAllowedActionsConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionsOrganizationPermissionsEnabledRepositoriesConfigInput)(nil)).Elem(), ActionsOrganizationPermissionsEnabledRepositoriesConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionsOrganizationPermissionsEnabledRepositoriesConfigPtrInput)(nil)).Elem(), ActionsOrganizationPermissionsEnabledRepositoriesConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ActionsRepositoryPermissionsAllowedActionsConfigInput)(nil)).Elem(), ActionsRepositoryPermissionsAllowedActionsConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ActionsRepositoryPermissionsAllowedActionsConfigPtrInput)(nil)).Elem(), ActionsRepositoryPermissionsAllowedActionsConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BranchProtectionRequiredPullRequestReviewInput)(nil)).Elem(), BranchProtectionRequiredPullRequestReviewArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BranchProtectionRequiredPullRequestReviewArrayInput)(nil)).Elem(), BranchProtectionRequiredPullRequestReviewArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BranchProtectionRequiredStatusCheckInput)(nil)).Elem(), BranchProtectionRequiredStatusCheckArgs{})
@@ -4911,12 +6390,22 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryPagesPtrInput)(nil)).Elem(), RepositoryPagesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryPagesSourceInput)(nil)).Elem(), RepositoryPagesSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryPagesSourcePtrInput)(nil)).Elem(), RepositoryPagesSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositorySecurityAndAnalysisInput)(nil)).Elem(), RepositorySecurityAndAnalysisArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositorySecurityAndAnalysisPtrInput)(nil)).Elem(), RepositorySecurityAndAnalysisArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositorySecurityAndAnalysisAdvancedSecurityInput)(nil)).Elem(), RepositorySecurityAndAnalysisAdvancedSecurityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositorySecurityAndAnalysisAdvancedSecurityPtrInput)(nil)).Elem(), RepositorySecurityAndAnalysisAdvancedSecurityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositorySecurityAndAnalysisSecretScanningInput)(nil)).Elem(), RepositorySecurityAndAnalysisSecretScanningArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositorySecurityAndAnalysisSecretScanningPtrInput)(nil)).Elem(), RepositorySecurityAndAnalysisSecretScanningArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositorySecurityAndAnalysisSecretScanningPushProtectionInput)(nil)).Elem(), RepositorySecurityAndAnalysisSecretScanningPushProtectionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositorySecurityAndAnalysisSecretScanningPushProtectionPtrInput)(nil)).Elem(), RepositorySecurityAndAnalysisSecretScanningPushProtectionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryTemplateInput)(nil)).Elem(), RepositoryTemplateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryTemplatePtrInput)(nil)).Elem(), RepositoryTemplateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryWebhookConfigurationInput)(nil)).Elem(), RepositoryWebhookConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryWebhookConfigurationPtrInput)(nil)).Elem(), RepositoryWebhookConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TeamMembersMemberInput)(nil)).Elem(), TeamMembersMemberArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TeamMembersMemberArrayInput)(nil)).Elem(), TeamMembersMemberArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TeamSettingsReviewRequestDelegationInput)(nil)).Elem(), TeamSettingsReviewRequestDelegationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TeamSettingsReviewRequestDelegationPtrInput)(nil)).Elem(), TeamSettingsReviewRequestDelegationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TeamSyncGroupMappingGroupInput)(nil)).Elem(), TeamSyncGroupMappingGroupArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TeamSyncGroupMappingGroupArrayInput)(nil)).Elem(), TeamSyncGroupMappingGroupArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetActionsOrganizationSecretsSecretInput)(nil)).Elem(), GetActionsOrganizationSecretsSecretArgs{})
@@ -4953,6 +6442,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRepositoryPullRequestsResultArrayInput)(nil)).Elem(), GetRepositoryPullRequestsResultArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRepositoryTeamsTeamInput)(nil)).Elem(), GetRepositoryTeamsTeamArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRepositoryTeamsTeamArrayInput)(nil)).Elem(), GetRepositoryTeamsTeamArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRepositoryTemplateInput)(nil)).Elem(), GetRepositoryTemplateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRepositoryWebhooksWebhookInput)(nil)).Elem(), GetRepositoryWebhooksWebhookArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRepositoryWebhooksWebhookArrayInput)(nil)).Elem(), GetRepositoryWebhooksWebhookArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTreeEntryInput)(nil)).Elem(), GetTreeEntryArgs{})
@@ -4961,6 +6451,8 @@ func init() {
 	pulumi.RegisterOutputType(ActionsOrganizationPermissionsAllowedActionsConfigPtrOutput{})
 	pulumi.RegisterOutputType(ActionsOrganizationPermissionsEnabledRepositoriesConfigOutput{})
 	pulumi.RegisterOutputType(ActionsOrganizationPermissionsEnabledRepositoriesConfigPtrOutput{})
+	pulumi.RegisterOutputType(ActionsRepositoryPermissionsAllowedActionsConfigOutput{})
+	pulumi.RegisterOutputType(ActionsRepositoryPermissionsAllowedActionsConfigPtrOutput{})
 	pulumi.RegisterOutputType(BranchProtectionRequiredPullRequestReviewOutput{})
 	pulumi.RegisterOutputType(BranchProtectionRequiredPullRequestReviewArrayOutput{})
 	pulumi.RegisterOutputType(BranchProtectionRequiredStatusCheckOutput{})
@@ -4983,12 +6475,22 @@ func init() {
 	pulumi.RegisterOutputType(RepositoryPagesPtrOutput{})
 	pulumi.RegisterOutputType(RepositoryPagesSourceOutput{})
 	pulumi.RegisterOutputType(RepositoryPagesSourcePtrOutput{})
+	pulumi.RegisterOutputType(RepositorySecurityAndAnalysisOutput{})
+	pulumi.RegisterOutputType(RepositorySecurityAndAnalysisPtrOutput{})
+	pulumi.RegisterOutputType(RepositorySecurityAndAnalysisAdvancedSecurityOutput{})
+	pulumi.RegisterOutputType(RepositorySecurityAndAnalysisAdvancedSecurityPtrOutput{})
+	pulumi.RegisterOutputType(RepositorySecurityAndAnalysisSecretScanningOutput{})
+	pulumi.RegisterOutputType(RepositorySecurityAndAnalysisSecretScanningPtrOutput{})
+	pulumi.RegisterOutputType(RepositorySecurityAndAnalysisSecretScanningPushProtectionOutput{})
+	pulumi.RegisterOutputType(RepositorySecurityAndAnalysisSecretScanningPushProtectionPtrOutput{})
 	pulumi.RegisterOutputType(RepositoryTemplateOutput{})
 	pulumi.RegisterOutputType(RepositoryTemplatePtrOutput{})
 	pulumi.RegisterOutputType(RepositoryWebhookConfigurationOutput{})
 	pulumi.RegisterOutputType(RepositoryWebhookConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(TeamMembersMemberOutput{})
 	pulumi.RegisterOutputType(TeamMembersMemberArrayOutput{})
+	pulumi.RegisterOutputType(TeamSettingsReviewRequestDelegationOutput{})
+	pulumi.RegisterOutputType(TeamSettingsReviewRequestDelegationPtrOutput{})
 	pulumi.RegisterOutputType(TeamSyncGroupMappingGroupOutput{})
 	pulumi.RegisterOutputType(TeamSyncGroupMappingGroupArrayOutput{})
 	pulumi.RegisterOutputType(GetActionsOrganizationSecretsSecretOutput{})
@@ -5025,6 +6527,7 @@ func init() {
 	pulumi.RegisterOutputType(GetRepositoryPullRequestsResultArrayOutput{})
 	pulumi.RegisterOutputType(GetRepositoryTeamsTeamOutput{})
 	pulumi.RegisterOutputType(GetRepositoryTeamsTeamArrayOutput{})
+	pulumi.RegisterOutputType(GetRepositoryTemplateOutput{})
 	pulumi.RegisterOutputType(GetRepositoryWebhooksWebhookOutput{})
 	pulumi.RegisterOutputType(GetRepositoryWebhooksWebhookArrayOutput{})
 	pulumi.RegisterOutputType(GetTreeEntryOutput{})

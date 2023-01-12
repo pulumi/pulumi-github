@@ -18,6 +18,8 @@ class RepositoryTagProtectionArgs:
                  repository: pulumi.Input[str]):
         """
         The set of arguments for constructing a RepositoryTagProtection resource.
+        :param pulumi.Input[str] pattern: The pattern of the tag to protect.
+        :param pulumi.Input[str] repository: Name of the repository to add the tag protection to.
         """
         pulumi.set(__self__, "pattern", pattern)
         pulumi.set(__self__, "repository", repository)
@@ -25,6 +27,9 @@ class RepositoryTagProtectionArgs:
     @property
     @pulumi.getter
     def pattern(self) -> pulumi.Input[str]:
+        """
+        The pattern of the tag to protect.
+        """
         return pulumi.get(self, "pattern")
 
     @pattern.setter
@@ -34,6 +39,9 @@ class RepositoryTagProtectionArgs:
     @property
     @pulumi.getter
     def repository(self) -> pulumi.Input[str]:
+        """
+        Name of the repository to add the tag protection to.
+        """
         return pulumi.get(self, "repository")
 
     @repository.setter
@@ -49,6 +57,8 @@ class _RepositoryTagProtectionState:
                  tag_protection_id: Optional[pulumi.Input[int]] = None):
         """
         Input properties used for looking up and filtering RepositoryTagProtection resources.
+        :param pulumi.Input[str] pattern: The pattern of the tag to protect.
+        :param pulumi.Input[str] repository: Name of the repository to add the tag protection to.
         """
         if pattern is not None:
             pulumi.set(__self__, "pattern", pattern)
@@ -60,6 +70,9 @@ class _RepositoryTagProtectionState:
     @property
     @pulumi.getter
     def pattern(self) -> Optional[pulumi.Input[str]]:
+        """
+        The pattern of the tag to protect.
+        """
         return pulumi.get(self, "pattern")
 
     @pattern.setter
@@ -69,6 +82,9 @@ class _RepositoryTagProtectionState:
     @property
     @pulumi.getter
     def repository(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the repository to add the tag protection to.
+        """
         return pulumi.get(self, "repository")
 
     @repository.setter
@@ -94,9 +110,31 @@ class RepositoryTagProtection(pulumi.CustomResource):
                  repository: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a RepositoryTagProtection resource with the given unique name, props, and options.
+        This resource allows you to create and manage a repository tag protection for repositories within your GitHub organization or personal account.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        example = github.RepositoryTagProtection("example",
+            pattern="v*",
+            repository="example-repository")
+        ```
+
+        ## Import
+
+        Repository tag protections can be imported using the `name` of the repository, combined with the `id` of the tag protection, separated by a `/` character. The `id` of the tag protection can be found using the [GitHub API](https://docs.github.com/en/rest/repos/tags#list-tag-protection-states-for-a-repository). Importing uses the name of the repository, as well as the ID of the tag protection, e.g.
+
+        ```sh
+         $ pulumi import github:index/repositoryTagProtection:RepositoryTagProtection terraform my-repo/31077
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] pattern: The pattern of the tag to protect.
+        :param pulumi.Input[str] repository: Name of the repository to add the tag protection to.
         """
         ...
     @overload
@@ -105,7 +143,27 @@ class RepositoryTagProtection(pulumi.CustomResource):
                  args: RepositoryTagProtectionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a RepositoryTagProtection resource with the given unique name, props, and options.
+        This resource allows you to create and manage a repository tag protection for repositories within your GitHub organization or personal account.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        example = github.RepositoryTagProtection("example",
+            pattern="v*",
+            repository="example-repository")
+        ```
+
+        ## Import
+
+        Repository tag protections can be imported using the `name` of the repository, combined with the `id` of the tag protection, separated by a `/` character. The `id` of the tag protection can be found using the [GitHub API](https://docs.github.com/en/rest/repos/tags#list-tag-protection-states-for-a-repository). Importing uses the name of the repository, as well as the ID of the tag protection, e.g.
+
+        ```sh
+         $ pulumi import github:index/repositoryTagProtection:RepositoryTagProtection terraform my-repo/31077
+        ```
+
         :param str resource_name: The name of the resource.
         :param RepositoryTagProtectionArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -159,6 +217,8 @@ class RepositoryTagProtection(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] pattern: The pattern of the tag to protect.
+        :param pulumi.Input[str] repository: Name of the repository to add the tag protection to.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -172,11 +232,17 @@ class RepositoryTagProtection(pulumi.CustomResource):
     @property
     @pulumi.getter
     def pattern(self) -> pulumi.Output[str]:
+        """
+        The pattern of the tag to protect.
+        """
         return pulumi.get(self, "pattern")
 
     @property
     @pulumi.getter
     def repository(self) -> pulumi.Output[str]:
+        """
+        Name of the repository to add the tag protection to.
+        """
         return pulumi.get(self, "repository")
 
     @property

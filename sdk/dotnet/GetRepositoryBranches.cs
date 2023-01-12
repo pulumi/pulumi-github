@@ -11,9 +11,57 @@ namespace Pulumi.Github
 {
     public static class GetRepositoryBranches
     {
+        /// <summary>
+        /// Use this data source to retrieve information about branches in a repository.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Github = Pulumi.Github;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Github.GetRepositoryBranches.Invoke(new()
+        ///     {
+        ///         Repository = "example-repository",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetRepositoryBranchesResult> InvokeAsync(GetRepositoryBranchesArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRepositoryBranchesResult>("github:index/getRepositoryBranches:getRepositoryBranches", args ?? new GetRepositoryBranchesArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Use this data source to retrieve information about branches in a repository.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Github = Pulumi.Github;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Github.GetRepositoryBranches.Invoke(new()
+        ///     {
+        ///         Repository = "example-repository",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Output<GetRepositoryBranchesResult> Invoke(GetRepositoryBranchesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRepositoryBranchesResult>("github:index/getRepositoryBranches:getRepositoryBranches", args ?? new GetRepositoryBranchesInvokeArgs(), options.WithDefaults());
     }
@@ -21,12 +69,21 @@ namespace Pulumi.Github
 
     public sealed class GetRepositoryBranchesArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// . If true, the `branches` attributes will be populated only with non protected branches. Default: `false`.
+        /// </summary>
         [Input("onlyNonProtectedBranches")]
         public bool? OnlyNonProtectedBranches { get; set; }
 
+        /// <summary>
+        /// . If true, the `branches` attributes will be populated only with protected branches. Default: `false`.
+        /// </summary>
         [Input("onlyProtectedBranches")]
         public bool? OnlyProtectedBranches { get; set; }
 
+        /// <summary>
+        /// Name of the repository to retrieve the branches from.
+        /// </summary>
         [Input("repository", required: true)]
         public string Repository { get; set; } = null!;
 
@@ -38,12 +95,21 @@ namespace Pulumi.Github
 
     public sealed class GetRepositoryBranchesInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// . If true, the `branches` attributes will be populated only with non protected branches. Default: `false`.
+        /// </summary>
         [Input("onlyNonProtectedBranches")]
         public Input<bool>? OnlyNonProtectedBranches { get; set; }
 
+        /// <summary>
+        /// . If true, the `branches` attributes will be populated only with protected branches. Default: `false`.
+        /// </summary>
         [Input("onlyProtectedBranches")]
         public Input<bool>? OnlyProtectedBranches { get; set; }
 
+        /// <summary>
+        /// Name of the repository to retrieve the branches from.
+        /// </summary>
         [Input("repository", required: true)]
         public Input<string> Repository { get; set; } = null!;
 
@@ -57,6 +123,9 @@ namespace Pulumi.Github
     [OutputType]
     public sealed class GetRepositoryBranchesResult
     {
+        /// <summary>
+        /// The list of this repository's branches. Each element of `branches` has the following attributes:
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetRepositoryBranchesBranchResult> Branches;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.

@@ -13,8 +13,17 @@ namespace Pulumi.Github.Outputs
     [OutputType]
     public sealed class GetRepositoryTeamsTeamResult
     {
+        /// <summary>
+        /// The name of the repository.
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Team permission
+        /// </summary>
         public readonly string Permission;
+        /// <summary>
+        /// Team slug
+        /// </summary>
         public readonly string Slug;
 
         [OutputConstructor]

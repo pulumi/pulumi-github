@@ -17,14 +17,16 @@ public final class RepositoryFileState extends com.pulumi.resources.ResourceArgs
     public static final RepositoryFileState Empty = new RepositoryFileState();
 
     /**
-     * The branch name, defaults to &#34;main&#34;
+     * Git branch (defaults to `main`).
+     * The branch must already exist, it will not be created if it does not already exist.
      * 
      */
     @Import(name="branch")
     private @Nullable Output<String> branch;
 
     /**
-     * @return The branch name, defaults to &#34;main&#34;
+     * @return Git branch (defaults to `main`).
+     * The branch must already exist, it will not be created if it does not already exist.
      * 
      */
     public Optional<Output<String>> branch() {
@@ -32,16 +34,14 @@ public final class RepositoryFileState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The commit author name, defaults to the authenticated user&#39;s name. GitHub app users may omit author and email
-     * information so GitHub can verify commits as the GitHub App.
+     * Committer author name to use. **NOTE:** GitHub app users may omit author and email information so GitHub can verify commits as the GitHub App. This maybe useful when a branch protection rule requires signed commits.
      * 
      */
     @Import(name="commitAuthor")
     private @Nullable Output<String> commitAuthor;
 
     /**
-     * @return The commit author name, defaults to the authenticated user&#39;s name. GitHub app users may omit author and email
-     * information so GitHub can verify commits as the GitHub App.
+     * @return Committer author name to use. **NOTE:** GitHub app users may omit author and email information so GitHub can verify commits as the GitHub App. This maybe useful when a branch protection rule requires signed commits.
      * 
      */
     public Optional<Output<String>> commitAuthor() {
@@ -49,16 +49,14 @@ public final class RepositoryFileState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The commit author email address, defaults to the authenticated user&#39;s email address. GitHub app users may omit author
-     * and email information so GitHub can verify commits as the GitHub App.
+     * Committer email address to use. **NOTE:** GitHub app users may omit author and email information so GitHub can verify commits as the GitHub App. This may be useful when a branch protection rule requires signed commits.
      * 
      */
     @Import(name="commitEmail")
     private @Nullable Output<String> commitEmail;
 
     /**
-     * @return The commit author email address, defaults to the authenticated user&#39;s email address. GitHub app users may omit author
-     * and email information so GitHub can verify commits as the GitHub App.
+     * @return Committer email address to use. **NOTE:** GitHub app users may omit author and email information so GitHub can verify commits as the GitHub App. This may be useful when a branch protection rule requires signed commits.
      * 
      */
     public Optional<Output<String>> commitEmail() {
@@ -66,14 +64,14 @@ public final class RepositoryFileState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The commit message when creating or updating the file
+     * Commit message when adding or updating the managed file.
      * 
      */
     @Import(name="commitMessage")
     private @Nullable Output<String> commitMessage;
 
     /**
-     * @return The commit message when creating or updating the file
+     * @return Commit message when adding or updating the managed file.
      * 
      */
     public Optional<Output<String>> commitMessage() {
@@ -81,14 +79,14 @@ public final class RepositoryFileState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The SHA of the commit that modified the file
+     * The SHA of the commit that modified the file.
      * 
      */
     @Import(name="commitSha")
     private @Nullable Output<String> commitSha;
 
     /**
-     * @return The SHA of the commit that modified the file
+     * @return The SHA of the commit that modified the file.
      * 
      */
     public Optional<Output<String>> commitSha() {
@@ -96,14 +94,14 @@ public final class RepositoryFileState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The file&#39;s content
+     * The file content.
      * 
      */
     @Import(name="content")
     private @Nullable Output<String> content;
 
     /**
-     * @return The file&#39;s content
+     * @return The file content.
      * 
      */
     public Optional<Output<String>> content() {
@@ -111,14 +109,14 @@ public final class RepositoryFileState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The file path to manage
+     * The path of the file to manage.
      * 
      */
     @Import(name="file")
     private @Nullable Output<String> file;
 
     /**
-     * @return The file path to manage
+     * @return The path of the file to manage.
      * 
      */
     public Optional<Output<String>> file() {
@@ -126,14 +124,14 @@ public final class RepositoryFileState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Enable overwriting existing files, defaults to &#34;false&#34;
+     * Enable overwriting existing files
      * 
      */
     @Import(name="overwriteOnCreate")
     private @Nullable Output<Boolean> overwriteOnCreate;
 
     /**
-     * @return Enable overwriting existing files, defaults to &#34;false&#34;
+     * @return Enable overwriting existing files
      * 
      */
     public Optional<Output<Boolean>> overwriteOnCreate() {
@@ -141,14 +139,14 @@ public final class RepositoryFileState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The repository name
+     * The repository to create the file in.
      * 
      */
     @Import(name="repository")
     private @Nullable Output<String> repository;
 
     /**
-     * @return The repository name
+     * @return The repository to create the file in.
      * 
      */
     public Optional<Output<String>> repository() {
@@ -156,14 +154,14 @@ public final class RepositoryFileState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The blob SHA of the file
+     * The SHA blob of the file.
      * 
      */
     @Import(name="sha")
     private @Nullable Output<String> sha;
 
     /**
-     * @return The blob SHA of the file
+     * @return The SHA blob of the file.
      * 
      */
     public Optional<Output<String>> sha() {
@@ -204,7 +202,8 @@ public final class RepositoryFileState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param branch The branch name, defaults to &#34;main&#34;
+         * @param branch Git branch (defaults to `main`).
+         * The branch must already exist, it will not be created if it does not already exist.
          * 
          * @return builder
          * 
@@ -215,7 +214,8 @@ public final class RepositoryFileState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param branch The branch name, defaults to &#34;main&#34;
+         * @param branch Git branch (defaults to `main`).
+         * The branch must already exist, it will not be created if it does not already exist.
          * 
          * @return builder
          * 
@@ -225,8 +225,7 @@ public final class RepositoryFileState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param commitAuthor The commit author name, defaults to the authenticated user&#39;s name. GitHub app users may omit author and email
-         * information so GitHub can verify commits as the GitHub App.
+         * @param commitAuthor Committer author name to use. **NOTE:** GitHub app users may omit author and email information so GitHub can verify commits as the GitHub App. This maybe useful when a branch protection rule requires signed commits.
          * 
          * @return builder
          * 
@@ -237,8 +236,7 @@ public final class RepositoryFileState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param commitAuthor The commit author name, defaults to the authenticated user&#39;s name. GitHub app users may omit author and email
-         * information so GitHub can verify commits as the GitHub App.
+         * @param commitAuthor Committer author name to use. **NOTE:** GitHub app users may omit author and email information so GitHub can verify commits as the GitHub App. This maybe useful when a branch protection rule requires signed commits.
          * 
          * @return builder
          * 
@@ -248,8 +246,7 @@ public final class RepositoryFileState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param commitEmail The commit author email address, defaults to the authenticated user&#39;s email address. GitHub app users may omit author
-         * and email information so GitHub can verify commits as the GitHub App.
+         * @param commitEmail Committer email address to use. **NOTE:** GitHub app users may omit author and email information so GitHub can verify commits as the GitHub App. This may be useful when a branch protection rule requires signed commits.
          * 
          * @return builder
          * 
@@ -260,8 +257,7 @@ public final class RepositoryFileState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param commitEmail The commit author email address, defaults to the authenticated user&#39;s email address. GitHub app users may omit author
-         * and email information so GitHub can verify commits as the GitHub App.
+         * @param commitEmail Committer email address to use. **NOTE:** GitHub app users may omit author and email information so GitHub can verify commits as the GitHub App. This may be useful when a branch protection rule requires signed commits.
          * 
          * @return builder
          * 
@@ -271,7 +267,7 @@ public final class RepositoryFileState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param commitMessage The commit message when creating or updating the file
+         * @param commitMessage Commit message when adding or updating the managed file.
          * 
          * @return builder
          * 
@@ -282,7 +278,7 @@ public final class RepositoryFileState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param commitMessage The commit message when creating or updating the file
+         * @param commitMessage Commit message when adding or updating the managed file.
          * 
          * @return builder
          * 
@@ -292,7 +288,7 @@ public final class RepositoryFileState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param commitSha The SHA of the commit that modified the file
+         * @param commitSha The SHA of the commit that modified the file.
          * 
          * @return builder
          * 
@@ -303,7 +299,7 @@ public final class RepositoryFileState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param commitSha The SHA of the commit that modified the file
+         * @param commitSha The SHA of the commit that modified the file.
          * 
          * @return builder
          * 
@@ -313,7 +309,7 @@ public final class RepositoryFileState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param content The file&#39;s content
+         * @param content The file content.
          * 
          * @return builder
          * 
@@ -324,7 +320,7 @@ public final class RepositoryFileState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param content The file&#39;s content
+         * @param content The file content.
          * 
          * @return builder
          * 
@@ -334,7 +330,7 @@ public final class RepositoryFileState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param file The file path to manage
+         * @param file The path of the file to manage.
          * 
          * @return builder
          * 
@@ -345,7 +341,7 @@ public final class RepositoryFileState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param file The file path to manage
+         * @param file The path of the file to manage.
          * 
          * @return builder
          * 
@@ -355,7 +351,7 @@ public final class RepositoryFileState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param overwriteOnCreate Enable overwriting existing files, defaults to &#34;false&#34;
+         * @param overwriteOnCreate Enable overwriting existing files
          * 
          * @return builder
          * 
@@ -366,7 +362,7 @@ public final class RepositoryFileState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param overwriteOnCreate Enable overwriting existing files, defaults to &#34;false&#34;
+         * @param overwriteOnCreate Enable overwriting existing files
          * 
          * @return builder
          * 
@@ -376,7 +372,7 @@ public final class RepositoryFileState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param repository The repository name
+         * @param repository The repository to create the file in.
          * 
          * @return builder
          * 
@@ -387,7 +383,7 @@ public final class RepositoryFileState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param repository The repository name
+         * @param repository The repository to create the file in.
          * 
          * @return builder
          * 
@@ -397,7 +393,7 @@ public final class RepositoryFileState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param sha The blob SHA of the file
+         * @param sha The SHA blob of the file.
          * 
          * @return builder
          * 
@@ -408,7 +404,7 @@ public final class RepositoryFileState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param sha The blob SHA of the file
+         * @param sha The SHA blob of the file.
          * 
          * @return builder
          * 

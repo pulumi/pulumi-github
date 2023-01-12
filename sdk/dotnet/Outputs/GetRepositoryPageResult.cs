@@ -15,6 +15,9 @@ namespace Pulumi.Github.Outputs
     {
         public readonly string Cname;
         public readonly bool Custom404;
+        /// <summary>
+        /// URL to the repository on the web.
+        /// </summary>
         public readonly string HtmlUrl;
         public readonly ImmutableArray<Outputs.GetRepositoryPageSourceResult> Sources;
         public readonly string Status;

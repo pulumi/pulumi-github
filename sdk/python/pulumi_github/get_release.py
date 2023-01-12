@@ -22,13 +22,20 @@ class GetReleaseResult:
     """
     A collection of values returned by getRelease.
     """
-    def __init__(__self__, asserts_url=None, assets=None, body=None, created_at=None, draft=None, html_url=None, id=None, name=None, owner=None, prerelease=None, published_at=None, release_id=None, release_tag=None, repository=None, retrieve_by=None, tarball_url=None, target_commitish=None, upload_url=None, url=None, zipball_url=None):
+    def __init__(__self__, asserts_url=None, assets=None, assets_url=None, body=None, created_at=None, draft=None, html_url=None, id=None, name=None, owner=None, prerelease=None, published_at=None, release_id=None, release_tag=None, repository=None, retrieve_by=None, tarball_url=None, target_commitish=None, upload_url=None, url=None, zipball_url=None):
         if asserts_url and not isinstance(asserts_url, str):
             raise TypeError("Expected argument 'asserts_url' to be a str")
+        if asserts_url is not None:
+            warnings.warn("""use assets_url instead""", DeprecationWarning)
+            pulumi.log.warn("""asserts_url is deprecated: use assets_url instead""")
+
         pulumi.set(__self__, "asserts_url", asserts_url)
         if assets and not isinstance(assets, list):
             raise TypeError("Expected argument 'assets' to be a list")
         pulumi.set(__self__, "assets", assets)
+        if assets_url and not isinstance(assets_url, str):
+            raise TypeError("Expected argument 'assets_url' to be a str")
+        pulumi.set(__self__, "assets_url", assets_url)
         if body and not isinstance(body, str):
             raise TypeError("Expected argument 'body' to be a str")
         pulumi.set(__self__, "body", body)
@@ -87,31 +94,57 @@ class GetReleaseResult:
     @property
     @pulumi.getter(name="assertsUrl")
     def asserts_url(self) -> str:
+        """
+        **Deprecated**: Use `assets_url` resource instead
+        """
         return pulumi.get(self, "asserts_url")
 
     @property
     @pulumi.getter
     def assets(self) -> Sequence['outputs.GetReleaseAssetResult']:
+        """
+        Collection of assets for the release. Each asset conforms to the following schema:
+        """
         return pulumi.get(self, "assets")
+
+    @property
+    @pulumi.getter(name="assetsUrl")
+    def assets_url(self) -> str:
+        """
+        URL of any associated assets with the release
+        """
+        return pulumi.get(self, "assets_url")
 
     @property
     @pulumi.getter
     def body(self) -> str:
+        """
+        Contents of the description (body) of a release
+        """
         return pulumi.get(self, "body")
 
     @property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> str:
+        """
+        Date the asset was created
+        """
         return pulumi.get(self, "created_at")
 
     @property
     @pulumi.getter
     def draft(self) -> bool:
+        """
+        (`Boolean`) indicates whether the release is a draft
+        """
         return pulumi.get(self, "draft")
 
     @property
     @pulumi.getter(name="htmlUrl")
     def html_url(self) -> str:
+        """
+        URL directing to detailed information on the release
+        """
         return pulumi.get(self, "html_url")
 
     @property
@@ -125,6 +158,9 @@ class GetReleaseResult:
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        The file name of the asset
+        """
         return pulumi.get(self, "name")
 
     @property
@@ -135,21 +171,33 @@ class GetReleaseResult:
     @property
     @pulumi.getter
     def prerelease(self) -> bool:
+        """
+        (`Boolean`) indicates whether the release is a prerelease
+        """
         return pulumi.get(self, "prerelease")
 
     @property
     @pulumi.getter(name="publishedAt")
     def published_at(self) -> str:
+        """
+        Date of release publishing
+        """
         return pulumi.get(self, "published_at")
 
     @property
     @pulumi.getter(name="releaseId")
     def release_id(self) -> Optional[int]:
+        """
+        ID of release
+        """
         return pulumi.get(self, "release_id")
 
     @property
     @pulumi.getter(name="releaseTag")
     def release_tag(self) -> Optional[str]:
+        """
+        Tag of release
+        """
         return pulumi.get(self, "release_tag")
 
     @property
@@ -165,26 +213,41 @@ class GetReleaseResult:
     @property
     @pulumi.getter(name="tarballUrl")
     def tarball_url(self) -> str:
+        """
+        Download URL of a specific release in `tar.gz` format
+        """
         return pulumi.get(self, "tarball_url")
 
     @property
     @pulumi.getter(name="targetCommitish")
     def target_commitish(self) -> str:
+        """
+        Commitish value that determines where the Git release is created from
+        """
         return pulumi.get(self, "target_commitish")
 
     @property
     @pulumi.getter(name="uploadUrl")
     def upload_url(self) -> str:
+        """
+        URL that can be used to upload Assets to the release
+        """
         return pulumi.get(self, "upload_url")
 
     @property
     @pulumi.getter
     def url(self) -> str:
+        """
+        URL of the asset
+        """
         return pulumi.get(self, "url")
 
     @property
     @pulumi.getter(name="zipballUrl")
     def zipball_url(self) -> str:
+        """
+        Download URL of a specific release in `zip` format
+        """
         return pulumi.get(self, "zipball_url")
 
 
@@ -196,6 +259,7 @@ class AwaitableGetReleaseResult(GetReleaseResult):
         return GetReleaseResult(
             asserts_url=self.asserts_url,
             assets=self.assets,
+            assets_url=self.assets_url,
             body=self.body,
             created_at=self.created_at,
             draft=self.draft,
@@ -223,7 +287,14 @@ def get_release(owner: Optional[str] = None,
                 retrieve_by: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetReleaseResult:
     """
-    Use this data source to access information about an existing resource.
+    Use this data source to retrieve information about a GitHub release in a specific repository.
+
+
+    :param str owner: Owner of the repository.
+    :param int release_id: ID of the release to retrieve. Must be specified when `retrieve_by` = `id`.
+    :param str release_tag: Tag of the release to retrieve. Must be specified when `retrieve_by` = `tag`.
+    :param str repository: Name of the repository to retrieve the release from.
+    :param str retrieve_by: Describes how to fetch the release. Valid values are `id`, `tag`, `latest`.
     """
     __args__ = dict()
     __args__['owner'] = owner
@@ -237,6 +308,7 @@ def get_release(owner: Optional[str] = None,
     return AwaitableGetReleaseResult(
         asserts_url=__ret__.asserts_url,
         assets=__ret__.assets,
+        assets_url=__ret__.assets_url,
         body=__ret__.body,
         created_at=__ret__.created_at,
         draft=__ret__.draft,
@@ -265,6 +337,13 @@ def get_release_output(owner: Optional[pulumi.Input[str]] = None,
                        retrieve_by: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetReleaseResult]:
     """
-    Use this data source to access information about an existing resource.
+    Use this data source to retrieve information about a GitHub release in a specific repository.
+
+
+    :param str owner: Owner of the repository.
+    :param int release_id: ID of the release to retrieve. Must be specified when `retrieve_by` = `id`.
+    :param str release_tag: Tag of the release to retrieve. Must be specified when `retrieve_by` = `tag`.
+    :param str repository: Name of the repository to retrieve the release from.
+    :param str retrieve_by: Describes how to fetch the release. Valid values are `id`, `tag`, `latest`.
     """
     ...

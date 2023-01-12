@@ -4,6 +4,19 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * This resource allows you to create and manage columns for GitHub projects.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const project = new github.OrganizationProject("project", {body: "This is an organization project."});
+ * const column = new github.ProjectColumn("column", {projectId: project.id});
+ * ```
+ */
 export class ProjectColumn extends pulumi.CustomResource {
     /**
      * Get an existing ProjectColumn resource's state with the given name, ID, and optional extra
@@ -34,7 +47,13 @@ export class ProjectColumn extends pulumi.CustomResource {
 
     public /*out*/ readonly columnId!: pulumi.Output<number>;
     public /*out*/ readonly etag!: pulumi.Output<string>;
+    /**
+     * The name of the column.
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * The ID of an existing project that the column will be created in.
+     */
     public readonly projectId!: pulumi.Output<string>;
 
     /**
@@ -75,7 +94,13 @@ export class ProjectColumn extends pulumi.CustomResource {
 export interface ProjectColumnState {
     columnId?: pulumi.Input<number>;
     etag?: pulumi.Input<string>;
+    /**
+     * The name of the column.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * The ID of an existing project that the column will be created in.
+     */
     projectId?: pulumi.Input<string>;
 }
 
@@ -83,6 +108,12 @@ export interface ProjectColumnState {
  * The set of arguments for constructing a ProjectColumn resource.
  */
 export interface ProjectColumnArgs {
+    /**
+     * The name of the column.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * The ID of an existing project that the column will be created in.
+     */
     projectId: pulumi.Input<string>;
 }

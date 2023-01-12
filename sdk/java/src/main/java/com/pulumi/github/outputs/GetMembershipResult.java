@@ -11,6 +11,10 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetMembershipResult {
+    /**
+     * @return An etag representing the membership object.
+     * 
+     */
     private String etag;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -18,11 +22,27 @@ public final class GetMembershipResult {
      */
     private String id;
     private @Nullable String organization;
+    /**
+     * @return `admin` or `member` -- the role the user has within the organization.
+     * 
+     */
     private String role;
+    /**
+     * @return `active` or `pending` -- the state of membership within the organization.  `active` if the member has accepted the invite, or `pending` if the invite is still pending.
+     * 
+     */
     private String state;
+    /**
+     * @return The username.
+     * 
+     */
     private String username;
 
     private GetMembershipResult() {}
+    /**
+     * @return An etag representing the membership object.
+     * 
+     */
     public String etag() {
         return this.etag;
     }
@@ -36,12 +56,24 @@ public final class GetMembershipResult {
     public Optional<String> organization() {
         return Optional.ofNullable(this.organization);
     }
+    /**
+     * @return `admin` or `member` -- the role the user has within the organization.
+     * 
+     */
     public String role() {
         return this.role;
     }
+    /**
+     * @return `active` or `pending` -- the state of membership within the organization.  `active` if the member has accepted the invite, or `pending` if the invite is still pending.
+     * 
+     */
     public String state() {
         return this.state;
     }
+    /**
+     * @return The username.
+     * 
+     */
     public String username() {
         return this.username;
     }

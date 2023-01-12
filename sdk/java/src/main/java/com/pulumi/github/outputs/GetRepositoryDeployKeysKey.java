@@ -11,21 +11,53 @@ import java.util.Objects;
 
 @CustomType
 public final class GetRepositoryDeployKeysKey {
+    /**
+     * @return Key id
+     * 
+     */
     private Integer id;
+    /**
+     * @return Key itself
+     * 
+     */
     private String key;
+    /**
+     * @return Key title
+     * 
+     */
     private String title;
+    /**
+     * @return `true` if the key was verified.
+     * 
+     */
     private Boolean verified;
 
     private GetRepositoryDeployKeysKey() {}
+    /**
+     * @return Key id
+     * 
+     */
     public Integer id() {
         return this.id;
     }
+    /**
+     * @return Key itself
+     * 
+     */
     public String key() {
         return this.key;
     }
+    /**
+     * @return Key title
+     * 
+     */
     public String title() {
         return this.title;
     }
+    /**
+     * @return `true` if the key was verified.
+     * 
+     */
     public Boolean verified() {
         return this.verified;
     }

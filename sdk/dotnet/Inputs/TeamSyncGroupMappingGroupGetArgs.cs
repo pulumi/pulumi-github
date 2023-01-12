@@ -12,12 +12,21 @@ namespace Pulumi.Github.Inputs
 
     public sealed class TeamSyncGroupMappingGroupGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The description of the IdP group.
+        /// </summary>
         [Input("groupDescription", required: true)]
         public Input<string> GroupDescription { get; set; } = null!;
 
+        /// <summary>
+        /// The ID of the IdP group.
+        /// </summary>
         [Input("groupId", required: true)]
         public Input<string> GroupId { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the IdP group.
+        /// </summary>
         [Input("groupName", required: true)]
         public Input<string> GroupName { get; set; } = null!;
 

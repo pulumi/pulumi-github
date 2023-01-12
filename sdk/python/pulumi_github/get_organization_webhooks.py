@@ -40,6 +40,10 @@ class GetOrganizationWebhooksResult:
     @property
     @pulumi.getter
     def webhooks(self) -> Sequence['outputs.GetOrganizationWebhooksWebhookResult']:
+        """
+        An Array of GitHub Webhooks.  Each `webhook` block consists of the fields documented below.
+        ___
+        """
         return pulumi.get(self, "webhooks")
 
 
@@ -55,7 +59,18 @@ class AwaitableGetOrganizationWebhooksResult(GetOrganizationWebhooksResult):
 
 def get_organization_webhooks(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOrganizationWebhooksResult:
     """
-    Use this data source to access information about an existing resource.
+    Use this data source to retrieve all webhooks of the organization.
+
+    ## Example Usage
+
+    To retrieve *all* webhooks of the organization:
+
+    ```python
+    import pulumi
+    import pulumi_github as github
+
+    all = github.get_organization_webhooks()
+    ```
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)

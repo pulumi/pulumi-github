@@ -13,10 +13,25 @@ namespace Pulumi.Github.Outputs
     [OutputType]
     public sealed class GetRepositoryWebhooksWebhookResult
     {
+        /// <summary>
+        /// `true` if the webhook is active.
+        /// </summary>
         public readonly bool Active;
+        /// <summary>
+        /// the ID of the webhook.
+        /// </summary>
         public readonly int Id;
+        /// <summary>
+        /// the name of the webhook.
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// the type of the webhook.
+        /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// the url of the webhook.
+        /// </summary>
         public readonly string Url;
 
         [OutputConstructor]

@@ -41,6 +41,9 @@ class GetGithubAppResult:
     @property
     @pulumi.getter
     def description(self) -> str:
+        """
+        The app's description.
+        """
         return pulumi.get(self, "description")
 
     @property
@@ -54,11 +57,17 @@ class GetGithubAppResult:
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        The app's full name.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="nodeId")
     def node_id(self) -> str:
+        """
+        The Node ID of the app.
+        """
         return pulumi.get(self, "node_id")
 
     @property
@@ -83,7 +92,19 @@ class AwaitableGetGithubAppResult(GetGithubAppResult):
 def get_github_app(slug: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGithubAppResult:
     """
-    Use this data source to access information about an existing resource.
+    Use this data source to retrieve information about an app.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_github as github
+
+    foobar = github.get_github_app(slug="foobar")
+    ```
+
+
+    :param str slug: The URL-friendly name of your GitHub App.
     """
     __args__ = dict()
     __args__['slug'] = slug
@@ -102,6 +123,18 @@ def get_github_app(slug: Optional[str] = None,
 def get_github_app_output(slug: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGithubAppResult]:
     """
-    Use this data source to access information about an existing resource.
+    Use this data source to retrieve information about an app.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_github as github
+
+    foobar = github.get_github_app(slug="foobar")
+    ```
+
+
+    :param str slug: The URL-friendly name of your GitHub App.
     """
     ...

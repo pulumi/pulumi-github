@@ -14,30 +14,62 @@ public final class GetRepositoryPlainArgs extends com.pulumi.resources.InvokeArg
 
     public static final GetRepositoryPlainArgs Empty = new GetRepositoryPlainArgs();
 
+    /**
+     * A description of the repository.
+     * 
+     */
     @Import(name="description")
     private @Nullable String description;
 
+    /**
+     * @return A description of the repository.
+     * 
+     */
     public Optional<String> description() {
         return Optional.ofNullable(this.description);
     }
 
+    /**
+     * Full name of the repository (in `org/name` format).
+     * 
+     */
     @Import(name="fullName")
     private @Nullable String fullName;
 
+    /**
+     * @return Full name of the repository (in `org/name` format).
+     * 
+     */
     public Optional<String> fullName() {
         return Optional.ofNullable(this.fullName);
     }
 
+    /**
+     * URL of a page describing the project.
+     * 
+     */
     @Import(name="homepageUrl")
     private @Nullable String homepageUrl;
 
+    /**
+     * @return URL of a page describing the project.
+     * 
+     */
     public Optional<String> homepageUrl() {
         return Optional.ofNullable(this.homepageUrl);
     }
 
+    /**
+     * The name of the repository.
+     * 
+     */
     @Import(name="name")
     private @Nullable String name;
 
+    /**
+     * @return The name of the repository.
+     * 
+     */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
@@ -69,21 +101,45 @@ public final class GetRepositoryPlainArgs extends com.pulumi.resources.InvokeArg
             $ = new GetRepositoryPlainArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param description A description of the repository.
+         * 
+         * @return builder
+         * 
+         */
         public Builder description(@Nullable String description) {
             $.description = description;
             return this;
         }
 
+        /**
+         * @param fullName Full name of the repository (in `org/name` format).
+         * 
+         * @return builder
+         * 
+         */
         public Builder fullName(@Nullable String fullName) {
             $.fullName = fullName;
             return this;
         }
 
+        /**
+         * @param homepageUrl URL of a page describing the project.
+         * 
+         * @return builder
+         * 
+         */
         public Builder homepageUrl(@Nullable String homepageUrl) {
             $.homepageUrl = homepageUrl;
             return this;
         }
 
+        /**
+         * @param name The name of the repository.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(@Nullable String name) {
             $.name = name;
             return this;

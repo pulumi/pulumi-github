@@ -4,6 +4,29 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * This resource allows you to create and manage a repository tag protection for repositories within your GitHub organization or personal account.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const example = new github.RepositoryTagProtection("example", {
+ *     pattern: "v*",
+ *     repository: "example-repository",
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * Repository tag protections can be imported using the `name` of the repository, combined with the `id` of the tag protection, separated by a `/` character. The `id` of the tag protection can be found using the [GitHub API](https://docs.github.com/en/rest/repos/tags#list-tag-protection-states-for-a-repository). Importing uses the name of the repository, as well as the ID of the tag protection, e.g.
+ *
+ * ```sh
+ *  $ pulumi import github:index/repositoryTagProtection:RepositoryTagProtection terraform my-repo/31077
+ * ```
+ */
 export class RepositoryTagProtection extends pulumi.CustomResource {
     /**
      * Get an existing RepositoryTagProtection resource's state with the given name, ID, and optional extra
@@ -32,7 +55,13 @@ export class RepositoryTagProtection extends pulumi.CustomResource {
         return obj['__pulumiType'] === RepositoryTagProtection.__pulumiType;
     }
 
+    /**
+     * The pattern of the tag to protect.
+     */
     public readonly pattern!: pulumi.Output<string>;
+    /**
+     * Name of the repository to add the tag protection to.
+     */
     public readonly repository!: pulumi.Output<string>;
     public /*out*/ readonly tagProtectionId!: pulumi.Output<number>;
 
@@ -73,7 +102,13 @@ export class RepositoryTagProtection extends pulumi.CustomResource {
  * Input properties used for looking up and filtering RepositoryTagProtection resources.
  */
 export interface RepositoryTagProtectionState {
+    /**
+     * The pattern of the tag to protect.
+     */
     pattern?: pulumi.Input<string>;
+    /**
+     * Name of the repository to add the tag protection to.
+     */
     repository?: pulumi.Input<string>;
     tagProtectionId?: pulumi.Input<number>;
 }
@@ -82,6 +117,12 @@ export interface RepositoryTagProtectionState {
  * The set of arguments for constructing a RepositoryTagProtection resource.
  */
 export interface RepositoryTagProtectionArgs {
+    /**
+     * The pattern of the tag to protect.
+     */
     pattern: pulumi.Input<string>;
+    /**
+     * Name of the repository to add the tag protection to.
+     */
     repository: pulumi.Input<string>;
 }

@@ -11,14 +11,53 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// This resource allows you to create and manage projects for GitHub repository.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-github/sdk/v5/go/github"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := github.NewRepository(ctx, "example", &github.RepositoryArgs{
+//				Description: pulumi.String("My awesome codebase"),
+//				HasProjects: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = github.NewRepositoryProject(ctx, "project", &github.RepositoryProjectArgs{
+//				Body:       pulumi.String("This is a repository project."),
+//				Repository: example.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 type RepositoryProject struct {
 	pulumi.CustomResourceState
 
-	Body       pulumi.StringPtrOutput `pulumi:"body"`
-	Etag       pulumi.StringOutput    `pulumi:"etag"`
-	Name       pulumi.StringOutput    `pulumi:"name"`
-	Repository pulumi.StringOutput    `pulumi:"repository"`
-	Url        pulumi.StringOutput    `pulumi:"url"`
+	// The body of the project.
+	Body pulumi.StringPtrOutput `pulumi:"body"`
+	Etag pulumi.StringOutput    `pulumi:"etag"`
+	// The name of the project.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// The repository of the project.
+	Repository pulumi.StringOutput `pulumi:"repository"`
+	// URL of the project
+	Url pulumi.StringOutput `pulumi:"url"`
 }
 
 // NewRepositoryProject registers a new resource with the given unique name, arguments, and options.
@@ -53,19 +92,27 @@ func GetRepositoryProject(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RepositoryProject resources.
 type repositoryProjectState struct {
-	Body       *string `pulumi:"body"`
-	Etag       *string `pulumi:"etag"`
-	Name       *string `pulumi:"name"`
+	// The body of the project.
+	Body *string `pulumi:"body"`
+	Etag *string `pulumi:"etag"`
+	// The name of the project.
+	Name *string `pulumi:"name"`
+	// The repository of the project.
 	Repository *string `pulumi:"repository"`
-	Url        *string `pulumi:"url"`
+	// URL of the project
+	Url *string `pulumi:"url"`
 }
 
 type RepositoryProjectState struct {
-	Body       pulumi.StringPtrInput
-	Etag       pulumi.StringPtrInput
-	Name       pulumi.StringPtrInput
+	// The body of the project.
+	Body pulumi.StringPtrInput
+	Etag pulumi.StringPtrInput
+	// The name of the project.
+	Name pulumi.StringPtrInput
+	// The repository of the project.
 	Repository pulumi.StringPtrInput
-	Url        pulumi.StringPtrInput
+	// URL of the project
+	Url pulumi.StringPtrInput
 }
 
 func (RepositoryProjectState) ElementType() reflect.Type {
@@ -73,15 +120,21 @@ func (RepositoryProjectState) ElementType() reflect.Type {
 }
 
 type repositoryProjectArgs struct {
-	Body       *string `pulumi:"body"`
-	Name       *string `pulumi:"name"`
-	Repository string  `pulumi:"repository"`
+	// The body of the project.
+	Body *string `pulumi:"body"`
+	// The name of the project.
+	Name *string `pulumi:"name"`
+	// The repository of the project.
+	Repository string `pulumi:"repository"`
 }
 
 // The set of arguments for constructing a RepositoryProject resource.
 type RepositoryProjectArgs struct {
-	Body       pulumi.StringPtrInput
-	Name       pulumi.StringPtrInput
+	// The body of the project.
+	Body pulumi.StringPtrInput
+	// The name of the project.
+	Name pulumi.StringPtrInput
+	// The repository of the project.
 	Repository pulumi.StringInput
 }
 
@@ -172,6 +225,7 @@ func (o RepositoryProjectOutput) ToRepositoryProjectOutputWithContext(ctx contex
 	return o
 }
 
+// The body of the project.
 func (o RepositoryProjectOutput) Body() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RepositoryProject) pulumi.StringPtrOutput { return v.Body }).(pulumi.StringPtrOutput)
 }
@@ -180,14 +234,17 @@ func (o RepositoryProjectOutput) Etag() pulumi.StringOutput {
 	return o.ApplyT(func(v *RepositoryProject) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
 }
 
+// The name of the project.
 func (o RepositoryProjectOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *RepositoryProject) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// The repository of the project.
 func (o RepositoryProjectOutput) Repository() pulumi.StringOutput {
 	return o.ApplyT(func(v *RepositoryProject) pulumi.StringOutput { return v.Repository }).(pulumi.StringOutput)
 }
 
+// URL of the project
 func (o RepositoryProjectOutput) Url() pulumi.StringOutput {
 	return o.ApplyT(func(v *RepositoryProject) pulumi.StringOutput { return v.Url }).(pulumi.StringOutput)
 }

@@ -12,17 +12,41 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class RepositoryTemplate {
+    /**
+     * @return Whether the new repository should include all the branches from the template repository (defaults to false, which includes only the default branch from the template).
+     * 
+     */
     private @Nullable Boolean includeAllBranches;
+    /**
+     * @return The GitHub organization or user the template repository is owned by.
+     * 
+     */
     private String owner;
+    /**
+     * @return The name of the template repository.
+     * 
+     */
     private String repository;
 
     private RepositoryTemplate() {}
+    /**
+     * @return Whether the new repository should include all the branches from the template repository (defaults to false, which includes only the default branch from the template).
+     * 
+     */
     public Optional<Boolean> includeAllBranches() {
         return Optional.ofNullable(this.includeAllBranches);
     }
+    /**
+     * @return The GitHub organization or user the template repository is owned by.
+     * 
+     */
     public String owner() {
         return this.owner;
     }
+    /**
+     * @return The name of the template repository.
+     * 
+     */
     public String repository() {
         return this.repository;
     }

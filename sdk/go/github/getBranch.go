@@ -10,6 +10,34 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Use this data source to retrieve information about a repository branch.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-github/sdk/v5/go/github"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := github.LookupBranch(ctx, &github.LookupBranchArgs{
+//				Branch:     "development",
+//				Repository: "example",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupBranch(ctx *pulumi.Context, args *LookupBranchArgs, opts ...pulumi.InvokeOption) (*LookupBranchResult, error) {
 	var rv LookupBranchResult
 	err := ctx.Invoke("github:index/getBranch:getBranch", args, &rv, opts...)
@@ -21,19 +49,24 @@ func LookupBranch(ctx *pulumi.Context, args *LookupBranchArgs, opts ...pulumi.In
 
 // A collection of arguments for invoking getBranch.
 type LookupBranchArgs struct {
-	Branch     string `pulumi:"branch"`
+	// The repository branch to create.
+	Branch string `pulumi:"branch"`
+	// The GitHub repository name.
 	Repository string `pulumi:"repository"`
 }
 
 // A collection of values returned by getBranch.
 type LookupBranchResult struct {
 	Branch string `pulumi:"branch"`
-	Etag   string `pulumi:"etag"`
+	// An etag representing the Branch object.
+	Etag string `pulumi:"etag"`
 	// The provider-assigned unique ID for this managed resource.
-	Id         string `pulumi:"id"`
+	Id string `pulumi:"id"`
+	// A string representing a branch reference, in the form of `refs/heads/<branch>`.
 	Ref        string `pulumi:"ref"`
 	Repository string `pulumi:"repository"`
-	Sha        string `pulumi:"sha"`
+	// A string storing the reference's `HEAD` commit's SHA1.
+	Sha string `pulumi:"sha"`
 }
 
 func LookupBranchOutput(ctx *pulumi.Context, args LookupBranchOutputArgs, opts ...pulumi.InvokeOption) LookupBranchResultOutput {
@@ -51,7 +84,9 @@ func LookupBranchOutput(ctx *pulumi.Context, args LookupBranchOutputArgs, opts .
 
 // A collection of arguments for invoking getBranch.
 type LookupBranchOutputArgs struct {
-	Branch     pulumi.StringInput `pulumi:"branch"`
+	// The repository branch to create.
+	Branch pulumi.StringInput `pulumi:"branch"`
+	// The GitHub repository name.
 	Repository pulumi.StringInput `pulumi:"repository"`
 }
 
@@ -78,6 +113,7 @@ func (o LookupBranchResultOutput) Branch() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupBranchResult) string { return v.Branch }).(pulumi.StringOutput)
 }
 
+// An etag representing the Branch object.
 func (o LookupBranchResultOutput) Etag() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupBranchResult) string { return v.Etag }).(pulumi.StringOutput)
 }
@@ -87,6 +123,7 @@ func (o LookupBranchResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupBranchResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// A string representing a branch reference, in the form of `refs/heads/<branch>`.
 func (o LookupBranchResultOutput) Ref() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupBranchResult) string { return v.Ref }).(pulumi.StringOutput)
 }
@@ -95,6 +132,7 @@ func (o LookupBranchResultOutput) Repository() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupBranchResult) string { return v.Repository }).(pulumi.StringOutput)
 }
 
+// A string storing the reference's `HEAD` commit's SHA1.
 func (o LookupBranchResultOutput) Sha() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupBranchResult) string { return v.Sha }).(pulumi.StringOutput)
 }
