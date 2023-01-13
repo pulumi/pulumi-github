@@ -14,7 +14,8 @@ import (
 func TestAccRepoGo(t *testing.T) {
 	test := getGoBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir: path.Join(getCwd(t), "repo", "go"),
+			Dir:     path.Join(getCwd(t), "repo", "go"),
+			Verbose: true,
 		})
 
 	integration.ProgramTest(t, &test)

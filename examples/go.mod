@@ -1,4 +1,4 @@
-module github.com/pulumi/pulumi-github/examples
+module github.com/pulumi/pulumi-github/examples/v4
 
 go 1.16
 
