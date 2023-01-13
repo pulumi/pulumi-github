@@ -14,6 +14,10 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetCollaboratorsResult {
     private @Nullable String affiliation;
+    /**
+     * @return An Array of GitHub collaborators.  Each `collaborator` block consists of the fields documented below.
+     * 
+     */
     private List<GetCollaboratorsCollaborator> collaborators;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -27,6 +31,10 @@ public final class GetCollaboratorsResult {
     public Optional<String> affiliation() {
         return Optional.ofNullable(this.affiliation);
     }
+    /**
+     * @return An Array of GitHub collaborators.  Each `collaborator` block consists of the fields documented below.
+     * 
+     */
     public List<GetCollaboratorsCollaborator> collaborators() {
         return this.collaborators;
     }

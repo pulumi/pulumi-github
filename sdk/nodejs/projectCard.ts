@@ -4,6 +4,57 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * This resource allows you to create and manage cards for GitHub projects.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const project = new github.OrganizationProject("project", {body: "This is an organization project."});
+ * const column = new github.ProjectColumn("column", {projectId: project.id});
+ * const card = new github.ProjectCard("card", {
+ *     columnId: column.columnId,
+ *     note: "## Unaccepted 👇",
+ * });
+ * ```
+ * ### Adding An Issue To A Project
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const testRepository = new github.Repository("testRepository", {
+ *     hasProjects: true,
+ *     hasIssues: true,
+ * });
+ * const testIssue = new github.Issue("testIssue", {
+ *     repository: testRepository.id,
+ *     title: "Test issue title",
+ *     body: "Test issue body",
+ * });
+ * const testRepositoryProject = new github.RepositoryProject("testRepositoryProject", {
+ *     repository: testRepository.name,
+ *     body: "this is a test project",
+ * });
+ * const testProjectColumn = new github.ProjectColumn("testProjectColumn", {projectId: testRepositoryProject.id});
+ * const testProjectCard = new github.ProjectCard("testProjectCard", {
+ *     columnId: testProjectColumn.columnId,
+ *     contentId: testIssue.issueId,
+ *     contentType: "Issue",
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * A GitHub Project Card can be imported using its [Card ID](https://developer.github.com/v3/projects/cards/#get-a-project-card)
+ *
+ * ```sh
+ *  $ pulumi import github:index/projectCard:ProjectCard card 01234567
+ * ```
+ */
 export class ProjectCard extends pulumi.CustomResource {
     /**
      * Get an existing ProjectCard resource's state with the given name, ID, and optional extra
@@ -33,10 +84,22 @@ export class ProjectCard extends pulumi.CustomResource {
     }
 
     public /*out*/ readonly cardId!: pulumi.Output<number>;
+    /**
+     * The ID of the card.
+     */
     public readonly columnId!: pulumi.Output<string>;
+    /**
+     * `github_issue.issue_id`.
+     */
     public readonly contentId!: pulumi.Output<number | undefined>;
+    /**
+     * Must be either `Issue` or `PullRequest`
+     */
     public readonly contentType!: pulumi.Output<string | undefined>;
     public /*out*/ readonly etag!: pulumi.Output<string>;
+    /**
+     * The note contents of the card. Markdown supported.
+     */
     public readonly note!: pulumi.Output<string | undefined>;
 
     /**
@@ -80,10 +143,22 @@ export class ProjectCard extends pulumi.CustomResource {
  */
 export interface ProjectCardState {
     cardId?: pulumi.Input<number>;
+    /**
+     * The ID of the card.
+     */
     columnId?: pulumi.Input<string>;
+    /**
+     * `github_issue.issue_id`.
+     */
     contentId?: pulumi.Input<number>;
+    /**
+     * Must be either `Issue` or `PullRequest`
+     */
     contentType?: pulumi.Input<string>;
     etag?: pulumi.Input<string>;
+    /**
+     * The note contents of the card. Markdown supported.
+     */
     note?: pulumi.Input<string>;
 }
 
@@ -91,8 +166,20 @@ export interface ProjectCardState {
  * The set of arguments for constructing a ProjectCard resource.
  */
 export interface ProjectCardArgs {
+    /**
+     * The ID of the card.
+     */
     columnId: pulumi.Input<string>;
+    /**
+     * `github_issue.issue_id`.
+     */
     contentId?: pulumi.Input<number>;
+    /**
+     * Must be either `Issue` or `PullRequest`
+     */
     contentType?: pulumi.Input<string>;
+    /**
+     * The note contents of the card. Markdown supported.
+     */
     note?: pulumi.Input<string>;
 }

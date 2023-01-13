@@ -14,23 +14,47 @@ public final class GetCollaboratorsPlainArgs extends com.pulumi.resources.Invoke
 
     public static final GetCollaboratorsPlainArgs Empty = new GetCollaboratorsPlainArgs();
 
+    /**
+     * Filter collaborators returned by their affiliation. Can be one of: `outside`, `direct`, `all`.  Defaults to `all`.
+     * 
+     */
     @Import(name="affiliation")
     private @Nullable String affiliation;
 
+    /**
+     * @return Filter collaborators returned by their affiliation. Can be one of: `outside`, `direct`, `all`.  Defaults to `all`.
+     * 
+     */
     public Optional<String> affiliation() {
         return Optional.ofNullable(this.affiliation);
     }
 
+    /**
+     * The organization that owns the repository.
+     * 
+     */
     @Import(name="owner", required=true)
     private String owner;
 
+    /**
+     * @return The organization that owns the repository.
+     * 
+     */
     public String owner() {
         return this.owner;
     }
 
+    /**
+     * The name of the repository.
+     * 
+     */
     @Import(name="repository", required=true)
     private String repository;
 
+    /**
+     * @return The name of the repository.
+     * 
+     */
     public String repository() {
         return this.repository;
     }
@@ -61,16 +85,34 @@ public final class GetCollaboratorsPlainArgs extends com.pulumi.resources.Invoke
             $ = new GetCollaboratorsPlainArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param affiliation Filter collaborators returned by their affiliation. Can be one of: `outside`, `direct`, `all`.  Defaults to `all`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder affiliation(@Nullable String affiliation) {
             $.affiliation = affiliation;
             return this;
         }
 
+        /**
+         * @param owner The organization that owns the repository.
+         * 
+         * @return builder
+         * 
+         */
         public Builder owner(String owner) {
             $.owner = owner;
             return this;
         }
 
+        /**
+         * @param repository The name of the repository.
+         * 
+         * @return builder
+         * 
+         */
         public Builder repository(String repository) {
             $.repository = repository;
             return this;

@@ -4,6 +4,35 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * This resource allows you to manage repository allow list for existing GitHub Actions secrets within your GitHub organization.
+ * You must have write access to an organization secret to use this resource.
+ *
+ * This resource is only applicable when `visibility` of the existing organization secret has been set to `selected`.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const repo = github.getRepository({
+ *     fullName: "my-org/repo",
+ * });
+ * const orgSecretRepos = new github.ActionsOrganizationSecretRepositories("orgSecretRepos", {
+ *     secretName: "existing_secret_name",
+ *     selectedRepositoryIds: [repo.then(repo => repo.repoId)],
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * This resource can be imported using an ID made up of the secret name
+ *
+ * ```sh
+ *  $ pulumi import github:index/actionsOrganizationSecretRepositories:ActionsOrganizationSecretRepositories test_secret_repos test_secret_name
+ * ```
+ */
 export class ActionsOrganizationSecretRepositories extends pulumi.CustomResource {
     /**
      * Get an existing ActionsOrganizationSecretRepositories resource's state with the given name, ID, and optional extra
@@ -32,7 +61,13 @@ export class ActionsOrganizationSecretRepositories extends pulumi.CustomResource
         return obj['__pulumiType'] === ActionsOrganizationSecretRepositories.__pulumiType;
     }
 
+    /**
+     * Name of the existing secret
+     */
     public readonly secretName!: pulumi.Output<string>;
+    /**
+     * An array of repository ids that can access the organization secret.
+     */
     public readonly selectedRepositoryIds!: pulumi.Output<number[]>;
 
     /**
@@ -70,7 +105,13 @@ export class ActionsOrganizationSecretRepositories extends pulumi.CustomResource
  * Input properties used for looking up and filtering ActionsOrganizationSecretRepositories resources.
  */
 export interface ActionsOrganizationSecretRepositoriesState {
+    /**
+     * Name of the existing secret
+     */
     secretName?: pulumi.Input<string>;
+    /**
+     * An array of repository ids that can access the organization secret.
+     */
     selectedRepositoryIds?: pulumi.Input<pulumi.Input<number>[]>;
 }
 
@@ -78,6 +119,12 @@ export interface ActionsOrganizationSecretRepositoriesState {
  * The set of arguments for constructing a ActionsOrganizationSecretRepositories resource.
  */
 export interface ActionsOrganizationSecretRepositoriesArgs {
+    /**
+     * Name of the existing secret
+     */
     secretName: pulumi.Input<string>;
+    /**
+     * An array of repository ids that can access the organization secret.
+     */
     selectedRepositoryIds: pulumi.Input<pulumi.Input<number>[]>;
 }

@@ -18,16 +18,32 @@ public final class OrganizationWebhookState extends com.pulumi.resources.Resourc
 
     public static final OrganizationWebhookState Empty = new OrganizationWebhookState();
 
+    /**
+     * Indicate of the webhook should receive events. Defaults to `true`.
+     * 
+     */
     @Import(name="active")
     private @Nullable Output<Boolean> active;
 
+    /**
+     * @return Indicate of the webhook should receive events. Defaults to `true`.
+     * 
+     */
     public Optional<Output<Boolean>> active() {
         return Optional.ofNullable(this.active);
     }
 
+    /**
+     * key/value pair of configuration for this webhook. Available keys are `url`, `content_type`, `secret` and `insecure_ssl`.
+     * 
+     */
     @Import(name="configuration")
     private @Nullable Output<OrganizationWebhookConfigurationArgs> configuration;
 
+    /**
+     * @return key/value pair of configuration for this webhook. Available keys are `url`, `content_type`, `secret` and `insecure_ssl`.
+     * 
+     */
     public Optional<Output<OrganizationWebhookConfigurationArgs>> configuration() {
         return Optional.ofNullable(this.configuration);
     }
@@ -39,16 +55,32 @@ public final class OrganizationWebhookState extends com.pulumi.resources.Resourc
         return Optional.ofNullable(this.etag);
     }
 
+    /**
+     * A list of events which should trigger the webhook. See a list of [available events](https://developer.github.com/v3/activity/events/types/)
+     * 
+     */
     @Import(name="events")
     private @Nullable Output<List<String>> events;
 
+    /**
+     * @return A list of events which should trigger the webhook. See a list of [available events](https://developer.github.com/v3/activity/events/types/)
+     * 
+     */
     public Optional<Output<List<String>>> events() {
         return Optional.ofNullable(this.events);
     }
 
+    /**
+     * URL of the webhook
+     * 
+     */
     @Import(name="url")
     private @Nullable Output<String> url;
 
+    /**
+     * @return URL of the webhook
+     * 
+     */
     public Optional<Output<String>> url() {
         return Optional.ofNullable(this.url);
     }
@@ -81,20 +113,44 @@ public final class OrganizationWebhookState extends com.pulumi.resources.Resourc
             $ = new OrganizationWebhookState(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param active Indicate of the webhook should receive events. Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder active(@Nullable Output<Boolean> active) {
             $.active = active;
             return this;
         }
 
+        /**
+         * @param active Indicate of the webhook should receive events. Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder active(Boolean active) {
             return active(Output.of(active));
         }
 
+        /**
+         * @param configuration key/value pair of configuration for this webhook. Available keys are `url`, `content_type`, `secret` and `insecure_ssl`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder configuration(@Nullable Output<OrganizationWebhookConfigurationArgs> configuration) {
             $.configuration = configuration;
             return this;
         }
 
+        /**
+         * @param configuration key/value pair of configuration for this webhook. Available keys are `url`, `content_type`, `secret` and `insecure_ssl`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder configuration(OrganizationWebhookConfigurationArgs configuration) {
             return configuration(Output.of(configuration));
         }
@@ -108,24 +164,54 @@ public final class OrganizationWebhookState extends com.pulumi.resources.Resourc
             return etag(Output.of(etag));
         }
 
+        /**
+         * @param events A list of events which should trigger the webhook. See a list of [available events](https://developer.github.com/v3/activity/events/types/)
+         * 
+         * @return builder
+         * 
+         */
         public Builder events(@Nullable Output<List<String>> events) {
             $.events = events;
             return this;
         }
 
+        /**
+         * @param events A list of events which should trigger the webhook. See a list of [available events](https://developer.github.com/v3/activity/events/types/)
+         * 
+         * @return builder
+         * 
+         */
         public Builder events(List<String> events) {
             return events(Output.of(events));
         }
 
+        /**
+         * @param events A list of events which should trigger the webhook. See a list of [available events](https://developer.github.com/v3/activity/events/types/)
+         * 
+         * @return builder
+         * 
+         */
         public Builder events(String... events) {
             return events(List.of(events));
         }
 
+        /**
+         * @param url URL of the webhook
+         * 
+         * @return builder
+         * 
+         */
         public Builder url(@Nullable Output<String> url) {
             $.url = url;
             return this;
         }
 
+        /**
+         * @param url URL of the webhook
+         * 
+         * @return builder
+         * 
+         */
         public Builder url(String url) {
             return url(Output.of(url));
         }

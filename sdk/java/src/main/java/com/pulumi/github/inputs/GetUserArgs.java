@@ -13,9 +13,17 @@ public final class GetUserArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetUserArgs Empty = new GetUserArgs();
 
+    /**
+     * The username. Use an empty string `&#34;&#34;` to retrieve information about the currently authenticated user.
+     * 
+     */
     @Import(name="username", required=true)
     private Output<String> username;
 
+    /**
+     * @return The username. Use an empty string `&#34;&#34;` to retrieve information about the currently authenticated user.
+     * 
+     */
     public Output<String> username() {
         return this.username;
     }
@@ -44,11 +52,23 @@ public final class GetUserArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetUserArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param username The username. Use an empty string `&#34;&#34;` to retrieve information about the currently authenticated user.
+         * 
+         * @return builder
+         * 
+         */
         public Builder username(Output<String> username) {
             $.username = username;
             return this;
         }
 
+        /**
+         * @param username The username. Use an empty string `&#34;&#34;` to retrieve information about the currently authenticated user.
+         * 
+         * @return builder
+         * 
+         */
         public Builder username(String username) {
             return username(Output.of(username));
         }

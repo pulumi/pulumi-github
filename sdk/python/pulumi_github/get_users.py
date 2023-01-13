@@ -49,16 +49,25 @@ class GetUsersResult:
     @property
     @pulumi.getter
     def logins(self) -> Sequence[str]:
+        """
+        list of logins of users that could be found.
+        """
         return pulumi.get(self, "logins")
 
     @property
     @pulumi.getter(name="nodeIds")
     def node_ids(self) -> Sequence[str]:
+        """
+        list of Node IDs of users that could be found.
+        """
         return pulumi.get(self, "node_ids")
 
     @property
     @pulumi.getter(name="unknownLogins")
     def unknown_logins(self) -> Sequence[str]:
+        """
+        list of logins without matching user.
+        """
         return pulumi.get(self, "unknown_logins")
 
     @property
@@ -83,7 +92,25 @@ class AwaitableGetUsersResult(GetUsersResult):
 def get_users(usernames: Optional[Sequence[str]] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUsersResult:
     """
-    Use this data source to access information about an existing resource.
+    Use this data source to retrieve information about multiple GitHub users at once.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_github as github
+
+    example = github.get_users(usernames=[
+        "example1",
+        "example2",
+        "example3",
+    ])
+    pulumi.export("validUsers", example.logins)
+    pulumi.export("invalidUsers", example.unknown_logins)
+    ```
+
+
+    :param Sequence[str] usernames: List of usernames.
     """
     __args__ = dict()
     __args__['usernames'] = usernames
@@ -102,6 +129,24 @@ def get_users(usernames: Optional[Sequence[str]] = None,
 def get_users_output(usernames: Optional[pulumi.Input[Sequence[str]]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUsersResult]:
     """
-    Use this data source to access information about an existing resource.
+    Use this data source to retrieve information about multiple GitHub users at once.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_github as github
+
+    example = github.get_users(usernames=[
+        "example1",
+        "example2",
+        "example3",
+    ])
+    pulumi.export("validUsers", example.logins)
+    pulumi.export("invalidUsers", example.unknown_logins)
+    ```
+
+
+    :param Sequence[str] usernames: List of usernames.
     """
     ...

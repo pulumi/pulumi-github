@@ -10,6 +10,33 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Use this data source to retrieve information about branches in a repository.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-github/sdk/v5/go/github"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := github.GetRepositoryBranches(ctx, &github.GetRepositoryBranchesArgs{
+//				Repository: "example-repository",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func GetRepositoryBranches(ctx *pulumi.Context, args *GetRepositoryBranchesArgs, opts ...pulumi.InvokeOption) (*GetRepositoryBranchesResult, error) {
 	var rv GetRepositoryBranchesResult
 	err := ctx.Invoke("github:index/getRepositoryBranches:getRepositoryBranches", args, &rv, opts...)
@@ -21,13 +48,17 @@ func GetRepositoryBranches(ctx *pulumi.Context, args *GetRepositoryBranchesArgs,
 
 // A collection of arguments for invoking getRepositoryBranches.
 type GetRepositoryBranchesArgs struct {
-	OnlyNonProtectedBranches *bool  `pulumi:"onlyNonProtectedBranches"`
-	OnlyProtectedBranches    *bool  `pulumi:"onlyProtectedBranches"`
-	Repository               string `pulumi:"repository"`
+	// . If true, the `branches` attributes will be populated only with non protected branches. Default: `false`.
+	OnlyNonProtectedBranches *bool `pulumi:"onlyNonProtectedBranches"`
+	// . If true, the `branches` attributes will be populated only with protected branches. Default: `false`.
+	OnlyProtectedBranches *bool `pulumi:"onlyProtectedBranches"`
+	// Name of the repository to retrieve the branches from.
+	Repository string `pulumi:"repository"`
 }
 
 // A collection of values returned by getRepositoryBranches.
 type GetRepositoryBranchesResult struct {
+	// The list of this repository's branches. Each element of `branches` has the following attributes:
 	Branches []GetRepositoryBranchesBranch `pulumi:"branches"`
 	// The provider-assigned unique ID for this managed resource.
 	Id                       string `pulumi:"id"`
@@ -51,9 +82,12 @@ func GetRepositoryBranchesOutput(ctx *pulumi.Context, args GetRepositoryBranches
 
 // A collection of arguments for invoking getRepositoryBranches.
 type GetRepositoryBranchesOutputArgs struct {
+	// . If true, the `branches` attributes will be populated only with non protected branches. Default: `false`.
 	OnlyNonProtectedBranches pulumi.BoolPtrInput `pulumi:"onlyNonProtectedBranches"`
-	OnlyProtectedBranches    pulumi.BoolPtrInput `pulumi:"onlyProtectedBranches"`
-	Repository               pulumi.StringInput  `pulumi:"repository"`
+	// . If true, the `branches` attributes will be populated only with protected branches. Default: `false`.
+	OnlyProtectedBranches pulumi.BoolPtrInput `pulumi:"onlyProtectedBranches"`
+	// Name of the repository to retrieve the branches from.
+	Repository pulumi.StringInput `pulumi:"repository"`
 }
 
 func (GetRepositoryBranchesOutputArgs) ElementType() reflect.Type {
@@ -75,6 +109,7 @@ func (o GetRepositoryBranchesResultOutput) ToGetRepositoryBranchesResultOutputWi
 	return o
 }
 
+// The list of this repository's branches. Each element of `branches` has the following attributes:
 func (o GetRepositoryBranchesResultOutput) Branches() GetRepositoryBranchesBranchArrayOutput {
 	return o.ApplyT(func(v GetRepositoryBranchesResult) []GetRepositoryBranchesBranch { return v.Branches }).(GetRepositoryBranchesBranchArrayOutput)
 }

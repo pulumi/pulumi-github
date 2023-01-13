@@ -18,6 +18,9 @@ class MembershipArgs:
                  role: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Membership resource.
+        :param pulumi.Input[str] username: The user to add to the organization.
+        :param pulumi.Input[str] role: The role of the user within the organization.
+               Must be one of `member` or `admin`. Defaults to `member`.
         """
         pulumi.set(__self__, "username", username)
         if role is not None:
@@ -26,6 +29,9 @@ class MembershipArgs:
     @property
     @pulumi.getter
     def username(self) -> pulumi.Input[str]:
+        """
+        The user to add to the organization.
+        """
         return pulumi.get(self, "username")
 
     @username.setter
@@ -35,6 +41,10 @@ class MembershipArgs:
     @property
     @pulumi.getter
     def role(self) -> Optional[pulumi.Input[str]]:
+        """
+        The role of the user within the organization.
+        Must be one of `member` or `admin`. Defaults to `member`.
+        """
         return pulumi.get(self, "role")
 
     @role.setter
@@ -50,6 +60,9 @@ class _MembershipState:
                  username: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Membership resources.
+        :param pulumi.Input[str] role: The role of the user within the organization.
+               Must be one of `member` or `admin`. Defaults to `member`.
+        :param pulumi.Input[str] username: The user to add to the organization.
         """
         if etag is not None:
             pulumi.set(__self__, "etag", etag)
@@ -70,6 +83,10 @@ class _MembershipState:
     @property
     @pulumi.getter
     def role(self) -> Optional[pulumi.Input[str]]:
+        """
+        The role of the user within the organization.
+        Must be one of `member` or `admin`. Defaults to `member`.
+        """
         return pulumi.get(self, "role")
 
     @role.setter
@@ -79,6 +96,9 @@ class _MembershipState:
     @property
     @pulumi.getter
     def username(self) -> Optional[pulumi.Input[str]]:
+        """
+        The user to add to the organization.
+        """
         return pulumi.get(self, "username")
 
     @username.setter
@@ -95,9 +115,37 @@ class Membership(pulumi.CustomResource):
                  username: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a Membership resource with the given unique name, props, and options.
+        Provides a GitHub membership resource.
+
+        This resource allows you to add/remove users from your organization. When applied,
+        an invitation will be sent to the user to become part of the organization. When
+        destroyed, either the invitation will be cancelled or the user will be removed.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        # Add a user to the organization
+        membership_for_some_user = github.Membership("membershipForSomeUser",
+            role="member",
+            username="SomeUser")
+        ```
+
+        ## Import
+
+        GitHub Membership can be imported using an ID made up of `organization:username`, e.g.
+
+        ```sh
+         $ pulumi import github:index/membership:Membership member hashicorp:someuser
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] role: The role of the user within the organization.
+               Must be one of `member` or `admin`. Defaults to `member`.
+        :param pulumi.Input[str] username: The user to add to the organization.
         """
         ...
     @overload
@@ -106,7 +154,32 @@ class Membership(pulumi.CustomResource):
                  args: MembershipArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a Membership resource with the given unique name, props, and options.
+        Provides a GitHub membership resource.
+
+        This resource allows you to add/remove users from your organization. When applied,
+        an invitation will be sent to the user to become part of the organization. When
+        destroyed, either the invitation will be cancelled or the user will be removed.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        # Add a user to the organization
+        membership_for_some_user = github.Membership("membershipForSomeUser",
+            role="member",
+            username="SomeUser")
+        ```
+
+        ## Import
+
+        GitHub Membership can be imported using an ID made up of `organization:username`, e.g.
+
+        ```sh
+         $ pulumi import github:index/membership:Membership member hashicorp:someuser
+        ```
+
         :param str resource_name: The name of the resource.
         :param MembershipArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -158,6 +231,9 @@ class Membership(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] role: The role of the user within the organization.
+               Must be one of `member` or `admin`. Defaults to `member`.
+        :param pulumi.Input[str] username: The user to add to the organization.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -176,10 +252,17 @@ class Membership(pulumi.CustomResource):
     @property
     @pulumi.getter
     def role(self) -> pulumi.Output[Optional[str]]:
+        """
+        The role of the user within the organization.
+        Must be one of `member` or `admin`. Defaults to `member`.
+        """
         return pulumi.get(self, "role")
 
     @property
     @pulumi.getter
     def username(self) -> pulumi.Output[str]:
+        """
+        The user to add to the organization.
+        """
         return pulumi.get(self, "username")
 

@@ -14,16 +14,32 @@ public final class GetRepositoryTeamsPlainArgs extends com.pulumi.resources.Invo
 
     public static final GetRepositoryTeamsPlainArgs Empty = new GetRepositoryTeamsPlainArgs();
 
+    /**
+     * Full name of the repository (in `org/name` format).
+     * 
+     */
     @Import(name="fullName")
     private @Nullable String fullName;
 
+    /**
+     * @return Full name of the repository (in `org/name` format).
+     * 
+     */
     public Optional<String> fullName() {
         return Optional.ofNullable(this.fullName);
     }
 
+    /**
+     * The name of the repository.
+     * 
+     */
     @Import(name="name")
     private @Nullable String name;
 
+    /**
+     * @return The name of the repository.
+     * 
+     */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
@@ -53,11 +69,23 @@ public final class GetRepositoryTeamsPlainArgs extends com.pulumi.resources.Invo
             $ = new GetRepositoryTeamsPlainArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param fullName Full name of the repository (in `org/name` format).
+         * 
+         * @return builder
+         * 
+         */
         public Builder fullName(@Nullable String fullName) {
             $.fullName = fullName;
             return this;
         }
 
+        /**
+         * @param name The name of the repository.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(@Nullable String name) {
             $.name = name;
             return this;

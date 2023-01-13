@@ -17,12 +17,16 @@ class OrganizationBlockArgs:
                  username: pulumi.Input[str]):
         """
         The set of arguments for constructing a OrganizationBlock resource.
+        :param pulumi.Input[str] username: The name of the user to block.
         """
         pulumi.set(__self__, "username", username)
 
     @property
     @pulumi.getter
     def username(self) -> pulumi.Input[str]:
+        """
+        The name of the user to block.
+        """
         return pulumi.get(self, "username")
 
     @username.setter
@@ -37,6 +41,7 @@ class _OrganizationBlockState:
                  username: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering OrganizationBlock resources.
+        :param pulumi.Input[str] username: The name of the user to block.
         """
         if etag is not None:
             pulumi.set(__self__, "etag", etag)
@@ -55,6 +60,9 @@ class _OrganizationBlockState:
     @property
     @pulumi.getter
     def username(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the user to block.
+        """
         return pulumi.get(self, "username")
 
     @username.setter
@@ -70,9 +78,20 @@ class OrganizationBlock(pulumi.CustomResource):
                  username: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a OrganizationBlock resource with the given unique name, props, and options.
+        This resource allows you to create and manage blocks for GitHub organizations.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        example = github.OrganizationBlock("example", username="paultyng")
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] username: The name of the user to block.
         """
         ...
     @overload
@@ -81,7 +100,17 @@ class OrganizationBlock(pulumi.CustomResource):
                  args: OrganizationBlockArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a OrganizationBlock resource with the given unique name, props, and options.
+        This resource allows you to create and manage blocks for GitHub organizations.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        example = github.OrganizationBlock("example", username="paultyng")
+        ```
+
         :param str resource_name: The name of the resource.
         :param OrganizationBlockArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -130,6 +159,7 @@ class OrganizationBlock(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] username: The name of the user to block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -147,5 +177,8 @@ class OrganizationBlock(pulumi.CustomResource):
     @property
     @pulumi.getter
     def username(self) -> pulumi.Output[str]:
+        """
+        The name of the user to block.
+        """
         return pulumi.get(self, "username")
 

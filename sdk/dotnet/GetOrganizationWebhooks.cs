@@ -11,6 +11,29 @@ namespace Pulumi.Github
 {
     public static class GetOrganizationWebhooks
     {
+        /// <summary>
+        /// Use this data source to retrieve all webhooks of the organization.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// To retrieve *all* webhooks of the organization:
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Github = Pulumi.Github;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var all = Github.GetOrganizationWebhooks.Invoke();
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetOrganizationWebhooksResult> InvokeAsync(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetOrganizationWebhooksResult>("github:index/getOrganizationWebhooks:getOrganizationWebhooks", InvokeArgs.Empty, options.WithDefaults());
     }
@@ -23,6 +46,10 @@ namespace Pulumi.Github
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// An Array of GitHub Webhooks.  Each `webhook` block consists of the fields documented below.
+        /// ___
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetOrganizationWebhooksWebhookResult> Webhooks;
 
         [OutputConstructor]

@@ -22,6 +22,10 @@ class RepositoryWebhookArgs:
                  configuration: Optional[pulumi.Input['RepositoryWebhookConfigurationArgs']] = None):
         """
         The set of arguments for constructing a RepositoryWebhook resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] events: A list of events which should trigger the webhook. See a list of [available events](https://developer.github.com/v3/activity/events/types/).
+        :param pulumi.Input[str] repository: The repository of the webhook.
+        :param pulumi.Input[bool] active: Indicate if the webhook should receive events. Defaults to `true`.
+        :param pulumi.Input['RepositoryWebhookConfigurationArgs'] configuration: Configuration block for the webhook. Detailed below.
         """
         pulumi.set(__self__, "events", events)
         pulumi.set(__self__, "repository", repository)
@@ -33,6 +37,9 @@ class RepositoryWebhookArgs:
     @property
     @pulumi.getter
     def events(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        A list of events which should trigger the webhook. See a list of [available events](https://developer.github.com/v3/activity/events/types/).
+        """
         return pulumi.get(self, "events")
 
     @events.setter
@@ -42,6 +49,9 @@ class RepositoryWebhookArgs:
     @property
     @pulumi.getter
     def repository(self) -> pulumi.Input[str]:
+        """
+        The repository of the webhook.
+        """
         return pulumi.get(self, "repository")
 
     @repository.setter
@@ -51,6 +61,9 @@ class RepositoryWebhookArgs:
     @property
     @pulumi.getter
     def active(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicate if the webhook should receive events. Defaults to `true`.
+        """
         return pulumi.get(self, "active")
 
     @active.setter
@@ -60,6 +73,9 @@ class RepositoryWebhookArgs:
     @property
     @pulumi.getter
     def configuration(self) -> Optional[pulumi.Input['RepositoryWebhookConfigurationArgs']]:
+        """
+        Configuration block for the webhook. Detailed below.
+        """
         return pulumi.get(self, "configuration")
 
     @configuration.setter
@@ -78,6 +94,11 @@ class _RepositoryWebhookState:
                  url: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering RepositoryWebhook resources.
+        :param pulumi.Input[bool] active: Indicate if the webhook should receive events. Defaults to `true`.
+        :param pulumi.Input['RepositoryWebhookConfigurationArgs'] configuration: Configuration block for the webhook. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] events: A list of events which should trigger the webhook. See a list of [available events](https://developer.github.com/v3/activity/events/types/).
+        :param pulumi.Input[str] repository: The repository of the webhook.
+        :param pulumi.Input[str] url: The URL of the webhook.
         """
         if active is not None:
             pulumi.set(__self__, "active", active)
@@ -95,6 +116,9 @@ class _RepositoryWebhookState:
     @property
     @pulumi.getter
     def active(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicate if the webhook should receive events. Defaults to `true`.
+        """
         return pulumi.get(self, "active")
 
     @active.setter
@@ -104,6 +128,9 @@ class _RepositoryWebhookState:
     @property
     @pulumi.getter
     def configuration(self) -> Optional[pulumi.Input['RepositoryWebhookConfigurationArgs']]:
+        """
+        Configuration block for the webhook. Detailed below.
+        """
         return pulumi.get(self, "configuration")
 
     @configuration.setter
@@ -122,6 +149,9 @@ class _RepositoryWebhookState:
     @property
     @pulumi.getter
     def events(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of events which should trigger the webhook. See a list of [available events](https://developer.github.com/v3/activity/events/types/).
+        """
         return pulumi.get(self, "events")
 
     @events.setter
@@ -131,6 +161,9 @@ class _RepositoryWebhookState:
     @property
     @pulumi.getter
     def repository(self) -> Optional[pulumi.Input[str]]:
+        """
+        The repository of the webhook.
+        """
         return pulumi.get(self, "repository")
 
     @repository.setter
@@ -140,6 +173,9 @@ class _RepositoryWebhookState:
     @property
     @pulumi.getter
     def url(self) -> Optional[pulumi.Input[str]]:
+        """
+        The URL of the webhook.
+        """
         return pulumi.get(self, "url")
 
     @url.setter
@@ -158,9 +194,46 @@ class RepositoryWebhook(pulumi.CustomResource):
                  repository: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a RepositoryWebhook resource with the given unique name, props, and options.
+        This resource allows you to create and manage webhooks for repositories within your
+        GitHub organization or personal account.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        repo = github.Repository("repo",
+            description="Terraform acceptance tests",
+            homepage_url="http://example.com/",
+            private=False)
+        foo = github.RepositoryWebhook("foo",
+            repository=repo.name,
+            configuration=github.RepositoryWebhookConfigurationArgs(
+                url="https://google.de/",
+                content_type="form",
+                insecure_ssl=False,
+            ),
+            active=False,
+            events=["issues"])
+        ```
+
+        ## Import
+
+        Repository webhooks can be imported using the `name` of the repository, combined with the `id` of the webhook, separated by a `/` character. The `id` of the webhook can be found in the URL of the webhook. For example`"https://github.com/foo-org/foo-repo/settings/hooks/14711452"`. Importing uses the name of the repository, as well as the ID of the webhook, e.g.
+
+        ```sh
+         $ pulumi import github:index/repositoryWebhook:RepositoryWebhook terraform terraform/11235813
+        ```
+
+         If secret is populated in the webhook's configuration, the value will be imported as "********".
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] active: Indicate if the webhook should receive events. Defaults to `true`.
+        :param pulumi.Input[pulumi.InputType['RepositoryWebhookConfigurationArgs']] configuration: Configuration block for the webhook. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] events: A list of events which should trigger the webhook. See a list of [available events](https://developer.github.com/v3/activity/events/types/).
+        :param pulumi.Input[str] repository: The repository of the webhook.
         """
         ...
     @overload
@@ -169,7 +242,40 @@ class RepositoryWebhook(pulumi.CustomResource):
                  args: RepositoryWebhookArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a RepositoryWebhook resource with the given unique name, props, and options.
+        This resource allows you to create and manage webhooks for repositories within your
+        GitHub organization or personal account.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        repo = github.Repository("repo",
+            description="Terraform acceptance tests",
+            homepage_url="http://example.com/",
+            private=False)
+        foo = github.RepositoryWebhook("foo",
+            repository=repo.name,
+            configuration=github.RepositoryWebhookConfigurationArgs(
+                url="https://google.de/",
+                content_type="form",
+                insecure_ssl=False,
+            ),
+            active=False,
+            events=["issues"])
+        ```
+
+        ## Import
+
+        Repository webhooks can be imported using the `name` of the repository, combined with the `id` of the webhook, separated by a `/` character. The `id` of the webhook can be found in the URL of the webhook. For example`"https://github.com/foo-org/foo-repo/settings/hooks/14711452"`. Importing uses the name of the repository, as well as the ID of the webhook, e.g.
+
+        ```sh
+         $ pulumi import github:index/repositoryWebhook:RepositoryWebhook terraform terraform/11235813
+        ```
+
+         If secret is populated in the webhook's configuration, the value will be imported as "********".
+
         :param str resource_name: The name of the resource.
         :param RepositoryWebhookArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -231,6 +337,11 @@ class RepositoryWebhook(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] active: Indicate if the webhook should receive events. Defaults to `true`.
+        :param pulumi.Input[pulumi.InputType['RepositoryWebhookConfigurationArgs']] configuration: Configuration block for the webhook. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] events: A list of events which should trigger the webhook. See a list of [available events](https://developer.github.com/v3/activity/events/types/).
+        :param pulumi.Input[str] repository: The repository of the webhook.
+        :param pulumi.Input[str] url: The URL of the webhook.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -247,11 +358,17 @@ class RepositoryWebhook(pulumi.CustomResource):
     @property
     @pulumi.getter
     def active(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Indicate if the webhook should receive events. Defaults to `true`.
+        """
         return pulumi.get(self, "active")
 
     @property
     @pulumi.getter
     def configuration(self) -> pulumi.Output[Optional['outputs.RepositoryWebhookConfiguration']]:
+        """
+        Configuration block for the webhook. Detailed below.
+        """
         return pulumi.get(self, "configuration")
 
     @property
@@ -262,15 +379,24 @@ class RepositoryWebhook(pulumi.CustomResource):
     @property
     @pulumi.getter
     def events(self) -> pulumi.Output[Sequence[str]]:
+        """
+        A list of events which should trigger the webhook. See a list of [available events](https://developer.github.com/v3/activity/events/types/).
+        """
         return pulumi.get(self, "events")
 
     @property
     @pulumi.getter
     def repository(self) -> pulumi.Output[str]:
+        """
+        The repository of the webhook.
+        """
         return pulumi.get(self, "repository")
 
     @property
     @pulumi.getter
     def url(self) -> pulumi.Output[str]:
+        """
+        The URL of the webhook.
+        """
         return pulumi.get(self, "url")
 

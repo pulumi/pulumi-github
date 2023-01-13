@@ -10,13 +10,29 @@ import java.util.Objects;
 
 @CustomType
 public final class GetRepositoryBranchesBranch {
+    /**
+     * @return Name of the branch.
+     * 
+     */
     private String name;
+    /**
+     * @return Whether the branch is protected.
+     * 
+     */
     private Boolean protected_;
 
     private GetRepositoryBranchesBranch() {}
+    /**
+     * @return Name of the branch.
+     * 
+     */
     public String name() {
         return this.name;
     }
+    /**
+     * @return Whether the branch is protected.
+     * 
+     */
     public Boolean protected_() {
         return this.protected_;
     }

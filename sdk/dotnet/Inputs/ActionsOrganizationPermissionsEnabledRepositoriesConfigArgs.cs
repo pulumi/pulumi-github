@@ -14,6 +14,10 @@ namespace Pulumi.Github.Inputs
     {
         [Input("repositoryIds", required: true)]
         private InputList<int>? _repositoryIds;
+
+        /// <summary>
+        /// List of repository IDs to enable for GitHub Actions.
+        /// </summary>
         public InputList<int> RepositoryIds
         {
             get => _repositoryIds ?? (_repositoryIds = new InputList<int>());

@@ -15,53 +15,112 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * This resource allows you to create and manage an autolink reference for a single repository.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.github.Repository;
+ * import com.pulumi.github.RepositoryArgs;
+ * import com.pulumi.github.RepositoryAutolinkReference;
+ * import com.pulumi.github.RepositoryAutolinkReferenceArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var repo = new Repository(&#34;repo&#34;, RepositoryArgs.builder()        
+ *             .description(&#34;GitHub repo managed by Terraform&#34;)
+ *             .private_(false)
+ *             .build());
+ * 
+ *         var autolink = new RepositoryAutolinkReference(&#34;autolink&#34;, RepositoryAutolinkReferenceArgs.builder()        
+ *             .repository(repo.name())
+ *             .keyPrefix(&#34;TICKET-&#34;)
+ *             .targetUrlTemplate(&#34;https://example.com/TICKET?query=&lt;num&gt;&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * Autolink references can be imported using the `name` of the repository, combined with the `id` of the autolink reference and a `/` character for separating components, e.g.
+ * 
+ * ```sh
+ *  $ pulumi import github:index/repositoryAutolinkReference:RepositoryAutolinkReference auto my-repo/123
+ * ```
+ * 
+ *  See the GitHub documentation for how to [list all autolinks of a repository](https://docs.github.com/en/rest/repos/autolinks#list-all-autolinks-of-a-repository) to learn the autolink ids to use with the import command.
+ * 
+ */
 @ResourceType(type="github:index/repositoryAutolinkReference:RepositoryAutolinkReference")
 public class RepositoryAutolinkReference extends com.pulumi.resources.CustomResource {
+    /**
+     * An etag representing the autolink reference object.
+     * 
+     */
     @Export(name="etag", type=String.class, parameters={})
     private Output<String> etag;
 
+    /**
+     * @return An etag representing the autolink reference object.
+     * 
+     */
     public Output<String> etag() {
         return this.etag;
     }
     /**
-     * Whether this autolink reference matches alphanumeric characters. If false, this autolink reference only matches numeric
-     * characters.
+     * Whether this autolink reference matches alphanumeric characters. If false, this autolink reference only matches numeric characters. Default is true.
      * 
      */
     @Export(name="isAlphanumeric", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> isAlphanumeric;
 
     /**
-     * @return Whether this autolink reference matches alphanumeric characters. If false, this autolink reference only matches numeric
-     * characters.
+     * @return Whether this autolink reference matches alphanumeric characters. If false, this autolink reference only matches numeric characters. Default is true.
      * 
      */
     public Output<Optional<Boolean>> isAlphanumeric() {
         return Codegen.optional(this.isAlphanumeric);
     }
     /**
-     * This prefix appended by a number will generate a link any time it is found in an issue, pull request, or commit
+     * This prefix appended by a number will generate a link any time it is found in an issue, pull request, or commit.
      * 
      */
     @Export(name="keyPrefix", type=String.class, parameters={})
     private Output<String> keyPrefix;
 
     /**
-     * @return This prefix appended by a number will generate a link any time it is found in an issue, pull request, or commit
+     * @return This prefix appended by a number will generate a link any time it is found in an issue, pull request, or commit.
      * 
      */
     public Output<String> keyPrefix() {
         return this.keyPrefix;
     }
     /**
-     * The repository name
+     * The repository of the autolink reference.
      * 
      */
     @Export(name="repository", type=String.class, parameters={})
     private Output<String> repository;
 
     /**
-     * @return The repository name
+     * @return The repository of the autolink reference.
      * 
      */
     public Output<String> repository() {

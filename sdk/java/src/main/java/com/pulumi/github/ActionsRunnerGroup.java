@@ -17,59 +17,178 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * This resource allows you to create and manage GitHub Actions runner groups within your GitHub enterprise organizations.
+ * You must have admin access to an organization to use this resource.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.github.Repository;
+ * import com.pulumi.github.ActionsRunnerGroup;
+ * import com.pulumi.github.ActionsRunnerGroupArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var exampleRepository = new Repository(&#34;exampleRepository&#34;);
+ * 
+ *         var exampleActionsRunnerGroup = new ActionsRunnerGroup(&#34;exampleActionsRunnerGroup&#34;, ActionsRunnerGroupArgs.builder()        
+ *             .visibility(&#34;selected&#34;)
+ *             .selectedRepositoryIds(exampleRepository.repoId())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * This resource can be imported using the ID of the runner group
+ * 
+ * ```sh
+ *  $ pulumi import github:index/actionsRunnerGroup:ActionsRunnerGroup test 7
+ * ```
+ * 
+ */
 @ResourceType(type="github:index/actionsRunnerGroup:ActionsRunnerGroup")
 public class ActionsRunnerGroup extends com.pulumi.resources.CustomResource {
+    /**
+     * Whether public repositories can be added to the runner group
+     * 
+     */
     @Export(name="allowsPublicRepositories", type=Boolean.class, parameters={})
     private Output<Boolean> allowsPublicRepositories;
 
+    /**
+     * @return Whether public repositories can be added to the runner group
+     * 
+     */
     public Output<Boolean> allowsPublicRepositories() {
         return this.allowsPublicRepositories;
     }
+    /**
+     * Whether this is the default runner group
+     * 
+     */
     @Export(name="default", type=Boolean.class, parameters={})
     private Output<Boolean> default_;
 
+    /**
+     * @return Whether this is the default runner group
+     * 
+     */
     public Output<Boolean> default_() {
         return this.default_;
     }
+    /**
+     * An etag representing the runner group object
+     * 
+     */
     @Export(name="etag", type=String.class, parameters={})
     private Output<String> etag;
 
+    /**
+     * @return An etag representing the runner group object
+     * 
+     */
     public Output<String> etag() {
         return this.etag;
     }
+    /**
+     * Whether the runner group is inherited from the enterprise level
+     * 
+     */
     @Export(name="inherited", type=Boolean.class, parameters={})
     private Output<Boolean> inherited;
 
+    /**
+     * @return Whether the runner group is inherited from the enterprise level
+     * 
+     */
     public Output<Boolean> inherited() {
         return this.inherited;
     }
+    /**
+     * Name of the runner group
+     * 
+     */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
+    /**
+     * @return Name of the runner group
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
+    /**
+     * The GitHub API URL for the runner group&#39;s runners
+     * 
+     */
     @Export(name="runnersUrl", type=String.class, parameters={})
     private Output<String> runnersUrl;
 
+    /**
+     * @return The GitHub API URL for the runner group&#39;s runners
+     * 
+     */
     public Output<String> runnersUrl() {
         return this.runnersUrl;
     }
+    /**
+     * Github API URL for the runner group&#39;s repositories
+     * 
+     */
     @Export(name="selectedRepositoriesUrl", type=String.class, parameters={})
     private Output<String> selectedRepositoriesUrl;
 
+    /**
+     * @return Github API URL for the runner group&#39;s repositories
+     * 
+     */
     public Output<String> selectedRepositoriesUrl() {
         return this.selectedRepositoriesUrl;
     }
+    /**
+     * IDs of the repositories which should be added to the runner group
+     * 
+     */
     @Export(name="selectedRepositoryIds", type=List.class, parameters={Integer.class})
     private Output</* @Nullable */ List<Integer>> selectedRepositoryIds;
 
+    /**
+     * @return IDs of the repositories which should be added to the runner group
+     * 
+     */
     public Output<Optional<List<Integer>>> selectedRepositoryIds() {
         return Codegen.optional(this.selectedRepositoryIds);
     }
+    /**
+     * Visibility of a runner group. Whether the runner group can include `all`, `selected`, or `private` repositories. A value of `private` is not currently supported due to limitations in the GitHub API.
+     * 
+     */
     @Export(name="visibility", type=String.class, parameters={})
     private Output<String> visibility;
 
+    /**
+     * @return Visibility of a runner group. Whether the runner group can include `all`, `selected`, or `private` repositories. A value of `private` is not currently supported due to limitations in the GitHub API.
+     * 
+     */
     public Output<String> visibility() {
         return this.visibility;
     }

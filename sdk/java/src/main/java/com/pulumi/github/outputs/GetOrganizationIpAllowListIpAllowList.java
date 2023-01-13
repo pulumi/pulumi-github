@@ -10,29 +10,77 @@ import java.util.Objects;
 
 @CustomType
 public final class GetOrganizationIpAllowListIpAllowList {
+    /**
+     * @return A single IP address or range of IP addresses in CIDR notation.
+     * 
+     */
     private String allowListValue;
+    /**
+     * @return Identifies the date and time when the object was created.
+     * 
+     */
     private String createdAt;
+    /**
+     * @return The ID of the IP allow list entry.
+     * 
+     */
     private String id;
+    /**
+     * @return Whether the entry is currently active.
+     * 
+     */
     private Boolean isActive;
+    /**
+     * @return The name of the IP allow list entry.
+     * 
+     */
     private String name;
+    /**
+     * @return Identifies the date and time when the object was last updated.
+     * 
+     */
     private String updatedAt;
 
     private GetOrganizationIpAllowListIpAllowList() {}
+    /**
+     * @return A single IP address or range of IP addresses in CIDR notation.
+     * 
+     */
     public String allowListValue() {
         return this.allowListValue;
     }
+    /**
+     * @return Identifies the date and time when the object was created.
+     * 
+     */
     public String createdAt() {
         return this.createdAt;
     }
+    /**
+     * @return The ID of the IP allow list entry.
+     * 
+     */
     public String id() {
         return this.id;
     }
+    /**
+     * @return Whether the entry is currently active.
+     * 
+     */
     public Boolean isActive() {
         return this.isActive;
     }
+    /**
+     * @return The name of the IP allow list entry.
+     * 
+     */
     public String name() {
         return this.name;
     }
+    /**
+     * @return Identifies the date and time when the object was last updated.
+     * 
+     */
     public String updatedAt() {
         return this.updatedAt;
     }

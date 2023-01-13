@@ -4,14 +4,31 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * > **Note:** The data source will return a maximum of `1000` repositories
+ * 	[as documented in official API docs](https://developer.github.com/v3/search/#about-the-search-api).
+ *
+ * Use this data source to retrieve a list of GitHub repositories using a search query.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const example = github.getRepositories({
+ *     includeRepoId: true,
+ *     query: "org:hashicorp language:Go",
+ * });
+ * ```
+ */
 export function getRepositories(args: GetRepositoriesArgs, opts?: pulumi.InvokeOptions): Promise<GetRepositoriesResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("github:index/getRepositories:getRepositories", {
+        "includeRepoId": args.includeRepoId,
         "query": args.query,
+        "resultsPerPage": args.resultsPerPage,
         "sort": args.sort,
     }, opts);
 }
@@ -20,7 +37,21 @@ export function getRepositories(args: GetRepositoriesArgs, opts?: pulumi.InvokeO
  * A collection of arguments for invoking getRepositories.
  */
 export interface GetRepositoriesArgs {
+    /**
+     * Returns a list of found repository IDs
+     */
+    includeRepoId?: boolean;
+    /**
+     * Search query. See [documentation for the search syntax](https://help.github.com/articles/understanding-the-search-syntax/).
+     */
     query: string;
+    /**
+     * Set the number of repositories requested per API call. Can be useful to decrease if requests are timing out or to increase to reduce the number of API calls. Defaults to 100.
+     */
+    resultsPerPage?: number;
+    /**
+     * Sorts the repositories returned by the specified attribute. Valid values include `stars`, `fork`, and `updated`. Defaults to `updated`.
+     */
     sort?: string;
 }
 
@@ -33,19 +64,56 @@ export interface GetRepositoriesResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly includeRepoId?: boolean;
     readonly names: string[];
     readonly query: string;
+    /**
+     * (Optional) A list of found repository IDs (e.g. `449898861`)
+     */
+    readonly repoIds: number[];
+    readonly resultsPerPage?: number;
     readonly sort?: string;
 }
-
+/**
+ * > **Note:** The data source will return a maximum of `1000` repositories
+ * 	[as documented in official API docs](https://developer.github.com/v3/search/#about-the-search-api).
+ *
+ * Use this data source to retrieve a list of GitHub repositories using a search query.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const example = github.getRepositories({
+ *     includeRepoId: true,
+ *     query: "org:hashicorp language:Go",
+ * });
+ * ```
+ */
 export function getRepositoriesOutput(args: GetRepositoriesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRepositoriesResult> {
-    return pulumi.output(args).apply(a => getRepositories(a, opts))
+    return pulumi.output(args).apply((a: any) => getRepositories(a, opts))
 }
 
 /**
  * A collection of arguments for invoking getRepositories.
  */
 export interface GetRepositoriesOutputArgs {
+    /**
+     * Returns a list of found repository IDs
+     */
+    includeRepoId?: pulumi.Input<boolean>;
+    /**
+     * Search query. See [documentation for the search syntax](https://help.github.com/articles/understanding-the-search-syntax/).
+     */
     query: pulumi.Input<string>;
+    /**
+     * Set the number of repositories requested per API call. Can be useful to decrease if requests are timing out or to increase to reduce the number of API calls. Defaults to 100.
+     */
+    resultsPerPage?: pulumi.Input<number>;
+    /**
+     * Sorts the repositories returned by the specified attribute. Valid values include `stars`, `fork`, and `updated`. Defaults to `updated`.
+     */
     sort?: pulumi.Input<string>;
 }

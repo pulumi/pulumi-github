@@ -10,45 +10,125 @@ import java.util.Objects;
 
 @CustomType
 public final class GetReleaseAsset {
+    /**
+     * @return Browser download URL
+     * 
+     */
     private String browserDownloadUrl;
+    /**
+     * @return MIME type of the asset
+     * 
+     */
     private String contentType;
+    /**
+     * @return Date the asset was created
+     * 
+     */
     private String createdAt;
+    /**
+     * @return ID of the asset
+     * 
+     */
     private Integer id;
+    /**
+     * @return Label for the asset
+     * 
+     */
     private String label;
+    /**
+     * @return The file name of the asset
+     * 
+     */
     private String name;
+    /**
+     * @return Node ID of the asset
+     * 
+     */
     private String nodeId;
+    /**
+     * @return Size in byte
+     * 
+     */
     private Integer size;
+    /**
+     * @return Date the asset was last updated
+     * 
+     */
     private String updatedAt;
+    /**
+     * @return URL of the asset
+     * 
+     */
     private String url;
 
     private GetReleaseAsset() {}
+    /**
+     * @return Browser download URL
+     * 
+     */
     public String browserDownloadUrl() {
         return this.browserDownloadUrl;
     }
+    /**
+     * @return MIME type of the asset
+     * 
+     */
     public String contentType() {
         return this.contentType;
     }
+    /**
+     * @return Date the asset was created
+     * 
+     */
     public String createdAt() {
         return this.createdAt;
     }
+    /**
+     * @return ID of the asset
+     * 
+     */
     public Integer id() {
         return this.id;
     }
+    /**
+     * @return Label for the asset
+     * 
+     */
     public String label() {
         return this.label;
     }
+    /**
+     * @return The file name of the asset
+     * 
+     */
     public String name() {
         return this.name;
     }
+    /**
+     * @return Node ID of the asset
+     * 
+     */
     public String nodeId() {
         return this.nodeId;
     }
+    /**
+     * @return Size in byte
+     * 
+     */
     public Integer size() {
         return this.size;
     }
+    /**
+     * @return Date the asset was last updated
+     * 
+     */
     public String updatedAt() {
         return this.updatedAt;
     }
+    /**
+     * @return URL of the asset
+     * 
+     */
     public String url() {
         return this.url;
     }

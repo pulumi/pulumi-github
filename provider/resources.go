@@ -75,7 +75,7 @@ func Provider() tfbridge.ProviderInfo {
 		License:                 "Apache-2.0",
 		Homepage:                "https://pulumi.io",
 		Repository:              "https://github.com/pulumi/pulumi-github",
-		TFProviderModuleVersion: "v4",
+		TFProviderModuleVersion: "v5",
 		GitHubOrg:               "integrations",
 		Config: map[string]*tfbridge.SchemaInfo{
 			"base_url": {
@@ -95,9 +95,12 @@ func Provider() tfbridge.ProviderInfo {
 			"github_actions_organization_secret_repositories": {
 				Tok: makeResource(mainMod, "ActionsOrganizationSecretRepositories"),
 			},
-			"github_actions_runner_group":        {Tok: makeResource(mainMod, "ActionsRunnerGroup")},
-			"github_actions_secret":              {Tok: makeResource(mainMod, "ActionsSecret")},
-			"github_app_installation_repository": {Tok: makeResource(mainMod, "AppInstallationRepository")},
+			"github_actions_repository_permissions": {Tok: makeResource(mainMod, "ActionsRepositoryPermissions")},
+			"github_actions_runner_group":           {Tok: makeResource(mainMod, "ActionsRunnerGroup")},
+			"github_actions_secret":                 {Tok: makeResource(mainMod, "ActionsSecret")},
+			"github_app_installation_repository":    {Tok: makeResource(mainMod, "AppInstallationRepository")},
+			"github_app_installation_repositories":  {Tok: makeResource(mainMod, "AppInstallationRepositories")},
+
 			"github_branch": {
 				Tok: makeResource(mainMod, "Branch"),
 				Fields: map[string]*tfbridge.SchemaInfo{
@@ -133,10 +136,12 @@ func Provider() tfbridge.ProviderInfo {
 			"github_membership":                    {Tok: makeResource(mainMod, "Membership")},
 			"github_organization_block":            {Tok: makeResource(mainMod, "OrganizationBlock")},
 			"github_organization_project":          {Tok: makeResource(mainMod, "OrganizationProject")},
+			"github_organization_security_manager": {Tok: makeResource(mainMod, "OrganizationSecurityManager")},
 			"github_organization_settings":         {Tok: makeResource(mainMod, "OrganizationSettings")},
 			"github_organization_webhook":          {Tok: makeResource(mainMod, "OrganizationWebhook")},
 			"github_project_card":                  {Tok: makeResource(mainMod, "ProjectCard")},
 			"github_project_column":                {Tok: makeResource(mainMod, "ProjectColumn")},
+			"github_release":                       {Tok: makeResource(mainMod, "Release")},
 			"github_repository":                    {Tok: makeResource(mainMod, "Repository")},
 			"github_repository_collaborator":       {Tok: makeResource(mainMod, "RepositoryCollaborator")},
 			"github_repository_deploy_key":         {Tok: makeResource(mainMod, "RepositoryDeployKey")},
@@ -152,6 +157,7 @@ func Provider() tfbridge.ProviderInfo {
 			"github_team_members":                  {Tok: makeResource(mainMod, "TeamMembers")},
 			"github_team_membership":               {Tok: makeResource(mainMod, "TeamMembership")},
 			"github_team_repository":               {Tok: makeResource(mainMod, "TeamRepository")},
+			"github_team_settings":                 {Tok: makeResource(mainMod, "TeamSettings")},
 			"github_team_sync_group_mapping":       {Tok: makeResource(mainMod, "TeamSyncGroupMapping")},
 			"github_user_gpg_key":                  {Tok: makeResource(mainMod, "UserGpgKey")},
 			"github_user_invitation_accepter":      {Tok: makeResource(mainMod, "UserInvitationAccepter")},
@@ -159,8 +165,14 @@ func Provider() tfbridge.ProviderInfo {
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			"github_actions_public_key": {Tok: makeDataSource(mainMod, "getActionsPublicKey")},
+			"github_actions_organization_registration_token": {
+				Tok: makeDataSource(mainMod, "getActionsOrganizationRegistrationToken"),
+			},
 			"github_actions_organization_secrets": {
 				Tok: makeDataSource(mainMod, "getActionsOrganizationSecrets"),
+			},
+			"github_actions_registration_token": {
+				Tok: makeDataSource(mainMod, "getActionsRegistrationToken"),
 			},
 			"github_actions_secrets":                 {Tok: makeDataSource(mainMod, "getActionsSecrets")},
 			"github_app":                             {Tok: makeDataSource(mainMod, "getGithubApp")},

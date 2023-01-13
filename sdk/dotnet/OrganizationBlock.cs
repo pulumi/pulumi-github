@@ -9,12 +9,35 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Github
 {
+    /// <summary>
+    /// This resource allows you to create and manage blocks for GitHub organizations.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Github = Pulumi.Github;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Github.OrganizationBlock("example", new()
+    ///     {
+    ///         Username = "paultyng",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// </summary>
     [GithubResourceType("github:index/organizationBlock:OrganizationBlock")]
     public partial class OrganizationBlock : global::Pulumi.CustomResource
     {
         [Output("etag")]
         public Output<string> Etag { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the user to block.
+        /// </summary>
         [Output("username")]
         public Output<string> Username { get; private set; } = null!;
 
@@ -64,6 +87,9 @@ namespace Pulumi.Github
 
     public sealed class OrganizationBlockArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the user to block.
+        /// </summary>
         [Input("username", required: true)]
         public Input<string> Username { get; set; } = null!;
 
@@ -78,6 +104,9 @@ namespace Pulumi.Github
         [Input("etag")]
         public Input<string>? Etag { get; set; }
 
+        /// <summary>
+        /// The name of the user to block.
+        /// </summary>
         [Input("username")]
         public Input<string>? Username { get; set; }
 

@@ -15,23 +15,47 @@ public final class GetTreePlainArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetTreePlainArgs Empty = new GetTreePlainArgs();
 
+    /**
+     * Setting this parameter to `true` returns the objects or subtrees referenced by the tree specified in `tree_sha`.
+     * 
+     */
     @Import(name="recursive")
     private @Nullable Boolean recursive;
 
+    /**
+     * @return Setting this parameter to `true` returns the objects or subtrees referenced by the tree specified in `tree_sha`.
+     * 
+     */
     public Optional<Boolean> recursive() {
         return Optional.ofNullable(this.recursive);
     }
 
+    /**
+     * The name of the repository.
+     * 
+     */
     @Import(name="repository", required=true)
     private String repository;
 
+    /**
+     * @return The name of the repository.
+     * 
+     */
     public String repository() {
         return this.repository;
     }
 
+    /**
+     * The SHA1 value for the tree.
+     * 
+     */
     @Import(name="treeSha", required=true)
     private String treeSha;
 
+    /**
+     * @return The SHA1 value for the tree.
+     * 
+     */
     public String treeSha() {
         return this.treeSha;
     }
@@ -62,16 +86,34 @@ public final class GetTreePlainArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetTreePlainArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param recursive Setting this parameter to `true` returns the objects or subtrees referenced by the tree specified in `tree_sha`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder recursive(@Nullable Boolean recursive) {
             $.recursive = recursive;
             return this;
         }
 
+        /**
+         * @param repository The name of the repository.
+         * 
+         * @return builder
+         * 
+         */
         public Builder repository(String repository) {
             $.repository = repository;
             return this;
         }
 
+        /**
+         * @param treeSha The SHA1 value for the tree.
+         * 
+         * @return builder
+         * 
+         */
         public Builder treeSha(String treeSha) {
             $.treeSha = treeSha;
             return this;

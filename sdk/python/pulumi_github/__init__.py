@@ -9,8 +9,10 @@ from .actions_environment_secret import *
 from .actions_organization_permissions import *
 from .actions_organization_secret import *
 from .actions_organization_secret_repositories import *
+from .actions_repository_permissions import *
 from .actions_runner_group import *
 from .actions_secret import *
+from .app_installation_repositories import *
 from .app_installation_repository import *
 from .branch import *
 from .branch_default import *
@@ -20,8 +22,10 @@ from .dependabot_organization_secret import *
 from .dependabot_organization_secret_repositories import *
 from .dependabot_secret import *
 from .emu_group_mapping import *
+from .get_actions_organization_registration_token import *
 from .get_actions_organization_secrets import *
 from .get_actions_public_key import *
+from .get_actions_registration_token import *
 from .get_actions_secrets import *
 from .get_branch import *
 from .get_collaborators import *
@@ -58,11 +62,13 @@ from .issue_label import *
 from .membership import *
 from .organization_block import *
 from .organization_project import *
+from .organization_security_manager import *
 from .organization_settings import *
 from .organization_webhook import *
 from .project_card import *
 from .project_column import *
 from .provider import *
+from .release import *
 from .repository import *
 from .repository_autolink_reference import *
 from .repository_collaborator import *
@@ -78,6 +84,7 @@ from .team import *
 from .team_members import *
 from .team_membership import *
 from .team_repository import *
+from .team_settings import *
 from .team_sync_group_mapping import *
 from .user_gpg_key import *
 from .user_invitation_accepter import *
@@ -129,6 +136,14 @@ _utilities.register(
  },
  {
   "pkg": "github",
+  "mod": "index/actionsRepositoryPermissions",
+  "fqn": "pulumi_github",
+  "classes": {
+   "github:index/actionsRepositoryPermissions:ActionsRepositoryPermissions": "ActionsRepositoryPermissions"
+  }
+ },
+ {
+  "pkg": "github",
   "mod": "index/actionsRunnerGroup",
   "fqn": "pulumi_github",
   "classes": {
@@ -141,6 +156,14 @@ _utilities.register(
   "fqn": "pulumi_github",
   "classes": {
    "github:index/actionsSecret:ActionsSecret": "ActionsSecret"
+  }
+ },
+ {
+  "pkg": "github",
+  "mod": "index/appInstallationRepositories",
+  "fqn": "pulumi_github",
+  "classes": {
+   "github:index/appInstallationRepositories:AppInstallationRepositories": "AppInstallationRepositories"
   }
  },
  {
@@ -257,6 +280,14 @@ _utilities.register(
  },
  {
   "pkg": "github",
+  "mod": "index/organizationSecurityManager",
+  "fqn": "pulumi_github",
+  "classes": {
+   "github:index/organizationSecurityManager:OrganizationSecurityManager": "OrganizationSecurityManager"
+  }
+ },
+ {
+  "pkg": "github",
   "mod": "index/organizationSettings",
   "fqn": "pulumi_github",
   "classes": {
@@ -285,6 +316,14 @@ _utilities.register(
   "fqn": "pulumi_github",
   "classes": {
    "github:index/projectColumn:ProjectColumn": "ProjectColumn"
+  }
+ },
+ {
+  "pkg": "github",
+  "mod": "index/release",
+  "fqn": "pulumi_github",
+  "classes": {
+   "github:index/release:Release": "Release"
   }
  },
  {
@@ -405,6 +444,14 @@ _utilities.register(
   "fqn": "pulumi_github",
   "classes": {
    "github:index/teamRepository:TeamRepository": "TeamRepository"
+  }
+ },
+ {
+  "pkg": "github",
+  "mod": "index/teamSettings",
+  "fqn": "pulumi_github",
+  "classes": {
+   "github:index/teamSettings:TeamSettings": "TeamSettings"
   }
  },
  {

@@ -23,23 +23,47 @@ public final class ProjectCardState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.cardId);
     }
 
+    /**
+     * The ID of the card.
+     * 
+     */
     @Import(name="columnId")
     private @Nullable Output<String> columnId;
 
+    /**
+     * @return The ID of the card.
+     * 
+     */
     public Optional<Output<String>> columnId() {
         return Optional.ofNullable(this.columnId);
     }
 
+    /**
+     * `github_issue.issue_id`.
+     * 
+     */
     @Import(name="contentId")
     private @Nullable Output<Integer> contentId;
 
+    /**
+     * @return `github_issue.issue_id`.
+     * 
+     */
     public Optional<Output<Integer>> contentId() {
         return Optional.ofNullable(this.contentId);
     }
 
+    /**
+     * Must be either `Issue` or `PullRequest`
+     * 
+     */
     @Import(name="contentType")
     private @Nullable Output<String> contentType;
 
+    /**
+     * @return Must be either `Issue` or `PullRequest`
+     * 
+     */
     public Optional<Output<String>> contentType() {
         return Optional.ofNullable(this.contentType);
     }
@@ -51,9 +75,17 @@ public final class ProjectCardState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.etag);
     }
 
+    /**
+     * The note contents of the card. Markdown supported.
+     * 
+     */
     @Import(name="note")
     private @Nullable Output<String> note;
 
+    /**
+     * @return The note contents of the card. Markdown supported.
+     * 
+     */
     public Optional<Output<String>> note() {
         return Optional.ofNullable(this.note);
     }
@@ -96,29 +128,65 @@ public final class ProjectCardState extends com.pulumi.resources.ResourceArgs {
             return cardId(Output.of(cardId));
         }
 
+        /**
+         * @param columnId The ID of the card.
+         * 
+         * @return builder
+         * 
+         */
         public Builder columnId(@Nullable Output<String> columnId) {
             $.columnId = columnId;
             return this;
         }
 
+        /**
+         * @param columnId The ID of the card.
+         * 
+         * @return builder
+         * 
+         */
         public Builder columnId(String columnId) {
             return columnId(Output.of(columnId));
         }
 
+        /**
+         * @param contentId `github_issue.issue_id`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder contentId(@Nullable Output<Integer> contentId) {
             $.contentId = contentId;
             return this;
         }
 
+        /**
+         * @param contentId `github_issue.issue_id`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder contentId(Integer contentId) {
             return contentId(Output.of(contentId));
         }
 
+        /**
+         * @param contentType Must be either `Issue` or `PullRequest`
+         * 
+         * @return builder
+         * 
+         */
         public Builder contentType(@Nullable Output<String> contentType) {
             $.contentType = contentType;
             return this;
         }
 
+        /**
+         * @param contentType Must be either `Issue` or `PullRequest`
+         * 
+         * @return builder
+         * 
+         */
         public Builder contentType(String contentType) {
             return contentType(Output.of(contentType));
         }
@@ -132,11 +200,23 @@ public final class ProjectCardState extends com.pulumi.resources.ResourceArgs {
             return etag(Output.of(etag));
         }
 
+        /**
+         * @param note The note contents of the card. Markdown supported.
+         * 
+         * @return builder
+         * 
+         */
         public Builder note(@Nullable Output<String> note) {
             $.note = note;
             return this;
         }
 
+        /**
+         * @param note The note contents of the card. Markdown supported.
+         * 
+         * @return builder
+         * 
+         */
         public Builder note(String note) {
             return note(Output.of(note));
         }

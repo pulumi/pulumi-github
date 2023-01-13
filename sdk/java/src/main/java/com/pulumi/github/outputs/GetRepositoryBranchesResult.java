@@ -14,6 +14,10 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetRepositoryBranchesResult {
+    /**
+     * @return The list of this repository&#39;s branches. Each element of `branches` has the following attributes:
+     * 
+     */
     private List<GetRepositoryBranchesBranch> branches;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -25,6 +29,10 @@ public final class GetRepositoryBranchesResult {
     private String repository;
 
     private GetRepositoryBranchesResult() {}
+    /**
+     * @return The list of this repository&#39;s branches. Each element of `branches` has the following attributes:
+     * 
+     */
     public List<GetRepositoryBranchesBranch> branches() {
         return this.branches;
     }

@@ -7,6 +7,33 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Use this data source to retrieve external groups belonging to an organization.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-github/sdk/v5/go/github"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleExternalGroups, err := github.GetExternalGroups(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			localGroups := exampleExternalGroups
+//			ctx.Export("groups", localGroups)
+//			return nil
+//		})
+//	}
+//
+// ```
 func GetExternalGroups(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetExternalGroupsResult, error) {
 	var rv GetExternalGroupsResult
 	err := ctx.Invoke("github:index/getExternalGroups:getExternalGroups", nil, &rv, opts...)
@@ -18,6 +45,7 @@ func GetExternalGroups(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetEx
 
 // A collection of values returned by getExternalGroups.
 type GetExternalGroupsResult struct {
+	// an array of external groups belonging to the organization. Each group consists of the fields documented below.
 	ExternalGroups []GetExternalGroupsExternalGroup `pulumi:"externalGroups"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`

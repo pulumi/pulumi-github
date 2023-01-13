@@ -16,47 +16,199 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.github.ActionsOrganizationSecret;
+ * import com.pulumi.github.ActionsOrganizationSecretArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var exampleSecretActionsOrganizationSecret = new ActionsOrganizationSecret(&#34;exampleSecretActionsOrganizationSecret&#34;, ActionsOrganizationSecretArgs.builder()        
+ *             .secretName(&#34;example_secret_name&#34;)
+ *             .visibility(&#34;private&#34;)
+ *             .plaintextValue(var_.some_secret_string())
+ *             .build());
+ * 
+ *         var exampleSecretIndex_actionsOrganizationSecretActionsOrganizationSecret = new ActionsOrganizationSecret(&#34;exampleSecretIndex/actionsOrganizationSecretActionsOrganizationSecret&#34;, ActionsOrganizationSecretArgs.builder()        
+ *             .secretName(&#34;example_secret_name&#34;)
+ *             .visibility(&#34;private&#34;)
+ *             .encryptedValue(var_.some_encrypted_secret_string())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.github.GithubFunctions;
+ * import com.pulumi.github.inputs.GetRepositoryArgs;
+ * import com.pulumi.github.ActionsOrganizationSecret;
+ * import com.pulumi.github.ActionsOrganizationSecretArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var repo = GithubFunctions.getRepository(GetRepositoryArgs.builder()
+ *             .fullName(&#34;my-org/repo&#34;)
+ *             .build());
+ * 
+ *         var exampleSecretActionsOrganizationSecret = new ActionsOrganizationSecret(&#34;exampleSecretActionsOrganizationSecret&#34;, ActionsOrganizationSecretArgs.builder()        
+ *             .secretName(&#34;example_secret_name&#34;)
+ *             .visibility(&#34;selected&#34;)
+ *             .plaintextValue(var_.some_secret_string())
+ *             .selectedRepositoryIds(repo.applyValue(getRepositoryResult -&gt; getRepositoryResult.repoId()))
+ *             .build());
+ * 
+ *         var exampleSecretIndex_actionsOrganizationSecretActionsOrganizationSecret = new ActionsOrganizationSecret(&#34;exampleSecretIndex/actionsOrganizationSecretActionsOrganizationSecret&#34;, ActionsOrganizationSecretArgs.builder()        
+ *             .secretName(&#34;example_secret_name&#34;)
+ *             .visibility(&#34;selected&#34;)
+ *             .encryptedValue(var_.some_encrypted_secret_string())
+ *             .selectedRepositoryIds(repo.applyValue(getRepositoryResult -&gt; getRepositoryResult.repoId()))
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * This resource can be imported using an ID made up of the secret name
+ * 
+ * ```sh
+ *  $ pulumi import github:index/actionsOrganizationSecret:ActionsOrganizationSecret test_secret test_secret_name
+ * ```
+ * 
+ *  NOTEthe implementation is limited in that it won&#39;t fetch the value of the `plaintext_value` or `encrypted_value` fields when importing. You may need to ignore changes for these as a workaround.
+ * 
+ */
 @ResourceType(type="github:index/actionsOrganizationSecret:ActionsOrganizationSecret")
 public class ActionsOrganizationSecret extends com.pulumi.resources.CustomResource {
+    /**
+     * Date of actions_secret creation.
+     * 
+     */
     @Export(name="createdAt", type=String.class, parameters={})
     private Output<String> createdAt;
 
+    /**
+     * @return Date of actions_secret creation.
+     * 
+     */
     public Output<String> createdAt() {
         return this.createdAt;
     }
+    /**
+     * Encrypted value of the secret using the Github public key in Base64 format.
+     * 
+     */
     @Export(name="encryptedValue", type=String.class, parameters={})
     private Output</* @Nullable */ String> encryptedValue;
 
+    /**
+     * @return Encrypted value of the secret using the Github public key in Base64 format.
+     * 
+     */
     public Output<Optional<String>> encryptedValue() {
         return Codegen.optional(this.encryptedValue);
     }
+    /**
+     * Plaintext value of the secret to be encrypted
+     * 
+     */
     @Export(name="plaintextValue", type=String.class, parameters={})
     private Output</* @Nullable */ String> plaintextValue;
 
+    /**
+     * @return Plaintext value of the secret to be encrypted
+     * 
+     */
     public Output<Optional<String>> plaintextValue() {
         return Codegen.optional(this.plaintextValue);
     }
+    /**
+     * Name of the secret
+     * 
+     */
     @Export(name="secretName", type=String.class, parameters={})
     private Output<String> secretName;
 
+    /**
+     * @return Name of the secret
+     * 
+     */
     public Output<String> secretName() {
         return this.secretName;
     }
+    /**
+     * An array of repository ids that can access the organization secret.
+     * 
+     */
     @Export(name="selectedRepositoryIds", type=List.class, parameters={Integer.class})
     private Output</* @Nullable */ List<Integer>> selectedRepositoryIds;
 
+    /**
+     * @return An array of repository ids that can access the organization secret.
+     * 
+     */
     public Output<Optional<List<Integer>>> selectedRepositoryIds() {
         return Codegen.optional(this.selectedRepositoryIds);
     }
+    /**
+     * Date of actions_secret update.
+     * 
+     */
     @Export(name="updatedAt", type=String.class, parameters={})
     private Output<String> updatedAt;
 
+    /**
+     * @return Date of actions_secret update.
+     * 
+     */
     public Output<String> updatedAt() {
         return this.updatedAt;
     }
+    /**
+     * Configures the access that repositories have to the organization secret.
+     * Must be one of `all`, `private`, `selected`. `selected_repository_ids` is required if set to `selected`.
+     * 
+     */
     @Export(name="visibility", type=String.class, parameters={})
     private Output<String> visibility;
 
+    /**
+     * @return Configures the access that repositories have to the organization secret.
+     * Must be one of `all`, `private`, `selected`. `selected_repository_ids` is required if set to `selected`.
+     * 
+     */
     public Output<String> visibility() {
         return this.visibility;
     }

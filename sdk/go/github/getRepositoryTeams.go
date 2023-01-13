@@ -10,6 +10,33 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Use this data source to retrieve the list of teams which have access to a GitHub repository.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-github/sdk/v5/go/github"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := github.GetRepositoryTeams(ctx, &github.GetRepositoryTeamsArgs{
+//				Name: pulumi.StringRef("example"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func GetRepositoryTeams(ctx *pulumi.Context, args *GetRepositoryTeamsArgs, opts ...pulumi.InvokeOption) (*GetRepositoryTeamsResult, error) {
 	var rv GetRepositoryTeamsResult
 	err := ctx.Invoke("github:index/getRepositoryTeams:getRepositoryTeams", args, &rv, opts...)
@@ -21,16 +48,20 @@ func GetRepositoryTeams(ctx *pulumi.Context, args *GetRepositoryTeamsArgs, opts 
 
 // A collection of arguments for invoking getRepositoryTeams.
 type GetRepositoryTeamsArgs struct {
+	// Full name of the repository (in `org/name` format).
 	FullName *string `pulumi:"fullName"`
-	Name     *string `pulumi:"name"`
+	// The name of the repository.
+	Name *string `pulumi:"name"`
 }
 
 // A collection of values returned by getRepositoryTeams.
 type GetRepositoryTeamsResult struct {
 	FullName string `pulumi:"fullName"`
 	// The provider-assigned unique ID for this managed resource.
-	Id    string                   `pulumi:"id"`
-	Name  string                   `pulumi:"name"`
+	Id string `pulumi:"id"`
+	// Team name
+	Name string `pulumi:"name"`
+	// List of teams which have access to the repository
 	Teams []GetRepositoryTeamsTeam `pulumi:"teams"`
 }
 
@@ -49,8 +80,10 @@ func GetRepositoryTeamsOutput(ctx *pulumi.Context, args GetRepositoryTeamsOutput
 
 // A collection of arguments for invoking getRepositoryTeams.
 type GetRepositoryTeamsOutputArgs struct {
+	// Full name of the repository (in `org/name` format).
 	FullName pulumi.StringPtrInput `pulumi:"fullName"`
-	Name     pulumi.StringPtrInput `pulumi:"name"`
+	// The name of the repository.
+	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
 func (GetRepositoryTeamsOutputArgs) ElementType() reflect.Type {
@@ -81,10 +114,12 @@ func (o GetRepositoryTeamsResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRepositoryTeamsResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// Team name
 func (o GetRepositoryTeamsResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRepositoryTeamsResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// List of teams which have access to the repository
 func (o GetRepositoryTeamsResultOutput) Teams() GetRepositoryTeamsTeamArrayOutput {
 	return o.ApplyT(func(v GetRepositoryTeamsResult) []GetRepositoryTeamsTeam { return v.Teams }).(GetRepositoryTeamsTeamArrayOutput)
 }

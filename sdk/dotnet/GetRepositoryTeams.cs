@@ -11,9 +11,57 @@ namespace Pulumi.Github
 {
     public static class GetRepositoryTeams
     {
+        /// <summary>
+        /// Use this data source to retrieve the list of teams which have access to a GitHub repository.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Github = Pulumi.Github;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Github.GetRepositoryTeams.Invoke(new()
+        ///     {
+        ///         Name = "example",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetRepositoryTeamsResult> InvokeAsync(GetRepositoryTeamsArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRepositoryTeamsResult>("github:index/getRepositoryTeams:getRepositoryTeams", args ?? new GetRepositoryTeamsArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Use this data source to retrieve the list of teams which have access to a GitHub repository.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Github = Pulumi.Github;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Github.GetRepositoryTeams.Invoke(new()
+        ///     {
+        ///         Name = "example",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Output<GetRepositoryTeamsResult> Invoke(GetRepositoryTeamsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRepositoryTeamsResult>("github:index/getRepositoryTeams:getRepositoryTeams", args ?? new GetRepositoryTeamsInvokeArgs(), options.WithDefaults());
     }
@@ -21,9 +69,15 @@ namespace Pulumi.Github
 
     public sealed class GetRepositoryTeamsArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Full name of the repository (in `org/name` format).
+        /// </summary>
         [Input("fullName")]
         public string? FullName { get; set; }
 
+        /// <summary>
+        /// The name of the repository.
+        /// </summary>
         [Input("name")]
         public string? Name { get; set; }
 
@@ -35,9 +89,15 @@ namespace Pulumi.Github
 
     public sealed class GetRepositoryTeamsInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Full name of the repository (in `org/name` format).
+        /// </summary>
         [Input("fullName")]
         public Input<string>? FullName { get; set; }
 
+        /// <summary>
+        /// The name of the repository.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
@@ -56,7 +116,13 @@ namespace Pulumi.Github
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// Team name
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// List of teams which have access to the repository
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetRepositoryTeamsTeamResult> Teams;
 
         [OutputConstructor]

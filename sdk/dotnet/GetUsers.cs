@@ -11,9 +11,77 @@ namespace Pulumi.Github
 {
     public static class GetUsers
     {
+        /// <summary>
+        /// Use this data source to retrieve information about multiple GitHub users at once.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Github = Pulumi.Github;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Github.GetUsers.Invoke(new()
+        ///     {
+        ///         Usernames = new[]
+        ///         {
+        ///             "example1",
+        ///             "example2",
+        ///             "example3",
+        ///         },
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["validUsers"] = example.Apply(getUsersResult =&gt; getUsersResult.Logins),
+        ///         ["invalidUsers"] = example.Apply(getUsersResult =&gt; getUsersResult.UnknownLogins),
+        ///     };
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetUsersResult> InvokeAsync(GetUsersArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetUsersResult>("github:index/getUsers:getUsers", args ?? new GetUsersArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Use this data source to retrieve information about multiple GitHub users at once.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Github = Pulumi.Github;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Github.GetUsers.Invoke(new()
+        ///     {
+        ///         Usernames = new[]
+        ///         {
+        ///             "example1",
+        ///             "example2",
+        ///             "example3",
+        ///         },
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["validUsers"] = example.Apply(getUsersResult =&gt; getUsersResult.Logins),
+        ///         ["invalidUsers"] = example.Apply(getUsersResult =&gt; getUsersResult.UnknownLogins),
+        ///     };
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Output<GetUsersResult> Invoke(GetUsersInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetUsersResult>("github:index/getUsers:getUsers", args ?? new GetUsersInvokeArgs(), options.WithDefaults());
     }
@@ -23,6 +91,10 @@ namespace Pulumi.Github
     {
         [Input("usernames", required: true)]
         private List<string>? _usernames;
+
+        /// <summary>
+        /// List of usernames.
+        /// </summary>
         public List<string> Usernames
         {
             get => _usernames ?? (_usernames = new List<string>());
@@ -39,6 +111,10 @@ namespace Pulumi.Github
     {
         [Input("usernames", required: true)]
         private InputList<string>? _usernames;
+
+        /// <summary>
+        /// List of usernames.
+        /// </summary>
         public InputList<string> Usernames
         {
             get => _usernames ?? (_usernames = new InputList<string>());
@@ -59,8 +135,17 @@ namespace Pulumi.Github
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// list of logins of users that could be found.
+        /// </summary>
         public readonly ImmutableArray<string> Logins;
+        /// <summary>
+        /// list of Node IDs of users that could be found.
+        /// </summary>
         public readonly ImmutableArray<string> NodeIds;
+        /// <summary>
+        /// list of logins without matching user.
+        /// </summary>
         public readonly ImmutableArray<string> UnknownLogins;
         public readonly ImmutableArray<string> Usernames;
 

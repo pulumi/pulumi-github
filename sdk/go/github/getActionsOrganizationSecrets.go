@@ -7,6 +7,31 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Use this data source to retrieve the list of secrets of the organization.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-github/sdk/v5/go/github"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := github.GetActionsOrganizationSecrets(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func GetActionsOrganizationSecrets(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetActionsOrganizationSecretsResult, error) {
 	var rv GetActionsOrganizationSecretsResult
 	err := ctx.Invoke("github:index/getActionsOrganizationSecrets:getActionsOrganizationSecrets", nil, &rv, opts...)
@@ -19,6 +44,7 @@ func GetActionsOrganizationSecrets(ctx *pulumi.Context, opts ...pulumi.InvokeOpt
 // A collection of values returned by getActionsOrganizationSecrets.
 type GetActionsOrganizationSecretsResult struct {
 	// The provider-assigned unique ID for this managed resource.
-	Id      string                                `pulumi:"id"`
+	Id string `pulumi:"id"`
+	// list of secrets for the repository
 	Secrets []GetActionsOrganizationSecretsSecret `pulumi:"secrets"`
 }

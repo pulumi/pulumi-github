@@ -16,6 +16,10 @@ public final class GetActionsOrganizationSecretsResult {
      * 
      */
     private String id;
+    /**
+     * @return list of secrets for the repository
+     * 
+     */
     private List<GetActionsOrganizationSecretsSecret> secrets;
 
     private GetActionsOrganizationSecretsResult() {}
@@ -26,6 +30,10 @@ public final class GetActionsOrganizationSecretsResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return list of secrets for the repository
+     * 
+     */
     public List<GetActionsOrganizationSecretsSecret> secrets() {
         return this.secrets;
     }

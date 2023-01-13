@@ -11,69 +11,197 @@ import java.util.Objects;
 
 @CustomType
 public final class GetCollaboratorsCollaborator {
+    /**
+     * @return The GitHub API URL for the collaborator&#39;s events.
+     * 
+     */
     private String eventsUrl;
+    /**
+     * @return The GitHub API URL for the collaborator&#39;s followers.
+     * 
+     */
     private String followersUrl;
+    /**
+     * @return The GitHub API URL for those following the collaborator.
+     * 
+     */
     private String followingUrl;
+    /**
+     * @return The GitHub API URL for the collaborator&#39;s gists.
+     * 
+     */
     private String gistsUrl;
+    /**
+     * @return The GitHub HTML URL for the collaborator.
+     * 
+     */
     private String htmlUrl;
+    /**
+     * @return The ID of the collaborator.
+     * 
+     */
     private Integer id;
+    /**
+     * @return The collaborator&#39;s login.
+     * 
+     */
     private String login;
+    /**
+     * @return The GitHub API URL for the collaborator&#39;s organizations.
+     * 
+     */
     private String organizationsUrl;
+    /**
+     * @return The permission of the collaborator.
+     * 
+     */
     private String permission;
+    /**
+     * @return The GitHub API URL for the collaborator&#39;s received events.
+     * 
+     */
     private String receivedEventsUrl;
+    /**
+     * @return The GitHub API URL for the collaborator&#39;s repositories.
+     * 
+     */
     private String reposUrl;
+    /**
+     * @return Whether the user is a GitHub admin.
+     * 
+     */
     private Boolean siteAdmin;
+    /**
+     * @return The GitHub API URL for the collaborator&#39;s starred repositories.
+     * 
+     */
     private String starredUrl;
+    /**
+     * @return The GitHub API URL for the collaborator&#39;s subscribed repositories.
+     * 
+     */
     private String subscriptionsUrl;
+    /**
+     * @return The type of the collaborator (ex. `user`).
+     * 
+     */
     private String type;
+    /**
+     * @return The GitHub API URL for the collaborator.
+     * 
+     */
     private String url;
 
     private GetCollaboratorsCollaborator() {}
+    /**
+     * @return The GitHub API URL for the collaborator&#39;s events.
+     * 
+     */
     public String eventsUrl() {
         return this.eventsUrl;
     }
+    /**
+     * @return The GitHub API URL for the collaborator&#39;s followers.
+     * 
+     */
     public String followersUrl() {
         return this.followersUrl;
     }
+    /**
+     * @return The GitHub API URL for those following the collaborator.
+     * 
+     */
     public String followingUrl() {
         return this.followingUrl;
     }
+    /**
+     * @return The GitHub API URL for the collaborator&#39;s gists.
+     * 
+     */
     public String gistsUrl() {
         return this.gistsUrl;
     }
+    /**
+     * @return The GitHub HTML URL for the collaborator.
+     * 
+     */
     public String htmlUrl() {
         return this.htmlUrl;
     }
+    /**
+     * @return The ID of the collaborator.
+     * 
+     */
     public Integer id() {
         return this.id;
     }
+    /**
+     * @return The collaborator&#39;s login.
+     * 
+     */
     public String login() {
         return this.login;
     }
+    /**
+     * @return The GitHub API URL for the collaborator&#39;s organizations.
+     * 
+     */
     public String organizationsUrl() {
         return this.organizationsUrl;
     }
+    /**
+     * @return The permission of the collaborator.
+     * 
+     */
     public String permission() {
         return this.permission;
     }
+    /**
+     * @return The GitHub API URL for the collaborator&#39;s received events.
+     * 
+     */
     public String receivedEventsUrl() {
         return this.receivedEventsUrl;
     }
+    /**
+     * @return The GitHub API URL for the collaborator&#39;s repositories.
+     * 
+     */
     public String reposUrl() {
         return this.reposUrl;
     }
+    /**
+     * @return Whether the user is a GitHub admin.
+     * 
+     */
     public Boolean siteAdmin() {
         return this.siteAdmin;
     }
+    /**
+     * @return The GitHub API URL for the collaborator&#39;s starred repositories.
+     * 
+     */
     public String starredUrl() {
         return this.starredUrl;
     }
+    /**
+     * @return The GitHub API URL for the collaborator&#39;s subscribed repositories.
+     * 
+     */
     public String subscriptionsUrl() {
         return this.subscriptionsUrl;
     }
+    /**
+     * @return The type of the collaborator (ex. `user`).
+     * 
+     */
     public String type() {
         return this.type;
     }
+    /**
+     * @return The GitHub API URL for the collaborator.
+     * 
+     */
     public String url() {
         return this.url;
     }

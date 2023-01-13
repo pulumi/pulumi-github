@@ -22,8 +22,12 @@ class IssueArgs:
                  milestone_number: Optional[pulumi.Input[int]] = None):
         """
         The set of arguments for constructing a Issue resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] assignees: List of Logins for Users to assign to this issue
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] labels: List of names of labels on the issue
+        :param pulumi.Input[str] repository: The GitHub repository name
+        :param pulumi.Input[str] title: Title of the issue
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] assignees: List of Logins to assign the to the issue
+        :param pulumi.Input[str] body: Body of the issue
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] labels: List of labels to attach to the issue
+        :param pulumi.Input[int] milestone_number: Milestone number to assign to the issue
         """
         pulumi.set(__self__, "repository", repository)
         pulumi.set(__self__, "title", title)
@@ -39,6 +43,9 @@ class IssueArgs:
     @property
     @pulumi.getter
     def repository(self) -> pulumi.Input[str]:
+        """
+        The GitHub repository name
+        """
         return pulumi.get(self, "repository")
 
     @repository.setter
@@ -48,6 +55,9 @@ class IssueArgs:
     @property
     @pulumi.getter
     def title(self) -> pulumi.Input[str]:
+        """
+        Title of the issue
+        """
         return pulumi.get(self, "title")
 
     @title.setter
@@ -58,7 +68,7 @@ class IssueArgs:
     @pulumi.getter
     def assignees(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of Logins for Users to assign to this issue
+        List of Logins to assign the to the issue
         """
         return pulumi.get(self, "assignees")
 
@@ -69,6 +79,9 @@ class IssueArgs:
     @property
     @pulumi.getter
     def body(self) -> Optional[pulumi.Input[str]]:
+        """
+        Body of the issue
+        """
         return pulumi.get(self, "body")
 
     @body.setter
@@ -79,7 +92,7 @@ class IssueArgs:
     @pulumi.getter
     def labels(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of names of labels on the issue
+        List of labels to attach to the issue
         """
         return pulumi.get(self, "labels")
 
@@ -90,6 +103,9 @@ class IssueArgs:
     @property
     @pulumi.getter(name="milestoneNumber")
     def milestone_number(self) -> Optional[pulumi.Input[int]]:
+        """
+        Milestone number to assign to the issue
+        """
         return pulumi.get(self, "milestone_number")
 
     @milestone_number.setter
@@ -111,8 +127,14 @@ class _IssueState:
                  title: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Issue resources.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] assignees: List of Logins for Users to assign to this issue
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] labels: List of names of labels on the issue
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] assignees: List of Logins to assign the to the issue
+        :param pulumi.Input[str] body: Body of the issue
+        :param pulumi.Input[int] issue_id: (Computed) - The issue id
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] labels: List of labels to attach to the issue
+        :param pulumi.Input[int] milestone_number: Milestone number to assign to the issue
+        :param pulumi.Input[int] number: (Computed) - The issue number
+        :param pulumi.Input[str] repository: The GitHub repository name
+        :param pulumi.Input[str] title: Title of the issue
         """
         if assignees is not None:
             pulumi.set(__self__, "assignees", assignees)
@@ -137,7 +159,7 @@ class _IssueState:
     @pulumi.getter
     def assignees(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of Logins for Users to assign to this issue
+        List of Logins to assign the to the issue
         """
         return pulumi.get(self, "assignees")
 
@@ -148,6 +170,9 @@ class _IssueState:
     @property
     @pulumi.getter
     def body(self) -> Optional[pulumi.Input[str]]:
+        """
+        Body of the issue
+        """
         return pulumi.get(self, "body")
 
     @body.setter
@@ -166,6 +191,9 @@ class _IssueState:
     @property
     @pulumi.getter(name="issueId")
     def issue_id(self) -> Optional[pulumi.Input[int]]:
+        """
+        (Computed) - The issue id
+        """
         return pulumi.get(self, "issue_id")
 
     @issue_id.setter
@@ -176,7 +204,7 @@ class _IssueState:
     @pulumi.getter
     def labels(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of names of labels on the issue
+        List of labels to attach to the issue
         """
         return pulumi.get(self, "labels")
 
@@ -187,6 +215,9 @@ class _IssueState:
     @property
     @pulumi.getter(name="milestoneNumber")
     def milestone_number(self) -> Optional[pulumi.Input[int]]:
+        """
+        Milestone number to assign to the issue
+        """
         return pulumi.get(self, "milestone_number")
 
     @milestone_number.setter
@@ -196,6 +227,9 @@ class _IssueState:
     @property
     @pulumi.getter
     def number(self) -> Optional[pulumi.Input[int]]:
+        """
+        (Computed) - The issue number
+        """
         return pulumi.get(self, "number")
 
     @number.setter
@@ -205,6 +239,9 @@ class _IssueState:
     @property
     @pulumi.getter
     def repository(self) -> Optional[pulumi.Input[str]]:
+        """
+        The GitHub repository name
+        """
         return pulumi.get(self, "repository")
 
     @repository.setter
@@ -214,6 +251,9 @@ class _IssueState:
     @property
     @pulumi.getter
     def title(self) -> Optional[pulumi.Input[str]]:
+        """
+        Title of the issue
+        """
         return pulumi.get(self, "title")
 
     @title.setter
@@ -234,11 +274,71 @@ class Issue(pulumi.CustomResource):
                  title: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a Issue resource with the given unique name, props, and options.
+        Provides a GitHub issue resource.
+
+        This resource allows you to create and manage issue within your
+        GitHub repository.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        # Create a simple issue
+        test_repository = github.Repository("testRepository",
+            auto_init=True,
+            has_issues=True)
+        test_issue = github.Issue("testIssue",
+            repository=test_repository.name,
+            title="My issue title",
+            body="The body of my issue")
+        ```
+        ### With Milestone And Project Assignment
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        # Create an issue with milestone and project assignment
+        test_repository = github.Repository("testRepository",
+            auto_init=True,
+            has_issues=True)
+        test_repository_milestone = github.RepositoryMilestone("testRepositoryMilestone",
+            owner=test_repository.full_name.apply(lambda full_name: full_name.split("/")).apply(lambda split: split[0]),
+            repository=test_repository.name,
+            title="v1.0.0",
+            description="General Availability",
+            due_date="2022-11-22",
+            state="open")
+        test_issue = github.Issue("testIssue",
+            repository=test_repository.name,
+            title="My issue",
+            body="My issue body",
+            labels=[
+                "bug",
+                "documentation",
+            ],
+            assignees=["bob-github"],
+            milestone_number=test_repository_milestone.number)
+        ```
+
+        ## Import
+
+        GitHub Issues can be imported using an ID made up of `repository:number`, e.g.
+
+        ```sh
+         $ pulumi import github:index/issue:Issue issue_15 myrepo:15
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] assignees: List of Logins for Users to assign to this issue
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] labels: List of names of labels on the issue
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] assignees: List of Logins to assign the to the issue
+        :param pulumi.Input[str] body: Body of the issue
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] labels: List of labels to attach to the issue
+        :param pulumi.Input[int] milestone_number: Milestone number to assign to the issue
+        :param pulumi.Input[str] repository: The GitHub repository name
+        :param pulumi.Input[str] title: Title of the issue
         """
         ...
     @overload
@@ -247,7 +347,63 @@ class Issue(pulumi.CustomResource):
                  args: IssueArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a Issue resource with the given unique name, props, and options.
+        Provides a GitHub issue resource.
+
+        This resource allows you to create and manage issue within your
+        GitHub repository.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        # Create a simple issue
+        test_repository = github.Repository("testRepository",
+            auto_init=True,
+            has_issues=True)
+        test_issue = github.Issue("testIssue",
+            repository=test_repository.name,
+            title="My issue title",
+            body="The body of my issue")
+        ```
+        ### With Milestone And Project Assignment
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        # Create an issue with milestone and project assignment
+        test_repository = github.Repository("testRepository",
+            auto_init=True,
+            has_issues=True)
+        test_repository_milestone = github.RepositoryMilestone("testRepositoryMilestone",
+            owner=test_repository.full_name.apply(lambda full_name: full_name.split("/")).apply(lambda split: split[0]),
+            repository=test_repository.name,
+            title="v1.0.0",
+            description="General Availability",
+            due_date="2022-11-22",
+            state="open")
+        test_issue = github.Issue("testIssue",
+            repository=test_repository.name,
+            title="My issue",
+            body="My issue body",
+            labels=[
+                "bug",
+                "documentation",
+            ],
+            assignees=["bob-github"],
+            milestone_number=test_repository_milestone.number)
+        ```
+
+        ## Import
+
+        GitHub Issues can be imported using an ID made up of `repository:number`, e.g.
+
+        ```sh
+         $ pulumi import github:index/issue:Issue issue_15 myrepo:15
+        ```
+
         :param str resource_name: The name of the resource.
         :param IssueArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -317,8 +473,14 @@ class Issue(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] assignees: List of Logins for Users to assign to this issue
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] labels: List of names of labels on the issue
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] assignees: List of Logins to assign the to the issue
+        :param pulumi.Input[str] body: Body of the issue
+        :param pulumi.Input[int] issue_id: (Computed) - The issue id
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] labels: List of labels to attach to the issue
+        :param pulumi.Input[int] milestone_number: Milestone number to assign to the issue
+        :param pulumi.Input[int] number: (Computed) - The issue number
+        :param pulumi.Input[str] repository: The GitHub repository name
+        :param pulumi.Input[str] title: Title of the issue
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -339,13 +501,16 @@ class Issue(pulumi.CustomResource):
     @pulumi.getter
     def assignees(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        List of Logins for Users to assign to this issue
+        List of Logins to assign the to the issue
         """
         return pulumi.get(self, "assignees")
 
     @property
     @pulumi.getter
     def body(self) -> pulumi.Output[Optional[str]]:
+        """
+        Body of the issue
+        """
         return pulumi.get(self, "body")
 
     @property
@@ -356,33 +521,48 @@ class Issue(pulumi.CustomResource):
     @property
     @pulumi.getter(name="issueId")
     def issue_id(self) -> pulumi.Output[int]:
+        """
+        (Computed) - The issue id
+        """
         return pulumi.get(self, "issue_id")
 
     @property
     @pulumi.getter
     def labels(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        List of names of labels on the issue
+        List of labels to attach to the issue
         """
         return pulumi.get(self, "labels")
 
     @property
     @pulumi.getter(name="milestoneNumber")
     def milestone_number(self) -> pulumi.Output[Optional[int]]:
+        """
+        Milestone number to assign to the issue
+        """
         return pulumi.get(self, "milestone_number")
 
     @property
     @pulumi.getter
     def number(self) -> pulumi.Output[int]:
+        """
+        (Computed) - The issue number
+        """
         return pulumi.get(self, "number")
 
     @property
     @pulumi.getter
     def repository(self) -> pulumi.Output[str]:
+        """
+        The GitHub repository name
+        """
         return pulumi.get(self, "repository")
 
     @property
     @pulumi.getter
     def title(self) -> pulumi.Output[str]:
+        """
+        Title of the issue
+        """
         return pulumi.get(self, "title")
 

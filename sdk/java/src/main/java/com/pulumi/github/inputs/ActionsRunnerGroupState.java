@@ -18,65 +18,137 @@ public final class ActionsRunnerGroupState extends com.pulumi.resources.Resource
 
     public static final ActionsRunnerGroupState Empty = new ActionsRunnerGroupState();
 
+    /**
+     * Whether public repositories can be added to the runner group
+     * 
+     */
     @Import(name="allowsPublicRepositories")
     private @Nullable Output<Boolean> allowsPublicRepositories;
 
+    /**
+     * @return Whether public repositories can be added to the runner group
+     * 
+     */
     public Optional<Output<Boolean>> allowsPublicRepositories() {
         return Optional.ofNullable(this.allowsPublicRepositories);
     }
 
+    /**
+     * Whether this is the default runner group
+     * 
+     */
     @Import(name="default")
     private @Nullable Output<Boolean> default_;
 
+    /**
+     * @return Whether this is the default runner group
+     * 
+     */
     public Optional<Output<Boolean>> default_() {
         return Optional.ofNullable(this.default_);
     }
 
+    /**
+     * An etag representing the runner group object
+     * 
+     */
     @Import(name="etag")
     private @Nullable Output<String> etag;
 
+    /**
+     * @return An etag representing the runner group object
+     * 
+     */
     public Optional<Output<String>> etag() {
         return Optional.ofNullable(this.etag);
     }
 
+    /**
+     * Whether the runner group is inherited from the enterprise level
+     * 
+     */
     @Import(name="inherited")
     private @Nullable Output<Boolean> inherited;
 
+    /**
+     * @return Whether the runner group is inherited from the enterprise level
+     * 
+     */
     public Optional<Output<Boolean>> inherited() {
         return Optional.ofNullable(this.inherited);
     }
 
+    /**
+     * Name of the runner group
+     * 
+     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
+    /**
+     * @return Name of the runner group
+     * 
+     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
+    /**
+     * The GitHub API URL for the runner group&#39;s runners
+     * 
+     */
     @Import(name="runnersUrl")
     private @Nullable Output<String> runnersUrl;
 
+    /**
+     * @return The GitHub API URL for the runner group&#39;s runners
+     * 
+     */
     public Optional<Output<String>> runnersUrl() {
         return Optional.ofNullable(this.runnersUrl);
     }
 
+    /**
+     * Github API URL for the runner group&#39;s repositories
+     * 
+     */
     @Import(name="selectedRepositoriesUrl")
     private @Nullable Output<String> selectedRepositoriesUrl;
 
+    /**
+     * @return Github API URL for the runner group&#39;s repositories
+     * 
+     */
     public Optional<Output<String>> selectedRepositoriesUrl() {
         return Optional.ofNullable(this.selectedRepositoriesUrl);
     }
 
+    /**
+     * IDs of the repositories which should be added to the runner group
+     * 
+     */
     @Import(name="selectedRepositoryIds")
     private @Nullable Output<List<Integer>> selectedRepositoryIds;
 
+    /**
+     * @return IDs of the repositories which should be added to the runner group
+     * 
+     */
     public Optional<Output<List<Integer>>> selectedRepositoryIds() {
         return Optional.ofNullable(this.selectedRepositoryIds);
     }
 
+    /**
+     * Visibility of a runner group. Whether the runner group can include `all`, `selected`, or `private` repositories. A value of `private` is not currently supported due to limitations in the GitHub API.
+     * 
+     */
     @Import(name="visibility")
     private @Nullable Output<String> visibility;
 
+    /**
+     * @return Visibility of a runner group. Whether the runner group can include `all`, `selected`, or `private` repositories. A value of `private` is not currently supported due to limitations in the GitHub API.
+     * 
+     */
     public Optional<Output<String>> visibility() {
         return Optional.ofNullable(this.visibility);
     }
@@ -113,87 +185,201 @@ public final class ActionsRunnerGroupState extends com.pulumi.resources.Resource
             $ = new ActionsRunnerGroupState(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param allowsPublicRepositories Whether public repositories can be added to the runner group
+         * 
+         * @return builder
+         * 
+         */
         public Builder allowsPublicRepositories(@Nullable Output<Boolean> allowsPublicRepositories) {
             $.allowsPublicRepositories = allowsPublicRepositories;
             return this;
         }
 
+        /**
+         * @param allowsPublicRepositories Whether public repositories can be added to the runner group
+         * 
+         * @return builder
+         * 
+         */
         public Builder allowsPublicRepositories(Boolean allowsPublicRepositories) {
             return allowsPublicRepositories(Output.of(allowsPublicRepositories));
         }
 
+        /**
+         * @param default_ Whether this is the default runner group
+         * 
+         * @return builder
+         * 
+         */
         public Builder default_(@Nullable Output<Boolean> default_) {
             $.default_ = default_;
             return this;
         }
 
+        /**
+         * @param default_ Whether this is the default runner group
+         * 
+         * @return builder
+         * 
+         */
         public Builder default_(Boolean default_) {
             return default_(Output.of(default_));
         }
 
+        /**
+         * @param etag An etag representing the runner group object
+         * 
+         * @return builder
+         * 
+         */
         public Builder etag(@Nullable Output<String> etag) {
             $.etag = etag;
             return this;
         }
 
+        /**
+         * @param etag An etag representing the runner group object
+         * 
+         * @return builder
+         * 
+         */
         public Builder etag(String etag) {
             return etag(Output.of(etag));
         }
 
+        /**
+         * @param inherited Whether the runner group is inherited from the enterprise level
+         * 
+         * @return builder
+         * 
+         */
         public Builder inherited(@Nullable Output<Boolean> inherited) {
             $.inherited = inherited;
             return this;
         }
 
+        /**
+         * @param inherited Whether the runner group is inherited from the enterprise level
+         * 
+         * @return builder
+         * 
+         */
         public Builder inherited(Boolean inherited) {
             return inherited(Output.of(inherited));
         }
 
+        /**
+         * @param name Name of the runner group
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param name Name of the runner group
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
+        /**
+         * @param runnersUrl The GitHub API URL for the runner group&#39;s runners
+         * 
+         * @return builder
+         * 
+         */
         public Builder runnersUrl(@Nullable Output<String> runnersUrl) {
             $.runnersUrl = runnersUrl;
             return this;
         }
 
+        /**
+         * @param runnersUrl The GitHub API URL for the runner group&#39;s runners
+         * 
+         * @return builder
+         * 
+         */
         public Builder runnersUrl(String runnersUrl) {
             return runnersUrl(Output.of(runnersUrl));
         }
 
+        /**
+         * @param selectedRepositoriesUrl Github API URL for the runner group&#39;s repositories
+         * 
+         * @return builder
+         * 
+         */
         public Builder selectedRepositoriesUrl(@Nullable Output<String> selectedRepositoriesUrl) {
             $.selectedRepositoriesUrl = selectedRepositoriesUrl;
             return this;
         }
 
+        /**
+         * @param selectedRepositoriesUrl Github API URL for the runner group&#39;s repositories
+         * 
+         * @return builder
+         * 
+         */
         public Builder selectedRepositoriesUrl(String selectedRepositoriesUrl) {
             return selectedRepositoriesUrl(Output.of(selectedRepositoriesUrl));
         }
 
+        /**
+         * @param selectedRepositoryIds IDs of the repositories which should be added to the runner group
+         * 
+         * @return builder
+         * 
+         */
         public Builder selectedRepositoryIds(@Nullable Output<List<Integer>> selectedRepositoryIds) {
             $.selectedRepositoryIds = selectedRepositoryIds;
             return this;
         }
 
+        /**
+         * @param selectedRepositoryIds IDs of the repositories which should be added to the runner group
+         * 
+         * @return builder
+         * 
+         */
         public Builder selectedRepositoryIds(List<Integer> selectedRepositoryIds) {
             return selectedRepositoryIds(Output.of(selectedRepositoryIds));
         }
 
+        /**
+         * @param selectedRepositoryIds IDs of the repositories which should be added to the runner group
+         * 
+         * @return builder
+         * 
+         */
         public Builder selectedRepositoryIds(Integer... selectedRepositoryIds) {
             return selectedRepositoryIds(List.of(selectedRepositoryIds));
         }
 
+        /**
+         * @param visibility Visibility of a runner group. Whether the runner group can include `all`, `selected`, or `private` repositories. A value of `private` is not currently supported due to limitations in the GitHub API.
+         * 
+         * @return builder
+         * 
+         */
         public Builder visibility(@Nullable Output<String> visibility) {
             $.visibility = visibility;
             return this;
         }
 
+        /**
+         * @param visibility Visibility of a runner group. Whether the runner group can include `all`, `selected`, or `private` repositories. A value of `private` is not currently supported due to limitations in the GitHub API.
+         * 
+         * @return builder
+         * 
+         */
         public Builder visibility(String visibility) {
             return visibility(Output.of(visibility));
         }

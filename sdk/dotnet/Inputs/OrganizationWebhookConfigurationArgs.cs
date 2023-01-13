@@ -32,6 +32,10 @@ namespace Pulumi.Github.Inputs
 
         [Input("url", required: true)]
         private Input<string>? _url;
+
+        /// <summary>
+        /// URL of the webhook
+        /// </summary>
         public Input<string>? Url
         {
             get => _url;

@@ -6,53 +6,141 @@ import * as inputs from "../types/input";
 import * as outputs from "../types/output";
 
 export interface ActionsOrganizationPermissionsAllowedActionsConfig {
+    /**
+     * Whether GitHub-owned actions are allowed in the organization.
+     */
     githubOwnedAllowed: pulumi.Input<boolean>;
+    /**
+     * Specifies a list of string-matching patterns to allow specific action(s). Wildcards, tags, and SHAs are allowed. For example, monalisa/octocat@*, monalisa/octocat@v2, monalisa/*."
+     */
     patternsAlloweds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Whether actions in GitHub Marketplace from verified creators are allowed. Set to true to allow all GitHub Marketplace actions by verified creators.
+     */
     verifiedAllowed?: pulumi.Input<boolean>;
 }
 
 export interface ActionsOrganizationPermissionsEnabledRepositoriesConfig {
+    /**
+     * List of repository IDs to enable for GitHub Actions.
+     */
     repositoryIds: pulumi.Input<pulumi.Input<number>[]>;
 }
 
+export interface ActionsRepositoryPermissionsAllowedActionsConfig {
+    /**
+     * Whether GitHub-owned actions are allowed in the repository.
+     */
+    githubOwnedAllowed: pulumi.Input<boolean>;
+    /**
+     * Specifies a list of string-matching patterns to allow specific action(s). Wildcards, tags, and SHAs are allowed. For example, monalisa/octocat@*, monalisa/octocat@v2, monalisa/*."
+     */
+    patternsAlloweds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Whether actions in GitHub Marketplace from verified creators are allowed. Set to true to allow all GitHub Marketplace actions by verified creators.
+     */
+    verifiedAllowed?: pulumi.Input<boolean>;
+}
+
 export interface BranchProtectionRequiredPullRequestReview {
+    /**
+     * Dismiss approved reviews automatically when a new commit is pushed. Defaults to `false`.
+     */
     dismissStaleReviews?: pulumi.Input<boolean>;
+    /**
+     * The list of actor Names/IDs with dismissal access. If not empty, `restrictDismissals` is ignored. Actor names must either begin with a "/" for users or the organization name followed by a "/" for teams.
+     */
     dismissalRestrictions?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The list of actor Names/IDs that are allowed to bypass pull request requirements. Actor names must either begin with a "/" for users or the organization name followed by a "/" for teams.
+     */
     pullRequestBypassers?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Require an approved review in pull requests including files with a designated code owner. Defaults to `false`.
+     */
     requireCodeOwnerReviews?: pulumi.Input<boolean>;
+    /**
+     * Require that The most recent push must be approved by someone other than the last pusher.  Defaults to `false`
+     */
+    requireLastPushApproval?: pulumi.Input<boolean>;
+    /**
+     * Require x number of approvals to satisfy branch protection requirements. If this is specified it must be a number between 0-6. This requirement matches GitHub's API, see the upstream [documentation](https://developer.github.com/v3/repos/branches/#parameters-1) for more information.
+     * (https://developer.github.com/v3/repos/branches/#parameters-1) for more information.
+     */
     requiredApprovingReviewCount?: pulumi.Input<number>;
+    /**
+     * Restrict pull request review dismissals.
+     */
     restrictDismissals?: pulumi.Input<boolean>;
 }
 
 export interface BranchProtectionRequiredStatusCheck {
+    /**
+     * The list of status checks to require in order to merge into this branch. No status checks are required by default.
+     */
     contexts?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Require branches to be up to date before merging. Defaults to `false`.
+     */
     strict?: pulumi.Input<boolean>;
 }
 
 export interface BranchProtectionV3RequiredPullRequestReviews {
+    /**
+     * Dismiss approved reviews automatically when a new commit is pushed. Defaults to `false`.
+     */
     dismissStaleReviews?: pulumi.Input<boolean>;
+    /**
+     * The list of team slugs with dismissal access.
+     * Always use `slug` of the team, **not** its name. Each team already **has** to have access to the repository.
+     */
     dismissalTeams?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The list of user logins with dismissal access
+     */
     dismissalUsers?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * @deprecated Use enforce_admins instead
      */
     includeAdmins?: pulumi.Input<boolean>;
+    /**
+     * Require an approved review in pull requests including files with a designated code owner. Defaults to `false`.
+     */
     requireCodeOwnerReviews?: pulumi.Input<boolean>;
+    /**
+     * Require x number of approvals to satisfy branch protection requirements. If this is specified it must be a number between 0-6. This requirement matches GitHub's API, see the upstream [documentation](https://developer.github.com/v3/repos/branches/#parameters-1) for more information.
+     */
     requiredApprovingReviewCount?: pulumi.Input<number>;
 }
 
 export interface BranchProtectionV3RequiredStatusChecks {
+    /**
+     * The list of status checks to require in order to merge into this branch. No status checks are required by default.
+     */
     contexts?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * @deprecated Use enforce_admins instead
      */
     includeAdmins?: pulumi.Input<boolean>;
+    /**
+     * Require branches to be up to date before merging. Defaults to `false`.
+     */
     strict?: pulumi.Input<boolean>;
 }
 
 export interface BranchProtectionV3Restrictions {
+    /**
+     * The list of app slugs with push access.
+     */
     apps?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The list of team slugs with push access.
+     * Always use `slug` of the team, **not** its name. Each team already **has** to have access to the repository.
+     */
     teams?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The list of user logins with push access.
+     */
     users?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
@@ -60,6 +148,9 @@ export interface OrganizationWebhookConfiguration {
     contentType?: pulumi.Input<string>;
     insecureSsl?: pulumi.Input<boolean>;
     secret?: pulumi.Input<string>;
+    /**
+     * URL of the webhook
+     */
     url: pulumi.Input<string>;
 }
 
@@ -70,50 +161,171 @@ export interface ProviderAppAuth {
 }
 
 export interface RepositoryEnvironmentDeploymentBranchPolicy {
+    /**
+     * Whether only branches that match the specified name patterns can deploy to this environment.
+     */
     customBranchPolicies: pulumi.Input<boolean>;
+    /**
+     * Whether only branches with branch protection rules can deploy to this environment.
+     */
     protectedBranches: pulumi.Input<boolean>;
 }
 
 export interface RepositoryEnvironmentReviewer {
+    /**
+     * Up to 6 IDs for teams who may review jobs that reference the environment. Reviewers must have at least read access to the repository. Only one of the required reviewers needs to approve the job for it to proceed.
+     */
     teams?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * Up to 6 IDs for users who may review jobs that reference the environment. Reviewers must have at least read access to the repository. Only one of the required reviewers needs to approve the job for it to proceed.
+     */
     users?: pulumi.Input<pulumi.Input<number>[]>;
 }
 
 export interface RepositoryPages {
+    /**
+     * The custom domain for the repository. This can only be set after the repository has been created.
+     */
     cname?: pulumi.Input<string>;
+    /**
+     * Whether the rendered GitHub Pages site has a custom 404 page.
+     */
     custom404?: pulumi.Input<boolean>;
+    /**
+     * The absolute URL (including scheme) of the rendered GitHub Pages site e.g. `https://username.github.io`.
+     */
     htmlUrl?: pulumi.Input<string>;
+    /**
+     * The source branch and directory for the rendered Pages site. See GitHub Pages Source below for details.
+     */
     source: pulumi.Input<inputs.RepositoryPagesSource>;
+    /**
+     * Set to `enabled` to enable advanced security features on the repository. Can be `enabled` or `disabled`.
+     */
     status?: pulumi.Input<string>;
     url?: pulumi.Input<string>;
 }
 
 export interface RepositoryPagesSource {
+    /**
+     * The repository branch used to publish the site's source files. (i.e. `main` or `gh-pages`.
+     */
     branch: pulumi.Input<string>;
+    /**
+     * The repository directory from which the site publishes (Default: `/`).
+     */
     path?: pulumi.Input<string>;
 }
 
+export interface RepositorySecurityAndAnalysis {
+    /**
+     * The advanced security configuration for the repository. See Advanced Security Configuration below for details.
+     */
+    advancedSecurity: pulumi.Input<inputs.RepositorySecurityAndAnalysisAdvancedSecurity>;
+    /**
+     * The secret scanning configuration for the repository. See Secret Scanning Configuration below for details.
+     */
+    secretScanning: pulumi.Input<inputs.RepositorySecurityAndAnalysisSecretScanning>;
+    /**
+     * The secret scanning push protection configuration for the repository. See Secret Scanning Push Protection Configuration below for details.
+     */
+    secretScanningPushProtection: pulumi.Input<inputs.RepositorySecurityAndAnalysisSecretScanningPushProtection>;
+}
+
+export interface RepositorySecurityAndAnalysisAdvancedSecurity {
+    /**
+     * Set to `enabled` to enable advanced security features on the repository. Can be `enabled` or `disabled`.
+     */
+    status: pulumi.Input<string>;
+}
+
+export interface RepositorySecurityAndAnalysisSecretScanning {
+    /**
+     * Set to `enabled` to enable advanced security features on the repository. Can be `enabled` or `disabled`.
+     */
+    status: pulumi.Input<string>;
+}
+
+export interface RepositorySecurityAndAnalysisSecretScanningPushProtection {
+    /**
+     * Set to `enabled` to enable advanced security features on the repository. Can be `enabled` or `disabled`.
+     */
+    status: pulumi.Input<string>;
+}
+
 export interface RepositoryTemplate {
+    /**
+     * Whether the new repository should include all the branches from the template repository (defaults to false, which includes only the default branch from the template).
+     */
     includeAllBranches?: pulumi.Input<boolean>;
+    /**
+     * The GitHub organization or user the template repository is owned by.
+     */
     owner: pulumi.Input<string>;
+    /**
+     * The name of the template repository.
+     */
     repository: pulumi.Input<string>;
 }
 
 export interface RepositoryWebhookConfiguration {
+    /**
+     * The content type for the payload. Valid values are either `form` or `json`.
+     */
     contentType?: pulumi.Input<string>;
+    /**
+     * Insecure SSL boolean toggle. Defaults to `false`.
+     */
     insecureSsl?: pulumi.Input<boolean>;
+    /**
+     * The shared secret for the webhook. [See API documentation](https://developer.github.com/v3/repos/hooks/#create-a-hook).
+     */
     secret?: pulumi.Input<string>;
+    /**
+     * The URL of the webhook.
+     */
     url: pulumi.Input<string>;
 }
 
 export interface TeamMembersMember {
+    /**
+     * The role of the user within the team.
+     * Must be one of `member` or `maintainer`. Defaults to `member`.
+     */
     role?: pulumi.Input<string>;
+    /**
+     * The user to add to the team.
+     */
     username: pulumi.Input<string>;
 }
 
+export interface TeamSettingsReviewRequestDelegation {
+    /**
+     * The algorithm to use when assigning pull requests to team members. Supported values are `ROUND_ROBIN` and `LOAD_BALANCE`. Default value is `ROUND_ROBIN`
+     */
+    algorithm?: pulumi.Input<string>;
+    /**
+     * The number of team members to assign to a pull request
+     */
+    memberCount?: pulumi.Input<number>;
+    /**
+     * whether to notify the entire team when at least one member is also assigned to the pull request
+     */
+    notify?: pulumi.Input<boolean>;
+}
+
 export interface TeamSyncGroupMappingGroup {
+    /**
+     * The description of the IdP group.
+     */
     groupDescription: pulumi.Input<string>;
+    /**
+     * The ID of the IdP group.
+     */
     groupId: pulumi.Input<string>;
+    /**
+     * The name of the IdP group.
+     */
     groupName: pulumi.Input<string>;
 }
 export namespace config {

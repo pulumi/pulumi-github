@@ -12,10 +12,30 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetRepositoryFileResult {
     private @Nullable String branch;
+    /**
+     * @return Committer author name.
+     * 
+     */
     private String commitAuthor;
+    /**
+     * @return Committer email address.
+     * 
+     */
     private String commitEmail;
+    /**
+     * @return Commit message when file was last updated.
+     * 
+     */
     private String commitMessage;
+    /**
+     * @return The SHA of the commit that modified the file.
+     * 
+     */
     private String commitSha;
+    /**
+     * @return The file content.
+     * 
+     */
     private String content;
     private String file;
     /**
@@ -24,24 +44,48 @@ public final class GetRepositoryFileResult {
      */
     private String id;
     private String repository;
+    /**
+     * @return The SHA blob of the file.
+     * 
+     */
     private String sha;
 
     private GetRepositoryFileResult() {}
     public Optional<String> branch() {
         return Optional.ofNullable(this.branch);
     }
+    /**
+     * @return Committer author name.
+     * 
+     */
     public String commitAuthor() {
         return this.commitAuthor;
     }
+    /**
+     * @return Committer email address.
+     * 
+     */
     public String commitEmail() {
         return this.commitEmail;
     }
+    /**
+     * @return Commit message when file was last updated.
+     * 
+     */
     public String commitMessage() {
         return this.commitMessage;
     }
+    /**
+     * @return The SHA of the commit that modified the file.
+     * 
+     */
     public String commitSha() {
         return this.commitSha;
     }
+    /**
+     * @return The file content.
+     * 
+     */
     public String content() {
         return this.content;
     }
@@ -58,6 +102,10 @@ public final class GetRepositoryFileResult {
     public String repository() {
         return this.repository;
     }
+    /**
+     * @return The SHA blob of the file.
+     * 
+     */
     public String sha() {
         return this.sha;
     }

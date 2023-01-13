@@ -4,12 +4,23 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * Use this data source to retrieve basic information about a GitHub Organization.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const example = github.getOrganization({
+ *     name: "github",
+ * });
+ * ```
+ */
 export function getOrganization(args: GetOrganizationArgs, opts?: pulumi.InvokeOptions): Promise<GetOrganizationResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("github:index/getOrganization:getOrganization", {
         "name": args.name,
     }, opts);
@@ -19,6 +30,9 @@ export function getOrganization(args: GetOrganizationArgs, opts?: pulumi.InvokeO
  * A collection of arguments for invoking getOrganization.
  */
 export interface GetOrganizationArgs {
+    /**
+     * The organization's public profile name
+     */
     name: string;
 }
 
@@ -26,27 +40,67 @@ export interface GetOrganizationArgs {
  * A collection of values returned by getOrganization.
  */
 export interface GetOrganizationResult {
+    /**
+     * The description the organization account
+     */
     readonly description: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * The login of the organization account
+     */
     readonly login: string;
+    /**
+     * (`list`) A list with the members of the organization
+     */
     readonly members: string[];
+    /**
+     * The organization's public profile name
+     */
     readonly name: string;
+    /**
+     * GraphQL global node id for use with v4 API
+     */
     readonly nodeId: string;
+    /**
+     * The organization's name as used in URLs and the API
+     */
     readonly orgname: string;
+    /**
+     * The plan name for the organization account
+     */
     readonly plan: string;
+    /**
+     * (`list`) A list with the repositories on the organization
+     */
     readonly repositories: string[];
 }
-
+/**
+ * Use this data source to retrieve basic information about a GitHub Organization.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const example = github.getOrganization({
+ *     name: "github",
+ * });
+ * ```
+ */
 export function getOrganizationOutput(args: GetOrganizationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOrganizationResult> {
-    return pulumi.output(args).apply(a => getOrganization(a, opts))
+    return pulumi.output(args).apply((a: any) => getOrganization(a, opts))
 }
 
 /**
  * A collection of arguments for invoking getOrganization.
  */
 export interface GetOrganizationOutputArgs {
+    /**
+     * The organization's public profile name
+     */
     name: pulumi.Input<string>;
 }

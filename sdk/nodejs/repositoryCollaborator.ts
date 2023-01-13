@@ -4,6 +4,48 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * Provides a GitHub repository collaborator resource.
+ *
+ * This resource allows you to add/remove collaborators from repositories in your
+ * organization or personal account. For organization repositories, collaborators can
+ * have explicit (and differing levels of) read, write, or administrator access to
+ * specific repositories, without giving the user full organization membership.
+ * For personal repositories, collaborators can only be granted write
+ * (implictly includes read) permission.
+ *
+ * When applied, an invitation will be sent to the user to become a collaborator
+ * on a repository. When destroyed, either the invitation will be cancelled or the
+ * collaborator will be removed from the repository.
+ *
+ * Further documentation on GitHub collaborators:
+ *
+ * - [Adding outside collaborators to your personal repositories](https://help.github.com/en/github/setting-up-and-managing-your-github-user-account/managing-access-to-your-personal-repositories)
+ * - [Adding outside collaborators to repositories in your organization](https://help.github.com/articles/adding-outside-collaborators-to-repositories-in-your-organization/)
+ * - [Converting an organization member to an outside collaborator](https://help.github.com/articles/converting-an-organization-member-to-an-outside-collaborator/)
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * // Add a collaborator to a repository
+ * const aRepoCollaborator = new github.RepositoryCollaborator("aRepoCollaborator", {
+ *     permission: "admin",
+ *     repository: "our-cool-repo",
+ *     username: "SomeUser",
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * GitHub Repository Collaborators can be imported using an ID made up of `repository:username`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import github:index/repositoryCollaborator:RepositoryCollaborator collaborator terraform:someuser
+ * ```
+ */
 export class RepositoryCollaborator extends pulumi.CustomResource {
     /**
      * Get an existing RepositoryCollaborator resource's state with the given name, ID, and optional extra
@@ -32,10 +74,27 @@ export class RepositoryCollaborator extends pulumi.CustomResource {
         return obj['__pulumiType'] === RepositoryCollaborator.__pulumiType;
     }
 
+    /**
+     * ID of the invitation to be used in `github.UserInvitationAccepter`
+     */
     public /*out*/ readonly invitationId!: pulumi.Output<string>;
+    /**
+     * The permission of the outside collaborator for the repository.
+     * Must be one of `pull`, `push`, `maintain`, `triage` or `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organization for organization-owned repositories.
+     * Must be `push` for personal repositories. Defaults to `push`.
+     */
     public readonly permission!: pulumi.Output<string | undefined>;
+    /**
+     * Suppress plan diffs for `triage` and `maintain`.  Defaults to `false`.
+     */
     public readonly permissionDiffSuppression!: pulumi.Output<boolean | undefined>;
+    /**
+     * The GitHub repository
+     */
     public readonly repository!: pulumi.Output<string>;
+    /**
+     * The user to add to the repository as a collaborator.
+     */
     public readonly username!: pulumi.Output<string>;
 
     /**
@@ -79,10 +138,27 @@ export class RepositoryCollaborator extends pulumi.CustomResource {
  * Input properties used for looking up and filtering RepositoryCollaborator resources.
  */
 export interface RepositoryCollaboratorState {
+    /**
+     * ID of the invitation to be used in `github.UserInvitationAccepter`
+     */
     invitationId?: pulumi.Input<string>;
+    /**
+     * The permission of the outside collaborator for the repository.
+     * Must be one of `pull`, `push`, `maintain`, `triage` or `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organization for organization-owned repositories.
+     * Must be `push` for personal repositories. Defaults to `push`.
+     */
     permission?: pulumi.Input<string>;
+    /**
+     * Suppress plan diffs for `triage` and `maintain`.  Defaults to `false`.
+     */
     permissionDiffSuppression?: pulumi.Input<boolean>;
+    /**
+     * The GitHub repository
+     */
     repository?: pulumi.Input<string>;
+    /**
+     * The user to add to the repository as a collaborator.
+     */
     username?: pulumi.Input<string>;
 }
 
@@ -90,8 +166,22 @@ export interface RepositoryCollaboratorState {
  * The set of arguments for constructing a RepositoryCollaborator resource.
  */
 export interface RepositoryCollaboratorArgs {
+    /**
+     * The permission of the outside collaborator for the repository.
+     * Must be one of `pull`, `push`, `maintain`, `triage` or `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organization for organization-owned repositories.
+     * Must be `push` for personal repositories. Defaults to `push`.
+     */
     permission?: pulumi.Input<string>;
+    /**
+     * Suppress plan diffs for `triage` and `maintain`.  Defaults to `false`.
+     */
     permissionDiffSuppression?: pulumi.Input<boolean>;
+    /**
+     * The GitHub repository
+     */
     repository: pulumi.Input<string>;
+    /**
+     * The user to add to the repository as a collaborator.
+     */
     username: pulumi.Input<string>;
 }

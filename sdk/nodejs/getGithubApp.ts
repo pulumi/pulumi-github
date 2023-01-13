@@ -4,12 +4,23 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * Use this data source to retrieve information about an app.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const foobar = github.getGithubApp({
+ *     slug: "foobar",
+ * });
+ * ```
+ */
 export function getGithubApp(args: GetGithubAppArgs, opts?: pulumi.InvokeOptions): Promise<GetGithubAppResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("github:index/getGithubApp:getGithubApp", {
         "slug": args.slug,
     }, opts);
@@ -19,6 +30,9 @@ export function getGithubApp(args: GetGithubAppArgs, opts?: pulumi.InvokeOptions
  * A collection of arguments for invoking getGithubApp.
  */
 export interface GetGithubAppArgs {
+    /**
+     * The URL-friendly name of your GitHub App.
+     */
     slug: string;
 }
 
@@ -26,23 +40,48 @@ export interface GetGithubAppArgs {
  * A collection of values returned by getGithubApp.
  */
 export interface GetGithubAppResult {
+    /**
+     * The app's description.
+     */
     readonly description: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * The app's full name.
+     */
     readonly name: string;
+    /**
+     * The Node ID of the app.
+     */
     readonly nodeId: string;
     readonly slug: string;
 }
-
+/**
+ * Use this data source to retrieve information about an app.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const foobar = github.getGithubApp({
+ *     slug: "foobar",
+ * });
+ * ```
+ */
 export function getGithubAppOutput(args: GetGithubAppOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGithubAppResult> {
-    return pulumi.output(args).apply(a => getGithubApp(a, opts))
+    return pulumi.output(args).apply((a: any) => getGithubApp(a, opts))
 }
 
 /**
  * A collection of arguments for invoking getGithubApp.
  */
 export interface GetGithubAppOutputArgs {
+    /**
+     * The URL-friendly name of your GitHub App.
+     */
     slug: pulumi.Input<string>;
 }

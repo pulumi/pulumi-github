@@ -9,6 +9,10 @@ import java.util.Objects;
 
 @CustomType
 public final class GetRefResult {
+    /**
+     * @return An etag representing the ref.
+     * 
+     */
     private String etag;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -17,9 +21,17 @@ public final class GetRefResult {
     private String id;
     private String ref;
     private String repository;
+    /**
+     * @return A string storing the reference&#39;s `HEAD` commit&#39;s SHA1.
+     * 
+     */
     private String sha;
 
     private GetRefResult() {}
+    /**
+     * @return An etag representing the ref.
+     * 
+     */
     public String etag() {
         return this.etag;
     }
@@ -36,6 +48,10 @@ public final class GetRefResult {
     public String repository() {
         return this.repository;
     }
+    /**
+     * @return A string storing the reference&#39;s `HEAD` commit&#39;s SHA1.
+     * 
+     */
     public String sha() {
         return this.sha;
     }

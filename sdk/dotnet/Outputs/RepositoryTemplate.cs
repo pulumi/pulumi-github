@@ -13,8 +13,17 @@ namespace Pulumi.Github.Outputs
     [OutputType]
     public sealed class RepositoryTemplate
     {
+        /// <summary>
+        /// Whether the new repository should include all the branches from the template repository (defaults to false, which includes only the default branch from the template).
+        /// </summary>
         public readonly bool? IncludeAllBranches;
+        /// <summary>
+        /// The GitHub organization or user the template repository is owned by.
+        /// </summary>
         public readonly string Owner;
+        /// <summary>
+        /// The name of the template repository.
+        /// </summary>
         public readonly string Repository;
 
         [OutputConstructor]

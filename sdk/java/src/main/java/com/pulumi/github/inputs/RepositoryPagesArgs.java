@@ -17,37 +17,77 @@ public final class RepositoryPagesArgs extends com.pulumi.resources.ResourceArgs
 
     public static final RepositoryPagesArgs Empty = new RepositoryPagesArgs();
 
+    /**
+     * The custom domain for the repository. This can only be set after the repository has been created.
+     * 
+     */
     @Import(name="cname")
     private @Nullable Output<String> cname;
 
+    /**
+     * @return The custom domain for the repository. This can only be set after the repository has been created.
+     * 
+     */
     public Optional<Output<String>> cname() {
         return Optional.ofNullable(this.cname);
     }
 
+    /**
+     * Whether the rendered GitHub Pages site has a custom 404 page.
+     * 
+     */
     @Import(name="custom404")
     private @Nullable Output<Boolean> custom404;
 
+    /**
+     * @return Whether the rendered GitHub Pages site has a custom 404 page.
+     * 
+     */
     public Optional<Output<Boolean>> custom404() {
         return Optional.ofNullable(this.custom404);
     }
 
+    /**
+     * The absolute URL (including scheme) of the rendered GitHub Pages site e.g. `https://username.github.io`.
+     * 
+     */
     @Import(name="htmlUrl")
     private @Nullable Output<String> htmlUrl;
 
+    /**
+     * @return The absolute URL (including scheme) of the rendered GitHub Pages site e.g. `https://username.github.io`.
+     * 
+     */
     public Optional<Output<String>> htmlUrl() {
         return Optional.ofNullable(this.htmlUrl);
     }
 
+    /**
+     * The source branch and directory for the rendered Pages site. See GitHub Pages Source below for details.
+     * 
+     */
     @Import(name="source", required=true)
     private Output<RepositoryPagesSourceArgs> source;
 
+    /**
+     * @return The source branch and directory for the rendered Pages site. See GitHub Pages Source below for details.
+     * 
+     */
     public Output<RepositoryPagesSourceArgs> source() {
         return this.source;
     }
 
+    /**
+     * Set to `enabled` to enable advanced security features on the repository. Can be `enabled` or `disabled`.
+     * 
+     */
     @Import(name="status")
     private @Nullable Output<String> status;
 
+    /**
+     * @return Set to `enabled` to enable advanced security features on the repository. Can be `enabled` or `disabled`.
+     * 
+     */
     public Optional<Output<String>> status() {
         return Optional.ofNullable(this.status);
     }
@@ -88,47 +128,107 @@ public final class RepositoryPagesArgs extends com.pulumi.resources.ResourceArgs
             $ = new RepositoryPagesArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param cname The custom domain for the repository. This can only be set after the repository has been created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder cname(@Nullable Output<String> cname) {
             $.cname = cname;
             return this;
         }
 
+        /**
+         * @param cname The custom domain for the repository. This can only be set after the repository has been created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder cname(String cname) {
             return cname(Output.of(cname));
         }
 
+        /**
+         * @param custom404 Whether the rendered GitHub Pages site has a custom 404 page.
+         * 
+         * @return builder
+         * 
+         */
         public Builder custom404(@Nullable Output<Boolean> custom404) {
             $.custom404 = custom404;
             return this;
         }
 
+        /**
+         * @param custom404 Whether the rendered GitHub Pages site has a custom 404 page.
+         * 
+         * @return builder
+         * 
+         */
         public Builder custom404(Boolean custom404) {
             return custom404(Output.of(custom404));
         }
 
+        /**
+         * @param htmlUrl The absolute URL (including scheme) of the rendered GitHub Pages site e.g. `https://username.github.io`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder htmlUrl(@Nullable Output<String> htmlUrl) {
             $.htmlUrl = htmlUrl;
             return this;
         }
 
+        /**
+         * @param htmlUrl The absolute URL (including scheme) of the rendered GitHub Pages site e.g. `https://username.github.io`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder htmlUrl(String htmlUrl) {
             return htmlUrl(Output.of(htmlUrl));
         }
 
+        /**
+         * @param source The source branch and directory for the rendered Pages site. See GitHub Pages Source below for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder source(Output<RepositoryPagesSourceArgs> source) {
             $.source = source;
             return this;
         }
 
+        /**
+         * @param source The source branch and directory for the rendered Pages site. See GitHub Pages Source below for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder source(RepositoryPagesSourceArgs source) {
             return source(Output.of(source));
         }
 
+        /**
+         * @param status Set to `enabled` to enable advanced security features on the repository. Can be `enabled` or `disabled`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder status(@Nullable Output<String> status) {
             $.status = status;
             return this;
         }
 
+        /**
+         * @param status Set to `enabled` to enable advanced security features on the repository. Can be `enabled` or `disabled`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder status(String status) {
             return status(Output.of(status));
         }

@@ -9,67 +9,113 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Github
 {
+    /// <summary>
+    /// This resource allows you to create and manage files within a
+    /// GitHub repository.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Github = Pulumi.Github;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var fooRepository = new Github.Repository("fooRepository", new()
+    ///     {
+    ///         AutoInit = true,
+    ///     });
+    /// 
+    ///     var fooRepositoryFile = new Github.RepositoryFile("fooRepositoryFile", new()
+    ///     {
+    ///         Repository = fooRepository.Name,
+    ///         Branch = "main",
+    ///         File = ".gitignore",
+    ///         Content = "**/*.tfstate",
+    ///         CommitMessage = "Managed by Terraform",
+    ///         CommitAuthor = "Terraform User",
+    ///         CommitEmail = "terraform@example.com",
+    ///         OverwriteOnCreate = true,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Repository files can be imported using a combination of the `repo` and `file`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import github:index/repositoryFile:RepositoryFile gitignore example/.gitignore
+    /// ```
+    /// 
+    ///  To import a file from a branch other than main, append `:` and the branch name, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import github:index/repositoryFile:RepositoryFile gitignore example/.gitignore:dev
+    /// ```
+    /// </summary>
     [GithubResourceType("github:index/repositoryFile:RepositoryFile")]
     public partial class RepositoryFile : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The branch name, defaults to "main"
+        /// Git branch (defaults to `main`).
+        /// The branch must already exist, it will not be created if it does not already exist.
         /// </summary>
         [Output("branch")]
         public Output<string?> Branch { get; private set; } = null!;
 
         /// <summary>
-        /// The commit author name, defaults to the authenticated user's name. GitHub app users may omit author and email
-        /// information so GitHub can verify commits as the GitHub App.
+        /// Committer author name to use. **NOTE:** GitHub app users may omit author and email information so GitHub can verify commits as the GitHub App. This maybe useful when a branch protection rule requires signed commits.
         /// </summary>
         [Output("commitAuthor")]
         public Output<string?> CommitAuthor { get; private set; } = null!;
 
         /// <summary>
-        /// The commit author email address, defaults to the authenticated user's email address. GitHub app users may omit author
-        /// and email information so GitHub can verify commits as the GitHub App.
+        /// Committer email address to use. **NOTE:** GitHub app users may omit author and email information so GitHub can verify commits as the GitHub App. This may be useful when a branch protection rule requires signed commits.
         /// </summary>
         [Output("commitEmail")]
         public Output<string?> CommitEmail { get; private set; } = null!;
 
         /// <summary>
-        /// The commit message when creating or updating the file
+        /// Commit message when adding or updating the managed file.
         /// </summary>
         [Output("commitMessage")]
         public Output<string> CommitMessage { get; private set; } = null!;
 
         /// <summary>
-        /// The SHA of the commit that modified the file
+        /// The SHA of the commit that modified the file.
         /// </summary>
         [Output("commitSha")]
         public Output<string> CommitSha { get; private set; } = null!;
 
         /// <summary>
-        /// The file's content
+        /// The file content.
         /// </summary>
         [Output("content")]
         public Output<string> Content { get; private set; } = null!;
 
         /// <summary>
-        /// The file path to manage
+        /// The path of the file to manage.
         /// </summary>
         [Output("file")]
         public Output<string> File { get; private set; } = null!;
 
         /// <summary>
-        /// Enable overwriting existing files, defaults to "false"
+        /// Enable overwriting existing files
         /// </summary>
         [Output("overwriteOnCreate")]
         public Output<bool?> OverwriteOnCreate { get; private set; } = null!;
 
         /// <summary>
-        /// The repository name
+        /// The repository to create the file in.
         /// </summary>
         [Output("repository")]
         public Output<string> Repository { get; private set; } = null!;
 
         /// <summary>
-        /// The blob SHA of the file
+        /// The SHA blob of the file.
         /// </summary>
         [Output("sha")]
         public Output<string> Sha { get; private set; } = null!;
@@ -121,51 +167,50 @@ namespace Pulumi.Github
     public sealed class RepositoryFileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The branch name, defaults to "main"
+        /// Git branch (defaults to `main`).
+        /// The branch must already exist, it will not be created if it does not already exist.
         /// </summary>
         [Input("branch")]
         public Input<string>? Branch { get; set; }
 
         /// <summary>
-        /// The commit author name, defaults to the authenticated user's name. GitHub app users may omit author and email
-        /// information so GitHub can verify commits as the GitHub App.
+        /// Committer author name to use. **NOTE:** GitHub app users may omit author and email information so GitHub can verify commits as the GitHub App. This maybe useful when a branch protection rule requires signed commits.
         /// </summary>
         [Input("commitAuthor")]
         public Input<string>? CommitAuthor { get; set; }
 
         /// <summary>
-        /// The commit author email address, defaults to the authenticated user's email address. GitHub app users may omit author
-        /// and email information so GitHub can verify commits as the GitHub App.
+        /// Committer email address to use. **NOTE:** GitHub app users may omit author and email information so GitHub can verify commits as the GitHub App. This may be useful when a branch protection rule requires signed commits.
         /// </summary>
         [Input("commitEmail")]
         public Input<string>? CommitEmail { get; set; }
 
         /// <summary>
-        /// The commit message when creating or updating the file
+        /// Commit message when adding or updating the managed file.
         /// </summary>
         [Input("commitMessage")]
         public Input<string>? CommitMessage { get; set; }
 
         /// <summary>
-        /// The file's content
+        /// The file content.
         /// </summary>
         [Input("content", required: true)]
         public Input<string> Content { get; set; } = null!;
 
         /// <summary>
-        /// The file path to manage
+        /// The path of the file to manage.
         /// </summary>
         [Input("file", required: true)]
         public Input<string> File { get; set; } = null!;
 
         /// <summary>
-        /// Enable overwriting existing files, defaults to "false"
+        /// Enable overwriting existing files
         /// </summary>
         [Input("overwriteOnCreate")]
         public Input<bool>? OverwriteOnCreate { get; set; }
 
         /// <summary>
-        /// The repository name
+        /// The repository to create the file in.
         /// </summary>
         [Input("repository", required: true)]
         public Input<string> Repository { get; set; } = null!;
@@ -179,63 +224,62 @@ namespace Pulumi.Github
     public sealed class RepositoryFileState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The branch name, defaults to "main"
+        /// Git branch (defaults to `main`).
+        /// The branch must already exist, it will not be created if it does not already exist.
         /// </summary>
         [Input("branch")]
         public Input<string>? Branch { get; set; }
 
         /// <summary>
-        /// The commit author name, defaults to the authenticated user's name. GitHub app users may omit author and email
-        /// information so GitHub can verify commits as the GitHub App.
+        /// Committer author name to use. **NOTE:** GitHub app users may omit author and email information so GitHub can verify commits as the GitHub App. This maybe useful when a branch protection rule requires signed commits.
         /// </summary>
         [Input("commitAuthor")]
         public Input<string>? CommitAuthor { get; set; }
 
         /// <summary>
-        /// The commit author email address, defaults to the authenticated user's email address. GitHub app users may omit author
-        /// and email information so GitHub can verify commits as the GitHub App.
+        /// Committer email address to use. **NOTE:** GitHub app users may omit author and email information so GitHub can verify commits as the GitHub App. This may be useful when a branch protection rule requires signed commits.
         /// </summary>
         [Input("commitEmail")]
         public Input<string>? CommitEmail { get; set; }
 
         /// <summary>
-        /// The commit message when creating or updating the file
+        /// Commit message when adding or updating the managed file.
         /// </summary>
         [Input("commitMessage")]
         public Input<string>? CommitMessage { get; set; }
 
         /// <summary>
-        /// The SHA of the commit that modified the file
+        /// The SHA of the commit that modified the file.
         /// </summary>
         [Input("commitSha")]
         public Input<string>? CommitSha { get; set; }
 
         /// <summary>
-        /// The file's content
+        /// The file content.
         /// </summary>
         [Input("content")]
         public Input<string>? Content { get; set; }
 
         /// <summary>
-        /// The file path to manage
+        /// The path of the file to manage.
         /// </summary>
         [Input("file")]
         public Input<string>? File { get; set; }
 
         /// <summary>
-        /// Enable overwriting existing files, defaults to "false"
+        /// Enable overwriting existing files
         /// </summary>
         [Input("overwriteOnCreate")]
         public Input<bool>? OverwriteOnCreate { get; set; }
 
         /// <summary>
-        /// The repository name
+        /// The repository to create the file in.
         /// </summary>
         [Input("repository")]
         public Input<string>? Repository { get; set; }
 
         /// <summary>
-        /// The blob SHA of the file
+        /// The SHA blob of the file.
         /// </summary>
         [Input("sha")]
         public Input<string>? Sha { get; set; }

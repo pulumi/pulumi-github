@@ -10,6 +10,39 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Use this data source to retrieve information about multiple GitHub users at once.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-github/sdk/v5/go/github"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := github.GetUsers(ctx, &github.GetUsersArgs{
+//				Usernames: []string{
+//					"example1",
+//					"example2",
+//					"example3",
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("validUsers", example.Logins)
+//			ctx.Export("invalidUsers", example.UnknownLogins)
+//			return nil
+//		})
+//	}
+//
+// ```
 func GetUsers(ctx *pulumi.Context, args *GetUsersArgs, opts ...pulumi.InvokeOption) (*GetUsersResult, error) {
 	var rv GetUsersResult
 	err := ctx.Invoke("github:index/getUsers:getUsers", args, &rv, opts...)
@@ -21,15 +54,19 @@ func GetUsers(ctx *pulumi.Context, args *GetUsersArgs, opts ...pulumi.InvokeOpti
 
 // A collection of arguments for invoking getUsers.
 type GetUsersArgs struct {
+	// List of usernames.
 	Usernames []string `pulumi:"usernames"`
 }
 
 // A collection of values returned by getUsers.
 type GetUsersResult struct {
 	// The provider-assigned unique ID for this managed resource.
-	Id            string   `pulumi:"id"`
-	Logins        []string `pulumi:"logins"`
-	NodeIds       []string `pulumi:"nodeIds"`
+	Id string `pulumi:"id"`
+	// list of logins of users that could be found.
+	Logins []string `pulumi:"logins"`
+	// list of Node IDs of users that could be found.
+	NodeIds []string `pulumi:"nodeIds"`
+	// list of logins without matching user.
 	UnknownLogins []string `pulumi:"unknownLogins"`
 	Usernames     []string `pulumi:"usernames"`
 }
@@ -49,6 +86,7 @@ func GetUsersOutput(ctx *pulumi.Context, args GetUsersOutputArgs, opts ...pulumi
 
 // A collection of arguments for invoking getUsers.
 type GetUsersOutputArgs struct {
+	// List of usernames.
 	Usernames pulumi.StringArrayInput `pulumi:"usernames"`
 }
 
@@ -76,14 +114,17 @@ func (o GetUsersResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUsersResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// list of logins of users that could be found.
 func (o GetUsersResultOutput) Logins() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetUsersResult) []string { return v.Logins }).(pulumi.StringArrayOutput)
 }
 
+// list of Node IDs of users that could be found.
 func (o GetUsersResultOutput) NodeIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetUsersResult) []string { return v.NodeIds }).(pulumi.StringArrayOutput)
 }
 
+// list of logins without matching user.
 func (o GetUsersResultOutput) UnknownLogins() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetUsersResult) []string { return v.UnknownLogins }).(pulumi.StringArrayOutput)
 }

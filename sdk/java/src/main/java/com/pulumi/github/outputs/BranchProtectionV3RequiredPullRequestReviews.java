@@ -14,8 +14,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class BranchProtectionV3RequiredPullRequestReviews {
+    /**
+     * @return Dismiss approved reviews automatically when a new commit is pushed. Defaults to `false`.
+     * 
+     */
     private @Nullable Boolean dismissStaleReviews;
+    /**
+     * @return The list of team slugs with dismissal access.
+     * Always use `slug` of the team, **not** its name. Each team already **has** to have access to the repository.
+     * 
+     */
     private @Nullable List<String> dismissalTeams;
+    /**
+     * @return The list of user logins with dismissal access
+     * 
+     */
     private @Nullable List<String> dismissalUsers;
     /**
      * @deprecated
@@ -24,16 +37,37 @@ public final class BranchProtectionV3RequiredPullRequestReviews {
      */
     @Deprecated /* Use enforce_admins instead */
     private @Nullable Boolean includeAdmins;
+    /**
+     * @return Require an approved review in pull requests including files with a designated code owner. Defaults to `false`.
+     * 
+     */
     private @Nullable Boolean requireCodeOwnerReviews;
+    /**
+     * @return Require x number of approvals to satisfy branch protection requirements. If this is specified it must be a number between 0-6. This requirement matches GitHub&#39;s API, see the upstream [documentation](https://developer.github.com/v3/repos/branches/#parameters-1) for more information.
+     * 
+     */
     private @Nullable Integer requiredApprovingReviewCount;
 
     private BranchProtectionV3RequiredPullRequestReviews() {}
+    /**
+     * @return Dismiss approved reviews automatically when a new commit is pushed. Defaults to `false`.
+     * 
+     */
     public Optional<Boolean> dismissStaleReviews() {
         return Optional.ofNullable(this.dismissStaleReviews);
     }
+    /**
+     * @return The list of team slugs with dismissal access.
+     * Always use `slug` of the team, **not** its name. Each team already **has** to have access to the repository.
+     * 
+     */
     public List<String> dismissalTeams() {
         return this.dismissalTeams == null ? List.of() : this.dismissalTeams;
     }
+    /**
+     * @return The list of user logins with dismissal access
+     * 
+     */
     public List<String> dismissalUsers() {
         return this.dismissalUsers == null ? List.of() : this.dismissalUsers;
     }
@@ -46,9 +80,17 @@ public final class BranchProtectionV3RequiredPullRequestReviews {
     public Optional<Boolean> includeAdmins() {
         return Optional.ofNullable(this.includeAdmins);
     }
+    /**
+     * @return Require an approved review in pull requests including files with a designated code owner. Defaults to `false`.
+     * 
+     */
     public Optional<Boolean> requireCodeOwnerReviews() {
         return Optional.ofNullable(this.requireCodeOwnerReviews);
     }
+    /**
+     * @return Require x number of approvals to satisfy branch protection requirements. If this is specified it must be a number between 0-6. This requirement matches GitHub&#39;s API, see the upstream [documentation](https://developer.github.com/v3/repos/branches/#parameters-1) for more information.
+     * 
+     */
     public Optional<Integer> requiredApprovingReviewCount() {
         return Optional.ofNullable(this.requiredApprovingReviewCount);
     }

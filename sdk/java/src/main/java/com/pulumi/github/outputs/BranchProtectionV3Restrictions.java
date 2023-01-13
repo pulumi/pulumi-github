@@ -11,17 +11,43 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class BranchProtectionV3Restrictions {
+    /**
+     * @return The list of app slugs with push access.
+     * 
+     */
     private @Nullable List<String> apps;
+    /**
+     * @return The list of team slugs with push access.
+     * Always use `slug` of the team, **not** its name. Each team already **has** to have access to the repository.
+     * 
+     */
     private @Nullable List<String> teams;
+    /**
+     * @return The list of user logins with push access.
+     * 
+     */
     private @Nullable List<String> users;
 
     private BranchProtectionV3Restrictions() {}
+    /**
+     * @return The list of app slugs with push access.
+     * 
+     */
     public List<String> apps() {
         return this.apps == null ? List.of() : this.apps;
     }
+    /**
+     * @return The list of team slugs with push access.
+     * Always use `slug` of the team, **not** its name. Each team already **has** to have access to the repository.
+     * 
+     */
     public List<String> teams() {
         return this.teams == null ? List.of() : this.teams;
     }
+    /**
+     * @return The list of user logins with push access.
+     * 
+     */
     public List<String> users() {
         return this.users == null ? List.of() : this.users;
     }

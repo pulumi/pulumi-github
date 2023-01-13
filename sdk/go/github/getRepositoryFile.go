@@ -10,6 +10,36 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// This data source allows you to read files within a
+// GitHub repository.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-github/sdk/v5/go/github"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := github.LookupRepositoryFile(ctx, &github.LookupRepositoryFileArgs{
+//				Repository: github_repository.Foo.Name,
+//				Branch:     pulumi.StringRef("main"),
+//				File:       ".gitignore",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupRepositoryFile(ctx *pulumi.Context, args *LookupRepositoryFileArgs, opts ...pulumi.InvokeOption) (*LookupRepositoryFileResult, error) {
 	var rv LookupRepositoryFileResult
 	err := ctx.Invoke("github:index/getRepositoryFile:getRepositoryFile", args, &rv, opts...)
@@ -21,24 +51,34 @@ func LookupRepositoryFile(ctx *pulumi.Context, args *LookupRepositoryFileArgs, o
 
 // A collection of arguments for invoking getRepositoryFile.
 type LookupRepositoryFileArgs struct {
-	Branch     *string `pulumi:"branch"`
-	File       string  `pulumi:"file"`
-	Repository string  `pulumi:"repository"`
+	// Git branch (defaults to `main`).
+	// The branch must already exist, it will not be created if it does not already exist.
+	Branch *string `pulumi:"branch"`
+	// The path of the file to manage.
+	File string `pulumi:"file"`
+	// The repository to create the file in.
+	Repository string `pulumi:"repository"`
 }
 
 // A collection of values returned by getRepositoryFile.
 type LookupRepositoryFileResult struct {
-	Branch        *string `pulumi:"branch"`
-	CommitAuthor  string  `pulumi:"commitAuthor"`
-	CommitEmail   string  `pulumi:"commitEmail"`
-	CommitMessage string  `pulumi:"commitMessage"`
-	CommitSha     string  `pulumi:"commitSha"`
-	Content       string  `pulumi:"content"`
-	File          string  `pulumi:"file"`
+	Branch *string `pulumi:"branch"`
+	// Committer author name.
+	CommitAuthor string `pulumi:"commitAuthor"`
+	// Committer email address.
+	CommitEmail string `pulumi:"commitEmail"`
+	// Commit message when file was last updated.
+	CommitMessage string `pulumi:"commitMessage"`
+	// The SHA of the commit that modified the file.
+	CommitSha string `pulumi:"commitSha"`
+	// The file content.
+	Content string `pulumi:"content"`
+	File    string `pulumi:"file"`
 	// The provider-assigned unique ID for this managed resource.
 	Id         string `pulumi:"id"`
 	Repository string `pulumi:"repository"`
-	Sha        string `pulumi:"sha"`
+	// The SHA blob of the file.
+	Sha string `pulumi:"sha"`
 }
 
 func LookupRepositoryFileOutput(ctx *pulumi.Context, args LookupRepositoryFileOutputArgs, opts ...pulumi.InvokeOption) LookupRepositoryFileResultOutput {
@@ -56,9 +96,13 @@ func LookupRepositoryFileOutput(ctx *pulumi.Context, args LookupRepositoryFileOu
 
 // A collection of arguments for invoking getRepositoryFile.
 type LookupRepositoryFileOutputArgs struct {
-	Branch     pulumi.StringPtrInput `pulumi:"branch"`
-	File       pulumi.StringInput    `pulumi:"file"`
-	Repository pulumi.StringInput    `pulumi:"repository"`
+	// Git branch (defaults to `main`).
+	// The branch must already exist, it will not be created if it does not already exist.
+	Branch pulumi.StringPtrInput `pulumi:"branch"`
+	// The path of the file to manage.
+	File pulumi.StringInput `pulumi:"file"`
+	// The repository to create the file in.
+	Repository pulumi.StringInput `pulumi:"repository"`
 }
 
 func (LookupRepositoryFileOutputArgs) ElementType() reflect.Type {
@@ -84,22 +128,27 @@ func (o LookupRepositoryFileResultOutput) Branch() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRepositoryFileResult) *string { return v.Branch }).(pulumi.StringPtrOutput)
 }
 
+// Committer author name.
 func (o LookupRepositoryFileResultOutput) CommitAuthor() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRepositoryFileResult) string { return v.CommitAuthor }).(pulumi.StringOutput)
 }
 
+// Committer email address.
 func (o LookupRepositoryFileResultOutput) CommitEmail() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRepositoryFileResult) string { return v.CommitEmail }).(pulumi.StringOutput)
 }
 
+// Commit message when file was last updated.
 func (o LookupRepositoryFileResultOutput) CommitMessage() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRepositoryFileResult) string { return v.CommitMessage }).(pulumi.StringOutput)
 }
 
+// The SHA of the commit that modified the file.
 func (o LookupRepositoryFileResultOutput) CommitSha() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRepositoryFileResult) string { return v.CommitSha }).(pulumi.StringOutput)
 }
 
+// The file content.
 func (o LookupRepositoryFileResultOutput) Content() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRepositoryFileResult) string { return v.Content }).(pulumi.StringOutput)
 }
@@ -117,6 +166,7 @@ func (o LookupRepositoryFileResultOutput) Repository() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRepositoryFileResult) string { return v.Repository }).(pulumi.StringOutput)
 }
 
+// The SHA blob of the file.
 func (o LookupRepositoryFileResultOutput) Sha() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRepositoryFileResult) string { return v.Sha }).(pulumi.StringOutput)
 }

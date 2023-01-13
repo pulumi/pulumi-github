@@ -13,13 +13,37 @@ namespace Pulumi.Github.Outputs
     [OutputType]
     public sealed class GetOrganizationTeamsTeamResult
     {
+        /// <summary>
+        /// the team's description.
+        /// </summary>
         public readonly string Description;
+        /// <summary>
+        /// the ID of the team.
+        /// </summary>
         public readonly int Id;
+        /// <summary>
+        /// List of team members. Not returned if `summary_only = true`
+        /// </summary>
         public readonly ImmutableArray<string> Members;
+        /// <summary>
+        /// the team's full name.
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// the Node ID of the team.
+        /// </summary>
         public readonly string NodeId;
+        /// <summary>
+        /// the team's privacy type.
+        /// </summary>
         public readonly string Privacy;
+        /// <summary>
+        /// List of team repositories. Not returned if `summary_only = true`
+        /// </summary>
         public readonly ImmutableArray<string> Repositories;
+        /// <summary>
+        /// the slug of the team.
+        /// </summary>
         public readonly string Slug;
 
         [OutputConstructor]

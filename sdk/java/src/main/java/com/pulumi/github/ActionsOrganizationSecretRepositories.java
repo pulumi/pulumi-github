@@ -15,17 +15,85 @@ import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
 
+/**
+ * This resource allows you to manage repository allow list for existing GitHub Actions secrets within your GitHub organization.
+ * You must have write access to an organization secret to use this resource.
+ * 
+ * This resource is only applicable when `visibility` of the existing organization secret has been set to `selected`.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.github.GithubFunctions;
+ * import com.pulumi.github.inputs.GetRepositoryArgs;
+ * import com.pulumi.github.ActionsOrganizationSecretRepositories;
+ * import com.pulumi.github.ActionsOrganizationSecretRepositoriesArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var repo = GithubFunctions.getRepository(GetRepositoryArgs.builder()
+ *             .fullName(&#34;my-org/repo&#34;)
+ *             .build());
+ * 
+ *         var orgSecretRepos = new ActionsOrganizationSecretRepositories(&#34;orgSecretRepos&#34;, ActionsOrganizationSecretRepositoriesArgs.builder()        
+ *             .secretName(&#34;existing_secret_name&#34;)
+ *             .selectedRepositoryIds(repo.applyValue(getRepositoryResult -&gt; getRepositoryResult.repoId()))
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * This resource can be imported using an ID made up of the secret name
+ * 
+ * ```sh
+ *  $ pulumi import github:index/actionsOrganizationSecretRepositories:ActionsOrganizationSecretRepositories test_secret_repos test_secret_name
+ * ```
+ * 
+ */
 @ResourceType(type="github:index/actionsOrganizationSecretRepositories:ActionsOrganizationSecretRepositories")
 public class ActionsOrganizationSecretRepositories extends com.pulumi.resources.CustomResource {
+    /**
+     * Name of the existing secret
+     * 
+     */
     @Export(name="secretName", type=String.class, parameters={})
     private Output<String> secretName;
 
+    /**
+     * @return Name of the existing secret
+     * 
+     */
     public Output<String> secretName() {
         return this.secretName;
     }
+    /**
+     * An array of repository ids that can access the organization secret.
+     * 
+     */
     @Export(name="selectedRepositoryIds", type=List.class, parameters={Integer.class})
     private Output<List<Integer>> selectedRepositoryIds;
 
+    /**
+     * @return An array of repository ids that can access the organization secret.
+     * 
+     */
     public Output<List<Integer>> selectedRepositoryIds() {
         return this.selectedRepositoryIds;
     }

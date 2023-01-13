@@ -13,11 +13,27 @@ namespace Pulumi.Github.Outputs
     [OutputType]
     public sealed class BranchProtectionV3RequiredPullRequestReviews
     {
+        /// <summary>
+        /// Dismiss approved reviews automatically when a new commit is pushed. Defaults to `false`.
+        /// </summary>
         public readonly bool? DismissStaleReviews;
+        /// <summary>
+        /// The list of team slugs with dismissal access.
+        /// Always use `slug` of the team, **not** its name. Each team already **has** to have access to the repository.
+        /// </summary>
         public readonly ImmutableArray<string> DismissalTeams;
+        /// <summary>
+        /// The list of user logins with dismissal access
+        /// </summary>
         public readonly ImmutableArray<string> DismissalUsers;
         public readonly bool? IncludeAdmins;
+        /// <summary>
+        /// Require an approved review in pull requests including files with a designated code owner. Defaults to `false`.
+        /// </summary>
         public readonly bool? RequireCodeOwnerReviews;
+        /// <summary>
+        /// Require x number of approvals to satisfy branch protection requirements. If this is specified it must be a number between 0-6. This requirement matches GitHub's API, see the upstream [documentation](https://developer.github.com/v3/repos/branches/#parameters-1) for more information.
+        /// </summary>
         public readonly int? RequiredApprovingReviewCount;
 
         [OutputConstructor]

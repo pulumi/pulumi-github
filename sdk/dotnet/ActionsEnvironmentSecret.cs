@@ -9,27 +9,108 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Github
 {
+    /// <summary>
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Github = Pulumi.Github;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleSecretActionsEnvironmentSecret = new Github.ActionsEnvironmentSecret("exampleSecretActionsEnvironmentSecret", new()
+    ///     {
+    ///         Environment = "example_environment",
+    ///         SecretName = "example_secret_name",
+    ///         PlaintextValue = @var.Some_secret_string,
+    ///     });
+    /// 
+    ///     var exampleSecretIndex_actionsEnvironmentSecretActionsEnvironmentSecret = new Github.ActionsEnvironmentSecret("exampleSecretIndex/actionsEnvironmentSecretActionsEnvironmentSecret", new()
+    ///     {
+    ///         Environment = "example_environment",
+    ///         SecretName = "example_secret_name",
+    ///         EncryptedValue = @var.Some_encrypted_secret_string,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Github = Pulumi.Github;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var repo = Github.GetRepository.Invoke(new()
+    ///     {
+    ///         FullName = "my-org/repo",
+    ///     });
+    /// 
+    ///     var repoEnvironment = new Github.RepositoryEnvironment("repoEnvironment", new()
+    ///     {
+    ///         Repository = repo.Apply(getRepositoryResult =&gt; getRepositoryResult.Name),
+    ///         Environment = "example_environment",
+    ///     });
+    /// 
+    ///     var testSecret = new Github.ActionsEnvironmentSecret("testSecret", new()
+    ///     {
+    ///         Repository = repo.Apply(getRepositoryResult =&gt; getRepositoryResult.Name),
+    ///         Environment = repoEnvironment.Environment,
+    ///         SecretName = "test_secret_name",
+    ///         PlaintextValue = "%s",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// This resource does not support importing. If you'd like to help contribute it, please visit our [GitHub page](https://github.com/integrations/terraform-provider-github)!
+    /// </summary>
     [GithubResourceType("github:index/actionsEnvironmentSecret:ActionsEnvironmentSecret")]
     public partial class ActionsEnvironmentSecret : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Date of actions_environment_secret creation.
+        /// </summary>
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
 
+        /// <summary>
+        /// Encrypted value of the secret using the Github public key in Base64 format.
+        /// </summary>
         [Output("encryptedValue")]
         public Output<string?> EncryptedValue { get; private set; } = null!;
 
+        /// <summary>
+        /// Name of the environment.
+        /// </summary>
         [Output("environment")]
         public Output<string> Environment { get; private set; } = null!;
 
+        /// <summary>
+        /// Plaintext value of the secret to be encrypted.
+        /// </summary>
         [Output("plaintextValue")]
         public Output<string?> PlaintextValue { get; private set; } = null!;
 
+        /// <summary>
+        /// Name of the repository.
+        /// </summary>
         [Output("repository")]
         public Output<string> Repository { get; private set; } = null!;
 
+        /// <summary>
+        /// Name of the secret.
+        /// </summary>
         [Output("secretName")]
         public Output<string> SecretName { get; private set; } = null!;
 
+        /// <summary>
+        /// Date of actions_environment_secret update.
+        /// </summary>
         [Output("updatedAt")]
         public Output<string> UpdatedAt { get; private set; } = null!;
 
@@ -86,6 +167,10 @@ namespace Pulumi.Github
     {
         [Input("encryptedValue")]
         private Input<string>? _encryptedValue;
+
+        /// <summary>
+        /// Encrypted value of the secret using the Github public key in Base64 format.
+        /// </summary>
         public Input<string>? EncryptedValue
         {
             get => _encryptedValue;
@@ -96,11 +181,18 @@ namespace Pulumi.Github
             }
         }
 
+        /// <summary>
+        /// Name of the environment.
+        /// </summary>
         [Input("environment", required: true)]
         public Input<string> Environment { get; set; } = null!;
 
         [Input("plaintextValue")]
         private Input<string>? _plaintextValue;
+
+        /// <summary>
+        /// Plaintext value of the secret to be encrypted.
+        /// </summary>
         public Input<string>? PlaintextValue
         {
             get => _plaintextValue;
@@ -111,9 +203,15 @@ namespace Pulumi.Github
             }
         }
 
+        /// <summary>
+        /// Name of the repository.
+        /// </summary>
         [Input("repository", required: true)]
         public Input<string> Repository { get; set; } = null!;
 
+        /// <summary>
+        /// Name of the secret.
+        /// </summary>
         [Input("secretName", required: true)]
         public Input<string> SecretName { get; set; } = null!;
 
@@ -125,11 +223,18 @@ namespace Pulumi.Github
 
     public sealed class ActionsEnvironmentSecretState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Date of actions_environment_secret creation.
+        /// </summary>
         [Input("createdAt")]
         public Input<string>? CreatedAt { get; set; }
 
         [Input("encryptedValue")]
         private Input<string>? _encryptedValue;
+
+        /// <summary>
+        /// Encrypted value of the secret using the Github public key in Base64 format.
+        /// </summary>
         public Input<string>? EncryptedValue
         {
             get => _encryptedValue;
@@ -140,11 +245,18 @@ namespace Pulumi.Github
             }
         }
 
+        /// <summary>
+        /// Name of the environment.
+        /// </summary>
         [Input("environment")]
         public Input<string>? Environment { get; set; }
 
         [Input("plaintextValue")]
         private Input<string>? _plaintextValue;
+
+        /// <summary>
+        /// Plaintext value of the secret to be encrypted.
+        /// </summary>
         public Input<string>? PlaintextValue
         {
             get => _plaintextValue;
@@ -155,12 +267,21 @@ namespace Pulumi.Github
             }
         }
 
+        /// <summary>
+        /// Name of the repository.
+        /// </summary>
         [Input("repository")]
         public Input<string>? Repository { get; set; }
 
+        /// <summary>
+        /// Name of the secret.
+        /// </summary>
         [Input("secretName")]
         public Input<string>? SecretName { get; set; }
 
+        /// <summary>
+        /// Date of actions_environment_secret update.
+        /// </summary>
         [Input("updatedAt")]
         public Input<string>? UpdatedAt { get; set; }
 

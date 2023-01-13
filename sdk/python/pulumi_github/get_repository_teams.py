@@ -52,11 +52,17 @@ class GetRepositoryTeamsResult:
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        Team name
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def teams(self) -> Sequence['outputs.GetRepositoryTeamsTeamResult']:
+        """
+        List of teams which have access to the repository
+        """
         return pulumi.get(self, "teams")
 
 
@@ -76,7 +82,20 @@ def get_repository_teams(full_name: Optional[str] = None,
                          name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRepositoryTeamsResult:
     """
-    Use this data source to access information about an existing resource.
+    Use this data source to retrieve the list of teams which have access to a GitHub repository.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_github as github
+
+    example = github.get_repository_teams(name="example")
+    ```
+
+
+    :param str full_name: Full name of the repository (in `org/name` format).
+    :param str name: The name of the repository.
     """
     __args__ = dict()
     __args__['fullName'] = full_name
@@ -96,6 +115,19 @@ def get_repository_teams_output(full_name: Optional[pulumi.Input[Optional[str]]]
                                 name: Optional[pulumi.Input[Optional[str]]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRepositoryTeamsResult]:
     """
-    Use this data source to access information about an existing resource.
+    Use this data source to retrieve the list of teams which have access to a GitHub repository.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_github as github
+
+    example = github.get_repository_teams(name="example")
+    ```
+
+
+    :param str full_name: Full name of the repository (in `org/name` format).
+    :param str name: The name of the repository.
     """
     ...

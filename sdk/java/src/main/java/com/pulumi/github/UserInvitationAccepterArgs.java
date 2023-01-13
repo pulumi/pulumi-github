@@ -13,9 +13,17 @@ public final class UserInvitationAccepterArgs extends com.pulumi.resources.Resou
 
     public static final UserInvitationAccepterArgs Empty = new UserInvitationAccepterArgs();
 
+    /**
+     * ID of the invitation to accept
+     * 
+     */
     @Import(name="invitationId", required=true)
     private Output<String> invitationId;
 
+    /**
+     * @return ID of the invitation to accept
+     * 
+     */
     public Output<String> invitationId() {
         return this.invitationId;
     }
@@ -44,11 +52,23 @@ public final class UserInvitationAccepterArgs extends com.pulumi.resources.Resou
             $ = new UserInvitationAccepterArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param invitationId ID of the invitation to accept
+         * 
+         * @return builder
+         * 
+         */
         public Builder invitationId(Output<String> invitationId) {
             $.invitationId = invitationId;
             return this;
         }
 
+        /**
+         * @param invitationId ID of the invitation to accept
+         * 
+         * @return builder
+         * 
+         */
         public Builder invitationId(String invitationId) {
             return invitationId(Output.of(invitationId));
         }

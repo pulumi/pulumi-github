@@ -12,16 +12,32 @@ public final class GetBranchPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetBranchPlainArgs Empty = new GetBranchPlainArgs();
 
+    /**
+     * The repository branch to create.
+     * 
+     */
     @Import(name="branch", required=true)
     private String branch;
 
+    /**
+     * @return The repository branch to create.
+     * 
+     */
     public String branch() {
         return this.branch;
     }
 
+    /**
+     * The GitHub repository name.
+     * 
+     */
     @Import(name="repository", required=true)
     private String repository;
 
+    /**
+     * @return The GitHub repository name.
+     * 
+     */
     public String repository() {
         return this.repository;
     }
@@ -51,11 +67,23 @@ public final class GetBranchPlainArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetBranchPlainArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param branch The repository branch to create.
+         * 
+         * @return builder
+         * 
+         */
         public Builder branch(String branch) {
             $.branch = branch;
             return this;
         }
 
+        /**
+         * @param repository The GitHub repository name.
+         * 
+         * @return builder
+         * 
+         */
         public Builder repository(String repository) {
             $.repository = repository;
             return this;

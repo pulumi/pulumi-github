@@ -6,12 +6,21 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
+/**
+ * Use this data source to retrieve the list of dependabot secrets of the organization.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const example = github.getDependabotOrganizationSecrets({});
+ * ```
+ */
 export function getDependabotOrganizationSecrets(opts?: pulumi.InvokeOptions): Promise<GetDependabotOrganizationSecretsResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("github:index/getDependabotOrganizationSecrets:getDependabotOrganizationSecrets", {
     }, opts);
 }
@@ -24,5 +33,8 @@ export interface GetDependabotOrganizationSecretsResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * list of secrets for the repository
+     */
     readonly secrets: outputs.GetDependabotOrganizationSecretsSecret[];
 }

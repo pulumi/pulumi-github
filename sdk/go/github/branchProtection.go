@@ -11,22 +11,124 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Protects a GitHub branch.
+//
+// This resource allows you to configure branch protection for repositories in your organization. When applied, the branch will be protected from forced pushes and deletion. Additional constraints, such as required status checks or restrictions on users, teams, and apps, can also be configured.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-github/sdk/v5/go/github"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleRepository, err := github.NewRepository(ctx, "exampleRepository", nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleUser, err := github.GetUser(ctx, &github.GetUserArgs{
+//				Username: "example",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleTeam, err := github.NewTeam(ctx, "exampleTeam", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = github.NewBranchProtection(ctx, "exampleBranchProtection", &github.BranchProtectionArgs{
+//				RepositoryId:    exampleRepository.NodeId,
+//				Pattern:         pulumi.String("main"),
+//				EnforceAdmins:   pulumi.Bool(true),
+//				AllowsDeletions: pulumi.Bool(true),
+//				RequiredStatusChecks: github.BranchProtectionRequiredStatusCheckArray{
+//					&github.BranchProtectionRequiredStatusCheckArgs{
+//						Strict: pulumi.Bool(false),
+//						Contexts: pulumi.StringArray{
+//							pulumi.String("ci/travis"),
+//						},
+//					},
+//				},
+//				RequiredPullRequestReviews: github.BranchProtectionRequiredPullRequestReviewArray{
+//					&github.BranchProtectionRequiredPullRequestReviewArgs{
+//						DismissStaleReviews: pulumi.Bool(true),
+//						RestrictDismissals:  pulumi.Bool(true),
+//						DismissalRestrictions: pulumi.StringArray{
+//							*pulumi.String(exampleUser.NodeId),
+//							exampleTeam.NodeId,
+//							pulumi.String("/exampleuser"),
+//							pulumi.String("exampleorganization/exampleteam"),
+//						},
+//					},
+//				},
+//				PushRestrictions: pulumi.StringArray{
+//					*pulumi.String(exampleUser.NodeId),
+//					pulumi.String("/exampleuser"),
+//					pulumi.String("exampleorganization/exampleteam"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = github.NewTeamRepository(ctx, "exampleTeamRepository", &github.TeamRepositoryArgs{
+//				TeamId:     exampleTeam.ID(),
+//				Repository: exampleRepository.Name,
+//				Permission: pulumi.String("pull"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// GitHub Branch Protection can be imported using an ID made up of `repository:pattern`, e.g.
+//
+// ```sh
+//
+//	$ pulumi import github:index/branchProtection:BranchProtection terraform terraform:main
+//
+// ```
 type BranchProtection struct {
 	pulumi.CustomResourceState
 
-	AllowsDeletions   pulumi.BoolPtrOutput     `pulumi:"allowsDeletions"`
-	AllowsForcePushes pulumi.BoolPtrOutput     `pulumi:"allowsForcePushes"`
-	BlocksCreations   pulumi.BoolPtrOutput     `pulumi:"blocksCreations"`
-	EnforceAdmins     pulumi.BoolPtrOutput     `pulumi:"enforceAdmins"`
-	Pattern           pulumi.StringOutput      `pulumi:"pattern"`
-	PushRestrictions  pulumi.StringArrayOutput `pulumi:"pushRestrictions"`
-	// Node ID or name of repository
-	RepositoryId                  pulumi.StringOutput                                  `pulumi:"repositoryId"`
-	RequireConversationResolution pulumi.BoolPtrOutput                                 `pulumi:"requireConversationResolution"`
-	RequireSignedCommits          pulumi.BoolPtrOutput                                 `pulumi:"requireSignedCommits"`
-	RequiredLinearHistory         pulumi.BoolPtrOutput                                 `pulumi:"requiredLinearHistory"`
-	RequiredPullRequestReviews    BranchProtectionRequiredPullRequestReviewArrayOutput `pulumi:"requiredPullRequestReviews"`
-	RequiredStatusChecks          BranchProtectionRequiredStatusCheckArrayOutput       `pulumi:"requiredStatusChecks"`
+	// Boolean, setting this to `true` to allow the branch to be deleted.
+	AllowsDeletions pulumi.BoolPtrOutput `pulumi:"allowsDeletions"`
+	// Boolean, setting this to `true` to allow force pushes on the branch.
+	AllowsForcePushes pulumi.BoolPtrOutput `pulumi:"allowsForcePushes"`
+	// Boolean, setting this to `true` to block creating the branch.
+	BlocksCreations pulumi.BoolPtrOutput `pulumi:"blocksCreations"`
+	// Boolean, setting this to `true` enforces status checks for repository administrators.
+	EnforceAdmins pulumi.BoolPtrOutput `pulumi:"enforceAdmins"`
+	// Boolean, Setting this to `true` will make the branch read-only and preventing any pushes to it. Defaults to `false`
+	LockBranch pulumi.BoolPtrOutput `pulumi:"lockBranch"`
+	// Identifies the protection rule pattern.
+	Pattern pulumi.StringOutput `pulumi:"pattern"`
+	// The list of actor Names/IDs that may push to the branch. Actor names must either begin with a "/" for users or the organization name followed by a "/" for teams.
+	PushRestrictions pulumi.StringArrayOutput `pulumi:"pushRestrictions"`
+	// The name or node ID of the repository associated with this branch protection rule.
+	RepositoryId pulumi.StringOutput `pulumi:"repositoryId"`
+	// Boolean, setting this to `true` requires all conversations on code must be resolved before a pull request can be merged.
+	RequireConversationResolution pulumi.BoolPtrOutput `pulumi:"requireConversationResolution"`
+	// Boolean, setting this to `true` requires all commits to be signed with GPG.
+	RequireSignedCommits pulumi.BoolPtrOutput `pulumi:"requireSignedCommits"`
+	// Boolean, setting this to `true` enforces a linear commit Git history, which prevents anyone from pushing merge commits to a branch
+	RequiredLinearHistory pulumi.BoolPtrOutput `pulumi:"requiredLinearHistory"`
+	// Enforce restrictions for pull request reviews. See Required Pull Request Reviews below for details.
+	RequiredPullRequestReviews BranchProtectionRequiredPullRequestReviewArrayOutput `pulumi:"requiredPullRequestReviews"`
+	// Enforce restrictions for required status checks. See Required Status Checks below for details.
+	RequiredStatusChecks BranchProtectionRequiredStatusCheckArrayOutput `pulumi:"requiredStatusChecks"`
 }
 
 // NewBranchProtection registers a new resource with the given unique name, arguments, and options.
@@ -64,35 +166,61 @@ func GetBranchProtection(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering BranchProtection resources.
 type branchProtectionState struct {
-	AllowsDeletions   *bool    `pulumi:"allowsDeletions"`
-	AllowsForcePushes *bool    `pulumi:"allowsForcePushes"`
-	BlocksCreations   *bool    `pulumi:"blocksCreations"`
-	EnforceAdmins     *bool    `pulumi:"enforceAdmins"`
-	Pattern           *string  `pulumi:"pattern"`
-	PushRestrictions  []string `pulumi:"pushRestrictions"`
-	// Node ID or name of repository
-	RepositoryId                  *string                                     `pulumi:"repositoryId"`
-	RequireConversationResolution *bool                                       `pulumi:"requireConversationResolution"`
-	RequireSignedCommits          *bool                                       `pulumi:"requireSignedCommits"`
-	RequiredLinearHistory         *bool                                       `pulumi:"requiredLinearHistory"`
-	RequiredPullRequestReviews    []BranchProtectionRequiredPullRequestReview `pulumi:"requiredPullRequestReviews"`
-	RequiredStatusChecks          []BranchProtectionRequiredStatusCheck       `pulumi:"requiredStatusChecks"`
+	// Boolean, setting this to `true` to allow the branch to be deleted.
+	AllowsDeletions *bool `pulumi:"allowsDeletions"`
+	// Boolean, setting this to `true` to allow force pushes on the branch.
+	AllowsForcePushes *bool `pulumi:"allowsForcePushes"`
+	// Boolean, setting this to `true` to block creating the branch.
+	BlocksCreations *bool `pulumi:"blocksCreations"`
+	// Boolean, setting this to `true` enforces status checks for repository administrators.
+	EnforceAdmins *bool `pulumi:"enforceAdmins"`
+	// Boolean, Setting this to `true` will make the branch read-only and preventing any pushes to it. Defaults to `false`
+	LockBranch *bool `pulumi:"lockBranch"`
+	// Identifies the protection rule pattern.
+	Pattern *string `pulumi:"pattern"`
+	// The list of actor Names/IDs that may push to the branch. Actor names must either begin with a "/" for users or the organization name followed by a "/" for teams.
+	PushRestrictions []string `pulumi:"pushRestrictions"`
+	// The name or node ID of the repository associated with this branch protection rule.
+	RepositoryId *string `pulumi:"repositoryId"`
+	// Boolean, setting this to `true` requires all conversations on code must be resolved before a pull request can be merged.
+	RequireConversationResolution *bool `pulumi:"requireConversationResolution"`
+	// Boolean, setting this to `true` requires all commits to be signed with GPG.
+	RequireSignedCommits *bool `pulumi:"requireSignedCommits"`
+	// Boolean, setting this to `true` enforces a linear commit Git history, which prevents anyone from pushing merge commits to a branch
+	RequiredLinearHistory *bool `pulumi:"requiredLinearHistory"`
+	// Enforce restrictions for pull request reviews. See Required Pull Request Reviews below for details.
+	RequiredPullRequestReviews []BranchProtectionRequiredPullRequestReview `pulumi:"requiredPullRequestReviews"`
+	// Enforce restrictions for required status checks. See Required Status Checks below for details.
+	RequiredStatusChecks []BranchProtectionRequiredStatusCheck `pulumi:"requiredStatusChecks"`
 }
 
 type BranchProtectionState struct {
-	AllowsDeletions   pulumi.BoolPtrInput
+	// Boolean, setting this to `true` to allow the branch to be deleted.
+	AllowsDeletions pulumi.BoolPtrInput
+	// Boolean, setting this to `true` to allow force pushes on the branch.
 	AllowsForcePushes pulumi.BoolPtrInput
-	BlocksCreations   pulumi.BoolPtrInput
-	EnforceAdmins     pulumi.BoolPtrInput
-	Pattern           pulumi.StringPtrInput
-	PushRestrictions  pulumi.StringArrayInput
-	// Node ID or name of repository
-	RepositoryId                  pulumi.StringPtrInput
+	// Boolean, setting this to `true` to block creating the branch.
+	BlocksCreations pulumi.BoolPtrInput
+	// Boolean, setting this to `true` enforces status checks for repository administrators.
+	EnforceAdmins pulumi.BoolPtrInput
+	// Boolean, Setting this to `true` will make the branch read-only and preventing any pushes to it. Defaults to `false`
+	LockBranch pulumi.BoolPtrInput
+	// Identifies the protection rule pattern.
+	Pattern pulumi.StringPtrInput
+	// The list of actor Names/IDs that may push to the branch. Actor names must either begin with a "/" for users or the organization name followed by a "/" for teams.
+	PushRestrictions pulumi.StringArrayInput
+	// The name or node ID of the repository associated with this branch protection rule.
+	RepositoryId pulumi.StringPtrInput
+	// Boolean, setting this to `true` requires all conversations on code must be resolved before a pull request can be merged.
 	RequireConversationResolution pulumi.BoolPtrInput
-	RequireSignedCommits          pulumi.BoolPtrInput
-	RequiredLinearHistory         pulumi.BoolPtrInput
-	RequiredPullRequestReviews    BranchProtectionRequiredPullRequestReviewArrayInput
-	RequiredStatusChecks          BranchProtectionRequiredStatusCheckArrayInput
+	// Boolean, setting this to `true` requires all commits to be signed with GPG.
+	RequireSignedCommits pulumi.BoolPtrInput
+	// Boolean, setting this to `true` enforces a linear commit Git history, which prevents anyone from pushing merge commits to a branch
+	RequiredLinearHistory pulumi.BoolPtrInput
+	// Enforce restrictions for pull request reviews. See Required Pull Request Reviews below for details.
+	RequiredPullRequestReviews BranchProtectionRequiredPullRequestReviewArrayInput
+	// Enforce restrictions for required status checks. See Required Status Checks below for details.
+	RequiredStatusChecks BranchProtectionRequiredStatusCheckArrayInput
 }
 
 func (BranchProtectionState) ElementType() reflect.Type {
@@ -100,36 +228,62 @@ func (BranchProtectionState) ElementType() reflect.Type {
 }
 
 type branchProtectionArgs struct {
-	AllowsDeletions   *bool    `pulumi:"allowsDeletions"`
-	AllowsForcePushes *bool    `pulumi:"allowsForcePushes"`
-	BlocksCreations   *bool    `pulumi:"blocksCreations"`
-	EnforceAdmins     *bool    `pulumi:"enforceAdmins"`
-	Pattern           string   `pulumi:"pattern"`
-	PushRestrictions  []string `pulumi:"pushRestrictions"`
-	// Node ID or name of repository
-	RepositoryId                  string                                      `pulumi:"repositoryId"`
-	RequireConversationResolution *bool                                       `pulumi:"requireConversationResolution"`
-	RequireSignedCommits          *bool                                       `pulumi:"requireSignedCommits"`
-	RequiredLinearHistory         *bool                                       `pulumi:"requiredLinearHistory"`
-	RequiredPullRequestReviews    []BranchProtectionRequiredPullRequestReview `pulumi:"requiredPullRequestReviews"`
-	RequiredStatusChecks          []BranchProtectionRequiredStatusCheck       `pulumi:"requiredStatusChecks"`
+	// Boolean, setting this to `true` to allow the branch to be deleted.
+	AllowsDeletions *bool `pulumi:"allowsDeletions"`
+	// Boolean, setting this to `true` to allow force pushes on the branch.
+	AllowsForcePushes *bool `pulumi:"allowsForcePushes"`
+	// Boolean, setting this to `true` to block creating the branch.
+	BlocksCreations *bool `pulumi:"blocksCreations"`
+	// Boolean, setting this to `true` enforces status checks for repository administrators.
+	EnforceAdmins *bool `pulumi:"enforceAdmins"`
+	// Boolean, Setting this to `true` will make the branch read-only and preventing any pushes to it. Defaults to `false`
+	LockBranch *bool `pulumi:"lockBranch"`
+	// Identifies the protection rule pattern.
+	Pattern string `pulumi:"pattern"`
+	// The list of actor Names/IDs that may push to the branch. Actor names must either begin with a "/" for users or the organization name followed by a "/" for teams.
+	PushRestrictions []string `pulumi:"pushRestrictions"`
+	// The name or node ID of the repository associated with this branch protection rule.
+	RepositoryId string `pulumi:"repositoryId"`
+	// Boolean, setting this to `true` requires all conversations on code must be resolved before a pull request can be merged.
+	RequireConversationResolution *bool `pulumi:"requireConversationResolution"`
+	// Boolean, setting this to `true` requires all commits to be signed with GPG.
+	RequireSignedCommits *bool `pulumi:"requireSignedCommits"`
+	// Boolean, setting this to `true` enforces a linear commit Git history, which prevents anyone from pushing merge commits to a branch
+	RequiredLinearHistory *bool `pulumi:"requiredLinearHistory"`
+	// Enforce restrictions for pull request reviews. See Required Pull Request Reviews below for details.
+	RequiredPullRequestReviews []BranchProtectionRequiredPullRequestReview `pulumi:"requiredPullRequestReviews"`
+	// Enforce restrictions for required status checks. See Required Status Checks below for details.
+	RequiredStatusChecks []BranchProtectionRequiredStatusCheck `pulumi:"requiredStatusChecks"`
 }
 
 // The set of arguments for constructing a BranchProtection resource.
 type BranchProtectionArgs struct {
-	AllowsDeletions   pulumi.BoolPtrInput
+	// Boolean, setting this to `true` to allow the branch to be deleted.
+	AllowsDeletions pulumi.BoolPtrInput
+	// Boolean, setting this to `true` to allow force pushes on the branch.
 	AllowsForcePushes pulumi.BoolPtrInput
-	BlocksCreations   pulumi.BoolPtrInput
-	EnforceAdmins     pulumi.BoolPtrInput
-	Pattern           pulumi.StringInput
-	PushRestrictions  pulumi.StringArrayInput
-	// Node ID or name of repository
-	RepositoryId                  pulumi.StringInput
+	// Boolean, setting this to `true` to block creating the branch.
+	BlocksCreations pulumi.BoolPtrInput
+	// Boolean, setting this to `true` enforces status checks for repository administrators.
+	EnforceAdmins pulumi.BoolPtrInput
+	// Boolean, Setting this to `true` will make the branch read-only and preventing any pushes to it. Defaults to `false`
+	LockBranch pulumi.BoolPtrInput
+	// Identifies the protection rule pattern.
+	Pattern pulumi.StringInput
+	// The list of actor Names/IDs that may push to the branch. Actor names must either begin with a "/" for users or the organization name followed by a "/" for teams.
+	PushRestrictions pulumi.StringArrayInput
+	// The name or node ID of the repository associated with this branch protection rule.
+	RepositoryId pulumi.StringInput
+	// Boolean, setting this to `true` requires all conversations on code must be resolved before a pull request can be merged.
 	RequireConversationResolution pulumi.BoolPtrInput
-	RequireSignedCommits          pulumi.BoolPtrInput
-	RequiredLinearHistory         pulumi.BoolPtrInput
-	RequiredPullRequestReviews    BranchProtectionRequiredPullRequestReviewArrayInput
-	RequiredStatusChecks          BranchProtectionRequiredStatusCheckArrayInput
+	// Boolean, setting this to `true` requires all commits to be signed with GPG.
+	RequireSignedCommits pulumi.BoolPtrInput
+	// Boolean, setting this to `true` enforces a linear commit Git history, which prevents anyone from pushing merge commits to a branch
+	RequiredLinearHistory pulumi.BoolPtrInput
+	// Enforce restrictions for pull request reviews. See Required Pull Request Reviews below for details.
+	RequiredPullRequestReviews BranchProtectionRequiredPullRequestReviewArrayInput
+	// Enforce restrictions for required status checks. See Required Status Checks below for details.
+	RequiredStatusChecks BranchProtectionRequiredStatusCheckArrayInput
 }
 
 func (BranchProtectionArgs) ElementType() reflect.Type {
@@ -219,53 +373,69 @@ func (o BranchProtectionOutput) ToBranchProtectionOutputWithContext(ctx context.
 	return o
 }
 
+// Boolean, setting this to `true` to allow the branch to be deleted.
 func (o BranchProtectionOutput) AllowsDeletions() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *BranchProtection) pulumi.BoolPtrOutput { return v.AllowsDeletions }).(pulumi.BoolPtrOutput)
 }
 
+// Boolean, setting this to `true` to allow force pushes on the branch.
 func (o BranchProtectionOutput) AllowsForcePushes() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *BranchProtection) pulumi.BoolPtrOutput { return v.AllowsForcePushes }).(pulumi.BoolPtrOutput)
 }
 
+// Boolean, setting this to `true` to block creating the branch.
 func (o BranchProtectionOutput) BlocksCreations() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *BranchProtection) pulumi.BoolPtrOutput { return v.BlocksCreations }).(pulumi.BoolPtrOutput)
 }
 
+// Boolean, setting this to `true` enforces status checks for repository administrators.
 func (o BranchProtectionOutput) EnforceAdmins() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *BranchProtection) pulumi.BoolPtrOutput { return v.EnforceAdmins }).(pulumi.BoolPtrOutput)
 }
 
+// Boolean, Setting this to `true` will make the branch read-only and preventing any pushes to it. Defaults to `false`
+func (o BranchProtectionOutput) LockBranch() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BranchProtection) pulumi.BoolPtrOutput { return v.LockBranch }).(pulumi.BoolPtrOutput)
+}
+
+// Identifies the protection rule pattern.
 func (o BranchProtectionOutput) Pattern() pulumi.StringOutput {
 	return o.ApplyT(func(v *BranchProtection) pulumi.StringOutput { return v.Pattern }).(pulumi.StringOutput)
 }
 
+// The list of actor Names/IDs that may push to the branch. Actor names must either begin with a "/" for users or the organization name followed by a "/" for teams.
 func (o BranchProtectionOutput) PushRestrictions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BranchProtection) pulumi.StringArrayOutput { return v.PushRestrictions }).(pulumi.StringArrayOutput)
 }
 
-// Node ID or name of repository
+// The name or node ID of the repository associated with this branch protection rule.
 func (o BranchProtectionOutput) RepositoryId() pulumi.StringOutput {
 	return o.ApplyT(func(v *BranchProtection) pulumi.StringOutput { return v.RepositoryId }).(pulumi.StringOutput)
 }
 
+// Boolean, setting this to `true` requires all conversations on code must be resolved before a pull request can be merged.
 func (o BranchProtectionOutput) RequireConversationResolution() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *BranchProtection) pulumi.BoolPtrOutput { return v.RequireConversationResolution }).(pulumi.BoolPtrOutput)
 }
 
+// Boolean, setting this to `true` requires all commits to be signed with GPG.
 func (o BranchProtectionOutput) RequireSignedCommits() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *BranchProtection) pulumi.BoolPtrOutput { return v.RequireSignedCommits }).(pulumi.BoolPtrOutput)
 }
 
+// Boolean, setting this to `true` enforces a linear commit Git history, which prevents anyone from pushing merge commits to a branch
 func (o BranchProtectionOutput) RequiredLinearHistory() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *BranchProtection) pulumi.BoolPtrOutput { return v.RequiredLinearHistory }).(pulumi.BoolPtrOutput)
 }
 
+// Enforce restrictions for pull request reviews. See Required Pull Request Reviews below for details.
 func (o BranchProtectionOutput) RequiredPullRequestReviews() BranchProtectionRequiredPullRequestReviewArrayOutput {
 	return o.ApplyT(func(v *BranchProtection) BranchProtectionRequiredPullRequestReviewArrayOutput {
 		return v.RequiredPullRequestReviews
 	}).(BranchProtectionRequiredPullRequestReviewArrayOutput)
 }
 
+// Enforce restrictions for required status checks. See Required Status Checks below for details.
 func (o BranchProtectionOutput) RequiredStatusChecks() BranchProtectionRequiredStatusCheckArrayOutput {
 	return o.ApplyT(func(v *BranchProtection) BranchProtectionRequiredStatusCheckArrayOutput {
 		return v.RequiredStatusChecks

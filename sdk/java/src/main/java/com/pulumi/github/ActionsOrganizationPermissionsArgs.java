@@ -17,30 +17,62 @@ public final class ActionsOrganizationPermissionsArgs extends com.pulumi.resourc
 
     public static final ActionsOrganizationPermissionsArgs Empty = new ActionsOrganizationPermissionsArgs();
 
+    /**
+     * The permissions policy that controls the actions that are allowed to run. Can be one of: `all`, `local_only`, or `selected`.
+     * 
+     */
     @Import(name="allowedActions")
     private @Nullable Output<String> allowedActions;
 
+    /**
+     * @return The permissions policy that controls the actions that are allowed to run. Can be one of: `all`, `local_only`, or `selected`.
+     * 
+     */
     public Optional<Output<String>> allowedActions() {
         return Optional.ofNullable(this.allowedActions);
     }
 
+    /**
+     * Sets the actions that are allowed in an organization. Only available when `allowed_actions` = `selected`. See Allowed Actions Config below for details.
+     * 
+     */
     @Import(name="allowedActionsConfig")
     private @Nullable Output<ActionsOrganizationPermissionsAllowedActionsConfigArgs> allowedActionsConfig;
 
+    /**
+     * @return Sets the actions that are allowed in an organization. Only available when `allowed_actions` = `selected`. See Allowed Actions Config below for details.
+     * 
+     */
     public Optional<Output<ActionsOrganizationPermissionsAllowedActionsConfigArgs>> allowedActionsConfig() {
         return Optional.ofNullable(this.allowedActionsConfig);
     }
 
+    /**
+     * The policy that controls the repositories in the organization that are allowed to run GitHub Actions. Can be one of: `all`, `none`, or `selected`.
+     * 
+     */
     @Import(name="enabledRepositories", required=true)
     private Output<String> enabledRepositories;
 
+    /**
+     * @return The policy that controls the repositories in the organization that are allowed to run GitHub Actions. Can be one of: `all`, `none`, or `selected`.
+     * 
+     */
     public Output<String> enabledRepositories() {
         return this.enabledRepositories;
     }
 
+    /**
+     * Sets the list of selected repositories that are enabled for GitHub Actions in an organization. Only available when `enabled_repositories` = `selected`. See Enabled Repositories Config below for details.
+     * 
+     */
     @Import(name="enabledRepositoriesConfig")
     private @Nullable Output<ActionsOrganizationPermissionsEnabledRepositoriesConfigArgs> enabledRepositoriesConfig;
 
+    /**
+     * @return Sets the list of selected repositories that are enabled for GitHub Actions in an organization. Only available when `enabled_repositories` = `selected`. See Enabled Repositories Config below for details.
+     * 
+     */
     public Optional<Output<ActionsOrganizationPermissionsEnabledRepositoriesConfigArgs>> enabledRepositoriesConfig() {
         return Optional.ofNullable(this.enabledRepositoriesConfig);
     }
@@ -72,38 +104,86 @@ public final class ActionsOrganizationPermissionsArgs extends com.pulumi.resourc
             $ = new ActionsOrganizationPermissionsArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param allowedActions The permissions policy that controls the actions that are allowed to run. Can be one of: `all`, `local_only`, or `selected`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder allowedActions(@Nullable Output<String> allowedActions) {
             $.allowedActions = allowedActions;
             return this;
         }
 
+        /**
+         * @param allowedActions The permissions policy that controls the actions that are allowed to run. Can be one of: `all`, `local_only`, or `selected`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder allowedActions(String allowedActions) {
             return allowedActions(Output.of(allowedActions));
         }
 
+        /**
+         * @param allowedActionsConfig Sets the actions that are allowed in an organization. Only available when `allowed_actions` = `selected`. See Allowed Actions Config below for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder allowedActionsConfig(@Nullable Output<ActionsOrganizationPermissionsAllowedActionsConfigArgs> allowedActionsConfig) {
             $.allowedActionsConfig = allowedActionsConfig;
             return this;
         }
 
+        /**
+         * @param allowedActionsConfig Sets the actions that are allowed in an organization. Only available when `allowed_actions` = `selected`. See Allowed Actions Config below for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder allowedActionsConfig(ActionsOrganizationPermissionsAllowedActionsConfigArgs allowedActionsConfig) {
             return allowedActionsConfig(Output.of(allowedActionsConfig));
         }
 
+        /**
+         * @param enabledRepositories The policy that controls the repositories in the organization that are allowed to run GitHub Actions. Can be one of: `all`, `none`, or `selected`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder enabledRepositories(Output<String> enabledRepositories) {
             $.enabledRepositories = enabledRepositories;
             return this;
         }
 
+        /**
+         * @param enabledRepositories The policy that controls the repositories in the organization that are allowed to run GitHub Actions. Can be one of: `all`, `none`, or `selected`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder enabledRepositories(String enabledRepositories) {
             return enabledRepositories(Output.of(enabledRepositories));
         }
 
+        /**
+         * @param enabledRepositoriesConfig Sets the list of selected repositories that are enabled for GitHub Actions in an organization. Only available when `enabled_repositories` = `selected`. See Enabled Repositories Config below for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder enabledRepositoriesConfig(@Nullable Output<ActionsOrganizationPermissionsEnabledRepositoriesConfigArgs> enabledRepositoriesConfig) {
             $.enabledRepositoriesConfig = enabledRepositoriesConfig;
             return this;
         }
 
+        /**
+         * @param enabledRepositoriesConfig Sets the list of selected repositories that are enabled for GitHub Actions in an organization. Only available when `enabled_repositories` = `selected`. See Enabled Repositories Config below for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder enabledRepositoriesConfig(ActionsOrganizationPermissionsEnabledRepositoriesConfigArgs enabledRepositoriesConfig) {
             return enabledRepositoriesConfig(Output.of(enabledRepositoriesConfig));
         }

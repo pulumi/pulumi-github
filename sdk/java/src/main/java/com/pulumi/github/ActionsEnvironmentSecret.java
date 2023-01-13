@@ -15,47 +15,191 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.github.ActionsEnvironmentSecret;
+ * import com.pulumi.github.ActionsEnvironmentSecretArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var exampleSecretActionsEnvironmentSecret = new ActionsEnvironmentSecret(&#34;exampleSecretActionsEnvironmentSecret&#34;, ActionsEnvironmentSecretArgs.builder()        
+ *             .environment(&#34;example_environment&#34;)
+ *             .secretName(&#34;example_secret_name&#34;)
+ *             .plaintextValue(var_.some_secret_string())
+ *             .build());
+ * 
+ *         var exampleSecretIndex_actionsEnvironmentSecretActionsEnvironmentSecret = new ActionsEnvironmentSecret(&#34;exampleSecretIndex/actionsEnvironmentSecretActionsEnvironmentSecret&#34;, ActionsEnvironmentSecretArgs.builder()        
+ *             .environment(&#34;example_environment&#34;)
+ *             .secretName(&#34;example_secret_name&#34;)
+ *             .encryptedValue(var_.some_encrypted_secret_string())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.github.GithubFunctions;
+ * import com.pulumi.github.inputs.GetRepositoryArgs;
+ * import com.pulumi.github.RepositoryEnvironment;
+ * import com.pulumi.github.RepositoryEnvironmentArgs;
+ * import com.pulumi.github.ActionsEnvironmentSecret;
+ * import com.pulumi.github.ActionsEnvironmentSecretArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var repo = GithubFunctions.getRepository(GetRepositoryArgs.builder()
+ *             .fullName(&#34;my-org/repo&#34;)
+ *             .build());
+ * 
+ *         var repoEnvironment = new RepositoryEnvironment(&#34;repoEnvironment&#34;, RepositoryEnvironmentArgs.builder()        
+ *             .repository(repo.applyValue(getRepositoryResult -&gt; getRepositoryResult.name()))
+ *             .environment(&#34;example_environment&#34;)
+ *             .build());
+ * 
+ *         var testSecret = new ActionsEnvironmentSecret(&#34;testSecret&#34;, ActionsEnvironmentSecretArgs.builder()        
+ *             .repository(repo.applyValue(getRepositoryResult -&gt; getRepositoryResult.name()))
+ *             .environment(repoEnvironment.environment())
+ *             .secretName(&#34;test_secret_name&#34;)
+ *             .plaintextValue(&#34;%s&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * This resource does not support importing. If you&#39;d like to help contribute it, please visit our [GitHub page](https://github.com/integrations/terraform-provider-github)!
+ * 
+ */
 @ResourceType(type="github:index/actionsEnvironmentSecret:ActionsEnvironmentSecret")
 public class ActionsEnvironmentSecret extends com.pulumi.resources.CustomResource {
+    /**
+     * Date of actions_environment_secret creation.
+     * 
+     */
     @Export(name="createdAt", type=String.class, parameters={})
     private Output<String> createdAt;
 
+    /**
+     * @return Date of actions_environment_secret creation.
+     * 
+     */
     public Output<String> createdAt() {
         return this.createdAt;
     }
+    /**
+     * Encrypted value of the secret using the Github public key in Base64 format.
+     * 
+     */
     @Export(name="encryptedValue", type=String.class, parameters={})
     private Output</* @Nullable */ String> encryptedValue;
 
+    /**
+     * @return Encrypted value of the secret using the Github public key in Base64 format.
+     * 
+     */
     public Output<Optional<String>> encryptedValue() {
         return Codegen.optional(this.encryptedValue);
     }
+    /**
+     * Name of the environment.
+     * 
+     */
     @Export(name="environment", type=String.class, parameters={})
     private Output<String> environment;
 
+    /**
+     * @return Name of the environment.
+     * 
+     */
     public Output<String> environment() {
         return this.environment;
     }
+    /**
+     * Plaintext value of the secret to be encrypted.
+     * 
+     */
     @Export(name="plaintextValue", type=String.class, parameters={})
     private Output</* @Nullable */ String> plaintextValue;
 
+    /**
+     * @return Plaintext value of the secret to be encrypted.
+     * 
+     */
     public Output<Optional<String>> plaintextValue() {
         return Codegen.optional(this.plaintextValue);
     }
+    /**
+     * Name of the repository.
+     * 
+     */
     @Export(name="repository", type=String.class, parameters={})
     private Output<String> repository;
 
+    /**
+     * @return Name of the repository.
+     * 
+     */
     public Output<String> repository() {
         return this.repository;
     }
+    /**
+     * Name of the secret.
+     * 
+     */
     @Export(name="secretName", type=String.class, parameters={})
     private Output<String> secretName;
 
+    /**
+     * @return Name of the secret.
+     * 
+     */
     public Output<String> secretName() {
         return this.secretName;
     }
+    /**
+     * Date of actions_environment_secret update.
+     * 
+     */
     @Export(name="updatedAt", type=String.class, parameters={})
     private Output<String> updatedAt;
 
+    /**
+     * @return Date of actions_environment_secret update.
+     * 
+     */
     public Output<String> updatedAt() {
         return this.updatedAt;
     }

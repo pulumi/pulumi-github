@@ -13,26 +13,66 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class RepositoryPages {
+    /**
+     * @return The custom domain for the repository. This can only be set after the repository has been created.
+     * 
+     */
     private @Nullable String cname;
+    /**
+     * @return Whether the rendered GitHub Pages site has a custom 404 page.
+     * 
+     */
     private @Nullable Boolean custom404;
+    /**
+     * @return The absolute URL (including scheme) of the rendered GitHub Pages site e.g. `https://username.github.io`.
+     * 
+     */
     private @Nullable String htmlUrl;
+    /**
+     * @return The source branch and directory for the rendered Pages site. See GitHub Pages Source below for details.
+     * 
+     */
     private RepositoryPagesSource source;
+    /**
+     * @return Set to `enabled` to enable advanced security features on the repository. Can be `enabled` or `disabled`.
+     * 
+     */
     private @Nullable String status;
     private @Nullable String url;
 
     private RepositoryPages() {}
+    /**
+     * @return The custom domain for the repository. This can only be set after the repository has been created.
+     * 
+     */
     public Optional<String> cname() {
         return Optional.ofNullable(this.cname);
     }
+    /**
+     * @return Whether the rendered GitHub Pages site has a custom 404 page.
+     * 
+     */
     public Optional<Boolean> custom404() {
         return Optional.ofNullable(this.custom404);
     }
+    /**
+     * @return The absolute URL (including scheme) of the rendered GitHub Pages site e.g. `https://username.github.io`.
+     * 
+     */
     public Optional<String> htmlUrl() {
         return Optional.ofNullable(this.htmlUrl);
     }
+    /**
+     * @return The source branch and directory for the rendered Pages site. See GitHub Pages Source below for details.
+     * 
+     */
     public RepositoryPagesSource source() {
         return this.source;
     }
+    /**
+     * @return Set to `enabled` to enable advanced security features on the repository. Can be `enabled` or `disabled`.
+     * 
+     */
     public Optional<String> status() {
         return Optional.ofNullable(this.status);
     }

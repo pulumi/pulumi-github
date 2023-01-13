@@ -9,17 +9,33 @@ import java.util.Objects;
 
 @CustomType
 public final class GetGithubAppResult {
+    /**
+     * @return The app&#39;s description.
+     * 
+     */
     private String description;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
+    /**
+     * @return The app&#39;s full name.
+     * 
+     */
     private String name;
+    /**
+     * @return The Node ID of the app.
+     * 
+     */
     private String nodeId;
     private String slug;
 
     private GetGithubAppResult() {}
+    /**
+     * @return The app&#39;s description.
+     * 
+     */
     public String description() {
         return this.description;
     }
@@ -30,9 +46,17 @@ public final class GetGithubAppResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return The app&#39;s full name.
+     * 
+     */
     public String name() {
         return this.name;
     }
+    /**
+     * @return The Node ID of the app.
+     * 
+     */
     public String nodeId() {
         return this.nodeId;
     }

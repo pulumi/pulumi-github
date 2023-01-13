@@ -10,21 +10,57 @@ import java.util.Objects;
 
 @CustomType
 public final class GetOrganizationResult {
+    /**
+     * @return The description the organization account
+     * 
+     */
     private String description;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
+    /**
+     * @return The login of the organization account
+     * 
+     */
     private String login;
+    /**
+     * @return (`list`) A list with the members of the organization
+     * 
+     */
     private List<String> members;
+    /**
+     * @return The organization&#39;s public profile name
+     * 
+     */
     private String name;
+    /**
+     * @return GraphQL global node id for use with v4 API
+     * 
+     */
     private String nodeId;
+    /**
+     * @return The organization&#39;s name as used in URLs and the API
+     * 
+     */
     private String orgname;
+    /**
+     * @return The plan name for the organization account
+     * 
+     */
     private String plan;
+    /**
+     * @return (`list`) A list with the repositories on the organization
+     * 
+     */
     private List<String> repositories;
 
     private GetOrganizationResult() {}
+    /**
+     * @return The description the organization account
+     * 
+     */
     public String description() {
         return this.description;
     }
@@ -35,24 +71,52 @@ public final class GetOrganizationResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return The login of the organization account
+     * 
+     */
     public String login() {
         return this.login;
     }
+    /**
+     * @return (`list`) A list with the members of the organization
+     * 
+     */
     public List<String> members() {
         return this.members;
     }
+    /**
+     * @return The organization&#39;s public profile name
+     * 
+     */
     public String name() {
         return this.name;
     }
+    /**
+     * @return GraphQL global node id for use with v4 API
+     * 
+     */
     public String nodeId() {
         return this.nodeId;
     }
+    /**
+     * @return The organization&#39;s name as used in URLs and the API
+     * 
+     */
     public String orgname() {
         return this.orgname;
     }
+    /**
+     * @return The plan name for the organization account
+     * 
+     */
     public String plan() {
         return this.plan;
     }
+    /**
+     * @return (`list`) A list with the repositories on the organization
+     * 
+     */
     public List<String> repositories() {
         return this.repositories;
     }

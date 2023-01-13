@@ -12,69 +12,197 @@ import java.util.Objects;
 
 @CustomType
 public final class GetRepositoryPullRequestsResult {
+    /**
+     * @return If set, filters Pull Requests by base branch name.
+     * 
+     */
     private String baseRef;
+    /**
+     * @return Head commit SHA of the Pull Request base.
+     * 
+     */
     private String baseSha;
+    /**
+     * @return Body of the Pull Request.
+     * 
+     */
     private String body;
+    /**
+     * @return Indicates Whether this Pull Request is a draft.
+     * 
+     */
     private Boolean draft;
+    /**
+     * @return Owner of the Pull Request head repository.
+     * 
+     */
     private String headOwner;
+    /**
+     * @return If set, filters Pull Requests by head user or head organization and branch name in the format of &#34;user:ref-name&#34; or &#34;organization:ref-name&#34;. For example: &#34;github:new-script-format&#34; or &#34;octocat:test-branch&#34;.
+     * 
+     */
     private String headRef;
+    /**
+     * @return Name of the Pull Request head repository.
+     * 
+     */
     private String headRepository;
+    /**
+     * @return Head commit SHA of the Pull Request head.
+     * 
+     */
     private String headSha;
+    /**
+     * @return List of label names set on the Pull Request.
+     * 
+     */
     private List<String> labels;
+    /**
+     * @return Indicates whether the base repository maintainers can modify the Pull Request.
+     * 
+     */
     private Boolean maintainerCanModify;
+    /**
+     * @return The number of the Pull Request within the repository.
+     * 
+     */
     private Integer number;
+    /**
+     * @return Unix timestamp indicating the Pull Request creation time.
+     * 
+     */
     private Integer openedAt;
+    /**
+     * @return GitHub login of the user who opened the Pull Request.
+     * 
+     */
     private String openedBy;
+    /**
+     * @return If set, filters Pull Requests by state. Can be &#34;open&#34;, &#34;closed&#34;, or &#34;all&#34;. Default: &#34;open&#34;.
+     * 
+     */
     private String state;
+    /**
+     * @return The title of the Pull Request.
+     * 
+     */
     private String title;
+    /**
+     * @return The timestamp of the last Pull Request update.
+     * 
+     */
     private Integer updatedAt;
 
     private GetRepositoryPullRequestsResult() {}
+    /**
+     * @return If set, filters Pull Requests by base branch name.
+     * 
+     */
     public String baseRef() {
         return this.baseRef;
     }
+    /**
+     * @return Head commit SHA of the Pull Request base.
+     * 
+     */
     public String baseSha() {
         return this.baseSha;
     }
+    /**
+     * @return Body of the Pull Request.
+     * 
+     */
     public String body() {
         return this.body;
     }
+    /**
+     * @return Indicates Whether this Pull Request is a draft.
+     * 
+     */
     public Boolean draft() {
         return this.draft;
     }
+    /**
+     * @return Owner of the Pull Request head repository.
+     * 
+     */
     public String headOwner() {
         return this.headOwner;
     }
+    /**
+     * @return If set, filters Pull Requests by head user or head organization and branch name in the format of &#34;user:ref-name&#34; or &#34;organization:ref-name&#34;. For example: &#34;github:new-script-format&#34; or &#34;octocat:test-branch&#34;.
+     * 
+     */
     public String headRef() {
         return this.headRef;
     }
+    /**
+     * @return Name of the Pull Request head repository.
+     * 
+     */
     public String headRepository() {
         return this.headRepository;
     }
+    /**
+     * @return Head commit SHA of the Pull Request head.
+     * 
+     */
     public String headSha() {
         return this.headSha;
     }
+    /**
+     * @return List of label names set on the Pull Request.
+     * 
+     */
     public List<String> labels() {
         return this.labels;
     }
+    /**
+     * @return Indicates whether the base repository maintainers can modify the Pull Request.
+     * 
+     */
     public Boolean maintainerCanModify() {
         return this.maintainerCanModify;
     }
+    /**
+     * @return The number of the Pull Request within the repository.
+     * 
+     */
     public Integer number() {
         return this.number;
     }
+    /**
+     * @return Unix timestamp indicating the Pull Request creation time.
+     * 
+     */
     public Integer openedAt() {
         return this.openedAt;
     }
+    /**
+     * @return GitHub login of the user who opened the Pull Request.
+     * 
+     */
     public String openedBy() {
         return this.openedBy;
     }
+    /**
+     * @return If set, filters Pull Requests by state. Can be &#34;open&#34;, &#34;closed&#34;, or &#34;all&#34;. Default: &#34;open&#34;.
+     * 
+     */
     public String state() {
         return this.state;
     }
+    /**
+     * @return The title of the Pull Request.
+     * 
+     */
     public String title() {
         return this.title;
     }
+    /**
+     * @return The timestamp of the last Pull Request update.
+     * 
+     */
     public Integer updatedAt() {
         return this.updatedAt;
     }

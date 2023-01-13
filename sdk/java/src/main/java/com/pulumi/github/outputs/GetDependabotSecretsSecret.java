@@ -9,17 +9,41 @@ import java.util.Objects;
 
 @CustomType
 public final class GetDependabotSecretsSecret {
+    /**
+     * @return Timestamp of the secret creation
+     * 
+     */
     private String createdAt;
+    /**
+     * @return The name of the repository.
+     * 
+     */
     private String name;
+    /**
+     * @return Timestamp of the secret last update
+     * 
+     */
     private String updatedAt;
 
     private GetDependabotSecretsSecret() {}
+    /**
+     * @return Timestamp of the secret creation
+     * 
+     */
     public String createdAt() {
         return this.createdAt;
     }
+    /**
+     * @return The name of the repository.
+     * 
+     */
     public String name() {
         return this.name;
     }
+    /**
+     * @return Timestamp of the secret last update
+     * 
+     */
     public String updatedAt() {
         return this.updatedAt;
     }

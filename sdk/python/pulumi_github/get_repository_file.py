@@ -61,26 +61,41 @@ class GetRepositoryFileResult:
     @property
     @pulumi.getter(name="commitAuthor")
     def commit_author(self) -> str:
+        """
+        Committer author name.
+        """
         return pulumi.get(self, "commit_author")
 
     @property
     @pulumi.getter(name="commitEmail")
     def commit_email(self) -> str:
+        """
+        Committer email address.
+        """
         return pulumi.get(self, "commit_email")
 
     @property
     @pulumi.getter(name="commitMessage")
     def commit_message(self) -> str:
+        """
+        Commit message when file was last updated.
+        """
         return pulumi.get(self, "commit_message")
 
     @property
     @pulumi.getter(name="commitSha")
     def commit_sha(self) -> str:
+        """
+        The SHA of the commit that modified the file.
+        """
         return pulumi.get(self, "commit_sha")
 
     @property
     @pulumi.getter
     def content(self) -> str:
+        """
+        The file content.
+        """
         return pulumi.get(self, "content")
 
     @property
@@ -104,6 +119,9 @@ class GetRepositoryFileResult:
     @property
     @pulumi.getter
     def sha(self) -> str:
+        """
+        The SHA blob of the file.
+        """
         return pulumi.get(self, "sha")
 
 
@@ -130,7 +148,25 @@ def get_repository_file(branch: Optional[str] = None,
                         repository: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRepositoryFileResult:
     """
-    Use this data source to access information about an existing resource.
+    This data source allows you to read files within a
+    GitHub repository.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_github as github
+
+    foo = github.get_repository_file(repository=github_repository["foo"]["name"],
+        branch="main",
+        file=".gitignore")
+    ```
+
+
+    :param str branch: Git branch (defaults to `main`).
+           The branch must already exist, it will not be created if it does not already exist.
+    :param str file: The path of the file to manage.
+    :param str repository: The repository to create the file in.
     """
     __args__ = dict()
     __args__['branch'] = branch
@@ -158,6 +194,24 @@ def get_repository_file_output(branch: Optional[pulumi.Input[Optional[str]]] = N
                                repository: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRepositoryFileResult]:
     """
-    Use this data source to access information about an existing resource.
+    This data source allows you to read files within a
+    GitHub repository.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_github as github
+
+    foo = github.get_repository_file(repository=github_repository["foo"]["name"],
+        branch="main",
+        file=".gitignore")
+    ```
+
+
+    :param str branch: Git branch (defaults to `main`).
+           The branch must already exist, it will not be created if it does not already exist.
+    :param str file: The path of the file to manage.
+    :param str repository: The repository to create the file in.
     """
     ...

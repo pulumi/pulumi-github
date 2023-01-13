@@ -13,16 +13,32 @@ public final class RepositoryTagProtectionArgs extends com.pulumi.resources.Reso
 
     public static final RepositoryTagProtectionArgs Empty = new RepositoryTagProtectionArgs();
 
+    /**
+     * The pattern of the tag to protect.
+     * 
+     */
     @Import(name="pattern", required=true)
     private Output<String> pattern;
 
+    /**
+     * @return The pattern of the tag to protect.
+     * 
+     */
     public Output<String> pattern() {
         return this.pattern;
     }
 
+    /**
+     * Name of the repository to add the tag protection to.
+     * 
+     */
     @Import(name="repository", required=true)
     private Output<String> repository;
 
+    /**
+     * @return Name of the repository to add the tag protection to.
+     * 
+     */
     public Output<String> repository() {
         return this.repository;
     }
@@ -52,20 +68,44 @@ public final class RepositoryTagProtectionArgs extends com.pulumi.resources.Reso
             $ = new RepositoryTagProtectionArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param pattern The pattern of the tag to protect.
+         * 
+         * @return builder
+         * 
+         */
         public Builder pattern(Output<String> pattern) {
             $.pattern = pattern;
             return this;
         }
 
+        /**
+         * @param pattern The pattern of the tag to protect.
+         * 
+         * @return builder
+         * 
+         */
         public Builder pattern(String pattern) {
             return pattern(Output.of(pattern));
         }
 
+        /**
+         * @param repository Name of the repository to add the tag protection to.
+         * 
+         * @return builder
+         * 
+         */
         public Builder repository(Output<String> repository) {
             $.repository = repository;
             return this;
         }
 
+        /**
+         * @param repository Name of the repository to add the tag protection to.
+         * 
+         * @return builder
+         * 
+         */
         public Builder repository(String repository) {
             return repository(Output.of(repository));
         }

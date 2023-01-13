@@ -13,6 +13,10 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class BranchProtectionV3RequiredStatusChecks {
+    /**
+     * @return The list of status checks to require in order to merge into this branch. No status checks are required by default.
+     * 
+     */
     private @Nullable List<String> contexts;
     /**
      * @deprecated
@@ -21,9 +25,17 @@ public final class BranchProtectionV3RequiredStatusChecks {
      */
     @Deprecated /* Use enforce_admins instead */
     private @Nullable Boolean includeAdmins;
+    /**
+     * @return Require branches to be up to date before merging. Defaults to `false`.
+     * 
+     */
     private @Nullable Boolean strict;
 
     private BranchProtectionV3RequiredStatusChecks() {}
+    /**
+     * @return The list of status checks to require in order to merge into this branch. No status checks are required by default.
+     * 
+     */
     public List<String> contexts() {
         return this.contexts == null ? List.of() : this.contexts;
     }
@@ -36,6 +48,10 @@ public final class BranchProtectionV3RequiredStatusChecks {
     public Optional<Boolean> includeAdmins() {
         return Optional.ofNullable(this.includeAdmins);
     }
+    /**
+     * @return Require branches to be up to date before merging. Defaults to `false`.
+     * 
+     */
     public Optional<Boolean> strict() {
         return Optional.ofNullable(this.strict);
     }

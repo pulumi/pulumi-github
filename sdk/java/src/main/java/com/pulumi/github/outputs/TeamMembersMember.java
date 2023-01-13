@@ -11,13 +11,31 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class TeamMembersMember {
+    /**
+     * @return The role of the user within the team.
+     * Must be one of `member` or `maintainer`. Defaults to `member`.
+     * 
+     */
     private @Nullable String role;
+    /**
+     * @return The user to add to the team.
+     * 
+     */
     private String username;
 
     private TeamMembersMember() {}
+    /**
+     * @return The role of the user within the team.
+     * Must be one of `member` or `maintainer`. Defaults to `member`.
+     * 
+     */
     public Optional<String> role() {
         return Optional.ofNullable(this.role);
     }
+    /**
+     * @return The user to add to the team.
+     * 
+     */
     public String username() {
         return this.username;
     }

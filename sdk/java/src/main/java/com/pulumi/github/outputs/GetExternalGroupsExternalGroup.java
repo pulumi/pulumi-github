@@ -10,17 +10,41 @@ import java.util.Objects;
 
 @CustomType
 public final class GetExternalGroupsExternalGroup {
+    /**
+     * @return the ID of the group.
+     * 
+     */
     private Integer groupId;
+    /**
+     * @return the name of the group.
+     * 
+     */
     private String groupName;
+    /**
+     * @return the date the group was last updated.
+     * 
+     */
     private String updatedAt;
 
     private GetExternalGroupsExternalGroup() {}
+    /**
+     * @return the ID of the group.
+     * 
+     */
     public Integer groupId() {
         return this.groupId;
     }
+    /**
+     * @return the name of the group.
+     * 
+     */
     public String groupName() {
         return this.groupName;
     }
+    /**
+     * @return the date the group was last updated.
+     * 
+     */
     public String updatedAt() {
         return this.updatedAt;
     }

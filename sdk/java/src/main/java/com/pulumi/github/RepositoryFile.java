@@ -15,147 +15,207 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * This resource allows you to create and manage files within a
+ * GitHub repository.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.github.Repository;
+ * import com.pulumi.github.RepositoryArgs;
+ * import com.pulumi.github.RepositoryFile;
+ * import com.pulumi.github.RepositoryFileArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var fooRepository = new Repository(&#34;fooRepository&#34;, RepositoryArgs.builder()        
+ *             .autoInit(true)
+ *             .build());
+ * 
+ *         var fooRepositoryFile = new RepositoryFile(&#34;fooRepositoryFile&#34;, RepositoryFileArgs.builder()        
+ *             .repository(fooRepository.name())
+ *             .branch(&#34;main&#34;)
+ *             .file(&#34;.gitignore&#34;)
+ *             .content(&#34;**{@literal /}*.tfstate&#34;)
+ *             .commitMessage(&#34;Managed by Terraform&#34;)
+ *             .commitAuthor(&#34;Terraform User&#34;)
+ *             .commitEmail(&#34;terraform@example.com&#34;)
+ *             .overwriteOnCreate(true)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * Repository files can be imported using a combination of the `repo` and `file`, e.g.
+ * 
+ * ```sh
+ *  $ pulumi import github:index/repositoryFile:RepositoryFile gitignore example/.gitignore
+ * ```
+ * 
+ *  To import a file from a branch other than main, append `:` and the branch name, e.g.
+ * 
+ * ```sh
+ *  $ pulumi import github:index/repositoryFile:RepositoryFile gitignore example/.gitignore:dev
+ * ```
+ * 
+ */
 @ResourceType(type="github:index/repositoryFile:RepositoryFile")
 public class RepositoryFile extends com.pulumi.resources.CustomResource {
     /**
-     * The branch name, defaults to &#34;main&#34;
+     * Git branch (defaults to `main`).
+     * The branch must already exist, it will not be created if it does not already exist.
      * 
      */
     @Export(name="branch", type=String.class, parameters={})
     private Output</* @Nullable */ String> branch;
 
     /**
-     * @return The branch name, defaults to &#34;main&#34;
+     * @return Git branch (defaults to `main`).
+     * The branch must already exist, it will not be created if it does not already exist.
      * 
      */
     public Output<Optional<String>> branch() {
         return Codegen.optional(this.branch);
     }
     /**
-     * The commit author name, defaults to the authenticated user&#39;s name. GitHub app users may omit author and email
-     * information so GitHub can verify commits as the GitHub App.
+     * Committer author name to use. **NOTE:** GitHub app users may omit author and email information so GitHub can verify commits as the GitHub App. This maybe useful when a branch protection rule requires signed commits.
      * 
      */
     @Export(name="commitAuthor", type=String.class, parameters={})
     private Output</* @Nullable */ String> commitAuthor;
 
     /**
-     * @return The commit author name, defaults to the authenticated user&#39;s name. GitHub app users may omit author and email
-     * information so GitHub can verify commits as the GitHub App.
+     * @return Committer author name to use. **NOTE:** GitHub app users may omit author and email information so GitHub can verify commits as the GitHub App. This maybe useful when a branch protection rule requires signed commits.
      * 
      */
     public Output<Optional<String>> commitAuthor() {
         return Codegen.optional(this.commitAuthor);
     }
     /**
-     * The commit author email address, defaults to the authenticated user&#39;s email address. GitHub app users may omit author
-     * and email information so GitHub can verify commits as the GitHub App.
+     * Committer email address to use. **NOTE:** GitHub app users may omit author and email information so GitHub can verify commits as the GitHub App. This may be useful when a branch protection rule requires signed commits.
      * 
      */
     @Export(name="commitEmail", type=String.class, parameters={})
     private Output</* @Nullable */ String> commitEmail;
 
     /**
-     * @return The commit author email address, defaults to the authenticated user&#39;s email address. GitHub app users may omit author
-     * and email information so GitHub can verify commits as the GitHub App.
+     * @return Committer email address to use. **NOTE:** GitHub app users may omit author and email information so GitHub can verify commits as the GitHub App. This may be useful when a branch protection rule requires signed commits.
      * 
      */
     public Output<Optional<String>> commitEmail() {
         return Codegen.optional(this.commitEmail);
     }
     /**
-     * The commit message when creating or updating the file
+     * Commit message when adding or updating the managed file.
      * 
      */
     @Export(name="commitMessage", type=String.class, parameters={})
     private Output<String> commitMessage;
 
     /**
-     * @return The commit message when creating or updating the file
+     * @return Commit message when adding or updating the managed file.
      * 
      */
     public Output<String> commitMessage() {
         return this.commitMessage;
     }
     /**
-     * The SHA of the commit that modified the file
+     * The SHA of the commit that modified the file.
      * 
      */
     @Export(name="commitSha", type=String.class, parameters={})
     private Output<String> commitSha;
 
     /**
-     * @return The SHA of the commit that modified the file
+     * @return The SHA of the commit that modified the file.
      * 
      */
     public Output<String> commitSha() {
         return this.commitSha;
     }
     /**
-     * The file&#39;s content
+     * The file content.
      * 
      */
     @Export(name="content", type=String.class, parameters={})
     private Output<String> content;
 
     /**
-     * @return The file&#39;s content
+     * @return The file content.
      * 
      */
     public Output<String> content() {
         return this.content;
     }
     /**
-     * The file path to manage
+     * The path of the file to manage.
      * 
      */
     @Export(name="file", type=String.class, parameters={})
     private Output<String> file;
 
     /**
-     * @return The file path to manage
+     * @return The path of the file to manage.
      * 
      */
     public Output<String> file() {
         return this.file;
     }
     /**
-     * Enable overwriting existing files, defaults to &#34;false&#34;
+     * Enable overwriting existing files
      * 
      */
     @Export(name="overwriteOnCreate", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> overwriteOnCreate;
 
     /**
-     * @return Enable overwriting existing files, defaults to &#34;false&#34;
+     * @return Enable overwriting existing files
      * 
      */
     public Output<Optional<Boolean>> overwriteOnCreate() {
         return Codegen.optional(this.overwriteOnCreate);
     }
     /**
-     * The repository name
+     * The repository to create the file in.
      * 
      */
     @Export(name="repository", type=String.class, parameters={})
     private Output<String> repository;
 
     /**
-     * @return The repository name
+     * @return The repository to create the file in.
      * 
      */
     public Output<String> repository() {
         return this.repository;
     }
     /**
-     * The blob SHA of the file
+     * The SHA blob of the file.
      * 
      */
     @Export(name="sha", type=String.class, parameters={})
     private Output<String> sha;
 
     /**
-     * @return The blob SHA of the file
+     * @return The SHA blob of the file.
      * 
      */
     public Output<String> sha() {

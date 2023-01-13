@@ -53,6 +53,9 @@ class GetOrganizationResult:
     @property
     @pulumi.getter
     def description(self) -> str:
+        """
+        The description the organization account
+        """
         return pulumi.get(self, "description")
 
     @property
@@ -66,36 +69,57 @@ class GetOrganizationResult:
     @property
     @pulumi.getter
     def login(self) -> str:
+        """
+        The login of the organization account
+        """
         return pulumi.get(self, "login")
 
     @property
     @pulumi.getter
     def members(self) -> Sequence[str]:
+        """
+        (`list`) A list with the members of the organization
+        """
         return pulumi.get(self, "members")
 
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        The organization's public profile name
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="nodeId")
     def node_id(self) -> str:
+        """
+        GraphQL global node id for use with v4 API
+        """
         return pulumi.get(self, "node_id")
 
     @property
     @pulumi.getter
     def orgname(self) -> str:
+        """
+        The organization's name as used in URLs and the API
+        """
         return pulumi.get(self, "orgname")
 
     @property
     @pulumi.getter
     def plan(self) -> str:
+        """
+        The plan name for the organization account
+        """
         return pulumi.get(self, "plan")
 
     @property
     @pulumi.getter
     def repositories(self) -> Sequence[str]:
+        """
+        (`list`) A list with the repositories on the organization
+        """
         return pulumi.get(self, "repositories")
 
 
@@ -119,7 +143,19 @@ class AwaitableGetOrganizationResult(GetOrganizationResult):
 def get_organization(name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOrganizationResult:
     """
-    Use this data source to access information about an existing resource.
+    Use this data source to retrieve basic information about a GitHub Organization.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_github as github
+
+    example = github.get_organization(name="github")
+    ```
+
+
+    :param str name: The organization's public profile name
     """
     __args__ = dict()
     __args__['name'] = name
@@ -142,6 +178,18 @@ def get_organization(name: Optional[str] = None,
 def get_organization_output(name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOrganizationResult]:
     """
-    Use this data source to access information about an existing resource.
+    Use this data source to retrieve basic information about a GitHub Organization.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_github as github
+
+    example = github.get_organization(name="github")
+    ```
+
+
+    :param str name: The organization's public profile name
     """
     ...

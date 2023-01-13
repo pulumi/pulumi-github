@@ -12,16 +12,32 @@ public final class GetRefPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetRefPlainArgs Empty = new GetRefPlainArgs();
 
+    /**
+     * The repository ref to look up. Must be formatted `heads/&lt;ref&gt;` for branches, and `tags/&lt;ref&gt;` for tags.
+     * 
+     */
     @Import(name="ref", required=true)
     private String ref;
 
+    /**
+     * @return The repository ref to look up. Must be formatted `heads/&lt;ref&gt;` for branches, and `tags/&lt;ref&gt;` for tags.
+     * 
+     */
     public String ref() {
         return this.ref;
     }
 
+    /**
+     * The GitHub repository name.
+     * 
+     */
     @Import(name="repository", required=true)
     private String repository;
 
+    /**
+     * @return The GitHub repository name.
+     * 
+     */
     public String repository() {
         return this.repository;
     }
@@ -51,11 +67,23 @@ public final class GetRefPlainArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetRefPlainArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param ref The repository ref to look up. Must be formatted `heads/&lt;ref&gt;` for branches, and `tags/&lt;ref&gt;` for tags.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ref(String ref) {
             $.ref = ref;
             return this;
         }
 
+        /**
+         * @param repository The GitHub repository name.
+         * 
+         * @return builder
+         * 
+         */
         public Builder repository(String repository) {
             $.repository = repository;
             return this;

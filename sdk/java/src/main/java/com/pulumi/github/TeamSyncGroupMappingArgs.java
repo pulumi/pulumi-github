@@ -17,16 +17,34 @@ public final class TeamSyncGroupMappingArgs extends com.pulumi.resources.Resourc
 
     public static final TeamSyncGroupMappingArgs Empty = new TeamSyncGroupMappingArgs();
 
+    /**
+     * An Array of GitHub Identity Provider Groups (or empty []).  Each `group` block consists of the fields documented below.
+     * ***
+     * 
+     */
     @Import(name="groups")
     private @Nullable Output<List<TeamSyncGroupMappingGroupArgs>> groups;
 
+    /**
+     * @return An Array of GitHub Identity Provider Groups (or empty []).  Each `group` block consists of the fields documented below.
+     * ***
+     * 
+     */
     public Optional<Output<List<TeamSyncGroupMappingGroupArgs>>> groups() {
         return Optional.ofNullable(this.groups);
     }
 
+    /**
+     * Slug of the team
+     * 
+     */
     @Import(name="teamSlug", required=true)
     private Output<String> teamSlug;
 
+    /**
+     * @return Slug of the team
+     * 
+     */
     public Output<String> teamSlug() {
         return this.teamSlug;
     }
@@ -56,24 +74,57 @@ public final class TeamSyncGroupMappingArgs extends com.pulumi.resources.Resourc
             $ = new TeamSyncGroupMappingArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param groups An Array of GitHub Identity Provider Groups (or empty []).  Each `group` block consists of the fields documented below.
+         * ***
+         * 
+         * @return builder
+         * 
+         */
         public Builder groups(@Nullable Output<List<TeamSyncGroupMappingGroupArgs>> groups) {
             $.groups = groups;
             return this;
         }
 
+        /**
+         * @param groups An Array of GitHub Identity Provider Groups (or empty []).  Each `group` block consists of the fields documented below.
+         * ***
+         * 
+         * @return builder
+         * 
+         */
         public Builder groups(List<TeamSyncGroupMappingGroupArgs> groups) {
             return groups(Output.of(groups));
         }
 
+        /**
+         * @param groups An Array of GitHub Identity Provider Groups (or empty []).  Each `group` block consists of the fields documented below.
+         * ***
+         * 
+         * @return builder
+         * 
+         */
         public Builder groups(TeamSyncGroupMappingGroupArgs... groups) {
             return groups(List.of(groups));
         }
 
+        /**
+         * @param teamSlug Slug of the team
+         * 
+         * @return builder
+         * 
+         */
         public Builder teamSlug(Output<String> teamSlug) {
             $.teamSlug = teamSlug;
             return this;
         }
 
+        /**
+         * @param teamSlug Slug of the team
+         * 
+         * @return builder
+         * 
+         */
         public Builder teamSlug(String teamSlug) {
             return teamSlug(Output.of(teamSlug));
         }

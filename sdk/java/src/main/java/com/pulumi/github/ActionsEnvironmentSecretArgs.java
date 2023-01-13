@@ -15,37 +15,77 @@ public final class ActionsEnvironmentSecretArgs extends com.pulumi.resources.Res
 
     public static final ActionsEnvironmentSecretArgs Empty = new ActionsEnvironmentSecretArgs();
 
+    /**
+     * Encrypted value of the secret using the Github public key in Base64 format.
+     * 
+     */
     @Import(name="encryptedValue")
     private @Nullable Output<String> encryptedValue;
 
+    /**
+     * @return Encrypted value of the secret using the Github public key in Base64 format.
+     * 
+     */
     public Optional<Output<String>> encryptedValue() {
         return Optional.ofNullable(this.encryptedValue);
     }
 
+    /**
+     * Name of the environment.
+     * 
+     */
     @Import(name="environment", required=true)
     private Output<String> environment;
 
+    /**
+     * @return Name of the environment.
+     * 
+     */
     public Output<String> environment() {
         return this.environment;
     }
 
+    /**
+     * Plaintext value of the secret to be encrypted.
+     * 
+     */
     @Import(name="plaintextValue")
     private @Nullable Output<String> plaintextValue;
 
+    /**
+     * @return Plaintext value of the secret to be encrypted.
+     * 
+     */
     public Optional<Output<String>> plaintextValue() {
         return Optional.ofNullable(this.plaintextValue);
     }
 
+    /**
+     * Name of the repository.
+     * 
+     */
     @Import(name="repository", required=true)
     private Output<String> repository;
 
+    /**
+     * @return Name of the repository.
+     * 
+     */
     public Output<String> repository() {
         return this.repository;
     }
 
+    /**
+     * Name of the secret.
+     * 
+     */
     @Import(name="secretName", required=true)
     private Output<String> secretName;
 
+    /**
+     * @return Name of the secret.
+     * 
+     */
     public Output<String> secretName() {
         return this.secretName;
     }
@@ -78,47 +118,107 @@ public final class ActionsEnvironmentSecretArgs extends com.pulumi.resources.Res
             $ = new ActionsEnvironmentSecretArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param encryptedValue Encrypted value of the secret using the Github public key in Base64 format.
+         * 
+         * @return builder
+         * 
+         */
         public Builder encryptedValue(@Nullable Output<String> encryptedValue) {
             $.encryptedValue = encryptedValue;
             return this;
         }
 
+        /**
+         * @param encryptedValue Encrypted value of the secret using the Github public key in Base64 format.
+         * 
+         * @return builder
+         * 
+         */
         public Builder encryptedValue(String encryptedValue) {
             return encryptedValue(Output.of(encryptedValue));
         }
 
+        /**
+         * @param environment Name of the environment.
+         * 
+         * @return builder
+         * 
+         */
         public Builder environment(Output<String> environment) {
             $.environment = environment;
             return this;
         }
 
+        /**
+         * @param environment Name of the environment.
+         * 
+         * @return builder
+         * 
+         */
         public Builder environment(String environment) {
             return environment(Output.of(environment));
         }
 
+        /**
+         * @param plaintextValue Plaintext value of the secret to be encrypted.
+         * 
+         * @return builder
+         * 
+         */
         public Builder plaintextValue(@Nullable Output<String> plaintextValue) {
             $.plaintextValue = plaintextValue;
             return this;
         }
 
+        /**
+         * @param plaintextValue Plaintext value of the secret to be encrypted.
+         * 
+         * @return builder
+         * 
+         */
         public Builder plaintextValue(String plaintextValue) {
             return plaintextValue(Output.of(plaintextValue));
         }
 
+        /**
+         * @param repository Name of the repository.
+         * 
+         * @return builder
+         * 
+         */
         public Builder repository(Output<String> repository) {
             $.repository = repository;
             return this;
         }
 
+        /**
+         * @param repository Name of the repository.
+         * 
+         * @return builder
+         * 
+         */
         public Builder repository(String repository) {
             return repository(Output.of(repository));
         }
 
+        /**
+         * @param secretName Name of the secret.
+         * 
+         * @return builder
+         * 
+         */
         public Builder secretName(Output<String> secretName) {
             $.secretName = secretName;
             return this;
         }
 
+        /**
+         * @param secretName Name of the secret.
+         * 
+         * @return builder
+         * 
+         */
         public Builder secretName(String secretName) {
             return secretName(Output.of(secretName));
         }

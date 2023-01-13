@@ -17,9 +17,17 @@ public final class BranchProtectionV3RequiredStatusChecksArgs extends com.pulumi
 
     public static final BranchProtectionV3RequiredStatusChecksArgs Empty = new BranchProtectionV3RequiredStatusChecksArgs();
 
+    /**
+     * The list of status checks to require in order to merge into this branch. No status checks are required by default.
+     * 
+     */
     @Import(name="contexts")
     private @Nullable Output<List<String>> contexts;
 
+    /**
+     * @return The list of status checks to require in order to merge into this branch. No status checks are required by default.
+     * 
+     */
     public Optional<Output<List<String>>> contexts() {
         return Optional.ofNullable(this.contexts);
     }
@@ -43,9 +51,17 @@ public final class BranchProtectionV3RequiredStatusChecksArgs extends com.pulumi
         return Optional.ofNullable(this.includeAdmins);
     }
 
+    /**
+     * Require branches to be up to date before merging. Defaults to `false`.
+     * 
+     */
     @Import(name="strict")
     private @Nullable Output<Boolean> strict;
 
+    /**
+     * @return Require branches to be up to date before merging. Defaults to `false`.
+     * 
+     */
     public Optional<Output<Boolean>> strict() {
         return Optional.ofNullable(this.strict);
     }
@@ -76,15 +92,33 @@ public final class BranchProtectionV3RequiredStatusChecksArgs extends com.pulumi
             $ = new BranchProtectionV3RequiredStatusChecksArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param contexts The list of status checks to require in order to merge into this branch. No status checks are required by default.
+         * 
+         * @return builder
+         * 
+         */
         public Builder contexts(@Nullable Output<List<String>> contexts) {
             $.contexts = contexts;
             return this;
         }
 
+        /**
+         * @param contexts The list of status checks to require in order to merge into this branch. No status checks are required by default.
+         * 
+         * @return builder
+         * 
+         */
         public Builder contexts(List<String> contexts) {
             return contexts(Output.of(contexts));
         }
 
+        /**
+         * @param contexts The list of status checks to require in order to merge into this branch. No status checks are required by default.
+         * 
+         * @return builder
+         * 
+         */
         public Builder contexts(String... contexts) {
             return contexts(List.of(contexts));
         }
@@ -114,11 +148,23 @@ public final class BranchProtectionV3RequiredStatusChecksArgs extends com.pulumi
             return includeAdmins(Output.of(includeAdmins));
         }
 
+        /**
+         * @param strict Require branches to be up to date before merging. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder strict(@Nullable Output<Boolean> strict) {
             $.strict = strict;
             return this;
         }
 
+        /**
+         * @param strict Require branches to be up to date before merging. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder strict(Boolean strict) {
             return strict(Output.of(strict));
         }

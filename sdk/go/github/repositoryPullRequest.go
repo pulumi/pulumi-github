@@ -11,27 +11,72 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// This resource allows you to create and manage PullRequests for repositories within your GitHub organization or personal account.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-github/sdk/v5/go/github"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := github.NewRepositoryPullRequest(ctx, "example", &github.RepositoryPullRequestArgs{
+//				BaseRef:        pulumi.String("main"),
+//				BaseRepository: pulumi.String("example-repository"),
+//				Body:           pulumi.String("This will change everything"),
+//				HeadRef:        pulumi.String("feature-branch"),
+//				Title:          pulumi.String("My newest feature"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 type RepositoryPullRequest struct {
 	pulumi.CustomResourceState
 
-	BaseRef        pulumi.StringOutput    `pulumi:"baseRef"`
-	BaseRepository pulumi.StringOutput    `pulumi:"baseRepository"`
-	BaseSha        pulumi.StringOutput    `pulumi:"baseSha"`
-	Body           pulumi.StringPtrOutput `pulumi:"body"`
-	Draft          pulumi.BoolOutput      `pulumi:"draft"`
-	HeadRef        pulumi.StringOutput    `pulumi:"headRef"`
-	HeadSha        pulumi.StringOutput    `pulumi:"headSha"`
-	// List of names of labels on the PR
-	Labels              pulumi.StringArrayOutput `pulumi:"labels"`
-	MaintainerCanModify pulumi.BoolPtrOutput     `pulumi:"maintainerCanModify"`
-	Number              pulumi.IntOutput         `pulumi:"number"`
-	OpenedAt            pulumi.IntOutput         `pulumi:"openedAt"`
-	// Username of the PR creator
-	OpenedBy  pulumi.StringOutput    `pulumi:"openedBy"`
-	Owner     pulumi.StringPtrOutput `pulumi:"owner"`
-	State     pulumi.StringOutput    `pulumi:"state"`
-	Title     pulumi.StringOutput    `pulumi:"title"`
-	UpdatedAt pulumi.IntOutput       `pulumi:"updatedAt"`
+	// Name of the branch serving as the base of the Pull Request.
+	BaseRef pulumi.StringOutput `pulumi:"baseRef"`
+	// Name of the base repository to retrieve the Pull Requests from.
+	BaseRepository pulumi.StringOutput `pulumi:"baseRepository"`
+	// Head commit SHA of the Pull Request base.
+	BaseSha pulumi.StringOutput `pulumi:"baseSha"`
+	// Body of the Pull Request.
+	Body pulumi.StringPtrOutput `pulumi:"body"`
+	// Indicates Whether this Pull Request is a draft.
+	Draft pulumi.BoolOutput `pulumi:"draft"`
+	// Name of the branch serving as the head of the Pull Request.
+	HeadRef pulumi.StringOutput `pulumi:"headRef"`
+	// Head commit SHA of the Pull Request head.
+	HeadSha pulumi.StringOutput `pulumi:"headSha"`
+	// List of label names set on the Pull Request.
+	Labels pulumi.StringArrayOutput `pulumi:"labels"`
+	// Controls whether the base repository maintainers can modify the Pull Request. Default: false.
+	MaintainerCanModify pulumi.BoolPtrOutput `pulumi:"maintainerCanModify"`
+	// The number of the Pull Request within the repository.
+	Number pulumi.IntOutput `pulumi:"number"`
+	// Unix timestamp indicating the Pull Request creation time.
+	OpenedAt pulumi.IntOutput `pulumi:"openedAt"`
+	// GitHub login of the user who opened the Pull Request.
+	OpenedBy pulumi.StringOutput `pulumi:"openedBy"`
+	// Owner of the repository. If not provided, the provider's default owner is used.
+	Owner pulumi.StringPtrOutput `pulumi:"owner"`
+	// the current Pull Request state - can be "open", "closed" or "merged".
+	State pulumi.StringOutput `pulumi:"state"`
+	// The title of the Pull Request.
+	Title pulumi.StringOutput `pulumi:"title"`
+	// The timestamp of the last Pull Request update.
+	UpdatedAt pulumi.IntOutput `pulumi:"updatedAt"`
 }
 
 // NewRepositoryPullRequest registers a new resource with the given unique name, arguments, and options.
@@ -75,44 +120,72 @@ func GetRepositoryPullRequest(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RepositoryPullRequest resources.
 type repositoryPullRequestState struct {
-	BaseRef        *string `pulumi:"baseRef"`
+	// Name of the branch serving as the base of the Pull Request.
+	BaseRef *string `pulumi:"baseRef"`
+	// Name of the base repository to retrieve the Pull Requests from.
 	BaseRepository *string `pulumi:"baseRepository"`
-	BaseSha        *string `pulumi:"baseSha"`
-	Body           *string `pulumi:"body"`
-	Draft          *bool   `pulumi:"draft"`
-	HeadRef        *string `pulumi:"headRef"`
-	HeadSha        *string `pulumi:"headSha"`
-	// List of names of labels on the PR
-	Labels              []string `pulumi:"labels"`
-	MaintainerCanModify *bool    `pulumi:"maintainerCanModify"`
-	Number              *int     `pulumi:"number"`
-	OpenedAt            *int     `pulumi:"openedAt"`
-	// Username of the PR creator
-	OpenedBy  *string `pulumi:"openedBy"`
-	Owner     *string `pulumi:"owner"`
-	State     *string `pulumi:"state"`
-	Title     *string `pulumi:"title"`
-	UpdatedAt *int    `pulumi:"updatedAt"`
+	// Head commit SHA of the Pull Request base.
+	BaseSha *string `pulumi:"baseSha"`
+	// Body of the Pull Request.
+	Body *string `pulumi:"body"`
+	// Indicates Whether this Pull Request is a draft.
+	Draft *bool `pulumi:"draft"`
+	// Name of the branch serving as the head of the Pull Request.
+	HeadRef *string `pulumi:"headRef"`
+	// Head commit SHA of the Pull Request head.
+	HeadSha *string `pulumi:"headSha"`
+	// List of label names set on the Pull Request.
+	Labels []string `pulumi:"labels"`
+	// Controls whether the base repository maintainers can modify the Pull Request. Default: false.
+	MaintainerCanModify *bool `pulumi:"maintainerCanModify"`
+	// The number of the Pull Request within the repository.
+	Number *int `pulumi:"number"`
+	// Unix timestamp indicating the Pull Request creation time.
+	OpenedAt *int `pulumi:"openedAt"`
+	// GitHub login of the user who opened the Pull Request.
+	OpenedBy *string `pulumi:"openedBy"`
+	// Owner of the repository. If not provided, the provider's default owner is used.
+	Owner *string `pulumi:"owner"`
+	// the current Pull Request state - can be "open", "closed" or "merged".
+	State *string `pulumi:"state"`
+	// The title of the Pull Request.
+	Title *string `pulumi:"title"`
+	// The timestamp of the last Pull Request update.
+	UpdatedAt *int `pulumi:"updatedAt"`
 }
 
 type RepositoryPullRequestState struct {
-	BaseRef        pulumi.StringPtrInput
+	// Name of the branch serving as the base of the Pull Request.
+	BaseRef pulumi.StringPtrInput
+	// Name of the base repository to retrieve the Pull Requests from.
 	BaseRepository pulumi.StringPtrInput
-	BaseSha        pulumi.StringPtrInput
-	Body           pulumi.StringPtrInput
-	Draft          pulumi.BoolPtrInput
-	HeadRef        pulumi.StringPtrInput
-	HeadSha        pulumi.StringPtrInput
-	// List of names of labels on the PR
-	Labels              pulumi.StringArrayInput
+	// Head commit SHA of the Pull Request base.
+	BaseSha pulumi.StringPtrInput
+	// Body of the Pull Request.
+	Body pulumi.StringPtrInput
+	// Indicates Whether this Pull Request is a draft.
+	Draft pulumi.BoolPtrInput
+	// Name of the branch serving as the head of the Pull Request.
+	HeadRef pulumi.StringPtrInput
+	// Head commit SHA of the Pull Request head.
+	HeadSha pulumi.StringPtrInput
+	// List of label names set on the Pull Request.
+	Labels pulumi.StringArrayInput
+	// Controls whether the base repository maintainers can modify the Pull Request. Default: false.
 	MaintainerCanModify pulumi.BoolPtrInput
-	Number              pulumi.IntPtrInput
-	OpenedAt            pulumi.IntPtrInput
-	// Username of the PR creator
-	OpenedBy  pulumi.StringPtrInput
-	Owner     pulumi.StringPtrInput
-	State     pulumi.StringPtrInput
-	Title     pulumi.StringPtrInput
+	// The number of the Pull Request within the repository.
+	Number pulumi.IntPtrInput
+	// Unix timestamp indicating the Pull Request creation time.
+	OpenedAt pulumi.IntPtrInput
+	// GitHub login of the user who opened the Pull Request.
+	OpenedBy pulumi.StringPtrInput
+	// Owner of the repository. If not provided, the provider's default owner is used.
+	Owner pulumi.StringPtrInput
+	// the current Pull Request state - can be "open", "closed" or "merged".
+	State pulumi.StringPtrInput
+	// The title of the Pull Request.
+	Title pulumi.StringPtrInput
+	// The timestamp of the last Pull Request update.
 	UpdatedAt pulumi.IntPtrInput
 }
 
@@ -121,24 +194,38 @@ func (RepositoryPullRequestState) ElementType() reflect.Type {
 }
 
 type repositoryPullRequestArgs struct {
-	BaseRef             string  `pulumi:"baseRef"`
-	BaseRepository      string  `pulumi:"baseRepository"`
-	Body                *string `pulumi:"body"`
-	HeadRef             string  `pulumi:"headRef"`
-	MaintainerCanModify *bool   `pulumi:"maintainerCanModify"`
-	Owner               *string `pulumi:"owner"`
-	Title               string  `pulumi:"title"`
+	// Name of the branch serving as the base of the Pull Request.
+	BaseRef string `pulumi:"baseRef"`
+	// Name of the base repository to retrieve the Pull Requests from.
+	BaseRepository string `pulumi:"baseRepository"`
+	// Body of the Pull Request.
+	Body *string `pulumi:"body"`
+	// Name of the branch serving as the head of the Pull Request.
+	HeadRef string `pulumi:"headRef"`
+	// Controls whether the base repository maintainers can modify the Pull Request. Default: false.
+	MaintainerCanModify *bool `pulumi:"maintainerCanModify"`
+	// Owner of the repository. If not provided, the provider's default owner is used.
+	Owner *string `pulumi:"owner"`
+	// The title of the Pull Request.
+	Title string `pulumi:"title"`
 }
 
 // The set of arguments for constructing a RepositoryPullRequest resource.
 type RepositoryPullRequestArgs struct {
-	BaseRef             pulumi.StringInput
-	BaseRepository      pulumi.StringInput
-	Body                pulumi.StringPtrInput
-	HeadRef             pulumi.StringInput
+	// Name of the branch serving as the base of the Pull Request.
+	BaseRef pulumi.StringInput
+	// Name of the base repository to retrieve the Pull Requests from.
+	BaseRepository pulumi.StringInput
+	// Body of the Pull Request.
+	Body pulumi.StringPtrInput
+	// Name of the branch serving as the head of the Pull Request.
+	HeadRef pulumi.StringInput
+	// Controls whether the base repository maintainers can modify the Pull Request. Default: false.
 	MaintainerCanModify pulumi.BoolPtrInput
-	Owner               pulumi.StringPtrInput
-	Title               pulumi.StringInput
+	// Owner of the repository. If not provided, the provider's default owner is used.
+	Owner pulumi.StringPtrInput
+	// The title of the Pull Request.
+	Title pulumi.StringInput
 }
 
 func (RepositoryPullRequestArgs) ElementType() reflect.Type {
@@ -228,68 +315,82 @@ func (o RepositoryPullRequestOutput) ToRepositoryPullRequestOutputWithContext(ct
 	return o
 }
 
+// Name of the branch serving as the base of the Pull Request.
 func (o RepositoryPullRequestOutput) BaseRef() pulumi.StringOutput {
 	return o.ApplyT(func(v *RepositoryPullRequest) pulumi.StringOutput { return v.BaseRef }).(pulumi.StringOutput)
 }
 
+// Name of the base repository to retrieve the Pull Requests from.
 func (o RepositoryPullRequestOutput) BaseRepository() pulumi.StringOutput {
 	return o.ApplyT(func(v *RepositoryPullRequest) pulumi.StringOutput { return v.BaseRepository }).(pulumi.StringOutput)
 }
 
+// Head commit SHA of the Pull Request base.
 func (o RepositoryPullRequestOutput) BaseSha() pulumi.StringOutput {
 	return o.ApplyT(func(v *RepositoryPullRequest) pulumi.StringOutput { return v.BaseSha }).(pulumi.StringOutput)
 }
 
+// Body of the Pull Request.
 func (o RepositoryPullRequestOutput) Body() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RepositoryPullRequest) pulumi.StringPtrOutput { return v.Body }).(pulumi.StringPtrOutput)
 }
 
+// Indicates Whether this Pull Request is a draft.
 func (o RepositoryPullRequestOutput) Draft() pulumi.BoolOutput {
 	return o.ApplyT(func(v *RepositoryPullRequest) pulumi.BoolOutput { return v.Draft }).(pulumi.BoolOutput)
 }
 
+// Name of the branch serving as the head of the Pull Request.
 func (o RepositoryPullRequestOutput) HeadRef() pulumi.StringOutput {
 	return o.ApplyT(func(v *RepositoryPullRequest) pulumi.StringOutput { return v.HeadRef }).(pulumi.StringOutput)
 }
 
+// Head commit SHA of the Pull Request head.
 func (o RepositoryPullRequestOutput) HeadSha() pulumi.StringOutput {
 	return o.ApplyT(func(v *RepositoryPullRequest) pulumi.StringOutput { return v.HeadSha }).(pulumi.StringOutput)
 }
 
-// List of names of labels on the PR
+// List of label names set on the Pull Request.
 func (o RepositoryPullRequestOutput) Labels() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *RepositoryPullRequest) pulumi.StringArrayOutput { return v.Labels }).(pulumi.StringArrayOutput)
 }
 
+// Controls whether the base repository maintainers can modify the Pull Request. Default: false.
 func (o RepositoryPullRequestOutput) MaintainerCanModify() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RepositoryPullRequest) pulumi.BoolPtrOutput { return v.MaintainerCanModify }).(pulumi.BoolPtrOutput)
 }
 
+// The number of the Pull Request within the repository.
 func (o RepositoryPullRequestOutput) Number() pulumi.IntOutput {
 	return o.ApplyT(func(v *RepositoryPullRequest) pulumi.IntOutput { return v.Number }).(pulumi.IntOutput)
 }
 
+// Unix timestamp indicating the Pull Request creation time.
 func (o RepositoryPullRequestOutput) OpenedAt() pulumi.IntOutput {
 	return o.ApplyT(func(v *RepositoryPullRequest) pulumi.IntOutput { return v.OpenedAt }).(pulumi.IntOutput)
 }
 
-// Username of the PR creator
+// GitHub login of the user who opened the Pull Request.
 func (o RepositoryPullRequestOutput) OpenedBy() pulumi.StringOutput {
 	return o.ApplyT(func(v *RepositoryPullRequest) pulumi.StringOutput { return v.OpenedBy }).(pulumi.StringOutput)
 }
 
+// Owner of the repository. If not provided, the provider's default owner is used.
 func (o RepositoryPullRequestOutput) Owner() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RepositoryPullRequest) pulumi.StringPtrOutput { return v.Owner }).(pulumi.StringPtrOutput)
 }
 
+// the current Pull Request state - can be "open", "closed" or "merged".
 func (o RepositoryPullRequestOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v *RepositoryPullRequest) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
 }
 
+// The title of the Pull Request.
 func (o RepositoryPullRequestOutput) Title() pulumi.StringOutput {
 	return o.ApplyT(func(v *RepositoryPullRequest) pulumi.StringOutput { return v.Title }).(pulumi.StringOutput)
 }
 
+// The timestamp of the last Pull Request update.
 func (o RepositoryPullRequestOutput) UpdatedAt() pulumi.IntOutput {
 	return o.ApplyT(func(v *RepositoryPullRequest) pulumi.IntOutput { return v.UpdatedAt }).(pulumi.IntOutput)
 }

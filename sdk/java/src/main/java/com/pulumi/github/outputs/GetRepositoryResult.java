@@ -5,6 +5,7 @@ package com.pulumi.github.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.github.outputs.GetRepositoryPage;
+import com.pulumi.github.outputs.GetRepositoryTemplate;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -15,87 +16,265 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetRepositoryResult {
+    /**
+     * @return Whether the repository allows auto-merging pull requests.
+     * 
+     */
     private Boolean allowAutoMerge;
+    /**
+     * @return Whether the repository allows merge commits.
+     * 
+     */
     private Boolean allowMergeCommit;
+    /**
+     * @return Whether the repository allows rebase merges.
+     * 
+     */
     private Boolean allowRebaseMerge;
+    /**
+     * @return Whether the repository allows squash merges.
+     * 
+     */
     private Boolean allowSquashMerge;
+    /**
+     * @return Whether the repository is archived.
+     * 
+     */
     private Boolean archived;
+    /**
+     * @return The name of the default branch of the repository.
+     * 
+     */
     private String defaultBranch;
+    /**
+     * @return A description of the repository.
+     * 
+     */
     private @Nullable String description;
     private String fullName;
+    /**
+     * @return URL that can be provided to `git clone` to clone the repository anonymously via the git protocol.
+     * 
+     */
     private String gitCloneUrl;
+    /**
+     * @return Whether the repository has Downloads feature enabled.
+     * 
+     */
     private Boolean hasDownloads;
+    /**
+     * @return Whether the repository has GitHub Issues enabled.
+     * 
+     */
     private Boolean hasIssues;
+    /**
+     * @return Whether the repository has the GitHub Projects enabled.
+     * 
+     */
     private Boolean hasProjects;
+    /**
+     * @return Whether the repository has the GitHub Wiki enabled.
+     * 
+     */
     private Boolean hasWiki;
+    /**
+     * @return URL of a page describing the project.
+     * 
+     */
     private @Nullable String homepageUrl;
+    /**
+     * @return URL to the repository on the web.
+     * 
+     */
     private String htmlUrl;
+    /**
+     * @return URL that can be provided to `git clone` to clone the repository via HTTPS.
+     * 
+     */
     private String httpCloneUrl;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
+    /**
+     * @return Whether the repository is a template repository.
+     * 
+     */
+    private Boolean isTemplate;
+    /**
+     * @return The default value for a merge commit message.
+     * 
+     */
     private String mergeCommitMessage;
+    /**
+     * @return The default value for a merge commit title.
+     * 
+     */
     private String mergeCommitTitle;
     private String name;
+    /**
+     * @return GraphQL global node id for use with v4 API
+     * 
+     */
     private String nodeId;
+    /**
+     * @return The repository&#39;s GitHub Pages configuration.
+     * 
+     */
     private List<GetRepositoryPage> pages;
+    /**
+     * @return Whether the repository is private.
+     * 
+     */
     private Boolean private_;
+    /**
+     * @return GitHub ID for the repository
+     * 
+     */
     private Integer repoId;
+    /**
+     * @return The default value for a squash merge commit message.
+     * 
+     */
     private String squashMergeCommitMessage;
+    /**
+     * @return The default value for a squash merge commit title.
+     * 
+     */
     private String squashMergeCommitTitle;
+    /**
+     * @return URL that can be provided to `git clone` to clone the repository via SSH.
+     * 
+     */
     private String sshCloneUrl;
+    /**
+     * @return URL that can be provided to `svn checkout` to check out the repository via GitHub&#39;s Subversion protocol emulation.
+     * 
+     */
     private String svnUrl;
+    /**
+     * @return The repository source template configuration.
+     * 
+     */
+    private GetRepositoryTemplate template;
+    /**
+     * @return The list of topics of the repository.
+     * 
+     */
     private List<String> topics;
+    /**
+     * @return Whether the repository is public, private or internal.
+     * 
+     */
     private String visibility;
 
     private GetRepositoryResult() {}
+    /**
+     * @return Whether the repository allows auto-merging pull requests.
+     * 
+     */
     public Boolean allowAutoMerge() {
         return this.allowAutoMerge;
     }
+    /**
+     * @return Whether the repository allows merge commits.
+     * 
+     */
     public Boolean allowMergeCommit() {
         return this.allowMergeCommit;
     }
+    /**
+     * @return Whether the repository allows rebase merges.
+     * 
+     */
     public Boolean allowRebaseMerge() {
         return this.allowRebaseMerge;
     }
+    /**
+     * @return Whether the repository allows squash merges.
+     * 
+     */
     public Boolean allowSquashMerge() {
         return this.allowSquashMerge;
     }
+    /**
+     * @return Whether the repository is archived.
+     * 
+     */
     public Boolean archived() {
         return this.archived;
     }
+    /**
+     * @return The name of the default branch of the repository.
+     * 
+     */
     public String defaultBranch() {
         return this.defaultBranch;
     }
+    /**
+     * @return A description of the repository.
+     * 
+     */
     public Optional<String> description() {
         return Optional.ofNullable(this.description);
     }
     public String fullName() {
         return this.fullName;
     }
+    /**
+     * @return URL that can be provided to `git clone` to clone the repository anonymously via the git protocol.
+     * 
+     */
     public String gitCloneUrl() {
         return this.gitCloneUrl;
     }
+    /**
+     * @return Whether the repository has Downloads feature enabled.
+     * 
+     */
     public Boolean hasDownloads() {
         return this.hasDownloads;
     }
+    /**
+     * @return Whether the repository has GitHub Issues enabled.
+     * 
+     */
     public Boolean hasIssues() {
         return this.hasIssues;
     }
+    /**
+     * @return Whether the repository has the GitHub Projects enabled.
+     * 
+     */
     public Boolean hasProjects() {
         return this.hasProjects;
     }
+    /**
+     * @return Whether the repository has the GitHub Wiki enabled.
+     * 
+     */
     public Boolean hasWiki() {
         return this.hasWiki;
     }
+    /**
+     * @return URL of a page describing the project.
+     * 
+     */
     public Optional<String> homepageUrl() {
         return Optional.ofNullable(this.homepageUrl);
     }
+    /**
+     * @return URL to the repository on the web.
+     * 
+     */
     public String htmlUrl() {
         return this.htmlUrl;
     }
+    /**
+     * @return URL that can be provided to `git clone` to clone the repository via HTTPS.
+     * 
+     */
     public String httpCloneUrl() {
         return this.httpCloneUrl;
     }
@@ -106,42 +285,104 @@ public final class GetRepositoryResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return Whether the repository is a template repository.
+     * 
+     */
+    public Boolean isTemplate() {
+        return this.isTemplate;
+    }
+    /**
+     * @return The default value for a merge commit message.
+     * 
+     */
     public String mergeCommitMessage() {
         return this.mergeCommitMessage;
     }
+    /**
+     * @return The default value for a merge commit title.
+     * 
+     */
     public String mergeCommitTitle() {
         return this.mergeCommitTitle;
     }
     public String name() {
         return this.name;
     }
+    /**
+     * @return GraphQL global node id for use with v4 API
+     * 
+     */
     public String nodeId() {
         return this.nodeId;
     }
+    /**
+     * @return The repository&#39;s GitHub Pages configuration.
+     * 
+     */
     public List<GetRepositoryPage> pages() {
         return this.pages;
     }
+    /**
+     * @return Whether the repository is private.
+     * 
+     */
     public Boolean private_() {
         return this.private_;
     }
+    /**
+     * @return GitHub ID for the repository
+     * 
+     */
     public Integer repoId() {
         return this.repoId;
     }
+    /**
+     * @return The default value for a squash merge commit message.
+     * 
+     */
     public String squashMergeCommitMessage() {
         return this.squashMergeCommitMessage;
     }
+    /**
+     * @return The default value for a squash merge commit title.
+     * 
+     */
     public String squashMergeCommitTitle() {
         return this.squashMergeCommitTitle;
     }
+    /**
+     * @return URL that can be provided to `git clone` to clone the repository via SSH.
+     * 
+     */
     public String sshCloneUrl() {
         return this.sshCloneUrl;
     }
+    /**
+     * @return URL that can be provided to `svn checkout` to check out the repository via GitHub&#39;s Subversion protocol emulation.
+     * 
+     */
     public String svnUrl() {
         return this.svnUrl;
     }
+    /**
+     * @return The repository source template configuration.
+     * 
+     */
+    public GetRepositoryTemplate template() {
+        return this.template;
+    }
+    /**
+     * @return The list of topics of the repository.
+     * 
+     */
     public List<String> topics() {
         return this.topics;
     }
+    /**
+     * @return Whether the repository is public, private or internal.
+     * 
+     */
     public String visibility() {
         return this.visibility;
     }
@@ -172,6 +413,7 @@ public final class GetRepositoryResult {
         private String htmlUrl;
         private String httpCloneUrl;
         private String id;
+        private Boolean isTemplate;
         private String mergeCommitMessage;
         private String mergeCommitTitle;
         private String name;
@@ -183,6 +425,7 @@ public final class GetRepositoryResult {
         private String squashMergeCommitTitle;
         private String sshCloneUrl;
         private String svnUrl;
+        private GetRepositoryTemplate template;
         private List<String> topics;
         private String visibility;
         public Builder() {}
@@ -205,6 +448,7 @@ public final class GetRepositoryResult {
     	      this.htmlUrl = defaults.htmlUrl;
     	      this.httpCloneUrl = defaults.httpCloneUrl;
     	      this.id = defaults.id;
+    	      this.isTemplate = defaults.isTemplate;
     	      this.mergeCommitMessage = defaults.mergeCommitMessage;
     	      this.mergeCommitTitle = defaults.mergeCommitTitle;
     	      this.name = defaults.name;
@@ -216,6 +460,7 @@ public final class GetRepositoryResult {
     	      this.squashMergeCommitTitle = defaults.squashMergeCommitTitle;
     	      this.sshCloneUrl = defaults.sshCloneUrl;
     	      this.svnUrl = defaults.svnUrl;
+    	      this.template = defaults.template;
     	      this.topics = defaults.topics;
     	      this.visibility = defaults.visibility;
         }
@@ -306,6 +551,11 @@ public final class GetRepositoryResult {
             return this;
         }
         @CustomType.Setter
+        public Builder isTemplate(Boolean isTemplate) {
+            this.isTemplate = Objects.requireNonNull(isTemplate);
+            return this;
+        }
+        @CustomType.Setter
         public Builder mergeCommitMessage(String mergeCommitMessage) {
             this.mergeCommitMessage = Objects.requireNonNull(mergeCommitMessage);
             return this;
@@ -364,6 +614,11 @@ public final class GetRepositoryResult {
             return this;
         }
         @CustomType.Setter
+        public Builder template(GetRepositoryTemplate template) {
+            this.template = Objects.requireNonNull(template);
+            return this;
+        }
+        @CustomType.Setter
         public Builder topics(List<String> topics) {
             this.topics = Objects.requireNonNull(topics);
             return this;
@@ -395,6 +650,7 @@ public final class GetRepositoryResult {
             o.htmlUrl = htmlUrl;
             o.httpCloneUrl = httpCloneUrl;
             o.id = id;
+            o.isTemplate = isTemplate;
             o.mergeCommitMessage = mergeCommitMessage;
             o.mergeCommitTitle = mergeCommitTitle;
             o.name = name;
@@ -406,6 +662,7 @@ public final class GetRepositoryResult {
             o.squashMergeCommitTitle = squashMergeCommitTitle;
             o.sshCloneUrl = sshCloneUrl;
             o.svnUrl = svnUrl;
+            o.template = template;
             o.topics = topics;
             o.visibility = visibility;
             return o;

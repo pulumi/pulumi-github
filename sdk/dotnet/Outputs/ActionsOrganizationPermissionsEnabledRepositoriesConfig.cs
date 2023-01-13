@@ -13,6 +13,9 @@ namespace Pulumi.Github.Outputs
     [OutputType]
     public sealed class ActionsOrganizationPermissionsEnabledRepositoriesConfig
     {
+        /// <summary>
+        /// List of repository IDs to enable for GitHub Actions.
+        /// </summary>
         public readonly ImmutableArray<int> RepositoryIds;
 
         [OutputConstructor]

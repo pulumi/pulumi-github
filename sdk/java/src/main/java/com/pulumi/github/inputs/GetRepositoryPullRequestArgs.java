@@ -16,23 +16,47 @@ public final class GetRepositoryPullRequestArgs extends com.pulumi.resources.Inv
 
     public static final GetRepositoryPullRequestArgs Empty = new GetRepositoryPullRequestArgs();
 
+    /**
+     * Name of the base repository to retrieve the Pull Request from.
+     * 
+     */
     @Import(name="baseRepository", required=true)
     private Output<String> baseRepository;
 
+    /**
+     * @return Name of the base repository to retrieve the Pull Request from.
+     * 
+     */
     public Output<String> baseRepository() {
         return this.baseRepository;
     }
 
+    /**
+     * The number of the Pull Request within the repository.
+     * 
+     */
     @Import(name="number", required=true)
     private Output<Integer> number;
 
+    /**
+     * @return The number of the Pull Request within the repository.
+     * 
+     */
     public Output<Integer> number() {
         return this.number;
     }
 
+    /**
+     * Owner of the repository. If not provided, the provider&#39;s default owner is used.
+     * 
+     */
     @Import(name="owner")
     private @Nullable Output<String> owner;
 
+    /**
+     * @return Owner of the repository. If not provided, the provider&#39;s default owner is used.
+     * 
+     */
     public Optional<Output<String>> owner() {
         return Optional.ofNullable(this.owner);
     }
@@ -63,29 +87,65 @@ public final class GetRepositoryPullRequestArgs extends com.pulumi.resources.Inv
             $ = new GetRepositoryPullRequestArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param baseRepository Name of the base repository to retrieve the Pull Request from.
+         * 
+         * @return builder
+         * 
+         */
         public Builder baseRepository(Output<String> baseRepository) {
             $.baseRepository = baseRepository;
             return this;
         }
 
+        /**
+         * @param baseRepository Name of the base repository to retrieve the Pull Request from.
+         * 
+         * @return builder
+         * 
+         */
         public Builder baseRepository(String baseRepository) {
             return baseRepository(Output.of(baseRepository));
         }
 
+        /**
+         * @param number The number of the Pull Request within the repository.
+         * 
+         * @return builder
+         * 
+         */
         public Builder number(Output<Integer> number) {
             $.number = number;
             return this;
         }
 
+        /**
+         * @param number The number of the Pull Request within the repository.
+         * 
+         * @return builder
+         * 
+         */
         public Builder number(Integer number) {
             return number(Output.of(number));
         }
 
+        /**
+         * @param owner Owner of the repository. If not provided, the provider&#39;s default owner is used.
+         * 
+         * @return builder
+         * 
+         */
         public Builder owner(@Nullable Output<String> owner) {
             $.owner = owner;
             return this;
         }
 
+        /**
+         * @param owner Owner of the repository. If not provided, the provider&#39;s default owner is used.
+         * 
+         * @return builder
+         * 
+         */
         public Builder owner(String owner) {
             return owner(Output.of(owner));
         }

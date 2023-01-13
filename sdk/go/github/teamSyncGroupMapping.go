@@ -11,12 +11,30 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// This resource allows you to create and manage Identity Provider (IdP) group connections within your GitHub teams.
+// You must have team synchronization enabled for organizations owned by enterprise accounts.
+//
+// To learn more about team synchronization between IdPs and GitHub, please refer to:
+// https://help.github.com/en/github/setting-up-and-managing-organizations-and-teams/synchronizing-teams-between-your-identity-provider-and-github
+//
+// ## Import
+//
+// GitHub Team Sync Group Mappings can be imported using the GitHub team `slug` e.g.
+//
+// ```sh
+//
+//	$ pulumi import github:index/teamSyncGroupMapping:TeamSyncGroupMapping example some_team
+//
+// ```
 type TeamSyncGroupMapping struct {
 	pulumi.CustomResourceState
 
-	Etag     pulumi.StringOutput                  `pulumi:"etag"`
-	Groups   TeamSyncGroupMappingGroupArrayOutput `pulumi:"groups"`
-	TeamSlug pulumi.StringOutput                  `pulumi:"teamSlug"`
+	Etag pulumi.StringOutput `pulumi:"etag"`
+	// An Array of GitHub Identity Provider Groups (or empty []).  Each `group` block consists of the fields documented below.
+	// ***
+	Groups TeamSyncGroupMappingGroupArrayOutput `pulumi:"groups"`
+	// Slug of the team
+	TeamSlug pulumi.StringOutput `pulumi:"teamSlug"`
 }
 
 // NewTeamSyncGroupMapping registers a new resource with the given unique name, arguments, and options.
@@ -51,14 +69,20 @@ func GetTeamSyncGroupMapping(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering TeamSyncGroupMapping resources.
 type teamSyncGroupMappingState struct {
-	Etag     *string                     `pulumi:"etag"`
-	Groups   []TeamSyncGroupMappingGroup `pulumi:"groups"`
-	TeamSlug *string                     `pulumi:"teamSlug"`
+	Etag *string `pulumi:"etag"`
+	// An Array of GitHub Identity Provider Groups (or empty []).  Each `group` block consists of the fields documented below.
+	// ***
+	Groups []TeamSyncGroupMappingGroup `pulumi:"groups"`
+	// Slug of the team
+	TeamSlug *string `pulumi:"teamSlug"`
 }
 
 type TeamSyncGroupMappingState struct {
-	Etag     pulumi.StringPtrInput
-	Groups   TeamSyncGroupMappingGroupArrayInput
+	Etag pulumi.StringPtrInput
+	// An Array of GitHub Identity Provider Groups (or empty []).  Each `group` block consists of the fields documented below.
+	// ***
+	Groups TeamSyncGroupMappingGroupArrayInput
+	// Slug of the team
 	TeamSlug pulumi.StringPtrInput
 }
 
@@ -67,13 +91,19 @@ func (TeamSyncGroupMappingState) ElementType() reflect.Type {
 }
 
 type teamSyncGroupMappingArgs struct {
-	Groups   []TeamSyncGroupMappingGroup `pulumi:"groups"`
-	TeamSlug string                      `pulumi:"teamSlug"`
+	// An Array of GitHub Identity Provider Groups (or empty []).  Each `group` block consists of the fields documented below.
+	// ***
+	Groups []TeamSyncGroupMappingGroup `pulumi:"groups"`
+	// Slug of the team
+	TeamSlug string `pulumi:"teamSlug"`
 }
 
 // The set of arguments for constructing a TeamSyncGroupMapping resource.
 type TeamSyncGroupMappingArgs struct {
-	Groups   TeamSyncGroupMappingGroupArrayInput
+	// An Array of GitHub Identity Provider Groups (or empty []).  Each `group` block consists of the fields documented below.
+	// ***
+	Groups TeamSyncGroupMappingGroupArrayInput
+	// Slug of the team
 	TeamSlug pulumi.StringInput
 }
 
@@ -168,10 +198,13 @@ func (o TeamSyncGroupMappingOutput) Etag() pulumi.StringOutput {
 	return o.ApplyT(func(v *TeamSyncGroupMapping) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
 }
 
+// An Array of GitHub Identity Provider Groups (or empty []).  Each `group` block consists of the fields documented below.
+// ***
 func (o TeamSyncGroupMappingOutput) Groups() TeamSyncGroupMappingGroupArrayOutput {
 	return o.ApplyT(func(v *TeamSyncGroupMapping) TeamSyncGroupMappingGroupArrayOutput { return v.Groups }).(TeamSyncGroupMappingGroupArrayOutput)
 }
 
+// Slug of the team
 func (o TeamSyncGroupMappingOutput) TeamSlug() pulumi.StringOutput {
 	return o.ApplyT(func(v *TeamSyncGroupMapping) pulumi.StringOutput { return v.TeamSlug }).(pulumi.StringOutput)
 }

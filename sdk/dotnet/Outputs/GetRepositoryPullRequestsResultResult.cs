@@ -13,21 +13,69 @@ namespace Pulumi.Github.Outputs
     [OutputType]
     public sealed class GetRepositoryPullRequestsResultResult
     {
+        /// <summary>
+        /// If set, filters Pull Requests by base branch name.
+        /// </summary>
         public readonly string BaseRef;
+        /// <summary>
+        /// Head commit SHA of the Pull Request base.
+        /// </summary>
         public readonly string BaseSha;
+        /// <summary>
+        /// Body of the Pull Request.
+        /// </summary>
         public readonly string Body;
+        /// <summary>
+        /// Indicates Whether this Pull Request is a draft.
+        /// </summary>
         public readonly bool Draft;
+        /// <summary>
+        /// Owner of the Pull Request head repository.
+        /// </summary>
         public readonly string HeadOwner;
+        /// <summary>
+        /// If set, filters Pull Requests by head user or head organization and branch name in the format of "user:ref-name" or "organization:ref-name". For example: "github:new-script-format" or "octocat:test-branch".
+        /// </summary>
         public readonly string HeadRef;
+        /// <summary>
+        /// Name of the Pull Request head repository.
+        /// </summary>
         public readonly string HeadRepository;
+        /// <summary>
+        /// Head commit SHA of the Pull Request head.
+        /// </summary>
         public readonly string HeadSha;
+        /// <summary>
+        /// List of label names set on the Pull Request.
+        /// </summary>
         public readonly ImmutableArray<string> Labels;
+        /// <summary>
+        /// Indicates whether the base repository maintainers can modify the Pull Request.
+        /// </summary>
         public readonly bool MaintainerCanModify;
+        /// <summary>
+        /// The number of the Pull Request within the repository.
+        /// </summary>
         public readonly int Number;
+        /// <summary>
+        /// Unix timestamp indicating the Pull Request creation time.
+        /// </summary>
         public readonly int OpenedAt;
+        /// <summary>
+        /// GitHub login of the user who opened the Pull Request.
+        /// </summary>
         public readonly string OpenedBy;
+        /// <summary>
+        /// If set, filters Pull Requests by state. Can be "open", "closed", or "all". Default: "open".
+        /// </summary>
         public readonly string State;
+        /// <summary>
+        /// The title of the Pull Request.
+        /// </summary>
         public readonly string Title;
+        /// <summary>
+        /// The timestamp of the last Pull Request update.
+        /// </summary>
         public readonly int UpdatedAt;
 
         [OutputConstructor]

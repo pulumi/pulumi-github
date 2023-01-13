@@ -11,6 +11,10 @@ import java.util.Objects;
 
 @CustomType
 public final class GetExternalGroupsResult {
+    /**
+     * @return an array of external groups belonging to the organization. Each group consists of the fields documented below.
+     * 
+     */
     private List<GetExternalGroupsExternalGroup> externalGroups;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -19,6 +23,10 @@ public final class GetExternalGroupsResult {
     private String id;
 
     private GetExternalGroupsResult() {}
+    /**
+     * @return an array of external groups belonging to the organization. Each group consists of the fields documented below.
+     * 
+     */
     public List<GetExternalGroupsExternalGroup> externalGroups() {
         return this.externalGroups;
     }

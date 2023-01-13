@@ -15,8 +15,20 @@ public final class GetUsersResult {
      * 
      */
     private String id;
+    /**
+     * @return list of logins of users that could be found.
+     * 
+     */
     private List<String> logins;
+    /**
+     * @return list of Node IDs of users that could be found.
+     * 
+     */
     private List<String> nodeIds;
+    /**
+     * @return list of logins without matching user.
+     * 
+     */
     private List<String> unknownLogins;
     private List<String> usernames;
 
@@ -28,12 +40,24 @@ public final class GetUsersResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return list of logins of users that could be found.
+     * 
+     */
     public List<String> logins() {
         return this.logins;
     }
+    /**
+     * @return list of Node IDs of users that could be found.
+     * 
+     */
     public List<String> nodeIds() {
         return this.nodeIds;
     }
+    /**
+     * @return list of logins without matching user.
+     * 
+     */
     public List<String> unknownLogins() {
         return this.unknownLogins;
     }

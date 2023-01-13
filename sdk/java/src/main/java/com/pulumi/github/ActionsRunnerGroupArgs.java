@@ -17,23 +17,47 @@ public final class ActionsRunnerGroupArgs extends com.pulumi.resources.ResourceA
 
     public static final ActionsRunnerGroupArgs Empty = new ActionsRunnerGroupArgs();
 
+    /**
+     * Name of the runner group
+     * 
+     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
+    /**
+     * @return Name of the runner group
+     * 
+     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
+    /**
+     * IDs of the repositories which should be added to the runner group
+     * 
+     */
     @Import(name="selectedRepositoryIds")
     private @Nullable Output<List<Integer>> selectedRepositoryIds;
 
+    /**
+     * @return IDs of the repositories which should be added to the runner group
+     * 
+     */
     public Optional<Output<List<Integer>>> selectedRepositoryIds() {
         return Optional.ofNullable(this.selectedRepositoryIds);
     }
 
+    /**
+     * Visibility of a runner group. Whether the runner group can include `all`, `selected`, or `private` repositories. A value of `private` is not currently supported due to limitations in the GitHub API.
+     * 
+     */
     @Import(name="visibility", required=true)
     private Output<String> visibility;
 
+    /**
+     * @return Visibility of a runner group. Whether the runner group can include `all`, `selected`, or `private` repositories. A value of `private` is not currently supported due to limitations in the GitHub API.
+     * 
+     */
     public Output<String> visibility() {
         return this.visibility;
     }
@@ -64,33 +88,75 @@ public final class ActionsRunnerGroupArgs extends com.pulumi.resources.ResourceA
             $ = new ActionsRunnerGroupArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param name Name of the runner group
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param name Name of the runner group
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
+        /**
+         * @param selectedRepositoryIds IDs of the repositories which should be added to the runner group
+         * 
+         * @return builder
+         * 
+         */
         public Builder selectedRepositoryIds(@Nullable Output<List<Integer>> selectedRepositoryIds) {
             $.selectedRepositoryIds = selectedRepositoryIds;
             return this;
         }
 
+        /**
+         * @param selectedRepositoryIds IDs of the repositories which should be added to the runner group
+         * 
+         * @return builder
+         * 
+         */
         public Builder selectedRepositoryIds(List<Integer> selectedRepositoryIds) {
             return selectedRepositoryIds(Output.of(selectedRepositoryIds));
         }
 
+        /**
+         * @param selectedRepositoryIds IDs of the repositories which should be added to the runner group
+         * 
+         * @return builder
+         * 
+         */
         public Builder selectedRepositoryIds(Integer... selectedRepositoryIds) {
             return selectedRepositoryIds(List.of(selectedRepositoryIds));
         }
 
+        /**
+         * @param visibility Visibility of a runner group. Whether the runner group can include `all`, `selected`, or `private` repositories. A value of `private` is not currently supported due to limitations in the GitHub API.
+         * 
+         * @return builder
+         * 
+         */
         public Builder visibility(Output<String> visibility) {
             $.visibility = visibility;
             return this;
         }
 
+        /**
+         * @param visibility Visibility of a runner group. Whether the runner group can include `all`, `selected`, or `private` repositories. A value of `private` is not currently supported due to limitations in the GitHub API.
+         * 
+         * @return builder
+         * 
+         */
         public Builder visibility(String visibility) {
             return visibility(Output.of(visibility));
         }

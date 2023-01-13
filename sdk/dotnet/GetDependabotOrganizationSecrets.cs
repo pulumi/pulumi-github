@@ -11,6 +11,27 @@ namespace Pulumi.Github
 {
     public static class GetDependabotOrganizationSecrets
     {
+        /// <summary>
+        /// Use this data source to retrieve the list of dependabot secrets of the organization.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Github = Pulumi.Github;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Github.GetDependabotOrganizationSecrets.Invoke();
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetDependabotOrganizationSecretsResult> InvokeAsync(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDependabotOrganizationSecretsResult>("github:index/getDependabotOrganizationSecrets:getDependabotOrganizationSecrets", InvokeArgs.Empty, options.WithDefaults());
     }
@@ -23,6 +44,9 @@ namespace Pulumi.Github
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// list of secrets for the repository
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetDependabotOrganizationSecretsSecretResult> Secrets;
 
         [OutputConstructor]

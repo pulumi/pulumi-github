@@ -9,18 +9,47 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Github
 {
+    /// <summary>
+    /// This resource allows you to create and manage projects for GitHub organization.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Github = Pulumi.Github;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var project = new Github.OrganizationProject("project", new()
+    ///     {
+    ///         Body = "This is a organization project.",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// </summary>
     [GithubResourceType("github:index/organizationProject:OrganizationProject")]
     public partial class OrganizationProject : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The body of the project.
+        /// </summary>
         [Output("body")]
         public Output<string?> Body { get; private set; } = null!;
 
         [Output("etag")]
         public Output<string> Etag { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the project.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// URL of the project
+        /// </summary>
         [Output("url")]
         public Output<string> Url { get; private set; } = null!;
 
@@ -70,9 +99,15 @@ namespace Pulumi.Github
 
     public sealed class OrganizationProjectArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The body of the project.
+        /// </summary>
         [Input("body")]
         public Input<string>? Body { get; set; }
 
+        /// <summary>
+        /// The name of the project.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
@@ -84,15 +119,24 @@ namespace Pulumi.Github
 
     public sealed class OrganizationProjectState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The body of the project.
+        /// </summary>
         [Input("body")]
         public Input<string>? Body { get; set; }
 
         [Input("etag")]
         public Input<string>? Etag { get; set; }
 
+        /// <summary>
+        /// The name of the project.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// URL of the project
+        /// </summary>
         [Input("url")]
         public Input<string>? Url { get; set; }
 

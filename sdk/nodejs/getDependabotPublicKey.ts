@@ -5,11 +5,8 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 export function getDependabotPublicKey(args: GetDependabotPublicKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetDependabotPublicKeyResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("github:index/getDependabotPublicKey:getDependabotPublicKey", {
         "repository": args.repository,
     }, opts);
@@ -34,9 +31,8 @@ export interface GetDependabotPublicKeyResult {
     readonly keyId: string;
     readonly repository: string;
 }
-
 export function getDependabotPublicKeyOutput(args: GetDependabotPublicKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDependabotPublicKeyResult> {
-    return pulumi.output(args).apply(a => getDependabotPublicKey(a, opts))
+    return pulumi.output(args).apply((a: any) => getDependabotPublicKey(a, opts))
 }
 
 /**

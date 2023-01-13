@@ -25,6 +25,11 @@ export type ActionsOrganizationSecretRepositories = import("./actionsOrganizatio
 export const ActionsOrganizationSecretRepositories: typeof import("./actionsOrganizationSecretRepositories").ActionsOrganizationSecretRepositories = null as any;
 utilities.lazyLoad(exports, ["ActionsOrganizationSecretRepositories"], () => require("./actionsOrganizationSecretRepositories"));
 
+export { ActionsRepositoryPermissionsArgs, ActionsRepositoryPermissionsState } from "./actionsRepositoryPermissions";
+export type ActionsRepositoryPermissions = import("./actionsRepositoryPermissions").ActionsRepositoryPermissions;
+export const ActionsRepositoryPermissions: typeof import("./actionsRepositoryPermissions").ActionsRepositoryPermissions = null as any;
+utilities.lazyLoad(exports, ["ActionsRepositoryPermissions"], () => require("./actionsRepositoryPermissions"));
+
 export { ActionsRunnerGroupArgs, ActionsRunnerGroupState } from "./actionsRunnerGroup";
 export type ActionsRunnerGroup = import("./actionsRunnerGroup").ActionsRunnerGroup;
 export const ActionsRunnerGroup: typeof import("./actionsRunnerGroup").ActionsRunnerGroup = null as any;
@@ -34,6 +39,11 @@ export { ActionsSecretArgs, ActionsSecretState } from "./actionsSecret";
 export type ActionsSecret = import("./actionsSecret").ActionsSecret;
 export const ActionsSecret: typeof import("./actionsSecret").ActionsSecret = null as any;
 utilities.lazyLoad(exports, ["ActionsSecret"], () => require("./actionsSecret"));
+
+export { AppInstallationRepositoriesArgs, AppInstallationRepositoriesState } from "./appInstallationRepositories";
+export type AppInstallationRepositories = import("./appInstallationRepositories").AppInstallationRepositories;
+export const AppInstallationRepositories: typeof import("./appInstallationRepositories").AppInstallationRepositories = null as any;
+utilities.lazyLoad(exports, ["AppInstallationRepositories"], () => require("./appInstallationRepositories"));
 
 export { AppInstallationRepositoryArgs, AppInstallationRepositoryState } from "./appInstallationRepository";
 export type AppInstallationRepository = import("./appInstallationRepository").AppInstallationRepository;
@@ -80,6 +90,10 @@ export type EmuGroupMapping = import("./emuGroupMapping").EmuGroupMapping;
 export const EmuGroupMapping: typeof import("./emuGroupMapping").EmuGroupMapping = null as any;
 utilities.lazyLoad(exports, ["EmuGroupMapping"], () => require("./emuGroupMapping"));
 
+export { GetActionsOrganizationRegistrationTokenResult } from "./getActionsOrganizationRegistrationToken";
+export const getActionsOrganizationRegistrationToken: typeof import("./getActionsOrganizationRegistrationToken").getActionsOrganizationRegistrationToken = null as any;
+utilities.lazyLoad(exports, ["getActionsOrganizationRegistrationToken"], () => require("./getActionsOrganizationRegistrationToken"));
+
 export { GetActionsOrganizationSecretsResult } from "./getActionsOrganizationSecrets";
 export const getActionsOrganizationSecrets: typeof import("./getActionsOrganizationSecrets").getActionsOrganizationSecrets = null as any;
 utilities.lazyLoad(exports, ["getActionsOrganizationSecrets"], () => require("./getActionsOrganizationSecrets"));
@@ -88,6 +102,11 @@ export { GetActionsPublicKeyArgs, GetActionsPublicKeyResult, GetActionsPublicKey
 export const getActionsPublicKey: typeof import("./getActionsPublicKey").getActionsPublicKey = null as any;
 export const getActionsPublicKeyOutput: typeof import("./getActionsPublicKey").getActionsPublicKeyOutput = null as any;
 utilities.lazyLoad(exports, ["getActionsPublicKey","getActionsPublicKeyOutput"], () => require("./getActionsPublicKey"));
+
+export { GetActionsRegistrationTokenArgs, GetActionsRegistrationTokenResult, GetActionsRegistrationTokenOutputArgs } from "./getActionsRegistrationToken";
+export const getActionsRegistrationToken: typeof import("./getActionsRegistrationToken").getActionsRegistrationToken = null as any;
+export const getActionsRegistrationTokenOutput: typeof import("./getActionsRegistrationToken").getActionsRegistrationTokenOutput = null as any;
+utilities.lazyLoad(exports, ["getActionsRegistrationToken","getActionsRegistrationTokenOutput"], () => require("./getActionsRegistrationToken"));
 
 export { GetActionsSecretsArgs, GetActionsSecretsResult, GetActionsSecretsOutputArgs } from "./getActionsSecrets";
 export const getActionsSecrets: typeof import("./getActionsSecrets").getActionsSecrets = null as any;
@@ -263,6 +282,11 @@ export type OrganizationProject = import("./organizationProject").OrganizationPr
 export const OrganizationProject: typeof import("./organizationProject").OrganizationProject = null as any;
 utilities.lazyLoad(exports, ["OrganizationProject"], () => require("./organizationProject"));
 
+export { OrganizationSecurityManagerArgs, OrganizationSecurityManagerState } from "./organizationSecurityManager";
+export type OrganizationSecurityManager = import("./organizationSecurityManager").OrganizationSecurityManager;
+export const OrganizationSecurityManager: typeof import("./organizationSecurityManager").OrganizationSecurityManager = null as any;
+utilities.lazyLoad(exports, ["OrganizationSecurityManager"], () => require("./organizationSecurityManager"));
+
 export { OrganizationSettingsArgs, OrganizationSettingsState } from "./organizationSettings";
 export type OrganizationSettings = import("./organizationSettings").OrganizationSettings;
 export const OrganizationSettings: typeof import("./organizationSettings").OrganizationSettings = null as any;
@@ -287,6 +311,11 @@ export { ProviderArgs } from "./provider";
 export type Provider = import("./provider").Provider;
 export const Provider: typeof import("./provider").Provider = null as any;
 utilities.lazyLoad(exports, ["Provider"], () => require("./provider"));
+
+export { ReleaseArgs, ReleaseState } from "./release";
+export type Release = import("./release").Release;
+export const Release: typeof import("./release").Release = null as any;
+utilities.lazyLoad(exports, ["Release"], () => require("./release"));
 
 export { RepositoryArgs, RepositoryState } from "./repository";
 export type Repository = import("./repository").Repository;
@@ -363,6 +392,11 @@ export type TeamRepository = import("./teamRepository").TeamRepository;
 export const TeamRepository: typeof import("./teamRepository").TeamRepository = null as any;
 utilities.lazyLoad(exports, ["TeamRepository"], () => require("./teamRepository"));
 
+export { TeamSettingsArgs, TeamSettingsState } from "./teamSettings";
+export type TeamSettings = import("./teamSettings").TeamSettings;
+export const TeamSettings: typeof import("./teamSettings").TeamSettings = null as any;
+utilities.lazyLoad(exports, ["TeamSettings"], () => require("./teamSettings"));
+
 export { TeamSyncGroupMappingArgs, TeamSyncGroupMappingState } from "./teamSyncGroupMapping";
 export type TeamSyncGroupMapping = import("./teamSyncGroupMapping").TeamSyncGroupMapping;
 export const TeamSyncGroupMapping: typeof import("./teamSyncGroupMapping").TeamSyncGroupMapping = null as any;
@@ -405,10 +439,14 @@ const _module = {
                 return new ActionsOrganizationSecret(name, <any>undefined, { urn })
             case "github:index/actionsOrganizationSecretRepositories:ActionsOrganizationSecretRepositories":
                 return new ActionsOrganizationSecretRepositories(name, <any>undefined, { urn })
+            case "github:index/actionsRepositoryPermissions:ActionsRepositoryPermissions":
+                return new ActionsRepositoryPermissions(name, <any>undefined, { urn })
             case "github:index/actionsRunnerGroup:ActionsRunnerGroup":
                 return new ActionsRunnerGroup(name, <any>undefined, { urn })
             case "github:index/actionsSecret:ActionsSecret":
                 return new ActionsSecret(name, <any>undefined, { urn })
+            case "github:index/appInstallationRepositories:AppInstallationRepositories":
+                return new AppInstallationRepositories(name, <any>undefined, { urn })
             case "github:index/appInstallationRepository:AppInstallationRepository":
                 return new AppInstallationRepository(name, <any>undefined, { urn })
             case "github:index/branch:Branch":
@@ -437,6 +475,8 @@ const _module = {
                 return new OrganizationBlock(name, <any>undefined, { urn })
             case "github:index/organizationProject:OrganizationProject":
                 return new OrganizationProject(name, <any>undefined, { urn })
+            case "github:index/organizationSecurityManager:OrganizationSecurityManager":
+                return new OrganizationSecurityManager(name, <any>undefined, { urn })
             case "github:index/organizationSettings:OrganizationSettings":
                 return new OrganizationSettings(name, <any>undefined, { urn })
             case "github:index/organizationWebhook:OrganizationWebhook":
@@ -445,6 +485,8 @@ const _module = {
                 return new ProjectCard(name, <any>undefined, { urn })
             case "github:index/projectColumn:ProjectColumn":
                 return new ProjectColumn(name, <any>undefined, { urn })
+            case "github:index/release:Release":
+                return new Release(name, <any>undefined, { urn })
             case "github:index/repository:Repository":
                 return new Repository(name, <any>undefined, { urn })
             case "github:index/repositoryAutolinkReference:RepositoryAutolinkReference":
@@ -475,6 +517,8 @@ const _module = {
                 return new TeamMembership(name, <any>undefined, { urn })
             case "github:index/teamRepository:TeamRepository":
                 return new TeamRepository(name, <any>undefined, { urn })
+            case "github:index/teamSettings:TeamSettings":
+                return new TeamSettings(name, <any>undefined, { urn })
             case "github:index/teamSyncGroupMapping:TeamSyncGroupMapping":
                 return new TeamSyncGroupMapping(name, <any>undefined, { urn })
             case "github:index/userGpgKey:UserGpgKey":
@@ -492,8 +536,10 @@ pulumi.runtime.registerResourceModule("github", "index/actionsEnvironmentSecret"
 pulumi.runtime.registerResourceModule("github", "index/actionsOrganizationPermissions", _module)
 pulumi.runtime.registerResourceModule("github", "index/actionsOrganizationSecret", _module)
 pulumi.runtime.registerResourceModule("github", "index/actionsOrganizationSecretRepositories", _module)
+pulumi.runtime.registerResourceModule("github", "index/actionsRepositoryPermissions", _module)
 pulumi.runtime.registerResourceModule("github", "index/actionsRunnerGroup", _module)
 pulumi.runtime.registerResourceModule("github", "index/actionsSecret", _module)
+pulumi.runtime.registerResourceModule("github", "index/appInstallationRepositories", _module)
 pulumi.runtime.registerResourceModule("github", "index/appInstallationRepository", _module)
 pulumi.runtime.registerResourceModule("github", "index/branch", _module)
 pulumi.runtime.registerResourceModule("github", "index/branchDefault", _module)
@@ -508,10 +554,12 @@ pulumi.runtime.registerResourceModule("github", "index/issueLabel", _module)
 pulumi.runtime.registerResourceModule("github", "index/membership", _module)
 pulumi.runtime.registerResourceModule("github", "index/organizationBlock", _module)
 pulumi.runtime.registerResourceModule("github", "index/organizationProject", _module)
+pulumi.runtime.registerResourceModule("github", "index/organizationSecurityManager", _module)
 pulumi.runtime.registerResourceModule("github", "index/organizationSettings", _module)
 pulumi.runtime.registerResourceModule("github", "index/organizationWebhook", _module)
 pulumi.runtime.registerResourceModule("github", "index/projectCard", _module)
 pulumi.runtime.registerResourceModule("github", "index/projectColumn", _module)
+pulumi.runtime.registerResourceModule("github", "index/release", _module)
 pulumi.runtime.registerResourceModule("github", "index/repository", _module)
 pulumi.runtime.registerResourceModule("github", "index/repositoryAutolinkReference", _module)
 pulumi.runtime.registerResourceModule("github", "index/repositoryCollaborator", _module)
@@ -527,6 +575,7 @@ pulumi.runtime.registerResourceModule("github", "index/team", _module)
 pulumi.runtime.registerResourceModule("github", "index/teamMembers", _module)
 pulumi.runtime.registerResourceModule("github", "index/teamMembership", _module)
 pulumi.runtime.registerResourceModule("github", "index/teamRepository", _module)
+pulumi.runtime.registerResourceModule("github", "index/teamSettings", _module)
 pulumi.runtime.registerResourceModule("github", "index/teamSyncGroupMapping", _module)
 pulumi.runtime.registerResourceModule("github", "index/userGpgKey", _module)
 pulumi.runtime.registerResourceModule("github", "index/userInvitationAccepter", _module)

@@ -37,10 +37,10 @@ func NewDependabotOrganizationSecret(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Visibility'")
 	}
 	if args.EncryptedValue != nil {
-		args.EncryptedValue = pulumi.ToSecret(args.EncryptedValue).(pulumi.StringPtrOutput)
+		args.EncryptedValue = pulumi.ToSecret(args.EncryptedValue).(pulumi.StringPtrInput)
 	}
 	if args.PlaintextValue != nil {
-		args.PlaintextValue = pulumi.ToSecret(args.PlaintextValue).(pulumi.StringPtrOutput)
+		args.PlaintextValue = pulumi.ToSecret(args.PlaintextValue).(pulumi.StringPtrInput)
 	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"encryptedValue",

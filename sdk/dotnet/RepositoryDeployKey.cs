@@ -9,21 +9,74 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Github
 {
+    /// <summary>
+    /// Provides a GitHub repository deploy key resource.
+    /// 
+    /// A deploy key is an SSH key that is stored on your server and grants
+    /// access to a single GitHub repository. This key is attached directly to the repository instead of to a personal user
+    /// account.
+    /// 
+    /// This resource allows you to add/remove repository deploy keys.
+    /// 
+    /// Further documentation on GitHub repository deploy keys:
+    /// - [About deploy keys](https://developer.github.com/guides/managing-deploy-keys/#deploy-keys)
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Github = Pulumi.Github;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     // Add a deploy key
+    ///     var exampleRepositoryDeployKey = new Github.RepositoryDeployKey("exampleRepositoryDeployKey", new()
+    ///     {
+    ///         Key = "ssh-rsa AAA...",
+    ///         ReadOnly = false,
+    ///         Repository = "test-repo",
+    ///         Title = "Repository test key",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Repository deploy keys can be imported using a colon-separated pair of repository name and GitHub's key id. The latter can be obtained by GitHub's SDKs and API.
+    /// 
+    /// ```sh
+    ///  $ pulumi import github:index/repositoryDeployKey:RepositoryDeployKey foo test-repo:23824728
+    /// ```
+    /// </summary>
     [GithubResourceType("github:index/repositoryDeployKey:RepositoryDeployKey")]
     public partial class RepositoryDeployKey : global::Pulumi.CustomResource
     {
         [Output("etag")]
         public Output<string> Etag { get; private set; } = null!;
 
+        /// <summary>
+        /// A SSH key.
+        /// </summary>
         [Output("key")]
         public Output<string> Key { get; private set; } = null!;
 
+        /// <summary>
+        /// A boolean qualifying the key to be either read only or read/write.
+        /// </summary>
         [Output("readOnly")]
         public Output<bool?> ReadOnly { get; private set; } = null!;
 
+        /// <summary>
+        /// Name of the GitHub repository.
+        /// </summary>
         [Output("repository")]
         public Output<string> Repository { get; private set; } = null!;
 
+        /// <summary>
+        /// A title.
+        /// </summary>
         [Output("title")]
         public Output<string> Title { get; private set; } = null!;
 
@@ -73,15 +126,27 @@ namespace Pulumi.Github
 
     public sealed class RepositoryDeployKeyArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A SSH key.
+        /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
+        /// <summary>
+        /// A boolean qualifying the key to be either read only or read/write.
+        /// </summary>
         [Input("readOnly")]
         public Input<bool>? ReadOnly { get; set; }
 
+        /// <summary>
+        /// Name of the GitHub repository.
+        /// </summary>
         [Input("repository", required: true)]
         public Input<string> Repository { get; set; } = null!;
 
+        /// <summary>
+        /// A title.
+        /// </summary>
         [Input("title", required: true)]
         public Input<string> Title { get; set; } = null!;
 
@@ -96,15 +161,27 @@ namespace Pulumi.Github
         [Input("etag")]
         public Input<string>? Etag { get; set; }
 
+        /// <summary>
+        /// A SSH key.
+        /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }
 
+        /// <summary>
+        /// A boolean qualifying the key to be either read only or read/write.
+        /// </summary>
         [Input("readOnly")]
         public Input<bool>? ReadOnly { get; set; }
 
+        /// <summary>
+        /// Name of the GitHub repository.
+        /// </summary>
         [Input("repository")]
         public Input<string>? Repository { get; set; }
 
+        /// <summary>
+        /// A title.
+        /// </summary>
         [Input("title")]
         public Input<string>? Title { get; set; }
 

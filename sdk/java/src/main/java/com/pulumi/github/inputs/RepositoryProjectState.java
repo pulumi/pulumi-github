@@ -15,9 +15,17 @@ public final class RepositoryProjectState extends com.pulumi.resources.ResourceA
 
     public static final RepositoryProjectState Empty = new RepositoryProjectState();
 
+    /**
+     * The body of the project.
+     * 
+     */
     @Import(name="body")
     private @Nullable Output<String> body;
 
+    /**
+     * @return The body of the project.
+     * 
+     */
     public Optional<Output<String>> body() {
         return Optional.ofNullable(this.body);
     }
@@ -29,23 +37,47 @@ public final class RepositoryProjectState extends com.pulumi.resources.ResourceA
         return Optional.ofNullable(this.etag);
     }
 
+    /**
+     * The name of the project.
+     * 
+     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
+    /**
+     * @return The name of the project.
+     * 
+     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
+    /**
+     * The repository of the project.
+     * 
+     */
     @Import(name="repository")
     private @Nullable Output<String> repository;
 
+    /**
+     * @return The repository of the project.
+     * 
+     */
     public Optional<Output<String>> repository() {
         return Optional.ofNullable(this.repository);
     }
 
+    /**
+     * URL of the project
+     * 
+     */
     @Import(name="url")
     private @Nullable Output<String> url;
 
+    /**
+     * @return URL of the project
+     * 
+     */
     public Optional<Output<String>> url() {
         return Optional.ofNullable(this.url);
     }
@@ -78,11 +110,23 @@ public final class RepositoryProjectState extends com.pulumi.resources.ResourceA
             $ = new RepositoryProjectState(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param body The body of the project.
+         * 
+         * @return builder
+         * 
+         */
         public Builder body(@Nullable Output<String> body) {
             $.body = body;
             return this;
         }
 
+        /**
+         * @param body The body of the project.
+         * 
+         * @return builder
+         * 
+         */
         public Builder body(String body) {
             return body(Output.of(body));
         }
@@ -96,29 +140,65 @@ public final class RepositoryProjectState extends com.pulumi.resources.ResourceA
             return etag(Output.of(etag));
         }
 
+        /**
+         * @param name The name of the project.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param name The name of the project.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
+        /**
+         * @param repository The repository of the project.
+         * 
+         * @return builder
+         * 
+         */
         public Builder repository(@Nullable Output<String> repository) {
             $.repository = repository;
             return this;
         }
 
+        /**
+         * @param repository The repository of the project.
+         * 
+         * @return builder
+         * 
+         */
         public Builder repository(String repository) {
             return repository(Output.of(repository));
         }
 
+        /**
+         * @param url URL of the project
+         * 
+         * @return builder
+         * 
+         */
         public Builder url(@Nullable Output<String> url) {
             $.url = url;
             return this;
         }
 
+        /**
+         * @param url URL of the project
+         * 
+         * @return builder
+         * 
+         */
         public Builder url(String url) {
             return url(Output.of(url));
         }

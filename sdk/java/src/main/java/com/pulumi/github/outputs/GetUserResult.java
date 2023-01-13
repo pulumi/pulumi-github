@@ -12,61 +12,181 @@ import java.util.Objects;
 
 @CustomType
 public final class GetUserResult {
+    /**
+     * @return the user&#39;s avatar URL.
+     * 
+     */
     private String avatarUrl;
+    /**
+     * @return the user&#39;s bio.
+     * 
+     */
     private String bio;
+    /**
+     * @return the user&#39;s blog location.
+     * 
+     */
     private String blog;
+    /**
+     * @return the user&#39;s company name.
+     * 
+     */
     private String company;
+    /**
+     * @return the creation date.
+     * 
+     */
     private String createdAt;
+    /**
+     * @return the user&#39;s email.
+     * 
+     */
     private String email;
+    /**
+     * @return the number of followers.
+     * 
+     */
     private Integer followers;
+    /**
+     * @return the number of following users.
+     * 
+     */
     private Integer following;
+    /**
+     * @return list of user&#39;s GPG keys.
+     * 
+     */
     private List<String> gpgKeys;
+    /**
+     * @return the user&#39;s gravatar ID.
+     * 
+     */
     private String gravatarId;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
+    /**
+     * @return the user&#39;s location.
+     * 
+     */
     private String location;
+    /**
+     * @return the user&#39;s login.
+     * 
+     */
     private String login;
+    /**
+     * @return the user&#39;s full name.
+     * 
+     */
     private String name;
+    /**
+     * @return the Node ID of the user.
+     * 
+     */
     private String nodeId;
+    /**
+     * @return the number of public gists.
+     * 
+     */
     private Integer publicGists;
+    /**
+     * @return the number of public repositories.
+     * 
+     */
     private Integer publicRepos;
+    /**
+     * @return whether the user is a GitHub admin.
+     * 
+     */
     private Boolean siteAdmin;
+    /**
+     * @return list of user&#39;s SSH keys.
+     * 
+     */
     private List<String> sshKeys;
+    /**
+     * @return the suspended date if the user is suspended.
+     * 
+     */
     private String suspendedAt;
+    /**
+     * @return the update date.
+     * 
+     */
     private String updatedAt;
     private String username;
 
     private GetUserResult() {}
+    /**
+     * @return the user&#39;s avatar URL.
+     * 
+     */
     public String avatarUrl() {
         return this.avatarUrl;
     }
+    /**
+     * @return the user&#39;s bio.
+     * 
+     */
     public String bio() {
         return this.bio;
     }
+    /**
+     * @return the user&#39;s blog location.
+     * 
+     */
     public String blog() {
         return this.blog;
     }
+    /**
+     * @return the user&#39;s company name.
+     * 
+     */
     public String company() {
         return this.company;
     }
+    /**
+     * @return the creation date.
+     * 
+     */
     public String createdAt() {
         return this.createdAt;
     }
+    /**
+     * @return the user&#39;s email.
+     * 
+     */
     public String email() {
         return this.email;
     }
+    /**
+     * @return the number of followers.
+     * 
+     */
     public Integer followers() {
         return this.followers;
     }
+    /**
+     * @return the number of following users.
+     * 
+     */
     public Integer following() {
         return this.following;
     }
+    /**
+     * @return list of user&#39;s GPG keys.
+     * 
+     */
     public List<String> gpgKeys() {
         return this.gpgKeys;
     }
+    /**
+     * @return the user&#39;s gravatar ID.
+     * 
+     */
     public String gravatarId() {
         return this.gravatarId;
     }
@@ -77,33 +197,73 @@ public final class GetUserResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return the user&#39;s location.
+     * 
+     */
     public String location() {
         return this.location;
     }
+    /**
+     * @return the user&#39;s login.
+     * 
+     */
     public String login() {
         return this.login;
     }
+    /**
+     * @return the user&#39;s full name.
+     * 
+     */
     public String name() {
         return this.name;
     }
+    /**
+     * @return the Node ID of the user.
+     * 
+     */
     public String nodeId() {
         return this.nodeId;
     }
+    /**
+     * @return the number of public gists.
+     * 
+     */
     public Integer publicGists() {
         return this.publicGists;
     }
+    /**
+     * @return the number of public repositories.
+     * 
+     */
     public Integer publicRepos() {
         return this.publicRepos;
     }
+    /**
+     * @return whether the user is a GitHub admin.
+     * 
+     */
     public Boolean siteAdmin() {
         return this.siteAdmin;
     }
+    /**
+     * @return list of user&#39;s SSH keys.
+     * 
+     */
     public List<String> sshKeys() {
         return this.sshKeys;
     }
+    /**
+     * @return the suspended date if the user is suspended.
+     * 
+     */
     public String suspendedAt() {
         return this.suspendedAt;
     }
+    /**
+     * @return the update date.
+     * 
+     */
     public String updatedAt() {
         return this.updatedAt;
     }

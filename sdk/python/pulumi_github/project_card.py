@@ -20,6 +20,10 @@ class ProjectCardArgs:
                  note: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ProjectCard resource.
+        :param pulumi.Input[str] column_id: The ID of the card.
+        :param pulumi.Input[int] content_id: `github_issue.issue_id`.
+        :param pulumi.Input[str] content_type: Must be either `Issue` or `PullRequest`
+        :param pulumi.Input[str] note: The note contents of the card. Markdown supported.
         """
         pulumi.set(__self__, "column_id", column_id)
         if content_id is not None:
@@ -32,6 +36,9 @@ class ProjectCardArgs:
     @property
     @pulumi.getter(name="columnId")
     def column_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the card.
+        """
         return pulumi.get(self, "column_id")
 
     @column_id.setter
@@ -41,6 +48,9 @@ class ProjectCardArgs:
     @property
     @pulumi.getter(name="contentId")
     def content_id(self) -> Optional[pulumi.Input[int]]:
+        """
+        `github_issue.issue_id`.
+        """
         return pulumi.get(self, "content_id")
 
     @content_id.setter
@@ -50,6 +60,9 @@ class ProjectCardArgs:
     @property
     @pulumi.getter(name="contentType")
     def content_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Must be either `Issue` or `PullRequest`
+        """
         return pulumi.get(self, "content_type")
 
     @content_type.setter
@@ -59,6 +72,9 @@ class ProjectCardArgs:
     @property
     @pulumi.getter
     def note(self) -> Optional[pulumi.Input[str]]:
+        """
+        The note contents of the card. Markdown supported.
+        """
         return pulumi.get(self, "note")
 
     @note.setter
@@ -77,6 +93,10 @@ class _ProjectCardState:
                  note: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering ProjectCard resources.
+        :param pulumi.Input[str] column_id: The ID of the card.
+        :param pulumi.Input[int] content_id: `github_issue.issue_id`.
+        :param pulumi.Input[str] content_type: Must be either `Issue` or `PullRequest`
+        :param pulumi.Input[str] note: The note contents of the card. Markdown supported.
         """
         if card_id is not None:
             pulumi.set(__self__, "card_id", card_id)
@@ -103,6 +123,9 @@ class _ProjectCardState:
     @property
     @pulumi.getter(name="columnId")
     def column_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the card.
+        """
         return pulumi.get(self, "column_id")
 
     @column_id.setter
@@ -112,6 +135,9 @@ class _ProjectCardState:
     @property
     @pulumi.getter(name="contentId")
     def content_id(self) -> Optional[pulumi.Input[int]]:
+        """
+        `github_issue.issue_id`.
+        """
         return pulumi.get(self, "content_id")
 
     @content_id.setter
@@ -121,6 +147,9 @@ class _ProjectCardState:
     @property
     @pulumi.getter(name="contentType")
     def content_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Must be either `Issue` or `PullRequest`
+        """
         return pulumi.get(self, "content_type")
 
     @content_type.setter
@@ -139,6 +168,9 @@ class _ProjectCardState:
     @property
     @pulumi.getter
     def note(self) -> Optional[pulumi.Input[str]]:
+        """
+        The note contents of the card. Markdown supported.
+        """
         return pulumi.get(self, "note")
 
     @note.setter
@@ -157,9 +189,57 @@ class ProjectCard(pulumi.CustomResource):
                  note: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a ProjectCard resource with the given unique name, props, and options.
+        This resource allows you to create and manage cards for GitHub projects.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        project = github.OrganizationProject("project", body="This is an organization project.")
+        column = github.ProjectColumn("column", project_id=project.id)
+        card = github.ProjectCard("card",
+            column_id=column.column_id,
+            note="## Unaccepted 👇")
+        ```
+        ### Adding An Issue To A Project
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        test_repository = github.Repository("testRepository",
+            has_projects=True,
+            has_issues=True)
+        test_issue = github.Issue("testIssue",
+            repository=test_repository.id,
+            title="Test issue title",
+            body="Test issue body")
+        test_repository_project = github.RepositoryProject("testRepositoryProject",
+            repository=test_repository.name,
+            body="this is a test project")
+        test_project_column = github.ProjectColumn("testProjectColumn", project_id=test_repository_project.id)
+        test_project_card = github.ProjectCard("testProjectCard",
+            column_id=test_project_column.column_id,
+            content_id=test_issue.issue_id,
+            content_type="Issue")
+        ```
+
+        ## Import
+
+        A GitHub Project Card can be imported using its [Card ID](https://developer.github.com/v3/projects/cards/#get-a-project-card)
+
+        ```sh
+         $ pulumi import github:index/projectCard:ProjectCard card 01234567
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] column_id: The ID of the card.
+        :param pulumi.Input[int] content_id: `github_issue.issue_id`.
+        :param pulumi.Input[str] content_type: Must be either `Issue` or `PullRequest`
+        :param pulumi.Input[str] note: The note contents of the card. Markdown supported.
         """
         ...
     @overload
@@ -168,7 +248,51 @@ class ProjectCard(pulumi.CustomResource):
                  args: ProjectCardArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a ProjectCard resource with the given unique name, props, and options.
+        This resource allows you to create and manage cards for GitHub projects.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        project = github.OrganizationProject("project", body="This is an organization project.")
+        column = github.ProjectColumn("column", project_id=project.id)
+        card = github.ProjectCard("card",
+            column_id=column.column_id,
+            note="## Unaccepted 👇")
+        ```
+        ### Adding An Issue To A Project
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        test_repository = github.Repository("testRepository",
+            has_projects=True,
+            has_issues=True)
+        test_issue = github.Issue("testIssue",
+            repository=test_repository.id,
+            title="Test issue title",
+            body="Test issue body")
+        test_repository_project = github.RepositoryProject("testRepositoryProject",
+            repository=test_repository.name,
+            body="this is a test project")
+        test_project_column = github.ProjectColumn("testProjectColumn", project_id=test_repository_project.id)
+        test_project_card = github.ProjectCard("testProjectCard",
+            column_id=test_project_column.column_id,
+            content_id=test_issue.issue_id,
+            content_type="Issue")
+        ```
+
+        ## Import
+
+        A GitHub Project Card can be imported using its [Card ID](https://developer.github.com/v3/projects/cards/#get-a-project-card)
+
+        ```sh
+         $ pulumi import github:index/projectCard:ProjectCard card 01234567
+        ```
+
         :param str resource_name: The name of the resource.
         :param ProjectCardArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -228,6 +352,10 @@ class ProjectCard(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] column_id: The ID of the card.
+        :param pulumi.Input[int] content_id: `github_issue.issue_id`.
+        :param pulumi.Input[str] content_type: Must be either `Issue` or `PullRequest`
+        :param pulumi.Input[str] note: The note contents of the card. Markdown supported.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -249,16 +377,25 @@ class ProjectCard(pulumi.CustomResource):
     @property
     @pulumi.getter(name="columnId")
     def column_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the card.
+        """
         return pulumi.get(self, "column_id")
 
     @property
     @pulumi.getter(name="contentId")
     def content_id(self) -> pulumi.Output[Optional[int]]:
+        """
+        `github_issue.issue_id`.
+        """
         return pulumi.get(self, "content_id")
 
     @property
     @pulumi.getter(name="contentType")
     def content_type(self) -> pulumi.Output[Optional[str]]:
+        """
+        Must be either `Issue` or `PullRequest`
+        """
         return pulumi.get(self, "content_type")
 
     @property
@@ -269,5 +406,8 @@ class ProjectCard(pulumi.CustomResource):
     @property
     @pulumi.getter
     def note(self) -> pulumi.Output[Optional[str]]:
+        """
+        The note contents of the card. Markdown supported.
+        """
         return pulumi.get(self, "note")
 

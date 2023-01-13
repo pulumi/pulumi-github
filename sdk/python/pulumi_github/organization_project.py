@@ -18,6 +18,8 @@ class OrganizationProjectArgs:
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a OrganizationProject resource.
+        :param pulumi.Input[str] body: The body of the project.
+        :param pulumi.Input[str] name: The name of the project.
         """
         if body is not None:
             pulumi.set(__self__, "body", body)
@@ -27,6 +29,9 @@ class OrganizationProjectArgs:
     @property
     @pulumi.getter
     def body(self) -> Optional[pulumi.Input[str]]:
+        """
+        The body of the project.
+        """
         return pulumi.get(self, "body")
 
     @body.setter
@@ -36,6 +41,9 @@ class OrganizationProjectArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the project.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -52,6 +60,9 @@ class _OrganizationProjectState:
                  url: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering OrganizationProject resources.
+        :param pulumi.Input[str] body: The body of the project.
+        :param pulumi.Input[str] name: The name of the project.
+        :param pulumi.Input[str] url: URL of the project
         """
         if body is not None:
             pulumi.set(__self__, "body", body)
@@ -65,6 +76,9 @@ class _OrganizationProjectState:
     @property
     @pulumi.getter
     def body(self) -> Optional[pulumi.Input[str]]:
+        """
+        The body of the project.
+        """
         return pulumi.get(self, "body")
 
     @body.setter
@@ -83,6 +97,9 @@ class _OrganizationProjectState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the project.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -92,6 +109,9 @@ class _OrganizationProjectState:
     @property
     @pulumi.getter
     def url(self) -> Optional[pulumi.Input[str]]:
+        """
+        URL of the project
+        """
         return pulumi.get(self, "url")
 
     @url.setter
@@ -108,9 +128,21 @@ class OrganizationProject(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a OrganizationProject resource with the given unique name, props, and options.
+        This resource allows you to create and manage projects for GitHub organization.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        project = github.OrganizationProject("project", body="This is a organization project.")
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] body: The body of the project.
+        :param pulumi.Input[str] name: The name of the project.
         """
         ...
     @overload
@@ -119,7 +151,17 @@ class OrganizationProject(pulumi.CustomResource):
                  args: Optional[OrganizationProjectArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a OrganizationProject resource with the given unique name, props, and options.
+        This resource allows you to create and manage projects for GitHub organization.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        project = github.OrganizationProject("project", body="This is a organization project.")
+        ```
+
         :param str resource_name: The name of the resource.
         :param OrganizationProjectArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -171,6 +213,9 @@ class OrganizationProject(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] body: The body of the project.
+        :param pulumi.Input[str] name: The name of the project.
+        :param pulumi.Input[str] url: URL of the project
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -185,6 +230,9 @@ class OrganizationProject(pulumi.CustomResource):
     @property
     @pulumi.getter
     def body(self) -> pulumi.Output[Optional[str]]:
+        """
+        The body of the project.
+        """
         return pulumi.get(self, "body")
 
     @property
@@ -195,10 +243,16 @@ class OrganizationProject(pulumi.CustomResource):
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        The name of the project.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def url(self) -> pulumi.Output[str]:
+        """
+        URL of the project
+        """
         return pulumi.get(self, "url")
 

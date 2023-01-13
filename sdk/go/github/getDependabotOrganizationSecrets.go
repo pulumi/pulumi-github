@@ -7,6 +7,31 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Use this data source to retrieve the list of dependabot secrets of the organization.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-github/sdk/v5/go/github"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := github.GetDependabotOrganizationSecrets(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func GetDependabotOrganizationSecrets(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetDependabotOrganizationSecretsResult, error) {
 	var rv GetDependabotOrganizationSecretsResult
 	err := ctx.Invoke("github:index/getDependabotOrganizationSecrets:getDependabotOrganizationSecrets", nil, &rv, opts...)
@@ -19,6 +44,7 @@ func GetDependabotOrganizationSecrets(ctx *pulumi.Context, opts ...pulumi.Invoke
 // A collection of values returned by getDependabotOrganizationSecrets.
 type GetDependabotOrganizationSecretsResult struct {
 	// The provider-assigned unique ID for this managed resource.
-	Id      string                                   `pulumi:"id"`
+	Id string `pulumi:"id"`
+	// list of secrets for the repository
 	Secrets []GetDependabotOrganizationSecretsSecret `pulumi:"secrets"`
 }

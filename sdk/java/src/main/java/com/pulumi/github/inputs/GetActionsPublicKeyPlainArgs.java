@@ -12,9 +12,17 @@ public final class GetActionsPublicKeyPlainArgs extends com.pulumi.resources.Inv
 
     public static final GetActionsPublicKeyPlainArgs Empty = new GetActionsPublicKeyPlainArgs();
 
+    /**
+     * Name of the repository to get public key from.
+     * 
+     */
     @Import(name="repository", required=true)
     private String repository;
 
+    /**
+     * @return Name of the repository to get public key from.
+     * 
+     */
     public String repository() {
         return this.repository;
     }
@@ -43,6 +51,12 @@ public final class GetActionsPublicKeyPlainArgs extends com.pulumi.resources.Inv
             $ = new GetActionsPublicKeyPlainArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param repository Name of the repository to get public key from.
+         * 
+         * @return builder
+         * 
+         */
         public Builder repository(String repository) {
             $.repository = repository;
             return this;

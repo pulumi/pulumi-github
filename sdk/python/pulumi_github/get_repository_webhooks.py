@@ -49,6 +49,10 @@ class GetRepositoryWebhooksResult:
     @property
     @pulumi.getter
     def webhooks(self) -> Sequence['outputs.GetRepositoryWebhooksWebhookResult']:
+        """
+        An Array of GitHub Webhooks.  Each `webhook` block consists of the fields documented below.
+        ___
+        """
         return pulumi.get(self, "webhooks")
 
 
@@ -66,7 +70,18 @@ class AwaitableGetRepositoryWebhooksResult(GetRepositoryWebhooksResult):
 def get_repository_webhooks(repository: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRepositoryWebhooksResult:
     """
-    Use this data source to access information about an existing resource.
+    Use this data source to retrieve webhooks for a given repository.
+
+    ## Example Usage
+
+    To retrieve webhooks of a repository:
+
+    ```python
+    import pulumi
+    import pulumi_github as github
+
+    repo = github.get_repository_webhooks(repository="foo")
+    ```
     """
     __args__ = dict()
     __args__['repository'] = repository
@@ -83,6 +98,17 @@ def get_repository_webhooks(repository: Optional[str] = None,
 def get_repository_webhooks_output(repository: Optional[pulumi.Input[str]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRepositoryWebhooksResult]:
     """
-    Use this data source to access information about an existing resource.
+    Use this data source to retrieve webhooks for a given repository.
+
+    ## Example Usage
+
+    To retrieve webhooks of a repository:
+
+    ```python
+    import pulumi
+    import pulumi_github as github
+
+    repo = github.get_repository_webhooks(repository="foo")
+    ```
     """
     ...

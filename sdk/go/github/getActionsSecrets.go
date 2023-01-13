@@ -10,6 +10,33 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Use this data source to retrieve the list of secrets for a GitHub repository.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-github/sdk/v5/go/github"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := github.GetActionsSecrets(ctx, &github.GetActionsSecretsArgs{
+//				Name: pulumi.StringRef("example"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func GetActionsSecrets(ctx *pulumi.Context, args *GetActionsSecretsArgs, opts ...pulumi.InvokeOption) (*GetActionsSecretsResult, error) {
 	var rv GetActionsSecretsResult
 	err := ctx.Invoke("github:index/getActionsSecrets:getActionsSecrets", args, &rv, opts...)
@@ -21,16 +48,20 @@ func GetActionsSecrets(ctx *pulumi.Context, args *GetActionsSecretsArgs, opts ..
 
 // A collection of arguments for invoking getActionsSecrets.
 type GetActionsSecretsArgs struct {
+	// Full name of the repository (in `org/name` format).
 	FullName *string `pulumi:"fullName"`
-	Name     *string `pulumi:"name"`
+	// The name of the repository.
+	Name *string `pulumi:"name"`
 }
 
 // A collection of values returned by getActionsSecrets.
 type GetActionsSecretsResult struct {
 	FullName string `pulumi:"fullName"`
 	// The provider-assigned unique ID for this managed resource.
-	Id      string                    `pulumi:"id"`
-	Name    string                    `pulumi:"name"`
+	Id string `pulumi:"id"`
+	// Secret name
+	Name string `pulumi:"name"`
+	// list of secrets for the repository
 	Secrets []GetActionsSecretsSecret `pulumi:"secrets"`
 }
 
@@ -49,8 +80,10 @@ func GetActionsSecretsOutput(ctx *pulumi.Context, args GetActionsSecretsOutputAr
 
 // A collection of arguments for invoking getActionsSecrets.
 type GetActionsSecretsOutputArgs struct {
+	// Full name of the repository (in `org/name` format).
 	FullName pulumi.StringPtrInput `pulumi:"fullName"`
-	Name     pulumi.StringPtrInput `pulumi:"name"`
+	// The name of the repository.
+	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
 func (GetActionsSecretsOutputArgs) ElementType() reflect.Type {
@@ -81,10 +114,12 @@ func (o GetActionsSecretsResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetActionsSecretsResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// Secret name
 func (o GetActionsSecretsResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetActionsSecretsResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// list of secrets for the repository
 func (o GetActionsSecretsResultOutput) Secrets() GetActionsSecretsSecretArrayOutput {
 	return o.ApplyT(func(v GetActionsSecretsResult) []GetActionsSecretsSecret { return v.Secrets }).(GetActionsSecretsSecretArrayOutput)
 }

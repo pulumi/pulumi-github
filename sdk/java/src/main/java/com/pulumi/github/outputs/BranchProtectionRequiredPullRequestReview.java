@@ -14,29 +14,91 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class BranchProtectionRequiredPullRequestReview {
+    /**
+     * @return Dismiss approved reviews automatically when a new commit is pushed. Defaults to `false`.
+     * 
+     */
     private @Nullable Boolean dismissStaleReviews;
+    /**
+     * @return The list of actor Names/IDs with dismissal access. If not empty, `restrict_dismissals` is ignored. Actor names must either begin with a &#34;/&#34; for users or the organization name followed by a &#34;/&#34; for teams.
+     * 
+     */
     private @Nullable List<String> dismissalRestrictions;
+    /**
+     * @return The list of actor Names/IDs that are allowed to bypass pull request requirements. Actor names must either begin with a &#34;/&#34; for users or the organization name followed by a &#34;/&#34; for teams.
+     * 
+     */
     private @Nullable List<String> pullRequestBypassers;
+    /**
+     * @return Require an approved review in pull requests including files with a designated code owner. Defaults to `false`.
+     * 
+     */
     private @Nullable Boolean requireCodeOwnerReviews;
+    /**
+     * @return Require that The most recent push must be approved by someone other than the last pusher.  Defaults to `false`
+     * 
+     */
+    private @Nullable Boolean requireLastPushApproval;
+    /**
+     * @return Require x number of approvals to satisfy branch protection requirements. If this is specified it must be a number between 0-6. This requirement matches GitHub&#39;s API, see the upstream [documentation](https://developer.github.com/v3/repos/branches/#parameters-1) for more information.
+     * (https://developer.github.com/v3/repos/branches/#parameters-1) for more information.
+     * 
+     */
     private @Nullable Integer requiredApprovingReviewCount;
+    /**
+     * @return Restrict pull request review dismissals.
+     * 
+     */
     private @Nullable Boolean restrictDismissals;
 
     private BranchProtectionRequiredPullRequestReview() {}
+    /**
+     * @return Dismiss approved reviews automatically when a new commit is pushed. Defaults to `false`.
+     * 
+     */
     public Optional<Boolean> dismissStaleReviews() {
         return Optional.ofNullable(this.dismissStaleReviews);
     }
+    /**
+     * @return The list of actor Names/IDs with dismissal access. If not empty, `restrict_dismissals` is ignored. Actor names must either begin with a &#34;/&#34; for users or the organization name followed by a &#34;/&#34; for teams.
+     * 
+     */
     public List<String> dismissalRestrictions() {
         return this.dismissalRestrictions == null ? List.of() : this.dismissalRestrictions;
     }
+    /**
+     * @return The list of actor Names/IDs that are allowed to bypass pull request requirements. Actor names must either begin with a &#34;/&#34; for users or the organization name followed by a &#34;/&#34; for teams.
+     * 
+     */
     public List<String> pullRequestBypassers() {
         return this.pullRequestBypassers == null ? List.of() : this.pullRequestBypassers;
     }
+    /**
+     * @return Require an approved review in pull requests including files with a designated code owner. Defaults to `false`.
+     * 
+     */
     public Optional<Boolean> requireCodeOwnerReviews() {
         return Optional.ofNullable(this.requireCodeOwnerReviews);
     }
+    /**
+     * @return Require that The most recent push must be approved by someone other than the last pusher.  Defaults to `false`
+     * 
+     */
+    public Optional<Boolean> requireLastPushApproval() {
+        return Optional.ofNullable(this.requireLastPushApproval);
+    }
+    /**
+     * @return Require x number of approvals to satisfy branch protection requirements. If this is specified it must be a number between 0-6. This requirement matches GitHub&#39;s API, see the upstream [documentation](https://developer.github.com/v3/repos/branches/#parameters-1) for more information.
+     * (https://developer.github.com/v3/repos/branches/#parameters-1) for more information.
+     * 
+     */
     public Optional<Integer> requiredApprovingReviewCount() {
         return Optional.ofNullable(this.requiredApprovingReviewCount);
     }
+    /**
+     * @return Restrict pull request review dismissals.
+     * 
+     */
     public Optional<Boolean> restrictDismissals() {
         return Optional.ofNullable(this.restrictDismissals);
     }
@@ -54,6 +116,7 @@ public final class BranchProtectionRequiredPullRequestReview {
         private @Nullable List<String> dismissalRestrictions;
         private @Nullable List<String> pullRequestBypassers;
         private @Nullable Boolean requireCodeOwnerReviews;
+        private @Nullable Boolean requireLastPushApproval;
         private @Nullable Integer requiredApprovingReviewCount;
         private @Nullable Boolean restrictDismissals;
         public Builder() {}
@@ -63,6 +126,7 @@ public final class BranchProtectionRequiredPullRequestReview {
     	      this.dismissalRestrictions = defaults.dismissalRestrictions;
     	      this.pullRequestBypassers = defaults.pullRequestBypassers;
     	      this.requireCodeOwnerReviews = defaults.requireCodeOwnerReviews;
+    	      this.requireLastPushApproval = defaults.requireLastPushApproval;
     	      this.requiredApprovingReviewCount = defaults.requiredApprovingReviewCount;
     	      this.restrictDismissals = defaults.restrictDismissals;
         }
@@ -94,6 +158,11 @@ public final class BranchProtectionRequiredPullRequestReview {
             return this;
         }
         @CustomType.Setter
+        public Builder requireLastPushApproval(@Nullable Boolean requireLastPushApproval) {
+            this.requireLastPushApproval = requireLastPushApproval;
+            return this;
+        }
+        @CustomType.Setter
         public Builder requiredApprovingReviewCount(@Nullable Integer requiredApprovingReviewCount) {
             this.requiredApprovingReviewCount = requiredApprovingReviewCount;
             return this;
@@ -109,6 +178,7 @@ public final class BranchProtectionRequiredPullRequestReview {
             o.dismissalRestrictions = dismissalRestrictions;
             o.pullRequestBypassers = pullRequestBypassers;
             o.requireCodeOwnerReviews = requireCodeOwnerReviews;
+            o.requireLastPushApproval = requireLastPushApproval;
             o.requiredApprovingReviewCount = requiredApprovingReviewCount;
             o.restrictDismissals = restrictDismissals;
             return o;

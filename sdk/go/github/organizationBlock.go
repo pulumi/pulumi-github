@@ -11,10 +11,38 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// This resource allows you to create and manage blocks for GitHub organizations.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-github/sdk/v5/go/github"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := github.NewOrganizationBlock(ctx, "example", &github.OrganizationBlockArgs{
+//				Username: pulumi.String("paultyng"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 type OrganizationBlock struct {
 	pulumi.CustomResourceState
 
-	Etag     pulumi.StringOutput `pulumi:"etag"`
+	Etag pulumi.StringOutput `pulumi:"etag"`
+	// The name of the user to block.
 	Username pulumi.StringOutput `pulumi:"username"`
 }
 
@@ -50,12 +78,14 @@ func GetOrganizationBlock(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering OrganizationBlock resources.
 type organizationBlockState struct {
-	Etag     *string `pulumi:"etag"`
+	Etag *string `pulumi:"etag"`
+	// The name of the user to block.
 	Username *string `pulumi:"username"`
 }
 
 type OrganizationBlockState struct {
-	Etag     pulumi.StringPtrInput
+	Etag pulumi.StringPtrInput
+	// The name of the user to block.
 	Username pulumi.StringPtrInput
 }
 
@@ -64,11 +94,13 @@ func (OrganizationBlockState) ElementType() reflect.Type {
 }
 
 type organizationBlockArgs struct {
+	// The name of the user to block.
 	Username string `pulumi:"username"`
 }
 
 // The set of arguments for constructing a OrganizationBlock resource.
 type OrganizationBlockArgs struct {
+	// The name of the user to block.
 	Username pulumi.StringInput
 }
 
@@ -163,6 +195,7 @@ func (o OrganizationBlockOutput) Etag() pulumi.StringOutput {
 	return o.ApplyT(func(v *OrganizationBlock) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
 }
 
+// The name of the user to block.
 func (o OrganizationBlockOutput) Username() pulumi.StringOutput {
 	return o.ApplyT(func(v *OrganizationBlock) pulumi.StringOutput { return v.Username }).(pulumi.StringOutput)
 }

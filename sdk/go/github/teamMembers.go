@@ -11,12 +11,79 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-github/sdk/v5/go/github"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := github.NewMembership(ctx, "membershipForSomeUser", &github.MembershipArgs{
+//				Username: pulumi.String("SomeUser"),
+//				Role:     pulumi.String("member"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = github.NewMembership(ctx, "membershipForAnotherUser", &github.MembershipArgs{
+//				Username: pulumi.String("AnotherUser"),
+//				Role:     pulumi.String("member"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			someTeam, err := github.NewTeam(ctx, "someTeam", &github.TeamArgs{
+//				Description: pulumi.String("Some cool team"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = github.NewTeamMembers(ctx, "someTeamMembers", &github.TeamMembersArgs{
+//				TeamId: someTeam.ID(),
+//				Members: github.TeamMembersMemberArray{
+//					&github.TeamMembersMemberArgs{
+//						Username: pulumi.String("SomeUser"),
+//						Role:     pulumi.String("maintainer"),
+//					},
+//					&github.TeamMembersMemberArgs{
+//						Username: pulumi.String("AnotherUser"),
+//						Role:     pulumi.String("member"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// GitHub Team Membership can be imported using the team ID `teamid`, e.g.
+//
+// ```sh
+//
+//	$ pulumi import github:index/teamMembers:TeamMembers some_team 1234567
+//
+// ```
 type TeamMembers struct {
 	pulumi.CustomResourceState
 
-	Etag    pulumi.StringOutput          `pulumi:"etag"`
+	Etag pulumi.StringOutput `pulumi:"etag"`
+	// List of team members. See Members below for details.
 	Members TeamMembersMemberArrayOutput `pulumi:"members"`
-	TeamId  pulumi.StringOutput          `pulumi:"teamId"`
+	// The GitHub team id
+	TeamId pulumi.StringOutput `pulumi:"teamId"`
 }
 
 // NewTeamMembers registers a new resource with the given unique name, arguments, and options.
@@ -54,15 +121,19 @@ func GetTeamMembers(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering TeamMembers resources.
 type teamMembersState struct {
-	Etag    *string             `pulumi:"etag"`
+	Etag *string `pulumi:"etag"`
+	// List of team members. See Members below for details.
 	Members []TeamMembersMember `pulumi:"members"`
-	TeamId  *string             `pulumi:"teamId"`
+	// The GitHub team id
+	TeamId *string `pulumi:"teamId"`
 }
 
 type TeamMembersState struct {
-	Etag    pulumi.StringPtrInput
+	Etag pulumi.StringPtrInput
+	// List of team members. See Members below for details.
 	Members TeamMembersMemberArrayInput
-	TeamId  pulumi.StringPtrInput
+	// The GitHub team id
+	TeamId pulumi.StringPtrInput
 }
 
 func (TeamMembersState) ElementType() reflect.Type {
@@ -70,14 +141,18 @@ func (TeamMembersState) ElementType() reflect.Type {
 }
 
 type teamMembersArgs struct {
+	// List of team members. See Members below for details.
 	Members []TeamMembersMember `pulumi:"members"`
-	TeamId  string              `pulumi:"teamId"`
+	// The GitHub team id
+	TeamId string `pulumi:"teamId"`
 }
 
 // The set of arguments for constructing a TeamMembers resource.
 type TeamMembersArgs struct {
+	// List of team members. See Members below for details.
 	Members TeamMembersMemberArrayInput
-	TeamId  pulumi.StringInput
+	// The GitHub team id
+	TeamId pulumi.StringInput
 }
 
 func (TeamMembersArgs) ElementType() reflect.Type {
@@ -171,10 +246,12 @@ func (o TeamMembersOutput) Etag() pulumi.StringOutput {
 	return o.ApplyT(func(v *TeamMembers) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
 }
 
+// List of team members. See Members below for details.
 func (o TeamMembersOutput) Members() TeamMembersMemberArrayOutput {
 	return o.ApplyT(func(v *TeamMembers) TeamMembersMemberArrayOutput { return v.Members }).(TeamMembersMemberArrayOutput)
 }
 
+// The GitHub team id
 func (o TeamMembersOutput) TeamId() pulumi.StringOutput {
 	return o.ApplyT(func(v *TeamMembers) pulumi.StringOutput { return v.TeamId }).(pulumi.StringOutput)
 }

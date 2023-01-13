@@ -13,9 +13,17 @@ public final class GetGithubAppArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetGithubAppArgs Empty = new GetGithubAppArgs();
 
+    /**
+     * The URL-friendly name of your GitHub App.
+     * 
+     */
     @Import(name="slug", required=true)
     private Output<String> slug;
 
+    /**
+     * @return The URL-friendly name of your GitHub App.
+     * 
+     */
     public Output<String> slug() {
         return this.slug;
     }
@@ -44,11 +52,23 @@ public final class GetGithubAppArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetGithubAppArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param slug The URL-friendly name of your GitHub App.
+         * 
+         * @return builder
+         * 
+         */
         public Builder slug(Output<String> slug) {
             $.slug = slug;
             return this;
         }
 
+        /**
+         * @param slug The URL-friendly name of your GitHub App.
+         * 
+         * @return builder
+         * 
+         */
         public Builder slug(String slug) {
             return slug(Output.of(slug));
         }

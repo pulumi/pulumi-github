@@ -92,51 +92,81 @@ class GetUserResult:
     @property
     @pulumi.getter(name="avatarUrl")
     def avatar_url(self) -> str:
+        """
+        the user's avatar URL.
+        """
         return pulumi.get(self, "avatar_url")
 
     @property
     @pulumi.getter
     def bio(self) -> str:
+        """
+        the user's bio.
+        """
         return pulumi.get(self, "bio")
 
     @property
     @pulumi.getter
     def blog(self) -> str:
+        """
+        the user's blog location.
+        """
         return pulumi.get(self, "blog")
 
     @property
     @pulumi.getter
     def company(self) -> str:
+        """
+        the user's company name.
+        """
         return pulumi.get(self, "company")
 
     @property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> str:
+        """
+        the creation date.
+        """
         return pulumi.get(self, "created_at")
 
     @property
     @pulumi.getter
     def email(self) -> str:
+        """
+        the user's email.
+        """
         return pulumi.get(self, "email")
 
     @property
     @pulumi.getter
     def followers(self) -> int:
+        """
+        the number of followers.
+        """
         return pulumi.get(self, "followers")
 
     @property
     @pulumi.getter
     def following(self) -> int:
+        """
+        the number of following users.
+        """
         return pulumi.get(self, "following")
 
     @property
     @pulumi.getter(name="gpgKeys")
     def gpg_keys(self) -> Sequence[str]:
+        """
+        list of user's GPG keys.
+        """
         return pulumi.get(self, "gpg_keys")
 
     @property
     @pulumi.getter(name="gravatarId")
     def gravatar_id(self) -> str:
+        """
+        the user's gravatar ID.
+        """
         return pulumi.get(self, "gravatar_id")
 
     @property
@@ -150,51 +180,81 @@ class GetUserResult:
     @property
     @pulumi.getter
     def location(self) -> str:
+        """
+        the user's location.
+        """
         return pulumi.get(self, "location")
 
     @property
     @pulumi.getter
     def login(self) -> str:
+        """
+        the user's login.
+        """
         return pulumi.get(self, "login")
 
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        the user's full name.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="nodeId")
     def node_id(self) -> str:
+        """
+        the Node ID of the user.
+        """
         return pulumi.get(self, "node_id")
 
     @property
     @pulumi.getter(name="publicGists")
     def public_gists(self) -> int:
+        """
+        the number of public gists.
+        """
         return pulumi.get(self, "public_gists")
 
     @property
     @pulumi.getter(name="publicRepos")
     def public_repos(self) -> int:
+        """
+        the number of public repositories.
+        """
         return pulumi.get(self, "public_repos")
 
     @property
     @pulumi.getter(name="siteAdmin")
     def site_admin(self) -> bool:
+        """
+        whether the user is a GitHub admin.
+        """
         return pulumi.get(self, "site_admin")
 
     @property
     @pulumi.getter(name="sshKeys")
     def ssh_keys(self) -> Sequence[str]:
+        """
+        list of user's SSH keys.
+        """
         return pulumi.get(self, "ssh_keys")
 
     @property
     @pulumi.getter(name="suspendedAt")
     def suspended_at(self) -> str:
+        """
+        the suspended date if the user is suspended.
+        """
         return pulumi.get(self, "suspended_at")
 
     @property
     @pulumi.getter(name="updatedAt")
     def updated_at(self) -> str:
+        """
+        the update date.
+        """
         return pulumi.get(self, "updated_at")
 
     @property
@@ -236,7 +296,21 @@ class AwaitableGetUserResult(GetUserResult):
 def get_user(username: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUserResult:
     """
-    Use this data source to access information about an existing resource.
+    Use this data source to retrieve information about a GitHub user.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_github as github
+
+    example = github.get_user(username="example")
+    current = github.get_user(username="")
+    pulumi.export("currentGithubLogin", current.login)
+    ```
+
+
+    :param str username: The username. Use an empty string `""` to retrieve information about the currently authenticated user.
     """
     __args__ = dict()
     __args__['username'] = username
@@ -272,6 +346,20 @@ def get_user(username: Optional[str] = None,
 def get_user_output(username: Optional[pulumi.Input[str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserResult]:
     """
-    Use this data source to access information about an existing resource.
+    Use this data source to retrieve information about a GitHub user.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_github as github
+
+    example = github.get_user(username="example")
+    current = github.get_user(username="")
+    pulumi.export("currentGithubLogin", current.login)
+    ```
+
+
+    :param str username: The username. Use an empty string `""` to retrieve information about the currently authenticated user.
     """
     ...

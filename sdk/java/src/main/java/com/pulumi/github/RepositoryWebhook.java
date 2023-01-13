@@ -17,17 +17,94 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * This resource allows you to create and manage webhooks for repositories within your
+ * GitHub organization or personal account.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.github.Repository;
+ * import com.pulumi.github.RepositoryArgs;
+ * import com.pulumi.github.RepositoryWebhook;
+ * import com.pulumi.github.RepositoryWebhookArgs;
+ * import com.pulumi.github.inputs.RepositoryWebhookConfigurationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var repo = new Repository(&#34;repo&#34;, RepositoryArgs.builder()        
+ *             .description(&#34;Terraform acceptance tests&#34;)
+ *             .homepageUrl(&#34;http://example.com/&#34;)
+ *             .private_(false)
+ *             .build());
+ * 
+ *         var foo = new RepositoryWebhook(&#34;foo&#34;, RepositoryWebhookArgs.builder()        
+ *             .repository(repo.name())
+ *             .configuration(RepositoryWebhookConfigurationArgs.builder()
+ *                 .url(&#34;https://google.de/&#34;)
+ *                 .contentType(&#34;form&#34;)
+ *                 .insecureSsl(false)
+ *                 .build())
+ *             .active(false)
+ *             .events(&#34;issues&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * Repository webhooks can be imported using the `name` of the repository, combined with the `id` of the webhook, separated by a `/` character. The `id` of the webhook can be found in the URL of the webhook. For example`&#34;https://github.com/foo-org/foo-repo/settings/hooks/14711452&#34;`. Importing uses the name of the repository, as well as the ID of the webhook, e.g.
+ * 
+ * ```sh
+ *  $ pulumi import github:index/repositoryWebhook:RepositoryWebhook terraform terraform/11235813
+ * ```
+ * 
+ *  If secret is populated in the webhook&#39;s configuration, the value will be imported as &#34;********&#34;.
+ * 
+ */
 @ResourceType(type="github:index/repositoryWebhook:RepositoryWebhook")
 public class RepositoryWebhook extends com.pulumi.resources.CustomResource {
+    /**
+     * Indicate if the webhook should receive events. Defaults to `true`.
+     * 
+     */
     @Export(name="active", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> active;
 
+    /**
+     * @return Indicate if the webhook should receive events. Defaults to `true`.
+     * 
+     */
     public Output<Optional<Boolean>> active() {
         return Codegen.optional(this.active);
     }
+    /**
+     * Configuration block for the webhook. Detailed below.
+     * 
+     */
     @Export(name="configuration", type=RepositoryWebhookConfiguration.class, parameters={})
     private Output</* @Nullable */ RepositoryWebhookConfiguration> configuration;
 
+    /**
+     * @return Configuration block for the webhook. Detailed below.
+     * 
+     */
     public Output<Optional<RepositoryWebhookConfiguration>> configuration() {
         return Codegen.optional(this.configuration);
     }
@@ -37,21 +114,45 @@ public class RepositoryWebhook extends com.pulumi.resources.CustomResource {
     public Output<String> etag() {
         return this.etag;
     }
+    /**
+     * A list of events which should trigger the webhook. See a list of [available events](https://developer.github.com/v3/activity/events/types/).
+     * 
+     */
     @Export(name="events", type=List.class, parameters={String.class})
     private Output<List<String>> events;
 
+    /**
+     * @return A list of events which should trigger the webhook. See a list of [available events](https://developer.github.com/v3/activity/events/types/).
+     * 
+     */
     public Output<List<String>> events() {
         return this.events;
     }
+    /**
+     * The repository of the webhook.
+     * 
+     */
     @Export(name="repository", type=String.class, parameters={})
     private Output<String> repository;
 
+    /**
+     * @return The repository of the webhook.
+     * 
+     */
     public Output<String> repository() {
         return this.repository;
     }
+    /**
+     * The URL of the webhook.
+     * 
+     */
     @Export(name="url", type=String.class, parameters={})
     private Output<String> url;
 
+    /**
+     * @return The URL of the webhook.
+     * 
+     */
     public Output<String> url() {
         return this.url;
     }

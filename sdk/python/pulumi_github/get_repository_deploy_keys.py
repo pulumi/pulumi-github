@@ -44,6 +44,9 @@ class GetRepositoryDeployKeysResult:
     @property
     @pulumi.getter
     def keys(self) -> Sequence['outputs.GetRepositoryDeployKeysKeyResult']:
+        """
+        The list of this repository's deploy keys. Each element of `keys` has the following attributes:
+        """
         return pulumi.get(self, "keys")
 
     @property
@@ -66,7 +69,19 @@ class AwaitableGetRepositoryDeployKeysResult(GetRepositoryDeployKeysResult):
 def get_repository_deploy_keys(repository: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRepositoryDeployKeysResult:
     """
-    Use this data source to access information about an existing resource.
+    Use this data source to retrieve all deploy keys of a repository.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_github as github
+
+    example = github.get_repository_deploy_keys(repository="example-repository")
+    ```
+
+
+    :param str repository: Name of the repository to retrieve the branches from.
     """
     __args__ = dict()
     __args__['repository'] = repository
@@ -83,6 +98,18 @@ def get_repository_deploy_keys(repository: Optional[str] = None,
 def get_repository_deploy_keys_output(repository: Optional[pulumi.Input[str]] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRepositoryDeployKeysResult]:
     """
-    Use this data source to access information about an existing resource.
+    Use this data source to retrieve all deploy keys of a repository.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_github as github
+
+    example = github.get_repository_deploy_keys(repository="example-repository")
+    ```
+
+
+    :param str repository: Name of the repository to retrieve the branches from.
     """
     ...

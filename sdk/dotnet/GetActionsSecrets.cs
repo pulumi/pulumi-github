@@ -11,9 +11,57 @@ namespace Pulumi.Github
 {
     public static class GetActionsSecrets
     {
+        /// <summary>
+        /// Use this data source to retrieve the list of secrets for a GitHub repository.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Github = Pulumi.Github;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Github.GetActionsSecrets.Invoke(new()
+        ///     {
+        ///         Name = "example",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetActionsSecretsResult> InvokeAsync(GetActionsSecretsArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetActionsSecretsResult>("github:index/getActionsSecrets:getActionsSecrets", args ?? new GetActionsSecretsArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Use this data source to retrieve the list of secrets for a GitHub repository.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Github = Pulumi.Github;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Github.GetActionsSecrets.Invoke(new()
+        ///     {
+        ///         Name = "example",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Output<GetActionsSecretsResult> Invoke(GetActionsSecretsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetActionsSecretsResult>("github:index/getActionsSecrets:getActionsSecrets", args ?? new GetActionsSecretsInvokeArgs(), options.WithDefaults());
     }
@@ -21,9 +69,15 @@ namespace Pulumi.Github
 
     public sealed class GetActionsSecretsArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Full name of the repository (in `org/name` format).
+        /// </summary>
         [Input("fullName")]
         public string? FullName { get; set; }
 
+        /// <summary>
+        /// The name of the repository.
+        /// </summary>
         [Input("name")]
         public string? Name { get; set; }
 
@@ -35,9 +89,15 @@ namespace Pulumi.Github
 
     public sealed class GetActionsSecretsInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Full name of the repository (in `org/name` format).
+        /// </summary>
         [Input("fullName")]
         public Input<string>? FullName { get; set; }
 
+        /// <summary>
+        /// The name of the repository.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
@@ -56,7 +116,13 @@ namespace Pulumi.Github
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// Secret name
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// list of secrets for the repository
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetActionsSecretsSecretResult> Secrets;
 
         [OutputConstructor]

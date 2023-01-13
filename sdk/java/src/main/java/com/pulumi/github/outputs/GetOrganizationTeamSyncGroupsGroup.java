@@ -9,17 +9,41 @@ import java.util.Objects;
 
 @CustomType
 public final class GetOrganizationTeamSyncGroupsGroup {
+    /**
+     * @return The description of the IdP group.
+     * 
+     */
     private String groupDescription;
+    /**
+     * @return The ID of the IdP group.
+     * 
+     */
     private String groupId;
+    /**
+     * @return The name of the IdP group.
+     * 
+     */
     private String groupName;
 
     private GetOrganizationTeamSyncGroupsGroup() {}
+    /**
+     * @return The description of the IdP group.
+     * 
+     */
     public String groupDescription() {
         return this.groupDescription;
     }
+    /**
+     * @return The ID of the IdP group.
+     * 
+     */
     public String groupId() {
         return this.groupId;
     }
+    /**
+     * @return The name of the IdP group.
+     * 
+     */
     public String groupName() {
         return this.groupName;
     }

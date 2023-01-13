@@ -16,6 +16,11 @@ public final class GetOrganizationWebhooksResult {
      * 
      */
     private String id;
+    /**
+     * @return An Array of GitHub Webhooks.  Each `webhook` block consists of the fields documented below.
+     * ***
+     * 
+     */
     private List<GetOrganizationWebhooksWebhook> webhooks;
 
     private GetOrganizationWebhooksResult() {}
@@ -26,6 +31,11 @@ public final class GetOrganizationWebhooksResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return An Array of GitHub Webhooks.  Each `webhook` block consists of the fields documented below.
+     * ***
+     * 
+     */
     public List<GetOrganizationWebhooksWebhook> webhooks() {
         return this.webhooks;
     }

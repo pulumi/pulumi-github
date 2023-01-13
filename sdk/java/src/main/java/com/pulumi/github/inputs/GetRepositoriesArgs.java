@@ -5,6 +5,8 @@ package com.pulumi.github.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -15,16 +17,62 @@ public final class GetRepositoriesArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetRepositoriesArgs Empty = new GetRepositoriesArgs();
 
+    /**
+     * Returns a list of found repository IDs
+     * 
+     */
+    @Import(name="includeRepoId")
+    private @Nullable Output<Boolean> includeRepoId;
+
+    /**
+     * @return Returns a list of found repository IDs
+     * 
+     */
+    public Optional<Output<Boolean>> includeRepoId() {
+        return Optional.ofNullable(this.includeRepoId);
+    }
+
+    /**
+     * Search query. See [documentation for the search syntax](https://help.github.com/articles/understanding-the-search-syntax/).
+     * 
+     */
     @Import(name="query", required=true)
     private Output<String> query;
 
+    /**
+     * @return Search query. See [documentation for the search syntax](https://help.github.com/articles/understanding-the-search-syntax/).
+     * 
+     */
     public Output<String> query() {
         return this.query;
     }
 
+    /**
+     * Set the number of repositories requested per API call. Can be useful to decrease if requests are timing out or to increase to reduce the number of API calls. Defaults to 100.
+     * 
+     */
+    @Import(name="resultsPerPage")
+    private @Nullable Output<Integer> resultsPerPage;
+
+    /**
+     * @return Set the number of repositories requested per API call. Can be useful to decrease if requests are timing out or to increase to reduce the number of API calls. Defaults to 100.
+     * 
+     */
+    public Optional<Output<Integer>> resultsPerPage() {
+        return Optional.ofNullable(this.resultsPerPage);
+    }
+
+    /**
+     * Sorts the repositories returned by the specified attribute. Valid values include `stars`, `fork`, and `updated`. Defaults to `updated`.
+     * 
+     */
     @Import(name="sort")
     private @Nullable Output<String> sort;
 
+    /**
+     * @return Sorts the repositories returned by the specified attribute. Valid values include `stars`, `fork`, and `updated`. Defaults to `updated`.
+     * 
+     */
     public Optional<Output<String>> sort() {
         return Optional.ofNullable(this.sort);
     }
@@ -32,7 +80,9 @@ public final class GetRepositoriesArgs extends com.pulumi.resources.InvokeArgs {
     private GetRepositoriesArgs() {}
 
     private GetRepositoriesArgs(GetRepositoriesArgs $) {
+        this.includeRepoId = $.includeRepoId;
         this.query = $.query;
+        this.resultsPerPage = $.resultsPerPage;
         this.sort = $.sort;
     }
 
@@ -54,20 +104,86 @@ public final class GetRepositoriesArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetRepositoriesArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param includeRepoId Returns a list of found repository IDs
+         * 
+         * @return builder
+         * 
+         */
+        public Builder includeRepoId(@Nullable Output<Boolean> includeRepoId) {
+            $.includeRepoId = includeRepoId;
+            return this;
+        }
+
+        /**
+         * @param includeRepoId Returns a list of found repository IDs
+         * 
+         * @return builder
+         * 
+         */
+        public Builder includeRepoId(Boolean includeRepoId) {
+            return includeRepoId(Output.of(includeRepoId));
+        }
+
+        /**
+         * @param query Search query. See [documentation for the search syntax](https://help.github.com/articles/understanding-the-search-syntax/).
+         * 
+         * @return builder
+         * 
+         */
         public Builder query(Output<String> query) {
             $.query = query;
             return this;
         }
 
+        /**
+         * @param query Search query. See [documentation for the search syntax](https://help.github.com/articles/understanding-the-search-syntax/).
+         * 
+         * @return builder
+         * 
+         */
         public Builder query(String query) {
             return query(Output.of(query));
         }
 
+        /**
+         * @param resultsPerPage Set the number of repositories requested per API call. Can be useful to decrease if requests are timing out or to increase to reduce the number of API calls. Defaults to 100.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder resultsPerPage(@Nullable Output<Integer> resultsPerPage) {
+            $.resultsPerPage = resultsPerPage;
+            return this;
+        }
+
+        /**
+         * @param resultsPerPage Set the number of repositories requested per API call. Can be useful to decrease if requests are timing out or to increase to reduce the number of API calls. Defaults to 100.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder resultsPerPage(Integer resultsPerPage) {
+            return resultsPerPage(Output.of(resultsPerPage));
+        }
+
+        /**
+         * @param sort Sorts the repositories returned by the specified attribute. Valid values include `stars`, `fork`, and `updated`. Defaults to `updated`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sort(@Nullable Output<String> sort) {
             $.sort = sort;
             return this;
         }
 
+        /**
+         * @param sort Sorts the repositories returned by the specified attribute. Valid values include `stars`, `fork`, and `updated`. Defaults to `updated`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sort(String sort) {
             return sort(Output.of(sort));
         }

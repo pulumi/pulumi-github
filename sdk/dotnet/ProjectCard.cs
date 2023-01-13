@@ -9,24 +9,117 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Github
 {
+    /// <summary>
+    /// This resource allows you to create and manage cards for GitHub projects.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Github = Pulumi.Github;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var project = new Github.OrganizationProject("project", new()
+    ///     {
+    ///         Body = "This is an organization project.",
+    ///     });
+    /// 
+    ///     var column = new Github.ProjectColumn("column", new()
+    ///     {
+    ///         ProjectId = project.Id,
+    ///     });
+    /// 
+    ///     var card = new Github.ProjectCard("card", new()
+    ///     {
+    ///         ColumnId = column.ColumnId,
+    ///         Note = "## Unaccepted 👇",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### Adding An Issue To A Project
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Github = Pulumi.Github;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var testRepository = new Github.Repository("testRepository", new()
+    ///     {
+    ///         HasProjects = true,
+    ///         HasIssues = true,
+    ///     });
+    /// 
+    ///     var testIssue = new Github.Issue("testIssue", new()
+    ///     {
+    ///         Repository = testRepository.Id,
+    ///         Title = "Test issue title",
+    ///         Body = "Test issue body",
+    ///     });
+    /// 
+    ///     var testRepositoryProject = new Github.RepositoryProject("testRepositoryProject", new()
+    ///     {
+    ///         Repository = testRepository.Name,
+    ///         Body = "this is a test project",
+    ///     });
+    /// 
+    ///     var testProjectColumn = new Github.ProjectColumn("testProjectColumn", new()
+    ///     {
+    ///         ProjectId = testRepositoryProject.Id,
+    ///     });
+    /// 
+    ///     var testProjectCard = new Github.ProjectCard("testProjectCard", new()
+    ///     {
+    ///         ColumnId = testProjectColumn.ColumnId,
+    ///         ContentId = testIssue.IssueId,
+    ///         ContentType = "Issue",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// A GitHub Project Card can be imported using its [Card ID](https://developer.github.com/v3/projects/cards/#get-a-project-card)
+    /// 
+    /// ```sh
+    ///  $ pulumi import github:index/projectCard:ProjectCard card 01234567
+    /// ```
+    /// </summary>
     [GithubResourceType("github:index/projectCard:ProjectCard")]
     public partial class ProjectCard : global::Pulumi.CustomResource
     {
         [Output("cardId")]
         public Output<int> CardId { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the card.
+        /// </summary>
         [Output("columnId")]
         public Output<string> ColumnId { get; private set; } = null!;
 
+        /// <summary>
+        /// `github_issue.issue_id`.
+        /// </summary>
         [Output("contentId")]
         public Output<int?> ContentId { get; private set; } = null!;
 
+        /// <summary>
+        /// Must be either `Issue` or `PullRequest`
+        /// </summary>
         [Output("contentType")]
         public Output<string?> ContentType { get; private set; } = null!;
 
         [Output("etag")]
         public Output<string> Etag { get; private set; } = null!;
 
+        /// <summary>
+        /// The note contents of the card. Markdown supported.
+        /// </summary>
         [Output("note")]
         public Output<string?> Note { get; private set; } = null!;
 
@@ -76,15 +169,27 @@ namespace Pulumi.Github
 
     public sealed class ProjectCardArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ID of the card.
+        /// </summary>
         [Input("columnId", required: true)]
         public Input<string> ColumnId { get; set; } = null!;
 
+        /// <summary>
+        /// `github_issue.issue_id`.
+        /// </summary>
         [Input("contentId")]
         public Input<int>? ContentId { get; set; }
 
+        /// <summary>
+        /// Must be either `Issue` or `PullRequest`
+        /// </summary>
         [Input("contentType")]
         public Input<string>? ContentType { get; set; }
 
+        /// <summary>
+        /// The note contents of the card. Markdown supported.
+        /// </summary>
         [Input("note")]
         public Input<string>? Note { get; set; }
 
@@ -99,18 +204,30 @@ namespace Pulumi.Github
         [Input("cardId")]
         public Input<int>? CardId { get; set; }
 
+        /// <summary>
+        /// The ID of the card.
+        /// </summary>
         [Input("columnId")]
         public Input<string>? ColumnId { get; set; }
 
+        /// <summary>
+        /// `github_issue.issue_id`.
+        /// </summary>
         [Input("contentId")]
         public Input<int>? ContentId { get; set; }
 
+        /// <summary>
+        /// Must be either `Issue` or `PullRequest`
+        /// </summary>
         [Input("contentType")]
         public Input<string>? ContentType { get; set; }
 
         [Input("etag")]
         public Input<string>? Etag { get; set; }
 
+        /// <summary>
+        /// The note contents of the card. Markdown supported.
+        /// </summary>
         [Input("note")]
         public Input<string>? Note { get; set; }
 

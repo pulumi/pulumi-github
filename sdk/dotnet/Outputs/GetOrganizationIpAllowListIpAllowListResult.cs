@@ -13,11 +13,29 @@ namespace Pulumi.Github.Outputs
     [OutputType]
     public sealed class GetOrganizationIpAllowListIpAllowListResult
     {
+        /// <summary>
+        /// A single IP address or range of IP addresses in CIDR notation.
+        /// </summary>
         public readonly string AllowListValue;
+        /// <summary>
+        /// Identifies the date and time when the object was created.
+        /// </summary>
         public readonly string CreatedAt;
+        /// <summary>
+        /// The ID of the IP allow list entry.
+        /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// Whether the entry is currently active.
+        /// </summary>
         public readonly bool IsActive;
+        /// <summary>
+        /// The name of the IP allow list entry.
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Identifies the date and time when the object was last updated.
+        /// </summary>
         public readonly string UpdatedAt;
 
         [OutputConstructor]

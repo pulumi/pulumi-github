@@ -42,6 +42,9 @@ class GetRepositoryBranchesResult:
     @property
     @pulumi.getter
     def branches(self) -> Sequence['outputs.GetRepositoryBranchesBranchResult']:
+        """
+        The list of this repository's branches. Each element of `branches` has the following attributes:
+        """
         return pulumi.get(self, "branches")
 
     @property
@@ -86,7 +89,21 @@ def get_repository_branches(only_non_protected_branches: Optional[bool] = None,
                             repository: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRepositoryBranchesResult:
     """
-    Use this data source to access information about an existing resource.
+    Use this data source to retrieve information about branches in a repository.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_github as github
+
+    example = github.get_repository_branches(repository="example-repository")
+    ```
+
+
+    :param bool only_non_protected_branches: . If true, the `branches` attributes will be populated only with non protected branches. Default: `false`.
+    :param bool only_protected_branches: . If true, the `branches` attributes will be populated only with protected branches. Default: `false`.
+    :param str repository: Name of the repository to retrieve the branches from.
     """
     __args__ = dict()
     __args__['onlyNonProtectedBranches'] = only_non_protected_branches
@@ -109,6 +126,20 @@ def get_repository_branches_output(only_non_protected_branches: Optional[pulumi.
                                    repository: Optional[pulumi.Input[str]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRepositoryBranchesResult]:
     """
-    Use this data source to access information about an existing resource.
+    Use this data source to retrieve information about branches in a repository.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_github as github
+
+    example = github.get_repository_branches(repository="example-repository")
+    ```
+
+
+    :param bool only_non_protected_branches: . If true, the `branches` attributes will be populated only with non protected branches. Default: `false`.
+    :param bool only_protected_branches: . If true, the `branches` attributes will be populated only with protected branches. Default: `false`.
+    :param str repository: Name of the repository to retrieve the branches from.
     """
     ...

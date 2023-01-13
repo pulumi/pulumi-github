@@ -13,13 +13,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class BranchProtectionRequiredStatusCheck {
+    /**
+     * @return The list of status checks to require in order to merge into this branch. No status checks are required by default.
+     * 
+     */
     private @Nullable List<String> contexts;
+    /**
+     * @return Require branches to be up to date before merging. Defaults to `false`.
+     * 
+     */
     private @Nullable Boolean strict;
 
     private BranchProtectionRequiredStatusCheck() {}
+    /**
+     * @return The list of status checks to require in order to merge into this branch. No status checks are required by default.
+     * 
+     */
     public List<String> contexts() {
         return this.contexts == null ? List.of() : this.contexts;
     }
+    /**
+     * @return Require branches to be up to date before merging. Defaults to `false`.
+     * 
+     */
     public Optional<Boolean> strict() {
         return Optional.ofNullable(this.strict);
     }

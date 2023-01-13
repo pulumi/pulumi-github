@@ -22,9 +22,17 @@ public final class OrganizationBlockState extends com.pulumi.resources.ResourceA
         return Optional.ofNullable(this.etag);
     }
 
+    /**
+     * The name of the user to block.
+     * 
+     */
     @Import(name="username")
     private @Nullable Output<String> username;
 
+    /**
+     * @return The name of the user to block.
+     * 
+     */
     public Optional<Output<String>> username() {
         return Optional.ofNullable(this.username);
     }
@@ -63,11 +71,23 @@ public final class OrganizationBlockState extends com.pulumi.resources.ResourceA
             return etag(Output.of(etag));
         }
 
+        /**
+         * @param username The name of the user to block.
+         * 
+         * @return builder
+         * 
+         */
         public Builder username(@Nullable Output<String> username) {
             $.username = username;
             return this;
         }
 
+        /**
+         * @param username The name of the user to block.
+         * 
+         * @return builder
+         * 
+         */
         public Builder username(String username) {
             return username(Output.of(username));
         }

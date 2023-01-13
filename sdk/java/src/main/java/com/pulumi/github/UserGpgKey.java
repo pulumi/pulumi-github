@@ -13,11 +13,65 @@ import com.pulumi.github.inputs.UserGpgKeyState;
 import java.lang.String;
 import javax.annotation.Nullable;
 
+/**
+ * Provides a GitHub user&#39;s GPG key resource.
+ * 
+ * This resource allows you to add/remove GPG keys from your user account.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.github.UserGpgKey;
+ * import com.pulumi.github.UserGpgKeyArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new UserGpgKey(&#34;example&#34;, UserGpgKeyArgs.builder()        
+ *             .armoredPublicKey(&#34;&#34;&#34;
+ * -----BEGIN PGP PUBLIC KEY BLOCK-----
+ * ...
+ * -----END PGP PUBLIC KEY BLOCK-----
+ *             &#34;&#34;&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * GPG keys are not importable due to the fact that [API](https://developer.github.com/v3/users/gpg_keys/#gpg-keys) does not return previously uploaded GPG key.
+ * 
+ */
 @ResourceType(type="github:index/userGpgKey:UserGpgKey")
 public class UserGpgKey extends com.pulumi.resources.CustomResource {
+    /**
+     * Your public GPG key, generated in ASCII-armored format.
+     * See [Generating a new GPG key](https://help.github.com/articles/generating-a-new-gpg-key/) for help on creating a GPG key.
+     * 
+     */
     @Export(name="armoredPublicKey", type=String.class, parameters={})
     private Output<String> armoredPublicKey;
 
+    /**
+     * @return Your public GPG key, generated in ASCII-armored format.
+     * See [Generating a new GPG key](https://help.github.com/articles/generating-a-new-gpg-key/) for help on creating a GPG key.
+     * 
+     */
     public Output<String> armoredPublicKey() {
         return this.armoredPublicKey;
     }
@@ -27,9 +81,17 @@ public class UserGpgKey extends com.pulumi.resources.CustomResource {
     public Output<String> etag() {
         return this.etag;
     }
+    /**
+     * The key ID of the GPG key, e.g. `3262EFF25BA0D270`
+     * 
+     */
     @Export(name="keyId", type=String.class, parameters={})
     private Output<String> keyId;
 
+    /**
+     * @return The key ID of the GPG key, e.g. `3262EFF25BA0D270`
+     * 
+     */
     public Output<String> keyId() {
         return this.keyId;
     }

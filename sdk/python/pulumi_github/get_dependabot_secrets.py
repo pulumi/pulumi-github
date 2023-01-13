@@ -52,11 +52,17 @@ class GetDependabotSecretsResult:
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        Secret name
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def secrets(self) -> Sequence['outputs.GetDependabotSecretsSecretResult']:
+        """
+        list of dependabot secrets for the repository
+        """
         return pulumi.get(self, "secrets")
 
 
@@ -76,7 +82,20 @@ def get_dependabot_secrets(full_name: Optional[str] = None,
                            name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDependabotSecretsResult:
     """
-    Use this data source to access information about an existing resource.
+    Use this data source to retrieve the list of dependabot secrets for a GitHub repository.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_github as github
+
+    example = github.get_dependabot_secrets(name="example")
+    ```
+
+
+    :param str full_name: Full name of the repository (in `org/name` format).
+    :param str name: The name of the repository.
     """
     __args__ = dict()
     __args__['fullName'] = full_name
@@ -96,6 +115,19 @@ def get_dependabot_secrets_output(full_name: Optional[pulumi.Input[Optional[str]
                                   name: Optional[pulumi.Input[Optional[str]]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDependabotSecretsResult]:
     """
-    Use this data source to access information about an existing resource.
+    Use this data source to retrieve the list of dependabot secrets for a GitHub repository.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_github as github
+
+    example = github.get_dependabot_secrets(name="example")
+    ```
+
+
+    :param str full_name: Full name of the repository (in `org/name` format).
+    :param str name: The name of the repository.
     """
     ...

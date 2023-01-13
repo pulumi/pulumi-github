@@ -14,6 +14,70 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Provides a GitHub team membership resource.
+ * 
+ * This resource allows you to add/remove users from teams in your organization. When applied,
+ * the user will be added to the team. If the user hasn&#39;t accepted their invitation to the
+ * organization, they won&#39;t be part of the team until they do. When
+ * destroyed, the user will be removed from the team.
+ * 
+ * &gt; **Note**: This resource is not compatible with `github.TeamMembers`. Use either `github.TeamMembers` or `github.TeamMembership`.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.github.Membership;
+ * import com.pulumi.github.MembershipArgs;
+ * import com.pulumi.github.Team;
+ * import com.pulumi.github.TeamArgs;
+ * import com.pulumi.github.TeamMembership;
+ * import com.pulumi.github.TeamMembershipArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var membershipForSomeUser = new Membership(&#34;membershipForSomeUser&#34;, MembershipArgs.builder()        
+ *             .username(&#34;SomeUser&#34;)
+ *             .role(&#34;member&#34;)
+ *             .build());
+ * 
+ *         var someTeam = new Team(&#34;someTeam&#34;, TeamArgs.builder()        
+ *             .description(&#34;Some cool team&#34;)
+ *             .build());
+ * 
+ *         var someTeamMembership = new TeamMembership(&#34;someTeamMembership&#34;, TeamMembershipArgs.builder()        
+ *             .teamId(someTeam.id())
+ *             .username(&#34;SomeUser&#34;)
+ *             .role(&#34;member&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * GitHub Team Membership can be imported using an ID made up of `teamid:username`, e.g.
+ * 
+ * ```sh
+ *  $ pulumi import github:index/teamMembership:TeamMembership member 1234567:someuser
+ * ```
+ * 
+ */
 @ResourceType(type="github:index/teamMembership:TeamMembership")
 public class TeamMembership extends com.pulumi.resources.CustomResource {
     @Export(name="etag", type=String.class, parameters={})
@@ -22,21 +86,47 @@ public class TeamMembership extends com.pulumi.resources.CustomResource {
     public Output<String> etag() {
         return this.etag;
     }
+    /**
+     * The role of the user within the team.
+     * Must be one of `member` or `maintainer`. Defaults to `member`.
+     * 
+     */
     @Export(name="role", type=String.class, parameters={})
     private Output</* @Nullable */ String> role;
 
+    /**
+     * @return The role of the user within the team.
+     * Must be one of `member` or `maintainer`. Defaults to `member`.
+     * 
+     */
     public Output<Optional<String>> role() {
         return Codegen.optional(this.role);
     }
+    /**
+     * The GitHub team id
+     * 
+     */
     @Export(name="teamId", type=String.class, parameters={})
     private Output<String> teamId;
 
+    /**
+     * @return The GitHub team id
+     * 
+     */
     public Output<String> teamId() {
         return this.teamId;
     }
+    /**
+     * The user to add to the team.
+     * 
+     */
     @Export(name="username", type=String.class, parameters={})
     private Output<String> username;
 
+    /**
+     * @return The user to add to the team.
+     * 
+     */
     public Output<String> username() {
         return this.username;
     }

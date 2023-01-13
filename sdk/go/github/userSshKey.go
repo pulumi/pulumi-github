@@ -11,13 +11,66 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides a GitHub user's SSH key resource.
+//
+// This resource allows you to add/remove SSH keys from your user account.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"io/ioutil"
+//
+//	"github.com/pulumi/pulumi-github/sdk/v5/go/github"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func readFileOrPanic(path string) pulumi.StringPtrInput {
+//		data, err := ioutil.ReadFile(path)
+//		if err != nil {
+//			panic(err.Error())
+//		}
+//		return pulumi.String(string(data))
+//	}
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := github.NewUserSshKey(ctx, "example", &github.UserSshKeyArgs{
+//				Title: pulumi.String("example title"),
+//				Key:   readFileOrPanic("~/.ssh/id_rsa.pub"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// SSH keys can be imported using their ID e.g.
+//
+// ```sh
+//
+//	$ pulumi import github:index/userSshKey:UserSshKey example 1234567
+//
+// ```
 type UserSshKey struct {
 	pulumi.CustomResourceState
 
-	Etag  pulumi.StringOutput `pulumi:"etag"`
-	Key   pulumi.StringOutput `pulumi:"key"`
+	Etag pulumi.StringOutput `pulumi:"etag"`
+	// The public SSH key to add to your GitHub account.
+	Key pulumi.StringOutput `pulumi:"key"`
+	// A descriptive name for the new key. e.g. `Personal MacBook Air`
 	Title pulumi.StringOutput `pulumi:"title"`
-	Url   pulumi.StringOutput `pulumi:"url"`
+	// The URL of the SSH key
+	Url pulumi.StringOutput `pulumi:"url"`
 }
 
 // NewUserSshKey registers a new resource with the given unique name, arguments, and options.
@@ -55,17 +108,23 @@ func GetUserSshKey(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering UserSshKey resources.
 type userSshKeyState struct {
-	Etag  *string `pulumi:"etag"`
-	Key   *string `pulumi:"key"`
+	Etag *string `pulumi:"etag"`
+	// The public SSH key to add to your GitHub account.
+	Key *string `pulumi:"key"`
+	// A descriptive name for the new key. e.g. `Personal MacBook Air`
 	Title *string `pulumi:"title"`
-	Url   *string `pulumi:"url"`
+	// The URL of the SSH key
+	Url *string `pulumi:"url"`
 }
 
 type UserSshKeyState struct {
-	Etag  pulumi.StringPtrInput
-	Key   pulumi.StringPtrInput
+	Etag pulumi.StringPtrInput
+	// The public SSH key to add to your GitHub account.
+	Key pulumi.StringPtrInput
+	// A descriptive name for the new key. e.g. `Personal MacBook Air`
 	Title pulumi.StringPtrInput
-	Url   pulumi.StringPtrInput
+	// The URL of the SSH key
+	Url pulumi.StringPtrInput
 }
 
 func (UserSshKeyState) ElementType() reflect.Type {
@@ -73,13 +132,17 @@ func (UserSshKeyState) ElementType() reflect.Type {
 }
 
 type userSshKeyArgs struct {
-	Key   string `pulumi:"key"`
+	// The public SSH key to add to your GitHub account.
+	Key string `pulumi:"key"`
+	// A descriptive name for the new key. e.g. `Personal MacBook Air`
 	Title string `pulumi:"title"`
 }
 
 // The set of arguments for constructing a UserSshKey resource.
 type UserSshKeyArgs struct {
-	Key   pulumi.StringInput
+	// The public SSH key to add to your GitHub account.
+	Key pulumi.StringInput
+	// A descriptive name for the new key. e.g. `Personal MacBook Air`
 	Title pulumi.StringInput
 }
 
@@ -174,14 +237,17 @@ func (o UserSshKeyOutput) Etag() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserSshKey) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
 }
 
+// The public SSH key to add to your GitHub account.
 func (o UserSshKeyOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserSshKey) pulumi.StringOutput { return v.Key }).(pulumi.StringOutput)
 }
 
+// A descriptive name for the new key. e.g. `Personal MacBook Air`
 func (o UserSshKeyOutput) Title() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserSshKey) pulumi.StringOutput { return v.Title }).(pulumi.StringOutput)
 }
 
+// The URL of the SSH key
 func (o UserSshKeyOutput) Url() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserSshKey) pulumi.StringOutput { return v.Url }).(pulumi.StringOutput)
 }

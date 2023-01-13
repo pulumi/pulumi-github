@@ -20,9 +20,25 @@ public final class GetOrganizationTeamsResult {
      * 
      */
     private String id;
+    /**
+     * @return (Optional) Set the number of results per graphql query. Reducing this number can alleviate timeout errors. Accepts a value between 0 - 100. Defaults to `100`.
+     * 
+     */
     private @Nullable Integer resultsPerPage;
+    /**
+     * @return (Optional) Only return teams that are at the organization&#39;s root, i.e. no nested teams. Defaults to `false`.
+     * 
+     */
     private @Nullable Boolean rootTeamsOnly;
+    /**
+     * @return (Optional) Exclude the members and repositories of the team from the returned result. Defaults to `false`.
+     * 
+     */
     private @Nullable Boolean summaryOnly;
+    /**
+     * @return (Required) An Array of GitHub Teams.  Each `team` block consists of the fields documented below.
+     * 
+     */
     private List<GetOrganizationTeamsTeam> teams;
 
     private GetOrganizationTeamsResult() {}
@@ -33,15 +49,31 @@ public final class GetOrganizationTeamsResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return (Optional) Set the number of results per graphql query. Reducing this number can alleviate timeout errors. Accepts a value between 0 - 100. Defaults to `100`.
+     * 
+     */
     public Optional<Integer> resultsPerPage() {
         return Optional.ofNullable(this.resultsPerPage);
     }
+    /**
+     * @return (Optional) Only return teams that are at the organization&#39;s root, i.e. no nested teams. Defaults to `false`.
+     * 
+     */
     public Optional<Boolean> rootTeamsOnly() {
         return Optional.ofNullable(this.rootTeamsOnly);
     }
+    /**
+     * @return (Optional) Exclude the members and repositories of the team from the returned result. Defaults to `false`.
+     * 
+     */
     public Optional<Boolean> summaryOnly() {
         return Optional.ofNullable(this.summaryOnly);
     }
+    /**
+     * @return (Required) An Array of GitHub Teams.  Each `team` block consists of the fields documented below.
+     * 
+     */
     public List<GetOrganizationTeamsTeam> teams() {
         return this.teams;
     }

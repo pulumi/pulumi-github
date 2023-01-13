@@ -12,9 +12,17 @@ public final class GetRepositoryDeployKeysPlainArgs extends com.pulumi.resources
 
     public static final GetRepositoryDeployKeysPlainArgs Empty = new GetRepositoryDeployKeysPlainArgs();
 
+    /**
+     * Name of the repository to retrieve the branches from.
+     * 
+     */
     @Import(name="repository", required=true)
     private String repository;
 
+    /**
+     * @return Name of the repository to retrieve the branches from.
+     * 
+     */
     public String repository() {
         return this.repository;
     }
@@ -43,6 +51,12 @@ public final class GetRepositoryDeployKeysPlainArgs extends com.pulumi.resources
             $ = new GetRepositoryDeployKeysPlainArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param repository Name of the repository to retrieve the branches from.
+         * 
+         * @return builder
+         * 
+         */
         public Builder repository(String repository) {
             $.repository = repository;
             return this;

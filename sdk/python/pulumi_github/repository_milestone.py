@@ -22,7 +22,12 @@ class RepositoryMilestoneArgs:
                  state: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a RepositoryMilestone resource.
-        :param pulumi.Input[str] due_date: in yyyy-mm-dd format
+        :param pulumi.Input[str] owner: The owner of the GitHub Repository.
+        :param pulumi.Input[str] repository: The name of the GitHub Repository.
+        :param pulumi.Input[str] title: The title of the milestone.
+        :param pulumi.Input[str] description: A description of the milestone.
+        :param pulumi.Input[str] due_date: The milestone due date. In `yyyy-mm-dd` format.
+        :param pulumi.Input[str] state: The state of the milestone. Either `open` or `closed`. Default: `open`
         """
         pulumi.set(__self__, "owner", owner)
         pulumi.set(__self__, "repository", repository)
@@ -37,6 +42,9 @@ class RepositoryMilestoneArgs:
     @property
     @pulumi.getter
     def owner(self) -> pulumi.Input[str]:
+        """
+        The owner of the GitHub Repository.
+        """
         return pulumi.get(self, "owner")
 
     @owner.setter
@@ -46,6 +54,9 @@ class RepositoryMilestoneArgs:
     @property
     @pulumi.getter
     def repository(self) -> pulumi.Input[str]:
+        """
+        The name of the GitHub Repository.
+        """
         return pulumi.get(self, "repository")
 
     @repository.setter
@@ -55,6 +66,9 @@ class RepositoryMilestoneArgs:
     @property
     @pulumi.getter
     def title(self) -> pulumi.Input[str]:
+        """
+        The title of the milestone.
+        """
         return pulumi.get(self, "title")
 
     @title.setter
@@ -64,6 +78,9 @@ class RepositoryMilestoneArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A description of the milestone.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -74,7 +91,7 @@ class RepositoryMilestoneArgs:
     @pulumi.getter(name="dueDate")
     def due_date(self) -> Optional[pulumi.Input[str]]:
         """
-        in yyyy-mm-dd format
+        The milestone due date. In `yyyy-mm-dd` format.
         """
         return pulumi.get(self, "due_date")
 
@@ -85,6 +102,9 @@ class RepositoryMilestoneArgs:
     @property
     @pulumi.getter
     def state(self) -> Optional[pulumi.Input[str]]:
+        """
+        The state of the milestone. Either `open` or `closed`. Default: `open`
+        """
         return pulumi.get(self, "state")
 
     @state.setter
@@ -104,7 +124,13 @@ class _RepositoryMilestoneState:
                  title: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering RepositoryMilestone resources.
-        :param pulumi.Input[str] due_date: in yyyy-mm-dd format
+        :param pulumi.Input[str] description: A description of the milestone.
+        :param pulumi.Input[str] due_date: The milestone due date. In `yyyy-mm-dd` format.
+        :param pulumi.Input[int] number: The number of the milestone.
+        :param pulumi.Input[str] owner: The owner of the GitHub Repository.
+        :param pulumi.Input[str] repository: The name of the GitHub Repository.
+        :param pulumi.Input[str] state: The state of the milestone. Either `open` or `closed`. Default: `open`
+        :param pulumi.Input[str] title: The title of the milestone.
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -124,6 +150,9 @@ class _RepositoryMilestoneState:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A description of the milestone.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -134,7 +163,7 @@ class _RepositoryMilestoneState:
     @pulumi.getter(name="dueDate")
     def due_date(self) -> Optional[pulumi.Input[str]]:
         """
-        in yyyy-mm-dd format
+        The milestone due date. In `yyyy-mm-dd` format.
         """
         return pulumi.get(self, "due_date")
 
@@ -145,6 +174,9 @@ class _RepositoryMilestoneState:
     @property
     @pulumi.getter
     def number(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of the milestone.
+        """
         return pulumi.get(self, "number")
 
     @number.setter
@@ -154,6 +186,9 @@ class _RepositoryMilestoneState:
     @property
     @pulumi.getter
     def owner(self) -> Optional[pulumi.Input[str]]:
+        """
+        The owner of the GitHub Repository.
+        """
         return pulumi.get(self, "owner")
 
     @owner.setter
@@ -163,6 +198,9 @@ class _RepositoryMilestoneState:
     @property
     @pulumi.getter
     def repository(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the GitHub Repository.
+        """
         return pulumi.get(self, "repository")
 
     @repository.setter
@@ -172,6 +210,9 @@ class _RepositoryMilestoneState:
     @property
     @pulumi.getter
     def state(self) -> Optional[pulumi.Input[str]]:
+        """
+        The state of the milestone. Either `open` or `closed`. Default: `open`
+        """
         return pulumi.get(self, "state")
 
     @state.setter
@@ -181,6 +222,9 @@ class _RepositoryMilestoneState:
     @property
     @pulumi.getter
     def title(self) -> Optional[pulumi.Input[str]]:
+        """
+        The title of the milestone.
+        """
         return pulumi.get(self, "title")
 
     @title.setter
@@ -201,10 +245,39 @@ class RepositoryMilestone(pulumi.CustomResource):
                  title: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a RepositoryMilestone resource with the given unique name, props, and options.
+        Provides a GitHub repository milestone resource.
+
+        This resource allows you to create and manage milestones for a GitHub Repository within an organization or user account.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        # Create a milestone for a repository
+        example = github.RepositoryMilestone("example",
+            owner="example-owner",
+            repository="example-repository",
+            title="v1.1.0")
+        ```
+
+        ## Import
+
+        A GitHub Repository Milestone can be imported using an ID made up of `owner/repository/number`, e.g.
+
+        ```sh
+         $ pulumi import github:index/repositoryMilestone:RepositoryMilestone example example-owner/example-repository/1
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] due_date: in yyyy-mm-dd format
+        :param pulumi.Input[str] description: A description of the milestone.
+        :param pulumi.Input[str] due_date: The milestone due date. In `yyyy-mm-dd` format.
+        :param pulumi.Input[str] owner: The owner of the GitHub Repository.
+        :param pulumi.Input[str] repository: The name of the GitHub Repository.
+        :param pulumi.Input[str] state: The state of the milestone. Either `open` or `closed`. Default: `open`
+        :param pulumi.Input[str] title: The title of the milestone.
         """
         ...
     @overload
@@ -213,7 +286,31 @@ class RepositoryMilestone(pulumi.CustomResource):
                  args: RepositoryMilestoneArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a RepositoryMilestone resource with the given unique name, props, and options.
+        Provides a GitHub repository milestone resource.
+
+        This resource allows you to create and manage milestones for a GitHub Repository within an organization or user account.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        # Create a milestone for a repository
+        example = github.RepositoryMilestone("example",
+            owner="example-owner",
+            repository="example-repository",
+            title="v1.1.0")
+        ```
+
+        ## Import
+
+        A GitHub Repository Milestone can be imported using an ID made up of `owner/repository/number`, e.g.
+
+        ```sh
+         $ pulumi import github:index/repositoryMilestone:RepositoryMilestone example example-owner/example-repository/1
+        ```
+
         :param str resource_name: The name of the resource.
         :param RepositoryMilestoneArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -281,7 +378,13 @@ class RepositoryMilestone(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] due_date: in yyyy-mm-dd format
+        :param pulumi.Input[str] description: A description of the milestone.
+        :param pulumi.Input[str] due_date: The milestone due date. In `yyyy-mm-dd` format.
+        :param pulumi.Input[int] number: The number of the milestone.
+        :param pulumi.Input[str] owner: The owner of the GitHub Repository.
+        :param pulumi.Input[str] repository: The name of the GitHub Repository.
+        :param pulumi.Input[str] state: The state of the milestone. Either `open` or `closed`. Default: `open`
+        :param pulumi.Input[str] title: The title of the milestone.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -299,38 +402,56 @@ class RepositoryMilestone(pulumi.CustomResource):
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        A description of the milestone.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="dueDate")
     def due_date(self) -> pulumi.Output[Optional[str]]:
         """
-        in yyyy-mm-dd format
+        The milestone due date. In `yyyy-mm-dd` format.
         """
         return pulumi.get(self, "due_date")
 
     @property
     @pulumi.getter
     def number(self) -> pulumi.Output[int]:
+        """
+        The number of the milestone.
+        """
         return pulumi.get(self, "number")
 
     @property
     @pulumi.getter
     def owner(self) -> pulumi.Output[str]:
+        """
+        The owner of the GitHub Repository.
+        """
         return pulumi.get(self, "owner")
 
     @property
     @pulumi.getter
     def repository(self) -> pulumi.Output[str]:
+        """
+        The name of the GitHub Repository.
+        """
         return pulumi.get(self, "repository")
 
     @property
     @pulumi.getter
     def state(self) -> pulumi.Output[Optional[str]]:
+        """
+        The state of the milestone. Either `open` or `closed`. Default: `open`
+        """
         return pulumi.get(self, "state")
 
     @property
     @pulumi.getter
     def title(self) -> pulumi.Output[str]:
+        """
+        The title of the milestone.
+        """
         return pulumi.get(self, "title")
 

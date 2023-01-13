@@ -14,11 +14,61 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * This resource allows you to create and manage projects for GitHub repository.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.github.Repository;
+ * import com.pulumi.github.RepositoryArgs;
+ * import com.pulumi.github.RepositoryProject;
+ * import com.pulumi.github.RepositoryProjectArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Repository(&#34;example&#34;, RepositoryArgs.builder()        
+ *             .description(&#34;My awesome codebase&#34;)
+ *             .hasProjects(true)
+ *             .build());
+ * 
+ *         var project = new RepositoryProject(&#34;project&#34;, RepositoryProjectArgs.builder()        
+ *             .body(&#34;This is a repository project.&#34;)
+ *             .repository(example.name())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ */
 @ResourceType(type="github:index/repositoryProject:RepositoryProject")
 public class RepositoryProject extends com.pulumi.resources.CustomResource {
+    /**
+     * The body of the project.
+     * 
+     */
     @Export(name="body", type=String.class, parameters={})
     private Output</* @Nullable */ String> body;
 
+    /**
+     * @return The body of the project.
+     * 
+     */
     public Output<Optional<String>> body() {
         return Codegen.optional(this.body);
     }
@@ -28,21 +78,45 @@ public class RepositoryProject extends com.pulumi.resources.CustomResource {
     public Output<String> etag() {
         return this.etag;
     }
+    /**
+     * The name of the project.
+     * 
+     */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
+    /**
+     * @return The name of the project.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
+    /**
+     * The repository of the project.
+     * 
+     */
     @Export(name="repository", type=String.class, parameters={})
     private Output<String> repository;
 
+    /**
+     * @return The repository of the project.
+     * 
+     */
     public Output<String> repository() {
         return this.repository;
     }
+    /**
+     * URL of the project
+     * 
+     */
     @Export(name="url", type=String.class, parameters={})
     private Output<String> url;
 
+    /**
+     * @return URL of the project
+     * 
+     */
     public Output<String> url() {
         return this.url;
     }

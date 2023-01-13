@@ -14,6 +14,10 @@ import java.util.Objects;
 public final class GetRepositoryPage {
     private String cname;
     private Boolean custom404;
+    /**
+     * @return URL to the repository on the web.
+     * 
+     */
     private String htmlUrl;
     private List<GetRepositoryPageSource> sources;
     private String status;
@@ -26,6 +30,10 @@ public final class GetRepositoryPage {
     public Boolean custom404() {
         return this.custom404;
     }
+    /**
+     * @return URL to the repository on the web.
+     * 
+     */
     public String htmlUrl() {
         return this.htmlUrl;
     }

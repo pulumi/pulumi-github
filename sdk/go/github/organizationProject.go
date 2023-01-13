@@ -10,13 +10,43 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// This resource allows you to create and manage projects for GitHub organization.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-github/sdk/v5/go/github"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := github.NewOrganizationProject(ctx, "project", &github.OrganizationProjectArgs{
+//				Body: pulumi.String("This is a organization project."),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 type OrganizationProject struct {
 	pulumi.CustomResourceState
 
+	// The body of the project.
 	Body pulumi.StringPtrOutput `pulumi:"body"`
 	Etag pulumi.StringOutput    `pulumi:"etag"`
-	Name pulumi.StringOutput    `pulumi:"name"`
-	Url  pulumi.StringOutput    `pulumi:"url"`
+	// The name of the project.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// URL of the project
+	Url pulumi.StringOutput `pulumi:"url"`
 }
 
 // NewOrganizationProject registers a new resource with the given unique name, arguments, and options.
@@ -48,17 +78,23 @@ func GetOrganizationProject(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering OrganizationProject resources.
 type organizationProjectState struct {
+	// The body of the project.
 	Body *string `pulumi:"body"`
 	Etag *string `pulumi:"etag"`
+	// The name of the project.
 	Name *string `pulumi:"name"`
-	Url  *string `pulumi:"url"`
+	// URL of the project
+	Url *string `pulumi:"url"`
 }
 
 type OrganizationProjectState struct {
+	// The body of the project.
 	Body pulumi.StringPtrInput
 	Etag pulumi.StringPtrInput
+	// The name of the project.
 	Name pulumi.StringPtrInput
-	Url  pulumi.StringPtrInput
+	// URL of the project
+	Url pulumi.StringPtrInput
 }
 
 func (OrganizationProjectState) ElementType() reflect.Type {
@@ -66,13 +102,17 @@ func (OrganizationProjectState) ElementType() reflect.Type {
 }
 
 type organizationProjectArgs struct {
+	// The body of the project.
 	Body *string `pulumi:"body"`
+	// The name of the project.
 	Name *string `pulumi:"name"`
 }
 
 // The set of arguments for constructing a OrganizationProject resource.
 type OrganizationProjectArgs struct {
+	// The body of the project.
 	Body pulumi.StringPtrInput
+	// The name of the project.
 	Name pulumi.StringPtrInput
 }
 
@@ -163,6 +203,7 @@ func (o OrganizationProjectOutput) ToOrganizationProjectOutputWithContext(ctx co
 	return o
 }
 
+// The body of the project.
 func (o OrganizationProjectOutput) Body() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OrganizationProject) pulumi.StringPtrOutput { return v.Body }).(pulumi.StringPtrOutput)
 }
@@ -171,10 +212,12 @@ func (o OrganizationProjectOutput) Etag() pulumi.StringOutput {
 	return o.ApplyT(func(v *OrganizationProject) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
 }
 
+// The name of the project.
 func (o OrganizationProjectOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *OrganizationProject) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// URL of the project
 func (o OrganizationProjectOutput) Url() pulumi.StringOutput {
 	return o.ApplyT(func(v *OrganizationProject) pulumi.StringOutput { return v.Url }).(pulumi.StringOutput)
 }
