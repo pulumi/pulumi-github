@@ -21,19 +21,11 @@ func getBaseOptions(t *testing.T) integration.ProgramTestOptions {
 
 func getGitHubTestingOrg(t *testing.T) string {
 	org := os.Getenv("GH_ORGANIZATION")
-	if org == "" {
-		t.Skipf("Skipping test due to missing GH_ORGANIZATION environment variable")
-	}
-
 	return org
 }
 
 func checkGitHubTestingToken(t *testing.T) string {
 	token := os.Getenv("GH_TESTING_TOKEN")
-	if token == "" {
-		t.Skipf("Skipping test due to missing GH_TESTING_TOKEN environment variable")
-	}
-
 	return token
 }
 
