@@ -94,6 +94,21 @@ public final class ActionsRunnerGroupState extends com.pulumi.resources.Resource
     }
 
     /**
+     * If true, the runner group will be restricted to running only the workflows specified in the selected_workflows array. Defaults to false.
+     * 
+     */
+    @Import(name="restrictedToWorkflows")
+    private @Nullable Output<Boolean> restrictedToWorkflows;
+
+    /**
+     * @return If true, the runner group will be restricted to running only the workflows specified in the selected_workflows array. Defaults to false.
+     * 
+     */
+    public Optional<Output<Boolean>> restrictedToWorkflows() {
+        return Optional.ofNullable(this.restrictedToWorkflows);
+    }
+
+    /**
      * The GitHub API URL for the runner group&#39;s runners
      * 
      */
@@ -109,14 +124,14 @@ public final class ActionsRunnerGroupState extends com.pulumi.resources.Resource
     }
 
     /**
-     * Github API URL for the runner group&#39;s repositories
+     * GitHub API URL for the runner group&#39;s repositories
      * 
      */
     @Import(name="selectedRepositoriesUrl")
     private @Nullable Output<String> selectedRepositoriesUrl;
 
     /**
-     * @return Github API URL for the runner group&#39;s repositories
+     * @return GitHub API URL for the runner group&#39;s repositories
      * 
      */
     public Optional<Output<String>> selectedRepositoriesUrl() {
@@ -136,6 +151,21 @@ public final class ActionsRunnerGroupState extends com.pulumi.resources.Resource
      */
     public Optional<Output<List<Integer>>> selectedRepositoryIds() {
         return Optional.ofNullable(this.selectedRepositoryIds);
+    }
+
+    /**
+     * List of workflows the runner group should be allowed to run. This setting will be ignored unless restricted_to_workflows is set to true.
+     * 
+     */
+    @Import(name="selectedWorkflows")
+    private @Nullable Output<List<String>> selectedWorkflows;
+
+    /**
+     * @return List of workflows the runner group should be allowed to run. This setting will be ignored unless restricted_to_workflows is set to true.
+     * 
+     */
+    public Optional<Output<List<String>>> selectedWorkflows() {
+        return Optional.ofNullable(this.selectedWorkflows);
     }
 
     /**
@@ -161,9 +191,11 @@ public final class ActionsRunnerGroupState extends com.pulumi.resources.Resource
         this.etag = $.etag;
         this.inherited = $.inherited;
         this.name = $.name;
+        this.restrictedToWorkflows = $.restrictedToWorkflows;
         this.runnersUrl = $.runnersUrl;
         this.selectedRepositoriesUrl = $.selectedRepositoriesUrl;
         this.selectedRepositoryIds = $.selectedRepositoryIds;
+        this.selectedWorkflows = $.selectedWorkflows;
         this.visibility = $.visibility;
     }
 
@@ -291,6 +323,27 @@ public final class ActionsRunnerGroupState extends com.pulumi.resources.Resource
         }
 
         /**
+         * @param restrictedToWorkflows If true, the runner group will be restricted to running only the workflows specified in the selected_workflows array. Defaults to false.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder restrictedToWorkflows(@Nullable Output<Boolean> restrictedToWorkflows) {
+            $.restrictedToWorkflows = restrictedToWorkflows;
+            return this;
+        }
+
+        /**
+         * @param restrictedToWorkflows If true, the runner group will be restricted to running only the workflows specified in the selected_workflows array. Defaults to false.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder restrictedToWorkflows(Boolean restrictedToWorkflows) {
+            return restrictedToWorkflows(Output.of(restrictedToWorkflows));
+        }
+
+        /**
          * @param runnersUrl The GitHub API URL for the runner group&#39;s runners
          * 
          * @return builder
@@ -312,7 +365,7 @@ public final class ActionsRunnerGroupState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param selectedRepositoriesUrl Github API URL for the runner group&#39;s repositories
+         * @param selectedRepositoriesUrl GitHub API URL for the runner group&#39;s repositories
          * 
          * @return builder
          * 
@@ -323,7 +376,7 @@ public final class ActionsRunnerGroupState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param selectedRepositoriesUrl Github API URL for the runner group&#39;s repositories
+         * @param selectedRepositoriesUrl GitHub API URL for the runner group&#39;s repositories
          * 
          * @return builder
          * 
@@ -361,6 +414,37 @@ public final class ActionsRunnerGroupState extends com.pulumi.resources.Resource
          */
         public Builder selectedRepositoryIds(Integer... selectedRepositoryIds) {
             return selectedRepositoryIds(List.of(selectedRepositoryIds));
+        }
+
+        /**
+         * @param selectedWorkflows List of workflows the runner group should be allowed to run. This setting will be ignored unless restricted_to_workflows is set to true.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder selectedWorkflows(@Nullable Output<List<String>> selectedWorkflows) {
+            $.selectedWorkflows = selectedWorkflows;
+            return this;
+        }
+
+        /**
+         * @param selectedWorkflows List of workflows the runner group should be allowed to run. This setting will be ignored unless restricted_to_workflows is set to true.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder selectedWorkflows(List<String> selectedWorkflows) {
+            return selectedWorkflows(Output.of(selectedWorkflows));
+        }
+
+        /**
+         * @param selectedWorkflows List of workflows the runner group should be allowed to run. This setting will be ignored unless restricted_to_workflows is set to true.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder selectedWorkflows(String... selectedWorkflows) {
+            return selectedWorkflows(List.of(selectedWorkflows));
         }
 
         /**

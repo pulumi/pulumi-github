@@ -10,6 +10,11 @@ export type ActionsEnvironmentSecret = import("./actionsEnvironmentSecret").Acti
 export const ActionsEnvironmentSecret: typeof import("./actionsEnvironmentSecret").ActionsEnvironmentSecret = null as any;
 utilities.lazyLoad(exports, ["ActionsEnvironmentSecret"], () => require("./actionsEnvironmentSecret"));
 
+export { ActionsOrganizationOidcSubjectClaimCustomizationTemplateArgs, ActionsOrganizationOidcSubjectClaimCustomizationTemplateState } from "./actionsOrganizationOidcSubjectClaimCustomizationTemplate";
+export type ActionsOrganizationOidcSubjectClaimCustomizationTemplate = import("./actionsOrganizationOidcSubjectClaimCustomizationTemplate").ActionsOrganizationOidcSubjectClaimCustomizationTemplate;
+export const ActionsOrganizationOidcSubjectClaimCustomizationTemplate: typeof import("./actionsOrganizationOidcSubjectClaimCustomizationTemplate").ActionsOrganizationOidcSubjectClaimCustomizationTemplate = null as any;
+utilities.lazyLoad(exports, ["ActionsOrganizationOidcSubjectClaimCustomizationTemplate"], () => require("./actionsOrganizationOidcSubjectClaimCustomizationTemplate"));
+
 export { ActionsOrganizationPermissionsArgs, ActionsOrganizationPermissionsState } from "./actionsOrganizationPermissions";
 export type ActionsOrganizationPermissions = import("./actionsOrganizationPermissions").ActionsOrganizationPermissions;
 export const ActionsOrganizationPermissions: typeof import("./actionsOrganizationPermissions").ActionsOrganizationPermissions = null as any;
@@ -24,6 +29,16 @@ export { ActionsOrganizationSecretRepositoriesArgs, ActionsOrganizationSecretRep
 export type ActionsOrganizationSecretRepositories = import("./actionsOrganizationSecretRepositories").ActionsOrganizationSecretRepositories;
 export const ActionsOrganizationSecretRepositories: typeof import("./actionsOrganizationSecretRepositories").ActionsOrganizationSecretRepositories = null as any;
 utilities.lazyLoad(exports, ["ActionsOrganizationSecretRepositories"], () => require("./actionsOrganizationSecretRepositories"));
+
+export { ActionsRepositoryAccessLevelArgs, ActionsRepositoryAccessLevelState } from "./actionsRepositoryAccessLevel";
+export type ActionsRepositoryAccessLevel = import("./actionsRepositoryAccessLevel").ActionsRepositoryAccessLevel;
+export const ActionsRepositoryAccessLevel: typeof import("./actionsRepositoryAccessLevel").ActionsRepositoryAccessLevel = null as any;
+utilities.lazyLoad(exports, ["ActionsRepositoryAccessLevel"], () => require("./actionsRepositoryAccessLevel"));
+
+export { ActionsRepositoryOidcSubjectClaimCustomizationTemplateArgs, ActionsRepositoryOidcSubjectClaimCustomizationTemplateState } from "./actionsRepositoryOidcSubjectClaimCustomizationTemplate";
+export type ActionsRepositoryOidcSubjectClaimCustomizationTemplate = import("./actionsRepositoryOidcSubjectClaimCustomizationTemplate").ActionsRepositoryOidcSubjectClaimCustomizationTemplate;
+export const ActionsRepositoryOidcSubjectClaimCustomizationTemplate: typeof import("./actionsRepositoryOidcSubjectClaimCustomizationTemplate").ActionsRepositoryOidcSubjectClaimCustomizationTemplate = null as any;
+utilities.lazyLoad(exports, ["ActionsRepositoryOidcSubjectClaimCustomizationTemplate"], () => require("./actionsRepositoryOidcSubjectClaimCustomizationTemplate"));
 
 export { ActionsRepositoryPermissionsArgs, ActionsRepositoryPermissionsState } from "./actionsRepositoryPermissions";
 export type ActionsRepositoryPermissions = import("./actionsRepositoryPermissions").ActionsRepositoryPermissions;
@@ -90,6 +105,15 @@ export type EmuGroupMapping = import("./emuGroupMapping").EmuGroupMapping;
 export const EmuGroupMapping: typeof import("./emuGroupMapping").EmuGroupMapping = null as any;
 utilities.lazyLoad(exports, ["EmuGroupMapping"], () => require("./emuGroupMapping"));
 
+export { EnterpriseOrganizationArgs, EnterpriseOrganizationState } from "./enterpriseOrganization";
+export type EnterpriseOrganization = import("./enterpriseOrganization").EnterpriseOrganization;
+export const EnterpriseOrganization: typeof import("./enterpriseOrganization").EnterpriseOrganization = null as any;
+utilities.lazyLoad(exports, ["EnterpriseOrganization"], () => require("./enterpriseOrganization"));
+
+export { GetActionsOrganizationOidcSubjectClaimCustomizationTemplateResult } from "./getActionsOrganizationOidcSubjectClaimCustomizationTemplate";
+export const getActionsOrganizationOidcSubjectClaimCustomizationTemplate: typeof import("./getActionsOrganizationOidcSubjectClaimCustomizationTemplate").getActionsOrganizationOidcSubjectClaimCustomizationTemplate = null as any;
+utilities.lazyLoad(exports, ["getActionsOrganizationOidcSubjectClaimCustomizationTemplate"], () => require("./getActionsOrganizationOidcSubjectClaimCustomizationTemplate"));
+
 export { GetActionsOrganizationRegistrationTokenResult } from "./getActionsOrganizationRegistrationToken";
 export const getActionsOrganizationRegistrationToken: typeof import("./getActionsOrganizationRegistrationToken").getActionsOrganizationRegistrationToken = null as any;
 utilities.lazyLoad(exports, ["getActionsOrganizationRegistrationToken"], () => require("./getActionsOrganizationRegistrationToken"));
@@ -107,6 +131,11 @@ export { GetActionsRegistrationTokenArgs, GetActionsRegistrationTokenResult, Get
 export const getActionsRegistrationToken: typeof import("./getActionsRegistrationToken").getActionsRegistrationToken = null as any;
 export const getActionsRegistrationTokenOutput: typeof import("./getActionsRegistrationToken").getActionsRegistrationTokenOutput = null as any;
 utilities.lazyLoad(exports, ["getActionsRegistrationToken","getActionsRegistrationTokenOutput"], () => require("./getActionsRegistrationToken"));
+
+export { GetActionsRepositoryOidcSubjectClaimCustomizationTemplateArgs, GetActionsRepositoryOidcSubjectClaimCustomizationTemplateResult, GetActionsRepositoryOidcSubjectClaimCustomizationTemplateOutputArgs } from "./getActionsRepositoryOidcSubjectClaimCustomizationTemplate";
+export const getActionsRepositoryOidcSubjectClaimCustomizationTemplate: typeof import("./getActionsRepositoryOidcSubjectClaimCustomizationTemplate").getActionsRepositoryOidcSubjectClaimCustomizationTemplate = null as any;
+export const getActionsRepositoryOidcSubjectClaimCustomizationTemplateOutput: typeof import("./getActionsRepositoryOidcSubjectClaimCustomizationTemplate").getActionsRepositoryOidcSubjectClaimCustomizationTemplateOutput = null as any;
+utilities.lazyLoad(exports, ["getActionsRepositoryOidcSubjectClaimCustomizationTemplate","getActionsRepositoryOidcSubjectClaimCustomizationTemplateOutput"], () => require("./getActionsRepositoryOidcSubjectClaimCustomizationTemplate"));
 
 export { GetActionsSecretsArgs, GetActionsSecretsResult, GetActionsSecretsOutputArgs } from "./getActionsSecrets";
 export const getActionsSecrets: typeof import("./getActionsSecrets").getActionsSecrets = null as any;
@@ -136,6 +165,11 @@ export { GetDependabotSecretsArgs, GetDependabotSecretsResult, GetDependabotSecr
 export const getDependabotSecrets: typeof import("./getDependabotSecrets").getDependabotSecrets = null as any;
 export const getDependabotSecretsOutput: typeof import("./getDependabotSecrets").getDependabotSecretsOutput = null as any;
 utilities.lazyLoad(exports, ["getDependabotSecrets","getDependabotSecretsOutput"], () => require("./getDependabotSecrets"));
+
+export { GetEnterpriseArgs, GetEnterpriseResult, GetEnterpriseOutputArgs } from "./getEnterprise";
+export const getEnterprise: typeof import("./getEnterprise").getEnterprise = null as any;
+export const getEnterpriseOutput: typeof import("./getEnterprise").getEnterpriseOutput = null as any;
+utilities.lazyLoad(exports, ["getEnterprise","getEnterpriseOutput"], () => require("./getEnterprise"));
 
 export { GetExternalGroupsResult } from "./getExternalGroups";
 export const getExternalGroups: typeof import("./getExternalGroups").getExternalGroups = null as any;
@@ -433,12 +467,18 @@ const _module = {
         switch (type) {
             case "github:index/actionsEnvironmentSecret:ActionsEnvironmentSecret":
                 return new ActionsEnvironmentSecret(name, <any>undefined, { urn })
+            case "github:index/actionsOrganizationOidcSubjectClaimCustomizationTemplate:ActionsOrganizationOidcSubjectClaimCustomizationTemplate":
+                return new ActionsOrganizationOidcSubjectClaimCustomizationTemplate(name, <any>undefined, { urn })
             case "github:index/actionsOrganizationPermissions:ActionsOrganizationPermissions":
                 return new ActionsOrganizationPermissions(name, <any>undefined, { urn })
             case "github:index/actionsOrganizationSecret:ActionsOrganizationSecret":
                 return new ActionsOrganizationSecret(name, <any>undefined, { urn })
             case "github:index/actionsOrganizationSecretRepositories:ActionsOrganizationSecretRepositories":
                 return new ActionsOrganizationSecretRepositories(name, <any>undefined, { urn })
+            case "github:index/actionsRepositoryAccessLevel:ActionsRepositoryAccessLevel":
+                return new ActionsRepositoryAccessLevel(name, <any>undefined, { urn })
+            case "github:index/actionsRepositoryOidcSubjectClaimCustomizationTemplate:ActionsRepositoryOidcSubjectClaimCustomizationTemplate":
+                return new ActionsRepositoryOidcSubjectClaimCustomizationTemplate(name, <any>undefined, { urn })
             case "github:index/actionsRepositoryPermissions:ActionsRepositoryPermissions":
                 return new ActionsRepositoryPermissions(name, <any>undefined, { urn })
             case "github:index/actionsRunnerGroup:ActionsRunnerGroup":
@@ -465,6 +505,8 @@ const _module = {
                 return new DependabotSecret(name, <any>undefined, { urn })
             case "github:index/emuGroupMapping:EmuGroupMapping":
                 return new EmuGroupMapping(name, <any>undefined, { urn })
+            case "github:index/enterpriseOrganization:EnterpriseOrganization":
+                return new EnterpriseOrganization(name, <any>undefined, { urn })
             case "github:index/issue:Issue":
                 return new Issue(name, <any>undefined, { urn })
             case "github:index/issueLabel:IssueLabel":
@@ -533,9 +575,12 @@ const _module = {
     },
 };
 pulumi.runtime.registerResourceModule("github", "index/actionsEnvironmentSecret", _module)
+pulumi.runtime.registerResourceModule("github", "index/actionsOrganizationOidcSubjectClaimCustomizationTemplate", _module)
 pulumi.runtime.registerResourceModule("github", "index/actionsOrganizationPermissions", _module)
 pulumi.runtime.registerResourceModule("github", "index/actionsOrganizationSecret", _module)
 pulumi.runtime.registerResourceModule("github", "index/actionsOrganizationSecretRepositories", _module)
+pulumi.runtime.registerResourceModule("github", "index/actionsRepositoryAccessLevel", _module)
+pulumi.runtime.registerResourceModule("github", "index/actionsRepositoryOidcSubjectClaimCustomizationTemplate", _module)
 pulumi.runtime.registerResourceModule("github", "index/actionsRepositoryPermissions", _module)
 pulumi.runtime.registerResourceModule("github", "index/actionsRunnerGroup", _module)
 pulumi.runtime.registerResourceModule("github", "index/actionsSecret", _module)
@@ -549,6 +594,7 @@ pulumi.runtime.registerResourceModule("github", "index/dependabotOrganizationSec
 pulumi.runtime.registerResourceModule("github", "index/dependabotOrganizationSecretRepositories", _module)
 pulumi.runtime.registerResourceModule("github", "index/dependabotSecret", _module)
 pulumi.runtime.registerResourceModule("github", "index/emuGroupMapping", _module)
+pulumi.runtime.registerResourceModule("github", "index/enterpriseOrganization", _module)
 pulumi.runtime.registerResourceModule("github", "index/issue", _module)
 pulumi.runtime.registerResourceModule("github", "index/issueLabel", _module)
 pulumi.runtime.registerResourceModule("github", "index/membership", _module)

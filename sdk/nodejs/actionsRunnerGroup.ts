@@ -78,17 +78,25 @@ export class ActionsRunnerGroup extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * If true, the runner group will be restricted to running only the workflows specified in the selectedWorkflows array. Defaults to false.
+     */
+    public /*out*/ readonly restrictedToWorkflows!: pulumi.Output<boolean>;
+    /**
      * The GitHub API URL for the runner group's runners
      */
     public /*out*/ readonly runnersUrl!: pulumi.Output<string>;
     /**
-     * Github API URL for the runner group's repositories
+     * GitHub API URL for the runner group's repositories
      */
     public /*out*/ readonly selectedRepositoriesUrl!: pulumi.Output<string>;
     /**
      * IDs of the repositories which should be added to the runner group
      */
     public readonly selectedRepositoryIds!: pulumi.Output<number[] | undefined>;
+    /**
+     * List of workflows the runner group should be allowed to run. This setting will be ignored unless restrictedToWorkflows is set to true.
+     */
+    public /*out*/ readonly selectedWorkflows!: pulumi.Output<string[]>;
     /**
      * Visibility of a runner group. Whether the runner group can include `all`, `selected`, or `private` repositories. A value of `private` is not currently supported due to limitations in the GitHub API.
      */
@@ -112,9 +120,11 @@ export class ActionsRunnerGroup extends pulumi.CustomResource {
             resourceInputs["etag"] = state ? state.etag : undefined;
             resourceInputs["inherited"] = state ? state.inherited : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["restrictedToWorkflows"] = state ? state.restrictedToWorkflows : undefined;
             resourceInputs["runnersUrl"] = state ? state.runnersUrl : undefined;
             resourceInputs["selectedRepositoriesUrl"] = state ? state.selectedRepositoriesUrl : undefined;
             resourceInputs["selectedRepositoryIds"] = state ? state.selectedRepositoryIds : undefined;
+            resourceInputs["selectedWorkflows"] = state ? state.selectedWorkflows : undefined;
             resourceInputs["visibility"] = state ? state.visibility : undefined;
         } else {
             const args = argsOrState as ActionsRunnerGroupArgs | undefined;
@@ -128,8 +138,10 @@ export class ActionsRunnerGroup extends pulumi.CustomResource {
             resourceInputs["default"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["inherited"] = undefined /*out*/;
+            resourceInputs["restrictedToWorkflows"] = undefined /*out*/;
             resourceInputs["runnersUrl"] = undefined /*out*/;
             resourceInputs["selectedRepositoriesUrl"] = undefined /*out*/;
+            resourceInputs["selectedWorkflows"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ActionsRunnerGroup.__pulumiType, name, resourceInputs, opts);
@@ -161,17 +173,25 @@ export interface ActionsRunnerGroupState {
      */
     name?: pulumi.Input<string>;
     /**
+     * If true, the runner group will be restricted to running only the workflows specified in the selectedWorkflows array. Defaults to false.
+     */
+    restrictedToWorkflows?: pulumi.Input<boolean>;
+    /**
      * The GitHub API URL for the runner group's runners
      */
     runnersUrl?: pulumi.Input<string>;
     /**
-     * Github API URL for the runner group's repositories
+     * GitHub API URL for the runner group's repositories
      */
     selectedRepositoriesUrl?: pulumi.Input<string>;
     /**
      * IDs of the repositories which should be added to the runner group
      */
     selectedRepositoryIds?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * List of workflows the runner group should be allowed to run. This setting will be ignored unless restrictedToWorkflows is set to true.
+     */
+    selectedWorkflows?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Visibility of a runner group. Whether the runner group can include `all`, `selected`, or `private` repositories. A value of `private` is not currently supported due to limitations in the GitHub API.
      */

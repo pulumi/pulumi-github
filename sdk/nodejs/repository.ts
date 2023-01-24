@@ -21,7 +21,7 @@ import * as utilities from "./utilities";
  *     template: {
  *         includeAllBranches: true,
  *         owner: "github",
- *         repository: "terraform-module-template",
+ *         repository: "terraform-template-module",
  *     },
  *     visibility: "public",
  * });
@@ -142,6 +142,10 @@ export class Repository extends pulumi.CustomResource {
      */
     public readonly gitignoreTemplate!: pulumi.Output<string | undefined>;
     /**
+     * Set to `true` to enable GitHub Discussions on the repository. Defaults to `false`.
+     */
+    public readonly hasDiscussions!: pulumi.Output<boolean | undefined>;
+    /**
      * Set to `true` to enable the (deprecated) downloads features on the repository.
      */
     public readonly hasDownloads!: pulumi.Output<boolean | undefined>;
@@ -217,7 +221,7 @@ export class Repository extends pulumi.CustomResource {
     /**
      * The repository's [security and analysis](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository) configuration. See Security and Analysis Configuration below for details.
      */
-    public readonly securityAndAnalysis!: pulumi.Output<outputs.RepositorySecurityAndAnalysis | undefined>;
+    public readonly securityAndAnalysis!: pulumi.Output<outputs.RepositorySecurityAndAnalysis>;
     /**
      * Can be `PR_BODY`, `COMMIT_MESSAGES`, or `BLANK` for a default squash merge commit message.
      */
@@ -279,6 +283,7 @@ export class Repository extends pulumi.CustomResource {
             resourceInputs["fullName"] = state ? state.fullName : undefined;
             resourceInputs["gitCloneUrl"] = state ? state.gitCloneUrl : undefined;
             resourceInputs["gitignoreTemplate"] = state ? state.gitignoreTemplate : undefined;
+            resourceInputs["hasDiscussions"] = state ? state.hasDiscussions : undefined;
             resourceInputs["hasDownloads"] = state ? state.hasDownloads : undefined;
             resourceInputs["hasIssues"] = state ? state.hasIssues : undefined;
             resourceInputs["hasProjects"] = state ? state.hasProjects : undefined;
@@ -319,6 +324,7 @@ export class Repository extends pulumi.CustomResource {
             resourceInputs["deleteBranchOnMerge"] = args ? args.deleteBranchOnMerge : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["gitignoreTemplate"] = args ? args.gitignoreTemplate : undefined;
+            resourceInputs["hasDiscussions"] = args ? args.hasDiscussions : undefined;
             resourceInputs["hasDownloads"] = args ? args.hasDownloads : undefined;
             resourceInputs["hasIssues"] = args ? args.hasIssues : undefined;
             resourceInputs["hasProjects"] = args ? args.hasProjects : undefined;
@@ -419,6 +425,10 @@ export interface RepositoryState {
      * Use the [name of the template](https://github.com/github/gitignore) without the extension. For example, "Haskell".
      */
     gitignoreTemplate?: pulumi.Input<string>;
+    /**
+     * Set to `true` to enable GitHub Discussions on the repository. Defaults to `false`.
+     */
+    hasDiscussions?: pulumi.Input<boolean>;
     /**
      * Set to `true` to enable the (deprecated) downloads features on the repository.
      */
@@ -586,6 +596,10 @@ export interface RepositoryArgs {
      * Use the [name of the template](https://github.com/github/gitignore) without the extension. For example, "Haskell".
      */
     gitignoreTemplate?: pulumi.Input<string>;
+    /**
+     * Set to `true` to enable GitHub Discussions on the repository. Defaults to `false`.
+     */
+    hasDiscussions?: pulumi.Input<boolean>;
     /**
      * Set to `true` to enable the (deprecated) downloads features on the repository.
      */

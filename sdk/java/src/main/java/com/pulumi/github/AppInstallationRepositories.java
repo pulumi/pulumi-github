@@ -29,10 +29,10 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * GitHub App Installation Repository can be imported using an ID made up of `installation_id:repository`, e.g.
+ * GitHub App Installation Repositories can be imported using an ID made up of `installation_id`, e.g.
  * 
  * ```sh
- *  $ pulumi import github:index/appInstallationRepositories:AppInstallationRepositories terraform_repo 1234567:terraform
+ *  $ pulumi import github:index/appInstallationRepositories:AppInstallationRepositories some_app_repos 1234567
  * ```
  * 
  */

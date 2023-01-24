@@ -14,9 +14,18 @@ import javax.annotation.Nullable;
 @CustomType
 public final class BranchProtectionV3RequiredStatusChecks {
     /**
-     * @return The list of status checks to require in order to merge into this branch. No status checks are required by default.
+     * @return The list of status checks to require in order to merge into this branch. No status checks are required by default. Checks should be strings containing the context and app_id like so &#34;context:app_id&#34;.
      * 
      */
+    private @Nullable List<String> checks;
+    /**
+     * @return [**DEPRECATED**] (Optional) The list of status checks to require in order to merge into this branch. No status checks are required by default.
+     * 
+     * @deprecated
+     * GitHub is deprecating the use of `contexts`. Use a `checks` array instead.
+     * 
+     */
+    @Deprecated /* GitHub is deprecating the use of `contexts`. Use a `checks` array instead. */
     private @Nullable List<String> contexts;
     /**
      * @deprecated
@@ -33,9 +42,20 @@ public final class BranchProtectionV3RequiredStatusChecks {
 
     private BranchProtectionV3RequiredStatusChecks() {}
     /**
-     * @return The list of status checks to require in order to merge into this branch. No status checks are required by default.
+     * @return The list of status checks to require in order to merge into this branch. No status checks are required by default. Checks should be strings containing the context and app_id like so &#34;context:app_id&#34;.
      * 
      */
+    public List<String> checks() {
+        return this.checks == null ? List.of() : this.checks;
+    }
+    /**
+     * @return [**DEPRECATED**] (Optional) The list of status checks to require in order to merge into this branch. No status checks are required by default.
+     * 
+     * @deprecated
+     * GitHub is deprecating the use of `contexts`. Use a `checks` array instead.
+     * 
+     */
+    @Deprecated /* GitHub is deprecating the use of `contexts`. Use a `checks` array instead. */
     public List<String> contexts() {
         return this.contexts == null ? List.of() : this.contexts;
     }
@@ -65,17 +85,27 @@ public final class BranchProtectionV3RequiredStatusChecks {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable List<String> checks;
         private @Nullable List<String> contexts;
         private @Nullable Boolean includeAdmins;
         private @Nullable Boolean strict;
         public Builder() {}
         public Builder(BranchProtectionV3RequiredStatusChecks defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.checks = defaults.checks;
     	      this.contexts = defaults.contexts;
     	      this.includeAdmins = defaults.includeAdmins;
     	      this.strict = defaults.strict;
         }
 
+        @CustomType.Setter
+        public Builder checks(@Nullable List<String> checks) {
+            this.checks = checks;
+            return this;
+        }
+        public Builder checks(String... checks) {
+            return checks(List.of(checks));
+        }
         @CustomType.Setter
         public Builder contexts(@Nullable List<String> contexts) {
             this.contexts = contexts;
@@ -96,6 +126,7 @@ public final class BranchProtectionV3RequiredStatusChecks {
         }
         public BranchProtectionV3RequiredStatusChecks build() {
             final var o = new BranchProtectionV3RequiredStatusChecks();
+            o.checks = checks;
             o.contexts = contexts;
             o.includeAdmins = includeAdmins;
             o.strict = strict;

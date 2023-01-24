@@ -25,6 +25,7 @@ import (
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
 	shimv1 "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim/sdk-v1"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/tokens"
+	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
 )
 
 // all of the token components used below.
@@ -57,8 +58,8 @@ func makeDataSource(mod string, res string) tokens.ModuleMember {
 // automatically uses the main package and names the file by simply lower casing the resource's
 // first character.
 func makeResource(mod string, res string) tokens.Type {
-	fn := string(unicode.ToLower(rune(res[0]))) + res[1:]
-	return makeType(mod+"/"+fn, res)
+	lower := string(unicode.ToLower(rune(res[0]))) + res[1:]
+	return makeType(mod+"/"+lower, res)
 }
 
 // Provider returns additional overlaid schema and metadata associated with the provider..
@@ -248,6 +249,14 @@ func Provider() tfbridge.ProviderInfo {
 		},
 	}
 
+	err := prov.ComputeDefaults(tfbridge.TokensSingleModule("github_", mainMod,
+		func(module, name string) (string, error) {
+			return string(makeResource(module, name)), nil
+		}))
+	contract.AssertNoError(err)
+
+	// Since SetAutonaming mutates the set of resources in prov.Resources, it must be
+	// called after defaults have been computed.
 	prov.SetAutonaming(255, "-")
 
 	return prov

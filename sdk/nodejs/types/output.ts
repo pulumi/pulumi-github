@@ -115,7 +115,13 @@ export interface BranchProtectionV3RequiredPullRequestReviews {
 
 export interface BranchProtectionV3RequiredStatusChecks {
     /**
-     * The list of status checks to require in order to merge into this branch. No status checks are required by default.
+     * The list of status checks to require in order to merge into this branch. No status checks are required by default. Checks should be strings containing the context and appId like so "context:app_id".
+     */
+    checks?: string[];
+    /**
+     * [**DEPRECATED**] (Optional) The list of status checks to require in order to merge into this branch. No status checks are required by default.
+     *
+     * @deprecated GitHub is deprecating the use of `contexts`. Use a `checks` array instead.
      */
     contexts?: string[];
     /**
@@ -357,6 +363,10 @@ export interface GetOrganizationTeamsTeam {
      * the Node ID of the team.
      */
     nodeId: string;
+    /**
+     * the parent team.
+     */
+    parent: {[key: string]: string};
     /**
      * the team's privacy type.
      */
@@ -671,17 +681,17 @@ export interface RepositoryPagesSource {
 
 export interface RepositorySecurityAndAnalysis {
     /**
-     * The advanced security configuration for the repository. See Advanced Security Configuration below for details.
+     * The advanced security configuration for the repository. See Advanced Security Configuration below for details. If a repository's visibility is `public`, advanced security is always enabled and cannot be changed, so this setting cannot be supplied.
      */
-    advancedSecurity: outputs.RepositorySecurityAndAnalysisAdvancedSecurity;
+    advancedSecurity?: outputs.RepositorySecurityAndAnalysisAdvancedSecurity;
     /**
      * The secret scanning configuration for the repository. See Secret Scanning Configuration below for details.
      */
-    secretScanning: outputs.RepositorySecurityAndAnalysisSecretScanning;
+    secretScanning?: outputs.RepositorySecurityAndAnalysisSecretScanning;
     /**
      * The secret scanning push protection configuration for the repository. See Secret Scanning Push Protection Configuration below for details.
      */
-    secretScanningPushProtection: outputs.RepositorySecurityAndAnalysisSecretScanningPushProtection;
+    secretScanningPushProtection?: outputs.RepositorySecurityAndAnalysisSecretScanningPushProtection;
 }
 
 export interface RepositorySecurityAndAnalysisAdvancedSecurity {

@@ -16,14 +16,14 @@ public final class ActionsEnvironmentSecretArgs extends com.pulumi.resources.Res
     public static final ActionsEnvironmentSecretArgs Empty = new ActionsEnvironmentSecretArgs();
 
     /**
-     * Encrypted value of the secret using the Github public key in Base64 format.
+     * Encrypted value of the secret using the GitHub public key in Base64 format.
      * 
      */
     @Import(name="encryptedValue")
     private @Nullable Output<String> encryptedValue;
 
     /**
-     * @return Encrypted value of the secret using the Github public key in Base64 format.
+     * @return Encrypted value of the secret using the GitHub public key in Base64 format.
      * 
      */
     public Optional<Output<String>> encryptedValue() {
@@ -119,7 +119,7 @@ public final class ActionsEnvironmentSecretArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param encryptedValue Encrypted value of the secret using the Github public key in Base64 format.
+         * @param encryptedValue Encrypted value of the secret using the GitHub public key in Base64 format.
          * 
          * @return builder
          * 
@@ -130,7 +130,7 @@ public final class ActionsEnvironmentSecretArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param encryptedValue Encrypted value of the secret using the Github public key in Base64 format.
+         * @param encryptedValue Encrypted value of the secret using the GitHub public key in Base64 format.
          * 
          * @return builder
          * 

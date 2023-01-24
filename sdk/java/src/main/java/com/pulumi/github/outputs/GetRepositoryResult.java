@@ -58,6 +58,11 @@ public final class GetRepositoryResult {
      */
     private String gitCloneUrl;
     /**
+     * @return Whether the repository has GitHub Discussions enabled.
+     * 
+     */
+    private Boolean hasDiscussions;
+    /**
      * @return Whether the repository has Downloads feature enabled.
      * 
      */
@@ -228,6 +233,13 @@ public final class GetRepositoryResult {
      */
     public String gitCloneUrl() {
         return this.gitCloneUrl;
+    }
+    /**
+     * @return Whether the repository has GitHub Discussions enabled.
+     * 
+     */
+    public Boolean hasDiscussions() {
+        return this.hasDiscussions;
     }
     /**
      * @return Whether the repository has Downloads feature enabled.
@@ -405,6 +417,7 @@ public final class GetRepositoryResult {
         private @Nullable String description;
         private String fullName;
         private String gitCloneUrl;
+        private Boolean hasDiscussions;
         private Boolean hasDownloads;
         private Boolean hasIssues;
         private Boolean hasProjects;
@@ -440,6 +453,7 @@ public final class GetRepositoryResult {
     	      this.description = defaults.description;
     	      this.fullName = defaults.fullName;
     	      this.gitCloneUrl = defaults.gitCloneUrl;
+    	      this.hasDiscussions = defaults.hasDiscussions;
     	      this.hasDownloads = defaults.hasDownloads;
     	      this.hasIssues = defaults.hasIssues;
     	      this.hasProjects = defaults.hasProjects;
@@ -508,6 +522,11 @@ public final class GetRepositoryResult {
         @CustomType.Setter
         public Builder gitCloneUrl(String gitCloneUrl) {
             this.gitCloneUrl = Objects.requireNonNull(gitCloneUrl);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder hasDiscussions(Boolean hasDiscussions) {
+            this.hasDiscussions = Objects.requireNonNull(hasDiscussions);
             return this;
         }
         @CustomType.Setter
@@ -642,6 +661,7 @@ public final class GetRepositoryResult {
             o.description = description;
             o.fullName = fullName;
             o.gitCloneUrl = gitCloneUrl;
+            o.hasDiscussions = hasDiscussions;
             o.hasDownloads = hasDownloads;
             o.hasIssues = hasIssues;
             o.hasProjects = hasProjects;

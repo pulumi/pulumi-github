@@ -59,7 +59,7 @@ export class ActionsSecret extends pulumi.CustomResource {
      */
     public /*out*/ readonly createdAt!: pulumi.Output<string>;
     /**
-     * Encrypted value of the secret using the Github public key in Base64 format.
+     * Encrypted value of the secret using the GitHub public key in Base64 format.
      */
     public readonly encryptedValue!: pulumi.Output<string | undefined>;
     /**
@@ -129,7 +129,7 @@ export interface ActionsSecretState {
      */
     createdAt?: pulumi.Input<string>;
     /**
-     * Encrypted value of the secret using the Github public key in Base64 format.
+     * Encrypted value of the secret using the GitHub public key in Base64 format.
      */
     encryptedValue?: pulumi.Input<string>;
     /**
@@ -155,7 +155,7 @@ export interface ActionsSecretState {
  */
 export interface ActionsSecretArgs {
     /**
-     * Encrypted value of the secret using the Github public key in Base64 format.
+     * Encrypted value of the secret using the GitHub public key in Base64 format.
      */
     encryptedValue?: pulumi.Input<string>;
     /**

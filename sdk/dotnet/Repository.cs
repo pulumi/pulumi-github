@@ -29,7 +29,7 @@ namespace Pulumi.Github
     ///         {
     ///             IncludeAllBranches = true,
     ///             Owner = "github",
-    ///             Repository = "terraform-module-template",
+    ///             Repository = "terraform-template-module",
     ///         },
     ///         Visibility = "public",
     ///     });
@@ -163,6 +163,12 @@ namespace Pulumi.Github
         public Output<string?> GitignoreTemplate { get; private set; } = null!;
 
         /// <summary>
+        /// Set to `true` to enable GitHub Discussions on the repository. Defaults to `false`.
+        /// </summary>
+        [Output("hasDiscussions")]
+        public Output<bool?> HasDiscussions { get; private set; } = null!;
+
+        /// <summary>
         /// Set to `true` to enable the (deprecated) downloads features on the repository.
         /// </summary>
         [Output("hasDownloads")]
@@ -271,7 +277,7 @@ namespace Pulumi.Github
         /// The repository's [security and analysis](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository) configuration. See Security and Analysis Configuration below for details.
         /// </summary>
         [Output("securityAndAnalysis")]
-        public Output<Outputs.RepositorySecurityAndAnalysis?> SecurityAndAnalysis { get; private set; } = null!;
+        public Output<Outputs.RepositorySecurityAndAnalysis> SecurityAndAnalysis { get; private set; } = null!;
 
         /// <summary>
         /// Can be `PR_BODY`, `COMMIT_MESSAGES`, or `BLANK` for a default squash merge commit message.
@@ -440,6 +446,12 @@ namespace Pulumi.Github
         /// </summary>
         [Input("gitignoreTemplate")]
         public Input<string>? GitignoreTemplate { get; set; }
+
+        /// <summary>
+        /// Set to `true` to enable GitHub Discussions on the repository. Defaults to `false`.
+        /// </summary>
+        [Input("hasDiscussions")]
+        public Input<bool>? HasDiscussions { get; set; }
 
         /// <summary>
         /// Set to `true` to enable the (deprecated) downloads features on the repository.
@@ -666,6 +678,12 @@ namespace Pulumi.Github
         /// </summary>
         [Input("gitignoreTemplate")]
         public Input<string>? GitignoreTemplate { get; set; }
+
+        /// <summary>
+        /// Set to `true` to enable GitHub Discussions on the repository. Defaults to `false`.
+        /// </summary>
+        [Input("hasDiscussions")]
+        public Input<bool>? HasDiscussions { get; set; }
 
         /// <summary>
         /// Set to `true` to enable the (deprecated) downloads features on the repository.

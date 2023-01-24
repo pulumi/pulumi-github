@@ -77,6 +77,8 @@ type LookupRepositoryResult struct {
 	FullName    string  `pulumi:"fullName"`
 	// URL that can be provided to `git clone` to clone the repository anonymously via the git protocol.
 	GitCloneUrl string `pulumi:"gitCloneUrl"`
+	// Whether the repository has GitHub Discussions enabled.
+	HasDiscussions bool `pulumi:"hasDiscussions"`
 	// Whether the repository has Downloads feature enabled.
 	HasDownloads bool `pulumi:"hasDownloads"`
 	// Whether the repository has GitHub Issues enabled.
@@ -210,6 +212,11 @@ func (o LookupRepositoryResultOutput) FullName() pulumi.StringOutput {
 // URL that can be provided to `git clone` to clone the repository anonymously via the git protocol.
 func (o LookupRepositoryResultOutput) GitCloneUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRepositoryResult) string { return v.GitCloneUrl }).(pulumi.StringOutput)
+}
+
+// Whether the repository has GitHub Discussions enabled.
+func (o LookupRepositoryResultOutput) HasDiscussions() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupRepositoryResult) bool { return v.HasDiscussions }).(pulumi.BoolOutput)
 }
 
 // Whether the repository has Downloads feature enabled.

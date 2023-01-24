@@ -338,15 +338,15 @@ class BranchProtectionV3(pulumi.CustomResource):
         example_repository = github.Repository("exampleRepository")
         example_team = github.Team("exampleTeam")
         # Protect the main branch of the foo repository. Additionally, require that
-        # the "ci/travis" context to be passing and only allow the engineers team merge
-        # to the branch.
+        # the "ci/check" check ran by the Github Actions app is passing and only allow 
+        # the engineers team merge to the branch.
         example_branch_protection_v3 = github.BranchProtectionV3("exampleBranchProtectionV3",
             repository=example_repository.name,
             branch="main",
             enforce_admins=True,
             required_status_checks=github.BranchProtectionV3RequiredStatusChecksArgs(
                 strict=False,
-                contexts=["ci/travis"],
+                checks=["ci/check:824642007264"],
             ),
             required_pull_request_reviews=github.BranchProtectionV3RequiredPullRequestReviewsArgs(
                 dismiss_stale_reviews=True,
@@ -418,15 +418,15 @@ class BranchProtectionV3(pulumi.CustomResource):
         example_repository = github.Repository("exampleRepository")
         example_team = github.Team("exampleTeam")
         # Protect the main branch of the foo repository. Additionally, require that
-        # the "ci/travis" context to be passing and only allow the engineers team merge
-        # to the branch.
+        # the "ci/check" check ran by the Github Actions app is passing and only allow 
+        # the engineers team merge to the branch.
         example_branch_protection_v3 = github.BranchProtectionV3("exampleBranchProtectionV3",
             repository=example_repository.name,
             branch="main",
             enforce_admins=True,
             required_status_checks=github.BranchProtectionV3RequiredStatusChecksArgs(
                 strict=False,
-                contexts=["ci/travis"],
+                checks=["ci/check:824642007264"],
             ),
             required_pull_request_reviews=github.BranchProtectionV3RequiredPullRequestReviewsArgs(
                 dismiss_stale_reviews=True,

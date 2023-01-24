@@ -78,8 +78,8 @@ namespace Pulumi.Github
     public sealed class GetRepositoryFileArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Git branch (defaults to `main`).
-        /// The branch must already exist, it will not be created if it does not already exist.
+        /// Git branch (if omitted, the default repository branch is used, which is usually `main`)
+        /// The branch must already exist; it will not be created if it does not already exist.
         /// </summary>
         [Input("branch")]
         public string? Branch { get; set; }
@@ -91,7 +91,7 @@ namespace Pulumi.Github
         public string File { get; set; } = null!;
 
         /// <summary>
-        /// The repository to create the file in.
+        /// The repository to read the file from. If an unqualified repo name (without an owner) is passed, the owner will be inferred from the owner of the token used to execute the plan. If a name of the type "owner/repo" (with a slash in the middle) is passed, the owner will be as specified and not the owner of the token.
         /// </summary>
         [Input("repository", required: true)]
         public string Repository { get; set; } = null!;
@@ -105,8 +105,8 @@ namespace Pulumi.Github
     public sealed class GetRepositoryFileInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Git branch (defaults to `main`).
-        /// The branch must already exist, it will not be created if it does not already exist.
+        /// Git branch (if omitted, the default repository branch is used, which is usually `main`)
+        /// The branch must already exist; it will not be created if it does not already exist.
         /// </summary>
         [Input("branch")]
         public Input<string>? Branch { get; set; }
@@ -118,7 +118,7 @@ namespace Pulumi.Github
         public Input<string> File { get; set; } = null!;
 
         /// <summary>
-        /// The repository to create the file in.
+        /// The repository to read the file from. If an unqualified repo name (without an owner) is passed, the owner will be inferred from the owner of the token used to execute the plan. If a name of the type "owner/repo" (with a slash in the middle) is passed, the owner will be as specified and not the owner of the token.
         /// </summary>
         [Input("repository", required: true)]
         public Input<string> Repository { get; set; } = null!;

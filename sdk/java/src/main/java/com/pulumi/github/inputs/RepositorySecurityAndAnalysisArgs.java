@@ -9,6 +9,8 @@ import com.pulumi.github.inputs.RepositorySecurityAndAnalysisAdvancedSecurityArg
 import com.pulumi.github.inputs.RepositorySecurityAndAnalysisSecretScanningArgs;
 import com.pulumi.github.inputs.RepositorySecurityAndAnalysisSecretScanningPushProtectionArgs;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class RepositorySecurityAndAnalysisArgs extends com.pulumi.resources.ResourceArgs {
@@ -16,48 +18,48 @@ public final class RepositorySecurityAndAnalysisArgs extends com.pulumi.resource
     public static final RepositorySecurityAndAnalysisArgs Empty = new RepositorySecurityAndAnalysisArgs();
 
     /**
-     * The advanced security configuration for the repository. See Advanced Security Configuration below for details.
+     * The advanced security configuration for the repository. See Advanced Security Configuration below for details. If a repository&#39;s visibility is `public`, advanced security is always enabled and cannot be changed, so this setting cannot be supplied.
      * 
      */
-    @Import(name="advancedSecurity", required=true)
-    private Output<RepositorySecurityAndAnalysisAdvancedSecurityArgs> advancedSecurity;
+    @Import(name="advancedSecurity")
+    private @Nullable Output<RepositorySecurityAndAnalysisAdvancedSecurityArgs> advancedSecurity;
 
     /**
-     * @return The advanced security configuration for the repository. See Advanced Security Configuration below for details.
+     * @return The advanced security configuration for the repository. See Advanced Security Configuration below for details. If a repository&#39;s visibility is `public`, advanced security is always enabled and cannot be changed, so this setting cannot be supplied.
      * 
      */
-    public Output<RepositorySecurityAndAnalysisAdvancedSecurityArgs> advancedSecurity() {
-        return this.advancedSecurity;
+    public Optional<Output<RepositorySecurityAndAnalysisAdvancedSecurityArgs>> advancedSecurity() {
+        return Optional.ofNullable(this.advancedSecurity);
     }
 
     /**
      * The secret scanning configuration for the repository. See Secret Scanning Configuration below for details.
      * 
      */
-    @Import(name="secretScanning", required=true)
-    private Output<RepositorySecurityAndAnalysisSecretScanningArgs> secretScanning;
+    @Import(name="secretScanning")
+    private @Nullable Output<RepositorySecurityAndAnalysisSecretScanningArgs> secretScanning;
 
     /**
      * @return The secret scanning configuration for the repository. See Secret Scanning Configuration below for details.
      * 
      */
-    public Output<RepositorySecurityAndAnalysisSecretScanningArgs> secretScanning() {
-        return this.secretScanning;
+    public Optional<Output<RepositorySecurityAndAnalysisSecretScanningArgs>> secretScanning() {
+        return Optional.ofNullable(this.secretScanning);
     }
 
     /**
      * The secret scanning push protection configuration for the repository. See Secret Scanning Push Protection Configuration below for details.
      * 
      */
-    @Import(name="secretScanningPushProtection", required=true)
-    private Output<RepositorySecurityAndAnalysisSecretScanningPushProtectionArgs> secretScanningPushProtection;
+    @Import(name="secretScanningPushProtection")
+    private @Nullable Output<RepositorySecurityAndAnalysisSecretScanningPushProtectionArgs> secretScanningPushProtection;
 
     /**
      * @return The secret scanning push protection configuration for the repository. See Secret Scanning Push Protection Configuration below for details.
      * 
      */
-    public Output<RepositorySecurityAndAnalysisSecretScanningPushProtectionArgs> secretScanningPushProtection() {
-        return this.secretScanningPushProtection;
+    public Optional<Output<RepositorySecurityAndAnalysisSecretScanningPushProtectionArgs>> secretScanningPushProtection() {
+        return Optional.ofNullable(this.secretScanningPushProtection);
     }
 
     private RepositorySecurityAndAnalysisArgs() {}
@@ -87,18 +89,18 @@ public final class RepositorySecurityAndAnalysisArgs extends com.pulumi.resource
         }
 
         /**
-         * @param advancedSecurity The advanced security configuration for the repository. See Advanced Security Configuration below for details.
+         * @param advancedSecurity The advanced security configuration for the repository. See Advanced Security Configuration below for details. If a repository&#39;s visibility is `public`, advanced security is always enabled and cannot be changed, so this setting cannot be supplied.
          * 
          * @return builder
          * 
          */
-        public Builder advancedSecurity(Output<RepositorySecurityAndAnalysisAdvancedSecurityArgs> advancedSecurity) {
+        public Builder advancedSecurity(@Nullable Output<RepositorySecurityAndAnalysisAdvancedSecurityArgs> advancedSecurity) {
             $.advancedSecurity = advancedSecurity;
             return this;
         }
 
         /**
-         * @param advancedSecurity The advanced security configuration for the repository. See Advanced Security Configuration below for details.
+         * @param advancedSecurity The advanced security configuration for the repository. See Advanced Security Configuration below for details. If a repository&#39;s visibility is `public`, advanced security is always enabled and cannot be changed, so this setting cannot be supplied.
          * 
          * @return builder
          * 
@@ -113,7 +115,7 @@ public final class RepositorySecurityAndAnalysisArgs extends com.pulumi.resource
          * @return builder
          * 
          */
-        public Builder secretScanning(Output<RepositorySecurityAndAnalysisSecretScanningArgs> secretScanning) {
+        public Builder secretScanning(@Nullable Output<RepositorySecurityAndAnalysisSecretScanningArgs> secretScanning) {
             $.secretScanning = secretScanning;
             return this;
         }
@@ -134,7 +136,7 @@ public final class RepositorySecurityAndAnalysisArgs extends com.pulumi.resource
          * @return builder
          * 
          */
-        public Builder secretScanningPushProtection(Output<RepositorySecurityAndAnalysisSecretScanningPushProtectionArgs> secretScanningPushProtection) {
+        public Builder secretScanningPushProtection(@Nullable Output<RepositorySecurityAndAnalysisSecretScanningPushProtectionArgs> secretScanningPushProtection) {
             $.secretScanningPushProtection = secretScanningPushProtection;
             return this;
         }
@@ -150,9 +152,6 @@ public final class RepositorySecurityAndAnalysisArgs extends com.pulumi.resource
         }
 
         public RepositorySecurityAndAnalysisArgs build() {
-            $.advancedSecurity = Objects.requireNonNull($.advancedSecurity, "expected parameter 'advancedSecurity' to be non-null");
-            $.secretScanning = Objects.requireNonNull($.secretScanning, "expected parameter 'secretScanning' to be non-null");
-            $.secretScanningPushProtection = Objects.requireNonNull($.secretScanningPushProtection, "expected parameter 'secretScanningPushProtection' to be non-null");
             return $;
         }
     }

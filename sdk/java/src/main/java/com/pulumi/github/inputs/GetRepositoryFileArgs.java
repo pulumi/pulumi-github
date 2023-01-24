@@ -16,16 +16,16 @@ public final class GetRepositoryFileArgs extends com.pulumi.resources.InvokeArgs
     public static final GetRepositoryFileArgs Empty = new GetRepositoryFileArgs();
 
     /**
-     * Git branch (defaults to `main`).
-     * The branch must already exist, it will not be created if it does not already exist.
+     * Git branch (if omitted, the default repository branch is used, which is usually `main`)
+     * The branch must already exist; it will not be created if it does not already exist.
      * 
      */
     @Import(name="branch")
     private @Nullable Output<String> branch;
 
     /**
-     * @return Git branch (defaults to `main`).
-     * The branch must already exist, it will not be created if it does not already exist.
+     * @return Git branch (if omitted, the default repository branch is used, which is usually `main`)
+     * The branch must already exist; it will not be created if it does not already exist.
      * 
      */
     public Optional<Output<String>> branch() {
@@ -48,14 +48,14 @@ public final class GetRepositoryFileArgs extends com.pulumi.resources.InvokeArgs
     }
 
     /**
-     * The repository to create the file in.
+     * The repository to read the file from. If an unqualified repo name (without an owner) is passed, the owner will be inferred from the owner of the token used to execute the plan. If a name of the type &#34;owner/repo&#34; (with a slash in the middle) is passed, the owner will be as specified and not the owner of the token.
      * 
      */
     @Import(name="repository", required=true)
     private Output<String> repository;
 
     /**
-     * @return The repository to create the file in.
+     * @return The repository to read the file from. If an unqualified repo name (without an owner) is passed, the owner will be inferred from the owner of the token used to execute the plan. If a name of the type &#34;owner/repo&#34; (with a slash in the middle) is passed, the owner will be as specified and not the owner of the token.
      * 
      */
     public Output<String> repository() {
@@ -89,8 +89,8 @@ public final class GetRepositoryFileArgs extends com.pulumi.resources.InvokeArgs
         }
 
         /**
-         * @param branch Git branch (defaults to `main`).
-         * The branch must already exist, it will not be created if it does not already exist.
+         * @param branch Git branch (if omitted, the default repository branch is used, which is usually `main`)
+         * The branch must already exist; it will not be created if it does not already exist.
          * 
          * @return builder
          * 
@@ -101,8 +101,8 @@ public final class GetRepositoryFileArgs extends com.pulumi.resources.InvokeArgs
         }
 
         /**
-         * @param branch Git branch (defaults to `main`).
-         * The branch must already exist, it will not be created if it does not already exist.
+         * @param branch Git branch (if omitted, the default repository branch is used, which is usually `main`)
+         * The branch must already exist; it will not be created if it does not already exist.
          * 
          * @return builder
          * 
@@ -133,7 +133,7 @@ public final class GetRepositoryFileArgs extends com.pulumi.resources.InvokeArgs
         }
 
         /**
-         * @param repository The repository to create the file in.
+         * @param repository The repository to read the file from. If an unqualified repo name (without an owner) is passed, the owner will be inferred from the owner of the token used to execute the plan. If a name of the type &#34;owner/repo&#34; (with a slash in the middle) is passed, the owner will be as specified and not the owner of the token.
          * 
          * @return builder
          * 
@@ -144,7 +144,7 @@ public final class GetRepositoryFileArgs extends com.pulumi.resources.InvokeArgs
         }
 
         /**
-         * @param repository The repository to create the file in.
+         * @param repository The repository to read the file from. If an unqualified repo name (without an owner) is passed, the owner will be inferred from the owner of the token used to execute the plan. If a name of the type &#34;owner/repo&#34; (with a slash in the middle) is passed, the owner will be as specified and not the owner of the token.
          * 
          * @return builder
          * 

@@ -14,7 +14,11 @@ namespace Pulumi.Github.Outputs
     public sealed class BranchProtectionV3RequiredStatusChecks
     {
         /// <summary>
-        /// The list of status checks to require in order to merge into this branch. No status checks are required by default.
+        /// The list of status checks to require in order to merge into this branch. No status checks are required by default. Checks should be strings containing the context and app_id like so "context:app_id".
+        /// </summary>
+        public readonly ImmutableArray<string> Checks;
+        /// <summary>
+        /// [**DEPRECATED**] (Optional) The list of status checks to require in order to merge into this branch. No status checks are required by default.
         /// </summary>
         public readonly ImmutableArray<string> Contexts;
         public readonly bool? IncludeAdmins;
@@ -25,12 +29,15 @@ namespace Pulumi.Github.Outputs
 
         [OutputConstructor]
         private BranchProtectionV3RequiredStatusChecks(
+            ImmutableArray<string> checks,
+
             ImmutableArray<string> contexts,
 
             bool? includeAdmins,
 
             bool? strict)
         {
+            Checks = checks;
             Contexts = contexts;
             IncludeAdmins = includeAdmins;
             Strict = strict;

@@ -97,7 +97,7 @@ type ActionsEnvironmentSecret struct {
 
 	// Date of actionsEnvironmentSecret creation.
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
-	// Encrypted value of the secret using the Github public key in Base64 format.
+	// Encrypted value of the secret using the GitHub public key in Base64 format.
 	EncryptedValue pulumi.StringPtrOutput `pulumi:"encryptedValue"`
 	// Name of the environment.
 	Environment pulumi.StringOutput `pulumi:"environment"`
@@ -162,7 +162,7 @@ func GetActionsEnvironmentSecret(ctx *pulumi.Context,
 type actionsEnvironmentSecretState struct {
 	// Date of actionsEnvironmentSecret creation.
 	CreatedAt *string `pulumi:"createdAt"`
-	// Encrypted value of the secret using the Github public key in Base64 format.
+	// Encrypted value of the secret using the GitHub public key in Base64 format.
 	EncryptedValue *string `pulumi:"encryptedValue"`
 	// Name of the environment.
 	Environment *string `pulumi:"environment"`
@@ -179,7 +179,7 @@ type actionsEnvironmentSecretState struct {
 type ActionsEnvironmentSecretState struct {
 	// Date of actionsEnvironmentSecret creation.
 	CreatedAt pulumi.StringPtrInput
-	// Encrypted value of the secret using the Github public key in Base64 format.
+	// Encrypted value of the secret using the GitHub public key in Base64 format.
 	EncryptedValue pulumi.StringPtrInput
 	// Name of the environment.
 	Environment pulumi.StringPtrInput
@@ -198,7 +198,7 @@ func (ActionsEnvironmentSecretState) ElementType() reflect.Type {
 }
 
 type actionsEnvironmentSecretArgs struct {
-	// Encrypted value of the secret using the Github public key in Base64 format.
+	// Encrypted value of the secret using the GitHub public key in Base64 format.
 	EncryptedValue *string `pulumi:"encryptedValue"`
 	// Name of the environment.
 	Environment string `pulumi:"environment"`
@@ -212,7 +212,7 @@ type actionsEnvironmentSecretArgs struct {
 
 // The set of arguments for constructing a ActionsEnvironmentSecret resource.
 type ActionsEnvironmentSecretArgs struct {
-	// Encrypted value of the secret using the Github public key in Base64 format.
+	// Encrypted value of the secret using the GitHub public key in Base64 format.
 	EncryptedValue pulumi.StringPtrInput
 	// Name of the environment.
 	Environment pulumi.StringInput
@@ -316,7 +316,7 @@ func (o ActionsEnvironmentSecretOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *ActionsEnvironmentSecret) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
-// Encrypted value of the secret using the Github public key in Base64 format.
+// Encrypted value of the secret using the GitHub public key in Base64 format.
 func (o ActionsEnvironmentSecretOutput) EncryptedValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ActionsEnvironmentSecret) pulumi.StringPtrOutput { return v.EncryptedValue }).(pulumi.StringPtrOutput)
 }

@@ -97,7 +97,7 @@ import javax.annotation.Nullable;
  *             .enforceAdmins(true)
  *             .requiredStatusChecks(BranchProtectionV3RequiredStatusChecksArgs.builder()
  *                 .strict(false)
- *                 .contexts(&#34;ci/travis&#34;)
+ *                 .checks(&#34;ci/check:824642007264&#34;)
  *                 .build())
  *             .requiredPullRequestReviews(BranchProtectionV3RequiredPullRequestReviewsArgs.builder()
  *                 .dismissStaleReviews(true)

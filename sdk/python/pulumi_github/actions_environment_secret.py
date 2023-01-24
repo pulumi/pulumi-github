@@ -24,7 +24,7 @@ class ActionsEnvironmentSecretArgs:
         :param pulumi.Input[str] environment: Name of the environment.
         :param pulumi.Input[str] repository: Name of the repository.
         :param pulumi.Input[str] secret_name: Name of the secret.
-        :param pulumi.Input[str] encrypted_value: Encrypted value of the secret using the Github public key in Base64 format.
+        :param pulumi.Input[str] encrypted_value: Encrypted value of the secret using the GitHub public key in Base64 format.
         :param pulumi.Input[str] plaintext_value: Plaintext value of the secret to be encrypted.
         """
         pulumi.set(__self__, "environment", environment)
@@ -75,7 +75,7 @@ class ActionsEnvironmentSecretArgs:
     @pulumi.getter(name="encryptedValue")
     def encrypted_value(self) -> Optional[pulumi.Input[str]]:
         """
-        Encrypted value of the secret using the Github public key in Base64 format.
+        Encrypted value of the secret using the GitHub public key in Base64 format.
         """
         return pulumi.get(self, "encrypted_value")
 
@@ -109,7 +109,7 @@ class _ActionsEnvironmentSecretState:
         """
         Input properties used for looking up and filtering ActionsEnvironmentSecret resources.
         :param pulumi.Input[str] created_at: Date of actions_environment_secret creation.
-        :param pulumi.Input[str] encrypted_value: Encrypted value of the secret using the Github public key in Base64 format.
+        :param pulumi.Input[str] encrypted_value: Encrypted value of the secret using the GitHub public key in Base64 format.
         :param pulumi.Input[str] environment: Name of the environment.
         :param pulumi.Input[str] plaintext_value: Plaintext value of the secret to be encrypted.
         :param pulumi.Input[str] repository: Name of the repository.
@@ -147,7 +147,7 @@ class _ActionsEnvironmentSecretState:
     @pulumi.getter(name="encryptedValue")
     def encrypted_value(self) -> Optional[pulumi.Input[str]]:
         """
-        Encrypted value of the secret using the Github public key in Base64 format.
+        Encrypted value of the secret using the GitHub public key in Base64 format.
         """
         return pulumi.get(self, "encrypted_value")
 
@@ -265,7 +265,7 @@ class ActionsEnvironmentSecret(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] encrypted_value: Encrypted value of the secret using the Github public key in Base64 format.
+        :param pulumi.Input[str] encrypted_value: Encrypted value of the secret using the GitHub public key in Base64 format.
         :param pulumi.Input[str] environment: Name of the environment.
         :param pulumi.Input[str] plaintext_value: Plaintext value of the secret to be encrypted.
         :param pulumi.Input[str] repository: Name of the repository.
@@ -382,7 +382,7 @@ class ActionsEnvironmentSecret(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] created_at: Date of actions_environment_secret creation.
-        :param pulumi.Input[str] encrypted_value: Encrypted value of the secret using the Github public key in Base64 format.
+        :param pulumi.Input[str] encrypted_value: Encrypted value of the secret using the GitHub public key in Base64 format.
         :param pulumi.Input[str] environment: Name of the environment.
         :param pulumi.Input[str] plaintext_value: Plaintext value of the secret to be encrypted.
         :param pulumi.Input[str] repository: Name of the repository.
@@ -414,7 +414,7 @@ class ActionsEnvironmentSecret(pulumi.CustomResource):
     @pulumi.getter(name="encryptedValue")
     def encrypted_value(self) -> pulumi.Output[Optional[str]]:
         """
-        Encrypted value of the secret using the Github public key in Base64 format.
+        Encrypted value of the secret using the GitHub public key in Base64 format.
         """
         return pulumi.get(self, "encrypted_value")
 

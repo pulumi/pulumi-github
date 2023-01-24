@@ -28,6 +28,7 @@ class RepositoryArgs:
                  delete_branch_on_merge: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  gitignore_template: Optional[pulumi.Input[str]] = None,
+                 has_discussions: Optional[pulumi.Input[bool]] = None,
                  has_downloads: Optional[pulumi.Input[bool]] = None,
                  has_issues: Optional[pulumi.Input[bool]] = None,
                  has_projects: Optional[pulumi.Input[bool]] = None,
@@ -64,6 +65,7 @@ class RepositoryArgs:
         :param pulumi.Input[bool] delete_branch_on_merge: Automatically delete head branch after a pull request is merged. Defaults to `false`.
         :param pulumi.Input[str] description: A description of the repository.
         :param pulumi.Input[str] gitignore_template: Use the [name of the template](https://github.com/github/gitignore) without the extension. For example, "Haskell".
+        :param pulumi.Input[bool] has_discussions: Set to `true` to enable GitHub Discussions on the repository. Defaults to `false`.
         :param pulumi.Input[bool] has_downloads: Set to `true` to enable the (deprecated) downloads features on the repository.
         :param pulumi.Input[bool] has_issues: Set to `true` to enable the GitHub Issues features
                on the repository.
@@ -115,6 +117,8 @@ class RepositoryArgs:
             pulumi.set(__self__, "description", description)
         if gitignore_template is not None:
             pulumi.set(__self__, "gitignore_template", gitignore_template)
+        if has_discussions is not None:
+            pulumi.set(__self__, "has_discussions", has_discussions)
         if has_downloads is not None:
             pulumi.set(__self__, "has_downloads", has_downloads)
         if has_issues is not None:
@@ -304,6 +308,18 @@ class RepositoryArgs:
     @gitignore_template.setter
     def gitignore_template(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "gitignore_template", value)
+
+    @property
+    @pulumi.getter(name="hasDiscussions")
+    def has_discussions(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Set to `true` to enable GitHub Discussions on the repository. Defaults to `false`.
+        """
+        return pulumi.get(self, "has_discussions")
+
+    @has_discussions.setter
+    def has_discussions(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "has_discussions", value)
 
     @property
     @pulumi.getter(name="hasDownloads")
@@ -567,6 +583,7 @@ class _RepositoryState:
                  full_name: Optional[pulumi.Input[str]] = None,
                  git_clone_url: Optional[pulumi.Input[str]] = None,
                  gitignore_template: Optional[pulumi.Input[str]] = None,
+                 has_discussions: Optional[pulumi.Input[bool]] = None,
                  has_downloads: Optional[pulumi.Input[bool]] = None,
                  has_issues: Optional[pulumi.Input[bool]] = None,
                  has_projects: Optional[pulumi.Input[bool]] = None,
@@ -611,6 +628,7 @@ class _RepositoryState:
         :param pulumi.Input[str] full_name: A string of the form "orgname/reponame".
         :param pulumi.Input[str] git_clone_url: URL that can be provided to `git clone` to clone the repository anonymously via the git protocol.
         :param pulumi.Input[str] gitignore_template: Use the [name of the template](https://github.com/github/gitignore) without the extension. For example, "Haskell".
+        :param pulumi.Input[bool] has_discussions: Set to `true` to enable GitHub Discussions on the repository. Defaults to `false`.
         :param pulumi.Input[bool] has_downloads: Set to `true` to enable the (deprecated) downloads features on the repository.
         :param pulumi.Input[bool] has_issues: Set to `true` to enable the GitHub Issues features
                on the repository.
@@ -674,6 +692,8 @@ class _RepositoryState:
             pulumi.set(__self__, "git_clone_url", git_clone_url)
         if gitignore_template is not None:
             pulumi.set(__self__, "gitignore_template", gitignore_template)
+        if has_discussions is not None:
+            pulumi.set(__self__, "has_discussions", has_discussions)
         if has_downloads is not None:
             pulumi.set(__self__, "has_downloads", has_downloads)
         if has_issues is not None:
@@ -908,6 +928,18 @@ class _RepositoryState:
     @gitignore_template.setter
     def gitignore_template(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "gitignore_template", value)
+
+    @property
+    @pulumi.getter(name="hasDiscussions")
+    def has_discussions(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Set to `true` to enable GitHub Discussions on the repository. Defaults to `false`.
+        """
+        return pulumi.get(self, "has_discussions")
+
+    @has_discussions.setter
+    def has_discussions(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "has_discussions", value)
 
     @property
     @pulumi.getter(name="hasDownloads")
@@ -1242,6 +1274,7 @@ class Repository(pulumi.CustomResource):
                  delete_branch_on_merge: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  gitignore_template: Optional[pulumi.Input[str]] = None,
+                 has_discussions: Optional[pulumi.Input[bool]] = None,
                  has_downloads: Optional[pulumi.Input[bool]] = None,
                  has_issues: Optional[pulumi.Input[bool]] = None,
                  has_projects: Optional[pulumi.Input[bool]] = None,
@@ -1278,7 +1311,7 @@ class Repository(pulumi.CustomResource):
             template=github.RepositoryTemplateArgs(
                 include_all_branches=True,
                 owner="github",
-                repository="terraform-module-template",
+                repository="terraform-template-module",
             ),
             visibility="public")
         ```
@@ -1323,6 +1356,7 @@ class Repository(pulumi.CustomResource):
         :param pulumi.Input[bool] delete_branch_on_merge: Automatically delete head branch after a pull request is merged. Defaults to `false`.
         :param pulumi.Input[str] description: A description of the repository.
         :param pulumi.Input[str] gitignore_template: Use the [name of the template](https://github.com/github/gitignore) without the extension. For example, "Haskell".
+        :param pulumi.Input[bool] has_discussions: Set to `true` to enable GitHub Discussions on the repository. Defaults to `false`.
         :param pulumi.Input[bool] has_downloads: Set to `true` to enable the (deprecated) downloads features on the repository.
         :param pulumi.Input[bool] has_issues: Set to `true` to enable the GitHub Issues features
                on the repository.
@@ -1368,7 +1402,7 @@ class Repository(pulumi.CustomResource):
             template=github.RepositoryTemplateArgs(
                 include_all_branches=True,
                 owner="github",
-                repository="terraform-module-template",
+                repository="terraform-template-module",
             ),
             visibility="public")
         ```
@@ -1424,6 +1458,7 @@ class Repository(pulumi.CustomResource):
                  delete_branch_on_merge: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  gitignore_template: Optional[pulumi.Input[str]] = None,
+                 has_discussions: Optional[pulumi.Input[bool]] = None,
                  has_downloads: Optional[pulumi.Input[bool]] = None,
                  has_issues: Optional[pulumi.Input[bool]] = None,
                  has_projects: Optional[pulumi.Input[bool]] = None,
@@ -1468,6 +1503,7 @@ class Repository(pulumi.CustomResource):
             __props__.__dict__["delete_branch_on_merge"] = delete_branch_on_merge
             __props__.__dict__["description"] = description
             __props__.__dict__["gitignore_template"] = gitignore_template
+            __props__.__dict__["has_discussions"] = has_discussions
             __props__.__dict__["has_downloads"] = has_downloads
             __props__.__dict__["has_issues"] = has_issues
             __props__.__dict__["has_projects"] = has_projects
@@ -1525,6 +1561,7 @@ class Repository(pulumi.CustomResource):
             full_name: Optional[pulumi.Input[str]] = None,
             git_clone_url: Optional[pulumi.Input[str]] = None,
             gitignore_template: Optional[pulumi.Input[str]] = None,
+            has_discussions: Optional[pulumi.Input[bool]] = None,
             has_downloads: Optional[pulumi.Input[bool]] = None,
             has_issues: Optional[pulumi.Input[bool]] = None,
             has_projects: Optional[pulumi.Input[bool]] = None,
@@ -1574,6 +1611,7 @@ class Repository(pulumi.CustomResource):
         :param pulumi.Input[str] full_name: A string of the form "orgname/reponame".
         :param pulumi.Input[str] git_clone_url: URL that can be provided to `git clone` to clone the repository anonymously via the git protocol.
         :param pulumi.Input[str] gitignore_template: Use the [name of the template](https://github.com/github/gitignore) without the extension. For example, "Haskell".
+        :param pulumi.Input[bool] has_discussions: Set to `true` to enable GitHub Discussions on the repository. Defaults to `false`.
         :param pulumi.Input[bool] has_downloads: Set to `true` to enable the (deprecated) downloads features on the repository.
         :param pulumi.Input[bool] has_issues: Set to `true` to enable the GitHub Issues features
                on the repository.
@@ -1623,6 +1661,7 @@ class Repository(pulumi.CustomResource):
         __props__.__dict__["full_name"] = full_name
         __props__.__dict__["git_clone_url"] = git_clone_url
         __props__.__dict__["gitignore_template"] = gitignore_template
+        __props__.__dict__["has_discussions"] = has_discussions
         __props__.__dict__["has_downloads"] = has_downloads
         __props__.__dict__["has_issues"] = has_issues
         __props__.__dict__["has_projects"] = has_projects
@@ -1771,6 +1810,14 @@ class Repository(pulumi.CustomResource):
         return pulumi.get(self, "gitignore_template")
 
     @property
+    @pulumi.getter(name="hasDiscussions")
+    def has_discussions(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Set to `true` to enable GitHub Discussions on the repository. Defaults to `false`.
+        """
+        return pulumi.get(self, "has_discussions")
+
+    @property
     @pulumi.getter(name="hasDownloads")
     def has_downloads(self) -> pulumi.Output[Optional[bool]]:
         """
@@ -1911,7 +1958,7 @@ class Repository(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="securityAndAnalysis")
-    def security_and_analysis(self) -> pulumi.Output[Optional['outputs.RepositorySecurityAndAnalysis']]:
+    def security_and_analysis(self) -> pulumi.Output['outputs.RepositorySecurityAndAnalysis']:
         """
         The repository's [security and analysis](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository) configuration. See Security and Analysis Configuration below for details.
         """

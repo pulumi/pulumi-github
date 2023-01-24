@@ -52,7 +52,7 @@ import javax.annotation.Nullable;
  *             .template(RepositoryTemplateArgs.builder()
  *                 .includeAllBranches(true)
  *                 .owner(&#34;github&#34;)
- *                 .repository(&#34;terraform-module-template&#34;)
+ *                 .repository(&#34;terraform-template-module&#34;)
  *                 .build())
  *             .visibility(&#34;public&#34;)
  *             .build());
@@ -321,6 +321,20 @@ public class Repository extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.gitignoreTemplate);
     }
     /**
+     * Set to `true` to enable GitHub Discussions on the repository. Defaults to `false`.
+     * 
+     */
+    @Export(name="hasDiscussions", type=Boolean.class, parameters={})
+    private Output</* @Nullable */ Boolean> hasDiscussions;
+
+    /**
+     * @return Set to `true` to enable GitHub Discussions on the repository. Defaults to `false`.
+     * 
+     */
+    public Output<Optional<Boolean>> hasDiscussions() {
+        return Codegen.optional(this.hasDiscussions);
+    }
+    /**
      * Set to `true` to enable the (deprecated) downloads features on the repository.
      * 
      */
@@ -573,14 +587,14 @@ public class Repository extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="securityAndAnalysis", type=RepositorySecurityAndAnalysis.class, parameters={})
-    private Output</* @Nullable */ RepositorySecurityAndAnalysis> securityAndAnalysis;
+    private Output<RepositorySecurityAndAnalysis> securityAndAnalysis;
 
     /**
      * @return The repository&#39;s [security and analysis](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository) configuration. See Security and Analysis Configuration below for details.
      * 
      */
-    public Output<Optional<RepositorySecurityAndAnalysis>> securityAndAnalysis() {
-        return Codegen.optional(this.securityAndAnalysis);
+    public Output<RepositorySecurityAndAnalysis> securityAndAnalysis() {
+        return this.securityAndAnalysis;
     }
     /**
      * Can be `PR_BODY`, `COMMIT_MESSAGES`, or `BLANK` for a default squash merge commit message.

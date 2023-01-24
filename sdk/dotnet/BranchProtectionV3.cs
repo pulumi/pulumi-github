@@ -54,8 +54,8 @@ namespace Pulumi.Github
     ///     var exampleTeam = new Github.Team("exampleTeam");
     /// 
     ///     // Protect the main branch of the foo repository. Additionally, require that
-    ///     // the "ci/travis" context to be passing and only allow the engineers team merge
-    ///     // to the branch.
+    ///     // the "ci/check" check ran by the Github Actions app is passing and only allow 
+    ///     // the engineers team merge to the branch.
     ///     var exampleBranchProtectionV3 = new Github.BranchProtectionV3("exampleBranchProtectionV3", new()
     ///     {
     ///         Repository = exampleRepository.Name,
@@ -64,9 +64,9 @@ namespace Pulumi.Github
     ///         RequiredStatusChecks = new Github.Inputs.BranchProtectionV3RequiredStatusChecksArgs
     ///         {
     ///             Strict = false,
-    ///             Contexts = new[]
+    ///             Checks = new[]
     ///             {
-    ///                 "ci/travis",
+    ///                 "ci/check:824642007264",
     ///             },
     ///         },
     ///         RequiredPullRequestReviews = new Github.Inputs.BranchProtectionV3RequiredPullRequestReviewsArgs

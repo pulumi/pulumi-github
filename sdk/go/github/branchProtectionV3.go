@@ -75,8 +75,8 @@ import (
 //				EnforceAdmins: pulumi.Bool(true),
 //				RequiredStatusChecks: &github.BranchProtectionV3RequiredStatusChecksArgs{
 //					Strict: pulumi.Bool(false),
-//					Contexts: pulumi.StringArray{
-//						pulumi.String("ci/travis"),
+//					Checks: pulumi.StringArray{
+//						pulumi.String("ci/check:824642007264"),
 //					},
 //				},
 //				RequiredPullRequestReviews: &github.BranchProtectionV3RequiredPullRequestReviewsArgs{

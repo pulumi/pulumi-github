@@ -7,6 +7,7 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 
 @CustomType
@@ -36,6 +37,11 @@ public final class GetOrganizationTeamsTeam {
      * 
      */
     private String nodeId;
+    /**
+     * @return the parent team.
+     * 
+     */
+    private Map<String,String> parent;
     /**
      * @return the team&#39;s privacy type.
      * 
@@ -89,6 +95,13 @@ public final class GetOrganizationTeamsTeam {
         return this.nodeId;
     }
     /**
+     * @return the parent team.
+     * 
+     */
+    public Map<String,String> parent() {
+        return this.parent;
+    }
+    /**
      * @return the team&#39;s privacy type.
      * 
      */
@@ -124,6 +137,7 @@ public final class GetOrganizationTeamsTeam {
         private List<String> members;
         private String name;
         private String nodeId;
+        private Map<String,String> parent;
         private String privacy;
         private List<String> repositories;
         private String slug;
@@ -135,6 +149,7 @@ public final class GetOrganizationTeamsTeam {
     	      this.members = defaults.members;
     	      this.name = defaults.name;
     	      this.nodeId = defaults.nodeId;
+    	      this.parent = defaults.parent;
     	      this.privacy = defaults.privacy;
     	      this.repositories = defaults.repositories;
     	      this.slug = defaults.slug;
@@ -169,6 +184,11 @@ public final class GetOrganizationTeamsTeam {
             return this;
         }
         @CustomType.Setter
+        public Builder parent(Map<String,String> parent) {
+            this.parent = Objects.requireNonNull(parent);
+            return this;
+        }
+        @CustomType.Setter
         public Builder privacy(String privacy) {
             this.privacy = Objects.requireNonNull(privacy);
             return this;
@@ -193,6 +213,7 @@ public final class GetOrganizationTeamsTeam {
             o.members = members;
             o.name = name;
             o.nodeId = nodeId;
+            o.parent = parent;
             o.privacy = privacy;
             o.repositories = repositories;
             o.slug = slug;

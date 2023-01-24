@@ -213,6 +213,21 @@ public final class RepositoryArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Set to `true` to enable GitHub Discussions on the repository. Defaults to `false`.
+     * 
+     */
+    @Import(name="hasDiscussions")
+    private @Nullable Output<Boolean> hasDiscussions;
+
+    /**
+     * @return Set to `true` to enable GitHub Discussions on the repository. Defaults to `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> hasDiscussions() {
+        return Optional.ofNullable(this.hasDiscussions);
+    }
+
+    /**
      * Set to `true` to enable the (deprecated) downloads features on the repository.
      * 
      */
@@ -541,6 +556,7 @@ public final class RepositoryArgs extends com.pulumi.resources.ResourceArgs {
         this.deleteBranchOnMerge = $.deleteBranchOnMerge;
         this.description = $.description;
         this.gitignoreTemplate = $.gitignoreTemplate;
+        this.hasDiscussions = $.hasDiscussions;
         this.hasDownloads = $.hasDownloads;
         this.hasIssues = $.hasIssues;
         this.hasProjects = $.hasProjects;
@@ -843,6 +859,27 @@ public final class RepositoryArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder gitignoreTemplate(String gitignoreTemplate) {
             return gitignoreTemplate(Output.of(gitignoreTemplate));
+        }
+
+        /**
+         * @param hasDiscussions Set to `true` to enable GitHub Discussions on the repository. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder hasDiscussions(@Nullable Output<Boolean> hasDiscussions) {
+            $.hasDiscussions = hasDiscussions;
+            return this;
+        }
+
+        /**
+         * @param hasDiscussions Set to `true` to enable GitHub Discussions on the repository. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder hasDiscussions(Boolean hasDiscussions) {
+            return hasDiscussions(Output.of(hasDiscussions));
         }
 
         /**

@@ -15,16 +15,16 @@ public final class GetRepositoryFilePlainArgs extends com.pulumi.resources.Invok
     public static final GetRepositoryFilePlainArgs Empty = new GetRepositoryFilePlainArgs();
 
     /**
-     * Git branch (defaults to `main`).
-     * The branch must already exist, it will not be created if it does not already exist.
+     * Git branch (if omitted, the default repository branch is used, which is usually `main`)
+     * The branch must already exist; it will not be created if it does not already exist.
      * 
      */
     @Import(name="branch")
     private @Nullable String branch;
 
     /**
-     * @return Git branch (defaults to `main`).
-     * The branch must already exist, it will not be created if it does not already exist.
+     * @return Git branch (if omitted, the default repository branch is used, which is usually `main`)
+     * The branch must already exist; it will not be created if it does not already exist.
      * 
      */
     public Optional<String> branch() {
@@ -47,14 +47,14 @@ public final class GetRepositoryFilePlainArgs extends com.pulumi.resources.Invok
     }
 
     /**
-     * The repository to create the file in.
+     * The repository to read the file from. If an unqualified repo name (without an owner) is passed, the owner will be inferred from the owner of the token used to execute the plan. If a name of the type &#34;owner/repo&#34; (with a slash in the middle) is passed, the owner will be as specified and not the owner of the token.
      * 
      */
     @Import(name="repository", required=true)
     private String repository;
 
     /**
-     * @return The repository to create the file in.
+     * @return The repository to read the file from. If an unqualified repo name (without an owner) is passed, the owner will be inferred from the owner of the token used to execute the plan. If a name of the type &#34;owner/repo&#34; (with a slash in the middle) is passed, the owner will be as specified and not the owner of the token.
      * 
      */
     public String repository() {
@@ -88,8 +88,8 @@ public final class GetRepositoryFilePlainArgs extends com.pulumi.resources.Invok
         }
 
         /**
-         * @param branch Git branch (defaults to `main`).
-         * The branch must already exist, it will not be created if it does not already exist.
+         * @param branch Git branch (if omitted, the default repository branch is used, which is usually `main`)
+         * The branch must already exist; it will not be created if it does not already exist.
          * 
          * @return builder
          * 
@@ -111,7 +111,7 @@ public final class GetRepositoryFilePlainArgs extends com.pulumi.resources.Invok
         }
 
         /**
-         * @param repository The repository to create the file in.
+         * @param repository The repository to read the file from. If an unqualified repo name (without an owner) is passed, the owner will be inferred from the owner of the token used to execute the plan. If a name of the type &#34;owner/repo&#34; (with a slash in the middle) is passed, the owner will be as specified and not the owner of the token.
          * 
          * @return builder
          * 

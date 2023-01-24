@@ -147,15 +147,6 @@ class TeamMembership(pulumi.CustomResource):
                  username: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Provides a GitHub team membership resource.
-
-        This resource allows you to add/remove users from teams in your organization. When applied,
-        the user will be added to the team. If the user hasn't accepted their invitation to the
-        organization, they won't be part of the team until they do. When
-        destroyed, the user will be removed from the team.
-
-        > **Note**: This resource is not compatible with `TeamMembers`. Use either `TeamMembers` or `TeamMembership`.
-
         ## Example Usage
 
         ```python
@@ -195,15 +186,6 @@ class TeamMembership(pulumi.CustomResource):
                  args: TeamMembershipArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a GitHub team membership resource.
-
-        This resource allows you to add/remove users from teams in your organization. When applied,
-        the user will be added to the team. If the user hasn't accepted their invitation to the
-        organization, they won't be part of the team until they do. When
-        destroyed, the user will be removed from the team.
-
-        > **Note**: This resource is not compatible with `TeamMembers`. Use either `TeamMembers` or `TeamMembership`.
-
         ## Example Usage
 
         ```python
