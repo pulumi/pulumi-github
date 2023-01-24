@@ -93,7 +93,7 @@ namespace Pulumi.Github
         public Output<string> CreatedAt { get; private set; } = null!;
 
         /// <summary>
-        /// Encrypted value of the secret using the Github public key in Base64 format.
+        /// Encrypted value of the secret using the GitHub public key in Base64 format.
         /// </summary>
         [Output("encryptedValue")]
         public Output<string?> EncryptedValue { get; private set; } = null!;
@@ -184,7 +184,7 @@ namespace Pulumi.Github
         private Input<string>? _encryptedValue;
 
         /// <summary>
-        /// Encrypted value of the secret using the Github public key in Base64 format.
+        /// Encrypted value of the secret using the GitHub public key in Base64 format.
         /// </summary>
         public Input<string>? EncryptedValue
         {
@@ -255,7 +255,7 @@ namespace Pulumi.Github
         private Input<string>? _encryptedValue;
 
         /// <summary>
-        /// Encrypted value of the secret using the Github public key in Base64 format.
+        /// Encrypted value of the secret using the GitHub public key in Base64 format.
         /// </summary>
         public Input<string>? EncryptedValue
         {

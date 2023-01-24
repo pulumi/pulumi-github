@@ -36,8 +36,8 @@ export function getRepositoryFile(args: GetRepositoryFileArgs, opts?: pulumi.Inv
  */
 export interface GetRepositoryFileArgs {
     /**
-     * Git branch (defaults to `main`).
-     * The branch must already exist, it will not be created if it does not already exist.
+     * Git branch (if omitted, the default repository branch is used, which is usually `main`)
+     * The branch must already exist; it will not be created if it does not already exist.
      */
     branch?: string;
     /**
@@ -45,7 +45,7 @@ export interface GetRepositoryFileArgs {
      */
     file: string;
     /**
-     * The repository to create the file in.
+     * The repository to read the file from. If an unqualified repo name (without an owner) is passed, the owner will be inferred from the owner of the token used to execute the plan. If a name of the type "owner/repo" (with a slash in the middle) is passed, the owner will be as specified and not the owner of the token.
      */
     repository: string;
 }
@@ -112,8 +112,8 @@ export function getRepositoryFileOutput(args: GetRepositoryFileOutputArgs, opts?
  */
 export interface GetRepositoryFileOutputArgs {
     /**
-     * Git branch (defaults to `main`).
-     * The branch must already exist, it will not be created if it does not already exist.
+     * Git branch (if omitted, the default repository branch is used, which is usually `main`)
+     * The branch must already exist; it will not be created if it does not already exist.
      */
     branch?: pulumi.Input<string>;
     /**
@@ -121,7 +121,7 @@ export interface GetRepositoryFileOutputArgs {
      */
     file: pulumi.Input<string>;
     /**
-     * The repository to create the file in.
+     * The repository to read the file from. If an unqualified repo name (without an owner) is passed, the owner will be inferred from the owner of the token used to execute the plan. If a name of the type "owner/repo" (with a slash in the middle) is passed, the owner will be as specified and not the owner of the token.
      */
     repository: pulumi.Input<string>;
 }

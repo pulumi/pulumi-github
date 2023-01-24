@@ -12,6 +12,8 @@ import com.pulumi.github.inputs.GetActionsPublicKeyArgs;
 import com.pulumi.github.inputs.GetActionsPublicKeyPlainArgs;
 import com.pulumi.github.inputs.GetActionsRegistrationTokenArgs;
 import com.pulumi.github.inputs.GetActionsRegistrationTokenPlainArgs;
+import com.pulumi.github.inputs.GetActionsRepositoryOidcSubjectClaimCustomizationTemplateArgs;
+import com.pulumi.github.inputs.GetActionsRepositoryOidcSubjectClaimCustomizationTemplatePlainArgs;
 import com.pulumi.github.inputs.GetActionsSecretsArgs;
 import com.pulumi.github.inputs.GetActionsSecretsPlainArgs;
 import com.pulumi.github.inputs.GetBranchArgs;
@@ -22,6 +24,8 @@ import com.pulumi.github.inputs.GetDependabotPublicKeyArgs;
 import com.pulumi.github.inputs.GetDependabotPublicKeyPlainArgs;
 import com.pulumi.github.inputs.GetDependabotSecretsArgs;
 import com.pulumi.github.inputs.GetDependabotSecretsPlainArgs;
+import com.pulumi.github.inputs.GetEnterpriseArgs;
+import com.pulumi.github.inputs.GetEnterprisePlainArgs;
 import com.pulumi.github.inputs.GetGithubAppArgs;
 import com.pulumi.github.inputs.GetGithubAppPlainArgs;
 import com.pulumi.github.inputs.GetMembershipArgs;
@@ -62,16 +66,19 @@ import com.pulumi.github.inputs.GetUserArgs;
 import com.pulumi.github.inputs.GetUserPlainArgs;
 import com.pulumi.github.inputs.GetUsersArgs;
 import com.pulumi.github.inputs.GetUsersPlainArgs;
+import com.pulumi.github.outputs.GetActionsOrganizationOidcSubjectClaimCustomizationTemplateResult;
 import com.pulumi.github.outputs.GetActionsOrganizationRegistrationTokenResult;
 import com.pulumi.github.outputs.GetActionsOrganizationSecretsResult;
 import com.pulumi.github.outputs.GetActionsPublicKeyResult;
 import com.pulumi.github.outputs.GetActionsRegistrationTokenResult;
+import com.pulumi.github.outputs.GetActionsRepositoryOidcSubjectClaimCustomizationTemplateResult;
 import com.pulumi.github.outputs.GetActionsSecretsResult;
 import com.pulumi.github.outputs.GetBranchResult;
 import com.pulumi.github.outputs.GetCollaboratorsResult;
 import com.pulumi.github.outputs.GetDependabotOrganizationSecretsResult;
 import com.pulumi.github.outputs.GetDependabotPublicKeyResult;
 import com.pulumi.github.outputs.GetDependabotSecretsResult;
+import com.pulumi.github.outputs.GetEnterpriseResult;
 import com.pulumi.github.outputs.GetExternalGroupsResult;
 import com.pulumi.github.outputs.GetGithubAppResult;
 import com.pulumi.github.outputs.GetIpRangesResult;
@@ -101,6 +108,210 @@ import com.pulumi.resources.InvokeArgs;
 import java.util.concurrent.CompletableFuture;
 
 public final class GithubFunctions {
+    /**
+     * Use this data source to retrieve the OpenID Connect subject claim customization template for an organization
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getActionsOrganizationOidcSubjectClaimCustomizationTemplate();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetActionsOrganizationOidcSubjectClaimCustomizationTemplateResult> getActionsOrganizationOidcSubjectClaimCustomizationTemplate() {
+        return getActionsOrganizationOidcSubjectClaimCustomizationTemplate(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve the OpenID Connect subject claim customization template for an organization
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getActionsOrganizationOidcSubjectClaimCustomizationTemplate();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetActionsOrganizationOidcSubjectClaimCustomizationTemplateResult> getActionsOrganizationOidcSubjectClaimCustomizationTemplatePlain() {
+        return getActionsOrganizationOidcSubjectClaimCustomizationTemplatePlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve the OpenID Connect subject claim customization template for an organization
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getActionsOrganizationOidcSubjectClaimCustomizationTemplate();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetActionsOrganizationOidcSubjectClaimCustomizationTemplateResult> getActionsOrganizationOidcSubjectClaimCustomizationTemplate(InvokeArgs args) {
+        return getActionsOrganizationOidcSubjectClaimCustomizationTemplate(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve the OpenID Connect subject claim customization template for an organization
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getActionsOrganizationOidcSubjectClaimCustomizationTemplate();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetActionsOrganizationOidcSubjectClaimCustomizationTemplateResult> getActionsOrganizationOidcSubjectClaimCustomizationTemplatePlain(InvokeArgs args) {
+        return getActionsOrganizationOidcSubjectClaimCustomizationTemplatePlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve the OpenID Connect subject claim customization template for an organization
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getActionsOrganizationOidcSubjectClaimCustomizationTemplate();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetActionsOrganizationOidcSubjectClaimCustomizationTemplateResult> getActionsOrganizationOidcSubjectClaimCustomizationTemplate(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("github:index/getActionsOrganizationOidcSubjectClaimCustomizationTemplate:getActionsOrganizationOidcSubjectClaimCustomizationTemplate", TypeShape.of(GetActionsOrganizationOidcSubjectClaimCustomizationTemplateResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve the OpenID Connect subject claim customization template for an organization
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getActionsOrganizationOidcSubjectClaimCustomizationTemplate();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetActionsOrganizationOidcSubjectClaimCustomizationTemplateResult> getActionsOrganizationOidcSubjectClaimCustomizationTemplatePlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("github:index/getActionsOrganizationOidcSubjectClaimCustomizationTemplate:getActionsOrganizationOidcSubjectClaimCustomizationTemplate", TypeShape.of(GetActionsOrganizationOidcSubjectClaimCustomizationTemplateResult.class), args, Utilities.withVersion(options));
+    }
     /**
      * Use this data source to retrieve a GitHub Actions organization registration token. This token can then be used to register a self-hosted runner.
      * 
@@ -808,6 +1019,154 @@ public final class GithubFunctions {
      */
     public static CompletableFuture<GetActionsRegistrationTokenResult> getActionsRegistrationTokenPlain(GetActionsRegistrationTokenPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("github:index/getActionsRegistrationToken:getActionsRegistrationToken", TypeShape.of(GetActionsRegistrationTokenResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve the OpenID Connect subject claim customization template for a repository
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetActionsRepositoryOidcSubjectClaimCustomizationTemplateArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getActionsRepositoryOidcSubjectClaimCustomizationTemplate(GetActionsRepositoryOidcSubjectClaimCustomizationTemplateArgs.builder()
+     *             .name(&#34;example_repository&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetActionsRepositoryOidcSubjectClaimCustomizationTemplateResult> getActionsRepositoryOidcSubjectClaimCustomizationTemplate(GetActionsRepositoryOidcSubjectClaimCustomizationTemplateArgs args) {
+        return getActionsRepositoryOidcSubjectClaimCustomizationTemplate(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve the OpenID Connect subject claim customization template for a repository
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetActionsRepositoryOidcSubjectClaimCustomizationTemplateArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getActionsRepositoryOidcSubjectClaimCustomizationTemplate(GetActionsRepositoryOidcSubjectClaimCustomizationTemplateArgs.builder()
+     *             .name(&#34;example_repository&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetActionsRepositoryOidcSubjectClaimCustomizationTemplateResult> getActionsRepositoryOidcSubjectClaimCustomizationTemplatePlain(GetActionsRepositoryOidcSubjectClaimCustomizationTemplatePlainArgs args) {
+        return getActionsRepositoryOidcSubjectClaimCustomizationTemplatePlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve the OpenID Connect subject claim customization template for a repository
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetActionsRepositoryOidcSubjectClaimCustomizationTemplateArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getActionsRepositoryOidcSubjectClaimCustomizationTemplate(GetActionsRepositoryOidcSubjectClaimCustomizationTemplateArgs.builder()
+     *             .name(&#34;example_repository&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetActionsRepositoryOidcSubjectClaimCustomizationTemplateResult> getActionsRepositoryOidcSubjectClaimCustomizationTemplate(GetActionsRepositoryOidcSubjectClaimCustomizationTemplateArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("github:index/getActionsRepositoryOidcSubjectClaimCustomizationTemplate:getActionsRepositoryOidcSubjectClaimCustomizationTemplate", TypeShape.of(GetActionsRepositoryOidcSubjectClaimCustomizationTemplateResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve the OpenID Connect subject claim customization template for a repository
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetActionsRepositoryOidcSubjectClaimCustomizationTemplateArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getActionsRepositoryOidcSubjectClaimCustomizationTemplate(GetActionsRepositoryOidcSubjectClaimCustomizationTemplateArgs.builder()
+     *             .name(&#34;example_repository&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetActionsRepositoryOidcSubjectClaimCustomizationTemplateResult> getActionsRepositoryOidcSubjectClaimCustomizationTemplatePlain(GetActionsRepositoryOidcSubjectClaimCustomizationTemplatePlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("github:index/getActionsRepositoryOidcSubjectClaimCustomizationTemplate:getActionsRepositoryOidcSubjectClaimCustomizationTemplate", TypeShape.of(GetActionsRepositoryOidcSubjectClaimCustomizationTemplateResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to retrieve the list of secrets for a GitHub repository.
@@ -1772,6 +2131,34 @@ public final class GithubFunctions {
      */
     public static CompletableFuture<GetDependabotSecretsResult> getDependabotSecretsPlain(GetDependabotSecretsPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("github:index/getDependabotSecrets:getDependabotSecrets", TypeShape.of(GetDependabotSecretsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve basic information about a GitHub enterprise.
+     * 
+     */
+    public static Output<GetEnterpriseResult> getEnterprise(GetEnterpriseArgs args) {
+        return getEnterprise(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve basic information about a GitHub enterprise.
+     * 
+     */
+    public static CompletableFuture<GetEnterpriseResult> getEnterprisePlain(GetEnterprisePlainArgs args) {
+        return getEnterprisePlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve basic information about a GitHub enterprise.
+     * 
+     */
+    public static Output<GetEnterpriseResult> getEnterprise(GetEnterpriseArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("github:index/getEnterprise:getEnterprise", TypeShape.of(GetEnterpriseResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve basic information about a GitHub enterprise.
+     * 
+     */
+    public static CompletableFuture<GetEnterpriseResult> getEnterprisePlain(GetEnterprisePlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("github:index/getEnterprise:getEnterprise", TypeShape.of(GetEnterpriseResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to retrieve external groups belonging to an organization.

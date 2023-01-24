@@ -24,7 +24,7 @@ class ActionsOrganizationSecretArgs:
         :param pulumi.Input[str] secret_name: Name of the secret
         :param pulumi.Input[str] visibility: Configures the access that repositories have to the organization secret.
                Must be one of `all`, `private`, `selected`. `selected_repository_ids` is required if set to `selected`.
-        :param pulumi.Input[str] encrypted_value: Encrypted value of the secret using the Github public key in Base64 format.
+        :param pulumi.Input[str] encrypted_value: Encrypted value of the secret using the GitHub public key in Base64 format.
         :param pulumi.Input[str] plaintext_value: Plaintext value of the secret to be encrypted
         :param pulumi.Input[Sequence[pulumi.Input[int]]] selected_repository_ids: An array of repository ids that can access the organization secret.
         """
@@ -66,7 +66,7 @@ class ActionsOrganizationSecretArgs:
     @pulumi.getter(name="encryptedValue")
     def encrypted_value(self) -> Optional[pulumi.Input[str]]:
         """
-        Encrypted value of the secret using the Github public key in Base64 format.
+        Encrypted value of the secret using the GitHub public key in Base64 format.
         """
         return pulumi.get(self, "encrypted_value")
 
@@ -112,7 +112,7 @@ class _ActionsOrganizationSecretState:
         """
         Input properties used for looking up and filtering ActionsOrganizationSecret resources.
         :param pulumi.Input[str] created_at: Date of actions_secret creation.
-        :param pulumi.Input[str] encrypted_value: Encrypted value of the secret using the Github public key in Base64 format.
+        :param pulumi.Input[str] encrypted_value: Encrypted value of the secret using the GitHub public key in Base64 format.
         :param pulumi.Input[str] plaintext_value: Plaintext value of the secret to be encrypted
         :param pulumi.Input[str] secret_name: Name of the secret
         :param pulumi.Input[Sequence[pulumi.Input[int]]] selected_repository_ids: An array of repository ids that can access the organization secret.
@@ -151,7 +151,7 @@ class _ActionsOrganizationSecretState:
     @pulumi.getter(name="encryptedValue")
     def encrypted_value(self) -> Optional[pulumi.Input[str]]:
         """
-        Encrypted value of the secret using the Github public key in Base64 format.
+        Encrypted value of the secret using the GitHub public key in Base64 format.
         """
         return pulumi.get(self, "encrypted_value")
 
@@ -278,7 +278,7 @@ class ActionsOrganizationSecret(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] encrypted_value: Encrypted value of the secret using the Github public key in Base64 format.
+        :param pulumi.Input[str] encrypted_value: Encrypted value of the secret using the GitHub public key in Base64 format.
         :param pulumi.Input[str] plaintext_value: Plaintext value of the secret to be encrypted
         :param pulumi.Input[str] secret_name: Name of the secret
         :param pulumi.Input[Sequence[pulumi.Input[int]]] selected_repository_ids: An array of repository ids that can access the organization secret.
@@ -402,7 +402,7 @@ class ActionsOrganizationSecret(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] created_at: Date of actions_secret creation.
-        :param pulumi.Input[str] encrypted_value: Encrypted value of the secret using the Github public key in Base64 format.
+        :param pulumi.Input[str] encrypted_value: Encrypted value of the secret using the GitHub public key in Base64 format.
         :param pulumi.Input[str] plaintext_value: Plaintext value of the secret to be encrypted
         :param pulumi.Input[str] secret_name: Name of the secret
         :param pulumi.Input[Sequence[pulumi.Input[int]]] selected_repository_ids: An array of repository ids that can access the organization secret.
@@ -435,7 +435,7 @@ class ActionsOrganizationSecret(pulumi.CustomResource):
     @pulumi.getter(name="encryptedValue")
     def encrypted_value(self) -> pulumi.Output[Optional[str]]:
         """
-        Encrypted value of the secret using the Github public key in Base64 format.
+        Encrypted value of the secret using the GitHub public key in Base64 format.
         """
         return pulumi.get(self, "encrypted_value")
 

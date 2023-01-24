@@ -13,22 +13,22 @@ namespace Pulumi.Github.Inputs
     public sealed class RepositorySecurityAndAnalysisArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The advanced security configuration for the repository. See Advanced Security Configuration below for details.
+        /// The advanced security configuration for the repository. See Advanced Security Configuration below for details. If a repository's visibility is `public`, advanced security is always enabled and cannot be changed, so this setting cannot be supplied.
         /// </summary>
-        [Input("advancedSecurity", required: true)]
-        public Input<Inputs.RepositorySecurityAndAnalysisAdvancedSecurityArgs> AdvancedSecurity { get; set; } = null!;
+        [Input("advancedSecurity")]
+        public Input<Inputs.RepositorySecurityAndAnalysisAdvancedSecurityArgs>? AdvancedSecurity { get; set; }
 
         /// <summary>
         /// The secret scanning configuration for the repository. See Secret Scanning Configuration below for details.
         /// </summary>
-        [Input("secretScanning", required: true)]
-        public Input<Inputs.RepositorySecurityAndAnalysisSecretScanningArgs> SecretScanning { get; set; } = null!;
+        [Input("secretScanning")]
+        public Input<Inputs.RepositorySecurityAndAnalysisSecretScanningArgs>? SecretScanning { get; set; }
 
         /// <summary>
         /// The secret scanning push protection configuration for the repository. See Secret Scanning Push Protection Configuration below for details.
         /// </summary>
-        [Input("secretScanningPushProtection", required: true)]
-        public Input<Inputs.RepositorySecurityAndAnalysisSecretScanningPushProtectionArgs> SecretScanningPushProtection { get; set; } = null!;
+        [Input("secretScanningPushProtection")]
+        public Input<Inputs.RepositorySecurityAndAnalysisSecretScanningPushProtectionArgs>? SecretScanningPushProtection { get; set; }
 
         public RepositorySecurityAndAnalysisArgs()
         {

@@ -994,7 +994,11 @@ func (o BranchProtectionV3RequiredPullRequestReviewsPtrOutput) RequiredApproving
 }
 
 type BranchProtectionV3RequiredStatusChecks struct {
-	// The list of status checks to require in order to merge into this branch. No status checks are required by default.
+	// The list of status checks to require in order to merge into this branch. No status checks are required by default. Checks should be strings containing the context and appId like so "context:app_id".
+	Checks []string `pulumi:"checks"`
+	// [**DEPRECATED**] (Optional) The list of status checks to require in order to merge into this branch. No status checks are required by default.
+	//
+	// Deprecated: GitHub is deprecating the use of `contexts`. Use a `checks` array instead.
 	Contexts []string `pulumi:"contexts"`
 	// Deprecated: Use enforce_admins instead
 	IncludeAdmins *bool `pulumi:"includeAdmins"`
@@ -1014,7 +1018,11 @@ type BranchProtectionV3RequiredStatusChecksInput interface {
 }
 
 type BranchProtectionV3RequiredStatusChecksArgs struct {
-	// The list of status checks to require in order to merge into this branch. No status checks are required by default.
+	// The list of status checks to require in order to merge into this branch. No status checks are required by default. Checks should be strings containing the context and appId like so "context:app_id".
+	Checks pulumi.StringArrayInput `pulumi:"checks"`
+	// [**DEPRECATED**] (Optional) The list of status checks to require in order to merge into this branch. No status checks are required by default.
+	//
+	// Deprecated: GitHub is deprecating the use of `contexts`. Use a `checks` array instead.
 	Contexts pulumi.StringArrayInput `pulumi:"contexts"`
 	// Deprecated: Use enforce_admins instead
 	IncludeAdmins pulumi.BoolPtrInput `pulumi:"includeAdmins"`
@@ -1099,7 +1107,14 @@ func (o BranchProtectionV3RequiredStatusChecksOutput) ToBranchProtectionV3Requir
 	}).(BranchProtectionV3RequiredStatusChecksPtrOutput)
 }
 
-// The list of status checks to require in order to merge into this branch. No status checks are required by default.
+// The list of status checks to require in order to merge into this branch. No status checks are required by default. Checks should be strings containing the context and appId like so "context:app_id".
+func (o BranchProtectionV3RequiredStatusChecksOutput) Checks() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BranchProtectionV3RequiredStatusChecks) []string { return v.Checks }).(pulumi.StringArrayOutput)
+}
+
+// [**DEPRECATED**] (Optional) The list of status checks to require in order to merge into this branch. No status checks are required by default.
+//
+// Deprecated: GitHub is deprecating the use of `contexts`. Use a `checks` array instead.
 func (o BranchProtectionV3RequiredStatusChecksOutput) Contexts() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BranchProtectionV3RequiredStatusChecks) []string { return v.Contexts }).(pulumi.StringArrayOutput)
 }
@@ -1138,7 +1153,19 @@ func (o BranchProtectionV3RequiredStatusChecksPtrOutput) Elem() BranchProtection
 	}).(BranchProtectionV3RequiredStatusChecksOutput)
 }
 
-// The list of status checks to require in order to merge into this branch. No status checks are required by default.
+// The list of status checks to require in order to merge into this branch. No status checks are required by default. Checks should be strings containing the context and appId like so "context:app_id".
+func (o BranchProtectionV3RequiredStatusChecksPtrOutput) Checks() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BranchProtectionV3RequiredStatusChecks) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Checks
+	}).(pulumi.StringArrayOutput)
+}
+
+// [**DEPRECATED**] (Optional) The list of status checks to require in order to merge into this branch. No status checks are required by default.
+//
+// Deprecated: GitHub is deprecating the use of `contexts`. Use a `checks` array instead.
 func (o BranchProtectionV3RequiredStatusChecksPtrOutput) Contexts() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BranchProtectionV3RequiredStatusChecks) []string {
 		if v == nil {
@@ -2339,12 +2366,12 @@ func (o RepositoryPagesSourcePtrOutput) Path() pulumi.StringPtrOutput {
 }
 
 type RepositorySecurityAndAnalysis struct {
-	// The advanced security configuration for the repository. See Advanced Security Configuration below for details.
-	AdvancedSecurity RepositorySecurityAndAnalysisAdvancedSecurity `pulumi:"advancedSecurity"`
+	// The advanced security configuration for the repository. See Advanced Security Configuration below for details. If a repository's visibility is `public`, advanced security is always enabled and cannot be changed, so this setting cannot be supplied.
+	AdvancedSecurity *RepositorySecurityAndAnalysisAdvancedSecurity `pulumi:"advancedSecurity"`
 	// The secret scanning configuration for the repository. See Secret Scanning Configuration below for details.
-	SecretScanning RepositorySecurityAndAnalysisSecretScanning `pulumi:"secretScanning"`
+	SecretScanning *RepositorySecurityAndAnalysisSecretScanning `pulumi:"secretScanning"`
 	// The secret scanning push protection configuration for the repository. See Secret Scanning Push Protection Configuration below for details.
-	SecretScanningPushProtection RepositorySecurityAndAnalysisSecretScanningPushProtection `pulumi:"secretScanningPushProtection"`
+	SecretScanningPushProtection *RepositorySecurityAndAnalysisSecretScanningPushProtection `pulumi:"secretScanningPushProtection"`
 }
 
 // RepositorySecurityAndAnalysisInput is an input type that accepts RepositorySecurityAndAnalysisArgs and RepositorySecurityAndAnalysisOutput values.
@@ -2359,12 +2386,12 @@ type RepositorySecurityAndAnalysisInput interface {
 }
 
 type RepositorySecurityAndAnalysisArgs struct {
-	// The advanced security configuration for the repository. See Advanced Security Configuration below for details.
-	AdvancedSecurity RepositorySecurityAndAnalysisAdvancedSecurityInput `pulumi:"advancedSecurity"`
+	// The advanced security configuration for the repository. See Advanced Security Configuration below for details. If a repository's visibility is `public`, advanced security is always enabled and cannot be changed, so this setting cannot be supplied.
+	AdvancedSecurity RepositorySecurityAndAnalysisAdvancedSecurityPtrInput `pulumi:"advancedSecurity"`
 	// The secret scanning configuration for the repository. See Secret Scanning Configuration below for details.
-	SecretScanning RepositorySecurityAndAnalysisSecretScanningInput `pulumi:"secretScanning"`
+	SecretScanning RepositorySecurityAndAnalysisSecretScanningPtrInput `pulumi:"secretScanning"`
 	// The secret scanning push protection configuration for the repository. See Secret Scanning Push Protection Configuration below for details.
-	SecretScanningPushProtection RepositorySecurityAndAnalysisSecretScanningPushProtectionInput `pulumi:"secretScanningPushProtection"`
+	SecretScanningPushProtection RepositorySecurityAndAnalysisSecretScanningPushProtectionPtrInput `pulumi:"secretScanningPushProtection"`
 }
 
 func (RepositorySecurityAndAnalysisArgs) ElementType() reflect.Type {
@@ -2444,25 +2471,25 @@ func (o RepositorySecurityAndAnalysisOutput) ToRepositorySecurityAndAnalysisPtrO
 	}).(RepositorySecurityAndAnalysisPtrOutput)
 }
 
-// The advanced security configuration for the repository. See Advanced Security Configuration below for details.
-func (o RepositorySecurityAndAnalysisOutput) AdvancedSecurity() RepositorySecurityAndAnalysisAdvancedSecurityOutput {
-	return o.ApplyT(func(v RepositorySecurityAndAnalysis) RepositorySecurityAndAnalysisAdvancedSecurity {
+// The advanced security configuration for the repository. See Advanced Security Configuration below for details. If a repository's visibility is `public`, advanced security is always enabled and cannot be changed, so this setting cannot be supplied.
+func (o RepositorySecurityAndAnalysisOutput) AdvancedSecurity() RepositorySecurityAndAnalysisAdvancedSecurityPtrOutput {
+	return o.ApplyT(func(v RepositorySecurityAndAnalysis) *RepositorySecurityAndAnalysisAdvancedSecurity {
 		return v.AdvancedSecurity
-	}).(RepositorySecurityAndAnalysisAdvancedSecurityOutput)
+	}).(RepositorySecurityAndAnalysisAdvancedSecurityPtrOutput)
 }
 
 // The secret scanning configuration for the repository. See Secret Scanning Configuration below for details.
-func (o RepositorySecurityAndAnalysisOutput) SecretScanning() RepositorySecurityAndAnalysisSecretScanningOutput {
-	return o.ApplyT(func(v RepositorySecurityAndAnalysis) RepositorySecurityAndAnalysisSecretScanning {
+func (o RepositorySecurityAndAnalysisOutput) SecretScanning() RepositorySecurityAndAnalysisSecretScanningPtrOutput {
+	return o.ApplyT(func(v RepositorySecurityAndAnalysis) *RepositorySecurityAndAnalysisSecretScanning {
 		return v.SecretScanning
-	}).(RepositorySecurityAndAnalysisSecretScanningOutput)
+	}).(RepositorySecurityAndAnalysisSecretScanningPtrOutput)
 }
 
 // The secret scanning push protection configuration for the repository. See Secret Scanning Push Protection Configuration below for details.
-func (o RepositorySecurityAndAnalysisOutput) SecretScanningPushProtection() RepositorySecurityAndAnalysisSecretScanningPushProtectionOutput {
-	return o.ApplyT(func(v RepositorySecurityAndAnalysis) RepositorySecurityAndAnalysisSecretScanningPushProtection {
+func (o RepositorySecurityAndAnalysisOutput) SecretScanningPushProtection() RepositorySecurityAndAnalysisSecretScanningPushProtectionPtrOutput {
+	return o.ApplyT(func(v RepositorySecurityAndAnalysis) *RepositorySecurityAndAnalysisSecretScanningPushProtection {
 		return v.SecretScanningPushProtection
-	}).(RepositorySecurityAndAnalysisSecretScanningPushProtectionOutput)
+	}).(RepositorySecurityAndAnalysisSecretScanningPushProtectionPtrOutput)
 }
 
 type RepositorySecurityAndAnalysisPtrOutput struct{ *pulumi.OutputState }
@@ -2489,13 +2516,13 @@ func (o RepositorySecurityAndAnalysisPtrOutput) Elem() RepositorySecurityAndAnal
 	}).(RepositorySecurityAndAnalysisOutput)
 }
 
-// The advanced security configuration for the repository. See Advanced Security Configuration below for details.
+// The advanced security configuration for the repository. See Advanced Security Configuration below for details. If a repository's visibility is `public`, advanced security is always enabled and cannot be changed, so this setting cannot be supplied.
 func (o RepositorySecurityAndAnalysisPtrOutput) AdvancedSecurity() RepositorySecurityAndAnalysisAdvancedSecurityPtrOutput {
 	return o.ApplyT(func(v *RepositorySecurityAndAnalysis) *RepositorySecurityAndAnalysisAdvancedSecurity {
 		if v == nil {
 			return nil
 		}
-		return &v.AdvancedSecurity
+		return v.AdvancedSecurity
 	}).(RepositorySecurityAndAnalysisAdvancedSecurityPtrOutput)
 }
 
@@ -2505,7 +2532,7 @@ func (o RepositorySecurityAndAnalysisPtrOutput) SecretScanning() RepositorySecur
 		if v == nil {
 			return nil
 		}
-		return &v.SecretScanning
+		return v.SecretScanning
 	}).(RepositorySecurityAndAnalysisSecretScanningPtrOutput)
 }
 
@@ -2515,7 +2542,7 @@ func (o RepositorySecurityAndAnalysisPtrOutput) SecretScanningPushProtection() R
 		if v == nil {
 			return nil
 		}
-		return &v.SecretScanningPushProtection
+		return v.SecretScanningPushProtection
 	}).(RepositorySecurityAndAnalysisSecretScanningPushProtectionPtrOutput)
 }
 
@@ -4791,6 +4818,8 @@ type GetOrganizationTeamsTeam struct {
 	Name string `pulumi:"name"`
 	// the Node ID of the team.
 	NodeId string `pulumi:"nodeId"`
+	// the parent team.
+	Parent map[string]string `pulumi:"parent"`
 	// the team's privacy type.
 	Privacy string `pulumi:"privacy"`
 	// List of team repositories. Not returned if `summaryOnly = true`
@@ -4821,6 +4850,8 @@ type GetOrganizationTeamsTeamArgs struct {
 	Name pulumi.StringInput `pulumi:"name"`
 	// the Node ID of the team.
 	NodeId pulumi.StringInput `pulumi:"nodeId"`
+	// the parent team.
+	Parent pulumi.StringMapInput `pulumi:"parent"`
 	// the team's privacy type.
 	Privacy pulumi.StringInput `pulumi:"privacy"`
 	// List of team repositories. Not returned if `summaryOnly = true`
@@ -4903,6 +4934,11 @@ func (o GetOrganizationTeamsTeamOutput) Name() pulumi.StringOutput {
 // the Node ID of the team.
 func (o GetOrganizationTeamsTeamOutput) NodeId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetOrganizationTeamsTeam) string { return v.NodeId }).(pulumi.StringOutput)
+}
+
+// the parent team.
+func (o GetOrganizationTeamsTeamOutput) Parent() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetOrganizationTeamsTeam) map[string]string { return v.Parent }).(pulumi.StringMapOutput)
 }
 
 // the team's privacy type.

@@ -22,12 +22,18 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "github:index/actionsEnvironmentSecret:ActionsEnvironmentSecret":
 		r = &ActionsEnvironmentSecret{}
+	case "github:index/actionsOrganizationOidcSubjectClaimCustomizationTemplate:ActionsOrganizationOidcSubjectClaimCustomizationTemplate":
+		r = &ActionsOrganizationOidcSubjectClaimCustomizationTemplate{}
 	case "github:index/actionsOrganizationPermissions:ActionsOrganizationPermissions":
 		r = &ActionsOrganizationPermissions{}
 	case "github:index/actionsOrganizationSecret:ActionsOrganizationSecret":
 		r = &ActionsOrganizationSecret{}
 	case "github:index/actionsOrganizationSecretRepositories:ActionsOrganizationSecretRepositories":
 		r = &ActionsOrganizationSecretRepositories{}
+	case "github:index/actionsRepositoryAccessLevel:ActionsRepositoryAccessLevel":
+		r = &ActionsRepositoryAccessLevel{}
+	case "github:index/actionsRepositoryOidcSubjectClaimCustomizationTemplate:ActionsRepositoryOidcSubjectClaimCustomizationTemplate":
+		r = &ActionsRepositoryOidcSubjectClaimCustomizationTemplate{}
 	case "github:index/actionsRepositoryPermissions:ActionsRepositoryPermissions":
 		r = &ActionsRepositoryPermissions{}
 	case "github:index/actionsRunnerGroup:ActionsRunnerGroup":
@@ -54,6 +60,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &DependabotSecret{}
 	case "github:index/emuGroupMapping:EmuGroupMapping":
 		r = &EmuGroupMapping{}
+	case "github:index/enterpriseOrganization:EnterpriseOrganization":
+		r = &EnterpriseOrganization{}
 	case "github:index/issue:Issue":
 		r = &Issue{}
 	case "github:index/issueLabel:IssueLabel":
@@ -151,6 +159,11 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"github",
+		"index/actionsOrganizationOidcSubjectClaimCustomizationTemplate",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"github",
 		"index/actionsOrganizationPermissions",
 		&module{version},
 	)
@@ -162,6 +175,16 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"github",
 		"index/actionsOrganizationSecretRepositories",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"github",
+		"index/actionsRepositoryAccessLevel",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"github",
+		"index/actionsRepositoryOidcSubjectClaimCustomizationTemplate",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -227,6 +250,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"github",
 		"index/emuGroupMapping",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"github",
+		"index/enterpriseOrganization",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

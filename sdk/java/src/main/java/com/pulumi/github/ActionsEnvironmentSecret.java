@@ -120,14 +120,14 @@ public class ActionsEnvironmentSecret extends com.pulumi.resources.CustomResourc
         return this.createdAt;
     }
     /**
-     * Encrypted value of the secret using the Github public key in Base64 format.
+     * Encrypted value of the secret using the GitHub public key in Base64 format.
      * 
      */
     @Export(name="encryptedValue", type=String.class, parameters={})
     private Output</* @Nullable */ String> encryptedValue;
 
     /**
-     * @return Encrypted value of the secret using the Github public key in Base64 format.
+     * @return Encrypted value of the secret using the GitHub public key in Base64 format.
      * 
      */
     public Output<Optional<String>> encryptedValue() {

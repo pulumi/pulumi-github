@@ -12,12 +12,25 @@ namespace Pulumi.Github.Inputs
 
     public sealed class BranchProtectionV3RequiredStatusChecksGetArgs : global::Pulumi.ResourceArgs
     {
+        [Input("checks")]
+        private InputList<string>? _checks;
+
+        /// <summary>
+        /// The list of status checks to require in order to merge into this branch. No status checks are required by default. Checks should be strings containing the context and app_id like so "context:app_id".
+        /// </summary>
+        public InputList<string> Checks
+        {
+            get => _checks ?? (_checks = new InputList<string>());
+            set => _checks = value;
+        }
+
         [Input("contexts")]
         private InputList<string>? _contexts;
 
         /// <summary>
-        /// The list of status checks to require in order to merge into this branch. No status checks are required by default.
+        /// [**DEPRECATED**] (Optional) The list of status checks to require in order to merge into this branch. No status checks are required by default.
         /// </summary>
+        [Obsolete(@"GitHub is deprecating the use of `contexts`. Use a `checks` array instead.")]
         public InputList<string> Contexts
         {
             get => _contexts ?? (_contexts = new InputList<string>());

@@ -92,6 +92,10 @@ export interface GetRepositoryResult {
      */
     readonly gitCloneUrl: string;
     /**
+     * Whether the repository has GitHub Discussions enabled.
+     */
+    readonly hasDiscussions: boolean;
+    /**
      * Whether the repository has Downloads feature enabled.
      */
     readonly hasDownloads: boolean;

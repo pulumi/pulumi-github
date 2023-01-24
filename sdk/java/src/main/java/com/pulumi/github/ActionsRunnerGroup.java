@@ -137,6 +137,20 @@ public class ActionsRunnerGroup extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
+     * If true, the runner group will be restricted to running only the workflows specified in the selected_workflows array. Defaults to false.
+     * 
+     */
+    @Export(name="restrictedToWorkflows", type=Boolean.class, parameters={})
+    private Output<Boolean> restrictedToWorkflows;
+
+    /**
+     * @return If true, the runner group will be restricted to running only the workflows specified in the selected_workflows array. Defaults to false.
+     * 
+     */
+    public Output<Boolean> restrictedToWorkflows() {
+        return this.restrictedToWorkflows;
+    }
+    /**
      * The GitHub API URL for the runner group&#39;s runners
      * 
      */
@@ -151,14 +165,14 @@ public class ActionsRunnerGroup extends com.pulumi.resources.CustomResource {
         return this.runnersUrl;
     }
     /**
-     * Github API URL for the runner group&#39;s repositories
+     * GitHub API URL for the runner group&#39;s repositories
      * 
      */
     @Export(name="selectedRepositoriesUrl", type=String.class, parameters={})
     private Output<String> selectedRepositoriesUrl;
 
     /**
-     * @return Github API URL for the runner group&#39;s repositories
+     * @return GitHub API URL for the runner group&#39;s repositories
      * 
      */
     public Output<String> selectedRepositoriesUrl() {
@@ -177,6 +191,20 @@ public class ActionsRunnerGroup extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<List<Integer>>> selectedRepositoryIds() {
         return Codegen.optional(this.selectedRepositoryIds);
+    }
+    /**
+     * List of workflows the runner group should be allowed to run. This setting will be ignored unless restricted_to_workflows is set to true.
+     * 
+     */
+    @Export(name="selectedWorkflows", type=List.class, parameters={String.class})
+    private Output<List<String>> selectedWorkflows;
+
+    /**
+     * @return List of workflows the runner group should be allowed to run. This setting will be ignored unless restricted_to_workflows is set to true.
+     * 
+     */
+    public Output<List<String>> selectedWorkflows() {
+        return this.selectedWorkflows;
     }
     /**
      * Visibility of a runner group. Whether the runner group can include `all`, `selected`, or `private` repositories. A value of `private` is not currently supported due to limitations in the GitHub API.

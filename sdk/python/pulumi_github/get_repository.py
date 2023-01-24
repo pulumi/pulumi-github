@@ -22,7 +22,7 @@ class GetRepositoryResult:
     """
     A collection of values returned by getRepository.
     """
-    def __init__(__self__, allow_auto_merge=None, allow_merge_commit=None, allow_rebase_merge=None, allow_squash_merge=None, archived=None, default_branch=None, description=None, full_name=None, git_clone_url=None, has_downloads=None, has_issues=None, has_projects=None, has_wiki=None, homepage_url=None, html_url=None, http_clone_url=None, id=None, is_template=None, merge_commit_message=None, merge_commit_title=None, name=None, node_id=None, pages=None, private=None, repo_id=None, squash_merge_commit_message=None, squash_merge_commit_title=None, ssh_clone_url=None, svn_url=None, template=None, topics=None, visibility=None):
+    def __init__(__self__, allow_auto_merge=None, allow_merge_commit=None, allow_rebase_merge=None, allow_squash_merge=None, archived=None, default_branch=None, description=None, full_name=None, git_clone_url=None, has_discussions=None, has_downloads=None, has_issues=None, has_projects=None, has_wiki=None, homepage_url=None, html_url=None, http_clone_url=None, id=None, is_template=None, merge_commit_message=None, merge_commit_title=None, name=None, node_id=None, pages=None, private=None, repo_id=None, squash_merge_commit_message=None, squash_merge_commit_title=None, ssh_clone_url=None, svn_url=None, template=None, topics=None, visibility=None):
         if allow_auto_merge and not isinstance(allow_auto_merge, bool):
             raise TypeError("Expected argument 'allow_auto_merge' to be a bool")
         pulumi.set(__self__, "allow_auto_merge", allow_auto_merge)
@@ -50,6 +50,9 @@ class GetRepositoryResult:
         if git_clone_url and not isinstance(git_clone_url, str):
             raise TypeError("Expected argument 'git_clone_url' to be a str")
         pulumi.set(__self__, "git_clone_url", git_clone_url)
+        if has_discussions and not isinstance(has_discussions, bool):
+            raise TypeError("Expected argument 'has_discussions' to be a bool")
+        pulumi.set(__self__, "has_discussions", has_discussions)
         if has_downloads and not isinstance(has_downloads, bool):
             raise TypeError("Expected argument 'has_downloads' to be a bool")
         pulumi.set(__self__, "has_downloads", has_downloads)
@@ -188,6 +191,14 @@ class GetRepositoryResult:
         URL that can be provided to `git clone` to clone the repository anonymously via the git protocol.
         """
         return pulumi.get(self, "git_clone_url")
+
+    @property
+    @pulumi.getter(name="hasDiscussions")
+    def has_discussions(self) -> bool:
+        """
+        Whether the repository has GitHub Discussions enabled.
+        """
+        return pulumi.get(self, "has_discussions")
 
     @property
     @pulumi.getter(name="hasDownloads")
@@ -386,6 +397,7 @@ class AwaitableGetRepositoryResult(GetRepositoryResult):
             description=self.description,
             full_name=self.full_name,
             git_clone_url=self.git_clone_url,
+            has_discussions=self.has_discussions,
             has_downloads=self.has_downloads,
             has_issues=self.has_issues,
             has_projects=self.has_projects,
@@ -452,6 +464,7 @@ def get_repository(description: Optional[str] = None,
         description=__ret__.description,
         full_name=__ret__.full_name,
         git_clone_url=__ret__.git_clone_url,
+        has_discussions=__ret__.has_discussions,
         has_downloads=__ret__.has_downloads,
         has_issues=__ret__.has_issues,
         has_projects=__ret__.has_projects,

@@ -69,12 +69,16 @@ type ActionsRunnerGroup struct {
 	Inherited pulumi.BoolOutput `pulumi:"inherited"`
 	// Name of the runner group
 	Name pulumi.StringOutput `pulumi:"name"`
+	// If true, the runner group will be restricted to running only the workflows specified in the selectedWorkflows array. Defaults to false.
+	RestrictedToWorkflows pulumi.BoolOutput `pulumi:"restrictedToWorkflows"`
 	// The GitHub API URL for the runner group's runners
 	RunnersUrl pulumi.StringOutput `pulumi:"runnersUrl"`
-	// Github API URL for the runner group's repositories
+	// GitHub API URL for the runner group's repositories
 	SelectedRepositoriesUrl pulumi.StringOutput `pulumi:"selectedRepositoriesUrl"`
 	// IDs of the repositories which should be added to the runner group
 	SelectedRepositoryIds pulumi.IntArrayOutput `pulumi:"selectedRepositoryIds"`
+	// List of workflows the runner group should be allowed to run. This setting will be ignored unless restrictedToWorkflows is set to true.
+	SelectedWorkflows pulumi.StringArrayOutput `pulumi:"selectedWorkflows"`
 	// Visibility of a runner group. Whether the runner group can include `all`, `selected`, or `private` repositories. A value of `private` is not currently supported due to limitations in the GitHub API.
 	Visibility pulumi.StringOutput `pulumi:"visibility"`
 }
@@ -121,12 +125,16 @@ type actionsRunnerGroupState struct {
 	Inherited *bool `pulumi:"inherited"`
 	// Name of the runner group
 	Name *string `pulumi:"name"`
+	// If true, the runner group will be restricted to running only the workflows specified in the selectedWorkflows array. Defaults to false.
+	RestrictedToWorkflows *bool `pulumi:"restrictedToWorkflows"`
 	// The GitHub API URL for the runner group's runners
 	RunnersUrl *string `pulumi:"runnersUrl"`
-	// Github API URL for the runner group's repositories
+	// GitHub API URL for the runner group's repositories
 	SelectedRepositoriesUrl *string `pulumi:"selectedRepositoriesUrl"`
 	// IDs of the repositories which should be added to the runner group
 	SelectedRepositoryIds []int `pulumi:"selectedRepositoryIds"`
+	// List of workflows the runner group should be allowed to run. This setting will be ignored unless restrictedToWorkflows is set to true.
+	SelectedWorkflows []string `pulumi:"selectedWorkflows"`
 	// Visibility of a runner group. Whether the runner group can include `all`, `selected`, or `private` repositories. A value of `private` is not currently supported due to limitations in the GitHub API.
 	Visibility *string `pulumi:"visibility"`
 }
@@ -142,12 +150,16 @@ type ActionsRunnerGroupState struct {
 	Inherited pulumi.BoolPtrInput
 	// Name of the runner group
 	Name pulumi.StringPtrInput
+	// If true, the runner group will be restricted to running only the workflows specified in the selectedWorkflows array. Defaults to false.
+	RestrictedToWorkflows pulumi.BoolPtrInput
 	// The GitHub API URL for the runner group's runners
 	RunnersUrl pulumi.StringPtrInput
-	// Github API URL for the runner group's repositories
+	// GitHub API URL for the runner group's repositories
 	SelectedRepositoriesUrl pulumi.StringPtrInput
 	// IDs of the repositories which should be added to the runner group
 	SelectedRepositoryIds pulumi.IntArrayInput
+	// List of workflows the runner group should be allowed to run. This setting will be ignored unless restrictedToWorkflows is set to true.
+	SelectedWorkflows pulumi.StringArrayInput
 	// Visibility of a runner group. Whether the runner group can include `all`, `selected`, or `private` repositories. A value of `private` is not currently supported due to limitations in the GitHub API.
 	Visibility pulumi.StringPtrInput
 }
@@ -287,12 +299,17 @@ func (o ActionsRunnerGroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ActionsRunnerGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// If true, the runner group will be restricted to running only the workflows specified in the selectedWorkflows array. Defaults to false.
+func (o ActionsRunnerGroupOutput) RestrictedToWorkflows() pulumi.BoolOutput {
+	return o.ApplyT(func(v *ActionsRunnerGroup) pulumi.BoolOutput { return v.RestrictedToWorkflows }).(pulumi.BoolOutput)
+}
+
 // The GitHub API URL for the runner group's runners
 func (o ActionsRunnerGroupOutput) RunnersUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v *ActionsRunnerGroup) pulumi.StringOutput { return v.RunnersUrl }).(pulumi.StringOutput)
 }
 
-// Github API URL for the runner group's repositories
+// GitHub API URL for the runner group's repositories
 func (o ActionsRunnerGroupOutput) SelectedRepositoriesUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v *ActionsRunnerGroup) pulumi.StringOutput { return v.SelectedRepositoriesUrl }).(pulumi.StringOutput)
 }
@@ -300,6 +317,11 @@ func (o ActionsRunnerGroupOutput) SelectedRepositoriesUrl() pulumi.StringOutput 
 // IDs of the repositories which should be added to the runner group
 func (o ActionsRunnerGroupOutput) SelectedRepositoryIds() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *ActionsRunnerGroup) pulumi.IntArrayOutput { return v.SelectedRepositoryIds }).(pulumi.IntArrayOutput)
+}
+
+// List of workflows the runner group should be allowed to run. This setting will be ignored unless restrictedToWorkflows is set to true.
+func (o ActionsRunnerGroupOutput) SelectedWorkflows() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ActionsRunnerGroup) pulumi.StringArrayOutput { return v.SelectedWorkflows }).(pulumi.StringArrayOutput)
 }
 
 // Visibility of a runner group. Whether the runner group can include `all`, `selected`, or `private` repositories. A value of `private` is not currently supported due to limitations in the GitHub API.

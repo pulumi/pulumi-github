@@ -51,12 +51,12 @@ func LookupRepositoryFile(ctx *pulumi.Context, args *LookupRepositoryFileArgs, o
 
 // A collection of arguments for invoking getRepositoryFile.
 type LookupRepositoryFileArgs struct {
-	// Git branch (defaults to `main`).
-	// The branch must already exist, it will not be created if it does not already exist.
+	// Git branch (if omitted, the default repository branch is used, which is usually `main`)
+	// The branch must already exist; it will not be created if it does not already exist.
 	Branch *string `pulumi:"branch"`
 	// The path of the file to manage.
 	File string `pulumi:"file"`
-	// The repository to create the file in.
+	// The repository to read the file from. If an unqualified repo name (without an owner) is passed, the owner will be inferred from the owner of the token used to execute the plan. If a name of the type "owner/repo" (with a slash in the middle) is passed, the owner will be as specified and not the owner of the token.
 	Repository string `pulumi:"repository"`
 }
 
@@ -96,12 +96,12 @@ func LookupRepositoryFileOutput(ctx *pulumi.Context, args LookupRepositoryFileOu
 
 // A collection of arguments for invoking getRepositoryFile.
 type LookupRepositoryFileOutputArgs struct {
-	// Git branch (defaults to `main`).
-	// The branch must already exist, it will not be created if it does not already exist.
+	// Git branch (if omitted, the default repository branch is used, which is usually `main`)
+	// The branch must already exist; it will not be created if it does not already exist.
 	Branch pulumi.StringPtrInput `pulumi:"branch"`
 	// The path of the file to manage.
 	File pulumi.StringInput `pulumi:"file"`
-	// The repository to create the file in.
+	// The repository to read the file from. If an unqualified repo name (without an owner) is passed, the owner will be inferred from the owner of the token used to execute the plan. If a name of the type "owner/repo" (with a slash in the middle) is passed, the owner will be as specified and not the owner of the token.
 	Repository pulumi.StringInput `pulumi:"repository"`
 }
 

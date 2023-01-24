@@ -18,16 +18,39 @@ public final class BranchProtectionV3RequiredStatusChecksArgs extends com.pulumi
     public static final BranchProtectionV3RequiredStatusChecksArgs Empty = new BranchProtectionV3RequiredStatusChecksArgs();
 
     /**
-     * The list of status checks to require in order to merge into this branch. No status checks are required by default.
+     * The list of status checks to require in order to merge into this branch. No status checks are required by default. Checks should be strings containing the context and app_id like so &#34;context:app_id&#34;.
      * 
      */
+    @Import(name="checks")
+    private @Nullable Output<List<String>> checks;
+
+    /**
+     * @return The list of status checks to require in order to merge into this branch. No status checks are required by default. Checks should be strings containing the context and app_id like so &#34;context:app_id&#34;.
+     * 
+     */
+    public Optional<Output<List<String>>> checks() {
+        return Optional.ofNullable(this.checks);
+    }
+
+    /**
+     * [**DEPRECATED**] (Optional) The list of status checks to require in order to merge into this branch. No status checks are required by default.
+     * 
+     * @deprecated
+     * GitHub is deprecating the use of `contexts`. Use a `checks` array instead.
+     * 
+     */
+    @Deprecated /* GitHub is deprecating the use of `contexts`. Use a `checks` array instead. */
     @Import(name="contexts")
     private @Nullable Output<List<String>> contexts;
 
     /**
-     * @return The list of status checks to require in order to merge into this branch. No status checks are required by default.
+     * @return [**DEPRECATED**] (Optional) The list of status checks to require in order to merge into this branch. No status checks are required by default.
+     * 
+     * @deprecated
+     * GitHub is deprecating the use of `contexts`. Use a `checks` array instead.
      * 
      */
+    @Deprecated /* GitHub is deprecating the use of `contexts`. Use a `checks` array instead. */
     public Optional<Output<List<String>>> contexts() {
         return Optional.ofNullable(this.contexts);
     }
@@ -69,6 +92,7 @@ public final class BranchProtectionV3RequiredStatusChecksArgs extends com.pulumi
     private BranchProtectionV3RequiredStatusChecksArgs() {}
 
     private BranchProtectionV3RequiredStatusChecksArgs(BranchProtectionV3RequiredStatusChecksArgs $) {
+        this.checks = $.checks;
         this.contexts = $.contexts;
         this.includeAdmins = $.includeAdmins;
         this.strict = $.strict;
@@ -93,32 +117,75 @@ public final class BranchProtectionV3RequiredStatusChecksArgs extends com.pulumi
         }
 
         /**
-         * @param contexts The list of status checks to require in order to merge into this branch. No status checks are required by default.
+         * @param checks The list of status checks to require in order to merge into this branch. No status checks are required by default. Checks should be strings containing the context and app_id like so &#34;context:app_id&#34;.
          * 
          * @return builder
          * 
          */
+        public Builder checks(@Nullable Output<List<String>> checks) {
+            $.checks = checks;
+            return this;
+        }
+
+        /**
+         * @param checks The list of status checks to require in order to merge into this branch. No status checks are required by default. Checks should be strings containing the context and app_id like so &#34;context:app_id&#34;.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder checks(List<String> checks) {
+            return checks(Output.of(checks));
+        }
+
+        /**
+         * @param checks The list of status checks to require in order to merge into this branch. No status checks are required by default. Checks should be strings containing the context and app_id like so &#34;context:app_id&#34;.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder checks(String... checks) {
+            return checks(List.of(checks));
+        }
+
+        /**
+         * @param contexts [**DEPRECATED**] (Optional) The list of status checks to require in order to merge into this branch. No status checks are required by default.
+         * 
+         * @return builder
+         * 
+         * @deprecated
+         * GitHub is deprecating the use of `contexts`. Use a `checks` array instead.
+         * 
+         */
+        @Deprecated /* GitHub is deprecating the use of `contexts`. Use a `checks` array instead. */
         public Builder contexts(@Nullable Output<List<String>> contexts) {
             $.contexts = contexts;
             return this;
         }
 
         /**
-         * @param contexts The list of status checks to require in order to merge into this branch. No status checks are required by default.
+         * @param contexts [**DEPRECATED**] (Optional) The list of status checks to require in order to merge into this branch. No status checks are required by default.
          * 
          * @return builder
          * 
+         * @deprecated
+         * GitHub is deprecating the use of `contexts`. Use a `checks` array instead.
+         * 
          */
+        @Deprecated /* GitHub is deprecating the use of `contexts`. Use a `checks` array instead. */
         public Builder contexts(List<String> contexts) {
             return contexts(Output.of(contexts));
         }
 
         /**
-         * @param contexts The list of status checks to require in order to merge into this branch. No status checks are required by default.
+         * @param contexts [**DEPRECATED**] (Optional) The list of status checks to require in order to merge into this branch. No status checks are required by default.
          * 
          * @return builder
          * 
+         * @deprecated
+         * GitHub is deprecating the use of `contexts`. Use a `checks` array instead.
+         * 
          */
+        @Deprecated /* GitHub is deprecating the use of `contexts`. Use a `checks` array instead. */
         public Builder contexts(String... contexts) {
             return contexts(List.of(contexts));
         }

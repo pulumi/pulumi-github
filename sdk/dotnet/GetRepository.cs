@@ -169,6 +169,10 @@ namespace Pulumi.Github
         /// </summary>
         public readonly string GitCloneUrl;
         /// <summary>
+        /// Whether the repository has GitHub Discussions enabled.
+        /// </summary>
+        public readonly bool HasDiscussions;
+        /// <summary>
         /// Whether the repository has Downloads feature enabled.
         /// </summary>
         public readonly bool HasDownloads;
@@ -278,6 +282,8 @@ namespace Pulumi.Github
 
             string gitCloneUrl,
 
+            bool hasDiscussions,
+
             bool hasDownloads,
 
             bool hasIssues,
@@ -333,6 +339,7 @@ namespace Pulumi.Github
             Description = description;
             FullName = fullName;
             GitCloneUrl = gitCloneUrl;
+            HasDiscussions = hasDiscussions;
             HasDownloads = hasDownloads;
             HasIssues = hasIssues;
             HasProjects = hasProjects;

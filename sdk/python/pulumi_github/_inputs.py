@@ -432,13 +432,20 @@ class BranchProtectionV3RequiredPullRequestReviewsArgs:
 @pulumi.input_type
 class BranchProtectionV3RequiredStatusChecksArgs:
     def __init__(__self__, *,
+                 checks: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  contexts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  include_admins: Optional[pulumi.Input[bool]] = None,
                  strict: Optional[pulumi.Input[bool]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] contexts: The list of status checks to require in order to merge into this branch. No status checks are required by default.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] checks: The list of status checks to require in order to merge into this branch. No status checks are required by default. Checks should be strings containing the context and app_id like so "context:app_id".
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] contexts: [**DEPRECATED**] (Optional) The list of status checks to require in order to merge into this branch. No status checks are required by default.
         :param pulumi.Input[bool] strict: Require branches to be up to date before merging. Defaults to `false`.
         """
+        if checks is not None:
+            pulumi.set(__self__, "checks", checks)
+        if contexts is not None:
+            warnings.warn("""GitHub is deprecating the use of `contexts`. Use a `checks` array instead.""", DeprecationWarning)
+            pulumi.log.warn("""contexts is deprecated: GitHub is deprecating the use of `contexts`. Use a `checks` array instead.""")
         if contexts is not None:
             pulumi.set(__self__, "contexts", contexts)
         if include_admins is not None:
@@ -451,9 +458,21 @@ class BranchProtectionV3RequiredStatusChecksArgs:
 
     @property
     @pulumi.getter
+    def checks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The list of status checks to require in order to merge into this branch. No status checks are required by default. Checks should be strings containing the context and app_id like so "context:app_id".
+        """
+        return pulumi.get(self, "checks")
+
+    @checks.setter
+    def checks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "checks", value)
+
+    @property
+    @pulumi.getter
     def contexts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        The list of status checks to require in order to merge into this branch. No status checks are required by default.
+        [**DEPRECATED**] (Optional) The list of status checks to require in order to merge into this branch. No status checks are required by default.
         """
         return pulumi.get(self, "contexts")
 
@@ -851,52 +870,55 @@ class RepositoryPagesSourceArgs:
 @pulumi.input_type
 class RepositorySecurityAndAnalysisArgs:
     def __init__(__self__, *,
-                 advanced_security: pulumi.Input['RepositorySecurityAndAnalysisAdvancedSecurityArgs'],
-                 secret_scanning: pulumi.Input['RepositorySecurityAndAnalysisSecretScanningArgs'],
-                 secret_scanning_push_protection: pulumi.Input['RepositorySecurityAndAnalysisSecretScanningPushProtectionArgs']):
+                 advanced_security: Optional[pulumi.Input['RepositorySecurityAndAnalysisAdvancedSecurityArgs']] = None,
+                 secret_scanning: Optional[pulumi.Input['RepositorySecurityAndAnalysisSecretScanningArgs']] = None,
+                 secret_scanning_push_protection: Optional[pulumi.Input['RepositorySecurityAndAnalysisSecretScanningPushProtectionArgs']] = None):
         """
-        :param pulumi.Input['RepositorySecurityAndAnalysisAdvancedSecurityArgs'] advanced_security: The advanced security configuration for the repository. See Advanced Security Configuration below for details.
+        :param pulumi.Input['RepositorySecurityAndAnalysisAdvancedSecurityArgs'] advanced_security: The advanced security configuration for the repository. See Advanced Security Configuration below for details. If a repository's visibility is `public`, advanced security is always enabled and cannot be changed, so this setting cannot be supplied.
         :param pulumi.Input['RepositorySecurityAndAnalysisSecretScanningArgs'] secret_scanning: The secret scanning configuration for the repository. See Secret Scanning Configuration below for details.
         :param pulumi.Input['RepositorySecurityAndAnalysisSecretScanningPushProtectionArgs'] secret_scanning_push_protection: The secret scanning push protection configuration for the repository. See Secret Scanning Push Protection Configuration below for details.
         """
-        pulumi.set(__self__, "advanced_security", advanced_security)
-        pulumi.set(__self__, "secret_scanning", secret_scanning)
-        pulumi.set(__self__, "secret_scanning_push_protection", secret_scanning_push_protection)
+        if advanced_security is not None:
+            pulumi.set(__self__, "advanced_security", advanced_security)
+        if secret_scanning is not None:
+            pulumi.set(__self__, "secret_scanning", secret_scanning)
+        if secret_scanning_push_protection is not None:
+            pulumi.set(__self__, "secret_scanning_push_protection", secret_scanning_push_protection)
 
     @property
     @pulumi.getter(name="advancedSecurity")
-    def advanced_security(self) -> pulumi.Input['RepositorySecurityAndAnalysisAdvancedSecurityArgs']:
+    def advanced_security(self) -> Optional[pulumi.Input['RepositorySecurityAndAnalysisAdvancedSecurityArgs']]:
         """
-        The advanced security configuration for the repository. See Advanced Security Configuration below for details.
+        The advanced security configuration for the repository. See Advanced Security Configuration below for details. If a repository's visibility is `public`, advanced security is always enabled and cannot be changed, so this setting cannot be supplied.
         """
         return pulumi.get(self, "advanced_security")
 
     @advanced_security.setter
-    def advanced_security(self, value: pulumi.Input['RepositorySecurityAndAnalysisAdvancedSecurityArgs']):
+    def advanced_security(self, value: Optional[pulumi.Input['RepositorySecurityAndAnalysisAdvancedSecurityArgs']]):
         pulumi.set(self, "advanced_security", value)
 
     @property
     @pulumi.getter(name="secretScanning")
-    def secret_scanning(self) -> pulumi.Input['RepositorySecurityAndAnalysisSecretScanningArgs']:
+    def secret_scanning(self) -> Optional[pulumi.Input['RepositorySecurityAndAnalysisSecretScanningArgs']]:
         """
         The secret scanning configuration for the repository. See Secret Scanning Configuration below for details.
         """
         return pulumi.get(self, "secret_scanning")
 
     @secret_scanning.setter
-    def secret_scanning(self, value: pulumi.Input['RepositorySecurityAndAnalysisSecretScanningArgs']):
+    def secret_scanning(self, value: Optional[pulumi.Input['RepositorySecurityAndAnalysisSecretScanningArgs']]):
         pulumi.set(self, "secret_scanning", value)
 
     @property
     @pulumi.getter(name="secretScanningPushProtection")
-    def secret_scanning_push_protection(self) -> pulumi.Input['RepositorySecurityAndAnalysisSecretScanningPushProtectionArgs']:
+    def secret_scanning_push_protection(self) -> Optional[pulumi.Input['RepositorySecurityAndAnalysisSecretScanningPushProtectionArgs']]:
         """
         The secret scanning push protection configuration for the repository. See Secret Scanning Push Protection Configuration below for details.
         """
         return pulumi.get(self, "secret_scanning_push_protection")
 
     @secret_scanning_push_protection.setter
-    def secret_scanning_push_protection(self, value: pulumi.Input['RepositorySecurityAndAnalysisSecretScanningPushProtectionArgs']):
+    def secret_scanning_push_protection(self, value: Optional[pulumi.Input['RepositorySecurityAndAnalysisSecretScanningPushProtectionArgs']]):
         pulumi.set(self, "secret_scanning_push_protection", value)
 
 

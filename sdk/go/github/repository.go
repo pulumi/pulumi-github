@@ -32,7 +32,7 @@ import (
 //				Template: &github.RepositoryTemplateArgs{
 //					IncludeAllBranches: pulumi.Bool(true),
 //					Owner:              pulumi.String("github"),
-//					Repository:         pulumi.String("terraform-module-template"),
+//					Repository:         pulumi.String("terraform-template-module"),
 //				},
 //				Visibility: pulumi.String("public"),
 //			})
@@ -122,6 +122,8 @@ type Repository struct {
 	GitCloneUrl pulumi.StringOutput `pulumi:"gitCloneUrl"`
 	// Use the [name of the template](https://github.com/github/gitignore) without the extension. For example, "Haskell".
 	GitignoreTemplate pulumi.StringPtrOutput `pulumi:"gitignoreTemplate"`
+	// Set to `true` to enable GitHub Discussions on the repository. Defaults to `false`.
+	HasDiscussions pulumi.BoolPtrOutput `pulumi:"hasDiscussions"`
 	// Set to `true` to enable the (deprecated) downloads features on the repository.
 	HasDownloads pulumi.BoolPtrOutput `pulumi:"hasDownloads"`
 	// Set to `true` to enable the GitHub Issues features
@@ -162,7 +164,7 @@ type Repository struct {
 	// GitHub ID for the repository
 	RepoId pulumi.IntOutput `pulumi:"repoId"`
 	// The repository's [security and analysis](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository) configuration. See Security and Analysis Configuration below for details.
-	SecurityAndAnalysis RepositorySecurityAndAnalysisPtrOutput `pulumi:"securityAndAnalysis"`
+	SecurityAndAnalysis RepositorySecurityAndAnalysisOutput `pulumi:"securityAndAnalysis"`
 	// Can be `PR_BODY`, `COMMIT_MESSAGES`, or `BLANK` for a default squash merge commit message.
 	SquashMergeCommitMessage pulumi.StringPtrOutput `pulumi:"squashMergeCommitMessage"`
 	// Can be `PR_TITLE` or `COMMIT_OR_PR_TITLE` for a default squash merge commit title.
@@ -243,6 +245,8 @@ type repositoryState struct {
 	GitCloneUrl *string `pulumi:"gitCloneUrl"`
 	// Use the [name of the template](https://github.com/github/gitignore) without the extension. For example, "Haskell".
 	GitignoreTemplate *string `pulumi:"gitignoreTemplate"`
+	// Set to `true` to enable GitHub Discussions on the repository. Defaults to `false`.
+	HasDiscussions *bool `pulumi:"hasDiscussions"`
 	// Set to `true` to enable the (deprecated) downloads features on the repository.
 	HasDownloads *bool `pulumi:"hasDownloads"`
 	// Set to `true` to enable the GitHub Issues features
@@ -336,6 +340,8 @@ type RepositoryState struct {
 	GitCloneUrl pulumi.StringPtrInput
 	// Use the [name of the template](https://github.com/github/gitignore) without the extension. For example, "Haskell".
 	GitignoreTemplate pulumi.StringPtrInput
+	// Set to `true` to enable GitHub Discussions on the repository. Defaults to `false`.
+	HasDiscussions pulumi.BoolPtrInput
 	// Set to `true` to enable the (deprecated) downloads features on the repository.
 	HasDownloads pulumi.BoolPtrInput
 	// Set to `true` to enable the GitHub Issues features
@@ -428,6 +434,8 @@ type repositoryArgs struct {
 	Description *string `pulumi:"description"`
 	// Use the [name of the template](https://github.com/github/gitignore) without the extension. For example, "Haskell".
 	GitignoreTemplate *string `pulumi:"gitignoreTemplate"`
+	// Set to `true` to enable GitHub Discussions on the repository. Defaults to `false`.
+	HasDiscussions *bool `pulumi:"hasDiscussions"`
 	// Set to `true` to enable the (deprecated) downloads features on the repository.
 	HasDownloads *bool `pulumi:"hasDownloads"`
 	// Set to `true` to enable the GitHub Issues features
@@ -505,6 +513,8 @@ type RepositoryArgs struct {
 	Description pulumi.StringPtrInput
 	// Use the [name of the template](https://github.com/github/gitignore) without the extension. For example, "Haskell".
 	GitignoreTemplate pulumi.StringPtrInput
+	// Set to `true` to enable GitHub Discussions on the repository. Defaults to `false`.
+	HasDiscussions pulumi.BoolPtrInput
 	// Set to `true` to enable the (deprecated) downloads features on the repository.
 	HasDownloads pulumi.BoolPtrInput
 	// Set to `true` to enable the GitHub Issues features
@@ -717,6 +727,11 @@ func (o RepositoryOutput) GitignoreTemplate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Repository) pulumi.StringPtrOutput { return v.GitignoreTemplate }).(pulumi.StringPtrOutput)
 }
 
+// Set to `true` to enable GitHub Discussions on the repository. Defaults to `false`.
+func (o RepositoryOutput) HasDiscussions() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Repository) pulumi.BoolPtrOutput { return v.HasDiscussions }).(pulumi.BoolPtrOutput)
+}
+
 // Set to `true` to enable the (deprecated) downloads features on the repository.
 func (o RepositoryOutput) HasDownloads() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Repository) pulumi.BoolPtrOutput { return v.HasDownloads }).(pulumi.BoolPtrOutput)
@@ -808,8 +823,8 @@ func (o RepositoryOutput) RepoId() pulumi.IntOutput {
 }
 
 // The repository's [security and analysis](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository) configuration. See Security and Analysis Configuration below for details.
-func (o RepositoryOutput) SecurityAndAnalysis() RepositorySecurityAndAnalysisPtrOutput {
-	return o.ApplyT(func(v *Repository) RepositorySecurityAndAnalysisPtrOutput { return v.SecurityAndAnalysis }).(RepositorySecurityAndAnalysisPtrOutput)
+func (o RepositoryOutput) SecurityAndAnalysis() RepositorySecurityAndAnalysisOutput {
+	return o.ApplyT(func(v *Repository) RepositorySecurityAndAnalysisOutput { return v.SecurityAndAnalysis }).(RepositorySecurityAndAnalysisOutput)
 }
 
 // Can be `PR_BODY`, `COMMIT_MESSAGES`, or `BLANK` for a default squash merge commit message.

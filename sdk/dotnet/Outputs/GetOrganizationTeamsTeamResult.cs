@@ -34,6 +34,10 @@ namespace Pulumi.Github.Outputs
         /// </summary>
         public readonly string NodeId;
         /// <summary>
+        /// the parent team.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string> Parent;
+        /// <summary>
         /// the team's privacy type.
         /// </summary>
         public readonly string Privacy;
@@ -58,6 +62,8 @@ namespace Pulumi.Github.Outputs
 
             string nodeId,
 
+            ImmutableDictionary<string, string> parent,
+
             string privacy,
 
             ImmutableArray<string> repositories,
@@ -69,6 +75,7 @@ namespace Pulumi.Github.Outputs
             Members = members;
             Name = name;
             NodeId = nodeId;
+            Parent = parent;
             Privacy = privacy;
             Repositories = repositories;
             Slug = slug;

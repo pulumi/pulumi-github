@@ -8,46 +8,48 @@ import com.pulumi.github.outputs.RepositorySecurityAndAnalysisAdvancedSecurity;
 import com.pulumi.github.outputs.RepositorySecurityAndAnalysisSecretScanning;
 import com.pulumi.github.outputs.RepositorySecurityAndAnalysisSecretScanningPushProtection;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class RepositorySecurityAndAnalysis {
     /**
-     * @return The advanced security configuration for the repository. See Advanced Security Configuration below for details.
+     * @return The advanced security configuration for the repository. See Advanced Security Configuration below for details. If a repository&#39;s visibility is `public`, advanced security is always enabled and cannot be changed, so this setting cannot be supplied.
      * 
      */
-    private RepositorySecurityAndAnalysisAdvancedSecurity advancedSecurity;
+    private @Nullable RepositorySecurityAndAnalysisAdvancedSecurity advancedSecurity;
     /**
      * @return The secret scanning configuration for the repository. See Secret Scanning Configuration below for details.
      * 
      */
-    private RepositorySecurityAndAnalysisSecretScanning secretScanning;
+    private @Nullable RepositorySecurityAndAnalysisSecretScanning secretScanning;
     /**
      * @return The secret scanning push protection configuration for the repository. See Secret Scanning Push Protection Configuration below for details.
      * 
      */
-    private RepositorySecurityAndAnalysisSecretScanningPushProtection secretScanningPushProtection;
+    private @Nullable RepositorySecurityAndAnalysisSecretScanningPushProtection secretScanningPushProtection;
 
     private RepositorySecurityAndAnalysis() {}
     /**
-     * @return The advanced security configuration for the repository. See Advanced Security Configuration below for details.
+     * @return The advanced security configuration for the repository. See Advanced Security Configuration below for details. If a repository&#39;s visibility is `public`, advanced security is always enabled and cannot be changed, so this setting cannot be supplied.
      * 
      */
-    public RepositorySecurityAndAnalysisAdvancedSecurity advancedSecurity() {
-        return this.advancedSecurity;
+    public Optional<RepositorySecurityAndAnalysisAdvancedSecurity> advancedSecurity() {
+        return Optional.ofNullable(this.advancedSecurity);
     }
     /**
      * @return The secret scanning configuration for the repository. See Secret Scanning Configuration below for details.
      * 
      */
-    public RepositorySecurityAndAnalysisSecretScanning secretScanning() {
-        return this.secretScanning;
+    public Optional<RepositorySecurityAndAnalysisSecretScanning> secretScanning() {
+        return Optional.ofNullable(this.secretScanning);
     }
     /**
      * @return The secret scanning push protection configuration for the repository. See Secret Scanning Push Protection Configuration below for details.
      * 
      */
-    public RepositorySecurityAndAnalysisSecretScanningPushProtection secretScanningPushProtection() {
-        return this.secretScanningPushProtection;
+    public Optional<RepositorySecurityAndAnalysisSecretScanningPushProtection> secretScanningPushProtection() {
+        return Optional.ofNullable(this.secretScanningPushProtection);
     }
 
     public static Builder builder() {
@@ -59,9 +61,9 @@ public final class RepositorySecurityAndAnalysis {
     }
     @CustomType.Builder
     public static final class Builder {
-        private RepositorySecurityAndAnalysisAdvancedSecurity advancedSecurity;
-        private RepositorySecurityAndAnalysisSecretScanning secretScanning;
-        private RepositorySecurityAndAnalysisSecretScanningPushProtection secretScanningPushProtection;
+        private @Nullable RepositorySecurityAndAnalysisAdvancedSecurity advancedSecurity;
+        private @Nullable RepositorySecurityAndAnalysisSecretScanning secretScanning;
+        private @Nullable RepositorySecurityAndAnalysisSecretScanningPushProtection secretScanningPushProtection;
         public Builder() {}
         public Builder(RepositorySecurityAndAnalysis defaults) {
     	      Objects.requireNonNull(defaults);
@@ -71,18 +73,18 @@ public final class RepositorySecurityAndAnalysis {
         }
 
         @CustomType.Setter
-        public Builder advancedSecurity(RepositorySecurityAndAnalysisAdvancedSecurity advancedSecurity) {
-            this.advancedSecurity = Objects.requireNonNull(advancedSecurity);
+        public Builder advancedSecurity(@Nullable RepositorySecurityAndAnalysisAdvancedSecurity advancedSecurity) {
+            this.advancedSecurity = advancedSecurity;
             return this;
         }
         @CustomType.Setter
-        public Builder secretScanning(RepositorySecurityAndAnalysisSecretScanning secretScanning) {
-            this.secretScanning = Objects.requireNonNull(secretScanning);
+        public Builder secretScanning(@Nullable RepositorySecurityAndAnalysisSecretScanning secretScanning) {
+            this.secretScanning = secretScanning;
             return this;
         }
         @CustomType.Setter
-        public Builder secretScanningPushProtection(RepositorySecurityAndAnalysisSecretScanningPushProtection secretScanningPushProtection) {
-            this.secretScanningPushProtection = Objects.requireNonNull(secretScanningPushProtection);
+        public Builder secretScanningPushProtection(@Nullable RepositorySecurityAndAnalysisSecretScanningPushProtection secretScanningPushProtection) {
+            this.secretScanningPushProtection = secretScanningPushProtection;
             return this;
         }
         public RepositorySecurityAndAnalysis build() {

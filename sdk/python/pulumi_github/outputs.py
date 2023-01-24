@@ -493,13 +493,17 @@ class BranchProtectionV3RequiredStatusChecks(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 checks: Optional[Sequence[str]] = None,
                  contexts: Optional[Sequence[str]] = None,
                  include_admins: Optional[bool] = None,
                  strict: Optional[bool] = None):
         """
-        :param Sequence[str] contexts: The list of status checks to require in order to merge into this branch. No status checks are required by default.
+        :param Sequence[str] checks: The list of status checks to require in order to merge into this branch. No status checks are required by default. Checks should be strings containing the context and app_id like so "context:app_id".
+        :param Sequence[str] contexts: [**DEPRECATED**] (Optional) The list of status checks to require in order to merge into this branch. No status checks are required by default.
         :param bool strict: Require branches to be up to date before merging. Defaults to `false`.
         """
+        if checks is not None:
+            pulumi.set(__self__, "checks", checks)
         if contexts is not None:
             pulumi.set(__self__, "contexts", contexts)
         if include_admins is not None:
@@ -509,9 +513,17 @@ class BranchProtectionV3RequiredStatusChecks(dict):
 
     @property
     @pulumi.getter
+    def checks(self) -> Optional[Sequence[str]]:
+        """
+        The list of status checks to require in order to merge into this branch. No status checks are required by default. Checks should be strings containing the context and app_id like so "context:app_id".
+        """
+        return pulumi.get(self, "checks")
+
+    @property
+    @pulumi.getter
     def contexts(self) -> Optional[Sequence[str]]:
         """
-        The list of status checks to require in order to merge into this branch. No status checks are required by default.
+        [**DEPRECATED**] (Optional) The list of status checks to require in order to merge into this branch. No status checks are required by default.
         """
         return pulumi.get(self, "contexts")
 
@@ -859,29 +871,32 @@ class RepositorySecurityAndAnalysis(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 advanced_security: 'outputs.RepositorySecurityAndAnalysisAdvancedSecurity',
-                 secret_scanning: 'outputs.RepositorySecurityAndAnalysisSecretScanning',
-                 secret_scanning_push_protection: 'outputs.RepositorySecurityAndAnalysisSecretScanningPushProtection'):
+                 advanced_security: Optional['outputs.RepositorySecurityAndAnalysisAdvancedSecurity'] = None,
+                 secret_scanning: Optional['outputs.RepositorySecurityAndAnalysisSecretScanning'] = None,
+                 secret_scanning_push_protection: Optional['outputs.RepositorySecurityAndAnalysisSecretScanningPushProtection'] = None):
         """
-        :param 'RepositorySecurityAndAnalysisAdvancedSecurityArgs' advanced_security: The advanced security configuration for the repository. See Advanced Security Configuration below for details.
+        :param 'RepositorySecurityAndAnalysisAdvancedSecurityArgs' advanced_security: The advanced security configuration for the repository. See Advanced Security Configuration below for details. If a repository's visibility is `public`, advanced security is always enabled and cannot be changed, so this setting cannot be supplied.
         :param 'RepositorySecurityAndAnalysisSecretScanningArgs' secret_scanning: The secret scanning configuration for the repository. See Secret Scanning Configuration below for details.
         :param 'RepositorySecurityAndAnalysisSecretScanningPushProtectionArgs' secret_scanning_push_protection: The secret scanning push protection configuration for the repository. See Secret Scanning Push Protection Configuration below for details.
         """
-        pulumi.set(__self__, "advanced_security", advanced_security)
-        pulumi.set(__self__, "secret_scanning", secret_scanning)
-        pulumi.set(__self__, "secret_scanning_push_protection", secret_scanning_push_protection)
+        if advanced_security is not None:
+            pulumi.set(__self__, "advanced_security", advanced_security)
+        if secret_scanning is not None:
+            pulumi.set(__self__, "secret_scanning", secret_scanning)
+        if secret_scanning_push_protection is not None:
+            pulumi.set(__self__, "secret_scanning_push_protection", secret_scanning_push_protection)
 
     @property
     @pulumi.getter(name="advancedSecurity")
-    def advanced_security(self) -> 'outputs.RepositorySecurityAndAnalysisAdvancedSecurity':
+    def advanced_security(self) -> Optional['outputs.RepositorySecurityAndAnalysisAdvancedSecurity']:
         """
-        The advanced security configuration for the repository. See Advanced Security Configuration below for details.
+        The advanced security configuration for the repository. See Advanced Security Configuration below for details. If a repository's visibility is `public`, advanced security is always enabled and cannot be changed, so this setting cannot be supplied.
         """
         return pulumi.get(self, "advanced_security")
 
     @property
     @pulumi.getter(name="secretScanning")
-    def secret_scanning(self) -> 'outputs.RepositorySecurityAndAnalysisSecretScanning':
+    def secret_scanning(self) -> Optional['outputs.RepositorySecurityAndAnalysisSecretScanning']:
         """
         The secret scanning configuration for the repository. See Secret Scanning Configuration below for details.
         """
@@ -889,7 +904,7 @@ class RepositorySecurityAndAnalysis(dict):
 
     @property
     @pulumi.getter(name="secretScanningPushProtection")
-    def secret_scanning_push_protection(self) -> 'outputs.RepositorySecurityAndAnalysisSecretScanningPushProtection':
+    def secret_scanning_push_protection(self) -> Optional['outputs.RepositorySecurityAndAnalysisSecretScanningPushProtection']:
         """
         The secret scanning push protection configuration for the repository. See Secret Scanning Push Protection Configuration below for details.
         """
@@ -1760,6 +1775,7 @@ class GetOrganizationTeamsTeamResult(dict):
                  members: Sequence[str],
                  name: str,
                  node_id: str,
+                 parent: Mapping[str, str],
                  privacy: str,
                  repositories: Sequence[str],
                  slug: str):
@@ -1769,6 +1785,7 @@ class GetOrganizationTeamsTeamResult(dict):
         :param Sequence[str] members: List of team members. Not returned if `summary_only = true`
         :param str name: the team's full name.
         :param str node_id: the Node ID of the team.
+        :param Mapping[str, str] parent: the parent team.
         :param str privacy: the team's privacy type.
         :param Sequence[str] repositories: List of team repositories. Not returned if `summary_only = true`
         :param str slug: the slug of the team.
@@ -1778,6 +1795,7 @@ class GetOrganizationTeamsTeamResult(dict):
         pulumi.set(__self__, "members", members)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "node_id", node_id)
+        pulumi.set(__self__, "parent", parent)
         pulumi.set(__self__, "privacy", privacy)
         pulumi.set(__self__, "repositories", repositories)
         pulumi.set(__self__, "slug", slug)
@@ -1821,6 +1839,14 @@ class GetOrganizationTeamsTeamResult(dict):
         the Node ID of the team.
         """
         return pulumi.get(self, "node_id")
+
+    @property
+    @pulumi.getter
+    def parent(self) -> Mapping[str, str]:
+        """
+        the parent team.
+        """
+        return pulumi.get(self, "parent")
 
     @property
     @pulumi.getter
