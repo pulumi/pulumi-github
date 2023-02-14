@@ -9,51 +9,20 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Github
 {
-    /// <summary>
-    /// Provides a resource to manage GitHub repository collaborator invitations.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Github = Pulumi.Github;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleRepository = new Github.Repository("exampleRepository");
-    /// 
-    ///     var exampleRepositoryCollaborator = new Github.RepositoryCollaborator("exampleRepositoryCollaborator", new()
-    ///     {
-    ///         Repository = exampleRepository.Name,
-    ///         Username = "example-username",
-    ///         Permission = "push",
-    ///     });
-    /// 
-    ///     var invitee = new Github.Provider("invitee", new()
-    ///     {
-    ///         Token = @var.Invitee_token,
-    ///     });
-    /// 
-    ///     var exampleUserInvitationAccepter = new Github.UserInvitationAccepter("exampleUserInvitationAccepter", new()
-    ///     {
-    ///         InvitationId = exampleRepositoryCollaborator.InvitationId,
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         Provider = "github.invitee",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// </summary>
     [GithubResourceType("github:index/userInvitationAccepter:UserInvitationAccepter")]
     public partial class UserInvitationAccepter : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// ID of the invitation to accept
+        /// Allow the ID to be unset. This will result in the resource being skipped when the ID is not set instead of returning an error.
+        /// </summary>
+        [Output("allowEmptyId")]
+        public Output<bool?> AllowEmptyId { get; private set; } = null!;
+
+        /// <summary>
+        /// ID of the invitation to accept. Must be set when `allow_empty_id` is `false`.
         /// </summary>
         [Output("invitationId")]
-        public Output<string> InvitationId { get; private set; } = null!;
+        public Output<string?> InvitationId { get; private set; } = null!;
 
 
         /// <summary>
@@ -63,7 +32,7 @@ namespace Pulumi.Github
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public UserInvitationAccepter(string name, UserInvitationAccepterArgs args, CustomResourceOptions? options = null)
+        public UserInvitationAccepter(string name, UserInvitationAccepterArgs? args = null, CustomResourceOptions? options = null)
             : base("github:index/userInvitationAccepter:UserInvitationAccepter", name, args ?? new UserInvitationAccepterArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -102,10 +71,16 @@ namespace Pulumi.Github
     public sealed class UserInvitationAccepterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// ID of the invitation to accept
+        /// Allow the ID to be unset. This will result in the resource being skipped when the ID is not set instead of returning an error.
         /// </summary>
-        [Input("invitationId", required: true)]
-        public Input<string> InvitationId { get; set; } = null!;
+        [Input("allowEmptyId")]
+        public Input<bool>? AllowEmptyId { get; set; }
+
+        /// <summary>
+        /// ID of the invitation to accept. Must be set when `allow_empty_id` is `false`.
+        /// </summary>
+        [Input("invitationId")]
+        public Input<string>? InvitationId { get; set; }
 
         public UserInvitationAccepterArgs()
         {
@@ -116,7 +91,13 @@ namespace Pulumi.Github
     public sealed class UserInvitationAccepterState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// ID of the invitation to accept
+        /// Allow the ID to be unset. This will result in the resource being skipped when the ID is not set instead of returning an error.
+        /// </summary>
+        [Input("allowEmptyId")]
+        public Input<bool>? AllowEmptyId { get; set; }
+
+        /// <summary>
+        /// ID of the invitation to accept. Must be set when `allow_empty_id` is `false`.
         /// </summary>
         [Input("invitationId")]
         public Input<string>? InvitationId { get; set; }

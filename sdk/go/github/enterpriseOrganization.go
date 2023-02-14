@@ -11,14 +11,53 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-github/sdk/v5/go/github"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := github.NewEnterpriseOrganization(ctx, "org", &github.EnterpriseOrganizationArgs{
+//				EnterpriseId: pulumi.Any(data.Github_enterprise.Enterprise.Id),
+//				Description:  pulumi.String("Organization created with terraform"),
+//				BillingEmail: pulumi.String("jon@winteriscoming.com"),
+//				AdminLogins: pulumi.StringArray{
+//					pulumi.String("jon-snow"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// Support for importing organizations is not currently supported.
 type EnterpriseOrganization struct {
 	pulumi.CustomResourceState
 
-	AdminLogins  pulumi.StringArrayOutput `pulumi:"adminLogins"`
-	BillingEmail pulumi.StringOutput      `pulumi:"billingEmail"`
-	Description  pulumi.StringPtrOutput   `pulumi:"description"`
-	EnterpriseId pulumi.StringOutput      `pulumi:"enterpriseId"`
-	Name         pulumi.StringOutput      `pulumi:"name"`
+	// List of organization owner usernames.
+	AdminLogins pulumi.StringArrayOutput `pulumi:"adminLogins"`
+	// The billing email address.
+	BillingEmail pulumi.StringOutput `pulumi:"billingEmail"`
+	// The description of the organization.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The ID of the enterprise.
+	EnterpriseId pulumi.StringOutput `pulumi:"enterpriseId"`
+	// The name of the organization.
+	Name pulumi.StringOutput `pulumi:"name"`
 }
 
 // NewEnterpriseOrganization registers a new resource with the given unique name, arguments, and options.
@@ -59,19 +98,29 @@ func GetEnterpriseOrganization(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering EnterpriseOrganization resources.
 type enterpriseOrganizationState struct {
-	AdminLogins  []string `pulumi:"adminLogins"`
-	BillingEmail *string  `pulumi:"billingEmail"`
-	Description  *string  `pulumi:"description"`
-	EnterpriseId *string  `pulumi:"enterpriseId"`
-	Name         *string  `pulumi:"name"`
+	// List of organization owner usernames.
+	AdminLogins []string `pulumi:"adminLogins"`
+	// The billing email address.
+	BillingEmail *string `pulumi:"billingEmail"`
+	// The description of the organization.
+	Description *string `pulumi:"description"`
+	// The ID of the enterprise.
+	EnterpriseId *string `pulumi:"enterpriseId"`
+	// The name of the organization.
+	Name *string `pulumi:"name"`
 }
 
 type EnterpriseOrganizationState struct {
-	AdminLogins  pulumi.StringArrayInput
+	// List of organization owner usernames.
+	AdminLogins pulumi.StringArrayInput
+	// The billing email address.
 	BillingEmail pulumi.StringPtrInput
-	Description  pulumi.StringPtrInput
+	// The description of the organization.
+	Description pulumi.StringPtrInput
+	// The ID of the enterprise.
 	EnterpriseId pulumi.StringPtrInput
-	Name         pulumi.StringPtrInput
+	// The name of the organization.
+	Name pulumi.StringPtrInput
 }
 
 func (EnterpriseOrganizationState) ElementType() reflect.Type {
@@ -79,20 +128,30 @@ func (EnterpriseOrganizationState) ElementType() reflect.Type {
 }
 
 type enterpriseOrganizationArgs struct {
-	AdminLogins  []string `pulumi:"adminLogins"`
-	BillingEmail string   `pulumi:"billingEmail"`
-	Description  *string  `pulumi:"description"`
-	EnterpriseId string   `pulumi:"enterpriseId"`
-	Name         *string  `pulumi:"name"`
+	// List of organization owner usernames.
+	AdminLogins []string `pulumi:"adminLogins"`
+	// The billing email address.
+	BillingEmail string `pulumi:"billingEmail"`
+	// The description of the organization.
+	Description *string `pulumi:"description"`
+	// The ID of the enterprise.
+	EnterpriseId string `pulumi:"enterpriseId"`
+	// The name of the organization.
+	Name *string `pulumi:"name"`
 }
 
 // The set of arguments for constructing a EnterpriseOrganization resource.
 type EnterpriseOrganizationArgs struct {
-	AdminLogins  pulumi.StringArrayInput
+	// List of organization owner usernames.
+	AdminLogins pulumi.StringArrayInput
+	// The billing email address.
 	BillingEmail pulumi.StringInput
-	Description  pulumi.StringPtrInput
+	// The description of the organization.
+	Description pulumi.StringPtrInput
+	// The ID of the enterprise.
 	EnterpriseId pulumi.StringInput
-	Name         pulumi.StringPtrInput
+	// The name of the organization.
+	Name pulumi.StringPtrInput
 }
 
 func (EnterpriseOrganizationArgs) ElementType() reflect.Type {
@@ -182,22 +241,27 @@ func (o EnterpriseOrganizationOutput) ToEnterpriseOrganizationOutputWithContext(
 	return o
 }
 
+// List of organization owner usernames.
 func (o EnterpriseOrganizationOutput) AdminLogins() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *EnterpriseOrganization) pulumi.StringArrayOutput { return v.AdminLogins }).(pulumi.StringArrayOutput)
 }
 
+// The billing email address.
 func (o EnterpriseOrganizationOutput) BillingEmail() pulumi.StringOutput {
 	return o.ApplyT(func(v *EnterpriseOrganization) pulumi.StringOutput { return v.BillingEmail }).(pulumi.StringOutput)
 }
 
+// The description of the organization.
 func (o EnterpriseOrganizationOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EnterpriseOrganization) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The ID of the enterprise.
 func (o EnterpriseOrganizationOutput) EnterpriseId() pulumi.StringOutput {
 	return o.ApplyT(func(v *EnterpriseOrganization) pulumi.StringOutput { return v.EnterpriseId }).(pulumi.StringOutput)
 }
 
+// The name of the organization.
 func (o EnterpriseOrganizationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *EnterpriseOrganization) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

@@ -49,7 +49,7 @@ import javax.annotation.Nullable;
  *         var repo = new Repository(&#34;repo&#34;, RepositoryArgs.builder()        
  *             .description(&#34;Terraform acceptance tests&#34;)
  *             .homepageUrl(&#34;http://example.com/&#34;)
- *             .private_(false)
+ *             .visibility(&#34;public&#34;)
  *             .build());
  * 
  *         var foo = new RepositoryWebhook(&#34;foo&#34;, RepositoryWebhookArgs.builder()        

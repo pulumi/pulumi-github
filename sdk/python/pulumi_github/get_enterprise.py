@@ -53,7 +53,7 @@ class GetEnterpriseResult:
     @pulumi.getter
     def description(self) -> str:
         """
-        The description of the enterpise.
+        The description of the enterprise.
         """
         return pulumi.get(self, "description")
 
@@ -69,7 +69,7 @@ class GetEnterpriseResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the enteprise.
+        The name of the enterprise.
         """
         return pulumi.get(self, "name")
 
@@ -109,6 +109,15 @@ def get_enterprise(slug: Optional[str] = None,
     """
     Use this data source to retrieve basic information about a GitHub enterprise.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_github as github
+
+    example = github.get_enterprise(slug="example-co")
+    ```
+
 
     :param str slug: The URL slug identifying the enterprise.
     """
@@ -131,6 +140,15 @@ def get_enterprise_output(slug: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEnterpriseResult]:
     """
     Use this data source to retrieve basic information about a GitHub enterprise.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_github as github
+
+    example = github.get_enterprise(slug="example-co")
+    ```
 
 
     :param str slug: The URL slug identifying the enterprise.

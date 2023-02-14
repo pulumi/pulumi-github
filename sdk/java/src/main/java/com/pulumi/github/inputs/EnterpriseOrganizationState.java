@@ -16,37 +16,77 @@ public final class EnterpriseOrganizationState extends com.pulumi.resources.Reso
 
     public static final EnterpriseOrganizationState Empty = new EnterpriseOrganizationState();
 
+    /**
+     * List of organization owner usernames.
+     * 
+     */
     @Import(name="adminLogins")
     private @Nullable Output<List<String>> adminLogins;
 
+    /**
+     * @return List of organization owner usernames.
+     * 
+     */
     public Optional<Output<List<String>>> adminLogins() {
         return Optional.ofNullable(this.adminLogins);
     }
 
+    /**
+     * The billing email address.
+     * 
+     */
     @Import(name="billingEmail")
     private @Nullable Output<String> billingEmail;
 
+    /**
+     * @return The billing email address.
+     * 
+     */
     public Optional<Output<String>> billingEmail() {
         return Optional.ofNullable(this.billingEmail);
     }
 
+    /**
+     * The description of the organization.
+     * 
+     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
+    /**
+     * @return The description of the organization.
+     * 
+     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
+    /**
+     * The ID of the enterprise.
+     * 
+     */
     @Import(name="enterpriseId")
     private @Nullable Output<String> enterpriseId;
 
+    /**
+     * @return The ID of the enterprise.
+     * 
+     */
     public Optional<Output<String>> enterpriseId() {
         return Optional.ofNullable(this.enterpriseId);
     }
 
+    /**
+     * The name of the organization.
+     * 
+     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
+    /**
+     * @return The name of the organization.
+     * 
+     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
@@ -79,51 +119,117 @@ public final class EnterpriseOrganizationState extends com.pulumi.resources.Reso
             $ = new EnterpriseOrganizationState(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param adminLogins List of organization owner usernames.
+         * 
+         * @return builder
+         * 
+         */
         public Builder adminLogins(@Nullable Output<List<String>> adminLogins) {
             $.adminLogins = adminLogins;
             return this;
         }
 
+        /**
+         * @param adminLogins List of organization owner usernames.
+         * 
+         * @return builder
+         * 
+         */
         public Builder adminLogins(List<String> adminLogins) {
             return adminLogins(Output.of(adminLogins));
         }
 
+        /**
+         * @param adminLogins List of organization owner usernames.
+         * 
+         * @return builder
+         * 
+         */
         public Builder adminLogins(String... adminLogins) {
             return adminLogins(List.of(adminLogins));
         }
 
+        /**
+         * @param billingEmail The billing email address.
+         * 
+         * @return builder
+         * 
+         */
         public Builder billingEmail(@Nullable Output<String> billingEmail) {
             $.billingEmail = billingEmail;
             return this;
         }
 
+        /**
+         * @param billingEmail The billing email address.
+         * 
+         * @return builder
+         * 
+         */
         public Builder billingEmail(String billingEmail) {
             return billingEmail(Output.of(billingEmail));
         }
 
+        /**
+         * @param description The description of the organization.
+         * 
+         * @return builder
+         * 
+         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
+        /**
+         * @param description The description of the organization.
+         * 
+         * @return builder
+         * 
+         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
+        /**
+         * @param enterpriseId The ID of the enterprise.
+         * 
+         * @return builder
+         * 
+         */
         public Builder enterpriseId(@Nullable Output<String> enterpriseId) {
             $.enterpriseId = enterpriseId;
             return this;
         }
 
+        /**
+         * @param enterpriseId The ID of the enterprise.
+         * 
+         * @return builder
+         * 
+         */
         public Builder enterpriseId(String enterpriseId) {
             return enterpriseId(Output.of(enterpriseId));
         }
 
+        /**
+         * @param name The name of the organization.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param name The name of the organization.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             return name(Output.of(name));
         }

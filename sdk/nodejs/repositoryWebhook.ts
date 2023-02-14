@@ -19,7 +19,7 @@ import * as utilities from "./utilities";
  * const repo = new github.Repository("repo", {
  *     description: "Terraform acceptance tests",
  *     homepageUrl: "http://example.com/",
- *     "private": false,
+ *     visibility: "public",
  * });
  * const foo = new github.RepositoryWebhook("foo", {
  *     repository: repo.name,

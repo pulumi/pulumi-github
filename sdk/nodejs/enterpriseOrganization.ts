@@ -4,6 +4,25 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const org = new github.EnterpriseOrganization("org", {
+ *     enterpriseId: data.github_enterprise.enterprise.id,
+ *     description: "Organization created with terraform",
+ *     billingEmail: "jon@winteriscoming.com",
+ *     adminLogins: ["jon-snow"],
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * Support for importing organizations is not currently supported.
+ */
 export class EnterpriseOrganization extends pulumi.CustomResource {
     /**
      * Get an existing EnterpriseOrganization resource's state with the given name, ID, and optional extra
@@ -32,10 +51,25 @@ export class EnterpriseOrganization extends pulumi.CustomResource {
         return obj['__pulumiType'] === EnterpriseOrganization.__pulumiType;
     }
 
+    /**
+     * List of organization owner usernames.
+     */
     public readonly adminLogins!: pulumi.Output<string[]>;
+    /**
+     * The billing email address.
+     */
     public readonly billingEmail!: pulumi.Output<string>;
+    /**
+     * The description of the organization.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * The ID of the enterprise.
+     */
     public readonly enterpriseId!: pulumi.Output<string>;
+    /**
+     * The name of the organization.
+     */
     public readonly name!: pulumi.Output<string>;
 
     /**
@@ -82,10 +116,25 @@ export class EnterpriseOrganization extends pulumi.CustomResource {
  * Input properties used for looking up and filtering EnterpriseOrganization resources.
  */
 export interface EnterpriseOrganizationState {
+    /**
+     * List of organization owner usernames.
+     */
     adminLogins?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The billing email address.
+     */
     billingEmail?: pulumi.Input<string>;
+    /**
+     * The description of the organization.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * The ID of the enterprise.
+     */
     enterpriseId?: pulumi.Input<string>;
+    /**
+     * The name of the organization.
+     */
     name?: pulumi.Input<string>;
 }
 
@@ -93,9 +142,24 @@ export interface EnterpriseOrganizationState {
  * The set of arguments for constructing a EnterpriseOrganization resource.
  */
 export interface EnterpriseOrganizationArgs {
+    /**
+     * List of organization owner usernames.
+     */
     adminLogins: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The billing email address.
+     */
     billingEmail: pulumi.Input<string>;
+    /**
+     * The description of the organization.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * The ID of the enterprise.
+     */
     enterpriseId: pulumi.Input<string>;
+    /**
+     * The name of the organization.
+     */
     name?: pulumi.Input<string>;
 }

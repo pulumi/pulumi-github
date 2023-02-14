@@ -19,6 +19,8 @@ import (
 //
 // ## Example Usage
 //
+// Basic usage:
+//
 // ```go
 // package main
 //
@@ -58,6 +60,41 @@ import (
 //
 // ```
 //
+// Renaming to a branch that doesn't exist:
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-github/sdk/v5/go/github"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := github.NewRepository(ctx, "example", &github.RepositoryArgs{
+//				Description: pulumi.String("My awesome codebase"),
+//				AutoInit:    pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = github.NewBranchDefault(ctx, "default", &github.BranchDefaultArgs{
+//				Repository: example.Name,
+//				Branch:     pulumi.String("development"),
+//				Rename:     pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // GitHub Branch Defaults can be imported using an ID made up of `repository`, e.g.
@@ -72,6 +109,8 @@ type BranchDefault struct {
 
 	// The branch (e.g. `main`)
 	Branch pulumi.StringOutput `pulumi:"branch"`
+	// Indicate if it should rename the branch rather than use an existing branch. Defaults to `false`.
+	Rename pulumi.BoolPtrOutput `pulumi:"rename"`
 	// The GitHub repository
 	Repository pulumi.StringOutput `pulumi:"repository"`
 }
@@ -113,6 +152,8 @@ func GetBranchDefault(ctx *pulumi.Context,
 type branchDefaultState struct {
 	// The branch (e.g. `main`)
 	Branch *string `pulumi:"branch"`
+	// Indicate if it should rename the branch rather than use an existing branch. Defaults to `false`.
+	Rename *bool `pulumi:"rename"`
 	// The GitHub repository
 	Repository *string `pulumi:"repository"`
 }
@@ -120,6 +161,8 @@ type branchDefaultState struct {
 type BranchDefaultState struct {
 	// The branch (e.g. `main`)
 	Branch pulumi.StringPtrInput
+	// Indicate if it should rename the branch rather than use an existing branch. Defaults to `false`.
+	Rename pulumi.BoolPtrInput
 	// The GitHub repository
 	Repository pulumi.StringPtrInput
 }
@@ -131,6 +174,8 @@ func (BranchDefaultState) ElementType() reflect.Type {
 type branchDefaultArgs struct {
 	// The branch (e.g. `main`)
 	Branch string `pulumi:"branch"`
+	// Indicate if it should rename the branch rather than use an existing branch. Defaults to `false`.
+	Rename *bool `pulumi:"rename"`
 	// The GitHub repository
 	Repository string `pulumi:"repository"`
 }
@@ -139,6 +184,8 @@ type branchDefaultArgs struct {
 type BranchDefaultArgs struct {
 	// The branch (e.g. `main`)
 	Branch pulumi.StringInput
+	// Indicate if it should rename the branch rather than use an existing branch. Defaults to `false`.
+	Rename pulumi.BoolPtrInput
 	// The GitHub repository
 	Repository pulumi.StringInput
 }
@@ -233,6 +280,11 @@ func (o BranchDefaultOutput) ToBranchDefaultOutputWithContext(ctx context.Contex
 // The branch (e.g. `main`)
 func (o BranchDefaultOutput) Branch() pulumi.StringOutput {
 	return o.ApplyT(func(v *BranchDefault) pulumi.StringOutput { return v.Branch }).(pulumi.StringOutput)
+}
+
+// Indicate if it should rename the branch rather than use an existing branch. Defaults to `false`.
+func (o BranchDefaultOutput) Rename() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BranchDefault) pulumi.BoolPtrOutput { return v.Rename }).(pulumi.BoolPtrOutput)
 }
 
 // The GitHub repository

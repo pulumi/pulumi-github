@@ -9,21 +9,64 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Github
 {
+    /// <summary>
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Github = Pulumi.Github;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var org = new Github.EnterpriseOrganization("org", new()
+    ///     {
+    ///         EnterpriseId = data.Github_enterprise.Enterprise.Id,
+    ///         Description = "Organization created with terraform",
+    ///         BillingEmail = "jon@winteriscoming.com",
+    ///         AdminLogins = new[]
+    ///         {
+    ///             "jon-snow",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Support for importing organizations is not currently supported.
+    /// </summary>
     [GithubResourceType("github:index/enterpriseOrganization:EnterpriseOrganization")]
     public partial class EnterpriseOrganization : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// List of organization owner usernames.
+        /// </summary>
         [Output("adminLogins")]
         public Output<ImmutableArray<string>> AdminLogins { get; private set; } = null!;
 
+        /// <summary>
+        /// The billing email address.
+        /// </summary>
         [Output("billingEmail")]
         public Output<string> BillingEmail { get; private set; } = null!;
 
+        /// <summary>
+        /// The description of the organization.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the enterprise.
+        /// </summary>
         [Output("enterpriseId")]
         public Output<string> EnterpriseId { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the organization.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
@@ -75,21 +118,37 @@ namespace Pulumi.Github
     {
         [Input("adminLogins", required: true)]
         private InputList<string>? _adminLogins;
+
+        /// <summary>
+        /// List of organization owner usernames.
+        /// </summary>
         public InputList<string> AdminLogins
         {
             get => _adminLogins ?? (_adminLogins = new InputList<string>());
             set => _adminLogins = value;
         }
 
+        /// <summary>
+        /// The billing email address.
+        /// </summary>
         [Input("billingEmail", required: true)]
         public Input<string> BillingEmail { get; set; } = null!;
 
+        /// <summary>
+        /// The description of the organization.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// The ID of the enterprise.
+        /// </summary>
         [Input("enterpriseId", required: true)]
         public Input<string> EnterpriseId { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the organization.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
@@ -103,21 +162,37 @@ namespace Pulumi.Github
     {
         [Input("adminLogins")]
         private InputList<string>? _adminLogins;
+
+        /// <summary>
+        /// List of organization owner usernames.
+        /// </summary>
         public InputList<string> AdminLogins
         {
             get => _adminLogins ?? (_adminLogins = new InputList<string>());
             set => _adminLogins = value;
         }
 
+        /// <summary>
+        /// The billing email address.
+        /// </summary>
         [Input("billingEmail")]
         public Input<string>? BillingEmail { get; set; }
 
+        /// <summary>
+        /// The description of the organization.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// The ID of the enterprise.
+        /// </summary>
         [Input("enterpriseId")]
         public Input<string>? EnterpriseId { get; set; }
 
+        /// <summary>
+        /// The name of the organization.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 

@@ -4,27 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
-/**
- * Provides a resource to manage GitHub repository collaborator invitations.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as github from "@pulumi/github";
- *
- * const exampleRepository = new github.Repository("exampleRepository", {});
- * const exampleRepositoryCollaborator = new github.RepositoryCollaborator("exampleRepositoryCollaborator", {
- *     repository: exampleRepository.name,
- *     username: "example-username",
- *     permission: "push",
- * });
- * const invitee = new github.Provider("invitee", {token: _var.invitee_token});
- * const exampleUserInvitationAccepter = new github.UserInvitationAccepter("exampleUserInvitationAccepter", {invitationId: exampleRepositoryCollaborator.invitationId}, {
- *     provider: "github.invitee",
- * });
- * ```
- */
 export class UserInvitationAccepter extends pulumi.CustomResource {
     /**
      * Get an existing UserInvitationAccepter resource's state with the given name, ID, and optional extra
@@ -54,9 +33,13 @@ export class UserInvitationAccepter extends pulumi.CustomResource {
     }
 
     /**
-     * ID of the invitation to accept
+     * Allow the ID to be unset. This will result in the resource being skipped when the ID is not set instead of returning an error.
      */
-    public readonly invitationId!: pulumi.Output<string>;
+    public readonly allowEmptyId!: pulumi.Output<boolean | undefined>;
+    /**
+     * ID of the invitation to accept. Must be set when `allowEmptyId` is `false`.
+     */
+    public readonly invitationId!: pulumi.Output<string | undefined>;
 
     /**
      * Create a UserInvitationAccepter resource with the given unique name, arguments, and options.
@@ -65,18 +48,17 @@ export class UserInvitationAccepter extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: UserInvitationAccepterArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args?: UserInvitationAccepterArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: UserInvitationAccepterArgs | UserInvitationAccepterState, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as UserInvitationAccepterState | undefined;
+            resourceInputs["allowEmptyId"] = state ? state.allowEmptyId : undefined;
             resourceInputs["invitationId"] = state ? state.invitationId : undefined;
         } else {
             const args = argsOrState as UserInvitationAccepterArgs | undefined;
-            if ((!args || args.invitationId === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'invitationId'");
-            }
+            resourceInputs["allowEmptyId"] = args ? args.allowEmptyId : undefined;
             resourceInputs["invitationId"] = args ? args.invitationId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -89,7 +71,11 @@ export class UserInvitationAccepter extends pulumi.CustomResource {
  */
 export interface UserInvitationAccepterState {
     /**
-     * ID of the invitation to accept
+     * Allow the ID to be unset. This will result in the resource being skipped when the ID is not set instead of returning an error.
+     */
+    allowEmptyId?: pulumi.Input<boolean>;
+    /**
+     * ID of the invitation to accept. Must be set when `allowEmptyId` is `false`.
      */
     invitationId?: pulumi.Input<string>;
 }
@@ -99,7 +85,11 @@ export interface UserInvitationAccepterState {
  */
 export interface UserInvitationAccepterArgs {
     /**
-     * ID of the invitation to accept
+     * Allow the ID to be unset. This will result in the resource being skipped when the ID is not set instead of returning an error.
      */
-    invitationId: pulumi.Input<string>;
+    allowEmptyId?: pulumi.Input<boolean>;
+    /**
+     * ID of the invitation to accept. Must be set when `allowEmptyId` is `false`.
+     */
+    invitationId?: pulumi.Input<string>;
 }

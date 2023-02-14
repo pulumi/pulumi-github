@@ -7,72 +7,25 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a resource to manage GitHub repository collaborator invitations.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-github/sdk/v5/go/github"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleRepository, err := github.NewRepository(ctx, "exampleRepository", nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleRepositoryCollaborator, err := github.NewRepositoryCollaborator(ctx, "exampleRepositoryCollaborator", &github.RepositoryCollaboratorArgs{
-//				Repository: exampleRepository.Name,
-//				Username:   pulumi.String("example-username"),
-//				Permission: pulumi.String("push"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = github.NewProvider(ctx, "invitee", &github.ProviderArgs{
-//				Token: pulumi.Any(_var.Invitee_token),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = github.NewUserInvitationAccepter(ctx, "exampleUserInvitationAccepter", &github.UserInvitationAccepterArgs{
-//				InvitationId: exampleRepositoryCollaborator.InvitationId,
-//			}, pulumi.Provider("github.invitee"))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 type UserInvitationAccepter struct {
 	pulumi.CustomResourceState
 
-	// ID of the invitation to accept
-	InvitationId pulumi.StringOutput `pulumi:"invitationId"`
+	// Allow the ID to be unset. This will result in the resource being skipped when the ID is not set instead of returning an error.
+	AllowEmptyId pulumi.BoolPtrOutput `pulumi:"allowEmptyId"`
+	// ID of the invitation to accept. Must be set when `allowEmptyId` is `false`.
+	InvitationId pulumi.StringPtrOutput `pulumi:"invitationId"`
 }
 
 // NewUserInvitationAccepter registers a new resource with the given unique name, arguments, and options.
 func NewUserInvitationAccepter(ctx *pulumi.Context,
 	name string, args *UserInvitationAccepterArgs, opts ...pulumi.ResourceOption) (*UserInvitationAccepter, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &UserInvitationAccepterArgs{}
 	}
 
-	if args.InvitationId == nil {
-		return nil, errors.New("invalid value for required argument 'InvitationId'")
-	}
 	var resource UserInvitationAccepter
 	err := ctx.RegisterResource("github:index/userInvitationAccepter:UserInvitationAccepter", name, args, &resource, opts...)
 	if err != nil {
@@ -95,12 +48,16 @@ func GetUserInvitationAccepter(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering UserInvitationAccepter resources.
 type userInvitationAccepterState struct {
-	// ID of the invitation to accept
+	// Allow the ID to be unset. This will result in the resource being skipped when the ID is not set instead of returning an error.
+	AllowEmptyId *bool `pulumi:"allowEmptyId"`
+	// ID of the invitation to accept. Must be set when `allowEmptyId` is `false`.
 	InvitationId *string `pulumi:"invitationId"`
 }
 
 type UserInvitationAccepterState struct {
-	// ID of the invitation to accept
+	// Allow the ID to be unset. This will result in the resource being skipped when the ID is not set instead of returning an error.
+	AllowEmptyId pulumi.BoolPtrInput
+	// ID of the invitation to accept. Must be set when `allowEmptyId` is `false`.
 	InvitationId pulumi.StringPtrInput
 }
 
@@ -109,14 +66,18 @@ func (UserInvitationAccepterState) ElementType() reflect.Type {
 }
 
 type userInvitationAccepterArgs struct {
-	// ID of the invitation to accept
-	InvitationId string `pulumi:"invitationId"`
+	// Allow the ID to be unset. This will result in the resource being skipped when the ID is not set instead of returning an error.
+	AllowEmptyId *bool `pulumi:"allowEmptyId"`
+	// ID of the invitation to accept. Must be set when `allowEmptyId` is `false`.
+	InvitationId *string `pulumi:"invitationId"`
 }
 
 // The set of arguments for constructing a UserInvitationAccepter resource.
 type UserInvitationAccepterArgs struct {
-	// ID of the invitation to accept
-	InvitationId pulumi.StringInput
+	// Allow the ID to be unset. This will result in the resource being skipped when the ID is not set instead of returning an error.
+	AllowEmptyId pulumi.BoolPtrInput
+	// ID of the invitation to accept. Must be set when `allowEmptyId` is `false`.
+	InvitationId pulumi.StringPtrInput
 }
 
 func (UserInvitationAccepterArgs) ElementType() reflect.Type {
@@ -206,9 +167,14 @@ func (o UserInvitationAccepterOutput) ToUserInvitationAccepterOutputWithContext(
 	return o
 }
 
-// ID of the invitation to accept
-func (o UserInvitationAccepterOutput) InvitationId() pulumi.StringOutput {
-	return o.ApplyT(func(v *UserInvitationAccepter) pulumi.StringOutput { return v.InvitationId }).(pulumi.StringOutput)
+// Allow the ID to be unset. This will result in the resource being skipped when the ID is not set instead of returning an error.
+func (o UserInvitationAccepterOutput) AllowEmptyId() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *UserInvitationAccepter) pulumi.BoolPtrOutput { return v.AllowEmptyId }).(pulumi.BoolPtrOutput)
+}
+
+// ID of the invitation to accept. Must be set when `allowEmptyId` is `false`.
+func (o UserInvitationAccepterOutput) InvitationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserInvitationAccepter) pulumi.StringPtrOutput { return v.InvitationId }).(pulumi.StringPtrOutput)
 }
 
 type UserInvitationAccepterArrayOutput struct{ *pulumi.OutputState }

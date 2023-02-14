@@ -13,6 +13,8 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * Basic usage:
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
@@ -28,6 +30,23 @@ import * as utilities from "./utilities";
  * const _default = new github.BranchDefault("default", {
  *     repository: example.name,
  *     branch: development.branch,
+ * });
+ * ```
+ *
+ * Renaming to a branch that doesn't exist:
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const example = new github.Repository("example", {
+ *     description: "My awesome codebase",
+ *     autoInit: true,
+ * });
+ * const _default = new github.BranchDefault("default", {
+ *     repository: example.name,
+ *     branch: "development",
+ *     rename: true,
  * });
  * ```
  *
@@ -72,6 +91,10 @@ export class BranchDefault extends pulumi.CustomResource {
      */
     public readonly branch!: pulumi.Output<string>;
     /**
+     * Indicate if it should rename the branch rather than use an existing branch. Defaults to `false`.
+     */
+    public readonly rename!: pulumi.Output<boolean | undefined>;
+    /**
      * The GitHub repository
      */
     public readonly repository!: pulumi.Output<string>;
@@ -90,6 +113,7 @@ export class BranchDefault extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as BranchDefaultState | undefined;
             resourceInputs["branch"] = state ? state.branch : undefined;
+            resourceInputs["rename"] = state ? state.rename : undefined;
             resourceInputs["repository"] = state ? state.repository : undefined;
         } else {
             const args = argsOrState as BranchDefaultArgs | undefined;
@@ -100,6 +124,7 @@ export class BranchDefault extends pulumi.CustomResource {
                 throw new Error("Missing required property 'repository'");
             }
             resourceInputs["branch"] = args ? args.branch : undefined;
+            resourceInputs["rename"] = args ? args.rename : undefined;
             resourceInputs["repository"] = args ? args.repository : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -116,6 +141,10 @@ export interface BranchDefaultState {
      */
     branch?: pulumi.Input<string>;
     /**
+     * Indicate if it should rename the branch rather than use an existing branch. Defaults to `false`.
+     */
+    rename?: pulumi.Input<boolean>;
+    /**
      * The GitHub repository
      */
     repository?: pulumi.Input<string>;
@@ -129,6 +158,10 @@ export interface BranchDefaultArgs {
      * The branch (e.g. `main`)
      */
     branch: pulumi.Input<string>;
+    /**
+     * Indicate if it should rename the branch rather than use an existing branch. Defaults to `false`.
+     */
+    rename?: pulumi.Input<boolean>;
     /**
      * The GitHub repository
      */

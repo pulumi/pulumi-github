@@ -15,7 +15,7 @@ public final class GetEnterpriseResult {
      */
     private String createdAt;
     /**
-     * @return The description of the enterpise.
+     * @return The description of the enterprise.
      * 
      */
     private String description;
@@ -25,7 +25,7 @@ public final class GetEnterpriseResult {
      */
     private String id;
     /**
-     * @return The name of the enteprise.
+     * @return The name of the enterprise.
      * 
      */
     private String name;
@@ -49,7 +49,7 @@ public final class GetEnterpriseResult {
         return this.createdAt;
     }
     /**
-     * @return The description of the enterpise.
+     * @return The description of the enterprise.
      * 
      */
     public String description() {
@@ -63,7 +63,7 @@ public final class GetEnterpriseResult {
         return this.id;
     }
     /**
-     * @return The name of the enteprise.
+     * @return The name of the enterprise.
      * 
      */
     public String name() {

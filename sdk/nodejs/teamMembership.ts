@@ -67,7 +67,7 @@ export class TeamMembership extends pulumi.CustomResource {
      */
     public readonly role!: pulumi.Output<string | undefined>;
     /**
-     * The GitHub team id
+     * The GitHub team id or the GitHub team slug
      */
     public readonly teamId!: pulumi.Output<string>;
     /**
@@ -121,7 +121,7 @@ export interface TeamMembershipState {
      */
     role?: pulumi.Input<string>;
     /**
-     * The GitHub team id
+     * The GitHub team id or the GitHub team slug
      */
     teamId?: pulumi.Input<string>;
     /**
@@ -140,7 +140,7 @@ export interface TeamMembershipArgs {
      */
     role?: pulumi.Input<string>;
     /**
-     * The GitHub team id
+     * The GitHub team id or the GitHub team slug
      */
     teamId: pulumi.Input<string>;
     /**

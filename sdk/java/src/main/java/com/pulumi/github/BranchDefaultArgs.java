@@ -5,8 +5,11 @@ package com.pulumi.github;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class BranchDefaultArgs extends com.pulumi.resources.ResourceArgs {
@@ -29,6 +32,21 @@ public final class BranchDefaultArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Indicate if it should rename the branch rather than use an existing branch. Defaults to `false`.
+     * 
+     */
+    @Import(name="rename")
+    private @Nullable Output<Boolean> rename;
+
+    /**
+     * @return Indicate if it should rename the branch rather than use an existing branch. Defaults to `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> rename() {
+        return Optional.ofNullable(this.rename);
+    }
+
+    /**
      * The GitHub repository
      * 
      */
@@ -47,6 +65,7 @@ public final class BranchDefaultArgs extends com.pulumi.resources.ResourceArgs {
 
     private BranchDefaultArgs(BranchDefaultArgs $) {
         this.branch = $.branch;
+        this.rename = $.rename;
         this.repository = $.repository;
     }
 
@@ -87,6 +106,27 @@ public final class BranchDefaultArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder branch(String branch) {
             return branch(Output.of(branch));
+        }
+
+        /**
+         * @param rename Indicate if it should rename the branch rather than use an existing branch. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder rename(@Nullable Output<Boolean> rename) {
+            $.rename = rename;
+            return this;
+        }
+
+        /**
+         * @param rename Indicate if it should rename the branch rather than use an existing branch. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder rename(Boolean rename) {
+            return rename(Output.of(rename));
         }
 
         /**

@@ -10,7 +10,9 @@ import com.pulumi.core.internal.Codegen;
 import com.pulumi.github.BranchDefaultArgs;
 import com.pulumi.github.Utilities;
 import com.pulumi.github.inputs.BranchDefaultState;
+import java.lang.Boolean;
 import java.lang.String;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -21,6 +23,8 @@ import javax.annotation.Nullable;
  * Note that use of this resource is incompatible with the `default_branch` option of the `github.Repository` resource.  Using both will result in plans always showing a diff.
  * 
  * ## Example Usage
+ * 
+ * Basic usage:
  * ```java
  * package generated_program;
  * 
@@ -65,6 +69,45 @@ import javax.annotation.Nullable;
  * }
  * ```
  * 
+ * Renaming to a branch that doesn&#39;t exist:
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.github.Repository;
+ * import com.pulumi.github.RepositoryArgs;
+ * import com.pulumi.github.BranchDefault;
+ * import com.pulumi.github.BranchDefaultArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Repository(&#34;example&#34;, RepositoryArgs.builder()        
+ *             .description(&#34;My awesome codebase&#34;)
+ *             .autoInit(true)
+ *             .build());
+ * 
+ *         var default_ = new BranchDefault(&#34;default&#34;, BranchDefaultArgs.builder()        
+ *             .repository(example.name())
+ *             .branch(&#34;development&#34;)
+ *             .rename(true)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
  * ## Import
  * 
  * GitHub Branch Defaults can be imported using an ID made up of `repository`, e.g.
@@ -89,6 +132,20 @@ public class BranchDefault extends com.pulumi.resources.CustomResource {
      */
     public Output<String> branch() {
         return this.branch;
+    }
+    /**
+     * Indicate if it should rename the branch rather than use an existing branch. Defaults to `false`.
+     * 
+     */
+    @Export(name="rename", type=Boolean.class, parameters={})
+    private Output</* @Nullable */ Boolean> rename;
+
+    /**
+     * @return Indicate if it should rename the branch rather than use an existing branch. Defaults to `false`.
+     * 
+     */
+    public Output<Optional<Boolean>> rename() {
+        return Codegen.optional(this.rename);
     }
     /**
      * The GitHub repository

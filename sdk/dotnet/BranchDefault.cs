@@ -18,6 +18,8 @@ namespace Pulumi.Github
     /// 
     /// ## Example Usage
     /// 
+    /// Basic usage:
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using Pulumi;
@@ -46,6 +48,31 @@ namespace Pulumi.Github
     /// });
     /// ```
     /// 
+    /// Renaming to a branch that doesn't exist:
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Github = Pulumi.Github;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Github.Repository("example", new()
+    ///     {
+    ///         Description = "My awesome codebase",
+    ///         AutoInit = true,
+    ///     });
+    /// 
+    ///     var @default = new Github.BranchDefault("default", new()
+    ///     {
+    ///         Repository = example.Name,
+    ///         Branch = "development",
+    ///         Rename = true,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// GitHub Branch Defaults can be imported using an ID made up of `repository`, e.g.
@@ -62,6 +89,12 @@ namespace Pulumi.Github
         /// </summary>
         [Output("branch")]
         public Output<string> Branch { get; private set; } = null!;
+
+        /// <summary>
+        /// Indicate if it should rename the branch rather than use an existing branch. Defaults to `false`.
+        /// </summary>
+        [Output("rename")]
+        public Output<bool?> Rename { get; private set; } = null!;
 
         /// <summary>
         /// The GitHub repository
@@ -122,6 +155,12 @@ namespace Pulumi.Github
         public Input<string> Branch { get; set; } = null!;
 
         /// <summary>
+        /// Indicate if it should rename the branch rather than use an existing branch. Defaults to `false`.
+        /// </summary>
+        [Input("rename")]
+        public Input<bool>? Rename { get; set; }
+
+        /// <summary>
         /// The GitHub repository
         /// </summary>
         [Input("repository", required: true)]
@@ -140,6 +179,12 @@ namespace Pulumi.Github
         /// </summary>
         [Input("branch")]
         public Input<string>? Branch { get; set; }
+
+        /// <summary>
+        /// Indicate if it should rename the branch rather than use an existing branch. Defaults to `false`.
+        /// </summary>
+        [Input("rename")]
+        public Input<bool>? Rename { get; set; }
 
         /// <summary>
         /// The GitHub repository
