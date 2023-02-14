@@ -27,7 +27,7 @@ namespace Pulumi.Github
         /// {
         ///     var exampleExternalGroups = Github.GetExternalGroups.Invoke();
         /// 
-        ///     var localGroups = exampleExternalGroups.Apply(getExternalGroupsResult =&gt; getExternalGroupsResult);
+        ///     var localGroups = exampleExternalGroups;
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {

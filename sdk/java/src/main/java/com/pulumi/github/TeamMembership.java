@@ -94,14 +94,14 @@ public class TeamMembership extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.role);
     }
     /**
-     * The GitHub team id
+     * The GitHub team id or the GitHub team slug
      * 
      */
     @Export(name="teamId", type=String.class, parameters={})
     private Output<String> teamId;
 
     /**
-     * @return The GitHub team id
+     * @return The GitHub team id or the GitHub team slug
      * 
      */
     public Output<String> teamId() {

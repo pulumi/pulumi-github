@@ -14,42 +14,75 @@ __all__ = ['UserInvitationAccepterArgs', 'UserInvitationAccepter']
 @pulumi.input_type
 class UserInvitationAccepterArgs:
     def __init__(__self__, *,
-                 invitation_id: pulumi.Input[str]):
+                 allow_empty_id: Optional[pulumi.Input[bool]] = None,
+                 invitation_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a UserInvitationAccepter resource.
-        :param pulumi.Input[str] invitation_id: ID of the invitation to accept
+        :param pulumi.Input[bool] allow_empty_id: Allow the ID to be unset. This will result in the resource being skipped when the ID is not set instead of returning an error.
+        :param pulumi.Input[str] invitation_id: ID of the invitation to accept. Must be set when `allow_empty_id` is `false`.
         """
-        pulumi.set(__self__, "invitation_id", invitation_id)
+        if allow_empty_id is not None:
+            pulumi.set(__self__, "allow_empty_id", allow_empty_id)
+        if invitation_id is not None:
+            pulumi.set(__self__, "invitation_id", invitation_id)
+
+    @property
+    @pulumi.getter(name="allowEmptyId")
+    def allow_empty_id(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Allow the ID to be unset. This will result in the resource being skipped when the ID is not set instead of returning an error.
+        """
+        return pulumi.get(self, "allow_empty_id")
+
+    @allow_empty_id.setter
+    def allow_empty_id(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "allow_empty_id", value)
 
     @property
     @pulumi.getter(name="invitationId")
-    def invitation_id(self) -> pulumi.Input[str]:
+    def invitation_id(self) -> Optional[pulumi.Input[str]]:
         """
-        ID of the invitation to accept
+        ID of the invitation to accept. Must be set when `allow_empty_id` is `false`.
         """
         return pulumi.get(self, "invitation_id")
 
     @invitation_id.setter
-    def invitation_id(self, value: pulumi.Input[str]):
+    def invitation_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "invitation_id", value)
 
 
 @pulumi.input_type
 class _UserInvitationAccepterState:
     def __init__(__self__, *,
+                 allow_empty_id: Optional[pulumi.Input[bool]] = None,
                  invitation_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering UserInvitationAccepter resources.
-        :param pulumi.Input[str] invitation_id: ID of the invitation to accept
+        :param pulumi.Input[bool] allow_empty_id: Allow the ID to be unset. This will result in the resource being skipped when the ID is not set instead of returning an error.
+        :param pulumi.Input[str] invitation_id: ID of the invitation to accept. Must be set when `allow_empty_id` is `false`.
         """
+        if allow_empty_id is not None:
+            pulumi.set(__self__, "allow_empty_id", allow_empty_id)
         if invitation_id is not None:
             pulumi.set(__self__, "invitation_id", invitation_id)
+
+    @property
+    @pulumi.getter(name="allowEmptyId")
+    def allow_empty_id(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Allow the ID to be unset. This will result in the resource being skipped when the ID is not set instead of returning an error.
+        """
+        return pulumi.get(self, "allow_empty_id")
+
+    @allow_empty_id.setter
+    def allow_empty_id(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "allow_empty_id", value)
 
     @property
     @pulumi.getter(name="invitationId")
     def invitation_id(self) -> Optional[pulumi.Input[str]]:
         """
-        ID of the invitation to accept
+        ID of the invitation to accept. Must be set when `allow_empty_id` is `false`.
         """
         return pulumi.get(self, "invitation_id")
 
@@ -63,56 +96,24 @@ class UserInvitationAccepter(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 allow_empty_id: Optional[pulumi.Input[bool]] = None,
                  invitation_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Provides a resource to manage GitHub repository collaborator invitations.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_github as github
-
-        example_repository = github.Repository("exampleRepository")
-        example_repository_collaborator = github.RepositoryCollaborator("exampleRepositoryCollaborator",
-            repository=example_repository.name,
-            username="example-username",
-            permission="push")
-        invitee = github.Provider("invitee", token=var["invitee_token"])
-        example_user_invitation_accepter = github.UserInvitationAccepter("exampleUserInvitationAccepter", invitation_id=example_repository_collaborator.invitation_id,
-        opts=pulumi.ResourceOptions(provider="github.invitee"))
-        ```
-
+        Create a UserInvitationAccepter resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] invitation_id: ID of the invitation to accept
+        :param pulumi.Input[bool] allow_empty_id: Allow the ID to be unset. This will result in the resource being skipped when the ID is not set instead of returning an error.
+        :param pulumi.Input[str] invitation_id: ID of the invitation to accept. Must be set when `allow_empty_id` is `false`.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: UserInvitationAccepterArgs,
+                 args: Optional[UserInvitationAccepterArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a resource to manage GitHub repository collaborator invitations.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_github as github
-
-        example_repository = github.Repository("exampleRepository")
-        example_repository_collaborator = github.RepositoryCollaborator("exampleRepositoryCollaborator",
-            repository=example_repository.name,
-            username="example-username",
-            permission="push")
-        invitee = github.Provider("invitee", token=var["invitee_token"])
-        example_user_invitation_accepter = github.UserInvitationAccepter("exampleUserInvitationAccepter", invitation_id=example_repository_collaborator.invitation_id,
-        opts=pulumi.ResourceOptions(provider="github.invitee"))
-        ```
-
+        Create a UserInvitationAccepter resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param UserInvitationAccepterArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -128,6 +129,7 @@ class UserInvitationAccepter(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 allow_empty_id: Optional[pulumi.Input[bool]] = None,
                  invitation_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -138,8 +140,7 @@ class UserInvitationAccepter(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = UserInvitationAccepterArgs.__new__(UserInvitationAccepterArgs)
 
-            if invitation_id is None and not opts.urn:
-                raise TypeError("Missing required property 'invitation_id'")
+            __props__.__dict__["allow_empty_id"] = allow_empty_id
             __props__.__dict__["invitation_id"] = invitation_id
         super(UserInvitationAccepter, __self__).__init__(
             'github:index/userInvitationAccepter:UserInvitationAccepter',
@@ -151,6 +152,7 @@ class UserInvitationAccepter(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            allow_empty_id: Optional[pulumi.Input[bool]] = None,
             invitation_id: Optional[pulumi.Input[str]] = None) -> 'UserInvitationAccepter':
         """
         Get an existing UserInvitationAccepter resource's state with the given name, id, and optional extra
@@ -159,20 +161,30 @@ class UserInvitationAccepter(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] invitation_id: ID of the invitation to accept
+        :param pulumi.Input[bool] allow_empty_id: Allow the ID to be unset. This will result in the resource being skipped when the ID is not set instead of returning an error.
+        :param pulumi.Input[str] invitation_id: ID of the invitation to accept. Must be set when `allow_empty_id` is `false`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = _UserInvitationAccepterState.__new__(_UserInvitationAccepterState)
 
+        __props__.__dict__["allow_empty_id"] = allow_empty_id
         __props__.__dict__["invitation_id"] = invitation_id
         return UserInvitationAccepter(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="invitationId")
-    def invitation_id(self) -> pulumi.Output[str]:
+    @pulumi.getter(name="allowEmptyId")
+    def allow_empty_id(self) -> pulumi.Output[Optional[bool]]:
         """
-        ID of the invitation to accept
+        Allow the ID to be unset. This will result in the resource being skipped when the ID is not set instead of returning an error.
+        """
+        return pulumi.get(self, "allow_empty_id")
+
+    @property
+    @pulumi.getter(name="invitationId")
+    def invitation_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        ID of the invitation to accept. Must be set when `allow_empty_id` is `false`.
         """
         return pulumi.get(self, "invitation_id")
 

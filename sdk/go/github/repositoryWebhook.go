@@ -31,7 +31,7 @@ import (
 //			repo, err := github.NewRepository(ctx, "repo", &github.RepositoryArgs{
 //				Description: pulumi.String("Terraform acceptance tests"),
 //				HomepageUrl: pulumi.String("http://example.com/"),
-//				Private:     pulumi.Bool(false),
+//				Visibility:  pulumi.String("public"),
 //			})
 //			if err != nil {
 //				return err

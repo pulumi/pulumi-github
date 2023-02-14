@@ -68,7 +68,7 @@ type TeamMembership struct {
 	// The role of the user within the team.
 	// Must be one of `member` or `maintainer`. Defaults to `member`.
 	Role pulumi.StringPtrOutput `pulumi:"role"`
-	// The GitHub team id
+	// The GitHub team id or the GitHub team slug
 	TeamId pulumi.StringOutput `pulumi:"teamId"`
 	// The user to add to the team.
 	Username pulumi.StringOutput `pulumi:"username"`
@@ -113,7 +113,7 @@ type teamMembershipState struct {
 	// The role of the user within the team.
 	// Must be one of `member` or `maintainer`. Defaults to `member`.
 	Role *string `pulumi:"role"`
-	// The GitHub team id
+	// The GitHub team id or the GitHub team slug
 	TeamId *string `pulumi:"teamId"`
 	// The user to add to the team.
 	Username *string `pulumi:"username"`
@@ -124,7 +124,7 @@ type TeamMembershipState struct {
 	// The role of the user within the team.
 	// Must be one of `member` or `maintainer`. Defaults to `member`.
 	Role pulumi.StringPtrInput
-	// The GitHub team id
+	// The GitHub team id or the GitHub team slug
 	TeamId pulumi.StringPtrInput
 	// The user to add to the team.
 	Username pulumi.StringPtrInput
@@ -138,7 +138,7 @@ type teamMembershipArgs struct {
 	// The role of the user within the team.
 	// Must be one of `member` or `maintainer`. Defaults to `member`.
 	Role *string `pulumi:"role"`
-	// The GitHub team id
+	// The GitHub team id or the GitHub team slug
 	TeamId string `pulumi:"teamId"`
 	// The user to add to the team.
 	Username string `pulumi:"username"`
@@ -149,7 +149,7 @@ type TeamMembershipArgs struct {
 	// The role of the user within the team.
 	// Must be one of `member` or `maintainer`. Defaults to `member`.
 	Role pulumi.StringPtrInput
-	// The GitHub team id
+	// The GitHub team id or the GitHub team slug
 	TeamId pulumi.StringInput
 	// The user to add to the team.
 	Username pulumi.StringInput
@@ -252,7 +252,7 @@ func (o TeamMembershipOutput) Role() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TeamMembership) pulumi.StringPtrOutput { return v.Role }).(pulumi.StringPtrOutput)
 }
 
-// The GitHub team id
+// The GitHub team id or the GitHub team slug
 func (o TeamMembershipOutput) TeamId() pulumi.StringOutput {
 	return o.ApplyT(func(v *TeamMembership) pulumi.StringOutput { return v.TeamId }).(pulumi.StringOutput)
 }

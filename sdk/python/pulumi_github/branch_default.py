@@ -15,14 +15,18 @@ __all__ = ['BranchDefaultArgs', 'BranchDefault']
 class BranchDefaultArgs:
     def __init__(__self__, *,
                  branch: pulumi.Input[str],
-                 repository: pulumi.Input[str]):
+                 repository: pulumi.Input[str],
+                 rename: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a BranchDefault resource.
         :param pulumi.Input[str] branch: The branch (e.g. `main`)
         :param pulumi.Input[str] repository: The GitHub repository
+        :param pulumi.Input[bool] rename: Indicate if it should rename the branch rather than use an existing branch. Defaults to `false`.
         """
         pulumi.set(__self__, "branch", branch)
         pulumi.set(__self__, "repository", repository)
+        if rename is not None:
+            pulumi.set(__self__, "rename", rename)
 
     @property
     @pulumi.getter
@@ -48,19 +52,35 @@ class BranchDefaultArgs:
     def repository(self, value: pulumi.Input[str]):
         pulumi.set(self, "repository", value)
 
+    @property
+    @pulumi.getter
+    def rename(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicate if it should rename the branch rather than use an existing branch. Defaults to `false`.
+        """
+        return pulumi.get(self, "rename")
+
+    @rename.setter
+    def rename(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "rename", value)
+
 
 @pulumi.input_type
 class _BranchDefaultState:
     def __init__(__self__, *,
                  branch: Optional[pulumi.Input[str]] = None,
+                 rename: Optional[pulumi.Input[bool]] = None,
                  repository: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering BranchDefault resources.
         :param pulumi.Input[str] branch: The branch (e.g. `main`)
+        :param pulumi.Input[bool] rename: Indicate if it should rename the branch rather than use an existing branch. Defaults to `false`.
         :param pulumi.Input[str] repository: The GitHub repository
         """
         if branch is not None:
             pulumi.set(__self__, "branch", branch)
+        if rename is not None:
+            pulumi.set(__self__, "rename", rename)
         if repository is not None:
             pulumi.set(__self__, "repository", repository)
 
@@ -75,6 +95,18 @@ class _BranchDefaultState:
     @branch.setter
     def branch(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "branch", value)
+
+    @property
+    @pulumi.getter
+    def rename(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicate if it should rename the branch rather than use an existing branch. Defaults to `false`.
+        """
+        return pulumi.get(self, "rename")
+
+    @rename.setter
+    def rename(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "rename", value)
 
     @property
     @pulumi.getter
@@ -95,6 +127,7 @@ class BranchDefault(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  branch: Optional[pulumi.Input[str]] = None,
+                 rename: Optional[pulumi.Input[bool]] = None,
                  repository: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -105,6 +138,8 @@ class BranchDefault(pulumi.CustomResource):
         Note that use of this resource is incompatible with the `default_branch` option of the `Repository` resource.  Using both will result in plans always showing a diff.
 
         ## Example Usage
+
+        Basic usage:
 
         ```python
         import pulumi
@@ -121,6 +156,21 @@ class BranchDefault(pulumi.CustomResource):
             branch=development.branch)
         ```
 
+        Renaming to a branch that doesn't exist:
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        example = github.Repository("example",
+            description="My awesome codebase",
+            auto_init=True)
+        default = github.BranchDefault("default",
+            repository=example.name,
+            branch="development",
+            rename=True)
+        ```
+
         ## Import
 
         GitHub Branch Defaults can be imported using an ID made up of `repository`, e.g.
@@ -132,6 +182,7 @@ class BranchDefault(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] branch: The branch (e.g. `main`)
+        :param pulumi.Input[bool] rename: Indicate if it should rename the branch rather than use an existing branch. Defaults to `false`.
         :param pulumi.Input[str] repository: The GitHub repository
         """
         ...
@@ -149,6 +200,8 @@ class BranchDefault(pulumi.CustomResource):
 
         ## Example Usage
 
+        Basic usage:
+
         ```python
         import pulumi
         import pulumi_github as github
@@ -162,6 +215,21 @@ class BranchDefault(pulumi.CustomResource):
         default = github.BranchDefault("default",
             repository=example.name,
             branch=development.branch)
+        ```
+
+        Renaming to a branch that doesn't exist:
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        example = github.Repository("example",
+            description="My awesome codebase",
+            auto_init=True)
+        default = github.BranchDefault("default",
+            repository=example.name,
+            branch="development",
+            rename=True)
         ```
 
         ## Import
@@ -188,6 +256,7 @@ class BranchDefault(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  branch: Optional[pulumi.Input[str]] = None,
+                 rename: Optional[pulumi.Input[bool]] = None,
                  repository: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -201,6 +270,7 @@ class BranchDefault(pulumi.CustomResource):
             if branch is None and not opts.urn:
                 raise TypeError("Missing required property 'branch'")
             __props__.__dict__["branch"] = branch
+            __props__.__dict__["rename"] = rename
             if repository is None and not opts.urn:
                 raise TypeError("Missing required property 'repository'")
             __props__.__dict__["repository"] = repository
@@ -215,6 +285,7 @@ class BranchDefault(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             branch: Optional[pulumi.Input[str]] = None,
+            rename: Optional[pulumi.Input[bool]] = None,
             repository: Optional[pulumi.Input[str]] = None) -> 'BranchDefault':
         """
         Get an existing BranchDefault resource's state with the given name, id, and optional extra
@@ -224,6 +295,7 @@ class BranchDefault(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] branch: The branch (e.g. `main`)
+        :param pulumi.Input[bool] rename: Indicate if it should rename the branch rather than use an existing branch. Defaults to `false`.
         :param pulumi.Input[str] repository: The GitHub repository
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -231,6 +303,7 @@ class BranchDefault(pulumi.CustomResource):
         __props__ = _BranchDefaultState.__new__(_BranchDefaultState)
 
         __props__.__dict__["branch"] = branch
+        __props__.__dict__["rename"] = rename
         __props__.__dict__["repository"] = repository
         return BranchDefault(resource_name, opts=opts, __props__=__props__)
 
@@ -241,6 +314,14 @@ class BranchDefault(pulumi.CustomResource):
         The branch (e.g. `main`)
         """
         return pulumi.get(self, "branch")
+
+    @property
+    @pulumi.getter
+    def rename(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Indicate if it should rename the branch rather than use an existing branch. Defaults to `false`.
+        """
+        return pulumi.get(self, "rename")
 
     @property
     @pulumi.getter

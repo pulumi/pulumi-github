@@ -10,78 +10,40 @@ import com.pulumi.core.internal.Codegen;
 import com.pulumi.github.UserInvitationAccepterArgs;
 import com.pulumi.github.Utilities;
 import com.pulumi.github.inputs.UserInvitationAccepterState;
+import java.lang.Boolean;
 import java.lang.String;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a resource to manage GitHub repository collaborator invitations.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.github.Repository;
- * import com.pulumi.github.RepositoryCollaborator;
- * import com.pulumi.github.RepositoryCollaboratorArgs;
- * import com.pulumi.github.Provider;
- * import com.pulumi.github.ProviderArgs;
- * import com.pulumi.github.UserInvitationAccepter;
- * import com.pulumi.github.UserInvitationAccepterArgs;
- * import com.pulumi.resources.CustomResourceOptions;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var exampleRepository = new Repository(&#34;exampleRepository&#34;);
- * 
- *         var exampleRepositoryCollaborator = new RepositoryCollaborator(&#34;exampleRepositoryCollaborator&#34;, RepositoryCollaboratorArgs.builder()        
- *             .repository(exampleRepository.name())
- *             .username(&#34;example-username&#34;)
- *             .permission(&#34;push&#34;)
- *             .build());
- * 
- *         var invitee = new Provider(&#34;invitee&#34;, ProviderArgs.builder()        
- *             .token(var_.invitee_token())
- *             .build());
- * 
- *         var exampleUserInvitationAccepter = new UserInvitationAccepter(&#34;exampleUserInvitationAccepter&#34;, UserInvitationAccepterArgs.builder()        
- *             .invitationId(exampleRepositoryCollaborator.invitationId())
- *             .build(), CustomResourceOptions.builder()
- *                 .provider(&#34;github.invitee&#34;)
- *                 .build());
- * 
- *     }
- * }
- * ```
- * 
- */
 @ResourceType(type="github:index/userInvitationAccepter:UserInvitationAccepter")
 public class UserInvitationAccepter extends com.pulumi.resources.CustomResource {
     /**
-     * ID of the invitation to accept
+     * Allow the ID to be unset. This will result in the resource being skipped when the ID is not set instead of returning an error.
+     * 
+     */
+    @Export(name="allowEmptyId", type=Boolean.class, parameters={})
+    private Output</* @Nullable */ Boolean> allowEmptyId;
+
+    /**
+     * @return Allow the ID to be unset. This will result in the resource being skipped when the ID is not set instead of returning an error.
+     * 
+     */
+    public Output<Optional<Boolean>> allowEmptyId() {
+        return Codegen.optional(this.allowEmptyId);
+    }
+    /**
+     * ID of the invitation to accept. Must be set when `allow_empty_id` is `false`.
      * 
      */
     @Export(name="invitationId", type=String.class, parameters={})
-    private Output<String> invitationId;
+    private Output</* @Nullable */ String> invitationId;
 
     /**
-     * @return ID of the invitation to accept
+     * @return ID of the invitation to accept. Must be set when `allow_empty_id` is `false`.
      * 
      */
-    public Output<String> invitationId() {
-        return this.invitationId;
+    public Output<Optional<String>> invitationId() {
+        return Codegen.optional(this.invitationId);
     }
 
     /**
@@ -96,7 +58,7 @@ public class UserInvitationAccepter extends com.pulumi.resources.CustomResource 
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public UserInvitationAccepter(String name, UserInvitationAccepterArgs args) {
+    public UserInvitationAccepter(String name, @Nullable UserInvitationAccepterArgs args) {
         this(name, args, null);
     }
     /**
@@ -105,7 +67,7 @@ public class UserInvitationAccepter extends com.pulumi.resources.CustomResource 
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public UserInvitationAccepter(String name, UserInvitationAccepterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public UserInvitationAccepter(String name, @Nullable UserInvitationAccepterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("github:index/userInvitationAccepter:UserInvitationAccepter", name, args == null ? UserInvitationAccepterArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
     }
 

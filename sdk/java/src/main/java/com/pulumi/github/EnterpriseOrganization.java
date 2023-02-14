@@ -15,35 +15,114 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.github.EnterpriseOrganization;
+ * import com.pulumi.github.EnterpriseOrganizationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var org = new EnterpriseOrganization(&#34;org&#34;, EnterpriseOrganizationArgs.builder()        
+ *             .enterpriseId(data.github_enterprise().enterprise().id())
+ *             .description(&#34;Organization created with terraform&#34;)
+ *             .billingEmail(&#34;jon@winteriscoming.com&#34;)
+ *             .adminLogins(&#34;jon-snow&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * Support for importing organizations is not currently supported.
+ * 
+ */
 @ResourceType(type="github:index/enterpriseOrganization:EnterpriseOrganization")
 public class EnterpriseOrganization extends com.pulumi.resources.CustomResource {
+    /**
+     * List of organization owner usernames.
+     * 
+     */
     @Export(name="adminLogins", type=List.class, parameters={String.class})
     private Output<List<String>> adminLogins;
 
+    /**
+     * @return List of organization owner usernames.
+     * 
+     */
     public Output<List<String>> adminLogins() {
         return this.adminLogins;
     }
+    /**
+     * The billing email address.
+     * 
+     */
     @Export(name="billingEmail", type=String.class, parameters={})
     private Output<String> billingEmail;
 
+    /**
+     * @return The billing email address.
+     * 
+     */
     public Output<String> billingEmail() {
         return this.billingEmail;
     }
+    /**
+     * The description of the organization.
+     * 
+     */
     @Export(name="description", type=String.class, parameters={})
     private Output</* @Nullable */ String> description;
 
+    /**
+     * @return The description of the organization.
+     * 
+     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
+    /**
+     * The ID of the enterprise.
+     * 
+     */
     @Export(name="enterpriseId", type=String.class, parameters={})
     private Output<String> enterpriseId;
 
+    /**
+     * @return The ID of the enterprise.
+     * 
+     */
     public Output<String> enterpriseId() {
         return this.enterpriseId;
     }
+    /**
+     * The name of the organization.
+     * 
+     */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
+    /**
+     * @return The name of the organization.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }

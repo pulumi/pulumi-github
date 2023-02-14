@@ -19,7 +19,7 @@ class TeamMembershipArgs:
                  role: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a TeamMembership resource.
-        :param pulumi.Input[str] team_id: The GitHub team id
+        :param pulumi.Input[str] team_id: The GitHub team id or the GitHub team slug
         :param pulumi.Input[str] username: The user to add to the team.
         :param pulumi.Input[str] role: The role of the user within the team.
                Must be one of `member` or `maintainer`. Defaults to `member`.
@@ -33,7 +33,7 @@ class TeamMembershipArgs:
     @pulumi.getter(name="teamId")
     def team_id(self) -> pulumi.Input[str]:
         """
-        The GitHub team id
+        The GitHub team id or the GitHub team slug
         """
         return pulumi.get(self, "team_id")
 
@@ -78,7 +78,7 @@ class _TeamMembershipState:
         Input properties used for looking up and filtering TeamMembership resources.
         :param pulumi.Input[str] role: The role of the user within the team.
                Must be one of `member` or `maintainer`. Defaults to `member`.
-        :param pulumi.Input[str] team_id: The GitHub team id
+        :param pulumi.Input[str] team_id: The GitHub team id or the GitHub team slug
         :param pulumi.Input[str] username: The user to add to the team.
         """
         if etag is not None:
@@ -116,7 +116,7 @@ class _TeamMembershipState:
     @pulumi.getter(name="teamId")
     def team_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The GitHub team id
+        The GitHub team id or the GitHub team slug
         """
         return pulumi.get(self, "team_id")
 
@@ -176,7 +176,7 @@ class TeamMembership(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] role: The role of the user within the team.
                Must be one of `member` or `maintainer`. Defaults to `member`.
-        :param pulumi.Input[str] team_id: The GitHub team id
+        :param pulumi.Input[str] team_id: The GitHub team id or the GitHub team slug
         :param pulumi.Input[str] username: The user to add to the team.
         """
         ...
@@ -269,7 +269,7 @@ class TeamMembership(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] role: The role of the user within the team.
                Must be one of `member` or `maintainer`. Defaults to `member`.
-        :param pulumi.Input[str] team_id: The GitHub team id
+        :param pulumi.Input[str] team_id: The GitHub team id or the GitHub team slug
         :param pulumi.Input[str] username: The user to add to the team.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -300,7 +300,7 @@ class TeamMembership(pulumi.CustomResource):
     @pulumi.getter(name="teamId")
     def team_id(self) -> pulumi.Output[str]:
         """
-        The GitHub team id
+        The GitHub team id or the GitHub team slug
         """
         return pulumi.get(self, "team_id")
 

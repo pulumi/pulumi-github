@@ -5,6 +5,7 @@ package com.pulumi.github.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -16,14 +17,29 @@ public final class UserInvitationAccepterState extends com.pulumi.resources.Reso
     public static final UserInvitationAccepterState Empty = new UserInvitationAccepterState();
 
     /**
-     * ID of the invitation to accept
+     * Allow the ID to be unset. This will result in the resource being skipped when the ID is not set instead of returning an error.
+     * 
+     */
+    @Import(name="allowEmptyId")
+    private @Nullable Output<Boolean> allowEmptyId;
+
+    /**
+     * @return Allow the ID to be unset. This will result in the resource being skipped when the ID is not set instead of returning an error.
+     * 
+     */
+    public Optional<Output<Boolean>> allowEmptyId() {
+        return Optional.ofNullable(this.allowEmptyId);
+    }
+
+    /**
+     * ID of the invitation to accept. Must be set when `allow_empty_id` is `false`.
      * 
      */
     @Import(name="invitationId")
     private @Nullable Output<String> invitationId;
 
     /**
-     * @return ID of the invitation to accept
+     * @return ID of the invitation to accept. Must be set when `allow_empty_id` is `false`.
      * 
      */
     public Optional<Output<String>> invitationId() {
@@ -33,6 +49,7 @@ public final class UserInvitationAccepterState extends com.pulumi.resources.Reso
     private UserInvitationAccepterState() {}
 
     private UserInvitationAccepterState(UserInvitationAccepterState $) {
+        this.allowEmptyId = $.allowEmptyId;
         this.invitationId = $.invitationId;
     }
 
@@ -55,7 +72,28 @@ public final class UserInvitationAccepterState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param invitationId ID of the invitation to accept
+         * @param allowEmptyId Allow the ID to be unset. This will result in the resource being skipped when the ID is not set instead of returning an error.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder allowEmptyId(@Nullable Output<Boolean> allowEmptyId) {
+            $.allowEmptyId = allowEmptyId;
+            return this;
+        }
+
+        /**
+         * @param allowEmptyId Allow the ID to be unset. This will result in the resource being skipped when the ID is not set instead of returning an error.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder allowEmptyId(Boolean allowEmptyId) {
+            return allowEmptyId(Output.of(allowEmptyId));
+        }
+
+        /**
+         * @param invitationId ID of the invitation to accept. Must be set when `allow_empty_id` is `false`.
          * 
          * @return builder
          * 
@@ -66,7 +104,7 @@ public final class UserInvitationAccepterState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param invitationId ID of the invitation to accept
+         * @param invitationId ID of the invitation to accept. Must be set when `allow_empty_id` is `false`.
          * 
          * @return builder
          * 

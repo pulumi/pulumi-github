@@ -26,7 +26,7 @@ namespace Pulumi.Github
     ///     {
     ///         Description = "Terraform acceptance tests",
     ///         HomepageUrl = "http://example.com/",
-    ///         Private = false,
+    ///         Visibility = "public",
     ///     });
     /// 
     ///     var foo = new Github.RepositoryWebhook("foo", new()

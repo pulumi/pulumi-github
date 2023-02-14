@@ -11,6 +11,32 @@ import (
 )
 
 // Use this data source to retrieve basic information about a GitHub enterprise.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-github/sdk/v5/go/github"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := github.GetEnterprise(ctx, &github.GetEnterpriseArgs{
+//				Slug: "example-co",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func GetEnterprise(ctx *pulumi.Context, args *GetEnterpriseArgs, opts ...pulumi.InvokeOption) (*GetEnterpriseResult, error) {
 	var rv GetEnterpriseResult
 	err := ctx.Invoke("github:index/getEnterprise:getEnterprise", args, &rv, opts...)
@@ -30,11 +56,11 @@ type GetEnterpriseArgs struct {
 type GetEnterpriseResult struct {
 	// The time the enterprise was created.
 	CreatedAt string `pulumi:"createdAt"`
-	// The description of the enterpise.
+	// The description of the enterprise.
 	Description string `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// The name of the enteprise.
+	// The name of the enterprise.
 	Name string `pulumi:"name"`
 	// The URL slug identifying the enterprise.
 	Slug string `pulumi:"slug"`
@@ -85,7 +111,7 @@ func (o GetEnterpriseResultOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v GetEnterpriseResult) string { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
-// The description of the enterpise.
+// The description of the enterprise.
 func (o GetEnterpriseResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v GetEnterpriseResult) string { return v.Description }).(pulumi.StringOutput)
 }
@@ -95,7 +121,7 @@ func (o GetEnterpriseResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetEnterpriseResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The name of the enteprise.
+// The name of the enterprise.
 func (o GetEnterpriseResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetEnterpriseResult) string { return v.Name }).(pulumi.StringOutput)
 }

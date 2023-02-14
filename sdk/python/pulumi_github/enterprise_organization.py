@@ -21,6 +21,11 @@ class EnterpriseOrganizationArgs:
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a EnterpriseOrganization resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] admin_logins: List of organization owner usernames.
+        :param pulumi.Input[str] billing_email: The billing email address.
+        :param pulumi.Input[str] enterprise_id: The ID of the enterprise.
+        :param pulumi.Input[str] description: The description of the organization.
+        :param pulumi.Input[str] name: The name of the organization.
         """
         pulumi.set(__self__, "admin_logins", admin_logins)
         pulumi.set(__self__, "billing_email", billing_email)
@@ -33,6 +38,9 @@ class EnterpriseOrganizationArgs:
     @property
     @pulumi.getter(name="adminLogins")
     def admin_logins(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        List of organization owner usernames.
+        """
         return pulumi.get(self, "admin_logins")
 
     @admin_logins.setter
@@ -42,6 +50,9 @@ class EnterpriseOrganizationArgs:
     @property
     @pulumi.getter(name="billingEmail")
     def billing_email(self) -> pulumi.Input[str]:
+        """
+        The billing email address.
+        """
         return pulumi.get(self, "billing_email")
 
     @billing_email.setter
@@ -51,6 +62,9 @@ class EnterpriseOrganizationArgs:
     @property
     @pulumi.getter(name="enterpriseId")
     def enterprise_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the enterprise.
+        """
         return pulumi.get(self, "enterprise_id")
 
     @enterprise_id.setter
@@ -60,6 +74,9 @@ class EnterpriseOrganizationArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the organization.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -69,6 +86,9 @@ class EnterpriseOrganizationArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the organization.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -86,6 +106,11 @@ class _EnterpriseOrganizationState:
                  name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering EnterpriseOrganization resources.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] admin_logins: List of organization owner usernames.
+        :param pulumi.Input[str] billing_email: The billing email address.
+        :param pulumi.Input[str] description: The description of the organization.
+        :param pulumi.Input[str] enterprise_id: The ID of the enterprise.
+        :param pulumi.Input[str] name: The name of the organization.
         """
         if admin_logins is not None:
             pulumi.set(__self__, "admin_logins", admin_logins)
@@ -101,6 +126,9 @@ class _EnterpriseOrganizationState:
     @property
     @pulumi.getter(name="adminLogins")
     def admin_logins(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of organization owner usernames.
+        """
         return pulumi.get(self, "admin_logins")
 
     @admin_logins.setter
@@ -110,6 +138,9 @@ class _EnterpriseOrganizationState:
     @property
     @pulumi.getter(name="billingEmail")
     def billing_email(self) -> Optional[pulumi.Input[str]]:
+        """
+        The billing email address.
+        """
         return pulumi.get(self, "billing_email")
 
     @billing_email.setter
@@ -119,6 +150,9 @@ class _EnterpriseOrganizationState:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the organization.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -128,6 +162,9 @@ class _EnterpriseOrganizationState:
     @property
     @pulumi.getter(name="enterpriseId")
     def enterprise_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the enterprise.
+        """
         return pulumi.get(self, "enterprise_id")
 
     @enterprise_id.setter
@@ -137,6 +174,9 @@ class _EnterpriseOrganizationState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the organization.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -156,9 +196,30 @@ class EnterpriseOrganization(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a EnterpriseOrganization resource with the given unique name, props, and options.
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        org = github.EnterpriseOrganization("org",
+            enterprise_id=data["github_enterprise"]["enterprise"]["id"],
+            description="Organization created with terraform",
+            billing_email="jon@winteriscoming.com",
+            admin_logins=["jon-snow"])
+        ```
+
+        ## Import
+
+        Support for importing organizations is not currently supported.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] admin_logins: List of organization owner usernames.
+        :param pulumi.Input[str] billing_email: The billing email address.
+        :param pulumi.Input[str] description: The description of the organization.
+        :param pulumi.Input[str] enterprise_id: The ID of the enterprise.
+        :param pulumi.Input[str] name: The name of the organization.
         """
         ...
     @overload
@@ -167,7 +228,23 @@ class EnterpriseOrganization(pulumi.CustomResource):
                  args: EnterpriseOrganizationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a EnterpriseOrganization resource with the given unique name, props, and options.
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        org = github.EnterpriseOrganization("org",
+            enterprise_id=data["github_enterprise"]["enterprise"]["id"],
+            description="Organization created with terraform",
+            billing_email="jon@winteriscoming.com",
+            admin_logins=["jon-snow"])
+        ```
+
+        ## Import
+
+        Support for importing organizations is not currently supported.
+
         :param str resource_name: The name of the resource.
         :param EnterpriseOrganizationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -230,6 +307,11 @@ class EnterpriseOrganization(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] admin_logins: List of organization owner usernames.
+        :param pulumi.Input[str] billing_email: The billing email address.
+        :param pulumi.Input[str] description: The description of the organization.
+        :param pulumi.Input[str] enterprise_id: The ID of the enterprise.
+        :param pulumi.Input[str] name: The name of the organization.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -245,25 +327,40 @@ class EnterpriseOrganization(pulumi.CustomResource):
     @property
     @pulumi.getter(name="adminLogins")
     def admin_logins(self) -> pulumi.Output[Sequence[str]]:
+        """
+        List of organization owner usernames.
+        """
         return pulumi.get(self, "admin_logins")
 
     @property
     @pulumi.getter(name="billingEmail")
     def billing_email(self) -> pulumi.Output[str]:
+        """
+        The billing email address.
+        """
         return pulumi.get(self, "billing_email")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        The description of the organization.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="enterpriseId")
     def enterprise_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the enterprise.
+        """
         return pulumi.get(self, "enterprise_id")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        The name of the organization.
+        """
         return pulumi.get(self, "name")
 

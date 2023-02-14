@@ -206,7 +206,7 @@ class RepositoryWebhook(pulumi.CustomResource):
         repo = github.Repository("repo",
             description="Terraform acceptance tests",
             homepage_url="http://example.com/",
-            private=False)
+            visibility="public")
         foo = github.RepositoryWebhook("foo",
             repository=repo.name,
             configuration=github.RepositoryWebhookConfigurationArgs(
@@ -254,7 +254,7 @@ class RepositoryWebhook(pulumi.CustomResource):
         repo = github.Repository("repo",
             description="Terraform acceptance tests",
             homepage_url="http://example.com/",
-            private=False)
+            visibility="public")
         foo = github.RepositoryWebhook("foo",
             repository=repo.name,
             configuration=github.RepositoryWebhookConfigurationArgs(
