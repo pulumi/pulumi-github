@@ -2854,7 +2854,8 @@
                     "description": "A list of OpenID Connect claims.\n"
                 },
                 "repository": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The name of the repository.\n"
                 },
                 "useDefault": {
                     "type": "boolean",
@@ -2874,7 +2875,8 @@
                     "description": "A list of OpenID Connect claims.\n"
                 },
                 "repository": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The name of the repository.\n"
                 },
                 "useDefault": {
                     "type": "boolean",
@@ -2896,7 +2898,8 @@
                         "description": "A list of OpenID Connect claims.\n"
                     },
                     "repository": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "The name of the repository.\n"
                     },
                     "useDefault": {
                         "type": "boolean",
@@ -3843,30 +3846,37 @@
         "github:index/dependabotOrganizationSecret:DependabotOrganizationSecret": {
             "properties": {
                 "createdAt": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Date of 'dependabot_secret' creation.\n"
                 },
                 "encryptedValue": {
                     "type": "string",
+                    "description": "Encrypted value of the secret using the GitHub public key in Base64 format.\n",
                     "secret": true
                 },
                 "plaintextValue": {
                     "type": "string",
+                    "description": "Plaintext value of the secret to be encrypted.\n",
                     "secret": true
                 },
                 "secretName": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Name of the secret.\n"
                 },
                 "selectedRepositoryIds": {
                     "type": "array",
                     "items": {
                         "type": "integer"
-                    }
+                    },
+                    "description": "An array of repository ids that can access the organization secret.\n"
                 },
                 "updatedAt": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Date of 'dependabot_secret' update.\n"
                 },
                 "visibility": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Configures the access that repositories have to the organization secret. Must be one of 'all', 'private' or 'selected'.\n'selected_repository_ids' is required if set to 'selected'.\n"
                 }
             },
             "required": [
@@ -3878,26 +3888,31 @@
             "inputProperties": {
                 "encryptedValue": {
                     "type": "string",
+                    "description": "Encrypted value of the secret using the GitHub public key in Base64 format.\n",
                     "secret": true,
                     "willReplaceOnChanges": true
                 },
                 "plaintextValue": {
                     "type": "string",
+                    "description": "Plaintext value of the secret to be encrypted.\n",
                     "secret": true,
                     "willReplaceOnChanges": true
                 },
                 "secretName": {
                     "type": "string",
+                    "description": "Name of the secret.\n",
                     "willReplaceOnChanges": true
                 },
                 "selectedRepositoryIds": {
                     "type": "array",
                     "items": {
                         "type": "integer"
-                    }
+                    },
+                    "description": "An array of repository ids that can access the organization secret.\n"
                 },
                 "visibility": {
                     "type": "string",
+                    "description": "Configures the access that repositories have to the organization secret. Must be one of 'all', 'private' or 'selected'.\n'selected_repository_ids' is required if set to 'selected'.\n",
                     "willReplaceOnChanges": true
                 }
             },
@@ -3909,33 +3924,40 @@
                 "description": "Input properties used for looking up and filtering DependabotOrganizationSecret resources.\n",
                 "properties": {
                     "createdAt": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Date of 'dependabot_secret' creation.\n"
                     },
                     "encryptedValue": {
                         "type": "string",
+                        "description": "Encrypted value of the secret using the GitHub public key in Base64 format.\n",
                         "secret": true,
                         "willReplaceOnChanges": true
                     },
                     "plaintextValue": {
                         "type": "string",
+                        "description": "Plaintext value of the secret to be encrypted.\n",
                         "secret": true,
                         "willReplaceOnChanges": true
                     },
                     "secretName": {
                         "type": "string",
+                        "description": "Name of the secret.\n",
                         "willReplaceOnChanges": true
                     },
                     "selectedRepositoryIds": {
                         "type": "array",
                         "items": {
                             "type": "integer"
-                        }
+                        },
+                        "description": "An array of repository ids that can access the organization secret.\n"
                     },
                     "updatedAt": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Date of 'dependabot_secret' update.\n"
                     },
                     "visibility": {
                         "type": "string",
+                        "description": "Configures the access that repositories have to the organization secret. Must be one of 'all', 'private' or 'selected'.\n'selected_repository_ids' is required if set to 'selected'.\n",
                         "willReplaceOnChanges": true
                     }
                 },
@@ -3945,13 +3967,15 @@
         "github:index/dependabotOrganizationSecretRepositories:DependabotOrganizationSecretRepositories": {
             "properties": {
                 "secretName": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Name of the existing secret.\n"
                 },
                 "selectedRepositoryIds": {
                     "type": "array",
                     "items": {
                         "type": "integer"
-                    }
+                    },
+                    "description": "An array of repository ids that can access the organization secret.\n"
                 }
             },
             "required": [
@@ -3961,13 +3985,15 @@
             "inputProperties": {
                 "secretName": {
                     "type": "string",
+                    "description": "Name of the existing secret.\n",
                     "willReplaceOnChanges": true
                 },
                 "selectedRepositoryIds": {
                     "type": "array",
                     "items": {
                         "type": "integer"
-                    }
+                    },
+                    "description": "An array of repository ids that can access the organization secret.\n"
                 }
             },
             "requiredInputs": [
@@ -3979,13 +4005,15 @@
                 "properties": {
                     "secretName": {
                         "type": "string",
+                        "description": "Name of the existing secret.\n",
                         "willReplaceOnChanges": true
                     },
                     "selectedRepositoryIds": {
                         "type": "array",
                         "items": {
                             "type": "integer"
-                        }
+                        },
+                        "description": "An array of repository ids that can access the organization secret.\n"
                     }
                 },
                 "type": "object"
@@ -3994,24 +4022,30 @@
         "github:index/dependabotSecret:DependabotSecret": {
             "properties": {
                 "createdAt": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Date of 'dependabot_secret' creation.\n"
                 },
                 "encryptedValue": {
                     "type": "string",
+                    "description": "Encrypted value of the secret using the GitHub public key in Base64 format.\n",
                     "secret": true
                 },
                 "plaintextValue": {
                     "type": "string",
+                    "description": "Plaintext value of the secret to be encrypted.\n",
                     "secret": true
                 },
                 "repository": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Name of the repository.\n"
                 },
                 "secretName": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Name of the secret.\n"
                 },
                 "updatedAt": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Date of 'dependabot_secret' update.\n"
                 }
             },
             "required": [
@@ -4023,19 +4057,23 @@
             "inputProperties": {
                 "encryptedValue": {
                     "type": "string",
+                    "description": "Encrypted value of the secret using the GitHub public key in Base64 format.\n",
                     "secret": true,
                     "willReplaceOnChanges": true
                 },
                 "plaintextValue": {
                     "type": "string",
+                    "description": "Plaintext value of the secret to be encrypted.\n",
                     "secret": true,
                     "willReplaceOnChanges": true
                 },
                 "repository": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Name of the repository.\n"
                 },
                 "secretName": {
                     "type": "string",
+                    "description": "Name of the secret.\n",
                     "willReplaceOnChanges": true
                 }
             },
@@ -4047,27 +4085,33 @@
                 "description": "Input properties used for looking up and filtering DependabotSecret resources.\n",
                 "properties": {
                     "createdAt": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Date of 'dependabot_secret' creation.\n"
                     },
                     "encryptedValue": {
                         "type": "string",
+                        "description": "Encrypted value of the secret using the GitHub public key in Base64 format.\n",
                         "secret": true,
                         "willReplaceOnChanges": true
                     },
                     "plaintextValue": {
                         "type": "string",
+                        "description": "Plaintext value of the secret to be encrypted.\n",
                         "secret": true,
                         "willReplaceOnChanges": true
                     },
                     "repository": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Name of the repository.\n"
                     },
                     "secretName": {
                         "type": "string",
+                        "description": "Name of the secret.\n",
                         "willReplaceOnChanges": true
                     },
                     "updatedAt": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Date of 'dependabot_secret' update.\n"
                     }
                 },
                 "type": "object"
@@ -5043,7 +5087,8 @@
             "description": "This resource allows you to create and manage cards for GitHub projects.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\nconst project = new github.OrganizationProject(\"project\", {body: \"This is an organization project.\"});\nconst column = new github.ProjectColumn(\"column\", {projectId: project.id});\nconst card = new github.ProjectCard(\"card\", {\n    columnId: column.columnId,\n    note: \"## Unaccepted 👇\",\n});\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\nproject = github.OrganizationProject(\"project\", body=\"This is an organization project.\")\ncolumn = github.ProjectColumn(\"column\", project_id=project.id)\ncard = github.ProjectCard(\"card\",\n    column_id=column.column_id,\n    note=\"## Unaccepted 👇\")\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Github = Pulumi.Github;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var project = new Github.OrganizationProject(\"project\", new()\n    {\n        Body = \"This is an organization project.\",\n    });\n\n    var column = new Github.ProjectColumn(\"column\", new()\n    {\n        ProjectId = project.Id,\n    });\n\n    var card = new Github.ProjectCard(\"card\", new()\n    {\n        ColumnId = column.ColumnId,\n        Note = \"## Unaccepted 👇\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-github/sdk/v5/go/github\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tproject, err := github.NewOrganizationProject(ctx, \"project\", \u0026github.OrganizationProjectArgs{\n\t\t\tBody: pulumi.String(\"This is an organization project.\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tcolumn, err := github.NewProjectColumn(ctx, \"column\", \u0026github.ProjectColumnArgs{\n\t\t\tProjectId: project.ID(),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = github.NewProjectCard(ctx, \"card\", \u0026github.ProjectCardArgs{\n\t\t\tColumnId: column.ColumnId,\n\t\t\tNote:     pulumi.String(\"## Unaccepted 👇\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.github.OrganizationProject;\nimport com.pulumi.github.OrganizationProjectArgs;\nimport com.pulumi.github.ProjectColumn;\nimport com.pulumi.github.ProjectColumnArgs;\nimport com.pulumi.github.ProjectCard;\nimport com.pulumi.github.ProjectCardArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var project = new OrganizationProject(\"project\", OrganizationProjectArgs.builder()        \n            .body(\"This is an organization project.\")\n            .build());\n\n        var column = new ProjectColumn(\"column\", ProjectColumnArgs.builder()        \n            .projectId(project.id())\n            .build());\n\n        var card = new ProjectCard(\"card\", ProjectCardArgs.builder()        \n            .columnId(column.columnId())\n            .note(\"## Unaccepted 👇\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  project:\n    type: github:OrganizationProject\n    properties:\n      body: This is an organization project.\n  column:\n    type: github:ProjectColumn\n    properties:\n      projectId: ${project.id}\n  card:\n    type: github:ProjectCard\n    properties:\n      columnId: ${column.columnId}\n      note: \"## Unaccepted \\U0001F447\"\n```\n{{% /example %}}\n{{% example %}}\n### Adding An Issue To A Project\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\nconst testRepository = new github.Repository(\"testRepository\", {\n    hasProjects: true,\n    hasIssues: true,\n});\nconst testIssue = new github.Issue(\"testIssue\", {\n    repository: testRepository.id,\n    title: \"Test issue title\",\n    body: \"Test issue body\",\n});\nconst testRepositoryProject = new github.RepositoryProject(\"testRepositoryProject\", {\n    repository: testRepository.name,\n    body: \"this is a test project\",\n});\nconst testProjectColumn = new github.ProjectColumn(\"testProjectColumn\", {projectId: testRepositoryProject.id});\nconst testProjectCard = new github.ProjectCard(\"testProjectCard\", {\n    columnId: testProjectColumn.columnId,\n    contentId: testIssue.issueId,\n    contentType: \"Issue\",\n});\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\ntest_repository = github.Repository(\"testRepository\",\n    has_projects=True,\n    has_issues=True)\ntest_issue = github.Issue(\"testIssue\",\n    repository=test_repository.id,\n    title=\"Test issue title\",\n    body=\"Test issue body\")\ntest_repository_project = github.RepositoryProject(\"testRepositoryProject\",\n    repository=test_repository.name,\n    body=\"this is a test project\")\ntest_project_column = github.ProjectColumn(\"testProjectColumn\", project_id=test_repository_project.id)\ntest_project_card = github.ProjectCard(\"testProjectCard\",\n    column_id=test_project_column.column_id,\n    content_id=test_issue.issue_id,\n    content_type=\"Issue\")\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Github = Pulumi.Github;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var testRepository = new Github.Repository(\"testRepository\", new()\n    {\n        HasProjects = true,\n        HasIssues = true,\n    });\n\n    var testIssue = new Github.Issue(\"testIssue\", new()\n    {\n        Repository = testRepository.Id,\n        Title = \"Test issue title\",\n        Body = \"Test issue body\",\n    });\n\n    var testRepositoryProject = new Github.RepositoryProject(\"testRepositoryProject\", new()\n    {\n        Repository = testRepository.Name,\n        Body = \"this is a test project\",\n    });\n\n    var testProjectColumn = new Github.ProjectColumn(\"testProjectColumn\", new()\n    {\n        ProjectId = testRepositoryProject.Id,\n    });\n\n    var testProjectCard = new Github.ProjectCard(\"testProjectCard\", new()\n    {\n        ColumnId = testProjectColumn.ColumnId,\n        ContentId = testIssue.IssueId,\n        ContentType = \"Issue\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-github/sdk/v5/go/github\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\ttestRepository, err := github.NewRepository(ctx, \"testRepository\", \u0026github.RepositoryArgs{\n\t\t\tHasProjects: pulumi.Bool(true),\n\t\t\tHasIssues:   pulumi.Bool(true),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\ttestIssue, err := github.NewIssue(ctx, \"testIssue\", \u0026github.IssueArgs{\n\t\t\tRepository: testRepository.ID(),\n\t\t\tTitle:      pulumi.String(\"Test issue title\"),\n\t\t\tBody:       pulumi.String(\"Test issue body\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\ttestRepositoryProject, err := github.NewRepositoryProject(ctx, \"testRepositoryProject\", \u0026github.RepositoryProjectArgs{\n\t\t\tRepository: testRepository.Name,\n\t\t\tBody:       pulumi.String(\"this is a test project\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\ttestProjectColumn, err := github.NewProjectColumn(ctx, \"testProjectColumn\", \u0026github.ProjectColumnArgs{\n\t\t\tProjectId: testRepositoryProject.ID(),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = github.NewProjectCard(ctx, \"testProjectCard\", \u0026github.ProjectCardArgs{\n\t\t\tColumnId:    testProjectColumn.ColumnId,\n\t\t\tContentId:   testIssue.IssueId,\n\t\t\tContentType: pulumi.String(\"Issue\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.github.Repository;\nimport com.pulumi.github.RepositoryArgs;\nimport com.pulumi.github.Issue;\nimport com.pulumi.github.IssueArgs;\nimport com.pulumi.github.RepositoryProject;\nimport com.pulumi.github.RepositoryProjectArgs;\nimport com.pulumi.github.ProjectColumn;\nimport com.pulumi.github.ProjectColumnArgs;\nimport com.pulumi.github.ProjectCard;\nimport com.pulumi.github.ProjectCardArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var testRepository = new Repository(\"testRepository\", RepositoryArgs.builder()        \n            .hasProjects(true)\n            .hasIssues(true)\n            .build());\n\n        var testIssue = new Issue(\"testIssue\", IssueArgs.builder()        \n            .repository(testRepository.id())\n            .title(\"Test issue title\")\n            .body(\"Test issue body\")\n            .build());\n\n        var testRepositoryProject = new RepositoryProject(\"testRepositoryProject\", RepositoryProjectArgs.builder()        \n            .repository(testRepository.name())\n            .body(\"this is a test project\")\n            .build());\n\n        var testProjectColumn = new ProjectColumn(\"testProjectColumn\", ProjectColumnArgs.builder()        \n            .projectId(testRepositoryProject.id())\n            .build());\n\n        var testProjectCard = new ProjectCard(\"testProjectCard\", ProjectCardArgs.builder()        \n            .columnId(testProjectColumn.columnId())\n            .contentId(testIssue.issueId())\n            .contentType(\"Issue\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  testRepository:\n    type: github:Repository\n    properties:\n      hasProjects: true\n      hasIssues: true\n  testIssue:\n    type: github:Issue\n    properties:\n      repository: ${testRepository.id}\n      title: Test issue title\n      body: Test issue body\n  testRepositoryProject:\n    type: github:RepositoryProject\n    properties:\n      repository: ${testRepository.name}\n      body: this is a test project\n  testProjectColumn:\n    type: github:ProjectColumn\n    properties:\n      projectId: ${testRepositoryProject.id}\n  testProjectCard:\n    type: github:ProjectCard\n    properties:\n      columnId: ${testProjectColumn.columnId}\n      contentId: ${testIssue.issueId}\n      contentType: Issue\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nA GitHub Project Card can be imported using its [Card ID](https://developer.github.com/v3/projects/cards/#get-a-project-card)\n\n```sh\n $ pulumi import github:index/projectCard:ProjectCard card 01234567\n```\n\n ",
             "properties": {
                 "cardId": {
-                    "type": "integer"
+                    "type": "integer",
+                    "description": "The ID of the card.\n"
                 },
                 "columnId": {
                     "type": "string",
@@ -5096,7 +5141,8 @@
                 "description": "Input properties used for looking up and filtering ProjectCard resources.\n",
                 "properties": {
                     "cardId": {
-                        "type": "integer"
+                        "type": "integer",
+                        "description": "The ID of the card.\n"
                     },
                     "columnId": {
                         "type": "string",
@@ -5126,7 +5172,8 @@
             "description": "This resource allows you to create and manage columns for GitHub projects.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\nconst project = new github.OrganizationProject(\"project\", {body: \"This is an organization project.\"});\nconst column = new github.ProjectColumn(\"column\", {projectId: project.id});\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\nproject = github.OrganizationProject(\"project\", body=\"This is an organization project.\")\ncolumn = github.ProjectColumn(\"column\", project_id=project.id)\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Github = Pulumi.Github;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var project = new Github.OrganizationProject(\"project\", new()\n    {\n        Body = \"This is an organization project.\",\n    });\n\n    var column = new Github.ProjectColumn(\"column\", new()\n    {\n        ProjectId = project.Id,\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-github/sdk/v5/go/github\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tproject, err := github.NewOrganizationProject(ctx, \"project\", \u0026github.OrganizationProjectArgs{\n\t\t\tBody: pulumi.String(\"This is an organization project.\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = github.NewProjectColumn(ctx, \"column\", \u0026github.ProjectColumnArgs{\n\t\t\tProjectId: project.ID(),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.github.OrganizationProject;\nimport com.pulumi.github.OrganizationProjectArgs;\nimport com.pulumi.github.ProjectColumn;\nimport com.pulumi.github.ProjectColumnArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var project = new OrganizationProject(\"project\", OrganizationProjectArgs.builder()        \n            .body(\"This is an organization project.\")\n            .build());\n\n        var column = new ProjectColumn(\"column\", ProjectColumnArgs.builder()        \n            .projectId(project.id())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  project:\n    type: github:OrganizationProject\n    properties:\n      body: This is an organization project.\n  column:\n    type: github:ProjectColumn\n    properties:\n      projectId: ${project.id}\n```\n{{% /example %}}\n{{% /examples %}}",
             "properties": {
                 "columnId": {
-                    "type": "integer"
+                    "type": "integer",
+                    "description": "The ID of the column.\n"
                 },
                 "etag": {
                     "type": "string"
@@ -5164,7 +5211,8 @@
                 "description": "Input properties used for looking up and filtering ProjectColumn resources.\n",
                 "properties": {
                     "columnId": {
-                        "type": "integer"
+                        "type": "integer",
+                        "description": "The ID of the column.\n"
                     },
                     "etag": {
                         "type": "string"
@@ -6101,7 +6149,8 @@
             "description": "This resource allows you to create and manage environments for a GitHub repository.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\nconst current = github.getUser({\n    username: \"\",\n});\nconst exampleRepository = new github.Repository(\"exampleRepository\", {description: \"My awesome codebase\"});\nconst exampleRepositoryEnvironment = new github.RepositoryEnvironment(\"exampleRepositoryEnvironment\", {\n    environment: \"example\",\n    repository: exampleRepository.name,\n    reviewers: [{\n        users: [current.then(current =\u003e current.id)],\n    }],\n    deploymentBranchPolicy: {\n        protectedBranches: true,\n        customBranchPolicies: false,\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\ncurrent = github.get_user(username=\"\")\nexample_repository = github.Repository(\"exampleRepository\", description=\"My awesome codebase\")\nexample_repository_environment = github.RepositoryEnvironment(\"exampleRepositoryEnvironment\",\n    environment=\"example\",\n    repository=example_repository.name,\n    reviewers=[github.RepositoryEnvironmentReviewerArgs(\n        users=[current.id],\n    )],\n    deployment_branch_policy=github.RepositoryEnvironmentDeploymentBranchPolicyArgs(\n        protected_branches=True,\n        custom_branch_policies=False,\n    ))\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Github = Pulumi.Github;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var current = Github.GetUser.Invoke(new()\n    {\n        Username = \"\",\n    });\n\n    var exampleRepository = new Github.Repository(\"exampleRepository\", new()\n    {\n        Description = \"My awesome codebase\",\n    });\n\n    var exampleRepositoryEnvironment = new Github.RepositoryEnvironment(\"exampleRepositoryEnvironment\", new()\n    {\n        Environment = \"example\",\n        Repository = exampleRepository.Name,\n        Reviewers = new[]\n        {\n            new Github.Inputs.RepositoryEnvironmentReviewerArgs\n            {\n                Users = new[]\n                {\n                    current.Apply(getUserResult =\u003e getUserResult.Id),\n                },\n            },\n        },\n        DeploymentBranchPolicy = new Github.Inputs.RepositoryEnvironmentDeploymentBranchPolicyArgs\n        {\n            ProtectedBranches = true,\n            CustomBranchPolicies = false,\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-github/sdk/v5/go/github\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tcurrent, err := github.GetUser(ctx, \u0026github.GetUserArgs{\n\t\t\tUsername: \"\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\texampleRepository, err := github.NewRepository(ctx, \"exampleRepository\", \u0026github.RepositoryArgs{\n\t\t\tDescription: pulumi.String(\"My awesome codebase\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = github.NewRepositoryEnvironment(ctx, \"exampleRepositoryEnvironment\", \u0026github.RepositoryEnvironmentArgs{\n\t\t\tEnvironment: pulumi.String(\"example\"),\n\t\t\tRepository:  exampleRepository.Name,\n\t\t\tReviewers: github.RepositoryEnvironmentReviewerArray{\n\t\t\t\t\u0026github.RepositoryEnvironmentReviewerArgs{\n\t\t\t\t\tUsers: pulumi.IntArray{\n\t\t\t\t\t\t*pulumi.String(current.Id),\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t},\n\t\t\tDeploymentBranchPolicy: \u0026github.RepositoryEnvironmentDeploymentBranchPolicyArgs{\n\t\t\t\tProtectedBranches:    pulumi.Bool(true),\n\t\t\t\tCustomBranchPolicies: pulumi.Bool(false),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.github.GithubFunctions;\nimport com.pulumi.github.inputs.GetUserArgs;\nimport com.pulumi.github.Repository;\nimport com.pulumi.github.RepositoryArgs;\nimport com.pulumi.github.RepositoryEnvironment;\nimport com.pulumi.github.RepositoryEnvironmentArgs;\nimport com.pulumi.github.inputs.RepositoryEnvironmentReviewerArgs;\nimport com.pulumi.github.inputs.RepositoryEnvironmentDeploymentBranchPolicyArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var current = GithubFunctions.getUser(GetUserArgs.builder()\n            .username(\"\")\n            .build());\n\n        var exampleRepository = new Repository(\"exampleRepository\", RepositoryArgs.builder()        \n            .description(\"My awesome codebase\")\n            .build());\n\n        var exampleRepositoryEnvironment = new RepositoryEnvironment(\"exampleRepositoryEnvironment\", RepositoryEnvironmentArgs.builder()        \n            .environment(\"example\")\n            .repository(exampleRepository.name())\n            .reviewers(RepositoryEnvironmentReviewerArgs.builder()\n                .users(current.applyValue(getUserResult -\u003e getUserResult.id()))\n                .build())\n            .deploymentBranchPolicy(RepositoryEnvironmentDeploymentBranchPolicyArgs.builder()\n                .protectedBranches(true)\n                .customBranchPolicies(false)\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  exampleRepository:\n    type: github:Repository\n    properties:\n      description: My awesome codebase\n  exampleRepositoryEnvironment:\n    type: github:RepositoryEnvironment\n    properties:\n      environment: example\n      repository: ${exampleRepository.name}\n      reviewers:\n        - users:\n            - ${current.id}\n      deploymentBranchPolicy:\n        protectedBranches: true\n        customBranchPolicies: false\nvariables:\n  current:\n    fn::invoke:\n      Function: github:getUser\n      Arguments:\n        username:\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nGitHub Repository Environment can be imported using an ID made up of `name` of the repository combined with the `environment` name of the environment, separated by a `:` character, e.g.\n\n```sh\n $ pulumi import github:index/repositoryEnvironment:RepositoryEnvironment daily terraform:daily\n```\n\n ",
             "properties": {
                 "deploymentBranchPolicy": {
-                    "$ref": "#/types/github:index/RepositoryEnvironmentDeploymentBranchPolicy:RepositoryEnvironmentDeploymentBranchPolicy"
+                    "$ref": "#/types/github:index/RepositoryEnvironmentDeploymentBranchPolicy:RepositoryEnvironmentDeploymentBranchPolicy",
+                    "description": "The deployment branch policy configuration\n"
                 },
                 "environment": {
                     "type": "string",
@@ -6115,7 +6164,8 @@
                     "type": "array",
                     "items": {
                         "$ref": "#/types/github:index/RepositoryEnvironmentReviewer:RepositoryEnvironmentReviewer"
-                    }
+                    },
+                    "description": "The environment reviewers configuration.\n"
                 },
                 "waitTimer": {
                     "type": "integer",
@@ -6128,7 +6178,8 @@
             ],
             "inputProperties": {
                 "deploymentBranchPolicy": {
-                    "$ref": "#/types/github:index/RepositoryEnvironmentDeploymentBranchPolicy:RepositoryEnvironmentDeploymentBranchPolicy"
+                    "$ref": "#/types/github:index/RepositoryEnvironmentDeploymentBranchPolicy:RepositoryEnvironmentDeploymentBranchPolicy",
+                    "description": "The deployment branch policy configuration\n"
                 },
                 "environment": {
                     "type": "string",
@@ -6144,7 +6195,8 @@
                     "type": "array",
                     "items": {
                         "$ref": "#/types/github:index/RepositoryEnvironmentReviewer:RepositoryEnvironmentReviewer"
-                    }
+                    },
+                    "description": "The environment reviewers configuration.\n"
                 },
                 "waitTimer": {
                     "type": "integer",
@@ -6159,7 +6211,8 @@
                 "description": "Input properties used for looking up and filtering RepositoryEnvironment resources.\n",
                 "properties": {
                     "deploymentBranchPolicy": {
-                        "$ref": "#/types/github:index/RepositoryEnvironmentDeploymentBranchPolicy:RepositoryEnvironmentDeploymentBranchPolicy"
+                        "$ref": "#/types/github:index/RepositoryEnvironmentDeploymentBranchPolicy:RepositoryEnvironmentDeploymentBranchPolicy",
+                        "description": "The deployment branch policy configuration\n"
                     },
                     "environment": {
                         "type": "string",
@@ -6175,7 +6228,8 @@
                         "type": "array",
                         "items": {
                             "$ref": "#/types/github:index/RepositoryEnvironmentReviewer:RepositoryEnvironmentReviewer"
-                        }
+                        },
+                        "description": "The environment reviewers configuration.\n"
                     },
                     "waitTimer": {
                         "type": "integer",
@@ -6721,7 +6775,8 @@
                     "description": "Name of the repository to add the tag protection to.\n"
                 },
                 "tagProtectionId": {
-                    "type": "integer"
+                    "type": "integer",
+                    "description": "The ID of the tag protection.\n"
                 }
             },
             "required": [
@@ -6759,7 +6814,8 @@
                         "willReplaceOnChanges": true
                     },
                     "tagProtectionId": {
-                        "type": "integer"
+                        "type": "integer",
+                        "description": "The ID of the tag protection.\n"
                     }
                 },
                 "type": "object"
@@ -7193,11 +7249,11 @@
                 },
                 "teamSlug": {
                     "type": "string",
-                    "description": "The slug of the Team within the Organization\n"
+                    "description": "The slug of the Team within the Organization.\n"
                 },
                 "teamUid": {
                     "type": "string",
-                    "description": "The unique ID of the Team on GitHub. Corresponds to the ID of the github_team_settings resource\n"
+                    "description": "The unique ID of the Team on GitHub. Corresponds to the ID of the 'github_team_settings' resource.\n"
                 }
             },
             "required": [
@@ -7233,11 +7289,11 @@
                     },
                     "teamSlug": {
                         "type": "string",
-                        "description": "The slug of the Team within the Organization\n"
+                        "description": "The slug of the Team within the Organization.\n"
                     },
                     "teamUid": {
                         "type": "string",
-                        "description": "The unique ID of the Team on GitHub. Corresponds to the ID of the github_team_settings resource\n"
+                        "description": "The unique ID of the Team on GitHub. Corresponds to the ID of the 'github_team_settings' resource.\n"
                     }
                 },
                 "type": "object"
@@ -9110,7 +9166,7 @@
                 "properties": {
                     "branch": {
                         "type": "string",
-                        "description": "Git branch (if omitted, the default repository branch is used, which is usually `main`)\nThe branch must already exist; it will not be created if it does not already exist.\n"
+                        "description": "Git branch. Defaults to `main`.\n"
                     },
                     "file": {
                         "type": "string",
