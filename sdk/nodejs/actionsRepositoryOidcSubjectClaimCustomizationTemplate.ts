@@ -77,6 +77,9 @@ export class ActionsRepositoryOidcSubjectClaimCustomizationTemplate extends pulu
      * A list of OpenID Connect claims.
      */
     public readonly includeClaimKeys!: pulumi.Output<string[] | undefined>;
+    /**
+     * The name of the repository.
+     */
     public readonly repository!: pulumi.Output<string>;
     /**
      * Whether to use the default template or not. If `true`, `includeClaimKeys` must not
@@ -125,6 +128,9 @@ export interface ActionsRepositoryOidcSubjectClaimCustomizationTemplateState {
      * A list of OpenID Connect claims.
      */
     includeClaimKeys?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The name of the repository.
+     */
     repository?: pulumi.Input<string>;
     /**
      * Whether to use the default template or not. If `true`, `includeClaimKeys` must not
@@ -141,6 +147,9 @@ export interface ActionsRepositoryOidcSubjectClaimCustomizationTemplateArgs {
      * A list of OpenID Connect claims.
      */
     includeClaimKeys?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The name of the repository.
+     */
     repository: pulumi.Input<string>;
     /**
      * Whether to use the default template or not. If `true`, `includeClaimKeys` must not

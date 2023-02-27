@@ -17,39 +17,87 @@ import javax.annotation.Nullable;
 
 @ResourceType(type="github:index/dependabotSecret:DependabotSecret")
 public class DependabotSecret extends com.pulumi.resources.CustomResource {
+    /**
+     * Date of &#39;dependabot_secret&#39; creation.
+     * 
+     */
     @Export(name="createdAt", type=String.class, parameters={})
     private Output<String> createdAt;
 
+    /**
+     * @return Date of &#39;dependabot_secret&#39; creation.
+     * 
+     */
     public Output<String> createdAt() {
         return this.createdAt;
     }
+    /**
+     * Encrypted value of the secret using the GitHub public key in Base64 format.
+     * 
+     */
     @Export(name="encryptedValue", type=String.class, parameters={})
     private Output</* @Nullable */ String> encryptedValue;
 
+    /**
+     * @return Encrypted value of the secret using the GitHub public key in Base64 format.
+     * 
+     */
     public Output<Optional<String>> encryptedValue() {
         return Codegen.optional(this.encryptedValue);
     }
+    /**
+     * Plaintext value of the secret to be encrypted.
+     * 
+     */
     @Export(name="plaintextValue", type=String.class, parameters={})
     private Output</* @Nullable */ String> plaintextValue;
 
+    /**
+     * @return Plaintext value of the secret to be encrypted.
+     * 
+     */
     public Output<Optional<String>> plaintextValue() {
         return Codegen.optional(this.plaintextValue);
     }
+    /**
+     * Name of the repository.
+     * 
+     */
     @Export(name="repository", type=String.class, parameters={})
     private Output<String> repository;
 
+    /**
+     * @return Name of the repository.
+     * 
+     */
     public Output<String> repository() {
         return this.repository;
     }
+    /**
+     * Name of the secret.
+     * 
+     */
     @Export(name="secretName", type=String.class, parameters={})
     private Output<String> secretName;
 
+    /**
+     * @return Name of the secret.
+     * 
+     */
     public Output<String> secretName() {
         return this.secretName;
     }
+    /**
+     * Date of &#39;dependabot_secret&#39; update.
+     * 
+     */
     @Export(name="updatedAt", type=String.class, parameters={})
     private Output<String> updatedAt;
 
+    /**
+     * @return Date of &#39;dependabot_secret&#39; update.
+     * 
+     */
     public Output<String> updatedAt() {
         return this.updatedAt;
     }

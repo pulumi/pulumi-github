@@ -67,6 +67,9 @@ namespace Pulumi.Github
         [Output("includeClaimKeys")]
         public Output<ImmutableArray<string>> IncludeClaimKeys { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the repository.
+        /// </summary>
         [Output("repository")]
         public Output<string> Repository { get; private set; } = null!;
 
@@ -135,6 +138,9 @@ namespace Pulumi.Github
             set => _includeClaimKeys = value;
         }
 
+        /// <summary>
+        /// The name of the repository.
+        /// </summary>
         [Input("repository", required: true)]
         public Input<string> Repository { get; set; } = null!;
 
@@ -165,6 +171,9 @@ namespace Pulumi.Github
             set => _includeClaimKeys = value;
         }
 
+        /// <summary>
+        /// The name of the repository.
+        /// </summary>
         [Input("repository")]
         public Input<string>? Repository { get; set; }
 

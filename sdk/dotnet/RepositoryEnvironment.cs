@@ -66,6 +66,9 @@ namespace Pulumi.Github
     [GithubResourceType("github:index/repositoryEnvironment:RepositoryEnvironment")]
     public partial class RepositoryEnvironment : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The deployment branch policy configuration
+        /// </summary>
         [Output("deploymentBranchPolicy")]
         public Output<Outputs.RepositoryEnvironmentDeploymentBranchPolicy?> DeploymentBranchPolicy { get; private set; } = null!;
 
@@ -81,6 +84,9 @@ namespace Pulumi.Github
         [Output("repository")]
         public Output<string> Repository { get; private set; } = null!;
 
+        /// <summary>
+        /// The environment reviewers configuration.
+        /// </summary>
         [Output("reviewers")]
         public Output<ImmutableArray<Outputs.RepositoryEnvironmentReviewer>> Reviewers { get; private set; } = null!;
 
@@ -136,6 +142,9 @@ namespace Pulumi.Github
 
     public sealed class RepositoryEnvironmentArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The deployment branch policy configuration
+        /// </summary>
         [Input("deploymentBranchPolicy")]
         public Input<Inputs.RepositoryEnvironmentDeploymentBranchPolicyArgs>? DeploymentBranchPolicy { get; set; }
 
@@ -153,6 +162,10 @@ namespace Pulumi.Github
 
         [Input("reviewers")]
         private InputList<Inputs.RepositoryEnvironmentReviewerArgs>? _reviewers;
+
+        /// <summary>
+        /// The environment reviewers configuration.
+        /// </summary>
         public InputList<Inputs.RepositoryEnvironmentReviewerArgs> Reviewers
         {
             get => _reviewers ?? (_reviewers = new InputList<Inputs.RepositoryEnvironmentReviewerArgs>());
@@ -173,6 +186,9 @@ namespace Pulumi.Github
 
     public sealed class RepositoryEnvironmentState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The deployment branch policy configuration
+        /// </summary>
         [Input("deploymentBranchPolicy")]
         public Input<Inputs.RepositoryEnvironmentDeploymentBranchPolicyGetArgs>? DeploymentBranchPolicy { get; set; }
 
@@ -190,6 +206,10 @@ namespace Pulumi.Github
 
         [Input("reviewers")]
         private InputList<Inputs.RepositoryEnvironmentReviewerGetArgs>? _reviewers;
+
+        /// <summary>
+        /// The environment reviewers configuration.
+        /// </summary>
         public InputList<Inputs.RepositoryEnvironmentReviewerGetArgs> Reviewers
         {
             get => _reviewers ?? (_reviewers = new InputList<Inputs.RepositoryEnvironmentReviewerGetArgs>());

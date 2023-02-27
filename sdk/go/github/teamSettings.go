@@ -80,9 +80,9 @@ type TeamSettings struct {
 	ReviewRequestDelegation TeamSettingsReviewRequestDelegationPtrOutput `pulumi:"reviewRequestDelegation"`
 	// The GitHub team id or the GitHub team slug
 	TeamId pulumi.StringOutput `pulumi:"teamId"`
-	// The slug of the Team within the Organization
+	// The slug of the Team within the Organization.
 	TeamSlug pulumi.StringOutput `pulumi:"teamSlug"`
-	// The unique ID of the Team on GitHub. Corresponds to the ID of the github_team_settings resource
+	// The unique ID of the Team on GitHub. Corresponds to the ID of the 'github_team_settings' resource.
 	TeamUid pulumi.StringOutput `pulumi:"teamUid"`
 }
 
@@ -122,9 +122,9 @@ type teamSettingsState struct {
 	ReviewRequestDelegation *TeamSettingsReviewRequestDelegation `pulumi:"reviewRequestDelegation"`
 	// The GitHub team id or the GitHub team slug
 	TeamId *string `pulumi:"teamId"`
-	// The slug of the Team within the Organization
+	// The slug of the Team within the Organization.
 	TeamSlug *string `pulumi:"teamSlug"`
-	// The unique ID of the Team on GitHub. Corresponds to the ID of the github_team_settings resource
+	// The unique ID of the Team on GitHub. Corresponds to the ID of the 'github_team_settings' resource.
 	TeamUid *string `pulumi:"teamUid"`
 }
 
@@ -133,9 +133,9 @@ type TeamSettingsState struct {
 	ReviewRequestDelegation TeamSettingsReviewRequestDelegationPtrInput
 	// The GitHub team id or the GitHub team slug
 	TeamId pulumi.StringPtrInput
-	// The slug of the Team within the Organization
+	// The slug of the Team within the Organization.
 	TeamSlug pulumi.StringPtrInput
-	// The unique ID of the Team on GitHub. Corresponds to the ID of the github_team_settings resource
+	// The unique ID of the Team on GitHub. Corresponds to the ID of the 'github_team_settings' resource.
 	TeamUid pulumi.StringPtrInput
 }
 
@@ -255,12 +255,12 @@ func (o TeamSettingsOutput) TeamId() pulumi.StringOutput {
 	return o.ApplyT(func(v *TeamSettings) pulumi.StringOutput { return v.TeamId }).(pulumi.StringOutput)
 }
 
-// The slug of the Team within the Organization
+// The slug of the Team within the Organization.
 func (o TeamSettingsOutput) TeamSlug() pulumi.StringOutput {
 	return o.ApplyT(func(v *TeamSettings) pulumi.StringOutput { return v.TeamSlug }).(pulumi.StringOutput)
 }
 
-// The unique ID of the Team on GitHub. Corresponds to the ID of the github_team_settings resource
+// The unique ID of the Team on GitHub. Corresponds to the ID of the 'github_team_settings' resource.
 func (o TeamSettingsOutput) TeamUid() pulumi.StringOutput {
 	return o.ApplyT(func(v *TeamSettings) pulumi.StringOutput { return v.TeamUid }).(pulumi.StringOutput)
 }

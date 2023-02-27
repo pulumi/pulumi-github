@@ -112,28 +112,28 @@ public class TeamSettings extends com.pulumi.resources.CustomResource {
         return this.teamId;
     }
     /**
-     * The slug of the Team within the Organization
+     * The slug of the Team within the Organization.
      * 
      */
     @Export(name="teamSlug", type=String.class, parameters={})
     private Output<String> teamSlug;
 
     /**
-     * @return The slug of the Team within the Organization
+     * @return The slug of the Team within the Organization.
      * 
      */
     public Output<String> teamSlug() {
         return this.teamSlug;
     }
     /**
-     * The unique ID of the Team on GitHub. Corresponds to the ID of the github_team_settings resource
+     * The unique ID of the Team on GitHub. Corresponds to the ID of the &#39;github_team_settings&#39; resource.
      * 
      */
     @Export(name="teamUid", type=String.class, parameters={})
     private Output<String> teamUid;
 
     /**
-     * @return The unique ID of the Team on GitHub. Corresponds to the ID of the github_team_settings resource
+     * @return The unique ID of the Team on GitHub. Corresponds to the ID of the &#39;github_team_settings&#39; resource.
      * 
      */
     public Output<String> teamUid() {

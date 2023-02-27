@@ -19,9 +19,17 @@ public final class RepositoryEnvironmentState extends com.pulumi.resources.Resou
 
     public static final RepositoryEnvironmentState Empty = new RepositoryEnvironmentState();
 
+    /**
+     * The deployment branch policy configuration
+     * 
+     */
     @Import(name="deploymentBranchPolicy")
     private @Nullable Output<RepositoryEnvironmentDeploymentBranchPolicyArgs> deploymentBranchPolicy;
 
+    /**
+     * @return The deployment branch policy configuration
+     * 
+     */
     public Optional<Output<RepositoryEnvironmentDeploymentBranchPolicyArgs>> deploymentBranchPolicy() {
         return Optional.ofNullable(this.deploymentBranchPolicy);
     }
@@ -56,9 +64,17 @@ public final class RepositoryEnvironmentState extends com.pulumi.resources.Resou
         return Optional.ofNullable(this.repository);
     }
 
+    /**
+     * The environment reviewers configuration.
+     * 
+     */
     @Import(name="reviewers")
     private @Nullable Output<List<RepositoryEnvironmentReviewerArgs>> reviewers;
 
+    /**
+     * @return The environment reviewers configuration.
+     * 
+     */
     public Optional<Output<List<RepositoryEnvironmentReviewerArgs>>> reviewers() {
         return Optional.ofNullable(this.reviewers);
     }
@@ -106,11 +122,23 @@ public final class RepositoryEnvironmentState extends com.pulumi.resources.Resou
             $ = new RepositoryEnvironmentState(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param deploymentBranchPolicy The deployment branch policy configuration
+         * 
+         * @return builder
+         * 
+         */
         public Builder deploymentBranchPolicy(@Nullable Output<RepositoryEnvironmentDeploymentBranchPolicyArgs> deploymentBranchPolicy) {
             $.deploymentBranchPolicy = deploymentBranchPolicy;
             return this;
         }
 
+        /**
+         * @param deploymentBranchPolicy The deployment branch policy configuration
+         * 
+         * @return builder
+         * 
+         */
         public Builder deploymentBranchPolicy(RepositoryEnvironmentDeploymentBranchPolicyArgs deploymentBranchPolicy) {
             return deploymentBranchPolicy(Output.of(deploymentBranchPolicy));
         }
@@ -157,15 +185,33 @@ public final class RepositoryEnvironmentState extends com.pulumi.resources.Resou
             return repository(Output.of(repository));
         }
 
+        /**
+         * @param reviewers The environment reviewers configuration.
+         * 
+         * @return builder
+         * 
+         */
         public Builder reviewers(@Nullable Output<List<RepositoryEnvironmentReviewerArgs>> reviewers) {
             $.reviewers = reviewers;
             return this;
         }
 
+        /**
+         * @param reviewers The environment reviewers configuration.
+         * 
+         * @return builder
+         * 
+         */
         public Builder reviewers(List<RepositoryEnvironmentReviewerArgs> reviewers) {
             return reviewers(Output.of(reviewers));
         }
 
+        /**
+         * @param reviewers The environment reviewers configuration.
+         * 
+         * @return builder
+         * 
+         */
         public Builder reviewers(RepositoryEnvironmentReviewerArgs... reviewers) {
             return reviewers(List.of(reviewers));
         }

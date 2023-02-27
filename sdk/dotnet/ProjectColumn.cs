@@ -37,6 +37,9 @@ namespace Pulumi.Github
     [GithubResourceType("github:index/projectColumn:ProjectColumn")]
     public partial class ProjectColumn : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The ID of the column.
+        /// </summary>
         [Output("columnId")]
         public Output<int> ColumnId { get; private set; } = null!;
 
@@ -121,6 +124,9 @@ namespace Pulumi.Github
 
     public sealed class ProjectColumnState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ID of the column.
+        /// </summary>
         [Input("columnId")]
         public Input<int>? ColumnId { get; set; }
 

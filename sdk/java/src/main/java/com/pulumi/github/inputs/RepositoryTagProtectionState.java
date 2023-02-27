@@ -46,9 +46,17 @@ public final class RepositoryTagProtectionState extends com.pulumi.resources.Res
         return Optional.ofNullable(this.repository);
     }
 
+    /**
+     * The ID of the tag protection.
+     * 
+     */
     @Import(name="tagProtectionId")
     private @Nullable Output<Integer> tagProtectionId;
 
+    /**
+     * @return The ID of the tag protection.
+     * 
+     */
     public Optional<Output<Integer>> tagProtectionId() {
         return Optional.ofNullable(this.tagProtectionId);
     }
@@ -121,11 +129,23 @@ public final class RepositoryTagProtectionState extends com.pulumi.resources.Res
             return repository(Output.of(repository));
         }
 
+        /**
+         * @param tagProtectionId The ID of the tag protection.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tagProtectionId(@Nullable Output<Integer> tagProtectionId) {
             $.tagProtectionId = tagProtectionId;
             return this;
         }
 
+        /**
+         * @param tagProtectionId The ID of the tag protection.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tagProtectionId(Integer tagProtectionId) {
             return tagProtectionId(Output.of(tagProtectionId));
         }

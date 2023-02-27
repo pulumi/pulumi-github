@@ -21,6 +21,12 @@ class DependabotOrganizationSecretArgs:
                  selected_repository_ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None):
         """
         The set of arguments for constructing a DependabotOrganizationSecret resource.
+        :param pulumi.Input[str] secret_name: Name of the secret.
+        :param pulumi.Input[str] visibility: Configures the access that repositories have to the organization secret. Must be one of 'all', 'private' or 'selected'.
+               'selected_repository_ids' is required if set to 'selected'.
+        :param pulumi.Input[str] encrypted_value: Encrypted value of the secret using the GitHub public key in Base64 format.
+        :param pulumi.Input[str] plaintext_value: Plaintext value of the secret to be encrypted.
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] selected_repository_ids: An array of repository ids that can access the organization secret.
         """
         pulumi.set(__self__, "secret_name", secret_name)
         pulumi.set(__self__, "visibility", visibility)
@@ -34,6 +40,9 @@ class DependabotOrganizationSecretArgs:
     @property
     @pulumi.getter(name="secretName")
     def secret_name(self) -> pulumi.Input[str]:
+        """
+        Name of the secret.
+        """
         return pulumi.get(self, "secret_name")
 
     @secret_name.setter
@@ -43,6 +52,10 @@ class DependabotOrganizationSecretArgs:
     @property
     @pulumi.getter
     def visibility(self) -> pulumi.Input[str]:
+        """
+        Configures the access that repositories have to the organization secret. Must be one of 'all', 'private' or 'selected'.
+        'selected_repository_ids' is required if set to 'selected'.
+        """
         return pulumi.get(self, "visibility")
 
     @visibility.setter
@@ -52,6 +65,9 @@ class DependabotOrganizationSecretArgs:
     @property
     @pulumi.getter(name="encryptedValue")
     def encrypted_value(self) -> Optional[pulumi.Input[str]]:
+        """
+        Encrypted value of the secret using the GitHub public key in Base64 format.
+        """
         return pulumi.get(self, "encrypted_value")
 
     @encrypted_value.setter
@@ -61,6 +77,9 @@ class DependabotOrganizationSecretArgs:
     @property
     @pulumi.getter(name="plaintextValue")
     def plaintext_value(self) -> Optional[pulumi.Input[str]]:
+        """
+        Plaintext value of the secret to be encrypted.
+        """
         return pulumi.get(self, "plaintext_value")
 
     @plaintext_value.setter
@@ -70,6 +89,9 @@ class DependabotOrganizationSecretArgs:
     @property
     @pulumi.getter(name="selectedRepositoryIds")
     def selected_repository_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
+        """
+        An array of repository ids that can access the organization secret.
+        """
         return pulumi.get(self, "selected_repository_ids")
 
     @selected_repository_ids.setter
@@ -89,6 +111,14 @@ class _DependabotOrganizationSecretState:
                  visibility: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering DependabotOrganizationSecret resources.
+        :param pulumi.Input[str] created_at: Date of 'dependabot_secret' creation.
+        :param pulumi.Input[str] encrypted_value: Encrypted value of the secret using the GitHub public key in Base64 format.
+        :param pulumi.Input[str] plaintext_value: Plaintext value of the secret to be encrypted.
+        :param pulumi.Input[str] secret_name: Name of the secret.
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] selected_repository_ids: An array of repository ids that can access the organization secret.
+        :param pulumi.Input[str] updated_at: Date of 'dependabot_secret' update.
+        :param pulumi.Input[str] visibility: Configures the access that repositories have to the organization secret. Must be one of 'all', 'private' or 'selected'.
+               'selected_repository_ids' is required if set to 'selected'.
         """
         if created_at is not None:
             pulumi.set(__self__, "created_at", created_at)
@@ -108,6 +138,9 @@ class _DependabotOrganizationSecretState:
     @property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> Optional[pulumi.Input[str]]:
+        """
+        Date of 'dependabot_secret' creation.
+        """
         return pulumi.get(self, "created_at")
 
     @created_at.setter
@@ -117,6 +150,9 @@ class _DependabotOrganizationSecretState:
     @property
     @pulumi.getter(name="encryptedValue")
     def encrypted_value(self) -> Optional[pulumi.Input[str]]:
+        """
+        Encrypted value of the secret using the GitHub public key in Base64 format.
+        """
         return pulumi.get(self, "encrypted_value")
 
     @encrypted_value.setter
@@ -126,6 +162,9 @@ class _DependabotOrganizationSecretState:
     @property
     @pulumi.getter(name="plaintextValue")
     def plaintext_value(self) -> Optional[pulumi.Input[str]]:
+        """
+        Plaintext value of the secret to be encrypted.
+        """
         return pulumi.get(self, "plaintext_value")
 
     @plaintext_value.setter
@@ -135,6 +174,9 @@ class _DependabotOrganizationSecretState:
     @property
     @pulumi.getter(name="secretName")
     def secret_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the secret.
+        """
         return pulumi.get(self, "secret_name")
 
     @secret_name.setter
@@ -144,6 +186,9 @@ class _DependabotOrganizationSecretState:
     @property
     @pulumi.getter(name="selectedRepositoryIds")
     def selected_repository_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
+        """
+        An array of repository ids that can access the organization secret.
+        """
         return pulumi.get(self, "selected_repository_ids")
 
     @selected_repository_ids.setter
@@ -153,6 +198,9 @@ class _DependabotOrganizationSecretState:
     @property
     @pulumi.getter(name="updatedAt")
     def updated_at(self) -> Optional[pulumi.Input[str]]:
+        """
+        Date of 'dependabot_secret' update.
+        """
         return pulumi.get(self, "updated_at")
 
     @updated_at.setter
@@ -162,6 +210,10 @@ class _DependabotOrganizationSecretState:
     @property
     @pulumi.getter
     def visibility(self) -> Optional[pulumi.Input[str]]:
+        """
+        Configures the access that repositories have to the organization secret. Must be one of 'all', 'private' or 'selected'.
+        'selected_repository_ids' is required if set to 'selected'.
+        """
         return pulumi.get(self, "visibility")
 
     @visibility.setter
@@ -184,6 +236,12 @@ class DependabotOrganizationSecret(pulumi.CustomResource):
         Create a DependabotOrganizationSecret resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] encrypted_value: Encrypted value of the secret using the GitHub public key in Base64 format.
+        :param pulumi.Input[str] plaintext_value: Plaintext value of the secret to be encrypted.
+        :param pulumi.Input[str] secret_name: Name of the secret.
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] selected_repository_ids: An array of repository ids that can access the organization secret.
+        :param pulumi.Input[str] visibility: Configures the access that repositories have to the organization secret. Must be one of 'all', 'private' or 'selected'.
+               'selected_repository_ids' is required if set to 'selected'.
         """
         ...
     @overload
@@ -259,6 +317,14 @@ class DependabotOrganizationSecret(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] created_at: Date of 'dependabot_secret' creation.
+        :param pulumi.Input[str] encrypted_value: Encrypted value of the secret using the GitHub public key in Base64 format.
+        :param pulumi.Input[str] plaintext_value: Plaintext value of the secret to be encrypted.
+        :param pulumi.Input[str] secret_name: Name of the secret.
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] selected_repository_ids: An array of repository ids that can access the organization secret.
+        :param pulumi.Input[str] updated_at: Date of 'dependabot_secret' update.
+        :param pulumi.Input[str] visibility: Configures the access that repositories have to the organization secret. Must be one of 'all', 'private' or 'selected'.
+               'selected_repository_ids' is required if set to 'selected'.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -276,35 +342,57 @@ class DependabotOrganizationSecret(pulumi.CustomResource):
     @property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> pulumi.Output[str]:
+        """
+        Date of 'dependabot_secret' creation.
+        """
         return pulumi.get(self, "created_at")
 
     @property
     @pulumi.getter(name="encryptedValue")
     def encrypted_value(self) -> pulumi.Output[Optional[str]]:
+        """
+        Encrypted value of the secret using the GitHub public key in Base64 format.
+        """
         return pulumi.get(self, "encrypted_value")
 
     @property
     @pulumi.getter(name="plaintextValue")
     def plaintext_value(self) -> pulumi.Output[Optional[str]]:
+        """
+        Plaintext value of the secret to be encrypted.
+        """
         return pulumi.get(self, "plaintext_value")
 
     @property
     @pulumi.getter(name="secretName")
     def secret_name(self) -> pulumi.Output[str]:
+        """
+        Name of the secret.
+        """
         return pulumi.get(self, "secret_name")
 
     @property
     @pulumi.getter(name="selectedRepositoryIds")
     def selected_repository_ids(self) -> pulumi.Output[Optional[Sequence[int]]]:
+        """
+        An array of repository ids that can access the organization secret.
+        """
         return pulumi.get(self, "selected_repository_ids")
 
     @property
     @pulumi.getter(name="updatedAt")
     def updated_at(self) -> pulumi.Output[str]:
+        """
+        Date of 'dependabot_secret' update.
+        """
         return pulumi.get(self, "updated_at")
 
     @property
     @pulumi.getter
     def visibility(self) -> pulumi.Output[str]:
+        """
+        Configures the access that repositories have to the organization secret. Must be one of 'all', 'private' or 'selected'.
+        'selected_repository_ids' is required if set to 'selected'.
+        """
         return pulumi.get(self, "visibility")
 

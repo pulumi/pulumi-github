@@ -12,21 +12,39 @@ namespace Pulumi.Github
     [GithubResourceType("github:index/dependabotSecret:DependabotSecret")]
     public partial class DependabotSecret : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Date of 'dependabot_secret' creation.
+        /// </summary>
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
 
+        /// <summary>
+        /// Encrypted value of the secret using the GitHub public key in Base64 format.
+        /// </summary>
         [Output("encryptedValue")]
         public Output<string?> EncryptedValue { get; private set; } = null!;
 
+        /// <summary>
+        /// Plaintext value of the secret to be encrypted.
+        /// </summary>
         [Output("plaintextValue")]
         public Output<string?> PlaintextValue { get; private set; } = null!;
 
+        /// <summary>
+        /// Name of the repository.
+        /// </summary>
         [Output("repository")]
         public Output<string> Repository { get; private set; } = null!;
 
+        /// <summary>
+        /// Name of the secret.
+        /// </summary>
         [Output("secretName")]
         public Output<string> SecretName { get; private set; } = null!;
 
+        /// <summary>
+        /// Date of 'dependabot_secret' update.
+        /// </summary>
         [Output("updatedAt")]
         public Output<string> UpdatedAt { get; private set; } = null!;
 
@@ -83,6 +101,10 @@ namespace Pulumi.Github
     {
         [Input("encryptedValue")]
         private Input<string>? _encryptedValue;
+
+        /// <summary>
+        /// Encrypted value of the secret using the GitHub public key in Base64 format.
+        /// </summary>
         public Input<string>? EncryptedValue
         {
             get => _encryptedValue;
@@ -95,6 +117,10 @@ namespace Pulumi.Github
 
         [Input("plaintextValue")]
         private Input<string>? _plaintextValue;
+
+        /// <summary>
+        /// Plaintext value of the secret to be encrypted.
+        /// </summary>
         public Input<string>? PlaintextValue
         {
             get => _plaintextValue;
@@ -105,9 +131,15 @@ namespace Pulumi.Github
             }
         }
 
+        /// <summary>
+        /// Name of the repository.
+        /// </summary>
         [Input("repository", required: true)]
         public Input<string> Repository { get; set; } = null!;
 
+        /// <summary>
+        /// Name of the secret.
+        /// </summary>
         [Input("secretName", required: true)]
         public Input<string> SecretName { get; set; } = null!;
 
@@ -119,11 +151,18 @@ namespace Pulumi.Github
 
     public sealed class DependabotSecretState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Date of 'dependabot_secret' creation.
+        /// </summary>
         [Input("createdAt")]
         public Input<string>? CreatedAt { get; set; }
 
         [Input("encryptedValue")]
         private Input<string>? _encryptedValue;
+
+        /// <summary>
+        /// Encrypted value of the secret using the GitHub public key in Base64 format.
+        /// </summary>
         public Input<string>? EncryptedValue
         {
             get => _encryptedValue;
@@ -136,6 +175,10 @@ namespace Pulumi.Github
 
         [Input("plaintextValue")]
         private Input<string>? _plaintextValue;
+
+        /// <summary>
+        /// Plaintext value of the secret to be encrypted.
+        /// </summary>
         public Input<string>? PlaintextValue
         {
             get => _plaintextValue;
@@ -146,12 +189,21 @@ namespace Pulumi.Github
             }
         }
 
+        /// <summary>
+        /// Name of the repository.
+        /// </summary>
         [Input("repository")]
         public Input<string>? Repository { get; set; }
 
+        /// <summary>
+        /// Name of the secret.
+        /// </summary>
         [Input("secretName")]
         public Input<string>? SecretName { get; set; }
 
+        /// <summary>
+        /// Date of 'dependabot_secret' update.
+        /// </summary>
         [Input("updatedAt")]
         public Input<string>? UpdatedAt { get; set; }
 

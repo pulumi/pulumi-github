@@ -15,16 +15,14 @@ public final class GetRepositoryFilePlainArgs extends com.pulumi.resources.Invok
     public static final GetRepositoryFilePlainArgs Empty = new GetRepositoryFilePlainArgs();
 
     /**
-     * Git branch (if omitted, the default repository branch is used, which is usually `main`)
-     * The branch must already exist; it will not be created if it does not already exist.
+     * Git branch. Defaults to `main`.
      * 
      */
     @Import(name="branch")
     private @Nullable String branch;
 
     /**
-     * @return Git branch (if omitted, the default repository branch is used, which is usually `main`)
-     * The branch must already exist; it will not be created if it does not already exist.
+     * @return Git branch. Defaults to `main`.
      * 
      */
     public Optional<String> branch() {
@@ -88,8 +86,7 @@ public final class GetRepositoryFilePlainArgs extends com.pulumi.resources.Invok
         }
 
         /**
-         * @param branch Git branch (if omitted, the default repository branch is used, which is usually `main`)
-         * The branch must already exist; it will not be created if it does not already exist.
+         * @param branch Git branch. Defaults to `main`.
          * 
          * @return builder
          * 

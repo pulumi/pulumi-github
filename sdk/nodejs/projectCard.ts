@@ -83,6 +83,9 @@ export class ProjectCard extends pulumi.CustomResource {
         return obj['__pulumiType'] === ProjectCard.__pulumiType;
     }
 
+    /**
+     * The ID of the card.
+     */
     public /*out*/ readonly cardId!: pulumi.Output<number>;
     /**
      * The ID of the card.
@@ -142,6 +145,9 @@ export class ProjectCard extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ProjectCard resources.
  */
 export interface ProjectCardState {
+    /**
+     * The ID of the card.
+     */
     cardId?: pulumi.Input<number>;
     /**
      * The ID of the card.

@@ -16,9 +16,17 @@ public final class ProjectCardState extends com.pulumi.resources.ResourceArgs {
 
     public static final ProjectCardState Empty = new ProjectCardState();
 
+    /**
+     * The ID of the card.
+     * 
+     */
     @Import(name="cardId")
     private @Nullable Output<Integer> cardId;
 
+    /**
+     * @return The ID of the card.
+     * 
+     */
     public Optional<Output<Integer>> cardId() {
         return Optional.ofNullable(this.cardId);
     }
@@ -119,11 +127,23 @@ public final class ProjectCardState extends com.pulumi.resources.ResourceArgs {
             $ = new ProjectCardState(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param cardId The ID of the card.
+         * 
+         * @return builder
+         * 
+         */
         public Builder cardId(@Nullable Output<Integer> cardId) {
             $.cardId = cardId;
             return this;
         }
 
+        /**
+         * @param cardId The ID of the card.
+         * 
+         * @return builder
+         * 
+         */
         public Builder cardId(Integer cardId) {
             return cardId(Output.of(cardId));
         }

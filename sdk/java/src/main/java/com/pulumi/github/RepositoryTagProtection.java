@@ -87,9 +87,17 @@ public class RepositoryTagProtection extends com.pulumi.resources.CustomResource
     public Output<String> repository() {
         return this.repository;
     }
+    /**
+     * The ID of the tag protection.
+     * 
+     */
     @Export(name="tagProtectionId", type=Integer.class, parameters={})
     private Output<Integer> tagProtectionId;
 
+    /**
+     * @return The ID of the tag protection.
+     * 
+     */
     public Output<Integer> tagProtectionId() {
         return this.tagProtectionId;
     }

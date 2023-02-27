@@ -93,6 +93,7 @@ class _ProjectCardState:
                  note: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering ProjectCard resources.
+        :param pulumi.Input[int] card_id: The ID of the card.
         :param pulumi.Input[str] column_id: The ID of the card.
         :param pulumi.Input[int] content_id: `github_issue.issue_id`.
         :param pulumi.Input[str] content_type: Must be either `Issue` or `PullRequest`
@@ -114,6 +115,9 @@ class _ProjectCardState:
     @property
     @pulumi.getter(name="cardId")
     def card_id(self) -> Optional[pulumi.Input[int]]:
+        """
+        The ID of the card.
+        """
         return pulumi.get(self, "card_id")
 
     @card_id.setter
@@ -352,6 +356,7 @@ class ProjectCard(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[int] card_id: The ID of the card.
         :param pulumi.Input[str] column_id: The ID of the card.
         :param pulumi.Input[int] content_id: `github_issue.issue_id`.
         :param pulumi.Input[str] content_type: Must be either `Issue` or `PullRequest`
@@ -372,6 +377,9 @@ class ProjectCard(pulumi.CustomResource):
     @property
     @pulumi.getter(name="cardId")
     def card_id(self) -> pulumi.Output[int]:
+        """
+        The ID of the card.
+        """
         return pulumi.get(self, "card_id")
 
     @property

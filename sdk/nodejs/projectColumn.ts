@@ -45,6 +45,9 @@ export class ProjectColumn extends pulumi.CustomResource {
         return obj['__pulumiType'] === ProjectColumn.__pulumiType;
     }
 
+    /**
+     * The ID of the column.
+     */
     public /*out*/ readonly columnId!: pulumi.Output<number>;
     public /*out*/ readonly etag!: pulumi.Output<string>;
     /**
@@ -92,6 +95,9 @@ export class ProjectColumn extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ProjectColumn resources.
  */
 export interface ProjectColumnState {
+    /**
+     * The ID of the column.
+     */
     columnId?: pulumi.Input<number>;
     etag?: pulumi.Input<string>;
     /**

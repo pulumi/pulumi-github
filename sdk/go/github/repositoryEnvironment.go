@@ -75,12 +75,14 @@ import (
 type RepositoryEnvironment struct {
 	pulumi.CustomResourceState
 
+	// The deployment branch policy configuration
 	DeploymentBranchPolicy RepositoryEnvironmentDeploymentBranchPolicyPtrOutput `pulumi:"deploymentBranchPolicy"`
 	// The name of the environment.
 	Environment pulumi.StringOutput `pulumi:"environment"`
 	// The repository of the environment.
-	Repository pulumi.StringOutput                      `pulumi:"repository"`
-	Reviewers  RepositoryEnvironmentReviewerArrayOutput `pulumi:"reviewers"`
+	Repository pulumi.StringOutput `pulumi:"repository"`
+	// The environment reviewers configuration.
+	Reviewers RepositoryEnvironmentReviewerArrayOutput `pulumi:"reviewers"`
 	// Amount of time to delay a job after the job is initially triggered.
 	WaitTimer pulumi.IntPtrOutput `pulumi:"waitTimer"`
 }
@@ -120,23 +122,27 @@ func GetRepositoryEnvironment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RepositoryEnvironment resources.
 type repositoryEnvironmentState struct {
+	// The deployment branch policy configuration
 	DeploymentBranchPolicy *RepositoryEnvironmentDeploymentBranchPolicy `pulumi:"deploymentBranchPolicy"`
 	// The name of the environment.
 	Environment *string `pulumi:"environment"`
 	// The repository of the environment.
-	Repository *string                         `pulumi:"repository"`
-	Reviewers  []RepositoryEnvironmentReviewer `pulumi:"reviewers"`
+	Repository *string `pulumi:"repository"`
+	// The environment reviewers configuration.
+	Reviewers []RepositoryEnvironmentReviewer `pulumi:"reviewers"`
 	// Amount of time to delay a job after the job is initially triggered.
 	WaitTimer *int `pulumi:"waitTimer"`
 }
 
 type RepositoryEnvironmentState struct {
+	// The deployment branch policy configuration
 	DeploymentBranchPolicy RepositoryEnvironmentDeploymentBranchPolicyPtrInput
 	// The name of the environment.
 	Environment pulumi.StringPtrInput
 	// The repository of the environment.
 	Repository pulumi.StringPtrInput
-	Reviewers  RepositoryEnvironmentReviewerArrayInput
+	// The environment reviewers configuration.
+	Reviewers RepositoryEnvironmentReviewerArrayInput
 	// Amount of time to delay a job after the job is initially triggered.
 	WaitTimer pulumi.IntPtrInput
 }
@@ -146,24 +152,28 @@ func (RepositoryEnvironmentState) ElementType() reflect.Type {
 }
 
 type repositoryEnvironmentArgs struct {
+	// The deployment branch policy configuration
 	DeploymentBranchPolicy *RepositoryEnvironmentDeploymentBranchPolicy `pulumi:"deploymentBranchPolicy"`
 	// The name of the environment.
 	Environment string `pulumi:"environment"`
 	// The repository of the environment.
-	Repository string                          `pulumi:"repository"`
-	Reviewers  []RepositoryEnvironmentReviewer `pulumi:"reviewers"`
+	Repository string `pulumi:"repository"`
+	// The environment reviewers configuration.
+	Reviewers []RepositoryEnvironmentReviewer `pulumi:"reviewers"`
 	// Amount of time to delay a job after the job is initially triggered.
 	WaitTimer *int `pulumi:"waitTimer"`
 }
 
 // The set of arguments for constructing a RepositoryEnvironment resource.
 type RepositoryEnvironmentArgs struct {
+	// The deployment branch policy configuration
 	DeploymentBranchPolicy RepositoryEnvironmentDeploymentBranchPolicyPtrInput
 	// The name of the environment.
 	Environment pulumi.StringInput
 	// The repository of the environment.
 	Repository pulumi.StringInput
-	Reviewers  RepositoryEnvironmentReviewerArrayInput
+	// The environment reviewers configuration.
+	Reviewers RepositoryEnvironmentReviewerArrayInput
 	// Amount of time to delay a job after the job is initially triggered.
 	WaitTimer pulumi.IntPtrInput
 }
@@ -255,6 +265,7 @@ func (o RepositoryEnvironmentOutput) ToRepositoryEnvironmentOutputWithContext(ct
 	return o
 }
 
+// The deployment branch policy configuration
 func (o RepositoryEnvironmentOutput) DeploymentBranchPolicy() RepositoryEnvironmentDeploymentBranchPolicyPtrOutput {
 	return o.ApplyT(func(v *RepositoryEnvironment) RepositoryEnvironmentDeploymentBranchPolicyPtrOutput {
 		return v.DeploymentBranchPolicy
@@ -271,6 +282,7 @@ func (o RepositoryEnvironmentOutput) Repository() pulumi.StringOutput {
 	return o.ApplyT(func(v *RepositoryEnvironment) pulumi.StringOutput { return v.Repository }).(pulumi.StringOutput)
 }
 
+// The environment reviewers configuration.
 func (o RepositoryEnvironmentOutput) Reviewers() RepositoryEnvironmentReviewerArrayOutput {
 	return o.ApplyT(func(v *RepositoryEnvironment) RepositoryEnvironmentReviewerArrayOutput { return v.Reviewers }).(RepositoryEnvironmentReviewerArrayOutput)
 }

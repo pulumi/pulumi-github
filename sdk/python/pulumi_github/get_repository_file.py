@@ -163,8 +163,7 @@ def get_repository_file(branch: Optional[str] = None,
     ```
 
 
-    :param str branch: Git branch (if omitted, the default repository branch is used, which is usually `main`)
-           The branch must already exist; it will not be created if it does not already exist.
+    :param str branch: Git branch. Defaults to `main`.
     :param str file: The path of the file to manage.
     :param str repository: The repository to read the file from. If an unqualified repo name (without an owner) is passed, the owner will be inferred from the owner of the token used to execute the plan. If a name of the type "owner/repo" (with a slash in the middle) is passed, the owner will be as specified and not the owner of the token.
     """
@@ -209,8 +208,7 @@ def get_repository_file_output(branch: Optional[pulumi.Input[Optional[str]]] = N
     ```
 
 
-    :param str branch: Git branch (if omitted, the default repository branch is used, which is usually `main`)
-           The branch must already exist; it will not be created if it does not already exist.
+    :param str branch: Git branch. Defaults to `main`.
     :param str file: The path of the file to manage.
     :param str repository: The repository to read the file from. If an unqualified repo name (without an owner) is passed, the owner will be inferred from the owner of the token used to execute the plan. If a name of the type "owner/repo" (with a slash in the middle) is passed, the owner will be as specified and not the owner of the token.
     """

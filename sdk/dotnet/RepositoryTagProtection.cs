@@ -53,6 +53,9 @@ namespace Pulumi.Github
         [Output("repository")]
         public Output<string> Repository { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the tag protection.
+        /// </summary>
         [Output("tagProtectionId")]
         public Output<int> TagProtectionId { get; private set; } = null!;
 
@@ -134,6 +137,9 @@ namespace Pulumi.Github
         [Input("repository")]
         public Input<string>? Repository { get; set; }
 
+        /// <summary>
+        /// The ID of the tag protection.
+        /// </summary>
         [Input("tagProtectionId")]
         public Input<int>? TagProtectionId { get; set; }
 

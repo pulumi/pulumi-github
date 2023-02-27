@@ -59,6 +59,7 @@ class _ProjectColumnState:
                  project_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering ProjectColumn resources.
+        :param pulumi.Input[int] column_id: The ID of the column.
         :param pulumi.Input[str] name: The name of the column.
         :param pulumi.Input[str] project_id: The ID of an existing project that the column will be created in.
         """
@@ -74,6 +75,9 @@ class _ProjectColumnState:
     @property
     @pulumi.getter(name="columnId")
     def column_id(self) -> Optional[pulumi.Input[int]]:
+        """
+        The ID of the column.
+        """
         return pulumi.get(self, "column_id")
 
     @column_id.setter
@@ -212,6 +216,7 @@ class ProjectColumn(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[int] column_id: The ID of the column.
         :param pulumi.Input[str] name: The name of the column.
         :param pulumi.Input[str] project_id: The ID of an existing project that the column will be created in.
         """
@@ -228,6 +233,9 @@ class ProjectColumn(pulumi.CustomResource):
     @property
     @pulumi.getter(name="columnId")
     def column_id(self) -> pulumi.Output[int]:
+        """
+        The ID of the column.
+        """
         return pulumi.get(self, "column_id")
 
     @property

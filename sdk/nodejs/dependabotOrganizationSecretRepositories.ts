@@ -32,7 +32,13 @@ export class DependabotOrganizationSecretRepositories extends pulumi.CustomResou
         return obj['__pulumiType'] === DependabotOrganizationSecretRepositories.__pulumiType;
     }
 
+    /**
+     * Name of the existing secret.
+     */
     public readonly secretName!: pulumi.Output<string>;
+    /**
+     * An array of repository ids that can access the organization secret.
+     */
     public readonly selectedRepositoryIds!: pulumi.Output<number[]>;
 
     /**
@@ -70,7 +76,13 @@ export class DependabotOrganizationSecretRepositories extends pulumi.CustomResou
  * Input properties used for looking up and filtering DependabotOrganizationSecretRepositories resources.
  */
 export interface DependabotOrganizationSecretRepositoriesState {
+    /**
+     * Name of the existing secret.
+     */
     secretName?: pulumi.Input<string>;
+    /**
+     * An array of repository ids that can access the organization secret.
+     */
     selectedRepositoryIds?: pulumi.Input<pulumi.Input<number>[]>;
 }
 
@@ -78,6 +90,12 @@ export interface DependabotOrganizationSecretRepositoriesState {
  * The set of arguments for constructing a DependabotOrganizationSecretRepositories resource.
  */
 export interface DependabotOrganizationSecretRepositoriesArgs {
+    /**
+     * Name of the existing secret.
+     */
     secretName: pulumi.Input<string>;
+    /**
+     * An array of repository ids that can access the organization secret.
+     */
     selectedRepositoryIds: pulumi.Input<pulumi.Input<number>[]>;
 }

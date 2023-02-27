@@ -14,12 +14,18 @@ import (
 type DependabotSecret struct {
 	pulumi.CustomResourceState
 
-	CreatedAt      pulumi.StringOutput    `pulumi:"createdAt"`
+	// Date of 'dependabot_secret' creation.
+	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
+	// Encrypted value of the secret using the GitHub public key in Base64 format.
 	EncryptedValue pulumi.StringPtrOutput `pulumi:"encryptedValue"`
+	// Plaintext value of the secret to be encrypted.
 	PlaintextValue pulumi.StringPtrOutput `pulumi:"plaintextValue"`
-	Repository     pulumi.StringOutput    `pulumi:"repository"`
-	SecretName     pulumi.StringOutput    `pulumi:"secretName"`
-	UpdatedAt      pulumi.StringOutput    `pulumi:"updatedAt"`
+	// Name of the repository.
+	Repository pulumi.StringOutput `pulumi:"repository"`
+	// Name of the secret.
+	SecretName pulumi.StringOutput `pulumi:"secretName"`
+	// Date of 'dependabot_secret' update.
+	UpdatedAt pulumi.StringOutput `pulumi:"updatedAt"`
 }
 
 // NewDependabotSecret registers a new resource with the given unique name, arguments, and options.
@@ -68,21 +74,33 @@ func GetDependabotSecret(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DependabotSecret resources.
 type dependabotSecretState struct {
-	CreatedAt      *string `pulumi:"createdAt"`
+	// Date of 'dependabot_secret' creation.
+	CreatedAt *string `pulumi:"createdAt"`
+	// Encrypted value of the secret using the GitHub public key in Base64 format.
 	EncryptedValue *string `pulumi:"encryptedValue"`
+	// Plaintext value of the secret to be encrypted.
 	PlaintextValue *string `pulumi:"plaintextValue"`
-	Repository     *string `pulumi:"repository"`
-	SecretName     *string `pulumi:"secretName"`
-	UpdatedAt      *string `pulumi:"updatedAt"`
+	// Name of the repository.
+	Repository *string `pulumi:"repository"`
+	// Name of the secret.
+	SecretName *string `pulumi:"secretName"`
+	// Date of 'dependabot_secret' update.
+	UpdatedAt *string `pulumi:"updatedAt"`
 }
 
 type DependabotSecretState struct {
-	CreatedAt      pulumi.StringPtrInput
+	// Date of 'dependabot_secret' creation.
+	CreatedAt pulumi.StringPtrInput
+	// Encrypted value of the secret using the GitHub public key in Base64 format.
 	EncryptedValue pulumi.StringPtrInput
+	// Plaintext value of the secret to be encrypted.
 	PlaintextValue pulumi.StringPtrInput
-	Repository     pulumi.StringPtrInput
-	SecretName     pulumi.StringPtrInput
-	UpdatedAt      pulumi.StringPtrInput
+	// Name of the repository.
+	Repository pulumi.StringPtrInput
+	// Name of the secret.
+	SecretName pulumi.StringPtrInput
+	// Date of 'dependabot_secret' update.
+	UpdatedAt pulumi.StringPtrInput
 }
 
 func (DependabotSecretState) ElementType() reflect.Type {
@@ -90,18 +108,26 @@ func (DependabotSecretState) ElementType() reflect.Type {
 }
 
 type dependabotSecretArgs struct {
+	// Encrypted value of the secret using the GitHub public key in Base64 format.
 	EncryptedValue *string `pulumi:"encryptedValue"`
+	// Plaintext value of the secret to be encrypted.
 	PlaintextValue *string `pulumi:"plaintextValue"`
-	Repository     string  `pulumi:"repository"`
-	SecretName     string  `pulumi:"secretName"`
+	// Name of the repository.
+	Repository string `pulumi:"repository"`
+	// Name of the secret.
+	SecretName string `pulumi:"secretName"`
 }
 
 // The set of arguments for constructing a DependabotSecret resource.
 type DependabotSecretArgs struct {
+	// Encrypted value of the secret using the GitHub public key in Base64 format.
 	EncryptedValue pulumi.StringPtrInput
+	// Plaintext value of the secret to be encrypted.
 	PlaintextValue pulumi.StringPtrInput
-	Repository     pulumi.StringInput
-	SecretName     pulumi.StringInput
+	// Name of the repository.
+	Repository pulumi.StringInput
+	// Name of the secret.
+	SecretName pulumi.StringInput
 }
 
 func (DependabotSecretArgs) ElementType() reflect.Type {
@@ -191,26 +217,32 @@ func (o DependabotSecretOutput) ToDependabotSecretOutputWithContext(ctx context.
 	return o
 }
 
+// Date of 'dependabot_secret' creation.
 func (o DependabotSecretOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *DependabotSecret) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
+// Encrypted value of the secret using the GitHub public key in Base64 format.
 func (o DependabotSecretOutput) EncryptedValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DependabotSecret) pulumi.StringPtrOutput { return v.EncryptedValue }).(pulumi.StringPtrOutput)
 }
 
+// Plaintext value of the secret to be encrypted.
 func (o DependabotSecretOutput) PlaintextValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DependabotSecret) pulumi.StringPtrOutput { return v.PlaintextValue }).(pulumi.StringPtrOutput)
 }
 
+// Name of the repository.
 func (o DependabotSecretOutput) Repository() pulumi.StringOutput {
 	return o.ApplyT(func(v *DependabotSecret) pulumi.StringOutput { return v.Repository }).(pulumi.StringOutput)
 }
 
+// Name of the secret.
 func (o DependabotSecretOutput) SecretName() pulumi.StringOutput {
 	return o.ApplyT(func(v *DependabotSecret) pulumi.StringOutput { return v.SecretName }).(pulumi.StringOutput)
 }
 
+// Date of 'dependabot_secret' update.
 func (o DependabotSecretOutput) UpdatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *DependabotSecret) pulumi.StringOutput { return v.UpdatedAt }).(pulumi.StringOutput)
 }

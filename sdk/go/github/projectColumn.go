@@ -47,6 +47,7 @@ import (
 type ProjectColumn struct {
 	pulumi.CustomResourceState
 
+	// The ID of the column.
 	ColumnId pulumi.IntOutput    `pulumi:"columnId"`
 	Etag     pulumi.StringOutput `pulumi:"etag"`
 	// The name of the column.
@@ -87,6 +88,7 @@ func GetProjectColumn(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ProjectColumn resources.
 type projectColumnState struct {
+	// The ID of the column.
 	ColumnId *int    `pulumi:"columnId"`
 	Etag     *string `pulumi:"etag"`
 	// The name of the column.
@@ -96,6 +98,7 @@ type projectColumnState struct {
 }
 
 type ProjectColumnState struct {
+	// The ID of the column.
 	ColumnId pulumi.IntPtrInput
 	Etag     pulumi.StringPtrInput
 	// The name of the column.
@@ -210,6 +213,7 @@ func (o ProjectColumnOutput) ToProjectColumnOutputWithContext(ctx context.Contex
 	return o
 }
 
+// The ID of the column.
 func (o ProjectColumnOutput) ColumnId() pulumi.IntOutput {
 	return o.ApplyT(func(v *ProjectColumn) pulumi.IntOutput { return v.ColumnId }).(pulumi.IntOutput)
 }

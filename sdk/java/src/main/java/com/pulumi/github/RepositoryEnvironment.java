@@ -84,9 +84,17 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="github:index/repositoryEnvironment:RepositoryEnvironment")
 public class RepositoryEnvironment extends com.pulumi.resources.CustomResource {
+    /**
+     * The deployment branch policy configuration
+     * 
+     */
     @Export(name="deploymentBranchPolicy", type=RepositoryEnvironmentDeploymentBranchPolicy.class, parameters={})
     private Output</* @Nullable */ RepositoryEnvironmentDeploymentBranchPolicy> deploymentBranchPolicy;
 
+    /**
+     * @return The deployment branch policy configuration
+     * 
+     */
     public Output<Optional<RepositoryEnvironmentDeploymentBranchPolicy>> deploymentBranchPolicy() {
         return Codegen.optional(this.deploymentBranchPolicy);
     }
@@ -118,9 +126,17 @@ public class RepositoryEnvironment extends com.pulumi.resources.CustomResource {
     public Output<String> repository() {
         return this.repository;
     }
+    /**
+     * The environment reviewers configuration.
+     * 
+     */
     @Export(name="reviewers", type=List.class, parameters={RepositoryEnvironmentReviewer.class})
     private Output</* @Nullable */ List<RepositoryEnvironmentReviewer>> reviewers;
 
+    /**
+     * @return The environment reviewers configuration.
+     * 
+     */
     public Output<Optional<List<RepositoryEnvironmentReviewer>>> reviewers() {
         return Codegen.optional(this.reviewers);
     }

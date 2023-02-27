@@ -63,6 +63,9 @@ export class RepositoryTagProtection extends pulumi.CustomResource {
      * Name of the repository to add the tag protection to.
      */
     public readonly repository!: pulumi.Output<string>;
+    /**
+     * The ID of the tag protection.
+     */
     public /*out*/ readonly tagProtectionId!: pulumi.Output<number>;
 
     /**
@@ -110,6 +113,9 @@ export interface RepositoryTagProtectionState {
      * Name of the repository to add the tag protection to.
      */
     repository?: pulumi.Input<string>;
+    /**
+     * The ID of the tag protection.
+     */
     tagProtectionId?: pulumi.Input<number>;
 }
 

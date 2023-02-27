@@ -17,15 +17,31 @@ import javax.annotation.Nullable;
 
 @ResourceType(type="github:index/dependabotOrganizationSecretRepositories:DependabotOrganizationSecretRepositories")
 public class DependabotOrganizationSecretRepositories extends com.pulumi.resources.CustomResource {
+    /**
+     * Name of the existing secret.
+     * 
+     */
     @Export(name="secretName", type=String.class, parameters={})
     private Output<String> secretName;
 
+    /**
+     * @return Name of the existing secret.
+     * 
+     */
     public Output<String> secretName() {
         return this.secretName;
     }
+    /**
+     * An array of repository ids that can access the organization secret.
+     * 
+     */
     @Export(name="selectedRepositoryIds", type=List.class, parameters={Integer.class})
     private Output<List<Integer>> selectedRepositoryIds;
 
+    /**
+     * @return An array of repository ids that can access the organization secret.
+     * 
+     */
     public Output<List<Integer>> selectedRepositoryIds() {
         return this.selectedRepositoryIds;
     }

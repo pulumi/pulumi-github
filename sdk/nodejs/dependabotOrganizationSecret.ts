@@ -32,12 +32,34 @@ export class DependabotOrganizationSecret extends pulumi.CustomResource {
         return obj['__pulumiType'] === DependabotOrganizationSecret.__pulumiType;
     }
 
+    /**
+     * Date of 'dependabot_secret' creation.
+     */
     public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    /**
+     * Encrypted value of the secret using the GitHub public key in Base64 format.
+     */
     public readonly encryptedValue!: pulumi.Output<string | undefined>;
+    /**
+     * Plaintext value of the secret to be encrypted.
+     */
     public readonly plaintextValue!: pulumi.Output<string | undefined>;
+    /**
+     * Name of the secret.
+     */
     public readonly secretName!: pulumi.Output<string>;
+    /**
+     * An array of repository ids that can access the organization secret.
+     */
     public readonly selectedRepositoryIds!: pulumi.Output<number[] | undefined>;
+    /**
+     * Date of 'dependabot_secret' update.
+     */
     public /*out*/ readonly updatedAt!: pulumi.Output<string>;
+    /**
+     * Configures the access that repositories have to the organization secret. Must be one of 'all', 'private' or 'selected'.
+     * 'selected_repository_ids' is required if set to 'selected'.
+     */
     public readonly visibility!: pulumi.Output<string>;
 
     /**
@@ -87,12 +109,34 @@ export class DependabotOrganizationSecret extends pulumi.CustomResource {
  * Input properties used for looking up and filtering DependabotOrganizationSecret resources.
  */
 export interface DependabotOrganizationSecretState {
+    /**
+     * Date of 'dependabot_secret' creation.
+     */
     createdAt?: pulumi.Input<string>;
+    /**
+     * Encrypted value of the secret using the GitHub public key in Base64 format.
+     */
     encryptedValue?: pulumi.Input<string>;
+    /**
+     * Plaintext value of the secret to be encrypted.
+     */
     plaintextValue?: pulumi.Input<string>;
+    /**
+     * Name of the secret.
+     */
     secretName?: pulumi.Input<string>;
+    /**
+     * An array of repository ids that can access the organization secret.
+     */
     selectedRepositoryIds?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * Date of 'dependabot_secret' update.
+     */
     updatedAt?: pulumi.Input<string>;
+    /**
+     * Configures the access that repositories have to the organization secret. Must be one of 'all', 'private' or 'selected'.
+     * 'selected_repository_ids' is required if set to 'selected'.
+     */
     visibility?: pulumi.Input<string>;
 }
 
@@ -100,9 +144,25 @@ export interface DependabotOrganizationSecretState {
  * The set of arguments for constructing a DependabotOrganizationSecret resource.
  */
 export interface DependabotOrganizationSecretArgs {
+    /**
+     * Encrypted value of the secret using the GitHub public key in Base64 format.
+     */
     encryptedValue?: pulumi.Input<string>;
+    /**
+     * Plaintext value of the secret to be encrypted.
+     */
     plaintextValue?: pulumi.Input<string>;
+    /**
+     * Name of the secret.
+     */
     secretName: pulumi.Input<string>;
+    /**
+     * An array of repository ids that can access the organization secret.
+     */
     selectedRepositoryIds?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * Configures the access that repositories have to the organization secret. Must be one of 'all', 'private' or 'selected'.
+     * 'selected_repository_ids' is required if set to 'selected'.
+     */
     visibility: pulumi.Input<string>;
 }

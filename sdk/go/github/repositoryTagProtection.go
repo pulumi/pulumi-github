@@ -55,8 +55,9 @@ type RepositoryTagProtection struct {
 	// The pattern of the tag to protect.
 	Pattern pulumi.StringOutput `pulumi:"pattern"`
 	// Name of the repository to add the tag protection to.
-	Repository      pulumi.StringOutput `pulumi:"repository"`
-	TagProtectionId pulumi.IntOutput    `pulumi:"tagProtectionId"`
+	Repository pulumi.StringOutput `pulumi:"repository"`
+	// The ID of the tag protection.
+	TagProtectionId pulumi.IntOutput `pulumi:"tagProtectionId"`
 }
 
 // NewRepositoryTagProtection registers a new resource with the given unique name, arguments, and options.
@@ -97,15 +98,17 @@ type repositoryTagProtectionState struct {
 	// The pattern of the tag to protect.
 	Pattern *string `pulumi:"pattern"`
 	// Name of the repository to add the tag protection to.
-	Repository      *string `pulumi:"repository"`
-	TagProtectionId *int    `pulumi:"tagProtectionId"`
+	Repository *string `pulumi:"repository"`
+	// The ID of the tag protection.
+	TagProtectionId *int `pulumi:"tagProtectionId"`
 }
 
 type RepositoryTagProtectionState struct {
 	// The pattern of the tag to protect.
 	Pattern pulumi.StringPtrInput
 	// Name of the repository to add the tag protection to.
-	Repository      pulumi.StringPtrInput
+	Repository pulumi.StringPtrInput
+	// The ID of the tag protection.
 	TagProtectionId pulumi.IntPtrInput
 }
 
@@ -225,6 +228,7 @@ func (o RepositoryTagProtectionOutput) Repository() pulumi.StringOutput {
 	return o.ApplyT(func(v *RepositoryTagProtection) pulumi.StringOutput { return v.Repository }).(pulumi.StringOutput)
 }
 
+// The ID of the tag protection.
 func (o RepositoryTagProtectionOutput) TagProtectionId() pulumi.IntOutput {
 	return o.ApplyT(func(v *RepositoryTagProtection) pulumi.IntOutput { return v.TagProtectionId }).(pulumi.IntOutput)
 }

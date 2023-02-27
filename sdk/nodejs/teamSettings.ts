@@ -84,11 +84,11 @@ export class TeamSettings extends pulumi.CustomResource {
      */
     public readonly teamId!: pulumi.Output<string>;
     /**
-     * The slug of the Team within the Organization
+     * The slug of the Team within the Organization.
      */
     public /*out*/ readonly teamSlug!: pulumi.Output<string>;
     /**
-     * The unique ID of the Team on GitHub. Corresponds to the ID of the github_team_settings resource
+     * The unique ID of the Team on GitHub. Corresponds to the ID of the 'github_team_settings' resource.
      */
     public /*out*/ readonly teamUid!: pulumi.Output<string>;
 
@@ -137,11 +137,11 @@ export interface TeamSettingsState {
      */
     teamId?: pulumi.Input<string>;
     /**
-     * The slug of the Team within the Organization
+     * The slug of the Team within the Organization.
      */
     teamSlug?: pulumi.Input<string>;
     /**
-     * The unique ID of the Team on GitHub. Corresponds to the ID of the github_team_settings resource
+     * The unique ID of the Team on GitHub. Corresponds to the ID of the 'github_team_settings' resource.
      */
     teamUid?: pulumi.Input<string>;
 }

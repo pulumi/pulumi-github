@@ -36,8 +36,7 @@ export function getRepositoryFile(args: GetRepositoryFileArgs, opts?: pulumi.Inv
  */
 export interface GetRepositoryFileArgs {
     /**
-     * Git branch (if omitted, the default repository branch is used, which is usually `main`)
-     * The branch must already exist; it will not be created if it does not already exist.
+     * Git branch. Defaults to `main`.
      */
     branch?: string;
     /**
@@ -112,8 +111,7 @@ export function getRepositoryFileOutput(args: GetRepositoryFileOutputArgs, opts?
  */
 export interface GetRepositoryFileOutputArgs {
     /**
-     * Git branch (if omitted, the default repository branch is used, which is usually `main`)
-     * The branch must already exist; it will not be created if it does not already exist.
+     * Git branch. Defaults to `main`.
      */
     branch?: pulumi.Input<string>;
     /**

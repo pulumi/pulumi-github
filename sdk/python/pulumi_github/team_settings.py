@@ -63,8 +63,8 @@ class _TeamSettingsState:
         Input properties used for looking up and filtering TeamSettings resources.
         :param pulumi.Input['TeamSettingsReviewRequestDelegationArgs'] review_request_delegation: The settings for delegating code reviews to individuals on behalf of the team. If this block is present, even without any fields, then review request delegation will be enabled for the team. See GitHub Review Request Delegation below for details. See [GitHub's documentation](https://docs.github.com/en/organizations/organizing-members-into-teams/managing-code-review-settings-for-your-team#configuring-team-notifications) for more configuration details.
         :param pulumi.Input[str] team_id: The GitHub team id or the GitHub team slug
-        :param pulumi.Input[str] team_slug: The slug of the Team within the Organization
-        :param pulumi.Input[str] team_uid: The unique ID of the Team on GitHub. Corresponds to the ID of the github_team_settings resource
+        :param pulumi.Input[str] team_slug: The slug of the Team within the Organization.
+        :param pulumi.Input[str] team_uid: The unique ID of the Team on GitHub. Corresponds to the ID of the 'github_team_settings' resource.
         """
         if review_request_delegation is not None:
             pulumi.set(__self__, "review_request_delegation", review_request_delegation)
@@ -103,7 +103,7 @@ class _TeamSettingsState:
     @pulumi.getter(name="teamSlug")
     def team_slug(self) -> Optional[pulumi.Input[str]]:
         """
-        The slug of the Team within the Organization
+        The slug of the Team within the Organization.
         """
         return pulumi.get(self, "team_slug")
 
@@ -115,7 +115,7 @@ class _TeamSettingsState:
     @pulumi.getter(name="teamUid")
     def team_uid(self) -> Optional[pulumi.Input[str]]:
         """
-        The unique ID of the Team on GitHub. Corresponds to the ID of the github_team_settings resource
+        The unique ID of the Team on GitHub. Corresponds to the ID of the 'github_team_settings' resource.
         """
         return pulumi.get(self, "team_uid")
 
@@ -278,8 +278,8 @@ class TeamSettings(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['TeamSettingsReviewRequestDelegationArgs']] review_request_delegation: The settings for delegating code reviews to individuals on behalf of the team. If this block is present, even without any fields, then review request delegation will be enabled for the team. See GitHub Review Request Delegation below for details. See [GitHub's documentation](https://docs.github.com/en/organizations/organizing-members-into-teams/managing-code-review-settings-for-your-team#configuring-team-notifications) for more configuration details.
         :param pulumi.Input[str] team_id: The GitHub team id or the GitHub team slug
-        :param pulumi.Input[str] team_slug: The slug of the Team within the Organization
-        :param pulumi.Input[str] team_uid: The unique ID of the Team on GitHub. Corresponds to the ID of the github_team_settings resource
+        :param pulumi.Input[str] team_slug: The slug of the Team within the Organization.
+        :param pulumi.Input[str] team_uid: The unique ID of the Team on GitHub. Corresponds to the ID of the 'github_team_settings' resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -311,7 +311,7 @@ class TeamSettings(pulumi.CustomResource):
     @pulumi.getter(name="teamSlug")
     def team_slug(self) -> pulumi.Output[str]:
         """
-        The slug of the Team within the Organization
+        The slug of the Team within the Organization.
         """
         return pulumi.get(self, "team_slug")
 
@@ -319,7 +319,7 @@ class TeamSettings(pulumi.CustomResource):
     @pulumi.getter(name="teamUid")
     def team_uid(self) -> pulumi.Output[str]:
         """
-        The unique ID of the Team on GitHub. Corresponds to the ID of the github_team_settings resource
+        The unique ID of the Team on GitHub. Corresponds to the ID of the 'github_team_settings' resource.
         """
         return pulumi.get(self, "team_uid")
 

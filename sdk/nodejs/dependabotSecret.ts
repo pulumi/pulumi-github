@@ -32,11 +32,29 @@ export class DependabotSecret extends pulumi.CustomResource {
         return obj['__pulumiType'] === DependabotSecret.__pulumiType;
     }
 
+    /**
+     * Date of 'dependabot_secret' creation.
+     */
     public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    /**
+     * Encrypted value of the secret using the GitHub public key in Base64 format.
+     */
     public readonly encryptedValue!: pulumi.Output<string | undefined>;
+    /**
+     * Plaintext value of the secret to be encrypted.
+     */
     public readonly plaintextValue!: pulumi.Output<string | undefined>;
+    /**
+     * Name of the repository.
+     */
     public readonly repository!: pulumi.Output<string>;
+    /**
+     * Name of the secret.
+     */
     public readonly secretName!: pulumi.Output<string>;
+    /**
+     * Date of 'dependabot_secret' update.
+     */
     public /*out*/ readonly updatedAt!: pulumi.Output<string>;
 
     /**
@@ -84,11 +102,29 @@ export class DependabotSecret extends pulumi.CustomResource {
  * Input properties used for looking up and filtering DependabotSecret resources.
  */
 export interface DependabotSecretState {
+    /**
+     * Date of 'dependabot_secret' creation.
+     */
     createdAt?: pulumi.Input<string>;
+    /**
+     * Encrypted value of the secret using the GitHub public key in Base64 format.
+     */
     encryptedValue?: pulumi.Input<string>;
+    /**
+     * Plaintext value of the secret to be encrypted.
+     */
     plaintextValue?: pulumi.Input<string>;
+    /**
+     * Name of the repository.
+     */
     repository?: pulumi.Input<string>;
+    /**
+     * Name of the secret.
+     */
     secretName?: pulumi.Input<string>;
+    /**
+     * Date of 'dependabot_secret' update.
+     */
     updatedAt?: pulumi.Input<string>;
 }
 
@@ -96,8 +132,20 @@ export interface DependabotSecretState {
  * The set of arguments for constructing a DependabotSecret resource.
  */
 export interface DependabotSecretArgs {
+    /**
+     * Encrypted value of the secret using the GitHub public key in Base64 format.
+     */
     encryptedValue?: pulumi.Input<string>;
+    /**
+     * Plaintext value of the secret to be encrypted.
+     */
     plaintextValue?: pulumi.Input<string>;
+    /**
+     * Name of the repository.
+     */
     repository: pulumi.Input<string>;
+    /**
+     * Name of the secret.
+     */
     secretName: pulumi.Input<string>;
 }
