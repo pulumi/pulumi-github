@@ -56,9 +56,17 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="github:index/projectColumn:ProjectColumn")
 public class ProjectColumn extends com.pulumi.resources.CustomResource {
+    /**
+     * The ID of the column.
+     * 
+     */
     @Export(name="columnId", type=Integer.class, parameters={})
     private Output<Integer> columnId;
 
+    /**
+     * @return The ID of the column.
+     * 
+     */
     public Output<Integer> columnId() {
         return this.columnId;
     }

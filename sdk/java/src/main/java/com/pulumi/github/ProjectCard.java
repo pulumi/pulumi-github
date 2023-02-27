@@ -131,9 +131,17 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="github:index/projectCard:ProjectCard")
 public class ProjectCard extends com.pulumi.resources.CustomResource {
+    /**
+     * The ID of the card.
+     * 
+     */
     @Export(name="cardId", type=Integer.class, parameters={})
     private Output<Integer> cardId;
 
+    /**
+     * @return The ID of the card.
+     * 
+     */
     public Output<Integer> cardId() {
         return this.cardId;
     }

@@ -19,6 +19,7 @@ class ActionsRepositoryOidcSubjectClaimCustomizationTemplateArgs:
                  include_claim_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a ActionsRepositoryOidcSubjectClaimCustomizationTemplate resource.
+        :param pulumi.Input[str] repository: The name of the repository.
         :param pulumi.Input[bool] use_default: Whether to use the default template or not. If `true`, `include_claim_keys` must not
                be set.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] include_claim_keys: A list of OpenID Connect claims.
@@ -31,6 +32,9 @@ class ActionsRepositoryOidcSubjectClaimCustomizationTemplateArgs:
     @property
     @pulumi.getter
     def repository(self) -> pulumi.Input[str]:
+        """
+        The name of the repository.
+        """
         return pulumi.get(self, "repository")
 
     @repository.setter
@@ -72,6 +76,7 @@ class _ActionsRepositoryOidcSubjectClaimCustomizationTemplateState:
         """
         Input properties used for looking up and filtering ActionsRepositoryOidcSubjectClaimCustomizationTemplate resources.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] include_claim_keys: A list of OpenID Connect claims.
+        :param pulumi.Input[str] repository: The name of the repository.
         :param pulumi.Input[bool] use_default: Whether to use the default template or not. If `true`, `include_claim_keys` must not
                be set.
         """
@@ -97,6 +102,9 @@ class _ActionsRepositoryOidcSubjectClaimCustomizationTemplateState:
     @property
     @pulumi.getter
     def repository(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the repository.
+        """
         return pulumi.get(self, "repository")
 
     @repository.setter
@@ -169,6 +177,7 @@ class ActionsRepositoryOidcSubjectClaimCustomizationTemplate(pulumi.CustomResour
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] include_claim_keys: A list of OpenID Connect claims.
+        :param pulumi.Input[str] repository: The name of the repository.
         :param pulumi.Input[bool] use_default: Whether to use the default template or not. If `true`, `include_claim_keys` must not
                be set.
         """
@@ -273,6 +282,7 @@ class ActionsRepositoryOidcSubjectClaimCustomizationTemplate(pulumi.CustomResour
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] include_claim_keys: A list of OpenID Connect claims.
+        :param pulumi.Input[str] repository: The name of the repository.
         :param pulumi.Input[bool] use_default: Whether to use the default template or not. If `true`, `include_claim_keys` must not
                be set.
         """
@@ -296,6 +306,9 @@ class ActionsRepositoryOidcSubjectClaimCustomizationTemplate(pulumi.CustomResour
     @property
     @pulumi.getter
     def repository(self) -> pulumi.Output[str]:
+        """
+        The name of the repository.
+        """
         return pulumi.get(self, "repository")
 
     @property

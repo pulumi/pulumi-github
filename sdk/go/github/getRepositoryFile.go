@@ -51,8 +51,7 @@ func LookupRepositoryFile(ctx *pulumi.Context, args *LookupRepositoryFileArgs, o
 
 // A collection of arguments for invoking getRepositoryFile.
 type LookupRepositoryFileArgs struct {
-	// Git branch (if omitted, the default repository branch is used, which is usually `main`)
-	// The branch must already exist; it will not be created if it does not already exist.
+	// Git branch. Defaults to `main`.
 	Branch *string `pulumi:"branch"`
 	// The path of the file to manage.
 	File string `pulumi:"file"`
@@ -96,8 +95,7 @@ func LookupRepositoryFileOutput(ctx *pulumi.Context, args LookupRepositoryFileOu
 
 // A collection of arguments for invoking getRepositoryFile.
 type LookupRepositoryFileOutputArgs struct {
-	// Git branch (if omitted, the default repository branch is used, which is usually `main`)
-	// The branch must already exist; it will not be created if it does not already exist.
+	// Git branch. Defaults to `main`.
 	Branch pulumi.StringPtrInput `pulumi:"branch"`
 	// The path of the file to manage.
 	File pulumi.StringInput `pulumi:"file"`

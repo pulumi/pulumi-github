@@ -16,9 +16,17 @@ public final class ProjectColumnState extends com.pulumi.resources.ResourceArgs 
 
     public static final ProjectColumnState Empty = new ProjectColumnState();
 
+    /**
+     * The ID of the column.
+     * 
+     */
     @Import(name="columnId")
     private @Nullable Output<Integer> columnId;
 
+    /**
+     * @return The ID of the column.
+     * 
+     */
     public Optional<Output<Integer>> columnId() {
         return Optional.ofNullable(this.columnId);
     }
@@ -87,11 +95,23 @@ public final class ProjectColumnState extends com.pulumi.resources.ResourceArgs 
             $ = new ProjectColumnState(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param columnId The ID of the column.
+         * 
+         * @return builder
+         * 
+         */
         public Builder columnId(@Nullable Output<Integer> columnId) {
             $.columnId = columnId;
             return this;
         }
 
+        /**
+         * @param columnId The ID of the column.
+         * 
+         * @return builder
+         * 
+         */
         public Builder columnId(Integer columnId) {
             return columnId(Output.of(columnId));
         }

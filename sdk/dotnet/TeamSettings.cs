@@ -77,13 +77,13 @@ namespace Pulumi.Github
         public Output<string> TeamId { get; private set; } = null!;
 
         /// <summary>
-        /// The slug of the Team within the Organization
+        /// The slug of the Team within the Organization.
         /// </summary>
         [Output("teamSlug")]
         public Output<string> TeamSlug { get; private set; } = null!;
 
         /// <summary>
-        /// The unique ID of the Team on GitHub. Corresponds to the ID of the github_team_settings resource
+        /// The unique ID of the Team on GitHub. Corresponds to the ID of the 'github_team_settings' resource.
         /// </summary>
         [Output("teamUid")]
         public Output<string> TeamUid { get; private set; } = null!;
@@ -167,13 +167,13 @@ namespace Pulumi.Github
         public Input<string>? TeamId { get; set; }
 
         /// <summary>
-        /// The slug of the Team within the Organization
+        /// The slug of the Team within the Organization.
         /// </summary>
         [Input("teamSlug")]
         public Input<string>? TeamSlug { get; set; }
 
         /// <summary>
-        /// The unique ID of the Team on GitHub. Corresponds to the ID of the github_team_settings resource
+        /// The unique ID of the Team on GitHub. Corresponds to the ID of the 'github_team_settings' resource.
         /// </summary>
         [Input("teamUid")]
         public Input<string>? TeamUid { get; set; }

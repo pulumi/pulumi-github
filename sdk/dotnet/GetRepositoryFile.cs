@@ -78,8 +78,7 @@ namespace Pulumi.Github
     public sealed class GetRepositoryFileArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Git branch (if omitted, the default repository branch is used, which is usually `main`)
-        /// The branch must already exist; it will not be created if it does not already exist.
+        /// Git branch. Defaults to `main`.
         /// </summary>
         [Input("branch")]
         public string? Branch { get; set; }
@@ -105,8 +104,7 @@ namespace Pulumi.Github
     public sealed class GetRepositoryFileInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Git branch (if omitted, the default repository branch is used, which is usually `main`)
-        /// The branch must already exist; it will not be created if it does not already exist.
+        /// Git branch. Defaults to `main`.
         /// </summary>
         [Input("branch")]
         public Input<string>? Branch { get; set; }

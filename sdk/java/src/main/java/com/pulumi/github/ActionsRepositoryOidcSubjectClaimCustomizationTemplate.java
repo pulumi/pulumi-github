@@ -94,9 +94,17 @@ public class ActionsRepositoryOidcSubjectClaimCustomizationTemplate extends com.
     public Output<Optional<List<String>>> includeClaimKeys() {
         return Codegen.optional(this.includeClaimKeys);
     }
+    /**
+     * The name of the repository.
+     * 
+     */
     @Export(name="repository", type=String.class, parameters={})
     private Output<String> repository;
 
+    /**
+     * @return The name of the repository.
+     * 
+     */
     public Output<String> repository() {
         return this.repository;
     }

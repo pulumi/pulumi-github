@@ -59,6 +59,7 @@ class _RepositoryTagProtectionState:
         Input properties used for looking up and filtering RepositoryTagProtection resources.
         :param pulumi.Input[str] pattern: The pattern of the tag to protect.
         :param pulumi.Input[str] repository: Name of the repository to add the tag protection to.
+        :param pulumi.Input[int] tag_protection_id: The ID of the tag protection.
         """
         if pattern is not None:
             pulumi.set(__self__, "pattern", pattern)
@@ -94,6 +95,9 @@ class _RepositoryTagProtectionState:
     @property
     @pulumi.getter(name="tagProtectionId")
     def tag_protection_id(self) -> Optional[pulumi.Input[int]]:
+        """
+        The ID of the tag protection.
+        """
         return pulumi.get(self, "tag_protection_id")
 
     @tag_protection_id.setter
@@ -219,6 +223,7 @@ class RepositoryTagProtection(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] pattern: The pattern of the tag to protect.
         :param pulumi.Input[str] repository: Name of the repository to add the tag protection to.
+        :param pulumi.Input[int] tag_protection_id: The ID of the tag protection.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -248,5 +253,8 @@ class RepositoryTagProtection(pulumi.CustomResource):
     @property
     @pulumi.getter(name="tagProtectionId")
     def tag_protection_id(self) -> pulumi.Output[int]:
+        """
+        The ID of the tag protection.
+        """
         return pulumi.get(self, "tag_protection_id")
 

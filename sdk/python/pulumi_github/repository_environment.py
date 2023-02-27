@@ -25,6 +25,8 @@ class RepositoryEnvironmentArgs:
         The set of arguments for constructing a RepositoryEnvironment resource.
         :param pulumi.Input[str] environment: The name of the environment.
         :param pulumi.Input[str] repository: The repository of the environment.
+        :param pulumi.Input['RepositoryEnvironmentDeploymentBranchPolicyArgs'] deployment_branch_policy: The deployment branch policy configuration
+        :param pulumi.Input[Sequence[pulumi.Input['RepositoryEnvironmentReviewerArgs']]] reviewers: The environment reviewers configuration.
         :param pulumi.Input[int] wait_timer: Amount of time to delay a job after the job is initially triggered.
         """
         pulumi.set(__self__, "environment", environment)
@@ -63,6 +65,9 @@ class RepositoryEnvironmentArgs:
     @property
     @pulumi.getter(name="deploymentBranchPolicy")
     def deployment_branch_policy(self) -> Optional[pulumi.Input['RepositoryEnvironmentDeploymentBranchPolicyArgs']]:
+        """
+        The deployment branch policy configuration
+        """
         return pulumi.get(self, "deployment_branch_policy")
 
     @deployment_branch_policy.setter
@@ -72,6 +77,9 @@ class RepositoryEnvironmentArgs:
     @property
     @pulumi.getter
     def reviewers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryEnvironmentReviewerArgs']]]]:
+        """
+        The environment reviewers configuration.
+        """
         return pulumi.get(self, "reviewers")
 
     @reviewers.setter
@@ -101,8 +109,10 @@ class _RepositoryEnvironmentState:
                  wait_timer: Optional[pulumi.Input[int]] = None):
         """
         Input properties used for looking up and filtering RepositoryEnvironment resources.
+        :param pulumi.Input['RepositoryEnvironmentDeploymentBranchPolicyArgs'] deployment_branch_policy: The deployment branch policy configuration
         :param pulumi.Input[str] environment: The name of the environment.
         :param pulumi.Input[str] repository: The repository of the environment.
+        :param pulumi.Input[Sequence[pulumi.Input['RepositoryEnvironmentReviewerArgs']]] reviewers: The environment reviewers configuration.
         :param pulumi.Input[int] wait_timer: Amount of time to delay a job after the job is initially triggered.
         """
         if deployment_branch_policy is not None:
@@ -119,6 +129,9 @@ class _RepositoryEnvironmentState:
     @property
     @pulumi.getter(name="deploymentBranchPolicy")
     def deployment_branch_policy(self) -> Optional[pulumi.Input['RepositoryEnvironmentDeploymentBranchPolicyArgs']]:
+        """
+        The deployment branch policy configuration
+        """
         return pulumi.get(self, "deployment_branch_policy")
 
     @deployment_branch_policy.setter
@@ -152,6 +165,9 @@ class _RepositoryEnvironmentState:
     @property
     @pulumi.getter
     def reviewers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryEnvironmentReviewerArgs']]]]:
+        """
+        The environment reviewers configuration.
+        """
         return pulumi.get(self, "reviewers")
 
     @reviewers.setter
@@ -215,8 +231,10 @@ class RepositoryEnvironment(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['RepositoryEnvironmentDeploymentBranchPolicyArgs']] deployment_branch_policy: The deployment branch policy configuration
         :param pulumi.Input[str] environment: The name of the environment.
         :param pulumi.Input[str] repository: The repository of the environment.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RepositoryEnvironmentReviewerArgs']]]] reviewers: The environment reviewers configuration.
         :param pulumi.Input[int] wait_timer: Amount of time to delay a job after the job is initially triggered.
         """
         ...
@@ -316,8 +334,10 @@ class RepositoryEnvironment(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['RepositoryEnvironmentDeploymentBranchPolicyArgs']] deployment_branch_policy: The deployment branch policy configuration
         :param pulumi.Input[str] environment: The name of the environment.
         :param pulumi.Input[str] repository: The repository of the environment.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RepositoryEnvironmentReviewerArgs']]]] reviewers: The environment reviewers configuration.
         :param pulumi.Input[int] wait_timer: Amount of time to delay a job after the job is initially triggered.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -334,6 +354,9 @@ class RepositoryEnvironment(pulumi.CustomResource):
     @property
     @pulumi.getter(name="deploymentBranchPolicy")
     def deployment_branch_policy(self) -> pulumi.Output[Optional['outputs.RepositoryEnvironmentDeploymentBranchPolicy']]:
+        """
+        The deployment branch policy configuration
+        """
         return pulumi.get(self, "deployment_branch_policy")
 
     @property
@@ -355,6 +378,9 @@ class RepositoryEnvironment(pulumi.CustomResource):
     @property
     @pulumi.getter
     def reviewers(self) -> pulumi.Output[Optional[Sequence['outputs.RepositoryEnvironmentReviewer']]]:
+        """
+        The environment reviewers configuration.
+        """
         return pulumi.get(self, "reviewers")
 
     @property

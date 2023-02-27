@@ -12,9 +12,15 @@ namespace Pulumi.Github
     [GithubResourceType("github:index/dependabotOrganizationSecretRepositories:DependabotOrganizationSecretRepositories")]
     public partial class DependabotOrganizationSecretRepositories : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Name of the existing secret.
+        /// </summary>
         [Output("secretName")]
         public Output<string> SecretName { get; private set; } = null!;
 
+        /// <summary>
+        /// An array of repository ids that can access the organization secret.
+        /// </summary>
         [Output("selectedRepositoryIds")]
         public Output<ImmutableArray<int>> SelectedRepositoryIds { get; private set; } = null!;
 
@@ -64,11 +70,18 @@ namespace Pulumi.Github
 
     public sealed class DependabotOrganizationSecretRepositoriesArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Name of the existing secret.
+        /// </summary>
         [Input("secretName", required: true)]
         public Input<string> SecretName { get; set; } = null!;
 
         [Input("selectedRepositoryIds", required: true)]
         private InputList<int>? _selectedRepositoryIds;
+
+        /// <summary>
+        /// An array of repository ids that can access the organization secret.
+        /// </summary>
         public InputList<int> SelectedRepositoryIds
         {
             get => _selectedRepositoryIds ?? (_selectedRepositoryIds = new InputList<int>());
@@ -83,11 +96,18 @@ namespace Pulumi.Github
 
     public sealed class DependabotOrganizationSecretRepositoriesState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Name of the existing secret.
+        /// </summary>
         [Input("secretName")]
         public Input<string>? SecretName { get; set; }
 
         [Input("selectedRepositoryIds")]
         private InputList<int>? _selectedRepositoryIds;
+
+        /// <summary>
+        /// An array of repository ids that can access the organization secret.
+        /// </summary>
         public InputList<int> SelectedRepositoryIds
         {
             get => _selectedRepositoryIds ?? (_selectedRepositoryIds = new InputList<int>());

@@ -32,9 +32,17 @@ public final class ActionsRepositoryOidcSubjectClaimCustomizationTemplateArgs ex
         return Optional.ofNullable(this.includeClaimKeys);
     }
 
+    /**
+     * The name of the repository.
+     * 
+     */
     @Import(name="repository", required=true)
     private Output<String> repository;
 
+    /**
+     * @return The name of the repository.
+     * 
+     */
     public Output<String> repository() {
         return this.repository;
     }
@@ -113,11 +121,23 @@ public final class ActionsRepositoryOidcSubjectClaimCustomizationTemplateArgs ex
             return includeClaimKeys(List.of(includeClaimKeys));
         }
 
+        /**
+         * @param repository The name of the repository.
+         * 
+         * @return builder
+         * 
+         */
         public Builder repository(Output<String> repository) {
             $.repository = repository;
             return this;
         }
 
+        /**
+         * @param repository The name of the repository.
+         * 
+         * @return builder
+         * 
+         */
         public Builder repository(String repository) {
             return repository(Output.of(repository));
         }

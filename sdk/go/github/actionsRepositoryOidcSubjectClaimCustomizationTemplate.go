@@ -75,7 +75,8 @@ type ActionsRepositoryOidcSubjectClaimCustomizationTemplate struct {
 
 	// A list of OpenID Connect claims.
 	IncludeClaimKeys pulumi.StringArrayOutput `pulumi:"includeClaimKeys"`
-	Repository       pulumi.StringOutput      `pulumi:"repository"`
+	// The name of the repository.
+	Repository pulumi.StringOutput `pulumi:"repository"`
 	// Whether to use the default template or not. If `true`, `includeClaimKeys` must not
 	// be set.
 	UseDefault pulumi.BoolOutput `pulumi:"useDefault"`
@@ -118,7 +119,8 @@ func GetActionsRepositoryOidcSubjectClaimCustomizationTemplate(ctx *pulumi.Conte
 type actionsRepositoryOidcSubjectClaimCustomizationTemplateState struct {
 	// A list of OpenID Connect claims.
 	IncludeClaimKeys []string `pulumi:"includeClaimKeys"`
-	Repository       *string  `pulumi:"repository"`
+	// The name of the repository.
+	Repository *string `pulumi:"repository"`
 	// Whether to use the default template or not. If `true`, `includeClaimKeys` must not
 	// be set.
 	UseDefault *bool `pulumi:"useDefault"`
@@ -127,7 +129,8 @@ type actionsRepositoryOidcSubjectClaimCustomizationTemplateState struct {
 type ActionsRepositoryOidcSubjectClaimCustomizationTemplateState struct {
 	// A list of OpenID Connect claims.
 	IncludeClaimKeys pulumi.StringArrayInput
-	Repository       pulumi.StringPtrInput
+	// The name of the repository.
+	Repository pulumi.StringPtrInput
 	// Whether to use the default template or not. If `true`, `includeClaimKeys` must not
 	// be set.
 	UseDefault pulumi.BoolPtrInput
@@ -140,7 +143,8 @@ func (ActionsRepositoryOidcSubjectClaimCustomizationTemplateState) ElementType()
 type actionsRepositoryOidcSubjectClaimCustomizationTemplateArgs struct {
 	// A list of OpenID Connect claims.
 	IncludeClaimKeys []string `pulumi:"includeClaimKeys"`
-	Repository       string   `pulumi:"repository"`
+	// The name of the repository.
+	Repository string `pulumi:"repository"`
 	// Whether to use the default template or not. If `true`, `includeClaimKeys` must not
 	// be set.
 	UseDefault bool `pulumi:"useDefault"`
@@ -150,7 +154,8 @@ type actionsRepositoryOidcSubjectClaimCustomizationTemplateArgs struct {
 type ActionsRepositoryOidcSubjectClaimCustomizationTemplateArgs struct {
 	// A list of OpenID Connect claims.
 	IncludeClaimKeys pulumi.StringArrayInput
-	Repository       pulumi.StringInput
+	// The name of the repository.
+	Repository pulumi.StringInput
 	// Whether to use the default template or not. If `true`, `includeClaimKeys` must not
 	// be set.
 	UseDefault pulumi.BoolInput
@@ -250,6 +255,7 @@ func (o ActionsRepositoryOidcSubjectClaimCustomizationTemplateOutput) IncludeCla
 	}).(pulumi.StringArrayOutput)
 }
 
+// The name of the repository.
 func (o ActionsRepositoryOidcSubjectClaimCustomizationTemplateOutput) Repository() pulumi.StringOutput {
 	return o.ApplyT(func(v *ActionsRepositoryOidcSubjectClaimCustomizationTemplate) pulumi.StringOutput {
 		return v.Repository

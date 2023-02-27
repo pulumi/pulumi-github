@@ -47,14 +47,14 @@ public final class TeamSettingsState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The slug of the Team within the Organization
+     * The slug of the Team within the Organization.
      * 
      */
     @Import(name="teamSlug")
     private @Nullable Output<String> teamSlug;
 
     /**
-     * @return The slug of the Team within the Organization
+     * @return The slug of the Team within the Organization.
      * 
      */
     public Optional<Output<String>> teamSlug() {
@@ -62,14 +62,14 @@ public final class TeamSettingsState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The unique ID of the Team on GitHub. Corresponds to the ID of the github_team_settings resource
+     * The unique ID of the Team on GitHub. Corresponds to the ID of the &#39;github_team_settings&#39; resource.
      * 
      */
     @Import(name="teamUid")
     private @Nullable Output<String> teamUid;
 
     /**
-     * @return The unique ID of the Team on GitHub. Corresponds to the ID of the github_team_settings resource
+     * @return The unique ID of the Team on GitHub. Corresponds to the ID of the &#39;github_team_settings&#39; resource.
      * 
      */
     public Optional<Output<String>> teamUid() {
@@ -146,7 +146,7 @@ public final class TeamSettingsState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param teamSlug The slug of the Team within the Organization
+         * @param teamSlug The slug of the Team within the Organization.
          * 
          * @return builder
          * 
@@ -157,7 +157,7 @@ public final class TeamSettingsState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param teamSlug The slug of the Team within the Organization
+         * @param teamSlug The slug of the Team within the Organization.
          * 
          * @return builder
          * 
@@ -167,7 +167,7 @@ public final class TeamSettingsState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param teamUid The unique ID of the Team on GitHub. Corresponds to the ID of the github_team_settings resource
+         * @param teamUid The unique ID of the Team on GitHub. Corresponds to the ID of the &#39;github_team_settings&#39; resource.
          * 
          * @return builder
          * 
@@ -178,7 +178,7 @@ public final class TeamSettingsState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param teamUid The unique ID of the Team on GitHub. Corresponds to the ID of the github_team_settings resource
+         * @param teamUid The unique ID of the Team on GitHub. Corresponds to the ID of the &#39;github_team_settings&#39; resource.
          * 
          * @return builder
          * 

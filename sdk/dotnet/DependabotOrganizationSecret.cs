@@ -12,24 +12,46 @@ namespace Pulumi.Github
     [GithubResourceType("github:index/dependabotOrganizationSecret:DependabotOrganizationSecret")]
     public partial class DependabotOrganizationSecret : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Date of 'dependabot_secret' creation.
+        /// </summary>
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
 
+        /// <summary>
+        /// Encrypted value of the secret using the GitHub public key in Base64 format.
+        /// </summary>
         [Output("encryptedValue")]
         public Output<string?> EncryptedValue { get; private set; } = null!;
 
+        /// <summary>
+        /// Plaintext value of the secret to be encrypted.
+        /// </summary>
         [Output("plaintextValue")]
         public Output<string?> PlaintextValue { get; private set; } = null!;
 
+        /// <summary>
+        /// Name of the secret.
+        /// </summary>
         [Output("secretName")]
         public Output<string> SecretName { get; private set; } = null!;
 
+        /// <summary>
+        /// An array of repository ids that can access the organization secret.
+        /// </summary>
         [Output("selectedRepositoryIds")]
         public Output<ImmutableArray<int>> SelectedRepositoryIds { get; private set; } = null!;
 
+        /// <summary>
+        /// Date of 'dependabot_secret' update.
+        /// </summary>
         [Output("updatedAt")]
         public Output<string> UpdatedAt { get; private set; } = null!;
 
+        /// <summary>
+        /// Configures the access that repositories have to the organization secret. Must be one of 'all', 'private' or 'selected'.
+        /// 'selected_repository_ids' is required if set to 'selected'.
+        /// </summary>
         [Output("visibility")]
         public Output<string> Visibility { get; private set; } = null!;
 
@@ -86,6 +108,10 @@ namespace Pulumi.Github
     {
         [Input("encryptedValue")]
         private Input<string>? _encryptedValue;
+
+        /// <summary>
+        /// Encrypted value of the secret using the GitHub public key in Base64 format.
+        /// </summary>
         public Input<string>? EncryptedValue
         {
             get => _encryptedValue;
@@ -98,6 +124,10 @@ namespace Pulumi.Github
 
         [Input("plaintextValue")]
         private Input<string>? _plaintextValue;
+
+        /// <summary>
+        /// Plaintext value of the secret to be encrypted.
+        /// </summary>
         public Input<string>? PlaintextValue
         {
             get => _plaintextValue;
@@ -108,17 +138,28 @@ namespace Pulumi.Github
             }
         }
 
+        /// <summary>
+        /// Name of the secret.
+        /// </summary>
         [Input("secretName", required: true)]
         public Input<string> SecretName { get; set; } = null!;
 
         [Input("selectedRepositoryIds")]
         private InputList<int>? _selectedRepositoryIds;
+
+        /// <summary>
+        /// An array of repository ids that can access the organization secret.
+        /// </summary>
         public InputList<int> SelectedRepositoryIds
         {
             get => _selectedRepositoryIds ?? (_selectedRepositoryIds = new InputList<int>());
             set => _selectedRepositoryIds = value;
         }
 
+        /// <summary>
+        /// Configures the access that repositories have to the organization secret. Must be one of 'all', 'private' or 'selected'.
+        /// 'selected_repository_ids' is required if set to 'selected'.
+        /// </summary>
         [Input("visibility", required: true)]
         public Input<string> Visibility { get; set; } = null!;
 
@@ -130,11 +171,18 @@ namespace Pulumi.Github
 
     public sealed class DependabotOrganizationSecretState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Date of 'dependabot_secret' creation.
+        /// </summary>
         [Input("createdAt")]
         public Input<string>? CreatedAt { get; set; }
 
         [Input("encryptedValue")]
         private Input<string>? _encryptedValue;
+
+        /// <summary>
+        /// Encrypted value of the secret using the GitHub public key in Base64 format.
+        /// </summary>
         public Input<string>? EncryptedValue
         {
             get => _encryptedValue;
@@ -147,6 +195,10 @@ namespace Pulumi.Github
 
         [Input("plaintextValue")]
         private Input<string>? _plaintextValue;
+
+        /// <summary>
+        /// Plaintext value of the secret to be encrypted.
+        /// </summary>
         public Input<string>? PlaintextValue
         {
             get => _plaintextValue;
@@ -157,20 +209,34 @@ namespace Pulumi.Github
             }
         }
 
+        /// <summary>
+        /// Name of the secret.
+        /// </summary>
         [Input("secretName")]
         public Input<string>? SecretName { get; set; }
 
         [Input("selectedRepositoryIds")]
         private InputList<int>? _selectedRepositoryIds;
+
+        /// <summary>
+        /// An array of repository ids that can access the organization secret.
+        /// </summary>
         public InputList<int> SelectedRepositoryIds
         {
             get => _selectedRepositoryIds ?? (_selectedRepositoryIds = new InputList<int>());
             set => _selectedRepositoryIds = value;
         }
 
+        /// <summary>
+        /// Date of 'dependabot_secret' update.
+        /// </summary>
         [Input("updatedAt")]
         public Input<string>? UpdatedAt { get; set; }
 
+        /// <summary>
+        /// Configures the access that repositories have to the organization secret. Must be one of 'all', 'private' or 'selected'.
+        /// 'selected_repository_ids' is required if set to 'selected'.
+        /// </summary>
         [Input("visibility")]
         public Input<string>? Visibility { get; set; }
 

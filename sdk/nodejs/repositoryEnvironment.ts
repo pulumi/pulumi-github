@@ -68,6 +68,9 @@ export class RepositoryEnvironment extends pulumi.CustomResource {
         return obj['__pulumiType'] === RepositoryEnvironment.__pulumiType;
     }
 
+    /**
+     * The deployment branch policy configuration
+     */
     public readonly deploymentBranchPolicy!: pulumi.Output<outputs.RepositoryEnvironmentDeploymentBranchPolicy | undefined>;
     /**
      * The name of the environment.
@@ -77,6 +80,9 @@ export class RepositoryEnvironment extends pulumi.CustomResource {
      * The repository of the environment.
      */
     public readonly repository!: pulumi.Output<string>;
+    /**
+     * The environment reviewers configuration.
+     */
     public readonly reviewers!: pulumi.Output<outputs.RepositoryEnvironmentReviewer[] | undefined>;
     /**
      * Amount of time to delay a job after the job is initially triggered.
@@ -124,6 +130,9 @@ export class RepositoryEnvironment extends pulumi.CustomResource {
  * Input properties used for looking up and filtering RepositoryEnvironment resources.
  */
 export interface RepositoryEnvironmentState {
+    /**
+     * The deployment branch policy configuration
+     */
     deploymentBranchPolicy?: pulumi.Input<inputs.RepositoryEnvironmentDeploymentBranchPolicy>;
     /**
      * The name of the environment.
@@ -133,6 +142,9 @@ export interface RepositoryEnvironmentState {
      * The repository of the environment.
      */
     repository?: pulumi.Input<string>;
+    /**
+     * The environment reviewers configuration.
+     */
     reviewers?: pulumi.Input<pulumi.Input<inputs.RepositoryEnvironmentReviewer>[]>;
     /**
      * Amount of time to delay a job after the job is initially triggered.
@@ -144,6 +156,9 @@ export interface RepositoryEnvironmentState {
  * The set of arguments for constructing a RepositoryEnvironment resource.
  */
 export interface RepositoryEnvironmentArgs {
+    /**
+     * The deployment branch policy configuration
+     */
     deploymentBranchPolicy?: pulumi.Input<inputs.RepositoryEnvironmentDeploymentBranchPolicy>;
     /**
      * The name of the environment.
@@ -153,6 +168,9 @@ export interface RepositoryEnvironmentArgs {
      * The repository of the environment.
      */
     repository: pulumi.Input<string>;
+    /**
+     * The environment reviewers configuration.
+     */
     reviewers?: pulumi.Input<pulumi.Input<inputs.RepositoryEnvironmentReviewer>[]>;
     /**
      * Amount of time to delay a job after the job is initially triggered.

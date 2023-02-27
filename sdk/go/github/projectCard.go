@@ -119,6 +119,7 @@ import (
 type ProjectCard struct {
 	pulumi.CustomResourceState
 
+	// The ID of the card.
 	CardId pulumi.IntOutput `pulumi:"cardId"`
 	// The ID of the card.
 	ColumnId pulumi.StringOutput `pulumi:"columnId"`
@@ -163,6 +164,7 @@ func GetProjectCard(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ProjectCard resources.
 type projectCardState struct {
+	// The ID of the card.
 	CardId *int `pulumi:"cardId"`
 	// The ID of the card.
 	ColumnId *string `pulumi:"columnId"`
@@ -176,6 +178,7 @@ type projectCardState struct {
 }
 
 type ProjectCardState struct {
+	// The ID of the card.
 	CardId pulumi.IntPtrInput
 	// The ID of the card.
 	ColumnId pulumi.StringPtrInput
@@ -302,6 +305,7 @@ func (o ProjectCardOutput) ToProjectCardOutputWithContext(ctx context.Context) P
 	return o
 }
 
+// The ID of the card.
 func (o ProjectCardOutput) CardId() pulumi.IntOutput {
 	return o.ApplyT(func(v *ProjectCard) pulumi.IntOutput { return v.CardId }).(pulumi.IntOutput)
 }

@@ -93,6 +93,9 @@ namespace Pulumi.Github
     [GithubResourceType("github:index/projectCard:ProjectCard")]
     public partial class ProjectCard : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The ID of the card.
+        /// </summary>
         [Output("cardId")]
         public Output<int> CardId { get; private set; } = null!;
 
@@ -201,6 +204,9 @@ namespace Pulumi.Github
 
     public sealed class ProjectCardState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ID of the card.
+        /// </summary>
         [Input("cardId")]
         public Input<int>? CardId { get; set; }
 
