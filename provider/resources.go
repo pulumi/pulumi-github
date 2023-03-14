@@ -23,6 +23,7 @@ import (
 	"github.com/integrations/terraform-provider-github/v5/github"
 	"github.com/pulumi/pulumi-github/provider/v5/pkg/version"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
+	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge/x"
 	shimv1 "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim/sdk-v1"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/tokens"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
@@ -249,10 +250,8 @@ func Provider() tfbridge.ProviderInfo {
 		},
 	}
 
-	err := prov.ComputeDefaults(tfbridge.TokensSingleModule("github_", mainMod,
-		func(module, name string) (string, error) {
-			return string(makeResource(module, name)), nil
-		}))
+	err := x.ComputeDefaults(&prov, x.TokensSingleModule("github_", mainMod,
+		x.MakeStandardToken(mainPkg)))
 	contract.AssertNoError(err)
 
 	// Since SetAutonaming mutates the set of resources in prov.Resources, it must be

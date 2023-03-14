@@ -80,7 +80,7 @@ export class TeamMembers extends pulumi.CustomResource {
      */
     public readonly members!: pulumi.Output<outputs.TeamMembersMember[]>;
     /**
-     * The GitHub team id
+     * The GitHub team id or the GitHub team slug
      */
     public readonly teamId!: pulumi.Output<string>;
 
@@ -127,7 +127,7 @@ export interface TeamMembersState {
      */
     members?: pulumi.Input<pulumi.Input<inputs.TeamMembersMember>[]>;
     /**
-     * The GitHub team id
+     * The GitHub team id or the GitHub team slug
      */
     teamId?: pulumi.Input<string>;
 }
@@ -141,7 +141,7 @@ export interface TeamMembersArgs {
      */
     members: pulumi.Input<pulumi.Input<inputs.TeamMembersMember>[]>;
     /**
-     * The GitHub team id
+     * The GitHub team id or the GitHub team slug
      */
     teamId: pulumi.Input<string>;
 }

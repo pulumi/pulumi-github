@@ -22,6 +22,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "github:index/actionsEnvironmentSecret:ActionsEnvironmentSecret":
 		r = &ActionsEnvironmentSecret{}
+	case "github:index/actionsEnvironmentVariable:ActionsEnvironmentVariable":
+		r = &ActionsEnvironmentVariable{}
 	case "github:index/actionsOrganizationOidcSubjectClaimCustomizationTemplate:ActionsOrganizationOidcSubjectClaimCustomizationTemplate":
 		r = &ActionsOrganizationOidcSubjectClaimCustomizationTemplate{}
 	case "github:index/actionsOrganizationPermissions:ActionsOrganizationPermissions":
@@ -30,6 +32,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ActionsOrganizationSecret{}
 	case "github:index/actionsOrganizationSecretRepositories:ActionsOrganizationSecretRepositories":
 		r = &ActionsOrganizationSecretRepositories{}
+	case "github:index/actionsOrganizationVariable:ActionsOrganizationVariable":
+		r = &ActionsOrganizationVariable{}
 	case "github:index/actionsRepositoryAccessLevel:ActionsRepositoryAccessLevel":
 		r = &ActionsRepositoryAccessLevel{}
 	case "github:index/actionsRepositoryOidcSubjectClaimCustomizationTemplate:ActionsRepositoryOidcSubjectClaimCustomizationTemplate":
@@ -40,6 +44,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ActionsRunnerGroup{}
 	case "github:index/actionsSecret:ActionsSecret":
 		r = &ActionsSecret{}
+	case "github:index/actionsVariable:ActionsVariable":
+		r = &ActionsVariable{}
 	case "github:index/appInstallationRepositories:AppInstallationRepositories":
 		r = &AppInstallationRepositories{}
 	case "github:index/appInstallationRepository:AppInstallationRepository":
@@ -159,6 +165,11 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"github",
+		"index/actionsEnvironmentVariable",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"github",
 		"index/actionsOrganizationOidcSubjectClaimCustomizationTemplate",
 		&module{version},
 	)
@@ -175,6 +186,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"github",
 		"index/actionsOrganizationSecretRepositories",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"github",
+		"index/actionsOrganizationVariable",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -200,6 +216,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"github",
 		"index/actionsSecret",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"github",
+		"index/actionsVariable",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

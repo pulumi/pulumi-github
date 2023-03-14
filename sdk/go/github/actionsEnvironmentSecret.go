@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -52,8 +52,6 @@ import (
 //
 // import (
 //
-//	"fmt"
-//
 //	"github.com/pulumi/pulumi-github/sdk/v5/go/github"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -78,7 +76,7 @@ import (
 //				Repository:     *pulumi.String(repo.Name),
 //				Environment:    repoEnvironment.Environment,
 //				SecretName:     pulumi.String("test_secret_name"),
-//				PlaintextValue: pulumi.String(fmt.Sprintf("%vs", "%")),
+//				PlaintextValue: pulumi.String("%s"),
 //			})
 //			if err != nil {
 //				return err
