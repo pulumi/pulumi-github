@@ -38,7 +38,7 @@ import * as utilities from "./utilities";
  *     repository: repo.then(repo => repo.name),
  *     environment: repoEnvironment.environment,
  *     secretName: "test_secret_name",
- *     plaintextValue: `%s`,
+ *     plaintextValue: "%s",
  * });
  * ```
  *

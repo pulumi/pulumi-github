@@ -36,7 +36,7 @@ func NewProvider(ctx *pulumi.Context,
 		args = &ProviderArgs{}
 	}
 
-	if isZero(args.BaseUrl) {
+	if args.BaseUrl == nil {
 		args.BaseUrl = pulumi.StringPtr(getEnvOrDefault("https://api.github.com/", nil, "GITHUB_BASE_URL").(string))
 	}
 	var resource Provider

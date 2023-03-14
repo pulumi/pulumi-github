@@ -3725,6 +3725,245 @@ func (o TeamSyncGroupMappingGroupArrayOutput) Index(i pulumi.IntInput) TeamSyncG
 	}).(TeamSyncGroupMappingGroupOutput)
 }
 
+type GetActionsEnvironmentSecretsSecret struct {
+	// Timestamp of the variable creation
+	CreatedAt string `pulumi:"createdAt"`
+	// Name of the variable
+	Name string `pulumi:"name"`
+	// Timestamp of the variable last update
+	UpdatedAt string `pulumi:"updatedAt"`
+}
+
+// GetActionsEnvironmentSecretsSecretInput is an input type that accepts GetActionsEnvironmentSecretsSecretArgs and GetActionsEnvironmentSecretsSecretOutput values.
+// You can construct a concrete instance of `GetActionsEnvironmentSecretsSecretInput` via:
+//
+//	GetActionsEnvironmentSecretsSecretArgs{...}
+type GetActionsEnvironmentSecretsSecretInput interface {
+	pulumi.Input
+
+	ToGetActionsEnvironmentSecretsSecretOutput() GetActionsEnvironmentSecretsSecretOutput
+	ToGetActionsEnvironmentSecretsSecretOutputWithContext(context.Context) GetActionsEnvironmentSecretsSecretOutput
+}
+
+type GetActionsEnvironmentSecretsSecretArgs struct {
+	// Timestamp of the variable creation
+	CreatedAt pulumi.StringInput `pulumi:"createdAt"`
+	// Name of the variable
+	Name pulumi.StringInput `pulumi:"name"`
+	// Timestamp of the variable last update
+	UpdatedAt pulumi.StringInput `pulumi:"updatedAt"`
+}
+
+func (GetActionsEnvironmentSecretsSecretArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetActionsEnvironmentSecretsSecret)(nil)).Elem()
+}
+
+func (i GetActionsEnvironmentSecretsSecretArgs) ToGetActionsEnvironmentSecretsSecretOutput() GetActionsEnvironmentSecretsSecretOutput {
+	return i.ToGetActionsEnvironmentSecretsSecretOutputWithContext(context.Background())
+}
+
+func (i GetActionsEnvironmentSecretsSecretArgs) ToGetActionsEnvironmentSecretsSecretOutputWithContext(ctx context.Context) GetActionsEnvironmentSecretsSecretOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetActionsEnvironmentSecretsSecretOutput)
+}
+
+// GetActionsEnvironmentSecretsSecretArrayInput is an input type that accepts GetActionsEnvironmentSecretsSecretArray and GetActionsEnvironmentSecretsSecretArrayOutput values.
+// You can construct a concrete instance of `GetActionsEnvironmentSecretsSecretArrayInput` via:
+//
+//	GetActionsEnvironmentSecretsSecretArray{ GetActionsEnvironmentSecretsSecretArgs{...} }
+type GetActionsEnvironmentSecretsSecretArrayInput interface {
+	pulumi.Input
+
+	ToGetActionsEnvironmentSecretsSecretArrayOutput() GetActionsEnvironmentSecretsSecretArrayOutput
+	ToGetActionsEnvironmentSecretsSecretArrayOutputWithContext(context.Context) GetActionsEnvironmentSecretsSecretArrayOutput
+}
+
+type GetActionsEnvironmentSecretsSecretArray []GetActionsEnvironmentSecretsSecretInput
+
+func (GetActionsEnvironmentSecretsSecretArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetActionsEnvironmentSecretsSecret)(nil)).Elem()
+}
+
+func (i GetActionsEnvironmentSecretsSecretArray) ToGetActionsEnvironmentSecretsSecretArrayOutput() GetActionsEnvironmentSecretsSecretArrayOutput {
+	return i.ToGetActionsEnvironmentSecretsSecretArrayOutputWithContext(context.Background())
+}
+
+func (i GetActionsEnvironmentSecretsSecretArray) ToGetActionsEnvironmentSecretsSecretArrayOutputWithContext(ctx context.Context) GetActionsEnvironmentSecretsSecretArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetActionsEnvironmentSecretsSecretArrayOutput)
+}
+
+type GetActionsEnvironmentSecretsSecretOutput struct{ *pulumi.OutputState }
+
+func (GetActionsEnvironmentSecretsSecretOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetActionsEnvironmentSecretsSecret)(nil)).Elem()
+}
+
+func (o GetActionsEnvironmentSecretsSecretOutput) ToGetActionsEnvironmentSecretsSecretOutput() GetActionsEnvironmentSecretsSecretOutput {
+	return o
+}
+
+func (o GetActionsEnvironmentSecretsSecretOutput) ToGetActionsEnvironmentSecretsSecretOutputWithContext(ctx context.Context) GetActionsEnvironmentSecretsSecretOutput {
+	return o
+}
+
+// Timestamp of the variable creation
+func (o GetActionsEnvironmentSecretsSecretOutput) CreatedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v GetActionsEnvironmentSecretsSecret) string { return v.CreatedAt }).(pulumi.StringOutput)
+}
+
+// Name of the variable
+func (o GetActionsEnvironmentSecretsSecretOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetActionsEnvironmentSecretsSecret) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Timestamp of the variable last update
+func (o GetActionsEnvironmentSecretsSecretOutput) UpdatedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v GetActionsEnvironmentSecretsSecret) string { return v.UpdatedAt }).(pulumi.StringOutput)
+}
+
+type GetActionsEnvironmentSecretsSecretArrayOutput struct{ *pulumi.OutputState }
+
+func (GetActionsEnvironmentSecretsSecretArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetActionsEnvironmentSecretsSecret)(nil)).Elem()
+}
+
+func (o GetActionsEnvironmentSecretsSecretArrayOutput) ToGetActionsEnvironmentSecretsSecretArrayOutput() GetActionsEnvironmentSecretsSecretArrayOutput {
+	return o
+}
+
+func (o GetActionsEnvironmentSecretsSecretArrayOutput) ToGetActionsEnvironmentSecretsSecretArrayOutputWithContext(ctx context.Context) GetActionsEnvironmentSecretsSecretArrayOutput {
+	return o
+}
+
+func (o GetActionsEnvironmentSecretsSecretArrayOutput) Index(i pulumi.IntInput) GetActionsEnvironmentSecretsSecretOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetActionsEnvironmentSecretsSecret {
+		return vs[0].([]GetActionsEnvironmentSecretsSecret)[vs[1].(int)]
+	}).(GetActionsEnvironmentSecretsSecretOutput)
+}
+
+type GetActionsEnvironmentVariablesVariable struct {
+	// Timestamp of the variable creation
+	CreatedAt string `pulumi:"createdAt"`
+	// Name of the variable
+	Name string `pulumi:"name"`
+	// Timestamp of the variable last update
+	UpdatedAt string `pulumi:"updatedAt"`
+	// Value of the variable
+	Value string `pulumi:"value"`
+}
+
+// GetActionsEnvironmentVariablesVariableInput is an input type that accepts GetActionsEnvironmentVariablesVariableArgs and GetActionsEnvironmentVariablesVariableOutput values.
+// You can construct a concrete instance of `GetActionsEnvironmentVariablesVariableInput` via:
+//
+//	GetActionsEnvironmentVariablesVariableArgs{...}
+type GetActionsEnvironmentVariablesVariableInput interface {
+	pulumi.Input
+
+	ToGetActionsEnvironmentVariablesVariableOutput() GetActionsEnvironmentVariablesVariableOutput
+	ToGetActionsEnvironmentVariablesVariableOutputWithContext(context.Context) GetActionsEnvironmentVariablesVariableOutput
+}
+
+type GetActionsEnvironmentVariablesVariableArgs struct {
+	// Timestamp of the variable creation
+	CreatedAt pulumi.StringInput `pulumi:"createdAt"`
+	// Name of the variable
+	Name pulumi.StringInput `pulumi:"name"`
+	// Timestamp of the variable last update
+	UpdatedAt pulumi.StringInput `pulumi:"updatedAt"`
+	// Value of the variable
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetActionsEnvironmentVariablesVariableArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetActionsEnvironmentVariablesVariable)(nil)).Elem()
+}
+
+func (i GetActionsEnvironmentVariablesVariableArgs) ToGetActionsEnvironmentVariablesVariableOutput() GetActionsEnvironmentVariablesVariableOutput {
+	return i.ToGetActionsEnvironmentVariablesVariableOutputWithContext(context.Background())
+}
+
+func (i GetActionsEnvironmentVariablesVariableArgs) ToGetActionsEnvironmentVariablesVariableOutputWithContext(ctx context.Context) GetActionsEnvironmentVariablesVariableOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetActionsEnvironmentVariablesVariableOutput)
+}
+
+// GetActionsEnvironmentVariablesVariableArrayInput is an input type that accepts GetActionsEnvironmentVariablesVariableArray and GetActionsEnvironmentVariablesVariableArrayOutput values.
+// You can construct a concrete instance of `GetActionsEnvironmentVariablesVariableArrayInput` via:
+//
+//	GetActionsEnvironmentVariablesVariableArray{ GetActionsEnvironmentVariablesVariableArgs{...} }
+type GetActionsEnvironmentVariablesVariableArrayInput interface {
+	pulumi.Input
+
+	ToGetActionsEnvironmentVariablesVariableArrayOutput() GetActionsEnvironmentVariablesVariableArrayOutput
+	ToGetActionsEnvironmentVariablesVariableArrayOutputWithContext(context.Context) GetActionsEnvironmentVariablesVariableArrayOutput
+}
+
+type GetActionsEnvironmentVariablesVariableArray []GetActionsEnvironmentVariablesVariableInput
+
+func (GetActionsEnvironmentVariablesVariableArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetActionsEnvironmentVariablesVariable)(nil)).Elem()
+}
+
+func (i GetActionsEnvironmentVariablesVariableArray) ToGetActionsEnvironmentVariablesVariableArrayOutput() GetActionsEnvironmentVariablesVariableArrayOutput {
+	return i.ToGetActionsEnvironmentVariablesVariableArrayOutputWithContext(context.Background())
+}
+
+func (i GetActionsEnvironmentVariablesVariableArray) ToGetActionsEnvironmentVariablesVariableArrayOutputWithContext(ctx context.Context) GetActionsEnvironmentVariablesVariableArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetActionsEnvironmentVariablesVariableArrayOutput)
+}
+
+type GetActionsEnvironmentVariablesVariableOutput struct{ *pulumi.OutputState }
+
+func (GetActionsEnvironmentVariablesVariableOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetActionsEnvironmentVariablesVariable)(nil)).Elem()
+}
+
+func (o GetActionsEnvironmentVariablesVariableOutput) ToGetActionsEnvironmentVariablesVariableOutput() GetActionsEnvironmentVariablesVariableOutput {
+	return o
+}
+
+func (o GetActionsEnvironmentVariablesVariableOutput) ToGetActionsEnvironmentVariablesVariableOutputWithContext(ctx context.Context) GetActionsEnvironmentVariablesVariableOutput {
+	return o
+}
+
+// Timestamp of the variable creation
+func (o GetActionsEnvironmentVariablesVariableOutput) CreatedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v GetActionsEnvironmentVariablesVariable) string { return v.CreatedAt }).(pulumi.StringOutput)
+}
+
+// Name of the variable
+func (o GetActionsEnvironmentVariablesVariableOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetActionsEnvironmentVariablesVariable) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Timestamp of the variable last update
+func (o GetActionsEnvironmentVariablesVariableOutput) UpdatedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v GetActionsEnvironmentVariablesVariable) string { return v.UpdatedAt }).(pulumi.StringOutput)
+}
+
+// Value of the variable
+func (o GetActionsEnvironmentVariablesVariableOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetActionsEnvironmentVariablesVariable) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetActionsEnvironmentVariablesVariableArrayOutput struct{ *pulumi.OutputState }
+
+func (GetActionsEnvironmentVariablesVariableArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetActionsEnvironmentVariablesVariable)(nil)).Elem()
+}
+
+func (o GetActionsEnvironmentVariablesVariableArrayOutput) ToGetActionsEnvironmentVariablesVariableArrayOutput() GetActionsEnvironmentVariablesVariableArrayOutput {
+	return o
+}
+
+func (o GetActionsEnvironmentVariablesVariableArrayOutput) ToGetActionsEnvironmentVariablesVariableArrayOutputWithContext(ctx context.Context) GetActionsEnvironmentVariablesVariableArrayOutput {
+	return o
+}
+
+func (o GetActionsEnvironmentVariablesVariableArrayOutput) Index(i pulumi.IntInput) GetActionsEnvironmentVariablesVariableOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetActionsEnvironmentVariablesVariable {
+		return vs[0].([]GetActionsEnvironmentVariablesVariable)[vs[1].(int)]
+	}).(GetActionsEnvironmentVariablesVariableOutput)
+}
+
 type GetActionsOrganizationSecretsSecret struct {
 	// Timestamp of the secret creation
 	CreatedAt string `pulumi:"createdAt"`
@@ -3849,6 +4088,139 @@ func (o GetActionsOrganizationSecretsSecretArrayOutput) Index(i pulumi.IntInput)
 	}).(GetActionsOrganizationSecretsSecretOutput)
 }
 
+type GetActionsOrganizationVariablesVariable struct {
+	// Timestamp of the variable creation
+	CreatedAt string `pulumi:"createdAt"`
+	// Name of the variable
+	Name string `pulumi:"name"`
+	// Timestamp of the variable last update
+	UpdatedAt string `pulumi:"updatedAt"`
+	// Value of the variable
+	Value string `pulumi:"value"`
+	// Visibility of the variable
+	Visibility string `pulumi:"visibility"`
+}
+
+// GetActionsOrganizationVariablesVariableInput is an input type that accepts GetActionsOrganizationVariablesVariableArgs and GetActionsOrganizationVariablesVariableOutput values.
+// You can construct a concrete instance of `GetActionsOrganizationVariablesVariableInput` via:
+//
+//	GetActionsOrganizationVariablesVariableArgs{...}
+type GetActionsOrganizationVariablesVariableInput interface {
+	pulumi.Input
+
+	ToGetActionsOrganizationVariablesVariableOutput() GetActionsOrganizationVariablesVariableOutput
+	ToGetActionsOrganizationVariablesVariableOutputWithContext(context.Context) GetActionsOrganizationVariablesVariableOutput
+}
+
+type GetActionsOrganizationVariablesVariableArgs struct {
+	// Timestamp of the variable creation
+	CreatedAt pulumi.StringInput `pulumi:"createdAt"`
+	// Name of the variable
+	Name pulumi.StringInput `pulumi:"name"`
+	// Timestamp of the variable last update
+	UpdatedAt pulumi.StringInput `pulumi:"updatedAt"`
+	// Value of the variable
+	Value pulumi.StringInput `pulumi:"value"`
+	// Visibility of the variable
+	Visibility pulumi.StringInput `pulumi:"visibility"`
+}
+
+func (GetActionsOrganizationVariablesVariableArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetActionsOrganizationVariablesVariable)(nil)).Elem()
+}
+
+func (i GetActionsOrganizationVariablesVariableArgs) ToGetActionsOrganizationVariablesVariableOutput() GetActionsOrganizationVariablesVariableOutput {
+	return i.ToGetActionsOrganizationVariablesVariableOutputWithContext(context.Background())
+}
+
+func (i GetActionsOrganizationVariablesVariableArgs) ToGetActionsOrganizationVariablesVariableOutputWithContext(ctx context.Context) GetActionsOrganizationVariablesVariableOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetActionsOrganizationVariablesVariableOutput)
+}
+
+// GetActionsOrganizationVariablesVariableArrayInput is an input type that accepts GetActionsOrganizationVariablesVariableArray and GetActionsOrganizationVariablesVariableArrayOutput values.
+// You can construct a concrete instance of `GetActionsOrganizationVariablesVariableArrayInput` via:
+//
+//	GetActionsOrganizationVariablesVariableArray{ GetActionsOrganizationVariablesVariableArgs{...} }
+type GetActionsOrganizationVariablesVariableArrayInput interface {
+	pulumi.Input
+
+	ToGetActionsOrganizationVariablesVariableArrayOutput() GetActionsOrganizationVariablesVariableArrayOutput
+	ToGetActionsOrganizationVariablesVariableArrayOutputWithContext(context.Context) GetActionsOrganizationVariablesVariableArrayOutput
+}
+
+type GetActionsOrganizationVariablesVariableArray []GetActionsOrganizationVariablesVariableInput
+
+func (GetActionsOrganizationVariablesVariableArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetActionsOrganizationVariablesVariable)(nil)).Elem()
+}
+
+func (i GetActionsOrganizationVariablesVariableArray) ToGetActionsOrganizationVariablesVariableArrayOutput() GetActionsOrganizationVariablesVariableArrayOutput {
+	return i.ToGetActionsOrganizationVariablesVariableArrayOutputWithContext(context.Background())
+}
+
+func (i GetActionsOrganizationVariablesVariableArray) ToGetActionsOrganizationVariablesVariableArrayOutputWithContext(ctx context.Context) GetActionsOrganizationVariablesVariableArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetActionsOrganizationVariablesVariableArrayOutput)
+}
+
+type GetActionsOrganizationVariablesVariableOutput struct{ *pulumi.OutputState }
+
+func (GetActionsOrganizationVariablesVariableOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetActionsOrganizationVariablesVariable)(nil)).Elem()
+}
+
+func (o GetActionsOrganizationVariablesVariableOutput) ToGetActionsOrganizationVariablesVariableOutput() GetActionsOrganizationVariablesVariableOutput {
+	return o
+}
+
+func (o GetActionsOrganizationVariablesVariableOutput) ToGetActionsOrganizationVariablesVariableOutputWithContext(ctx context.Context) GetActionsOrganizationVariablesVariableOutput {
+	return o
+}
+
+// Timestamp of the variable creation
+func (o GetActionsOrganizationVariablesVariableOutput) CreatedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v GetActionsOrganizationVariablesVariable) string { return v.CreatedAt }).(pulumi.StringOutput)
+}
+
+// Name of the variable
+func (o GetActionsOrganizationVariablesVariableOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetActionsOrganizationVariablesVariable) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Timestamp of the variable last update
+func (o GetActionsOrganizationVariablesVariableOutput) UpdatedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v GetActionsOrganizationVariablesVariable) string { return v.UpdatedAt }).(pulumi.StringOutput)
+}
+
+// Value of the variable
+func (o GetActionsOrganizationVariablesVariableOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetActionsOrganizationVariablesVariable) string { return v.Value }).(pulumi.StringOutput)
+}
+
+// Visibility of the variable
+func (o GetActionsOrganizationVariablesVariableOutput) Visibility() pulumi.StringOutput {
+	return o.ApplyT(func(v GetActionsOrganizationVariablesVariable) string { return v.Visibility }).(pulumi.StringOutput)
+}
+
+type GetActionsOrganizationVariablesVariableArrayOutput struct{ *pulumi.OutputState }
+
+func (GetActionsOrganizationVariablesVariableArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetActionsOrganizationVariablesVariable)(nil)).Elem()
+}
+
+func (o GetActionsOrganizationVariablesVariableArrayOutput) ToGetActionsOrganizationVariablesVariableArrayOutput() GetActionsOrganizationVariablesVariableArrayOutput {
+	return o
+}
+
+func (o GetActionsOrganizationVariablesVariableArrayOutput) ToGetActionsOrganizationVariablesVariableArrayOutputWithContext(ctx context.Context) GetActionsOrganizationVariablesVariableArrayOutput {
+	return o
+}
+
+func (o GetActionsOrganizationVariablesVariableArrayOutput) Index(i pulumi.IntInput) GetActionsOrganizationVariablesVariableOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetActionsOrganizationVariablesVariable {
+		return vs[0].([]GetActionsOrganizationVariablesVariable)[vs[1].(int)]
+	}).(GetActionsOrganizationVariablesVariableOutput)
+}
+
 type GetActionsSecretsSecret struct {
 	// Timestamp of the secret creation
 	CreatedAt string `pulumi:"createdAt"`
@@ -3962,6 +4334,130 @@ func (o GetActionsSecretsSecretArrayOutput) Index(i pulumi.IntInput) GetActionsS
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetActionsSecretsSecret {
 		return vs[0].([]GetActionsSecretsSecret)[vs[1].(int)]
 	}).(GetActionsSecretsSecretOutput)
+}
+
+type GetActionsVariablesVariable struct {
+	// Timestamp of the variable creation
+	CreatedAt string `pulumi:"createdAt"`
+	// The name of the repository.
+	Name string `pulumi:"name"`
+	// Timestamp of the variable last update
+	UpdatedAt string `pulumi:"updatedAt"`
+	// Value of the variable
+	Value string `pulumi:"value"`
+}
+
+// GetActionsVariablesVariableInput is an input type that accepts GetActionsVariablesVariableArgs and GetActionsVariablesVariableOutput values.
+// You can construct a concrete instance of `GetActionsVariablesVariableInput` via:
+//
+//	GetActionsVariablesVariableArgs{...}
+type GetActionsVariablesVariableInput interface {
+	pulumi.Input
+
+	ToGetActionsVariablesVariableOutput() GetActionsVariablesVariableOutput
+	ToGetActionsVariablesVariableOutputWithContext(context.Context) GetActionsVariablesVariableOutput
+}
+
+type GetActionsVariablesVariableArgs struct {
+	// Timestamp of the variable creation
+	CreatedAt pulumi.StringInput `pulumi:"createdAt"`
+	// The name of the repository.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Timestamp of the variable last update
+	UpdatedAt pulumi.StringInput `pulumi:"updatedAt"`
+	// Value of the variable
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetActionsVariablesVariableArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetActionsVariablesVariable)(nil)).Elem()
+}
+
+func (i GetActionsVariablesVariableArgs) ToGetActionsVariablesVariableOutput() GetActionsVariablesVariableOutput {
+	return i.ToGetActionsVariablesVariableOutputWithContext(context.Background())
+}
+
+func (i GetActionsVariablesVariableArgs) ToGetActionsVariablesVariableOutputWithContext(ctx context.Context) GetActionsVariablesVariableOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetActionsVariablesVariableOutput)
+}
+
+// GetActionsVariablesVariableArrayInput is an input type that accepts GetActionsVariablesVariableArray and GetActionsVariablesVariableArrayOutput values.
+// You can construct a concrete instance of `GetActionsVariablesVariableArrayInput` via:
+//
+//	GetActionsVariablesVariableArray{ GetActionsVariablesVariableArgs{...} }
+type GetActionsVariablesVariableArrayInput interface {
+	pulumi.Input
+
+	ToGetActionsVariablesVariableArrayOutput() GetActionsVariablesVariableArrayOutput
+	ToGetActionsVariablesVariableArrayOutputWithContext(context.Context) GetActionsVariablesVariableArrayOutput
+}
+
+type GetActionsVariablesVariableArray []GetActionsVariablesVariableInput
+
+func (GetActionsVariablesVariableArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetActionsVariablesVariable)(nil)).Elem()
+}
+
+func (i GetActionsVariablesVariableArray) ToGetActionsVariablesVariableArrayOutput() GetActionsVariablesVariableArrayOutput {
+	return i.ToGetActionsVariablesVariableArrayOutputWithContext(context.Background())
+}
+
+func (i GetActionsVariablesVariableArray) ToGetActionsVariablesVariableArrayOutputWithContext(ctx context.Context) GetActionsVariablesVariableArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetActionsVariablesVariableArrayOutput)
+}
+
+type GetActionsVariablesVariableOutput struct{ *pulumi.OutputState }
+
+func (GetActionsVariablesVariableOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetActionsVariablesVariable)(nil)).Elem()
+}
+
+func (o GetActionsVariablesVariableOutput) ToGetActionsVariablesVariableOutput() GetActionsVariablesVariableOutput {
+	return o
+}
+
+func (o GetActionsVariablesVariableOutput) ToGetActionsVariablesVariableOutputWithContext(ctx context.Context) GetActionsVariablesVariableOutput {
+	return o
+}
+
+// Timestamp of the variable creation
+func (o GetActionsVariablesVariableOutput) CreatedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v GetActionsVariablesVariable) string { return v.CreatedAt }).(pulumi.StringOutput)
+}
+
+// The name of the repository.
+func (o GetActionsVariablesVariableOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetActionsVariablesVariable) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Timestamp of the variable last update
+func (o GetActionsVariablesVariableOutput) UpdatedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v GetActionsVariablesVariable) string { return v.UpdatedAt }).(pulumi.StringOutput)
+}
+
+// Value of the variable
+func (o GetActionsVariablesVariableOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetActionsVariablesVariable) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetActionsVariablesVariableArrayOutput struct{ *pulumi.OutputState }
+
+func (GetActionsVariablesVariableArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetActionsVariablesVariable)(nil)).Elem()
+}
+
+func (o GetActionsVariablesVariableArrayOutput) ToGetActionsVariablesVariableArrayOutput() GetActionsVariablesVariableArrayOutput {
+	return o
+}
+
+func (o GetActionsVariablesVariableArrayOutput) ToGetActionsVariablesVariableArrayOutputWithContext(ctx context.Context) GetActionsVariablesVariableArrayOutput {
+	return o
+}
+
+func (o GetActionsVariablesVariableArrayOutput) Index(i pulumi.IntInput) GetActionsVariablesVariableOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetActionsVariablesVariable {
+		return vs[0].([]GetActionsVariablesVariable)[vs[1].(int)]
+	}).(GetActionsVariablesVariableOutput)
 }
 
 type GetCollaboratorsCollaborator struct {
@@ -6444,10 +6940,18 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TeamSettingsReviewRequestDelegationPtrInput)(nil)).Elem(), TeamSettingsReviewRequestDelegationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TeamSyncGroupMappingGroupInput)(nil)).Elem(), TeamSyncGroupMappingGroupArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TeamSyncGroupMappingGroupArrayInput)(nil)).Elem(), TeamSyncGroupMappingGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetActionsEnvironmentSecretsSecretInput)(nil)).Elem(), GetActionsEnvironmentSecretsSecretArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetActionsEnvironmentSecretsSecretArrayInput)(nil)).Elem(), GetActionsEnvironmentSecretsSecretArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetActionsEnvironmentVariablesVariableInput)(nil)).Elem(), GetActionsEnvironmentVariablesVariableArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetActionsEnvironmentVariablesVariableArrayInput)(nil)).Elem(), GetActionsEnvironmentVariablesVariableArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetActionsOrganizationSecretsSecretInput)(nil)).Elem(), GetActionsOrganizationSecretsSecretArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetActionsOrganizationSecretsSecretArrayInput)(nil)).Elem(), GetActionsOrganizationSecretsSecretArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetActionsOrganizationVariablesVariableInput)(nil)).Elem(), GetActionsOrganizationVariablesVariableArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetActionsOrganizationVariablesVariableArrayInput)(nil)).Elem(), GetActionsOrganizationVariablesVariableArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetActionsSecretsSecretInput)(nil)).Elem(), GetActionsSecretsSecretArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetActionsSecretsSecretArrayInput)(nil)).Elem(), GetActionsSecretsSecretArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetActionsVariablesVariableInput)(nil)).Elem(), GetActionsVariablesVariableArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetActionsVariablesVariableArrayInput)(nil)).Elem(), GetActionsVariablesVariableArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCollaboratorsCollaboratorInput)(nil)).Elem(), GetCollaboratorsCollaboratorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCollaboratorsCollaboratorArrayInput)(nil)).Elem(), GetCollaboratorsCollaboratorArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDependabotOrganizationSecretsSecretInput)(nil)).Elem(), GetDependabotOrganizationSecretsSecretArgs{})
@@ -6529,10 +7033,18 @@ func init() {
 	pulumi.RegisterOutputType(TeamSettingsReviewRequestDelegationPtrOutput{})
 	pulumi.RegisterOutputType(TeamSyncGroupMappingGroupOutput{})
 	pulumi.RegisterOutputType(TeamSyncGroupMappingGroupArrayOutput{})
+	pulumi.RegisterOutputType(GetActionsEnvironmentSecretsSecretOutput{})
+	pulumi.RegisterOutputType(GetActionsEnvironmentSecretsSecretArrayOutput{})
+	pulumi.RegisterOutputType(GetActionsEnvironmentVariablesVariableOutput{})
+	pulumi.RegisterOutputType(GetActionsEnvironmentVariablesVariableArrayOutput{})
 	pulumi.RegisterOutputType(GetActionsOrganizationSecretsSecretOutput{})
 	pulumi.RegisterOutputType(GetActionsOrganizationSecretsSecretArrayOutput{})
+	pulumi.RegisterOutputType(GetActionsOrganizationVariablesVariableOutput{})
+	pulumi.RegisterOutputType(GetActionsOrganizationVariablesVariableArrayOutput{})
 	pulumi.RegisterOutputType(GetActionsSecretsSecretOutput{})
 	pulumi.RegisterOutputType(GetActionsSecretsSecretArrayOutput{})
+	pulumi.RegisterOutputType(GetActionsVariablesVariableOutput{})
+	pulumi.RegisterOutputType(GetActionsVariablesVariableArrayOutput{})
 	pulumi.RegisterOutputType(GetCollaboratorsCollaboratorOutput{})
 	pulumi.RegisterOutputType(GetCollaboratorsCollaboratorArrayOutput{})
 	pulumi.RegisterOutputType(GetDependabotOrganizationSecretsSecretOutput{})

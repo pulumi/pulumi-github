@@ -33,8 +33,12 @@ __all__ = [
     'TeamMembersMember',
     'TeamSettingsReviewRequestDelegation',
     'TeamSyncGroupMappingGroup',
+    'GetActionsEnvironmentSecretsSecretResult',
+    'GetActionsEnvironmentVariablesVariableResult',
     'GetActionsOrganizationSecretsSecretResult',
+    'GetActionsOrganizationVariablesVariableResult',
     'GetActionsSecretsSecretResult',
+    'GetActionsVariablesVariableResult',
     'GetCollaboratorsCollaboratorResult',
     'GetDependabotOrganizationSecretsSecretResult',
     'GetDependabotSecretsSecretResult',
@@ -1250,6 +1254,97 @@ class TeamSyncGroupMappingGroup(dict):
 
 
 @pulumi.output_type
+class GetActionsEnvironmentSecretsSecretResult(dict):
+    def __init__(__self__, *,
+                 created_at: str,
+                 name: str,
+                 updated_at: str):
+        """
+        :param str created_at: Timestamp of the variable creation
+        :param str name: Name of the variable
+        :param str updated_at: Timestamp of the variable last update
+        """
+        pulumi.set(__self__, "created_at", created_at)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "updated_at", updated_at)
+
+    @property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> str:
+        """
+        Timestamp of the variable creation
+        """
+        return pulumi.get(self, "created_at")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the variable
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="updatedAt")
+    def updated_at(self) -> str:
+        """
+        Timestamp of the variable last update
+        """
+        return pulumi.get(self, "updated_at")
+
+
+@pulumi.output_type
+class GetActionsEnvironmentVariablesVariableResult(dict):
+    def __init__(__self__, *,
+                 created_at: str,
+                 name: str,
+                 updated_at: str,
+                 value: str):
+        """
+        :param str created_at: Timestamp of the variable creation
+        :param str name: Name of the variable
+        :param str updated_at: Timestamp of the variable last update
+        :param str value: Value of the variable
+        """
+        pulumi.set(__self__, "created_at", created_at)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "updated_at", updated_at)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> str:
+        """
+        Timestamp of the variable creation
+        """
+        return pulumi.get(self, "created_at")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the variable
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="updatedAt")
+    def updated_at(self) -> str:
+        """
+        Timestamp of the variable last update
+        """
+        return pulumi.get(self, "updated_at")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        Value of the variable
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
 class GetActionsOrganizationSecretsSecretResult(dict):
     def __init__(__self__, *,
                  created_at: str,
@@ -1301,6 +1396,68 @@ class GetActionsOrganizationSecretsSecretResult(dict):
 
 
 @pulumi.output_type
+class GetActionsOrganizationVariablesVariableResult(dict):
+    def __init__(__self__, *,
+                 created_at: str,
+                 name: str,
+                 updated_at: str,
+                 value: str,
+                 visibility: str):
+        """
+        :param str created_at: Timestamp of the variable creation
+        :param str name: Name of the variable
+        :param str updated_at: Timestamp of the variable last update
+        :param str value: Value of the variable
+        :param str visibility: Visibility of the variable
+        """
+        pulumi.set(__self__, "created_at", created_at)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "updated_at", updated_at)
+        pulumi.set(__self__, "value", value)
+        pulumi.set(__self__, "visibility", visibility)
+
+    @property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> str:
+        """
+        Timestamp of the variable creation
+        """
+        return pulumi.get(self, "created_at")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the variable
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="updatedAt")
+    def updated_at(self) -> str:
+        """
+        Timestamp of the variable last update
+        """
+        return pulumi.get(self, "updated_at")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        Value of the variable
+        """
+        return pulumi.get(self, "value")
+
+    @property
+    @pulumi.getter
+    def visibility(self) -> str:
+        """
+        Visibility of the variable
+        """
+        return pulumi.get(self, "visibility")
+
+
+@pulumi.output_type
 class GetActionsSecretsSecretResult(dict):
     def __init__(__self__, *,
                  created_at: str,
@@ -1338,6 +1495,57 @@ class GetActionsSecretsSecretResult(dict):
         Timestamp of the secret last update
         """
         return pulumi.get(self, "updated_at")
+
+
+@pulumi.output_type
+class GetActionsVariablesVariableResult(dict):
+    def __init__(__self__, *,
+                 created_at: str,
+                 name: str,
+                 updated_at: str,
+                 value: str):
+        """
+        :param str created_at: Timestamp of the variable creation
+        :param str name: The name of the repository.
+        :param str updated_at: Timestamp of the variable last update
+        :param str value: Value of the variable
+        """
+        pulumi.set(__self__, "created_at", created_at)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "updated_at", updated_at)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> str:
+        """
+        Timestamp of the variable creation
+        """
+        return pulumi.get(self, "created_at")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the repository.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="updatedAt")
+    def updated_at(self) -> str:
+        """
+        Timestamp of the variable last update
+        """
+        return pulumi.get(self, "updated_at")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        Value of the variable
+        """
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type

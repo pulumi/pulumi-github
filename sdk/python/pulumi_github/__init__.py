@@ -6,15 +6,18 @@ from . import _utilities
 import typing
 # Export this package's modules as members:
 from .actions_environment_secret import *
+from .actions_environment_variable import *
 from .actions_organization_oidc_subject_claim_customization_template import *
 from .actions_organization_permissions import *
 from .actions_organization_secret import *
 from .actions_organization_secret_repositories import *
+from .actions_organization_variable import *
 from .actions_repository_access_level import *
 from .actions_repository_oidc_subject_claim_customization_template import *
 from .actions_repository_permissions import *
 from .actions_runner_group import *
 from .actions_secret import *
+from .actions_variable import *
 from .app_installation_repositories import *
 from .app_installation_repository import *
 from .branch import *
@@ -26,13 +29,17 @@ from .dependabot_organization_secret_repositories import *
 from .dependabot_secret import *
 from .emu_group_mapping import *
 from .enterprise_organization import *
+from .get_actions_environment_secrets import *
+from .get_actions_environment_variables import *
 from .get_actions_organization_oidc_subject_claim_customization_template import *
 from .get_actions_organization_registration_token import *
 from .get_actions_organization_secrets import *
+from .get_actions_organization_variables import *
 from .get_actions_public_key import *
 from .get_actions_registration_token import *
 from .get_actions_repository_oidc_subject_claim_customization_template import *
 from .get_actions_secrets import *
+from .get_actions_variables import *
 from .get_branch import *
 from .get_collaborators import *
 from .get_dependabot_organization_secrets import *
@@ -119,6 +126,14 @@ _utilities.register(
  },
  {
   "pkg": "github",
+  "mod": "index/actionsEnvironmentVariable",
+  "fqn": "pulumi_github",
+  "classes": {
+   "github:index/actionsEnvironmentVariable:ActionsEnvironmentVariable": "ActionsEnvironmentVariable"
+  }
+ },
+ {
+  "pkg": "github",
   "mod": "index/actionsOrganizationOidcSubjectClaimCustomizationTemplate",
   "fqn": "pulumi_github",
   "classes": {
@@ -147,6 +162,14 @@ _utilities.register(
   "fqn": "pulumi_github",
   "classes": {
    "github:index/actionsOrganizationSecretRepositories:ActionsOrganizationSecretRepositories": "ActionsOrganizationSecretRepositories"
+  }
+ },
+ {
+  "pkg": "github",
+  "mod": "index/actionsOrganizationVariable",
+  "fqn": "pulumi_github",
+  "classes": {
+   "github:index/actionsOrganizationVariable:ActionsOrganizationVariable": "ActionsOrganizationVariable"
   }
  },
  {
@@ -187,6 +210,14 @@ _utilities.register(
   "fqn": "pulumi_github",
   "classes": {
    "github:index/actionsSecret:ActionsSecret": "ActionsSecret"
+  }
+ },
+ {
+  "pkg": "github",
+  "mod": "index/actionsVariable",
+  "fqn": "pulumi_github",
+  "classes": {
+   "github:index/actionsVariable:ActionsVariable": "ActionsVariable"
   }
  },
  {

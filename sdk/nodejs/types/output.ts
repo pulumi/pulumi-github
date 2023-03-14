@@ -150,6 +150,40 @@ export interface BranchProtectionV3Restrictions {
     users?: string[];
 }
 
+export interface GetActionsEnvironmentSecretsSecret {
+    /**
+     * Timestamp of the variable creation
+     */
+    createdAt: string;
+    /**
+     * Name of the variable
+     */
+    name: string;
+    /**
+     * Timestamp of the variable last update
+     */
+    updatedAt: string;
+}
+
+export interface GetActionsEnvironmentVariablesVariable {
+    /**
+     * Timestamp of the variable creation
+     */
+    createdAt: string;
+    /**
+     * Name of the variable
+     */
+    name: string;
+    /**
+     * Timestamp of the variable last update
+     */
+    updatedAt: string;
+    /**
+     * Value of the variable
+     */
+    value: string;
+}
+
 export interface GetActionsOrganizationSecretsSecret {
     /**
      * Timestamp of the secret creation
@@ -169,6 +203,29 @@ export interface GetActionsOrganizationSecretsSecret {
     visibility: string;
 }
 
+export interface GetActionsOrganizationVariablesVariable {
+    /**
+     * Timestamp of the variable creation
+     */
+    createdAt: string;
+    /**
+     * Name of the variable
+     */
+    name: string;
+    /**
+     * Timestamp of the variable last update
+     */
+    updatedAt: string;
+    /**
+     * Value of the variable
+     */
+    value: string;
+    /**
+     * Visibility of the variable
+     */
+    visibility: string;
+}
+
 export interface GetActionsSecretsSecret {
     /**
      * Timestamp of the secret creation
@@ -182,6 +239,25 @@ export interface GetActionsSecretsSecret {
      * Timestamp of the secret last update
      */
     updatedAt: string;
+}
+
+export interface GetActionsVariablesVariable {
+    /**
+     * Timestamp of the variable creation
+     */
+    createdAt: string;
+    /**
+     * The name of the repository.
+     */
+    name: string;
+    /**
+     * Timestamp of the variable last update
+     */
+    updatedAt: string;
+    /**
+     * Value of the variable
+     */
+    value: string;
 }
 
 export interface GetCollaboratorsCollaborator {

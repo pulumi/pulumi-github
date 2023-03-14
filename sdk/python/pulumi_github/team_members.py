@@ -21,7 +21,7 @@ class TeamMembersArgs:
         """
         The set of arguments for constructing a TeamMembers resource.
         :param pulumi.Input[Sequence[pulumi.Input['TeamMembersMemberArgs']]] members: List of team members. See Members below for details.
-        :param pulumi.Input[str] team_id: The GitHub team id
+        :param pulumi.Input[str] team_id: The GitHub team id or the GitHub team slug
         """
         pulumi.set(__self__, "members", members)
         pulumi.set(__self__, "team_id", team_id)
@@ -42,7 +42,7 @@ class TeamMembersArgs:
     @pulumi.getter(name="teamId")
     def team_id(self) -> pulumi.Input[str]:
         """
-        The GitHub team id
+        The GitHub team id or the GitHub team slug
         """
         return pulumi.get(self, "team_id")
 
@@ -60,7 +60,7 @@ class _TeamMembersState:
         """
         Input properties used for looking up and filtering TeamMembers resources.
         :param pulumi.Input[Sequence[pulumi.Input['TeamMembersMemberArgs']]] members: List of team members. See Members below for details.
-        :param pulumi.Input[str] team_id: The GitHub team id
+        :param pulumi.Input[str] team_id: The GitHub team id or the GitHub team slug
         """
         if etag is not None:
             pulumi.set(__self__, "etag", etag)
@@ -94,7 +94,7 @@ class _TeamMembersState:
     @pulumi.getter(name="teamId")
     def team_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The GitHub team id
+        The GitHub team id or the GitHub team slug
         """
         return pulumi.get(self, "team_id")
 
@@ -151,7 +151,7 @@ class TeamMembers(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TeamMembersMemberArgs']]]] members: List of team members. See Members below for details.
-        :param pulumi.Input[str] team_id: The GitHub team id
+        :param pulumi.Input[str] team_id: The GitHub team id or the GitHub team slug
         """
         ...
     @overload
@@ -250,7 +250,7 @@ class TeamMembers(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TeamMembersMemberArgs']]]] members: List of team members. See Members below for details.
-        :param pulumi.Input[str] team_id: The GitHub team id
+        :param pulumi.Input[str] team_id: The GitHub team id or the GitHub team slug
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -278,7 +278,7 @@ class TeamMembers(pulumi.CustomResource):
     @pulumi.getter(name="teamId")
     def team_id(self) -> pulumi.Output[str]:
         """
-        The GitHub team id
+        The GitHub team id or the GitHub team slug
         """
         return pulumi.get(self, "team_id")
 

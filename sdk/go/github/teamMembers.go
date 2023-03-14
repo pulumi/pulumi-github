@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -82,7 +82,7 @@ type TeamMembers struct {
 	Etag pulumi.StringOutput `pulumi:"etag"`
 	// List of team members. See Members below for details.
 	Members TeamMembersMemberArrayOutput `pulumi:"members"`
-	// The GitHub team id
+	// The GitHub team id or the GitHub team slug
 	TeamId pulumi.StringOutput `pulumi:"teamId"`
 }
 
@@ -124,7 +124,7 @@ type teamMembersState struct {
 	Etag *string `pulumi:"etag"`
 	// List of team members. See Members below for details.
 	Members []TeamMembersMember `pulumi:"members"`
-	// The GitHub team id
+	// The GitHub team id or the GitHub team slug
 	TeamId *string `pulumi:"teamId"`
 }
 
@@ -132,7 +132,7 @@ type TeamMembersState struct {
 	Etag pulumi.StringPtrInput
 	// List of team members. See Members below for details.
 	Members TeamMembersMemberArrayInput
-	// The GitHub team id
+	// The GitHub team id or the GitHub team slug
 	TeamId pulumi.StringPtrInput
 }
 
@@ -143,7 +143,7 @@ func (TeamMembersState) ElementType() reflect.Type {
 type teamMembersArgs struct {
 	// List of team members. See Members below for details.
 	Members []TeamMembersMember `pulumi:"members"`
-	// The GitHub team id
+	// The GitHub team id or the GitHub team slug
 	TeamId string `pulumi:"teamId"`
 }
 
@@ -151,7 +151,7 @@ type teamMembersArgs struct {
 type TeamMembersArgs struct {
 	// List of team members. See Members below for details.
 	Members TeamMembersMemberArrayInput
-	// The GitHub team id
+	// The GitHub team id or the GitHub team slug
 	TeamId pulumi.StringInput
 }
 
@@ -251,7 +251,7 @@ func (o TeamMembersOutput) Members() TeamMembersMemberArrayOutput {
 	return o.ApplyT(func(v *TeamMembers) TeamMembersMemberArrayOutput { return v.Members }).(TeamMembersMemberArrayOutput)
 }
 
-// The GitHub team id
+// The GitHub team id or the GitHub team slug
 func (o TeamMembersOutput) TeamId() pulumi.StringOutput {
 	return o.ApplyT(func(v *TeamMembers) pulumi.StringOutput { return v.TeamId }).(pulumi.StringOutput)
 }

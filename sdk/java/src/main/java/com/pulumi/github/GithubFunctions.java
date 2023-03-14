@@ -8,6 +8,10 @@ import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
 import com.pulumi.github.Utilities;
+import com.pulumi.github.inputs.GetActionsEnvironmentSecretsArgs;
+import com.pulumi.github.inputs.GetActionsEnvironmentSecretsPlainArgs;
+import com.pulumi.github.inputs.GetActionsEnvironmentVariablesArgs;
+import com.pulumi.github.inputs.GetActionsEnvironmentVariablesPlainArgs;
 import com.pulumi.github.inputs.GetActionsPublicKeyArgs;
 import com.pulumi.github.inputs.GetActionsPublicKeyPlainArgs;
 import com.pulumi.github.inputs.GetActionsRegistrationTokenArgs;
@@ -16,6 +20,8 @@ import com.pulumi.github.inputs.GetActionsRepositoryOidcSubjectClaimCustomizatio
 import com.pulumi.github.inputs.GetActionsRepositoryOidcSubjectClaimCustomizationTemplatePlainArgs;
 import com.pulumi.github.inputs.GetActionsSecretsArgs;
 import com.pulumi.github.inputs.GetActionsSecretsPlainArgs;
+import com.pulumi.github.inputs.GetActionsVariablesArgs;
+import com.pulumi.github.inputs.GetActionsVariablesPlainArgs;
 import com.pulumi.github.inputs.GetBranchArgs;
 import com.pulumi.github.inputs.GetBranchPlainArgs;
 import com.pulumi.github.inputs.GetCollaboratorsArgs;
@@ -66,13 +72,17 @@ import com.pulumi.github.inputs.GetUserArgs;
 import com.pulumi.github.inputs.GetUserPlainArgs;
 import com.pulumi.github.inputs.GetUsersArgs;
 import com.pulumi.github.inputs.GetUsersPlainArgs;
+import com.pulumi.github.outputs.GetActionsEnvironmentSecretsResult;
+import com.pulumi.github.outputs.GetActionsEnvironmentVariablesResult;
 import com.pulumi.github.outputs.GetActionsOrganizationOidcSubjectClaimCustomizationTemplateResult;
 import com.pulumi.github.outputs.GetActionsOrganizationRegistrationTokenResult;
 import com.pulumi.github.outputs.GetActionsOrganizationSecretsResult;
+import com.pulumi.github.outputs.GetActionsOrganizationVariablesResult;
 import com.pulumi.github.outputs.GetActionsPublicKeyResult;
 import com.pulumi.github.outputs.GetActionsRegistrationTokenResult;
 import com.pulumi.github.outputs.GetActionsRepositoryOidcSubjectClaimCustomizationTemplateResult;
 import com.pulumi.github.outputs.GetActionsSecretsResult;
+import com.pulumi.github.outputs.GetActionsVariablesResult;
 import com.pulumi.github.outputs.GetBranchResult;
 import com.pulumi.github.outputs.GetCollaboratorsResult;
 import com.pulumi.github.outputs.GetDependabotOrganizationSecretsResult;
@@ -108,6 +118,310 @@ import com.pulumi.resources.InvokeArgs;
 import java.util.concurrent.CompletableFuture;
 
 public final class GithubFunctions {
+    /**
+     * Use this data source to retrieve the list of secrets of the repository environment.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetActionsEnvironmentSecretsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getActionsEnvironmentSecrets(GetActionsEnvironmentSecretsArgs.builder()
+     *             .environment(&#34;exampleEnvironment&#34;)
+     *             .name(&#34;exampleRepo&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetActionsEnvironmentSecretsResult> getActionsEnvironmentSecrets(GetActionsEnvironmentSecretsArgs args) {
+        return getActionsEnvironmentSecrets(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve the list of secrets of the repository environment.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetActionsEnvironmentSecretsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getActionsEnvironmentSecrets(GetActionsEnvironmentSecretsArgs.builder()
+     *             .environment(&#34;exampleEnvironment&#34;)
+     *             .name(&#34;exampleRepo&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetActionsEnvironmentSecretsResult> getActionsEnvironmentSecretsPlain(GetActionsEnvironmentSecretsPlainArgs args) {
+        return getActionsEnvironmentSecretsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve the list of secrets of the repository environment.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetActionsEnvironmentSecretsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getActionsEnvironmentSecrets(GetActionsEnvironmentSecretsArgs.builder()
+     *             .environment(&#34;exampleEnvironment&#34;)
+     *             .name(&#34;exampleRepo&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetActionsEnvironmentSecretsResult> getActionsEnvironmentSecrets(GetActionsEnvironmentSecretsArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("github:index/getActionsEnvironmentSecrets:getActionsEnvironmentSecrets", TypeShape.of(GetActionsEnvironmentSecretsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve the list of secrets of the repository environment.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetActionsEnvironmentSecretsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getActionsEnvironmentSecrets(GetActionsEnvironmentSecretsArgs.builder()
+     *             .environment(&#34;exampleEnvironment&#34;)
+     *             .name(&#34;exampleRepo&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetActionsEnvironmentSecretsResult> getActionsEnvironmentSecretsPlain(GetActionsEnvironmentSecretsPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("github:index/getActionsEnvironmentSecrets:getActionsEnvironmentSecrets", TypeShape.of(GetActionsEnvironmentSecretsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve the list of variables of the repository environment.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetActionsEnvironmentVariablesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getActionsEnvironmentVariables(GetActionsEnvironmentVariablesArgs.builder()
+     *             .environment(&#34;exampleEnvironment&#34;)
+     *             .name(&#34;exampleRepo&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetActionsEnvironmentVariablesResult> getActionsEnvironmentVariables(GetActionsEnvironmentVariablesArgs args) {
+        return getActionsEnvironmentVariables(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve the list of variables of the repository environment.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetActionsEnvironmentVariablesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getActionsEnvironmentVariables(GetActionsEnvironmentVariablesArgs.builder()
+     *             .environment(&#34;exampleEnvironment&#34;)
+     *             .name(&#34;exampleRepo&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetActionsEnvironmentVariablesResult> getActionsEnvironmentVariablesPlain(GetActionsEnvironmentVariablesPlainArgs args) {
+        return getActionsEnvironmentVariablesPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve the list of variables of the repository environment.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetActionsEnvironmentVariablesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getActionsEnvironmentVariables(GetActionsEnvironmentVariablesArgs.builder()
+     *             .environment(&#34;exampleEnvironment&#34;)
+     *             .name(&#34;exampleRepo&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetActionsEnvironmentVariablesResult> getActionsEnvironmentVariables(GetActionsEnvironmentVariablesArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("github:index/getActionsEnvironmentVariables:getActionsEnvironmentVariables", TypeShape.of(GetActionsEnvironmentVariablesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve the list of variables of the repository environment.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetActionsEnvironmentVariablesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getActionsEnvironmentVariables(GetActionsEnvironmentVariablesArgs.builder()
+     *             .environment(&#34;exampleEnvironment&#34;)
+     *             .name(&#34;exampleRepo&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetActionsEnvironmentVariablesResult> getActionsEnvironmentVariablesPlain(GetActionsEnvironmentVariablesPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("github:index/getActionsEnvironmentVariables:getActionsEnvironmentVariables", TypeShape.of(GetActionsEnvironmentVariablesResult.class), args, Utilities.withVersion(options));
+    }
     /**
      * Use this data source to retrieve the OpenID Connect subject claim customization template for an organization
      * 
@@ -719,6 +1033,210 @@ public final class GithubFunctions {
      */
     public static CompletableFuture<GetActionsOrganizationSecretsResult> getActionsOrganizationSecretsPlain(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("github:index/getActionsOrganizationSecrets:getActionsOrganizationSecrets", TypeShape.of(GetActionsOrganizationSecretsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve the list of variables of the organization.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getActionsOrganizationVariables();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetActionsOrganizationVariablesResult> getActionsOrganizationVariables() {
+        return getActionsOrganizationVariables(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve the list of variables of the organization.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getActionsOrganizationVariables();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetActionsOrganizationVariablesResult> getActionsOrganizationVariablesPlain() {
+        return getActionsOrganizationVariablesPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve the list of variables of the organization.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getActionsOrganizationVariables();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetActionsOrganizationVariablesResult> getActionsOrganizationVariables(InvokeArgs args) {
+        return getActionsOrganizationVariables(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve the list of variables of the organization.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getActionsOrganizationVariables();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetActionsOrganizationVariablesResult> getActionsOrganizationVariablesPlain(InvokeArgs args) {
+        return getActionsOrganizationVariablesPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve the list of variables of the organization.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getActionsOrganizationVariables();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetActionsOrganizationVariablesResult> getActionsOrganizationVariables(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("github:index/getActionsOrganizationVariables:getActionsOrganizationVariables", TypeShape.of(GetActionsOrganizationVariablesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve the list of variables of the organization.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getActionsOrganizationVariables();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetActionsOrganizationVariablesResult> getActionsOrganizationVariablesPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("github:index/getActionsOrganizationVariables:getActionsOrganizationVariables", TypeShape.of(GetActionsOrganizationVariablesResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to retrieve information about a GitHub Actions public key. This data source is required to be used with other GitHub secrets interactions.
@@ -1389,6 +1907,228 @@ public final class GithubFunctions {
      */
     public static CompletableFuture<GetActionsSecretsResult> getActionsSecretsPlain(GetActionsSecretsPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("github:index/getActionsSecrets:getActionsSecrets", TypeShape.of(GetActionsSecretsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve the list of variables for a GitHub repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetActionsVariablesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getActionsVariables(GetActionsVariablesArgs.builder()
+     *             .name(&#34;example&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetActionsVariablesResult> getActionsVariables() {
+        return getActionsVariables(GetActionsVariablesArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve the list of variables for a GitHub repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetActionsVariablesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getActionsVariables(GetActionsVariablesArgs.builder()
+     *             .name(&#34;example&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetActionsVariablesResult> getActionsVariablesPlain() {
+        return getActionsVariablesPlain(GetActionsVariablesPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve the list of variables for a GitHub repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetActionsVariablesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getActionsVariables(GetActionsVariablesArgs.builder()
+     *             .name(&#34;example&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetActionsVariablesResult> getActionsVariables(GetActionsVariablesArgs args) {
+        return getActionsVariables(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve the list of variables for a GitHub repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetActionsVariablesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getActionsVariables(GetActionsVariablesArgs.builder()
+     *             .name(&#34;example&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetActionsVariablesResult> getActionsVariablesPlain(GetActionsVariablesPlainArgs args) {
+        return getActionsVariablesPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve the list of variables for a GitHub repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetActionsVariablesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getActionsVariables(GetActionsVariablesArgs.builder()
+     *             .name(&#34;example&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetActionsVariablesResult> getActionsVariables(GetActionsVariablesArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("github:index/getActionsVariables:getActionsVariables", TypeShape.of(GetActionsVariablesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve the list of variables for a GitHub repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetActionsVariablesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getActionsVariables(GetActionsVariablesArgs.builder()
+     *             .name(&#34;example&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetActionsVariablesResult> getActionsVariablesPlain(GetActionsVariablesPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("github:index/getActionsVariables:getActionsVariables", TypeShape.of(GetActionsVariablesResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to retrieve information about a repository branch.
