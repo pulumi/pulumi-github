@@ -964,6 +964,100 @@
                 "groupName"
             ]
         },
+        "github:index/getActionsEnvironmentSecretsSecret:getActionsEnvironmentSecretsSecret": {
+            "properties": {
+                "createdAt": {
+                    "type": "string",
+                    "description": "Timestamp of the variable creation\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the variable\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "updatedAt": {
+                    "type": "string",
+                    "description": "Timestamp of the variable last update\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "createdAt",
+                "name",
+                "updatedAt"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "github:index/getActionsEnvironmentVariablesVariable:getActionsEnvironmentVariablesVariable": {
+            "properties": {
+                "createdAt": {
+                    "type": "string",
+                    "description": "Timestamp of the variable creation\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the variable\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "updatedAt": {
+                    "type": "string",
+                    "description": "Timestamp of the variable last update\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "value": {
+                    "type": "string",
+                    "description": "Value of the variable\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "createdAt",
+                "name",
+                "updatedAt",
+                "value"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
         "github:index/getActionsOrganizationSecretsSecret:getActionsOrganizationSecretsSecret": {
             "properties": {
                 "createdAt": {
@@ -1016,6 +1110,68 @@
                 }
             }
         },
+        "github:index/getActionsOrganizationVariablesVariable:getActionsOrganizationVariablesVariable": {
+            "properties": {
+                "createdAt": {
+                    "type": "string",
+                    "description": "Timestamp of the variable creation\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the variable\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "updatedAt": {
+                    "type": "string",
+                    "description": "Timestamp of the variable last update\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "value": {
+                    "type": "string",
+                    "description": "Value of the variable\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "visibility": {
+                    "type": "string",
+                    "description": "Visibility of the variable\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "createdAt",
+                "name",
+                "updatedAt",
+                "value",
+                "visibility"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
         "github:index/getActionsSecretsSecret:getActionsSecretsSecret": {
             "properties": {
                 "createdAt": {
@@ -1051,6 +1207,58 @@
                 "createdAt",
                 "name",
                 "updatedAt"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "github:index/getActionsVariablesVariable:getActionsVariablesVariable": {
+            "properties": {
+                "createdAt": {
+                    "type": "string",
+                    "description": "Timestamp of the variable creation\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the repository.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "updatedAt": {
+                    "type": "string",
+                    "description": "Timestamp of the variable last update\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "value": {
+                    "type": "string",
+                    "description": "Value of the variable\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "createdAt",
+                "name",
+                "updatedAt",
+                "value"
             ],
             "language": {
                 "nodejs": {
@@ -2397,7 +2605,7 @@
     },
     "resources": {
         "github:index/actionsEnvironmentSecret:ActionsEnvironmentSecret": {
-            "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\nconst exampleSecretActionsEnvironmentSecret = new github.ActionsEnvironmentSecret(\"exampleSecretActionsEnvironmentSecret\", {\n    environment: \"example_environment\",\n    secretName: \"example_secret_name\",\n    plaintextValue: _var.some_secret_string,\n});\nconst exampleSecretIndex_actionsEnvironmentSecretActionsEnvironmentSecret = new github.ActionsEnvironmentSecret(\"exampleSecretIndex/actionsEnvironmentSecretActionsEnvironmentSecret\", {\n    environment: \"example_environment\",\n    secretName: \"example_secret_name\",\n    encryptedValue: _var.some_encrypted_secret_string,\n});\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\nexample_secret_actions_environment_secret = github.ActionsEnvironmentSecret(\"exampleSecretActionsEnvironmentSecret\",\n    environment=\"example_environment\",\n    secret_name=\"example_secret_name\",\n    plaintext_value=var[\"some_secret_string\"])\nexample_secret_index_actions_environment_secret_actions_environment_secret = github.ActionsEnvironmentSecret(\"exampleSecretIndex/actionsEnvironmentSecretActionsEnvironmentSecret\",\n    environment=\"example_environment\",\n    secret_name=\"example_secret_name\",\n    encrypted_value=var[\"some_encrypted_secret_string\"])\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Github = Pulumi.Github;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var exampleSecretActionsEnvironmentSecret = new Github.ActionsEnvironmentSecret(\"exampleSecretActionsEnvironmentSecret\", new()\n    {\n        Environment = \"example_environment\",\n        SecretName = \"example_secret_name\",\n        PlaintextValue = @var.Some_secret_string,\n    });\n\n    var exampleSecretIndex_actionsEnvironmentSecretActionsEnvironmentSecret = new Github.ActionsEnvironmentSecret(\"exampleSecretIndex/actionsEnvironmentSecretActionsEnvironmentSecret\", new()\n    {\n        Environment = \"example_environment\",\n        SecretName = \"example_secret_name\",\n        EncryptedValue = @var.Some_encrypted_secret_string,\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-github/sdk/v5/go/github\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := github.NewActionsEnvironmentSecret(ctx, \"exampleSecretActionsEnvironmentSecret\", \u0026github.ActionsEnvironmentSecretArgs{\n\t\t\tEnvironment:    pulumi.String(\"example_environment\"),\n\t\t\tSecretName:     pulumi.String(\"example_secret_name\"),\n\t\t\tPlaintextValue: pulumi.Any(_var.Some_secret_string),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = github.NewActionsEnvironmentSecret(ctx, \"exampleSecretIndex/actionsEnvironmentSecretActionsEnvironmentSecret\", \u0026github.ActionsEnvironmentSecretArgs{\n\t\t\tEnvironment:    pulumi.String(\"example_environment\"),\n\t\t\tSecretName:     pulumi.String(\"example_secret_name\"),\n\t\t\tEncryptedValue: pulumi.Any(_var.Some_encrypted_secret_string),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.github.ActionsEnvironmentSecret;\nimport com.pulumi.github.ActionsEnvironmentSecretArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var exampleSecretActionsEnvironmentSecret = new ActionsEnvironmentSecret(\"exampleSecretActionsEnvironmentSecret\", ActionsEnvironmentSecretArgs.builder()        \n            .environment(\"example_environment\")\n            .secretName(\"example_secret_name\")\n            .plaintextValue(var_.some_secret_string())\n            .build());\n\n        var exampleSecretIndex_actionsEnvironmentSecretActionsEnvironmentSecret = new ActionsEnvironmentSecret(\"exampleSecretIndex/actionsEnvironmentSecretActionsEnvironmentSecret\", ActionsEnvironmentSecretArgs.builder()        \n            .environment(\"example_environment\")\n            .secretName(\"example_secret_name\")\n            .encryptedValue(var_.some_encrypted_secret_string())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  exampleSecretActionsEnvironmentSecret:\n    type: github:ActionsEnvironmentSecret\n    properties:\n      environment: example_environment\n      secretName: example_secret_name\n      plaintextValue: ${var.some_secret_string}\n  exampleSecretIndex/actionsEnvironmentSecretActionsEnvironmentSecret:\n    type: github:ActionsEnvironmentSecret\n    properties:\n      environment: example_environment\n      secretName: example_secret_name\n      encryptedValue: ${var.some_encrypted_secret_string}\n```\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\nconst repo = github.getRepository({\n    fullName: \"my-org/repo\",\n});\nconst repoEnvironment = new github.RepositoryEnvironment(\"repoEnvironment\", {\n    repository: repo.then(repo =\u003e repo.name),\n    environment: \"example_environment\",\n});\nconst testSecret = new github.ActionsEnvironmentSecret(\"testSecret\", {\n    repository: repo.then(repo =\u003e repo.name),\n    environment: repoEnvironment.environment,\n    secretName: \"test_secret_name\",\n    plaintextValue: `%s`,\n});\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\nrepo = github.get_repository(full_name=\"my-org/repo\")\nrepo_environment = github.RepositoryEnvironment(\"repoEnvironment\",\n    repository=repo.name,\n    environment=\"example_environment\")\ntest_secret = github.ActionsEnvironmentSecret(\"testSecret\",\n    repository=repo.name,\n    environment=repo_environment.environment,\n    secret_name=\"test_secret_name\",\n    plaintext_value=\"%s\")\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Github = Pulumi.Github;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var repo = Github.GetRepository.Invoke(new()\n    {\n        FullName = \"my-org/repo\",\n    });\n\n    var repoEnvironment = new Github.RepositoryEnvironment(\"repoEnvironment\", new()\n    {\n        Repository = repo.Apply(getRepositoryResult =\u003e getRepositoryResult.Name),\n        Environment = \"example_environment\",\n    });\n\n    var testSecret = new Github.ActionsEnvironmentSecret(\"testSecret\", new()\n    {\n        Repository = repo.Apply(getRepositoryResult =\u003e getRepositoryResult.Name),\n        Environment = repoEnvironment.Environment,\n        SecretName = \"test_secret_name\",\n        PlaintextValue = \"%s\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"fmt\"\n\n\t\"github.com/pulumi/pulumi-github/sdk/v5/go/github\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\trepo, err := github.LookupRepository(ctx, \u0026github.LookupRepositoryArgs{\n\t\t\tFullName: pulumi.StringRef(\"my-org/repo\"),\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\trepoEnvironment, err := github.NewRepositoryEnvironment(ctx, \"repoEnvironment\", \u0026github.RepositoryEnvironmentArgs{\n\t\t\tRepository:  *pulumi.String(repo.Name),\n\t\t\tEnvironment: pulumi.String(\"example_environment\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = github.NewActionsEnvironmentSecret(ctx, \"testSecret\", \u0026github.ActionsEnvironmentSecretArgs{\n\t\t\tRepository:     *pulumi.String(repo.Name),\n\t\t\tEnvironment:    repoEnvironment.Environment,\n\t\t\tSecretName:     pulumi.String(\"test_secret_name\"),\n\t\t\tPlaintextValue: pulumi.String(fmt.Sprintf(\"%vs\", \"%\")),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.github.GithubFunctions;\nimport com.pulumi.github.inputs.GetRepositoryArgs;\nimport com.pulumi.github.RepositoryEnvironment;\nimport com.pulumi.github.RepositoryEnvironmentArgs;\nimport com.pulumi.github.ActionsEnvironmentSecret;\nimport com.pulumi.github.ActionsEnvironmentSecretArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var repo = GithubFunctions.getRepository(GetRepositoryArgs.builder()\n            .fullName(\"my-org/repo\")\n            .build());\n\n        var repoEnvironment = new RepositoryEnvironment(\"repoEnvironment\", RepositoryEnvironmentArgs.builder()        \n            .repository(repo.applyValue(getRepositoryResult -\u003e getRepositoryResult.name()))\n            .environment(\"example_environment\")\n            .build());\n\n        var testSecret = new ActionsEnvironmentSecret(\"testSecret\", ActionsEnvironmentSecretArgs.builder()        \n            .repository(repo.applyValue(getRepositoryResult -\u003e getRepositoryResult.name()))\n            .environment(repoEnvironment.environment())\n            .secretName(\"test_secret_name\")\n            .plaintextValue(\"%s\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  repoEnvironment:\n    type: github:RepositoryEnvironment\n    properties:\n      repository: ${repo.name}\n      environment: example_environment\n  testSecret:\n    type: github:ActionsEnvironmentSecret\n    properties:\n      repository: ${repo.name}\n      environment: ${repoEnvironment.environment}\n      secretName: test_secret_name\n      plaintextValue: '%s'\nvariables:\n  repo:\n    fn::invoke:\n      Function: github:getRepository\n      Arguments:\n        fullName: my-org/repo\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nThis resource does not support importing. If you'd like to help contribute it, please visit our [GitHub page](https://github.com/integrations/terraform-provider-github)! ",
+            "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\nconst exampleSecretActionsEnvironmentSecret = new github.ActionsEnvironmentSecret(\"exampleSecretActionsEnvironmentSecret\", {\n    environment: \"example_environment\",\n    secretName: \"example_secret_name\",\n    plaintextValue: _var.some_secret_string,\n});\nconst exampleSecretIndex_actionsEnvironmentSecretActionsEnvironmentSecret = new github.ActionsEnvironmentSecret(\"exampleSecretIndex/actionsEnvironmentSecretActionsEnvironmentSecret\", {\n    environment: \"example_environment\",\n    secretName: \"example_secret_name\",\n    encryptedValue: _var.some_encrypted_secret_string,\n});\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\nexample_secret_actions_environment_secret = github.ActionsEnvironmentSecret(\"exampleSecretActionsEnvironmentSecret\",\n    environment=\"example_environment\",\n    secret_name=\"example_secret_name\",\n    plaintext_value=var[\"some_secret_string\"])\nexample_secret_index_actions_environment_secret_actions_environment_secret = github.ActionsEnvironmentSecret(\"exampleSecretIndex/actionsEnvironmentSecretActionsEnvironmentSecret\",\n    environment=\"example_environment\",\n    secret_name=\"example_secret_name\",\n    encrypted_value=var[\"some_encrypted_secret_string\"])\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Github = Pulumi.Github;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var exampleSecretActionsEnvironmentSecret = new Github.ActionsEnvironmentSecret(\"exampleSecretActionsEnvironmentSecret\", new()\n    {\n        Environment = \"example_environment\",\n        SecretName = \"example_secret_name\",\n        PlaintextValue = @var.Some_secret_string,\n    });\n\n    var exampleSecretIndex_actionsEnvironmentSecretActionsEnvironmentSecret = new Github.ActionsEnvironmentSecret(\"exampleSecretIndex/actionsEnvironmentSecretActionsEnvironmentSecret\", new()\n    {\n        Environment = \"example_environment\",\n        SecretName = \"example_secret_name\",\n        EncryptedValue = @var.Some_encrypted_secret_string,\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-github/sdk/v5/go/github\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := github.NewActionsEnvironmentSecret(ctx, \"exampleSecretActionsEnvironmentSecret\", \u0026github.ActionsEnvironmentSecretArgs{\n\t\t\tEnvironment:    pulumi.String(\"example_environment\"),\n\t\t\tSecretName:     pulumi.String(\"example_secret_name\"),\n\t\t\tPlaintextValue: pulumi.Any(_var.Some_secret_string),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = github.NewActionsEnvironmentSecret(ctx, \"exampleSecretIndex/actionsEnvironmentSecretActionsEnvironmentSecret\", \u0026github.ActionsEnvironmentSecretArgs{\n\t\t\tEnvironment:    pulumi.String(\"example_environment\"),\n\t\t\tSecretName:     pulumi.String(\"example_secret_name\"),\n\t\t\tEncryptedValue: pulumi.Any(_var.Some_encrypted_secret_string),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.github.ActionsEnvironmentSecret;\nimport com.pulumi.github.ActionsEnvironmentSecretArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var exampleSecretActionsEnvironmentSecret = new ActionsEnvironmentSecret(\"exampleSecretActionsEnvironmentSecret\", ActionsEnvironmentSecretArgs.builder()        \n            .environment(\"example_environment\")\n            .secretName(\"example_secret_name\")\n            .plaintextValue(var_.some_secret_string())\n            .build());\n\n        var exampleSecretIndex_actionsEnvironmentSecretActionsEnvironmentSecret = new ActionsEnvironmentSecret(\"exampleSecretIndex/actionsEnvironmentSecretActionsEnvironmentSecret\", ActionsEnvironmentSecretArgs.builder()        \n            .environment(\"example_environment\")\n            .secretName(\"example_secret_name\")\n            .encryptedValue(var_.some_encrypted_secret_string())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  exampleSecretActionsEnvironmentSecret:\n    type: github:ActionsEnvironmentSecret\n    properties:\n      environment: example_environment\n      secretName: example_secret_name\n      plaintextValue: ${var.some_secret_string}\n  exampleSecretIndex/actionsEnvironmentSecretActionsEnvironmentSecret:\n    type: github:ActionsEnvironmentSecret\n    properties:\n      environment: example_environment\n      secretName: example_secret_name\n      encryptedValue: ${var.some_encrypted_secret_string}\n```\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\nconst repo = github.getRepository({\n    fullName: \"my-org/repo\",\n});\nconst repoEnvironment = new github.RepositoryEnvironment(\"repoEnvironment\", {\n    repository: repo.then(repo =\u003e repo.name),\n    environment: \"example_environment\",\n});\nconst testSecret = new github.ActionsEnvironmentSecret(\"testSecret\", {\n    repository: repo.then(repo =\u003e repo.name),\n    environment: repoEnvironment.environment,\n    secretName: \"test_secret_name\",\n    plaintextValue: \"%s\",\n});\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\nrepo = github.get_repository(full_name=\"my-org/repo\")\nrepo_environment = github.RepositoryEnvironment(\"repoEnvironment\",\n    repository=repo.name,\n    environment=\"example_environment\")\ntest_secret = github.ActionsEnvironmentSecret(\"testSecret\",\n    repository=repo.name,\n    environment=repo_environment.environment,\n    secret_name=\"test_secret_name\",\n    plaintext_value=\"%s\")\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Github = Pulumi.Github;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var repo = Github.GetRepository.Invoke(new()\n    {\n        FullName = \"my-org/repo\",\n    });\n\n    var repoEnvironment = new Github.RepositoryEnvironment(\"repoEnvironment\", new()\n    {\n        Repository = repo.Apply(getRepositoryResult =\u003e getRepositoryResult.Name),\n        Environment = \"example_environment\",\n    });\n\n    var testSecret = new Github.ActionsEnvironmentSecret(\"testSecret\", new()\n    {\n        Repository = repo.Apply(getRepositoryResult =\u003e getRepositoryResult.Name),\n        Environment = repoEnvironment.Environment,\n        SecretName = \"test_secret_name\",\n        PlaintextValue = \"%s\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-github/sdk/v5/go/github\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\trepo, err := github.LookupRepository(ctx, \u0026github.LookupRepositoryArgs{\n\t\t\tFullName: pulumi.StringRef(\"my-org/repo\"),\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\trepoEnvironment, err := github.NewRepositoryEnvironment(ctx, \"repoEnvironment\", \u0026github.RepositoryEnvironmentArgs{\n\t\t\tRepository:  *pulumi.String(repo.Name),\n\t\t\tEnvironment: pulumi.String(\"example_environment\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = github.NewActionsEnvironmentSecret(ctx, \"testSecret\", \u0026github.ActionsEnvironmentSecretArgs{\n\t\t\tRepository:     *pulumi.String(repo.Name),\n\t\t\tEnvironment:    repoEnvironment.Environment,\n\t\t\tSecretName:     pulumi.String(\"test_secret_name\"),\n\t\t\tPlaintextValue: pulumi.String(\"%s\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.github.GithubFunctions;\nimport com.pulumi.github.inputs.GetRepositoryArgs;\nimport com.pulumi.github.RepositoryEnvironment;\nimport com.pulumi.github.RepositoryEnvironmentArgs;\nimport com.pulumi.github.ActionsEnvironmentSecret;\nimport com.pulumi.github.ActionsEnvironmentSecretArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var repo = GithubFunctions.getRepository(GetRepositoryArgs.builder()\n            .fullName(\"my-org/repo\")\n            .build());\n\n        var repoEnvironment = new RepositoryEnvironment(\"repoEnvironment\", RepositoryEnvironmentArgs.builder()        \n            .repository(repo.applyValue(getRepositoryResult -\u003e getRepositoryResult.name()))\n            .environment(\"example_environment\")\n            .build());\n\n        var testSecret = new ActionsEnvironmentSecret(\"testSecret\", ActionsEnvironmentSecretArgs.builder()        \n            .repository(repo.applyValue(getRepositoryResult -\u003e getRepositoryResult.name()))\n            .environment(repoEnvironment.environment())\n            .secretName(\"test_secret_name\")\n            .plaintextValue(\"%s\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  repoEnvironment:\n    type: github:RepositoryEnvironment\n    properties:\n      repository: ${repo.name}\n      environment: example_environment\n  testSecret:\n    type: github:ActionsEnvironmentSecret\n    properties:\n      repository: ${repo.name}\n      environment: ${repoEnvironment.environment}\n      secretName: test_secret_name\n      plaintextValue: '%s'\nvariables:\n  repo:\n    fn::invoke:\n      Function: github:getRepository\n      Arguments:\n        fullName: my-org/repo\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nThis resource does not support importing. If you'd like to help contribute it, please visit our [GitHub page](https://github.com/integrations/terraform-provider-github)! ",
             "properties": {
                 "createdAt": {
                     "type": "string",
@@ -2508,6 +2716,101 @@
                     "updatedAt": {
                         "type": "string",
                         "description": "Date of actions_environment_secret update.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "github:index/actionsEnvironmentVariable:ActionsEnvironmentVariable": {
+            "description": "This resource allows you to create and manage GitHub Actions variables within your GitHub repository environments.\nYou must have write access to a repository to use this resource.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\nconst exampleVariable = new github.ActionsEnvironmentVariable(\"exampleVariable\", {\n    environment: \"example_environment\",\n    value: \"example_variable_value\",\n    variableName: \"example_variable_name\",\n});\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\nexample_variable = github.ActionsEnvironmentVariable(\"exampleVariable\",\n    environment=\"example_environment\",\n    value=\"example_variable_value\",\n    variable_name=\"example_variable_name\")\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Github = Pulumi.Github;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var exampleVariable = new Github.ActionsEnvironmentVariable(\"exampleVariable\", new()\n    {\n        Environment = \"example_environment\",\n        Value = \"example_variable_value\",\n        VariableName = \"example_variable_name\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-github/sdk/v5/go/github\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := github.NewActionsEnvironmentVariable(ctx, \"exampleVariable\", \u0026github.ActionsEnvironmentVariableArgs{\n\t\t\tEnvironment:  pulumi.String(\"example_environment\"),\n\t\t\tValue:        pulumi.String(\"example_variable_value\"),\n\t\t\tVariableName: pulumi.String(\"example_variable_name\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.github.ActionsEnvironmentVariable;\nimport com.pulumi.github.ActionsEnvironmentVariableArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var exampleVariable = new ActionsEnvironmentVariable(\"exampleVariable\", ActionsEnvironmentVariableArgs.builder()        \n            .environment(\"example_environment\")\n            .value(\"example_variable_value\")\n            .variableName(\"example_variable_name\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  exampleVariable:\n    type: github:ActionsEnvironmentVariable\n    properties:\n      environment: example_environment\n      value: example_variable_value\n      variableName: example_variable_name\n```\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\nconst repo = github.getRepository({\n    fullName: \"my-org/repo\",\n});\nconst repoEnvironment = new github.RepositoryEnvironment(\"repoEnvironment\", {\n    repository: repo.then(repo =\u003e repo.name),\n    environment: \"example_environment\",\n});\nconst exampleVariable = new github.ActionsEnvironmentVariable(\"exampleVariable\", {\n    repository: repo.then(repo =\u003e repo.name),\n    environment: repoEnvironment.environment,\n    variableName: \"example_variable_name\",\n    value: \"example_variable_value\",\n});\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\nrepo = github.get_repository(full_name=\"my-org/repo\")\nrepo_environment = github.RepositoryEnvironment(\"repoEnvironment\",\n    repository=repo.name,\n    environment=\"example_environment\")\nexample_variable = github.ActionsEnvironmentVariable(\"exampleVariable\",\n    repository=repo.name,\n    environment=repo_environment.environment,\n    variable_name=\"example_variable_name\",\n    value=\"example_variable_value\")\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Github = Pulumi.Github;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var repo = Github.GetRepository.Invoke(new()\n    {\n        FullName = \"my-org/repo\",\n    });\n\n    var repoEnvironment = new Github.RepositoryEnvironment(\"repoEnvironment\", new()\n    {\n        Repository = repo.Apply(getRepositoryResult =\u003e getRepositoryResult.Name),\n        Environment = \"example_environment\",\n    });\n\n    var exampleVariable = new Github.ActionsEnvironmentVariable(\"exampleVariable\", new()\n    {\n        Repository = repo.Apply(getRepositoryResult =\u003e getRepositoryResult.Name),\n        Environment = repoEnvironment.Environment,\n        VariableName = \"example_variable_name\",\n        Value = \"example_variable_value\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-github/sdk/v5/go/github\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\trepo, err := github.LookupRepository(ctx, \u0026github.LookupRepositoryArgs{\n\t\t\tFullName: pulumi.StringRef(\"my-org/repo\"),\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\trepoEnvironment, err := github.NewRepositoryEnvironment(ctx, \"repoEnvironment\", \u0026github.RepositoryEnvironmentArgs{\n\t\t\tRepository:  *pulumi.String(repo.Name),\n\t\t\tEnvironment: pulumi.String(\"example_environment\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = github.NewActionsEnvironmentVariable(ctx, \"exampleVariable\", \u0026github.ActionsEnvironmentVariableArgs{\n\t\t\tRepository:   *pulumi.String(repo.Name),\n\t\t\tEnvironment:  repoEnvironment.Environment,\n\t\t\tVariableName: pulumi.String(\"example_variable_name\"),\n\t\t\tValue:        pulumi.String(\"example_variable_value\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.github.GithubFunctions;\nimport com.pulumi.github.inputs.GetRepositoryArgs;\nimport com.pulumi.github.RepositoryEnvironment;\nimport com.pulumi.github.RepositoryEnvironmentArgs;\nimport com.pulumi.github.ActionsEnvironmentVariable;\nimport com.pulumi.github.ActionsEnvironmentVariableArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var repo = GithubFunctions.getRepository(GetRepositoryArgs.builder()\n            .fullName(\"my-org/repo\")\n            .build());\n\n        var repoEnvironment = new RepositoryEnvironment(\"repoEnvironment\", RepositoryEnvironmentArgs.builder()        \n            .repository(repo.applyValue(getRepositoryResult -\u003e getRepositoryResult.name()))\n            .environment(\"example_environment\")\n            .build());\n\n        var exampleVariable = new ActionsEnvironmentVariable(\"exampleVariable\", ActionsEnvironmentVariableArgs.builder()        \n            .repository(repo.applyValue(getRepositoryResult -\u003e getRepositoryResult.name()))\n            .environment(repoEnvironment.environment())\n            .variableName(\"example_variable_name\")\n            .value(\"example_variable_value\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  repoEnvironment:\n    type: github:RepositoryEnvironment\n    properties:\n      repository: ${repo.name}\n      environment: example_environment\n  exampleVariable:\n    type: github:ActionsEnvironmentVariable\n    properties:\n      repository: ${repo.name}\n      environment: ${repoEnvironment.environment}\n      variableName: example_variable_name\n      value: example_variable_value\nvariables:\n  repo:\n    fn::invoke:\n      Function: github:getRepository\n      Arguments:\n        fullName: my-org/repo\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nThis resource can be imported using an ID made up of the repository name, environment name, and variable name\n\n```sh\n $ pulumi import github:index/actionsEnvironmentVariable:ActionsEnvironmentVariable test_variable myrepo:myenv:myvariable\n```\n\n ",
+            "properties": {
+                "createdAt": {
+                    "type": "string",
+                    "description": "Date of actions_environment_secret creation.\n"
+                },
+                "environment": {
+                    "type": "string",
+                    "description": "Name of the environment.\n"
+                },
+                "repository": {
+                    "type": "string",
+                    "description": "Name of the repository.\n"
+                },
+                "updatedAt": {
+                    "type": "string",
+                    "description": "Date of actions_environment_secret update.\n"
+                },
+                "value": {
+                    "type": "string",
+                    "description": "Value of the variable\n"
+                },
+                "variableName": {
+                    "type": "string",
+                    "description": "Name of the variable.\n"
+                }
+            },
+            "required": [
+                "createdAt",
+                "environment",
+                "repository",
+                "updatedAt",
+                "value",
+                "variableName"
+            ],
+            "inputProperties": {
+                "environment": {
+                    "type": "string",
+                    "description": "Name of the environment.\n",
+                    "willReplaceOnChanges": true
+                },
+                "repository": {
+                    "type": "string",
+                    "description": "Name of the repository.\n"
+                },
+                "value": {
+                    "type": "string",
+                    "description": "Value of the variable\n"
+                },
+                "variableName": {
+                    "type": "string",
+                    "description": "Name of the variable.\n",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "requiredInputs": [
+                "environment",
+                "repository",
+                "value",
+                "variableName"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering ActionsEnvironmentVariable resources.\n",
+                "properties": {
+                    "createdAt": {
+                        "type": "string",
+                        "description": "Date of actions_environment_secret creation.\n"
+                    },
+                    "environment": {
+                        "type": "string",
+                        "description": "Name of the environment.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "repository": {
+                        "type": "string",
+                        "description": "Name of the repository.\n"
+                    },
+                    "updatedAt": {
+                        "type": "string",
+                        "description": "Date of actions_environment_secret update.\n"
+                    },
+                    "value": {
+                        "type": "string",
+                        "description": "Value of the variable\n"
+                    },
+                    "variableName": {
+                        "type": "string",
+                        "description": "Name of the variable.\n",
+                        "willReplaceOnChanges": true
                     }
                 },
                 "type": "object"
@@ -2793,6 +3096,108 @@
                             "type": "integer"
                         },
                         "description": "An array of repository ids that can access the organization secret.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "github:index/actionsOrganizationVariable:ActionsOrganizationVariable": {
+            "description": "This resource allows you to create and manage GitHub Actions variables within your GitHub organization.\nYou must have write access to a repository to use this resource.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\nconst exampleVariable = new github.ActionsOrganizationVariable(\"exampleVariable\", {\n    value: \"example_variable_value\",\n    variableName: \"example_variable_name\",\n    visibility: \"private\",\n});\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\nexample_variable = github.ActionsOrganizationVariable(\"exampleVariable\",\n    value=\"example_variable_value\",\n    variable_name=\"example_variable_name\",\n    visibility=\"private\")\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Github = Pulumi.Github;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var exampleVariable = new Github.ActionsOrganizationVariable(\"exampleVariable\", new()\n    {\n        Value = \"example_variable_value\",\n        VariableName = \"example_variable_name\",\n        Visibility = \"private\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-github/sdk/v5/go/github\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := github.NewActionsOrganizationVariable(ctx, \"exampleVariable\", \u0026github.ActionsOrganizationVariableArgs{\n\t\t\tValue:        pulumi.String(\"example_variable_value\"),\n\t\t\tVariableName: pulumi.String(\"example_variable_name\"),\n\t\t\tVisibility:   pulumi.String(\"private\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.github.ActionsOrganizationVariable;\nimport com.pulumi.github.ActionsOrganizationVariableArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var exampleVariable = new ActionsOrganizationVariable(\"exampleVariable\", ActionsOrganizationVariableArgs.builder()        \n            .value(\"example_variable_value\")\n            .variableName(\"example_variable_name\")\n            .visibility(\"private\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  exampleVariable:\n    type: github:ActionsOrganizationVariable\n    properties:\n      value: example_variable_value\n      variableName: example_variable_name\n      visibility: private\n```\n\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.github.GithubFunctions;\nimport com.pulumi.github.inputs.GetRepositoryArgs;\nimport com.pulumi.github.ActionsOrganizationVariable;\nimport com.pulumi.github.ActionsOrganizationVariableArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var repo = GithubFunctions.getRepository(GetRepositoryArgs.builder()\n            .fullName(\"my-org/repo\")\n            .build());\n\n        var exampleVariable = new ActionsOrganizationVariable(\"exampleVariable\", ActionsOrganizationVariableArgs.builder()        \n            .secretName(\"example_variable_name\")\n            .visibility(\"selected\")\n            .plaintextValue(\"example_variable_value\")\n            .selectedRepositoryIds(repo.applyValue(getRepositoryResult -\u003e getRepositoryResult.repoId()))\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  exampleVariable:\n    type: github:ActionsOrganizationVariable\n    properties:\n      secretName: example_variable_name\n      visibility: selected\n      plaintextValue: example_variable_value\n      selectedRepositoryIds:\n        - ${repo.repoId}\nvariables:\n  repo:\n    fn::invoke:\n      Function: github:getRepository\n      Arguments:\n        fullName: my-org/repo\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nThis resource can be imported using an ID made up of the variable name\n\n```sh\n $ pulumi import github:index/actionsOrganizationVariable:ActionsOrganizationVariable test_variable test_variable_name\n```\n\n ",
+            "properties": {
+                "createdAt": {
+                    "type": "string",
+                    "description": "Date of actions_variable creation.\n"
+                },
+                "selectedRepositoryIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    },
+                    "description": "An array of repository ids that can access the organization variable.\n"
+                },
+                "updatedAt": {
+                    "type": "string",
+                    "description": "Date of actions_variable update.\n"
+                },
+                "value": {
+                    "type": "string",
+                    "description": "Value of the variable\n"
+                },
+                "variableName": {
+                    "type": "string",
+                    "description": "Name of the variable\n"
+                },
+                "visibility": {
+                    "type": "string",
+                    "description": "Configures the access that repositories have to the organization variable.\nMust be one of `all`, `private`, `selected`. `selected_repository_ids` is required if set to `selected`.\n"
+                }
+            },
+            "required": [
+                "createdAt",
+                "updatedAt",
+                "value",
+                "variableName",
+                "visibility"
+            ],
+            "inputProperties": {
+                "selectedRepositoryIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    },
+                    "description": "An array of repository ids that can access the organization variable.\n"
+                },
+                "value": {
+                    "type": "string",
+                    "description": "Value of the variable\n"
+                },
+                "variableName": {
+                    "type": "string",
+                    "description": "Name of the variable\n",
+                    "willReplaceOnChanges": true
+                },
+                "visibility": {
+                    "type": "string",
+                    "description": "Configures the access that repositories have to the organization variable.\nMust be one of `all`, `private`, `selected`. `selected_repository_ids` is required if set to `selected`.\n",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "requiredInputs": [
+                "value",
+                "variableName",
+                "visibility"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering ActionsOrganizationVariable resources.\n",
+                "properties": {
+                    "createdAt": {
+                        "type": "string",
+                        "description": "Date of actions_variable creation.\n"
+                    },
+                    "selectedRepositoryIds": {
+                        "type": "array",
+                        "items": {
+                            "type": "integer"
+                        },
+                        "description": "An array of repository ids that can access the organization variable.\n"
+                    },
+                    "updatedAt": {
+                        "type": "string",
+                        "description": "Date of actions_variable update.\n"
+                    },
+                    "value": {
+                        "type": "string",
+                        "description": "Value of the variable\n"
+                    },
+                    "variableName": {
+                        "type": "string",
+                        "description": "Name of the variable\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "visibility": {
+                        "type": "string",
+                        "description": "Configures the access that repositories have to the organization variable.\nMust be one of `all`, `private`, `selected`. `selected_repository_ids` is required if set to `selected`.\n",
+                        "willReplaceOnChanges": true
                     }
                 },
                 "type": "object"
@@ -3213,6 +3618,85 @@
                     "updatedAt": {
                         "type": "string",
                         "description": "Date of actions_secret update.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "github:index/actionsVariable:ActionsVariable": {
+            "description": "This resource allows you to create and manage GitHub Actions variables within your GitHub repositories.\nYou must have write access to a repository to use this resource.\n\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\nconst exampleVariable = new github.ActionsVariable(\"exampleVariable\", {\n    repository: \"example_repository\",\n    value: \"example_variable_value\",\n    variableName: \"example_variable_name\",\n});\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\nexample_variable = github.ActionsVariable(\"exampleVariable\",\n    repository=\"example_repository\",\n    value=\"example_variable_value\",\n    variable_name=\"example_variable_name\")\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Github = Pulumi.Github;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var exampleVariable = new Github.ActionsVariable(\"exampleVariable\", new()\n    {\n        Repository = \"example_repository\",\n        Value = \"example_variable_value\",\n        VariableName = \"example_variable_name\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-github/sdk/v5/go/github\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := github.NewActionsVariable(ctx, \"exampleVariable\", \u0026github.ActionsVariableArgs{\n\t\t\tRepository:   pulumi.String(\"example_repository\"),\n\t\t\tValue:        pulumi.String(\"example_variable_value\"),\n\t\t\tVariableName: pulumi.String(\"example_variable_name\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.github.ActionsVariable;\nimport com.pulumi.github.ActionsVariableArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var exampleVariable = new ActionsVariable(\"exampleVariable\", ActionsVariableArgs.builder()        \n            .repository(\"example_repository\")\n            .value(\"example_variable_value\")\n            .variableName(\"example_variable_name\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  exampleVariable:\n    type: github:ActionsVariable\n    properties:\n      repository: example_repository\n      value: example_variable_value\n      variableName: example_variable_name\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nGitHub Actions variables can be imported using an ID made up of `repository:variable_name`, e.g.\n\n```sh\n $ pulumi import github:index/actionsVariable:ActionsVariable myvariable myrepo:myvariable\n```\n\n ",
+            "properties": {
+                "createdAt": {
+                    "type": "string",
+                    "description": "Date of actions_variable creation.\n"
+                },
+                "repository": {
+                    "type": "string",
+                    "description": "Name of the repository\n"
+                },
+                "updatedAt": {
+                    "type": "string",
+                    "description": "Date of actions_variable update.\n"
+                },
+                "value": {
+                    "type": "string",
+                    "description": "Value of the variable\n"
+                },
+                "variableName": {
+                    "type": "string",
+                    "description": "Name of the variable\n"
+                }
+            },
+            "required": [
+                "createdAt",
+                "repository",
+                "updatedAt",
+                "value",
+                "variableName"
+            ],
+            "inputProperties": {
+                "repository": {
+                    "type": "string",
+                    "description": "Name of the repository\n"
+                },
+                "value": {
+                    "type": "string",
+                    "description": "Value of the variable\n"
+                },
+                "variableName": {
+                    "type": "string",
+                    "description": "Name of the variable\n",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "requiredInputs": [
+                "repository",
+                "value",
+                "variableName"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering ActionsVariable resources.\n",
+                "properties": {
+                    "createdAt": {
+                        "type": "string",
+                        "description": "Date of actions_variable creation.\n"
+                    },
+                    "repository": {
+                        "type": "string",
+                        "description": "Name of the repository\n"
+                    },
+                    "updatedAt": {
+                        "type": "string",
+                        "description": "Date of actions_variable update.\n"
+                    },
+                    "value": {
+                        "type": "string",
+                        "description": "Value of the variable\n"
+                    },
+                    "variableName": {
+                        "type": "string",
+                        "description": "Name of the variable\n",
+                        "willReplaceOnChanges": true
                     }
                 },
                 "type": "object"
@@ -7052,7 +7536,7 @@
                 },
                 "teamId": {
                     "type": "string",
-                    "description": "The GitHub team id\n"
+                    "description": "The GitHub team id or the GitHub team slug\n"
                 }
             },
             "required": [
@@ -7070,7 +7554,7 @@
                 },
                 "teamId": {
                     "type": "string",
-                    "description": "The GitHub team id\n",
+                    "description": "The GitHub team id or the GitHub team slug\n",
                     "willReplaceOnChanges": true
                 }
             },
@@ -7093,7 +7577,7 @@
                     },
                     "teamId": {
                         "type": "string",
-                        "description": "The GitHub team id\n",
+                        "description": "The GitHub team id or the GitHub team slug\n",
                         "willReplaceOnChanges": true
                     }
                 },
@@ -7361,7 +7845,7 @@
             }
         },
         "github:index/userGpgKey:UserGpgKey": {
-            "description": "Provides a GitHub user's GPG key resource.\n\nThis resource allows you to add/remove GPG keys from your user account.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\nconst example = new github.UserGpgKey(\"example\", {armoredPublicKey: `-----BEGIN PGP PUBLIC KEY BLOCK-----\n...\n-----END PGP PUBLIC KEY BLOCK-----\n`});\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\nexample = github.UserGpgKey(\"example\", armored_public_key=\"\"\"-----BEGIN PGP PUBLIC KEY BLOCK-----\n...\n-----END PGP PUBLIC KEY BLOCK-----\n\"\"\")\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Github = Pulumi.Github;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new Github.UserGpgKey(\"example\", new()\n    {\n        ArmoredPublicKey = @\"-----BEGIN PGP PUBLIC KEY BLOCK-----\n...\n-----END PGP PUBLIC KEY BLOCK-----\n\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"fmt\"\n\n\t\"github.com/pulumi/pulumi-github/sdk/v5/go/github\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := github.NewUserGpgKey(ctx, \"example\", \u0026github.UserGpgKeyArgs{\n\t\t\tArmoredPublicKey: pulumi.String(fmt.Sprintf(\"-----BEGIN PGP PUBLIC KEY BLOCK-----\\n...\\n-----END PGP PUBLIC KEY BLOCK-----\\n\")),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.github.UserGpgKey;\nimport com.pulumi.github.UserGpgKeyArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new UserGpgKey(\"example\", UserGpgKeyArgs.builder()        \n            .armoredPublicKey(\"\"\"\n-----BEGIN PGP PUBLIC KEY BLOCK-----\n...\n-----END PGP PUBLIC KEY BLOCK-----\n            \"\"\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: github:UserGpgKey\n    properties:\n      armoredPublicKey: |\n        -----BEGIN PGP PUBLIC KEY BLOCK-----\n        ...\n        -----END PGP PUBLIC KEY BLOCK-----\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nGPG keys are not importable due to the fact that [API](https://developer.github.com/v3/users/gpg_keys/#gpg-keys) does not return previously uploaded GPG key. ",
+            "description": "Provides a GitHub user's GPG key resource.\n\nThis resource allows you to add/remove GPG keys from your user account.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\nconst example = new github.UserGpgKey(\"example\", {armoredPublicKey: `-----BEGIN PGP PUBLIC KEY BLOCK-----\n...\n-----END PGP PUBLIC KEY BLOCK-----\n`});\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\nexample = github.UserGpgKey(\"example\", armored_public_key=\"\"\"-----BEGIN PGP PUBLIC KEY BLOCK-----\n...\n-----END PGP PUBLIC KEY BLOCK-----\n\"\"\")\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Github = Pulumi.Github;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new Github.UserGpgKey(\"example\", new()\n    {\n        ArmoredPublicKey = @\"-----BEGIN PGP PUBLIC KEY BLOCK-----\n...\n-----END PGP PUBLIC KEY BLOCK-----\n\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-github/sdk/v5/go/github\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := github.NewUserGpgKey(ctx, \"example\", \u0026github.UserGpgKeyArgs{\n\t\t\tArmoredPublicKey: pulumi.String(\"-----BEGIN PGP PUBLIC KEY BLOCK-----\\n...\\n-----END PGP PUBLIC KEY BLOCK-----\\n\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.github.UserGpgKey;\nimport com.pulumi.github.UserGpgKeyArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new UserGpgKey(\"example\", UserGpgKeyArgs.builder()        \n            .armoredPublicKey(\"\"\"\n-----BEGIN PGP PUBLIC KEY BLOCK-----\n...\n-----END PGP PUBLIC KEY BLOCK-----\n            \"\"\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: github:UserGpgKey\n    properties:\n      armoredPublicKey: |\n        -----BEGIN PGP PUBLIC KEY BLOCK-----\n        ...\n        -----END PGP PUBLIC KEY BLOCK-----\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nGPG keys are not importable due to the fact that [API](https://developer.github.com/v3/users/gpg_keys/#gpg-keys) does not return previously uploaded GPG key. ",
             "properties": {
                 "armoredPublicKey": {
                     "type": "string",
@@ -7516,6 +8000,117 @@
         }
     },
     "functions": {
+        "github:index/getActionsEnvironmentSecrets:getActionsEnvironmentSecrets": {
+            "description": "Use this data source to retrieve the list of secrets of the repository environment.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\nconst example = github.getActionsEnvironmentSecrets({\n    environment: \"exampleEnvironment\",\n    name: \"exampleRepo\",\n});\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\nexample = github.get_actions_environment_secrets(environment=\"exampleEnvironment\",\n    name=\"exampleRepo\")\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Github = Pulumi.Github;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = Github.GetActionsEnvironmentSecrets.Invoke(new()\n    {\n        Environment = \"exampleEnvironment\",\n        Name = \"exampleRepo\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-github/sdk/v5/go/github\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := github.GetActionsEnvironmentSecrets(ctx, \u0026github.GetActionsEnvironmentSecretsArgs{\n\t\t\tEnvironment: \"exampleEnvironment\",\n\t\t\tName:        pulumi.StringRef(\"exampleRepo\"),\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.github.GithubFunctions;\nimport com.pulumi.github.inputs.GetActionsEnvironmentSecretsArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var example = GithubFunctions.getActionsEnvironmentSecrets(GetActionsEnvironmentSecretsArgs.builder()\n            .environment(\"exampleEnvironment\")\n            .name(\"exampleRepo\")\n            .build());\n\n    }\n}\n```\n```yaml\nvariables:\n  example:\n    fn::invoke:\n      Function: github:getActionsEnvironmentSecrets\n      Arguments:\n        environment: exampleEnvironment\n        name: exampleRepo\n```\n{{% /example %}}\n{{% /examples %}}",
+            "inputs": {
+                "description": "A collection of arguments for invoking getActionsEnvironmentSecrets.\n",
+                "properties": {
+                    "environment": {
+                        "type": "string"
+                    },
+                    "fullName": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Name of the variable\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "environment"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getActionsEnvironmentSecrets.\n",
+                "properties": {
+                    "environment": {
+                        "type": "string"
+                    },
+                    "fullName": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Name of the variable\n"
+                    },
+                    "secrets": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/github:index/getActionsEnvironmentSecretsSecret:getActionsEnvironmentSecretsSecret"
+                        }
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "environment",
+                    "fullName",
+                    "name",
+                    "secrets",
+                    "id"
+                ]
+            }
+        },
+        "github:index/getActionsEnvironmentVariables:getActionsEnvironmentVariables": {
+            "description": "Use this data source to retrieve the list of variables of the repository environment.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\nconst example = github.getActionsEnvironmentVariables({\n    environment: \"exampleEnvironment\",\n    name: \"exampleRepo\",\n});\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\nexample = github.get_actions_environment_variables(environment=\"exampleEnvironment\",\n    name=\"exampleRepo\")\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Github = Pulumi.Github;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = Github.GetActionsEnvironmentVariables.Invoke(new()\n    {\n        Environment = \"exampleEnvironment\",\n        Name = \"exampleRepo\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-github/sdk/v5/go/github\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := github.GetActionsEnvironmentVariables(ctx, \u0026github.GetActionsEnvironmentVariablesArgs{\n\t\t\tEnvironment: \"exampleEnvironment\",\n\t\t\tName:        pulumi.StringRef(\"exampleRepo\"),\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.github.GithubFunctions;\nimport com.pulumi.github.inputs.GetActionsEnvironmentVariablesArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var example = GithubFunctions.getActionsEnvironmentVariables(GetActionsEnvironmentVariablesArgs.builder()\n            .environment(\"exampleEnvironment\")\n            .name(\"exampleRepo\")\n            .build());\n\n    }\n}\n```\n```yaml\nvariables:\n  example:\n    fn::invoke:\n      Function: github:getActionsEnvironmentVariables\n      Arguments:\n        environment: exampleEnvironment\n        name: exampleRepo\n```\n{{% /example %}}\n{{% /examples %}}",
+            "inputs": {
+                "description": "A collection of arguments for invoking getActionsEnvironmentVariables.\n",
+                "properties": {
+                    "environment": {
+                        "type": "string"
+                    },
+                    "fullName": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Name of the variable\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "environment"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getActionsEnvironmentVariables.\n",
+                "properties": {
+                    "environment": {
+                        "type": "string"
+                    },
+                    "fullName": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Name of the variable\n"
+                    },
+                    "variables": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/github:index/getActionsEnvironmentVariablesVariable:getActionsEnvironmentVariablesVariable"
+                        },
+                        "description": "list of variables for the environment\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "environment",
+                    "fullName",
+                    "name",
+                    "variables",
+                    "id"
+                ]
+            }
+        },
         "github:index/getActionsOrganizationOidcSubjectClaimCustomizationTemplate:getActionsOrganizationOidcSubjectClaimCustomizationTemplate": {
             "description": "Use this data source to retrieve the OpenID Connect subject claim customization template for an organization\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\nconst example = github.getActionsOrganizationOidcSubjectClaimCustomizationTemplate({});\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\nexample = github.get_actions_organization_oidc_subject_claim_customization_template()\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Github = Pulumi.Github;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = Github.GetActionsOrganizationOidcSubjectClaimCustomizationTemplate.Invoke();\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-github/sdk/v5/go/github\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := github.LookupActionsOrganizationOidcSubjectClaimCustomizationTemplate(ctx, nil, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.github.GithubFunctions;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var example = GithubFunctions.getActionsOrganizationOidcSubjectClaimCustomizationTemplate();\n\n    }\n}\n```\n```yaml\nvariables:\n  example:\n    fn::invoke:\n      Function: github:getActionsOrganizationOidcSubjectClaimCustomizationTemplate\n      Arguments: {}\n```\n{{% /example %}}\n{{% /examples %}}",
             "outputs": {
@@ -7586,6 +8181,30 @@
                 "type": "object",
                 "required": [
                     "secrets",
+                    "id"
+                ]
+            }
+        },
+        "github:index/getActionsOrganizationVariables:getActionsOrganizationVariables": {
+            "description": "Use this data source to retrieve the list of variables of the organization.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\nconst example = github.getActionsOrganizationVariables({});\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\nexample = github.get_actions_organization_variables()\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Github = Pulumi.Github;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = Github.GetActionsOrganizationVariables.Invoke();\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-github/sdk/v5/go/github\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := github.GetActionsOrganizationVariables(ctx, nil, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.github.GithubFunctions;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var example = GithubFunctions.getActionsOrganizationVariables();\n\n    }\n}\n```\n```yaml\nvariables:\n  example:\n    fn::invoke:\n      Function: github:getActionsOrganizationVariables\n      Arguments: {}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "outputs": {
+                "description": "A collection of values returned by getActionsOrganizationVariables.\n",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "variables": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/github:index/getActionsOrganizationVariablesVariable:getActionsOrganizationVariablesVariable"
+                        },
+                        "description": "list of variables for the repository\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "variables",
                     "id"
                 ]
             }
@@ -7766,6 +8385,53 @@
                     "fullName",
                     "name",
                     "secrets",
+                    "id"
+                ]
+            }
+        },
+        "github:index/getActionsVariables:getActionsVariables": {
+            "description": "Use this data source to retrieve the list of variables for a GitHub repository.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\nconst example = github.getActionsVariables({\n    name: \"example\",\n});\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\nexample = github.get_actions_variables(name=\"example\")\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Github = Pulumi.Github;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = Github.GetActionsVariables.Invoke(new()\n    {\n        Name = \"example\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-github/sdk/v5/go/github\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := github.GetActionsVariables(ctx, \u0026github.GetActionsVariablesArgs{\n\t\t\tName: pulumi.StringRef(\"example\"),\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.github.GithubFunctions;\nimport com.pulumi.github.inputs.GetActionsVariablesArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var example = GithubFunctions.getActionsVariables(GetActionsVariablesArgs.builder()\n            .name(\"example\")\n            .build());\n\n    }\n}\n```\n```yaml\nvariables:\n  example:\n    fn::invoke:\n      Function: github:getActionsVariables\n      Arguments:\n        name: example\n```\n{{% /example %}}\n{{% /examples %}}",
+            "inputs": {
+                "description": "A collection of arguments for invoking getActionsVariables.\n",
+                "properties": {
+                    "fullName": {
+                        "type": "string",
+                        "description": "Full name of the repository (in `org/name` format).\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The name of the repository.\n"
+                    }
+                },
+                "type": "object"
+            },
+            "outputs": {
+                "description": "A collection of values returned by getActionsVariables.\n",
+                "properties": {
+                    "fullName": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Name of the variable\n"
+                    },
+                    "variables": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/github:index/getActionsVariablesVariable:getActionsVariablesVariable"
+                        },
+                        "description": "list of variables for the repository\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "fullName",
+                    "name",
+                    "variables",
                     "id"
                 ]
             }
