@@ -7,7 +7,7 @@ env:
   GH_ORGANIZATION: ${{ secrets.GH_ORGANIZATION }}
   GH_TESTING_TOKEN: ${{ secrets.GH_TESTING_TOKEN }}
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  GOVERSION: 1.19.x
+  GOVERSION: 1.20.1
   IS_PRERELEASE: true
   JAVAVERSION: "11"
   NODEVERSION: 16.x
@@ -123,7 +123,7 @@ jobs:
         - go
         - java
   lint:
-    container: golangci/golangci-lint:latest
+    container: golangci/golangci-lint:v1.51
     name: lint
     runs-on: ubuntu-latest
     steps:
@@ -158,7 +158,7 @@ jobs:
         fields: repo,commit,author,action
         status: ${{ job.status }}
   lint_sdk:
-    container: golangci/golangci-lint:latest
+    container: golangci/golangci-lint:v1.51
     name: lint-sdk
     needs: build_sdk
     runs-on: ubuntu-latest
