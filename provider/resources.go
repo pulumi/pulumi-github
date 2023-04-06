@@ -252,7 +252,7 @@ func Provider() tfbridge.ProviderInfo {
 
 	err := x.ComputeDefaults(&prov, x.TokensSingleModule("github_", mainMod,
 		x.MakeStandardToken(mainPkg)))
-	contract.AssertNoError(err)
+	contract.AssertNoErrorf(err, "auto token mapping failed")
 
 	// Since SetAutonaming mutates the set of resources in prov.Resources, it must be
 	// called after defaults have been computed.
