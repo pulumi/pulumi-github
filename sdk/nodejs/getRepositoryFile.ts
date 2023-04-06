@@ -36,11 +36,11 @@ export function getRepositoryFile(args: GetRepositoryFileArgs, opts?: pulumi.Inv
  */
 export interface GetRepositoryFileArgs {
     /**
-     * Git branch. Defaults to `main`.
+     * Git branch. Defaults to the repository's default branch.
      */
     branch?: string;
     /**
-     * The path of the file to manage.
+     * The path of the file to read.
      */
     file: string;
     /**
@@ -79,6 +79,10 @@ export interface GetRepositoryFileResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * The name of the commit/branch/tag.
+     */
+    readonly ref: string;
     readonly repository: string;
     /**
      * The SHA blob of the file.
@@ -111,11 +115,11 @@ export function getRepositoryFileOutput(args: GetRepositoryFileOutputArgs, opts?
  */
 export interface GetRepositoryFileOutputArgs {
     /**
-     * Git branch. Defaults to `main`.
+     * Git branch. Defaults to the repository's default branch.
      */
     branch?: pulumi.Input<string>;
     /**
-     * The path of the file to manage.
+     * The path of the file to read.
      */
     file: pulumi.Input<string>;
     /**

@@ -60,6 +60,8 @@ type GetUsersArgs struct {
 
 // A collection of values returned by getUsers.
 type GetUsersResult struct {
+	// list of the user's publicly visible profile email (will be empty string in case if user decided not to show it).
+	Emails []string `pulumi:"emails"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// list of logins of users that could be found.
@@ -107,6 +109,11 @@ func (o GetUsersResultOutput) ToGetUsersResultOutput() GetUsersResultOutput {
 
 func (o GetUsersResultOutput) ToGetUsersResultOutputWithContext(ctx context.Context) GetUsersResultOutput {
 	return o
+}
+
+// list of the user's publicly visible profile email (will be empty string in case if user decided not to show it).
+func (o GetUsersResultOutput) Emails() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetUsersResult) []string { return v.Emails }).(pulumi.StringArrayOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.

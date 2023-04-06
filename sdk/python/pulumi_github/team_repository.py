@@ -147,6 +147,9 @@ class TeamRepository(pulumi.CustomResource):
                  team_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
+        > Note: TeamRepository cannot be used in conjunction with RepositoryCollaborators or
+        they will fight over what your policy should be.
+
         This resource manages relationships between teams and repositories
         in your GitHub organization.
 
@@ -156,6 +159,9 @@ class TeamRepository(pulumi.CustomResource):
         The repository and the team must both belong to the same organization
         on GitHub. This resource does not actually *create* any repositories;
         to do that, see `Repository`.
+
+        This resource is non-authoritative, for managing ALL collaborators of a repo, use RepositoryCollaborators
+        instead.
 
         ## Example Usage
 
@@ -194,6 +200,9 @@ class TeamRepository(pulumi.CustomResource):
                  args: TeamRepositoryArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        > Note: TeamRepository cannot be used in conjunction with RepositoryCollaborators or
+        they will fight over what your policy should be.
+
         This resource manages relationships between teams and repositories
         in your GitHub organization.
 
@@ -203,6 +212,9 @@ class TeamRepository(pulumi.CustomResource):
         The repository and the team must both belong to the same organization
         on GitHub. This resource does not actually *create* any repositories;
         to do that, see `Repository`.
+
+        This resource is non-authoritative, for managing ALL collaborators of a repo, use RepositoryCollaborators
+        instead.
 
         ## Example Usage
 

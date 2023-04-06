@@ -21,7 +21,7 @@ class GetRepositoryFileResult:
     """
     A collection of values returned by getRepositoryFile.
     """
-    def __init__(__self__, branch=None, commit_author=None, commit_email=None, commit_message=None, commit_sha=None, content=None, file=None, id=None, repository=None, sha=None):
+    def __init__(__self__, branch=None, commit_author=None, commit_email=None, commit_message=None, commit_sha=None, content=None, file=None, id=None, ref=None, repository=None, sha=None):
         if branch and not isinstance(branch, str):
             raise TypeError("Expected argument 'branch' to be a str")
         pulumi.set(__self__, "branch", branch)
@@ -46,6 +46,9 @@ class GetRepositoryFileResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if ref and not isinstance(ref, str):
+            raise TypeError("Expected argument 'ref' to be a str")
+        pulumi.set(__self__, "ref", ref)
         if repository and not isinstance(repository, str):
             raise TypeError("Expected argument 'repository' to be a str")
         pulumi.set(__self__, "repository", repository)
@@ -113,6 +116,14 @@ class GetRepositoryFileResult:
 
     @property
     @pulumi.getter
+    def ref(self) -> str:
+        """
+        The name of the commit/branch/tag.
+        """
+        return pulumi.get(self, "ref")
+
+    @property
+    @pulumi.getter
     def repository(self) -> str:
         return pulumi.get(self, "repository")
 
@@ -139,6 +150,7 @@ class AwaitableGetRepositoryFileResult(GetRepositoryFileResult):
             content=self.content,
             file=self.file,
             id=self.id,
+            ref=self.ref,
             repository=self.repository,
             sha=self.sha)
 
@@ -163,8 +175,8 @@ def get_repository_file(branch: Optional[str] = None,
     ```
 
 
-    :param str branch: Git branch. Defaults to `main`.
-    :param str file: The path of the file to manage.
+    :param str branch: Git branch. Defaults to the repository's default branch.
+    :param str file: The path of the file to read.
     :param str repository: The repository to read the file from. If an unqualified repo name (without an owner) is passed, the owner will be inferred from the owner of the token used to execute the plan. If a name of the type "owner/repo" (with a slash in the middle) is passed, the owner will be as specified and not the owner of the token.
     """
     __args__ = dict()
@@ -183,6 +195,7 @@ def get_repository_file(branch: Optional[str] = None,
         content=__ret__.content,
         file=__ret__.file,
         id=__ret__.id,
+        ref=__ret__.ref,
         repository=__ret__.repository,
         sha=__ret__.sha)
 
@@ -208,8 +221,8 @@ def get_repository_file_output(branch: Optional[pulumi.Input[Optional[str]]] = N
     ```
 
 
-    :param str branch: Git branch. Defaults to `main`.
-    :param str file: The path of the file to manage.
+    :param str branch: Git branch. Defaults to the repository's default branch.
+    :param str file: The path of the file to read.
     :param str repository: The repository to read the file from. If an unqualified repo name (without an owner) is passed, the owner will be inferred from the owner of the token used to execute the plan. If a name of the type "owner/repo" (with a slash in the middle) is passed, the owner will be as specified and not the owner of the token.
     """
     ...

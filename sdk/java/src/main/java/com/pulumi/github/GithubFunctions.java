@@ -75,6 +75,7 @@ import com.pulumi.github.inputs.GetUsersPlainArgs;
 import com.pulumi.github.outputs.GetActionsEnvironmentSecretsResult;
 import com.pulumi.github.outputs.GetActionsEnvironmentVariablesResult;
 import com.pulumi.github.outputs.GetActionsOrganizationOidcSubjectClaimCustomizationTemplateResult;
+import com.pulumi.github.outputs.GetActionsOrganizationPublicKeyResult;
 import com.pulumi.github.outputs.GetActionsOrganizationRegistrationTokenResult;
 import com.pulumi.github.outputs.GetActionsOrganizationSecretsResult;
 import com.pulumi.github.outputs.GetActionsOrganizationVariablesResult;
@@ -85,6 +86,7 @@ import com.pulumi.github.outputs.GetActionsSecretsResult;
 import com.pulumi.github.outputs.GetActionsVariablesResult;
 import com.pulumi.github.outputs.GetBranchResult;
 import com.pulumi.github.outputs.GetCollaboratorsResult;
+import com.pulumi.github.outputs.GetDependabotOrganizationPublicKeyResult;
 import com.pulumi.github.outputs.GetDependabotOrganizationSecretsResult;
 import com.pulumi.github.outputs.GetDependabotPublicKeyResult;
 import com.pulumi.github.outputs.GetDependabotSecretsResult;
@@ -110,6 +112,7 @@ import com.pulumi.github.outputs.GetRepositoryPullRequestsInvokeResult;
 import com.pulumi.github.outputs.GetRepositoryResult;
 import com.pulumi.github.outputs.GetRepositoryTeamsResult;
 import com.pulumi.github.outputs.GetRepositoryWebhooksResult;
+import com.pulumi.github.outputs.GetSshKeysResult;
 import com.pulumi.github.outputs.GetTeamResult;
 import com.pulumi.github.outputs.GetTreeResult;
 import com.pulumi.github.outputs.GetUserResult;
@@ -625,6 +628,216 @@ public final class GithubFunctions {
      */
     public static CompletableFuture<GetActionsOrganizationOidcSubjectClaimCustomizationTemplateResult> getActionsOrganizationOidcSubjectClaimCustomizationTemplatePlain(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("github:index/getActionsOrganizationOidcSubjectClaimCustomizationTemplate:getActionsOrganizationOidcSubjectClaimCustomizationTemplate", TypeShape.of(GetActionsOrganizationOidcSubjectClaimCustomizationTemplateResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about a GitHub Actions Organization public key. This data source is required to be used with other GitHub secrets interactions.
+     * Note that the provider `token` must have admin rights to an organization to retrieve it&#39;s action public key.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getActionsOrganizationPublicKey();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetActionsOrganizationPublicKeyResult> getActionsOrganizationPublicKey() {
+        return getActionsOrganizationPublicKey(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about a GitHub Actions Organization public key. This data source is required to be used with other GitHub secrets interactions.
+     * Note that the provider `token` must have admin rights to an organization to retrieve it&#39;s action public key.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getActionsOrganizationPublicKey();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetActionsOrganizationPublicKeyResult> getActionsOrganizationPublicKeyPlain() {
+        return getActionsOrganizationPublicKeyPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about a GitHub Actions Organization public key. This data source is required to be used with other GitHub secrets interactions.
+     * Note that the provider `token` must have admin rights to an organization to retrieve it&#39;s action public key.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getActionsOrganizationPublicKey();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetActionsOrganizationPublicKeyResult> getActionsOrganizationPublicKey(InvokeArgs args) {
+        return getActionsOrganizationPublicKey(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about a GitHub Actions Organization public key. This data source is required to be used with other GitHub secrets interactions.
+     * Note that the provider `token` must have admin rights to an organization to retrieve it&#39;s action public key.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getActionsOrganizationPublicKey();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetActionsOrganizationPublicKeyResult> getActionsOrganizationPublicKeyPlain(InvokeArgs args) {
+        return getActionsOrganizationPublicKeyPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about a GitHub Actions Organization public key. This data source is required to be used with other GitHub secrets interactions.
+     * Note that the provider `token` must have admin rights to an organization to retrieve it&#39;s action public key.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getActionsOrganizationPublicKey();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetActionsOrganizationPublicKeyResult> getActionsOrganizationPublicKey(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("github:index/getActionsOrganizationPublicKey:getActionsOrganizationPublicKey", TypeShape.of(GetActionsOrganizationPublicKeyResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about a GitHub Actions Organization public key. This data source is required to be used with other GitHub secrets interactions.
+     * Note that the provider `token` must have admin rights to an organization to retrieve it&#39;s action public key.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getActionsOrganizationPublicKey();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetActionsOrganizationPublicKeyResult> getActionsOrganizationPublicKeyPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("github:index/getActionsOrganizationPublicKey:getActionsOrganizationPublicKey", TypeShape.of(GetActionsOrganizationPublicKeyResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to retrieve a GitHub Actions organization registration token. This token can then be used to register a self-hosted runner.
@@ -2433,6 +2646,216 @@ public final class GithubFunctions {
      */
     public static CompletableFuture<GetCollaboratorsResult> getCollaboratorsPlain(GetCollaboratorsPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("github:index/getCollaborators:getCollaborators", TypeShape.of(GetCollaboratorsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about a GitHub Dependabot Organization public key. This data source is required to be used with other GitHub secrets interactions.
+     * Note that the provider `token` must have admin rights to an organization to retrieve it&#39;s Dependabot public key.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getDependabotOrganizationPublicKey();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetDependabotOrganizationPublicKeyResult> getDependabotOrganizationPublicKey() {
+        return getDependabotOrganizationPublicKey(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about a GitHub Dependabot Organization public key. This data source is required to be used with other GitHub secrets interactions.
+     * Note that the provider `token` must have admin rights to an organization to retrieve it&#39;s Dependabot public key.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getDependabotOrganizationPublicKey();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetDependabotOrganizationPublicKeyResult> getDependabotOrganizationPublicKeyPlain() {
+        return getDependabotOrganizationPublicKeyPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about a GitHub Dependabot Organization public key. This data source is required to be used with other GitHub secrets interactions.
+     * Note that the provider `token` must have admin rights to an organization to retrieve it&#39;s Dependabot public key.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getDependabotOrganizationPublicKey();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetDependabotOrganizationPublicKeyResult> getDependabotOrganizationPublicKey(InvokeArgs args) {
+        return getDependabotOrganizationPublicKey(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about a GitHub Dependabot Organization public key. This data source is required to be used with other GitHub secrets interactions.
+     * Note that the provider `token` must have admin rights to an organization to retrieve it&#39;s Dependabot public key.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getDependabotOrganizationPublicKey();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetDependabotOrganizationPublicKeyResult> getDependabotOrganizationPublicKeyPlain(InvokeArgs args) {
+        return getDependabotOrganizationPublicKeyPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about a GitHub Dependabot Organization public key. This data source is required to be used with other GitHub secrets interactions.
+     * Note that the provider `token` must have admin rights to an organization to retrieve it&#39;s Dependabot public key.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getDependabotOrganizationPublicKey();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetDependabotOrganizationPublicKeyResult> getDependabotOrganizationPublicKey(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("github:index/getDependabotOrganizationPublicKey:getDependabotOrganizationPublicKey", TypeShape.of(GetDependabotOrganizationPublicKeyResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about a GitHub Dependabot Organization public key. This data source is required to be used with other GitHub secrets interactions.
+     * Note that the provider `token` must have admin rights to an organization to retrieve it&#39;s Dependabot public key.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getDependabotOrganizationPublicKey();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetDependabotOrganizationPublicKeyResult> getDependabotOrganizationPublicKeyPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("github:index/getDependabotOrganizationPublicKey:getDependabotOrganizationPublicKey", TypeShape.of(GetDependabotOrganizationPublicKeyResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to retrieve the list of dependabot secrets of the organization.
@@ -7215,6 +7638,210 @@ public final class GithubFunctions {
      */
     public static CompletableFuture<GetRepositoryWebhooksResult> getRepositoryWebhooksPlain(GetRepositoryWebhooksPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("github:index/getRepositoryWebhooks:getRepositoryWebhooks", TypeShape.of(GetRepositoryWebhooksResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about GitHub&#39;s SSH keys.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = GithubFunctions.getSshKeys();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetSshKeysResult> getSshKeys() {
+        return getSshKeys(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about GitHub&#39;s SSH keys.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = GithubFunctions.getSshKeys();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetSshKeysResult> getSshKeysPlain() {
+        return getSshKeysPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about GitHub&#39;s SSH keys.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = GithubFunctions.getSshKeys();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetSshKeysResult> getSshKeys(InvokeArgs args) {
+        return getSshKeys(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about GitHub&#39;s SSH keys.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = GithubFunctions.getSshKeys();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetSshKeysResult> getSshKeysPlain(InvokeArgs args) {
+        return getSshKeysPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about GitHub&#39;s SSH keys.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = GithubFunctions.getSshKeys();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetSshKeysResult> getSshKeys(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("github:index/getSshKeys:getSshKeys", TypeShape.of(GetSshKeysResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about GitHub&#39;s SSH keys.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = GithubFunctions.getSshKeys();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetSshKeysResult> getSshKeysPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("github:index/getSshKeys:getSshKeys", TypeShape.of(GetSshKeysResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to retrieve information about a GitHub team.

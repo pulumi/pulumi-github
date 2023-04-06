@@ -108,11 +108,11 @@ namespace Pulumi.Github
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The login of the organization account
+        /// The members login
         /// </summary>
         public readonly string Login;
         /// <summary>
-        /// (`list`) A list with the members of the organization
+        /// **Deprecated**: use `users` instead by replacing `github_organization.example.members` to `github_organization.example.users[*].login` which will give you the same value, expect this field to be removed in next major version
         /// </summary>
         public readonly ImmutableArray<string> Members;
         /// <summary>
@@ -135,6 +135,10 @@ namespace Pulumi.Github
         /// (`list`) A list with the repositories on the organization
         /// </summary>
         public readonly ImmutableArray<string> Repositories;
+        /// <summary>
+        /// (`list`) A list with the members of the organization with following fields:
+        /// </summary>
+        public readonly ImmutableArray<ImmutableDictionary<string, string>> Users;
 
         [OutputConstructor]
         private GetOrganizationResult(
@@ -154,7 +158,9 @@ namespace Pulumi.Github
 
             string plan,
 
-            ImmutableArray<string> repositories)
+            ImmutableArray<string> repositories,
+
+            ImmutableArray<ImmutableDictionary<string, string>> users)
         {
             Description = description;
             Id = id;
@@ -165,6 +171,7 @@ namespace Pulumi.Github
             Orgname = orgname;
             Plan = plan;
             Repositories = repositories;
+            Users = users;
         }
     }
 }

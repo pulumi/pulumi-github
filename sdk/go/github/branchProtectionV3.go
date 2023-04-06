@@ -87,6 +87,17 @@ import (
 //					DismissalTeams: pulumi.StringArray{
 //						exampleTeam.Slug,
 //					},
+//					BypassPullRequestAllowances: &github.BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesArgs{
+//						Users: pulumi.StringArray{
+//							pulumi.String("foo-user"),
+//						},
+//						Teams: pulumi.StringArray{
+//							exampleTeam.Slug,
+//						},
+//						Apps: pulumi.StringArray{
+//							pulumi.String("foo-app"),
+//						},
+//					},
 //				},
 //				Restrictions: &github.BranchProtectionV3RestrictionsArgs{
 //					Users: pulumi.StringArray{

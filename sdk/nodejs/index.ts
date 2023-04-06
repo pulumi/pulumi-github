@@ -139,6 +139,10 @@ export { GetActionsOrganizationOidcSubjectClaimCustomizationTemplateResult } fro
 export const getActionsOrganizationOidcSubjectClaimCustomizationTemplate: typeof import("./getActionsOrganizationOidcSubjectClaimCustomizationTemplate").getActionsOrganizationOidcSubjectClaimCustomizationTemplate = null as any;
 utilities.lazyLoad(exports, ["getActionsOrganizationOidcSubjectClaimCustomizationTemplate"], () => require("./getActionsOrganizationOidcSubjectClaimCustomizationTemplate"));
 
+export { GetActionsOrganizationPublicKeyResult } from "./getActionsOrganizationPublicKey";
+export const getActionsOrganizationPublicKey: typeof import("./getActionsOrganizationPublicKey").getActionsOrganizationPublicKey = null as any;
+utilities.lazyLoad(exports, ["getActionsOrganizationPublicKey"], () => require("./getActionsOrganizationPublicKey"));
+
 export { GetActionsOrganizationRegistrationTokenResult } from "./getActionsOrganizationRegistrationToken";
 export const getActionsOrganizationRegistrationToken: typeof import("./getActionsOrganizationRegistrationToken").getActionsOrganizationRegistrationToken = null as any;
 utilities.lazyLoad(exports, ["getActionsOrganizationRegistrationToken"], () => require("./getActionsOrganizationRegistrationToken"));
@@ -185,6 +189,10 @@ export { GetCollaboratorsArgs, GetCollaboratorsResult, GetCollaboratorsOutputArg
 export const getCollaborators: typeof import("./getCollaborators").getCollaborators = null as any;
 export const getCollaboratorsOutput: typeof import("./getCollaborators").getCollaboratorsOutput = null as any;
 utilities.lazyLoad(exports, ["getCollaborators","getCollaboratorsOutput"], () => require("./getCollaborators"));
+
+export { GetDependabotOrganizationPublicKeyResult } from "./getDependabotOrganizationPublicKey";
+export const getDependabotOrganizationPublicKey: typeof import("./getDependabotOrganizationPublicKey").getDependabotOrganizationPublicKey = null as any;
+utilities.lazyLoad(exports, ["getDependabotOrganizationPublicKey"], () => require("./getDependabotOrganizationPublicKey"));
 
 export { GetDependabotOrganizationSecretsResult } from "./getDependabotOrganizationSecrets";
 export const getDependabotOrganizationSecrets: typeof import("./getDependabotOrganizationSecrets").getDependabotOrganizationSecrets = null as any;
@@ -305,6 +313,10 @@ export const getRepositoryWebhooks: typeof import("./getRepositoryWebhooks").get
 export const getRepositoryWebhooksOutput: typeof import("./getRepositoryWebhooks").getRepositoryWebhooksOutput = null as any;
 utilities.lazyLoad(exports, ["getRepositoryWebhooks","getRepositoryWebhooksOutput"], () => require("./getRepositoryWebhooks"));
 
+export { GetSshKeysResult } from "./getSshKeys";
+export const getSshKeys: typeof import("./getSshKeys").getSshKeys = null as any;
+utilities.lazyLoad(exports, ["getSshKeys"], () => require("./getSshKeys"));
+
 export { GetTeamArgs, GetTeamResult, GetTeamOutputArgs } from "./getTeam";
 export const getTeam: typeof import("./getTeam").getTeam = null as any;
 export const getTeamOutput: typeof import("./getTeam").getTeamOutput = null as any;
@@ -399,6 +411,11 @@ export { RepositoryCollaboratorArgs, RepositoryCollaboratorState } from "./repos
 export type RepositoryCollaborator = import("./repositoryCollaborator").RepositoryCollaborator;
 export const RepositoryCollaborator: typeof import("./repositoryCollaborator").RepositoryCollaborator = null as any;
 utilities.lazyLoad(exports, ["RepositoryCollaborator"], () => require("./repositoryCollaborator"));
+
+export { RepositoryCollaboratorsArgs, RepositoryCollaboratorsState } from "./repositoryCollaborators";
+export type RepositoryCollaborators = import("./repositoryCollaborators").RepositoryCollaborators;
+export const RepositoryCollaborators: typeof import("./repositoryCollaborators").RepositoryCollaborators = null as any;
+utilities.lazyLoad(exports, ["RepositoryCollaborators"], () => require("./repositoryCollaborators"));
 
 export { RepositoryDeployKeyArgs, RepositoryDeployKeyState } from "./repositoryDeployKey";
 export type RepositoryDeployKey = import("./repositoryDeployKey").RepositoryDeployKey;
@@ -575,6 +592,8 @@ const _module = {
                 return new RepositoryAutolinkReference(name, <any>undefined, { urn })
             case "github:index/repositoryCollaborator:RepositoryCollaborator":
                 return new RepositoryCollaborator(name, <any>undefined, { urn })
+            case "github:index/repositoryCollaborators:RepositoryCollaborators":
+                return new RepositoryCollaborators(name, <any>undefined, { urn })
             case "github:index/repositoryDeployKey:RepositoryDeployKey":
                 return new RepositoryDeployKey(name, <any>undefined, { urn })
             case "github:index/repositoryEnvironment:RepositoryEnvironment":
@@ -652,6 +671,7 @@ pulumi.runtime.registerResourceModule("github", "index/release", _module)
 pulumi.runtime.registerResourceModule("github", "index/repository", _module)
 pulumi.runtime.registerResourceModule("github", "index/repositoryAutolinkReference", _module)
 pulumi.runtime.registerResourceModule("github", "index/repositoryCollaborator", _module)
+pulumi.runtime.registerResourceModule("github", "index/repositoryCollaborators", _module)
 pulumi.runtime.registerResourceModule("github", "index/repositoryDeployKey", _module)
 pulumi.runtime.registerResourceModule("github", "index/repositoryEnvironment", _module)
 pulumi.runtime.registerResourceModule("github", "index/repositoryFile", _module)

@@ -36,7 +36,7 @@ import * as utilities from "./utilities";
  * const exampleRepository = new github.Repository("exampleRepository", {});
  * const exampleTeam = new github.Team("exampleTeam", {});
  * // Protect the main branch of the foo repository. Additionally, require that
- * // the "ci/check" check ran by the Github Actions app is passing and only allow 
+ * // the "ci/check" check ran by the Github Actions app is passing and only allow
  * // the engineers team merge to the branch.
  * const exampleBranchProtectionV3 = new github.BranchProtectionV3("exampleBranchProtectionV3", {
  *     repository: exampleRepository.name,
@@ -50,6 +50,11 @@ import * as utilities from "./utilities";
  *         dismissStaleReviews: true,
  *         dismissalUsers: ["foo-user"],
  *         dismissalTeams: [exampleTeam.slug],
+ *         bypassPullRequestAllowances: {
+ *             users: ["foo-user"],
+ *             teams: [exampleTeam.slug],
+ *             apps: ["foo-app"],
+ *         },
  *     },
  *     restrictions: {
  *         users: ["foo-user"],

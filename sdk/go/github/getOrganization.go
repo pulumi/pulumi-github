@@ -58,9 +58,11 @@ type GetOrganizationResult struct {
 	Description string `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// The login of the organization account
+	// The members login
 	Login string `pulumi:"login"`
-	// (`list`) A list with the members of the organization
+	// **Deprecated**: use `users` instead by replacing `github_organization.example.members` to `github_organization.example.users[*].login` which will give you the same value, expect this field to be removed in next major version
+	//
+	// Deprecated: Use `users` instead by replacing `github_organization.example.members` to `github_organization.example.users[*].login`. Expect this field to be removed in next major version.
 	Members []string `pulumi:"members"`
 	// The organization's public profile name
 	Name string `pulumi:"name"`
@@ -72,6 +74,8 @@ type GetOrganizationResult struct {
 	Plan string `pulumi:"plan"`
 	// (`list`) A list with the repositories on the organization
 	Repositories []string `pulumi:"repositories"`
+	// (`list`) A list with the members of the organization with following fields:
+	Users []map[string]string `pulumi:"users"`
 }
 
 func GetOrganizationOutput(ctx *pulumi.Context, args GetOrganizationOutputArgs, opts ...pulumi.InvokeOption) GetOrganizationResultOutput {
@@ -122,12 +126,14 @@ func (o GetOrganizationResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetOrganizationResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The login of the organization account
+// The members login
 func (o GetOrganizationResultOutput) Login() pulumi.StringOutput {
 	return o.ApplyT(func(v GetOrganizationResult) string { return v.Login }).(pulumi.StringOutput)
 }
 
-// (`list`) A list with the members of the organization
+// **Deprecated**: use `users` instead by replacing `github_organization.example.members` to `github_organization.example.users[*].login` which will give you the same value, expect this field to be removed in next major version
+//
+// Deprecated: Use `users` instead by replacing `github_organization.example.members` to `github_organization.example.users[*].login`. Expect this field to be removed in next major version.
 func (o GetOrganizationResultOutput) Members() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetOrganizationResult) []string { return v.Members }).(pulumi.StringArrayOutput)
 }
@@ -155,6 +161,11 @@ func (o GetOrganizationResultOutput) Plan() pulumi.StringOutput {
 // (`list`) A list with the repositories on the organization
 func (o GetOrganizationResultOutput) Repositories() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetOrganizationResult) []string { return v.Repositories }).(pulumi.StringArrayOutput)
+}
+
+// (`list`) A list with the members of the organization with following fields:
+func (o GetOrganizationResultOutput) Users() pulumi.StringMapArrayOutput {
+	return o.ApplyT(func(v GetOrganizationResult) []map[string]string { return v.Users }).(pulumi.StringMapArrayOutput)
 }
 
 func init() {

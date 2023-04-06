@@ -49,11 +49,13 @@ export interface GetOrganizationResult {
      */
     readonly id: string;
     /**
-     * The login of the organization account
+     * The members login
      */
     readonly login: string;
     /**
-     * (`list`) A list with the members of the organization
+     * **Deprecated**: use `users` instead by replacing `github_organization.example.members` to `github_organization.example.users[*].login` which will give you the same value, expect this field to be removed in next major version
+     *
+     * @deprecated Use `users` instead by replacing `github_organization.example.members` to `github_organization.example.users[*].login`. Expect this field to be removed in next major version.
      */
     readonly members: string[];
     /**
@@ -76,6 +78,10 @@ export interface GetOrganizationResult {
      * (`list`) A list with the repositories on the organization
      */
     readonly repositories: string[];
+    /**
+     * (`list`) A list with the members of the organization with following fields:
+     */
+    readonly users: {[key: string]: string}[];
 }
 /**
  * Use this data source to retrieve basic information about a GitHub Organization.

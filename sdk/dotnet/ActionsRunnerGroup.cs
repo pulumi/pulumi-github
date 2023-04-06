@@ -81,7 +81,7 @@ namespace Pulumi.Github
         /// If true, the runner group will be restricted to running only the workflows specified in the selected_workflows array. Defaults to false.
         /// </summary>
         [Output("restrictedToWorkflows")]
-        public Output<bool> RestrictedToWorkflows { get; private set; } = null!;
+        public Output<bool?> RestrictedToWorkflows { get; private set; } = null!;
 
         /// <summary>
         /// The GitHub API URL for the runner group's runners
@@ -165,6 +165,12 @@ namespace Pulumi.Github
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// If true, the runner group will be restricted to running only the workflows specified in the selected_workflows array. Defaults to false.
+        /// </summary>
+        [Input("restrictedToWorkflows")]
+        public Input<bool>? RestrictedToWorkflows { get; set; }
+
         [Input("selectedRepositoryIds")]
         private InputList<int>? _selectedRepositoryIds;
 
@@ -175,6 +181,18 @@ namespace Pulumi.Github
         {
             get => _selectedRepositoryIds ?? (_selectedRepositoryIds = new InputList<int>());
             set => _selectedRepositoryIds = value;
+        }
+
+        [Input("selectedWorkflows")]
+        private InputList<string>? _selectedWorkflows;
+
+        /// <summary>
+        /// List of workflows the runner group should be allowed to run. This setting will be ignored unless restricted_to_workflows is set to true.
+        /// </summary>
+        public InputList<string> SelectedWorkflows
+        {
+            get => _selectedWorkflows ?? (_selectedWorkflows = new InputList<string>());
+            set => _selectedWorkflows = value;
         }
 
         /// <summary>

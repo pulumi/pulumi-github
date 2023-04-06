@@ -47,6 +47,10 @@ export interface GetUsersArgs {
  */
 export interface GetUsersResult {
     /**
+     * list of the user's publicly visible profile email (will be empty string in case if user decided not to show it).
+     */
+    readonly emails: string[];
+    /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;

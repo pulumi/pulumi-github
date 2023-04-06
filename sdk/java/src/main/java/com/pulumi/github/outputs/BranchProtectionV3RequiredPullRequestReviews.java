@@ -4,6 +4,7 @@
 package com.pulumi.github.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.github.outputs.BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowances;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -14,6 +15,11 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class BranchProtectionV3RequiredPullRequestReviews {
+    /**
+     * @return Allow specific users, teams, or apps to bypass pull request requirements. See Bypass Pull Request Allowances below for details.
+     * 
+     */
+    private @Nullable BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowances bypassPullRequestAllowances;
     /**
      * @return Dismiss approved reviews automatically when a new commit is pushed. Defaults to `false`.
      * 
@@ -49,6 +55,13 @@ public final class BranchProtectionV3RequiredPullRequestReviews {
     private @Nullable Integer requiredApprovingReviewCount;
 
     private BranchProtectionV3RequiredPullRequestReviews() {}
+    /**
+     * @return Allow specific users, teams, or apps to bypass pull request requirements. See Bypass Pull Request Allowances below for details.
+     * 
+     */
+    public Optional<BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowances> bypassPullRequestAllowances() {
+        return Optional.ofNullable(this.bypassPullRequestAllowances);
+    }
     /**
      * @return Dismiss approved reviews automatically when a new commit is pushed. Defaults to `false`.
      * 
@@ -104,6 +117,7 @@ public final class BranchProtectionV3RequiredPullRequestReviews {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowances bypassPullRequestAllowances;
         private @Nullable Boolean dismissStaleReviews;
         private @Nullable List<String> dismissalTeams;
         private @Nullable List<String> dismissalUsers;
@@ -113,6 +127,7 @@ public final class BranchProtectionV3RequiredPullRequestReviews {
         public Builder() {}
         public Builder(BranchProtectionV3RequiredPullRequestReviews defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.bypassPullRequestAllowances = defaults.bypassPullRequestAllowances;
     	      this.dismissStaleReviews = defaults.dismissStaleReviews;
     	      this.dismissalTeams = defaults.dismissalTeams;
     	      this.dismissalUsers = defaults.dismissalUsers;
@@ -121,6 +136,11 @@ public final class BranchProtectionV3RequiredPullRequestReviews {
     	      this.requiredApprovingReviewCount = defaults.requiredApprovingReviewCount;
         }
 
+        @CustomType.Setter
+        public Builder bypassPullRequestAllowances(@Nullable BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowances bypassPullRequestAllowances) {
+            this.bypassPullRequestAllowances = bypassPullRequestAllowances;
+            return this;
+        }
         @CustomType.Setter
         public Builder dismissStaleReviews(@Nullable Boolean dismissStaleReviews) {
             this.dismissStaleReviews = dismissStaleReviews;
@@ -159,6 +179,7 @@ public final class BranchProtectionV3RequiredPullRequestReviews {
         }
         public BranchProtectionV3RequiredPullRequestReviews build() {
             final var o = new BranchProtectionV3RequiredPullRequestReviews();
+            o.bypassPullRequestAllowances = bypassPullRequestAllowances;
             o.dismissStaleReviews = dismissStaleReviews;
             o.dismissalTeams = dismissalTeams;
             o.dismissalUsers = dismissalUsers;

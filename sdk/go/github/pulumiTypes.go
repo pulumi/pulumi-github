@@ -758,6 +758,8 @@ func (o BranchProtectionRequiredStatusCheckArrayOutput) Index(i pulumi.IntInput)
 }
 
 type BranchProtectionV3RequiredPullRequestReviews struct {
+	// Allow specific users, teams, or apps to bypass pull request requirements. See Bypass Pull Request Allowances below for details.
+	BypassPullRequestAllowances *BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowances `pulumi:"bypassPullRequestAllowances"`
 	// Dismiss approved reviews automatically when a new commit is pushed. Defaults to `false`.
 	DismissStaleReviews *bool `pulumi:"dismissStaleReviews"`
 	// The list of team slugs with dismissal access.
@@ -785,6 +787,8 @@ type BranchProtectionV3RequiredPullRequestReviewsInput interface {
 }
 
 type BranchProtectionV3RequiredPullRequestReviewsArgs struct {
+	// Allow specific users, teams, or apps to bypass pull request requirements. See Bypass Pull Request Allowances below for details.
+	BypassPullRequestAllowances BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesPtrInput `pulumi:"bypassPullRequestAllowances"`
 	// Dismiss approved reviews automatically when a new commit is pushed. Defaults to `false`.
 	DismissStaleReviews pulumi.BoolPtrInput `pulumi:"dismissStaleReviews"`
 	// The list of team slugs with dismissal access.
@@ -877,6 +881,13 @@ func (o BranchProtectionV3RequiredPullRequestReviewsOutput) ToBranchProtectionV3
 	}).(BranchProtectionV3RequiredPullRequestReviewsPtrOutput)
 }
 
+// Allow specific users, teams, or apps to bypass pull request requirements. See Bypass Pull Request Allowances below for details.
+func (o BranchProtectionV3RequiredPullRequestReviewsOutput) BypassPullRequestAllowances() BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesPtrOutput {
+	return o.ApplyT(func(v BranchProtectionV3RequiredPullRequestReviews) *BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowances {
+		return v.BypassPullRequestAllowances
+	}).(BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesPtrOutput)
+}
+
 // Dismiss approved reviews automatically when a new commit is pushed. Defaults to `false`.
 func (o BranchProtectionV3RequiredPullRequestReviewsOutput) DismissStaleReviews() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BranchProtectionV3RequiredPullRequestReviews) *bool { return v.DismissStaleReviews }).(pulumi.BoolPtrOutput)
@@ -930,6 +941,16 @@ func (o BranchProtectionV3RequiredPullRequestReviewsPtrOutput) Elem() BranchProt
 		var ret BranchProtectionV3RequiredPullRequestReviews
 		return ret
 	}).(BranchProtectionV3RequiredPullRequestReviewsOutput)
+}
+
+// Allow specific users, teams, or apps to bypass pull request requirements. See Bypass Pull Request Allowances below for details.
+func (o BranchProtectionV3RequiredPullRequestReviewsPtrOutput) BypassPullRequestAllowances() BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesPtrOutput {
+	return o.ApplyT(func(v *BranchProtectionV3RequiredPullRequestReviews) *BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowances {
+		if v == nil {
+			return nil
+		}
+		return v.BypassPullRequestAllowances
+	}).(BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesPtrOutput)
 }
 
 // Dismiss approved reviews automatically when a new commit is pushed. Defaults to `false`.
@@ -991,6 +1012,187 @@ func (o BranchProtectionV3RequiredPullRequestReviewsPtrOutput) RequiredApproving
 		}
 		return v.RequiredApprovingReviewCount
 	}).(pulumi.IntPtrOutput)
+}
+
+type BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowances struct {
+	// The list of app slugs allowed to bypass pull request requirements.
+	Apps []string `pulumi:"apps"`
+	// The list of team slugs allowed to bypass pull request requirements.
+	Teams []string `pulumi:"teams"`
+	// The list of user logins allowed to bypass pull request requirements.
+	Users []string `pulumi:"users"`
+}
+
+// BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesInput is an input type that accepts BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesArgs and BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesOutput values.
+// You can construct a concrete instance of `BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesInput` via:
+//
+//	BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesArgs{...}
+type BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesInput interface {
+	pulumi.Input
+
+	ToBranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesOutput() BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesOutput
+	ToBranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesOutputWithContext(context.Context) BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesOutput
+}
+
+type BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesArgs struct {
+	// The list of app slugs allowed to bypass pull request requirements.
+	Apps pulumi.StringArrayInput `pulumi:"apps"`
+	// The list of team slugs allowed to bypass pull request requirements.
+	Teams pulumi.StringArrayInput `pulumi:"teams"`
+	// The list of user logins allowed to bypass pull request requirements.
+	Users pulumi.StringArrayInput `pulumi:"users"`
+}
+
+func (BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowances)(nil)).Elem()
+}
+
+func (i BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesArgs) ToBranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesOutput() BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesOutput {
+	return i.ToBranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesOutputWithContext(context.Background())
+}
+
+func (i BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesArgs) ToBranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesOutputWithContext(ctx context.Context) BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesOutput)
+}
+
+func (i BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesArgs) ToBranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesPtrOutput() BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesPtrOutput {
+	return i.ToBranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesPtrOutputWithContext(context.Background())
+}
+
+func (i BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesArgs) ToBranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesPtrOutputWithContext(ctx context.Context) BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesOutput).ToBranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesPtrOutputWithContext(ctx)
+}
+
+// BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesPtrInput is an input type that accepts BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesArgs, BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesPtr and BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesPtrOutput values.
+// You can construct a concrete instance of `BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesPtrInput` via:
+//
+//	        BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesArgs{...}
+//
+//	or:
+//
+//	        nil
+type BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesPtrInput interface {
+	pulumi.Input
+
+	ToBranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesPtrOutput() BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesPtrOutput
+	ToBranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesPtrOutputWithContext(context.Context) BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesPtrOutput
+}
+
+type branchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesPtrType BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesArgs
+
+func BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesPtr(v *BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesArgs) BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesPtrInput {
+	return (*branchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesPtrType)(v)
+}
+
+func (*branchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowances)(nil)).Elem()
+}
+
+func (i *branchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesPtrType) ToBranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesPtrOutput() BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesPtrOutput {
+	return i.ToBranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesPtrOutputWithContext(context.Background())
+}
+
+func (i *branchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesPtrType) ToBranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesPtrOutputWithContext(ctx context.Context) BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesPtrOutput)
+}
+
+type BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesOutput struct{ *pulumi.OutputState }
+
+func (BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowances)(nil)).Elem()
+}
+
+func (o BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesOutput) ToBranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesOutput() BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesOutput {
+	return o
+}
+
+func (o BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesOutput) ToBranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesOutputWithContext(ctx context.Context) BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesOutput {
+	return o
+}
+
+func (o BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesOutput) ToBranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesPtrOutput() BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesPtrOutput {
+	return o.ToBranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesPtrOutputWithContext(context.Background())
+}
+
+func (o BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesOutput) ToBranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesPtrOutputWithContext(ctx context.Context) BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowances) *BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowances {
+		return &v
+	}).(BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesPtrOutput)
+}
+
+// The list of app slugs allowed to bypass pull request requirements.
+func (o BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesOutput) Apps() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowances) []string {
+		return v.Apps
+	}).(pulumi.StringArrayOutput)
+}
+
+// The list of team slugs allowed to bypass pull request requirements.
+func (o BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesOutput) Teams() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowances) []string {
+		return v.Teams
+	}).(pulumi.StringArrayOutput)
+}
+
+// The list of user logins allowed to bypass pull request requirements.
+func (o BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesOutput) Users() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowances) []string {
+		return v.Users
+	}).(pulumi.StringArrayOutput)
+}
+
+type BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesPtrOutput struct{ *pulumi.OutputState }
+
+func (BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowances)(nil)).Elem()
+}
+
+func (o BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesPtrOutput) ToBranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesPtrOutput() BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesPtrOutput {
+	return o
+}
+
+func (o BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesPtrOutput) ToBranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesPtrOutputWithContext(ctx context.Context) BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesPtrOutput {
+	return o
+}
+
+func (o BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesPtrOutput) Elem() BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesOutput {
+	return o.ApplyT(func(v *BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowances) BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowances {
+		if v != nil {
+			return *v
+		}
+		var ret BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowances
+		return ret
+	}).(BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesOutput)
+}
+
+// The list of app slugs allowed to bypass pull request requirements.
+func (o BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesPtrOutput) Apps() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowances) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Apps
+	}).(pulumi.StringArrayOutput)
+}
+
+// The list of team slugs allowed to bypass pull request requirements.
+func (o BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesPtrOutput) Teams() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowances) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Teams
+	}).(pulumi.StringArrayOutput)
+}
+
+// The list of user logins allowed to bypass pull request requirements.
+func (o BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesPtrOutput) Users() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowances) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Users
+	}).(pulumi.StringArrayOutput)
 }
 
 type BranchProtectionV3RequiredStatusChecks struct {
@@ -1717,6 +1919,224 @@ func (o ProviderAppAuthPtrOutput) PemFile() pulumi.StringPtrOutput {
 		}
 		return &v.PemFile
 	}).(pulumi.StringPtrOutput)
+}
+
+type RepositoryCollaboratorsTeam struct {
+	// The permission of the outside collaborators for the repository.
+	// Must be one of `pull`, `triage`, `push`, `maintain`, `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organisation. Defaults to `pull`.
+	// Must be `push` for personal repositories. Defaults to `push`.
+	Permission *string `pulumi:"permission"`
+	TeamId     string  `pulumi:"teamId"`
+}
+
+// RepositoryCollaboratorsTeamInput is an input type that accepts RepositoryCollaboratorsTeamArgs and RepositoryCollaboratorsTeamOutput values.
+// You can construct a concrete instance of `RepositoryCollaboratorsTeamInput` via:
+//
+//	RepositoryCollaboratorsTeamArgs{...}
+type RepositoryCollaboratorsTeamInput interface {
+	pulumi.Input
+
+	ToRepositoryCollaboratorsTeamOutput() RepositoryCollaboratorsTeamOutput
+	ToRepositoryCollaboratorsTeamOutputWithContext(context.Context) RepositoryCollaboratorsTeamOutput
+}
+
+type RepositoryCollaboratorsTeamArgs struct {
+	// The permission of the outside collaborators for the repository.
+	// Must be one of `pull`, `triage`, `push`, `maintain`, `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organisation. Defaults to `pull`.
+	// Must be `push` for personal repositories. Defaults to `push`.
+	Permission pulumi.StringPtrInput `pulumi:"permission"`
+	TeamId     pulumi.StringInput    `pulumi:"teamId"`
+}
+
+func (RepositoryCollaboratorsTeamArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositoryCollaboratorsTeam)(nil)).Elem()
+}
+
+func (i RepositoryCollaboratorsTeamArgs) ToRepositoryCollaboratorsTeamOutput() RepositoryCollaboratorsTeamOutput {
+	return i.ToRepositoryCollaboratorsTeamOutputWithContext(context.Background())
+}
+
+func (i RepositoryCollaboratorsTeamArgs) ToRepositoryCollaboratorsTeamOutputWithContext(ctx context.Context) RepositoryCollaboratorsTeamOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryCollaboratorsTeamOutput)
+}
+
+// RepositoryCollaboratorsTeamArrayInput is an input type that accepts RepositoryCollaboratorsTeamArray and RepositoryCollaboratorsTeamArrayOutput values.
+// You can construct a concrete instance of `RepositoryCollaboratorsTeamArrayInput` via:
+//
+//	RepositoryCollaboratorsTeamArray{ RepositoryCollaboratorsTeamArgs{...} }
+type RepositoryCollaboratorsTeamArrayInput interface {
+	pulumi.Input
+
+	ToRepositoryCollaboratorsTeamArrayOutput() RepositoryCollaboratorsTeamArrayOutput
+	ToRepositoryCollaboratorsTeamArrayOutputWithContext(context.Context) RepositoryCollaboratorsTeamArrayOutput
+}
+
+type RepositoryCollaboratorsTeamArray []RepositoryCollaboratorsTeamInput
+
+func (RepositoryCollaboratorsTeamArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RepositoryCollaboratorsTeam)(nil)).Elem()
+}
+
+func (i RepositoryCollaboratorsTeamArray) ToRepositoryCollaboratorsTeamArrayOutput() RepositoryCollaboratorsTeamArrayOutput {
+	return i.ToRepositoryCollaboratorsTeamArrayOutputWithContext(context.Background())
+}
+
+func (i RepositoryCollaboratorsTeamArray) ToRepositoryCollaboratorsTeamArrayOutputWithContext(ctx context.Context) RepositoryCollaboratorsTeamArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryCollaboratorsTeamArrayOutput)
+}
+
+type RepositoryCollaboratorsTeamOutput struct{ *pulumi.OutputState }
+
+func (RepositoryCollaboratorsTeamOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositoryCollaboratorsTeam)(nil)).Elem()
+}
+
+func (o RepositoryCollaboratorsTeamOutput) ToRepositoryCollaboratorsTeamOutput() RepositoryCollaboratorsTeamOutput {
+	return o
+}
+
+func (o RepositoryCollaboratorsTeamOutput) ToRepositoryCollaboratorsTeamOutputWithContext(ctx context.Context) RepositoryCollaboratorsTeamOutput {
+	return o
+}
+
+// The permission of the outside collaborators for the repository.
+// Must be one of `pull`, `triage`, `push`, `maintain`, `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organisation. Defaults to `pull`.
+// Must be `push` for personal repositories. Defaults to `push`.
+func (o RepositoryCollaboratorsTeamOutput) Permission() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RepositoryCollaboratorsTeam) *string { return v.Permission }).(pulumi.StringPtrOutput)
+}
+
+func (o RepositoryCollaboratorsTeamOutput) TeamId() pulumi.StringOutput {
+	return o.ApplyT(func(v RepositoryCollaboratorsTeam) string { return v.TeamId }).(pulumi.StringOutput)
+}
+
+type RepositoryCollaboratorsTeamArrayOutput struct{ *pulumi.OutputState }
+
+func (RepositoryCollaboratorsTeamArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RepositoryCollaboratorsTeam)(nil)).Elem()
+}
+
+func (o RepositoryCollaboratorsTeamArrayOutput) ToRepositoryCollaboratorsTeamArrayOutput() RepositoryCollaboratorsTeamArrayOutput {
+	return o
+}
+
+func (o RepositoryCollaboratorsTeamArrayOutput) ToRepositoryCollaboratorsTeamArrayOutputWithContext(ctx context.Context) RepositoryCollaboratorsTeamArrayOutput {
+	return o
+}
+
+func (o RepositoryCollaboratorsTeamArrayOutput) Index(i pulumi.IntInput) RepositoryCollaboratorsTeamOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RepositoryCollaboratorsTeam {
+		return vs[0].([]RepositoryCollaboratorsTeam)[vs[1].(int)]
+	}).(RepositoryCollaboratorsTeamOutput)
+}
+
+type RepositoryCollaboratorsUser struct {
+	// The permission of the outside collaborators for the repository.
+	// Must be one of `pull`, `push`, `maintain`, `triage` or `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organization for organization-owned repositories.
+	// Must be `push` for personal repositories. Defaults to `push`.
+	Permission *string `pulumi:"permission"`
+	Username   string  `pulumi:"username"`
+}
+
+// RepositoryCollaboratorsUserInput is an input type that accepts RepositoryCollaboratorsUserArgs and RepositoryCollaboratorsUserOutput values.
+// You can construct a concrete instance of `RepositoryCollaboratorsUserInput` via:
+//
+//	RepositoryCollaboratorsUserArgs{...}
+type RepositoryCollaboratorsUserInput interface {
+	pulumi.Input
+
+	ToRepositoryCollaboratorsUserOutput() RepositoryCollaboratorsUserOutput
+	ToRepositoryCollaboratorsUserOutputWithContext(context.Context) RepositoryCollaboratorsUserOutput
+}
+
+type RepositoryCollaboratorsUserArgs struct {
+	// The permission of the outside collaborators for the repository.
+	// Must be one of `pull`, `push`, `maintain`, `triage` or `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organization for organization-owned repositories.
+	// Must be `push` for personal repositories. Defaults to `push`.
+	Permission pulumi.StringPtrInput `pulumi:"permission"`
+	Username   pulumi.StringInput    `pulumi:"username"`
+}
+
+func (RepositoryCollaboratorsUserArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositoryCollaboratorsUser)(nil)).Elem()
+}
+
+func (i RepositoryCollaboratorsUserArgs) ToRepositoryCollaboratorsUserOutput() RepositoryCollaboratorsUserOutput {
+	return i.ToRepositoryCollaboratorsUserOutputWithContext(context.Background())
+}
+
+func (i RepositoryCollaboratorsUserArgs) ToRepositoryCollaboratorsUserOutputWithContext(ctx context.Context) RepositoryCollaboratorsUserOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryCollaboratorsUserOutput)
+}
+
+// RepositoryCollaboratorsUserArrayInput is an input type that accepts RepositoryCollaboratorsUserArray and RepositoryCollaboratorsUserArrayOutput values.
+// You can construct a concrete instance of `RepositoryCollaboratorsUserArrayInput` via:
+//
+//	RepositoryCollaboratorsUserArray{ RepositoryCollaboratorsUserArgs{...} }
+type RepositoryCollaboratorsUserArrayInput interface {
+	pulumi.Input
+
+	ToRepositoryCollaboratorsUserArrayOutput() RepositoryCollaboratorsUserArrayOutput
+	ToRepositoryCollaboratorsUserArrayOutputWithContext(context.Context) RepositoryCollaboratorsUserArrayOutput
+}
+
+type RepositoryCollaboratorsUserArray []RepositoryCollaboratorsUserInput
+
+func (RepositoryCollaboratorsUserArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RepositoryCollaboratorsUser)(nil)).Elem()
+}
+
+func (i RepositoryCollaboratorsUserArray) ToRepositoryCollaboratorsUserArrayOutput() RepositoryCollaboratorsUserArrayOutput {
+	return i.ToRepositoryCollaboratorsUserArrayOutputWithContext(context.Background())
+}
+
+func (i RepositoryCollaboratorsUserArray) ToRepositoryCollaboratorsUserArrayOutputWithContext(ctx context.Context) RepositoryCollaboratorsUserArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryCollaboratorsUserArrayOutput)
+}
+
+type RepositoryCollaboratorsUserOutput struct{ *pulumi.OutputState }
+
+func (RepositoryCollaboratorsUserOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositoryCollaboratorsUser)(nil)).Elem()
+}
+
+func (o RepositoryCollaboratorsUserOutput) ToRepositoryCollaboratorsUserOutput() RepositoryCollaboratorsUserOutput {
+	return o
+}
+
+func (o RepositoryCollaboratorsUserOutput) ToRepositoryCollaboratorsUserOutputWithContext(ctx context.Context) RepositoryCollaboratorsUserOutput {
+	return o
+}
+
+// The permission of the outside collaborators for the repository.
+// Must be one of `pull`, `push`, `maintain`, `triage` or `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organization for organization-owned repositories.
+// Must be `push` for personal repositories. Defaults to `push`.
+func (o RepositoryCollaboratorsUserOutput) Permission() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RepositoryCollaboratorsUser) *string { return v.Permission }).(pulumi.StringPtrOutput)
+}
+
+func (o RepositoryCollaboratorsUserOutput) Username() pulumi.StringOutput {
+	return o.ApplyT(func(v RepositoryCollaboratorsUser) string { return v.Username }).(pulumi.StringOutput)
+}
+
+type RepositoryCollaboratorsUserArrayOutput struct{ *pulumi.OutputState }
+
+func (RepositoryCollaboratorsUserArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RepositoryCollaboratorsUser)(nil)).Elem()
+}
+
+func (o RepositoryCollaboratorsUserArrayOutput) ToRepositoryCollaboratorsUserArrayOutput() RepositoryCollaboratorsUserArrayOutput {
+	return o
+}
+
+func (o RepositoryCollaboratorsUserArrayOutput) ToRepositoryCollaboratorsUserArrayOutputWithContext(ctx context.Context) RepositoryCollaboratorsUserArrayOutput {
+	return o
+}
+
+func (o RepositoryCollaboratorsUserArrayOutput) Index(i pulumi.IntInput) RepositoryCollaboratorsUserOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RepositoryCollaboratorsUser {
+		return vs[0].([]RepositoryCollaboratorsUser)[vs[1].(int)]
+	}).(RepositoryCollaboratorsUserOutput)
 }
 
 type RepositoryEnvironmentDeploymentBranchPolicy struct {
@@ -6906,6 +7326,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BranchProtectionRequiredStatusCheckArrayInput)(nil)).Elem(), BranchProtectionRequiredStatusCheckArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BranchProtectionV3RequiredPullRequestReviewsInput)(nil)).Elem(), BranchProtectionV3RequiredPullRequestReviewsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BranchProtectionV3RequiredPullRequestReviewsPtrInput)(nil)).Elem(), BranchProtectionV3RequiredPullRequestReviewsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesInput)(nil)).Elem(), BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesPtrInput)(nil)).Elem(), BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BranchProtectionV3RequiredStatusChecksInput)(nil)).Elem(), BranchProtectionV3RequiredStatusChecksArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BranchProtectionV3RequiredStatusChecksPtrInput)(nil)).Elem(), BranchProtectionV3RequiredStatusChecksArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BranchProtectionV3RestrictionsInput)(nil)).Elem(), BranchProtectionV3RestrictionsArgs{})
@@ -6914,6 +7336,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationWebhookConfigurationPtrInput)(nil)).Elem(), OrganizationWebhookConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProviderAppAuthInput)(nil)).Elem(), ProviderAppAuthArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProviderAppAuthPtrInput)(nil)).Elem(), ProviderAppAuthArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryCollaboratorsTeamInput)(nil)).Elem(), RepositoryCollaboratorsTeamArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryCollaboratorsTeamArrayInput)(nil)).Elem(), RepositoryCollaboratorsTeamArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryCollaboratorsUserInput)(nil)).Elem(), RepositoryCollaboratorsUserArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryCollaboratorsUserArrayInput)(nil)).Elem(), RepositoryCollaboratorsUserArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryEnvironmentDeploymentBranchPolicyInput)(nil)).Elem(), RepositoryEnvironmentDeploymentBranchPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryEnvironmentDeploymentBranchPolicyPtrInput)(nil)).Elem(), RepositoryEnvironmentDeploymentBranchPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryEnvironmentReviewerInput)(nil)).Elem(), RepositoryEnvironmentReviewerArgs{})
@@ -6999,6 +7425,8 @@ func init() {
 	pulumi.RegisterOutputType(BranchProtectionRequiredStatusCheckArrayOutput{})
 	pulumi.RegisterOutputType(BranchProtectionV3RequiredPullRequestReviewsOutput{})
 	pulumi.RegisterOutputType(BranchProtectionV3RequiredPullRequestReviewsPtrOutput{})
+	pulumi.RegisterOutputType(BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesOutput{})
+	pulumi.RegisterOutputType(BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesPtrOutput{})
 	pulumi.RegisterOutputType(BranchProtectionV3RequiredStatusChecksOutput{})
 	pulumi.RegisterOutputType(BranchProtectionV3RequiredStatusChecksPtrOutput{})
 	pulumi.RegisterOutputType(BranchProtectionV3RestrictionsOutput{})
@@ -7007,6 +7435,10 @@ func init() {
 	pulumi.RegisterOutputType(OrganizationWebhookConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ProviderAppAuthOutput{})
 	pulumi.RegisterOutputType(ProviderAppAuthPtrOutput{})
+	pulumi.RegisterOutputType(RepositoryCollaboratorsTeamOutput{})
+	pulumi.RegisterOutputType(RepositoryCollaboratorsTeamArrayOutput{})
+	pulumi.RegisterOutputType(RepositoryCollaboratorsUserOutput{})
+	pulumi.RegisterOutputType(RepositoryCollaboratorsUserArrayOutput{})
 	pulumi.RegisterOutputType(RepositoryEnvironmentDeploymentBranchPolicyOutput{})
 	pulumi.RegisterOutputType(RepositoryEnvironmentDeploymentBranchPolicyPtrOutput{})
 	pulumi.RegisterOutputType(RepositoryEnvironmentReviewerOutput{})

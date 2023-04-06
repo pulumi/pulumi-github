@@ -27,7 +27,7 @@ class RepositoryFileArgs:
         :param pulumi.Input[str] content: The file content.
         :param pulumi.Input[str] file: The path of the file to manage.
         :param pulumi.Input[str] repository: The repository to create the file in.
-        :param pulumi.Input[str] branch: Git branch (defaults to `main`).
+        :param pulumi.Input[str] branch: Git branch (defaults to the repository's default branch).
                The branch must already exist, it will not be created if it does not already exist.
         :param pulumi.Input[str] commit_author: Committer author name to use. **NOTE:** GitHub app users may omit author and email information so GitHub can verify commits as the GitHub App. This maybe useful when a branch protection rule requires signed commits.
         :param pulumi.Input[str] commit_email: Committer email address to use. **NOTE:** GitHub app users may omit author and email information so GitHub can verify commits as the GitHub App. This may be useful when a branch protection rule requires signed commits.
@@ -88,7 +88,7 @@ class RepositoryFileArgs:
     @pulumi.getter
     def branch(self) -> Optional[pulumi.Input[str]]:
         """
-        Git branch (defaults to `main`).
+        Git branch (defaults to the repository's default branch).
         The branch must already exist, it will not be created if it does not already exist.
         """
         return pulumi.get(self, "branch")
@@ -157,11 +157,12 @@ class _RepositoryFileState:
                  content: Optional[pulumi.Input[str]] = None,
                  file: Optional[pulumi.Input[str]] = None,
                  overwrite_on_create: Optional[pulumi.Input[bool]] = None,
+                 ref: Optional[pulumi.Input[str]] = None,
                  repository: Optional[pulumi.Input[str]] = None,
                  sha: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering RepositoryFile resources.
-        :param pulumi.Input[str] branch: Git branch (defaults to `main`).
+        :param pulumi.Input[str] branch: Git branch (defaults to the repository's default branch).
                The branch must already exist, it will not be created if it does not already exist.
         :param pulumi.Input[str] commit_author: Committer author name to use. **NOTE:** GitHub app users may omit author and email information so GitHub can verify commits as the GitHub App. This maybe useful when a branch protection rule requires signed commits.
         :param pulumi.Input[str] commit_email: Committer email address to use. **NOTE:** GitHub app users may omit author and email information so GitHub can verify commits as the GitHub App. This may be useful when a branch protection rule requires signed commits.
@@ -170,6 +171,7 @@ class _RepositoryFileState:
         :param pulumi.Input[str] content: The file content.
         :param pulumi.Input[str] file: The path of the file to manage.
         :param pulumi.Input[bool] overwrite_on_create: Enable overwriting existing files
+        :param pulumi.Input[str] ref: The name of the commit/branch/tag.
         :param pulumi.Input[str] repository: The repository to create the file in.
         :param pulumi.Input[str] sha: The SHA blob of the file.
         """
@@ -189,6 +191,8 @@ class _RepositoryFileState:
             pulumi.set(__self__, "file", file)
         if overwrite_on_create is not None:
             pulumi.set(__self__, "overwrite_on_create", overwrite_on_create)
+        if ref is not None:
+            pulumi.set(__self__, "ref", ref)
         if repository is not None:
             pulumi.set(__self__, "repository", repository)
         if sha is not None:
@@ -198,7 +202,7 @@ class _RepositoryFileState:
     @pulumi.getter
     def branch(self) -> Optional[pulumi.Input[str]]:
         """
-        Git branch (defaults to `main`).
+        Git branch (defaults to the repository's default branch).
         The branch must already exist, it will not be created if it does not already exist.
         """
         return pulumi.get(self, "branch")
@@ -293,6 +297,18 @@ class _RepositoryFileState:
 
     @property
     @pulumi.getter
+    def ref(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the commit/branch/tag.
+        """
+        return pulumi.get(self, "ref")
+
+    @ref.setter
+    def ref(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ref", value)
+
+    @property
+    @pulumi.getter
     def repository(self) -> Optional[pulumi.Input[str]]:
         """
         The repository to create the file in.
@@ -360,7 +376,7 @@ class RepositoryFile(pulumi.CustomResource):
          $ pulumi import github:index/repositoryFile:RepositoryFile gitignore example/.gitignore
         ```
 
-         To import a file from a branch other than main, append `:` and the branch name, e.g.
+         To import a file from a branch other than the default branch, append `:` and the branch name, e.g.
 
         ```sh
          $ pulumi import github:index/repositoryFile:RepositoryFile gitignore example/.gitignore:dev
@@ -368,7 +384,7 @@ class RepositoryFile(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] branch: Git branch (defaults to `main`).
+        :param pulumi.Input[str] branch: Git branch (defaults to the repository's default branch).
                The branch must already exist, it will not be created if it does not already exist.
         :param pulumi.Input[str] commit_author: Committer author name to use. **NOTE:** GitHub app users may omit author and email information so GitHub can verify commits as the GitHub App. This maybe useful when a branch protection rule requires signed commits.
         :param pulumi.Input[str] commit_email: Committer email address to use. **NOTE:** GitHub app users may omit author and email information so GitHub can verify commits as the GitHub App. This may be useful when a branch protection rule requires signed commits.
@@ -414,7 +430,7 @@ class RepositoryFile(pulumi.CustomResource):
          $ pulumi import github:index/repositoryFile:RepositoryFile gitignore example/.gitignore
         ```
 
-         To import a file from a branch other than main, append `:` and the branch name, e.g.
+         To import a file from a branch other than the default branch, append `:` and the branch name, e.g.
 
         ```sh
          $ pulumi import github:index/repositoryFile:RepositoryFile gitignore example/.gitignore:dev
@@ -467,6 +483,7 @@ class RepositoryFile(pulumi.CustomResource):
                 raise TypeError("Missing required property 'repository'")
             __props__.__dict__["repository"] = repository
             __props__.__dict__["commit_sha"] = None
+            __props__.__dict__["ref"] = None
             __props__.__dict__["sha"] = None
         super(RepositoryFile, __self__).__init__(
             'github:index/repositoryFile:RepositoryFile',
@@ -486,6 +503,7 @@ class RepositoryFile(pulumi.CustomResource):
             content: Optional[pulumi.Input[str]] = None,
             file: Optional[pulumi.Input[str]] = None,
             overwrite_on_create: Optional[pulumi.Input[bool]] = None,
+            ref: Optional[pulumi.Input[str]] = None,
             repository: Optional[pulumi.Input[str]] = None,
             sha: Optional[pulumi.Input[str]] = None) -> 'RepositoryFile':
         """
@@ -495,7 +513,7 @@ class RepositoryFile(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] branch: Git branch (defaults to `main`).
+        :param pulumi.Input[str] branch: Git branch (defaults to the repository's default branch).
                The branch must already exist, it will not be created if it does not already exist.
         :param pulumi.Input[str] commit_author: Committer author name to use. **NOTE:** GitHub app users may omit author and email information so GitHub can verify commits as the GitHub App. This maybe useful when a branch protection rule requires signed commits.
         :param pulumi.Input[str] commit_email: Committer email address to use. **NOTE:** GitHub app users may omit author and email information so GitHub can verify commits as the GitHub App. This may be useful when a branch protection rule requires signed commits.
@@ -504,6 +522,7 @@ class RepositoryFile(pulumi.CustomResource):
         :param pulumi.Input[str] content: The file content.
         :param pulumi.Input[str] file: The path of the file to manage.
         :param pulumi.Input[bool] overwrite_on_create: Enable overwriting existing files
+        :param pulumi.Input[str] ref: The name of the commit/branch/tag.
         :param pulumi.Input[str] repository: The repository to create the file in.
         :param pulumi.Input[str] sha: The SHA blob of the file.
         """
@@ -519,6 +538,7 @@ class RepositoryFile(pulumi.CustomResource):
         __props__.__dict__["content"] = content
         __props__.__dict__["file"] = file
         __props__.__dict__["overwrite_on_create"] = overwrite_on_create
+        __props__.__dict__["ref"] = ref
         __props__.__dict__["repository"] = repository
         __props__.__dict__["sha"] = sha
         return RepositoryFile(resource_name, opts=opts, __props__=__props__)
@@ -527,7 +547,7 @@ class RepositoryFile(pulumi.CustomResource):
     @pulumi.getter
     def branch(self) -> pulumi.Output[Optional[str]]:
         """
-        Git branch (defaults to `main`).
+        Git branch (defaults to the repository's default branch).
         The branch must already exist, it will not be created if it does not already exist.
         """
         return pulumi.get(self, "branch")
@@ -587,6 +607,14 @@ class RepositoryFile(pulumi.CustomResource):
         Enable overwriting existing files
         """
         return pulumi.get(self, "overwrite_on_create")
+
+    @property
+    @pulumi.getter
+    def ref(self) -> pulumi.Output[str]:
+        """
+        The name of the commit/branch/tag.
+        """
+        return pulumi.get(self, "ref")
 
     @property
     @pulumi.getter

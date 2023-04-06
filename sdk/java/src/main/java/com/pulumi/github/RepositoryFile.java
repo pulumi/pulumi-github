@@ -70,7 +70,7 @@ import javax.annotation.Nullable;
  *  $ pulumi import github:index/repositoryFile:RepositoryFile gitignore example/.gitignore
  * ```
  * 
- *  To import a file from a branch other than main, append `:` and the branch name, e.g.
+ *  To import a file from a branch other than the default branch, append `:` and the branch name, e.g.
  * 
  * ```sh
  *  $ pulumi import github:index/repositoryFile:RepositoryFile gitignore example/.gitignore:dev
@@ -80,7 +80,7 @@ import javax.annotation.Nullable;
 @ResourceType(type="github:index/repositoryFile:RepositoryFile")
 public class RepositoryFile extends com.pulumi.resources.CustomResource {
     /**
-     * Git branch (defaults to `main`).
+     * Git branch (defaults to the repository&#39;s default branch).
      * The branch must already exist, it will not be created if it does not already exist.
      * 
      */
@@ -88,7 +88,7 @@ public class RepositoryFile extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ String> branch;
 
     /**
-     * @return Git branch (defaults to `main`).
+     * @return Git branch (defaults to the repository&#39;s default branch).
      * The branch must already exist, it will not be created if it does not already exist.
      * 
      */
@@ -192,6 +192,20 @@ public class RepositoryFile extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<Boolean>> overwriteOnCreate() {
         return Codegen.optional(this.overwriteOnCreate);
+    }
+    /**
+     * The name of the commit/branch/tag.
+     * 
+     */
+    @Export(name="ref", type=String.class, parameters={})
+    private Output<String> ref;
+
+    /**
+     * @return The name of the commit/branch/tag.
+     * 
+     */
+    public Output<String> ref() {
+        return this.ref;
     }
     /**
      * The repository to create the file in.

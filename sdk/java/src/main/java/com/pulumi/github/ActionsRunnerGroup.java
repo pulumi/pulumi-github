@@ -141,14 +141,14 @@ public class ActionsRunnerGroup extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="restrictedToWorkflows", type=Boolean.class, parameters={})
-    private Output<Boolean> restrictedToWorkflows;
+    private Output</* @Nullable */ Boolean> restrictedToWorkflows;
 
     /**
      * @return If true, the runner group will be restricted to running only the workflows specified in the selected_workflows array. Defaults to false.
      * 
      */
-    public Output<Boolean> restrictedToWorkflows() {
-        return this.restrictedToWorkflows;
+    public Output<Optional<Boolean>> restrictedToWorkflows() {
+        return Codegen.optional(this.restrictedToWorkflows);
     }
     /**
      * The GitHub API URL for the runner group&#39;s runners
@@ -197,14 +197,14 @@ public class ActionsRunnerGroup extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="selectedWorkflows", type=List.class, parameters={String.class})
-    private Output<List<String>> selectedWorkflows;
+    private Output</* @Nullable */ List<String>> selectedWorkflows;
 
     /**
      * @return List of workflows the runner group should be allowed to run. This setting will be ignored unless restricted_to_workflows is set to true.
      * 
      */
-    public Output<List<String>> selectedWorkflows() {
-        return this.selectedWorkflows;
+    public Output<Optional<List<String>>> selectedWorkflows() {
+        return Codegen.optional(this.selectedWorkflows);
     }
     /**
      * Visibility of a runner group. Whether the runner group can include `all`, `selected`, or `private` repositories. A value of `private` is not currently supported due to limitations in the GitHub API.

@@ -17,9 +17,12 @@ __all__ = [
     'BranchProtectionRequiredPullRequestReview',
     'BranchProtectionRequiredStatusCheck',
     'BranchProtectionV3RequiredPullRequestReviews',
+    'BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowances',
     'BranchProtectionV3RequiredStatusChecks',
     'BranchProtectionV3Restrictions',
     'OrganizationWebhookConfiguration',
+    'RepositoryCollaboratorsTeam',
+    'RepositoryCollaboratorsUser',
     'RepositoryEnvironmentDeploymentBranchPolicy',
     'RepositoryEnvironmentReviewer',
     'RepositoryPages',
@@ -378,7 +381,9 @@ class BranchProtectionV3RequiredPullRequestReviews(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "dismissStaleReviews":
+        if key == "bypassPullRequestAllowances":
+            suggest = "bypass_pull_request_allowances"
+        elif key == "dismissStaleReviews":
             suggest = "dismiss_stale_reviews"
         elif key == "dismissalTeams":
             suggest = "dismissal_teams"
@@ -403,6 +408,7 @@ class BranchProtectionV3RequiredPullRequestReviews(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 bypass_pull_request_allowances: Optional['outputs.BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowances'] = None,
                  dismiss_stale_reviews: Optional[bool] = None,
                  dismissal_teams: Optional[Sequence[str]] = None,
                  dismissal_users: Optional[Sequence[str]] = None,
@@ -410,6 +416,7 @@ class BranchProtectionV3RequiredPullRequestReviews(dict):
                  require_code_owner_reviews: Optional[bool] = None,
                  required_approving_review_count: Optional[int] = None):
         """
+        :param 'BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesArgs' bypass_pull_request_allowances: Allow specific users, teams, or apps to bypass pull request requirements. See Bypass Pull Request Allowances below for details.
         :param bool dismiss_stale_reviews: Dismiss approved reviews automatically when a new commit is pushed. Defaults to `false`.
         :param Sequence[str] dismissal_teams: The list of team slugs with dismissal access.
                Always use `slug` of the team, **not** its name. Each team already **has** to have access to the repository.
@@ -417,6 +424,8 @@ class BranchProtectionV3RequiredPullRequestReviews(dict):
         :param bool require_code_owner_reviews: Require an approved review in pull requests including files with a designated code owner. Defaults to `false`.
         :param int required_approving_review_count: Require x number of approvals to satisfy branch protection requirements. If this is specified it must be a number between 0-6. This requirement matches GitHub's API, see the upstream [documentation](https://developer.github.com/v3/repos/branches/#parameters-1) for more information.
         """
+        if bypass_pull_request_allowances is not None:
+            pulumi.set(__self__, "bypass_pull_request_allowances", bypass_pull_request_allowances)
         if dismiss_stale_reviews is not None:
             pulumi.set(__self__, "dismiss_stale_reviews", dismiss_stale_reviews)
         if dismissal_teams is not None:
@@ -429,6 +438,14 @@ class BranchProtectionV3RequiredPullRequestReviews(dict):
             pulumi.set(__self__, "require_code_owner_reviews", require_code_owner_reviews)
         if required_approving_review_count is not None:
             pulumi.set(__self__, "required_approving_review_count", required_approving_review_count)
+
+    @property
+    @pulumi.getter(name="bypassPullRequestAllowances")
+    def bypass_pull_request_allowances(self) -> Optional['outputs.BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowances']:
+        """
+        Allow specific users, teams, or apps to bypass pull request requirements. See Bypass Pull Request Allowances below for details.
+        """
+        return pulumi.get(self, "bypass_pull_request_allowances")
 
     @property
     @pulumi.getter(name="dismissStaleReviews")
@@ -475,6 +492,49 @@ class BranchProtectionV3RequiredPullRequestReviews(dict):
         Require x number of approvals to satisfy branch protection requirements. If this is specified it must be a number between 0-6. This requirement matches GitHub's API, see the upstream [documentation](https://developer.github.com/v3/repos/branches/#parameters-1) for more information.
         """
         return pulumi.get(self, "required_approving_review_count")
+
+
+@pulumi.output_type
+class BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowances(dict):
+    def __init__(__self__, *,
+                 apps: Optional[Sequence[str]] = None,
+                 teams: Optional[Sequence[str]] = None,
+                 users: Optional[Sequence[str]] = None):
+        """
+        :param Sequence[str] apps: The list of app slugs allowed to bypass pull request requirements.
+        :param Sequence[str] teams: The list of team slugs allowed to bypass pull request requirements.
+        :param Sequence[str] users: The list of user logins allowed to bypass pull request requirements.
+        """
+        if apps is not None:
+            pulumi.set(__self__, "apps", apps)
+        if teams is not None:
+            pulumi.set(__self__, "teams", teams)
+        if users is not None:
+            pulumi.set(__self__, "users", users)
+
+    @property
+    @pulumi.getter
+    def apps(self) -> Optional[Sequence[str]]:
+        """
+        The list of app slugs allowed to bypass pull request requirements.
+        """
+        return pulumi.get(self, "apps")
+
+    @property
+    @pulumi.getter
+    def teams(self) -> Optional[Sequence[str]]:
+        """
+        The list of team slugs allowed to bypass pull request requirements.
+        """
+        return pulumi.get(self, "teams")
+
+    @property
+    @pulumi.getter
+    def users(self) -> Optional[Sequence[str]]:
+        """
+        The list of user logins allowed to bypass pull request requirements.
+        """
+        return pulumi.get(self, "users")
 
 
 @pulumi.output_type
@@ -649,6 +709,83 @@ class OrganizationWebhookConfiguration(dict):
     @pulumi.getter
     def secret(self) -> Optional[str]:
         return pulumi.get(self, "secret")
+
+
+@pulumi.output_type
+class RepositoryCollaboratorsTeam(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "teamId":
+            suggest = "team_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RepositoryCollaboratorsTeam. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RepositoryCollaboratorsTeam.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RepositoryCollaboratorsTeam.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 team_id: str,
+                 permission: Optional[str] = None):
+        """
+        :param str permission: The permission of the outside collaborators for the repository.
+               Must be one of `pull`, `triage`, `push`, `maintain`, `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organisation. Defaults to `pull`.
+               Must be `push` for personal repositories. Defaults to `push`.
+        """
+        pulumi.set(__self__, "team_id", team_id)
+        if permission is not None:
+            pulumi.set(__self__, "permission", permission)
+
+    @property
+    @pulumi.getter(name="teamId")
+    def team_id(self) -> str:
+        return pulumi.get(self, "team_id")
+
+    @property
+    @pulumi.getter
+    def permission(self) -> Optional[str]:
+        """
+        The permission of the outside collaborators for the repository.
+        Must be one of `pull`, `triage`, `push`, `maintain`, `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organisation. Defaults to `pull`.
+        Must be `push` for personal repositories. Defaults to `push`.
+        """
+        return pulumi.get(self, "permission")
+
+
+@pulumi.output_type
+class RepositoryCollaboratorsUser(dict):
+    def __init__(__self__, *,
+                 username: str,
+                 permission: Optional[str] = None):
+        """
+        :param str permission: The permission of the outside collaborators for the repository.
+               Must be one of `pull`, `push`, `maintain`, `triage` or `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organization for organization-owned repositories.
+               Must be `push` for personal repositories. Defaults to `push`.
+        """
+        pulumi.set(__self__, "username", username)
+        if permission is not None:
+            pulumi.set(__self__, "permission", permission)
+
+    @property
+    @pulumi.getter
+    def username(self) -> str:
+        return pulumi.get(self, "username")
+
+    @property
+    @pulumi.getter
+    def permission(self) -> Optional[str]:
+        """
+        The permission of the outside collaborators for the repository.
+        Must be one of `pull`, `push`, `maintain`, `triage` or `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organization for organization-owned repositories.
+        Must be `push` for personal repositories. Defaults to `push`.
+        """
+        return pulumi.get(self, "permission")
 
 
 @pulumi.output_type
