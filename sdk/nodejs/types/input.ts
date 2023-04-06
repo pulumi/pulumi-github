@@ -87,6 +87,10 @@ export interface BranchProtectionRequiredStatusCheck {
 
 export interface BranchProtectionV3RequiredPullRequestReviews {
     /**
+     * Allow specific users, teams, or apps to bypass pull request requirements. See Bypass Pull Request Allowances below for details.
+     */
+    bypassPullRequestAllowances?: pulumi.Input<inputs.BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowances>;
+    /**
      * Dismiss approved reviews automatically when a new commit is pushed. Defaults to `false`.
      */
     dismissStaleReviews?: pulumi.Input<boolean>;
@@ -111,6 +115,21 @@ export interface BranchProtectionV3RequiredPullRequestReviews {
      * Require x number of approvals to satisfy branch protection requirements. If this is specified it must be a number between 0-6. This requirement matches GitHub's API, see the upstream [documentation](https://developer.github.com/v3/repos/branches/#parameters-1) for more information.
      */
     requiredApprovingReviewCount?: pulumi.Input<number>;
+}
+
+export interface BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowances {
+    /**
+     * The list of app slugs allowed to bypass pull request requirements.
+     */
+    apps?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The list of team slugs allowed to bypass pull request requirements.
+     */
+    teams?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The list of user logins allowed to bypass pull request requirements.
+     */
+    users?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 export interface BranchProtectionV3RequiredStatusChecks {
@@ -164,6 +183,26 @@ export interface ProviderAppAuth {
     id: pulumi.Input<string>;
     installationId: pulumi.Input<string>;
     pemFile: pulumi.Input<string>;
+}
+
+export interface RepositoryCollaboratorsTeam {
+    /**
+     * The permission of the outside collaborators for the repository.
+     * Must be one of `pull`, `triage`, `push`, `maintain`, `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organisation. Defaults to `pull`.
+     * Must be `push` for personal repositories. Defaults to `push`.
+     */
+    permission?: pulumi.Input<string>;
+    teamId: pulumi.Input<string>;
+}
+
+export interface RepositoryCollaboratorsUser {
+    /**
+     * The permission of the outside collaborators for the repository.
+     * Must be one of `pull`, `push`, `maintain`, `triage` or `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organization for organization-owned repositories.
+     * Must be `push` for personal repositories. Defaults to `push`.
+     */
+    permission?: pulumi.Input<string>;
+    username: pulumi.Input<string>;
 }
 
 export interface RepositoryEnvironmentDeploymentBranchPolicy {

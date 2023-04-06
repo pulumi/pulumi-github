@@ -17,7 +17,7 @@ public final class RepositoryFileState extends com.pulumi.resources.ResourceArgs
     public static final RepositoryFileState Empty = new RepositoryFileState();
 
     /**
-     * Git branch (defaults to `main`).
+     * Git branch (defaults to the repository&#39;s default branch).
      * The branch must already exist, it will not be created if it does not already exist.
      * 
      */
@@ -25,7 +25,7 @@ public final class RepositoryFileState extends com.pulumi.resources.ResourceArgs
     private @Nullable Output<String> branch;
 
     /**
-     * @return Git branch (defaults to `main`).
+     * @return Git branch (defaults to the repository&#39;s default branch).
      * The branch must already exist, it will not be created if it does not already exist.
      * 
      */
@@ -139,6 +139,21 @@ public final class RepositoryFileState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
+     * The name of the commit/branch/tag.
+     * 
+     */
+    @Import(name="ref")
+    private @Nullable Output<String> ref;
+
+    /**
+     * @return The name of the commit/branch/tag.
+     * 
+     */
+    public Optional<Output<String>> ref() {
+        return Optional.ofNullable(this.ref);
+    }
+
+    /**
      * The repository to create the file in.
      * 
      */
@@ -179,6 +194,7 @@ public final class RepositoryFileState extends com.pulumi.resources.ResourceArgs
         this.content = $.content;
         this.file = $.file;
         this.overwriteOnCreate = $.overwriteOnCreate;
+        this.ref = $.ref;
         this.repository = $.repository;
         this.sha = $.sha;
     }
@@ -202,7 +218,7 @@ public final class RepositoryFileState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param branch Git branch (defaults to `main`).
+         * @param branch Git branch (defaults to the repository&#39;s default branch).
          * The branch must already exist, it will not be created if it does not already exist.
          * 
          * @return builder
@@ -214,7 +230,7 @@ public final class RepositoryFileState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param branch Git branch (defaults to `main`).
+         * @param branch Git branch (defaults to the repository&#39;s default branch).
          * The branch must already exist, it will not be created if it does not already exist.
          * 
          * @return builder
@@ -369,6 +385,27 @@ public final class RepositoryFileState extends com.pulumi.resources.ResourceArgs
          */
         public Builder overwriteOnCreate(Boolean overwriteOnCreate) {
             return overwriteOnCreate(Output.of(overwriteOnCreate));
+        }
+
+        /**
+         * @param ref The name of the commit/branch/tag.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ref(@Nullable Output<String> ref) {
+            $.ref = ref;
+            return this;
+        }
+
+        /**
+         * @param ref The name of the commit/branch/tag.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ref(String ref) {
+            return ref(Output.of(ref));
         }
 
         /**

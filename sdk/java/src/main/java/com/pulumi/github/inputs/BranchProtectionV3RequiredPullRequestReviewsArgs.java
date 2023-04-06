@@ -5,6 +5,7 @@ package com.pulumi.github.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.github.inputs.BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesArgs;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -17,6 +18,21 @@ import javax.annotation.Nullable;
 public final class BranchProtectionV3RequiredPullRequestReviewsArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final BranchProtectionV3RequiredPullRequestReviewsArgs Empty = new BranchProtectionV3RequiredPullRequestReviewsArgs();
+
+    /**
+     * Allow specific users, teams, or apps to bypass pull request requirements. See Bypass Pull Request Allowances below for details.
+     * 
+     */
+    @Import(name="bypassPullRequestAllowances")
+    private @Nullable Output<BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesArgs> bypassPullRequestAllowances;
+
+    /**
+     * @return Allow specific users, teams, or apps to bypass pull request requirements. See Bypass Pull Request Allowances below for details.
+     * 
+     */
+    public Optional<Output<BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesArgs>> bypassPullRequestAllowances() {
+        return Optional.ofNullable(this.bypassPullRequestAllowances);
+    }
 
     /**
      * Dismiss approved reviews automatically when a new commit is pushed. Defaults to `false`.
@@ -117,6 +133,7 @@ public final class BranchProtectionV3RequiredPullRequestReviewsArgs extends com.
     private BranchProtectionV3RequiredPullRequestReviewsArgs() {}
 
     private BranchProtectionV3RequiredPullRequestReviewsArgs(BranchProtectionV3RequiredPullRequestReviewsArgs $) {
+        this.bypassPullRequestAllowances = $.bypassPullRequestAllowances;
         this.dismissStaleReviews = $.dismissStaleReviews;
         this.dismissalTeams = $.dismissalTeams;
         this.dismissalUsers = $.dismissalUsers;
@@ -141,6 +158,27 @@ public final class BranchProtectionV3RequiredPullRequestReviewsArgs extends com.
 
         public Builder(BranchProtectionV3RequiredPullRequestReviewsArgs defaults) {
             $ = new BranchProtectionV3RequiredPullRequestReviewsArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param bypassPullRequestAllowances Allow specific users, teams, or apps to bypass pull request requirements. See Bypass Pull Request Allowances below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder bypassPullRequestAllowances(@Nullable Output<BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesArgs> bypassPullRequestAllowances) {
+            $.bypassPullRequestAllowances = bypassPullRequestAllowances;
+            return this;
+        }
+
+        /**
+         * @param bypassPullRequestAllowances Allow specific users, teams, or apps to bypass pull request requirements. See Bypass Pull Request Allowances below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder bypassPullRequestAllowances(BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesArgs bypassPullRequestAllowances) {
+            return bypassPullRequestAllowances(Output.of(bypassPullRequestAllowances));
         }
 
         /**

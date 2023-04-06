@@ -132,6 +132,10 @@ namespace Pulumi.Github
     public sealed class GetUsersResult
     {
         /// <summary>
+        /// list of the user's publicly visible profile email (will be empty string in case if user decided not to show it).
+        /// </summary>
+        public readonly ImmutableArray<string> Emails;
+        /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
@@ -151,6 +155,8 @@ namespace Pulumi.Github
 
         [OutputConstructor]
         private GetUsersResult(
+            ImmutableArray<string> emails,
+
             string id,
 
             ImmutableArray<string> logins,
@@ -161,6 +167,7 @@ namespace Pulumi.Github
 
             ImmutableArray<string> usernames)
         {
+            Emails = emails;
             Id = id;
             Logins = logins;
             NodeIds = nodeIds;

@@ -16,10 +16,13 @@ __all__ = [
     'BranchProtectionRequiredPullRequestReviewArgs',
     'BranchProtectionRequiredStatusCheckArgs',
     'BranchProtectionV3RequiredPullRequestReviewsArgs',
+    'BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesArgs',
     'BranchProtectionV3RequiredStatusChecksArgs',
     'BranchProtectionV3RestrictionsArgs',
     'OrganizationWebhookConfigurationArgs',
     'ProviderAppAuthArgs',
+    'RepositoryCollaboratorsTeamArgs',
+    'RepositoryCollaboratorsUserArgs',
     'RepositoryEnvironmentDeploymentBranchPolicyArgs',
     'RepositoryEnvironmentReviewerArgs',
     'RepositoryPagesArgs',
@@ -328,6 +331,7 @@ class BranchProtectionRequiredStatusCheckArgs:
 @pulumi.input_type
 class BranchProtectionV3RequiredPullRequestReviewsArgs:
     def __init__(__self__, *,
+                 bypass_pull_request_allowances: Optional[pulumi.Input['BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesArgs']] = None,
                  dismiss_stale_reviews: Optional[pulumi.Input[bool]] = None,
                  dismissal_teams: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  dismissal_users: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -335,6 +339,7 @@ class BranchProtectionV3RequiredPullRequestReviewsArgs:
                  require_code_owner_reviews: Optional[pulumi.Input[bool]] = None,
                  required_approving_review_count: Optional[pulumi.Input[int]] = None):
         """
+        :param pulumi.Input['BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesArgs'] bypass_pull_request_allowances: Allow specific users, teams, or apps to bypass pull request requirements. See Bypass Pull Request Allowances below for details.
         :param pulumi.Input[bool] dismiss_stale_reviews: Dismiss approved reviews automatically when a new commit is pushed. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] dismissal_teams: The list of team slugs with dismissal access.
                Always use `slug` of the team, **not** its name. Each team already **has** to have access to the repository.
@@ -342,6 +347,8 @@ class BranchProtectionV3RequiredPullRequestReviewsArgs:
         :param pulumi.Input[bool] require_code_owner_reviews: Require an approved review in pull requests including files with a designated code owner. Defaults to `false`.
         :param pulumi.Input[int] required_approving_review_count: Require x number of approvals to satisfy branch protection requirements. If this is specified it must be a number between 0-6. This requirement matches GitHub's API, see the upstream [documentation](https://developer.github.com/v3/repos/branches/#parameters-1) for more information.
         """
+        if bypass_pull_request_allowances is not None:
+            pulumi.set(__self__, "bypass_pull_request_allowances", bypass_pull_request_allowances)
         if dismiss_stale_reviews is not None:
             pulumi.set(__self__, "dismiss_stale_reviews", dismiss_stale_reviews)
         if dismissal_teams is not None:
@@ -357,6 +364,18 @@ class BranchProtectionV3RequiredPullRequestReviewsArgs:
             pulumi.set(__self__, "require_code_owner_reviews", require_code_owner_reviews)
         if required_approving_review_count is not None:
             pulumi.set(__self__, "required_approving_review_count", required_approving_review_count)
+
+    @property
+    @pulumi.getter(name="bypassPullRequestAllowances")
+    def bypass_pull_request_allowances(self) -> Optional[pulumi.Input['BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesArgs']]:
+        """
+        Allow specific users, teams, or apps to bypass pull request requirements. See Bypass Pull Request Allowances below for details.
+        """
+        return pulumi.get(self, "bypass_pull_request_allowances")
+
+    @bypass_pull_request_allowances.setter
+    def bypass_pull_request_allowances(self, value: Optional[pulumi.Input['BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesArgs']]):
+        pulumi.set(self, "bypass_pull_request_allowances", value)
 
     @property
     @pulumi.getter(name="dismissStaleReviews")
@@ -427,6 +446,61 @@ class BranchProtectionV3RequiredPullRequestReviewsArgs:
     @required_approving_review_count.setter
     def required_approving_review_count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "required_approving_review_count", value)
+
+
+@pulumi.input_type
+class BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesArgs:
+    def __init__(__self__, *,
+                 apps: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 teams: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 users: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] apps: The list of app slugs allowed to bypass pull request requirements.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] teams: The list of team slugs allowed to bypass pull request requirements.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] users: The list of user logins allowed to bypass pull request requirements.
+        """
+        if apps is not None:
+            pulumi.set(__self__, "apps", apps)
+        if teams is not None:
+            pulumi.set(__self__, "teams", teams)
+        if users is not None:
+            pulumi.set(__self__, "users", users)
+
+    @property
+    @pulumi.getter
+    def apps(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The list of app slugs allowed to bypass pull request requirements.
+        """
+        return pulumi.get(self, "apps")
+
+    @apps.setter
+    def apps(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "apps", value)
+
+    @property
+    @pulumi.getter
+    def teams(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The list of team slugs allowed to bypass pull request requirements.
+        """
+        return pulumi.get(self, "teams")
+
+    @teams.setter
+    def teams(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "teams", value)
+
+    @property
+    @pulumi.getter
+    def users(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The list of user logins allowed to bypass pull request requirements.
+        """
+        return pulumi.get(self, "users")
+
+    @users.setter
+    def users(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "users", value)
 
 
 @pulumi.input_type
@@ -653,6 +727,82 @@ class ProviderAppAuthArgs:
     @pem_file.setter
     def pem_file(self, value: pulumi.Input[str]):
         pulumi.set(self, "pem_file", value)
+
+
+@pulumi.input_type
+class RepositoryCollaboratorsTeamArgs:
+    def __init__(__self__, *,
+                 team_id: pulumi.Input[str],
+                 permission: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] permission: The permission of the outside collaborators for the repository.
+               Must be one of `pull`, `triage`, `push`, `maintain`, `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organisation. Defaults to `pull`.
+               Must be `push` for personal repositories. Defaults to `push`.
+        """
+        pulumi.set(__self__, "team_id", team_id)
+        if permission is not None:
+            pulumi.set(__self__, "permission", permission)
+
+    @property
+    @pulumi.getter(name="teamId")
+    def team_id(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "team_id")
+
+    @team_id.setter
+    def team_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "team_id", value)
+
+    @property
+    @pulumi.getter
+    def permission(self) -> Optional[pulumi.Input[str]]:
+        """
+        The permission of the outside collaborators for the repository.
+        Must be one of `pull`, `triage`, `push`, `maintain`, `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organisation. Defaults to `pull`.
+        Must be `push` for personal repositories. Defaults to `push`.
+        """
+        return pulumi.get(self, "permission")
+
+    @permission.setter
+    def permission(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "permission", value)
+
+
+@pulumi.input_type
+class RepositoryCollaboratorsUserArgs:
+    def __init__(__self__, *,
+                 username: pulumi.Input[str],
+                 permission: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] permission: The permission of the outside collaborators for the repository.
+               Must be one of `pull`, `push`, `maintain`, `triage` or `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organization for organization-owned repositories.
+               Must be `push` for personal repositories. Defaults to `push`.
+        """
+        pulumi.set(__self__, "username", username)
+        if permission is not None:
+            pulumi.set(__self__, "permission", permission)
+
+    @property
+    @pulumi.getter
+    def username(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "username")
+
+    @username.setter
+    def username(self, value: pulumi.Input[str]):
+        pulumi.set(self, "username", value)
+
+    @property
+    @pulumi.getter
+    def permission(self) -> Optional[pulumi.Input[str]]:
+        """
+        The permission of the outside collaborators for the repository.
+        Must be one of `pull`, `push`, `maintain`, `triage` or `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organization for organization-owned repositories.
+        Must be `push` for personal repositories. Defaults to `push`.
+        """
+        return pulumi.get(self, "permission")
+
+    @permission.setter
+    def permission(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "permission", value)
 
 
 @pulumi.input_type

@@ -6,6 +6,7 @@ package com.pulumi.github.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 
 @CustomType
@@ -21,14 +22,18 @@ public final class GetOrganizationResult {
      */
     private String id;
     /**
-     * @return The login of the organization account
+     * @return The members login
      * 
      */
     private String login;
     /**
-     * @return (`list`) A list with the members of the organization
+     * @return **Deprecated**: use `users` instead by replacing `github_organization.example.members` to `github_organization.example.users[*].login` which will give you the same value, expect this field to be removed in next major version
+     * 
+     * @deprecated
+     * Use `users` instead by replacing `github_organization.example.members` to `github_organization.example.users[*].login`. Expect this field to be removed in next major version.
      * 
      */
+    @Deprecated /* Use `users` instead by replacing `github_organization.example.members` to `github_organization.example.users[*].login`. Expect this field to be removed in next major version. */
     private List<String> members;
     /**
      * @return The organization&#39;s public profile name
@@ -55,6 +60,11 @@ public final class GetOrganizationResult {
      * 
      */
     private List<String> repositories;
+    /**
+     * @return (`list`) A list with the members of the organization with following fields:
+     * 
+     */
+    private List<Map<String,String>> users;
 
     private GetOrganizationResult() {}
     /**
@@ -72,16 +82,20 @@ public final class GetOrganizationResult {
         return this.id;
     }
     /**
-     * @return The login of the organization account
+     * @return The members login
      * 
      */
     public String login() {
         return this.login;
     }
     /**
-     * @return (`list`) A list with the members of the organization
+     * @return **Deprecated**: use `users` instead by replacing `github_organization.example.members` to `github_organization.example.users[*].login` which will give you the same value, expect this field to be removed in next major version
+     * 
+     * @deprecated
+     * Use `users` instead by replacing `github_organization.example.members` to `github_organization.example.users[*].login`. Expect this field to be removed in next major version.
      * 
      */
+    @Deprecated /* Use `users` instead by replacing `github_organization.example.members` to `github_organization.example.users[*].login`. Expect this field to be removed in next major version. */
     public List<String> members() {
         return this.members;
     }
@@ -120,6 +134,13 @@ public final class GetOrganizationResult {
     public List<String> repositories() {
         return this.repositories;
     }
+    /**
+     * @return (`list`) A list with the members of the organization with following fields:
+     * 
+     */
+    public List<Map<String,String>> users() {
+        return this.users;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -139,6 +160,7 @@ public final class GetOrganizationResult {
         private String orgname;
         private String plan;
         private List<String> repositories;
+        private List<Map<String,String>> users;
         public Builder() {}
         public Builder(GetOrganizationResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -151,6 +173,7 @@ public final class GetOrganizationResult {
     	      this.orgname = defaults.orgname;
     	      this.plan = defaults.plan;
     	      this.repositories = defaults.repositories;
+    	      this.users = defaults.users;
         }
 
         @CustomType.Setter
@@ -204,6 +227,11 @@ public final class GetOrganizationResult {
         public Builder repositories(String... repositories) {
             return repositories(List.of(repositories));
         }
+        @CustomType.Setter
+        public Builder users(List<Map<String,String>> users) {
+            this.users = Objects.requireNonNull(users);
+            return this;
+        }
         public GetOrganizationResult build() {
             final var o = new GetOrganizationResult();
             o.description = description;
@@ -215,6 +243,7 @@ public final class GetOrganizationResult {
             o.orgname = orgname;
             o.plan = plan;
             o.repositories = repositories;
+            o.users = users;
             return o;
         }
     }

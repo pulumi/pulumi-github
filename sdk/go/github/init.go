@@ -96,6 +96,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &RepositoryAutolinkReference{}
 	case "github:index/repositoryCollaborator:RepositoryCollaborator":
 		r = &RepositoryCollaborator{}
+	case "github:index/repositoryCollaborators:RepositoryCollaborators":
+		r = &RepositoryCollaborators{}
 	case "github:index/repositoryDeployKey:RepositoryDeployKey":
 		r = &RepositoryDeployKey{}
 	case "github:index/repositoryEnvironment:RepositoryEnvironment":
@@ -346,6 +348,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"github",
 		"index/repositoryCollaborator",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"github",
+		"index/repositoryCollaborators",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

@@ -16,18 +16,26 @@ class ActionsRunnerGroupArgs:
     def __init__(__self__, *,
                  visibility: pulumi.Input[str],
                  name: Optional[pulumi.Input[str]] = None,
-                 selected_repository_ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None):
+                 restricted_to_workflows: Optional[pulumi.Input[bool]] = None,
+                 selected_repository_ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+                 selected_workflows: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a ActionsRunnerGroup resource.
         :param pulumi.Input[str] visibility: Visibility of a runner group. Whether the runner group can include `all`, `selected`, or `private` repositories. A value of `private` is not currently supported due to limitations in the GitHub API.
         :param pulumi.Input[str] name: Name of the runner group
+        :param pulumi.Input[bool] restricted_to_workflows: If true, the runner group will be restricted to running only the workflows specified in the selected_workflows array. Defaults to false.
         :param pulumi.Input[Sequence[pulumi.Input[int]]] selected_repository_ids: IDs of the repositories which should be added to the runner group
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] selected_workflows: List of workflows the runner group should be allowed to run. This setting will be ignored unless restricted_to_workflows is set to true.
         """
         pulumi.set(__self__, "visibility", visibility)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if restricted_to_workflows is not None:
+            pulumi.set(__self__, "restricted_to_workflows", restricted_to_workflows)
         if selected_repository_ids is not None:
             pulumi.set(__self__, "selected_repository_ids", selected_repository_ids)
+        if selected_workflows is not None:
+            pulumi.set(__self__, "selected_workflows", selected_workflows)
 
     @property
     @pulumi.getter
@@ -54,6 +62,18 @@ class ActionsRunnerGroupArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="restrictedToWorkflows")
+    def restricted_to_workflows(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If true, the runner group will be restricted to running only the workflows specified in the selected_workflows array. Defaults to false.
+        """
+        return pulumi.get(self, "restricted_to_workflows")
+
+    @restricted_to_workflows.setter
+    def restricted_to_workflows(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "restricted_to_workflows", value)
+
+    @property
     @pulumi.getter(name="selectedRepositoryIds")
     def selected_repository_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
         """
@@ -64,6 +84,18 @@ class ActionsRunnerGroupArgs:
     @selected_repository_ids.setter
     def selected_repository_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
         pulumi.set(self, "selected_repository_ids", value)
+
+    @property
+    @pulumi.getter(name="selectedWorkflows")
+    def selected_workflows(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of workflows the runner group should be allowed to run. This setting will be ignored unless restricted_to_workflows is set to true.
+        """
+        return pulumi.get(self, "selected_workflows")
+
+    @selected_workflows.setter
+    def selected_workflows(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "selected_workflows", value)
 
 
 @pulumi.input_type
@@ -256,7 +288,9 @@ class ActionsRunnerGroup(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 restricted_to_workflows: Optional[pulumi.Input[bool]] = None,
                  selected_repository_ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+                 selected_workflows: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  visibility: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -286,7 +320,9 @@ class ActionsRunnerGroup(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: Name of the runner group
+        :param pulumi.Input[bool] restricted_to_workflows: If true, the runner group will be restricted to running only the workflows specified in the selected_workflows array. Defaults to false.
         :param pulumi.Input[Sequence[pulumi.Input[int]]] selected_repository_ids: IDs of the repositories which should be added to the runner group
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] selected_workflows: List of workflows the runner group should be allowed to run. This setting will be ignored unless restricted_to_workflows is set to true.
         :param pulumi.Input[str] visibility: Visibility of a runner group. Whether the runner group can include `all`, `selected`, or `private` repositories. A value of `private` is not currently supported due to limitations in the GitHub API.
         """
         ...
@@ -335,7 +371,9 @@ class ActionsRunnerGroup(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 restricted_to_workflows: Optional[pulumi.Input[bool]] = None,
                  selected_repository_ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+                 selected_workflows: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  visibility: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -347,7 +385,9 @@ class ActionsRunnerGroup(pulumi.CustomResource):
             __props__ = ActionsRunnerGroupArgs.__new__(ActionsRunnerGroupArgs)
 
             __props__.__dict__["name"] = name
+            __props__.__dict__["restricted_to_workflows"] = restricted_to_workflows
             __props__.__dict__["selected_repository_ids"] = selected_repository_ids
+            __props__.__dict__["selected_workflows"] = selected_workflows
             if visibility is None and not opts.urn:
                 raise TypeError("Missing required property 'visibility'")
             __props__.__dict__["visibility"] = visibility
@@ -355,10 +395,8 @@ class ActionsRunnerGroup(pulumi.CustomResource):
             __props__.__dict__["default"] = None
             __props__.__dict__["etag"] = None
             __props__.__dict__["inherited"] = None
-            __props__.__dict__["restricted_to_workflows"] = None
             __props__.__dict__["runners_url"] = None
             __props__.__dict__["selected_repositories_url"] = None
-            __props__.__dict__["selected_workflows"] = None
         super(ActionsRunnerGroup, __self__).__init__(
             'github:index/actionsRunnerGroup:ActionsRunnerGroup',
             resource_name,
@@ -458,7 +496,7 @@ class ActionsRunnerGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="restrictedToWorkflows")
-    def restricted_to_workflows(self) -> pulumi.Output[bool]:
+    def restricted_to_workflows(self) -> pulumi.Output[Optional[bool]]:
         """
         If true, the runner group will be restricted to running only the workflows specified in the selected_workflows array. Defaults to false.
         """
@@ -490,7 +528,7 @@ class ActionsRunnerGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="selectedWorkflows")
-    def selected_workflows(self) -> pulumi.Output[Sequence[str]]:
+    def selected_workflows(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         List of workflows the runner group should be allowed to run. This setting will be ignored unless restricted_to_workflows is set to true.
         """

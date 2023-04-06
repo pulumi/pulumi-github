@@ -78,13 +78,13 @@ namespace Pulumi.Github
     public sealed class GetRepositoryFileArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Git branch. Defaults to `main`.
+        /// Git branch. Defaults to the repository's default branch.
         /// </summary>
         [Input("branch")]
         public string? Branch { get; set; }
 
         /// <summary>
-        /// The path of the file to manage.
+        /// The path of the file to read.
         /// </summary>
         [Input("file", required: true)]
         public string File { get; set; } = null!;
@@ -104,13 +104,13 @@ namespace Pulumi.Github
     public sealed class GetRepositoryFileInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Git branch. Defaults to `main`.
+        /// Git branch. Defaults to the repository's default branch.
         /// </summary>
         [Input("branch")]
         public Input<string>? Branch { get; set; }
 
         /// <summary>
-        /// The path of the file to manage.
+        /// The path of the file to read.
         /// </summary>
         [Input("file", required: true)]
         public Input<string> File { get; set; } = null!;
@@ -157,6 +157,10 @@ namespace Pulumi.Github
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// The name of the commit/branch/tag.
+        /// </summary>
+        public readonly string Ref;
         public readonly string Repository;
         /// <summary>
         /// The SHA blob of the file.
@@ -181,6 +185,8 @@ namespace Pulumi.Github
 
             string id,
 
+            string @ref,
+
             string repository,
 
             string sha)
@@ -193,6 +199,7 @@ namespace Pulumi.Github
             Content = content;
             File = file;
             Id = id;
+            Ref = @ref;
             Repository = repository;
             Sha = sha;
         }

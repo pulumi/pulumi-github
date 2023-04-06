@@ -63,7 +63,7 @@ import (
 //
 // ```
 //
-//	To import a file from a branch other than main, append `:` and the branch name, e.g.
+//	To import a file from a branch other than the default branch, append `:` and the branch name, e.g.
 //
 // ```sh
 //
@@ -73,7 +73,7 @@ import (
 type RepositoryFile struct {
 	pulumi.CustomResourceState
 
-	// Git branch (defaults to `main`).
+	// Git branch (defaults to the repository's default branch).
 	// The branch must already exist, it will not be created if it does not already exist.
 	Branch pulumi.StringPtrOutput `pulumi:"branch"`
 	// Committer author name to use. **NOTE:** GitHub app users may omit author and email information so GitHub can verify commits as the GitHub App. This maybe useful when a branch protection rule requires signed commits.
@@ -90,6 +90,8 @@ type RepositoryFile struct {
 	File pulumi.StringOutput `pulumi:"file"`
 	// Enable overwriting existing files
 	OverwriteOnCreate pulumi.BoolPtrOutput `pulumi:"overwriteOnCreate"`
+	// The name of the commit/branch/tag.
+	Ref pulumi.StringOutput `pulumi:"ref"`
 	// The repository to create the file in.
 	Repository pulumi.StringOutput `pulumi:"repository"`
 	// The SHA blob of the file.
@@ -134,7 +136,7 @@ func GetRepositoryFile(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RepositoryFile resources.
 type repositoryFileState struct {
-	// Git branch (defaults to `main`).
+	// Git branch (defaults to the repository's default branch).
 	// The branch must already exist, it will not be created if it does not already exist.
 	Branch *string `pulumi:"branch"`
 	// Committer author name to use. **NOTE:** GitHub app users may omit author and email information so GitHub can verify commits as the GitHub App. This maybe useful when a branch protection rule requires signed commits.
@@ -151,6 +153,8 @@ type repositoryFileState struct {
 	File *string `pulumi:"file"`
 	// Enable overwriting existing files
 	OverwriteOnCreate *bool `pulumi:"overwriteOnCreate"`
+	// The name of the commit/branch/tag.
+	Ref *string `pulumi:"ref"`
 	// The repository to create the file in.
 	Repository *string `pulumi:"repository"`
 	// The SHA blob of the file.
@@ -158,7 +162,7 @@ type repositoryFileState struct {
 }
 
 type RepositoryFileState struct {
-	// Git branch (defaults to `main`).
+	// Git branch (defaults to the repository's default branch).
 	// The branch must already exist, it will not be created if it does not already exist.
 	Branch pulumi.StringPtrInput
 	// Committer author name to use. **NOTE:** GitHub app users may omit author and email information so GitHub can verify commits as the GitHub App. This maybe useful when a branch protection rule requires signed commits.
@@ -175,6 +179,8 @@ type RepositoryFileState struct {
 	File pulumi.StringPtrInput
 	// Enable overwriting existing files
 	OverwriteOnCreate pulumi.BoolPtrInput
+	// The name of the commit/branch/tag.
+	Ref pulumi.StringPtrInput
 	// The repository to create the file in.
 	Repository pulumi.StringPtrInput
 	// The SHA blob of the file.
@@ -186,7 +192,7 @@ func (RepositoryFileState) ElementType() reflect.Type {
 }
 
 type repositoryFileArgs struct {
-	// Git branch (defaults to `main`).
+	// Git branch (defaults to the repository's default branch).
 	// The branch must already exist, it will not be created if it does not already exist.
 	Branch *string `pulumi:"branch"`
 	// Committer author name to use. **NOTE:** GitHub app users may omit author and email information so GitHub can verify commits as the GitHub App. This maybe useful when a branch protection rule requires signed commits.
@@ -207,7 +213,7 @@ type repositoryFileArgs struct {
 
 // The set of arguments for constructing a RepositoryFile resource.
 type RepositoryFileArgs struct {
-	// Git branch (defaults to `main`).
+	// Git branch (defaults to the repository's default branch).
 	// The branch must already exist, it will not be created if it does not already exist.
 	Branch pulumi.StringPtrInput
 	// Committer author name to use. **NOTE:** GitHub app users may omit author and email information so GitHub can verify commits as the GitHub App. This maybe useful when a branch protection rule requires signed commits.
@@ -313,7 +319,7 @@ func (o RepositoryFileOutput) ToRepositoryFileOutputWithContext(ctx context.Cont
 	return o
 }
 
-// Git branch (defaults to `main`).
+// Git branch (defaults to the repository's default branch).
 // The branch must already exist, it will not be created if it does not already exist.
 func (o RepositoryFileOutput) Branch() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RepositoryFile) pulumi.StringPtrOutput { return v.Branch }).(pulumi.StringPtrOutput)
@@ -352,6 +358,11 @@ func (o RepositoryFileOutput) File() pulumi.StringOutput {
 // Enable overwriting existing files
 func (o RepositoryFileOutput) OverwriteOnCreate() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RepositoryFile) pulumi.BoolPtrOutput { return v.OverwriteOnCreate }).(pulumi.BoolPtrOutput)
+}
+
+// The name of the commit/branch/tag.
+func (o RepositoryFileOutput) Ref() pulumi.StringOutput {
+	return o.ApplyT(func(v *RepositoryFile) pulumi.StringOutput { return v.Ref }).(pulumi.StringOutput)
 }
 
 // The repository to create the file in.

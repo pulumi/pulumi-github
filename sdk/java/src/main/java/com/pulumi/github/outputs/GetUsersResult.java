@@ -11,6 +11,11 @@ import java.util.Objects;
 @CustomType
 public final class GetUsersResult {
     /**
+     * @return list of the user&#39;s publicly visible profile email (will be empty string in case if user decided not to show it).
+     * 
+     */
+    private List<String> emails;
+    /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
@@ -33,6 +38,13 @@ public final class GetUsersResult {
     private List<String> usernames;
 
     private GetUsersResult() {}
+    /**
+     * @return list of the user&#39;s publicly visible profile email (will be empty string in case if user decided not to show it).
+     * 
+     */
+    public List<String> emails() {
+        return this.emails;
+    }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -74,6 +86,7 @@ public final class GetUsersResult {
     }
     @CustomType.Builder
     public static final class Builder {
+        private List<String> emails;
         private String id;
         private List<String> logins;
         private List<String> nodeIds;
@@ -82,6 +95,7 @@ public final class GetUsersResult {
         public Builder() {}
         public Builder(GetUsersResult defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.emails = defaults.emails;
     	      this.id = defaults.id;
     	      this.logins = defaults.logins;
     	      this.nodeIds = defaults.nodeIds;
@@ -89,6 +103,14 @@ public final class GetUsersResult {
     	      this.usernames = defaults.usernames;
         }
 
+        @CustomType.Setter
+        public Builder emails(List<String> emails) {
+            this.emails = Objects.requireNonNull(emails);
+            return this;
+        }
+        public Builder emails(String... emails) {
+            return emails(List.of(emails));
+        }
         @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
@@ -128,6 +150,7 @@ public final class GetUsersResult {
         }
         public GetUsersResult build() {
             final var o = new GetUsersResult();
+            o.emails = emails;
             o.id = id;
             o.logins = logins;
             o.nodeIds = nodeIds;

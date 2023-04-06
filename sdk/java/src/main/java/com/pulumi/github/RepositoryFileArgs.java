@@ -17,7 +17,7 @@ public final class RepositoryFileArgs extends com.pulumi.resources.ResourceArgs 
     public static final RepositoryFileArgs Empty = new RepositoryFileArgs();
 
     /**
-     * Git branch (defaults to `main`).
+     * Git branch (defaults to the repository&#39;s default branch).
      * The branch must already exist, it will not be created if it does not already exist.
      * 
      */
@@ -25,7 +25,7 @@ public final class RepositoryFileArgs extends com.pulumi.resources.ResourceArgs 
     private @Nullable Output<String> branch;
 
     /**
-     * @return Git branch (defaults to `main`).
+     * @return Git branch (defaults to the repository&#39;s default branch).
      * The branch must already exist, it will not be created if it does not already exist.
      * 
      */
@@ -170,7 +170,7 @@ public final class RepositoryFileArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param branch Git branch (defaults to `main`).
+         * @param branch Git branch (defaults to the repository&#39;s default branch).
          * The branch must already exist, it will not be created if it does not already exist.
          * 
          * @return builder
@@ -182,7 +182,7 @@ public final class RepositoryFileArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param branch Git branch (defaults to `main`).
+         * @param branch Git branch (defaults to the repository&#39;s default branch).
          * The branch must already exist, it will not be created if it does not already exist.
          * 
          * @return builder

@@ -338,7 +338,7 @@ class BranchProtectionV3(pulumi.CustomResource):
         example_repository = github.Repository("exampleRepository")
         example_team = github.Team("exampleTeam")
         # Protect the main branch of the foo repository. Additionally, require that
-        # the "ci/check" check ran by the Github Actions app is passing and only allow 
+        # the "ci/check" check ran by the Github Actions app is passing and only allow
         # the engineers team merge to the branch.
         example_branch_protection_v3 = github.BranchProtectionV3("exampleBranchProtectionV3",
             repository=example_repository.name,
@@ -352,6 +352,11 @@ class BranchProtectionV3(pulumi.CustomResource):
                 dismiss_stale_reviews=True,
                 dismissal_users=["foo-user"],
                 dismissal_teams=[example_team.slug],
+                bypass_pull_request_allowances=github.BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesArgs(
+                    users=["foo-user"],
+                    teams=[example_team.slug],
+                    apps=["foo-app"],
+                ),
             ),
             restrictions=github.BranchProtectionV3RestrictionsArgs(
                 users=["foo-user"],
@@ -418,7 +423,7 @@ class BranchProtectionV3(pulumi.CustomResource):
         example_repository = github.Repository("exampleRepository")
         example_team = github.Team("exampleTeam")
         # Protect the main branch of the foo repository. Additionally, require that
-        # the "ci/check" check ran by the Github Actions app is passing and only allow 
+        # the "ci/check" check ran by the Github Actions app is passing and only allow
         # the engineers team merge to the branch.
         example_branch_protection_v3 = github.BranchProtectionV3("exampleBranchProtectionV3",
             repository=example_repository.name,
@@ -432,6 +437,11 @@ class BranchProtectionV3(pulumi.CustomResource):
                 dismiss_stale_reviews=True,
                 dismissal_users=["foo-user"],
                 dismissal_teams=[example_team.slug],
+                bypass_pull_request_allowances=github.BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesArgs(
+                    users=["foo-user"],
+                    teams=[example_team.slug],
+                    apps=["foo-app"],
+                ),
             ),
             restrictions=github.BranchProtectionV3RestrictionsArgs(
                 users=["foo-user"],

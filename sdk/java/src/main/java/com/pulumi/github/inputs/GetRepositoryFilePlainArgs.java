@@ -15,14 +15,14 @@ public final class GetRepositoryFilePlainArgs extends com.pulumi.resources.Invok
     public static final GetRepositoryFilePlainArgs Empty = new GetRepositoryFilePlainArgs();
 
     /**
-     * Git branch. Defaults to `main`.
+     * Git branch. Defaults to the repository&#39;s default branch.
      * 
      */
     @Import(name="branch")
     private @Nullable String branch;
 
     /**
-     * @return Git branch. Defaults to `main`.
+     * @return Git branch. Defaults to the repository&#39;s default branch.
      * 
      */
     public Optional<String> branch() {
@@ -30,14 +30,14 @@ public final class GetRepositoryFilePlainArgs extends com.pulumi.resources.Invok
     }
 
     /**
-     * The path of the file to manage.
+     * The path of the file to read.
      * 
      */
     @Import(name="file", required=true)
     private String file;
 
     /**
-     * @return The path of the file to manage.
+     * @return The path of the file to read.
      * 
      */
     public String file() {
@@ -86,7 +86,7 @@ public final class GetRepositoryFilePlainArgs extends com.pulumi.resources.Invok
         }
 
         /**
-         * @param branch Git branch. Defaults to `main`.
+         * @param branch Git branch. Defaults to the repository&#39;s default branch.
          * 
          * @return builder
          * 
@@ -97,7 +97,7 @@ public final class GetRepositoryFilePlainArgs extends com.pulumi.resources.Invok
         }
 
         /**
-         * @param file The path of the file to manage.
+         * @param file The path of the file to read.
          * 
          * @return builder
          * 

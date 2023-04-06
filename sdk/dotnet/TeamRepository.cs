@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.Github
 {
     /// <summary>
+    /// &gt; Note: github.TeamRepository cannot be used in conjunction with github.RepositoryCollaborators or
+    /// they will fight over what your policy should be.
+    /// 
     /// This resource manages relationships between teams and repositories
     /// in your GitHub organization.
     /// 
@@ -19,6 +22,9 @@ namespace Pulumi.Github
     /// The repository and the team must both belong to the same organization
     /// on GitHub. This resource does not actually *create* any repositories;
     /// to do that, see `github.Repository`.
+    /// 
+    /// This resource is non-authoritative, for managing ALL collaborators of a repo, use github.RepositoryCollaborators
+    /// instead.
     /// 
     /// ## Example Usage
     /// 

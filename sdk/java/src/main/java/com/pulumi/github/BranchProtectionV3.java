@@ -71,6 +71,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.github.BranchProtectionV3Args;
  * import com.pulumi.github.inputs.BranchProtectionV3RequiredStatusChecksArgs;
  * import com.pulumi.github.inputs.BranchProtectionV3RequiredPullRequestReviewsArgs;
+ * import com.pulumi.github.inputs.BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesArgs;
  * import com.pulumi.github.inputs.BranchProtectionV3RestrictionsArgs;
  * import com.pulumi.github.TeamRepository;
  * import com.pulumi.github.TeamRepositoryArgs;
@@ -103,6 +104,11 @@ import javax.annotation.Nullable;
  *                 .dismissStaleReviews(true)
  *                 .dismissalUsers(&#34;foo-user&#34;)
  *                 .dismissalTeams(exampleTeam.slug())
+ *                 .bypassPullRequestAllowances(BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesArgs.builder()
+ *                     .users(&#34;foo-user&#34;)
+ *                     .teams(exampleTeam.slug())
+ *                     .apps(&#34;foo-app&#34;)
+ *                     .build())
  *                 .build())
  *             .restrictions(BranchProtectionV3RestrictionsArgs.builder()
  *                 .users(&#34;foo-user&#34;)

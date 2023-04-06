@@ -13,6 +13,12 @@ namespace Pulumi.Github.Inputs
     public sealed class BranchProtectionV3RequiredPullRequestReviewsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Allow specific users, teams, or apps to bypass pull request requirements. See Bypass Pull Request Allowances below for details.
+        /// </summary>
+        [Input("bypassPullRequestAllowances")]
+        public Input<Inputs.BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesGetArgs>? BypassPullRequestAllowances { get; set; }
+
+        /// <summary>
         /// Dismiss approved reviews automatically when a new commit is pushed. Defaults to `false`.
         /// </summary>
         [Input("dismissStaleReviews")]

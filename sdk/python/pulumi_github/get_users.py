@@ -21,7 +21,10 @@ class GetUsersResult:
     """
     A collection of values returned by getUsers.
     """
-    def __init__(__self__, id=None, logins=None, node_ids=None, unknown_logins=None, usernames=None):
+    def __init__(__self__, emails=None, id=None, logins=None, node_ids=None, unknown_logins=None, usernames=None):
+        if emails and not isinstance(emails, list):
+            raise TypeError("Expected argument 'emails' to be a list")
+        pulumi.set(__self__, "emails", emails)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -37,6 +40,14 @@ class GetUsersResult:
         if usernames and not isinstance(usernames, list):
             raise TypeError("Expected argument 'usernames' to be a list")
         pulumi.set(__self__, "usernames", usernames)
+
+    @property
+    @pulumi.getter
+    def emails(self) -> Sequence[str]:
+        """
+        list of the user's publicly visible profile email (will be empty string in case if user decided not to show it).
+        """
+        return pulumi.get(self, "emails")
 
     @property
     @pulumi.getter
@@ -82,6 +93,7 @@ class AwaitableGetUsersResult(GetUsersResult):
         if False:
             yield self
         return GetUsersResult(
+            emails=self.emails,
             id=self.id,
             logins=self.logins,
             node_ids=self.node_ids,
@@ -118,6 +130,7 @@ def get_users(usernames: Optional[Sequence[str]] = None,
     __ret__ = pulumi.runtime.invoke('github:index/getUsers:getUsers', __args__, opts=opts, typ=GetUsersResult).value
 
     return AwaitableGetUsersResult(
+        emails=__ret__.emails,
         id=__ret__.id,
         logins=__ret__.logins,
         node_ids=__ret__.node_ids,

@@ -11,6 +11,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// > Note: TeamRepository cannot be used in conjunction with RepositoryCollaborators or
+// they will fight over what your policy should be.
+//
 // This resource manages relationships between teams and repositories
 // in your GitHub organization.
 //
@@ -20,6 +23,9 @@ import (
 // The repository and the team must both belong to the same organization
 // on GitHub. This resource does not actually *create* any repositories;
 // to do that, see `Repository`.
+//
+// This resource is non-authoritative, for managing ALL collaborators of a repo, use RepositoryCollaborators
+// instead.
 //
 // ## Example Usage
 //

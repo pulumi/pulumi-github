@@ -5,6 +5,7 @@ package com.pulumi.github;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -33,6 +34,21 @@ public final class ActionsRunnerGroupArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
+     * If true, the runner group will be restricted to running only the workflows specified in the selected_workflows array. Defaults to false.
+     * 
+     */
+    @Import(name="restrictedToWorkflows")
+    private @Nullable Output<Boolean> restrictedToWorkflows;
+
+    /**
+     * @return If true, the runner group will be restricted to running only the workflows specified in the selected_workflows array. Defaults to false.
+     * 
+     */
+    public Optional<Output<Boolean>> restrictedToWorkflows() {
+        return Optional.ofNullable(this.restrictedToWorkflows);
+    }
+
+    /**
      * IDs of the repositories which should be added to the runner group
      * 
      */
@@ -45,6 +61,21 @@ public final class ActionsRunnerGroupArgs extends com.pulumi.resources.ResourceA
      */
     public Optional<Output<List<Integer>>> selectedRepositoryIds() {
         return Optional.ofNullable(this.selectedRepositoryIds);
+    }
+
+    /**
+     * List of workflows the runner group should be allowed to run. This setting will be ignored unless restricted_to_workflows is set to true.
+     * 
+     */
+    @Import(name="selectedWorkflows")
+    private @Nullable Output<List<String>> selectedWorkflows;
+
+    /**
+     * @return List of workflows the runner group should be allowed to run. This setting will be ignored unless restricted_to_workflows is set to true.
+     * 
+     */
+    public Optional<Output<List<String>>> selectedWorkflows() {
+        return Optional.ofNullable(this.selectedWorkflows);
     }
 
     /**
@@ -66,7 +97,9 @@ public final class ActionsRunnerGroupArgs extends com.pulumi.resources.ResourceA
 
     private ActionsRunnerGroupArgs(ActionsRunnerGroupArgs $) {
         this.name = $.name;
+        this.restrictedToWorkflows = $.restrictedToWorkflows;
         this.selectedRepositoryIds = $.selectedRepositoryIds;
+        this.selectedWorkflows = $.selectedWorkflows;
         this.visibility = $.visibility;
     }
 
@@ -110,6 +143,27 @@ public final class ActionsRunnerGroupArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
+         * @param restrictedToWorkflows If true, the runner group will be restricted to running only the workflows specified in the selected_workflows array. Defaults to false.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder restrictedToWorkflows(@Nullable Output<Boolean> restrictedToWorkflows) {
+            $.restrictedToWorkflows = restrictedToWorkflows;
+            return this;
+        }
+
+        /**
+         * @param restrictedToWorkflows If true, the runner group will be restricted to running only the workflows specified in the selected_workflows array. Defaults to false.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder restrictedToWorkflows(Boolean restrictedToWorkflows) {
+            return restrictedToWorkflows(Output.of(restrictedToWorkflows));
+        }
+
+        /**
          * @param selectedRepositoryIds IDs of the repositories which should be added to the runner group
          * 
          * @return builder
@@ -138,6 +192,37 @@ public final class ActionsRunnerGroupArgs extends com.pulumi.resources.ResourceA
          */
         public Builder selectedRepositoryIds(Integer... selectedRepositoryIds) {
             return selectedRepositoryIds(List.of(selectedRepositoryIds));
+        }
+
+        /**
+         * @param selectedWorkflows List of workflows the runner group should be allowed to run. This setting will be ignored unless restricted_to_workflows is set to true.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder selectedWorkflows(@Nullable Output<List<String>> selectedWorkflows) {
+            $.selectedWorkflows = selectedWorkflows;
+            return this;
+        }
+
+        /**
+         * @param selectedWorkflows List of workflows the runner group should be allowed to run. This setting will be ignored unless restricted_to_workflows is set to true.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder selectedWorkflows(List<String> selectedWorkflows) {
+            return selectedWorkflows(Output.of(selectedWorkflows));
+        }
+
+        /**
+         * @param selectedWorkflows List of workflows the runner group should be allowed to run. This setting will be ignored unless restricted_to_workflows is set to true.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder selectedWorkflows(String... selectedWorkflows) {
+            return selectedWorkflows(List.of(selectedWorkflows));
         }
 
         /**

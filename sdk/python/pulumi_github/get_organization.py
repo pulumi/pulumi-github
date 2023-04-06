@@ -21,7 +21,7 @@ class GetOrganizationResult:
     """
     A collection of values returned by getOrganization.
     """
-    def __init__(__self__, description=None, id=None, login=None, members=None, name=None, node_id=None, orgname=None, plan=None, repositories=None):
+    def __init__(__self__, description=None, id=None, login=None, members=None, name=None, node_id=None, orgname=None, plan=None, repositories=None, users=None):
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -33,6 +33,10 @@ class GetOrganizationResult:
         pulumi.set(__self__, "login", login)
         if members and not isinstance(members, list):
             raise TypeError("Expected argument 'members' to be a list")
+        if members is not None:
+            warnings.warn("""Use `users` instead by replacing `github_organization.example.members` to `github_organization.example.users[*].login`. Expect this field to be removed in next major version.""", DeprecationWarning)
+            pulumi.log.warn("""members is deprecated: Use `users` instead by replacing `github_organization.example.members` to `github_organization.example.users[*].login`. Expect this field to be removed in next major version.""")
+
         pulumi.set(__self__, "members", members)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -49,6 +53,9 @@ class GetOrganizationResult:
         if repositories and not isinstance(repositories, list):
             raise TypeError("Expected argument 'repositories' to be a list")
         pulumi.set(__self__, "repositories", repositories)
+        if users and not isinstance(users, list):
+            raise TypeError("Expected argument 'users' to be a list")
+        pulumi.set(__self__, "users", users)
 
     @property
     @pulumi.getter
@@ -70,7 +77,7 @@ class GetOrganizationResult:
     @pulumi.getter
     def login(self) -> str:
         """
-        The login of the organization account
+        The members login
         """
         return pulumi.get(self, "login")
 
@@ -78,7 +85,7 @@ class GetOrganizationResult:
     @pulumi.getter
     def members(self) -> Sequence[str]:
         """
-        (`list`) A list with the members of the organization
+        **Deprecated**: use `users` instead by replacing `github_organization.example.members` to `github_organization.example.users[*].login` which will give you the same value, expect this field to be removed in next major version
         """
         return pulumi.get(self, "members")
 
@@ -122,6 +129,14 @@ class GetOrganizationResult:
         """
         return pulumi.get(self, "repositories")
 
+    @property
+    @pulumi.getter
+    def users(self) -> Sequence[Mapping[str, str]]:
+        """
+        (`list`) A list with the members of the organization with following fields:
+        """
+        return pulumi.get(self, "users")
+
 
 class AwaitableGetOrganizationResult(GetOrganizationResult):
     # pylint: disable=using-constant-test
@@ -137,7 +152,8 @@ class AwaitableGetOrganizationResult(GetOrganizationResult):
             node_id=self.node_id,
             orgname=self.orgname,
             plan=self.plan,
-            repositories=self.repositories)
+            repositories=self.repositories,
+            users=self.users)
 
 
 def get_organization(name: Optional[str] = None,
@@ -171,7 +187,8 @@ def get_organization(name: Optional[str] = None,
         node_id=__ret__.node_id,
         orgname=__ret__.orgname,
         plan=__ret__.plan,
-        repositories=__ret__.repositories)
+        repositories=__ret__.repositories,
+        users=__ret__.users)
 
 
 @_utilities.lift_output_func(get_organization)

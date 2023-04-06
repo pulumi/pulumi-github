@@ -14,6 +14,10 @@ namespace Pulumi.Github.Outputs
     public sealed class BranchProtectionV3RequiredPullRequestReviews
     {
         /// <summary>
+        /// Allow specific users, teams, or apps to bypass pull request requirements. See Bypass Pull Request Allowances below for details.
+        /// </summary>
+        public readonly Outputs.BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowances? BypassPullRequestAllowances;
+        /// <summary>
         /// Dismiss approved reviews automatically when a new commit is pushed. Defaults to `false`.
         /// </summary>
         public readonly bool? DismissStaleReviews;
@@ -38,6 +42,8 @@ namespace Pulumi.Github.Outputs
 
         [OutputConstructor]
         private BranchProtectionV3RequiredPullRequestReviews(
+            Outputs.BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowances? bypassPullRequestAllowances,
+
             bool? dismissStaleReviews,
 
             ImmutableArray<string> dismissalTeams,
@@ -50,6 +56,7 @@ namespace Pulumi.Github.Outputs
 
             int? requiredApprovingReviewCount)
         {
+            BypassPullRequestAllowances = bypassPullRequestAllowances;
             DismissStaleReviews = dismissStaleReviews;
             DismissalTeams = dismissalTeams;
             DismissalUsers = dismissalUsers;

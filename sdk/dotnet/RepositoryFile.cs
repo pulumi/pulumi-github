@@ -50,7 +50,7 @@ namespace Pulumi.Github
     ///  $ pulumi import github:index/repositoryFile:RepositoryFile gitignore example/.gitignore
     /// ```
     /// 
-    ///  To import a file from a branch other than main, append `:` and the branch name, e.g.
+    ///  To import a file from a branch other than the default branch, append `:` and the branch name, e.g.
     /// 
     /// ```sh
     ///  $ pulumi import github:index/repositoryFile:RepositoryFile gitignore example/.gitignore:dev
@@ -60,7 +60,7 @@ namespace Pulumi.Github
     public partial class RepositoryFile : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Git branch (defaults to `main`).
+        /// Git branch (defaults to the repository's default branch).
         /// The branch must already exist, it will not be created if it does not already exist.
         /// </summary>
         [Output("branch")]
@@ -107,6 +107,12 @@ namespace Pulumi.Github
         /// </summary>
         [Output("overwriteOnCreate")]
         public Output<bool?> OverwriteOnCreate { get; private set; } = null!;
+
+        /// <summary>
+        /// The name of the commit/branch/tag.
+        /// </summary>
+        [Output("ref")]
+        public Output<string> Ref { get; private set; } = null!;
 
         /// <summary>
         /// The repository to create the file in.
@@ -167,7 +173,7 @@ namespace Pulumi.Github
     public sealed class RepositoryFileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Git branch (defaults to `main`).
+        /// Git branch (defaults to the repository's default branch).
         /// The branch must already exist, it will not be created if it does not already exist.
         /// </summary>
         [Input("branch")]
@@ -224,7 +230,7 @@ namespace Pulumi.Github
     public sealed class RepositoryFileState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Git branch (defaults to `main`).
+        /// Git branch (defaults to the repository's default branch).
         /// The branch must already exist, it will not be created if it does not already exist.
         /// </summary>
         [Input("branch")]
@@ -271,6 +277,12 @@ namespace Pulumi.Github
         /// </summary>
         [Input("overwriteOnCreate")]
         public Input<bool>? OverwriteOnCreate { get; set; }
+
+        /// <summary>
+        /// The name of the commit/branch/tag.
+        /// </summary>
+        [Input("ref")]
+        public Input<string>? Ref { get; set; }
 
         /// <summary>
         /// The repository to create the file in.

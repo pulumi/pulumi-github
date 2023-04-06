@@ -51,9 +51,9 @@ func LookupRepositoryFile(ctx *pulumi.Context, args *LookupRepositoryFileArgs, o
 
 // A collection of arguments for invoking getRepositoryFile.
 type LookupRepositoryFileArgs struct {
-	// Git branch. Defaults to `main`.
+	// Git branch. Defaults to the repository's default branch.
 	Branch *string `pulumi:"branch"`
-	// The path of the file to manage.
+	// The path of the file to read.
 	File string `pulumi:"file"`
 	// The repository to read the file from. If an unqualified repo name (without an owner) is passed, the owner will be inferred from the owner of the token used to execute the plan. If a name of the type "owner/repo" (with a slash in the middle) is passed, the owner will be as specified and not the owner of the token.
 	Repository string `pulumi:"repository"`
@@ -74,7 +74,9 @@ type LookupRepositoryFileResult struct {
 	Content string `pulumi:"content"`
 	File    string `pulumi:"file"`
 	// The provider-assigned unique ID for this managed resource.
-	Id         string `pulumi:"id"`
+	Id string `pulumi:"id"`
+	// The name of the commit/branch/tag.
+	Ref        string `pulumi:"ref"`
 	Repository string `pulumi:"repository"`
 	// The SHA blob of the file.
 	Sha string `pulumi:"sha"`
@@ -95,9 +97,9 @@ func LookupRepositoryFileOutput(ctx *pulumi.Context, args LookupRepositoryFileOu
 
 // A collection of arguments for invoking getRepositoryFile.
 type LookupRepositoryFileOutputArgs struct {
-	// Git branch. Defaults to `main`.
+	// Git branch. Defaults to the repository's default branch.
 	Branch pulumi.StringPtrInput `pulumi:"branch"`
-	// The path of the file to manage.
+	// The path of the file to read.
 	File pulumi.StringInput `pulumi:"file"`
 	// The repository to read the file from. If an unqualified repo name (without an owner) is passed, the owner will be inferred from the owner of the token used to execute the plan. If a name of the type "owner/repo" (with a slash in the middle) is passed, the owner will be as specified and not the owner of the token.
 	Repository pulumi.StringInput `pulumi:"repository"`
@@ -158,6 +160,11 @@ func (o LookupRepositoryFileResultOutput) File() pulumi.StringOutput {
 // The provider-assigned unique ID for this managed resource.
 func (o LookupRepositoryFileResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRepositoryFileResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The name of the commit/branch/tag.
+func (o LookupRepositoryFileResultOutput) Ref() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRepositoryFileResult) string { return v.Ref }).(pulumi.StringOutput)
 }
 
 func (o LookupRepositoryFileResultOutput) Repository() pulumi.StringOutput {

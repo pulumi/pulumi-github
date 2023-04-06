@@ -32,6 +32,7 @@ from .enterprise_organization import *
 from .get_actions_environment_secrets import *
 from .get_actions_environment_variables import *
 from .get_actions_organization_oidc_subject_claim_customization_template import *
+from .get_actions_organization_public_key import *
 from .get_actions_organization_registration_token import *
 from .get_actions_organization_secrets import *
 from .get_actions_organization_variables import *
@@ -42,6 +43,7 @@ from .get_actions_secrets import *
 from .get_actions_variables import *
 from .get_branch import *
 from .get_collaborators import *
+from .get_dependabot_organization_public_key import *
 from .get_dependabot_organization_secrets import *
 from .get_dependabot_public_key import *
 from .get_dependabot_secrets import *
@@ -67,6 +69,7 @@ from .get_repository_pull_request import *
 from .get_repository_pull_requests import *
 from .get_repository_teams import *
 from .get_repository_webhooks import *
+from .get_ssh_keys import *
 from .get_team import *
 from .get_tree import *
 from .get_user import *
@@ -86,6 +89,7 @@ from .release import *
 from .repository import *
 from .repository_autolink_reference import *
 from .repository_collaborator import *
+from .repository_collaborators import *
 from .repository_deploy_key import *
 from .repository_environment import *
 from .repository_file import *
@@ -418,6 +422,14 @@ _utilities.register(
   "fqn": "pulumi_github",
   "classes": {
    "github:index/repositoryCollaborator:RepositoryCollaborator": "RepositoryCollaborator"
+  }
+ },
+ {
+  "pkg": "github",
+  "mod": "index/repositoryCollaborators",
+  "fqn": "pulumi_github",
+  "classes": {
+   "github:index/repositoryCollaborators:RepositoryCollaborators": "RepositoryCollaborators"
   }
  },
  {

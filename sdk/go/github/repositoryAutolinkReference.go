@@ -50,15 +50,13 @@ import (
 //
 // ## Import
 //
-// Autolink references can be imported using the `name` of the repository, combined with the `id` of the autolink reference and a `/` character for separating components, e.g.
+// ### Import by key prefix
 //
 // ```sh
 //
-//	$ pulumi import github:index/repositoryAutolinkReference:RepositoryAutolinkReference auto my-repo/123
+//	$ pulumi import github:index/repositoryAutolinkReference:RepositoryAutolinkReference auto oof/OOF-
 //
 // ```
-//
-//	See the GitHub documentation for how to [list all autolinks of a repository](https://docs.github.com/en/rest/repos/autolinks#list-all-autolinks-of-a-repository) to learn the autolink ids to use with the import command.
 type RepositoryAutolinkReference struct {
 	pulumi.CustomResourceState
 

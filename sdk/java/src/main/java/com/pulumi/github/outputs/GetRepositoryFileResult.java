@@ -43,6 +43,11 @@ public final class GetRepositoryFileResult {
      * 
      */
     private String id;
+    /**
+     * @return The name of the commit/branch/tag.
+     * 
+     */
+    private String ref;
     private String repository;
     /**
      * @return The SHA blob of the file.
@@ -99,6 +104,13 @@ public final class GetRepositoryFileResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return The name of the commit/branch/tag.
+     * 
+     */
+    public String ref() {
+        return this.ref;
+    }
     public String repository() {
         return this.repository;
     }
@@ -127,6 +139,7 @@ public final class GetRepositoryFileResult {
         private String content;
         private String file;
         private String id;
+        private String ref;
         private String repository;
         private String sha;
         public Builder() {}
@@ -140,6 +153,7 @@ public final class GetRepositoryFileResult {
     	      this.content = defaults.content;
     	      this.file = defaults.file;
     	      this.id = defaults.id;
+    	      this.ref = defaults.ref;
     	      this.repository = defaults.repository;
     	      this.sha = defaults.sha;
         }
@@ -185,6 +199,11 @@ public final class GetRepositoryFileResult {
             return this;
         }
         @CustomType.Setter
+        public Builder ref(String ref) {
+            this.ref = Objects.requireNonNull(ref);
+            return this;
+        }
+        @CustomType.Setter
         public Builder repository(String repository) {
             this.repository = Objects.requireNonNull(repository);
             return this;
@@ -204,6 +223,7 @@ public final class GetRepositoryFileResult {
             o.content = content;
             o.file = file;
             o.id = id;
+            o.ref = ref;
             o.repository = repository;
             o.sha = sha;
             return o;

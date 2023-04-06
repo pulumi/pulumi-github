@@ -16,14 +16,14 @@ public final class GetRepositoryFileArgs extends com.pulumi.resources.InvokeArgs
     public static final GetRepositoryFileArgs Empty = new GetRepositoryFileArgs();
 
     /**
-     * Git branch. Defaults to `main`.
+     * Git branch. Defaults to the repository&#39;s default branch.
      * 
      */
     @Import(name="branch")
     private @Nullable Output<String> branch;
 
     /**
-     * @return Git branch. Defaults to `main`.
+     * @return Git branch. Defaults to the repository&#39;s default branch.
      * 
      */
     public Optional<Output<String>> branch() {
@@ -31,14 +31,14 @@ public final class GetRepositoryFileArgs extends com.pulumi.resources.InvokeArgs
     }
 
     /**
-     * The path of the file to manage.
+     * The path of the file to read.
      * 
      */
     @Import(name="file", required=true)
     private Output<String> file;
 
     /**
-     * @return The path of the file to manage.
+     * @return The path of the file to read.
      * 
      */
     public Output<String> file() {
@@ -87,7 +87,7 @@ public final class GetRepositoryFileArgs extends com.pulumi.resources.InvokeArgs
         }
 
         /**
-         * @param branch Git branch. Defaults to `main`.
+         * @param branch Git branch. Defaults to the repository&#39;s default branch.
          * 
          * @return builder
          * 
@@ -98,7 +98,7 @@ public final class GetRepositoryFileArgs extends com.pulumi.resources.InvokeArgs
         }
 
         /**
-         * @param branch Git branch. Defaults to `main`.
+         * @param branch Git branch. Defaults to the repository&#39;s default branch.
          * 
          * @return builder
          * 
@@ -108,7 +108,7 @@ public final class GetRepositoryFileArgs extends com.pulumi.resources.InvokeArgs
         }
 
         /**
-         * @param file The path of the file to manage.
+         * @param file The path of the file to read.
          * 
          * @return builder
          * 
@@ -119,7 +119,7 @@ public final class GetRepositoryFileArgs extends com.pulumi.resources.InvokeArgs
         }
 
         /**
-         * @param file The path of the file to manage.
+         * @param file The path of the file to read.
          * 
          * @return builder
          * 

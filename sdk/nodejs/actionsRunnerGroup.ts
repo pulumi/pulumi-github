@@ -80,7 +80,7 @@ export class ActionsRunnerGroup extends pulumi.CustomResource {
     /**
      * If true, the runner group will be restricted to running only the workflows specified in the selectedWorkflows array. Defaults to false.
      */
-    public /*out*/ readonly restrictedToWorkflows!: pulumi.Output<boolean>;
+    public readonly restrictedToWorkflows!: pulumi.Output<boolean | undefined>;
     /**
      * The GitHub API URL for the runner group's runners
      */
@@ -96,7 +96,7 @@ export class ActionsRunnerGroup extends pulumi.CustomResource {
     /**
      * List of workflows the runner group should be allowed to run. This setting will be ignored unless restrictedToWorkflows is set to true.
      */
-    public /*out*/ readonly selectedWorkflows!: pulumi.Output<string[]>;
+    public readonly selectedWorkflows!: pulumi.Output<string[] | undefined>;
     /**
      * Visibility of a runner group. Whether the runner group can include `all`, `selected`, or `private` repositories. A value of `private` is not currently supported due to limitations in the GitHub API.
      */
@@ -132,16 +132,16 @@ export class ActionsRunnerGroup extends pulumi.CustomResource {
                 throw new Error("Missing required property 'visibility'");
             }
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["restrictedToWorkflows"] = args ? args.restrictedToWorkflows : undefined;
             resourceInputs["selectedRepositoryIds"] = args ? args.selectedRepositoryIds : undefined;
+            resourceInputs["selectedWorkflows"] = args ? args.selectedWorkflows : undefined;
             resourceInputs["visibility"] = args ? args.visibility : undefined;
             resourceInputs["allowsPublicRepositories"] = undefined /*out*/;
             resourceInputs["default"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["inherited"] = undefined /*out*/;
-            resourceInputs["restrictedToWorkflows"] = undefined /*out*/;
             resourceInputs["runnersUrl"] = undefined /*out*/;
             resourceInputs["selectedRepositoriesUrl"] = undefined /*out*/;
-            resourceInputs["selectedWorkflows"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ActionsRunnerGroup.__pulumiType, name, resourceInputs, opts);
@@ -207,9 +207,17 @@ export interface ActionsRunnerGroupArgs {
      */
     name?: pulumi.Input<string>;
     /**
+     * If true, the runner group will be restricted to running only the workflows specified in the selectedWorkflows array. Defaults to false.
+     */
+    restrictedToWorkflows?: pulumi.Input<boolean>;
+    /**
      * IDs of the repositories which should be added to the runner group
      */
     selectedRepositoryIds?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * List of workflows the runner group should be allowed to run. This setting will be ignored unless restrictedToWorkflows is set to true.
+     */
+    selectedWorkflows?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Visibility of a runner group. Whether the runner group can include `all`, `selected`, or `private` repositories. A value of `private` is not currently supported due to limitations in the GitHub API.
      */
