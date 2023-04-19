@@ -20,6 +20,7 @@ namespace Pulumi.Github
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
+        /// using System.Linq;
         /// using Pulumi;
         /// using Github = Pulumi.Github;
         /// 
@@ -27,6 +28,7 @@ namespace Pulumi.Github
         /// {
         ///     var development = Github.GetRef.Invoke(new()
         ///     {
+        ///         Owner = "example",
         ///         Ref = "heads/development",
         ///         Repository = "example",
         ///     });
@@ -48,6 +50,7 @@ namespace Pulumi.Github
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
+        /// using System.Linq;
         /// using Pulumi;
         /// using Github = Pulumi.Github;
         /// 
@@ -55,6 +58,7 @@ namespace Pulumi.Github
         /// {
         ///     var development = Github.GetRef.Invoke(new()
         ///     {
+        ///         Owner = "example",
         ///         Ref = "heads/development",
         ///         Repository = "example",
         ///     });
@@ -71,6 +75,12 @@ namespace Pulumi.Github
 
     public sealed class GetRefArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Owner of the repository.
+        /// </summary>
+        [Input("owner")]
+        public string? Owner { get; set; }
+
         /// <summary>
         /// The repository ref to look up. Must be formatted `heads/&lt;ref&gt;` for branches, and `tags/&lt;ref&gt;` for tags.
         /// </summary>
@@ -91,6 +101,12 @@ namespace Pulumi.Github
 
     public sealed class GetRefInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Owner of the repository.
+        /// </summary>
+        [Input("owner")]
+        public Input<string>? Owner { get; set; }
+
         /// <summary>
         /// The repository ref to look up. Must be formatted `heads/&lt;ref&gt;` for branches, and `tags/&lt;ref&gt;` for tags.
         /// </summary>
@@ -121,6 +137,7 @@ namespace Pulumi.Github
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        public readonly string? Owner;
         public readonly string Ref;
         public readonly string Repository;
         /// <summary>
@@ -134,6 +151,8 @@ namespace Pulumi.Github
 
             string id,
 
+            string? owner,
+
             string @ref,
 
             string repository,
@@ -142,6 +161,7 @@ namespace Pulumi.Github
         {
             Etag = etag;
             Id = id;
+            Owner = owner;
             Ref = @ref;
             Repository = repository;
             Sha = sha;

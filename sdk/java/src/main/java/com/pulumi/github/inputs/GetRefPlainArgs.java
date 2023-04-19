@@ -6,11 +6,28 @@ package com.pulumi.github.inputs;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetRefPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetRefPlainArgs Empty = new GetRefPlainArgs();
+
+    /**
+     * Owner of the repository.
+     * 
+     */
+    @Import(name="owner")
+    private @Nullable String owner;
+
+    /**
+     * @return Owner of the repository.
+     * 
+     */
+    public Optional<String> owner() {
+        return Optional.ofNullable(this.owner);
+    }
 
     /**
      * The repository ref to look up. Must be formatted `heads/&lt;ref&gt;` for branches, and `tags/&lt;ref&gt;` for tags.
@@ -45,6 +62,7 @@ public final class GetRefPlainArgs extends com.pulumi.resources.InvokeArgs {
     private GetRefPlainArgs() {}
 
     private GetRefPlainArgs(GetRefPlainArgs $) {
+        this.owner = $.owner;
         this.ref = $.ref;
         this.repository = $.repository;
     }
@@ -65,6 +83,17 @@ public final class GetRefPlainArgs extends com.pulumi.resources.InvokeArgs {
 
         public Builder(GetRefPlainArgs defaults) {
             $ = new GetRefPlainArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param owner Owner of the repository.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder owner(@Nullable String owner) {
+            $.owner = owner;
+            return this;
         }
 
         /**

@@ -8,6 +8,34 @@ import * as utilities from "./utilities";
  * This resource allows you to create and manage GitHub Actions variables within your GitHub organization.
  * You must have write access to a repository to use this resource.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const exampleVariable = new github.ActionsOrganizationVariable("exampleVariable", {
+ *     value: "example_variable_value",
+ *     variableName: "example_variable_name",
+ *     visibility: "private",
+ * });
+ * ```
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const repo = github.getRepository({
+ *     fullName: "my-org/repo",
+ * });
+ * const exampleVariable = new github.ActionsOrganizationVariable("exampleVariable", {
+ *     variableName: "example_variable_name",
+ *     visibility: "selected",
+ *     value: "example_variable_value",
+ *     selectedRepositoryIds: [repo.then(repo => repo.repoId)],
+ * });
+ * ```
+ *
  * ## Import
  *
  * This resource can be imported using an ID made up of the variable name

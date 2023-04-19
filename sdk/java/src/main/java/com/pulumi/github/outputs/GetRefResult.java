@@ -6,6 +6,8 @@ package com.pulumi.github.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetRefResult {
@@ -19,6 +21,7 @@ public final class GetRefResult {
      * 
      */
     private String id;
+    private @Nullable String owner;
     private String ref;
     private String repository;
     /**
@@ -41,6 +44,9 @@ public final class GetRefResult {
      */
     public String id() {
         return this.id;
+    }
+    public Optional<String> owner() {
+        return Optional.ofNullable(this.owner);
     }
     public String ref() {
         return this.ref;
@@ -67,6 +73,7 @@ public final class GetRefResult {
     public static final class Builder {
         private String etag;
         private String id;
+        private @Nullable String owner;
         private String ref;
         private String repository;
         private String sha;
@@ -75,6 +82,7 @@ public final class GetRefResult {
     	      Objects.requireNonNull(defaults);
     	      this.etag = defaults.etag;
     	      this.id = defaults.id;
+    	      this.owner = defaults.owner;
     	      this.ref = defaults.ref;
     	      this.repository = defaults.repository;
     	      this.sha = defaults.sha;
@@ -88,6 +96,11 @@ public final class GetRefResult {
         @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder owner(@Nullable String owner) {
+            this.owner = owner;
             return this;
         }
         @CustomType.Setter
@@ -109,6 +122,7 @@ public final class GetRefResult {
             final var o = new GetRefResult();
             o.etag = etag;
             o.id = id;
+            o.owner = owner;
             o.ref = ref;
             o.repository = repository;
             o.sha = sha;

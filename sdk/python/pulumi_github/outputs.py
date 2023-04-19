@@ -46,6 +46,7 @@ __all__ = [
     'GetDependabotOrganizationSecretsSecretResult',
     'GetDependabotSecretsSecretResult',
     'GetExternalGroupsExternalGroupResult',
+    'GetIssueLabelsLabelResult',
     'GetOrganizationIpAllowListIpAllowListResult',
     'GetOrganizationTeamSyncGroupsGroupResult',
     'GetOrganizationTeamsTeamResult',
@@ -1997,6 +1998,57 @@ class GetExternalGroupsExternalGroupResult(dict):
         the date the group was last updated.
         """
         return pulumi.get(self, "updated_at")
+
+
+@pulumi.output_type
+class GetIssueLabelsLabelResult(dict):
+    def __init__(__self__, *,
+                 color: str,
+                 description: str,
+                 name: str,
+                 url: str):
+        """
+        :param str color: The hexadecimal color code for the label, without the leading #.
+        :param str description: A short description of the label.
+        :param str name: The name of the label.
+        :param str url: The URL of the label.
+        """
+        pulumi.set(__self__, "color", color)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter
+    def color(self) -> str:
+        """
+        The hexadecimal color code for the label, without the leading #.
+        """
+        return pulumi.get(self, "color")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        """
+        A short description of the label.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the label.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def url(self) -> str:
+        """
+        The URL of the label.
+        """
+        return pulumi.get(self, "url")
 
 
 @pulumi.output_type

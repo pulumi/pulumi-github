@@ -51,6 +51,11 @@ public final class GetRepositoryResult {
      * 
      */
     private @Nullable String description;
+    /**
+     * @return Whether the repository is a fork.
+     * 
+     */
+    private Boolean fork;
     private String fullName;
     /**
      * @return URL that can be provided to `git clone` to clone the repository anonymously via the git protocol.
@@ -223,6 +228,13 @@ public final class GetRepositoryResult {
      */
     public Optional<String> description() {
         return Optional.ofNullable(this.description);
+    }
+    /**
+     * @return Whether the repository is a fork.
+     * 
+     */
+    public Boolean fork() {
+        return this.fork;
     }
     public String fullName() {
         return this.fullName;
@@ -415,6 +427,7 @@ public final class GetRepositoryResult {
         private Boolean archived;
         private String defaultBranch;
         private @Nullable String description;
+        private Boolean fork;
         private String fullName;
         private String gitCloneUrl;
         private Boolean hasDiscussions;
@@ -451,6 +464,7 @@ public final class GetRepositoryResult {
     	      this.archived = defaults.archived;
     	      this.defaultBranch = defaults.defaultBranch;
     	      this.description = defaults.description;
+    	      this.fork = defaults.fork;
     	      this.fullName = defaults.fullName;
     	      this.gitCloneUrl = defaults.gitCloneUrl;
     	      this.hasDiscussions = defaults.hasDiscussions;
@@ -512,6 +526,11 @@ public final class GetRepositoryResult {
         @CustomType.Setter
         public Builder description(@Nullable String description) {
             this.description = description;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder fork(Boolean fork) {
+            this.fork = Objects.requireNonNull(fork);
             return this;
         }
         @CustomType.Setter
@@ -659,6 +678,7 @@ public final class GetRepositoryResult {
             o.archived = archived;
             o.defaultBranch = defaultBranch;
             o.description = description;
+            o.fork = fork;
             o.fullName = fullName;
             o.gitCloneUrl = gitCloneUrl;
             o.hasDiscussions = hasDiscussions;

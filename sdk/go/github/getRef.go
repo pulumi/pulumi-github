@@ -27,6 +27,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := github.GetRef(ctx, &github.GetRefArgs{
+//				Owner:      pulumi.StringRef("example"),
 //				Ref:        "heads/development",
 //				Repository: "example",
 //			}, nil)
@@ -49,6 +50,8 @@ func GetRef(ctx *pulumi.Context, args *GetRefArgs, opts ...pulumi.InvokeOption) 
 
 // A collection of arguments for invoking getRef.
 type GetRefArgs struct {
+	// Owner of the repository.
+	Owner *string `pulumi:"owner"`
 	// The repository ref to look up. Must be formatted `heads/<ref>` for branches, and `tags/<ref>` for tags.
 	Ref string `pulumi:"ref"`
 	// The GitHub repository name.
@@ -60,9 +63,10 @@ type GetRefResult struct {
 	// An etag representing the ref.
 	Etag string `pulumi:"etag"`
 	// The provider-assigned unique ID for this managed resource.
-	Id         string `pulumi:"id"`
-	Ref        string `pulumi:"ref"`
-	Repository string `pulumi:"repository"`
+	Id         string  `pulumi:"id"`
+	Owner      *string `pulumi:"owner"`
+	Ref        string  `pulumi:"ref"`
+	Repository string  `pulumi:"repository"`
 	// A string storing the reference's `HEAD` commit's SHA1.
 	Sha string `pulumi:"sha"`
 }
@@ -82,6 +86,8 @@ func GetRefOutput(ctx *pulumi.Context, args GetRefOutputArgs, opts ...pulumi.Inv
 
 // A collection of arguments for invoking getRef.
 type GetRefOutputArgs struct {
+	// Owner of the repository.
+	Owner pulumi.StringPtrInput `pulumi:"owner"`
 	// The repository ref to look up. Must be formatted `heads/<ref>` for branches, and `tags/<ref>` for tags.
 	Ref pulumi.StringInput `pulumi:"ref"`
 	// The GitHub repository name.
@@ -115,6 +121,10 @@ func (o GetRefResultOutput) Etag() pulumi.StringOutput {
 // The provider-assigned unique ID for this managed resource.
 func (o GetRefResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRefResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetRefResultOutput) Owner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetRefResult) *string { return v.Owner }).(pulumi.StringPtrOutput)
 }
 
 func (o GetRefResultOutput) Ref() pulumi.StringOutput {

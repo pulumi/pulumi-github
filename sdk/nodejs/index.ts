@@ -226,6 +226,11 @@ export { GetIpRangesResult } from "./getIpRanges";
 export const getIpRanges: typeof import("./getIpRanges").getIpRanges = null as any;
 utilities.lazyLoad(exports, ["getIpRanges"], () => require("./getIpRanges"));
 
+export { GetIssueLabelsArgs, GetIssueLabelsResult, GetIssueLabelsOutputArgs } from "./getIssueLabels";
+export const getIssueLabels: typeof import("./getIssueLabels").getIssueLabels = null as any;
+export const getIssueLabelsOutput: typeof import("./getIssueLabels").getIssueLabelsOutput = null as any;
+utilities.lazyLoad(exports, ["getIssueLabels","getIssueLabelsOutput"], () => require("./getIssueLabels"));
+
 export { GetMembershipArgs, GetMembershipResult, GetMembershipOutputArgs } from "./getMembership";
 export const getMembership: typeof import("./getMembership").getMembership = null as any;
 export const getMembershipOutput: typeof import("./getMembership").getMembershipOutput = null as any;

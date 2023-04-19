@@ -20,6 +20,7 @@ namespace Pulumi.Github
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
+        /// using System.Linq;
         /// using Pulumi;
         /// using Github = Pulumi.Github;
         /// 
@@ -47,6 +48,7 @@ namespace Pulumi.Github
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
+        /// using System.Linq;
         /// using Pulumi;
         /// using Github = Pulumi.Github;
         /// 
@@ -163,6 +165,10 @@ namespace Pulumi.Github
         /// A description of the repository.
         /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// Whether the repository is a fork.
+        /// </summary>
+        public readonly bool Fork;
         public readonly string FullName;
         /// <summary>
         /// URL that can be provided to `git clone` to clone the repository anonymously via the git protocol.
@@ -278,6 +284,8 @@ namespace Pulumi.Github
 
             string? description,
 
+            bool fork,
+
             string fullName,
 
             string gitCloneUrl,
@@ -337,6 +345,7 @@ namespace Pulumi.Github
             Archived = archived;
             DefaultBranch = defaultBranch;
             Description = description;
+            Fork = fork;
             FullName = fullName;
             GitCloneUrl = gitCloneUrl;
             HasDiscussions = hasDiscussions;

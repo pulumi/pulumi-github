@@ -5466,6 +5466,130 @@ func (o GetExternalGroupsExternalGroupArrayOutput) Index(i pulumi.IntInput) GetE
 	}).(GetExternalGroupsExternalGroupOutput)
 }
 
+type GetIssueLabelsLabel struct {
+	// The hexadecimal color code for the label, without the leading #.
+	Color string `pulumi:"color"`
+	// A short description of the label.
+	Description string `pulumi:"description"`
+	// The name of the label.
+	Name string `pulumi:"name"`
+	// The URL of the label.
+	Url string `pulumi:"url"`
+}
+
+// GetIssueLabelsLabelInput is an input type that accepts GetIssueLabelsLabelArgs and GetIssueLabelsLabelOutput values.
+// You can construct a concrete instance of `GetIssueLabelsLabelInput` via:
+//
+//	GetIssueLabelsLabelArgs{...}
+type GetIssueLabelsLabelInput interface {
+	pulumi.Input
+
+	ToGetIssueLabelsLabelOutput() GetIssueLabelsLabelOutput
+	ToGetIssueLabelsLabelOutputWithContext(context.Context) GetIssueLabelsLabelOutput
+}
+
+type GetIssueLabelsLabelArgs struct {
+	// The hexadecimal color code for the label, without the leading #.
+	Color pulumi.StringInput `pulumi:"color"`
+	// A short description of the label.
+	Description pulumi.StringInput `pulumi:"description"`
+	// The name of the label.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The URL of the label.
+	Url pulumi.StringInput `pulumi:"url"`
+}
+
+func (GetIssueLabelsLabelArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetIssueLabelsLabel)(nil)).Elem()
+}
+
+func (i GetIssueLabelsLabelArgs) ToGetIssueLabelsLabelOutput() GetIssueLabelsLabelOutput {
+	return i.ToGetIssueLabelsLabelOutputWithContext(context.Background())
+}
+
+func (i GetIssueLabelsLabelArgs) ToGetIssueLabelsLabelOutputWithContext(ctx context.Context) GetIssueLabelsLabelOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetIssueLabelsLabelOutput)
+}
+
+// GetIssueLabelsLabelArrayInput is an input type that accepts GetIssueLabelsLabelArray and GetIssueLabelsLabelArrayOutput values.
+// You can construct a concrete instance of `GetIssueLabelsLabelArrayInput` via:
+//
+//	GetIssueLabelsLabelArray{ GetIssueLabelsLabelArgs{...} }
+type GetIssueLabelsLabelArrayInput interface {
+	pulumi.Input
+
+	ToGetIssueLabelsLabelArrayOutput() GetIssueLabelsLabelArrayOutput
+	ToGetIssueLabelsLabelArrayOutputWithContext(context.Context) GetIssueLabelsLabelArrayOutput
+}
+
+type GetIssueLabelsLabelArray []GetIssueLabelsLabelInput
+
+func (GetIssueLabelsLabelArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetIssueLabelsLabel)(nil)).Elem()
+}
+
+func (i GetIssueLabelsLabelArray) ToGetIssueLabelsLabelArrayOutput() GetIssueLabelsLabelArrayOutput {
+	return i.ToGetIssueLabelsLabelArrayOutputWithContext(context.Background())
+}
+
+func (i GetIssueLabelsLabelArray) ToGetIssueLabelsLabelArrayOutputWithContext(ctx context.Context) GetIssueLabelsLabelArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetIssueLabelsLabelArrayOutput)
+}
+
+type GetIssueLabelsLabelOutput struct{ *pulumi.OutputState }
+
+func (GetIssueLabelsLabelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetIssueLabelsLabel)(nil)).Elem()
+}
+
+func (o GetIssueLabelsLabelOutput) ToGetIssueLabelsLabelOutput() GetIssueLabelsLabelOutput {
+	return o
+}
+
+func (o GetIssueLabelsLabelOutput) ToGetIssueLabelsLabelOutputWithContext(ctx context.Context) GetIssueLabelsLabelOutput {
+	return o
+}
+
+// The hexadecimal color code for the label, without the leading #.
+func (o GetIssueLabelsLabelOutput) Color() pulumi.StringOutput {
+	return o.ApplyT(func(v GetIssueLabelsLabel) string { return v.Color }).(pulumi.StringOutput)
+}
+
+// A short description of the label.
+func (o GetIssueLabelsLabelOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetIssueLabelsLabel) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// The name of the label.
+func (o GetIssueLabelsLabelOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetIssueLabelsLabel) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The URL of the label.
+func (o GetIssueLabelsLabelOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v GetIssueLabelsLabel) string { return v.Url }).(pulumi.StringOutput)
+}
+
+type GetIssueLabelsLabelArrayOutput struct{ *pulumi.OutputState }
+
+func (GetIssueLabelsLabelArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetIssueLabelsLabel)(nil)).Elem()
+}
+
+func (o GetIssueLabelsLabelArrayOutput) ToGetIssueLabelsLabelArrayOutput() GetIssueLabelsLabelArrayOutput {
+	return o
+}
+
+func (o GetIssueLabelsLabelArrayOutput) ToGetIssueLabelsLabelArrayOutputWithContext(ctx context.Context) GetIssueLabelsLabelArrayOutput {
+	return o
+}
+
+func (o GetIssueLabelsLabelArrayOutput) Index(i pulumi.IntInput) GetIssueLabelsLabelOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetIssueLabelsLabel {
+		return vs[0].([]GetIssueLabelsLabel)[vs[1].(int)]
+	}).(GetIssueLabelsLabelOutput)
+}
+
 type GetOrganizationIpAllowListIpAllowList struct {
 	// A single IP address or range of IP addresses in CIDR notation.
 	AllowListValue string `pulumi:"allowListValue"`
@@ -7386,6 +7510,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDependabotSecretsSecretArrayInput)(nil)).Elem(), GetDependabotSecretsSecretArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetExternalGroupsExternalGroupInput)(nil)).Elem(), GetExternalGroupsExternalGroupArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetExternalGroupsExternalGroupArrayInput)(nil)).Elem(), GetExternalGroupsExternalGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetIssueLabelsLabelInput)(nil)).Elem(), GetIssueLabelsLabelArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetIssueLabelsLabelArrayInput)(nil)).Elem(), GetIssueLabelsLabelArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetOrganizationIpAllowListIpAllowListInput)(nil)).Elem(), GetOrganizationIpAllowListIpAllowListArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetOrganizationIpAllowListIpAllowListArrayInput)(nil)).Elem(), GetOrganizationIpAllowListIpAllowListArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetOrganizationTeamSyncGroupsGroupInput)(nil)).Elem(), GetOrganizationTeamSyncGroupsGroupArgs{})
@@ -7485,6 +7611,8 @@ func init() {
 	pulumi.RegisterOutputType(GetDependabotSecretsSecretArrayOutput{})
 	pulumi.RegisterOutputType(GetExternalGroupsExternalGroupOutput{})
 	pulumi.RegisterOutputType(GetExternalGroupsExternalGroupArrayOutput{})
+	pulumi.RegisterOutputType(GetIssueLabelsLabelOutput{})
+	pulumi.RegisterOutputType(GetIssueLabelsLabelArrayOutput{})
 	pulumi.RegisterOutputType(GetOrganizationIpAllowListIpAllowListOutput{})
 	pulumi.RegisterOutputType(GetOrganizationIpAllowListIpAllowListArrayOutput{})
 	pulumi.RegisterOutputType(GetOrganizationTeamSyncGroupsGroupOutput{})

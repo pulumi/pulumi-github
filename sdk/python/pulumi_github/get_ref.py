@@ -21,13 +21,16 @@ class GetRefResult:
     """
     A collection of values returned by getRef.
     """
-    def __init__(__self__, etag=None, id=None, ref=None, repository=None, sha=None):
+    def __init__(__self__, etag=None, id=None, owner=None, ref=None, repository=None, sha=None):
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if owner and not isinstance(owner, str):
+            raise TypeError("Expected argument 'owner' to be a str")
+        pulumi.set(__self__, "owner", owner)
         if ref and not isinstance(ref, str):
             raise TypeError("Expected argument 'ref' to be a str")
         pulumi.set(__self__, "ref", ref)
@@ -56,6 +59,11 @@ class GetRefResult:
 
     @property
     @pulumi.getter
+    def owner(self) -> Optional[str]:
+        return pulumi.get(self, "owner")
+
+    @property
+    @pulumi.getter
     def ref(self) -> str:
         return pulumi.get(self, "ref")
 
@@ -81,12 +89,14 @@ class AwaitableGetRefResult(GetRefResult):
         return GetRefResult(
             etag=self.etag,
             id=self.id,
+            owner=self.owner,
             ref=self.ref,
             repository=self.repository,
             sha=self.sha)
 
 
-def get_ref(ref: Optional[str] = None,
+def get_ref(owner: Optional[str] = None,
+            ref: Optional[str] = None,
             repository: Optional[str] = None,
             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRefResult:
     """
@@ -98,15 +108,18 @@ def get_ref(ref: Optional[str] = None,
     import pulumi
     import pulumi_github as github
 
-    development = github.get_ref(ref="heads/development",
+    development = github.get_ref(owner="example",
+        ref="heads/development",
         repository="example")
     ```
 
 
+    :param str owner: Owner of the repository.
     :param str ref: The repository ref to look up. Must be formatted `heads/<ref>` for branches, and `tags/<ref>` for tags.
     :param str repository: The GitHub repository name.
     """
     __args__ = dict()
+    __args__['owner'] = owner
     __args__['ref'] = ref
     __args__['repository'] = repository
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -115,13 +128,15 @@ def get_ref(ref: Optional[str] = None,
     return AwaitableGetRefResult(
         etag=__ret__.etag,
         id=__ret__.id,
+        owner=__ret__.owner,
         ref=__ret__.ref,
         repository=__ret__.repository,
         sha=__ret__.sha)
 
 
 @_utilities.lift_output_func(get_ref)
-def get_ref_output(ref: Optional[pulumi.Input[str]] = None,
+def get_ref_output(owner: Optional[pulumi.Input[Optional[str]]] = None,
+                   ref: Optional[pulumi.Input[str]] = None,
                    repository: Optional[pulumi.Input[str]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRefResult]:
     """
@@ -133,11 +148,13 @@ def get_ref_output(ref: Optional[pulumi.Input[str]] = None,
     import pulumi
     import pulumi_github as github
 
-    development = github.get_ref(ref="heads/development",
+    development = github.get_ref(owner="example",
+        ref="heads/development",
         repository="example")
     ```
 
 
+    :param str owner: Owner of the repository.
     :param str ref: The repository ref to look up. Must be formatted `heads/<ref>` for branches, and `tags/<ref>` for tags.
     :param str repository: The GitHub repository name.
     """
