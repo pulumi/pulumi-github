@@ -34,6 +34,8 @@ import com.pulumi.github.inputs.GetEnterpriseArgs;
 import com.pulumi.github.inputs.GetEnterprisePlainArgs;
 import com.pulumi.github.inputs.GetGithubAppArgs;
 import com.pulumi.github.inputs.GetGithubAppPlainArgs;
+import com.pulumi.github.inputs.GetIssueLabelsArgs;
+import com.pulumi.github.inputs.GetIssueLabelsPlainArgs;
 import com.pulumi.github.inputs.GetMembershipArgs;
 import com.pulumi.github.inputs.GetMembershipPlainArgs;
 import com.pulumi.github.inputs.GetOrganizationArgs;
@@ -94,6 +96,7 @@ import com.pulumi.github.outputs.GetEnterpriseResult;
 import com.pulumi.github.outputs.GetExternalGroupsResult;
 import com.pulumi.github.outputs.GetGithubAppResult;
 import com.pulumi.github.outputs.GetIpRangesResult;
+import com.pulumi.github.outputs.GetIssueLabelsResult;
 import com.pulumi.github.outputs.GetMembershipResult;
 import com.pulumi.github.outputs.GetOrganizationIpAllowListResult;
 import com.pulumi.github.outputs.GetOrganizationResult;
@@ -4018,6 +4021,34 @@ public final class GithubFunctions {
         return Deployment.getInstance().invokeAsync("github:index/getIpRanges:getIpRanges", TypeShape.of(GetIpRangesResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Use this data source to retrieve the labels for a given repository.
+     * 
+     */
+    public static Output<GetIssueLabelsResult> getIssueLabels(GetIssueLabelsArgs args) {
+        return getIssueLabels(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve the labels for a given repository.
+     * 
+     */
+    public static CompletableFuture<GetIssueLabelsResult> getIssueLabelsPlain(GetIssueLabelsPlainArgs args) {
+        return getIssueLabelsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve the labels for a given repository.
+     * 
+     */
+    public static Output<GetIssueLabelsResult> getIssueLabels(GetIssueLabelsArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("github:index/getIssueLabels:getIssueLabels", TypeShape.of(GetIssueLabelsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve the labels for a given repository.
+     * 
+     */
+    public static CompletableFuture<GetIssueLabelsResult> getIssueLabelsPlain(GetIssueLabelsPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("github:index/getIssueLabels:getIssueLabels", TypeShape.of(GetIssueLabelsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
      * Use this data source to find out if a user is a member of your organization, as well
      * as what role they have within it.
      * If the user&#39;s membership in the organization is pending their acceptance of an invite,
@@ -5389,6 +5420,7 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var development = GithubFunctions.getRef(GetRefArgs.builder()
+     *             .owner(&#34;example&#34;)
      *             .ref(&#34;heads/development&#34;)
      *             .repository(&#34;example&#34;)
      *             .build());
@@ -5427,6 +5459,7 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var development = GithubFunctions.getRef(GetRefArgs.builder()
+     *             .owner(&#34;example&#34;)
      *             .ref(&#34;heads/development&#34;)
      *             .repository(&#34;example&#34;)
      *             .build());
@@ -5465,6 +5498,7 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var development = GithubFunctions.getRef(GetRefArgs.builder()
+     *             .owner(&#34;example&#34;)
      *             .ref(&#34;heads/development&#34;)
      *             .repository(&#34;example&#34;)
      *             .build());
@@ -5503,6 +5537,7 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var development = GithubFunctions.getRef(GetRefArgs.builder()
+     *             .owner(&#34;example&#34;)
      *             .ref(&#34;heads/development&#34;)
      *             .repository(&#34;example&#34;)
      *             .build());

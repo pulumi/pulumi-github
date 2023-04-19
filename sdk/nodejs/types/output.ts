@@ -395,6 +395,25 @@ export interface GetExternalGroupsExternalGroup {
     updatedAt: string;
 }
 
+export interface GetIssueLabelsLabel {
+    /**
+     * The hexadecimal color code for the label, without the leading #.
+     */
+    color: string;
+    /**
+     * A short description of the label.
+     */
+    description: string;
+    /**
+     * The name of the label.
+     */
+    name: string;
+    /**
+     * The URL of the label.
+     */
+    url: string;
+}
+
 export interface GetOrganizationIpAllowListIpAllowList {
     /**
      * A single IP address or range of IP addresses in CIDR notation.

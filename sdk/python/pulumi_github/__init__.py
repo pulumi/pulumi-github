@@ -51,6 +51,7 @@ from .get_enterprise import *
 from .get_external_groups import *
 from .get_github_app import *
 from .get_ip_ranges import *
+from .get_issue_labels import *
 from .get_membership import *
 from .get_organization import *
 from .get_organization_ip_allow_list import *

@@ -74,7 +74,9 @@ type LookupRepositoryResult struct {
 	DefaultBranch string `pulumi:"defaultBranch"`
 	// A description of the repository.
 	Description *string `pulumi:"description"`
-	FullName    string  `pulumi:"fullName"`
+	// Whether the repository is a fork.
+	Fork     bool   `pulumi:"fork"`
+	FullName string `pulumi:"fullName"`
 	// URL that can be provided to `git clone` to clone the repository anonymously via the git protocol.
 	GitCloneUrl string `pulumi:"gitCloneUrl"`
 	// Whether the repository has GitHub Discussions enabled.
@@ -203,6 +205,11 @@ func (o LookupRepositoryResultOutput) DefaultBranch() pulumi.StringOutput {
 // A description of the repository.
 func (o LookupRepositoryResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRepositoryResult) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Whether the repository is a fork.
+func (o LookupRepositoryResultOutput) Fork() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupRepositoryResult) bool { return v.Fork }).(pulumi.BoolOutput)
 }
 
 func (o LookupRepositoryResultOutput) FullName() pulumi.StringOutput {

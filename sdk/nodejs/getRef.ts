@@ -14,6 +14,7 @@ import * as utilities from "./utilities";
  * import * as github from "@pulumi/github";
  *
  * const development = github.getRef({
+ *     owner: "example",
  *     ref: "heads/development",
  *     repository: "example",
  * });
@@ -23,6 +24,7 @@ export function getRef(args: GetRefArgs, opts?: pulumi.InvokeOptions): Promise<G
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("github:index/getRef:getRef", {
+        "owner": args.owner,
         "ref": args.ref,
         "repository": args.repository,
     }, opts);
@@ -32,6 +34,10 @@ export function getRef(args: GetRefArgs, opts?: pulumi.InvokeOptions): Promise<G
  * A collection of arguments for invoking getRef.
  */
 export interface GetRefArgs {
+    /**
+     * Owner of the repository.
+     */
+    owner?: string;
     /**
      * The repository ref to look up. Must be formatted `heads/<ref>` for branches, and `tags/<ref>` for tags.
      */
@@ -54,6 +60,7 @@ export interface GetRefResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly owner?: string;
     readonly ref: string;
     readonly repository: string;
     /**
@@ -71,6 +78,7 @@ export interface GetRefResult {
  * import * as github from "@pulumi/github";
  *
  * const development = github.getRef({
+ *     owner: "example",
  *     ref: "heads/development",
  *     repository: "example",
  * });
@@ -84,6 +92,10 @@ export function getRefOutput(args: GetRefOutputArgs, opts?: pulumi.InvokeOptions
  * A collection of arguments for invoking getRef.
  */
 export interface GetRefOutputArgs {
+    /**
+     * Owner of the repository.
+     */
+    owner?: pulumi.Input<string>;
     /**
      * The repository ref to look up. Must be formatted `heads/<ref>` for branches, and `tags/<ref>` for tags.
      */

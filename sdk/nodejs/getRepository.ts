@@ -86,6 +86,10 @@ export interface GetRepositoryResult {
      * A description of the repository.
      */
     readonly description?: string;
+    /**
+     * Whether the repository is a fork.
+     */
+    readonly fork: boolean;
     readonly fullName: string;
     /**
      * URL that can be provided to `git clone` to clone the repository anonymously via the git protocol.

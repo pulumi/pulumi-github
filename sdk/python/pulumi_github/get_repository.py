@@ -22,7 +22,7 @@ class GetRepositoryResult:
     """
     A collection of values returned by getRepository.
     """
-    def __init__(__self__, allow_auto_merge=None, allow_merge_commit=None, allow_rebase_merge=None, allow_squash_merge=None, archived=None, default_branch=None, description=None, full_name=None, git_clone_url=None, has_discussions=None, has_downloads=None, has_issues=None, has_projects=None, has_wiki=None, homepage_url=None, html_url=None, http_clone_url=None, id=None, is_template=None, merge_commit_message=None, merge_commit_title=None, name=None, node_id=None, pages=None, private=None, repo_id=None, squash_merge_commit_message=None, squash_merge_commit_title=None, ssh_clone_url=None, svn_url=None, template=None, topics=None, visibility=None):
+    def __init__(__self__, allow_auto_merge=None, allow_merge_commit=None, allow_rebase_merge=None, allow_squash_merge=None, archived=None, default_branch=None, description=None, fork=None, full_name=None, git_clone_url=None, has_discussions=None, has_downloads=None, has_issues=None, has_projects=None, has_wiki=None, homepage_url=None, html_url=None, http_clone_url=None, id=None, is_template=None, merge_commit_message=None, merge_commit_title=None, name=None, node_id=None, pages=None, private=None, repo_id=None, squash_merge_commit_message=None, squash_merge_commit_title=None, ssh_clone_url=None, svn_url=None, template=None, topics=None, visibility=None):
         if allow_auto_merge and not isinstance(allow_auto_merge, bool):
             raise TypeError("Expected argument 'allow_auto_merge' to be a bool")
         pulumi.set(__self__, "allow_auto_merge", allow_auto_merge)
@@ -44,6 +44,9 @@ class GetRepositoryResult:
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
+        if fork and not isinstance(fork, bool):
+            raise TypeError("Expected argument 'fork' to be a bool")
+        pulumi.set(__self__, "fork", fork)
         if full_name and not isinstance(full_name, str):
             raise TypeError("Expected argument 'full_name' to be a str")
         pulumi.set(__self__, "full_name", full_name)
@@ -178,6 +181,14 @@ class GetRepositoryResult:
         A description of the repository.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def fork(self) -> bool:
+        """
+        Whether the repository is a fork.
+        """
+        return pulumi.get(self, "fork")
 
     @property
     @pulumi.getter(name="fullName")
@@ -395,6 +406,7 @@ class AwaitableGetRepositoryResult(GetRepositoryResult):
             archived=self.archived,
             default_branch=self.default_branch,
             description=self.description,
+            fork=self.fork,
             full_name=self.full_name,
             git_clone_url=self.git_clone_url,
             has_discussions=self.has_discussions,
@@ -462,6 +474,7 @@ def get_repository(description: Optional[str] = None,
         archived=__ret__.archived,
         default_branch=__ret__.default_branch,
         description=__ret__.description,
+        fork=__ret__.fork,
         full_name=__ret__.full_name,
         git_clone_url=__ret__.git_clone_url,
         has_discussions=__ret__.has_discussions,

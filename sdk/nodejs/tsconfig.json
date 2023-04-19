@@ -61,6 +61,7 @@
         "getExternalGroups.ts",
         "getGithubApp.ts",
         "getIpRanges.ts",
+        "getIssueLabels.ts",
         "getMembership.ts",
         "getOrganization.ts",
         "getOrganizationIpAllowList.ts",

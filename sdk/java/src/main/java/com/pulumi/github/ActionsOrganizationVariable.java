@@ -51,7 +51,6 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
- * 
  * ```java
  * package generated_program;
  * 
@@ -80,9 +79,9 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleVariable = new ActionsOrganizationVariable(&#34;exampleVariable&#34;, ActionsOrganizationVariableArgs.builder()        
- *             .secretName(&#34;example_variable_name&#34;)
+ *             .variableName(&#34;example_variable_name&#34;)
  *             .visibility(&#34;selected&#34;)
- *             .plaintextValue(&#34;example_variable_value&#34;)
+ *             .value(&#34;example_variable_value&#34;)
  *             .selectedRepositoryIds(repo.applyValue(getRepositoryResult -&gt; getRepositoryResult.repoId()))
  *             .build());
  * 

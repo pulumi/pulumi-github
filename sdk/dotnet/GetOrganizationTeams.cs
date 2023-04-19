@@ -22,6 +22,7 @@ namespace Pulumi.Github
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
+        /// using System.Linq;
         /// using Pulumi;
         /// using Github = Pulumi.Github;
         /// 
@@ -36,6 +37,7 @@ namespace Pulumi.Github
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
+        /// using System.Linq;
         /// using Pulumi;
         /// using Github = Pulumi.Github;
         /// 
@@ -65,6 +67,7 @@ namespace Pulumi.Github
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
+        /// using System.Linq;
         /// using Pulumi;
         /// using Github = Pulumi.Github;
         /// 
@@ -79,6 +82,7 @@ namespace Pulumi.Github
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
+        /// using System.Linq;
         /// using Pulumi;
         /// using Github = Pulumi.Github;
         /// 
