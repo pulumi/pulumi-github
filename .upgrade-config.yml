@@ -2,4 +2,5 @@
 
 ---
 upstream-provider-name: terraform-provider-github
+pulumi-infer-version: true
 
