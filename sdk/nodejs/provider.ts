@@ -62,6 +62,7 @@ export class Provider extends pulumi.ProviderResource {
             resourceInputs["insecure"] = pulumi.output(args ? args.insecure : undefined).apply(JSON.stringify);
             resourceInputs["organization"] = args ? args.organization : undefined;
             resourceInputs["owner"] = args ? args.owner : undefined;
+            resourceInputs["parallelRequests"] = pulumi.output(args ? args.parallelRequests : undefined).apply(JSON.stringify);
             resourceInputs["readDelayMs"] = pulumi.output(args ? args.readDelayMs : undefined).apply(JSON.stringify);
             resourceInputs["token"] = args ? args.token : undefined;
             resourceInputs["writeDelayMs"] = pulumi.output(args ? args.writeDelayMs : undefined).apply(JSON.stringify);
@@ -98,6 +99,12 @@ export interface ProviderArgs {
      * The GitHub owner name to manage. Use this field instead of `organization` when managing individual accounts.
      */
     owner?: pulumi.Input<string>;
+    /**
+     * Allow the provider to make parallel API calls to GitHub. You may want to set it to true when you have a private Github
+     * Enterprise without strict rate limits. Although, it is not possible to enable this setting on github.com because we
+     * enforce the respect of github.com's best practices to avoid hitting abuse rate limitsDefaults to false if not set
+     */
+    parallelRequests?: pulumi.Input<boolean>;
     /**
      * Amount of time in milliseconds to sleep in between non-write requests to GitHub API. Defaults to 0ms if not set.
      */

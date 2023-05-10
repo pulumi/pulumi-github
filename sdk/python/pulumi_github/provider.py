@@ -20,6 +20,7 @@ class ProviderArgs:
                  insecure: Optional[pulumi.Input[bool]] = None,
                  organization: Optional[pulumi.Input[str]] = None,
                  owner: Optional[pulumi.Input[str]] = None,
+                 parallel_requests: Optional[pulumi.Input[bool]] = None,
                  read_delay_ms: Optional[pulumi.Input[int]] = None,
                  token: Optional[pulumi.Input[str]] = None,
                  write_delay_ms: Optional[pulumi.Input[int]] = None):
@@ -31,6 +32,9 @@ class ProviderArgs:
         :param pulumi.Input[bool] insecure: Enable `insecure` mode for testing purposes
         :param pulumi.Input[str] organization: The GitHub organization name to manage. Use this field instead of `owner` when managing organization accounts.
         :param pulumi.Input[str] owner: The GitHub owner name to manage. Use this field instead of `organization` when managing individual accounts.
+        :param pulumi.Input[bool] parallel_requests: Allow the provider to make parallel API calls to GitHub. You may want to set it to true when you have a private Github
+               Enterprise without strict rate limits. Although, it is not possible to enable this setting on github.com because we
+               enforce the respect of github.com's best practices to avoid hitting abuse rate limitsDefaults to false if not set
         :param pulumi.Input[int] read_delay_ms: Amount of time in milliseconds to sleep in between non-write requests to GitHub API. Defaults to 0ms if not set.
         :param pulumi.Input[str] token: The OAuth token used to connect to GitHub. Anonymous mode is enabled if both `token` and `app_auth` are not set.
         :param pulumi.Input[int] write_delay_ms: Amount of time in milliseconds to sleep in between writes to GitHub API. Defaults to 1000ms or 1s if not set.
@@ -50,6 +54,8 @@ class ProviderArgs:
             pulumi.set(__self__, "organization", organization)
         if owner is not None:
             pulumi.set(__self__, "owner", owner)
+        if parallel_requests is not None:
+            pulumi.set(__self__, "parallel_requests", parallel_requests)
         if read_delay_ms is not None:
             pulumi.set(__self__, "read_delay_ms", read_delay_ms)
         if token is not None:
@@ -119,6 +125,20 @@ class ProviderArgs:
         pulumi.set(self, "owner", value)
 
     @property
+    @pulumi.getter(name="parallelRequests")
+    def parallel_requests(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Allow the provider to make parallel API calls to GitHub. You may want to set it to true when you have a private Github
+        Enterprise without strict rate limits. Although, it is not possible to enable this setting on github.com because we
+        enforce the respect of github.com's best practices to avoid hitting abuse rate limitsDefaults to false if not set
+        """
+        return pulumi.get(self, "parallel_requests")
+
+    @parallel_requests.setter
+    def parallel_requests(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "parallel_requests", value)
+
+    @property
     @pulumi.getter(name="readDelayMs")
     def read_delay_ms(self) -> Optional[pulumi.Input[int]]:
         """
@@ -165,6 +185,7 @@ class Provider(pulumi.ProviderResource):
                  insecure: Optional[pulumi.Input[bool]] = None,
                  organization: Optional[pulumi.Input[str]] = None,
                  owner: Optional[pulumi.Input[str]] = None,
+                 parallel_requests: Optional[pulumi.Input[bool]] = None,
                  read_delay_ms: Optional[pulumi.Input[int]] = None,
                  token: Optional[pulumi.Input[str]] = None,
                  write_delay_ms: Optional[pulumi.Input[int]] = None,
@@ -183,6 +204,9 @@ class Provider(pulumi.ProviderResource):
         :param pulumi.Input[bool] insecure: Enable `insecure` mode for testing purposes
         :param pulumi.Input[str] organization: The GitHub organization name to manage. Use this field instead of `owner` when managing organization accounts.
         :param pulumi.Input[str] owner: The GitHub owner name to manage. Use this field instead of `organization` when managing individual accounts.
+        :param pulumi.Input[bool] parallel_requests: Allow the provider to make parallel API calls to GitHub. You may want to set it to true when you have a private Github
+               Enterprise without strict rate limits. Although, it is not possible to enable this setting on github.com because we
+               enforce the respect of github.com's best practices to avoid hitting abuse rate limitsDefaults to false if not set
         :param pulumi.Input[int] read_delay_ms: Amount of time in milliseconds to sleep in between non-write requests to GitHub API. Defaults to 0ms if not set.
         :param pulumi.Input[str] token: The OAuth token used to connect to GitHub. Anonymous mode is enabled if both `token` and `app_auth` are not set.
         :param pulumi.Input[int] write_delay_ms: Amount of time in milliseconds to sleep in between writes to GitHub API. Defaults to 1000ms or 1s if not set.
@@ -219,6 +243,7 @@ class Provider(pulumi.ProviderResource):
                  insecure: Optional[pulumi.Input[bool]] = None,
                  organization: Optional[pulumi.Input[str]] = None,
                  owner: Optional[pulumi.Input[str]] = None,
+                 parallel_requests: Optional[pulumi.Input[bool]] = None,
                  read_delay_ms: Optional[pulumi.Input[int]] = None,
                  token: Optional[pulumi.Input[str]] = None,
                  write_delay_ms: Optional[pulumi.Input[int]] = None,
@@ -241,6 +266,7 @@ class Provider(pulumi.ProviderResource):
                 pulumi.log.warn("""organization is deprecated: Use owner (or GITHUB_OWNER) instead of organization (or GITHUB_ORGANIZATION)""")
             __props__.__dict__["organization"] = organization
             __props__.__dict__["owner"] = owner
+            __props__.__dict__["parallel_requests"] = pulumi.Output.from_input(parallel_requests).apply(pulumi.runtime.to_json) if parallel_requests is not None else None
             __props__.__dict__["read_delay_ms"] = pulumi.Output.from_input(read_delay_ms).apply(pulumi.runtime.to_json) if read_delay_ms is not None else None
             __props__.__dict__["token"] = token
             __props__.__dict__["write_delay_ms"] = pulumi.Output.from_input(write_delay_ms).apply(pulumi.runtime.to_json) if write_delay_ms is not None else None

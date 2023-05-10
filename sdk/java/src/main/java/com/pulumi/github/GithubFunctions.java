@@ -24,6 +24,8 @@ import com.pulumi.github.inputs.GetActionsVariablesArgs;
 import com.pulumi.github.inputs.GetActionsVariablesPlainArgs;
 import com.pulumi.github.inputs.GetBranchArgs;
 import com.pulumi.github.inputs.GetBranchPlainArgs;
+import com.pulumi.github.inputs.GetBranchProtectionRulesArgs;
+import com.pulumi.github.inputs.GetBranchProtectionRulesPlainArgs;
 import com.pulumi.github.inputs.GetCollaboratorsArgs;
 import com.pulumi.github.inputs.GetCollaboratorsPlainArgs;
 import com.pulumi.github.inputs.GetDependabotPublicKeyArgs;
@@ -86,6 +88,7 @@ import com.pulumi.github.outputs.GetActionsRegistrationTokenResult;
 import com.pulumi.github.outputs.GetActionsRepositoryOidcSubjectClaimCustomizationTemplateResult;
 import com.pulumi.github.outputs.GetActionsSecretsResult;
 import com.pulumi.github.outputs.GetActionsVariablesResult;
+import com.pulumi.github.outputs.GetBranchProtectionRulesResult;
 import com.pulumi.github.outputs.GetBranchResult;
 import com.pulumi.github.outputs.GetCollaboratorsResult;
 import com.pulumi.github.outputs.GetDependabotOrganizationPublicKeyResult;
@@ -2497,6 +2500,154 @@ public final class GithubFunctions {
      */
     public static CompletableFuture<GetBranchResult> getBranchPlain(GetBranchPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("github:index/getBranch:getBranch", TypeShape.of(GetBranchResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve a list of repository branch protection rules.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetBranchProtectionRulesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getBranchProtectionRules(GetBranchProtectionRulesArgs.builder()
+     *             .repository(&#34;example&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetBranchProtectionRulesResult> getBranchProtectionRules(GetBranchProtectionRulesArgs args) {
+        return getBranchProtectionRules(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve a list of repository branch protection rules.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetBranchProtectionRulesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getBranchProtectionRules(GetBranchProtectionRulesArgs.builder()
+     *             .repository(&#34;example&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetBranchProtectionRulesResult> getBranchProtectionRulesPlain(GetBranchProtectionRulesPlainArgs args) {
+        return getBranchProtectionRulesPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve a list of repository branch protection rules.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetBranchProtectionRulesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getBranchProtectionRules(GetBranchProtectionRulesArgs.builder()
+     *             .repository(&#34;example&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetBranchProtectionRulesResult> getBranchProtectionRules(GetBranchProtectionRulesArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("github:index/getBranchProtectionRules:getBranchProtectionRules", TypeShape.of(GetBranchProtectionRulesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve a list of repository branch protection rules.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetBranchProtectionRulesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getBranchProtectionRules(GetBranchProtectionRulesArgs.builder()
+     *             .repository(&#34;example&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetBranchProtectionRulesResult> getBranchProtectionRulesPlain(GetBranchProtectionRulesPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("github:index/getBranchProtectionRules:getBranchProtectionRules", TypeShape.of(GetBranchProtectionRulesResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to retrieve the collaborators for a given repository.

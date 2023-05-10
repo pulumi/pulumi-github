@@ -37,10 +37,14 @@ namespace Pulumi.Github
     /// 
     /// ## Import
     /// 
-    /// GitHub Teams can be imported using the GitHub team ID e.g.
+    /// GitHub Teams can be imported using the GitHub team ID or name e.g.
     /// 
     /// ```sh
     ///  $ pulumi import github:index/team:Team core 1234567
+    /// ```
+    /// 
+    /// ```sh
+    ///  $ pulumi import github:index/team:Team core Administrators
     /// ```
     /// </summary>
     [GithubResourceType("github:index/team:Team")]
@@ -83,10 +87,10 @@ namespace Pulumi.Github
         public Output<string> NodeId { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the parent team, if this is a nested team.
+        /// The ID or slug of the parent team, if this is a nested team.
         /// </summary>
         [Output("parentTeamId")]
-        public Output<int?> ParentTeamId { get; private set; } = null!;
+        public Output<string?> ParentTeamId { get; private set; } = null!;
 
         /// <summary>
         /// The level of privacy for the team. Must be one of `secret` or `closed`.
@@ -174,10 +178,10 @@ namespace Pulumi.Github
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The ID of the parent team, if this is a nested team.
+        /// The ID or slug of the parent team, if this is a nested team.
         /// </summary>
         [Input("parentTeamId")]
-        public Input<int>? ParentTeamId { get; set; }
+        public Input<string>? ParentTeamId { get; set; }
 
         /// <summary>
         /// The level of privacy for the team. Must be one of `secret` or `closed`.
@@ -231,10 +235,10 @@ namespace Pulumi.Github
         public Input<string>? NodeId { get; set; }
 
         /// <summary>
-        /// The ID of the parent team, if this is a nested team.
+        /// The ID or slug of the parent team, if this is a nested team.
         /// </summary>
         [Input("parentTeamId")]
-        public Input<int>? ParentTeamId { get; set; }
+        public Input<string>? ParentTeamId { get; set; }
 
         /// <summary>
         /// The level of privacy for the team. Must be one of `secret` or `closed`.

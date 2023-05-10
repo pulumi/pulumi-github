@@ -4880,6 +4880,103 @@ func (o GetActionsVariablesVariableArrayOutput) Index(i pulumi.IntInput) GetActi
 	}).(GetActionsVariablesVariableOutput)
 }
 
+type GetBranchProtectionRulesRule struct {
+	// Identifies the protection rule pattern.
+	Pattern string `pulumi:"pattern"`
+}
+
+// GetBranchProtectionRulesRuleInput is an input type that accepts GetBranchProtectionRulesRuleArgs and GetBranchProtectionRulesRuleOutput values.
+// You can construct a concrete instance of `GetBranchProtectionRulesRuleInput` via:
+//
+//	GetBranchProtectionRulesRuleArgs{...}
+type GetBranchProtectionRulesRuleInput interface {
+	pulumi.Input
+
+	ToGetBranchProtectionRulesRuleOutput() GetBranchProtectionRulesRuleOutput
+	ToGetBranchProtectionRulesRuleOutputWithContext(context.Context) GetBranchProtectionRulesRuleOutput
+}
+
+type GetBranchProtectionRulesRuleArgs struct {
+	// Identifies the protection rule pattern.
+	Pattern pulumi.StringInput `pulumi:"pattern"`
+}
+
+func (GetBranchProtectionRulesRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBranchProtectionRulesRule)(nil)).Elem()
+}
+
+func (i GetBranchProtectionRulesRuleArgs) ToGetBranchProtectionRulesRuleOutput() GetBranchProtectionRulesRuleOutput {
+	return i.ToGetBranchProtectionRulesRuleOutputWithContext(context.Background())
+}
+
+func (i GetBranchProtectionRulesRuleArgs) ToGetBranchProtectionRulesRuleOutputWithContext(ctx context.Context) GetBranchProtectionRulesRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBranchProtectionRulesRuleOutput)
+}
+
+// GetBranchProtectionRulesRuleArrayInput is an input type that accepts GetBranchProtectionRulesRuleArray and GetBranchProtectionRulesRuleArrayOutput values.
+// You can construct a concrete instance of `GetBranchProtectionRulesRuleArrayInput` via:
+//
+//	GetBranchProtectionRulesRuleArray{ GetBranchProtectionRulesRuleArgs{...} }
+type GetBranchProtectionRulesRuleArrayInput interface {
+	pulumi.Input
+
+	ToGetBranchProtectionRulesRuleArrayOutput() GetBranchProtectionRulesRuleArrayOutput
+	ToGetBranchProtectionRulesRuleArrayOutputWithContext(context.Context) GetBranchProtectionRulesRuleArrayOutput
+}
+
+type GetBranchProtectionRulesRuleArray []GetBranchProtectionRulesRuleInput
+
+func (GetBranchProtectionRulesRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetBranchProtectionRulesRule)(nil)).Elem()
+}
+
+func (i GetBranchProtectionRulesRuleArray) ToGetBranchProtectionRulesRuleArrayOutput() GetBranchProtectionRulesRuleArrayOutput {
+	return i.ToGetBranchProtectionRulesRuleArrayOutputWithContext(context.Background())
+}
+
+func (i GetBranchProtectionRulesRuleArray) ToGetBranchProtectionRulesRuleArrayOutputWithContext(ctx context.Context) GetBranchProtectionRulesRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBranchProtectionRulesRuleArrayOutput)
+}
+
+type GetBranchProtectionRulesRuleOutput struct{ *pulumi.OutputState }
+
+func (GetBranchProtectionRulesRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBranchProtectionRulesRule)(nil)).Elem()
+}
+
+func (o GetBranchProtectionRulesRuleOutput) ToGetBranchProtectionRulesRuleOutput() GetBranchProtectionRulesRuleOutput {
+	return o
+}
+
+func (o GetBranchProtectionRulesRuleOutput) ToGetBranchProtectionRulesRuleOutputWithContext(ctx context.Context) GetBranchProtectionRulesRuleOutput {
+	return o
+}
+
+// Identifies the protection rule pattern.
+func (o GetBranchProtectionRulesRuleOutput) Pattern() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBranchProtectionRulesRule) string { return v.Pattern }).(pulumi.StringOutput)
+}
+
+type GetBranchProtectionRulesRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (GetBranchProtectionRulesRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetBranchProtectionRulesRule)(nil)).Elem()
+}
+
+func (o GetBranchProtectionRulesRuleArrayOutput) ToGetBranchProtectionRulesRuleArrayOutput() GetBranchProtectionRulesRuleArrayOutput {
+	return o
+}
+
+func (o GetBranchProtectionRulesRuleArrayOutput) ToGetBranchProtectionRulesRuleArrayOutputWithContext(ctx context.Context) GetBranchProtectionRulesRuleArrayOutput {
+	return o
+}
+
+func (o GetBranchProtectionRulesRuleArrayOutput) Index(i pulumi.IntInput) GetBranchProtectionRulesRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetBranchProtectionRulesRule {
+		return vs[0].([]GetBranchProtectionRulesRule)[vs[1].(int)]
+	}).(GetBranchProtectionRulesRuleOutput)
+}
+
 type GetCollaboratorsCollaborator struct {
 	// The GitHub API URL for the collaborator's events.
 	EventsUrl string `pulumi:"eventsUrl"`
@@ -7502,6 +7599,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetActionsSecretsSecretArrayInput)(nil)).Elem(), GetActionsSecretsSecretArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetActionsVariablesVariableInput)(nil)).Elem(), GetActionsVariablesVariableArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetActionsVariablesVariableArrayInput)(nil)).Elem(), GetActionsVariablesVariableArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBranchProtectionRulesRuleInput)(nil)).Elem(), GetBranchProtectionRulesRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBranchProtectionRulesRuleArrayInput)(nil)).Elem(), GetBranchProtectionRulesRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCollaboratorsCollaboratorInput)(nil)).Elem(), GetCollaboratorsCollaboratorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCollaboratorsCollaboratorArrayInput)(nil)).Elem(), GetCollaboratorsCollaboratorArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDependabotOrganizationSecretsSecretInput)(nil)).Elem(), GetDependabotOrganizationSecretsSecretArgs{})
@@ -7603,6 +7702,8 @@ func init() {
 	pulumi.RegisterOutputType(GetActionsSecretsSecretArrayOutput{})
 	pulumi.RegisterOutputType(GetActionsVariablesVariableOutput{})
 	pulumi.RegisterOutputType(GetActionsVariablesVariableArrayOutput{})
+	pulumi.RegisterOutputType(GetBranchProtectionRulesRuleOutput{})
+	pulumi.RegisterOutputType(GetBranchProtectionRulesRuleArrayOutput{})
 	pulumi.RegisterOutputType(GetCollaboratorsCollaboratorOutput{})
 	pulumi.RegisterOutputType(GetCollaboratorsCollaboratorArrayOutput{})
 	pulumi.RegisterOutputType(GetDependabotOrganizationSecretsSecretOutput{})

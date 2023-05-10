@@ -5,6 +5,8 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
+ * This resource allows you to create and manage a GitHub enterprise organization.
+ *
  * ## Example Usage
  *
  * ```typescript

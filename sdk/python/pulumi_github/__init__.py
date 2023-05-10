@@ -42,6 +42,7 @@ from .get_actions_repository_oidc_subject_claim_customization_template import *
 from .get_actions_secrets import *
 from .get_actions_variables import *
 from .get_branch import *
+from .get_branch_protection_rules import *
 from .get_collaborators import *
 from .get_dependabot_organization_public_key import *
 from .get_dependabot_organization_secrets import *

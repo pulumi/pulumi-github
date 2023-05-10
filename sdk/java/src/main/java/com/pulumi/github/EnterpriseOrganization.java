@@ -16,6 +16,8 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * This resource allows you to create and manage a GitHub enterprise organization.
+ * 
  * ## Example Usage
  * ```java
  * package generated_program;

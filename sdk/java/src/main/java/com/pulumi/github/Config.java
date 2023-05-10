@@ -50,6 +50,15 @@ public final class Config {
         return Codegen.stringProp("owner").config(config).get();
     }
 /**
+ * Allow the provider to make parallel API calls to GitHub. You may want to set it to true when you have a private Github
+ * Enterprise without strict rate limits. Although, it is not possible to enable this setting on github.com because we
+ * enforce the respect of github.com&#39;s best practices to avoid hitting abuse rate limitsDefaults to false if not set
+ * 
+ */
+    public Optional<Boolean> parallelRequests() {
+        return Codegen.booleanProp("parallelRequests").config(config).get();
+    }
+/**
  * Amount of time in milliseconds to sleep in between non-write requests to GitHub API. Defaults to 0ms if not set.
  * 
  */

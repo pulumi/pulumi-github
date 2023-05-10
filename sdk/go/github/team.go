@@ -44,11 +44,17 @@ import (
 //
 // ## Import
 //
-// GitHub Teams can be imported using the GitHub team ID e.g.
+// GitHub Teams can be imported using the GitHub team ID or name e.g.
 //
 // ```sh
 //
 //	$ pulumi import github:index/team:Team core 1234567
+//
+// ```
+//
+// ```sh
+//
+//	$ pulumi import github:index/team:Team core Administrators
 //
 // ```
 type Team struct {
@@ -66,8 +72,8 @@ type Team struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The Node ID of the created team.
 	NodeId pulumi.StringOutput `pulumi:"nodeId"`
-	// The ID of the parent team, if this is a nested team.
-	ParentTeamId pulumi.IntPtrOutput `pulumi:"parentTeamId"`
+	// The ID or slug of the parent team, if this is a nested team.
+	ParentTeamId pulumi.StringPtrOutput `pulumi:"parentTeamId"`
 	// The level of privacy for the team. Must be one of `secret` or `closed`.
 	// Defaults to `secret`.
 	Privacy pulumi.StringPtrOutput `pulumi:"privacy"`
@@ -118,8 +124,8 @@ type teamState struct {
 	Name *string `pulumi:"name"`
 	// The Node ID of the created team.
 	NodeId *string `pulumi:"nodeId"`
-	// The ID of the parent team, if this is a nested team.
-	ParentTeamId *int `pulumi:"parentTeamId"`
+	// The ID or slug of the parent team, if this is a nested team.
+	ParentTeamId *string `pulumi:"parentTeamId"`
 	// The level of privacy for the team. Must be one of `secret` or `closed`.
 	// Defaults to `secret`.
 	Privacy *string `pulumi:"privacy"`
@@ -142,8 +148,8 @@ type TeamState struct {
 	Name pulumi.StringPtrInput
 	// The Node ID of the created team.
 	NodeId pulumi.StringPtrInput
-	// The ID of the parent team, if this is a nested team.
-	ParentTeamId pulumi.IntPtrInput
+	// The ID or slug of the parent team, if this is a nested team.
+	ParentTeamId pulumi.StringPtrInput
 	// The level of privacy for the team. Must be one of `secret` or `closed`.
 	// Defaults to `secret`.
 	Privacy pulumi.StringPtrInput
@@ -166,8 +172,8 @@ type teamArgs struct {
 	LdapDn *string `pulumi:"ldapDn"`
 	// The name of the team.
 	Name *string `pulumi:"name"`
-	// The ID of the parent team, if this is a nested team.
-	ParentTeamId *int `pulumi:"parentTeamId"`
+	// The ID or slug of the parent team, if this is a nested team.
+	ParentTeamId *string `pulumi:"parentTeamId"`
 	// The level of privacy for the team. Must be one of `secret` or `closed`.
 	// Defaults to `secret`.
 	Privacy *string `pulumi:"privacy"`
@@ -183,8 +189,8 @@ type TeamArgs struct {
 	LdapDn pulumi.StringPtrInput
 	// The name of the team.
 	Name pulumi.StringPtrInput
-	// The ID of the parent team, if this is a nested team.
-	ParentTeamId pulumi.IntPtrInput
+	// The ID or slug of the parent team, if this is a nested team.
+	ParentTeamId pulumi.StringPtrInput
 	// The level of privacy for the team. Must be one of `secret` or `closed`.
 	// Defaults to `secret`.
 	Privacy pulumi.StringPtrInput
@@ -310,9 +316,9 @@ func (o TeamOutput) NodeId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Team) pulumi.StringOutput { return v.NodeId }).(pulumi.StringOutput)
 }
 
-// The ID of the parent team, if this is a nested team.
-func (o TeamOutput) ParentTeamId() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *Team) pulumi.IntPtrOutput { return v.ParentTeamId }).(pulumi.IntPtrOutput)
+// The ID or slug of the parent team, if this is a nested team.
+func (o TeamOutput) ParentTeamId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Team) pulumi.StringPtrOutput { return v.ParentTeamId }).(pulumi.StringPtrOutput)
 }
 
 // The level of privacy for the team. Must be one of `secret` or `closed`.

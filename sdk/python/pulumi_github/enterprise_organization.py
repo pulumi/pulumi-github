@@ -196,6 +196,8 @@ class EnterpriseOrganization(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
+        This resource allows you to create and manage a GitHub enterprise organization.
+
         ## Example Usage
 
         ```python
@@ -228,6 +230,8 @@ class EnterpriseOrganization(pulumi.CustomResource):
                  args: EnterpriseOrganizationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        This resource allows you to create and manage a GitHub enterprise organization.
+
         ## Example Usage
 
         ```python
