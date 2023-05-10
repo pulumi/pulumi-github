@@ -11,6 +11,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// This resource allows you to create and manage a GitHub enterprise organization.
+//
 // ## Example Usage
 //
 // ```go

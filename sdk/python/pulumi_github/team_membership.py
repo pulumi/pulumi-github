@@ -166,10 +166,14 @@ class TeamMembership(pulumi.CustomResource):
 
         ## Import
 
-        GitHub Team Membership can be imported using an ID made up of `teamid:username`, e.g.
+        GitHub Team Membership can be imported using an ID made up of `teamid:username` or `teamname:username`, e.g.
 
         ```sh
          $ pulumi import github:index/teamMembership:TeamMembership member 1234567:someuser
+        ```
+
+        ```sh
+         $ pulumi import github:index/teamMembership:TeamMembership member Administrators:someuser
         ```
 
         :param str resource_name: The name of the resource.
@@ -205,10 +209,14 @@ class TeamMembership(pulumi.CustomResource):
 
         ## Import
 
-        GitHub Team Membership can be imported using an ID made up of `teamid:username`, e.g.
+        GitHub Team Membership can be imported using an ID made up of `teamid:username` or `teamname:username`, e.g.
 
         ```sh
          $ pulumi import github:index/teamMembership:TeamMembership member 1234567:someuser
+        ```
+
+        ```sh
+         $ pulumi import github:index/teamMembership:TeamMembership member Administrators:someuser
         ```
 
         :param str resource_name: The name of the resource.

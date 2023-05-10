@@ -61,10 +61,14 @@ namespace Pulumi.Github
     /// 
     /// ## Import
     /// 
-    /// GitHub Team Membership can be imported using the team ID `teamid`, e.g.
+    /// GitHub Team Membership can be imported using the team ID `teamid` or team name, e.g.
     /// 
     /// ```sh
     ///  $ pulumi import github:index/teamMembers:TeamMembers some_team 1234567
+    /// ```
+    /// 
+    /// ```sh
+    ///  $ pulumi import github:index/teamMembers:TeamMembers some_team Administrators
     /// ```
     /// </summary>
     [GithubResourceType("github:index/teamMembers:TeamMembers")]

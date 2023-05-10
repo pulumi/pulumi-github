@@ -107,17 +107,17 @@ public final class TeamState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ID of the parent team, if this is a nested team.
+     * The ID or slug of the parent team, if this is a nested team.
      * 
      */
     @Import(name="parentTeamId")
-    private @Nullable Output<Integer> parentTeamId;
+    private @Nullable Output<String> parentTeamId;
 
     /**
-     * @return The ID of the parent team, if this is a nested team.
+     * @return The ID or slug of the parent team, if this is a nested team.
      * 
      */
-    public Optional<Output<Integer>> parentTeamId() {
+    public Optional<Output<String>> parentTeamId() {
         return Optional.ofNullable(this.parentTeamId);
     }
 
@@ -314,23 +314,23 @@ public final class TeamState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param parentTeamId The ID of the parent team, if this is a nested team.
+         * @param parentTeamId The ID or slug of the parent team, if this is a nested team.
          * 
          * @return builder
          * 
          */
-        public Builder parentTeamId(@Nullable Output<Integer> parentTeamId) {
+        public Builder parentTeamId(@Nullable Output<String> parentTeamId) {
             $.parentTeamId = parentTeamId;
             return this;
         }
 
         /**
-         * @param parentTeamId The ID of the parent team, if this is a nested team.
+         * @param parentTeamId The ID or slug of the parent team, if this is a nested team.
          * 
          * @return builder
          * 
          */
-        public Builder parentTeamId(Integer parentTeamId) {
+        public Builder parentTeamId(String parentTeamId) {
             return parentTeamId(Output.of(parentTeamId));
         }
 

@@ -40,6 +40,13 @@ func GetOwner(ctx *pulumi.Context) string {
 	return config.Get(ctx, "github:owner")
 }
 
+// Allow the provider to make parallel API calls to GitHub. You may want to set it to true when you have a private Github
+// Enterprise without strict rate limits. Although, it is not possible to enable this setting on github.com because we
+// enforce the respect of github.com's best practices to avoid hitting abuse rate limitsDefaults to false if not set
+func GetParallelRequests(ctx *pulumi.Context) bool {
+	return config.GetBool(ctx, "github:parallelRequests")
+}
+
 // Amount of time in milliseconds to sleep in between non-write requests to GitHub API. Defaults to 0ms if not set.
 func GetReadDelayMs(ctx *pulumi.Context) int {
 	return config.GetInt(ctx, "github:readDelayMs")

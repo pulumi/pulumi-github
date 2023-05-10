@@ -55,10 +55,14 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * GitHub Teams can be imported using the GitHub team ID e.g.
+ * GitHub Teams can be imported using the GitHub team ID or name e.g.
  * 
  * ```sh
  *  $ pulumi import github:index/team:Team core 1234567
+ * ```
+ * 
+ * ```sh
+ *  $ pulumi import github:index/team:Team core Administrators
  * ```
  * 
  */
@@ -147,17 +151,17 @@ public class Team extends com.pulumi.resources.CustomResource {
         return this.nodeId;
     }
     /**
-     * The ID of the parent team, if this is a nested team.
+     * The ID or slug of the parent team, if this is a nested team.
      * 
      */
-    @Export(name="parentTeamId", type=Integer.class, parameters={})
-    private Output</* @Nullable */ Integer> parentTeamId;
+    @Export(name="parentTeamId", type=String.class, parameters={})
+    private Output</* @Nullable */ String> parentTeamId;
 
     /**
-     * @return The ID of the parent team, if this is a nested team.
+     * @return The ID or slug of the parent team, if this is a nested team.
      * 
      */
-    public Output<Optional<Integer>> parentTeamId() {
+    public Output<Optional<String>> parentTeamId() {
         return Codegen.optional(this.parentTeamId);
     }
     /**

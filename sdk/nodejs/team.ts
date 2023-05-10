@@ -25,10 +25,14 @@ import * as utilities from "./utilities";
  *
  * ## Import
  *
- * GitHub Teams can be imported using the GitHub team ID e.g.
+ * GitHub Teams can be imported using the GitHub team ID or name e.g.
  *
  * ```sh
  *  $ pulumi import github:index/team:Team core 1234567
+ * ```
+ *
+ * ```sh
+ *  $ pulumi import github:index/team:Team core Administrators
  * ```
  */
 export class Team extends pulumi.CustomResource {
@@ -82,9 +86,9 @@ export class Team extends pulumi.CustomResource {
      */
     public /*out*/ readonly nodeId!: pulumi.Output<string>;
     /**
-     * The ID of the parent team, if this is a nested team.
+     * The ID or slug of the parent team, if this is a nested team.
      */
-    public readonly parentTeamId!: pulumi.Output<number | undefined>;
+    public readonly parentTeamId!: pulumi.Output<string | undefined>;
     /**
      * The level of privacy for the team. Must be one of `secret` or `closed`.
      * Defaults to `secret`.
@@ -165,9 +169,9 @@ export interface TeamState {
      */
     nodeId?: pulumi.Input<string>;
     /**
-     * The ID of the parent team, if this is a nested team.
+     * The ID or slug of the parent team, if this is a nested team.
      */
-    parentTeamId?: pulumi.Input<number>;
+    parentTeamId?: pulumi.Input<string>;
     /**
      * The level of privacy for the team. Must be one of `secret` or `closed`.
      * Defaults to `secret`.
@@ -202,9 +206,9 @@ export interface TeamArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * The ID of the parent team, if this is a nested team.
+     * The ID or slug of the parent team, if this is a nested team.
      */
-    parentTeamId?: pulumi.Input<number>;
+    parentTeamId?: pulumi.Input<string>;
     /**
      * The level of privacy for the team. Must be one of `secret` or `closed`.
      * Defaults to `secret`.

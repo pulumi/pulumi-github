@@ -185,6 +185,11 @@ export const getBranch: typeof import("./getBranch").getBranch = null as any;
 export const getBranchOutput: typeof import("./getBranch").getBranchOutput = null as any;
 utilities.lazyLoad(exports, ["getBranch","getBranchOutput"], () => require("./getBranch"));
 
+export { GetBranchProtectionRulesArgs, GetBranchProtectionRulesResult, GetBranchProtectionRulesOutputArgs } from "./getBranchProtectionRules";
+export const getBranchProtectionRules: typeof import("./getBranchProtectionRules").getBranchProtectionRules = null as any;
+export const getBranchProtectionRulesOutput: typeof import("./getBranchProtectionRules").getBranchProtectionRulesOutput = null as any;
+utilities.lazyLoad(exports, ["getBranchProtectionRules","getBranchProtectionRulesOutput"], () => require("./getBranchProtectionRules"));
+
 export { GetCollaboratorsArgs, GetCollaboratorsResult, GetCollaboratorsOutputArgs } from "./getCollaborators";
 export const getCollaborators: typeof import("./getCollaborators").getCollaborators = null as any;
 export const getCollaboratorsOutput: typeof import("./getCollaborators").getCollaboratorsOutput = null as any;

@@ -279,6 +279,13 @@ export interface GetActionsVariablesVariable {
     value: string;
 }
 
+export interface GetBranchProtectionRulesRule {
+    /**
+     * Identifies the protection rule pattern.
+     */
+    pattern: string;
+}
+
 export interface GetCollaboratorsCollaborator {
     /**
      * The GitHub API URL for the collaborator's events.

@@ -52,6 +52,7 @@
         "getActionsSecrets.ts",
         "getActionsVariables.ts",
         "getBranch.ts",
+        "getBranchProtectionRules.ts",
         "getCollaborators.ts",
         "getDependabotOrganizationPublicKey.ts",
         "getDependabotOrganizationSecrets.ts",

@@ -105,6 +105,25 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Allow the provider to make parallel API calls to GitHub. You may want to set it to true when you have a private Github
+     * Enterprise without strict rate limits. Although, it is not possible to enable this setting on github.com because we
+     * enforce the respect of github.com&#39;s best practices to avoid hitting abuse rate limitsDefaults to false if not set
+     * 
+     */
+    @Import(name="parallelRequests", json=true)
+    private @Nullable Output<Boolean> parallelRequests;
+
+    /**
+     * @return Allow the provider to make parallel API calls to GitHub. You may want to set it to true when you have a private Github
+     * Enterprise without strict rate limits. Although, it is not possible to enable this setting on github.com because we
+     * enforce the respect of github.com&#39;s best practices to avoid hitting abuse rate limitsDefaults to false if not set
+     * 
+     */
+    public Optional<Output<Boolean>> parallelRequests() {
+        return Optional.ofNullable(this.parallelRequests);
+    }
+
+    /**
      * Amount of time in milliseconds to sleep in between non-write requests to GitHub API. Defaults to 0ms if not set.
      * 
      */
@@ -157,6 +176,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         this.insecure = $.insecure;
         this.organization = $.organization;
         this.owner = $.owner;
+        this.parallelRequests = $.parallelRequests;
         this.readDelayMs = $.readDelayMs;
         this.token = $.token;
         this.writeDelayMs = $.writeDelayMs;
@@ -293,6 +313,31 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder owner(String owner) {
             return owner(Output.of(owner));
+        }
+
+        /**
+         * @param parallelRequests Allow the provider to make parallel API calls to GitHub. You may want to set it to true when you have a private Github
+         * Enterprise without strict rate limits. Although, it is not possible to enable this setting on github.com because we
+         * enforce the respect of github.com&#39;s best practices to avoid hitting abuse rate limitsDefaults to false if not set
+         * 
+         * @return builder
+         * 
+         */
+        public Builder parallelRequests(@Nullable Output<Boolean> parallelRequests) {
+            $.parallelRequests = parallelRequests;
+            return this;
+        }
+
+        /**
+         * @param parallelRequests Allow the provider to make parallel API calls to GitHub. You may want to set it to true when you have a private Github
+         * Enterprise without strict rate limits. Although, it is not possible to enable this setting on github.com because we
+         * enforce the respect of github.com&#39;s best practices to avoid hitting abuse rate limitsDefaults to false if not set
+         * 
+         * @return builder
+         * 
+         */
+        public Builder parallelRequests(Boolean parallelRequests) {
+            return parallelRequests(Output.of(parallelRequests));
         }
 
         /**

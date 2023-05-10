@@ -180,10 +180,14 @@ class TeamRepository(pulumi.CustomResource):
 
         ## Import
 
-        GitHub Team Repository can be imported using an ID made up of `team_id:repository`, e.g.
+        GitHub Team Repository can be imported using an ID made up of `team_id:repository` or `team_name:repository`, e.g.
 
         ```sh
          $ pulumi import github:index/teamRepository:TeamRepository terraform_repo 1234567:terraform
+        ```
+
+        ```sh
+         $ pulumi import github:index/teamRepository:TeamRepository terraform_repo Administrators:terraform
         ```
 
         :param str resource_name: The name of the resource.
@@ -233,10 +237,14 @@ class TeamRepository(pulumi.CustomResource):
 
         ## Import
 
-        GitHub Team Repository can be imported using an ID made up of `team_id:repository`, e.g.
+        GitHub Team Repository can be imported using an ID made up of `team_id:repository` or `team_name:repository`, e.g.
 
         ```sh
          $ pulumi import github:index/teamRepository:TeamRepository terraform_repo 1234567:terraform
+        ```
+
+        ```sh
+         $ pulumi import github:index/teamRepository:TeamRepository terraform_repo Administrators:terraform
         ```
 
         :param str resource_name: The name of the resource.

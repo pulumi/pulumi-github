@@ -42,6 +42,7 @@ __all__ = [
     'GetActionsOrganizationVariablesVariableResult',
     'GetActionsSecretsSecretResult',
     'GetActionsVariablesVariableResult',
+    'GetBranchProtectionRulesRuleResult',
     'GetCollaboratorsCollaboratorResult',
     'GetDependabotOrganizationSecretsSecretResult',
     'GetDependabotSecretsSecretResult',
@@ -1684,6 +1685,24 @@ class GetActionsVariablesVariableResult(dict):
         Value of the variable
         """
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetBranchProtectionRulesRuleResult(dict):
+    def __init__(__self__, *,
+                 pattern: str):
+        """
+        :param str pattern: Identifies the protection rule pattern.
+        """
+        pulumi.set(__self__, "pattern", pattern)
+
+    @property
+    @pulumi.getter
+    def pattern(self) -> str:
+        """
+        Identifies the protection rule pattern.
+        """
+        return pulumi.get(self, "pattern")
 
 
 @pulumi.output_type
