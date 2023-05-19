@@ -14,6 +14,8 @@ public final class BranchProtectionV3Restrictions {
     /**
      * @return The list of app slugs with push access.
      * 
+     * `restrictions` is only available for organization-owned repositories.
+     * 
      */
     private @Nullable List<String> apps;
     /**
@@ -31,6 +33,8 @@ public final class BranchProtectionV3Restrictions {
     private BranchProtectionV3Restrictions() {}
     /**
      * @return The list of app slugs with push access.
+     * 
+     * `restrictions` is only available for organization-owned repositories.
      * 
      */
     public List<String> apps() {

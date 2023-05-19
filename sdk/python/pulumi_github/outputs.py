@@ -615,6 +615,8 @@ class BranchProtectionV3Restrictions(dict):
                  users: Optional[Sequence[str]] = None):
         """
         :param Sequence[str] apps: The list of app slugs with push access.
+               
+               `restrictions` is only available for organization-owned repositories.
         :param Sequence[str] teams: The list of team slugs with push access.
                Always use `slug` of the team, **not** its name. Each team already **has** to have access to the repository.
         :param Sequence[str] users: The list of user logins with push access.
@@ -631,6 +633,8 @@ class BranchProtectionV3Restrictions(dict):
     def apps(self) -> Optional[Sequence[str]]:
         """
         The list of app slugs with push access.
+
+        `restrictions` is only available for organization-owned repositories.
         """
         return pulumi.get(self, "apps")
 

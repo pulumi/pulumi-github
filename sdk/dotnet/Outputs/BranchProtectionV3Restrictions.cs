@@ -15,6 +15,8 @@ namespace Pulumi.Github.Outputs
     {
         /// <summary>
         /// The list of app slugs with push access.
+        /// 
+        /// `restrictions` is only available for organization-owned repositories.
         /// </summary>
         public readonly ImmutableArray<string> Apps;
         /// <summary>

@@ -169,7 +169,7 @@ def get_repository_file(branch: Optional[str] = None,
     import pulumi
     import pulumi_github as github
 
-    foo = github.get_repository_file(repository=github_repository["foo"]["name"],
+    foo = github.get_repository_file(repository=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
         branch="main",
         file=".gitignore")
     ```
@@ -215,7 +215,7 @@ def get_repository_file_output(branch: Optional[pulumi.Input[Optional[str]]] = N
     import pulumi
     import pulumi_github as github
 
-    foo = github.get_repository_file(repository=github_repository["foo"]["name"],
+    foo = github.get_repository_file(repository=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
         branch="main",
         file=".gitignore")
     ```

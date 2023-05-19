@@ -1399,6 +1399,8 @@ func (o BranchProtectionV3RequiredStatusChecksPtrOutput) Strict() pulumi.BoolPtr
 
 type BranchProtectionV3Restrictions struct {
 	// The list of app slugs with push access.
+	//
+	// `restrictions` is only available for organization-owned repositories.
 	Apps []string `pulumi:"apps"`
 	// The list of team slugs with push access.
 	// Always use `slug` of the team, **not** its name. Each team already **has** to have access to the repository.
@@ -1420,6 +1422,8 @@ type BranchProtectionV3RestrictionsInput interface {
 
 type BranchProtectionV3RestrictionsArgs struct {
 	// The list of app slugs with push access.
+	//
+	// `restrictions` is only available for organization-owned repositories.
 	Apps pulumi.StringArrayInput `pulumi:"apps"`
 	// The list of team slugs with push access.
 	// Always use `slug` of the team, **not** its name. Each team already **has** to have access to the repository.
@@ -1506,6 +1510,8 @@ func (o BranchProtectionV3RestrictionsOutput) ToBranchProtectionV3RestrictionsPt
 }
 
 // The list of app slugs with push access.
+//
+// `restrictions` is only available for organization-owned repositories.
 func (o BranchProtectionV3RestrictionsOutput) Apps() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BranchProtectionV3Restrictions) []string { return v.Apps }).(pulumi.StringArrayOutput)
 }
@@ -1546,6 +1552,8 @@ func (o BranchProtectionV3RestrictionsPtrOutput) Elem() BranchProtectionV3Restri
 }
 
 // The list of app slugs with push access.
+//
+// `restrictions` is only available for organization-owned repositories.
 func (o BranchProtectionV3RestrictionsPtrOutput) Apps() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BranchProtectionV3Restrictions) []string {
 		if v == nil {

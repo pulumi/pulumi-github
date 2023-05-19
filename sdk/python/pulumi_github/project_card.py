@@ -23,6 +23,9 @@ class ProjectCardArgs:
         :param pulumi.Input[str] column_id: The ID of the card.
         :param pulumi.Input[int] content_id: `github_issue.issue_id`.
         :param pulumi.Input[str] content_type: Must be either `Issue` or `PullRequest`
+               
+               **Remarks:** You must either set the `note` attribute or both `content_id` and `content_type`.
+               See note example or issue example for more information.
         :param pulumi.Input[str] note: The note contents of the card. Markdown supported.
         """
         pulumi.set(__self__, "column_id", column_id)
@@ -62,6 +65,9 @@ class ProjectCardArgs:
     def content_type(self) -> Optional[pulumi.Input[str]]:
         """
         Must be either `Issue` or `PullRequest`
+
+        **Remarks:** You must either set the `note` attribute or both `content_id` and `content_type`.
+        See note example or issue example for more information.
         """
         return pulumi.get(self, "content_type")
 
@@ -97,6 +103,9 @@ class _ProjectCardState:
         :param pulumi.Input[str] column_id: The ID of the card.
         :param pulumi.Input[int] content_id: `github_issue.issue_id`.
         :param pulumi.Input[str] content_type: Must be either `Issue` or `PullRequest`
+               
+               **Remarks:** You must either set the `note` attribute or both `content_id` and `content_type`.
+               See note example or issue example for more information.
         :param pulumi.Input[str] note: The note contents of the card. Markdown supported.
         """
         if card_id is not None:
@@ -153,6 +162,9 @@ class _ProjectCardState:
     def content_type(self) -> Optional[pulumi.Input[str]]:
         """
         Must be either `Issue` or `PullRequest`
+
+        **Remarks:** You must either set the `note` attribute or both `content_id` and `content_type`.
+        See note example or issue example for more information.
         """
         return pulumi.get(self, "content_type")
 
@@ -243,6 +255,9 @@ class ProjectCard(pulumi.CustomResource):
         :param pulumi.Input[str] column_id: The ID of the card.
         :param pulumi.Input[int] content_id: `github_issue.issue_id`.
         :param pulumi.Input[str] content_type: Must be either `Issue` or `PullRequest`
+               
+               **Remarks:** You must either set the `note` attribute or both `content_id` and `content_type`.
+               See note example or issue example for more information.
         :param pulumi.Input[str] note: The note contents of the card. Markdown supported.
         """
         ...
@@ -360,6 +375,9 @@ class ProjectCard(pulumi.CustomResource):
         :param pulumi.Input[str] column_id: The ID of the card.
         :param pulumi.Input[int] content_id: `github_issue.issue_id`.
         :param pulumi.Input[str] content_type: Must be either `Issue` or `PullRequest`
+               
+               **Remarks:** You must either set the `note` attribute or both `content_id` and `content_type`.
+               See note example or issue example for more information.
         :param pulumi.Input[str] note: The note contents of the card. Markdown supported.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -403,6 +421,9 @@ class ProjectCard(pulumi.CustomResource):
     def content_type(self) -> pulumi.Output[Optional[str]]:
         """
         Must be either `Issue` or `PullRequest`
+
+        **Remarks:** You must either set the `note` attribute or both `content_id` and `content_type`.
+        See note example or issue example for more information.
         """
         return pulumi.get(self, "content_type")
 

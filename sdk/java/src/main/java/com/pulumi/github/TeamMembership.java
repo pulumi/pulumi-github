@@ -15,6 +15,17 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * Provides a GitHub team membership resource.
+ * 
+ * This resource allows you to add/remove users from teams in your organization. When applied,
+ * the user will be added to the team. If the user hasn&#39;t accepted their invitation to the
+ * organization, they won&#39;t be part of the team until they do. When
+ * destroyed, the user will be removed from the team.
+ * 
+ * &gt; **Note** This resource is not compatible with `github.TeamMembers`. Use either `github.TeamMembers` or `github.TeamMembership`.
+ * 
+ * &gt; **Note** Organization owners may not be set as &#34;members&#34; of a team; they may only be set as &#34;maintainers&#34;. Attempting to set organization an owner to &#34;member&#34; of a may result in a `pulumi preview` diff that changes their status back to &#34;maintainer&#34;.
+ * 
  * ## Example Usage
  * ```java
  * package generated_program;

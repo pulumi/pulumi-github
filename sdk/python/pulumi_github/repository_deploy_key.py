@@ -23,6 +23,8 @@ class RepositoryDeployKeyArgs:
         :param pulumi.Input[str] key: A SSH key.
         :param pulumi.Input[str] repository: Name of the GitHub repository.
         :param pulumi.Input[str] title: A title.
+               
+               Changing any of the fields forces re-creating the resource.
         :param pulumi.Input[bool] read_only: A boolean qualifying the key to be either read only or read/write.
         """
         pulumi.set(__self__, "key", key)
@@ -60,6 +62,8 @@ class RepositoryDeployKeyArgs:
     def title(self) -> pulumi.Input[str]:
         """
         A title.
+
+        Changing any of the fields forces re-creating the resource.
         """
         return pulumi.get(self, "title")
 
@@ -94,6 +98,8 @@ class _RepositoryDeployKeyState:
         :param pulumi.Input[bool] read_only: A boolean qualifying the key to be either read only or read/write.
         :param pulumi.Input[str] repository: Name of the GitHub repository.
         :param pulumi.Input[str] title: A title.
+               
+               Changing any of the fields forces re-creating the resource.
         """
         if etag is not None:
             pulumi.set(__self__, "etag", etag)
@@ -156,6 +162,8 @@ class _RepositoryDeployKeyState:
     def title(self) -> Optional[pulumi.Input[str]]:
         """
         A title.
+
+        Changing any of the fields forces re-creating the resource.
         """
         return pulumi.get(self, "title")
 
@@ -214,6 +222,8 @@ class RepositoryDeployKey(pulumi.CustomResource):
         :param pulumi.Input[bool] read_only: A boolean qualifying the key to be either read only or read/write.
         :param pulumi.Input[str] repository: Name of the GitHub repository.
         :param pulumi.Input[str] title: A title.
+               
+               Changing any of the fields forces re-creating the resource.
         """
         ...
     @overload
@@ -320,6 +330,8 @@ class RepositoryDeployKey(pulumi.CustomResource):
         :param pulumi.Input[bool] read_only: A boolean qualifying the key to be either read only or read/write.
         :param pulumi.Input[str] repository: Name of the GitHub repository.
         :param pulumi.Input[str] title: A title.
+               
+               Changing any of the fields forces re-creating the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -366,6 +378,8 @@ class RepositoryDeployKey(pulumi.CustomResource):
     def title(self) -> pulumi.Output[str]:
         """
         A title.
+
+        Changing any of the fields forces re-creating the resource.
         """
         return pulumi.get(self, "title")
 

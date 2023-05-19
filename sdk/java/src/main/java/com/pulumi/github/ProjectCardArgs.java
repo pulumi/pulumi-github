@@ -49,12 +49,18 @@ public final class ProjectCardArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Must be either `Issue` or `PullRequest`
      * 
+     * **Remarks:** You must either set the `note` attribute or both `content_id` and `content_type`.
+     * See note example or issue example for more information.
+     * 
      */
     @Import(name="contentType")
     private @Nullable Output<String> contentType;
 
     /**
      * @return Must be either `Issue` or `PullRequest`
+     * 
+     * **Remarks:** You must either set the `note` attribute or both `content_id` and `content_type`.
+     * See note example or issue example for more information.
      * 
      */
     public Optional<Output<String>> contentType() {
@@ -148,6 +154,9 @@ public final class ProjectCardArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param contentType Must be either `Issue` or `PullRequest`
          * 
+         * **Remarks:** You must either set the `note` attribute or both `content_id` and `content_type`.
+         * See note example or issue example for more information.
+         * 
          * @return builder
          * 
          */
@@ -158,6 +167,9 @@ public final class ProjectCardArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param contentType Must be either `Issue` or `PullRequest`
+         * 
+         * **Remarks:** You must either set the `note` attribute or both `content_id` and `content_type`.
+         * See note example or issue example for more information.
          * 
          * @return builder
          * 

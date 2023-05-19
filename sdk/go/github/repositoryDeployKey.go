@@ -71,6 +71,8 @@ type RepositoryDeployKey struct {
 	// Name of the GitHub repository.
 	Repository pulumi.StringOutput `pulumi:"repository"`
 	// A title.
+	//
+	// Changing any of the fields forces re-creating the resource.
 	Title pulumi.StringOutput `pulumi:"title"`
 }
 
@@ -120,6 +122,8 @@ type repositoryDeployKeyState struct {
 	// Name of the GitHub repository.
 	Repository *string `pulumi:"repository"`
 	// A title.
+	//
+	// Changing any of the fields forces re-creating the resource.
 	Title *string `pulumi:"title"`
 }
 
@@ -132,6 +136,8 @@ type RepositoryDeployKeyState struct {
 	// Name of the GitHub repository.
 	Repository pulumi.StringPtrInput
 	// A title.
+	//
+	// Changing any of the fields forces re-creating the resource.
 	Title pulumi.StringPtrInput
 }
 
@@ -147,6 +153,8 @@ type repositoryDeployKeyArgs struct {
 	// Name of the GitHub repository.
 	Repository string `pulumi:"repository"`
 	// A title.
+	//
+	// Changing any of the fields forces re-creating the resource.
 	Title string `pulumi:"title"`
 }
 
@@ -159,6 +167,8 @@ type RepositoryDeployKeyArgs struct {
 	// Name of the GitHub repository.
 	Repository pulumi.StringInput
 	// A title.
+	//
+	// Changing any of the fields forces re-creating the resource.
 	Title pulumi.StringInput
 }
 
@@ -269,6 +279,8 @@ func (o RepositoryDeployKeyOutput) Repository() pulumi.StringOutput {
 }
 
 // A title.
+//
+// Changing any of the fields forces re-creating the resource.
 func (o RepositoryDeployKeyOutput) Title() pulumi.StringOutput {
 	return o.ApplyT(func(v *RepositoryDeployKey) pulumi.StringOutput { return v.Title }).(pulumi.StringOutput)
 }

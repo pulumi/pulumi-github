@@ -71,12 +71,16 @@ public final class RepositoryDeployKeyState extends com.pulumi.resources.Resourc
     /**
      * A title.
      * 
+     * Changing any of the fields forces re-creating the resource.
+     * 
      */
     @Import(name="title")
     private @Nullable Output<String> title;
 
     /**
      * @return A title.
+     * 
+     * Changing any of the fields forces re-creating the resource.
      * 
      */
     public Optional<Output<String>> title() {
@@ -186,6 +190,8 @@ public final class RepositoryDeployKeyState extends com.pulumi.resources.Resourc
         /**
          * @param title A title.
          * 
+         * Changing any of the fields forces re-creating the resource.
+         * 
          * @return builder
          * 
          */
@@ -196,6 +202,8 @@ public final class RepositoryDeployKeyState extends com.pulumi.resources.Resourc
 
         /**
          * @param title A title.
+         * 
+         * Changing any of the fields forces re-creating the resource.
          * 
          * @return builder
          * 

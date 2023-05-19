@@ -38,6 +38,8 @@ type AppInstallationRepositories struct {
 	// The GitHub app installation id.
 	InstallationId pulumi.StringOutput `pulumi:"installationId"`
 	// A list of repository names to install the app on.
+	//
+	// > **Note**: Due to how GitHub implements app installations, apps cannot be installed with no repositories selected. Therefore deleting this resource will leave one repository with the app installed. Manually uninstall the app or set the installation to all repositories via the GUI as after deleting this resource.
 	SelectedRepositories pulumi.StringArrayOutput `pulumi:"selectedRepositories"`
 }
 
@@ -79,6 +81,8 @@ type appInstallationRepositoriesState struct {
 	// The GitHub app installation id.
 	InstallationId *string `pulumi:"installationId"`
 	// A list of repository names to install the app on.
+	//
+	// > **Note**: Due to how GitHub implements app installations, apps cannot be installed with no repositories selected. Therefore deleting this resource will leave one repository with the app installed. Manually uninstall the app or set the installation to all repositories via the GUI as after deleting this resource.
 	SelectedRepositories []string `pulumi:"selectedRepositories"`
 }
 
@@ -86,6 +90,8 @@ type AppInstallationRepositoriesState struct {
 	// The GitHub app installation id.
 	InstallationId pulumi.StringPtrInput
 	// A list of repository names to install the app on.
+	//
+	// > **Note**: Due to how GitHub implements app installations, apps cannot be installed with no repositories selected. Therefore deleting this resource will leave one repository with the app installed. Manually uninstall the app or set the installation to all repositories via the GUI as after deleting this resource.
 	SelectedRepositories pulumi.StringArrayInput
 }
 
@@ -97,6 +103,8 @@ type appInstallationRepositoriesArgs struct {
 	// The GitHub app installation id.
 	InstallationId string `pulumi:"installationId"`
 	// A list of repository names to install the app on.
+	//
+	// > **Note**: Due to how GitHub implements app installations, apps cannot be installed with no repositories selected. Therefore deleting this resource will leave one repository with the app installed. Manually uninstall the app or set the installation to all repositories via the GUI as after deleting this resource.
 	SelectedRepositories []string `pulumi:"selectedRepositories"`
 }
 
@@ -105,6 +113,8 @@ type AppInstallationRepositoriesArgs struct {
 	// The GitHub app installation id.
 	InstallationId pulumi.StringInput
 	// A list of repository names to install the app on.
+	//
+	// > **Note**: Due to how GitHub implements app installations, apps cannot be installed with no repositories selected. Therefore deleting this resource will leave one repository with the app installed. Manually uninstall the app or set the installation to all repositories via the GUI as after deleting this resource.
 	SelectedRepositories pulumi.StringArrayInput
 }
 
@@ -201,6 +211,8 @@ func (o AppInstallationRepositoriesOutput) InstallationId() pulumi.StringOutput 
 }
 
 // A list of repository names to install the app on.
+//
+// > **Note**: Due to how GitHub implements app installations, apps cannot be installed with no repositories selected. Therefore deleting this resource will leave one repository with the app installed. Manually uninstall the app or set the installation to all repositories via the GUI as after deleting this resource.
 func (o AppInstallationRepositoriesOutput) SelectedRepositories() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AppInstallationRepositories) pulumi.StringArrayOutput { return v.SelectedRepositories }).(pulumi.StringArrayOutput)
 }

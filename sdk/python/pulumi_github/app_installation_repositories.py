@@ -20,6 +20,8 @@ class AppInstallationRepositoriesArgs:
         The set of arguments for constructing a AppInstallationRepositories resource.
         :param pulumi.Input[str] installation_id: The GitHub app installation id.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] selected_repositories: A list of repository names to install the app on.
+               
+               > **Note**: Due to how GitHub implements app installations, apps cannot be installed with no repositories selected. Therefore deleting this resource will leave one repository with the app installed. Manually uninstall the app or set the installation to all repositories via the GUI as after deleting this resource.
         """
         pulumi.set(__self__, "installation_id", installation_id)
         pulumi.set(__self__, "selected_repositories", selected_repositories)
@@ -41,6 +43,8 @@ class AppInstallationRepositoriesArgs:
     def selected_repositories(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         A list of repository names to install the app on.
+
+        > **Note**: Due to how GitHub implements app installations, apps cannot be installed with no repositories selected. Therefore deleting this resource will leave one repository with the app installed. Manually uninstall the app or set the installation to all repositories via the GUI as after deleting this resource.
         """
         return pulumi.get(self, "selected_repositories")
 
@@ -58,6 +62,8 @@ class _AppInstallationRepositoriesState:
         Input properties used for looking up and filtering AppInstallationRepositories resources.
         :param pulumi.Input[str] installation_id: The GitHub app installation id.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] selected_repositories: A list of repository names to install the app on.
+               
+               > **Note**: Due to how GitHub implements app installations, apps cannot be installed with no repositories selected. Therefore deleting this resource will leave one repository with the app installed. Manually uninstall the app or set the installation to all repositories via the GUI as after deleting this resource.
         """
         if installation_id is not None:
             pulumi.set(__self__, "installation_id", installation_id)
@@ -81,6 +87,8 @@ class _AppInstallationRepositoriesState:
     def selected_repositories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         A list of repository names to install the app on.
+
+        > **Note**: Due to how GitHub implements app installations, apps cannot be installed with no repositories selected. Therefore deleting this resource will leave one repository with the app installed. Manually uninstall the app or set the installation to all repositories via the GUI as after deleting this resource.
         """
         return pulumi.get(self, "selected_repositories")
 
@@ -122,6 +130,8 @@ class AppInstallationRepositories(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] installation_id: The GitHub app installation id.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] selected_repositories: A list of repository names to install the app on.
+               
+               > **Note**: Due to how GitHub implements app installations, apps cannot be installed with no repositories selected. Therefore deleting this resource will leave one repository with the app installed. Manually uninstall the app or set the installation to all repositories via the GUI as after deleting this resource.
         """
         ...
     @overload
@@ -203,6 +213,8 @@ class AppInstallationRepositories(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] installation_id: The GitHub app installation id.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] selected_repositories: A list of repository names to install the app on.
+               
+               > **Note**: Due to how GitHub implements app installations, apps cannot be installed with no repositories selected. Therefore deleting this resource will leave one repository with the app installed. Manually uninstall the app or set the installation to all repositories via the GUI as after deleting this resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -225,6 +237,8 @@ class AppInstallationRepositories(pulumi.CustomResource):
     def selected_repositories(self) -> pulumi.Output[Sequence[str]]:
         """
         A list of repository names to install the app on.
+
+        > **Note**: Due to how GitHub implements app installations, apps cannot be installed with no repositories selected. Therefore deleting this resource will leave one repository with the app installed. Manually uninstall the app or set the installation to all repositories via the GUI as after deleting this resource.
         """
         return pulumi.get(self, "selected_repositories")
 

@@ -77,6 +77,8 @@ namespace Pulumi.Github
 
         /// <summary>
         /// A title.
+        /// 
+        /// Changing any of the fields forces re-creating the resource.
         /// </summary>
         [Output("title")]
         public Output<string> Title { get; private set; } = null!;
@@ -147,6 +149,8 @@ namespace Pulumi.Github
 
         /// <summary>
         /// A title.
+        /// 
+        /// Changing any of the fields forces re-creating the resource.
         /// </summary>
         [Input("title", required: true)]
         public Input<string> Title { get; set; } = null!;
@@ -182,6 +186,8 @@ namespace Pulumi.Github
 
         /// <summary>
         /// A title.
+        /// 
+        /// Changing any of the fields forces re-creating the resource.
         /// </summary>
         [Input("title")]
         public Input<string>? Title { get; set; }

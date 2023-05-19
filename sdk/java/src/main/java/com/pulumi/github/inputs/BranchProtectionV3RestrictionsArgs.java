@@ -19,12 +19,16 @@ public final class BranchProtectionV3RestrictionsArgs extends com.pulumi.resourc
     /**
      * The list of app slugs with push access.
      * 
+     * `restrictions` is only available for organization-owned repositories.
+     * 
      */
     @Import(name="apps")
     private @Nullable Output<List<String>> apps;
 
     /**
      * @return The list of app slugs with push access.
+     * 
+     * `restrictions` is only available for organization-owned repositories.
      * 
      */
     public Optional<Output<List<String>>> apps() {
@@ -92,6 +96,8 @@ public final class BranchProtectionV3RestrictionsArgs extends com.pulumi.resourc
         /**
          * @param apps The list of app slugs with push access.
          * 
+         * `restrictions` is only available for organization-owned repositories.
+         * 
          * @return builder
          * 
          */
@@ -103,6 +109,8 @@ public final class BranchProtectionV3RestrictionsArgs extends com.pulumi.resourc
         /**
          * @param apps The list of app slugs with push access.
          * 
+         * `restrictions` is only available for organization-owned repositories.
+         * 
          * @return builder
          * 
          */
@@ -112,6 +120,8 @@ public final class BranchProtectionV3RestrictionsArgs extends com.pulumi.resourc
 
         /**
          * @param apps The list of app slugs with push access.
+         * 
+         * `restrictions` is only available for organization-owned repositories.
          * 
          * @return builder
          * 

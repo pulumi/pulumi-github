@@ -17,6 +17,8 @@ namespace Pulumi.Github.Inputs
 
         /// <summary>
         /// The list of app slugs with push access.
+        /// 
+        /// `restrictions` is only available for organization-owned repositories.
         /// </summary>
         public InputList<string> Apps
         {
