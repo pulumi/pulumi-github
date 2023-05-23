@@ -36,7 +36,7 @@ import * as utilities from "./utilities";
  * This resource can be imported using the name of the GitHub repository
  *
  * ```sh
- *  $ pulumi import github:index/actionsRepositoryPermissions:ActionsRepositoryPermissions test <github_repository_name>
+ *  $ pulumi import github:index/actionsRepositoryPermissions:ActionsRepositoryPermissions test my-repository
  * ```
  */
 export class ActionsRepositoryPermissions extends pulumi.CustomResource {

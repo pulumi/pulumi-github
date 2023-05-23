@@ -59,7 +59,7 @@ import (
 //
 // ```sh
 //
-//	$ pulumi import github:index/actionsRepositoryPermissions:ActionsRepositoryPermissions test <github_repository_name>
+//	$ pulumi import github:index/actionsRepositoryPermissions:ActionsRepositoryPermissions test my-repository
 //
 // ```
 type ActionsRepositoryPermissions struct {

@@ -156,6 +156,8 @@ export interface BranchProtectionV3RequiredStatusChecks {
 export interface BranchProtectionV3Restrictions {
     /**
      * The list of app slugs with push access.
+     *
+     * `restrictions` is only available for organization-owned repositories.
      */
     apps?: string[];
     /**

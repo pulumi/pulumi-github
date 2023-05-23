@@ -122,12 +122,16 @@ public class RepositoryDeployKey extends com.pulumi.resources.CustomResource {
     /**
      * A title.
      * 
+     * Changing any of the fields forces re-creating the resource.
+     * 
      */
     @Export(name="title", type=String.class, parameters={})
     private Output<String> title;
 
     /**
      * @return A title.
+     * 
+     * Changing any of the fields forces re-creating the resource.
      * 
      */
     public Output<String> title() {

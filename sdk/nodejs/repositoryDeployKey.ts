@@ -82,6 +82,8 @@ export class RepositoryDeployKey extends pulumi.CustomResource {
     public readonly repository!: pulumi.Output<string>;
     /**
      * A title.
+     *
+     * Changing any of the fields forces re-creating the resource.
      */
     public readonly title!: pulumi.Output<string>;
 
@@ -144,6 +146,8 @@ export interface RepositoryDeployKeyState {
     repository?: pulumi.Input<string>;
     /**
      * A title.
+     *
+     * Changing any of the fields forces re-creating the resource.
      */
     title?: pulumi.Input<string>;
 }
@@ -166,6 +170,8 @@ export interface RepositoryDeployKeyArgs {
     repository: pulumi.Input<string>;
     /**
      * A title.
+     *
+     * Changing any of the fields forces re-creating the resource.
      */
     title: pulumi.Input<string>;
 }

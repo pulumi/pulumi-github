@@ -126,6 +126,9 @@ type ProjectCard struct {
 	// `github_issue.issue_id`.
 	ContentId pulumi.IntPtrOutput `pulumi:"contentId"`
 	// Must be either `Issue` or `PullRequest`
+	//
+	// **Remarks:** You must either set the `note` attribute or both `contentId` and `contentType`.
+	// See note example or issue example for more information.
 	ContentType pulumi.StringPtrOutput `pulumi:"contentType"`
 	Etag        pulumi.StringOutput    `pulumi:"etag"`
 	// The note contents of the card. Markdown supported.
@@ -171,6 +174,9 @@ type projectCardState struct {
 	// `github_issue.issue_id`.
 	ContentId *int `pulumi:"contentId"`
 	// Must be either `Issue` or `PullRequest`
+	//
+	// **Remarks:** You must either set the `note` attribute or both `contentId` and `contentType`.
+	// See note example or issue example for more information.
 	ContentType *string `pulumi:"contentType"`
 	Etag        *string `pulumi:"etag"`
 	// The note contents of the card. Markdown supported.
@@ -185,6 +191,9 @@ type ProjectCardState struct {
 	// `github_issue.issue_id`.
 	ContentId pulumi.IntPtrInput
 	// Must be either `Issue` or `PullRequest`
+	//
+	// **Remarks:** You must either set the `note` attribute or both `contentId` and `contentType`.
+	// See note example or issue example for more information.
 	ContentType pulumi.StringPtrInput
 	Etag        pulumi.StringPtrInput
 	// The note contents of the card. Markdown supported.
@@ -201,6 +210,9 @@ type projectCardArgs struct {
 	// `github_issue.issue_id`.
 	ContentId *int `pulumi:"contentId"`
 	// Must be either `Issue` or `PullRequest`
+	//
+	// **Remarks:** You must either set the `note` attribute or both `contentId` and `contentType`.
+	// See note example or issue example for more information.
 	ContentType *string `pulumi:"contentType"`
 	// The note contents of the card. Markdown supported.
 	Note *string `pulumi:"note"`
@@ -213,6 +225,9 @@ type ProjectCardArgs struct {
 	// `github_issue.issue_id`.
 	ContentId pulumi.IntPtrInput
 	// Must be either `Issue` or `PullRequest`
+	//
+	// **Remarks:** You must either set the `note` attribute or both `contentId` and `contentType`.
+	// See note example or issue example for more information.
 	ContentType pulumi.StringPtrInput
 	// The note contents of the card. Markdown supported.
 	Note pulumi.StringPtrInput
@@ -321,6 +336,9 @@ func (o ProjectCardOutput) ContentId() pulumi.IntPtrOutput {
 }
 
 // Must be either `Issue` or `PullRequest`
+//
+// **Remarks:** You must either set the `note` attribute or both `contentId` and `contentType`.
+// See note example or issue example for more information.
 func (o ProjectCardOutput) ContentType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProjectCard) pulumi.StringPtrOutput { return v.ContentType }).(pulumi.StringPtrOutput)
 }

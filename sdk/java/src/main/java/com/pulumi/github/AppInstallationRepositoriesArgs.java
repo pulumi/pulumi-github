@@ -32,12 +32,16 @@ public final class AppInstallationRepositoriesArgs extends com.pulumi.resources.
     /**
      * A list of repository names to install the app on.
      * 
+     * &gt; **Note**: Due to how GitHub implements app installations, apps cannot be installed with no repositories selected. Therefore deleting this resource will leave one repository with the app installed. Manually uninstall the app or set the installation to all repositories via the GUI as after deleting this resource.
+     * 
      */
     @Import(name="selectedRepositories", required=true)
     private Output<List<String>> selectedRepositories;
 
     /**
      * @return A list of repository names to install the app on.
+     * 
+     * &gt; **Note**: Due to how GitHub implements app installations, apps cannot be installed with no repositories selected. Therefore deleting this resource will leave one repository with the app installed. Manually uninstall the app or set the installation to all repositories via the GUI as after deleting this resource.
      * 
      */
     public Output<List<String>> selectedRepositories() {
@@ -93,6 +97,8 @@ public final class AppInstallationRepositoriesArgs extends com.pulumi.resources.
         /**
          * @param selectedRepositories A list of repository names to install the app on.
          * 
+         * &gt; **Note**: Due to how GitHub implements app installations, apps cannot be installed with no repositories selected. Therefore deleting this resource will leave one repository with the app installed. Manually uninstall the app or set the installation to all repositories via the GUI as after deleting this resource.
+         * 
          * @return builder
          * 
          */
@@ -104,6 +110,8 @@ public final class AppInstallationRepositoriesArgs extends com.pulumi.resources.
         /**
          * @param selectedRepositories A list of repository names to install the app on.
          * 
+         * &gt; **Note**: Due to how GitHub implements app installations, apps cannot be installed with no repositories selected. Therefore deleting this resource will leave one repository with the app installed. Manually uninstall the app or set the installation to all repositories via the GUI as after deleting this resource.
+         * 
          * @return builder
          * 
          */
@@ -113,6 +121,8 @@ public final class AppInstallationRepositoriesArgs extends com.pulumi.resources.
 
         /**
          * @param selectedRepositories A list of repository names to install the app on.
+         * 
+         * &gt; **Note**: Due to how GitHub implements app installations, apps cannot be installed with no repositories selected. Therefore deleting this resource will leave one repository with the app installed. Manually uninstall the app or set the installation to all repositories via the GUI as after deleting this resource.
          * 
          * @return builder
          * 

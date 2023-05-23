@@ -59,6 +59,8 @@ export class AppInstallationRepositories extends pulumi.CustomResource {
     public readonly installationId!: pulumi.Output<string>;
     /**
      * A list of repository names to install the app on.
+     *
+     * > **Note**: Due to how GitHub implements app installations, apps cannot be installed with no repositories selected. Therefore deleting this resource will leave one repository with the app installed. Manually uninstall the app or set the installation to all repositories via the GUI as after deleting this resource.
      */
     public readonly selectedRepositories!: pulumi.Output<string[]>;
 
@@ -103,6 +105,8 @@ export interface AppInstallationRepositoriesState {
     installationId?: pulumi.Input<string>;
     /**
      * A list of repository names to install the app on.
+     *
+     * > **Note**: Due to how GitHub implements app installations, apps cannot be installed with no repositories selected. Therefore deleting this resource will leave one repository with the app installed. Manually uninstall the app or set the installation to all repositories via the GUI as after deleting this resource.
      */
     selectedRepositories?: pulumi.Input<pulumi.Input<string>[]>;
 }
@@ -117,6 +121,8 @@ export interface AppInstallationRepositoriesArgs {
     installationId: pulumi.Input<string>;
     /**
      * A list of repository names to install the app on.
+     *
+     * > **Note**: Due to how GitHub implements app installations, apps cannot be installed with no repositories selected. Therefore deleting this resource will leave one repository with the app installed. Manually uninstall the app or set the installation to all repositories via the GUI as after deleting this resource.
      */
     selectedRepositories: pulumi.Input<pulumi.Input<string>[]>;
 }

@@ -32,6 +32,8 @@ type TeamSyncGroupMapping struct {
 	Etag pulumi.StringOutput `pulumi:"etag"`
 	// An Array of GitHub Identity Provider Groups (or empty []).  Each `group` block consists of the fields documented below.
 	// ***
+	//
+	// The `group` block consists of:
 	Groups TeamSyncGroupMappingGroupArrayOutput `pulumi:"groups"`
 	// Slug of the team
 	TeamSlug pulumi.StringOutput `pulumi:"teamSlug"`
@@ -72,6 +74,8 @@ type teamSyncGroupMappingState struct {
 	Etag *string `pulumi:"etag"`
 	// An Array of GitHub Identity Provider Groups (or empty []).  Each `group` block consists of the fields documented below.
 	// ***
+	//
+	// The `group` block consists of:
 	Groups []TeamSyncGroupMappingGroup `pulumi:"groups"`
 	// Slug of the team
 	TeamSlug *string `pulumi:"teamSlug"`
@@ -81,6 +85,8 @@ type TeamSyncGroupMappingState struct {
 	Etag pulumi.StringPtrInput
 	// An Array of GitHub Identity Provider Groups (or empty []).  Each `group` block consists of the fields documented below.
 	// ***
+	//
+	// The `group` block consists of:
 	Groups TeamSyncGroupMappingGroupArrayInput
 	// Slug of the team
 	TeamSlug pulumi.StringPtrInput
@@ -93,6 +99,8 @@ func (TeamSyncGroupMappingState) ElementType() reflect.Type {
 type teamSyncGroupMappingArgs struct {
 	// An Array of GitHub Identity Provider Groups (or empty []).  Each `group` block consists of the fields documented below.
 	// ***
+	//
+	// The `group` block consists of:
 	Groups []TeamSyncGroupMappingGroup `pulumi:"groups"`
 	// Slug of the team
 	TeamSlug string `pulumi:"teamSlug"`
@@ -102,6 +110,8 @@ type teamSyncGroupMappingArgs struct {
 type TeamSyncGroupMappingArgs struct {
 	// An Array of GitHub Identity Provider Groups (or empty []).  Each `group` block consists of the fields documented below.
 	// ***
+	//
+	// The `group` block consists of:
 	Groups TeamSyncGroupMappingGroupArrayInput
 	// Slug of the team
 	TeamSlug pulumi.StringInput
@@ -200,6 +210,8 @@ func (o TeamSyncGroupMappingOutput) Etag() pulumi.StringOutput {
 
 // An Array of GitHub Identity Provider Groups (or empty []).  Each `group` block consists of the fields documented below.
 // ***
+//
+// The `group` block consists of:
 func (o TeamSyncGroupMappingOutput) Groups() TeamSyncGroupMappingGroupArrayOutput {
 	return o.ApplyT(func(v *TeamSyncGroupMapping) TeamSyncGroupMappingGroupArrayOutput { return v.Groups }).(TeamSyncGroupMappingGroupArrayOutput)
 }

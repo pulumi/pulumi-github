@@ -64,12 +64,16 @@ public final class RepositoryDeployKeyArgs extends com.pulumi.resources.Resource
     /**
      * A title.
      * 
+     * Changing any of the fields forces re-creating the resource.
+     * 
      */
     @Import(name="title", required=true)
     private Output<String> title;
 
     /**
      * @return A title.
+     * 
+     * Changing any of the fields forces re-creating the resource.
      * 
      */
     public Output<String> title() {
@@ -169,6 +173,8 @@ public final class RepositoryDeployKeyArgs extends com.pulumi.resources.Resource
         /**
          * @param title A title.
          * 
+         * Changing any of the fields forces re-creating the resource.
+         * 
          * @return builder
          * 
          */
@@ -179,6 +185,8 @@ public final class RepositoryDeployKeyArgs extends com.pulumi.resources.Resource
 
         /**
          * @param title A title.
+         * 
+         * Changing any of the fields forces re-creating the resource.
          * 
          * @return builder
          * 

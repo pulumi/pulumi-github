@@ -33,6 +33,8 @@ namespace Pulumi.Github
         /// <summary>
         /// An Array of GitHub Identity Provider Groups (or empty []).  Each `group` block consists of the fields documented below.
         /// ___
+        /// 
+        /// The `group` block consists of:
         /// </summary>
         [Output("groups")]
         public Output<ImmutableArray<Outputs.TeamSyncGroupMappingGroup>> Groups { get; private set; } = null!;
@@ -95,6 +97,8 @@ namespace Pulumi.Github
         /// <summary>
         /// An Array of GitHub Identity Provider Groups (or empty []).  Each `group` block consists of the fields documented below.
         /// ___
+        /// 
+        /// The `group` block consists of:
         /// </summary>
         public InputList<Inputs.TeamSyncGroupMappingGroupArgs> Groups
         {
@@ -125,6 +129,8 @@ namespace Pulumi.Github
         /// <summary>
         /// An Array of GitHub Identity Provider Groups (or empty []).  Each `group` block consists of the fields documented below.
         /// ___
+        /// 
+        /// The `group` block consists of:
         /// </summary>
         public InputList<Inputs.TeamSyncGroupMappingGroupGetArgs> Groups
         {

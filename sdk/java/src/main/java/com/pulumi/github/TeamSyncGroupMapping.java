@@ -23,6 +23,41 @@ import javax.annotation.Nullable;
  * To learn more about team synchronization between IdPs and GitHub, please refer to:
  * https://help.github.com/en/github/setting-up-and-managing-organizations-and-teams/synchronizing-teams-between-your-identity-provider-and-github
  * 
+ * ## Example Usage
+ * 
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.github.GithubFunctions;
+ * import com.pulumi.github.TeamSyncGroupMapping;
+ * import com.pulumi.github.TeamSyncGroupMappingArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var exampleGroups = GithubFunctions.getOrganizationTeamSyncGroups();
+ * 
+ *         var exampleGroupMapping = new TeamSyncGroupMapping(&#34;exampleGroupMapping&#34;, TeamSyncGroupMappingArgs.builder()        
+ *             .teamSlug(&#34;example&#34;)
+ *             .dynamic(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
  * ## Import
  * 
  * GitHub Team Sync Group Mappings can be imported using the GitHub team `slug` e.g.
@@ -44,6 +79,8 @@ public class TeamSyncGroupMapping extends com.pulumi.resources.CustomResource {
      * An Array of GitHub Identity Provider Groups (or empty []).  Each `group` block consists of the fields documented below.
      * ***
      * 
+     * The `group` block consists of:
+     * 
      */
     @Export(name="groups", type=List.class, parameters={TeamSyncGroupMappingGroup.class})
     private Output</* @Nullable */ List<TeamSyncGroupMappingGroup>> groups;
@@ -51,6 +88,8 @@ public class TeamSyncGroupMapping extends com.pulumi.resources.CustomResource {
     /**
      * @return An Array of GitHub Identity Provider Groups (or empty []).  Each `group` block consists of the fields documented below.
      * ***
+     * 
+     * The `group` block consists of:
      * 
      */
     public Output<Optional<List<TeamSyncGroupMappingGroup>>> groups() {
