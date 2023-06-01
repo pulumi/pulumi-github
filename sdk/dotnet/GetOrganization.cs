@@ -102,7 +102,7 @@ namespace Pulumi.Github
     public sealed class GetOrganizationResult
     {
         /// <summary>
-        /// The description the organization account
+        /// The organization account description
         /// </summary>
         public readonly string Description;
         /// <summary>
@@ -122,7 +122,7 @@ namespace Pulumi.Github
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// GraphQL global node id for use with v4 API
+        /// GraphQL global node ID for use with the v4 API
         /// </summary>
         public readonly string NodeId;
         /// <summary>
@@ -130,11 +130,11 @@ namespace Pulumi.Github
         /// </summary>
         public readonly string Orgname;
         /// <summary>
-        /// The plan name for the organization account
+        /// The organization account plan name
         /// </summary>
         public readonly string Plan;
         /// <summary>
-        /// (`list`) A list with the repositories on the organization
+        /// (`list`) A list of the full names of the repositories in the organization formatted as `owner/name` strings
         /// </summary>
         public readonly ImmutableArray<string> Repositories;
         /// <summary>

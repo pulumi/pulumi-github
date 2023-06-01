@@ -67,18 +67,18 @@ import javax.annotation.Nullable;
 @ResourceType(type="github:index/actionsRunnerGroup:ActionsRunnerGroup")
 public class ActionsRunnerGroup extends com.pulumi.resources.CustomResource {
     /**
-     * Whether public repositories can be added to the runner group
+     * Whether public repositories can be added to the runner group. Defaults to false.
      * 
      */
     @Export(name="allowsPublicRepositories", type=Boolean.class, parameters={})
-    private Output<Boolean> allowsPublicRepositories;
+    private Output</* @Nullable */ Boolean> allowsPublicRepositories;
 
     /**
-     * @return Whether public repositories can be added to the runner group
+     * @return Whether public repositories can be added to the runner group. Defaults to false.
      * 
      */
-    public Output<Boolean> allowsPublicRepositories() {
-        return this.allowsPublicRepositories;
+    public Output<Optional<Boolean>> allowsPublicRepositories() {
+        return Codegen.optional(this.allowsPublicRepositories);
     }
     /**
      * Whether this is the default runner group

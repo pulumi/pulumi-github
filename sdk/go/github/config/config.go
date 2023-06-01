@@ -20,7 +20,11 @@ func GetBaseUrl(ctx *pulumi.Context) string {
 	if err == nil {
 		return v
 	}
-	return getEnvOrDefault("https://api.github.com/", nil, "GITHUB_BASE_URL").(string)
+	var value string
+	if d := getEnvOrDefault("https://api.github.com/", nil, "GITHUB_BASE_URL"); d != nil {
+		value = d.(string)
+	}
+	return value
 }
 
 // Enable `insecure` mode for testing purposes

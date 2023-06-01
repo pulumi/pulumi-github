@@ -231,6 +231,10 @@ export interface RepositoryEnvironmentReviewer {
 
 export interface RepositoryPages {
     /**
+     * The type of GitHub Pages site to build. Can be `legacy` or `workflow`. If you use `legacy` as build type you need to set the option `source`.
+     */
+    buildType?: pulumi.Input<string>;
+    /**
      * The custom domain for the repository. This can only be set after the repository has been created.
      */
     cname?: pulumi.Input<string>;
@@ -245,7 +249,7 @@ export interface RepositoryPages {
     /**
      * The source branch and directory for the rendered Pages site. See GitHub Pages Source below for details.
      */
-    source: pulumi.Input<inputs.RepositoryPagesSource>;
+    source?: pulumi.Input<inputs.RepositoryPagesSource>;
     /**
      * Set to `enabled` to enable advanced security features on the repository. Can be `enabled` or `disabled`.
      */

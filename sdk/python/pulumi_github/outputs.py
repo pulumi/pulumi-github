@@ -53,14 +53,17 @@ __all__ = [
     'GetOrganizationTeamsTeamResult',
     'GetOrganizationWebhooksWebhookResult',
     'GetReleaseAssetResult',
+    'GetRepositoryAutolinkReferencesAutolinkReferenceResult',
     'GetRepositoryBranchesBranchResult',
     'GetRepositoryDeployKeysKeyResult',
+    'GetRepositoryEnvironmentsEnvironmentResult',
     'GetRepositoryPageResult',
     'GetRepositoryPageSourceResult',
     'GetRepositoryPullRequestsResultResult',
     'GetRepositoryTeamsTeamResult',
     'GetRepositoryTemplateResult',
     'GetRepositoryWebhooksWebhookResult',
+    'GetTeamRepositoriesDetailedResult',
     'GetTreeEntryResult',
 ]
 
@@ -878,7 +881,9 @@ class RepositoryPages(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "htmlUrl":
+        if key == "buildType":
+            suggest = "build_type"
+        elif key == "htmlUrl":
             suggest = "html_url"
 
         if suggest:
@@ -893,38 +898,43 @@ class RepositoryPages(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 source: 'outputs.RepositoryPagesSource',
+                 build_type: Optional[str] = None,
                  cname: Optional[str] = None,
                  custom404: Optional[bool] = None,
                  html_url: Optional[str] = None,
+                 source: Optional['outputs.RepositoryPagesSource'] = None,
                  status: Optional[str] = None,
                  url: Optional[str] = None):
         """
-        :param 'RepositoryPagesSourceArgs' source: The source branch and directory for the rendered Pages site. See GitHub Pages Source below for details.
+        :param str build_type: The type of GitHub Pages site to build. Can be `legacy` or `workflow`. If you use `legacy` as build type you need to set the option `source`.
         :param str cname: The custom domain for the repository. This can only be set after the repository has been created.
         :param bool custom404: Whether the rendered GitHub Pages site has a custom 404 page.
         :param str html_url: The absolute URL (including scheme) of the rendered GitHub Pages site e.g. `https://username.github.io`.
+        :param 'RepositoryPagesSourceArgs' source: The source branch and directory for the rendered Pages site. See GitHub Pages Source below for details.
         :param str status: Set to `enabled` to enable advanced security features on the repository. Can be `enabled` or `disabled`.
         """
-        pulumi.set(__self__, "source", source)
+        if build_type is not None:
+            pulumi.set(__self__, "build_type", build_type)
         if cname is not None:
             pulumi.set(__self__, "cname", cname)
         if custom404 is not None:
             pulumi.set(__self__, "custom404", custom404)
         if html_url is not None:
             pulumi.set(__self__, "html_url", html_url)
+        if source is not None:
+            pulumi.set(__self__, "source", source)
         if status is not None:
             pulumi.set(__self__, "status", status)
         if url is not None:
             pulumi.set(__self__, "url", url)
 
     @property
-    @pulumi.getter
-    def source(self) -> 'outputs.RepositoryPagesSource':
+    @pulumi.getter(name="buildType")
+    def build_type(self) -> Optional[str]:
         """
-        The source branch and directory for the rendered Pages site. See GitHub Pages Source below for details.
+        The type of GitHub Pages site to build. Can be `legacy` or `workflow`. If you use `legacy` as build type you need to set the option `source`.
         """
-        return pulumi.get(self, "source")
+        return pulumi.get(self, "build_type")
 
     @property
     @pulumi.getter
@@ -949,6 +959,14 @@ class RepositoryPages(dict):
         The absolute URL (including scheme) of the rendered GitHub Pages site e.g. `https://username.github.io`.
         """
         return pulumi.get(self, "html_url")
+
+    @property
+    @pulumi.getter
+    def source(self) -> Optional['outputs.RepositoryPagesSource']:
+        """
+        The source branch and directory for the rendered Pages site. See GitHub Pages Source below for details.
+        """
+        return pulumi.get(self, "source")
 
     @property
     @pulumi.getter
@@ -2473,6 +2491,46 @@ class GetReleaseAssetResult(dict):
 
 
 @pulumi.output_type
+class GetRepositoryAutolinkReferencesAutolinkReferenceResult(dict):
+    def __init__(__self__, *,
+                 is_alphanumeric: bool,
+                 key_prefix: str,
+                 target_url_template: str):
+        """
+        :param bool is_alphanumeric: True if alphanumeric.
+        :param str key_prefix: Key prefix.
+        :param str target_url_template: Target url template.
+        """
+        pulumi.set(__self__, "is_alphanumeric", is_alphanumeric)
+        pulumi.set(__self__, "key_prefix", key_prefix)
+        pulumi.set(__self__, "target_url_template", target_url_template)
+
+    @property
+    @pulumi.getter(name="isAlphanumeric")
+    def is_alphanumeric(self) -> bool:
+        """
+        True if alphanumeric.
+        """
+        return pulumi.get(self, "is_alphanumeric")
+
+    @property
+    @pulumi.getter(name="keyPrefix")
+    def key_prefix(self) -> str:
+        """
+        Key prefix.
+        """
+        return pulumi.get(self, "key_prefix")
+
+    @property
+    @pulumi.getter(name="targetUrlTemplate")
+    def target_url_template(self) -> str:
+        """
+        Target url template.
+        """
+        return pulumi.get(self, "target_url_template")
+
+
+@pulumi.output_type
 class GetRepositoryBranchesBranchResult(dict):
     def __init__(__self__, *,
                  name: str,
@@ -2550,6 +2608,35 @@ class GetRepositoryDeployKeysKeyResult(dict):
         `true` if the key was verified.
         """
         return pulumi.get(self, "verified")
+
+
+@pulumi.output_type
+class GetRepositoryEnvironmentsEnvironmentResult(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 node_id: str):
+        """
+        :param str name: Environment name.
+        :param str node_id: Environment node id.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "node_id", node_id)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Environment name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="nodeId")
+    def node_id(self) -> str:
+        """
+        Environment node id.
+        """
+        return pulumi.get(self, "node_id")
 
 
 @pulumi.output_type
@@ -2926,6 +3013,25 @@ class GetRepositoryWebhooksWebhookResult(dict):
         the url of the webhook.
         """
         return pulumi.get(self, "url")
+
+
+@pulumi.output_type
+class GetTeamRepositoriesDetailedResult(dict):
+    def __init__(__self__, *,
+                 repo_id: int,
+                 role_name: str):
+        pulumi.set(__self__, "repo_id", repo_id)
+        pulumi.set(__self__, "role_name", role_name)
+
+    @property
+    @pulumi.getter(name="repoId")
+    def repo_id(self) -> int:
+        return pulumi.get(self, "repo_id")
+
+    @property
+    @pulumi.getter(name="roleName")
+    def role_name(self) -> str:
+        return pulumi.get(self, "role_name")
 
 
 @pulumi.output_type

@@ -888,42 +888,47 @@ class RepositoryEnvironmentReviewerArgs:
 @pulumi.input_type
 class RepositoryPagesArgs:
     def __init__(__self__, *,
-                 source: pulumi.Input['RepositoryPagesSourceArgs'],
+                 build_type: Optional[pulumi.Input[str]] = None,
                  cname: Optional[pulumi.Input[str]] = None,
                  custom404: Optional[pulumi.Input[bool]] = None,
                  html_url: Optional[pulumi.Input[str]] = None,
+                 source: Optional[pulumi.Input['RepositoryPagesSourceArgs']] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  url: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input['RepositoryPagesSourceArgs'] source: The source branch and directory for the rendered Pages site. See GitHub Pages Source below for details.
+        :param pulumi.Input[str] build_type: The type of GitHub Pages site to build. Can be `legacy` or `workflow`. If you use `legacy` as build type you need to set the option `source`.
         :param pulumi.Input[str] cname: The custom domain for the repository. This can only be set after the repository has been created.
         :param pulumi.Input[bool] custom404: Whether the rendered GitHub Pages site has a custom 404 page.
         :param pulumi.Input[str] html_url: The absolute URL (including scheme) of the rendered GitHub Pages site e.g. `https://username.github.io`.
+        :param pulumi.Input['RepositoryPagesSourceArgs'] source: The source branch and directory for the rendered Pages site. See GitHub Pages Source below for details.
         :param pulumi.Input[str] status: Set to `enabled` to enable advanced security features on the repository. Can be `enabled` or `disabled`.
         """
-        pulumi.set(__self__, "source", source)
+        if build_type is not None:
+            pulumi.set(__self__, "build_type", build_type)
         if cname is not None:
             pulumi.set(__self__, "cname", cname)
         if custom404 is not None:
             pulumi.set(__self__, "custom404", custom404)
         if html_url is not None:
             pulumi.set(__self__, "html_url", html_url)
+        if source is not None:
+            pulumi.set(__self__, "source", source)
         if status is not None:
             pulumi.set(__self__, "status", status)
         if url is not None:
             pulumi.set(__self__, "url", url)
 
     @property
-    @pulumi.getter
-    def source(self) -> pulumi.Input['RepositoryPagesSourceArgs']:
+    @pulumi.getter(name="buildType")
+    def build_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The source branch and directory for the rendered Pages site. See GitHub Pages Source below for details.
+        The type of GitHub Pages site to build. Can be `legacy` or `workflow`. If you use `legacy` as build type you need to set the option `source`.
         """
-        return pulumi.get(self, "source")
+        return pulumi.get(self, "build_type")
 
-    @source.setter
-    def source(self, value: pulumi.Input['RepositoryPagesSourceArgs']):
-        pulumi.set(self, "source", value)
+    @build_type.setter
+    def build_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "build_type", value)
 
     @property
     @pulumi.getter
@@ -960,6 +965,18 @@ class RepositoryPagesArgs:
     @html_url.setter
     def html_url(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "html_url", value)
+
+    @property
+    @pulumi.getter
+    def source(self) -> Optional[pulumi.Input['RepositoryPagesSourceArgs']]:
+        """
+        The source branch and directory for the rendered Pages site. See GitHub Pages Source below for details.
+        """
+        return pulumi.get(self, "source")
+
+    @source.setter
+    def source(self, value: Optional[pulumi.Input['RepositoryPagesSourceArgs']]):
+        pulumi.set(self, "source", value)
 
     @property
     @pulumi.getter

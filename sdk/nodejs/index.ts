@@ -283,6 +283,11 @@ export const getRepository: typeof import("./getRepository").getRepository = nul
 export const getRepositoryOutput: typeof import("./getRepository").getRepositoryOutput = null as any;
 utilities.lazyLoad(exports, ["getRepository","getRepositoryOutput"], () => require("./getRepository"));
 
+export { GetRepositoryAutolinkReferencesArgs, GetRepositoryAutolinkReferencesResult, GetRepositoryAutolinkReferencesOutputArgs } from "./getRepositoryAutolinkReferences";
+export const getRepositoryAutolinkReferences: typeof import("./getRepositoryAutolinkReferences").getRepositoryAutolinkReferences = null as any;
+export const getRepositoryAutolinkReferencesOutput: typeof import("./getRepositoryAutolinkReferences").getRepositoryAutolinkReferencesOutput = null as any;
+utilities.lazyLoad(exports, ["getRepositoryAutolinkReferences","getRepositoryAutolinkReferencesOutput"], () => require("./getRepositoryAutolinkReferences"));
+
 export { GetRepositoryBranchesArgs, GetRepositoryBranchesResult, GetRepositoryBranchesOutputArgs } from "./getRepositoryBranches";
 export const getRepositoryBranches: typeof import("./getRepositoryBranches").getRepositoryBranches = null as any;
 export const getRepositoryBranchesOutput: typeof import("./getRepositoryBranches").getRepositoryBranchesOutput = null as any;
@@ -292,6 +297,11 @@ export { GetRepositoryDeployKeysArgs, GetRepositoryDeployKeysResult, GetReposito
 export const getRepositoryDeployKeys: typeof import("./getRepositoryDeployKeys").getRepositoryDeployKeys = null as any;
 export const getRepositoryDeployKeysOutput: typeof import("./getRepositoryDeployKeys").getRepositoryDeployKeysOutput = null as any;
 utilities.lazyLoad(exports, ["getRepositoryDeployKeys","getRepositoryDeployKeysOutput"], () => require("./getRepositoryDeployKeys"));
+
+export { GetRepositoryEnvironmentsArgs, GetRepositoryEnvironmentsResult, GetRepositoryEnvironmentsOutputArgs } from "./getRepositoryEnvironments";
+export const getRepositoryEnvironments: typeof import("./getRepositoryEnvironments").getRepositoryEnvironments = null as any;
+export const getRepositoryEnvironmentsOutput: typeof import("./getRepositoryEnvironments").getRepositoryEnvironmentsOutput = null as any;
+utilities.lazyLoad(exports, ["getRepositoryEnvironments","getRepositoryEnvironmentsOutput"], () => require("./getRepositoryEnvironments"));
 
 export { GetRepositoryFileArgs, GetRepositoryFileResult, GetRepositoryFileOutputArgs } from "./getRepositoryFile";
 export const getRepositoryFile: typeof import("./getRepositoryFile").getRepositoryFile = null as any;
@@ -322,6 +332,11 @@ export { GetRepositoryWebhooksArgs, GetRepositoryWebhooksResult, GetRepositoryWe
 export const getRepositoryWebhooks: typeof import("./getRepositoryWebhooks").getRepositoryWebhooks = null as any;
 export const getRepositoryWebhooksOutput: typeof import("./getRepositoryWebhooks").getRepositoryWebhooksOutput = null as any;
 utilities.lazyLoad(exports, ["getRepositoryWebhooks","getRepositoryWebhooksOutput"], () => require("./getRepositoryWebhooks"));
+
+export { GetRestApiArgs, GetRestApiResult, GetRestApiOutputArgs } from "./getRestApi";
+export const getRestApi: typeof import("./getRestApi").getRestApi = null as any;
+export const getRestApiOutput: typeof import("./getRestApi").getRestApiOutput = null as any;
+utilities.lazyLoad(exports, ["getRestApi","getRestApiOutput"], () => require("./getRestApi"));
 
 export { GetSshKeysResult } from "./getSshKeys";
 export const getSshKeys: typeof import("./getSshKeys").getSshKeys = null as any;

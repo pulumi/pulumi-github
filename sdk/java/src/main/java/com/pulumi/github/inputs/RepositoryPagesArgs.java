@@ -18,6 +18,21 @@ public final class RepositoryPagesArgs extends com.pulumi.resources.ResourceArgs
     public static final RepositoryPagesArgs Empty = new RepositoryPagesArgs();
 
     /**
+     * The type of GitHub Pages site to build. Can be `legacy` or `workflow`. If you use `legacy` as build type you need to set the option `source`.
+     * 
+     */
+    @Import(name="buildType")
+    private @Nullable Output<String> buildType;
+
+    /**
+     * @return The type of GitHub Pages site to build. Can be `legacy` or `workflow`. If you use `legacy` as build type you need to set the option `source`.
+     * 
+     */
+    public Optional<Output<String>> buildType() {
+        return Optional.ofNullable(this.buildType);
+    }
+
+    /**
      * The custom domain for the repository. This can only be set after the repository has been created.
      * 
      */
@@ -66,15 +81,15 @@ public final class RepositoryPagesArgs extends com.pulumi.resources.ResourceArgs
      * The source branch and directory for the rendered Pages site. See GitHub Pages Source below for details.
      * 
      */
-    @Import(name="source", required=true)
-    private Output<RepositoryPagesSourceArgs> source;
+    @Import(name="source")
+    private @Nullable Output<RepositoryPagesSourceArgs> source;
 
     /**
      * @return The source branch and directory for the rendered Pages site. See GitHub Pages Source below for details.
      * 
      */
-    public Output<RepositoryPagesSourceArgs> source() {
-        return this.source;
+    public Optional<Output<RepositoryPagesSourceArgs>> source() {
+        return Optional.ofNullable(this.source);
     }
 
     /**
@@ -102,6 +117,7 @@ public final class RepositoryPagesArgs extends com.pulumi.resources.ResourceArgs
     private RepositoryPagesArgs() {}
 
     private RepositoryPagesArgs(RepositoryPagesArgs $) {
+        this.buildType = $.buildType;
         this.cname = $.cname;
         this.custom404 = $.custom404;
         this.htmlUrl = $.htmlUrl;
@@ -126,6 +142,27 @@ public final class RepositoryPagesArgs extends com.pulumi.resources.ResourceArgs
 
         public Builder(RepositoryPagesArgs defaults) {
             $ = new RepositoryPagesArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param buildType The type of GitHub Pages site to build. Can be `legacy` or `workflow`. If you use `legacy` as build type you need to set the option `source`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder buildType(@Nullable Output<String> buildType) {
+            $.buildType = buildType;
+            return this;
+        }
+
+        /**
+         * @param buildType The type of GitHub Pages site to build. Can be `legacy` or `workflow`. If you use `legacy` as build type you need to set the option `source`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder buildType(String buildType) {
+            return buildType(Output.of(buildType));
         }
 
         /**
@@ -197,7 +234,7 @@ public final class RepositoryPagesArgs extends com.pulumi.resources.ResourceArgs
          * @return builder
          * 
          */
-        public Builder source(Output<RepositoryPagesSourceArgs> source) {
+        public Builder source(@Nullable Output<RepositoryPagesSourceArgs> source) {
             $.source = source;
             return this;
         }
@@ -243,7 +280,6 @@ public final class RepositoryPagesArgs extends com.pulumi.resources.ResourceArgs
         }
 
         public RepositoryPagesArgs build() {
-            $.source = Objects.requireNonNull($.source, "expected parameter 'source' to be non-null");
             return $;
         }
     }

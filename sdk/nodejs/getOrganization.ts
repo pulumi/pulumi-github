@@ -41,7 +41,7 @@ export interface GetOrganizationArgs {
  */
 export interface GetOrganizationResult {
     /**
-     * The description the organization account
+     * The organization account description
      */
     readonly description: string;
     /**
@@ -63,7 +63,7 @@ export interface GetOrganizationResult {
      */
     readonly name: string;
     /**
-     * GraphQL global node id for use with v4 API
+     * GraphQL global node ID for use with the v4 API
      */
     readonly nodeId: string;
     /**
@@ -71,11 +71,11 @@ export interface GetOrganizationResult {
      */
     readonly orgname: string;
     /**
-     * The plan name for the organization account
+     * The organization account plan name
      */
     readonly plan: string;
     /**
-     * (`list`) A list with the repositories on the organization
+     * (`list`) A list of the full names of the repositories in the organization formatted as `owner/name` strings
      */
     readonly repositories: string[];
     /**

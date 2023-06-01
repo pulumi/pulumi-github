@@ -58,9 +58,9 @@ export class ActionsRunnerGroup extends pulumi.CustomResource {
     }
 
     /**
-     * Whether public repositories can be added to the runner group
+     * Whether public repositories can be added to the runner group. Defaults to false.
      */
-    public /*out*/ readonly allowsPublicRepositories!: pulumi.Output<boolean>;
+    public readonly allowsPublicRepositories!: pulumi.Output<boolean | undefined>;
     /**
      * Whether this is the default runner group
      */
@@ -131,12 +131,12 @@ export class ActionsRunnerGroup extends pulumi.CustomResource {
             if ((!args || args.visibility === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'visibility'");
             }
+            resourceInputs["allowsPublicRepositories"] = args ? args.allowsPublicRepositories : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["restrictedToWorkflows"] = args ? args.restrictedToWorkflows : undefined;
             resourceInputs["selectedRepositoryIds"] = args ? args.selectedRepositoryIds : undefined;
             resourceInputs["selectedWorkflows"] = args ? args.selectedWorkflows : undefined;
             resourceInputs["visibility"] = args ? args.visibility : undefined;
-            resourceInputs["allowsPublicRepositories"] = undefined /*out*/;
             resourceInputs["default"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["inherited"] = undefined /*out*/;
@@ -153,7 +153,7 @@ export class ActionsRunnerGroup extends pulumi.CustomResource {
  */
 export interface ActionsRunnerGroupState {
     /**
-     * Whether public repositories can be added to the runner group
+     * Whether public repositories can be added to the runner group. Defaults to false.
      */
     allowsPublicRepositories?: pulumi.Input<boolean>;
     /**
@@ -202,6 +202,10 @@ export interface ActionsRunnerGroupState {
  * The set of arguments for constructing a ActionsRunnerGroup resource.
  */
 export interface ActionsRunnerGroupArgs {
+    /**
+     * Whether public repositories can be added to the runner group. Defaults to false.
+     */
+    allowsPublicRepositories?: pulumi.Input<boolean>;
     /**
      * Name of the runner group
      */

@@ -19,14 +19,14 @@ public final class ActionsRunnerGroupState extends com.pulumi.resources.Resource
     public static final ActionsRunnerGroupState Empty = new ActionsRunnerGroupState();
 
     /**
-     * Whether public repositories can be added to the runner group
+     * Whether public repositories can be added to the runner group. Defaults to false.
      * 
      */
     @Import(name="allowsPublicRepositories")
     private @Nullable Output<Boolean> allowsPublicRepositories;
 
     /**
-     * @return Whether public repositories can be added to the runner group
+     * @return Whether public repositories can be added to the runner group. Defaults to false.
      * 
      */
     public Optional<Output<Boolean>> allowsPublicRepositories() {
@@ -218,7 +218,7 @@ public final class ActionsRunnerGroupState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param allowsPublicRepositories Whether public repositories can be added to the runner group
+         * @param allowsPublicRepositories Whether public repositories can be added to the runner group. Defaults to false.
          * 
          * @return builder
          * 
@@ -229,7 +229,7 @@ public final class ActionsRunnerGroupState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param allowsPublicRepositories Whether public repositories can be added to the runner group
+         * @param allowsPublicRepositories Whether public repositories can be added to the runner group. Defaults to false.
          * 
          * @return builder
          * 
