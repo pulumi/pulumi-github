@@ -2,7 +2,10 @@ module github.com/pulumi/pulumi-github/examples/v4
 
 go 1.19
 
-require github.com/pulumi/pulumi/pkg/v3 v3.19.0
+require (
+	github.com/pulumi/pulumi/pkg/v3 v3.19.0
+	github.com/stretchr/testify v1.8.1
+)
 
 require (
 	cloud.google.com/go v0.110.0 // indirect
@@ -100,7 +103,6 @@ require (
 	github.com/spf13/cobra v1.0.0 // indirect
 	github.com/spf13/pflag v1.0.3 // indirect
 	github.com/src-d/gcfg v1.4.0 // indirect
-	github.com/stretchr/testify v1.8.1 // indirect
 	github.com/texttheater/golang-levenshtein v0.0.0-20191208221605-eb6844b05fc6 // indirect
 	github.com/tweekmonster/luser v0.0.0-20161003172636-3fa38070dbd7 // indirect
 	github.com/uber/jaeger-client-go v2.22.1+incompatible // indirect

@@ -552,11 +552,17 @@
             "github_repository": {
                 "current": "github:index/getRepository:getRepository"
             },
+            "github_repository_autolink_references": {
+                "current": "github:index/getRepositoryAutolinkReferences:getRepositoryAutolinkReferences"
+            },
             "github_repository_branches": {
                 "current": "github:index/getRepositoryBranches:getRepositoryBranches"
             },
             "github_repository_deploy_keys": {
                 "current": "github:index/getRepositoryDeployKeys:getRepositoryDeployKeys"
+            },
+            "github_repository_environments": {
+                "current": "github:index/getRepositoryEnvironments:getRepositoryEnvironments"
             },
             "github_repository_file": {
                 "current": "github:index/getRepositoryFile:getRepositoryFile"
@@ -575,6 +581,9 @@
             },
             "github_repository_webhooks": {
                 "current": "github:index/getRepositoryWebhooks:getRepositoryWebhooks"
+            },
+            "github_rest_api": {
+                "current": "github:index/getRestApi:getRestApi"
             },
             "github_ssh_keys": {
                 "current": "github:index/getSshKeys:getSshKeys"
@@ -687,14 +696,17 @@
             "github:index/getRelease:getRelease": "github_release",
             "github:index/getRepositories:getRepositories": "github_repositories",
             "github:index/getRepository:getRepository": "github_repository",
+            "github:index/getRepositoryAutolinkReferences:getRepositoryAutolinkReferences": "github_repository_autolink_references",
             "github:index/getRepositoryBranches:getRepositoryBranches": "github_repository_branches",
             "github:index/getRepositoryDeployKeys:getRepositoryDeployKeys": "github_repository_deploy_keys",
+            "github:index/getRepositoryEnvironments:getRepositoryEnvironments": "github_repository_environments",
             "github:index/getRepositoryFile:getRepositoryFile": "github_repository_file",
             "github:index/getRepositoryMilestone:getRepositoryMilestone": "github_repository_milestone",
             "github:index/getRepositoryPullRequest:getRepositoryPullRequest": "github_repository_pull_request",
             "github:index/getRepositoryPullRequests:getRepositoryPullRequests": "github_repository_pull_requests",
             "github:index/getRepositoryTeams:getRepositoryTeams": "github_repository_teams",
             "github:index/getRepositoryWebhooks:getRepositoryWebhooks": "github_repository_webhooks",
+            "github:index/getRestApi:getRestApi": "github_rest_api",
             "github:index/getSshKeys:getSshKeys": "github_ssh_keys",
             "github:index/getTeam:getTeam": "github_team",
             "github:index/getTree:getTree": "github_tree",
@@ -756,6 +768,7 @@
                 "protectedBranches": "protected_branches"
             },
             "github:index/RepositoryPages:RepositoryPages": {
+                "buildType": "build_type",
                 "custom404": "custom_404",
                 "htmlUrl": "html_url"
             },
@@ -1113,9 +1126,20 @@
                 "sshCloneUrl": "ssh_clone_url",
                 "svnUrl": "svn_url"
             },
+            "github:index/getRepositoryAutolinkReferences:getRepositoryAutolinkReferences": {
+                "autolinkReferences": "autolink_references"
+            },
+            "github:index/getRepositoryAutolinkReferencesAutolinkReference:getRepositoryAutolinkReferencesAutolinkReference": {
+                "isAlphanumeric": "is_alphanumeric",
+                "keyPrefix": "key_prefix",
+                "targetUrlTemplate": "target_url_template"
+            },
             "github:index/getRepositoryBranches:getRepositoryBranches": {
                 "onlyNonProtectedBranches": "only_non_protected_branches",
                 "onlyProtectedBranches": "only_protected_branches"
+            },
+            "github:index/getRepositoryEnvironmentsEnvironment:getRepositoryEnvironmentsEnvironment": {
+                "nodeId": "node_id"
             },
             "github:index/getRepositoryFile:getRepositoryFile": {
                 "commitAuthor": "commit_author",
@@ -1169,8 +1193,13 @@
             "github:index/getTeam:getTeam": {
                 "membershipType": "membership_type",
                 "nodeId": "node_id",
+                "repositoriesDetaileds": "repositories_detailed",
                 "resultsPerPage": "results_per_page",
                 "summaryOnly": "summary_only"
+            },
+            "github:index/getTeamRepositoriesDetailed:getTeamRepositoriesDetailed": {
+                "repoId": "repo_id",
+                "roleName": "role_name"
             },
             "github:index/getTree:getTree": {
                 "treeSha": "tree_sha"
