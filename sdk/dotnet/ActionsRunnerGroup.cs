@@ -49,10 +49,10 @@ namespace Pulumi.Github
     public partial class ActionsRunnerGroup : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Whether public repositories can be added to the runner group
+        /// Whether public repositories can be added to the runner group. Defaults to false.
         /// </summary>
         [Output("allowsPublicRepositories")]
-        public Output<bool> AllowsPublicRepositories { get; private set; } = null!;
+        public Output<bool?> AllowsPublicRepositories { get; private set; } = null!;
 
         /// <summary>
         /// Whether this is the default runner group
@@ -161,6 +161,12 @@ namespace Pulumi.Github
     public sealed class ActionsRunnerGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Whether public repositories can be added to the runner group. Defaults to false.
+        /// </summary>
+        [Input("allowsPublicRepositories")]
+        public Input<bool>? AllowsPublicRepositories { get; set; }
+
+        /// <summary>
         /// Name of the runner group
         /// </summary>
         [Input("name")]
@@ -211,7 +217,7 @@ namespace Pulumi.Github
     public sealed class ActionsRunnerGroupState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether public repositories can be added to the runner group
+        /// Whether public repositories can be added to the runner group. Defaults to false.
         /// </summary>
         [Input("allowsPublicRepositories")]
         public Input<bool>? AllowsPublicRepositories { get; set; }

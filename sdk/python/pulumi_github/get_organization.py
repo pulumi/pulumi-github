@@ -61,7 +61,7 @@ class GetOrganizationResult:
     @pulumi.getter
     def description(self) -> str:
         """
-        The description the organization account
+        The organization account description
         """
         return pulumi.get(self, "description")
 
@@ -101,7 +101,7 @@ class GetOrganizationResult:
     @pulumi.getter(name="nodeId")
     def node_id(self) -> str:
         """
-        GraphQL global node id for use with v4 API
+        GraphQL global node ID for use with the v4 API
         """
         return pulumi.get(self, "node_id")
 
@@ -117,7 +117,7 @@ class GetOrganizationResult:
     @pulumi.getter
     def plan(self) -> str:
         """
-        The plan name for the organization account
+        The organization account plan name
         """
         return pulumi.get(self, "plan")
 
@@ -125,7 +125,7 @@ class GetOrganizationResult:
     @pulumi.getter
     def repositories(self) -> Sequence[str]:
         """
-        (`list`) A list with the repositories on the organization
+        (`list`) A list of the full names of the repositories in the organization formatted as `owner/name` strings
         """
         return pulumi.get(self, "repositories")
 

@@ -4,6 +4,7 @@
 package com.pulumi.github.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.github.outputs.GetTeamRepositoriesDetailed;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -55,6 +56,11 @@ public final class GetTeamResult {
      * 
      */
     private List<String> repositories;
+    /**
+     * @return List of team repositories (list of `repo_id` and `role_name`). Not returned if `summary_only = true`
+     * 
+     */
+    private List<GetTeamRepositoriesDetailed> repositoriesDetaileds;
     private @Nullable Integer resultsPerPage;
     private String slug;
     private @Nullable Boolean summaryOnly;
@@ -119,6 +125,13 @@ public final class GetTeamResult {
     public List<String> repositories() {
         return this.repositories;
     }
+    /**
+     * @return List of team repositories (list of `repo_id` and `role_name`). Not returned if `summary_only = true`
+     * 
+     */
+    public List<GetTeamRepositoriesDetailed> repositoriesDetaileds() {
+        return this.repositoriesDetaileds;
+    }
     public Optional<Integer> resultsPerPage() {
         return Optional.ofNullable(this.resultsPerPage);
     }
@@ -147,6 +160,7 @@ public final class GetTeamResult {
         private String permission;
         private String privacy;
         private List<String> repositories;
+        private List<GetTeamRepositoriesDetailed> repositoriesDetaileds;
         private @Nullable Integer resultsPerPage;
         private String slug;
         private @Nullable Boolean summaryOnly;
@@ -162,6 +176,7 @@ public final class GetTeamResult {
     	      this.permission = defaults.permission;
     	      this.privacy = defaults.privacy;
     	      this.repositories = defaults.repositories;
+    	      this.repositoriesDetaileds = defaults.repositoriesDetaileds;
     	      this.resultsPerPage = defaults.resultsPerPage;
     	      this.slug = defaults.slug;
     	      this.summaryOnly = defaults.summaryOnly;
@@ -219,6 +234,14 @@ public final class GetTeamResult {
             return repositories(List.of(repositories));
         }
         @CustomType.Setter
+        public Builder repositoriesDetaileds(List<GetTeamRepositoriesDetailed> repositoriesDetaileds) {
+            this.repositoriesDetaileds = Objects.requireNonNull(repositoriesDetaileds);
+            return this;
+        }
+        public Builder repositoriesDetaileds(GetTeamRepositoriesDetailed... repositoriesDetaileds) {
+            return repositoriesDetaileds(List.of(repositoriesDetaileds));
+        }
+        @CustomType.Setter
         public Builder resultsPerPage(@Nullable Integer resultsPerPage) {
             this.resultsPerPage = resultsPerPage;
             return this;
@@ -244,6 +267,7 @@ public final class GetTeamResult {
             o.permission = permission;
             o.privacy = privacy;
             o.repositories = repositories;
+            o.repositoriesDetaileds = repositoriesDetaileds;
             o.resultsPerPage = resultsPerPage;
             o.slug = slug;
             o.summaryOnly = summaryOnly;

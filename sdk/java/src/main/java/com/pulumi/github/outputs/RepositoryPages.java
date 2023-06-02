@@ -14,6 +14,11 @@ import javax.annotation.Nullable;
 @CustomType
 public final class RepositoryPages {
     /**
+     * @return The type of GitHub Pages site to build. Can be `legacy` or `workflow`. If you use `legacy` as build type you need to set the option `source`.
+     * 
+     */
+    private @Nullable String buildType;
+    /**
      * @return The custom domain for the repository. This can only be set after the repository has been created.
      * 
      */
@@ -32,7 +37,7 @@ public final class RepositoryPages {
      * @return The source branch and directory for the rendered Pages site. See GitHub Pages Source below for details.
      * 
      */
-    private RepositoryPagesSource source;
+    private @Nullable RepositoryPagesSource source;
     /**
      * @return Set to `enabled` to enable advanced security features on the repository. Can be `enabled` or `disabled`.
      * 
@@ -41,6 +46,13 @@ public final class RepositoryPages {
     private @Nullable String url;
 
     private RepositoryPages() {}
+    /**
+     * @return The type of GitHub Pages site to build. Can be `legacy` or `workflow`. If you use `legacy` as build type you need to set the option `source`.
+     * 
+     */
+    public Optional<String> buildType() {
+        return Optional.ofNullable(this.buildType);
+    }
     /**
      * @return The custom domain for the repository. This can only be set after the repository has been created.
      * 
@@ -66,8 +78,8 @@ public final class RepositoryPages {
      * @return The source branch and directory for the rendered Pages site. See GitHub Pages Source below for details.
      * 
      */
-    public RepositoryPagesSource source() {
-        return this.source;
+    public Optional<RepositoryPagesSource> source() {
+        return Optional.ofNullable(this.source);
     }
     /**
      * @return Set to `enabled` to enable advanced security features on the repository. Can be `enabled` or `disabled`.
@@ -89,15 +101,17 @@ public final class RepositoryPages {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable String buildType;
         private @Nullable String cname;
         private @Nullable Boolean custom404;
         private @Nullable String htmlUrl;
-        private RepositoryPagesSource source;
+        private @Nullable RepositoryPagesSource source;
         private @Nullable String status;
         private @Nullable String url;
         public Builder() {}
         public Builder(RepositoryPages defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.buildType = defaults.buildType;
     	      this.cname = defaults.cname;
     	      this.custom404 = defaults.custom404;
     	      this.htmlUrl = defaults.htmlUrl;
@@ -106,6 +120,11 @@ public final class RepositoryPages {
     	      this.url = defaults.url;
         }
 
+        @CustomType.Setter
+        public Builder buildType(@Nullable String buildType) {
+            this.buildType = buildType;
+            return this;
+        }
         @CustomType.Setter
         public Builder cname(@Nullable String cname) {
             this.cname = cname;
@@ -122,8 +141,8 @@ public final class RepositoryPages {
             return this;
         }
         @CustomType.Setter
-        public Builder source(RepositoryPagesSource source) {
-            this.source = Objects.requireNonNull(source);
+        public Builder source(@Nullable RepositoryPagesSource source) {
+            this.source = source;
             return this;
         }
         @CustomType.Setter
@@ -138,6 +157,7 @@ public final class RepositoryPages {
         }
         public RepositoryPages build() {
             final var o = new RepositoryPages();
+            o.buildType = buildType;
             o.cname = cname;
             o.custom404 = custom404;
             o.htmlUrl = htmlUrl;

@@ -51,10 +51,14 @@ import com.pulumi.github.inputs.GetReleasePlainArgs;
 import com.pulumi.github.inputs.GetRepositoriesArgs;
 import com.pulumi.github.inputs.GetRepositoriesPlainArgs;
 import com.pulumi.github.inputs.GetRepositoryArgs;
+import com.pulumi.github.inputs.GetRepositoryAutolinkReferencesArgs;
+import com.pulumi.github.inputs.GetRepositoryAutolinkReferencesPlainArgs;
 import com.pulumi.github.inputs.GetRepositoryBranchesArgs;
 import com.pulumi.github.inputs.GetRepositoryBranchesPlainArgs;
 import com.pulumi.github.inputs.GetRepositoryDeployKeysArgs;
 import com.pulumi.github.inputs.GetRepositoryDeployKeysPlainArgs;
+import com.pulumi.github.inputs.GetRepositoryEnvironmentsArgs;
+import com.pulumi.github.inputs.GetRepositoryEnvironmentsPlainArgs;
 import com.pulumi.github.inputs.GetRepositoryFileArgs;
 import com.pulumi.github.inputs.GetRepositoryFilePlainArgs;
 import com.pulumi.github.inputs.GetRepositoryMilestoneArgs;
@@ -68,6 +72,8 @@ import com.pulumi.github.inputs.GetRepositoryTeamsArgs;
 import com.pulumi.github.inputs.GetRepositoryTeamsPlainArgs;
 import com.pulumi.github.inputs.GetRepositoryWebhooksArgs;
 import com.pulumi.github.inputs.GetRepositoryWebhooksPlainArgs;
+import com.pulumi.github.inputs.GetRestApiArgs;
+import com.pulumi.github.inputs.GetRestApiPlainArgs;
 import com.pulumi.github.inputs.GetTeamArgs;
 import com.pulumi.github.inputs.GetTeamPlainArgs;
 import com.pulumi.github.inputs.GetTreeArgs;
@@ -109,8 +115,10 @@ import com.pulumi.github.outputs.GetOrganizationWebhooksResult;
 import com.pulumi.github.outputs.GetRefResult;
 import com.pulumi.github.outputs.GetReleaseResult;
 import com.pulumi.github.outputs.GetRepositoriesResult;
+import com.pulumi.github.outputs.GetRepositoryAutolinkReferencesResult;
 import com.pulumi.github.outputs.GetRepositoryBranchesResult;
 import com.pulumi.github.outputs.GetRepositoryDeployKeysResult;
+import com.pulumi.github.outputs.GetRepositoryEnvironmentsResult;
 import com.pulumi.github.outputs.GetRepositoryFileResult;
 import com.pulumi.github.outputs.GetRepositoryMilestoneResult;
 import com.pulumi.github.outputs.GetRepositoryPullRequestResult;
@@ -118,6 +126,7 @@ import com.pulumi.github.outputs.GetRepositoryPullRequestsInvokeResult;
 import com.pulumi.github.outputs.GetRepositoryResult;
 import com.pulumi.github.outputs.GetRepositoryTeamsResult;
 import com.pulumi.github.outputs.GetRepositoryWebhooksResult;
+import com.pulumi.github.outputs.GetRestApiResult;
 import com.pulumi.github.outputs.GetSshKeysResult;
 import com.pulumi.github.outputs.GetTeamResult;
 import com.pulumi.github.outputs.GetTreeResult;
@@ -6520,6 +6529,154 @@ public final class GithubFunctions {
         return Deployment.getInstance().invokeAsync("github:index/getRepository:getRepository", TypeShape.of(GetRepositoryResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Use this data source to retrieve autolink references for a repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetRepositoryAutolinkReferencesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getRepositoryAutolinkReferences(GetRepositoryAutolinkReferencesArgs.builder()
+     *             .repository(&#34;example-repository&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetRepositoryAutolinkReferencesResult> getRepositoryAutolinkReferences(GetRepositoryAutolinkReferencesArgs args) {
+        return getRepositoryAutolinkReferences(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve autolink references for a repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetRepositoryAutolinkReferencesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getRepositoryAutolinkReferences(GetRepositoryAutolinkReferencesArgs.builder()
+     *             .repository(&#34;example-repository&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetRepositoryAutolinkReferencesResult> getRepositoryAutolinkReferencesPlain(GetRepositoryAutolinkReferencesPlainArgs args) {
+        return getRepositoryAutolinkReferencesPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve autolink references for a repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetRepositoryAutolinkReferencesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getRepositoryAutolinkReferences(GetRepositoryAutolinkReferencesArgs.builder()
+     *             .repository(&#34;example-repository&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetRepositoryAutolinkReferencesResult> getRepositoryAutolinkReferences(GetRepositoryAutolinkReferencesArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("github:index/getRepositoryAutolinkReferences:getRepositoryAutolinkReferences", TypeShape.of(GetRepositoryAutolinkReferencesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve autolink references for a repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetRepositoryAutolinkReferencesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getRepositoryAutolinkReferences(GetRepositoryAutolinkReferencesArgs.builder()
+     *             .repository(&#34;example-repository&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetRepositoryAutolinkReferencesResult> getRepositoryAutolinkReferencesPlain(GetRepositoryAutolinkReferencesPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("github:index/getRepositoryAutolinkReferences:getRepositoryAutolinkReferences", TypeShape.of(GetRepositoryAutolinkReferencesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
      * Use this data source to retrieve information about branches in a repository.
      * 
      * ## Example Usage
@@ -6814,6 +6971,154 @@ public final class GithubFunctions {
      */
     public static CompletableFuture<GetRepositoryDeployKeysResult> getRepositoryDeployKeysPlain(GetRepositoryDeployKeysPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("github:index/getRepositoryDeployKeys:getRepositoryDeployKeys", TypeShape.of(GetRepositoryDeployKeysResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about environments for a repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetRepositoryEnvironmentsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getRepositoryEnvironments(GetRepositoryEnvironmentsArgs.builder()
+     *             .repository(&#34;example-repository&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetRepositoryEnvironmentsResult> getRepositoryEnvironments(GetRepositoryEnvironmentsArgs args) {
+        return getRepositoryEnvironments(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about environments for a repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetRepositoryEnvironmentsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getRepositoryEnvironments(GetRepositoryEnvironmentsArgs.builder()
+     *             .repository(&#34;example-repository&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetRepositoryEnvironmentsResult> getRepositoryEnvironmentsPlain(GetRepositoryEnvironmentsPlainArgs args) {
+        return getRepositoryEnvironmentsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about environments for a repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetRepositoryEnvironmentsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getRepositoryEnvironments(GetRepositoryEnvironmentsArgs.builder()
+     *             .repository(&#34;example-repository&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetRepositoryEnvironmentsResult> getRepositoryEnvironments(GetRepositoryEnvironmentsArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("github:index/getRepositoryEnvironments:getRepositoryEnvironments", TypeShape.of(GetRepositoryEnvironmentsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about environments for a repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetRepositoryEnvironmentsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getRepositoryEnvironments(GetRepositoryEnvironmentsArgs.builder()
+     *             .repository(&#34;example-repository&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetRepositoryEnvironmentsResult> getRepositoryEnvironmentsPlain(GetRepositoryEnvironmentsPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("github:index/getRepositoryEnvironments:getRepositoryEnvironments", TypeShape.of(GetRepositoryEnvironmentsResult.class), args, Utilities.withVersion(options));
     }
     /**
      * This data source allows you to read files within a
@@ -7824,6 +8129,154 @@ public final class GithubFunctions {
      */
     public static CompletableFuture<GetRepositoryWebhooksResult> getRepositoryWebhooksPlain(GetRepositoryWebhooksPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("github:index/getRepositoryWebhooks:getRepositoryWebhooks", TypeShape.of(GetRepositoryWebhooksResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about a GitHub resource through REST API.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetRestApiArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getRestApi(GetRestApiArgs.builder()
+     *             .endpoint(&#34;repos/example_repo/git/refs/heads/main&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetRestApiResult> getRestApi(GetRestApiArgs args) {
+        return getRestApi(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about a GitHub resource through REST API.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetRestApiArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getRestApi(GetRestApiArgs.builder()
+     *             .endpoint(&#34;repos/example_repo/git/refs/heads/main&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetRestApiResult> getRestApiPlain(GetRestApiPlainArgs args) {
+        return getRestApiPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about a GitHub resource through REST API.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetRestApiArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getRestApi(GetRestApiArgs.builder()
+     *             .endpoint(&#34;repos/example_repo/git/refs/heads/main&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetRestApiResult> getRestApi(GetRestApiArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("github:index/getRestApi:getRestApi", TypeShape.of(GetRestApiResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about a GitHub resource through REST API.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetRestApiArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getRestApi(GetRestApiArgs.builder()
+     *             .endpoint(&#34;repos/example_repo/git/refs/heads/main&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetRestApiResult> getRestApiPlain(GetRestApiPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("github:index/getRestApi:getRestApi", TypeShape.of(GetRestApiResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to retrieve information about GitHub&#39;s SSH keys.

@@ -19,6 +19,21 @@ public final class ActionsRunnerGroupArgs extends com.pulumi.resources.ResourceA
     public static final ActionsRunnerGroupArgs Empty = new ActionsRunnerGroupArgs();
 
     /**
+     * Whether public repositories can be added to the runner group. Defaults to false.
+     * 
+     */
+    @Import(name="allowsPublicRepositories")
+    private @Nullable Output<Boolean> allowsPublicRepositories;
+
+    /**
+     * @return Whether public repositories can be added to the runner group. Defaults to false.
+     * 
+     */
+    public Optional<Output<Boolean>> allowsPublicRepositories() {
+        return Optional.ofNullable(this.allowsPublicRepositories);
+    }
+
+    /**
      * Name of the runner group
      * 
      */
@@ -96,6 +111,7 @@ public final class ActionsRunnerGroupArgs extends com.pulumi.resources.ResourceA
     private ActionsRunnerGroupArgs() {}
 
     private ActionsRunnerGroupArgs(ActionsRunnerGroupArgs $) {
+        this.allowsPublicRepositories = $.allowsPublicRepositories;
         this.name = $.name;
         this.restrictedToWorkflows = $.restrictedToWorkflows;
         this.selectedRepositoryIds = $.selectedRepositoryIds;
@@ -119,6 +135,27 @@ public final class ActionsRunnerGroupArgs extends com.pulumi.resources.ResourceA
 
         public Builder(ActionsRunnerGroupArgs defaults) {
             $ = new ActionsRunnerGroupArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param allowsPublicRepositories Whether public repositories can be added to the runner group. Defaults to false.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder allowsPublicRepositories(@Nullable Output<Boolean> allowsPublicRepositories) {
+            $.allowsPublicRepositories = allowsPublicRepositories;
+            return this;
+        }
+
+        /**
+         * @param allowsPublicRepositories Whether public repositories can be added to the runner group. Defaults to false.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder allowsPublicRepositories(Boolean allowsPublicRepositories) {
+            return allowsPublicRepositories(Output.of(allowsPublicRepositories));
         }
 
         /**

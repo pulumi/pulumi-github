@@ -15,6 +15,7 @@ __all__ = ['ActionsRunnerGroupArgs', 'ActionsRunnerGroup']
 class ActionsRunnerGroupArgs:
     def __init__(__self__, *,
                  visibility: pulumi.Input[str],
+                 allows_public_repositories: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  restricted_to_workflows: Optional[pulumi.Input[bool]] = None,
                  selected_repository_ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
@@ -22,12 +23,15 @@ class ActionsRunnerGroupArgs:
         """
         The set of arguments for constructing a ActionsRunnerGroup resource.
         :param pulumi.Input[str] visibility: Visibility of a runner group. Whether the runner group can include `all`, `selected`, or `private` repositories. A value of `private` is not currently supported due to limitations in the GitHub API.
+        :param pulumi.Input[bool] allows_public_repositories: Whether public repositories can be added to the runner group. Defaults to false.
         :param pulumi.Input[str] name: Name of the runner group
         :param pulumi.Input[bool] restricted_to_workflows: If true, the runner group will be restricted to running only the workflows specified in the selected_workflows array. Defaults to false.
         :param pulumi.Input[Sequence[pulumi.Input[int]]] selected_repository_ids: IDs of the repositories which should be added to the runner group
         :param pulumi.Input[Sequence[pulumi.Input[str]]] selected_workflows: List of workflows the runner group should be allowed to run. This setting will be ignored unless restricted_to_workflows is set to true.
         """
         pulumi.set(__self__, "visibility", visibility)
+        if allows_public_repositories is not None:
+            pulumi.set(__self__, "allows_public_repositories", allows_public_repositories)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if restricted_to_workflows is not None:
@@ -48,6 +52,18 @@ class ActionsRunnerGroupArgs:
     @visibility.setter
     def visibility(self, value: pulumi.Input[str]):
         pulumi.set(self, "visibility", value)
+
+    @property
+    @pulumi.getter(name="allowsPublicRepositories")
+    def allows_public_repositories(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether public repositories can be added to the runner group. Defaults to false.
+        """
+        return pulumi.get(self, "allows_public_repositories")
+
+    @allows_public_repositories.setter
+    def allows_public_repositories(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "allows_public_repositories", value)
 
     @property
     @pulumi.getter
@@ -114,7 +130,7 @@ class _ActionsRunnerGroupState:
                  visibility: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering ActionsRunnerGroup resources.
-        :param pulumi.Input[bool] allows_public_repositories: Whether public repositories can be added to the runner group
+        :param pulumi.Input[bool] allows_public_repositories: Whether public repositories can be added to the runner group. Defaults to false.
         :param pulumi.Input[bool] default: Whether this is the default runner group
         :param pulumi.Input[str] etag: An etag representing the runner group object
         :param pulumi.Input[bool] inherited: Whether the runner group is inherited from the enterprise level
@@ -153,7 +169,7 @@ class _ActionsRunnerGroupState:
     @pulumi.getter(name="allowsPublicRepositories")
     def allows_public_repositories(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether public repositories can be added to the runner group
+        Whether public repositories can be added to the runner group. Defaults to false.
         """
         return pulumi.get(self, "allows_public_repositories")
 
@@ -287,6 +303,7 @@ class ActionsRunnerGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 allows_public_repositories: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  restricted_to_workflows: Optional[pulumi.Input[bool]] = None,
                  selected_repository_ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
@@ -319,6 +336,7 @@ class ActionsRunnerGroup(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] allows_public_repositories: Whether public repositories can be added to the runner group. Defaults to false.
         :param pulumi.Input[str] name: Name of the runner group
         :param pulumi.Input[bool] restricted_to_workflows: If true, the runner group will be restricted to running only the workflows specified in the selected_workflows array. Defaults to false.
         :param pulumi.Input[Sequence[pulumi.Input[int]]] selected_repository_ids: IDs of the repositories which should be added to the runner group
@@ -370,6 +388,7 @@ class ActionsRunnerGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 allows_public_repositories: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  restricted_to_workflows: Optional[pulumi.Input[bool]] = None,
                  selected_repository_ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
@@ -384,6 +403,7 @@ class ActionsRunnerGroup(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ActionsRunnerGroupArgs.__new__(ActionsRunnerGroupArgs)
 
+            __props__.__dict__["allows_public_repositories"] = allows_public_repositories
             __props__.__dict__["name"] = name
             __props__.__dict__["restricted_to_workflows"] = restricted_to_workflows
             __props__.__dict__["selected_repository_ids"] = selected_repository_ids
@@ -391,7 +411,6 @@ class ActionsRunnerGroup(pulumi.CustomResource):
             if visibility is None and not opts.urn:
                 raise TypeError("Missing required property 'visibility'")
             __props__.__dict__["visibility"] = visibility
-            __props__.__dict__["allows_public_repositories"] = None
             __props__.__dict__["default"] = None
             __props__.__dict__["etag"] = None
             __props__.__dict__["inherited"] = None
@@ -425,7 +444,7 @@ class ActionsRunnerGroup(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] allows_public_repositories: Whether public repositories can be added to the runner group
+        :param pulumi.Input[bool] allows_public_repositories: Whether public repositories can be added to the runner group. Defaults to false.
         :param pulumi.Input[bool] default: Whether this is the default runner group
         :param pulumi.Input[str] etag: An etag representing the runner group object
         :param pulumi.Input[bool] inherited: Whether the runner group is inherited from the enterprise level
@@ -456,9 +475,9 @@ class ActionsRunnerGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="allowsPublicRepositories")
-    def allows_public_repositories(self) -> pulumi.Output[bool]:
+    def allows_public_repositories(self) -> pulumi.Output[Optional[bool]]:
         """
-        Whether public repositories can be added to the runner group
+        Whether public repositories can be added to the runner group. Defaults to false.
         """
         return pulumi.get(self, "allows_public_repositories")
 

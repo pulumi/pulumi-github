@@ -12,7 +12,7 @@ import java.util.Objects;
 @CustomType
 public final class GetOrganizationResult {
     /**
-     * @return The description the organization account
+     * @return The organization account description
      * 
      */
     private String description;
@@ -41,7 +41,7 @@ public final class GetOrganizationResult {
      */
     private String name;
     /**
-     * @return GraphQL global node id for use with v4 API
+     * @return GraphQL global node ID for use with the v4 API
      * 
      */
     private String nodeId;
@@ -51,12 +51,12 @@ public final class GetOrganizationResult {
      */
     private String orgname;
     /**
-     * @return The plan name for the organization account
+     * @return The organization account plan name
      * 
      */
     private String plan;
     /**
-     * @return (`list`) A list with the repositories on the organization
+     * @return (`list`) A list of the full names of the repositories in the organization formatted as `owner/name` strings
      * 
      */
     private List<String> repositories;
@@ -68,7 +68,7 @@ public final class GetOrganizationResult {
 
     private GetOrganizationResult() {}
     /**
-     * @return The description the organization account
+     * @return The organization account description
      * 
      */
     public String description() {
@@ -107,7 +107,7 @@ public final class GetOrganizationResult {
         return this.name;
     }
     /**
-     * @return GraphQL global node id for use with v4 API
+     * @return GraphQL global node ID for use with the v4 API
      * 
      */
     public String nodeId() {
@@ -121,14 +121,14 @@ public final class GetOrganizationResult {
         return this.orgname;
     }
     /**
-     * @return The plan name for the organization account
+     * @return The organization account plan name
      * 
      */
     public String plan() {
         return this.plan;
     }
     /**
-     * @return (`list`) A list with the repositories on the organization
+     * @return (`list`) A list of the full names of the repositories in the organization formatted as `owner/name` strings
      * 
      */
     public List<String> repositories() {

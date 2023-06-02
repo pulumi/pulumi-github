@@ -14,6 +14,10 @@ namespace Pulumi.Github.Outputs
     public sealed class RepositoryPages
     {
         /// <summary>
+        /// The type of GitHub Pages site to build. Can be `legacy` or `workflow`. If you use `legacy` as build type you need to set the option `source`.
+        /// </summary>
+        public readonly string? BuildType;
+        /// <summary>
         /// The custom domain for the repository. This can only be set after the repository has been created.
         /// </summary>
         public readonly string? Cname;
@@ -28,7 +32,7 @@ namespace Pulumi.Github.Outputs
         /// <summary>
         /// The source branch and directory for the rendered Pages site. See GitHub Pages Source below for details.
         /// </summary>
-        public readonly Outputs.RepositoryPagesSource Source;
+        public readonly Outputs.RepositoryPagesSource? Source;
         /// <summary>
         /// Set to `enabled` to enable advanced security features on the repository. Can be `enabled` or `disabled`.
         /// </summary>
@@ -37,18 +41,21 @@ namespace Pulumi.Github.Outputs
 
         [OutputConstructor]
         private RepositoryPages(
+            string? buildType,
+
             string? cname,
 
             bool? custom404,
 
             string? htmlUrl,
 
-            Outputs.RepositoryPagesSource source,
+            Outputs.RepositoryPagesSource? source,
 
             string? status,
 
             string? url)
         {
+            BuildType = buildType;
             Cname = cname;
             Custom404 = custom404;
             HtmlUrl = htmlUrl;

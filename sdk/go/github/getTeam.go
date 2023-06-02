@@ -76,10 +76,12 @@ type LookupTeamResult struct {
 	// the team's privacy type.
 	Privacy string `pulumi:"privacy"`
 	// List of team repositories (list of repo names). Not returned if `summaryOnly = true`
-	Repositories   []string `pulumi:"repositories"`
-	ResultsPerPage *int     `pulumi:"resultsPerPage"`
-	Slug           string   `pulumi:"slug"`
-	SummaryOnly    *bool    `pulumi:"summaryOnly"`
+	Repositories []string `pulumi:"repositories"`
+	// List of team repositories (list of `repoId` and `roleName`). Not returned if `summaryOnly = true`
+	RepositoriesDetaileds []GetTeamRepositoriesDetailed `pulumi:"repositoriesDetaileds"`
+	ResultsPerPage        *int                          `pulumi:"resultsPerPage"`
+	Slug                  string                        `pulumi:"slug"`
+	SummaryOnly           *bool                         `pulumi:"summaryOnly"`
 }
 
 func LookupTeamOutput(ctx *pulumi.Context, args LookupTeamOutputArgs, opts ...pulumi.InvokeOption) LookupTeamResultOutput {
@@ -168,6 +170,11 @@ func (o LookupTeamResultOutput) Privacy() pulumi.StringOutput {
 // List of team repositories (list of repo names). Not returned if `summaryOnly = true`
 func (o LookupTeamResultOutput) Repositories() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupTeamResult) []string { return v.Repositories }).(pulumi.StringArrayOutput)
+}
+
+// List of team repositories (list of `repoId` and `roleName`). Not returned if `summaryOnly = true`
+func (o LookupTeamResultOutput) RepositoriesDetaileds() GetTeamRepositoriesDetailedArrayOutput {
+	return o.ApplyT(func(v LookupTeamResult) []GetTeamRepositoriesDetailed { return v.RepositoriesDetaileds }).(GetTeamRepositoriesDetailedArrayOutput)
 }
 
 func (o LookupTeamResultOutput) ResultsPerPage() pulumi.IntPtrOutput {

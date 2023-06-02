@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
+from . import outputs
 
 __all__ = [
     'GetTeamResult',
@@ -21,7 +22,7 @@ class GetTeamResult:
     """
     A collection of values returned by getTeam.
     """
-    def __init__(__self__, description=None, id=None, members=None, membership_type=None, name=None, node_id=None, permission=None, privacy=None, repositories=None, results_per_page=None, slug=None, summary_only=None):
+    def __init__(__self__, description=None, id=None, members=None, membership_type=None, name=None, node_id=None, permission=None, privacy=None, repositories=None, repositories_detaileds=None, results_per_page=None, slug=None, summary_only=None):
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -49,6 +50,9 @@ class GetTeamResult:
         if repositories and not isinstance(repositories, list):
             raise TypeError("Expected argument 'repositories' to be a list")
         pulumi.set(__self__, "repositories", repositories)
+        if repositories_detaileds and not isinstance(repositories_detaileds, list):
+            raise TypeError("Expected argument 'repositories_detaileds' to be a list")
+        pulumi.set(__self__, "repositories_detaileds", repositories_detaileds)
         if results_per_page and not isinstance(results_per_page, int):
             raise TypeError("Expected argument 'results_per_page' to be a int")
         pulumi.set(__self__, "results_per_page", results_per_page)
@@ -129,6 +133,14 @@ class GetTeamResult:
         return pulumi.get(self, "repositories")
 
     @property
+    @pulumi.getter(name="repositoriesDetaileds")
+    def repositories_detaileds(self) -> Sequence['outputs.GetTeamRepositoriesDetailedResult']:
+        """
+        List of team repositories (list of `repo_id` and `role_name`). Not returned if `summary_only = true`
+        """
+        return pulumi.get(self, "repositories_detaileds")
+
+    @property
     @pulumi.getter(name="resultsPerPage")
     def results_per_page(self) -> Optional[int]:
         return pulumi.get(self, "results_per_page")
@@ -159,6 +171,7 @@ class AwaitableGetTeamResult(GetTeamResult):
             permission=self.permission,
             privacy=self.privacy,
             repositories=self.repositories,
+            repositories_detaileds=self.repositories_detaileds,
             results_per_page=self.results_per_page,
             slug=self.slug,
             summary_only=self.summary_only)
@@ -205,6 +218,7 @@ def get_team(membership_type: Optional[str] = None,
         permission=__ret__.permission,
         privacy=__ret__.privacy,
         repositories=__ret__.repositories,
+        repositories_detaileds=__ret__.repositories_detaileds,
         results_per_page=__ret__.results_per_page,
         slug=__ret__.slug,
         summary_only=__ret__.summary_only)

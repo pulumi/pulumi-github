@@ -59,8 +59,8 @@ import (
 type ActionsRunnerGroup struct {
 	pulumi.CustomResourceState
 
-	// Whether public repositories can be added to the runner group
-	AllowsPublicRepositories pulumi.BoolOutput `pulumi:"allowsPublicRepositories"`
+	// Whether public repositories can be added to the runner group. Defaults to false.
+	AllowsPublicRepositories pulumi.BoolPtrOutput `pulumi:"allowsPublicRepositories"`
 	// Whether this is the default runner group
 	Default pulumi.BoolOutput `pulumi:"default"`
 	// An etag representing the runner group object
@@ -115,7 +115,7 @@ func GetActionsRunnerGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ActionsRunnerGroup resources.
 type actionsRunnerGroupState struct {
-	// Whether public repositories can be added to the runner group
+	// Whether public repositories can be added to the runner group. Defaults to false.
 	AllowsPublicRepositories *bool `pulumi:"allowsPublicRepositories"`
 	// Whether this is the default runner group
 	Default *bool `pulumi:"default"`
@@ -140,7 +140,7 @@ type actionsRunnerGroupState struct {
 }
 
 type ActionsRunnerGroupState struct {
-	// Whether public repositories can be added to the runner group
+	// Whether public repositories can be added to the runner group. Defaults to false.
 	AllowsPublicRepositories pulumi.BoolPtrInput
 	// Whether this is the default runner group
 	Default pulumi.BoolPtrInput
@@ -169,6 +169,8 @@ func (ActionsRunnerGroupState) ElementType() reflect.Type {
 }
 
 type actionsRunnerGroupArgs struct {
+	// Whether public repositories can be added to the runner group. Defaults to false.
+	AllowsPublicRepositories *bool `pulumi:"allowsPublicRepositories"`
 	// Name of the runner group
 	Name *string `pulumi:"name"`
 	// If true, the runner group will be restricted to running only the workflows specified in the selectedWorkflows array. Defaults to false.
@@ -183,6 +185,8 @@ type actionsRunnerGroupArgs struct {
 
 // The set of arguments for constructing a ActionsRunnerGroup resource.
 type ActionsRunnerGroupArgs struct {
+	// Whether public repositories can be added to the runner group. Defaults to false.
+	AllowsPublicRepositories pulumi.BoolPtrInput
 	// Name of the runner group
 	Name pulumi.StringPtrInput
 	// If true, the runner group will be restricted to running only the workflows specified in the selectedWorkflows array. Defaults to false.
@@ -282,9 +286,9 @@ func (o ActionsRunnerGroupOutput) ToActionsRunnerGroupOutputWithContext(ctx cont
 	return o
 }
 
-// Whether public repositories can be added to the runner group
-func (o ActionsRunnerGroupOutput) AllowsPublicRepositories() pulumi.BoolOutput {
-	return o.ApplyT(func(v *ActionsRunnerGroup) pulumi.BoolOutput { return v.AllowsPublicRepositories }).(pulumi.BoolOutput)
+// Whether public repositories can be added to the runner group. Defaults to false.
+func (o ActionsRunnerGroupOutput) AllowsPublicRepositories() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ActionsRunnerGroup) pulumi.BoolPtrOutput { return v.AllowsPublicRepositories }).(pulumi.BoolPtrOutput)
 }
 
 // Whether this is the default runner group

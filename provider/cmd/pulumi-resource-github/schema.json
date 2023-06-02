@@ -472,6 +472,10 @@
         },
         "github:index/RepositoryPages:RepositoryPages": {
             "properties": {
+                "buildType": {
+                    "type": "string",
+                    "description": "The type of GitHub Pages site to build. Can be `legacy` or `workflow`. If you use `legacy` as build type you need to set the option `source`.\n"
+                },
                 "cname": {
                     "type": "string",
                     "description": "The custom domain for the repository. This can only be set after the repository has been created.\n"
@@ -497,15 +501,11 @@
                 }
             },
             "type": "object",
-            "required": [
-                "source"
-            ],
             "language": {
                 "nodejs": {
                     "requiredOutputs": [
                         "custom404",
                         "htmlUrl",
-                        "source",
                         "status",
                         "url"
                     ]
@@ -1331,6 +1331,33 @@
                 }
             }
         },
+        "github:index/getRepositoryAutolinkReferencesAutolinkReference:getRepositoryAutolinkReferencesAutolinkReference": {
+            "properties": {
+                "isAlphanumeric": {
+                    "type": "boolean",
+                    "description": "True if alphanumeric.\n"
+                },
+                "keyPrefix": {
+                    "type": "string",
+                    "description": "Key prefix.\n"
+                },
+                "targetUrlTemplate": {
+                    "type": "string",
+                    "description": "Target url template.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "isAlphanumeric",
+                "keyPrefix",
+                "targetUrlTemplate"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
         "github:index/getRepositoryBranchesBranch:getRepositoryBranchesBranch": {
             "properties": {
                 "name": {
@@ -1378,6 +1405,28 @@
                 "key",
                 "title",
                 "verified"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "github:index/getRepositoryEnvironmentsEnvironment:getRepositoryEnvironmentsEnvironment": {
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "Environment name.\n"
+                },
+                "nodeId": {
+                    "type": "string",
+                    "description": "Environment node id.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "name",
+                "nodeId"
             ],
             "language": {
                 "nodejs": {
@@ -1617,6 +1666,26 @@
                 "name",
                 "type",
                 "url"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "github:index/getTeamRepositoriesDetailed:getTeamRepositoriesDetailed": {
+            "properties": {
+                "repoId": {
+                    "type": "integer"
+                },
+                "roleName": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "repoId",
+                "roleName"
             ],
             "language": {
                 "nodejs": {
@@ -2527,7 +2596,7 @@
             "properties": {
                 "allowsPublicRepositories": {
                     "type": "boolean",
-                    "description": "Whether public repositories can be added to the runner group\n"
+                    "description": "Whether public repositories can be added to the runner group. Defaults to false.\n"
                 },
                 "default": {
                     "type": "boolean",
@@ -2577,7 +2646,6 @@
                 }
             },
             "required": [
-                "allowsPublicRepositories",
                 "default",
                 "etag",
                 "inherited",
@@ -2587,6 +2655,10 @@
                 "visibility"
             ],
             "inputProperties": {
+                "allowsPublicRepositories": {
+                    "type": "boolean",
+                    "description": "Whether public repositories can be added to the runner group. Defaults to false.\n"
+                },
                 "name": {
                     "type": "string",
                     "description": "Name of the runner group\n"
@@ -2622,7 +2694,7 @@
                 "properties": {
                     "allowsPublicRepositories": {
                         "type": "boolean",
-                        "description": "Whether public repositories can be added to the runner group\n"
+                        "description": "Whether public repositories can be added to the runner group. Defaults to false.\n"
                     },
                     "default": {
                         "type": "boolean",
@@ -8456,7 +8528,7 @@
                 "properties": {
                     "description": {
                         "type": "string",
-                        "description": "The description the organization account\n"
+                        "description": "The organization account description\n"
                     },
                     "id": {
                         "type": "string",
@@ -8480,7 +8552,7 @@
                     },
                     "nodeId": {
                         "type": "string",
-                        "description": "GraphQL global node id for use with v4 API\n"
+                        "description": "GraphQL global node ID for use with the v4 API\n"
                     },
                     "orgname": {
                         "type": "string",
@@ -8488,14 +8560,14 @@
                     },
                     "plan": {
                         "type": "string",
-                        "description": "The plan name for the organization account\n"
+                        "description": "The organization account plan name\n"
                     },
                     "repositories": {
                         "type": "array",
                         "items": {
                             "type": "string"
                         },
-                        "description": "(`list`) A list with the repositories on the organization\n"
+                        "description": "(`list`) A list of the full names of the repositories in the organization formatted as `owner/name` strings\n"
                     },
                     "users": {
                         "type": "array",
@@ -9137,6 +9209,47 @@
                 ]
             }
         },
+        "github:index/getRepositoryAutolinkReferences:getRepositoryAutolinkReferences": {
+            "description": "Use this data source to retrieve autolink references for a repository.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\nconst example = github.getRepositoryAutolinkReferences({\n    repository: \"example-repository\",\n});\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\nexample = github.get_repository_autolink_references(repository=\"example-repository\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Github = Pulumi.Github;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = Github.GetRepositoryAutolinkReferences.Invoke(new()\n    {\n        Repository = \"example-repository\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-github/sdk/v5/go/github\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := github.GetRepositoryAutolinkReferences(ctx, \u0026github.GetRepositoryAutolinkReferencesArgs{\n\t\t\tRepository: \"example-repository\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.github.GithubFunctions;\nimport com.pulumi.github.inputs.GetRepositoryAutolinkReferencesArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var example = GithubFunctions.getRepositoryAutolinkReferences(GetRepositoryAutolinkReferencesArgs.builder()\n            .repository(\"example-repository\")\n            .build());\n\n    }\n}\n```\n```yaml\nvariables:\n  example:\n    fn::invoke:\n      Function: github:getRepositoryAutolinkReferences\n      Arguments:\n        repository: example-repository\n```\n{{% /example %}}\n{{% /examples %}}",
+            "inputs": {
+                "description": "A collection of arguments for invoking getRepositoryAutolinkReferences.\n",
+                "properties": {
+                    "repository": {
+                        "type": "string",
+                        "description": "Name of the repository to retrieve the autolink references from.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "repository"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getRepositoryAutolinkReferences.\n",
+                "properties": {
+                    "autolinkReferences": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/github:index/getRepositoryAutolinkReferencesAutolinkReference:getRepositoryAutolinkReferencesAutolinkReference"
+                        },
+                        "description": "The list of this repository's autolink references. Each element of `autolink_references` has the following attributes:\n"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "repository": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "autolinkReferences",
+                    "repository",
+                    "id"
+                ]
+            }
+        },
         "github:index/getRepositoryBranches:getRepositoryBranches": {
             "description": "Use this data source to retrieve information about branches in a repository.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\nconst example = github.getRepositoryBranches({\n    repository: \"example-repository\",\n});\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\nexample = github.get_repository_branches(repository=\"example-repository\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Github = Pulumi.Github;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = Github.GetRepositoryBranches.Invoke(new()\n    {\n        Repository = \"example-repository\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-github/sdk/v5/go/github\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := github.GetRepositoryBranches(ctx, \u0026github.GetRepositoryBranchesArgs{\n\t\t\tRepository: \"example-repository\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.github.GithubFunctions;\nimport com.pulumi.github.inputs.GetRepositoryBranchesArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var example = GithubFunctions.getRepositoryBranches(GetRepositoryBranchesArgs.builder()\n            .repository(\"example-repository\")\n            .build());\n\n    }\n}\n```\n```yaml\nvariables:\n  example:\n    fn::invoke:\n      Function: github:getRepositoryBranches\n      Arguments:\n        repository: example-repository\n```\n{{% /example %}}\n{{% /examples %}}",
             "inputs": {
@@ -9228,6 +9341,47 @@
                 "type": "object",
                 "required": [
                     "keys",
+                    "repository",
+                    "id"
+                ]
+            }
+        },
+        "github:index/getRepositoryEnvironments:getRepositoryEnvironments": {
+            "description": "Use this data source to retrieve information about environments for a repository.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\nconst example = github.getRepositoryEnvironments({\n    repository: \"example-repository\",\n});\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\nexample = github.get_repository_environments(repository=\"example-repository\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Github = Pulumi.Github;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = Github.GetRepositoryEnvironments.Invoke(new()\n    {\n        Repository = \"example-repository\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-github/sdk/v5/go/github\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := github.GetRepositoryEnvironments(ctx, \u0026github.GetRepositoryEnvironmentsArgs{\n\t\t\tRepository: \"example-repository\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.github.GithubFunctions;\nimport com.pulumi.github.inputs.GetRepositoryEnvironmentsArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var example = GithubFunctions.getRepositoryEnvironments(GetRepositoryEnvironmentsArgs.builder()\n            .repository(\"example-repository\")\n            .build());\n\n    }\n}\n```\n```yaml\nvariables:\n  example:\n    fn::invoke:\n      Function: github:getRepositoryEnvironments\n      Arguments:\n        repository: example-repository\n```\n{{% /example %}}\n{{% /examples %}}",
+            "inputs": {
+                "description": "A collection of arguments for invoking getRepositoryEnvironments.\n",
+                "properties": {
+                    "repository": {
+                        "type": "string",
+                        "description": "Name of the repository to retrieve the environments from.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "repository"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getRepositoryEnvironments.\n",
+                "properties": {
+                    "environments": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/github:index/getRepositoryEnvironmentsEnvironment:getRepositoryEnvironmentsEnvironment"
+                        },
+                        "description": "The list of this repository's environments. Each element of `environments` has the following attributes:\n"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "repository": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "environments",
                     "repository",
                     "id"
                 ]
@@ -9687,6 +9841,66 @@
                 ]
             }
         },
+        "github:index/getRestApi:getRestApi": {
+            "description": "Use this data source to retrieve information about a GitHub resource through REST API.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\nconst example = github.getRestApi({\n    endpoint: \"repos/example_repo/git/refs/heads/main\",\n});\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\nexample = github.get_rest_api(endpoint=\"repos/example_repo/git/refs/heads/main\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Github = Pulumi.Github;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = Github.GetRestApi.Invoke(new()\n    {\n        Endpoint = \"repos/example_repo/git/refs/heads/main\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-github/sdk/v5/go/github\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := github.GetRestApi(ctx, \u0026github.GetRestApiArgs{\n\t\t\tEndpoint: \"repos/example_repo/git/refs/heads/main\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.github.GithubFunctions;\nimport com.pulumi.github.inputs.GetRestApiArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var example = GithubFunctions.getRestApi(GetRestApiArgs.builder()\n            .endpoint(\"repos/example_repo/git/refs/heads/main\")\n            .build());\n\n    }\n}\n```\n```yaml\nvariables:\n  example:\n    fn::invoke:\n      Function: github:getRestApi\n      Arguments:\n        endpoint: repos/example_repo/git/refs/heads/main\n```\n{{% /example %}}\n{{% /examples %}}",
+            "inputs": {
+                "description": "A collection of arguments for invoking getRestApi.\n",
+                "properties": {
+                    "endpoint": {
+                        "type": "string",
+                        "description": "REST API endpoint to send the GET request to.\n",
+                        "willReplaceOnChanges": true
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "endpoint"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getRestApi.\n",
+                "properties": {
+                    "body": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "$ref": "pulumi.json#/Any"
+                        },
+                        "description": "A map of response body.\n"
+                    },
+                    "code": {
+                        "type": "integer",
+                        "description": "A response status code.\n"
+                    },
+                    "endpoint": {
+                        "type": "string"
+                    },
+                    "headers": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "$ref": "pulumi.json#/Any"
+                        },
+                        "description": "A map of response headers.\n"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "status": {
+                        "type": "string",
+                        "description": "A response status string.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "body",
+                    "code",
+                    "endpoint",
+                    "headers",
+                    "status",
+                    "id"
+                ]
+            }
+        },
         "github:index/getSshKeys:getSshKeys": {
             "description": "Use this data source to retrieve information about GitHub's SSH keys.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\nconst test = github.getSshKeys({});\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\ntest = github.get_ssh_keys()\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Github = Pulumi.Github;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var test = Github.GetSshKeys.Invoke();\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-github/sdk/v5/go/github\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := github.GetSshKeys(ctx, nil, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.github.GithubFunctions;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var test = GithubFunctions.getSshKeys();\n\n    }\n}\n```\n```yaml\nvariables:\n  test:\n    fn::invoke:\n      Function: github:getSshKeys\n      Arguments: {}\n```\n{{% /example %}}\n{{% /examples %}}",
             "outputs": {
@@ -9782,6 +9996,13 @@
                         },
                         "description": "List of team repositories (list of repo names). Not returned if `summary_only = true`\n"
                     },
+                    "repositoriesDetaileds": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/github:index/getTeamRepositoriesDetailed:getTeamRepositoriesDetailed"
+                        },
+                        "description": "List of team repositories (list of `repo_id` and `role_name`). Not returned if `summary_only = true`\n"
+                    },
                     "resultsPerPage": {
                         "type": "integer"
                     },
@@ -9801,6 +10022,7 @@
                     "permission",
                     "privacy",
                     "repositories",
+                    "repositoriesDetaileds",
                     "slug",
                     "id"
                 ]

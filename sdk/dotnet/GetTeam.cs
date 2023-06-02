@@ -170,6 +170,10 @@ namespace Pulumi.Github
         /// List of team repositories (list of repo names). Not returned if `summary_only = true`
         /// </summary>
         public readonly ImmutableArray<string> Repositories;
+        /// <summary>
+        /// List of team repositories (list of `repo_id` and `role_name`). Not returned if `summary_only = true`
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetTeamRepositoriesDetailedResult> RepositoriesDetaileds;
         public readonly int? ResultsPerPage;
         public readonly string Slug;
         public readonly bool? SummaryOnly;
@@ -194,6 +198,8 @@ namespace Pulumi.Github
 
             ImmutableArray<string> repositories,
 
+            ImmutableArray<Outputs.GetTeamRepositoriesDetailedResult> repositoriesDetaileds,
+
             int? resultsPerPage,
 
             string slug,
@@ -209,6 +215,7 @@ namespace Pulumi.Github
             Permission = permission;
             Privacy = privacy;
             Repositories = repositories;
+            RepositoriesDetaileds = repositoriesDetaileds;
             ResultsPerPage = resultsPerPage;
             Slug = slug;
             SummaryOnly = summaryOnly;

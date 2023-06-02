@@ -54,7 +54,7 @@ type GetOrganizationArgs struct {
 
 // A collection of values returned by getOrganization.
 type GetOrganizationResult struct {
-	// The description the organization account
+	// The organization account description
 	Description string `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
@@ -66,13 +66,13 @@ type GetOrganizationResult struct {
 	Members []string `pulumi:"members"`
 	// The organization's public profile name
 	Name string `pulumi:"name"`
-	// GraphQL global node id for use with v4 API
+	// GraphQL global node ID for use with the v4 API
 	NodeId string `pulumi:"nodeId"`
 	// The organization's name as used in URLs and the API
 	Orgname string `pulumi:"orgname"`
-	// The plan name for the organization account
+	// The organization account plan name
 	Plan string `pulumi:"plan"`
-	// (`list`) A list with the repositories on the organization
+	// (`list`) A list of the full names of the repositories in the organization formatted as `owner/name` strings
 	Repositories []string `pulumi:"repositories"`
 	// (`list`) A list with the members of the organization with following fields:
 	Users []map[string]string `pulumi:"users"`
@@ -116,7 +116,7 @@ func (o GetOrganizationResultOutput) ToGetOrganizationResultOutputWithContext(ct
 	return o
 }
 
-// The description the organization account
+// The organization account description
 func (o GetOrganizationResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v GetOrganizationResult) string { return v.Description }).(pulumi.StringOutput)
 }
@@ -143,7 +143,7 @@ func (o GetOrganizationResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetOrganizationResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// GraphQL global node id for use with v4 API
+// GraphQL global node ID for use with the v4 API
 func (o GetOrganizationResultOutput) NodeId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetOrganizationResult) string { return v.NodeId }).(pulumi.StringOutput)
 }
@@ -153,12 +153,12 @@ func (o GetOrganizationResultOutput) Orgname() pulumi.StringOutput {
 	return o.ApplyT(func(v GetOrganizationResult) string { return v.Orgname }).(pulumi.StringOutput)
 }
 
-// The plan name for the organization account
+// The organization account plan name
 func (o GetOrganizationResultOutput) Plan() pulumi.StringOutput {
 	return o.ApplyT(func(v GetOrganizationResult) string { return v.Plan }).(pulumi.StringOutput)
 }
 
-// (`list`) A list with the repositories on the organization
+// (`list`) A list of the full names of the repositories in the organization formatted as `owner/name` strings
 func (o GetOrganizationResultOutput) Repositories() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetOrganizationResult) []string { return v.Repositories }).(pulumi.StringArrayOutput)
 }

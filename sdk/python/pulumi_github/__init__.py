@@ -63,14 +63,17 @@ from .get_ref import *
 from .get_release import *
 from .get_repositories import *
 from .get_repository import *
+from .get_repository_autolink_references import *
 from .get_repository_branches import *
 from .get_repository_deploy_keys import *
+from .get_repository_environments import *
 from .get_repository_file import *
 from .get_repository_milestone import *
 from .get_repository_pull_request import *
 from .get_repository_pull_requests import *
 from .get_repository_teams import *
 from .get_repository_webhooks import *
+from .get_rest_api import *
 from .get_ssh_keys import *
 from .get_team import *
 from .get_tree import *

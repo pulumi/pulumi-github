@@ -570,6 +570,21 @@ export interface GetReleaseAsset {
     url: string;
 }
 
+export interface GetRepositoryAutolinkReferencesAutolinkReference {
+    /**
+     * True if alphanumeric.
+     */
+    isAlphanumeric: boolean;
+    /**
+     * Key prefix.
+     */
+    keyPrefix: string;
+    /**
+     * Target url template.
+     */
+    targetUrlTemplate: string;
+}
+
 export interface GetRepositoryBranchesBranch {
     /**
      * Name of the branch.
@@ -598,6 +613,17 @@ export interface GetRepositoryDeployKeysKey {
      * `true` if the key was verified.
      */
     verified: boolean;
+}
+
+export interface GetRepositoryEnvironmentsEnvironment {
+    /**
+     * Environment name.
+     */
+    name: string;
+    /**
+     * Environment node id.
+     */
+    nodeId: string;
 }
 
 export interface GetRepositoryPage {
@@ -727,6 +753,11 @@ export interface GetRepositoryWebhooksWebhook {
     url: string;
 }
 
+export interface GetTeamRepositoriesDetailed {
+    repoId: number;
+    roleName: string;
+}
+
 export interface GetTreeEntry {
     mode: string;
     path: string;
@@ -789,6 +820,10 @@ export interface RepositoryEnvironmentReviewer {
 
 export interface RepositoryPages {
     /**
+     * The type of GitHub Pages site to build. Can be `legacy` or `workflow`. If you use `legacy` as build type you need to set the option `source`.
+     */
+    buildType?: string;
+    /**
      * The custom domain for the repository. This can only be set after the repository has been created.
      */
     cname?: string;
@@ -803,7 +838,7 @@ export interface RepositoryPages {
     /**
      * The source branch and directory for the rendered Pages site. See GitHub Pages Source below for details.
      */
-    source: outputs.RepositoryPagesSource;
+    source?: outputs.RepositoryPagesSource;
     /**
      * Set to `enabled` to enable advanced security features on the repository. Can be `enabled` or `disabled`.
      */

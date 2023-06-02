@@ -2410,6 +2410,8 @@ func (o RepositoryEnvironmentReviewerArrayOutput) Index(i pulumi.IntInput) Repos
 }
 
 type RepositoryPages struct {
+	// The type of GitHub Pages site to build. Can be `legacy` or `workflow`. If you use `legacy` as build type you need to set the option `source`.
+	BuildType *string `pulumi:"buildType"`
 	// The custom domain for the repository. This can only be set after the repository has been created.
 	Cname *string `pulumi:"cname"`
 	// Whether the rendered GitHub Pages site has a custom 404 page.
@@ -2417,7 +2419,7 @@ type RepositoryPages struct {
 	// The absolute URL (including scheme) of the rendered GitHub Pages site e.g. `https://username.github.io`.
 	HtmlUrl *string `pulumi:"htmlUrl"`
 	// The source branch and directory for the rendered Pages site. See GitHub Pages Source below for details.
-	Source RepositoryPagesSource `pulumi:"source"`
+	Source *RepositoryPagesSource `pulumi:"source"`
 	// Set to `enabled` to enable advanced security features on the repository. Can be `enabled` or `disabled`.
 	Status *string `pulumi:"status"`
 	Url    *string `pulumi:"url"`
@@ -2435,6 +2437,8 @@ type RepositoryPagesInput interface {
 }
 
 type RepositoryPagesArgs struct {
+	// The type of GitHub Pages site to build. Can be `legacy` or `workflow`. If you use `legacy` as build type you need to set the option `source`.
+	BuildType pulumi.StringPtrInput `pulumi:"buildType"`
 	// The custom domain for the repository. This can only be set after the repository has been created.
 	Cname pulumi.StringPtrInput `pulumi:"cname"`
 	// Whether the rendered GitHub Pages site has a custom 404 page.
@@ -2442,7 +2446,7 @@ type RepositoryPagesArgs struct {
 	// The absolute URL (including scheme) of the rendered GitHub Pages site e.g. `https://username.github.io`.
 	HtmlUrl pulumi.StringPtrInput `pulumi:"htmlUrl"`
 	// The source branch and directory for the rendered Pages site. See GitHub Pages Source below for details.
-	Source RepositoryPagesSourceInput `pulumi:"source"`
+	Source RepositoryPagesSourcePtrInput `pulumi:"source"`
 	// Set to `enabled` to enable advanced security features on the repository. Can be `enabled` or `disabled`.
 	Status pulumi.StringPtrInput `pulumi:"status"`
 	Url    pulumi.StringPtrInput `pulumi:"url"`
@@ -2525,6 +2529,11 @@ func (o RepositoryPagesOutput) ToRepositoryPagesPtrOutputWithContext(ctx context
 	}).(RepositoryPagesPtrOutput)
 }
 
+// The type of GitHub Pages site to build. Can be `legacy` or `workflow`. If you use `legacy` as build type you need to set the option `source`.
+func (o RepositoryPagesOutput) BuildType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RepositoryPages) *string { return v.BuildType }).(pulumi.StringPtrOutput)
+}
+
 // The custom domain for the repository. This can only be set after the repository has been created.
 func (o RepositoryPagesOutput) Cname() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RepositoryPages) *string { return v.Cname }).(pulumi.StringPtrOutput)
@@ -2541,8 +2550,8 @@ func (o RepositoryPagesOutput) HtmlUrl() pulumi.StringPtrOutput {
 }
 
 // The source branch and directory for the rendered Pages site. See GitHub Pages Source below for details.
-func (o RepositoryPagesOutput) Source() RepositoryPagesSourceOutput {
-	return o.ApplyT(func(v RepositoryPages) RepositoryPagesSource { return v.Source }).(RepositoryPagesSourceOutput)
+func (o RepositoryPagesOutput) Source() RepositoryPagesSourcePtrOutput {
+	return o.ApplyT(func(v RepositoryPages) *RepositoryPagesSource { return v.Source }).(RepositoryPagesSourcePtrOutput)
 }
 
 // Set to `enabled` to enable advanced security features on the repository. Can be `enabled` or `disabled`.
@@ -2576,6 +2585,16 @@ func (o RepositoryPagesPtrOutput) Elem() RepositoryPagesOutput {
 		var ret RepositoryPages
 		return ret
 	}).(RepositoryPagesOutput)
+}
+
+// The type of GitHub Pages site to build. Can be `legacy` or `workflow`. If you use `legacy` as build type you need to set the option `source`.
+func (o RepositoryPagesPtrOutput) BuildType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RepositoryPages) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BuildType
+	}).(pulumi.StringPtrOutput)
 }
 
 // The custom domain for the repository. This can only be set after the repository has been created.
@@ -2614,7 +2633,7 @@ func (o RepositoryPagesPtrOutput) Source() RepositoryPagesSourcePtrOutput {
 		if v == nil {
 			return nil
 		}
-		return &v.Source
+		return v.Source
 	}).(RepositoryPagesSourcePtrOutput)
 }
 
@@ -6432,6 +6451,121 @@ func (o GetReleaseAssetArrayOutput) Index(i pulumi.IntInput) GetReleaseAssetOutp
 	}).(GetReleaseAssetOutput)
 }
 
+type GetRepositoryAutolinkReferencesAutolinkReference struct {
+	// True if alphanumeric.
+	IsAlphanumeric bool `pulumi:"isAlphanumeric"`
+	// Key prefix.
+	KeyPrefix string `pulumi:"keyPrefix"`
+	// Target url template.
+	TargetUrlTemplate string `pulumi:"targetUrlTemplate"`
+}
+
+// GetRepositoryAutolinkReferencesAutolinkReferenceInput is an input type that accepts GetRepositoryAutolinkReferencesAutolinkReferenceArgs and GetRepositoryAutolinkReferencesAutolinkReferenceOutput values.
+// You can construct a concrete instance of `GetRepositoryAutolinkReferencesAutolinkReferenceInput` via:
+//
+//	GetRepositoryAutolinkReferencesAutolinkReferenceArgs{...}
+type GetRepositoryAutolinkReferencesAutolinkReferenceInput interface {
+	pulumi.Input
+
+	ToGetRepositoryAutolinkReferencesAutolinkReferenceOutput() GetRepositoryAutolinkReferencesAutolinkReferenceOutput
+	ToGetRepositoryAutolinkReferencesAutolinkReferenceOutputWithContext(context.Context) GetRepositoryAutolinkReferencesAutolinkReferenceOutput
+}
+
+type GetRepositoryAutolinkReferencesAutolinkReferenceArgs struct {
+	// True if alphanumeric.
+	IsAlphanumeric pulumi.BoolInput `pulumi:"isAlphanumeric"`
+	// Key prefix.
+	KeyPrefix pulumi.StringInput `pulumi:"keyPrefix"`
+	// Target url template.
+	TargetUrlTemplate pulumi.StringInput `pulumi:"targetUrlTemplate"`
+}
+
+func (GetRepositoryAutolinkReferencesAutolinkReferenceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRepositoryAutolinkReferencesAutolinkReference)(nil)).Elem()
+}
+
+func (i GetRepositoryAutolinkReferencesAutolinkReferenceArgs) ToGetRepositoryAutolinkReferencesAutolinkReferenceOutput() GetRepositoryAutolinkReferencesAutolinkReferenceOutput {
+	return i.ToGetRepositoryAutolinkReferencesAutolinkReferenceOutputWithContext(context.Background())
+}
+
+func (i GetRepositoryAutolinkReferencesAutolinkReferenceArgs) ToGetRepositoryAutolinkReferencesAutolinkReferenceOutputWithContext(ctx context.Context) GetRepositoryAutolinkReferencesAutolinkReferenceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRepositoryAutolinkReferencesAutolinkReferenceOutput)
+}
+
+// GetRepositoryAutolinkReferencesAutolinkReferenceArrayInput is an input type that accepts GetRepositoryAutolinkReferencesAutolinkReferenceArray and GetRepositoryAutolinkReferencesAutolinkReferenceArrayOutput values.
+// You can construct a concrete instance of `GetRepositoryAutolinkReferencesAutolinkReferenceArrayInput` via:
+//
+//	GetRepositoryAutolinkReferencesAutolinkReferenceArray{ GetRepositoryAutolinkReferencesAutolinkReferenceArgs{...} }
+type GetRepositoryAutolinkReferencesAutolinkReferenceArrayInput interface {
+	pulumi.Input
+
+	ToGetRepositoryAutolinkReferencesAutolinkReferenceArrayOutput() GetRepositoryAutolinkReferencesAutolinkReferenceArrayOutput
+	ToGetRepositoryAutolinkReferencesAutolinkReferenceArrayOutputWithContext(context.Context) GetRepositoryAutolinkReferencesAutolinkReferenceArrayOutput
+}
+
+type GetRepositoryAutolinkReferencesAutolinkReferenceArray []GetRepositoryAutolinkReferencesAutolinkReferenceInput
+
+func (GetRepositoryAutolinkReferencesAutolinkReferenceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRepositoryAutolinkReferencesAutolinkReference)(nil)).Elem()
+}
+
+func (i GetRepositoryAutolinkReferencesAutolinkReferenceArray) ToGetRepositoryAutolinkReferencesAutolinkReferenceArrayOutput() GetRepositoryAutolinkReferencesAutolinkReferenceArrayOutput {
+	return i.ToGetRepositoryAutolinkReferencesAutolinkReferenceArrayOutputWithContext(context.Background())
+}
+
+func (i GetRepositoryAutolinkReferencesAutolinkReferenceArray) ToGetRepositoryAutolinkReferencesAutolinkReferenceArrayOutputWithContext(ctx context.Context) GetRepositoryAutolinkReferencesAutolinkReferenceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRepositoryAutolinkReferencesAutolinkReferenceArrayOutput)
+}
+
+type GetRepositoryAutolinkReferencesAutolinkReferenceOutput struct{ *pulumi.OutputState }
+
+func (GetRepositoryAutolinkReferencesAutolinkReferenceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRepositoryAutolinkReferencesAutolinkReference)(nil)).Elem()
+}
+
+func (o GetRepositoryAutolinkReferencesAutolinkReferenceOutput) ToGetRepositoryAutolinkReferencesAutolinkReferenceOutput() GetRepositoryAutolinkReferencesAutolinkReferenceOutput {
+	return o
+}
+
+func (o GetRepositoryAutolinkReferencesAutolinkReferenceOutput) ToGetRepositoryAutolinkReferencesAutolinkReferenceOutputWithContext(ctx context.Context) GetRepositoryAutolinkReferencesAutolinkReferenceOutput {
+	return o
+}
+
+// True if alphanumeric.
+func (o GetRepositoryAutolinkReferencesAutolinkReferenceOutput) IsAlphanumeric() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetRepositoryAutolinkReferencesAutolinkReference) bool { return v.IsAlphanumeric }).(pulumi.BoolOutput)
+}
+
+// Key prefix.
+func (o GetRepositoryAutolinkReferencesAutolinkReferenceOutput) KeyPrefix() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRepositoryAutolinkReferencesAutolinkReference) string { return v.KeyPrefix }).(pulumi.StringOutput)
+}
+
+// Target url template.
+func (o GetRepositoryAutolinkReferencesAutolinkReferenceOutput) TargetUrlTemplate() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRepositoryAutolinkReferencesAutolinkReference) string { return v.TargetUrlTemplate }).(pulumi.StringOutput)
+}
+
+type GetRepositoryAutolinkReferencesAutolinkReferenceArrayOutput struct{ *pulumi.OutputState }
+
+func (GetRepositoryAutolinkReferencesAutolinkReferenceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRepositoryAutolinkReferencesAutolinkReference)(nil)).Elem()
+}
+
+func (o GetRepositoryAutolinkReferencesAutolinkReferenceArrayOutput) ToGetRepositoryAutolinkReferencesAutolinkReferenceArrayOutput() GetRepositoryAutolinkReferencesAutolinkReferenceArrayOutput {
+	return o
+}
+
+func (o GetRepositoryAutolinkReferencesAutolinkReferenceArrayOutput) ToGetRepositoryAutolinkReferencesAutolinkReferenceArrayOutputWithContext(ctx context.Context) GetRepositoryAutolinkReferencesAutolinkReferenceArrayOutput {
+	return o
+}
+
+func (o GetRepositoryAutolinkReferencesAutolinkReferenceArrayOutput) Index(i pulumi.IntInput) GetRepositoryAutolinkReferencesAutolinkReferenceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRepositoryAutolinkReferencesAutolinkReference {
+		return vs[0].([]GetRepositoryAutolinkReferencesAutolinkReference)[vs[1].(int)]
+	}).(GetRepositoryAutolinkReferencesAutolinkReferenceOutput)
+}
+
 type GetRepositoryBranchesBranch struct {
 	// Name of the branch.
 	Name string `pulumi:"name"`
@@ -6660,6 +6794,112 @@ func (o GetRepositoryDeployKeysKeyArrayOutput) Index(i pulumi.IntInput) GetRepos
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRepositoryDeployKeysKey {
 		return vs[0].([]GetRepositoryDeployKeysKey)[vs[1].(int)]
 	}).(GetRepositoryDeployKeysKeyOutput)
+}
+
+type GetRepositoryEnvironmentsEnvironment struct {
+	// Environment name.
+	Name string `pulumi:"name"`
+	// Environment node id.
+	NodeId string `pulumi:"nodeId"`
+}
+
+// GetRepositoryEnvironmentsEnvironmentInput is an input type that accepts GetRepositoryEnvironmentsEnvironmentArgs and GetRepositoryEnvironmentsEnvironmentOutput values.
+// You can construct a concrete instance of `GetRepositoryEnvironmentsEnvironmentInput` via:
+//
+//	GetRepositoryEnvironmentsEnvironmentArgs{...}
+type GetRepositoryEnvironmentsEnvironmentInput interface {
+	pulumi.Input
+
+	ToGetRepositoryEnvironmentsEnvironmentOutput() GetRepositoryEnvironmentsEnvironmentOutput
+	ToGetRepositoryEnvironmentsEnvironmentOutputWithContext(context.Context) GetRepositoryEnvironmentsEnvironmentOutput
+}
+
+type GetRepositoryEnvironmentsEnvironmentArgs struct {
+	// Environment name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Environment node id.
+	NodeId pulumi.StringInput `pulumi:"nodeId"`
+}
+
+func (GetRepositoryEnvironmentsEnvironmentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRepositoryEnvironmentsEnvironment)(nil)).Elem()
+}
+
+func (i GetRepositoryEnvironmentsEnvironmentArgs) ToGetRepositoryEnvironmentsEnvironmentOutput() GetRepositoryEnvironmentsEnvironmentOutput {
+	return i.ToGetRepositoryEnvironmentsEnvironmentOutputWithContext(context.Background())
+}
+
+func (i GetRepositoryEnvironmentsEnvironmentArgs) ToGetRepositoryEnvironmentsEnvironmentOutputWithContext(ctx context.Context) GetRepositoryEnvironmentsEnvironmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRepositoryEnvironmentsEnvironmentOutput)
+}
+
+// GetRepositoryEnvironmentsEnvironmentArrayInput is an input type that accepts GetRepositoryEnvironmentsEnvironmentArray and GetRepositoryEnvironmentsEnvironmentArrayOutput values.
+// You can construct a concrete instance of `GetRepositoryEnvironmentsEnvironmentArrayInput` via:
+//
+//	GetRepositoryEnvironmentsEnvironmentArray{ GetRepositoryEnvironmentsEnvironmentArgs{...} }
+type GetRepositoryEnvironmentsEnvironmentArrayInput interface {
+	pulumi.Input
+
+	ToGetRepositoryEnvironmentsEnvironmentArrayOutput() GetRepositoryEnvironmentsEnvironmentArrayOutput
+	ToGetRepositoryEnvironmentsEnvironmentArrayOutputWithContext(context.Context) GetRepositoryEnvironmentsEnvironmentArrayOutput
+}
+
+type GetRepositoryEnvironmentsEnvironmentArray []GetRepositoryEnvironmentsEnvironmentInput
+
+func (GetRepositoryEnvironmentsEnvironmentArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRepositoryEnvironmentsEnvironment)(nil)).Elem()
+}
+
+func (i GetRepositoryEnvironmentsEnvironmentArray) ToGetRepositoryEnvironmentsEnvironmentArrayOutput() GetRepositoryEnvironmentsEnvironmentArrayOutput {
+	return i.ToGetRepositoryEnvironmentsEnvironmentArrayOutputWithContext(context.Background())
+}
+
+func (i GetRepositoryEnvironmentsEnvironmentArray) ToGetRepositoryEnvironmentsEnvironmentArrayOutputWithContext(ctx context.Context) GetRepositoryEnvironmentsEnvironmentArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRepositoryEnvironmentsEnvironmentArrayOutput)
+}
+
+type GetRepositoryEnvironmentsEnvironmentOutput struct{ *pulumi.OutputState }
+
+func (GetRepositoryEnvironmentsEnvironmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRepositoryEnvironmentsEnvironment)(nil)).Elem()
+}
+
+func (o GetRepositoryEnvironmentsEnvironmentOutput) ToGetRepositoryEnvironmentsEnvironmentOutput() GetRepositoryEnvironmentsEnvironmentOutput {
+	return o
+}
+
+func (o GetRepositoryEnvironmentsEnvironmentOutput) ToGetRepositoryEnvironmentsEnvironmentOutputWithContext(ctx context.Context) GetRepositoryEnvironmentsEnvironmentOutput {
+	return o
+}
+
+// Environment name.
+func (o GetRepositoryEnvironmentsEnvironmentOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRepositoryEnvironmentsEnvironment) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Environment node id.
+func (o GetRepositoryEnvironmentsEnvironmentOutput) NodeId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRepositoryEnvironmentsEnvironment) string { return v.NodeId }).(pulumi.StringOutput)
+}
+
+type GetRepositoryEnvironmentsEnvironmentArrayOutput struct{ *pulumi.OutputState }
+
+func (GetRepositoryEnvironmentsEnvironmentArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRepositoryEnvironmentsEnvironment)(nil)).Elem()
+}
+
+func (o GetRepositoryEnvironmentsEnvironmentArrayOutput) ToGetRepositoryEnvironmentsEnvironmentArrayOutput() GetRepositoryEnvironmentsEnvironmentArrayOutput {
+	return o
+}
+
+func (o GetRepositoryEnvironmentsEnvironmentArrayOutput) ToGetRepositoryEnvironmentsEnvironmentArrayOutputWithContext(ctx context.Context) GetRepositoryEnvironmentsEnvironmentArrayOutput {
+	return o
+}
+
+func (o GetRepositoryEnvironmentsEnvironmentArrayOutput) Index(i pulumi.IntInput) GetRepositoryEnvironmentsEnvironmentOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRepositoryEnvironmentsEnvironment {
+		return vs[0].([]GetRepositoryEnvironmentsEnvironment)[vs[1].(int)]
+	}).(GetRepositoryEnvironmentsEnvironmentOutput)
 }
 
 type GetRepositoryPage struct {
@@ -7424,6 +7664,106 @@ func (o GetRepositoryWebhooksWebhookArrayOutput) Index(i pulumi.IntInput) GetRep
 	}).(GetRepositoryWebhooksWebhookOutput)
 }
 
+type GetTeamRepositoriesDetailed struct {
+	RepoId   int    `pulumi:"repoId"`
+	RoleName string `pulumi:"roleName"`
+}
+
+// GetTeamRepositoriesDetailedInput is an input type that accepts GetTeamRepositoriesDetailedArgs and GetTeamRepositoriesDetailedOutput values.
+// You can construct a concrete instance of `GetTeamRepositoriesDetailedInput` via:
+//
+//	GetTeamRepositoriesDetailedArgs{...}
+type GetTeamRepositoriesDetailedInput interface {
+	pulumi.Input
+
+	ToGetTeamRepositoriesDetailedOutput() GetTeamRepositoriesDetailedOutput
+	ToGetTeamRepositoriesDetailedOutputWithContext(context.Context) GetTeamRepositoriesDetailedOutput
+}
+
+type GetTeamRepositoriesDetailedArgs struct {
+	RepoId   pulumi.IntInput    `pulumi:"repoId"`
+	RoleName pulumi.StringInput `pulumi:"roleName"`
+}
+
+func (GetTeamRepositoriesDetailedArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTeamRepositoriesDetailed)(nil)).Elem()
+}
+
+func (i GetTeamRepositoriesDetailedArgs) ToGetTeamRepositoriesDetailedOutput() GetTeamRepositoriesDetailedOutput {
+	return i.ToGetTeamRepositoriesDetailedOutputWithContext(context.Background())
+}
+
+func (i GetTeamRepositoriesDetailedArgs) ToGetTeamRepositoriesDetailedOutputWithContext(ctx context.Context) GetTeamRepositoriesDetailedOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTeamRepositoriesDetailedOutput)
+}
+
+// GetTeamRepositoriesDetailedArrayInput is an input type that accepts GetTeamRepositoriesDetailedArray and GetTeamRepositoriesDetailedArrayOutput values.
+// You can construct a concrete instance of `GetTeamRepositoriesDetailedArrayInput` via:
+//
+//	GetTeamRepositoriesDetailedArray{ GetTeamRepositoriesDetailedArgs{...} }
+type GetTeamRepositoriesDetailedArrayInput interface {
+	pulumi.Input
+
+	ToGetTeamRepositoriesDetailedArrayOutput() GetTeamRepositoriesDetailedArrayOutput
+	ToGetTeamRepositoriesDetailedArrayOutputWithContext(context.Context) GetTeamRepositoriesDetailedArrayOutput
+}
+
+type GetTeamRepositoriesDetailedArray []GetTeamRepositoriesDetailedInput
+
+func (GetTeamRepositoriesDetailedArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTeamRepositoriesDetailed)(nil)).Elem()
+}
+
+func (i GetTeamRepositoriesDetailedArray) ToGetTeamRepositoriesDetailedArrayOutput() GetTeamRepositoriesDetailedArrayOutput {
+	return i.ToGetTeamRepositoriesDetailedArrayOutputWithContext(context.Background())
+}
+
+func (i GetTeamRepositoriesDetailedArray) ToGetTeamRepositoriesDetailedArrayOutputWithContext(ctx context.Context) GetTeamRepositoriesDetailedArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTeamRepositoriesDetailedArrayOutput)
+}
+
+type GetTeamRepositoriesDetailedOutput struct{ *pulumi.OutputState }
+
+func (GetTeamRepositoriesDetailedOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTeamRepositoriesDetailed)(nil)).Elem()
+}
+
+func (o GetTeamRepositoriesDetailedOutput) ToGetTeamRepositoriesDetailedOutput() GetTeamRepositoriesDetailedOutput {
+	return o
+}
+
+func (o GetTeamRepositoriesDetailedOutput) ToGetTeamRepositoriesDetailedOutputWithContext(ctx context.Context) GetTeamRepositoriesDetailedOutput {
+	return o
+}
+
+func (o GetTeamRepositoriesDetailedOutput) RepoId() pulumi.IntOutput {
+	return o.ApplyT(func(v GetTeamRepositoriesDetailed) int { return v.RepoId }).(pulumi.IntOutput)
+}
+
+func (o GetTeamRepositoriesDetailedOutput) RoleName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTeamRepositoriesDetailed) string { return v.RoleName }).(pulumi.StringOutput)
+}
+
+type GetTeamRepositoriesDetailedArrayOutput struct{ *pulumi.OutputState }
+
+func (GetTeamRepositoriesDetailedArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTeamRepositoriesDetailed)(nil)).Elem()
+}
+
+func (o GetTeamRepositoriesDetailedArrayOutput) ToGetTeamRepositoriesDetailedArrayOutput() GetTeamRepositoriesDetailedArrayOutput {
+	return o
+}
+
+func (o GetTeamRepositoriesDetailedArrayOutput) ToGetTeamRepositoriesDetailedArrayOutputWithContext(ctx context.Context) GetTeamRepositoriesDetailedArrayOutput {
+	return o
+}
+
+func (o GetTeamRepositoriesDetailedArrayOutput) Index(i pulumi.IntInput) GetTeamRepositoriesDetailedOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetTeamRepositoriesDetailed {
+		return vs[0].([]GetTeamRepositoriesDetailed)[vs[1].(int)]
+	}).(GetTeamRepositoriesDetailedOutput)
+}
+
 type GetTreeEntry struct {
 	Mode string `pulumi:"mode"`
 	Path string `pulumi:"path"`
@@ -7629,10 +7969,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetOrganizationWebhooksWebhookArrayInput)(nil)).Elem(), GetOrganizationWebhooksWebhookArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetReleaseAssetInput)(nil)).Elem(), GetReleaseAssetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetReleaseAssetArrayInput)(nil)).Elem(), GetReleaseAssetArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRepositoryAutolinkReferencesAutolinkReferenceInput)(nil)).Elem(), GetRepositoryAutolinkReferencesAutolinkReferenceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRepositoryAutolinkReferencesAutolinkReferenceArrayInput)(nil)).Elem(), GetRepositoryAutolinkReferencesAutolinkReferenceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRepositoryBranchesBranchInput)(nil)).Elem(), GetRepositoryBranchesBranchArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRepositoryBranchesBranchArrayInput)(nil)).Elem(), GetRepositoryBranchesBranchArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRepositoryDeployKeysKeyInput)(nil)).Elem(), GetRepositoryDeployKeysKeyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRepositoryDeployKeysKeyArrayInput)(nil)).Elem(), GetRepositoryDeployKeysKeyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRepositoryEnvironmentsEnvironmentInput)(nil)).Elem(), GetRepositoryEnvironmentsEnvironmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRepositoryEnvironmentsEnvironmentArrayInput)(nil)).Elem(), GetRepositoryEnvironmentsEnvironmentArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRepositoryPageInput)(nil)).Elem(), GetRepositoryPageArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRepositoryPageArrayInput)(nil)).Elem(), GetRepositoryPageArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRepositoryPageSourceInput)(nil)).Elem(), GetRepositoryPageSourceArgs{})
@@ -7644,6 +7988,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRepositoryTemplateInput)(nil)).Elem(), GetRepositoryTemplateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRepositoryWebhooksWebhookInput)(nil)).Elem(), GetRepositoryWebhooksWebhookArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRepositoryWebhooksWebhookArrayInput)(nil)).Elem(), GetRepositoryWebhooksWebhookArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTeamRepositoriesDetailedInput)(nil)).Elem(), GetTeamRepositoriesDetailedArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTeamRepositoriesDetailedArrayInput)(nil)).Elem(), GetTeamRepositoriesDetailedArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTreeEntryInput)(nil)).Elem(), GetTreeEntryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTreeEntryArrayInput)(nil)).Elem(), GetTreeEntryArray{})
 	pulumi.RegisterOutputType(ActionsOrganizationPermissionsAllowedActionsConfigOutput{})
@@ -7732,10 +8078,14 @@ func init() {
 	pulumi.RegisterOutputType(GetOrganizationWebhooksWebhookArrayOutput{})
 	pulumi.RegisterOutputType(GetReleaseAssetOutput{})
 	pulumi.RegisterOutputType(GetReleaseAssetArrayOutput{})
+	pulumi.RegisterOutputType(GetRepositoryAutolinkReferencesAutolinkReferenceOutput{})
+	pulumi.RegisterOutputType(GetRepositoryAutolinkReferencesAutolinkReferenceArrayOutput{})
 	pulumi.RegisterOutputType(GetRepositoryBranchesBranchOutput{})
 	pulumi.RegisterOutputType(GetRepositoryBranchesBranchArrayOutput{})
 	pulumi.RegisterOutputType(GetRepositoryDeployKeysKeyOutput{})
 	pulumi.RegisterOutputType(GetRepositoryDeployKeysKeyArrayOutput{})
+	pulumi.RegisterOutputType(GetRepositoryEnvironmentsEnvironmentOutput{})
+	pulumi.RegisterOutputType(GetRepositoryEnvironmentsEnvironmentArrayOutput{})
 	pulumi.RegisterOutputType(GetRepositoryPageOutput{})
 	pulumi.RegisterOutputType(GetRepositoryPageArrayOutput{})
 	pulumi.RegisterOutputType(GetRepositoryPageSourceOutput{})
@@ -7747,6 +8097,8 @@ func init() {
 	pulumi.RegisterOutputType(GetRepositoryTemplateOutput{})
 	pulumi.RegisterOutputType(GetRepositoryWebhooksWebhookOutput{})
 	pulumi.RegisterOutputType(GetRepositoryWebhooksWebhookArrayOutput{})
+	pulumi.RegisterOutputType(GetTeamRepositoriesDetailedOutput{})
+	pulumi.RegisterOutputType(GetTeamRepositoriesDetailedArrayOutput{})
 	pulumi.RegisterOutputType(GetTreeEntryOutput{})
 	pulumi.RegisterOutputType(GetTreeEntryArrayOutput{})
 }
