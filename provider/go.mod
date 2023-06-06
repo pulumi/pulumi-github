@@ -5,7 +5,7 @@ go 1.19
 require (
 	github.com/hashicorp/terraform-plugin-sdk v1.17.2
 	github.com/integrations/terraform-provider-github/v5 v5.26.0
-	github.com/pulumi/pulumi-terraform-bridge/v3 v3.48.1-0.20230527113951-a0f92e793f31
+	github.com/pulumi/pulumi-terraform-bridge/v3 v3.49.0
 	github.com/pulumi/pulumi/sdk/v3 v3.69.0
 )
 
