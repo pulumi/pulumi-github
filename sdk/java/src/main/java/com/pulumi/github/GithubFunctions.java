@@ -22,6 +22,8 @@ import com.pulumi.github.inputs.GetActionsSecretsArgs;
 import com.pulumi.github.inputs.GetActionsSecretsPlainArgs;
 import com.pulumi.github.inputs.GetActionsVariablesArgs;
 import com.pulumi.github.inputs.GetActionsVariablesPlainArgs;
+import com.pulumi.github.inputs.GetAppTokenArgs;
+import com.pulumi.github.inputs.GetAppTokenPlainArgs;
 import com.pulumi.github.inputs.GetBranchArgs;
 import com.pulumi.github.inputs.GetBranchPlainArgs;
 import com.pulumi.github.inputs.GetBranchProtectionRulesArgs;
@@ -94,6 +96,7 @@ import com.pulumi.github.outputs.GetActionsRegistrationTokenResult;
 import com.pulumi.github.outputs.GetActionsRepositoryOidcSubjectClaimCustomizationTemplateResult;
 import com.pulumi.github.outputs.GetActionsSecretsResult;
 import com.pulumi.github.outputs.GetActionsVariablesResult;
+import com.pulumi.github.outputs.GetAppTokenResult;
 import com.pulumi.github.outputs.GetBranchProtectionRulesResult;
 import com.pulumi.github.outputs.GetBranchResult;
 import com.pulumi.github.outputs.GetCollaboratorsResult;
@@ -2357,6 +2360,162 @@ public final class GithubFunctions {
      */
     public static CompletableFuture<GetActionsVariablesResult> getActionsVariablesPlain(GetActionsVariablesPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("github:index/getActionsVariables:getActionsVariables", TypeShape.of(GetActionsVariablesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to generate a [GitHub App JWT](https://docs.github.com/en/apps/creating-github-apps/authenticating-with-a-github-app/generating-a-json-web-token-jwt-for-a-github-app).
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetAppTokenArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var this = GithubFunctions.getAppToken(GetAppTokenArgs.builder()
+     *             .appId(&#34;123456&#34;)
+     *             .installationId(&#34;78910&#34;)
+     *             .pemFile(Files.readString(Paths.get(&#34;foo/bar.pem&#34;)))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetAppTokenResult> getAppToken(GetAppTokenArgs args) {
+        return getAppToken(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to generate a [GitHub App JWT](https://docs.github.com/en/apps/creating-github-apps/authenticating-with-a-github-app/generating-a-json-web-token-jwt-for-a-github-app).
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetAppTokenArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var this = GithubFunctions.getAppToken(GetAppTokenArgs.builder()
+     *             .appId(&#34;123456&#34;)
+     *             .installationId(&#34;78910&#34;)
+     *             .pemFile(Files.readString(Paths.get(&#34;foo/bar.pem&#34;)))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetAppTokenResult> getAppTokenPlain(GetAppTokenPlainArgs args) {
+        return getAppTokenPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to generate a [GitHub App JWT](https://docs.github.com/en/apps/creating-github-apps/authenticating-with-a-github-app/generating-a-json-web-token-jwt-for-a-github-app).
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetAppTokenArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var this = GithubFunctions.getAppToken(GetAppTokenArgs.builder()
+     *             .appId(&#34;123456&#34;)
+     *             .installationId(&#34;78910&#34;)
+     *             .pemFile(Files.readString(Paths.get(&#34;foo/bar.pem&#34;)))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetAppTokenResult> getAppToken(GetAppTokenArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("github:index/getAppToken:getAppToken", TypeShape.of(GetAppTokenResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to generate a [GitHub App JWT](https://docs.github.com/en/apps/creating-github-apps/authenticating-with-a-github-app/generating-a-json-web-token-jwt-for-a-github-app).
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetAppTokenArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var this = GithubFunctions.getAppToken(GetAppTokenArgs.builder()
+     *             .appId(&#34;123456&#34;)
+     *             .installationId(&#34;78910&#34;)
+     *             .pemFile(Files.readString(Paths.get(&#34;foo/bar.pem&#34;)))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetAppTokenResult> getAppTokenPlain(GetAppTokenPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("github:index/getAppToken:getAppToken", TypeShape.of(GetAppTokenResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to retrieve information about a repository branch.

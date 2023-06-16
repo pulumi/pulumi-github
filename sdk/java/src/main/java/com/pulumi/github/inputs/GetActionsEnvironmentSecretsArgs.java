@@ -30,14 +30,14 @@ public final class GetActionsEnvironmentSecretsArgs extends com.pulumi.resources
     }
 
     /**
-     * Name of the variable
+     * Name of the secret
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Name of the variable
+     * @return Name of the secret
      * 
      */
     public Optional<Output<String>> name() {
@@ -89,7 +89,7 @@ public final class GetActionsEnvironmentSecretsArgs extends com.pulumi.resources
         }
 
         /**
-         * @param name Name of the variable
+         * @param name Name of the secret
          * 
          * @return builder
          * 
@@ -100,7 +100,7 @@ public final class GetActionsEnvironmentSecretsArgs extends com.pulumi.resources
         }
 
         /**
-         * @param name Name of the variable
+         * @param name Name of the secret
          * 
          * @return builder
          * 

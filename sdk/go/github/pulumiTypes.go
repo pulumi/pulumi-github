@@ -4173,11 +4173,11 @@ func (o TeamSyncGroupMappingGroupArrayOutput) Index(i pulumi.IntInput) TeamSyncG
 }
 
 type GetActionsEnvironmentSecretsSecret struct {
-	// Timestamp of the variable creation
+	// Timestamp of the secret creation
 	CreatedAt string `pulumi:"createdAt"`
-	// Name of the variable
+	// Name of the secret
 	Name string `pulumi:"name"`
-	// Timestamp of the variable last update
+	// Timestamp of the secret last update
 	UpdatedAt string `pulumi:"updatedAt"`
 }
 
@@ -4193,11 +4193,11 @@ type GetActionsEnvironmentSecretsSecretInput interface {
 }
 
 type GetActionsEnvironmentSecretsSecretArgs struct {
-	// Timestamp of the variable creation
+	// Timestamp of the secret creation
 	CreatedAt pulumi.StringInput `pulumi:"createdAt"`
-	// Name of the variable
+	// Name of the secret
 	Name pulumi.StringInput `pulumi:"name"`
-	// Timestamp of the variable last update
+	// Timestamp of the secret last update
 	UpdatedAt pulumi.StringInput `pulumi:"updatedAt"`
 }
 
@@ -4252,17 +4252,17 @@ func (o GetActionsEnvironmentSecretsSecretOutput) ToGetActionsEnvironmentSecrets
 	return o
 }
 
-// Timestamp of the variable creation
+// Timestamp of the secret creation
 func (o GetActionsEnvironmentSecretsSecretOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v GetActionsEnvironmentSecretsSecret) string { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
-// Name of the variable
+// Name of the secret
 func (o GetActionsEnvironmentSecretsSecretOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetActionsEnvironmentSecretsSecret) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Timestamp of the variable last update
+// Timestamp of the secret last update
 func (o GetActionsEnvironmentSecretsSecretOutput) UpdatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v GetActionsEnvironmentSecretsSecret) string { return v.UpdatedAt }).(pulumi.StringOutput)
 }
@@ -6903,6 +6903,7 @@ func (o GetRepositoryEnvironmentsEnvironmentArrayOutput) Index(i pulumi.IntInput
 }
 
 type GetRepositoryPage struct {
+	BuildType string `pulumi:"buildType"`
 	Cname     string `pulumi:"cname"`
 	Custom404 bool   `pulumi:"custom404"`
 	// URL to the repository on the web.
@@ -6924,6 +6925,7 @@ type GetRepositoryPageInput interface {
 }
 
 type GetRepositoryPageArgs struct {
+	BuildType pulumi.StringInput `pulumi:"buildType"`
 	Cname     pulumi.StringInput `pulumi:"cname"`
 	Custom404 pulumi.BoolInput   `pulumi:"custom404"`
 	// URL to the repository on the web.
@@ -6982,6 +6984,10 @@ func (o GetRepositoryPageOutput) ToGetRepositoryPageOutput() GetRepositoryPageOu
 
 func (o GetRepositoryPageOutput) ToGetRepositoryPageOutputWithContext(ctx context.Context) GetRepositoryPageOutput {
 	return o
+}
+
+func (o GetRepositoryPageOutput) BuildType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRepositoryPage) string { return v.BuildType }).(pulumi.StringOutput)
 }
 
 func (o GetRepositoryPageOutput) Cname() pulumi.StringOutput {

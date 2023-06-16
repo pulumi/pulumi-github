@@ -14,15 +14,15 @@ namespace Pulumi.Github.Outputs
     public sealed class GetActionsEnvironmentSecretsSecretResult
     {
         /// <summary>
-        /// Timestamp of the variable creation
+        /// Timestamp of the secret creation
         /// </summary>
         public readonly string CreatedAt;
         /// <summary>
-        /// Name of the variable
+        /// Name of the secret
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Timestamp of the variable last update
+        /// Timestamp of the secret last update
         /// </summary>
         public readonly string UpdatedAt;
 

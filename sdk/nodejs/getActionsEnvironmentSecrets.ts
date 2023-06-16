@@ -38,7 +38,7 @@ export interface GetActionsEnvironmentSecretsArgs {
     environment: string;
     fullName?: string;
     /**
-     * Name of the variable
+     * Name of the secret
      */
     name?: string;
 }
@@ -54,9 +54,12 @@ export interface GetActionsEnvironmentSecretsResult {
      */
     readonly id: string;
     /**
-     * Name of the variable
+     * Name of the secret
      */
     readonly name: string;
+    /**
+     * list of secrets for the environment
+     */
     readonly secrets: outputs.GetActionsEnvironmentSecretsSecret[];
 }
 /**
@@ -85,7 +88,7 @@ export interface GetActionsEnvironmentSecretsOutputArgs {
     environment: pulumi.Input<string>;
     fullName?: pulumi.Input<string>;
     /**
-     * Name of the variable
+     * Name of the secret
      */
     name?: pulumi.Input<string>;
 }

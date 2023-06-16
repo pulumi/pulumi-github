@@ -80,7 +80,7 @@ namespace Pulumi.Github
         public string? FullName { get; set; }
 
         /// <summary>
-        /// Name of the variable
+        /// Name of the secret
         /// </summary>
         [Input("name")]
         public string? Name { get; set; }
@@ -100,7 +100,7 @@ namespace Pulumi.Github
         public Input<string>? FullName { get; set; }
 
         /// <summary>
-        /// Name of the variable
+        /// Name of the secret
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -122,9 +122,12 @@ namespace Pulumi.Github
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Name of the variable
+        /// Name of the secret
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// list of secrets for the environment
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetActionsEnvironmentSecretsSecretResult> Secrets;
 
         [OutputConstructor]

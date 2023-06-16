@@ -83,6 +83,10 @@ import javax.annotation.Nullable;
  *                 exampleUser.applyValue(getUserResult -&gt; getUserResult.nodeId()),
  *                 &#34;/exampleuser&#34;,
  *                 &#34;exampleorganization/exampleteam&#34;)
+ *             .forcePushBypassers(            
+ *                 exampleUser.applyValue(getUserResult -&gt; getUserResult.nodeId()),
+ *                 &#34;/exampleuser&#34;,
+ *                 &#34;exampleorganization/exampleteam&#34;)
  *             .build());
  * 
  *         var exampleTeamRepository = new TeamRepository(&#34;exampleTeamRepository&#34;, TeamRepositoryArgs.builder()        
@@ -161,6 +165,20 @@ public class BranchProtection extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<Boolean>> enforceAdmins() {
         return Codegen.optional(this.enforceAdmins);
+    }
+    /**
+     * The list of actor Names/IDs that are allowed to bypass force push restrictions. Actor names must either begin with a &#34;/&#34; for users or the organization name followed by a &#34;/&#34; for teams.
+     * 
+     */
+    @Export(name="forcePushBypassers", type=List.class, parameters={String.class})
+    private Output</* @Nullable */ List<String>> forcePushBypassers;
+
+    /**
+     * @return The list of actor Names/IDs that are allowed to bypass force push restrictions. Actor names must either begin with a &#34;/&#34; for users or the organization name followed by a &#34;/&#34; for teams.
+     * 
+     */
+    public Output<Optional<List<String>>> forcePushBypassers() {
+        return Codegen.optional(this.forcePushBypassers);
     }
     /**
      * Boolean, Setting this to `true` will make the branch read-only and preventing any pushes to it. Defaults to `false`

@@ -51,7 +51,7 @@ func GetActionsEnvironmentSecrets(ctx *pulumi.Context, args *GetActionsEnvironme
 type GetActionsEnvironmentSecretsArgs struct {
 	Environment string  `pulumi:"environment"`
 	FullName    *string `pulumi:"fullName"`
-	// Name of the variable
+	// Name of the secret
 	Name *string `pulumi:"name"`
 }
 
@@ -61,8 +61,9 @@ type GetActionsEnvironmentSecretsResult struct {
 	FullName    string `pulumi:"fullName"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// Name of the variable
-	Name    string                               `pulumi:"name"`
+	// Name of the secret
+	Name string `pulumi:"name"`
+	// list of secrets for the environment
 	Secrets []GetActionsEnvironmentSecretsSecret `pulumi:"secrets"`
 }
 
@@ -83,7 +84,7 @@ func GetActionsEnvironmentSecretsOutput(ctx *pulumi.Context, args GetActionsEnvi
 type GetActionsEnvironmentSecretsOutputArgs struct {
 	Environment pulumi.StringInput    `pulumi:"environment"`
 	FullName    pulumi.StringPtrInput `pulumi:"fullName"`
-	// Name of the variable
+	// Name of the secret
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
@@ -119,11 +120,12 @@ func (o GetActionsEnvironmentSecretsResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetActionsEnvironmentSecretsResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Name of the variable
+// Name of the secret
 func (o GetActionsEnvironmentSecretsResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetActionsEnvironmentSecretsResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// list of secrets for the environment
 func (o GetActionsEnvironmentSecretsResultOutput) Secrets() GetActionsEnvironmentSecretsSecretArrayOutput {
 	return o.ApplyT(func(v GetActionsEnvironmentSecretsResult) []GetActionsEnvironmentSecretsSecret { return v.Secrets }).(GetActionsEnvironmentSecretsSecretArrayOutput)
 }

@@ -10,6 +10,10 @@ import * as utilities from "./utilities";
  * This resource allows you to create and manage repositories within your
  * GitHub organization or personal account.
  *
+ * > Note: When used with GitHub App authentication, even GET requests must have
+ * the `contents:write` permission or else the `allowMergeCommit`, `allowRebaseMerge`,
+ * and `allowSquashMerge` attributes will be ignored, causing confusing diffs.
+ *
  * ## Example Usage
  *
  * ```typescript

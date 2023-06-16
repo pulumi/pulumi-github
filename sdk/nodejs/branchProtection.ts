@@ -49,6 +49,11 @@ import * as utilities from "./utilities";
  *         "/exampleuser",
  *         "exampleorganization/exampleteam",
  *     ],
+ *     forcePushBypassers: [
+ *         exampleUser.then(exampleUser => exampleUser.nodeId),
+ *         "/exampleuser",
+ *         "exampleorganization/exampleteam",
+ *     ],
  * });
  * const exampleTeamRepository = new github.TeamRepository("exampleTeamRepository", {
  *     teamId: exampleTeam.id,
@@ -110,6 +115,10 @@ export class BranchProtection extends pulumi.CustomResource {
      */
     public readonly enforceAdmins!: pulumi.Output<boolean | undefined>;
     /**
+     * The list of actor Names/IDs that are allowed to bypass force push restrictions. Actor names must either begin with a "/" for users or the organization name followed by a "/" for teams.
+     */
+    public readonly forcePushBypassers!: pulumi.Output<string[] | undefined>;
+    /**
      * Boolean, Setting this to `true` will make the branch read-only and preventing any pushes to it. Defaults to `false`
      */
     public readonly lockBranch!: pulumi.Output<boolean | undefined>;
@@ -163,6 +172,7 @@ export class BranchProtection extends pulumi.CustomResource {
             resourceInputs["allowsForcePushes"] = state ? state.allowsForcePushes : undefined;
             resourceInputs["blocksCreations"] = state ? state.blocksCreations : undefined;
             resourceInputs["enforceAdmins"] = state ? state.enforceAdmins : undefined;
+            resourceInputs["forcePushBypassers"] = state ? state.forcePushBypassers : undefined;
             resourceInputs["lockBranch"] = state ? state.lockBranch : undefined;
             resourceInputs["pattern"] = state ? state.pattern : undefined;
             resourceInputs["pushRestrictions"] = state ? state.pushRestrictions : undefined;
@@ -184,6 +194,7 @@ export class BranchProtection extends pulumi.CustomResource {
             resourceInputs["allowsForcePushes"] = args ? args.allowsForcePushes : undefined;
             resourceInputs["blocksCreations"] = args ? args.blocksCreations : undefined;
             resourceInputs["enforceAdmins"] = args ? args.enforceAdmins : undefined;
+            resourceInputs["forcePushBypassers"] = args ? args.forcePushBypassers : undefined;
             resourceInputs["lockBranch"] = args ? args.lockBranch : undefined;
             resourceInputs["pattern"] = args ? args.pattern : undefined;
             resourceInputs["pushRestrictions"] = args ? args.pushRestrictions : undefined;
@@ -219,6 +230,10 @@ export interface BranchProtectionState {
      * Boolean, setting this to `true` enforces status checks for repository administrators.
      */
     enforceAdmins?: pulumi.Input<boolean>;
+    /**
+     * The list of actor Names/IDs that are allowed to bypass force push restrictions. Actor names must either begin with a "/" for users or the organization name followed by a "/" for teams.
+     */
+    forcePushBypassers?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Boolean, Setting this to `true` will make the branch read-only and preventing any pushes to it. Defaults to `false`
      */
@@ -277,6 +292,10 @@ export interface BranchProtectionArgs {
      * Boolean, setting this to `true` enforces status checks for repository administrators.
      */
     enforceAdmins?: pulumi.Input<boolean>;
+    /**
+     * The list of actor Names/IDs that are allowed to bypass force push restrictions. Actor names must either begin with a "/" for users or the organization name followed by a "/" for teams.
+     */
+    forcePushBypassers?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Boolean, Setting this to `true` will make the branch read-only and preventing any pushes to it. Defaults to `false`
      */
