@@ -127,6 +127,9 @@
             "github_branch_protection": {
                 "current": "github:index/branchProtection:BranchProtection",
                 "fields": {
+                    "force_push_bypassers": {
+                        "maxItemsOne": false
+                    },
                     "push_restrictions": {
                         "maxItemsOne": false
                     },
@@ -489,6 +492,9 @@
             "github_app": {
                 "current": "github:index/getGithubApp:getGithubApp"
             },
+            "github_app_token": {
+                "current": "github:index/getAppToken:getAppToken"
+            },
             "github_branch": {
                 "current": "github:index/getBranch:getBranch"
             },
@@ -674,6 +680,7 @@
             "github:index/getActionsRepositoryOidcSubjectClaimCustomizationTemplate:getActionsRepositoryOidcSubjectClaimCustomizationTemplate": "github_actions_repository_oidc_subject_claim_customization_template",
             "github:index/getActionsSecrets:getActionsSecrets": "github_actions_secrets",
             "github:index/getActionsVariables:getActionsVariables": "github_actions_variables",
+            "github:index/getAppToken:getAppToken": "github_app_token",
             "github:index/getBranch:getBranch": "github_branch",
             "github:index/getBranchProtectionRules:getBranchProtectionRules": "github_branch_protection_rules",
             "github:index/getCollaborators:getCollaborators": "github_collaborators",
@@ -879,6 +886,7 @@
                 "allowsForcePushes": "allows_force_pushes",
                 "blocksCreations": "blocks_creations",
                 "enforceAdmins": "enforce_admins",
+                "forcePushBypassers": "force_push_bypassers",
                 "lockBranch": "lock_branch",
                 "pushRestrictions": "push_restrictions",
                 "repositoryId": "repository_id",
@@ -977,6 +985,11 @@
             "github:index/getActionsVariablesVariable:getActionsVariablesVariable": {
                 "createdAt": "created_at",
                 "updatedAt": "updated_at"
+            },
+            "github:index/getAppToken:getAppToken": {
+                "appId": "app_id",
+                "installationId": "installation_id",
+                "pemFile": "pem_file"
             },
             "github:index/getCollaborators:getCollaborators": {
                 "collaborators": "collaborator"
@@ -1151,6 +1164,7 @@
                 "dueDate": "due_date"
             },
             "github:index/getRepositoryPage:getRepositoryPage": {
+                "buildType": "build_type",
                 "custom404": "custom_404",
                 "htmlUrl": "html_url",
                 "sources": "source"
