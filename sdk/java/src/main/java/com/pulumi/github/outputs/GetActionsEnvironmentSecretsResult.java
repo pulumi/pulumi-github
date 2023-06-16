@@ -19,10 +19,14 @@ public final class GetActionsEnvironmentSecretsResult {
      */
     private String id;
     /**
-     * @return Name of the variable
+     * @return Name of the secret
      * 
      */
     private String name;
+    /**
+     * @return list of secrets for the environment
+     * 
+     */
     private List<GetActionsEnvironmentSecretsSecret> secrets;
 
     private GetActionsEnvironmentSecretsResult() {}
@@ -40,12 +44,16 @@ public final class GetActionsEnvironmentSecretsResult {
         return this.id;
     }
     /**
-     * @return Name of the variable
+     * @return Name of the secret
      * 
      */
     public String name() {
         return this.name;
     }
+    /**
+     * @return list of secrets for the environment
+     * 
+     */
     public List<GetActionsEnvironmentSecretsSecret> secrets() {
         return this.secrets;
     }

@@ -10,38 +10,38 @@ import java.util.Objects;
 @CustomType
 public final class GetActionsEnvironmentSecretsSecret {
     /**
-     * @return Timestamp of the variable creation
+     * @return Timestamp of the secret creation
      * 
      */
     private String createdAt;
     /**
-     * @return Name of the variable
+     * @return Name of the secret
      * 
      */
     private String name;
     /**
-     * @return Timestamp of the variable last update
+     * @return Timestamp of the secret last update
      * 
      */
     private String updatedAt;
 
     private GetActionsEnvironmentSecretsSecret() {}
     /**
-     * @return Timestamp of the variable creation
+     * @return Timestamp of the secret creation
      * 
      */
     public String createdAt() {
         return this.createdAt;
     }
     /**
-     * @return Name of the variable
+     * @return Name of the secret
      * 
      */
     public String name() {
         return this.name;
     }
     /**
-     * @return Timestamp of the variable last update
+     * @return Timestamp of the secret last update
      * 
      */
     public String updatedAt() {

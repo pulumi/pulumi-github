@@ -13,6 +13,7 @@ namespace Pulumi.Github.Outputs
     [OutputType]
     public sealed class GetRepositoryPageResult
     {
+        public readonly string BuildType;
         public readonly string Cname;
         public readonly bool Custom404;
         /// <summary>
@@ -25,6 +26,8 @@ namespace Pulumi.Github.Outputs
 
         [OutputConstructor]
         private GetRepositoryPageResult(
+            string buildType,
+
             string cname,
 
             bool custom404,
@@ -37,6 +40,7 @@ namespace Pulumi.Github.Outputs
 
             string url)
         {
+            BuildType = buildType;
             Cname = cname;
             Custom404 = custom404;
             HtmlUrl = htmlUrl;

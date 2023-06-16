@@ -74,6 +74,12 @@ namespace Pulumi.Github
     ///             "/exampleuser",
     ///             "exampleorganization/exampleteam",
     ///         },
+    ///         ForcePushBypassers = new[]
+    ///         {
+    ///             exampleUser.Apply(getUserResult =&gt; getUserResult.NodeId),
+    ///             "/exampleuser",
+    ///             "exampleorganization/exampleteam",
+    ///         },
     ///     });
     /// 
     ///     var exampleTeamRepository = new Github.TeamRepository("exampleTeamRepository", new()
@@ -120,6 +126,12 @@ namespace Pulumi.Github
         /// </summary>
         [Output("enforceAdmins")]
         public Output<bool?> EnforceAdmins { get; private set; } = null!;
+
+        /// <summary>
+        /// The list of actor Names/IDs that are allowed to bypass force push restrictions. Actor names must either begin with a "/" for users or the organization name followed by a "/" for teams.
+        /// </summary>
+        [Output("forcePushBypassers")]
+        public Output<ImmutableArray<string>> ForcePushBypassers { get; private set; } = null!;
 
         /// <summary>
         /// Boolean, Setting this to `true` will make the branch read-only and preventing any pushes to it. Defaults to `false`
@@ -245,6 +257,18 @@ namespace Pulumi.Github
         [Input("enforceAdmins")]
         public Input<bool>? EnforceAdmins { get; set; }
 
+        [Input("forcePushBypassers")]
+        private InputList<string>? _forcePushBypassers;
+
+        /// <summary>
+        /// The list of actor Names/IDs that are allowed to bypass force push restrictions. Actor names must either begin with a "/" for users or the organization name followed by a "/" for teams.
+        /// </summary>
+        public InputList<string> ForcePushBypassers
+        {
+            get => _forcePushBypassers ?? (_forcePushBypassers = new InputList<string>());
+            set => _forcePushBypassers = value;
+        }
+
         /// <summary>
         /// Boolean, Setting this to `true` will make the branch read-only and preventing any pushes to it. Defaults to `false`
         /// </summary>
@@ -348,6 +372,18 @@ namespace Pulumi.Github
         /// </summary>
         [Input("enforceAdmins")]
         public Input<bool>? EnforceAdmins { get; set; }
+
+        [Input("forcePushBypassers")]
+        private InputList<string>? _forcePushBypassers;
+
+        /// <summary>
+        /// The list of actor Names/IDs that are allowed to bypass force push restrictions. Actor names must either begin with a "/" for users or the organization name followed by a "/" for teams.
+        /// </summary>
+        public InputList<string> ForcePushBypassers
+        {
+            get => _forcePushBypassers ?? (_forcePushBypassers = new InputList<string>());
+            set => _forcePushBypassers = value;
+        }
 
         /// <summary>
         /// Boolean, Setting this to `true` will make the branch read-only and preventing any pushes to it. Defaults to `false`

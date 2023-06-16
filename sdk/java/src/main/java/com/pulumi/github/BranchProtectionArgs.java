@@ -80,6 +80,21 @@ public final class BranchProtectionArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
+     * The list of actor Names/IDs that are allowed to bypass force push restrictions. Actor names must either begin with a &#34;/&#34; for users or the organization name followed by a &#34;/&#34; for teams.
+     * 
+     */
+    @Import(name="forcePushBypassers")
+    private @Nullable Output<List<String>> forcePushBypassers;
+
+    /**
+     * @return The list of actor Names/IDs that are allowed to bypass force push restrictions. Actor names must either begin with a &#34;/&#34; for users or the organization name followed by a &#34;/&#34; for teams.
+     * 
+     */
+    public Optional<Output<List<String>>> forcePushBypassers() {
+        return Optional.ofNullable(this.forcePushBypassers);
+    }
+
+    /**
      * Boolean, Setting this to `true` will make the branch read-only and preventing any pushes to it. Defaults to `false`
      * 
      */
@@ -221,6 +236,7 @@ public final class BranchProtectionArgs extends com.pulumi.resources.ResourceArg
         this.allowsForcePushes = $.allowsForcePushes;
         this.blocksCreations = $.blocksCreations;
         this.enforceAdmins = $.enforceAdmins;
+        this.forcePushBypassers = $.forcePushBypassers;
         this.lockBranch = $.lockBranch;
         this.pattern = $.pattern;
         this.pushRestrictions = $.pushRestrictions;
@@ -332,6 +348,37 @@ public final class BranchProtectionArgs extends com.pulumi.resources.ResourceArg
          */
         public Builder enforceAdmins(Boolean enforceAdmins) {
             return enforceAdmins(Output.of(enforceAdmins));
+        }
+
+        /**
+         * @param forcePushBypassers The list of actor Names/IDs that are allowed to bypass force push restrictions. Actor names must either begin with a &#34;/&#34; for users or the organization name followed by a &#34;/&#34; for teams.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder forcePushBypassers(@Nullable Output<List<String>> forcePushBypassers) {
+            $.forcePushBypassers = forcePushBypassers;
+            return this;
+        }
+
+        /**
+         * @param forcePushBypassers The list of actor Names/IDs that are allowed to bypass force push restrictions. Actor names must either begin with a &#34;/&#34; for users or the organization name followed by a &#34;/&#34; for teams.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder forcePushBypassers(List<String> forcePushBypassers) {
+            return forcePushBypassers(Output.of(forcePushBypassers));
+        }
+
+        /**
+         * @param forcePushBypassers The list of actor Names/IDs that are allowed to bypass force push restrictions. Actor names must either begin with a &#34;/&#34; for users or the organization name followed by a &#34;/&#34; for teams.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder forcePushBypassers(String... forcePushBypassers) {
+            return forcePushBypassers(List.of(forcePushBypassers));
         }
 
         /**

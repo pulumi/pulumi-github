@@ -73,6 +73,11 @@ import (
 //					pulumi.String("/exampleuser"),
 //					pulumi.String("exampleorganization/exampleteam"),
 //				},
+//				ForcePushBypassers: pulumi.StringArray{
+//					*pulumi.String(exampleUser.NodeId),
+//					pulumi.String("/exampleuser"),
+//					pulumi.String("exampleorganization/exampleteam"),
+//				},
 //			})
 //			if err != nil {
 //				return err
@@ -111,6 +116,8 @@ type BranchProtection struct {
 	BlocksCreations pulumi.BoolPtrOutput `pulumi:"blocksCreations"`
 	// Boolean, setting this to `true` enforces status checks for repository administrators.
 	EnforceAdmins pulumi.BoolPtrOutput `pulumi:"enforceAdmins"`
+	// The list of actor Names/IDs that are allowed to bypass force push restrictions. Actor names must either begin with a "/" for users or the organization name followed by a "/" for teams.
+	ForcePushBypassers pulumi.StringArrayOutput `pulumi:"forcePushBypassers"`
 	// Boolean, Setting this to `true` will make the branch read-only and preventing any pushes to it. Defaults to `false`
 	LockBranch pulumi.BoolPtrOutput `pulumi:"lockBranch"`
 	// Identifies the protection rule pattern.
@@ -174,6 +181,8 @@ type branchProtectionState struct {
 	BlocksCreations *bool `pulumi:"blocksCreations"`
 	// Boolean, setting this to `true` enforces status checks for repository administrators.
 	EnforceAdmins *bool `pulumi:"enforceAdmins"`
+	// The list of actor Names/IDs that are allowed to bypass force push restrictions. Actor names must either begin with a "/" for users or the organization name followed by a "/" for teams.
+	ForcePushBypassers []string `pulumi:"forcePushBypassers"`
 	// Boolean, Setting this to `true` will make the branch read-only and preventing any pushes to it. Defaults to `false`
 	LockBranch *bool `pulumi:"lockBranch"`
 	// Identifies the protection rule pattern.
@@ -203,6 +212,8 @@ type BranchProtectionState struct {
 	BlocksCreations pulumi.BoolPtrInput
 	// Boolean, setting this to `true` enforces status checks for repository administrators.
 	EnforceAdmins pulumi.BoolPtrInput
+	// The list of actor Names/IDs that are allowed to bypass force push restrictions. Actor names must either begin with a "/" for users or the organization name followed by a "/" for teams.
+	ForcePushBypassers pulumi.StringArrayInput
 	// Boolean, Setting this to `true` will make the branch read-only and preventing any pushes to it. Defaults to `false`
 	LockBranch pulumi.BoolPtrInput
 	// Identifies the protection rule pattern.
@@ -236,6 +247,8 @@ type branchProtectionArgs struct {
 	BlocksCreations *bool `pulumi:"blocksCreations"`
 	// Boolean, setting this to `true` enforces status checks for repository administrators.
 	EnforceAdmins *bool `pulumi:"enforceAdmins"`
+	// The list of actor Names/IDs that are allowed to bypass force push restrictions. Actor names must either begin with a "/" for users or the organization name followed by a "/" for teams.
+	ForcePushBypassers []string `pulumi:"forcePushBypassers"`
 	// Boolean, Setting this to `true` will make the branch read-only and preventing any pushes to it. Defaults to `false`
 	LockBranch *bool `pulumi:"lockBranch"`
 	// Identifies the protection rule pattern.
@@ -266,6 +279,8 @@ type BranchProtectionArgs struct {
 	BlocksCreations pulumi.BoolPtrInput
 	// Boolean, setting this to `true` enforces status checks for repository administrators.
 	EnforceAdmins pulumi.BoolPtrInput
+	// The list of actor Names/IDs that are allowed to bypass force push restrictions. Actor names must either begin with a "/" for users or the organization name followed by a "/" for teams.
+	ForcePushBypassers pulumi.StringArrayInput
 	// Boolean, Setting this to `true` will make the branch read-only and preventing any pushes to it. Defaults to `false`
 	LockBranch pulumi.BoolPtrInput
 	// Identifies the protection rule pattern.
@@ -391,6 +406,11 @@ func (o BranchProtectionOutput) BlocksCreations() pulumi.BoolPtrOutput {
 // Boolean, setting this to `true` enforces status checks for repository administrators.
 func (o BranchProtectionOutput) EnforceAdmins() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *BranchProtection) pulumi.BoolPtrOutput { return v.EnforceAdmins }).(pulumi.BoolPtrOutput)
+}
+
+// The list of actor Names/IDs that are allowed to bypass force push restrictions. Actor names must either begin with a "/" for users or the organization name followed by a "/" for teams.
+func (o BranchProtectionOutput) ForcePushBypassers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BranchProtection) pulumi.StringArrayOutput { return v.ForcePushBypassers }).(pulumi.StringArrayOutput)
 }
 
 // Boolean, Setting this to `true` will make the branch read-only and preventing any pushes to it. Defaults to `false`

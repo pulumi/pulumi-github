@@ -61,13 +61,16 @@ class GetActionsEnvironmentSecretsResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        Name of the variable
+        Name of the secret
         """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def secrets(self) -> Sequence['outputs.GetActionsEnvironmentSecretsSecretResult']:
+        """
+        list of secrets for the environment
+        """
         return pulumi.get(self, "secrets")
 
 
@@ -102,7 +105,7 @@ def get_actions_environment_secrets(environment: Optional[str] = None,
     ```
 
 
-    :param str name: Name of the variable
+    :param str name: Name of the secret
     """
     __args__ = dict()
     __args__['environment'] = environment
@@ -138,6 +141,6 @@ def get_actions_environment_secrets_output(environment: Optional[pulumi.Input[st
     ```
 
 
-    :param str name: Name of the variable
+    :param str name: Name of the secret
     """
     ...

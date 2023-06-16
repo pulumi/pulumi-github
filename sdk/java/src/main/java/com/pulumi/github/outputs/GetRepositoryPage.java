@@ -12,6 +12,7 @@ import java.util.Objects;
 
 @CustomType
 public final class GetRepositoryPage {
+    private String buildType;
     private String cname;
     private Boolean custom404;
     /**
@@ -24,6 +25,9 @@ public final class GetRepositoryPage {
     private String url;
 
     private GetRepositoryPage() {}
+    public String buildType() {
+        return this.buildType;
+    }
     public String cname() {
         return this.cname;
     }
@@ -56,6 +60,7 @@ public final class GetRepositoryPage {
     }
     @CustomType.Builder
     public static final class Builder {
+        private String buildType;
         private String cname;
         private Boolean custom404;
         private String htmlUrl;
@@ -65,6 +70,7 @@ public final class GetRepositoryPage {
         public Builder() {}
         public Builder(GetRepositoryPage defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.buildType = defaults.buildType;
     	      this.cname = defaults.cname;
     	      this.custom404 = defaults.custom404;
     	      this.htmlUrl = defaults.htmlUrl;
@@ -73,6 +79,11 @@ public final class GetRepositoryPage {
     	      this.url = defaults.url;
         }
 
+        @CustomType.Setter
+        public Builder buildType(String buildType) {
+            this.buildType = Objects.requireNonNull(buildType);
+            return this;
+        }
         @CustomType.Setter
         public Builder cname(String cname) {
             this.cname = Objects.requireNonNull(cname);
@@ -108,6 +119,7 @@ public final class GetRepositoryPage {
         }
         public GetRepositoryPage build() {
             final var o = new GetRepositoryPage();
+            o.buildType = buildType;
             o.cname = cname;
             o.custom404 = custom404;
             o.htmlUrl = htmlUrl;

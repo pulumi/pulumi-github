@@ -1421,9 +1421,9 @@ class GetActionsEnvironmentSecretsSecretResult(dict):
                  name: str,
                  updated_at: str):
         """
-        :param str created_at: Timestamp of the variable creation
-        :param str name: Name of the variable
-        :param str updated_at: Timestamp of the variable last update
+        :param str created_at: Timestamp of the secret creation
+        :param str name: Name of the secret
+        :param str updated_at: Timestamp of the secret last update
         """
         pulumi.set(__self__, "created_at", created_at)
         pulumi.set(__self__, "name", name)
@@ -1433,7 +1433,7 @@ class GetActionsEnvironmentSecretsSecretResult(dict):
     @pulumi.getter(name="createdAt")
     def created_at(self) -> str:
         """
-        Timestamp of the variable creation
+        Timestamp of the secret creation
         """
         return pulumi.get(self, "created_at")
 
@@ -1441,7 +1441,7 @@ class GetActionsEnvironmentSecretsSecretResult(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        Name of the variable
+        Name of the secret
         """
         return pulumi.get(self, "name")
 
@@ -1449,7 +1449,7 @@ class GetActionsEnvironmentSecretsSecretResult(dict):
     @pulumi.getter(name="updatedAt")
     def updated_at(self) -> str:
         """
-        Timestamp of the variable last update
+        Timestamp of the secret last update
         """
         return pulumi.get(self, "updated_at")
 
@@ -2642,6 +2642,7 @@ class GetRepositoryEnvironmentsEnvironmentResult(dict):
 @pulumi.output_type
 class GetRepositoryPageResult(dict):
     def __init__(__self__, *,
+                 build_type: str,
                  cname: str,
                  custom404: bool,
                  html_url: str,
@@ -2651,12 +2652,18 @@ class GetRepositoryPageResult(dict):
         """
         :param str html_url: URL to the repository on the web.
         """
+        pulumi.set(__self__, "build_type", build_type)
         pulumi.set(__self__, "cname", cname)
         pulumi.set(__self__, "custom404", custom404)
         pulumi.set(__self__, "html_url", html_url)
         pulumi.set(__self__, "sources", sources)
         pulumi.set(__self__, "status", status)
         pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter(name="buildType")
+    def build_type(self) -> str:
+        return pulumi.get(self, "build_type")
 
     @property
     @pulumi.getter

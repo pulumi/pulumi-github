@@ -51,6 +51,7 @@
         "getActionsRepositoryOidcSubjectClaimCustomizationTemplate.ts",
         "getActionsSecrets.ts",
         "getActionsVariables.ts",
+        "getAppToken.ts",
         "getBranch.ts",
         "getBranchProtectionRules.ts",
         "getCollaborators.ts",

@@ -173,15 +173,15 @@ export interface BranchProtectionV3Restrictions {
 
 export interface GetActionsEnvironmentSecretsSecret {
     /**
-     * Timestamp of the variable creation
+     * Timestamp of the secret creation
      */
     createdAt: string;
     /**
-     * Name of the variable
+     * Name of the secret
      */
     name: string;
     /**
-     * Timestamp of the variable last update
+     * Timestamp of the secret last update
      */
     updatedAt: string;
 }
@@ -627,6 +627,7 @@ export interface GetRepositoryEnvironmentsEnvironment {
 }
 
 export interface GetRepositoryPage {
+    buildType: string;
     cname: string;
     custom404: boolean;
     /**

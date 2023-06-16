@@ -41,6 +41,7 @@ from .get_actions_registration_token import *
 from .get_actions_repository_oidc_subject_claim_customization_template import *
 from .get_actions_secrets import *
 from .get_actions_variables import *
+from .get_app_token import *
 from .get_branch import *
 from .get_branch_protection_rules import *
 from .get_collaborators import *
