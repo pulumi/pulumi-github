@@ -67,6 +67,7 @@ from .get_repository import *
 from .get_repository_autolink_references import *
 from .get_repository_branches import *
 from .get_repository_deploy_keys import *
+from .get_repository_deployment_branch_policies import *
 from .get_repository_environments import *
 from .get_repository_file import *
 from .get_repository_milestone import *
@@ -97,6 +98,7 @@ from .repository_autolink_reference import *
 from .repository_collaborator import *
 from .repository_collaborators import *
 from .repository_deploy_key import *
+from .repository_deployment_branch_policy import *
 from .repository_environment import *
 from .repository_file import *
 from .repository_milestone import *
@@ -444,6 +446,14 @@ _utilities.register(
   "fqn": "pulumi_github",
   "classes": {
    "github:index/repositoryDeployKey:RepositoryDeployKey": "RepositoryDeployKey"
+  }
+ },
+ {
+  "pkg": "github",
+  "mod": "index/repositoryDeploymentBranchPolicy",
+  "fqn": "pulumi_github",
+  "classes": {
+   "github:index/repositoryDeploymentBranchPolicy:RepositoryDeploymentBranchPolicy": "RepositoryDeploymentBranchPolicy"
   }
  },
  {

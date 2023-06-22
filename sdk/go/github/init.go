@@ -100,6 +100,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &RepositoryCollaborators{}
 	case "github:index/repositoryDeployKey:RepositoryDeployKey":
 		r = &RepositoryDeployKey{}
+	case "github:index/repositoryDeploymentBranchPolicy:RepositoryDeploymentBranchPolicy":
+		r = &RepositoryDeploymentBranchPolicy{}
 	case "github:index/repositoryEnvironment:RepositoryEnvironment":
 		r = &RepositoryEnvironment{}
 	case "github:index/repositoryFile:RepositoryFile":
@@ -358,6 +360,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"github",
 		"index/repositoryDeployKey",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"github",
+		"index/repositoryDeploymentBranchPolicy",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

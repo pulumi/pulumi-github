@@ -90,6 +90,14 @@ export class Team extends pulumi.CustomResource {
      */
     public readonly parentTeamId!: pulumi.Output<string | undefined>;
     /**
+     * The id of the parent team read in Github.
+     */
+    public readonly parentTeamReadId!: pulumi.Output<string>;
+    /**
+     * The id of the parent team read in Github.
+     */
+    public readonly parentTeamReadSlug!: pulumi.Output<string>;
+    /**
      * The level of privacy for the team. Must be one of `secret` or `closed`.
      * Defaults to `secret`.
      */
@@ -122,6 +130,8 @@ export class Team extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["nodeId"] = state ? state.nodeId : undefined;
             resourceInputs["parentTeamId"] = state ? state.parentTeamId : undefined;
+            resourceInputs["parentTeamReadId"] = state ? state.parentTeamReadId : undefined;
+            resourceInputs["parentTeamReadSlug"] = state ? state.parentTeamReadSlug : undefined;
             resourceInputs["privacy"] = state ? state.privacy : undefined;
             resourceInputs["slug"] = state ? state.slug : undefined;
         } else {
@@ -131,6 +141,8 @@ export class Team extends pulumi.CustomResource {
             resourceInputs["ldapDn"] = args ? args.ldapDn : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["parentTeamId"] = args ? args.parentTeamId : undefined;
+            resourceInputs["parentTeamReadId"] = args ? args.parentTeamReadId : undefined;
+            resourceInputs["parentTeamReadSlug"] = args ? args.parentTeamReadSlug : undefined;
             resourceInputs["privacy"] = args ? args.privacy : undefined;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["membersCount"] = undefined /*out*/;
@@ -173,6 +185,14 @@ export interface TeamState {
      */
     parentTeamId?: pulumi.Input<string>;
     /**
+     * The id of the parent team read in Github.
+     */
+    parentTeamReadId?: pulumi.Input<string>;
+    /**
+     * The id of the parent team read in Github.
+     */
+    parentTeamReadSlug?: pulumi.Input<string>;
+    /**
      * The level of privacy for the team. Must be one of `secret` or `closed`.
      * Defaults to `secret`.
      */
@@ -209,6 +229,14 @@ export interface TeamArgs {
      * The ID or slug of the parent team, if this is a nested team.
      */
     parentTeamId?: pulumi.Input<string>;
+    /**
+     * The id of the parent team read in Github.
+     */
+    parentTeamReadId?: pulumi.Input<string>;
+    /**
+     * The id of the parent team read in Github.
+     */
+    parentTeamReadSlug?: pulumi.Input<string>;
     /**
      * The level of privacy for the team. Must be one of `secret` or `closed`.
      * Defaults to `secret`.

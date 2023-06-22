@@ -165,6 +165,34 @@ public class Team extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.parentTeamId);
     }
     /**
+     * The id of the parent team read in Github.
+     * 
+     */
+    @Export(name="parentTeamReadId", type=String.class, parameters={})
+    private Output<String> parentTeamReadId;
+
+    /**
+     * @return The id of the parent team read in Github.
+     * 
+     */
+    public Output<String> parentTeamReadId() {
+        return this.parentTeamReadId;
+    }
+    /**
+     * The id of the parent team read in Github.
+     * 
+     */
+    @Export(name="parentTeamReadSlug", type=String.class, parameters={})
+    private Output<String> parentTeamReadSlug;
+
+    /**
+     * @return The id of the parent team read in Github.
+     * 
+     */
+    public Output<String> parentTeamReadSlug() {
+        return this.parentTeamReadSlug;
+    }
+    /**
      * The level of privacy for the team. Must be one of `secret` or `closed`.
      * Defaults to `secret`.
      * 

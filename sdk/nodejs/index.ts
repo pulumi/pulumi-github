@@ -303,6 +303,11 @@ export const getRepositoryDeployKeys: typeof import("./getRepositoryDeployKeys")
 export const getRepositoryDeployKeysOutput: typeof import("./getRepositoryDeployKeys").getRepositoryDeployKeysOutput = null as any;
 utilities.lazyLoad(exports, ["getRepositoryDeployKeys","getRepositoryDeployKeysOutput"], () => require("./getRepositoryDeployKeys"));
 
+export { GetRepositoryDeploymentBranchPoliciesArgs, GetRepositoryDeploymentBranchPoliciesResult, GetRepositoryDeploymentBranchPoliciesOutputArgs } from "./getRepositoryDeploymentBranchPolicies";
+export const getRepositoryDeploymentBranchPolicies: typeof import("./getRepositoryDeploymentBranchPolicies").getRepositoryDeploymentBranchPolicies = null as any;
+export const getRepositoryDeploymentBranchPoliciesOutput: typeof import("./getRepositoryDeploymentBranchPolicies").getRepositoryDeploymentBranchPoliciesOutput = null as any;
+utilities.lazyLoad(exports, ["getRepositoryDeploymentBranchPolicies","getRepositoryDeploymentBranchPoliciesOutput"], () => require("./getRepositoryDeploymentBranchPolicies"));
+
 export { GetRepositoryEnvironmentsArgs, GetRepositoryEnvironmentsResult, GetRepositoryEnvironmentsOutputArgs } from "./getRepositoryEnvironments";
 export const getRepositoryEnvironments: typeof import("./getRepositoryEnvironments").getRepositoryEnvironments = null as any;
 export const getRepositoryEnvironmentsOutput: typeof import("./getRepositoryEnvironments").getRepositoryEnvironmentsOutput = null as any;
@@ -451,6 +456,11 @@ export { RepositoryDeployKeyArgs, RepositoryDeployKeyState } from "./repositoryD
 export type RepositoryDeployKey = import("./repositoryDeployKey").RepositoryDeployKey;
 export const RepositoryDeployKey: typeof import("./repositoryDeployKey").RepositoryDeployKey = null as any;
 utilities.lazyLoad(exports, ["RepositoryDeployKey"], () => require("./repositoryDeployKey"));
+
+export { RepositoryDeploymentBranchPolicyArgs, RepositoryDeploymentBranchPolicyState } from "./repositoryDeploymentBranchPolicy";
+export type RepositoryDeploymentBranchPolicy = import("./repositoryDeploymentBranchPolicy").RepositoryDeploymentBranchPolicy;
+export const RepositoryDeploymentBranchPolicy: typeof import("./repositoryDeploymentBranchPolicy").RepositoryDeploymentBranchPolicy = null as any;
+utilities.lazyLoad(exports, ["RepositoryDeploymentBranchPolicy"], () => require("./repositoryDeploymentBranchPolicy"));
 
 export { RepositoryEnvironmentArgs, RepositoryEnvironmentState } from "./repositoryEnvironment";
 export type RepositoryEnvironment = import("./repositoryEnvironment").RepositoryEnvironment;
@@ -626,6 +636,8 @@ const _module = {
                 return new RepositoryCollaborators(name, <any>undefined, { urn })
             case "github:index/repositoryDeployKey:RepositoryDeployKey":
                 return new RepositoryDeployKey(name, <any>undefined, { urn })
+            case "github:index/repositoryDeploymentBranchPolicy:RepositoryDeploymentBranchPolicy":
+                return new RepositoryDeploymentBranchPolicy(name, <any>undefined, { urn })
             case "github:index/repositoryEnvironment:RepositoryEnvironment":
                 return new RepositoryEnvironment(name, <any>undefined, { urn })
             case "github:index/repositoryFile:RepositoryFile":
@@ -703,6 +715,7 @@ pulumi.runtime.registerResourceModule("github", "index/repositoryAutolinkReferen
 pulumi.runtime.registerResourceModule("github", "index/repositoryCollaborator", _module)
 pulumi.runtime.registerResourceModule("github", "index/repositoryCollaborators", _module)
 pulumi.runtime.registerResourceModule("github", "index/repositoryDeployKey", _module)
+pulumi.runtime.registerResourceModule("github", "index/repositoryDeploymentBranchPolicy", _module)
 pulumi.runtime.registerResourceModule("github", "index/repositoryEnvironment", _module)
 pulumi.runtime.registerResourceModule("github", "index/repositoryFile", _module)
 pulumi.runtime.registerResourceModule("github", "index/repositoryMilestone", _module)

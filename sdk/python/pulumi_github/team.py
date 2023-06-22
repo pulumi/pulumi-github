@@ -19,6 +19,8 @@ class TeamArgs:
                  ldap_dn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parent_team_id: Optional[pulumi.Input[str]] = None,
+                 parent_team_read_id: Optional[pulumi.Input[str]] = None,
+                 parent_team_read_slug: Optional[pulumi.Input[str]] = None,
                  privacy: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Team resource.
@@ -27,6 +29,8 @@ class TeamArgs:
         :param pulumi.Input[str] ldap_dn: The LDAP Distinguished Name of the group where membership will be synchronized. Only available in GitHub Enterprise Server.
         :param pulumi.Input[str] name: The name of the team.
         :param pulumi.Input[str] parent_team_id: The ID or slug of the parent team, if this is a nested team.
+        :param pulumi.Input[str] parent_team_read_id: The id of the parent team read in Github.
+        :param pulumi.Input[str] parent_team_read_slug: The id of the parent team read in Github.
         :param pulumi.Input[str] privacy: The level of privacy for the team. Must be one of `secret` or `closed`.
                Defaults to `secret`.
         """
@@ -40,6 +44,10 @@ class TeamArgs:
             pulumi.set(__self__, "name", name)
         if parent_team_id is not None:
             pulumi.set(__self__, "parent_team_id", parent_team_id)
+        if parent_team_read_id is not None:
+            pulumi.set(__self__, "parent_team_read_id", parent_team_read_id)
+        if parent_team_read_slug is not None:
+            pulumi.set(__self__, "parent_team_read_slug", parent_team_read_slug)
         if privacy is not None:
             pulumi.set(__self__, "privacy", privacy)
 
@@ -104,6 +112,30 @@ class TeamArgs:
         pulumi.set(self, "parent_team_id", value)
 
     @property
+    @pulumi.getter(name="parentTeamReadId")
+    def parent_team_read_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The id of the parent team read in Github.
+        """
+        return pulumi.get(self, "parent_team_read_id")
+
+    @parent_team_read_id.setter
+    def parent_team_read_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "parent_team_read_id", value)
+
+    @property
+    @pulumi.getter(name="parentTeamReadSlug")
+    def parent_team_read_slug(self) -> Optional[pulumi.Input[str]]:
+        """
+        The id of the parent team read in Github.
+        """
+        return pulumi.get(self, "parent_team_read_slug")
+
+    @parent_team_read_slug.setter
+    def parent_team_read_slug(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "parent_team_read_slug", value)
+
+    @property
     @pulumi.getter
     def privacy(self) -> Optional[pulumi.Input[str]]:
         """
@@ -128,6 +160,8 @@ class _TeamState:
                  name: Optional[pulumi.Input[str]] = None,
                  node_id: Optional[pulumi.Input[str]] = None,
                  parent_team_id: Optional[pulumi.Input[str]] = None,
+                 parent_team_read_id: Optional[pulumi.Input[str]] = None,
+                 parent_team_read_slug: Optional[pulumi.Input[str]] = None,
                  privacy: Optional[pulumi.Input[str]] = None,
                  slug: Optional[pulumi.Input[str]] = None):
         """
@@ -138,6 +172,8 @@ class _TeamState:
         :param pulumi.Input[str] name: The name of the team.
         :param pulumi.Input[str] node_id: The Node ID of the created team.
         :param pulumi.Input[str] parent_team_id: The ID or slug of the parent team, if this is a nested team.
+        :param pulumi.Input[str] parent_team_read_id: The id of the parent team read in Github.
+        :param pulumi.Input[str] parent_team_read_slug: The id of the parent team read in Github.
         :param pulumi.Input[str] privacy: The level of privacy for the team. Must be one of `secret` or `closed`.
                Defaults to `secret`.
         :param pulumi.Input[str] slug: The slug of the created team, which may or may not differ from `name`,
@@ -160,6 +196,10 @@ class _TeamState:
             pulumi.set(__self__, "node_id", node_id)
         if parent_team_id is not None:
             pulumi.set(__self__, "parent_team_id", parent_team_id)
+        if parent_team_read_id is not None:
+            pulumi.set(__self__, "parent_team_read_id", parent_team_read_id)
+        if parent_team_read_slug is not None:
+            pulumi.set(__self__, "parent_team_read_slug", parent_team_read_slug)
         if privacy is not None:
             pulumi.set(__self__, "privacy", privacy)
         if slug is not None:
@@ -256,6 +296,30 @@ class _TeamState:
         pulumi.set(self, "parent_team_id", value)
 
     @property
+    @pulumi.getter(name="parentTeamReadId")
+    def parent_team_read_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The id of the parent team read in Github.
+        """
+        return pulumi.get(self, "parent_team_read_id")
+
+    @parent_team_read_id.setter
+    def parent_team_read_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "parent_team_read_id", value)
+
+    @property
+    @pulumi.getter(name="parentTeamReadSlug")
+    def parent_team_read_slug(self) -> Optional[pulumi.Input[str]]:
+        """
+        The id of the parent team read in Github.
+        """
+        return pulumi.get(self, "parent_team_read_slug")
+
+    @parent_team_read_slug.setter
+    def parent_team_read_slug(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "parent_team_read_slug", value)
+
+    @property
     @pulumi.getter
     def privacy(self) -> Optional[pulumi.Input[str]]:
         """
@@ -293,6 +357,8 @@ class Team(pulumi.CustomResource):
                  ldap_dn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parent_team_id: Optional[pulumi.Input[str]] = None,
+                 parent_team_read_id: Optional[pulumi.Input[str]] = None,
+                 parent_team_read_slug: Optional[pulumi.Input[str]] = None,
                  privacy: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -332,6 +398,8 @@ class Team(pulumi.CustomResource):
         :param pulumi.Input[str] ldap_dn: The LDAP Distinguished Name of the group where membership will be synchronized. Only available in GitHub Enterprise Server.
         :param pulumi.Input[str] name: The name of the team.
         :param pulumi.Input[str] parent_team_id: The ID or slug of the parent team, if this is a nested team.
+        :param pulumi.Input[str] parent_team_read_id: The id of the parent team read in Github.
+        :param pulumi.Input[str] parent_team_read_slug: The id of the parent team read in Github.
         :param pulumi.Input[str] privacy: The level of privacy for the team. Must be one of `secret` or `closed`.
                Defaults to `secret`.
         """
@@ -391,6 +459,8 @@ class Team(pulumi.CustomResource):
                  ldap_dn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parent_team_id: Optional[pulumi.Input[str]] = None,
+                 parent_team_read_id: Optional[pulumi.Input[str]] = None,
+                 parent_team_read_slug: Optional[pulumi.Input[str]] = None,
                  privacy: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -406,6 +476,8 @@ class Team(pulumi.CustomResource):
             __props__.__dict__["ldap_dn"] = ldap_dn
             __props__.__dict__["name"] = name
             __props__.__dict__["parent_team_id"] = parent_team_id
+            __props__.__dict__["parent_team_read_id"] = parent_team_read_id
+            __props__.__dict__["parent_team_read_slug"] = parent_team_read_slug
             __props__.__dict__["privacy"] = privacy
             __props__.__dict__["etag"] = None
             __props__.__dict__["members_count"] = None
@@ -429,6 +501,8 @@ class Team(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             node_id: Optional[pulumi.Input[str]] = None,
             parent_team_id: Optional[pulumi.Input[str]] = None,
+            parent_team_read_id: Optional[pulumi.Input[str]] = None,
+            parent_team_read_slug: Optional[pulumi.Input[str]] = None,
             privacy: Optional[pulumi.Input[str]] = None,
             slug: Optional[pulumi.Input[str]] = None) -> 'Team':
         """
@@ -444,6 +518,8 @@ class Team(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the team.
         :param pulumi.Input[str] node_id: The Node ID of the created team.
         :param pulumi.Input[str] parent_team_id: The ID or slug of the parent team, if this is a nested team.
+        :param pulumi.Input[str] parent_team_read_id: The id of the parent team read in Github.
+        :param pulumi.Input[str] parent_team_read_slug: The id of the parent team read in Github.
         :param pulumi.Input[str] privacy: The level of privacy for the team. Must be one of `secret` or `closed`.
                Defaults to `secret`.
         :param pulumi.Input[str] slug: The slug of the created team, which may or may not differ from `name`,
@@ -462,6 +538,8 @@ class Team(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["node_id"] = node_id
         __props__.__dict__["parent_team_id"] = parent_team_id
+        __props__.__dict__["parent_team_read_id"] = parent_team_read_id
+        __props__.__dict__["parent_team_read_slug"] = parent_team_read_slug
         __props__.__dict__["privacy"] = privacy
         __props__.__dict__["slug"] = slug
         return Team(resource_name, opts=opts, __props__=__props__)
@@ -523,6 +601,22 @@ class Team(pulumi.CustomResource):
         The ID or slug of the parent team, if this is a nested team.
         """
         return pulumi.get(self, "parent_team_id")
+
+    @property
+    @pulumi.getter(name="parentTeamReadId")
+    def parent_team_read_id(self) -> pulumi.Output[str]:
+        """
+        The id of the parent team read in Github.
+        """
+        return pulumi.get(self, "parent_team_read_id")
+
+    @property
+    @pulumi.getter(name="parentTeamReadSlug")
+    def parent_team_read_slug(self) -> pulumi.Output[str]:
+        """
+        The id of the parent team read in Github.
+        """
+        return pulumi.get(self, "parent_team_read_slug")
 
     @property
     @pulumi.getter

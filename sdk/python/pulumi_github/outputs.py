@@ -56,6 +56,7 @@ __all__ = [
     'GetRepositoryAutolinkReferencesAutolinkReferenceResult',
     'GetRepositoryBranchesBranchResult',
     'GetRepositoryDeployKeysKeyResult',
+    'GetRepositoryDeploymentBranchPoliciesDeploymentBranchPolicyResult',
     'GetRepositoryEnvironmentsEnvironmentResult',
     'GetRepositoryPageResult',
     'GetRepositoryPageSourceResult',
@@ -2608,6 +2609,35 @@ class GetRepositoryDeployKeysKeyResult(dict):
         `true` if the key was verified.
         """
         return pulumi.get(self, "verified")
+
+
+@pulumi.output_type
+class GetRepositoryDeploymentBranchPoliciesDeploymentBranchPolicyResult(dict):
+    def __init__(__self__, *,
+                 id: str,
+                 name: str):
+        """
+        :param str id: Id of the policy.
+        :param str name: The name pattern that branches must match in order to deploy to the environment.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Id of the policy.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name pattern that branches must match in order to deploy to the environment.
+        """
+        return pulumi.get(self, "name")
 
 
 @pulumi.output_type
