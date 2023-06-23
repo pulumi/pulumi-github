@@ -615,6 +615,17 @@ export interface GetRepositoryDeployKeysKey {
     verified: boolean;
 }
 
+export interface GetRepositoryDeploymentBranchPoliciesDeploymentBranchPolicy {
+    /**
+     * Id of the policy.
+     */
+    id: string;
+    /**
+     * The name pattern that branches must match in order to deploy to the environment.
+     */
+    name: string;
+}
+
 export interface GetRepositoryEnvironmentsEnvironment {
     /**
      * Environment name.

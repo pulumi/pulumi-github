@@ -1412,6 +1412,28 @@
                 }
             }
         },
+        "github:index/getRepositoryDeploymentBranchPoliciesDeploymentBranchPolicy:getRepositoryDeploymentBranchPoliciesDeploymentBranchPolicy": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "Id of the policy.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name pattern that branches must match in order to deploy to the environment.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "id",
+                "name"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
         "github:index/getRepositoryEnvironmentsEnvironment:getRepositoryEnvironmentsEnvironment": {
             "properties": {
                 "name": {
@@ -5966,6 +5988,77 @@
                 "type": "object"
             }
         },
+        "github:index/repositoryDeploymentBranchPolicy:RepositoryDeploymentBranchPolicy": {
+            "description": "This resource allows you to create and manage deployment branch policies.\n\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.github.RepositoryEnvironment;\nimport com.pulumi.github.RepositoryEnvironmentArgs;\nimport com.pulumi.github.inputs.RepositoryEnvironmentDeploymentBranchPolicyArgs;\nimport com.pulumi.github.RepositoryDeploymentBranchPolicy;\nimport com.pulumi.github.RepositoryDeploymentBranchPolicyArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var env = new RepositoryEnvironment(\"env\", RepositoryEnvironmentArgs.builder()        \n            .deploymentBranchPolicy(RepositoryEnvironmentDeploymentBranchPolicyArgs.builder()\n                .customBranchPolicies(true)\n                .protectedBranches(false)\n                .build())\n            .environment(\"my_env\")\n            .repository(\"my_repo\")\n            .build());\n\n        var foo = new RepositoryDeploymentBranchPolicy(\"foo\", RepositoryDeploymentBranchPolicyArgs.builder()        \n            .environmentName(\"my_env\")\n            .reposistory(\"my_repo\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  env:\n    type: github:RepositoryEnvironment\n    properties:\n      deploymentBranchPolicy:\n        customBranchPolicies: true\n        protectedBranches: false\n      environment: my_env\n      repository: my_repo\n  foo:\n    type: github:RepositoryDeploymentBranchPolicy\n    properties:\n      environmentName: my_env\n      reposistory: my_repo\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\n\n\n```sh\n $ pulumi import github:index/repositoryDeploymentBranchPolicy:RepositoryDeploymentBranchPolicy foo repo:env:id\n```\n\n ",
+            "properties": {
+                "environmentName": {
+                    "type": "string",
+                    "description": "The name of the environment. This environment must have `deployment_branch_policy.custom_branch_policies` set to true.\n"
+                },
+                "etag": {
+                    "type": "string",
+                    "description": "An etag representing the Branch object.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name pattern that branches must match in order to deploy to the environment.\n"
+                },
+                "repository": {
+                    "type": "string",
+                    "description": "The repository to create the policy in.\n"
+                }
+            },
+            "required": [
+                "environmentName",
+                "etag",
+                "name",
+                "repository"
+            ],
+            "inputProperties": {
+                "environmentName": {
+                    "type": "string",
+                    "description": "The name of the environment. This environment must have `deployment_branch_policy.custom_branch_policies` set to true.\n",
+                    "willReplaceOnChanges": true
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name pattern that branches must match in order to deploy to the environment.\n"
+                },
+                "repository": {
+                    "type": "string",
+                    "description": "The repository to create the policy in.\n",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "requiredInputs": [
+                "environmentName",
+                "repository"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering RepositoryDeploymentBranchPolicy resources.\n",
+                "properties": {
+                    "environmentName": {
+                        "type": "string",
+                        "description": "The name of the environment. This environment must have `deployment_branch_policy.custom_branch_policies` set to true.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "etag": {
+                        "type": "string",
+                        "description": "An etag representing the Branch object.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The name pattern that branches must match in order to deploy to the environment.\n"
+                    },
+                    "repository": {
+                        "type": "string",
+                        "description": "The repository to create the policy in.\n",
+                        "willReplaceOnChanges": true
+                    }
+                },
+                "type": "object"
+            }
+        },
         "github:index/repositoryEnvironment:RepositoryEnvironment": {
             "description": "This resource allows you to create and manage environments for a GitHub repository.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\nconst current = github.getUser({\n    username: \"\",\n});\nconst exampleRepository = new github.Repository(\"exampleRepository\", {description: \"My awesome codebase\"});\nconst exampleRepositoryEnvironment = new github.RepositoryEnvironment(\"exampleRepositoryEnvironment\", {\n    environment: \"example\",\n    repository: exampleRepository.name,\n    reviewers: [{\n        users: [current.then(current =\u003e current.id)],\n    }],\n    deploymentBranchPolicy: {\n        protectedBranches: true,\n        customBranchPolicies: false,\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\ncurrent = github.get_user(username=\"\")\nexample_repository = github.Repository(\"exampleRepository\", description=\"My awesome codebase\")\nexample_repository_environment = github.RepositoryEnvironment(\"exampleRepositoryEnvironment\",\n    environment=\"example\",\n    repository=example_repository.name,\n    reviewers=[github.RepositoryEnvironmentReviewerArgs(\n        users=[current.id],\n    )],\n    deployment_branch_policy=github.RepositoryEnvironmentDeploymentBranchPolicyArgs(\n        protected_branches=True,\n        custom_branch_policies=False,\n    ))\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Github = Pulumi.Github;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var current = Github.GetUser.Invoke(new()\n    {\n        Username = \"\",\n    });\n\n    var exampleRepository = new Github.Repository(\"exampleRepository\", new()\n    {\n        Description = \"My awesome codebase\",\n    });\n\n    var exampleRepositoryEnvironment = new Github.RepositoryEnvironment(\"exampleRepositoryEnvironment\", new()\n    {\n        Environment = \"example\",\n        Repository = exampleRepository.Name,\n        Reviewers = new[]\n        {\n            new Github.Inputs.RepositoryEnvironmentReviewerArgs\n            {\n                Users = new[]\n                {\n                    current.Apply(getUserResult =\u003e getUserResult.Id),\n                },\n            },\n        },\n        DeploymentBranchPolicy = new Github.Inputs.RepositoryEnvironmentDeploymentBranchPolicyArgs\n        {\n            ProtectedBranches = true,\n            CustomBranchPolicies = false,\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-github/sdk/v5/go/github\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tcurrent, err := github.GetUser(ctx, \u0026github.GetUserArgs{\n\t\t\tUsername: \"\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\texampleRepository, err := github.NewRepository(ctx, \"exampleRepository\", \u0026github.RepositoryArgs{\n\t\t\tDescription: pulumi.String(\"My awesome codebase\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = github.NewRepositoryEnvironment(ctx, \"exampleRepositoryEnvironment\", \u0026github.RepositoryEnvironmentArgs{\n\t\t\tEnvironment: pulumi.String(\"example\"),\n\t\t\tRepository:  exampleRepository.Name,\n\t\t\tReviewers: github.RepositoryEnvironmentReviewerArray{\n\t\t\t\t\u0026github.RepositoryEnvironmentReviewerArgs{\n\t\t\t\t\tUsers: pulumi.IntArray{\n\t\t\t\t\t\t*pulumi.String(current.Id),\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t},\n\t\t\tDeploymentBranchPolicy: \u0026github.RepositoryEnvironmentDeploymentBranchPolicyArgs{\n\t\t\t\tProtectedBranches:    pulumi.Bool(true),\n\t\t\t\tCustomBranchPolicies: pulumi.Bool(false),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.github.GithubFunctions;\nimport com.pulumi.github.inputs.GetUserArgs;\nimport com.pulumi.github.Repository;\nimport com.pulumi.github.RepositoryArgs;\nimport com.pulumi.github.RepositoryEnvironment;\nimport com.pulumi.github.RepositoryEnvironmentArgs;\nimport com.pulumi.github.inputs.RepositoryEnvironmentReviewerArgs;\nimport com.pulumi.github.inputs.RepositoryEnvironmentDeploymentBranchPolicyArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var current = GithubFunctions.getUser(GetUserArgs.builder()\n            .username(\"\")\n            .build());\n\n        var exampleRepository = new Repository(\"exampleRepository\", RepositoryArgs.builder()        \n            .description(\"My awesome codebase\")\n            .build());\n\n        var exampleRepositoryEnvironment = new RepositoryEnvironment(\"exampleRepositoryEnvironment\", RepositoryEnvironmentArgs.builder()        \n            .environment(\"example\")\n            .repository(exampleRepository.name())\n            .reviewers(RepositoryEnvironmentReviewerArgs.builder()\n                .users(current.applyValue(getUserResult -\u003e getUserResult.id()))\n                .build())\n            .deploymentBranchPolicy(RepositoryEnvironmentDeploymentBranchPolicyArgs.builder()\n                .protectedBranches(true)\n                .customBranchPolicies(false)\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  exampleRepository:\n    type: github:Repository\n    properties:\n      description: My awesome codebase\n  exampleRepositoryEnvironment:\n    type: github:RepositoryEnvironment\n    properties:\n      environment: example\n      repository: ${exampleRepository.name}\n      reviewers:\n        - users:\n            - ${current.id}\n      deploymentBranchPolicy:\n        protectedBranches: true\n        customBranchPolicies: false\nvariables:\n  current:\n    fn::invoke:\n      Function: github:getUser\n      Arguments:\n        username:\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nGitHub Repository Environment can be imported using an ID made up of `name` of the repository combined with the `environment` name of the environment, separated by a `:` character, e.g.\n\n```sh\n $ pulumi import github:index/repositoryEnvironment:RepositoryEnvironment daily terraform:daily\n```\n\n ",
             "properties": {
@@ -6781,6 +6874,14 @@
                     "type": "string",
                     "description": "The ID or slug of the parent team, if this is a nested team.\n"
                 },
+                "parentTeamReadId": {
+                    "type": "string",
+                    "description": "The id of the parent team read in Github.\n"
+                },
+                "parentTeamReadSlug": {
+                    "type": "string",
+                    "description": "The id of the parent team read in Github.\n"
+                },
                 "privacy": {
                     "type": "string",
                     "description": "The level of privacy for the team. Must be one of `secret` or `closed`.\nDefaults to `secret`.\n"
@@ -6795,6 +6896,8 @@
                 "membersCount",
                 "name",
                 "nodeId",
+                "parentTeamReadId",
+                "parentTeamReadSlug",
                 "slug"
             ],
             "inputProperties": {
@@ -6817,6 +6920,14 @@
                 "parentTeamId": {
                     "type": "string",
                     "description": "The ID or slug of the parent team, if this is a nested team.\n"
+                },
+                "parentTeamReadId": {
+                    "type": "string",
+                    "description": "The id of the parent team read in Github.\n"
+                },
+                "parentTeamReadSlug": {
+                    "type": "string",
+                    "description": "The id of the parent team read in Github.\n"
                 },
                 "privacy": {
                     "type": "string",
@@ -6855,6 +6966,14 @@
                     "parentTeamId": {
                         "type": "string",
                         "description": "The ID or slug of the parent team, if this is a nested team.\n"
+                    },
+                    "parentTeamReadId": {
+                        "type": "string",
+                        "description": "The id of the parent team read in Github.\n"
+                    },
+                    "parentTeamReadSlug": {
+                        "type": "string",
+                        "description": "The id of the parent team read in Github.\n"
                     },
                     "privacy": {
                         "type": "string",
@@ -9424,6 +9543,58 @@
                 "type": "object",
                 "required": [
                     "keys",
+                    "repository",
+                    "id"
+                ]
+            }
+        },
+        "github:index/getRepositoryDeploymentBranchPolicies:getRepositoryDeploymentBranchPolicies": {
+            "description": "Use this data source to retrieve deployment branch policies for a repository / environment.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\nconst example = github.getRepositoryDeploymentBranchPolicies({\n    environmentName: \"env_name\",\n    repository: \"example-repository\",\n});\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\nexample = github.get_repository_deployment_branch_policies(environment_name=\"env_name\",\n    repository=\"example-repository\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Github = Pulumi.Github;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = Github.GetRepositoryDeploymentBranchPolicies.Invoke(new()\n    {\n        EnvironmentName = \"env_name\",\n        Repository = \"example-repository\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-github/sdk/v5/go/github\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := github.GetRepositoryDeploymentBranchPolicies(ctx, \u0026github.GetRepositoryDeploymentBranchPoliciesArgs{\n\t\t\tEnvironmentName: \"env_name\",\n\t\t\tRepository:      \"example-repository\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.github.GithubFunctions;\nimport com.pulumi.github.inputs.GetRepositoryDeploymentBranchPoliciesArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var example = GithubFunctions.getRepositoryDeploymentBranchPolicies(GetRepositoryDeploymentBranchPoliciesArgs.builder()\n            .environmentName(\"env_name\")\n            .repository(\"example-repository\")\n            .build());\n\n    }\n}\n```\n```yaml\nvariables:\n  example:\n    fn::invoke:\n      Function: github:getRepositoryDeploymentBranchPolicies\n      Arguments:\n        environmentName: env_name\n        repository: example-repository\n```\n{{% /example %}}\n{{% /examples %}}",
+            "inputs": {
+                "description": "A collection of arguments for invoking getRepositoryDeploymentBranchPolicies.\n",
+                "properties": {
+                    "environmentName": {
+                        "type": "string",
+                        "description": "Name of the environment to retrieve the deployment branch policies  from.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "repository": {
+                        "type": "string",
+                        "description": "Name of the repository to retrieve the deployment branch policies from.\n",
+                        "willReplaceOnChanges": true
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "environmentName",
+                    "repository"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getRepositoryDeploymentBranchPolicies.\n",
+                "properties": {
+                    "deploymentBranchPolicies": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/github:index/getRepositoryDeploymentBranchPoliciesDeploymentBranchPolicy:getRepositoryDeploymentBranchPoliciesDeploymentBranchPolicy"
+                        },
+                        "description": "The list of this repository / environment deployment policies. Each element of `deployment_branch_policies` has the following attributes:\n"
+                    },
+                    "environmentName": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "repository": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "deploymentBranchPolicies",
+                    "environmentName",
                     "repository",
                     "id"
                 ]

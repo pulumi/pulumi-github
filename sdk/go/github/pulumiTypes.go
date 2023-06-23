@@ -6796,6 +6796,112 @@ func (o GetRepositoryDeployKeysKeyArrayOutput) Index(i pulumi.IntInput) GetRepos
 	}).(GetRepositoryDeployKeysKeyOutput)
 }
 
+type GetRepositoryDeploymentBranchPoliciesDeploymentBranchPolicy struct {
+	// Id of the policy.
+	Id string `pulumi:"id"`
+	// The name pattern that branches must match in order to deploy to the environment.
+	Name string `pulumi:"name"`
+}
+
+// GetRepositoryDeploymentBranchPoliciesDeploymentBranchPolicyInput is an input type that accepts GetRepositoryDeploymentBranchPoliciesDeploymentBranchPolicyArgs and GetRepositoryDeploymentBranchPoliciesDeploymentBranchPolicyOutput values.
+// You can construct a concrete instance of `GetRepositoryDeploymentBranchPoliciesDeploymentBranchPolicyInput` via:
+//
+//	GetRepositoryDeploymentBranchPoliciesDeploymentBranchPolicyArgs{...}
+type GetRepositoryDeploymentBranchPoliciesDeploymentBranchPolicyInput interface {
+	pulumi.Input
+
+	ToGetRepositoryDeploymentBranchPoliciesDeploymentBranchPolicyOutput() GetRepositoryDeploymentBranchPoliciesDeploymentBranchPolicyOutput
+	ToGetRepositoryDeploymentBranchPoliciesDeploymentBranchPolicyOutputWithContext(context.Context) GetRepositoryDeploymentBranchPoliciesDeploymentBranchPolicyOutput
+}
+
+type GetRepositoryDeploymentBranchPoliciesDeploymentBranchPolicyArgs struct {
+	// Id of the policy.
+	Id pulumi.StringInput `pulumi:"id"`
+	// The name pattern that branches must match in order to deploy to the environment.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetRepositoryDeploymentBranchPoliciesDeploymentBranchPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRepositoryDeploymentBranchPoliciesDeploymentBranchPolicy)(nil)).Elem()
+}
+
+func (i GetRepositoryDeploymentBranchPoliciesDeploymentBranchPolicyArgs) ToGetRepositoryDeploymentBranchPoliciesDeploymentBranchPolicyOutput() GetRepositoryDeploymentBranchPoliciesDeploymentBranchPolicyOutput {
+	return i.ToGetRepositoryDeploymentBranchPoliciesDeploymentBranchPolicyOutputWithContext(context.Background())
+}
+
+func (i GetRepositoryDeploymentBranchPoliciesDeploymentBranchPolicyArgs) ToGetRepositoryDeploymentBranchPoliciesDeploymentBranchPolicyOutputWithContext(ctx context.Context) GetRepositoryDeploymentBranchPoliciesDeploymentBranchPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRepositoryDeploymentBranchPoliciesDeploymentBranchPolicyOutput)
+}
+
+// GetRepositoryDeploymentBranchPoliciesDeploymentBranchPolicyArrayInput is an input type that accepts GetRepositoryDeploymentBranchPoliciesDeploymentBranchPolicyArray and GetRepositoryDeploymentBranchPoliciesDeploymentBranchPolicyArrayOutput values.
+// You can construct a concrete instance of `GetRepositoryDeploymentBranchPoliciesDeploymentBranchPolicyArrayInput` via:
+//
+//	GetRepositoryDeploymentBranchPoliciesDeploymentBranchPolicyArray{ GetRepositoryDeploymentBranchPoliciesDeploymentBranchPolicyArgs{...} }
+type GetRepositoryDeploymentBranchPoliciesDeploymentBranchPolicyArrayInput interface {
+	pulumi.Input
+
+	ToGetRepositoryDeploymentBranchPoliciesDeploymentBranchPolicyArrayOutput() GetRepositoryDeploymentBranchPoliciesDeploymentBranchPolicyArrayOutput
+	ToGetRepositoryDeploymentBranchPoliciesDeploymentBranchPolicyArrayOutputWithContext(context.Context) GetRepositoryDeploymentBranchPoliciesDeploymentBranchPolicyArrayOutput
+}
+
+type GetRepositoryDeploymentBranchPoliciesDeploymentBranchPolicyArray []GetRepositoryDeploymentBranchPoliciesDeploymentBranchPolicyInput
+
+func (GetRepositoryDeploymentBranchPoliciesDeploymentBranchPolicyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRepositoryDeploymentBranchPoliciesDeploymentBranchPolicy)(nil)).Elem()
+}
+
+func (i GetRepositoryDeploymentBranchPoliciesDeploymentBranchPolicyArray) ToGetRepositoryDeploymentBranchPoliciesDeploymentBranchPolicyArrayOutput() GetRepositoryDeploymentBranchPoliciesDeploymentBranchPolicyArrayOutput {
+	return i.ToGetRepositoryDeploymentBranchPoliciesDeploymentBranchPolicyArrayOutputWithContext(context.Background())
+}
+
+func (i GetRepositoryDeploymentBranchPoliciesDeploymentBranchPolicyArray) ToGetRepositoryDeploymentBranchPoliciesDeploymentBranchPolicyArrayOutputWithContext(ctx context.Context) GetRepositoryDeploymentBranchPoliciesDeploymentBranchPolicyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRepositoryDeploymentBranchPoliciesDeploymentBranchPolicyArrayOutput)
+}
+
+type GetRepositoryDeploymentBranchPoliciesDeploymentBranchPolicyOutput struct{ *pulumi.OutputState }
+
+func (GetRepositoryDeploymentBranchPoliciesDeploymentBranchPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRepositoryDeploymentBranchPoliciesDeploymentBranchPolicy)(nil)).Elem()
+}
+
+func (o GetRepositoryDeploymentBranchPoliciesDeploymentBranchPolicyOutput) ToGetRepositoryDeploymentBranchPoliciesDeploymentBranchPolicyOutput() GetRepositoryDeploymentBranchPoliciesDeploymentBranchPolicyOutput {
+	return o
+}
+
+func (o GetRepositoryDeploymentBranchPoliciesDeploymentBranchPolicyOutput) ToGetRepositoryDeploymentBranchPoliciesDeploymentBranchPolicyOutputWithContext(ctx context.Context) GetRepositoryDeploymentBranchPoliciesDeploymentBranchPolicyOutput {
+	return o
+}
+
+// Id of the policy.
+func (o GetRepositoryDeploymentBranchPoliciesDeploymentBranchPolicyOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRepositoryDeploymentBranchPoliciesDeploymentBranchPolicy) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The name pattern that branches must match in order to deploy to the environment.
+func (o GetRepositoryDeploymentBranchPoliciesDeploymentBranchPolicyOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRepositoryDeploymentBranchPoliciesDeploymentBranchPolicy) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetRepositoryDeploymentBranchPoliciesDeploymentBranchPolicyArrayOutput struct{ *pulumi.OutputState }
+
+func (GetRepositoryDeploymentBranchPoliciesDeploymentBranchPolicyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRepositoryDeploymentBranchPoliciesDeploymentBranchPolicy)(nil)).Elem()
+}
+
+func (o GetRepositoryDeploymentBranchPoliciesDeploymentBranchPolicyArrayOutput) ToGetRepositoryDeploymentBranchPoliciesDeploymentBranchPolicyArrayOutput() GetRepositoryDeploymentBranchPoliciesDeploymentBranchPolicyArrayOutput {
+	return o
+}
+
+func (o GetRepositoryDeploymentBranchPoliciesDeploymentBranchPolicyArrayOutput) ToGetRepositoryDeploymentBranchPoliciesDeploymentBranchPolicyArrayOutputWithContext(ctx context.Context) GetRepositoryDeploymentBranchPoliciesDeploymentBranchPolicyArrayOutput {
+	return o
+}
+
+func (o GetRepositoryDeploymentBranchPoliciesDeploymentBranchPolicyArrayOutput) Index(i pulumi.IntInput) GetRepositoryDeploymentBranchPoliciesDeploymentBranchPolicyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRepositoryDeploymentBranchPoliciesDeploymentBranchPolicy {
+		return vs[0].([]GetRepositoryDeploymentBranchPoliciesDeploymentBranchPolicy)[vs[1].(int)]
+	}).(GetRepositoryDeploymentBranchPoliciesDeploymentBranchPolicyOutput)
+}
+
 type GetRepositoryEnvironmentsEnvironment struct {
 	// Environment name.
 	Name string `pulumi:"name"`
@@ -7981,6 +8087,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRepositoryBranchesBranchArrayInput)(nil)).Elem(), GetRepositoryBranchesBranchArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRepositoryDeployKeysKeyInput)(nil)).Elem(), GetRepositoryDeployKeysKeyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRepositoryDeployKeysKeyArrayInput)(nil)).Elem(), GetRepositoryDeployKeysKeyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRepositoryDeploymentBranchPoliciesDeploymentBranchPolicyInput)(nil)).Elem(), GetRepositoryDeploymentBranchPoliciesDeploymentBranchPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRepositoryDeploymentBranchPoliciesDeploymentBranchPolicyArrayInput)(nil)).Elem(), GetRepositoryDeploymentBranchPoliciesDeploymentBranchPolicyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRepositoryEnvironmentsEnvironmentInput)(nil)).Elem(), GetRepositoryEnvironmentsEnvironmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRepositoryEnvironmentsEnvironmentArrayInput)(nil)).Elem(), GetRepositoryEnvironmentsEnvironmentArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRepositoryPageInput)(nil)).Elem(), GetRepositoryPageArgs{})
@@ -8090,6 +8198,8 @@ func init() {
 	pulumi.RegisterOutputType(GetRepositoryBranchesBranchArrayOutput{})
 	pulumi.RegisterOutputType(GetRepositoryDeployKeysKeyOutput{})
 	pulumi.RegisterOutputType(GetRepositoryDeployKeysKeyArrayOutput{})
+	pulumi.RegisterOutputType(GetRepositoryDeploymentBranchPoliciesDeploymentBranchPolicyOutput{})
+	pulumi.RegisterOutputType(GetRepositoryDeploymentBranchPoliciesDeploymentBranchPolicyArrayOutput{})
 	pulumi.RegisterOutputType(GetRepositoryEnvironmentsEnvironmentOutput{})
 	pulumi.RegisterOutputType(GetRepositoryEnvironmentsEnvironmentArrayOutput{})
 	pulumi.RegisterOutputType(GetRepositoryPageOutput{})

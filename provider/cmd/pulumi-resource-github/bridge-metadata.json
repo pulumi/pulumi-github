@@ -357,6 +357,9 @@
             "github_repository_deploy_key": {
                 "current": "github:index/repositoryDeployKey:RepositoryDeployKey"
             },
+            "github_repository_deployment_branch_policy": {
+                "current": "github:index/repositoryDeploymentBranchPolicy:RepositoryDeploymentBranchPolicy"
+            },
             "github_repository_environment": {
                 "current": "github:index/repositoryEnvironment:RepositoryEnvironment",
                 "fields": {
@@ -567,6 +570,9 @@
             "github_repository_deploy_keys": {
                 "current": "github:index/getRepositoryDeployKeys:getRepositoryDeployKeys"
             },
+            "github_repository_deployment_branch_policies": {
+                "current": "github:index/getRepositoryDeploymentBranchPolicies:getRepositoryDeploymentBranchPolicies"
+            },
             "github_repository_environments": {
                 "current": "github:index/getRepositoryEnvironments:getRepositoryEnvironments"
             },
@@ -650,6 +656,7 @@
             "github:index/repositoryCollaborator:RepositoryCollaborator": "github_repository_collaborator",
             "github:index/repositoryCollaborators:RepositoryCollaborators": "github_repository_collaborators",
             "github:index/repositoryDeployKey:RepositoryDeployKey": "github_repository_deploy_key",
+            "github:index/repositoryDeploymentBranchPolicy:RepositoryDeploymentBranchPolicy": "github_repository_deployment_branch_policy",
             "github:index/repositoryEnvironment:RepositoryEnvironment": "github_repository_environment",
             "github:index/repositoryFile:RepositoryFile": "github_repository_file",
             "github:index/repositoryMilestone:RepositoryMilestone": "github_repository_milestone",
@@ -706,6 +713,7 @@
             "github:index/getRepositoryAutolinkReferences:getRepositoryAutolinkReferences": "github_repository_autolink_references",
             "github:index/getRepositoryBranches:getRepositoryBranches": "github_repository_branches",
             "github:index/getRepositoryDeployKeys:getRepositoryDeployKeys": "github_repository_deploy_keys",
+            "github:index/getRepositoryDeploymentBranchPolicies:getRepositoryDeploymentBranchPolicies": "github_repository_deployment_branch_policies",
             "github:index/getRepositoryEnvironments:getRepositoryEnvironments": "github_repository_environments",
             "github:index/getRepositoryFile:getRepositoryFile": "github_repository_file",
             "github:index/getRepositoryMilestone:getRepositoryMilestone": "github_repository_milestone",
@@ -1151,6 +1159,10 @@
                 "onlyNonProtectedBranches": "only_non_protected_branches",
                 "onlyProtectedBranches": "only_protected_branches"
             },
+            "github:index/getRepositoryDeploymentBranchPolicies:getRepositoryDeploymentBranchPolicies": {
+                "deploymentBranchPolicies": "deployment_branch_policies",
+                "environmentName": "environment_name"
+            },
             "github:index/getRepositoryEnvironmentsEnvironment:getRepositoryEnvironmentsEnvironment": {
                 "nodeId": "node_id"
             },
@@ -1332,6 +1344,9 @@
             "github:index/repositoryDeployKey:RepositoryDeployKey": {
                 "readOnly": "read_only"
             },
+            "github:index/repositoryDeploymentBranchPolicy:RepositoryDeploymentBranchPolicy": {
+                "environmentName": "environment_name"
+            },
             "github:index/repositoryEnvironment:RepositoryEnvironment": {
                 "deploymentBranchPolicy": "deployment_branch_policy",
                 "waitTimer": "wait_timer"
@@ -1365,7 +1380,9 @@
                 "ldapDn": "ldap_dn",
                 "membersCount": "members_count",
                 "nodeId": "node_id",
-                "parentTeamId": "parent_team_id"
+                "parentTeamId": "parent_team_id",
+                "parentTeamReadId": "parent_team_read_id",
+                "parentTeamReadSlug": "parent_team_read_slug"
             },
             "github:index/teamMembers:TeamMembers": {
                 "teamId": "team_id"

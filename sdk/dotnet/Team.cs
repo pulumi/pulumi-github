@@ -93,6 +93,18 @@ namespace Pulumi.Github
         public Output<string?> ParentTeamId { get; private set; } = null!;
 
         /// <summary>
+        /// The id of the parent team read in Github.
+        /// </summary>
+        [Output("parentTeamReadId")]
+        public Output<string> ParentTeamReadId { get; private set; } = null!;
+
+        /// <summary>
+        /// The id of the parent team read in Github.
+        /// </summary>
+        [Output("parentTeamReadSlug")]
+        public Output<string> ParentTeamReadSlug { get; private set; } = null!;
+
+        /// <summary>
         /// The level of privacy for the team. Must be one of `secret` or `closed`.
         /// Defaults to `secret`.
         /// </summary>
@@ -184,6 +196,18 @@ namespace Pulumi.Github
         public Input<string>? ParentTeamId { get; set; }
 
         /// <summary>
+        /// The id of the parent team read in Github.
+        /// </summary>
+        [Input("parentTeamReadId")]
+        public Input<string>? ParentTeamReadId { get; set; }
+
+        /// <summary>
+        /// The id of the parent team read in Github.
+        /// </summary>
+        [Input("parentTeamReadSlug")]
+        public Input<string>? ParentTeamReadSlug { get; set; }
+
+        /// <summary>
         /// The level of privacy for the team. Must be one of `secret` or `closed`.
         /// Defaults to `secret`.
         /// </summary>
@@ -239,6 +263,18 @@ namespace Pulumi.Github
         /// </summary>
         [Input("parentTeamId")]
         public Input<string>? ParentTeamId { get; set; }
+
+        /// <summary>
+        /// The id of the parent team read in Github.
+        /// </summary>
+        [Input("parentTeamReadId")]
+        public Input<string>? ParentTeamReadId { get; set; }
+
+        /// <summary>
+        /// The id of the parent team read in Github.
+        /// </summary>
+        [Input("parentTeamReadSlug")]
+        public Input<string>? ParentTeamReadSlug { get; set; }
 
         /// <summary>
         /// The level of privacy for the team. Must be one of `secret` or `closed`.

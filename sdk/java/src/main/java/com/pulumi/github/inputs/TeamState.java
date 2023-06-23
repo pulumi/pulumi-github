@@ -122,6 +122,36 @@ public final class TeamState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The id of the parent team read in Github.
+     * 
+     */
+    @Import(name="parentTeamReadId")
+    private @Nullable Output<String> parentTeamReadId;
+
+    /**
+     * @return The id of the parent team read in Github.
+     * 
+     */
+    public Optional<Output<String>> parentTeamReadId() {
+        return Optional.ofNullable(this.parentTeamReadId);
+    }
+
+    /**
+     * The id of the parent team read in Github.
+     * 
+     */
+    @Import(name="parentTeamReadSlug")
+    private @Nullable Output<String> parentTeamReadSlug;
+
+    /**
+     * @return The id of the parent team read in Github.
+     * 
+     */
+    public Optional<Output<String>> parentTeamReadSlug() {
+        return Optional.ofNullable(this.parentTeamReadSlug);
+    }
+
+    /**
      * The level of privacy for the team. Must be one of `secret` or `closed`.
      * Defaults to `secret`.
      * 
@@ -168,6 +198,8 @@ public final class TeamState extends com.pulumi.resources.ResourceArgs {
         this.name = $.name;
         this.nodeId = $.nodeId;
         this.parentTeamId = $.parentTeamId;
+        this.parentTeamReadId = $.parentTeamReadId;
+        this.parentTeamReadSlug = $.parentTeamReadSlug;
         this.privacy = $.privacy;
         this.slug = $.slug;
     }
@@ -332,6 +364,48 @@ public final class TeamState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder parentTeamId(String parentTeamId) {
             return parentTeamId(Output.of(parentTeamId));
+        }
+
+        /**
+         * @param parentTeamReadId The id of the parent team read in Github.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder parentTeamReadId(@Nullable Output<String> parentTeamReadId) {
+            $.parentTeamReadId = parentTeamReadId;
+            return this;
+        }
+
+        /**
+         * @param parentTeamReadId The id of the parent team read in Github.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder parentTeamReadId(String parentTeamReadId) {
+            return parentTeamReadId(Output.of(parentTeamReadId));
+        }
+
+        /**
+         * @param parentTeamReadSlug The id of the parent team read in Github.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder parentTeamReadSlug(@Nullable Output<String> parentTeamReadSlug) {
+            $.parentTeamReadSlug = parentTeamReadSlug;
+            return this;
+        }
+
+        /**
+         * @param parentTeamReadSlug The id of the parent team read in Github.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder parentTeamReadSlug(String parentTeamReadSlug) {
+            return parentTeamReadSlug(Output.of(parentTeamReadSlug));
         }
 
         /**
