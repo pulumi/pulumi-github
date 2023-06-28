@@ -100,6 +100,21 @@ export type BranchProtectionV3 = import("./branchProtectionV3").BranchProtection
 export const BranchProtectionV3: typeof import("./branchProtectionV3").BranchProtectionV3 = null as any;
 utilities.lazyLoad(exports, ["BranchProtectionV3"], () => require("./branchProtectionV3"));
 
+export { CodespacesOrganizationSecretArgs, CodespacesOrganizationSecretState } from "./codespacesOrganizationSecret";
+export type CodespacesOrganizationSecret = import("./codespacesOrganizationSecret").CodespacesOrganizationSecret;
+export const CodespacesOrganizationSecret: typeof import("./codespacesOrganizationSecret").CodespacesOrganizationSecret = null as any;
+utilities.lazyLoad(exports, ["CodespacesOrganizationSecret"], () => require("./codespacesOrganizationSecret"));
+
+export { CodespacesSecretArgs, CodespacesSecretState } from "./codespacesSecret";
+export type CodespacesSecret = import("./codespacesSecret").CodespacesSecret;
+export const CodespacesSecret: typeof import("./codespacesSecret").CodespacesSecret = null as any;
+utilities.lazyLoad(exports, ["CodespacesSecret"], () => require("./codespacesSecret"));
+
+export { CodespacesUserSecretArgs, CodespacesUserSecretState } from "./codespacesUserSecret";
+export type CodespacesUserSecret = import("./codespacesUserSecret").CodespacesUserSecret;
+export const CodespacesUserSecret: typeof import("./codespacesUserSecret").CodespacesUserSecret = null as any;
+utilities.lazyLoad(exports, ["CodespacesUserSecret"], () => require("./codespacesUserSecret"));
+
 export { DependabotOrganizationSecretArgs, DependabotOrganizationSecretState } from "./dependabotOrganizationSecret";
 export type DependabotOrganizationSecret = import("./dependabotOrganizationSecret").DependabotOrganizationSecret;
 export const DependabotOrganizationSecret: typeof import("./dependabotOrganizationSecret").DependabotOrganizationSecret = null as any;
@@ -195,6 +210,32 @@ export const getBranchProtectionRules: typeof import("./getBranchProtectionRules
 export const getBranchProtectionRulesOutput: typeof import("./getBranchProtectionRules").getBranchProtectionRulesOutput = null as any;
 utilities.lazyLoad(exports, ["getBranchProtectionRules","getBranchProtectionRulesOutput"], () => require("./getBranchProtectionRules"));
 
+export { GetCodespacesOrganizationPublicKeyResult } from "./getCodespacesOrganizationPublicKey";
+export const getCodespacesOrganizationPublicKey: typeof import("./getCodespacesOrganizationPublicKey").getCodespacesOrganizationPublicKey = null as any;
+utilities.lazyLoad(exports, ["getCodespacesOrganizationPublicKey"], () => require("./getCodespacesOrganizationPublicKey"));
+
+export { GetCodespacesOrganizationSecretsResult } from "./getCodespacesOrganizationSecrets";
+export const getCodespacesOrganizationSecrets: typeof import("./getCodespacesOrganizationSecrets").getCodespacesOrganizationSecrets = null as any;
+utilities.lazyLoad(exports, ["getCodespacesOrganizationSecrets"], () => require("./getCodespacesOrganizationSecrets"));
+
+export { GetCodespacesPublicKeyArgs, GetCodespacesPublicKeyResult, GetCodespacesPublicKeyOutputArgs } from "./getCodespacesPublicKey";
+export const getCodespacesPublicKey: typeof import("./getCodespacesPublicKey").getCodespacesPublicKey = null as any;
+export const getCodespacesPublicKeyOutput: typeof import("./getCodespacesPublicKey").getCodespacesPublicKeyOutput = null as any;
+utilities.lazyLoad(exports, ["getCodespacesPublicKey","getCodespacesPublicKeyOutput"], () => require("./getCodespacesPublicKey"));
+
+export { GetCodespacesSecretsArgs, GetCodespacesSecretsResult, GetCodespacesSecretsOutputArgs } from "./getCodespacesSecrets";
+export const getCodespacesSecrets: typeof import("./getCodespacesSecrets").getCodespacesSecrets = null as any;
+export const getCodespacesSecretsOutput: typeof import("./getCodespacesSecrets").getCodespacesSecretsOutput = null as any;
+utilities.lazyLoad(exports, ["getCodespacesSecrets","getCodespacesSecretsOutput"], () => require("./getCodespacesSecrets"));
+
+export { GetCodespacesUserPublicKeyResult } from "./getCodespacesUserPublicKey";
+export const getCodespacesUserPublicKey: typeof import("./getCodespacesUserPublicKey").getCodespacesUserPublicKey = null as any;
+utilities.lazyLoad(exports, ["getCodespacesUserPublicKey"], () => require("./getCodespacesUserPublicKey"));
+
+export { GetCodespacesUserSecretsResult } from "./getCodespacesUserSecrets";
+export const getCodespacesUserSecrets: typeof import("./getCodespacesUserSecrets").getCodespacesUserSecrets = null as any;
+utilities.lazyLoad(exports, ["getCodespacesUserSecrets"], () => require("./getCodespacesUserSecrets"));
+
 export { GetCollaboratorsArgs, GetCollaboratorsResult, GetCollaboratorsOutputArgs } from "./getCollaborators";
 export const getCollaborators: typeof import("./getCollaborators").getCollaborators = null as any;
 export const getCollaboratorsOutput: typeof import("./getCollaborators").getCollaboratorsOutput = null as any;
@@ -250,6 +291,11 @@ export { GetOrganizationArgs, GetOrganizationResult, GetOrganizationOutputArgs }
 export const getOrganization: typeof import("./getOrganization").getOrganization = null as any;
 export const getOrganizationOutput: typeof import("./getOrganization").getOrganizationOutput = null as any;
 utilities.lazyLoad(exports, ["getOrganization","getOrganizationOutput"], () => require("./getOrganization"));
+
+export { GetOrganizationCustomRoleArgs, GetOrganizationCustomRoleResult, GetOrganizationCustomRoleOutputArgs } from "./getOrganizationCustomRole";
+export const getOrganizationCustomRole: typeof import("./getOrganizationCustomRole").getOrganizationCustomRole = null as any;
+export const getOrganizationCustomRoleOutput: typeof import("./getOrganizationCustomRole").getOrganizationCustomRoleOutput = null as any;
+utilities.lazyLoad(exports, ["getOrganizationCustomRole","getOrganizationCustomRoleOutput"], () => require("./getOrganizationCustomRole"));
 
 export { GetOrganizationIpAllowListResult } from "./getOrganizationIpAllowList";
 export const getOrganizationIpAllowList: typeof import("./getOrganizationIpAllowList").getOrganizationIpAllowList = null as any;
@@ -391,6 +437,11 @@ export { OrganizationBlockArgs, OrganizationBlockState } from "./organizationBlo
 export type OrganizationBlock = import("./organizationBlock").OrganizationBlock;
 export const OrganizationBlock: typeof import("./organizationBlock").OrganizationBlock = null as any;
 utilities.lazyLoad(exports, ["OrganizationBlock"], () => require("./organizationBlock"));
+
+export { OrganizationCustomRoleArgs, OrganizationCustomRoleState } from "./organizationCustomRole";
+export type OrganizationCustomRole = import("./organizationCustomRole").OrganizationCustomRole;
+export const OrganizationCustomRole: typeof import("./organizationCustomRole").OrganizationCustomRole = null as any;
+utilities.lazyLoad(exports, ["OrganizationCustomRole"], () => require("./organizationCustomRole"));
 
 export { OrganizationProjectArgs, OrganizationProjectState } from "./organizationProject";
 export type OrganizationProject = import("./organizationProject").OrganizationProject;
@@ -594,6 +645,12 @@ const _module = {
                 return new BranchProtection(name, <any>undefined, { urn })
             case "github:index/branchProtectionV3:BranchProtectionV3":
                 return new BranchProtectionV3(name, <any>undefined, { urn })
+            case "github:index/codespacesOrganizationSecret:CodespacesOrganizationSecret":
+                return new CodespacesOrganizationSecret(name, <any>undefined, { urn })
+            case "github:index/codespacesSecret:CodespacesSecret":
+                return new CodespacesSecret(name, <any>undefined, { urn })
+            case "github:index/codespacesUserSecret:CodespacesUserSecret":
+                return new CodespacesUserSecret(name, <any>undefined, { urn })
             case "github:index/dependabotOrganizationSecret:DependabotOrganizationSecret":
                 return new DependabotOrganizationSecret(name, <any>undefined, { urn })
             case "github:index/dependabotOrganizationSecretRepositories:DependabotOrganizationSecretRepositories":
@@ -612,6 +669,8 @@ const _module = {
                 return new Membership(name, <any>undefined, { urn })
             case "github:index/organizationBlock:OrganizationBlock":
                 return new OrganizationBlock(name, <any>undefined, { urn })
+            case "github:index/organizationCustomRole:OrganizationCustomRole":
+                return new OrganizationCustomRole(name, <any>undefined, { urn })
             case "github:index/organizationProject:OrganizationProject":
                 return new OrganizationProject(name, <any>undefined, { urn })
             case "github:index/organizationSecurityManager:OrganizationSecurityManager":
@@ -694,6 +753,9 @@ pulumi.runtime.registerResourceModule("github", "index/branch", _module)
 pulumi.runtime.registerResourceModule("github", "index/branchDefault", _module)
 pulumi.runtime.registerResourceModule("github", "index/branchProtection", _module)
 pulumi.runtime.registerResourceModule("github", "index/branchProtectionV3", _module)
+pulumi.runtime.registerResourceModule("github", "index/codespacesOrganizationSecret", _module)
+pulumi.runtime.registerResourceModule("github", "index/codespacesSecret", _module)
+pulumi.runtime.registerResourceModule("github", "index/codespacesUserSecret", _module)
 pulumi.runtime.registerResourceModule("github", "index/dependabotOrganizationSecret", _module)
 pulumi.runtime.registerResourceModule("github", "index/dependabotOrganizationSecretRepositories", _module)
 pulumi.runtime.registerResourceModule("github", "index/dependabotSecret", _module)
@@ -703,6 +765,7 @@ pulumi.runtime.registerResourceModule("github", "index/issue", _module)
 pulumi.runtime.registerResourceModule("github", "index/issueLabel", _module)
 pulumi.runtime.registerResourceModule("github", "index/membership", _module)
 pulumi.runtime.registerResourceModule("github", "index/organizationBlock", _module)
+pulumi.runtime.registerResourceModule("github", "index/organizationCustomRole", _module)
 pulumi.runtime.registerResourceModule("github", "index/organizationProject", _module)
 pulumi.runtime.registerResourceModule("github", "index/organizationSecurityManager", _module)
 pulumi.runtime.registerResourceModule("github", "index/organizationSettings", _module)

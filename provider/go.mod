@@ -4,9 +4,9 @@ go 1.19
 
 require (
 	github.com/hashicorp/terraform-plugin-sdk v1.17.2
-	github.com/integrations/terraform-provider-github/v5 v5.28.1
-	github.com/pulumi/pulumi-terraform-bridge/v3 v3.50.1
-	github.com/pulumi/pulumi/sdk/v3 v3.71.0
+	github.com/integrations/terraform-provider-github/v5 v5.29.0
+	github.com/pulumi/pulumi-terraform-bridge/v3 v3.51.0
+	github.com/pulumi/pulumi/sdk/v3 v3.72.2
 )
 
 require (
@@ -159,9 +159,9 @@ require (
 	github.com/pulumi/pulumi-java/pkg v0.9.4 // indirect
 	github.com/pulumi/pulumi-terraform-bridge/x/muxer v0.0.4 // indirect
 	github.com/pulumi/pulumi-yaml v1.1.1 // indirect
-	github.com/pulumi/pulumi/pkg/v3 v3.71.0 // indirect
+	github.com/pulumi/pulumi/pkg/v3 v3.72.2 // indirect
 	github.com/pulumi/schema-tools v0.2.2 // indirect
-	github.com/pulumi/terraform-diff-reader v0.0.0-20201211191010-ad4715e9285e // indirect
+	github.com/pulumi/terraform-diff-reader v0.0.1 // indirect
 	github.com/rivo/uniseg v0.4.4 // indirect
 	github.com/rogpeppe/go-internal v1.10.0 // indirect
 	github.com/russross/blackfriday/v2 v2.1.0 // indirect

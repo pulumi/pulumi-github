@@ -288,6 +288,59 @@ export interface GetBranchProtectionRulesRule {
     pattern: string;
 }
 
+export interface GetCodespacesOrganizationSecretsSecret {
+    /**
+     * Timestamp of the secret creation
+     */
+    createdAt: string;
+    /**
+     * Secret name
+     */
+    name: string;
+    /**
+     * Timestamp of the secret last update
+     */
+    updatedAt: string;
+    /**
+     * Secret visibility
+     */
+    visibility: string;
+}
+
+export interface GetCodespacesSecretsSecret {
+    /**
+     * Timestamp of the secret creation
+     */
+    createdAt: string;
+    /**
+     * The name of the repository.
+     */
+    name: string;
+    /**
+     * Timestamp of the secret last update
+     */
+    updatedAt: string;
+}
+
+export interface GetCodespacesUserSecretsSecret {
+    /**
+     * Timestamp of the secret creation
+     */
+    createdAt: string;
+    /**
+     * Secret name
+     */
+    name: string;
+    /**
+     * Timestamp of the secret last update
+     */
+    updatedAt: string;
+    /**
+     * Secret visibility
+     */
+    visibility: string;
+}
+
 export interface GetCollaboratorsCollaborator {
     /**
      * The GitHub API URL for the collaborator's events.

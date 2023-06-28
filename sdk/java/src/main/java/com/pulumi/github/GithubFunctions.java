@@ -28,6 +28,10 @@ import com.pulumi.github.inputs.GetBranchArgs;
 import com.pulumi.github.inputs.GetBranchPlainArgs;
 import com.pulumi.github.inputs.GetBranchProtectionRulesArgs;
 import com.pulumi.github.inputs.GetBranchProtectionRulesPlainArgs;
+import com.pulumi.github.inputs.GetCodespacesPublicKeyArgs;
+import com.pulumi.github.inputs.GetCodespacesPublicKeyPlainArgs;
+import com.pulumi.github.inputs.GetCodespacesSecretsArgs;
+import com.pulumi.github.inputs.GetCodespacesSecretsPlainArgs;
 import com.pulumi.github.inputs.GetCollaboratorsArgs;
 import com.pulumi.github.inputs.GetCollaboratorsPlainArgs;
 import com.pulumi.github.inputs.GetDependabotPublicKeyArgs;
@@ -43,6 +47,8 @@ import com.pulumi.github.inputs.GetIssueLabelsPlainArgs;
 import com.pulumi.github.inputs.GetMembershipArgs;
 import com.pulumi.github.inputs.GetMembershipPlainArgs;
 import com.pulumi.github.inputs.GetOrganizationArgs;
+import com.pulumi.github.inputs.GetOrganizationCustomRoleArgs;
+import com.pulumi.github.inputs.GetOrganizationCustomRolePlainArgs;
 import com.pulumi.github.inputs.GetOrganizationPlainArgs;
 import com.pulumi.github.inputs.GetOrganizationTeamsArgs;
 import com.pulumi.github.inputs.GetOrganizationTeamsPlainArgs;
@@ -101,6 +107,12 @@ import com.pulumi.github.outputs.GetActionsVariablesResult;
 import com.pulumi.github.outputs.GetAppTokenResult;
 import com.pulumi.github.outputs.GetBranchProtectionRulesResult;
 import com.pulumi.github.outputs.GetBranchResult;
+import com.pulumi.github.outputs.GetCodespacesOrganizationPublicKeyResult;
+import com.pulumi.github.outputs.GetCodespacesOrganizationSecretsResult;
+import com.pulumi.github.outputs.GetCodespacesPublicKeyResult;
+import com.pulumi.github.outputs.GetCodespacesSecretsResult;
+import com.pulumi.github.outputs.GetCodespacesUserPublicKeyResult;
+import com.pulumi.github.outputs.GetCodespacesUserSecretsResult;
 import com.pulumi.github.outputs.GetCollaboratorsResult;
 import com.pulumi.github.outputs.GetDependabotOrganizationPublicKeyResult;
 import com.pulumi.github.outputs.GetDependabotOrganizationSecretsResult;
@@ -112,6 +124,7 @@ import com.pulumi.github.outputs.GetGithubAppResult;
 import com.pulumi.github.outputs.GetIpRangesResult;
 import com.pulumi.github.outputs.GetIssueLabelsResult;
 import com.pulumi.github.outputs.GetMembershipResult;
+import com.pulumi.github.outputs.GetOrganizationCustomRoleResult;
 import com.pulumi.github.outputs.GetOrganizationIpAllowListResult;
 import com.pulumi.github.outputs.GetOrganizationResult;
 import com.pulumi.github.outputs.GetOrganizationTeamSyncGroupsResult;
@@ -2821,6 +2834,1232 @@ public final class GithubFunctions {
         return Deployment.getInstance().invokeAsync("github:index/getBranchProtectionRules:getBranchProtectionRules", TypeShape.of(GetBranchProtectionRulesResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Use this data source to retrieve information about a GitHub Codespaces Organization public key. This data source is required to be used with other GitHub secrets interactions.
+     * Note that the provider `token` must have admin rights to an organization to retrieve it&#39;s Codespaces public key.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getCodespacesOrganizationPublicKey();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetCodespacesOrganizationPublicKeyResult> getCodespacesOrganizationPublicKey() {
+        return getCodespacesOrganizationPublicKey(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about a GitHub Codespaces Organization public key. This data source is required to be used with other GitHub secrets interactions.
+     * Note that the provider `token` must have admin rights to an organization to retrieve it&#39;s Codespaces public key.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getCodespacesOrganizationPublicKey();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetCodespacesOrganizationPublicKeyResult> getCodespacesOrganizationPublicKeyPlain() {
+        return getCodespacesOrganizationPublicKeyPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about a GitHub Codespaces Organization public key. This data source is required to be used with other GitHub secrets interactions.
+     * Note that the provider `token` must have admin rights to an organization to retrieve it&#39;s Codespaces public key.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getCodespacesOrganizationPublicKey();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetCodespacesOrganizationPublicKeyResult> getCodespacesOrganizationPublicKey(InvokeArgs args) {
+        return getCodespacesOrganizationPublicKey(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about a GitHub Codespaces Organization public key. This data source is required to be used with other GitHub secrets interactions.
+     * Note that the provider `token` must have admin rights to an organization to retrieve it&#39;s Codespaces public key.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getCodespacesOrganizationPublicKey();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetCodespacesOrganizationPublicKeyResult> getCodespacesOrganizationPublicKeyPlain(InvokeArgs args) {
+        return getCodespacesOrganizationPublicKeyPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about a GitHub Codespaces Organization public key. This data source is required to be used with other GitHub secrets interactions.
+     * Note that the provider `token` must have admin rights to an organization to retrieve it&#39;s Codespaces public key.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getCodespacesOrganizationPublicKey();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetCodespacesOrganizationPublicKeyResult> getCodespacesOrganizationPublicKey(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("github:index/getCodespacesOrganizationPublicKey:getCodespacesOrganizationPublicKey", TypeShape.of(GetCodespacesOrganizationPublicKeyResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about a GitHub Codespaces Organization public key. This data source is required to be used with other GitHub secrets interactions.
+     * Note that the provider `token` must have admin rights to an organization to retrieve it&#39;s Codespaces public key.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getCodespacesOrganizationPublicKey();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetCodespacesOrganizationPublicKeyResult> getCodespacesOrganizationPublicKeyPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("github:index/getCodespacesOrganizationPublicKey:getCodespacesOrganizationPublicKey", TypeShape.of(GetCodespacesOrganizationPublicKeyResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve the list of codespaces secrets of the organization.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getCodespacesOrganizationSecrets();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetCodespacesOrganizationSecretsResult> getCodespacesOrganizationSecrets() {
+        return getCodespacesOrganizationSecrets(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve the list of codespaces secrets of the organization.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getCodespacesOrganizationSecrets();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetCodespacesOrganizationSecretsResult> getCodespacesOrganizationSecretsPlain() {
+        return getCodespacesOrganizationSecretsPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve the list of codespaces secrets of the organization.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getCodespacesOrganizationSecrets();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetCodespacesOrganizationSecretsResult> getCodespacesOrganizationSecrets(InvokeArgs args) {
+        return getCodespacesOrganizationSecrets(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve the list of codespaces secrets of the organization.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getCodespacesOrganizationSecrets();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetCodespacesOrganizationSecretsResult> getCodespacesOrganizationSecretsPlain(InvokeArgs args) {
+        return getCodespacesOrganizationSecretsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve the list of codespaces secrets of the organization.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getCodespacesOrganizationSecrets();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetCodespacesOrganizationSecretsResult> getCodespacesOrganizationSecrets(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("github:index/getCodespacesOrganizationSecrets:getCodespacesOrganizationSecrets", TypeShape.of(GetCodespacesOrganizationSecretsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve the list of codespaces secrets of the organization.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getCodespacesOrganizationSecrets();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetCodespacesOrganizationSecretsResult> getCodespacesOrganizationSecretsPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("github:index/getCodespacesOrganizationSecrets:getCodespacesOrganizationSecrets", TypeShape.of(GetCodespacesOrganizationSecretsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about a GitHub Codespaces public key. This data source is required to be used with other GitHub secrets interactions.
+     * Note that the provider `token` must have admin rights to a repository to retrieve it&#39;s Codespaces public key.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetCodespacesPublicKeyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getCodespacesPublicKey(GetCodespacesPublicKeyArgs.builder()
+     *             .repository(&#34;example_repo&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetCodespacesPublicKeyResult> getCodespacesPublicKey(GetCodespacesPublicKeyArgs args) {
+        return getCodespacesPublicKey(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about a GitHub Codespaces public key. This data source is required to be used with other GitHub secrets interactions.
+     * Note that the provider `token` must have admin rights to a repository to retrieve it&#39;s Codespaces public key.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetCodespacesPublicKeyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getCodespacesPublicKey(GetCodespacesPublicKeyArgs.builder()
+     *             .repository(&#34;example_repo&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetCodespacesPublicKeyResult> getCodespacesPublicKeyPlain(GetCodespacesPublicKeyPlainArgs args) {
+        return getCodespacesPublicKeyPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about a GitHub Codespaces public key. This data source is required to be used with other GitHub secrets interactions.
+     * Note that the provider `token` must have admin rights to a repository to retrieve it&#39;s Codespaces public key.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetCodespacesPublicKeyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getCodespacesPublicKey(GetCodespacesPublicKeyArgs.builder()
+     *             .repository(&#34;example_repo&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetCodespacesPublicKeyResult> getCodespacesPublicKey(GetCodespacesPublicKeyArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("github:index/getCodespacesPublicKey:getCodespacesPublicKey", TypeShape.of(GetCodespacesPublicKeyResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about a GitHub Codespaces public key. This data source is required to be used with other GitHub secrets interactions.
+     * Note that the provider `token` must have admin rights to a repository to retrieve it&#39;s Codespaces public key.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetCodespacesPublicKeyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getCodespacesPublicKey(GetCodespacesPublicKeyArgs.builder()
+     *             .repository(&#34;example_repo&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetCodespacesPublicKeyResult> getCodespacesPublicKeyPlain(GetCodespacesPublicKeyPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("github:index/getCodespacesPublicKey:getCodespacesPublicKey", TypeShape.of(GetCodespacesPublicKeyResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve the list of codespaces secrets for a GitHub repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetCodespacesSecretsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getCodespacesSecrets(GetCodespacesSecretsArgs.builder()
+     *             .name(&#34;example_repository&#34;)
+     *             .build());
+     * 
+     *         final var example2 = GithubFunctions.getCodespacesSecrets(GetCodespacesSecretsArgs.builder()
+     *             .fullName(&#34;org/example_repository&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetCodespacesSecretsResult> getCodespacesSecrets() {
+        return getCodespacesSecrets(GetCodespacesSecretsArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve the list of codespaces secrets for a GitHub repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetCodespacesSecretsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getCodespacesSecrets(GetCodespacesSecretsArgs.builder()
+     *             .name(&#34;example_repository&#34;)
+     *             .build());
+     * 
+     *         final var example2 = GithubFunctions.getCodespacesSecrets(GetCodespacesSecretsArgs.builder()
+     *             .fullName(&#34;org/example_repository&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetCodespacesSecretsResult> getCodespacesSecretsPlain() {
+        return getCodespacesSecretsPlain(GetCodespacesSecretsPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve the list of codespaces secrets for a GitHub repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetCodespacesSecretsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getCodespacesSecrets(GetCodespacesSecretsArgs.builder()
+     *             .name(&#34;example_repository&#34;)
+     *             .build());
+     * 
+     *         final var example2 = GithubFunctions.getCodespacesSecrets(GetCodespacesSecretsArgs.builder()
+     *             .fullName(&#34;org/example_repository&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetCodespacesSecretsResult> getCodespacesSecrets(GetCodespacesSecretsArgs args) {
+        return getCodespacesSecrets(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve the list of codespaces secrets for a GitHub repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetCodespacesSecretsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getCodespacesSecrets(GetCodespacesSecretsArgs.builder()
+     *             .name(&#34;example_repository&#34;)
+     *             .build());
+     * 
+     *         final var example2 = GithubFunctions.getCodespacesSecrets(GetCodespacesSecretsArgs.builder()
+     *             .fullName(&#34;org/example_repository&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetCodespacesSecretsResult> getCodespacesSecretsPlain(GetCodespacesSecretsPlainArgs args) {
+        return getCodespacesSecretsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve the list of codespaces secrets for a GitHub repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetCodespacesSecretsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getCodespacesSecrets(GetCodespacesSecretsArgs.builder()
+     *             .name(&#34;example_repository&#34;)
+     *             .build());
+     * 
+     *         final var example2 = GithubFunctions.getCodespacesSecrets(GetCodespacesSecretsArgs.builder()
+     *             .fullName(&#34;org/example_repository&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetCodespacesSecretsResult> getCodespacesSecrets(GetCodespacesSecretsArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("github:index/getCodespacesSecrets:getCodespacesSecrets", TypeShape.of(GetCodespacesSecretsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve the list of codespaces secrets for a GitHub repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetCodespacesSecretsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getCodespacesSecrets(GetCodespacesSecretsArgs.builder()
+     *             .name(&#34;example_repository&#34;)
+     *             .build());
+     * 
+     *         final var example2 = GithubFunctions.getCodespacesSecrets(GetCodespacesSecretsArgs.builder()
+     *             .fullName(&#34;org/example_repository&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetCodespacesSecretsResult> getCodespacesSecretsPlain(GetCodespacesSecretsPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("github:index/getCodespacesSecrets:getCodespacesSecrets", TypeShape.of(GetCodespacesSecretsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about a GitHub Codespaces User public key. This data source is required to be used with other GitHub secrets interactions.
+     * Note that the provider `token` must have admin rights to an user to retrieve it&#39;s Codespaces public key.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getCodespacesUserPublicKey();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetCodespacesUserPublicKeyResult> getCodespacesUserPublicKey() {
+        return getCodespacesUserPublicKey(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about a GitHub Codespaces User public key. This data source is required to be used with other GitHub secrets interactions.
+     * Note that the provider `token` must have admin rights to an user to retrieve it&#39;s Codespaces public key.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getCodespacesUserPublicKey();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetCodespacesUserPublicKeyResult> getCodespacesUserPublicKeyPlain() {
+        return getCodespacesUserPublicKeyPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about a GitHub Codespaces User public key. This data source is required to be used with other GitHub secrets interactions.
+     * Note that the provider `token` must have admin rights to an user to retrieve it&#39;s Codespaces public key.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getCodespacesUserPublicKey();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetCodespacesUserPublicKeyResult> getCodespacesUserPublicKey(InvokeArgs args) {
+        return getCodespacesUserPublicKey(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about a GitHub Codespaces User public key. This data source is required to be used with other GitHub secrets interactions.
+     * Note that the provider `token` must have admin rights to an user to retrieve it&#39;s Codespaces public key.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getCodespacesUserPublicKey();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetCodespacesUserPublicKeyResult> getCodespacesUserPublicKeyPlain(InvokeArgs args) {
+        return getCodespacesUserPublicKeyPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about a GitHub Codespaces User public key. This data source is required to be used with other GitHub secrets interactions.
+     * Note that the provider `token` must have admin rights to an user to retrieve it&#39;s Codespaces public key.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getCodespacesUserPublicKey();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetCodespacesUserPublicKeyResult> getCodespacesUserPublicKey(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("github:index/getCodespacesUserPublicKey:getCodespacesUserPublicKey", TypeShape.of(GetCodespacesUserPublicKeyResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about a GitHub Codespaces User public key. This data source is required to be used with other GitHub secrets interactions.
+     * Note that the provider `token` must have admin rights to an user to retrieve it&#39;s Codespaces public key.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getCodespacesUserPublicKey();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetCodespacesUserPublicKeyResult> getCodespacesUserPublicKeyPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("github:index/getCodespacesUserPublicKey:getCodespacesUserPublicKey", TypeShape.of(GetCodespacesUserPublicKeyResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve the list of codespaces secrets of the user.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getCodespacesUserSecrets();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetCodespacesUserSecretsResult> getCodespacesUserSecrets() {
+        return getCodespacesUserSecrets(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve the list of codespaces secrets of the user.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getCodespacesUserSecrets();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetCodespacesUserSecretsResult> getCodespacesUserSecretsPlain() {
+        return getCodespacesUserSecretsPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve the list of codespaces secrets of the user.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getCodespacesUserSecrets();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetCodespacesUserSecretsResult> getCodespacesUserSecrets(InvokeArgs args) {
+        return getCodespacesUserSecrets(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve the list of codespaces secrets of the user.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getCodespacesUserSecrets();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetCodespacesUserSecretsResult> getCodespacesUserSecretsPlain(InvokeArgs args) {
+        return getCodespacesUserSecretsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve the list of codespaces secrets of the user.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getCodespacesUserSecrets();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetCodespacesUserSecretsResult> getCodespacesUserSecrets(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("github:index/getCodespacesUserSecrets:getCodespacesUserSecrets", TypeShape.of(GetCodespacesUserSecretsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve the list of codespaces secrets of the user.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getCodespacesUserSecrets();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetCodespacesUserSecretsResult> getCodespacesUserSecretsPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("github:index/getCodespacesUserSecrets:getCodespacesUserSecrets", TypeShape.of(GetCodespacesUserSecretsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
      * Use this data source to retrieve the collaborators for a given repository.
      * 
      * ## Example Usage
@@ -4677,6 +5916,162 @@ public final class GithubFunctions {
      */
     public static CompletableFuture<GetOrganizationResult> getOrganizationPlain(GetOrganizationPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("github:index/getOrganization:getOrganization", TypeShape.of(GetOrganizationResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about a custom role in a GitHub Organization.
+     * 
+     * &gt; Note: Custom roles are currently only available in GitHub Enterprise Cloud.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetOrganizationCustomRoleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getOrganizationCustomRole(GetOrganizationCustomRoleArgs.builder()
+     *             .name(&#34;example&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetOrganizationCustomRoleResult> getOrganizationCustomRole(GetOrganizationCustomRoleArgs args) {
+        return getOrganizationCustomRole(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about a custom role in a GitHub Organization.
+     * 
+     * &gt; Note: Custom roles are currently only available in GitHub Enterprise Cloud.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetOrganizationCustomRoleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getOrganizationCustomRole(GetOrganizationCustomRoleArgs.builder()
+     *             .name(&#34;example&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetOrganizationCustomRoleResult> getOrganizationCustomRolePlain(GetOrganizationCustomRolePlainArgs args) {
+        return getOrganizationCustomRolePlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about a custom role in a GitHub Organization.
+     * 
+     * &gt; Note: Custom roles are currently only available in GitHub Enterprise Cloud.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetOrganizationCustomRoleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getOrganizationCustomRole(GetOrganizationCustomRoleArgs.builder()
+     *             .name(&#34;example&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetOrganizationCustomRoleResult> getOrganizationCustomRole(GetOrganizationCustomRoleArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("github:index/getOrganizationCustomRole:getOrganizationCustomRole", TypeShape.of(GetOrganizationCustomRoleResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about a custom role in a GitHub Organization.
+     * 
+     * &gt; Note: Custom roles are currently only available in GitHub Enterprise Cloud.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetOrganizationCustomRoleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getOrganizationCustomRole(GetOrganizationCustomRoleArgs.builder()
+     *             .name(&#34;example&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetOrganizationCustomRoleResult> getOrganizationCustomRolePlain(GetOrganizationCustomRolePlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("github:index/getOrganizationCustomRole:getOrganizationCustomRole", TypeShape.of(GetOrganizationCustomRoleResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to retrieve information about the IP allow list of an organization.

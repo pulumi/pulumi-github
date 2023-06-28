@@ -5004,6 +5004,369 @@ func (o GetBranchProtectionRulesRuleArrayOutput) Index(i pulumi.IntInput) GetBra
 	}).(GetBranchProtectionRulesRuleOutput)
 }
 
+type GetCodespacesOrganizationSecretsSecret struct {
+	// Timestamp of the secret creation
+	CreatedAt string `pulumi:"createdAt"`
+	// Secret name
+	Name string `pulumi:"name"`
+	// Timestamp of the secret last update
+	UpdatedAt string `pulumi:"updatedAt"`
+	// Secret visibility
+	Visibility string `pulumi:"visibility"`
+}
+
+// GetCodespacesOrganizationSecretsSecretInput is an input type that accepts GetCodespacesOrganizationSecretsSecretArgs and GetCodespacesOrganizationSecretsSecretOutput values.
+// You can construct a concrete instance of `GetCodespacesOrganizationSecretsSecretInput` via:
+//
+//	GetCodespacesOrganizationSecretsSecretArgs{...}
+type GetCodespacesOrganizationSecretsSecretInput interface {
+	pulumi.Input
+
+	ToGetCodespacesOrganizationSecretsSecretOutput() GetCodespacesOrganizationSecretsSecretOutput
+	ToGetCodespacesOrganizationSecretsSecretOutputWithContext(context.Context) GetCodespacesOrganizationSecretsSecretOutput
+}
+
+type GetCodespacesOrganizationSecretsSecretArgs struct {
+	// Timestamp of the secret creation
+	CreatedAt pulumi.StringInput `pulumi:"createdAt"`
+	// Secret name
+	Name pulumi.StringInput `pulumi:"name"`
+	// Timestamp of the secret last update
+	UpdatedAt pulumi.StringInput `pulumi:"updatedAt"`
+	// Secret visibility
+	Visibility pulumi.StringInput `pulumi:"visibility"`
+}
+
+func (GetCodespacesOrganizationSecretsSecretArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCodespacesOrganizationSecretsSecret)(nil)).Elem()
+}
+
+func (i GetCodespacesOrganizationSecretsSecretArgs) ToGetCodespacesOrganizationSecretsSecretOutput() GetCodespacesOrganizationSecretsSecretOutput {
+	return i.ToGetCodespacesOrganizationSecretsSecretOutputWithContext(context.Background())
+}
+
+func (i GetCodespacesOrganizationSecretsSecretArgs) ToGetCodespacesOrganizationSecretsSecretOutputWithContext(ctx context.Context) GetCodespacesOrganizationSecretsSecretOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCodespacesOrganizationSecretsSecretOutput)
+}
+
+// GetCodespacesOrganizationSecretsSecretArrayInput is an input type that accepts GetCodespacesOrganizationSecretsSecretArray and GetCodespacesOrganizationSecretsSecretArrayOutput values.
+// You can construct a concrete instance of `GetCodespacesOrganizationSecretsSecretArrayInput` via:
+//
+//	GetCodespacesOrganizationSecretsSecretArray{ GetCodespacesOrganizationSecretsSecretArgs{...} }
+type GetCodespacesOrganizationSecretsSecretArrayInput interface {
+	pulumi.Input
+
+	ToGetCodespacesOrganizationSecretsSecretArrayOutput() GetCodespacesOrganizationSecretsSecretArrayOutput
+	ToGetCodespacesOrganizationSecretsSecretArrayOutputWithContext(context.Context) GetCodespacesOrganizationSecretsSecretArrayOutput
+}
+
+type GetCodespacesOrganizationSecretsSecretArray []GetCodespacesOrganizationSecretsSecretInput
+
+func (GetCodespacesOrganizationSecretsSecretArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCodespacesOrganizationSecretsSecret)(nil)).Elem()
+}
+
+func (i GetCodespacesOrganizationSecretsSecretArray) ToGetCodespacesOrganizationSecretsSecretArrayOutput() GetCodespacesOrganizationSecretsSecretArrayOutput {
+	return i.ToGetCodespacesOrganizationSecretsSecretArrayOutputWithContext(context.Background())
+}
+
+func (i GetCodespacesOrganizationSecretsSecretArray) ToGetCodespacesOrganizationSecretsSecretArrayOutputWithContext(ctx context.Context) GetCodespacesOrganizationSecretsSecretArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCodespacesOrganizationSecretsSecretArrayOutput)
+}
+
+type GetCodespacesOrganizationSecretsSecretOutput struct{ *pulumi.OutputState }
+
+func (GetCodespacesOrganizationSecretsSecretOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCodespacesOrganizationSecretsSecret)(nil)).Elem()
+}
+
+func (o GetCodespacesOrganizationSecretsSecretOutput) ToGetCodespacesOrganizationSecretsSecretOutput() GetCodespacesOrganizationSecretsSecretOutput {
+	return o
+}
+
+func (o GetCodespacesOrganizationSecretsSecretOutput) ToGetCodespacesOrganizationSecretsSecretOutputWithContext(ctx context.Context) GetCodespacesOrganizationSecretsSecretOutput {
+	return o
+}
+
+// Timestamp of the secret creation
+func (o GetCodespacesOrganizationSecretsSecretOutput) CreatedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCodespacesOrganizationSecretsSecret) string { return v.CreatedAt }).(pulumi.StringOutput)
+}
+
+// Secret name
+func (o GetCodespacesOrganizationSecretsSecretOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCodespacesOrganizationSecretsSecret) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Timestamp of the secret last update
+func (o GetCodespacesOrganizationSecretsSecretOutput) UpdatedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCodespacesOrganizationSecretsSecret) string { return v.UpdatedAt }).(pulumi.StringOutput)
+}
+
+// Secret visibility
+func (o GetCodespacesOrganizationSecretsSecretOutput) Visibility() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCodespacesOrganizationSecretsSecret) string { return v.Visibility }).(pulumi.StringOutput)
+}
+
+type GetCodespacesOrganizationSecretsSecretArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCodespacesOrganizationSecretsSecretArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCodespacesOrganizationSecretsSecret)(nil)).Elem()
+}
+
+func (o GetCodespacesOrganizationSecretsSecretArrayOutput) ToGetCodespacesOrganizationSecretsSecretArrayOutput() GetCodespacesOrganizationSecretsSecretArrayOutput {
+	return o
+}
+
+func (o GetCodespacesOrganizationSecretsSecretArrayOutput) ToGetCodespacesOrganizationSecretsSecretArrayOutputWithContext(ctx context.Context) GetCodespacesOrganizationSecretsSecretArrayOutput {
+	return o
+}
+
+func (o GetCodespacesOrganizationSecretsSecretArrayOutput) Index(i pulumi.IntInput) GetCodespacesOrganizationSecretsSecretOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCodespacesOrganizationSecretsSecret {
+		return vs[0].([]GetCodespacesOrganizationSecretsSecret)[vs[1].(int)]
+	}).(GetCodespacesOrganizationSecretsSecretOutput)
+}
+
+type GetCodespacesSecretsSecret struct {
+	// Timestamp of the secret creation
+	CreatedAt string `pulumi:"createdAt"`
+	// The name of the repository.
+	Name string `pulumi:"name"`
+	// Timestamp of the secret last update
+	UpdatedAt string `pulumi:"updatedAt"`
+}
+
+// GetCodespacesSecretsSecretInput is an input type that accepts GetCodespacesSecretsSecretArgs and GetCodespacesSecretsSecretOutput values.
+// You can construct a concrete instance of `GetCodespacesSecretsSecretInput` via:
+//
+//	GetCodespacesSecretsSecretArgs{...}
+type GetCodespacesSecretsSecretInput interface {
+	pulumi.Input
+
+	ToGetCodespacesSecretsSecretOutput() GetCodespacesSecretsSecretOutput
+	ToGetCodespacesSecretsSecretOutputWithContext(context.Context) GetCodespacesSecretsSecretOutput
+}
+
+type GetCodespacesSecretsSecretArgs struct {
+	// Timestamp of the secret creation
+	CreatedAt pulumi.StringInput `pulumi:"createdAt"`
+	// The name of the repository.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Timestamp of the secret last update
+	UpdatedAt pulumi.StringInput `pulumi:"updatedAt"`
+}
+
+func (GetCodespacesSecretsSecretArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCodespacesSecretsSecret)(nil)).Elem()
+}
+
+func (i GetCodespacesSecretsSecretArgs) ToGetCodespacesSecretsSecretOutput() GetCodespacesSecretsSecretOutput {
+	return i.ToGetCodespacesSecretsSecretOutputWithContext(context.Background())
+}
+
+func (i GetCodespacesSecretsSecretArgs) ToGetCodespacesSecretsSecretOutputWithContext(ctx context.Context) GetCodespacesSecretsSecretOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCodespacesSecretsSecretOutput)
+}
+
+// GetCodespacesSecretsSecretArrayInput is an input type that accepts GetCodespacesSecretsSecretArray and GetCodespacesSecretsSecretArrayOutput values.
+// You can construct a concrete instance of `GetCodespacesSecretsSecretArrayInput` via:
+//
+//	GetCodespacesSecretsSecretArray{ GetCodespacesSecretsSecretArgs{...} }
+type GetCodespacesSecretsSecretArrayInput interface {
+	pulumi.Input
+
+	ToGetCodespacesSecretsSecretArrayOutput() GetCodespacesSecretsSecretArrayOutput
+	ToGetCodespacesSecretsSecretArrayOutputWithContext(context.Context) GetCodespacesSecretsSecretArrayOutput
+}
+
+type GetCodespacesSecretsSecretArray []GetCodespacesSecretsSecretInput
+
+func (GetCodespacesSecretsSecretArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCodespacesSecretsSecret)(nil)).Elem()
+}
+
+func (i GetCodespacesSecretsSecretArray) ToGetCodespacesSecretsSecretArrayOutput() GetCodespacesSecretsSecretArrayOutput {
+	return i.ToGetCodespacesSecretsSecretArrayOutputWithContext(context.Background())
+}
+
+func (i GetCodespacesSecretsSecretArray) ToGetCodespacesSecretsSecretArrayOutputWithContext(ctx context.Context) GetCodespacesSecretsSecretArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCodespacesSecretsSecretArrayOutput)
+}
+
+type GetCodespacesSecretsSecretOutput struct{ *pulumi.OutputState }
+
+func (GetCodespacesSecretsSecretOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCodespacesSecretsSecret)(nil)).Elem()
+}
+
+func (o GetCodespacesSecretsSecretOutput) ToGetCodespacesSecretsSecretOutput() GetCodespacesSecretsSecretOutput {
+	return o
+}
+
+func (o GetCodespacesSecretsSecretOutput) ToGetCodespacesSecretsSecretOutputWithContext(ctx context.Context) GetCodespacesSecretsSecretOutput {
+	return o
+}
+
+// Timestamp of the secret creation
+func (o GetCodespacesSecretsSecretOutput) CreatedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCodespacesSecretsSecret) string { return v.CreatedAt }).(pulumi.StringOutput)
+}
+
+// The name of the repository.
+func (o GetCodespacesSecretsSecretOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCodespacesSecretsSecret) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Timestamp of the secret last update
+func (o GetCodespacesSecretsSecretOutput) UpdatedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCodespacesSecretsSecret) string { return v.UpdatedAt }).(pulumi.StringOutput)
+}
+
+type GetCodespacesSecretsSecretArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCodespacesSecretsSecretArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCodespacesSecretsSecret)(nil)).Elem()
+}
+
+func (o GetCodespacesSecretsSecretArrayOutput) ToGetCodespacesSecretsSecretArrayOutput() GetCodespacesSecretsSecretArrayOutput {
+	return o
+}
+
+func (o GetCodespacesSecretsSecretArrayOutput) ToGetCodespacesSecretsSecretArrayOutputWithContext(ctx context.Context) GetCodespacesSecretsSecretArrayOutput {
+	return o
+}
+
+func (o GetCodespacesSecretsSecretArrayOutput) Index(i pulumi.IntInput) GetCodespacesSecretsSecretOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCodespacesSecretsSecret {
+		return vs[0].([]GetCodespacesSecretsSecret)[vs[1].(int)]
+	}).(GetCodespacesSecretsSecretOutput)
+}
+
+type GetCodespacesUserSecretsSecret struct {
+	// Timestamp of the secret creation
+	CreatedAt string `pulumi:"createdAt"`
+	// Secret name
+	Name string `pulumi:"name"`
+	// Timestamp of the secret last update
+	UpdatedAt string `pulumi:"updatedAt"`
+	// Secret visibility
+	Visibility string `pulumi:"visibility"`
+}
+
+// GetCodespacesUserSecretsSecretInput is an input type that accepts GetCodespacesUserSecretsSecretArgs and GetCodespacesUserSecretsSecretOutput values.
+// You can construct a concrete instance of `GetCodespacesUserSecretsSecretInput` via:
+//
+//	GetCodespacesUserSecretsSecretArgs{...}
+type GetCodespacesUserSecretsSecretInput interface {
+	pulumi.Input
+
+	ToGetCodespacesUserSecretsSecretOutput() GetCodespacesUserSecretsSecretOutput
+	ToGetCodespacesUserSecretsSecretOutputWithContext(context.Context) GetCodespacesUserSecretsSecretOutput
+}
+
+type GetCodespacesUserSecretsSecretArgs struct {
+	// Timestamp of the secret creation
+	CreatedAt pulumi.StringInput `pulumi:"createdAt"`
+	// Secret name
+	Name pulumi.StringInput `pulumi:"name"`
+	// Timestamp of the secret last update
+	UpdatedAt pulumi.StringInput `pulumi:"updatedAt"`
+	// Secret visibility
+	Visibility pulumi.StringInput `pulumi:"visibility"`
+}
+
+func (GetCodespacesUserSecretsSecretArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCodespacesUserSecretsSecret)(nil)).Elem()
+}
+
+func (i GetCodespacesUserSecretsSecretArgs) ToGetCodespacesUserSecretsSecretOutput() GetCodespacesUserSecretsSecretOutput {
+	return i.ToGetCodespacesUserSecretsSecretOutputWithContext(context.Background())
+}
+
+func (i GetCodespacesUserSecretsSecretArgs) ToGetCodespacesUserSecretsSecretOutputWithContext(ctx context.Context) GetCodespacesUserSecretsSecretOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCodespacesUserSecretsSecretOutput)
+}
+
+// GetCodespacesUserSecretsSecretArrayInput is an input type that accepts GetCodespacesUserSecretsSecretArray and GetCodespacesUserSecretsSecretArrayOutput values.
+// You can construct a concrete instance of `GetCodespacesUserSecretsSecretArrayInput` via:
+//
+//	GetCodespacesUserSecretsSecretArray{ GetCodespacesUserSecretsSecretArgs{...} }
+type GetCodespacesUserSecretsSecretArrayInput interface {
+	pulumi.Input
+
+	ToGetCodespacesUserSecretsSecretArrayOutput() GetCodespacesUserSecretsSecretArrayOutput
+	ToGetCodespacesUserSecretsSecretArrayOutputWithContext(context.Context) GetCodespacesUserSecretsSecretArrayOutput
+}
+
+type GetCodespacesUserSecretsSecretArray []GetCodespacesUserSecretsSecretInput
+
+func (GetCodespacesUserSecretsSecretArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCodespacesUserSecretsSecret)(nil)).Elem()
+}
+
+func (i GetCodespacesUserSecretsSecretArray) ToGetCodespacesUserSecretsSecretArrayOutput() GetCodespacesUserSecretsSecretArrayOutput {
+	return i.ToGetCodespacesUserSecretsSecretArrayOutputWithContext(context.Background())
+}
+
+func (i GetCodespacesUserSecretsSecretArray) ToGetCodespacesUserSecretsSecretArrayOutputWithContext(ctx context.Context) GetCodespacesUserSecretsSecretArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCodespacesUserSecretsSecretArrayOutput)
+}
+
+type GetCodespacesUserSecretsSecretOutput struct{ *pulumi.OutputState }
+
+func (GetCodespacesUserSecretsSecretOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCodespacesUserSecretsSecret)(nil)).Elem()
+}
+
+func (o GetCodespacesUserSecretsSecretOutput) ToGetCodespacesUserSecretsSecretOutput() GetCodespacesUserSecretsSecretOutput {
+	return o
+}
+
+func (o GetCodespacesUserSecretsSecretOutput) ToGetCodespacesUserSecretsSecretOutputWithContext(ctx context.Context) GetCodespacesUserSecretsSecretOutput {
+	return o
+}
+
+// Timestamp of the secret creation
+func (o GetCodespacesUserSecretsSecretOutput) CreatedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCodespacesUserSecretsSecret) string { return v.CreatedAt }).(pulumi.StringOutput)
+}
+
+// Secret name
+func (o GetCodespacesUserSecretsSecretOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCodespacesUserSecretsSecret) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Timestamp of the secret last update
+func (o GetCodespacesUserSecretsSecretOutput) UpdatedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCodespacesUserSecretsSecret) string { return v.UpdatedAt }).(pulumi.StringOutput)
+}
+
+// Secret visibility
+func (o GetCodespacesUserSecretsSecretOutput) Visibility() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCodespacesUserSecretsSecret) string { return v.Visibility }).(pulumi.StringOutput)
+}
+
+type GetCodespacesUserSecretsSecretArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCodespacesUserSecretsSecretArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCodespacesUserSecretsSecret)(nil)).Elem()
+}
+
+func (o GetCodespacesUserSecretsSecretArrayOutput) ToGetCodespacesUserSecretsSecretArrayOutput() GetCodespacesUserSecretsSecretArrayOutput {
+	return o
+}
+
+func (o GetCodespacesUserSecretsSecretArrayOutput) ToGetCodespacesUserSecretsSecretArrayOutputWithContext(ctx context.Context) GetCodespacesUserSecretsSecretArrayOutput {
+	return o
+}
+
+func (o GetCodespacesUserSecretsSecretArrayOutput) Index(i pulumi.IntInput) GetCodespacesUserSecretsSecretOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCodespacesUserSecretsSecret {
+		return vs[0].([]GetCodespacesUserSecretsSecret)[vs[1].(int)]
+	}).(GetCodespacesUserSecretsSecretOutput)
+}
+
 type GetCollaboratorsCollaborator struct {
 	// The GitHub API URL for the collaborator's events.
 	EventsUrl string `pulumi:"eventsUrl"`
@@ -8061,6 +8424,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetActionsVariablesVariableArrayInput)(nil)).Elem(), GetActionsVariablesVariableArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetBranchProtectionRulesRuleInput)(nil)).Elem(), GetBranchProtectionRulesRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetBranchProtectionRulesRuleArrayInput)(nil)).Elem(), GetBranchProtectionRulesRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCodespacesOrganizationSecretsSecretInput)(nil)).Elem(), GetCodespacesOrganizationSecretsSecretArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCodespacesOrganizationSecretsSecretArrayInput)(nil)).Elem(), GetCodespacesOrganizationSecretsSecretArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCodespacesSecretsSecretInput)(nil)).Elem(), GetCodespacesSecretsSecretArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCodespacesSecretsSecretArrayInput)(nil)).Elem(), GetCodespacesSecretsSecretArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCodespacesUserSecretsSecretInput)(nil)).Elem(), GetCodespacesUserSecretsSecretArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCodespacesUserSecretsSecretArrayInput)(nil)).Elem(), GetCodespacesUserSecretsSecretArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCollaboratorsCollaboratorInput)(nil)).Elem(), GetCollaboratorsCollaboratorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCollaboratorsCollaboratorArrayInput)(nil)).Elem(), GetCollaboratorsCollaboratorArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDependabotOrganizationSecretsSecretInput)(nil)).Elem(), GetDependabotOrganizationSecretsSecretArgs{})
@@ -8172,6 +8541,12 @@ func init() {
 	pulumi.RegisterOutputType(GetActionsVariablesVariableArrayOutput{})
 	pulumi.RegisterOutputType(GetBranchProtectionRulesRuleOutput{})
 	pulumi.RegisterOutputType(GetBranchProtectionRulesRuleArrayOutput{})
+	pulumi.RegisterOutputType(GetCodespacesOrganizationSecretsSecretOutput{})
+	pulumi.RegisterOutputType(GetCodespacesOrganizationSecretsSecretArrayOutput{})
+	pulumi.RegisterOutputType(GetCodespacesSecretsSecretOutput{})
+	pulumi.RegisterOutputType(GetCodespacesSecretsSecretArrayOutput{})
+	pulumi.RegisterOutputType(GetCodespacesUserSecretsSecretOutput{})
+	pulumi.RegisterOutputType(GetCodespacesUserSecretsSecretArrayOutput{})
 	pulumi.RegisterOutputType(GetCollaboratorsCollaboratorOutput{})
 	pulumi.RegisterOutputType(GetCollaboratorsCollaboratorArrayOutput{})
 	pulumi.RegisterOutputType(GetDependabotOrganizationSecretsSecretOutput{})
