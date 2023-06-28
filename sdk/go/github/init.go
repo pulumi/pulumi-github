@@ -58,6 +58,12 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &BranchProtection{}
 	case "github:index/branchProtectionV3:BranchProtectionV3":
 		r = &BranchProtectionV3{}
+	case "github:index/codespacesOrganizationSecret:CodespacesOrganizationSecret":
+		r = &CodespacesOrganizationSecret{}
+	case "github:index/codespacesSecret:CodespacesSecret":
+		r = &CodespacesSecret{}
+	case "github:index/codespacesUserSecret:CodespacesUserSecret":
+		r = &CodespacesUserSecret{}
 	case "github:index/dependabotOrganizationSecret:DependabotOrganizationSecret":
 		r = &DependabotOrganizationSecret{}
 	case "github:index/dependabotOrganizationSecretRepositories:DependabotOrganizationSecretRepositories":
@@ -76,6 +82,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Membership{}
 	case "github:index/organizationBlock:OrganizationBlock":
 		r = &OrganizationBlock{}
+	case "github:index/organizationCustomRole:OrganizationCustomRole":
+		r = &OrganizationCustomRole{}
 	case "github:index/organizationProject:OrganizationProject":
 		r = &OrganizationProject{}
 	case "github:index/organizationSecurityManager:OrganizationSecurityManager":
@@ -259,6 +267,21 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"github",
+		"index/codespacesOrganizationSecret",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"github",
+		"index/codespacesSecret",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"github",
+		"index/codespacesUserSecret",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"github",
 		"index/dependabotOrganizationSecret",
 		&module{version},
 	)
@@ -300,6 +323,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"github",
 		"index/organizationBlock",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"github",
+		"index/organizationCustomRole",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

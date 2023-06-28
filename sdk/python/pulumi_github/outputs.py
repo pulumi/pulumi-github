@@ -43,6 +43,9 @@ __all__ = [
     'GetActionsSecretsSecretResult',
     'GetActionsVariablesVariableResult',
     'GetBranchProtectionRulesRuleResult',
+    'GetCodespacesOrganizationSecretsSecretResult',
+    'GetCodespacesSecretsSecretResult',
+    'GetCodespacesUserSecretsSecretResult',
     'GetCollaboratorsCollaboratorResult',
     'GetDependabotOrganizationSecretsSecretResult',
     'GetDependabotSecretsSecretResult',
@@ -1726,6 +1729,148 @@ class GetBranchProtectionRulesRuleResult(dict):
         Identifies the protection rule pattern.
         """
         return pulumi.get(self, "pattern")
+
+
+@pulumi.output_type
+class GetCodespacesOrganizationSecretsSecretResult(dict):
+    def __init__(__self__, *,
+                 created_at: str,
+                 name: str,
+                 updated_at: str,
+                 visibility: str):
+        """
+        :param str created_at: Timestamp of the secret creation
+        :param str name: Secret name
+        :param str updated_at: Timestamp of the secret last update
+        :param str visibility: Secret visibility
+        """
+        pulumi.set(__self__, "created_at", created_at)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "updated_at", updated_at)
+        pulumi.set(__self__, "visibility", visibility)
+
+    @property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> str:
+        """
+        Timestamp of the secret creation
+        """
+        return pulumi.get(self, "created_at")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Secret name
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="updatedAt")
+    def updated_at(self) -> str:
+        """
+        Timestamp of the secret last update
+        """
+        return pulumi.get(self, "updated_at")
+
+    @property
+    @pulumi.getter
+    def visibility(self) -> str:
+        """
+        Secret visibility
+        """
+        return pulumi.get(self, "visibility")
+
+
+@pulumi.output_type
+class GetCodespacesSecretsSecretResult(dict):
+    def __init__(__self__, *,
+                 created_at: str,
+                 name: str,
+                 updated_at: str):
+        """
+        :param str created_at: Timestamp of the secret creation
+        :param str name: The name of the repository.
+        :param str updated_at: Timestamp of the secret last update
+        """
+        pulumi.set(__self__, "created_at", created_at)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "updated_at", updated_at)
+
+    @property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> str:
+        """
+        Timestamp of the secret creation
+        """
+        return pulumi.get(self, "created_at")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the repository.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="updatedAt")
+    def updated_at(self) -> str:
+        """
+        Timestamp of the secret last update
+        """
+        return pulumi.get(self, "updated_at")
+
+
+@pulumi.output_type
+class GetCodespacesUserSecretsSecretResult(dict):
+    def __init__(__self__, *,
+                 created_at: str,
+                 name: str,
+                 updated_at: str,
+                 visibility: str):
+        """
+        :param str created_at: Timestamp of the secret creation
+        :param str name: Secret name
+        :param str updated_at: Timestamp of the secret last update
+        :param str visibility: Secret visibility
+        """
+        pulumi.set(__self__, "created_at", created_at)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "updated_at", updated_at)
+        pulumi.set(__self__, "visibility", visibility)
+
+    @property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> str:
+        """
+        Timestamp of the secret creation
+        """
+        return pulumi.get(self, "created_at")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Secret name
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="updatedAt")
+    def updated_at(self) -> str:
+        """
+        Timestamp of the secret last update
+        """
+        return pulumi.get(self, "updated_at")
+
+    @property
+    @pulumi.getter
+    def visibility(self) -> str:
+        """
+        Secret visibility
+        """
+        return pulumi.get(self, "visibility")
 
 
 @pulumi.output_type

@@ -24,6 +24,9 @@ from .branch import *
 from .branch_default import *
 from .branch_protection import *
 from .branch_protection_v3 import *
+from .codespaces_organization_secret import *
+from .codespaces_secret import *
+from .codespaces_user_secret import *
 from .dependabot_organization_secret import *
 from .dependabot_organization_secret_repositories import *
 from .dependabot_secret import *
@@ -44,6 +47,12 @@ from .get_actions_variables import *
 from .get_app_token import *
 from .get_branch import *
 from .get_branch_protection_rules import *
+from .get_codespaces_organization_public_key import *
+from .get_codespaces_organization_secrets import *
+from .get_codespaces_public_key import *
+from .get_codespaces_secrets import *
+from .get_codespaces_user_public_key import *
+from .get_codespaces_user_secrets import *
 from .get_collaborators import *
 from .get_dependabot_organization_public_key import *
 from .get_dependabot_organization_secrets import *
@@ -56,6 +65,7 @@ from .get_ip_ranges import *
 from .get_issue_labels import *
 from .get_membership import *
 from .get_organization import *
+from .get_organization_custom_role import *
 from .get_organization_ip_allow_list import *
 from .get_organization_team_sync_groups import *
 from .get_organization_teams import *
@@ -85,6 +95,7 @@ from .issue import *
 from .issue_label import *
 from .membership import *
 from .organization_block import *
+from .organization_custom_role import *
 from .organization_project import *
 from .organization_security_manager import *
 from .organization_settings import *
@@ -282,6 +293,30 @@ _utilities.register(
  },
  {
   "pkg": "github",
+  "mod": "index/codespacesOrganizationSecret",
+  "fqn": "pulumi_github",
+  "classes": {
+   "github:index/codespacesOrganizationSecret:CodespacesOrganizationSecret": "CodespacesOrganizationSecret"
+  }
+ },
+ {
+  "pkg": "github",
+  "mod": "index/codespacesSecret",
+  "fqn": "pulumi_github",
+  "classes": {
+   "github:index/codespacesSecret:CodespacesSecret": "CodespacesSecret"
+  }
+ },
+ {
+  "pkg": "github",
+  "mod": "index/codespacesUserSecret",
+  "fqn": "pulumi_github",
+  "classes": {
+   "github:index/codespacesUserSecret:CodespacesUserSecret": "CodespacesUserSecret"
+  }
+ },
+ {
+  "pkg": "github",
   "mod": "index/dependabotOrganizationSecret",
   "fqn": "pulumi_github",
   "classes": {
@@ -350,6 +385,14 @@ _utilities.register(
   "fqn": "pulumi_github",
   "classes": {
    "github:index/organizationBlock:OrganizationBlock": "OrganizationBlock"
+  }
+ },
+ {
+  "pkg": "github",
+  "mod": "index/organizationCustomRole",
+  "fqn": "pulumi_github",
+  "classes": {
+   "github:index/organizationCustomRole:OrganizationCustomRole": "OrganizationCustomRole"
   }
  },
  {
