@@ -221,6 +221,25 @@
                     }
                 }
             },
+            "github_codespaces_organization_secret": {
+                "current": "github:index/codespacesOrganizationSecret:CodespacesOrganizationSecret",
+                "fields": {
+                    "selected_repository_ids": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "github_codespaces_secret": {
+                "current": "github:index/codespacesSecret:CodespacesSecret"
+            },
+            "github_codespaces_user_secret": {
+                "current": "github:index/codespacesUserSecret:CodespacesUserSecret",
+                "fields": {
+                    "selected_repository_ids": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "github_dependabot_organization_secret": {
                 "current": "github:index/dependabotOrganizationSecret:DependabotOrganizationSecret",
                 "fields": {
@@ -270,6 +289,14 @@
             },
             "github_organization_block": {
                 "current": "github:index/organizationBlock:OrganizationBlock"
+            },
+            "github_organization_custom_role": {
+                "current": "github:index/organizationCustomRole:OrganizationCustomRole",
+                "fields": {
+                    "permissions": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "github_organization_project": {
                 "current": "github:index/organizationProject:OrganizationProject"
@@ -457,13 +484,28 @@
         },
         "datasources": {
             "github_actions_environment_secrets": {
-                "current": "github:index/getActionsEnvironmentSecrets:getActionsEnvironmentSecrets"
+                "current": "github:index/getActionsEnvironmentSecrets:getActionsEnvironmentSecrets",
+                "fields": {
+                    "secrets": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "github_actions_environment_variables": {
-                "current": "github:index/getActionsEnvironmentVariables:getActionsEnvironmentVariables"
+                "current": "github:index/getActionsEnvironmentVariables:getActionsEnvironmentVariables",
+                "fields": {
+                    "variables": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "github_actions_organization_oidc_subject_claim_customization_template": {
-                "current": "github:index/getActionsOrganizationOidcSubjectClaimCustomizationTemplate:getActionsOrganizationOidcSubjectClaimCustomizationTemplate"
+                "current": "github:index/getActionsOrganizationOidcSubjectClaimCustomizationTemplate:getActionsOrganizationOidcSubjectClaimCustomizationTemplate",
+                "fields": {
+                    "include_claim_keys": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "github_actions_organization_public_key": {
                 "current": "github:index/getActionsOrganizationPublicKey:getActionsOrganizationPublicKey"
@@ -472,10 +514,20 @@
                 "current": "github:index/getActionsOrganizationRegistrationToken:getActionsOrganizationRegistrationToken"
             },
             "github_actions_organization_secrets": {
-                "current": "github:index/getActionsOrganizationSecrets:getActionsOrganizationSecrets"
+                "current": "github:index/getActionsOrganizationSecrets:getActionsOrganizationSecrets",
+                "fields": {
+                    "secrets": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "github_actions_organization_variables": {
-                "current": "github:index/getActionsOrganizationVariables:getActionsOrganizationVariables"
+                "current": "github:index/getActionsOrganizationVariables:getActionsOrganizationVariables",
+                "fields": {
+                    "variables": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "github_actions_public_key": {
                 "current": "github:index/getActionsPublicKey:getActionsPublicKey"
@@ -484,13 +536,28 @@
                 "current": "github:index/getActionsRegistrationToken:getActionsRegistrationToken"
             },
             "github_actions_repository_oidc_subject_claim_customization_template": {
-                "current": "github:index/getActionsRepositoryOidcSubjectClaimCustomizationTemplate:getActionsRepositoryOidcSubjectClaimCustomizationTemplate"
+                "current": "github:index/getActionsRepositoryOidcSubjectClaimCustomizationTemplate:getActionsRepositoryOidcSubjectClaimCustomizationTemplate",
+                "fields": {
+                    "include_claim_keys": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "github_actions_secrets": {
-                "current": "github:index/getActionsSecrets:getActionsSecrets"
+                "current": "github:index/getActionsSecrets:getActionsSecrets",
+                "fields": {
+                    "secrets": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "github_actions_variables": {
-                "current": "github:index/getActionsVariables:getActionsVariables"
+                "current": "github:index/getActionsVariables:getActionsVariables",
+                "fields": {
+                    "variables": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "github_app": {
                 "current": "github:index/getGithubApp:getGithubApp"
@@ -502,79 +569,324 @@
                 "current": "github:index/getBranch:getBranch"
             },
             "github_branch_protection_rules": {
-                "current": "github:index/getBranchProtectionRules:getBranchProtectionRules"
+                "current": "github:index/getBranchProtectionRules:getBranchProtectionRules",
+                "fields": {
+                    "rules": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "github_codespaces_organization_public_key": {
+                "current": "github:index/getCodespacesOrganizationPublicKey:getCodespacesOrganizationPublicKey"
+            },
+            "github_codespaces_organization_secrets": {
+                "current": "github:index/getCodespacesOrganizationSecrets:getCodespacesOrganizationSecrets",
+                "fields": {
+                    "secrets": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "github_codespaces_public_key": {
+                "current": "github:index/getCodespacesPublicKey:getCodespacesPublicKey"
+            },
+            "github_codespaces_secrets": {
+                "current": "github:index/getCodespacesSecrets:getCodespacesSecrets",
+                "fields": {
+                    "secrets": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "github_codespaces_user_public_key": {
+                "current": "github:index/getCodespacesUserPublicKey:getCodespacesUserPublicKey"
+            },
+            "github_codespaces_user_secrets": {
+                "current": "github:index/getCodespacesUserSecrets:getCodespacesUserSecrets",
+                "fields": {
+                    "secrets": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "github_collaborators": {
-                "current": "github:index/getCollaborators:getCollaborators"
+                "current": "github:index/getCollaborators:getCollaborators",
+                "fields": {
+                    "collaborator": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "github_dependabot_organization_public_key": {
                 "current": "github:index/getDependabotOrganizationPublicKey:getDependabotOrganizationPublicKey"
             },
             "github_dependabot_organization_secrets": {
-                "current": "github:index/getDependabotOrganizationSecrets:getDependabotOrganizationSecrets"
+                "current": "github:index/getDependabotOrganizationSecrets:getDependabotOrganizationSecrets",
+                "fields": {
+                    "secrets": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "github_dependabot_public_key": {
                 "current": "github:index/getDependabotPublicKey:getDependabotPublicKey"
             },
             "github_dependabot_secrets": {
-                "current": "github:index/getDependabotSecrets:getDependabotSecrets"
+                "current": "github:index/getDependabotSecrets:getDependabotSecrets",
+                "fields": {
+                    "secrets": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "github_enterprise": {
                 "current": "github:index/getEnterprise:getEnterprise"
             },
             "github_external_groups": {
-                "current": "github:index/getExternalGroups:getExternalGroups"
+                "current": "github:index/getExternalGroups:getExternalGroups",
+                "fields": {
+                    "external_groups": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "github_ip_ranges": {
-                "current": "github:index/getIpRanges:getIpRanges"
+                "current": "github:index/getIpRanges:getIpRanges",
+                "fields": {
+                    "actions": {
+                        "maxItemsOne": false
+                    },
+                    "actions_ipv4": {
+                        "maxItemsOne": false
+                    },
+                    "actions_ipv6": {
+                        "maxItemsOne": false
+                    },
+                    "api": {
+                        "maxItemsOne": false
+                    },
+                    "api_ipv4": {
+                        "maxItemsOne": false
+                    },
+                    "api_ipv6": {
+                        "maxItemsOne": false
+                    },
+                    "dependabot": {
+                        "maxItemsOne": false
+                    },
+                    "dependabot_ipv4": {
+                        "maxItemsOne": false
+                    },
+                    "dependabot_ipv6": {
+                        "maxItemsOne": false
+                    },
+                    "git": {
+                        "maxItemsOne": false
+                    },
+                    "git_ipv4": {
+                        "maxItemsOne": false
+                    },
+                    "git_ipv6": {
+                        "maxItemsOne": false
+                    },
+                    "hooks": {
+                        "maxItemsOne": false
+                    },
+                    "hooks_ipv4": {
+                        "maxItemsOne": false
+                    },
+                    "hooks_ipv6": {
+                        "maxItemsOne": false
+                    },
+                    "importer": {
+                        "maxItemsOne": false
+                    },
+                    "importer_ipv4": {
+                        "maxItemsOne": false
+                    },
+                    "importer_ipv6": {
+                        "maxItemsOne": false
+                    },
+                    "pages": {
+                        "maxItemsOne": false
+                    },
+                    "pages_ipv4": {
+                        "maxItemsOne": false
+                    },
+                    "pages_ipv6": {
+                        "maxItemsOne": false
+                    },
+                    "web": {
+                        "maxItemsOne": false
+                    },
+                    "web_ipv4": {
+                        "maxItemsOne": false
+                    },
+                    "web_ipv6": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "github_issue_labels": {
-                "current": "github:index/getIssueLabels:getIssueLabels"
+                "current": "github:index/getIssueLabels:getIssueLabels",
+                "fields": {
+                    "labels": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "github_membership": {
                 "current": "github:index/getMembership:getMembership"
             },
             "github_organization": {
-                "current": "github:index/getOrganization:getOrganization"
+                "current": "github:index/getOrganization:getOrganization",
+                "fields": {
+                    "members": {
+                        "maxItemsOne": false
+                    },
+                    "repositories": {
+                        "maxItemsOne": false
+                    },
+                    "users": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "github_organization_custom_role": {
+                "current": "github:index/getOrganizationCustomRole:getOrganizationCustomRole",
+                "fields": {
+                    "permissions": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "github_organization_ip_allow_list": {
-                "current": "github:index/getOrganizationIpAllowList:getOrganizationIpAllowList"
+                "current": "github:index/getOrganizationIpAllowList:getOrganizationIpAllowList",
+                "fields": {
+                    "ip_allow_list": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "github_organization_team_sync_groups": {
-                "current": "github:index/getOrganizationTeamSyncGroups:getOrganizationTeamSyncGroups"
+                "current": "github:index/getOrganizationTeamSyncGroups:getOrganizationTeamSyncGroups",
+                "fields": {
+                    "groups": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "github_organization_teams": {
-                "current": "github:index/getOrganizationTeams:getOrganizationTeams"
+                "current": "github:index/getOrganizationTeams:getOrganizationTeams",
+                "fields": {
+                    "teams": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "members": {
+                                    "maxItemsOne": false
+                                },
+                                "repositories": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
             },
             "github_organization_webhooks": {
-                "current": "github:index/getOrganizationWebhooks:getOrganizationWebhooks"
+                "current": "github:index/getOrganizationWebhooks:getOrganizationWebhooks",
+                "fields": {
+                    "webhooks": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "github_ref": {
                 "current": "github:index/getRef:getRef"
             },
             "github_release": {
-                "current": "github:index/getRelease:getRelease"
+                "current": "github:index/getRelease:getRelease",
+                "fields": {
+                    "assets": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "github_repositories": {
-                "current": "github:index/getRepositories:getRepositories"
+                "current": "github:index/getRepositories:getRepositories",
+                "fields": {
+                    "full_names": {
+                        "maxItemsOne": false
+                    },
+                    "names": {
+                        "maxItemsOne": false
+                    },
+                    "repo_ids": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "github_repository": {
-                "current": "github:index/getRepository:getRepository"
+                "current": "github:index/getRepository:getRepository",
+                "fields": {
+                    "pages": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "source": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "template": {
+                        "maxItemsOne": true
+                    },
+                    "topics": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "github_repository_autolink_references": {
-                "current": "github:index/getRepositoryAutolinkReferences:getRepositoryAutolinkReferences"
+                "current": "github:index/getRepositoryAutolinkReferences:getRepositoryAutolinkReferences",
+                "fields": {
+                    "autolink_references": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "github_repository_branches": {
-                "current": "github:index/getRepositoryBranches:getRepositoryBranches"
+                "current": "github:index/getRepositoryBranches:getRepositoryBranches",
+                "fields": {
+                    "branches": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "github_repository_deploy_keys": {
-                "current": "github:index/getRepositoryDeployKeys:getRepositoryDeployKeys"
+                "current": "github:index/getRepositoryDeployKeys:getRepositoryDeployKeys",
+                "fields": {
+                    "keys": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "github_repository_deployment_branch_policies": {
-                "current": "github:index/getRepositoryDeploymentBranchPolicies:getRepositoryDeploymentBranchPolicies"
+                "current": "github:index/getRepositoryDeploymentBranchPolicies:getRepositoryDeploymentBranchPolicies",
+                "fields": {
+                    "deployment_branch_policies": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "github_repository_environments": {
-                "current": "github:index/getRepositoryEnvironments:getRepositoryEnvironments"
+                "current": "github:index/getRepositoryEnvironments:getRepositoryEnvironments",
+                "fields": {
+                    "environments": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "github_repository_file": {
                 "current": "github:index/getRepositoryFile:getRepositoryFile"
@@ -583,34 +895,107 @@
                 "current": "github:index/getRepositoryMilestone:getRepositoryMilestone"
             },
             "github_repository_pull_request": {
-                "current": "github:index/getRepositoryPullRequest:getRepositoryPullRequest"
+                "current": "github:index/getRepositoryPullRequest:getRepositoryPullRequest",
+                "fields": {
+                    "labels": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "github_repository_pull_requests": {
-                "current": "github:index/getRepositoryPullRequests:getRepositoryPullRequests"
+                "current": "github:index/getRepositoryPullRequests:getRepositoryPullRequests",
+                "fields": {
+                    "results": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "labels": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
             },
             "github_repository_teams": {
-                "current": "github:index/getRepositoryTeams:getRepositoryTeams"
+                "current": "github:index/getRepositoryTeams:getRepositoryTeams",
+                "fields": {
+                    "teams": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "github_repository_webhooks": {
-                "current": "github:index/getRepositoryWebhooks:getRepositoryWebhooks"
+                "current": "github:index/getRepositoryWebhooks:getRepositoryWebhooks",
+                "fields": {
+                    "webhooks": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "github_rest_api": {
                 "current": "github:index/getRestApi:getRestApi"
             },
             "github_ssh_keys": {
-                "current": "github:index/getSshKeys:getSshKeys"
+                "current": "github:index/getSshKeys:getSshKeys",
+                "fields": {
+                    "keys": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "github_team": {
-                "current": "github:index/getTeam:getTeam"
+                "current": "github:index/getTeam:getTeam",
+                "fields": {
+                    "members": {
+                        "maxItemsOne": false
+                    },
+                    "repositories": {
+                        "maxItemsOne": false
+                    },
+                    "repositories_detailed": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "github_tree": {
-                "current": "github:index/getTree:getTree"
+                "current": "github:index/getTree:getTree",
+                "fields": {
+                    "entries": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "github_user": {
-                "current": "github:index/getUser:getUser"
+                "current": "github:index/getUser:getUser",
+                "fields": {
+                    "gpg_keys": {
+                        "maxItemsOne": false
+                    },
+                    "ssh_keys": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "github_users": {
-                "current": "github:index/getUsers:getUsers"
+                "current": "github:index/getUsers:getUsers",
+                "fields": {
+                    "emails": {
+                        "maxItemsOne": false
+                    },
+                    "logins": {
+                        "maxItemsOne": false
+                    },
+                    "node_ids": {
+                        "maxItemsOne": false
+                    },
+                    "unknown_logins": {
+                        "maxItemsOne": false
+                    },
+                    "usernames": {
+                        "maxItemsOne": false
+                    }
+                }
             }
         }
     },
@@ -635,6 +1020,9 @@
             "github:index/branchDefault:BranchDefault": "github_branch_default",
             "github:index/branchProtection:BranchProtection": "github_branch_protection",
             "github:index/branchProtectionV3:BranchProtectionV3": "github_branch_protection_v3",
+            "github:index/codespacesOrganizationSecret:CodespacesOrganizationSecret": "github_codespaces_organization_secret",
+            "github:index/codespacesSecret:CodespacesSecret": "github_codespaces_secret",
+            "github:index/codespacesUserSecret:CodespacesUserSecret": "github_codespaces_user_secret",
             "github:index/dependabotOrganizationSecret:DependabotOrganizationSecret": "github_dependabot_organization_secret",
             "github:index/dependabotOrganizationSecretRepositories:DependabotOrganizationSecretRepositories": "github_dependabot_organization_secret_repositories",
             "github:index/dependabotSecret:DependabotSecret": "github_dependabot_secret",
@@ -644,6 +1032,7 @@
             "github:index/issueLabel:IssueLabel": "github_issue_label",
             "github:index/membership:Membership": "github_membership",
             "github:index/organizationBlock:OrganizationBlock": "github_organization_block",
+            "github:index/organizationCustomRole:OrganizationCustomRole": "github_organization_custom_role",
             "github:index/organizationProject:OrganizationProject": "github_organization_project",
             "github:index/organizationSecurityManager:OrganizationSecurityManager": "github_organization_security_manager",
             "github:index/organizationSettings:OrganizationSettings": "github_organization_settings",
@@ -690,6 +1079,12 @@
             "github:index/getAppToken:getAppToken": "github_app_token",
             "github:index/getBranch:getBranch": "github_branch",
             "github:index/getBranchProtectionRules:getBranchProtectionRules": "github_branch_protection_rules",
+            "github:index/getCodespacesOrganizationPublicKey:getCodespacesOrganizationPublicKey": "github_codespaces_organization_public_key",
+            "github:index/getCodespacesOrganizationSecrets:getCodespacesOrganizationSecrets": "github_codespaces_organization_secrets",
+            "github:index/getCodespacesPublicKey:getCodespacesPublicKey": "github_codespaces_public_key",
+            "github:index/getCodespacesSecrets:getCodespacesSecrets": "github_codespaces_secrets",
+            "github:index/getCodespacesUserPublicKey:getCodespacesUserPublicKey": "github_codespaces_user_public_key",
+            "github:index/getCodespacesUserSecrets:getCodespacesUserSecrets": "github_codespaces_user_secrets",
             "github:index/getCollaborators:getCollaborators": "github_collaborators",
             "github:index/getDependabotOrganizationPublicKey:getDependabotOrganizationPublicKey": "github_dependabot_organization_public_key",
             "github:index/getDependabotOrganizationSecrets:getDependabotOrganizationSecrets": "github_dependabot_organization_secrets",
@@ -702,6 +1097,7 @@
             "github:index/getIssueLabels:getIssueLabels": "github_issue_labels",
             "github:index/getMembership:getMembership": "github_membership",
             "github:index/getOrganization:getOrganization": "github_organization",
+            "github:index/getOrganizationCustomRole:getOrganizationCustomRole": "github_organization_custom_role",
             "github:index/getOrganizationIpAllowList:getOrganizationIpAllowList": "github_organization_ip_allow_list",
             "github:index/getOrganizationTeamSyncGroups:getOrganizationTeamSyncGroups": "github_organization_team_sync_groups",
             "github:index/getOrganizationTeams:getOrganizationTeams": "github_organization_teams",
@@ -911,6 +1307,29 @@
                 "requiredPullRequestReviews": "required_pull_request_reviews",
                 "requiredStatusChecks": "required_status_checks"
             },
+            "github:index/codespacesOrganizationSecret:CodespacesOrganizationSecret": {
+                "createdAt": "created_at",
+                "encryptedValue": "encrypted_value",
+                "plaintextValue": "plaintext_value",
+                "secretName": "secret_name",
+                "selectedRepositoryIds": "selected_repository_ids",
+                "updatedAt": "updated_at"
+            },
+            "github:index/codespacesSecret:CodespacesSecret": {
+                "createdAt": "created_at",
+                "encryptedValue": "encrypted_value",
+                "plaintextValue": "plaintext_value",
+                "secretName": "secret_name",
+                "updatedAt": "updated_at"
+            },
+            "github:index/codespacesUserSecret:CodespacesUserSecret": {
+                "createdAt": "created_at",
+                "encryptedValue": "encrypted_value",
+                "plaintextValue": "plaintext_value",
+                "secretName": "secret_name",
+                "selectedRepositoryIds": "selected_repository_ids",
+                "updatedAt": "updated_at"
+            },
             "github:index/dependabotOrganizationSecret:DependabotOrganizationSecret": {
                 "createdAt": "created_at",
                 "encryptedValue": "encrypted_value",
@@ -999,6 +1418,30 @@
                 "installationId": "installation_id",
                 "pemFile": "pem_file"
             },
+            "github:index/getCodespacesOrganizationPublicKey:getCodespacesOrganizationPublicKey": {
+                "keyId": "key_id"
+            },
+            "github:index/getCodespacesOrganizationSecretsSecret:getCodespacesOrganizationSecretsSecret": {
+                "createdAt": "created_at",
+                "updatedAt": "updated_at"
+            },
+            "github:index/getCodespacesPublicKey:getCodespacesPublicKey": {
+                "keyId": "key_id"
+            },
+            "github:index/getCodespacesSecrets:getCodespacesSecrets": {
+                "fullName": "full_name"
+            },
+            "github:index/getCodespacesSecretsSecret:getCodespacesSecretsSecret": {
+                "createdAt": "created_at",
+                "updatedAt": "updated_at"
+            },
+            "github:index/getCodespacesUserPublicKey:getCodespacesUserPublicKey": {
+                "keyId": "key_id"
+            },
+            "github:index/getCodespacesUserSecretsSecret:getCodespacesUserSecretsSecret": {
+                "createdAt": "created_at",
+                "updatedAt": "updated_at"
+            },
             "github:index/getCollaborators:getCollaborators": {
                 "collaborators": "collaborator"
             },
@@ -1071,6 +1514,9 @@
             },
             "github:index/getOrganization:getOrganization": {
                 "nodeId": "node_id"
+            },
+            "github:index/getOrganizationCustomRole:getOrganizationCustomRole": {
+                "baseRole": "base_role"
             },
             "github:index/getOrganizationIpAllowList:getOrganizationIpAllowList": {
                 "ipAllowLists": "ip_allow_list"
@@ -1250,6 +1696,9 @@
             "github:index/issue:Issue": {
                 "issueId": "issue_id",
                 "milestoneNumber": "milestone_number"
+            },
+            "github:index/organizationCustomRole:OrganizationCustomRole": {
+                "baseRole": "base_role"
             },
             "github:index/organizationSecurityManager:OrganizationSecurityManager": {
                 "teamSlug": "team_slug"

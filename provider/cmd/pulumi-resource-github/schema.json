@@ -887,6 +887,97 @@
                 }
             }
         },
+        "github:index/getCodespacesOrganizationSecretsSecret:getCodespacesOrganizationSecretsSecret": {
+            "properties": {
+                "createdAt": {
+                    "type": "string",
+                    "description": "Timestamp of the secret creation\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Secret name\n"
+                },
+                "updatedAt": {
+                    "type": "string",
+                    "description": "Timestamp of the secret last update\n"
+                },
+                "visibility": {
+                    "type": "string",
+                    "description": "Secret visibility\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "createdAt",
+                "name",
+                "updatedAt",
+                "visibility"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "github:index/getCodespacesSecretsSecret:getCodespacesSecretsSecret": {
+            "properties": {
+                "createdAt": {
+                    "type": "string",
+                    "description": "Timestamp of the secret creation\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the repository.\n"
+                },
+                "updatedAt": {
+                    "type": "string",
+                    "description": "Timestamp of the secret last update\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "createdAt",
+                "name",
+                "updatedAt"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "github:index/getCodespacesUserSecretsSecret:getCodespacesUserSecretsSecret": {
+            "properties": {
+                "createdAt": {
+                    "type": "string",
+                    "description": "Timestamp of the secret creation\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Secret name\n"
+                },
+                "updatedAt": {
+                    "type": "string",
+                    "description": "Timestamp of the secret last update\n"
+                },
+                "visibility": {
+                    "type": "string",
+                    "description": "Secret visibility\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "createdAt",
+                "name",
+                "updatedAt",
+                "visibility"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
         "github:index/getCollaboratorsCollaborator:getCollaboratorsCollaborator": {
             "properties": {
                 "eventsUrl": {
@@ -3596,6 +3687,333 @@
                 "type": "object"
             }
         },
+        "github:index/codespacesOrganizationSecret:CodespacesOrganizationSecret": {
+            "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\nconst exampleSecretCodespacesOrganizationSecret = new github.CodespacesOrganizationSecret(\"exampleSecretCodespacesOrganizationSecret\", {\n    secretName: \"example_secret_name\",\n    visibility: \"private\",\n    plaintextValue: _var.some_secret_string,\n});\nconst exampleSecretIndex_codespacesOrganizationSecretCodespacesOrganizationSecret = new github.CodespacesOrganizationSecret(\"exampleSecretIndex/codespacesOrganizationSecretCodespacesOrganizationSecret\", {\n    secretName: \"example_secret_name\",\n    visibility: \"private\",\n    encryptedValue: _var.some_encrypted_secret_string,\n});\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\nexample_secret_codespaces_organization_secret = github.CodespacesOrganizationSecret(\"exampleSecretCodespacesOrganizationSecret\",\n    secret_name=\"example_secret_name\",\n    visibility=\"private\",\n    plaintext_value=var[\"some_secret_string\"])\nexample_secret_index_codespaces_organization_secret_codespaces_organization_secret = github.CodespacesOrganizationSecret(\"exampleSecretIndex/codespacesOrganizationSecretCodespacesOrganizationSecret\",\n    secret_name=\"example_secret_name\",\n    visibility=\"private\",\n    encrypted_value=var[\"some_encrypted_secret_string\"])\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Github = Pulumi.Github;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var exampleSecretCodespacesOrganizationSecret = new Github.CodespacesOrganizationSecret(\"exampleSecretCodespacesOrganizationSecret\", new()\n    {\n        SecretName = \"example_secret_name\",\n        Visibility = \"private\",\n        PlaintextValue = @var.Some_secret_string,\n    });\n\n    var exampleSecretIndex_codespacesOrganizationSecretCodespacesOrganizationSecret = new Github.CodespacesOrganizationSecret(\"exampleSecretIndex/codespacesOrganizationSecretCodespacesOrganizationSecret\", new()\n    {\n        SecretName = \"example_secret_name\",\n        Visibility = \"private\",\n        EncryptedValue = @var.Some_encrypted_secret_string,\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-github/sdk/v5/go/github\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := github.NewCodespacesOrganizationSecret(ctx, \"exampleSecretCodespacesOrganizationSecret\", \u0026github.CodespacesOrganizationSecretArgs{\n\t\t\tSecretName:     pulumi.String(\"example_secret_name\"),\n\t\t\tVisibility:     pulumi.String(\"private\"),\n\t\t\tPlaintextValue: pulumi.Any(_var.Some_secret_string),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = github.NewCodespacesOrganizationSecret(ctx, \"exampleSecretIndex/codespacesOrganizationSecretCodespacesOrganizationSecret\", \u0026github.CodespacesOrganizationSecretArgs{\n\t\t\tSecretName:     pulumi.String(\"example_secret_name\"),\n\t\t\tVisibility:     pulumi.String(\"private\"),\n\t\t\tEncryptedValue: pulumi.Any(_var.Some_encrypted_secret_string),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.github.CodespacesOrganizationSecret;\nimport com.pulumi.github.CodespacesOrganizationSecretArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var exampleSecretCodespacesOrganizationSecret = new CodespacesOrganizationSecret(\"exampleSecretCodespacesOrganizationSecret\", CodespacesOrganizationSecretArgs.builder()        \n            .secretName(\"example_secret_name\")\n            .visibility(\"private\")\n            .plaintextValue(var_.some_secret_string())\n            .build());\n\n        var exampleSecretIndex_codespacesOrganizationSecretCodespacesOrganizationSecret = new CodespacesOrganizationSecret(\"exampleSecretIndex/codespacesOrganizationSecretCodespacesOrganizationSecret\", CodespacesOrganizationSecretArgs.builder()        \n            .secretName(\"example_secret_name\")\n            .visibility(\"private\")\n            .encryptedValue(var_.some_encrypted_secret_string())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  exampleSecretCodespacesOrganizationSecret:\n    type: github:CodespacesOrganizationSecret\n    properties:\n      secretName: example_secret_name\n      visibility: private\n      plaintextValue: ${var.some_secret_string}\n  exampleSecretIndex/codespacesOrganizationSecretCodespacesOrganizationSecret:\n    type: github:CodespacesOrganizationSecret\n    properties:\n      secretName: example_secret_name\n      visibility: private\n      encryptedValue: ${var.some_encrypted_secret_string}\n```\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\nconst repo = github.getRepository({\n    fullName: \"my-org/repo\",\n});\nconst exampleSecretCodespacesOrganizationSecret = new github.CodespacesOrganizationSecret(\"exampleSecretCodespacesOrganizationSecret\", {\n    secretName: \"example_secret_name\",\n    visibility: \"selected\",\n    plaintextValue: _var.some_secret_string,\n    selectedRepositoryIds: [repo.then(repo =\u003e repo.repoId)],\n});\nconst exampleSecretIndex_codespacesOrganizationSecretCodespacesOrganizationSecret = new github.CodespacesOrganizationSecret(\"exampleSecretIndex/codespacesOrganizationSecretCodespacesOrganizationSecret\", {\n    secretName: \"example_secret_name\",\n    visibility: \"selected\",\n    encryptedValue: _var.some_encrypted_secret_string,\n    selectedRepositoryIds: [repo.then(repo =\u003e repo.repoId)],\n});\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\nrepo = github.get_repository(full_name=\"my-org/repo\")\nexample_secret_codespaces_organization_secret = github.CodespacesOrganizationSecret(\"exampleSecretCodespacesOrganizationSecret\",\n    secret_name=\"example_secret_name\",\n    visibility=\"selected\",\n    plaintext_value=var[\"some_secret_string\"],\n    selected_repository_ids=[repo.repo_id])\nexample_secret_index_codespaces_organization_secret_codespaces_organization_secret = github.CodespacesOrganizationSecret(\"exampleSecretIndex/codespacesOrganizationSecretCodespacesOrganizationSecret\",\n    secret_name=\"example_secret_name\",\n    visibility=\"selected\",\n    encrypted_value=var[\"some_encrypted_secret_string\"],\n    selected_repository_ids=[repo.repo_id])\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Github = Pulumi.Github;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var repo = Github.GetRepository.Invoke(new()\n    {\n        FullName = \"my-org/repo\",\n    });\n\n    var exampleSecretCodespacesOrganizationSecret = new Github.CodespacesOrganizationSecret(\"exampleSecretCodespacesOrganizationSecret\", new()\n    {\n        SecretName = \"example_secret_name\",\n        Visibility = \"selected\",\n        PlaintextValue = @var.Some_secret_string,\n        SelectedRepositoryIds = new[]\n        {\n            repo.Apply(getRepositoryResult =\u003e getRepositoryResult.RepoId),\n        },\n    });\n\n    var exampleSecretIndex_codespacesOrganizationSecretCodespacesOrganizationSecret = new Github.CodespacesOrganizationSecret(\"exampleSecretIndex/codespacesOrganizationSecretCodespacesOrganizationSecret\", new()\n    {\n        SecretName = \"example_secret_name\",\n        Visibility = \"selected\",\n        EncryptedValue = @var.Some_encrypted_secret_string,\n        SelectedRepositoryIds = new[]\n        {\n            repo.Apply(getRepositoryResult =\u003e getRepositoryResult.RepoId),\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-github/sdk/v5/go/github\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\trepo, err := github.LookupRepository(ctx, \u0026github.LookupRepositoryArgs{\n\t\t\tFullName: pulumi.StringRef(\"my-org/repo\"),\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = github.NewCodespacesOrganizationSecret(ctx, \"exampleSecretCodespacesOrganizationSecret\", \u0026github.CodespacesOrganizationSecretArgs{\n\t\t\tSecretName:     pulumi.String(\"example_secret_name\"),\n\t\t\tVisibility:     pulumi.String(\"selected\"),\n\t\t\tPlaintextValue: pulumi.Any(_var.Some_secret_string),\n\t\t\tSelectedRepositoryIds: pulumi.IntArray{\n\t\t\t\t*pulumi.Int(repo.RepoId),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = github.NewCodespacesOrganizationSecret(ctx, \"exampleSecretIndex/codespacesOrganizationSecretCodespacesOrganizationSecret\", \u0026github.CodespacesOrganizationSecretArgs{\n\t\t\tSecretName:     pulumi.String(\"example_secret_name\"),\n\t\t\tVisibility:     pulumi.String(\"selected\"),\n\t\t\tEncryptedValue: pulumi.Any(_var.Some_encrypted_secret_string),\n\t\t\tSelectedRepositoryIds: pulumi.IntArray{\n\t\t\t\t*pulumi.Int(repo.RepoId),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.github.GithubFunctions;\nimport com.pulumi.github.inputs.GetRepositoryArgs;\nimport com.pulumi.github.CodespacesOrganizationSecret;\nimport com.pulumi.github.CodespacesOrganizationSecretArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var repo = GithubFunctions.getRepository(GetRepositoryArgs.builder()\n            .fullName(\"my-org/repo\")\n            .build());\n\n        var exampleSecretCodespacesOrganizationSecret = new CodespacesOrganizationSecret(\"exampleSecretCodespacesOrganizationSecret\", CodespacesOrganizationSecretArgs.builder()        \n            .secretName(\"example_secret_name\")\n            .visibility(\"selected\")\n            .plaintextValue(var_.some_secret_string())\n            .selectedRepositoryIds(repo.applyValue(getRepositoryResult -\u003e getRepositoryResult.repoId()))\n            .build());\n\n        var exampleSecretIndex_codespacesOrganizationSecretCodespacesOrganizationSecret = new CodespacesOrganizationSecret(\"exampleSecretIndex/codespacesOrganizationSecretCodespacesOrganizationSecret\", CodespacesOrganizationSecretArgs.builder()        \n            .secretName(\"example_secret_name\")\n            .visibility(\"selected\")\n            .encryptedValue(var_.some_encrypted_secret_string())\n            .selectedRepositoryIds(repo.applyValue(getRepositoryResult -\u003e getRepositoryResult.repoId()))\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  exampleSecretCodespacesOrganizationSecret:\n    type: github:CodespacesOrganizationSecret\n    properties:\n      secretName: example_secret_name\n      visibility: selected\n      plaintextValue: ${var.some_secret_string}\n      selectedRepositoryIds:\n        - ${repo.repoId}\n  exampleSecretIndex/codespacesOrganizationSecretCodespacesOrganizationSecret:\n    type: github:CodespacesOrganizationSecret\n    properties:\n      secretName: example_secret_name\n      visibility: selected\n      encryptedValue: ${var.some_encrypted_secret_string}\n      selectedRepositoryIds:\n        - ${repo.repoId}\nvariables:\n  repo:\n    fn::invoke:\n      Function: github:getRepository\n      Arguments:\n        fullName: my-org/repo\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nThis resource can be imported using an ID made up of the secret name\n\n```sh\n $ pulumi import github:index/codespacesOrganizationSecret:CodespacesOrganizationSecret test_secret test_secret_name\n```\n\n NOTEthe implementation is limited in that it won't fetch the value of the `plaintext_value` or `encrypted_value` fields when importing. You may need to ignore changes for these as a workaround. ",
+            "properties": {
+                "createdAt": {
+                    "type": "string",
+                    "description": "Date of codespaces_secret creation.\n"
+                },
+                "encryptedValue": {
+                    "type": "string",
+                    "description": "Encrypted value of the secret using the GitHub public key in Base64 format.\n",
+                    "secret": true
+                },
+                "plaintextValue": {
+                    "type": "string",
+                    "description": "Plaintext value of the secret to be encrypted\n",
+                    "secret": true
+                },
+                "secretName": {
+                    "type": "string",
+                    "description": "Name of the secret\n"
+                },
+                "selectedRepositoryIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    },
+                    "description": "An array of repository ids that can access the organization secret.\n"
+                },
+                "updatedAt": {
+                    "type": "string",
+                    "description": "Date of codespaces_secret update.\n"
+                },
+                "visibility": {
+                    "type": "string",
+                    "description": "Configures the access that repositories have to the organization secret.\nMust be one of `all`, `private`, `selected`. `selected_repository_ids` is required if set to `selected`.\n"
+                }
+            },
+            "required": [
+                "createdAt",
+                "secretName",
+                "updatedAt",
+                "visibility"
+            ],
+            "inputProperties": {
+                "encryptedValue": {
+                    "type": "string",
+                    "description": "Encrypted value of the secret using the GitHub public key in Base64 format.\n",
+                    "secret": true,
+                    "willReplaceOnChanges": true
+                },
+                "plaintextValue": {
+                    "type": "string",
+                    "description": "Plaintext value of the secret to be encrypted\n",
+                    "secret": true,
+                    "willReplaceOnChanges": true
+                },
+                "secretName": {
+                    "type": "string",
+                    "description": "Name of the secret\n",
+                    "willReplaceOnChanges": true
+                },
+                "selectedRepositoryIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    },
+                    "description": "An array of repository ids that can access the organization secret.\n"
+                },
+                "visibility": {
+                    "type": "string",
+                    "description": "Configures the access that repositories have to the organization secret.\nMust be one of `all`, `private`, `selected`. `selected_repository_ids` is required if set to `selected`.\n",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "requiredInputs": [
+                "secretName",
+                "visibility"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering CodespacesOrganizationSecret resources.\n",
+                "properties": {
+                    "createdAt": {
+                        "type": "string",
+                        "description": "Date of codespaces_secret creation.\n"
+                    },
+                    "encryptedValue": {
+                        "type": "string",
+                        "description": "Encrypted value of the secret using the GitHub public key in Base64 format.\n",
+                        "secret": true,
+                        "willReplaceOnChanges": true
+                    },
+                    "plaintextValue": {
+                        "type": "string",
+                        "description": "Plaintext value of the secret to be encrypted\n",
+                        "secret": true,
+                        "willReplaceOnChanges": true
+                    },
+                    "secretName": {
+                        "type": "string",
+                        "description": "Name of the secret\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "selectedRepositoryIds": {
+                        "type": "array",
+                        "items": {
+                            "type": "integer"
+                        },
+                        "description": "An array of repository ids that can access the organization secret.\n"
+                    },
+                    "updatedAt": {
+                        "type": "string",
+                        "description": "Date of codespaces_secret update.\n"
+                    },
+                    "visibility": {
+                        "type": "string",
+                        "description": "Configures the access that repositories have to the organization secret.\nMust be one of `all`, `private`, `selected`. `selected_repository_ids` is required if set to `selected`.\n",
+                        "willReplaceOnChanges": true
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "github:index/codespacesSecret:CodespacesSecret": {
+            "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\nconst examplePublicKey = github.getCodespacesPublicKey({\n    repository: \"example_repository\",\n});\nconst exampleSecretCodespacesSecret = new github.CodespacesSecret(\"exampleSecretCodespacesSecret\", {\n    repository: \"example_repository\",\n    secretName: \"example_secret_name\",\n    plaintextValue: _var.some_secret_string,\n});\nconst exampleSecretIndex_codespacesSecretCodespacesSecret = new github.CodespacesSecret(\"exampleSecretIndex/codespacesSecretCodespacesSecret\", {\n    repository: \"example_repository\",\n    secretName: \"example_secret_name\",\n    encryptedValue: _var.some_encrypted_secret_string,\n});\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\nexample_public_key = github.get_codespaces_public_key(repository=\"example_repository\")\nexample_secret_codespaces_secret = github.CodespacesSecret(\"exampleSecretCodespacesSecret\",\n    repository=\"example_repository\",\n    secret_name=\"example_secret_name\",\n    plaintext_value=var[\"some_secret_string\"])\nexample_secret_index_codespaces_secret_codespaces_secret = github.CodespacesSecret(\"exampleSecretIndex/codespacesSecretCodespacesSecret\",\n    repository=\"example_repository\",\n    secret_name=\"example_secret_name\",\n    encrypted_value=var[\"some_encrypted_secret_string\"])\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Github = Pulumi.Github;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var examplePublicKey = Github.GetCodespacesPublicKey.Invoke(new()\n    {\n        Repository = \"example_repository\",\n    });\n\n    var exampleSecretCodespacesSecret = new Github.CodespacesSecret(\"exampleSecretCodespacesSecret\", new()\n    {\n        Repository = \"example_repository\",\n        SecretName = \"example_secret_name\",\n        PlaintextValue = @var.Some_secret_string,\n    });\n\n    var exampleSecretIndex_codespacesSecretCodespacesSecret = new Github.CodespacesSecret(\"exampleSecretIndex/codespacesSecretCodespacesSecret\", new()\n    {\n        Repository = \"example_repository\",\n        SecretName = \"example_secret_name\",\n        EncryptedValue = @var.Some_encrypted_secret_string,\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-github/sdk/v5/go/github\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := github.GetCodespacesPublicKey(ctx, \u0026github.GetCodespacesPublicKeyArgs{\n\t\t\tRepository: \"example_repository\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = github.NewCodespacesSecret(ctx, \"exampleSecretCodespacesSecret\", \u0026github.CodespacesSecretArgs{\n\t\t\tRepository:     pulumi.String(\"example_repository\"),\n\t\t\tSecretName:     pulumi.String(\"example_secret_name\"),\n\t\t\tPlaintextValue: pulumi.Any(_var.Some_secret_string),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = github.NewCodespacesSecret(ctx, \"exampleSecretIndex/codespacesSecretCodespacesSecret\", \u0026github.CodespacesSecretArgs{\n\t\t\tRepository:     pulumi.String(\"example_repository\"),\n\t\t\tSecretName:     pulumi.String(\"example_secret_name\"),\n\t\t\tEncryptedValue: pulumi.Any(_var.Some_encrypted_secret_string),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.github.GithubFunctions;\nimport com.pulumi.github.inputs.GetCodespacesPublicKeyArgs;\nimport com.pulumi.github.CodespacesSecret;\nimport com.pulumi.github.CodespacesSecretArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var examplePublicKey = GithubFunctions.getCodespacesPublicKey(GetCodespacesPublicKeyArgs.builder()\n            .repository(\"example_repository\")\n            .build());\n\n        var exampleSecretCodespacesSecret = new CodespacesSecret(\"exampleSecretCodespacesSecret\", CodespacesSecretArgs.builder()        \n            .repository(\"example_repository\")\n            .secretName(\"example_secret_name\")\n            .plaintextValue(var_.some_secret_string())\n            .build());\n\n        var exampleSecretIndex_codespacesSecretCodespacesSecret = new CodespacesSecret(\"exampleSecretIndex/codespacesSecretCodespacesSecret\", CodespacesSecretArgs.builder()        \n            .repository(\"example_repository\")\n            .secretName(\"example_secret_name\")\n            .encryptedValue(var_.some_encrypted_secret_string())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  exampleSecretCodespacesSecret:\n    type: github:CodespacesSecret\n    properties:\n      repository: example_repository\n      secretName: example_secret_name\n      plaintextValue: ${var.some_secret_string}\n  exampleSecretIndex/codespacesSecretCodespacesSecret:\n    type: github:CodespacesSecret\n    properties:\n      repository: example_repository\n      secretName: example_secret_name\n      encryptedValue: ${var.some_encrypted_secret_string}\nvariables:\n  examplePublicKey:\n    fn::invoke:\n      Function: github:getCodespacesPublicKey\n      Arguments:\n        repository: example_repository\n```\n{{% /example %}}\n{{% /examples %}}",
+            "properties": {
+                "createdAt": {
+                    "type": "string",
+                    "description": "Date of actions_secret creation.\n"
+                },
+                "encryptedValue": {
+                    "type": "string",
+                    "description": "Encrypted value of the secret using the GitHub public key in Base64 format.\n",
+                    "secret": true
+                },
+                "plaintextValue": {
+                    "type": "string",
+                    "description": "Plaintext value of the secret to be encrypted\n",
+                    "secret": true
+                },
+                "repository": {
+                    "type": "string",
+                    "description": "Name of the repository\n"
+                },
+                "secretName": {
+                    "type": "string",
+                    "description": "Name of the secret\n"
+                },
+                "updatedAt": {
+                    "type": "string",
+                    "description": "Date of actions_secret update.\n"
+                }
+            },
+            "required": [
+                "createdAt",
+                "repository",
+                "secretName",
+                "updatedAt"
+            ],
+            "inputProperties": {
+                "encryptedValue": {
+                    "type": "string",
+                    "description": "Encrypted value of the secret using the GitHub public key in Base64 format.\n",
+                    "secret": true,
+                    "willReplaceOnChanges": true
+                },
+                "plaintextValue": {
+                    "type": "string",
+                    "description": "Plaintext value of the secret to be encrypted\n",
+                    "secret": true,
+                    "willReplaceOnChanges": true
+                },
+                "repository": {
+                    "type": "string",
+                    "description": "Name of the repository\n"
+                },
+                "secretName": {
+                    "type": "string",
+                    "description": "Name of the secret\n",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "requiredInputs": [
+                "repository",
+                "secretName"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering CodespacesSecret resources.\n",
+                "properties": {
+                    "createdAt": {
+                        "type": "string",
+                        "description": "Date of actions_secret creation.\n"
+                    },
+                    "encryptedValue": {
+                        "type": "string",
+                        "description": "Encrypted value of the secret using the GitHub public key in Base64 format.\n",
+                        "secret": true,
+                        "willReplaceOnChanges": true
+                    },
+                    "plaintextValue": {
+                        "type": "string",
+                        "description": "Plaintext value of the secret to be encrypted\n",
+                        "secret": true,
+                        "willReplaceOnChanges": true
+                    },
+                    "repository": {
+                        "type": "string",
+                        "description": "Name of the repository\n"
+                    },
+                    "secretName": {
+                        "type": "string",
+                        "description": "Name of the secret\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "updatedAt": {
+                        "type": "string",
+                        "description": "Date of actions_secret update.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "github:index/codespacesUserSecret:CodespacesUserSecret": {
+            "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\nconst repo = github.getRepository({\n    fullName: \"my-org/repo\",\n});\nconst exampleSecretCodespacesUserSecret = new github.CodespacesUserSecret(\"exampleSecretCodespacesUserSecret\", {\n    secretName: \"example_secret_name\",\n    plaintextValue: _var.some_secret_string,\n    selectedRepositoryIds: [repo.then(repo =\u003e repo.repoId)],\n});\nconst exampleSecretIndex_codespacesUserSecretCodespacesUserSecret = new github.CodespacesUserSecret(\"exampleSecretIndex/codespacesUserSecretCodespacesUserSecret\", {\n    secretName: \"example_secret_name\",\n    encryptedValue: _var.some_encrypted_secret_string,\n    selectedRepositoryIds: [repo.then(repo =\u003e repo.repoId)],\n});\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\nrepo = github.get_repository(full_name=\"my-org/repo\")\nexample_secret_codespaces_user_secret = github.CodespacesUserSecret(\"exampleSecretCodespacesUserSecret\",\n    secret_name=\"example_secret_name\",\n    plaintext_value=var[\"some_secret_string\"],\n    selected_repository_ids=[repo.repo_id])\nexample_secret_index_codespaces_user_secret_codespaces_user_secret = github.CodespacesUserSecret(\"exampleSecretIndex/codespacesUserSecretCodespacesUserSecret\",\n    secret_name=\"example_secret_name\",\n    encrypted_value=var[\"some_encrypted_secret_string\"],\n    selected_repository_ids=[repo.repo_id])\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Github = Pulumi.Github;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var repo = Github.GetRepository.Invoke(new()\n    {\n        FullName = \"my-org/repo\",\n    });\n\n    var exampleSecretCodespacesUserSecret = new Github.CodespacesUserSecret(\"exampleSecretCodespacesUserSecret\", new()\n    {\n        SecretName = \"example_secret_name\",\n        PlaintextValue = @var.Some_secret_string,\n        SelectedRepositoryIds = new[]\n        {\n            repo.Apply(getRepositoryResult =\u003e getRepositoryResult.RepoId),\n        },\n    });\n\n    var exampleSecretIndex_codespacesUserSecretCodespacesUserSecret = new Github.CodespacesUserSecret(\"exampleSecretIndex/codespacesUserSecretCodespacesUserSecret\", new()\n    {\n        SecretName = \"example_secret_name\",\n        EncryptedValue = @var.Some_encrypted_secret_string,\n        SelectedRepositoryIds = new[]\n        {\n            repo.Apply(getRepositoryResult =\u003e getRepositoryResult.RepoId),\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-github/sdk/v5/go/github\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\trepo, err := github.LookupRepository(ctx, \u0026github.LookupRepositoryArgs{\n\t\t\tFullName: pulumi.StringRef(\"my-org/repo\"),\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = github.NewCodespacesUserSecret(ctx, \"exampleSecretCodespacesUserSecret\", \u0026github.CodespacesUserSecretArgs{\n\t\t\tSecretName:     pulumi.String(\"example_secret_name\"),\n\t\t\tPlaintextValue: pulumi.Any(_var.Some_secret_string),\n\t\t\tSelectedRepositoryIds: pulumi.IntArray{\n\t\t\t\t*pulumi.Int(repo.RepoId),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = github.NewCodespacesUserSecret(ctx, \"exampleSecretIndex/codespacesUserSecretCodespacesUserSecret\", \u0026github.CodespacesUserSecretArgs{\n\t\t\tSecretName:     pulumi.String(\"example_secret_name\"),\n\t\t\tEncryptedValue: pulumi.Any(_var.Some_encrypted_secret_string),\n\t\t\tSelectedRepositoryIds: pulumi.IntArray{\n\t\t\t\t*pulumi.Int(repo.RepoId),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.github.GithubFunctions;\nimport com.pulumi.github.inputs.GetRepositoryArgs;\nimport com.pulumi.github.CodespacesUserSecret;\nimport com.pulumi.github.CodespacesUserSecretArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var repo = GithubFunctions.getRepository(GetRepositoryArgs.builder()\n            .fullName(\"my-org/repo\")\n            .build());\n\n        var exampleSecretCodespacesUserSecret = new CodespacesUserSecret(\"exampleSecretCodespacesUserSecret\", CodespacesUserSecretArgs.builder()        \n            .secretName(\"example_secret_name\")\n            .plaintextValue(var_.some_secret_string())\n            .selectedRepositoryIds(repo.applyValue(getRepositoryResult -\u003e getRepositoryResult.repoId()))\n            .build());\n\n        var exampleSecretIndex_codespacesUserSecretCodespacesUserSecret = new CodespacesUserSecret(\"exampleSecretIndex/codespacesUserSecretCodespacesUserSecret\", CodespacesUserSecretArgs.builder()        \n            .secretName(\"example_secret_name\")\n            .encryptedValue(var_.some_encrypted_secret_string())\n            .selectedRepositoryIds(repo.applyValue(getRepositoryResult -\u003e getRepositoryResult.repoId()))\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  exampleSecretCodespacesUserSecret:\n    type: github:CodespacesUserSecret\n    properties:\n      secretName: example_secret_name\n      plaintextValue: ${var.some_secret_string}\n      selectedRepositoryIds:\n        - ${repo.repoId}\n  exampleSecretIndex/codespacesUserSecretCodespacesUserSecret:\n    type: github:CodespacesUserSecret\n    properties:\n      secretName: example_secret_name\n      encryptedValue: ${var.some_encrypted_secret_string}\n      selectedRepositoryIds:\n        - ${repo.repoId}\nvariables:\n  repo:\n    fn::invoke:\n      Function: github:getRepository\n      Arguments:\n        fullName: my-org/repo\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nThis resource can be imported using an ID made up of the secret name\n\n```sh\n $ pulumi import github:index/codespacesUserSecret:CodespacesUserSecret test_secret test_secret_name\n```\n\n NOTEthe implementation is limited in that it won't fetch the value of the `plaintext_value` or `encrypted_value` fields when importing. You may need to ignore changes for these as a workaround. ",
+            "properties": {
+                "createdAt": {
+                    "type": "string",
+                    "description": "Date of codespaces_secret creation.\n"
+                },
+                "encryptedValue": {
+                    "type": "string",
+                    "description": "Encrypted value of the secret using the GitHub public key in Base64 format.\n",
+                    "secret": true
+                },
+                "plaintextValue": {
+                    "type": "string",
+                    "description": "Plaintext value of the secret to be encrypted\n",
+                    "secret": true
+                },
+                "secretName": {
+                    "type": "string",
+                    "description": "Name of the secret\n"
+                },
+                "selectedRepositoryIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    },
+                    "description": "An array of repository ids that can access the user secret.\n"
+                },
+                "updatedAt": {
+                    "type": "string",
+                    "description": "Date of codespaces_secret update.\n"
+                }
+            },
+            "required": [
+                "createdAt",
+                "secretName",
+                "updatedAt"
+            ],
+            "inputProperties": {
+                "encryptedValue": {
+                    "type": "string",
+                    "description": "Encrypted value of the secret using the GitHub public key in Base64 format.\n",
+                    "secret": true,
+                    "willReplaceOnChanges": true
+                },
+                "plaintextValue": {
+                    "type": "string",
+                    "description": "Plaintext value of the secret to be encrypted\n",
+                    "secret": true,
+                    "willReplaceOnChanges": true
+                },
+                "secretName": {
+                    "type": "string",
+                    "description": "Name of the secret\n",
+                    "willReplaceOnChanges": true
+                },
+                "selectedRepositoryIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    },
+                    "description": "An array of repository ids that can access the user secret.\n"
+                }
+            },
+            "requiredInputs": [
+                "secretName"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering CodespacesUserSecret resources.\n",
+                "properties": {
+                    "createdAt": {
+                        "type": "string",
+                        "description": "Date of codespaces_secret creation.\n"
+                    },
+                    "encryptedValue": {
+                        "type": "string",
+                        "description": "Encrypted value of the secret using the GitHub public key in Base64 format.\n",
+                        "secret": true,
+                        "willReplaceOnChanges": true
+                    },
+                    "plaintextValue": {
+                        "type": "string",
+                        "description": "Plaintext value of the secret to be encrypted\n",
+                        "secret": true,
+                        "willReplaceOnChanges": true
+                    },
+                    "secretName": {
+                        "type": "string",
+                        "description": "Name of the secret\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "selectedRepositoryIds": {
+                        "type": "array",
+                        "items": {
+                            "type": "integer"
+                        },
+                        "description": "An array of repository ids that can access the user secret.\n"
+                    },
+                    "updatedAt": {
+                        "type": "string",
+                        "description": "Date of codespaces_secret update.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
         "github:index/dependabotOrganizationSecret:DependabotOrganizationSecret": {
             "properties": {
                 "createdAt": {
@@ -4332,6 +4750,85 @@
                         "type": "string",
                         "description": "The name of the user to block.\n",
                         "willReplaceOnChanges": true
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "github:index/organizationCustomRole:OrganizationCustomRole": {
+            "description": "This resource allows you to create and manage custom roles in a GitHub Organization for use in repositories. \n\n\u003e Note: Custom roles are currently only available in GitHub Enterprise Cloud.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\nconst example = new github.OrganizationCustomRole(\"example\", {\n    baseRole: \"read\",\n    description: \"Example custom role that uses the read role as its base\",\n    permissions: [\n        \"add_assignee\",\n        \"add_label\",\n        \"bypass_branch_protection\",\n        \"close_issue\",\n        \"close_pull_request\",\n        \"mark_as_duplicate\",\n        \"create_tag\",\n        \"delete_issue\",\n        \"delete_tag\",\n        \"manage_deploy_keys\",\n        \"push_protected_branch\",\n        \"read_code_scanning\",\n        \"reopen_issue\",\n        \"reopen_pull_request\",\n        \"request_pr_review\",\n        \"resolve_dependabot_alerts\",\n        \"resolve_secret_scanning_alerts\",\n        \"view_secret_scanning_alerts\",\n        \"write_code_scanning\",\n    ],\n});\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\nexample = github.OrganizationCustomRole(\"example\",\n    base_role=\"read\",\n    description=\"Example custom role that uses the read role as its base\",\n    permissions=[\n        \"add_assignee\",\n        \"add_label\",\n        \"bypass_branch_protection\",\n        \"close_issue\",\n        \"close_pull_request\",\n        \"mark_as_duplicate\",\n        \"create_tag\",\n        \"delete_issue\",\n        \"delete_tag\",\n        \"manage_deploy_keys\",\n        \"push_protected_branch\",\n        \"read_code_scanning\",\n        \"reopen_issue\",\n        \"reopen_pull_request\",\n        \"request_pr_review\",\n        \"resolve_dependabot_alerts\",\n        \"resolve_secret_scanning_alerts\",\n        \"view_secret_scanning_alerts\",\n        \"write_code_scanning\",\n    ])\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Github = Pulumi.Github;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new Github.OrganizationCustomRole(\"example\", new()\n    {\n        BaseRole = \"read\",\n        Description = \"Example custom role that uses the read role as its base\",\n        Permissions = new[]\n        {\n            \"add_assignee\",\n            \"add_label\",\n            \"bypass_branch_protection\",\n            \"close_issue\",\n            \"close_pull_request\",\n            \"mark_as_duplicate\",\n            \"create_tag\",\n            \"delete_issue\",\n            \"delete_tag\",\n            \"manage_deploy_keys\",\n            \"push_protected_branch\",\n            \"read_code_scanning\",\n            \"reopen_issue\",\n            \"reopen_pull_request\",\n            \"request_pr_review\",\n            \"resolve_dependabot_alerts\",\n            \"resolve_secret_scanning_alerts\",\n            \"view_secret_scanning_alerts\",\n            \"write_code_scanning\",\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-github/sdk/v5/go/github\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := github.NewOrganizationCustomRole(ctx, \"example\", \u0026github.OrganizationCustomRoleArgs{\n\t\t\tBaseRole:    pulumi.String(\"read\"),\n\t\t\tDescription: pulumi.String(\"Example custom role that uses the read role as its base\"),\n\t\t\tPermissions: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"add_assignee\"),\n\t\t\t\tpulumi.String(\"add_label\"),\n\t\t\t\tpulumi.String(\"bypass_branch_protection\"),\n\t\t\t\tpulumi.String(\"close_issue\"),\n\t\t\t\tpulumi.String(\"close_pull_request\"),\n\t\t\t\tpulumi.String(\"mark_as_duplicate\"),\n\t\t\t\tpulumi.String(\"create_tag\"),\n\t\t\t\tpulumi.String(\"delete_issue\"),\n\t\t\t\tpulumi.String(\"delete_tag\"),\n\t\t\t\tpulumi.String(\"manage_deploy_keys\"),\n\t\t\t\tpulumi.String(\"push_protected_branch\"),\n\t\t\t\tpulumi.String(\"read_code_scanning\"),\n\t\t\t\tpulumi.String(\"reopen_issue\"),\n\t\t\t\tpulumi.String(\"reopen_pull_request\"),\n\t\t\t\tpulumi.String(\"request_pr_review\"),\n\t\t\t\tpulumi.String(\"resolve_dependabot_alerts\"),\n\t\t\t\tpulumi.String(\"resolve_secret_scanning_alerts\"),\n\t\t\t\tpulumi.String(\"view_secret_scanning_alerts\"),\n\t\t\t\tpulumi.String(\"write_code_scanning\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.github.OrganizationCustomRole;\nimport com.pulumi.github.OrganizationCustomRoleArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new OrganizationCustomRole(\"example\", OrganizationCustomRoleArgs.builder()        \n            .baseRole(\"read\")\n            .description(\"Example custom role that uses the read role as its base\")\n            .permissions(            \n                \"add_assignee\",\n                \"add_label\",\n                \"bypass_branch_protection\",\n                \"close_issue\",\n                \"close_pull_request\",\n                \"mark_as_duplicate\",\n                \"create_tag\",\n                \"delete_issue\",\n                \"delete_tag\",\n                \"manage_deploy_keys\",\n                \"push_protected_branch\",\n                \"read_code_scanning\",\n                \"reopen_issue\",\n                \"reopen_pull_request\",\n                \"request_pr_review\",\n                \"resolve_dependabot_alerts\",\n                \"resolve_secret_scanning_alerts\",\n                \"view_secret_scanning_alerts\",\n                \"write_code_scanning\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: github:OrganizationCustomRole\n    properties:\n      baseRole: read\n      description: Example custom role that uses the read role as its base\n      permissions:\n        - add_assignee\n        - add_label\n        - bypass_branch_protection\n        - close_issue\n        - close_pull_request\n        - mark_as_duplicate\n        - create_tag\n        - delete_issue\n        - delete_tag\n        - manage_deploy_keys\n        - push_protected_branch\n        - read_code_scanning\n        - reopen_issue\n        - reopen_pull_request\n        - request_pr_review\n        - resolve_dependabot_alerts\n        - resolve_secret_scanning_alerts\n        - view_secret_scanning_alerts\n        - write_code_scanning\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nCustom roles can be imported using the `id` of the role. The `id` of the custom role can be found using the [list custom roles in an organization](https://docs.github.com/en/enterprise-cloud@latest/rest/orgs/custom-roles#list-custom-repository-roles-in-an-organization) API.\n\n```sh\n $ pulumi import github:index/organizationCustomRole:OrganizationCustomRole example 1234\n```\n\n ",
+            "properties": {
+                "baseRole": {
+                    "type": "string",
+                    "description": "The system role from which the role inherits permissions. Can be one of: `read`, `triage`, `write`, or `maintain`.\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "The description for the custom role.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the custom role.\n"
+                },
+                "permissions": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of additional permissions included in this role. Must have a minimum of 1 additional permission. The list of available permissions can be found using the [list repository fine-grained permissions for an organization](https://docs.github.com/en/enterprise-cloud@latest/rest/orgs/custom-roles?apiVersion=2022-11-28#list-repository-fine-grained-permissions-for-an-organization) API.\n"
+                }
+            },
+            "required": [
+                "baseRole",
+                "name",
+                "permissions"
+            ],
+            "inputProperties": {
+                "baseRole": {
+                    "type": "string",
+                    "description": "The system role from which the role inherits permissions. Can be one of: `read`, `triage`, `write`, or `maintain`.\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "The description for the custom role.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the custom role.\n"
+                },
+                "permissions": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of additional permissions included in this role. Must have a minimum of 1 additional permission. The list of available permissions can be found using the [list repository fine-grained permissions for an organization](https://docs.github.com/en/enterprise-cloud@latest/rest/orgs/custom-roles?apiVersion=2022-11-28#list-repository-fine-grained-permissions-for-an-organization) API.\n"
+                }
+            },
+            "requiredInputs": [
+                "baseRole",
+                "permissions"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering OrganizationCustomRole resources.\n",
+                "properties": {
+                    "baseRole": {
+                        "type": "string",
+                        "description": "The system role from which the role inherits permissions. Can be one of: `read`, `triage`, `write`, or `maintain`.\n"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "The description for the custom role.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The name of the custom role.\n"
+                    },
+                    "permissions": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "A list of additional permissions included in this role. Must have a minimum of 1 additional permission. The list of available permissions can be found using the [list repository fine-grained permissions for an organization](https://docs.github.com/en/enterprise-cloud@latest/rest/orgs/custom-roles?apiVersion=2022-11-28#list-repository-fine-grained-permissions-for-an-organization) API.\n"
                     }
                 },
                 "type": "object"
@@ -8086,6 +8583,196 @@
                 ]
             }
         },
+        "github:index/getCodespacesOrganizationPublicKey:getCodespacesOrganizationPublicKey": {
+            "description": "Use this data source to retrieve information about a GitHub Codespaces Organization public key. This data source is required to be used with other GitHub secrets interactions.\nNote that the provider `token` must have admin rights to an organization to retrieve it's Codespaces public key.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\nconst example = github.getCodespacesOrganizationPublicKey({});\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\nexample = github.get_codespaces_organization_public_key()\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Github = Pulumi.Github;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = Github.GetCodespacesOrganizationPublicKey.Invoke();\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-github/sdk/v5/go/github\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := github.GetCodespacesOrganizationPublicKey(ctx, nil, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.github.GithubFunctions;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var example = GithubFunctions.getCodespacesOrganizationPublicKey();\n\n    }\n}\n```\n```yaml\nvariables:\n  example:\n    fn::invoke:\n      Function: github:getCodespacesOrganizationPublicKey\n      Arguments: {}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "outputs": {
+                "description": "A collection of values returned by getCodespacesOrganizationPublicKey.\n",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "key": {
+                        "type": "string",
+                        "description": "Actual key retrieved.\n"
+                    },
+                    "keyId": {
+                        "type": "string",
+                        "description": "ID of the key that has been retrieved.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "key",
+                    "keyId",
+                    "id"
+                ]
+            }
+        },
+        "github:index/getCodespacesOrganizationSecrets:getCodespacesOrganizationSecrets": {
+            "description": "Use this data source to retrieve the list of codespaces secrets of the organization.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\nconst example = github.getCodespacesOrganizationSecrets({});\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\nexample = github.get_codespaces_organization_secrets()\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Github = Pulumi.Github;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = Github.GetCodespacesOrganizationSecrets.Invoke();\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-github/sdk/v5/go/github\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := github.GetCodespacesOrganizationSecrets(ctx, nil, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.github.GithubFunctions;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var example = GithubFunctions.getCodespacesOrganizationSecrets();\n\n    }\n}\n```\n```yaml\nvariables:\n  example:\n    fn::invoke:\n      Function: github:getCodespacesOrganizationSecrets\n      Arguments: {}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "outputs": {
+                "description": "A collection of values returned by getCodespacesOrganizationSecrets.\n",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "secrets": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/github:index/getCodespacesOrganizationSecretsSecret:getCodespacesOrganizationSecretsSecret"
+                        },
+                        "description": "list of secrets for the repository\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "secrets",
+                    "id"
+                ]
+            }
+        },
+        "github:index/getCodespacesPublicKey:getCodespacesPublicKey": {
+            "description": "Use this data source to retrieve information about a GitHub Codespaces public key. This data source is required to be used with other GitHub secrets interactions.\nNote that the provider `token` must have admin rights to a repository to retrieve it's Codespaces public key.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\nconst example = github.getCodespacesPublicKey({\n    repository: \"example_repo\",\n});\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\nexample = github.get_codespaces_public_key(repository=\"example_repo\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Github = Pulumi.Github;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = Github.GetCodespacesPublicKey.Invoke(new()\n    {\n        Repository = \"example_repo\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-github/sdk/v5/go/github\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := github.GetCodespacesPublicKey(ctx, \u0026github.GetCodespacesPublicKeyArgs{\n\t\t\tRepository: \"example_repo\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.github.GithubFunctions;\nimport com.pulumi.github.inputs.GetCodespacesPublicKeyArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var example = GithubFunctions.getCodespacesPublicKey(GetCodespacesPublicKeyArgs.builder()\n            .repository(\"example_repo\")\n            .build());\n\n    }\n}\n```\n```yaml\nvariables:\n  example:\n    fn::invoke:\n      Function: github:getCodespacesPublicKey\n      Arguments:\n        repository: example_repo\n```\n{{% /example %}}\n{{% /examples %}}",
+            "inputs": {
+                "description": "A collection of arguments for invoking getCodespacesPublicKey.\n",
+                "properties": {
+                    "repository": {
+                        "type": "string",
+                        "description": "Name of the repository to get public key from.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "repository"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getCodespacesPublicKey.\n",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "key": {
+                        "type": "string",
+                        "description": "Actual key retrieved.\n"
+                    },
+                    "keyId": {
+                        "type": "string",
+                        "description": "ID of the key that has been retrieved.\n"
+                    },
+                    "repository": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "key",
+                    "keyId",
+                    "repository",
+                    "id"
+                ]
+            }
+        },
+        "github:index/getCodespacesSecrets:getCodespacesSecrets": {
+            "description": "Use this data source to retrieve the list of codespaces secrets for a GitHub repository.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\nconst example = github.getCodespacesSecrets({\n    name: \"example_repository\",\n});\nconst example2 = github.getCodespacesSecrets({\n    fullName: \"org/example_repository\",\n});\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\nexample = github.get_codespaces_secrets(name=\"example_repository\")\nexample2 = github.get_codespaces_secrets(full_name=\"org/example_repository\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Github = Pulumi.Github;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = Github.GetCodespacesSecrets.Invoke(new()\n    {\n        Name = \"example_repository\",\n    });\n\n    var example2 = Github.GetCodespacesSecrets.Invoke(new()\n    {\n        FullName = \"org/example_repository\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-github/sdk/v5/go/github\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := github.GetCodespacesSecrets(ctx, \u0026github.GetCodespacesSecretsArgs{\n\t\t\tName: pulumi.StringRef(\"example_repository\"),\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = github.GetCodespacesSecrets(ctx, \u0026github.GetCodespacesSecretsArgs{\n\t\t\tFullName: pulumi.StringRef(\"org/example_repository\"),\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.github.GithubFunctions;\nimport com.pulumi.github.inputs.GetCodespacesSecretsArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var example = GithubFunctions.getCodespacesSecrets(GetCodespacesSecretsArgs.builder()\n            .name(\"example_repository\")\n            .build());\n\n        final var example2 = GithubFunctions.getCodespacesSecrets(GetCodespacesSecretsArgs.builder()\n            .fullName(\"org/example_repository\")\n            .build());\n\n    }\n}\n```\n```yaml\nvariables:\n  example:\n    fn::invoke:\n      Function: github:getCodespacesSecrets\n      Arguments:\n        name: example_repository\n  example2:\n    fn::invoke:\n      Function: github:getCodespacesSecrets\n      Arguments:\n        fullName: org/example_repository\n```\n{{% /example %}}\n{{% /examples %}}",
+            "inputs": {
+                "description": "A collection of arguments for invoking getCodespacesSecrets.\n",
+                "properties": {
+                    "fullName": {
+                        "type": "string",
+                        "description": "Full name of the repository (in `org/name` format).\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The name of the repository.\n"
+                    }
+                },
+                "type": "object"
+            },
+            "outputs": {
+                "description": "A collection of values returned by getCodespacesSecrets.\n",
+                "properties": {
+                    "fullName": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Secret name\n"
+                    },
+                    "secrets": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/github:index/getCodespacesSecretsSecret:getCodespacesSecretsSecret"
+                        },
+                        "description": "list of codespaces secrets for the repository\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "fullName",
+                    "name",
+                    "secrets",
+                    "id"
+                ]
+            }
+        },
+        "github:index/getCodespacesUserPublicKey:getCodespacesUserPublicKey": {
+            "description": "Use this data source to retrieve information about a GitHub Codespaces User public key. This data source is required to be used with other GitHub secrets interactions.\nNote that the provider `token` must have admin rights to an user to retrieve it's Codespaces public key.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\nconst example = github.getCodespacesUserPublicKey({});\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\nexample = github.get_codespaces_user_public_key()\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Github = Pulumi.Github;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = Github.GetCodespacesUserPublicKey.Invoke();\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-github/sdk/v5/go/github\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := github.GetCodespacesUserPublicKey(ctx, nil, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.github.GithubFunctions;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var example = GithubFunctions.getCodespacesUserPublicKey();\n\n    }\n}\n```\n```yaml\nvariables:\n  example:\n    fn::invoke:\n      Function: github:getCodespacesUserPublicKey\n      Arguments: {}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "outputs": {
+                "description": "A collection of values returned by getCodespacesUserPublicKey.\n",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "key": {
+                        "type": "string",
+                        "description": "Actual key retrieved.\n"
+                    },
+                    "keyId": {
+                        "type": "string",
+                        "description": "ID of the key that has been retrieved.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "key",
+                    "keyId",
+                    "id"
+                ]
+            }
+        },
+        "github:index/getCodespacesUserSecrets:getCodespacesUserSecrets": {
+            "description": "Use this data source to retrieve the list of codespaces secrets of the user.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\nconst example = github.getCodespacesUserSecrets({});\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\nexample = github.get_codespaces_user_secrets()\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Github = Pulumi.Github;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = Github.GetCodespacesUserSecrets.Invoke();\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-github/sdk/v5/go/github\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := github.GetCodespacesUserSecrets(ctx, nil, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.github.GithubFunctions;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var example = GithubFunctions.getCodespacesUserSecrets();\n\n    }\n}\n```\n```yaml\nvariables:\n  example:\n    fn::invoke:\n      Function: github:getCodespacesUserSecrets\n      Arguments: {}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "outputs": {
+                "description": "A collection of values returned by getCodespacesUserSecrets.\n",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "secrets": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/github:index/getCodespacesUserSecretsSecret:getCodespacesUserSecretsSecret"
+                        },
+                        "description": "list of secrets for the repository\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "secrets",
+                    "id"
+                ]
+            }
+        },
         "github:index/getCollaborators:getCollaborators": {
             "description": "Use this data source to retrieve the collaborators for a given repository.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\nconst test = github.getCollaborators({\n    owner: \"example_owner\",\n    repository: \"example_repository\",\n});\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\ntest = github.get_collaborators(owner=\"example_owner\",\n    repository=\"example_repository\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Github = Pulumi.Github;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var test = Github.GetCollaborators.Invoke(new()\n    {\n        Owner = \"example_owner\",\n        Repository = \"example_repository\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-github/sdk/v5/go/github\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := github.GetCollaborators(ctx, \u0026github.GetCollaboratorsArgs{\n\t\t\tOwner:      \"example_owner\",\n\t\t\tRepository: \"example_repository\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.github.GithubFunctions;\nimport com.pulumi.github.inputs.GetCollaboratorsArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var test = GithubFunctions.getCollaborators(GetCollaboratorsArgs.builder()\n            .owner(\"example_owner\")\n            .repository(\"example_repository\")\n            .build());\n\n    }\n}\n```\n```yaml\nvariables:\n  test:\n    fn::invoke:\n      Function: github:getCollaborators\n      Arguments:\n        owner: example_owner\n        repository: example_repository\n```\n{{% /example %}}\n{{% /examples %}}",
             "inputs": {
@@ -8793,6 +9480,57 @@
                     "plan",
                     "repositories",
                     "users",
+                    "id"
+                ]
+            }
+        },
+        "github:index/getOrganizationCustomRole:getOrganizationCustomRole": {
+            "description": "Use this data source to retrieve information about a custom role in a GitHub Organization.\n\n\u003e Note: Custom roles are currently only available in GitHub Enterprise Cloud.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\nconst example = github.getOrganizationCustomRole({\n    name: \"example\",\n});\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\nexample = github.get_organization_custom_role(name=\"example\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Github = Pulumi.Github;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = Github.GetOrganizationCustomRole.Invoke(new()\n    {\n        Name = \"example\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-github/sdk/v5/go/github\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := github.LookupOrganizationCustomRole(ctx, \u0026github.LookupOrganizationCustomRoleArgs{\n\t\t\tName: \"example\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.github.GithubFunctions;\nimport com.pulumi.github.inputs.GetOrganizationCustomRoleArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var example = GithubFunctions.getOrganizationCustomRole(GetOrganizationCustomRoleArgs.builder()\n            .name(\"example\")\n            .build());\n\n    }\n}\n```\n```yaml\nvariables:\n  example:\n    fn::invoke:\n      Function: github:getOrganizationCustomRole\n      Arguments:\n        name: example\n```\n{{% /example %}}\n{{% /examples %}}",
+            "inputs": {
+                "description": "A collection of arguments for invoking getOrganizationCustomRole.\n",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": "The name of the custom role.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "name"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getOrganizationCustomRole.\n",
+                "properties": {
+                    "baseRole": {
+                        "type": "string",
+                        "description": "The system role from which the role inherits permissions.\n"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "The description for the custom role.\n"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "permissions": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "A list of additional permissions included in this role.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "baseRole",
+                    "description",
+                    "name",
+                    "permissions",
                     "id"
                 ]
             }
