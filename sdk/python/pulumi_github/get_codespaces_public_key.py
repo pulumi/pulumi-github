@@ -101,10 +101,10 @@ def get_codespaces_public_key(repository: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('github:index/getCodespacesPublicKey:getCodespacesPublicKey', __args__, opts=opts, typ=GetCodespacesPublicKeyResult).value
 
     return AwaitableGetCodespacesPublicKeyResult(
-        id=__ret__.id,
-        key=__ret__.key,
-        key_id=__ret__.key_id,
-        repository=__ret__.repository)
+        id=pulumi.get(__ret__, 'id'),
+        key=pulumi.get(__ret__, 'key'),
+        key_id=pulumi.get(__ret__, 'key_id'),
+        repository=pulumi.get(__ret__, 'repository'))
 
 
 @_utilities.lift_output_func(get_codespaces_public_key)

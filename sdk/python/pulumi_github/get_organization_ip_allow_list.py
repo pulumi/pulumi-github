@@ -77,5 +77,5 @@ def get_organization_ip_allow_list(opts: Optional[pulumi.InvokeOptions] = None) 
     __ret__ = pulumi.runtime.invoke('github:index/getOrganizationIpAllowList:getOrganizationIpAllowList', __args__, opts=opts, typ=GetOrganizationIpAllowListResult).value
 
     return AwaitableGetOrganizationIpAllowListResult(
-        id=__ret__.id,
-        ip_allow_lists=__ret__.ip_allow_lists)
+        id=pulumi.get(__ret__, 'id'),
+        ip_allow_lists=pulumi.get(__ret__, 'ip_allow_lists'))

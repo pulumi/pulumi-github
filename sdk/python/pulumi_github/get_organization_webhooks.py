@@ -77,5 +77,5 @@ def get_organization_webhooks(opts: Optional[pulumi.InvokeOptions] = None) -> Aw
     __ret__ = pulumi.runtime.invoke('github:index/getOrganizationWebhooks:getOrganizationWebhooks', __args__, opts=opts, typ=GetOrganizationWebhooksResult).value
 
     return AwaitableGetOrganizationWebhooksResult(
-        id=__ret__.id,
-        webhooks=__ret__.webhooks)
+        id=pulumi.get(__ret__, 'id'),
+        webhooks=pulumi.get(__ret__, 'webhooks'))

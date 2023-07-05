@@ -130,12 +130,12 @@ def get_membership(organization: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('github:index/getMembership:getMembership', __args__, opts=opts, typ=GetMembershipResult).value
 
     return AwaitableGetMembershipResult(
-        etag=__ret__.etag,
-        id=__ret__.id,
-        organization=__ret__.organization,
-        role=__ret__.role,
-        state=__ret__.state,
-        username=__ret__.username)
+        etag=pulumi.get(__ret__, 'etag'),
+        id=pulumi.get(__ret__, 'id'),
+        organization=pulumi.get(__ret__, 'organization'),
+        role=pulumi.get(__ret__, 'role'),
+        state=pulumi.get(__ret__, 'state'),
+        username=pulumi.get(__ret__, 'username'))
 
 
 @_utilities.lift_output_func(get_membership)

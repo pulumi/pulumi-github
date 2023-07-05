@@ -113,11 +113,11 @@ def get_repository_branches(only_non_protected_branches: Optional[bool] = None,
     __ret__ = pulumi.runtime.invoke('github:index/getRepositoryBranches:getRepositoryBranches', __args__, opts=opts, typ=GetRepositoryBranchesResult).value
 
     return AwaitableGetRepositoryBranchesResult(
-        branches=__ret__.branches,
-        id=__ret__.id,
-        only_non_protected_branches=__ret__.only_non_protected_branches,
-        only_protected_branches=__ret__.only_protected_branches,
-        repository=__ret__.repository)
+        branches=pulumi.get(__ret__, 'branches'),
+        id=pulumi.get(__ret__, 'id'),
+        only_non_protected_branches=pulumi.get(__ret__, 'only_non_protected_branches'),
+        only_protected_branches=pulumi.get(__ret__, 'only_protected_branches'),
+        repository=pulumi.get(__ret__, 'repository'))
 
 
 @_utilities.lift_output_func(get_repository_branches)

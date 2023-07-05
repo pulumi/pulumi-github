@@ -112,11 +112,11 @@ def get_github_app(slug: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('github:index/getGithubApp:getGithubApp', __args__, opts=opts, typ=GetGithubAppResult).value
 
     return AwaitableGetGithubAppResult(
-        description=__ret__.description,
-        id=__ret__.id,
-        name=__ret__.name,
-        node_id=__ret__.node_id,
-        slug=__ret__.slug)
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        node_id=pulumi.get(__ret__, 'node_id'),
+        slug=pulumi.get(__ret__, 'slug'))
 
 
 @_utilities.lift_output_func(get_github_app)

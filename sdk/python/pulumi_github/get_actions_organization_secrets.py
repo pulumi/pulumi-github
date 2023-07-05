@@ -74,5 +74,5 @@ def get_actions_organization_secrets(opts: Optional[pulumi.InvokeOptions] = None
     __ret__ = pulumi.runtime.invoke('github:index/getActionsOrganizationSecrets:getActionsOrganizationSecrets', __args__, opts=opts, typ=GetActionsOrganizationSecretsResult).value
 
     return AwaitableGetActionsOrganizationSecretsResult(
-        id=__ret__.id,
-        secrets=__ret__.secrets)
+        id=pulumi.get(__ret__, 'id'),
+        secrets=pulumi.get(__ret__, 'secrets'))

@@ -209,19 +209,19 @@ def get_team(membership_type: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('github:index/getTeam:getTeam', __args__, opts=opts, typ=GetTeamResult).value
 
     return AwaitableGetTeamResult(
-        description=__ret__.description,
-        id=__ret__.id,
-        members=__ret__.members,
-        membership_type=__ret__.membership_type,
-        name=__ret__.name,
-        node_id=__ret__.node_id,
-        permission=__ret__.permission,
-        privacy=__ret__.privacy,
-        repositories=__ret__.repositories,
-        repositories_detaileds=__ret__.repositories_detaileds,
-        results_per_page=__ret__.results_per_page,
-        slug=__ret__.slug,
-        summary_only=__ret__.summary_only)
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        members=pulumi.get(__ret__, 'members'),
+        membership_type=pulumi.get(__ret__, 'membership_type'),
+        name=pulumi.get(__ret__, 'name'),
+        node_id=pulumi.get(__ret__, 'node_id'),
+        permission=pulumi.get(__ret__, 'permission'),
+        privacy=pulumi.get(__ret__, 'privacy'),
+        repositories=pulumi.get(__ret__, 'repositories'),
+        repositories_detaileds=pulumi.get(__ret__, 'repositories_detaileds'),
+        results_per_page=pulumi.get(__ret__, 'results_per_page'),
+        slug=pulumi.get(__ret__, 'slug'),
+        summary_only=pulumi.get(__ret__, 'summary_only'))
 
 
 @_utilities.lift_output_func(get_team)

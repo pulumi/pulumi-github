@@ -89,9 +89,9 @@ def get_repository_environments(repository: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('github:index/getRepositoryEnvironments:getRepositoryEnvironments', __args__, opts=opts, typ=GetRepositoryEnvironmentsResult).value
 
     return AwaitableGetRepositoryEnvironmentsResult(
-        environments=__ret__.environments,
-        id=__ret__.id,
-        repository=__ret__.repository)
+        environments=pulumi.get(__ret__, 'environments'),
+        id=pulumi.get(__ret__, 'id'),
+        repository=pulumi.get(__ret__, 'repository'))
 
 
 @_utilities.lift_output_func(get_repository_environments)

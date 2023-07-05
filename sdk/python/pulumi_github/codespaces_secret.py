@@ -92,12 +92,12 @@ class _CodespacesSecretState:
                  updated_at: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering CodespacesSecret resources.
-        :param pulumi.Input[str] created_at: Date of actions_secret creation.
+        :param pulumi.Input[str] created_at: Date of codespaces_secret creation.
         :param pulumi.Input[str] encrypted_value: Encrypted value of the secret using the GitHub public key in Base64 format.
         :param pulumi.Input[str] plaintext_value: Plaintext value of the secret to be encrypted
         :param pulumi.Input[str] repository: Name of the repository
         :param pulumi.Input[str] secret_name: Name of the secret
-        :param pulumi.Input[str] updated_at: Date of actions_secret update.
+        :param pulumi.Input[str] updated_at: Date of codespaces_secret update.
         """
         if created_at is not None:
             pulumi.set(__self__, "created_at", created_at)
@@ -116,7 +116,7 @@ class _CodespacesSecretState:
     @pulumi.getter(name="createdAt")
     def created_at(self) -> Optional[pulumi.Input[str]]:
         """
-        Date of actions_secret creation.
+        Date of codespaces_secret creation.
         """
         return pulumi.get(self, "created_at")
 
@@ -176,7 +176,7 @@ class _CodespacesSecretState:
     @pulumi.getter(name="updatedAt")
     def updated_at(self) -> Optional[pulumi.Input[str]]:
         """
-        Date of actions_secret update.
+        Date of codespaces_secret update.
         """
         return pulumi.get(self, "updated_at")
 
@@ -213,6 +213,16 @@ class CodespacesSecret(pulumi.CustomResource):
             encrypted_value=var["some_encrypted_secret_string"])
         ```
 
+        ## Import
+
+        This resource can be imported using an ID made up of the `repository` and `secret_name`
+
+        ```sh
+         $ pulumi import github:index/codespacesSecret:CodespacesSecret example_secret <repository>/<secret_name>
+        ```
+
+         NOTEthe implementation is limited in that it won't fetch the value of the `plaintext_value` or `encrypted_value` fields when importing. You may need to ignore changes for these as a workaround.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] encrypted_value: Encrypted value of the secret using the GitHub public key in Base64 format.
@@ -243,6 +253,16 @@ class CodespacesSecret(pulumi.CustomResource):
             secret_name="example_secret_name",
             encrypted_value=var["some_encrypted_secret_string"])
         ```
+
+        ## Import
+
+        This resource can be imported using an ID made up of the `repository` and `secret_name`
+
+        ```sh
+         $ pulumi import github:index/codespacesSecret:CodespacesSecret example_secret <repository>/<secret_name>
+        ```
+
+         NOTEthe implementation is limited in that it won't fetch the value of the `plaintext_value` or `encrypted_value` fields when importing. You may need to ignore changes for these as a workaround.
 
         :param str resource_name: The name of the resource.
         :param CodespacesSecretArgs args: The arguments to use to populate this resource's properties.
@@ -307,12 +327,12 @@ class CodespacesSecret(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] created_at: Date of actions_secret creation.
+        :param pulumi.Input[str] created_at: Date of codespaces_secret creation.
         :param pulumi.Input[str] encrypted_value: Encrypted value of the secret using the GitHub public key in Base64 format.
         :param pulumi.Input[str] plaintext_value: Plaintext value of the secret to be encrypted
         :param pulumi.Input[str] repository: Name of the repository
         :param pulumi.Input[str] secret_name: Name of the secret
-        :param pulumi.Input[str] updated_at: Date of actions_secret update.
+        :param pulumi.Input[str] updated_at: Date of codespaces_secret update.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -330,7 +350,7 @@ class CodespacesSecret(pulumi.CustomResource):
     @pulumi.getter(name="createdAt")
     def created_at(self) -> pulumi.Output[str]:
         """
-        Date of actions_secret creation.
+        Date of codespaces_secret creation.
         """
         return pulumi.get(self, "created_at")
 
@@ -370,7 +390,7 @@ class CodespacesSecret(pulumi.CustomResource):
     @pulumi.getter(name="updatedAt")
     def updated_at(self) -> pulumi.Output[str]:
         """
-        Date of actions_secret update.
+        Date of codespaces_secret update.
         """
         return pulumi.get(self, "updated_at")
 

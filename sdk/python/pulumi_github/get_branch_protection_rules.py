@@ -89,9 +89,9 @@ def get_branch_protection_rules(repository: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('github:index/getBranchProtectionRules:getBranchProtectionRules', __args__, opts=opts, typ=GetBranchProtectionRulesResult).value
 
     return AwaitableGetBranchProtectionRulesResult(
-        id=__ret__.id,
-        repository=__ret__.repository,
-        rules=__ret__.rules)
+        id=pulumi.get(__ret__, 'id'),
+        repository=pulumi.get(__ret__, 'repository'),
+        rules=pulumi.get(__ret__, 'rules'))
 
 
 @_utilities.lift_output_func(get_branch_protection_rules)

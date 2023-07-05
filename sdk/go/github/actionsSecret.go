@@ -52,6 +52,18 @@ import (
 //	}
 //
 // ```
+//
+// ## Import
+//
+// This resource can be imported using an ID made up of the `repository` and `secret_name`
+//
+// ```sh
+//
+//	$ pulumi import github:index/actionsSecret:ActionsSecret example_secret <repository>/<secret_name>
+//
+// ```
+//
+//	NOTEthe implementation is limited in that it won't fetch the value of the `plaintext_value` or `encrypted_value` fields when importing. You may need to ignore changes for these as a workaround.
 type ActionsSecret struct {
 	pulumi.CustomResourceState
 

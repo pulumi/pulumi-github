@@ -104,10 +104,10 @@ def get_repository_teams(full_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('github:index/getRepositoryTeams:getRepositoryTeams', __args__, opts=opts, typ=GetRepositoryTeamsResult).value
 
     return AwaitableGetRepositoryTeamsResult(
-        full_name=__ret__.full_name,
-        id=__ret__.id,
-        name=__ret__.name,
-        teams=__ret__.teams)
+        full_name=pulumi.get(__ret__, 'full_name'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        teams=pulumi.get(__ret__, 'teams'))
 
 
 @_utilities.lift_output_func(get_repository_teams)

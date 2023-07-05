@@ -89,9 +89,9 @@ def get_repository_deploy_keys(repository: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('github:index/getRepositoryDeployKeys:getRepositoryDeployKeys', __args__, opts=opts, typ=GetRepositoryDeployKeysResult).value
 
     return AwaitableGetRepositoryDeployKeysResult(
-        id=__ret__.id,
-        keys=__ret__.keys,
-        repository=__ret__.repository)
+        id=pulumi.get(__ret__, 'id'),
+        keys=pulumi.get(__ret__, 'keys'),
+        repository=pulumi.get(__ret__, 'repository'))
 
 
 @_utilities.lift_output_func(get_repository_deploy_keys)

@@ -187,17 +187,17 @@ def get_repository_file(branch: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('github:index/getRepositoryFile:getRepositoryFile', __args__, opts=opts, typ=GetRepositoryFileResult).value
 
     return AwaitableGetRepositoryFileResult(
-        branch=__ret__.branch,
-        commit_author=__ret__.commit_author,
-        commit_email=__ret__.commit_email,
-        commit_message=__ret__.commit_message,
-        commit_sha=__ret__.commit_sha,
-        content=__ret__.content,
-        file=__ret__.file,
-        id=__ret__.id,
-        ref=__ret__.ref,
-        repository=__ret__.repository,
-        sha=__ret__.sha)
+        branch=pulumi.get(__ret__, 'branch'),
+        commit_author=pulumi.get(__ret__, 'commit_author'),
+        commit_email=pulumi.get(__ret__, 'commit_email'),
+        commit_message=pulumi.get(__ret__, 'commit_message'),
+        commit_sha=pulumi.get(__ret__, 'commit_sha'),
+        content=pulumi.get(__ret__, 'content'),
+        file=pulumi.get(__ret__, 'file'),
+        id=pulumi.get(__ret__, 'id'),
+        ref=pulumi.get(__ret__, 'ref'),
+        repository=pulumi.get(__ret__, 'repository'),
+        sha=pulumi.get(__ret__, 'sha'))
 
 
 @_utilities.lift_output_func(get_repository_file)

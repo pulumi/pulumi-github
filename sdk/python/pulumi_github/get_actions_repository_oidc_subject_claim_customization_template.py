@@ -100,10 +100,10 @@ def get_actions_repository_oidc_subject_claim_customization_template(name: Optio
     __ret__ = pulumi.runtime.invoke('github:index/getActionsRepositoryOidcSubjectClaimCustomizationTemplate:getActionsRepositoryOidcSubjectClaimCustomizationTemplate', __args__, opts=opts, typ=GetActionsRepositoryOidcSubjectClaimCustomizationTemplateResult).value
 
     return AwaitableGetActionsRepositoryOidcSubjectClaimCustomizationTemplateResult(
-        id=__ret__.id,
-        include_claim_keys=__ret__.include_claim_keys,
-        name=__ret__.name,
-        use_default=__ret__.use_default)
+        id=pulumi.get(__ret__, 'id'),
+        include_claim_keys=pulumi.get(__ret__, 'include_claim_keys'),
+        name=pulumi.get(__ret__, 'name'),
+        use_default=pulumi.get(__ret__, 'use_default'))
 
 
 @_utilities.lift_output_func(get_actions_repository_oidc_subject_claim_customization_template)

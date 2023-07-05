@@ -127,12 +127,12 @@ def get_enterprise(slug: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('github:index/getEnterprise:getEnterprise', __args__, opts=opts, typ=GetEnterpriseResult).value
 
     return AwaitableGetEnterpriseResult(
-        created_at=__ret__.created_at,
-        description=__ret__.description,
-        id=__ret__.id,
-        name=__ret__.name,
-        slug=__ret__.slug,
-        url=__ret__.url)
+        created_at=pulumi.get(__ret__, 'created_at'),
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        slug=pulumi.get(__ret__, 'slug'),
+        url=pulumi.get(__ret__, 'url'))
 
 
 @_utilities.lift_output_func(get_enterprise)

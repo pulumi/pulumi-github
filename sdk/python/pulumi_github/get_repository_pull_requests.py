@@ -174,15 +174,15 @@ def get_repository_pull_requests(base_ref: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('github:index/getRepositoryPullRequests:getRepositoryPullRequests', __args__, opts=opts, typ=GetRepositoryPullRequestsResult).value
 
     return AwaitableGetRepositoryPullRequestsResult(
-        base_ref=__ret__.base_ref,
-        base_repository=__ret__.base_repository,
-        head_ref=__ret__.head_ref,
-        id=__ret__.id,
-        owner=__ret__.owner,
-        results=__ret__.results,
-        sort_by=__ret__.sort_by,
-        sort_direction=__ret__.sort_direction,
-        state=__ret__.state)
+        base_ref=pulumi.get(__ret__, 'base_ref'),
+        base_repository=pulumi.get(__ret__, 'base_repository'),
+        head_ref=pulumi.get(__ret__, 'head_ref'),
+        id=pulumi.get(__ret__, 'id'),
+        owner=pulumi.get(__ret__, 'owner'),
+        results=pulumi.get(__ret__, 'results'),
+        sort_by=pulumi.get(__ret__, 'sort_by'),
+        sort_direction=pulumi.get(__ret__, 'sort_direction'),
+        state=pulumi.get(__ret__, 'state'))
 
 
 @_utilities.lift_output_func(get_repository_pull_requests)

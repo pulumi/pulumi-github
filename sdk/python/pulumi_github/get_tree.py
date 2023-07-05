@@ -119,11 +119,11 @@ def get_tree(recursive: Optional[bool] = None,
     __ret__ = pulumi.runtime.invoke('github:index/getTree:getTree', __args__, opts=opts, typ=GetTreeResult).value
 
     return AwaitableGetTreeResult(
-        entries=__ret__.entries,
-        id=__ret__.id,
-        recursive=__ret__.recursive,
-        repository=__ret__.repository,
-        tree_sha=__ret__.tree_sha)
+        entries=pulumi.get(__ret__, 'entries'),
+        id=pulumi.get(__ret__, 'id'),
+        recursive=pulumi.get(__ret__, 'recursive'),
+        repository=pulumi.get(__ret__, 'repository'),
+        tree_sha=pulumi.get(__ret__, 'tree_sha'))
 
 
 @_utilities.lift_output_func(get_tree)

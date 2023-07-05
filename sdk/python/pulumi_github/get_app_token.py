@@ -114,11 +114,11 @@ def get_app_token(app_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('github:index/getAppToken:getAppToken', __args__, opts=opts, typ=GetAppTokenResult).value
 
     return AwaitableGetAppTokenResult(
-        app_id=__ret__.app_id,
-        id=__ret__.id,
-        installation_id=__ret__.installation_id,
-        pem_file=__ret__.pem_file,
-        token=__ret__.token)
+        app_id=pulumi.get(__ret__, 'app_id'),
+        id=pulumi.get(__ret__, 'id'),
+        installation_id=pulumi.get(__ret__, 'installation_id'),
+        pem_file=pulumi.get(__ret__, 'pem_file'),
+        token=pulumi.get(__ret__, 'token'))
 
 
 @_utilities.lift_output_func(get_app_token)

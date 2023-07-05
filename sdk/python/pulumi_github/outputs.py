@@ -484,6 +484,9 @@ class BranchProtectionV3RequiredPullRequestReviews(dict):
     @property
     @pulumi.getter(name="includeAdmins")
     def include_admins(self) -> Optional[bool]:
+        warnings.warn("""Use enforce_admins instead""", DeprecationWarning)
+        pulumi.log.warn("""include_admins is deprecated: Use enforce_admins instead""")
+
         return pulumi.get(self, "include_admins")
 
     @property
@@ -598,11 +601,17 @@ class BranchProtectionV3RequiredStatusChecks(dict):
         """
         [**DEPRECATED**] (Optional) The list of status checks to require in order to merge into this branch. No status checks are required by default.
         """
+        warnings.warn("""GitHub is deprecating the use of `contexts`. Use a `checks` array instead.""", DeprecationWarning)
+        pulumi.log.warn("""contexts is deprecated: GitHub is deprecating the use of `contexts`. Use a `checks` array instead.""")
+
         return pulumi.get(self, "contexts")
 
     @property
     @pulumi.getter(name="includeAdmins")
     def include_admins(self) -> Optional[bool]:
+        warnings.warn("""Use enforce_admins instead""", DeprecationWarning)
+        pulumi.log.warn("""include_admins is deprecated: Use enforce_admins instead""")
+
         return pulumi.get(self, "include_admins")
 
     @property

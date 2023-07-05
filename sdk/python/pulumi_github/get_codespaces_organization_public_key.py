@@ -86,6 +86,6 @@ def get_codespaces_organization_public_key(opts: Optional[pulumi.InvokeOptions] 
     __ret__ = pulumi.runtime.invoke('github:index/getCodespacesOrganizationPublicKey:getCodespacesOrganizationPublicKey', __args__, opts=opts, typ=GetCodespacesOrganizationPublicKeyResult).value
 
     return AwaitableGetCodespacesOrganizationPublicKeyResult(
-        id=__ret__.id,
-        key=__ret__.key,
-        key_id=__ret__.key_id)
+        id=pulumi.get(__ret__, 'id'),
+        key=pulumi.get(__ret__, 'key'),
+        key_id=pulumi.get(__ret__, 'key_id'))

@@ -33,10 +33,6 @@ class GetOrganizationResult:
         pulumi.set(__self__, "login", login)
         if members and not isinstance(members, list):
             raise TypeError("Expected argument 'members' to be a list")
-        if members is not None:
-            warnings.warn("""Use `users` instead by replacing `github_organization.example.members` to `github_organization.example.users[*].login`. Expect this field to be removed in next major version.""", DeprecationWarning)
-            pulumi.log.warn("""members is deprecated: Use `users` instead by replacing `github_organization.example.members` to `github_organization.example.users[*].login`. Expect this field to be removed in next major version.""")
-
         pulumi.set(__self__, "members", members)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -87,6 +83,9 @@ class GetOrganizationResult:
         """
         **Deprecated**: use `users` instead by replacing `github_organization.example.members` to `github_organization.example.users[*].login` which will give you the same value, expect this field to be removed in next major version
         """
+        warnings.warn("""Use `users` instead by replacing `github_organization.example.members` to `github_organization.example.users[*].login`. Expect this field to be removed in next major version.""", DeprecationWarning)
+        pulumi.log.warn("""members is deprecated: Use `users` instead by replacing `github_organization.example.members` to `github_organization.example.users[*].login`. Expect this field to be removed in next major version.""")
+
         return pulumi.get(self, "members")
 
     @property
@@ -179,16 +178,16 @@ def get_organization(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('github:index/getOrganization:getOrganization', __args__, opts=opts, typ=GetOrganizationResult).value
 
     return AwaitableGetOrganizationResult(
-        description=__ret__.description,
-        id=__ret__.id,
-        login=__ret__.login,
-        members=__ret__.members,
-        name=__ret__.name,
-        node_id=__ret__.node_id,
-        orgname=__ret__.orgname,
-        plan=__ret__.plan,
-        repositories=__ret__.repositories,
-        users=__ret__.users)
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        login=pulumi.get(__ret__, 'login'),
+        members=pulumi.get(__ret__, 'members'),
+        name=pulumi.get(__ret__, 'name'),
+        node_id=pulumi.get(__ret__, 'node_id'),
+        orgname=pulumi.get(__ret__, 'orgname'),
+        plan=pulumi.get(__ret__, 'plan'),
+        repositories=pulumi.get(__ret__, 'repositories'),
+        users=pulumi.get(__ret__, 'users'))
 
 
 @_utilities.lift_output_func(get_organization)

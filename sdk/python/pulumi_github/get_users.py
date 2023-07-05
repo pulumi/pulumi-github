@@ -130,12 +130,12 @@ def get_users(usernames: Optional[Sequence[str]] = None,
     __ret__ = pulumi.runtime.invoke('github:index/getUsers:getUsers', __args__, opts=opts, typ=GetUsersResult).value
 
     return AwaitableGetUsersResult(
-        emails=__ret__.emails,
-        id=__ret__.id,
-        logins=__ret__.logins,
-        node_ids=__ret__.node_ids,
-        unknown_logins=__ret__.unknown_logins,
-        usernames=__ret__.usernames)
+        emails=pulumi.get(__ret__, 'emails'),
+        id=pulumi.get(__ret__, 'id'),
+        logins=pulumi.get(__ret__, 'logins'),
+        node_ids=pulumi.get(__ret__, 'node_ids'),
+        unknown_logins=pulumi.get(__ret__, 'unknown_logins'),
+        usernames=pulumi.get(__ret__, 'usernames'))
 
 
 @_utilities.lift_output_func(get_users)

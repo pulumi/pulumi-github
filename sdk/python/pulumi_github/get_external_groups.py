@@ -76,5 +76,5 @@ def get_external_groups(opts: Optional[pulumi.InvokeOptions] = None) -> Awaitabl
     __ret__ = pulumi.runtime.invoke('github:index/getExternalGroups:getExternalGroups', __args__, opts=opts, typ=GetExternalGroupsResult).value
 
     return AwaitableGetExternalGroupsResult(
-        external_groups=__ret__.external_groups,
-        id=__ret__.id)
+        external_groups=pulumi.get(__ret__, 'external_groups'),
+        id=pulumi.get(__ret__, 'id'))

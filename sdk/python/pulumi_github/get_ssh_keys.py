@@ -73,5 +73,5 @@ def get_ssh_keys(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSsh
     __ret__ = pulumi.runtime.invoke('github:index/getSshKeys:getSshKeys', __args__, opts=opts, typ=GetSshKeysResult).value
 
     return AwaitableGetSshKeysResult(
-        id=__ret__.id,
-        keys=__ret__.keys)
+        id=pulumi.get(__ret__, 'id'),
+        keys=pulumi.get(__ret__, 'keys'))

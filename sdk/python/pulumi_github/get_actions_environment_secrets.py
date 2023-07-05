@@ -115,11 +115,11 @@ def get_actions_environment_secrets(environment: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('github:index/getActionsEnvironmentSecrets:getActionsEnvironmentSecrets', __args__, opts=opts, typ=GetActionsEnvironmentSecretsResult).value
 
     return AwaitableGetActionsEnvironmentSecretsResult(
-        environment=__ret__.environment,
-        full_name=__ret__.full_name,
-        id=__ret__.id,
-        name=__ret__.name,
-        secrets=__ret__.secrets)
+        environment=pulumi.get(__ret__, 'environment'),
+        full_name=pulumi.get(__ret__, 'full_name'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        secrets=pulumi.get(__ret__, 'secrets'))
 
 
 @_utilities.lift_output_func(get_actions_environment_secrets)

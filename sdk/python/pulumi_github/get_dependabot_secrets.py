@@ -104,10 +104,10 @@ def get_dependabot_secrets(full_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('github:index/getDependabotSecrets:getDependabotSecrets', __args__, opts=opts, typ=GetDependabotSecretsResult).value
 
     return AwaitableGetDependabotSecretsResult(
-        full_name=__ret__.full_name,
-        id=__ret__.id,
-        name=__ret__.name,
-        secrets=__ret__.secrets)
+        full_name=pulumi.get(__ret__, 'full_name'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        secrets=pulumi.get(__ret__, 'secrets'))
 
 
 @_utilities.lift_output_func(get_dependabot_secrets)

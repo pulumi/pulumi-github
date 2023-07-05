@@ -89,9 +89,9 @@ def get_repository_webhooks(repository: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('github:index/getRepositoryWebhooks:getRepositoryWebhooks', __args__, opts=opts, typ=GetRepositoryWebhooksResult).value
 
     return AwaitableGetRepositoryWebhooksResult(
-        id=__ret__.id,
-        repository=__ret__.repository,
-        webhooks=__ret__.webhooks)
+        id=pulumi.get(__ret__, 'id'),
+        repository=pulumi.get(__ret__, 'repository'),
+        webhooks=pulumi.get(__ret__, 'webhooks'))
 
 
 @_utilities.lift_output_func(get_repository_webhooks)

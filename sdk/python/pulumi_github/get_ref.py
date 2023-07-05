@@ -126,12 +126,12 @@ def get_ref(owner: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('github:index/getRef:getRef', __args__, opts=opts, typ=GetRefResult).value
 
     return AwaitableGetRefResult(
-        etag=__ret__.etag,
-        id=__ret__.id,
-        owner=__ret__.owner,
-        ref=__ret__.ref,
-        repository=__ret__.repository,
-        sha=__ret__.sha)
+        etag=pulumi.get(__ret__, 'etag'),
+        id=pulumi.get(__ret__, 'id'),
+        owner=pulumi.get(__ret__, 'owner'),
+        ref=pulumi.get(__ret__, 'ref'),
+        repository=pulumi.get(__ret__, 'repository'),
+        sha=pulumi.get(__ret__, 'sha'))
 
 
 @_utilities.lift_output_func(get_ref)
