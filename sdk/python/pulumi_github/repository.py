@@ -267,6 +267,9 @@ class RepositoryArgs:
         and after a correct reference has been created for the target branch inside the repository. This means a user will have to omit this parameter from the
         initial repository creation and create the target branch inside of the repository prior to setting this attribute.
         """
+        warnings.warn("""Use the github_branch_default resource instead""", DeprecationWarning)
+        pulumi.log.warn("""default_branch is deprecated: Use the github_branch_default resource instead""")
+
         return pulumi.get(self, "default_branch")
 
     @default_branch.setter
@@ -474,6 +477,9 @@ class RepositoryArgs:
         Set to `true` to create a private repository.
         Repositories are created as public (e.g. open source) by default.
         """
+        warnings.warn("""use visibility instead""", DeprecationWarning)
+        pulumi.log.warn("""private is deprecated: use visibility instead""")
+
         return pulumi.get(self, "private")
 
     @private.setter
@@ -854,6 +860,9 @@ class _RepositoryState:
         and after a correct reference has been created for the target branch inside the repository. This means a user will have to omit this parameter from the
         initial repository creation and create the target branch inside of the repository prior to setting this attribute.
         """
+        warnings.warn("""Use the github_branch_default resource instead""", DeprecationWarning)
+        pulumi.log.warn("""default_branch is deprecated: Use the github_branch_default resource instead""")
+
         return pulumi.get(self, "default_branch")
 
     @default_branch.setter
@@ -1130,6 +1139,9 @@ class _RepositoryState:
         Set to `true` to create a private repository.
         Repositories are created as public (e.g. open source) by default.
         """
+        warnings.warn("""use visibility instead""", DeprecationWarning)
+        pulumi.log.warn("""private is deprecated: use visibility instead""")
+
         return pulumi.get(self, "private")
 
     @private.setter
@@ -1770,6 +1782,9 @@ class Repository(pulumi.CustomResource):
         and after a correct reference has been created for the target branch inside the repository. This means a user will have to omit this parameter from the
         initial repository creation and create the target branch inside of the repository prior to setting this attribute.
         """
+        warnings.warn("""Use the github_branch_default resource instead""", DeprecationWarning)
+        pulumi.log.warn("""default_branch is deprecated: Use the github_branch_default resource instead""")
+
         return pulumi.get(self, "default_branch")
 
     @property
@@ -1954,6 +1969,9 @@ class Repository(pulumi.CustomResource):
         Set to `true` to create a private repository.
         Repositories are created as public (e.g. open source) by default.
         """
+        warnings.warn("""use visibility instead""", DeprecationWarning)
+        pulumi.log.warn("""private is deprecated: use visibility instead""")
+
         return pulumi.get(self, "private")
 
     @property

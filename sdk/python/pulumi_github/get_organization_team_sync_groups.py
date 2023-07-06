@@ -74,5 +74,5 @@ def get_organization_team_sync_groups(opts: Optional[pulumi.InvokeOptions] = Non
     __ret__ = pulumi.runtime.invoke('github:index/getOrganizationTeamSyncGroups:getOrganizationTeamSyncGroups', __args__, opts=opts, typ=GetOrganizationTeamSyncGroupsResult).value
 
     return AwaitableGetOrganizationTeamSyncGroupsResult(
-        groups=__ret__.groups,
-        id=__ret__.id)
+        groups=pulumi.get(__ret__, 'groups'),
+        id=pulumi.get(__ret__, 'id'))

@@ -89,9 +89,9 @@ def get_repository_autolink_references(repository: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('github:index/getRepositoryAutolinkReferences:getRepositoryAutolinkReferences', __args__, opts=opts, typ=GetRepositoryAutolinkReferencesResult).value
 
     return AwaitableGetRepositoryAutolinkReferencesResult(
-        autolink_references=__ret__.autolink_references,
-        id=__ret__.id,
-        repository=__ret__.repository)
+        autolink_references=pulumi.get(__ret__, 'autolink_references'),
+        id=pulumi.get(__ret__, 'id'),
+        repository=pulumi.get(__ret__, 'repository'))
 
 
 @_utilities.lift_output_func(get_repository_autolink_references)

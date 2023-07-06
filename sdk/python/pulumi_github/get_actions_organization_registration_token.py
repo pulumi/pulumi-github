@@ -85,6 +85,6 @@ def get_actions_organization_registration_token(opts: Optional[pulumi.InvokeOpti
     __ret__ = pulumi.runtime.invoke('github:index/getActionsOrganizationRegistrationToken:getActionsOrganizationRegistrationToken', __args__, opts=opts, typ=GetActionsOrganizationRegistrationTokenResult).value
 
     return AwaitableGetActionsOrganizationRegistrationTokenResult(
-        expires_at=__ret__.expires_at,
-        id=__ret__.id,
-        token=__ret__.token)
+        expires_at=pulumi.get(__ret__, 'expires_at'),
+        id=pulumi.get(__ret__, 'id'),
+        token=pulumi.get(__ret__, 'token'))

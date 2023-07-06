@@ -133,11 +133,11 @@ def get_organization_teams(results_per_page: Optional[int] = None,
     __ret__ = pulumi.runtime.invoke('github:index/getOrganizationTeams:getOrganizationTeams', __args__, opts=opts, typ=GetOrganizationTeamsResult).value
 
     return AwaitableGetOrganizationTeamsResult(
-        id=__ret__.id,
-        results_per_page=__ret__.results_per_page,
-        root_teams_only=__ret__.root_teams_only,
-        summary_only=__ret__.summary_only,
-        teams=__ret__.teams)
+        id=pulumi.get(__ret__, 'id'),
+        results_per_page=pulumi.get(__ret__, 'results_per_page'),
+        root_teams_only=pulumi.get(__ret__, 'root_teams_only'),
+        summary_only=pulumi.get(__ret__, 'summary_only'),
+        teams=pulumi.get(__ret__, 'teams'))
 
 
 @_utilities.lift_output_func(get_organization_teams)

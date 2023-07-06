@@ -124,12 +124,12 @@ def get_rest_api(endpoint: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('github:index/getRestApi:getRestApi', __args__, opts=opts, typ=GetRestApiResult).value
 
     return AwaitableGetRestApiResult(
-        body=__ret__.body,
-        code=__ret__.code,
-        endpoint=__ret__.endpoint,
-        headers=__ret__.headers,
-        id=__ret__.id,
-        status=__ret__.status)
+        body=pulumi.get(__ret__, 'body'),
+        code=pulumi.get(__ret__, 'code'),
+        endpoint=pulumi.get(__ret__, 'endpoint'),
+        headers=pulumi.get(__ret__, 'headers'),
+        id=pulumi.get(__ret__, 'id'),
+        status=pulumi.get(__ret__, 'status'))
 
 
 @_utilities.lift_output_func(get_rest_api)

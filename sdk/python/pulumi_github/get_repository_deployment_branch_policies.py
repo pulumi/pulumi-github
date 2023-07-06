@@ -102,10 +102,10 @@ def get_repository_deployment_branch_policies(environment_name: Optional[str] = 
     __ret__ = pulumi.runtime.invoke('github:index/getRepositoryDeploymentBranchPolicies:getRepositoryDeploymentBranchPolicies', __args__, opts=opts, typ=GetRepositoryDeploymentBranchPoliciesResult).value
 
     return AwaitableGetRepositoryDeploymentBranchPoliciesResult(
-        deployment_branch_policies=__ret__.deployment_branch_policies,
-        environment_name=__ret__.environment_name,
-        id=__ret__.id,
-        repository=__ret__.repository)
+        deployment_branch_policies=pulumi.get(__ret__, 'deployment_branch_policies'),
+        environment_name=pulumi.get(__ret__, 'environment_name'),
+        id=pulumi.get(__ret__, 'id'),
+        repository=pulumi.get(__ret__, 'repository'))
 
 
 @_utilities.lift_output_func(get_repository_deployment_branch_policies)

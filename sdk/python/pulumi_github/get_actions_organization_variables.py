@@ -74,5 +74,5 @@ def get_actions_organization_variables(opts: Optional[pulumi.InvokeOptions] = No
     __ret__ = pulumi.runtime.invoke('github:index/getActionsOrganizationVariables:getActionsOrganizationVariables', __args__, opts=opts, typ=GetActionsOrganizationVariablesResult).value
 
     return AwaitableGetActionsOrganizationVariablesResult(
-        id=__ret__.id,
-        variables=__ret__.variables)
+        id=pulumi.get(__ret__, 'id'),
+        variables=pulumi.get(__ret__, 'variables'))

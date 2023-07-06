@@ -60,18 +60,28 @@ import javax.annotation.Nullable;
  * }
  * ```
  * 
+ * ## Import
+ * 
+ * This resource can be imported using an ID made up of the `repository` and `secret_name`
+ * 
+ * ```sh
+ *  $ pulumi import github:index/codespacesSecret:CodespacesSecret example_secret &lt;repository&gt;/&lt;secret_name&gt;
+ * ```
+ * 
+ *  NOTEthe implementation is limited in that it won&#39;t fetch the value of the `plaintext_value` or `encrypted_value` fields when importing. You may need to ignore changes for these as a workaround.
+ * 
  */
 @ResourceType(type="github:index/codespacesSecret:CodespacesSecret")
 public class CodespacesSecret extends com.pulumi.resources.CustomResource {
     /**
-     * Date of actions_secret creation.
+     * Date of codespaces_secret creation.
      * 
      */
     @Export(name="createdAt", type=String.class, parameters={})
     private Output<String> createdAt;
 
     /**
-     * @return Date of actions_secret creation.
+     * @return Date of codespaces_secret creation.
      * 
      */
     public Output<String> createdAt() {
@@ -134,14 +144,14 @@ public class CodespacesSecret extends com.pulumi.resources.CustomResource {
         return this.secretName;
     }
     /**
-     * Date of actions_secret update.
+     * Date of codespaces_secret update.
      * 
      */
     @Export(name="updatedAt", type=String.class, parameters={})
     private Output<String> updatedAt;
 
     /**
-     * @return Date of actions_secret update.
+     * @return Date of codespaces_secret update.
      * 
      */
     public Output<String> updatedAt() {

@@ -25,6 +25,16 @@ import * as utilities from "./utilities";
  *     encryptedValue: _var.some_encrypted_secret_string,
  * });
  * ```
+ *
+ * ## Import
+ *
+ * This resource can be imported using an ID made up of the `repository` and `secret_name`
+ *
+ * ```sh
+ *  $ pulumi import github:index/codespacesSecret:CodespacesSecret example_secret <repository>/<secret_name>
+ * ```
+ *
+ *  NOTEthe implementation is limited in that it won't fetch the value of the `plaintext_value` or `encrypted_value` fields when importing. You may need to ignore changes for these as a workaround.
  */
 export class CodespacesSecret extends pulumi.CustomResource {
     /**
@@ -55,7 +65,7 @@ export class CodespacesSecret extends pulumi.CustomResource {
     }
 
     /**
-     * Date of actionsSecret creation.
+     * Date of codespacesSecret creation.
      */
     public /*out*/ readonly createdAt!: pulumi.Output<string>;
     /**
@@ -75,7 +85,7 @@ export class CodespacesSecret extends pulumi.CustomResource {
      */
     public readonly secretName!: pulumi.Output<string>;
     /**
-     * Date of actionsSecret update.
+     * Date of codespacesSecret update.
      */
     public /*out*/ readonly updatedAt!: pulumi.Output<string>;
 
@@ -125,7 +135,7 @@ export class CodespacesSecret extends pulumi.CustomResource {
  */
 export interface CodespacesSecretState {
     /**
-     * Date of actionsSecret creation.
+     * Date of codespacesSecret creation.
      */
     createdAt?: pulumi.Input<string>;
     /**
@@ -145,7 +155,7 @@ export interface CodespacesSecretState {
      */
     secretName?: pulumi.Input<string>;
     /**
-     * Date of actionsSecret update.
+     * Date of codespacesSecret update.
      */
     updatedAt?: pulumi.Input<string>;
 }

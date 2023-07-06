@@ -86,6 +86,6 @@ def get_actions_organization_public_key(opts: Optional[pulumi.InvokeOptions] = N
     __ret__ = pulumi.runtime.invoke('github:index/getActionsOrganizationPublicKey:getActionsOrganizationPublicKey', __args__, opts=opts, typ=GetActionsOrganizationPublicKeyResult).value
 
     return AwaitableGetActionsOrganizationPublicKeyResult(
-        id=__ret__.id,
-        key=__ret__.key,
-        key_id=__ret__.key_id)
+        id=pulumi.get(__ret__, 'id'),
+        key=pulumi.get(__ret__, 'key'),
+        key_id=pulumi.get(__ret__, 'key_id'))

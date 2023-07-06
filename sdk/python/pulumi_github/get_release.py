@@ -25,10 +25,6 @@ class GetReleaseResult:
     def __init__(__self__, asserts_url=None, assets=None, assets_url=None, body=None, created_at=None, draft=None, html_url=None, id=None, name=None, owner=None, prerelease=None, published_at=None, release_id=None, release_tag=None, repository=None, retrieve_by=None, tarball_url=None, target_commitish=None, upload_url=None, url=None, zipball_url=None):
         if asserts_url and not isinstance(asserts_url, str):
             raise TypeError("Expected argument 'asserts_url' to be a str")
-        if asserts_url is not None:
-            warnings.warn("""use assets_url instead""", DeprecationWarning)
-            pulumi.log.warn("""asserts_url is deprecated: use assets_url instead""")
-
         pulumi.set(__self__, "asserts_url", asserts_url)
         if assets and not isinstance(assets, list):
             raise TypeError("Expected argument 'assets' to be a list")
@@ -97,6 +93,9 @@ class GetReleaseResult:
         """
         **Deprecated**: Use `assets_url` resource instead
         """
+        warnings.warn("""use assets_url instead""", DeprecationWarning)
+        pulumi.log.warn("""asserts_url is deprecated: use assets_url instead""")
+
         return pulumi.get(self, "asserts_url")
 
     @property
@@ -306,27 +305,27 @@ def get_release(owner: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('github:index/getRelease:getRelease', __args__, opts=opts, typ=GetReleaseResult).value
 
     return AwaitableGetReleaseResult(
-        asserts_url=__ret__.asserts_url,
-        assets=__ret__.assets,
-        assets_url=__ret__.assets_url,
-        body=__ret__.body,
-        created_at=__ret__.created_at,
-        draft=__ret__.draft,
-        html_url=__ret__.html_url,
-        id=__ret__.id,
-        name=__ret__.name,
-        owner=__ret__.owner,
-        prerelease=__ret__.prerelease,
-        published_at=__ret__.published_at,
-        release_id=__ret__.release_id,
-        release_tag=__ret__.release_tag,
-        repository=__ret__.repository,
-        retrieve_by=__ret__.retrieve_by,
-        tarball_url=__ret__.tarball_url,
-        target_commitish=__ret__.target_commitish,
-        upload_url=__ret__.upload_url,
-        url=__ret__.url,
-        zipball_url=__ret__.zipball_url)
+        asserts_url=pulumi.get(__ret__, 'asserts_url'),
+        assets=pulumi.get(__ret__, 'assets'),
+        assets_url=pulumi.get(__ret__, 'assets_url'),
+        body=pulumi.get(__ret__, 'body'),
+        created_at=pulumi.get(__ret__, 'created_at'),
+        draft=pulumi.get(__ret__, 'draft'),
+        html_url=pulumi.get(__ret__, 'html_url'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        owner=pulumi.get(__ret__, 'owner'),
+        prerelease=pulumi.get(__ret__, 'prerelease'),
+        published_at=pulumi.get(__ret__, 'published_at'),
+        release_id=pulumi.get(__ret__, 'release_id'),
+        release_tag=pulumi.get(__ret__, 'release_tag'),
+        repository=pulumi.get(__ret__, 'repository'),
+        retrieve_by=pulumi.get(__ret__, 'retrieve_by'),
+        tarball_url=pulumi.get(__ret__, 'tarball_url'),
+        target_commitish=pulumi.get(__ret__, 'target_commitish'),
+        upload_url=pulumi.get(__ret__, 'upload_url'),
+        url=pulumi.get(__ret__, 'url'),
+        zipball_url=pulumi.get(__ret__, 'zipball_url'))
 
 
 @_utilities.lift_output_func(get_release)

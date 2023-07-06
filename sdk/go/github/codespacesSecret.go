@@ -52,10 +52,22 @@ import (
 //	}
 //
 // ```
+//
+// ## Import
+//
+// This resource can be imported using an ID made up of the `repository` and `secret_name`
+//
+// ```sh
+//
+//	$ pulumi import github:index/codespacesSecret:CodespacesSecret example_secret <repository>/<secret_name>
+//
+// ```
+//
+//	NOTEthe implementation is limited in that it won't fetch the value of the `plaintext_value` or `encrypted_value` fields when importing. You may need to ignore changes for these as a workaround.
 type CodespacesSecret struct {
 	pulumi.CustomResourceState
 
-	// Date of actionsSecret creation.
+	// Date of codespacesSecret creation.
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
 	// Encrypted value of the secret using the GitHub public key in Base64 format.
 	EncryptedValue pulumi.StringPtrOutput `pulumi:"encryptedValue"`
@@ -65,7 +77,7 @@ type CodespacesSecret struct {
 	Repository pulumi.StringOutput `pulumi:"repository"`
 	// Name of the secret
 	SecretName pulumi.StringOutput `pulumi:"secretName"`
-	// Date of actionsSecret update.
+	// Date of codespacesSecret update.
 	UpdatedAt pulumi.StringOutput `pulumi:"updatedAt"`
 }
 
@@ -115,7 +127,7 @@ func GetCodespacesSecret(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering CodespacesSecret resources.
 type codespacesSecretState struct {
-	// Date of actionsSecret creation.
+	// Date of codespacesSecret creation.
 	CreatedAt *string `pulumi:"createdAt"`
 	// Encrypted value of the secret using the GitHub public key in Base64 format.
 	EncryptedValue *string `pulumi:"encryptedValue"`
@@ -125,12 +137,12 @@ type codespacesSecretState struct {
 	Repository *string `pulumi:"repository"`
 	// Name of the secret
 	SecretName *string `pulumi:"secretName"`
-	// Date of actionsSecret update.
+	// Date of codespacesSecret update.
 	UpdatedAt *string `pulumi:"updatedAt"`
 }
 
 type CodespacesSecretState struct {
-	// Date of actionsSecret creation.
+	// Date of codespacesSecret creation.
 	CreatedAt pulumi.StringPtrInput
 	// Encrypted value of the secret using the GitHub public key in Base64 format.
 	EncryptedValue pulumi.StringPtrInput
@@ -140,7 +152,7 @@ type CodespacesSecretState struct {
 	Repository pulumi.StringPtrInput
 	// Name of the secret
 	SecretName pulumi.StringPtrInput
-	// Date of actionsSecret update.
+	// Date of codespacesSecret update.
 	UpdatedAt pulumi.StringPtrInput
 }
 
@@ -258,7 +270,7 @@ func (o CodespacesSecretOutput) ToCodespacesSecretOutputWithContext(ctx context.
 	return o
 }
 
-// Date of actionsSecret creation.
+// Date of codespacesSecret creation.
 func (o CodespacesSecretOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *CodespacesSecret) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
 }
@@ -283,7 +295,7 @@ func (o CodespacesSecretOutput) SecretName() pulumi.StringOutput {
 	return o.ApplyT(func(v *CodespacesSecret) pulumi.StringOutput { return v.SecretName }).(pulumi.StringOutput)
 }
 
-// Date of actionsSecret update.
+// Date of codespacesSecret update.
 func (o CodespacesSecretOutput) UpdatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *CodespacesSecret) pulumi.StringOutput { return v.UpdatedAt }).(pulumi.StringOutput)
 }

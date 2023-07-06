@@ -106,6 +106,9 @@ class ProviderArgs:
         """
         The GitHub organization name to manage. Use this field instead of `owner` when managing organization accounts.
         """
+        warnings.warn("""Use owner (or GITHUB_OWNER) instead of organization (or GITHUB_ORGANIZATION)""", DeprecationWarning)
+        pulumi.log.warn("""organization is deprecated: Use owner (or GITHUB_OWNER) instead of organization (or GITHUB_ORGANIZATION)""")
+
         return pulumi.get(self, "organization")
 
     @organization.setter
@@ -290,6 +293,9 @@ class Provider(pulumi.ProviderResource):
         """
         The GitHub organization name to manage. Use this field instead of `owner` when managing organization accounts.
         """
+        warnings.warn("""Use owner (or GITHUB_OWNER) instead of organization (or GITHUB_ORGANIZATION)""", DeprecationWarning)
+        pulumi.log.warn("""organization is deprecated: Use owner (or GITHUB_OWNER) instead of organization (or GITHUB_ORGANIZATION)""")
+
         return pulumi.get(self, "organization")
 
     @property

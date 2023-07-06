@@ -114,11 +114,11 @@ def get_organization_custom_role(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('github:index/getOrganizationCustomRole:getOrganizationCustomRole', __args__, opts=opts, typ=GetOrganizationCustomRoleResult).value
 
     return AwaitableGetOrganizationCustomRoleResult(
-        base_role=__ret__.base_role,
-        description=__ret__.description,
-        id=__ret__.id,
-        name=__ret__.name,
-        permissions=__ret__.permissions)
+        base_role=pulumi.get(__ret__, 'base_role'),
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        permissions=pulumi.get(__ret__, 'permissions'))
 
 
 @_utilities.lift_output_func(get_organization_custom_role)

@@ -74,5 +74,5 @@ def get_codespaces_organization_secrets(opts: Optional[pulumi.InvokeOptions] = N
     __ret__ = pulumi.runtime.invoke('github:index/getCodespacesOrganizationSecrets:getCodespacesOrganizationSecrets', __args__, opts=opts, typ=GetCodespacesOrganizationSecretsResult).value
 
     return AwaitableGetCodespacesOrganizationSecretsResult(
-        id=__ret__.id,
-        secrets=__ret__.secrets)
+        id=pulumi.get(__ret__, 'id'),
+        secrets=pulumi.get(__ret__, 'secrets'))

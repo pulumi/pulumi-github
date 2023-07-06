@@ -150,14 +150,14 @@ def get_repository_milestone(number: Optional[int] = None,
     __ret__ = pulumi.runtime.invoke('github:index/getRepositoryMilestone:getRepositoryMilestone', __args__, opts=opts, typ=GetRepositoryMilestoneResult).value
 
     return AwaitableGetRepositoryMilestoneResult(
-        description=__ret__.description,
-        due_date=__ret__.due_date,
-        id=__ret__.id,
-        number=__ret__.number,
-        owner=__ret__.owner,
-        repository=__ret__.repository,
-        state=__ret__.state,
-        title=__ret__.title)
+        description=pulumi.get(__ret__, 'description'),
+        due_date=pulumi.get(__ret__, 'due_date'),
+        id=pulumi.get(__ret__, 'id'),
+        number=pulumi.get(__ret__, 'number'),
+        owner=pulumi.get(__ret__, 'owner'),
+        repository=pulumi.get(__ret__, 'repository'),
+        state=pulumi.get(__ret__, 'state'),
+        title=pulumi.get(__ret__, 'title'))
 
 
 @_utilities.lift_output_func(get_repository_milestone)

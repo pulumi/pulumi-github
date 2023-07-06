@@ -73,5 +73,5 @@ def get_actions_organization_oidc_subject_claim_customization_template(opts: Opt
     __ret__ = pulumi.runtime.invoke('github:index/getActionsOrganizationOidcSubjectClaimCustomizationTemplate:getActionsOrganizationOidcSubjectClaimCustomizationTemplate', __args__, opts=opts, typ=GetActionsOrganizationOidcSubjectClaimCustomizationTemplateResult).value
 
     return AwaitableGetActionsOrganizationOidcSubjectClaimCustomizationTemplateResult(
-        id=__ret__.id,
-        include_claim_keys=__ret__.include_claim_keys)
+        id=pulumi.get(__ret__, 'id'),
+        include_claim_keys=pulumi.get(__ret__, 'include_claim_keys'))

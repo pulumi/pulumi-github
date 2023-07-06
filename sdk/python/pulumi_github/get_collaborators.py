@@ -114,11 +114,11 @@ def get_collaborators(affiliation: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('github:index/getCollaborators:getCollaborators', __args__, opts=opts, typ=GetCollaboratorsResult).value
 
     return AwaitableGetCollaboratorsResult(
-        affiliation=__ret__.affiliation,
-        collaborators=__ret__.collaborators,
-        id=__ret__.id,
-        owner=__ret__.owner,
-        repository=__ret__.repository)
+        affiliation=pulumi.get(__ret__, 'affiliation'),
+        collaborators=pulumi.get(__ret__, 'collaborators'),
+        id=pulumi.get(__ret__, 'id'),
+        owner=pulumi.get(__ret__, 'owner'),
+        repository=pulumi.get(__ret__, 'repository'))
 
 
 @_utilities.lift_output_func(get_collaborators)

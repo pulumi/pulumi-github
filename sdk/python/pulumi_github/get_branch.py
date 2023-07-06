@@ -125,12 +125,12 @@ def get_branch(branch: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('github:index/getBranch:getBranch', __args__, opts=opts, typ=GetBranchResult).value
 
     return AwaitableGetBranchResult(
-        branch=__ret__.branch,
-        etag=__ret__.etag,
-        id=__ret__.id,
-        ref=__ret__.ref,
-        repository=__ret__.repository,
-        sha=__ret__.sha)
+        branch=pulumi.get(__ret__, 'branch'),
+        etag=pulumi.get(__ret__, 'etag'),
+        id=pulumi.get(__ret__, 'id'),
+        ref=pulumi.get(__ret__, 'ref'),
+        repository=pulumi.get(__ret__, 'repository'),
+        sha=pulumi.get(__ret__, 'sha'))
 
 
 @_utilities.lift_output_func(get_branch)

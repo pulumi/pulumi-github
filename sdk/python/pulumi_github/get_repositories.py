@@ -146,14 +146,14 @@ def get_repositories(include_repo_id: Optional[bool] = None,
     __ret__ = pulumi.runtime.invoke('github:index/getRepositories:getRepositories', __args__, opts=opts, typ=GetRepositoriesResult).value
 
     return AwaitableGetRepositoriesResult(
-        full_names=__ret__.full_names,
-        id=__ret__.id,
-        include_repo_id=__ret__.include_repo_id,
-        names=__ret__.names,
-        query=__ret__.query,
-        repo_ids=__ret__.repo_ids,
-        results_per_page=__ret__.results_per_page,
-        sort=__ret__.sort)
+        full_names=pulumi.get(__ret__, 'full_names'),
+        id=pulumi.get(__ret__, 'id'),
+        include_repo_id=pulumi.get(__ret__, 'include_repo_id'),
+        names=pulumi.get(__ret__, 'names'),
+        query=pulumi.get(__ret__, 'query'),
+        repo_ids=pulumi.get(__ret__, 'repo_ids'),
+        results_per_page=pulumi.get(__ret__, 'results_per_page'),
+        sort=pulumi.get(__ret__, 'sort'))
 
 
 @_utilities.lift_output_func(get_repositories)

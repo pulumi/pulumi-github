@@ -86,6 +86,6 @@ def get_codespaces_user_public_key(opts: Optional[pulumi.InvokeOptions] = None) 
     __ret__ = pulumi.runtime.invoke('github:index/getCodespacesUserPublicKey:getCodespacesUserPublicKey', __args__, opts=opts, typ=GetCodespacesUserPublicKeyResult).value
 
     return AwaitableGetCodespacesUserPublicKeyResult(
-        id=__ret__.id,
-        key=__ret__.key,
-        key_id=__ret__.key_id)
+        id=pulumi.get(__ret__, 'id'),
+        key=pulumi.get(__ret__, 'key'),
+        key_id=pulumi.get(__ret__, 'key_id'))

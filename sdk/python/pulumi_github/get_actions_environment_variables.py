@@ -115,11 +115,11 @@ def get_actions_environment_variables(environment: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('github:index/getActionsEnvironmentVariables:getActionsEnvironmentVariables', __args__, opts=opts, typ=GetActionsEnvironmentVariablesResult).value
 
     return AwaitableGetActionsEnvironmentVariablesResult(
-        environment=__ret__.environment,
-        full_name=__ret__.full_name,
-        id=__ret__.id,
-        name=__ret__.name,
-        variables=__ret__.variables)
+        environment=pulumi.get(__ret__, 'environment'),
+        full_name=pulumi.get(__ret__, 'full_name'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        variables=pulumi.get(__ret__, 'variables'))
 
 
 @_utilities.lift_output_func(get_actions_environment_variables)

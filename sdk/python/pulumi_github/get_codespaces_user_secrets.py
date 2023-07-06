@@ -74,5 +74,5 @@ def get_codespaces_user_secrets(opts: Optional[pulumi.InvokeOptions] = None) -> 
     __ret__ = pulumi.runtime.invoke('github:index/getCodespacesUserSecrets:getCodespacesUserSecrets', __args__, opts=opts, typ=GetCodespacesUserSecretsResult).value
 
     return AwaitableGetCodespacesUserSecretsResult(
-        id=__ret__.id,
-        secrets=__ret__.secrets)
+        id=pulumi.get(__ret__, 'id'),
+        secrets=pulumi.get(__ret__, 'secrets'))

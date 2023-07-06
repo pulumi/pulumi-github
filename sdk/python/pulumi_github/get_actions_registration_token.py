@@ -100,10 +100,10 @@ def get_actions_registration_token(repository: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('github:index/getActionsRegistrationToken:getActionsRegistrationToken', __args__, opts=opts, typ=GetActionsRegistrationTokenResult).value
 
     return AwaitableGetActionsRegistrationTokenResult(
-        expires_at=__ret__.expires_at,
-        id=__ret__.id,
-        repository=__ret__.repository,
-        token=__ret__.token)
+        expires_at=pulumi.get(__ret__, 'expires_at'),
+        id=pulumi.get(__ret__, 'id'),
+        repository=pulumi.get(__ret__, 'repository'),
+        token=pulumi.get(__ret__, 'token'))
 
 
 @_utilities.lift_output_func(get_actions_registration_token)

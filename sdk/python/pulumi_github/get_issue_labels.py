@@ -80,9 +80,9 @@ def get_issue_labels(repository: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('github:index/getIssueLabels:getIssueLabels', __args__, opts=opts, typ=GetIssueLabelsResult).value
 
     return AwaitableGetIssueLabelsResult(
-        id=__ret__.id,
-        labels=__ret__.labels,
-        repository=__ret__.repository)
+        id=pulumi.get(__ret__, 'id'),
+        labels=pulumi.get(__ret__, 'labels'),
+        repository=pulumi.get(__ret__, 'repository'))
 
 
 @_utilities.lift_output_func(get_issue_labels)
