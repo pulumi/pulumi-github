@@ -19,6 +19,9 @@ namespace Pulumi.Github.Outputs
         /// Must be `push` for personal repositories. Defaults to `push`.
         /// </summary>
         public readonly string? Permission;
+        /// <summary>
+        /// The GitHub team id or the GitHub team slug
+        /// </summary>
         public readonly string TeamId;
 
         [OutputConstructor]

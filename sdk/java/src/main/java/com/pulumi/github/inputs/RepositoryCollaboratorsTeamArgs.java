@@ -34,9 +34,17 @@ public final class RepositoryCollaboratorsTeamArgs extends com.pulumi.resources.
         return Optional.ofNullable(this.permission);
     }
 
+    /**
+     * The GitHub team id or the GitHub team slug
+     * 
+     */
     @Import(name="teamId", required=true)
     private Output<String> teamId;
 
+    /**
+     * @return The GitHub team id or the GitHub team slug
+     * 
+     */
     public Output<String> teamId() {
         return this.teamId;
     }
@@ -91,11 +99,23 @@ public final class RepositoryCollaboratorsTeamArgs extends com.pulumi.resources.
             return permission(Output.of(permission));
         }
 
+        /**
+         * @param teamId The GitHub team id or the GitHub team slug
+         * 
+         * @return builder
+         * 
+         */
         public Builder teamId(Output<String> teamId) {
             $.teamId = teamId;
             return this;
         }
 
+        /**
+         * @param teamId The GitHub team id or the GitHub team slug
+         * 
+         * @return builder
+         * 
+         */
         public Builder teamId(String teamId) {
             return teamId(Output.of(teamId));
         }

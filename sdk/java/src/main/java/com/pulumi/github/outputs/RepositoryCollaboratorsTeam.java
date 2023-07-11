@@ -18,6 +18,10 @@ public final class RepositoryCollaboratorsTeam {
      * 
      */
     private @Nullable String permission;
+    /**
+     * @return The GitHub team id or the GitHub team slug
+     * 
+     */
     private String teamId;
 
     private RepositoryCollaboratorsTeam() {}
@@ -30,6 +34,10 @@ public final class RepositoryCollaboratorsTeam {
     public Optional<String> permission() {
         return Optional.ofNullable(this.permission);
     }
+    /**
+     * @return The GitHub team id or the GitHub team slug
+     * 
+     */
     public String teamId() {
         return this.teamId;
     }

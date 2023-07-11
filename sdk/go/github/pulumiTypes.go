@@ -1934,7 +1934,8 @@ type RepositoryCollaboratorsTeam struct {
 	// Must be one of `pull`, `triage`, `push`, `maintain`, `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organisation. Defaults to `pull`.
 	// Must be `push` for personal repositories. Defaults to `push`.
 	Permission *string `pulumi:"permission"`
-	TeamId     string  `pulumi:"teamId"`
+	// The GitHub team id or the GitHub team slug
+	TeamId string `pulumi:"teamId"`
 }
 
 // RepositoryCollaboratorsTeamInput is an input type that accepts RepositoryCollaboratorsTeamArgs and RepositoryCollaboratorsTeamOutput values.
@@ -1953,7 +1954,8 @@ type RepositoryCollaboratorsTeamArgs struct {
 	// Must be one of `pull`, `triage`, `push`, `maintain`, `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organisation. Defaults to `pull`.
 	// Must be `push` for personal repositories. Defaults to `push`.
 	Permission pulumi.StringPtrInput `pulumi:"permission"`
-	TeamId     pulumi.StringInput    `pulumi:"teamId"`
+	// The GitHub team id or the GitHub team slug
+	TeamId pulumi.StringInput `pulumi:"teamId"`
 }
 
 func (RepositoryCollaboratorsTeamArgs) ElementType() reflect.Type {
@@ -2014,6 +2016,7 @@ func (o RepositoryCollaboratorsTeamOutput) Permission() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RepositoryCollaboratorsTeam) *string { return v.Permission }).(pulumi.StringPtrOutput)
 }
 
+// The GitHub team id or the GitHub team slug
 func (o RepositoryCollaboratorsTeamOutput) TeamId() pulumi.StringOutput {
 	return o.ApplyT(func(v RepositoryCollaboratorsTeam) string { return v.TeamId }).(pulumi.StringOutput)
 }
