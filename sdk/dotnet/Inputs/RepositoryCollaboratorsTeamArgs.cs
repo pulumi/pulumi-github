@@ -20,6 +20,9 @@ namespace Pulumi.Github.Inputs
         [Input("permission")]
         public Input<string>? Permission { get; set; }
 
+        /// <summary>
+        /// The GitHub team id or the GitHub team slug
+        /// </summary>
         [Input("teamId", required: true)]
         public Input<string> TeamId { get; set; } = null!;
 

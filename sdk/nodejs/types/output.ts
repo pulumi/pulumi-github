@@ -848,6 +848,9 @@ export interface RepositoryCollaboratorsTeam {
      * Must be `push` for personal repositories. Defaults to `push`.
      */
     permission?: string;
+    /**
+     * The GitHub team id or the GitHub team slug
+     */
     teamId: string;
 }
 

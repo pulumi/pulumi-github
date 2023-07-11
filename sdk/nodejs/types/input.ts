@@ -194,6 +194,9 @@ export interface RepositoryCollaboratorsTeam {
      * Must be `push` for personal repositories. Defaults to `push`.
      */
     permission?: pulumi.Input<string>;
+    /**
+     * The GitHub team id or the GitHub team slug
+     */
     teamId: pulumi.Input<string>;
 }
 

@@ -413,7 +413,8 @@
                     "description": "The permission of the outside collaborators for the repository.\nMust be one of `pull`, `triage`, `push`, `maintain`, `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organisation. Defaults to `pull`.\nMust be `push` for personal repositories. Defaults to `push`.\n"
                 },
                 "teamId": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The GitHub team id or the GitHub team slug\n"
                 }
             },
             "type": "object",

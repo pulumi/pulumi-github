@@ -25,10 +25,9 @@ import (
 	"github.com/integrations/terraform-provider-github/v5/github"
 	"github.com/pulumi/pulumi-github/provider/v5/pkg/version"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
-	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge/x"
+	tfbridgetokens "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge/tokens"
 	shimv1 "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim/sdk-v1"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/tokens"
-	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
 )
 
 // all of the token components used below.
@@ -252,15 +251,9 @@ func Provider() tfbridge.ProviderInfo {
 		}, MetadataInfo: tfbridge.NewProviderMetadata(metadata),
 	}
 
-	err := x.ComputeDefaults(&prov, x.TokensSingleModule("github_", mainMod,
-		x.MakeStandardToken(mainPkg)))
-	contract.AssertNoErrorf(err, "auto token mapping failed")
-	err =
-
-		// Since SetAutonaming mutates the set of resources in prov.Resources, it must be
-		// called after defaults have been computed.
-		x.AutoAliasing(&prov, prov.GetMetadata())
-	contract.AssertNoErrorf(err, "auto aliasing apply failed")
+	prov.MustComputeTokens(tfbridgetokens.SingleModule("github_", mainMod,
+		tfbridgetokens.MakeStandard(mainPkg)))
+	prov.MustApplyAutoAliases()
 
 	prov.SetAutonaming(255, "-")
 

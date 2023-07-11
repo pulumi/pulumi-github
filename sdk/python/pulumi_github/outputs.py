@@ -756,6 +756,7 @@ class RepositoryCollaboratorsTeam(dict):
                  team_id: str,
                  permission: Optional[str] = None):
         """
+        :param str team_id: The GitHub team id or the GitHub team slug
         :param str permission: The permission of the outside collaborators for the repository.
                Must be one of `pull`, `triage`, `push`, `maintain`, `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organisation. Defaults to `pull`.
                Must be `push` for personal repositories. Defaults to `push`.
@@ -767,6 +768,9 @@ class RepositoryCollaboratorsTeam(dict):
     @property
     @pulumi.getter(name="teamId")
     def team_id(self) -> str:
+        """
+        The GitHub team id or the GitHub team slug
+        """
         return pulumi.get(self, "team_id")
 
     @property

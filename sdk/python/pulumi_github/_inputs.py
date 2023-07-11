@@ -748,6 +748,7 @@ class RepositoryCollaboratorsTeamArgs:
                  team_id: pulumi.Input[str],
                  permission: Optional[pulumi.Input[str]] = None):
         """
+        :param pulumi.Input[str] team_id: The GitHub team id or the GitHub team slug
         :param pulumi.Input[str] permission: The permission of the outside collaborators for the repository.
                Must be one of `pull`, `triage`, `push`, `maintain`, `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organisation. Defaults to `pull`.
                Must be `push` for personal repositories. Defaults to `push`.
@@ -759,6 +760,9 @@ class RepositoryCollaboratorsTeamArgs:
     @property
     @pulumi.getter(name="teamId")
     def team_id(self) -> pulumi.Input[str]:
+        """
+        The GitHub team id or the GitHub team slug
+        """
         return pulumi.get(self, "team_id")
 
     @team_id.setter
