@@ -5,6 +5,7 @@ package com.pulumi.github;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -14,6 +15,27 @@ import javax.annotation.Nullable;
 public final class MembershipArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final MembershipArgs Empty = new MembershipArgs();
+
+    /**
+     * Defaults to `false`. If set to true,
+     * when this resource is destroyed, the member will not be removed
+     * from the organization. Instead, the member&#39;s role will be
+     * downgraded to &#39;member&#39;.
+     * 
+     */
+    @Import(name="downgradeOnDestroy")
+    private @Nullable Output<Boolean> downgradeOnDestroy;
+
+    /**
+     * @return Defaults to `false`. If set to true,
+     * when this resource is destroyed, the member will not be removed
+     * from the organization. Instead, the member&#39;s role will be
+     * downgraded to &#39;member&#39;.
+     * 
+     */
+    public Optional<Output<Boolean>> downgradeOnDestroy() {
+        return Optional.ofNullable(this.downgradeOnDestroy);
+    }
 
     /**
      * The role of the user within the organization.
@@ -50,6 +72,7 @@ public final class MembershipArgs extends com.pulumi.resources.ResourceArgs {
     private MembershipArgs() {}
 
     private MembershipArgs(MembershipArgs $) {
+        this.downgradeOnDestroy = $.downgradeOnDestroy;
         this.role = $.role;
         this.username = $.username;
     }
@@ -70,6 +93,33 @@ public final class MembershipArgs extends com.pulumi.resources.ResourceArgs {
 
         public Builder(MembershipArgs defaults) {
             $ = new MembershipArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param downgradeOnDestroy Defaults to `false`. If set to true,
+         * when this resource is destroyed, the member will not be removed
+         * from the organization. Instead, the member&#39;s role will be
+         * downgraded to &#39;member&#39;.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder downgradeOnDestroy(@Nullable Output<Boolean> downgradeOnDestroy) {
+            $.downgradeOnDestroy = downgradeOnDestroy;
+            return this;
+        }
+
+        /**
+         * @param downgradeOnDestroy Defaults to `false`. If set to true,
+         * when this resource is destroyed, the member will not be removed
+         * from the organization. Instead, the member&#39;s role will be
+         * downgraded to &#39;member&#39;.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder downgradeOnDestroy(Boolean downgradeOnDestroy) {
+            return downgradeOnDestroy(Output.of(downgradeOnDestroy));
         }
 
         /**

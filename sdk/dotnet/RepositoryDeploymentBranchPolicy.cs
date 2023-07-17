@@ -12,6 +12,36 @@ namespace Pulumi.Github
     /// <summary>
     /// This resource allows you to create and manage deployment branch policies.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Github = Pulumi.Github;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var env = new Github.RepositoryEnvironment("env", new()
+    ///     {
+    ///         DeploymentBranchPolicy = new Github.Inputs.RepositoryEnvironmentDeploymentBranchPolicyArgs
+    ///         {
+    ///             CustomBranchPolicies = true,
+    ///             ProtectedBranches = false,
+    ///         },
+    ///         Environment = "my_env",
+    ///         Repository = "my_repo",
+    ///     });
+    /// 
+    ///     var foo = new Github.RepositoryDeploymentBranchPolicy("foo", new()
+    ///     {
+    ///         EnvironmentName = "my_env",
+    ///         Repository = "my_repo",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// ```sh
