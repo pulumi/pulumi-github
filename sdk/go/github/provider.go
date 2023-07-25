@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -37,10 +38,11 @@ func NewProvider(ctx *pulumi.Context,
 	}
 
 	if args.BaseUrl == nil {
-		if d := getEnvOrDefault("https://api.github.com/", nil, "GITHUB_BASE_URL"); d != nil {
+		if d := internal.GetEnvOrDefault("https://api.github.com/", nil, "GITHUB_BASE_URL"); d != nil {
 			args.BaseUrl = pulumi.StringPtr(d.(string))
 		}
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Provider
 	err := ctx.RegisterResource("pulumi:providers:github", name, args, &resource, opts...)
 	if err != nil {

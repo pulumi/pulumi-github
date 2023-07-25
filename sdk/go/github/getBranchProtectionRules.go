@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -38,6 +39,7 @@ import (
 //
 // ```
 func GetBranchProtectionRules(ctx *pulumi.Context, args *GetBranchProtectionRulesArgs, opts ...pulumi.InvokeOption) (*GetBranchProtectionRulesResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetBranchProtectionRulesResult
 	err := ctx.Invoke("github:index/getBranchProtectionRules:getBranchProtectionRules", args, &rv, opts...)
 	if err != nil {

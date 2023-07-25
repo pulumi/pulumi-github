@@ -66,6 +66,7 @@ from .get_issue_labels import *
 from .get_membership import *
 from .get_organization import *
 from .get_organization_custom_role import *
+from .get_organization_external_identities import *
 from .get_organization_ip_allow_list import *
 from .get_organization_team_sync_groups import *
 from .get_organization_teams import *
@@ -111,6 +112,7 @@ from .repository_collaborators import *
 from .repository_deploy_key import *
 from .repository_deployment_branch_policy import *
 from .repository_environment import *
+from .repository_environment_deployment_policy import *
 from .repository_file import *
 from .repository_milestone import *
 from .repository_project import *
@@ -505,6 +507,14 @@ _utilities.register(
   "fqn": "pulumi_github",
   "classes": {
    "github:index/repositoryEnvironment:RepositoryEnvironment": "RepositoryEnvironment"
+  }
+ },
+ {
+  "pkg": "github",
+  "mod": "index/repositoryEnvironmentDeploymentPolicy",
+  "fqn": "pulumi_github",
+  "classes": {
+   "github:index/repositoryEnvironmentDeploymentPolicy:RepositoryEnvironmentDeploymentPolicy": "RepositoryEnvironmentDeploymentPolicy"
   }
  },
  {

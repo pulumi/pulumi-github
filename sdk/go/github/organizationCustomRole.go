@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -98,6 +99,7 @@ func NewOrganizationCustomRole(ctx *pulumi.Context,
 	if args.Permissions == nil {
 		return nil, errors.New("invalid value for required argument 'Permissions'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource OrganizationCustomRole
 	err := ctx.RegisterResource("github:index/organizationCustomRole:OrganizationCustomRole", name, args, &resource, opts...)
 	if err != nil {

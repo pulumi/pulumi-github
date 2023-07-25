@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -54,6 +55,7 @@ import (
 //
 // ```
 func GetTree(ctx *pulumi.Context, args *GetTreeArgs, opts ...pulumi.InvokeOption) (*GetTreeResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetTreeResult
 	err := ctx.Invoke("github:index/getTree:getTree", args, &rv, opts...)
 	if err != nil {

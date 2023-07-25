@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -38,6 +39,7 @@ import (
 //
 // ```
 func GetRepositoryEnvironments(ctx *pulumi.Context, args *GetRepositoryEnvironmentsArgs, opts ...pulumi.InvokeOption) (*GetRepositoryEnvironmentsResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetRepositoryEnvironmentsResult
 	err := ctx.Invoke("github:index/getRepositoryEnvironments:getRepositoryEnvironments", args, &rv, opts...)
 	if err != nil {

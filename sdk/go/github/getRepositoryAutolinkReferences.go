@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -38,6 +39,7 @@ import (
 //
 // ```
 func GetRepositoryAutolinkReferences(ctx *pulumi.Context, args *GetRepositoryAutolinkReferencesArgs, opts ...pulumi.InvokeOption) (*GetRepositoryAutolinkReferencesResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetRepositoryAutolinkReferencesResult
 	err := ctx.Invoke("github:index/getRepositoryAutolinkReferences:getRepositoryAutolinkReferences", args, &rv, opts...)
 	if err != nil {

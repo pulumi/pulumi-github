@@ -4,6 +4,7 @@
 package github
 
 import (
+	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -35,6 +36,7 @@ import (
 //
 // ```
 func GetOrganizationIpAllowList(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetOrganizationIpAllowListResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetOrganizationIpAllowListResult
 	err := ctx.Invoke("github:index/getOrganizationIpAllowList:getOrganizationIpAllowList", nil, &rv, opts...)
 	if err != nil {

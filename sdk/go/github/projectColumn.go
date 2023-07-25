@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -66,6 +67,7 @@ func NewProjectColumn(ctx *pulumi.Context,
 	if args.ProjectId == nil {
 		return nil, errors.New("invalid value for required argument 'ProjectId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ProjectColumn
 	err := ctx.RegisterResource("github:index/projectColumn:ProjectColumn", name, args, &resource, opts...)
 	if err != nil {

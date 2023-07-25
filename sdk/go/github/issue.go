@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -152,6 +153,7 @@ func NewIssue(ctx *pulumi.Context,
 	if args.Title == nil {
 		return nil, errors.New("invalid value for required argument 'Title'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Issue
 	err := ctx.RegisterResource("github:index/issue:Issue", name, args, &resource, opts...)
 	if err != nil {

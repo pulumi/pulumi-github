@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -38,6 +39,7 @@ import (
 //
 // ```
 func LookupTeam(ctx *pulumi.Context, args *LookupTeamArgs, opts ...pulumi.InvokeOption) (*LookupTeamResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupTeamResult
 	err := ctx.Invoke("github:index/getTeam:getTeam", args, &rv, opts...)
 	if err != nil {

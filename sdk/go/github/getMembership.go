@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -41,6 +42,7 @@ import (
 //
 // ```
 func LookupMembership(ctx *pulumi.Context, args *LookupMembershipArgs, opts ...pulumi.InvokeOption) (*LookupMembershipResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupMembershipResult
 	err := ctx.Invoke("github:index/getMembership:getMembership", args, &rv, opts...)
 	if err != nil {

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -56,6 +57,7 @@ func NewOrganizationProject(ctx *pulumi.Context,
 		args = &OrganizationProjectArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource OrganizationProject
 	err := ctx.RegisterResource("github:index/organizationProject:OrganizationProject", name, args, &resource, opts...)
 	if err != nil {

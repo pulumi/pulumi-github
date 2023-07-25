@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Use this data source to retrieve information about a GitHub release in a specific repository.
 func LookupRelease(ctx *pulumi.Context, args *LookupReleaseArgs, opts ...pulumi.InvokeOption) (*LookupReleaseResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupReleaseResult
 	err := ctx.Invoke("github:index/getRelease:getRelease", args, &rv, opts...)
 	if err != nil {

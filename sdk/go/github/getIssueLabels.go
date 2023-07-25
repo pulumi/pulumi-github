@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Use this data source to retrieve the labels for a given repository.
 func GetIssueLabels(ctx *pulumi.Context, args *GetIssueLabelsArgs, opts ...pulumi.InvokeOption) (*GetIssueLabelsResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetIssueLabelsResult
 	err := ctx.Invoke("github:index/getIssueLabels:getIssueLabels", args, &rv, opts...)
 	if err != nil {

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -56,7 +57,12 @@ import (
 type Membership struct {
 	pulumi.CustomResourceState
 
-	Etag pulumi.StringOutput `pulumi:"etag"`
+	// Defaults to `false`. If set to true,
+	// when this resource is destroyed, the member will not be removed
+	// from the organization. Instead, the member's role will be
+	// downgraded to 'member'.
+	DowngradeOnDestroy pulumi.BoolPtrOutput `pulumi:"downgradeOnDestroy"`
+	Etag               pulumi.StringOutput  `pulumi:"etag"`
 	// The role of the user within the organization.
 	// Must be one of `member` or `admin`. Defaults to `member`.
 	Role pulumi.StringPtrOutput `pulumi:"role"`
@@ -74,6 +80,7 @@ func NewMembership(ctx *pulumi.Context,
 	if args.Username == nil {
 		return nil, errors.New("invalid value for required argument 'Username'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Membership
 	err := ctx.RegisterResource("github:index/membership:Membership", name, args, &resource, opts...)
 	if err != nil {
@@ -96,7 +103,12 @@ func GetMembership(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Membership resources.
 type membershipState struct {
-	Etag *string `pulumi:"etag"`
+	// Defaults to `false`. If set to true,
+	// when this resource is destroyed, the member will not be removed
+	// from the organization. Instead, the member's role will be
+	// downgraded to 'member'.
+	DowngradeOnDestroy *bool   `pulumi:"downgradeOnDestroy"`
+	Etag               *string `pulumi:"etag"`
 	// The role of the user within the organization.
 	// Must be one of `member` or `admin`. Defaults to `member`.
 	Role *string `pulumi:"role"`
@@ -105,7 +117,12 @@ type membershipState struct {
 }
 
 type MembershipState struct {
-	Etag pulumi.StringPtrInput
+	// Defaults to `false`. If set to true,
+	// when this resource is destroyed, the member will not be removed
+	// from the organization. Instead, the member's role will be
+	// downgraded to 'member'.
+	DowngradeOnDestroy pulumi.BoolPtrInput
+	Etag               pulumi.StringPtrInput
 	// The role of the user within the organization.
 	// Must be one of `member` or `admin`. Defaults to `member`.
 	Role pulumi.StringPtrInput
@@ -118,6 +135,11 @@ func (MembershipState) ElementType() reflect.Type {
 }
 
 type membershipArgs struct {
+	// Defaults to `false`. If set to true,
+	// when this resource is destroyed, the member will not be removed
+	// from the organization. Instead, the member's role will be
+	// downgraded to 'member'.
+	DowngradeOnDestroy *bool `pulumi:"downgradeOnDestroy"`
 	// The role of the user within the organization.
 	// Must be one of `member` or `admin`. Defaults to `member`.
 	Role *string `pulumi:"role"`
@@ -127,6 +149,11 @@ type membershipArgs struct {
 
 // The set of arguments for constructing a Membership resource.
 type MembershipArgs struct {
+	// Defaults to `false`. If set to true,
+	// when this resource is destroyed, the member will not be removed
+	// from the organization. Instead, the member's role will be
+	// downgraded to 'member'.
+	DowngradeOnDestroy pulumi.BoolPtrInput
 	// The role of the user within the organization.
 	// Must be one of `member` or `admin`. Defaults to `member`.
 	Role pulumi.StringPtrInput
@@ -219,6 +246,14 @@ func (o MembershipOutput) ToMembershipOutput() MembershipOutput {
 
 func (o MembershipOutput) ToMembershipOutputWithContext(ctx context.Context) MembershipOutput {
 	return o
+}
+
+// Defaults to `false`. If set to true,
+// when this resource is destroyed, the member will not be removed
+// from the organization. Instead, the member's role will be
+// downgraded to 'member'.
+func (o MembershipOutput) DowngradeOnDestroy() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Membership) pulumi.BoolPtrOutput { return v.DowngradeOnDestroy }).(pulumi.BoolPtrOutput)
 }
 
 func (o MembershipOutput) Etag() pulumi.StringOutput {

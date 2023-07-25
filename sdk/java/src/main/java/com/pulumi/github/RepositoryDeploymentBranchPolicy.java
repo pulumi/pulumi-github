@@ -17,7 +17,6 @@ import javax.annotation.Nullable;
  * This resource allows you to create and manage deployment branch policies.
  * 
  * ## Example Usage
- * 
  * ```java
  * package generated_program;
  * 
@@ -53,7 +52,7 @@ import javax.annotation.Nullable;
  * 
  *         var foo = new RepositoryDeploymentBranchPolicy(&#34;foo&#34;, RepositoryDeploymentBranchPolicyArgs.builder()        
  *             .environmentName(&#34;my_env&#34;)
- *             .reposistory(&#34;my_repo&#34;)
+ *             .repository(&#34;my_repo&#34;)
  *             .build());
  * 
  *     }

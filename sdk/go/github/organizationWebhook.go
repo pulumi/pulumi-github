@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -82,6 +83,7 @@ func NewOrganizationWebhook(ctx *pulumi.Context,
 	if args.Events == nil {
 		return nil, errors.New("invalid value for required argument 'Events'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource OrganizationWebhook
 	err := ctx.RegisterResource("github:index/organizationWebhook:OrganizationWebhook", name, args, &resource, opts...)
 	if err != nil {

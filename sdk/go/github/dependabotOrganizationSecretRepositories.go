@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -33,6 +34,7 @@ func NewDependabotOrganizationSecretRepositories(ctx *pulumi.Context,
 	if args.SelectedRepositoryIds == nil {
 		return nil, errors.New("invalid value for required argument 'SelectedRepositoryIds'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DependabotOrganizationSecretRepositories
 	err := ctx.RegisterResource("github:index/dependabotOrganizationSecretRepositories:DependabotOrganizationSecretRepositories", name, args, &resource, opts...)
 	if err != nil {

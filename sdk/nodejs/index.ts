@@ -297,6 +297,10 @@ export const getOrganizationCustomRole: typeof import("./getOrganizationCustomRo
 export const getOrganizationCustomRoleOutput: typeof import("./getOrganizationCustomRole").getOrganizationCustomRoleOutput = null as any;
 utilities.lazyLoad(exports, ["getOrganizationCustomRole","getOrganizationCustomRoleOutput"], () => require("./getOrganizationCustomRole"));
 
+export { GetOrganizationExternalIdentitiesResult } from "./getOrganizationExternalIdentities";
+export const getOrganizationExternalIdentities: typeof import("./getOrganizationExternalIdentities").getOrganizationExternalIdentities = null as any;
+utilities.lazyLoad(exports, ["getOrganizationExternalIdentities"], () => require("./getOrganizationExternalIdentities"));
+
 export { GetOrganizationIpAllowListResult } from "./getOrganizationIpAllowList";
 export const getOrganizationIpAllowList: typeof import("./getOrganizationIpAllowList").getOrganizationIpAllowList = null as any;
 utilities.lazyLoad(exports, ["getOrganizationIpAllowList"], () => require("./getOrganizationIpAllowList"));
@@ -518,6 +522,11 @@ export type RepositoryEnvironment = import("./repositoryEnvironment").Repository
 export const RepositoryEnvironment: typeof import("./repositoryEnvironment").RepositoryEnvironment = null as any;
 utilities.lazyLoad(exports, ["RepositoryEnvironment"], () => require("./repositoryEnvironment"));
 
+export { RepositoryEnvironmentDeploymentPolicyArgs, RepositoryEnvironmentDeploymentPolicyState } from "./repositoryEnvironmentDeploymentPolicy";
+export type RepositoryEnvironmentDeploymentPolicy = import("./repositoryEnvironmentDeploymentPolicy").RepositoryEnvironmentDeploymentPolicy;
+export const RepositoryEnvironmentDeploymentPolicy: typeof import("./repositoryEnvironmentDeploymentPolicy").RepositoryEnvironmentDeploymentPolicy = null as any;
+utilities.lazyLoad(exports, ["RepositoryEnvironmentDeploymentPolicy"], () => require("./repositoryEnvironmentDeploymentPolicy"));
+
 export { RepositoryFileArgs, RepositoryFileState } from "./repositoryFile";
 export type RepositoryFile = import("./repositoryFile").RepositoryFile;
 export const RepositoryFile: typeof import("./repositoryFile").RepositoryFile = null as any;
@@ -699,6 +708,8 @@ const _module = {
                 return new RepositoryDeploymentBranchPolicy(name, <any>undefined, { urn })
             case "github:index/repositoryEnvironment:RepositoryEnvironment":
                 return new RepositoryEnvironment(name, <any>undefined, { urn })
+            case "github:index/repositoryEnvironmentDeploymentPolicy:RepositoryEnvironmentDeploymentPolicy":
+                return new RepositoryEnvironmentDeploymentPolicy(name, <any>undefined, { urn })
             case "github:index/repositoryFile:RepositoryFile":
                 return new RepositoryFile(name, <any>undefined, { urn })
             case "github:index/repositoryMilestone:RepositoryMilestone":
@@ -780,6 +791,7 @@ pulumi.runtime.registerResourceModule("github", "index/repositoryCollaborators",
 pulumi.runtime.registerResourceModule("github", "index/repositoryDeployKey", _module)
 pulumi.runtime.registerResourceModule("github", "index/repositoryDeploymentBranchPolicy", _module)
 pulumi.runtime.registerResourceModule("github", "index/repositoryEnvironment", _module)
+pulumi.runtime.registerResourceModule("github", "index/repositoryEnvironmentDeploymentPolicy", _module)
 pulumi.runtime.registerResourceModule("github", "index/repositoryFile", _module)
 pulumi.runtime.registerResourceModule("github", "index/repositoryMilestone", _module)
 pulumi.runtime.registerResourceModule("github", "index/repositoryProject", _module)

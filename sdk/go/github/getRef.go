@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -40,6 +41,7 @@ import (
 //
 // ```
 func GetRef(ctx *pulumi.Context, args *GetRefArgs, opts ...pulumi.InvokeOption) (*GetRefResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetRefResult
 	err := ctx.Invoke("github:index/getRef:getRef", args, &rv, opts...)
 	if err != nil {

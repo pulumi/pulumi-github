@@ -4,6 +4,7 @@
 package github
 
 import (
+	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -34,6 +35,7 @@ import (
 //
 // ```
 func GetActionsOrganizationPublicKey(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetActionsOrganizationPublicKeyResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetActionsOrganizationPublicKeyResult
 	err := ctx.Invoke("github:index/getActionsOrganizationPublicKey:getActionsOrganizationPublicKey", nil, &rv, opts...)
 	if err != nil {

@@ -51,6 +51,7 @@ __all__ = [
     'GetDependabotSecretsSecretResult',
     'GetExternalGroupsExternalGroupResult',
     'GetIssueLabelsLabelResult',
+    'GetOrganizationExternalIdentitiesIdentityResult',
     'GetOrganizationIpAllowListIpAllowListResult',
     'GetOrganizationTeamSyncGroupsGroupResult',
     'GetOrganizationTeamsTeamResult',
@@ -2249,6 +2250,50 @@ class GetIssueLabelsLabelResult(dict):
         The URL of the label.
         """
         return pulumi.get(self, "url")
+
+
+@pulumi.output_type
+class GetOrganizationExternalIdentitiesIdentityResult(dict):
+    def __init__(__self__, *,
+                 login: str,
+                 saml_identity: Mapping[str, str],
+                 scim_identity: Mapping[str, str]):
+        """
+        :param str login: The username of the GitHub user
+        :param Mapping[str, str] saml_identity: An Object containing the user's SAML data. This object will
+               be empty if the user is not managed by SAML.
+        :param Mapping[str, str] scim_identity: An Object contining the user's SCIM data. This object will
+               be empty if the user is not managed by SCIM.
+        """
+        pulumi.set(__self__, "login", login)
+        pulumi.set(__self__, "saml_identity", saml_identity)
+        pulumi.set(__self__, "scim_identity", scim_identity)
+
+    @property
+    @pulumi.getter
+    def login(self) -> str:
+        """
+        The username of the GitHub user
+        """
+        return pulumi.get(self, "login")
+
+    @property
+    @pulumi.getter(name="samlIdentity")
+    def saml_identity(self) -> Mapping[str, str]:
+        """
+        An Object containing the user's SAML data. This object will
+        be empty if the user is not managed by SAML.
+        """
+        return pulumi.get(self, "saml_identity")
+
+    @property
+    @pulumi.getter(name="scimIdentity")
+    def scim_identity(self) -> Mapping[str, str]:
+        """
+        An Object contining the user's SCIM data. This object will
+        be empty if the user is not managed by SCIM.
+        """
+        return pulumi.get(self, "scim_identity")
 
 
 @pulumi.output_type

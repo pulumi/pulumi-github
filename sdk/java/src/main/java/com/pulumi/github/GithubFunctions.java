@@ -125,6 +125,7 @@ import com.pulumi.github.outputs.GetIpRangesResult;
 import com.pulumi.github.outputs.GetIssueLabelsResult;
 import com.pulumi.github.outputs.GetMembershipResult;
 import com.pulumi.github.outputs.GetOrganizationCustomRoleResult;
+import com.pulumi.github.outputs.GetOrganizationExternalIdentitiesResult;
 import com.pulumi.github.outputs.GetOrganizationIpAllowListResult;
 import com.pulumi.github.outputs.GetOrganizationResult;
 import com.pulumi.github.outputs.GetOrganizationTeamSyncGroupsResult;
@@ -6072,6 +6073,216 @@ public final class GithubFunctions {
      */
     public static CompletableFuture<GetOrganizationCustomRoleResult> getOrganizationCustomRolePlain(GetOrganizationCustomRolePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("github:index/getOrganizationCustomRole:getOrganizationCustomRole", TypeShape.of(GetOrganizationCustomRoleResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve each organization member&#39;s SAML or SCIM user
+     * attributes.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = GithubFunctions.getOrganizationExternalIdentities();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetOrganizationExternalIdentitiesResult> getOrganizationExternalIdentities() {
+        return getOrganizationExternalIdentities(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve each organization member&#39;s SAML or SCIM user
+     * attributes.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = GithubFunctions.getOrganizationExternalIdentities();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetOrganizationExternalIdentitiesResult> getOrganizationExternalIdentitiesPlain() {
+        return getOrganizationExternalIdentitiesPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve each organization member&#39;s SAML or SCIM user
+     * attributes.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = GithubFunctions.getOrganizationExternalIdentities();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetOrganizationExternalIdentitiesResult> getOrganizationExternalIdentities(InvokeArgs args) {
+        return getOrganizationExternalIdentities(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve each organization member&#39;s SAML or SCIM user
+     * attributes.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = GithubFunctions.getOrganizationExternalIdentities();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetOrganizationExternalIdentitiesResult> getOrganizationExternalIdentitiesPlain(InvokeArgs args) {
+        return getOrganizationExternalIdentitiesPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve each organization member&#39;s SAML or SCIM user
+     * attributes.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = GithubFunctions.getOrganizationExternalIdentities();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetOrganizationExternalIdentitiesResult> getOrganizationExternalIdentities(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("github:index/getOrganizationExternalIdentities:getOrganizationExternalIdentities", TypeShape.of(GetOrganizationExternalIdentitiesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve each organization member&#39;s SAML or SCIM user
+     * attributes.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = GithubFunctions.getOrganizationExternalIdentities();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetOrganizationExternalIdentitiesResult> getOrganizationExternalIdentitiesPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("github:index/getOrganizationExternalIdentities:getOrganizationExternalIdentities", TypeShape.of(GetOrganizationExternalIdentitiesResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to retrieve information about the IP allow list of an organization.

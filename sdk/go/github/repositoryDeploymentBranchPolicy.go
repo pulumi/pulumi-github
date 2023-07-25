@@ -8,10 +8,49 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // This resource allows you to create and manage deployment branch policies.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-github/sdk/v5/go/github"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := github.NewRepositoryEnvironment(ctx, "env", &github.RepositoryEnvironmentArgs{
+//				DeploymentBranchPolicy: &github.RepositoryEnvironmentDeploymentBranchPolicyArgs{
+//					CustomBranchPolicies: pulumi.Bool(true),
+//					ProtectedBranches:    pulumi.Bool(false),
+//				},
+//				Environment: pulumi.String("my_env"),
+//				Repository:  pulumi.String("my_repo"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = github.NewRepositoryDeploymentBranchPolicy(ctx, "foo", &github.RepositoryDeploymentBranchPolicyArgs{
+//				EnvironmentName: pulumi.String("my_env"),
+//				Repository:      pulumi.String("my_repo"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 //
 // ## Import
 //
@@ -46,6 +85,7 @@ func NewRepositoryDeploymentBranchPolicy(ctx *pulumi.Context,
 	if args.Repository == nil {
 		return nil, errors.New("invalid value for required argument 'Repository'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource RepositoryDeploymentBranchPolicy
 	err := ctx.RegisterResource("github:index/repositoryDeploymentBranchPolicy:RepositoryDeploymentBranchPolicy", name, args, &resource, opts...)
 	if err != nil {

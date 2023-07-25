@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -39,6 +40,7 @@ import (
 //
 // ```
 func GetRepositoryDeploymentBranchPolicies(ctx *pulumi.Context, args *GetRepositoryDeploymentBranchPoliciesArgs, opts ...pulumi.InvokeOption) (*GetRepositoryDeploymentBranchPoliciesResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetRepositoryDeploymentBranchPoliciesResult
 	err := ctx.Invoke("github:index/getRepositoryDeploymentBranchPolicies:getRepositoryDeploymentBranchPolicies", args, &rv, opts...)
 	if err != nil {

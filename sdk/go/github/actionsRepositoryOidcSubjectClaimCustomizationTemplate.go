@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -95,6 +96,7 @@ func NewActionsRepositoryOidcSubjectClaimCustomizationTemplate(ctx *pulumi.Conte
 	if args.UseDefault == nil {
 		return nil, errors.New("invalid value for required argument 'UseDefault'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ActionsRepositoryOidcSubjectClaimCustomizationTemplate
 	err := ctx.RegisterResource("github:index/actionsRepositoryOidcSubjectClaimCustomizationTemplate:ActionsRepositoryOidcSubjectClaimCustomizationTemplate", name, args, &resource, opts...)
 	if err != nil {

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -42,6 +43,7 @@ import (
 //
 // ```
 func LookupRepositoryPullRequests(ctx *pulumi.Context, args *LookupRepositoryPullRequestsArgs, opts ...pulumi.InvokeOption) (*LookupRepositoryPullRequestsResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupRepositoryPullRequestsResult
 	err := ctx.Invoke("github:index/getRepositoryPullRequests:getRepositoryPullRequests", args, &rv, opts...)
 	if err != nil {

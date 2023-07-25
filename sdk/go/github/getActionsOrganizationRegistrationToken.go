@@ -4,6 +4,7 @@
 package github
 
 import (
+	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -33,6 +34,7 @@ import (
 //
 // ```
 func GetActionsOrganizationRegistrationToken(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetActionsOrganizationRegistrationTokenResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetActionsOrganizationRegistrationTokenResult
 	err := ctx.Invoke("github:index/getActionsOrganizationRegistrationToken:getActionsOrganizationRegistrationToken", nil, &rv, opts...)
 	if err != nil {

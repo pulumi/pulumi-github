@@ -4,6 +4,7 @@
 package github
 
 import (
+	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -33,6 +34,7 @@ import (
 //
 // ```
 func GetOrganizationTeamSyncGroups(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetOrganizationTeamSyncGroupsResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetOrganizationTeamSyncGroupsResult
 	err := ctx.Invoke("github:index/getOrganizationTeamSyncGroups:getOrganizationTeamSyncGroups", nil, &rv, opts...)
 	if err != nil {
