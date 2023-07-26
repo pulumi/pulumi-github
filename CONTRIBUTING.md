@@ -28,9 +28,10 @@ You must generate and check in the SDKs on each pull request containing a code c
 
 ## Running Integration Tests
 
-The examples and integration tests in this repository will create and destroy real AWS
-cloud resources while running. Before running these tests, make sure that you have
-[configured Pulumi with AWS](https://pulumi.io/install/aws.html) successfully once before.
+The examples and integration tests in this repository will create and destroy real GitHub
+cloud resources while running.
+
+We use https://github.com/moolumi as our testing org. If you need access, please reach out to a manager.
 
 _TODO: Add any steps you need to take to run integration tests here_
 
