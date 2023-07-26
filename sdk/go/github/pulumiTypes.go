@@ -7,8 +7,11 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
+
+var _ = internal.GetEnvOrDefault
 
 type ActionsOrganizationPermissionsAllowedActionsConfig struct {
 	// Whether GitHub-owned actions are allowed in the organization.
@@ -6080,6 +6083,127 @@ func (o GetIssueLabelsLabelArrayOutput) Index(i pulumi.IntInput) GetIssueLabelsL
 	}).(GetIssueLabelsLabelOutput)
 }
 
+type GetOrganizationExternalIdentitiesIdentity struct {
+	// The username of the GitHub user
+	Login string `pulumi:"login"`
+	// An Object containing the user's SAML data. This object will
+	// be empty if the user is not managed by SAML.
+	SamlIdentity map[string]string `pulumi:"samlIdentity"`
+	// An Object contining the user's SCIM data. This object will
+	// be empty if the user is not managed by SCIM.
+	ScimIdentity map[string]string `pulumi:"scimIdentity"`
+}
+
+// GetOrganizationExternalIdentitiesIdentityInput is an input type that accepts GetOrganizationExternalIdentitiesIdentityArgs and GetOrganizationExternalIdentitiesIdentityOutput values.
+// You can construct a concrete instance of `GetOrganizationExternalIdentitiesIdentityInput` via:
+//
+//	GetOrganizationExternalIdentitiesIdentityArgs{...}
+type GetOrganizationExternalIdentitiesIdentityInput interface {
+	pulumi.Input
+
+	ToGetOrganizationExternalIdentitiesIdentityOutput() GetOrganizationExternalIdentitiesIdentityOutput
+	ToGetOrganizationExternalIdentitiesIdentityOutputWithContext(context.Context) GetOrganizationExternalIdentitiesIdentityOutput
+}
+
+type GetOrganizationExternalIdentitiesIdentityArgs struct {
+	// The username of the GitHub user
+	Login pulumi.StringInput `pulumi:"login"`
+	// An Object containing the user's SAML data. This object will
+	// be empty if the user is not managed by SAML.
+	SamlIdentity pulumi.StringMapInput `pulumi:"samlIdentity"`
+	// An Object contining the user's SCIM data. This object will
+	// be empty if the user is not managed by SCIM.
+	ScimIdentity pulumi.StringMapInput `pulumi:"scimIdentity"`
+}
+
+func (GetOrganizationExternalIdentitiesIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetOrganizationExternalIdentitiesIdentity)(nil)).Elem()
+}
+
+func (i GetOrganizationExternalIdentitiesIdentityArgs) ToGetOrganizationExternalIdentitiesIdentityOutput() GetOrganizationExternalIdentitiesIdentityOutput {
+	return i.ToGetOrganizationExternalIdentitiesIdentityOutputWithContext(context.Background())
+}
+
+func (i GetOrganizationExternalIdentitiesIdentityArgs) ToGetOrganizationExternalIdentitiesIdentityOutputWithContext(ctx context.Context) GetOrganizationExternalIdentitiesIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetOrganizationExternalIdentitiesIdentityOutput)
+}
+
+// GetOrganizationExternalIdentitiesIdentityArrayInput is an input type that accepts GetOrganizationExternalIdentitiesIdentityArray and GetOrganizationExternalIdentitiesIdentityArrayOutput values.
+// You can construct a concrete instance of `GetOrganizationExternalIdentitiesIdentityArrayInput` via:
+//
+//	GetOrganizationExternalIdentitiesIdentityArray{ GetOrganizationExternalIdentitiesIdentityArgs{...} }
+type GetOrganizationExternalIdentitiesIdentityArrayInput interface {
+	pulumi.Input
+
+	ToGetOrganizationExternalIdentitiesIdentityArrayOutput() GetOrganizationExternalIdentitiesIdentityArrayOutput
+	ToGetOrganizationExternalIdentitiesIdentityArrayOutputWithContext(context.Context) GetOrganizationExternalIdentitiesIdentityArrayOutput
+}
+
+type GetOrganizationExternalIdentitiesIdentityArray []GetOrganizationExternalIdentitiesIdentityInput
+
+func (GetOrganizationExternalIdentitiesIdentityArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetOrganizationExternalIdentitiesIdentity)(nil)).Elem()
+}
+
+func (i GetOrganizationExternalIdentitiesIdentityArray) ToGetOrganizationExternalIdentitiesIdentityArrayOutput() GetOrganizationExternalIdentitiesIdentityArrayOutput {
+	return i.ToGetOrganizationExternalIdentitiesIdentityArrayOutputWithContext(context.Background())
+}
+
+func (i GetOrganizationExternalIdentitiesIdentityArray) ToGetOrganizationExternalIdentitiesIdentityArrayOutputWithContext(ctx context.Context) GetOrganizationExternalIdentitiesIdentityArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetOrganizationExternalIdentitiesIdentityArrayOutput)
+}
+
+type GetOrganizationExternalIdentitiesIdentityOutput struct{ *pulumi.OutputState }
+
+func (GetOrganizationExternalIdentitiesIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetOrganizationExternalIdentitiesIdentity)(nil)).Elem()
+}
+
+func (o GetOrganizationExternalIdentitiesIdentityOutput) ToGetOrganizationExternalIdentitiesIdentityOutput() GetOrganizationExternalIdentitiesIdentityOutput {
+	return o
+}
+
+func (o GetOrganizationExternalIdentitiesIdentityOutput) ToGetOrganizationExternalIdentitiesIdentityOutputWithContext(ctx context.Context) GetOrganizationExternalIdentitiesIdentityOutput {
+	return o
+}
+
+// The username of the GitHub user
+func (o GetOrganizationExternalIdentitiesIdentityOutput) Login() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOrganizationExternalIdentitiesIdentity) string { return v.Login }).(pulumi.StringOutput)
+}
+
+// An Object containing the user's SAML data. This object will
+// be empty if the user is not managed by SAML.
+func (o GetOrganizationExternalIdentitiesIdentityOutput) SamlIdentity() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetOrganizationExternalIdentitiesIdentity) map[string]string { return v.SamlIdentity }).(pulumi.StringMapOutput)
+}
+
+// An Object contining the user's SCIM data. This object will
+// be empty if the user is not managed by SCIM.
+func (o GetOrganizationExternalIdentitiesIdentityOutput) ScimIdentity() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetOrganizationExternalIdentitiesIdentity) map[string]string { return v.ScimIdentity }).(pulumi.StringMapOutput)
+}
+
+type GetOrganizationExternalIdentitiesIdentityArrayOutput struct{ *pulumi.OutputState }
+
+func (GetOrganizationExternalIdentitiesIdentityArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetOrganizationExternalIdentitiesIdentity)(nil)).Elem()
+}
+
+func (o GetOrganizationExternalIdentitiesIdentityArrayOutput) ToGetOrganizationExternalIdentitiesIdentityArrayOutput() GetOrganizationExternalIdentitiesIdentityArrayOutput {
+	return o
+}
+
+func (o GetOrganizationExternalIdentitiesIdentityArrayOutput) ToGetOrganizationExternalIdentitiesIdentityArrayOutputWithContext(ctx context.Context) GetOrganizationExternalIdentitiesIdentityArrayOutput {
+	return o
+}
+
+func (o GetOrganizationExternalIdentitiesIdentityArrayOutput) Index(i pulumi.IntInput) GetOrganizationExternalIdentitiesIdentityOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetOrganizationExternalIdentitiesIdentity {
+		return vs[0].([]GetOrganizationExternalIdentitiesIdentity)[vs[1].(int)]
+	}).(GetOrganizationExternalIdentitiesIdentityOutput)
+}
+
 type GetOrganizationIpAllowListIpAllowList struct {
 	// A single IP address or range of IP addresses in CIDR notation.
 	AllowListValue string `pulumi:"allowListValue"`
@@ -8443,6 +8567,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetExternalGroupsExternalGroupArrayInput)(nil)).Elem(), GetExternalGroupsExternalGroupArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetIssueLabelsLabelInput)(nil)).Elem(), GetIssueLabelsLabelArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetIssueLabelsLabelArrayInput)(nil)).Elem(), GetIssueLabelsLabelArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetOrganizationExternalIdentitiesIdentityInput)(nil)).Elem(), GetOrganizationExternalIdentitiesIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetOrganizationExternalIdentitiesIdentityArrayInput)(nil)).Elem(), GetOrganizationExternalIdentitiesIdentityArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetOrganizationIpAllowListIpAllowListInput)(nil)).Elem(), GetOrganizationIpAllowListIpAllowListArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetOrganizationIpAllowListIpAllowListArrayInput)(nil)).Elem(), GetOrganizationIpAllowListIpAllowListArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetOrganizationTeamSyncGroupsGroupInput)(nil)).Elem(), GetOrganizationTeamSyncGroupsGroupArgs{})
@@ -8560,6 +8686,8 @@ func init() {
 	pulumi.RegisterOutputType(GetExternalGroupsExternalGroupArrayOutput{})
 	pulumi.RegisterOutputType(GetIssueLabelsLabelOutput{})
 	pulumi.RegisterOutputType(GetIssueLabelsLabelArrayOutput{})
+	pulumi.RegisterOutputType(GetOrganizationExternalIdentitiesIdentityOutput{})
+	pulumi.RegisterOutputType(GetOrganizationExternalIdentitiesIdentityArrayOutput{})
 	pulumi.RegisterOutputType(GetOrganizationIpAllowListIpAllowListOutput{})
 	pulumi.RegisterOutputType(GetOrganizationIpAllowListIpAllowListArrayOutput{})
 	pulumi.RegisterOutputType(GetOrganizationTeamSyncGroupsGroupOutput{})

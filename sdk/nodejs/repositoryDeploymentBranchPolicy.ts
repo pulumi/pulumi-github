@@ -7,6 +7,26 @@ import * as utilities from "./utilities";
 /**
  * This resource allows you to create and manage deployment branch policies.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const env = new github.RepositoryEnvironment("env", {
+ *     deploymentBranchPolicy: {
+ *         customBranchPolicies: true,
+ *         protectedBranches: false,
+ *     },
+ *     environment: "my_env",
+ *     repository: "my_repo",
+ * });
+ * const foo = new github.RepositoryDeploymentBranchPolicy("foo", {
+ *     environmentName: "my_env",
+ *     repository: "my_repo",
+ * });
+ * ```
+ *
  * ## Import
  *
  * ```sh

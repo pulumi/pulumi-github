@@ -7,6 +7,7 @@ import (
 	"fmt"
 
 	"github.com/blang/semver"
+	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -112,6 +113,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &RepositoryDeploymentBranchPolicy{}
 	case "github:index/repositoryEnvironment:RepositoryEnvironment":
 		r = &RepositoryEnvironment{}
+	case "github:index/repositoryEnvironmentDeploymentPolicy:RepositoryEnvironmentDeploymentPolicy":
+		r = &RepositoryEnvironmentDeploymentPolicy{}
 	case "github:index/repositoryFile:RepositoryFile":
 		r = &RepositoryFile{}
 	case "github:index/repositoryMilestone:RepositoryMilestone":
@@ -169,7 +172,10 @@ func (p *pkg) ConstructProvider(ctx *pulumi.Context, name, typ, urn string) (pul
 }
 
 func init() {
-	version, _ := PkgVersion()
+	version, err := internal.PkgVersion()
+	if err != nil {
+		version = semver.Version{Major: 1}
+	}
 	pulumi.RegisterResourceModule(
 		"github",
 		"index/actionsEnvironmentSecret",
@@ -398,6 +404,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"github",
 		"index/repositoryEnvironment",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"github",
+		"index/repositoryEnvironmentDeploymentPolicy",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

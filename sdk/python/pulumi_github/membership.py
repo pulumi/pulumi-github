@@ -15,14 +15,21 @@ __all__ = ['MembershipArgs', 'Membership']
 class MembershipArgs:
     def __init__(__self__, *,
                  username: pulumi.Input[str],
+                 downgrade_on_destroy: Optional[pulumi.Input[bool]] = None,
                  role: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Membership resource.
         :param pulumi.Input[str] username: The user to add to the organization.
+        :param pulumi.Input[bool] downgrade_on_destroy: Defaults to `false`. If set to true,
+               when this resource is destroyed, the member will not be removed
+               from the organization. Instead, the member's role will be
+               downgraded to 'member'.
         :param pulumi.Input[str] role: The role of the user within the organization.
                Must be one of `member` or `admin`. Defaults to `member`.
         """
         pulumi.set(__self__, "username", username)
+        if downgrade_on_destroy is not None:
+            pulumi.set(__self__, "downgrade_on_destroy", downgrade_on_destroy)
         if role is not None:
             pulumi.set(__self__, "role", role)
 
@@ -37,6 +44,21 @@ class MembershipArgs:
     @username.setter
     def username(self, value: pulumi.Input[str]):
         pulumi.set(self, "username", value)
+
+    @property
+    @pulumi.getter(name="downgradeOnDestroy")
+    def downgrade_on_destroy(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Defaults to `false`. If set to true,
+        when this resource is destroyed, the member will not be removed
+        from the organization. Instead, the member's role will be
+        downgraded to 'member'.
+        """
+        return pulumi.get(self, "downgrade_on_destroy")
+
+    @downgrade_on_destroy.setter
+    def downgrade_on_destroy(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "downgrade_on_destroy", value)
 
     @property
     @pulumi.getter
@@ -55,21 +77,43 @@ class MembershipArgs:
 @pulumi.input_type
 class _MembershipState:
     def __init__(__self__, *,
+                 downgrade_on_destroy: Optional[pulumi.Input[bool]] = None,
                  etag: Optional[pulumi.Input[str]] = None,
                  role: Optional[pulumi.Input[str]] = None,
                  username: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Membership resources.
+        :param pulumi.Input[bool] downgrade_on_destroy: Defaults to `false`. If set to true,
+               when this resource is destroyed, the member will not be removed
+               from the organization. Instead, the member's role will be
+               downgraded to 'member'.
         :param pulumi.Input[str] role: The role of the user within the organization.
                Must be one of `member` or `admin`. Defaults to `member`.
         :param pulumi.Input[str] username: The user to add to the organization.
         """
+        if downgrade_on_destroy is not None:
+            pulumi.set(__self__, "downgrade_on_destroy", downgrade_on_destroy)
         if etag is not None:
             pulumi.set(__self__, "etag", etag)
         if role is not None:
             pulumi.set(__self__, "role", role)
         if username is not None:
             pulumi.set(__self__, "username", username)
+
+    @property
+    @pulumi.getter(name="downgradeOnDestroy")
+    def downgrade_on_destroy(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Defaults to `false`. If set to true,
+        when this resource is destroyed, the member will not be removed
+        from the organization. Instead, the member's role will be
+        downgraded to 'member'.
+        """
+        return pulumi.get(self, "downgrade_on_destroy")
+
+    @downgrade_on_destroy.setter
+    def downgrade_on_destroy(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "downgrade_on_destroy", value)
 
     @property
     @pulumi.getter
@@ -111,6 +155,7 @@ class Membership(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 downgrade_on_destroy: Optional[pulumi.Input[bool]] = None,
                  role: Optional[pulumi.Input[str]] = None,
                  username: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -143,6 +188,10 @@ class Membership(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] downgrade_on_destroy: Defaults to `false`. If set to true,
+               when this resource is destroyed, the member will not be removed
+               from the organization. Instead, the member's role will be
+               downgraded to 'member'.
         :param pulumi.Input[str] role: The role of the user within the organization.
                Must be one of `member` or `admin`. Defaults to `member`.
         :param pulumi.Input[str] username: The user to add to the organization.
@@ -195,6 +244,7 @@ class Membership(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 downgrade_on_destroy: Optional[pulumi.Input[bool]] = None,
                  role: Optional[pulumi.Input[str]] = None,
                  username: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -206,6 +256,7 @@ class Membership(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = MembershipArgs.__new__(MembershipArgs)
 
+            __props__.__dict__["downgrade_on_destroy"] = downgrade_on_destroy
             __props__.__dict__["role"] = role
             if username is None and not opts.urn:
                 raise TypeError("Missing required property 'username'")
@@ -221,6 +272,7 @@ class Membership(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            downgrade_on_destroy: Optional[pulumi.Input[bool]] = None,
             etag: Optional[pulumi.Input[str]] = None,
             role: Optional[pulumi.Input[str]] = None,
             username: Optional[pulumi.Input[str]] = None) -> 'Membership':
@@ -231,6 +283,10 @@ class Membership(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] downgrade_on_destroy: Defaults to `false`. If set to true,
+               when this resource is destroyed, the member will not be removed
+               from the organization. Instead, the member's role will be
+               downgraded to 'member'.
         :param pulumi.Input[str] role: The role of the user within the organization.
                Must be one of `member` or `admin`. Defaults to `member`.
         :param pulumi.Input[str] username: The user to add to the organization.
@@ -239,10 +295,22 @@ class Membership(pulumi.CustomResource):
 
         __props__ = _MembershipState.__new__(_MembershipState)
 
+        __props__.__dict__["downgrade_on_destroy"] = downgrade_on_destroy
         __props__.__dict__["etag"] = etag
         __props__.__dict__["role"] = role
         __props__.__dict__["username"] = username
         return Membership(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="downgradeOnDestroy")
+    def downgrade_on_destroy(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Defaults to `false`. If set to true,
+        when this resource is destroyed, the member will not be removed
+        from the organization. Instead, the member's role will be
+        downgraded to 'member'.
+        """
+        return pulumi.get(self, "downgrade_on_destroy")
 
     @property
     @pulumi.getter

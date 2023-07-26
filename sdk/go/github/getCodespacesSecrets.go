@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -44,6 +45,7 @@ import (
 //
 // ```
 func GetCodespacesSecrets(ctx *pulumi.Context, args *GetCodespacesSecretsArgs, opts ...pulumi.InvokeOption) (*GetCodespacesSecretsResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetCodespacesSecretsResult
 	err := ctx.Invoke("github:index/getCodespacesSecrets:getCodespacesSecrets", args, &rv, opts...)
 	if err != nil {

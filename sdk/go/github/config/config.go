@@ -4,9 +4,12 @@
 package config
 
 import (
+	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
 )
+
+var _ = internal.GetEnvOrDefault
 
 // The GitHub App credentials used to connect to GitHub. Conflicts with `token`. Anonymous mode is enabled if both `token`
 // and `app_auth` are not set.
@@ -21,7 +24,7 @@ func GetBaseUrl(ctx *pulumi.Context) string {
 		return v
 	}
 	var value string
-	if d := getEnvOrDefault("https://api.github.com/", nil, "GITHUB_BASE_URL"); d != nil {
+	if d := internal.GetEnvOrDefault("https://api.github.com/", nil, "GITHUB_BASE_URL"); d != nil {
 		value = d.(string)
 	}
 	return value

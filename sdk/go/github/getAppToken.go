@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -50,6 +51,7 @@ import (
 //
 // ```
 func GetAppToken(ctx *pulumi.Context, args *GetAppTokenArgs, opts ...pulumi.InvokeOption) (*GetAppTokenResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetAppTokenResult
 	err := ctx.Invoke("github:index/getAppToken:getAppToken", args, &rv, opts...)
 	if err != nil {

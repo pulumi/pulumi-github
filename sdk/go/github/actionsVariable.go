@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -82,6 +83,7 @@ func NewActionsVariable(ctx *pulumi.Context,
 	if args.VariableName == nil {
 		return nil, errors.New("invalid value for required argument 'VariableName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ActionsVariable
 	err := ctx.RegisterResource("github:index/actionsVariable:ActionsVariable", name, args, &resource, opts...)
 	if err != nil {

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -26,6 +27,7 @@ func NewUserInvitationAccepter(ctx *pulumi.Context,
 		args = &UserInvitationAccepterArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource UserInvitationAccepter
 	err := ctx.RegisterResource("github:index/userInvitationAccepter:UserInvitationAccepter", name, args, &resource, opts...)
 	if err != nil {

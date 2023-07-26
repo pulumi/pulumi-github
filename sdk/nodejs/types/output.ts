@@ -476,6 +476,23 @@ export interface GetIssueLabelsLabel {
     url: string;
 }
 
+export interface GetOrganizationExternalIdentitiesIdentity {
+    /**
+     * The username of the GitHub user
+     */
+    login: string;
+    /**
+     * An Object containing the user's SAML data. This object will
+     * be empty if the user is not managed by SAML.
+     */
+    samlIdentity: {[key: string]: string};
+    /**
+     * An Object contining the user's SCIM data. This object will
+     * be empty if the user is not managed by SCIM.
+     */
+    scimIdentity: {[key: string]: string};
+}
+
 export interface GetOrganizationIpAllowListIpAllowList {
     /**
      * A single IP address or range of IP addresses in CIDR notation.

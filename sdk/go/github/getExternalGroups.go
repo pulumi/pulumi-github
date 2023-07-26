@@ -4,6 +4,7 @@
 package github
 
 import (
+	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -35,6 +36,7 @@ import (
 //
 // ```
 func GetExternalGroups(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetExternalGroupsResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetExternalGroupsResult
 	err := ctx.Invoke("github:index/getExternalGroups:getExternalGroups", nil, &rv, opts...)
 	if err != nil {

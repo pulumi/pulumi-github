@@ -47,6 +47,15 @@ namespace Pulumi.Github
     [GithubResourceType("github:index/membership:Membership")]
     public partial class Membership : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Defaults to `false`. If set to true,
+        /// when this resource is destroyed, the member will not be removed
+        /// from the organization. Instead, the member's role will be
+        /// downgraded to 'member'.
+        /// </summary>
+        [Output("downgradeOnDestroy")]
+        public Output<bool?> DowngradeOnDestroy { get; private set; } = null!;
+
         [Output("etag")]
         public Output<string> Etag { get; private set; } = null!;
 
@@ -110,6 +119,15 @@ namespace Pulumi.Github
     public sealed class MembershipArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Defaults to `false`. If set to true,
+        /// when this resource is destroyed, the member will not be removed
+        /// from the organization. Instead, the member's role will be
+        /// downgraded to 'member'.
+        /// </summary>
+        [Input("downgradeOnDestroy")]
+        public Input<bool>? DowngradeOnDestroy { get; set; }
+
+        /// <summary>
         /// The role of the user within the organization.
         /// Must be one of `member` or `admin`. Defaults to `member`.
         /// </summary>
@@ -130,6 +148,15 @@ namespace Pulumi.Github
 
     public sealed class MembershipState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Defaults to `false`. If set to true,
+        /// when this resource is destroyed, the member will not be removed
+        /// from the organization. Instead, the member's role will be
+        /// downgraded to 'member'.
+        /// </summary>
+        [Input("downgradeOnDestroy")]
+        public Input<bool>? DowngradeOnDestroy { get; set; }
+
         [Input("etag")]
         public Input<string>? Etag { get; set; }
 

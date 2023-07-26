@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -56,6 +57,7 @@ func NewOrganizationBlock(ctx *pulumi.Context,
 	if args.Username == nil {
 		return nil, errors.New("invalid value for required argument 'Username'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource OrganizationBlock
 	err := ctx.RegisterResource("github:index/organizationBlock:OrganizationBlock", name, args, &resource, opts...)
 	if err != nil {

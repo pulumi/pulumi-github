@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -49,6 +50,7 @@ func NewTeamSyncGroupMapping(ctx *pulumi.Context,
 	if args.TeamSlug == nil {
 		return nil, errors.New("invalid value for required argument 'TeamSlug'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource TeamSyncGroupMapping
 	err := ctx.RegisterResource("github:index/teamSyncGroupMapping:TeamSyncGroupMapping", name, args, &resource, opts...)
 	if err != nil {

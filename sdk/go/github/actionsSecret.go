@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -105,6 +106,7 @@ func NewActionsSecret(ctx *pulumi.Context,
 		"plaintextValue",
 	})
 	opts = append(opts, secrets)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ActionsSecret
 	err := ctx.RegisterResource("github:index/actionsSecret:ActionsSecret", name, args, &resource, opts...)
 	if err != nil {

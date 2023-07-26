@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -38,6 +39,7 @@ import (
 //
 // ```
 func GetActionsSecrets(ctx *pulumi.Context, args *GetActionsSecretsArgs, opts ...pulumi.InvokeOption) (*GetActionsSecretsResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetActionsSecretsResult
 	err := ctx.Invoke("github:index/getActionsSecrets:getActionsSecrets", args, &rv, opts...)
 	if err != nil {

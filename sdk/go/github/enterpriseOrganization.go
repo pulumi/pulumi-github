@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -78,6 +79,7 @@ func NewEnterpriseOrganization(ctx *pulumi.Context,
 	if args.EnterpriseId == nil {
 		return nil, errors.New("invalid value for required argument 'EnterpriseId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource EnterpriseOrganization
 	err := ctx.RegisterResource("github:index/enterpriseOrganization:EnterpriseOrganization", name, args, &resource, opts...)
 	if err != nil {

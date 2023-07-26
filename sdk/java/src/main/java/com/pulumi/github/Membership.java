@@ -10,6 +10,7 @@ import com.pulumi.core.internal.Codegen;
 import com.pulumi.github.MembershipArgs;
 import com.pulumi.github.Utilities;
 import com.pulumi.github.inputs.MembershipState;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -63,6 +64,26 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="github:index/membership:Membership")
 public class Membership extends com.pulumi.resources.CustomResource {
+    /**
+     * Defaults to `false`. If set to true,
+     * when this resource is destroyed, the member will not be removed
+     * from the organization. Instead, the member&#39;s role will be
+     * downgraded to &#39;member&#39;.
+     * 
+     */
+    @Export(name="downgradeOnDestroy", type=Boolean.class, parameters={})
+    private Output</* @Nullable */ Boolean> downgradeOnDestroy;
+
+    /**
+     * @return Defaults to `false`. If set to true,
+     * when this resource is destroyed, the member will not be removed
+     * from the organization. Instead, the member&#39;s role will be
+     * downgraded to &#39;member&#39;.
+     * 
+     */
+    public Output<Optional<Boolean>> downgradeOnDestroy() {
+        return Codegen.optional(this.downgradeOnDestroy);
+    }
     @Export(name="etag", type=String.class, parameters={})
     private Output<String> etag;
 

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -120,6 +121,7 @@ func NewActionsOrganizationVariable(ctx *pulumi.Context,
 	if args.Visibility == nil {
 		return nil, errors.New("invalid value for required argument 'Visibility'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ActionsOrganizationVariable
 	err := ctx.RegisterResource("github:index/actionsOrganizationVariable:ActionsOrganizationVariable", name, args, &resource, opts...)
 	if err != nil {

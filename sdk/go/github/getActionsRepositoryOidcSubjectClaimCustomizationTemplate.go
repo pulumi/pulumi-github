@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -38,6 +39,7 @@ import (
 //
 // ```
 func LookupActionsRepositoryOidcSubjectClaimCustomizationTemplate(ctx *pulumi.Context, args *LookupActionsRepositoryOidcSubjectClaimCustomizationTemplateArgs, opts ...pulumi.InvokeOption) (*LookupActionsRepositoryOidcSubjectClaimCustomizationTemplateResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupActionsRepositoryOidcSubjectClaimCustomizationTemplateResult
 	err := ctx.Invoke("github:index/getActionsRepositoryOidcSubjectClaimCustomizationTemplate:getActionsRepositoryOidcSubjectClaimCustomizationTemplate", args, &rv, opts...)
 	if err != nil {

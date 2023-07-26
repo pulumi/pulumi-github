@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -72,6 +73,7 @@ func NewEmuGroupMapping(ctx *pulumi.Context,
 	if args.TeamSlug == nil {
 		return nil, errors.New("invalid value for required argument 'TeamSlug'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource EmuGroupMapping
 	err := ctx.RegisterResource("github:index/emuGroupMapping:EmuGroupMapping", name, args, &resource, opts...)
 	if err != nil {

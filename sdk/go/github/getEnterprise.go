@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -38,6 +39,7 @@ import (
 //
 // ```
 func GetEnterprise(ctx *pulumi.Context, args *GetEnterpriseArgs, opts ...pulumi.InvokeOption) (*GetEnterpriseResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetEnterpriseResult
 	err := ctx.Invoke("github:index/getEnterprise:getEnterprise", args, &rv, opts...)
 	if err != nil {

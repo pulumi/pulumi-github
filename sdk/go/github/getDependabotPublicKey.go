@@ -7,10 +7,12 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 func GetDependabotPublicKey(ctx *pulumi.Context, args *GetDependabotPublicKeyArgs, opts ...pulumi.InvokeOption) (*GetDependabotPublicKeyResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetDependabotPublicKeyResult
 	err := ctx.Invoke("github:index/getDependabotPublicKey:getDependabotPublicKey", args, &rv, opts...)
 	if err != nil {

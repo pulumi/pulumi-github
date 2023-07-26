@@ -60,6 +60,13 @@ export class Membership extends pulumi.CustomResource {
         return obj['__pulumiType'] === Membership.__pulumiType;
     }
 
+    /**
+     * Defaults to `false`. If set to true,
+     * when this resource is destroyed, the member will not be removed
+     * from the organization. Instead, the member's role will be
+     * downgraded to 'member'.
+     */
+    public readonly downgradeOnDestroy!: pulumi.Output<boolean | undefined>;
     public /*out*/ readonly etag!: pulumi.Output<string>;
     /**
      * The role of the user within the organization.
@@ -84,6 +91,7 @@ export class Membership extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as MembershipState | undefined;
+            resourceInputs["downgradeOnDestroy"] = state ? state.downgradeOnDestroy : undefined;
             resourceInputs["etag"] = state ? state.etag : undefined;
             resourceInputs["role"] = state ? state.role : undefined;
             resourceInputs["username"] = state ? state.username : undefined;
@@ -92,6 +100,7 @@ export class Membership extends pulumi.CustomResource {
             if ((!args || args.username === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'username'");
             }
+            resourceInputs["downgradeOnDestroy"] = args ? args.downgradeOnDestroy : undefined;
             resourceInputs["role"] = args ? args.role : undefined;
             resourceInputs["username"] = args ? args.username : undefined;
             resourceInputs["etag"] = undefined /*out*/;
@@ -105,6 +114,13 @@ export class Membership extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Membership resources.
  */
 export interface MembershipState {
+    /**
+     * Defaults to `false`. If set to true,
+     * when this resource is destroyed, the member will not be removed
+     * from the organization. Instead, the member's role will be
+     * downgraded to 'member'.
+     */
+    downgradeOnDestroy?: pulumi.Input<boolean>;
     etag?: pulumi.Input<string>;
     /**
      * The role of the user within the organization.
@@ -121,6 +137,13 @@ export interface MembershipState {
  * The set of arguments for constructing a Membership resource.
  */
 export interface MembershipArgs {
+    /**
+     * Defaults to `false`. If set to true,
+     * when this resource is destroyed, the member will not be removed
+     * from the organization. Instead, the member's role will be
+     * downgraded to 'member'.
+     */
+    downgradeOnDestroy?: pulumi.Input<boolean>;
     /**
      * The role of the user within the organization.
      * Must be one of `member` or `admin`. Defaults to `member`.

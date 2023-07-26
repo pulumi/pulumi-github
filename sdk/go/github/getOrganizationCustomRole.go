@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -40,6 +41,7 @@ import (
 //
 // ```
 func LookupOrganizationCustomRole(ctx *pulumi.Context, args *LookupOrganizationCustomRoleArgs, opts ...pulumi.InvokeOption) (*LookupOrganizationCustomRoleResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupOrganizationCustomRoleResult
 	err := ctx.Invoke("github:index/getOrganizationCustomRole:getOrganizationCustomRole", args, &rv, opts...)
 	if err != nil {

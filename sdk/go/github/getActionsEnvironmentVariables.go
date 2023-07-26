@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -39,6 +40,7 @@ import (
 //
 // ```
 func GetActionsEnvironmentVariables(ctx *pulumi.Context, args *GetActionsEnvironmentVariablesArgs, opts ...pulumi.InvokeOption) (*GetActionsEnvironmentVariablesResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetActionsEnvironmentVariablesResult
 	err := ctx.Invoke("github:index/getActionsEnvironmentVariables:getActionsEnvironmentVariables", args, &rv, opts...)
 	if err != nil {

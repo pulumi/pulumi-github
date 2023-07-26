@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -172,6 +173,7 @@ func NewBranchProtectionV3(ctx *pulumi.Context,
 	if args.Repository == nil {
 		return nil, errors.New("invalid value for required argument 'Repository'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource BranchProtectionV3
 	err := ctx.RegisterResource("github:index/branchProtectionV3:BranchProtectionV3", name, args, &resource, opts...)
 	if err != nil {
