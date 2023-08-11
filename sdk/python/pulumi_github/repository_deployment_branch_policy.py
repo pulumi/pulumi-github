@@ -19,7 +19,7 @@ class RepositoryDeploymentBranchPolicyArgs:
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a RepositoryDeploymentBranchPolicy resource.
-        :param pulumi.Input[str] environment_name: The name of the environment. This environment must have `deployment_branch_policy.custom_branch_policies` set to true.
+        :param pulumi.Input[str] environment_name: The name of the environment. This environment must have `deployment_branch_policy.custom_branch_policies` set to true or a 404 error will be thrown.
         :param pulumi.Input[str] repository: The repository to create the policy in.
         :param pulumi.Input[str] name: The name pattern that branches must match in order to deploy to the environment.
         """
@@ -32,7 +32,7 @@ class RepositoryDeploymentBranchPolicyArgs:
     @pulumi.getter(name="environmentName")
     def environment_name(self) -> pulumi.Input[str]:
         """
-        The name of the environment. This environment must have `deployment_branch_policy.custom_branch_policies` set to true.
+        The name of the environment. This environment must have `deployment_branch_policy.custom_branch_policies` set to true or a 404 error will be thrown.
         """
         return pulumi.get(self, "environment_name")
 
@@ -74,7 +74,7 @@ class _RepositoryDeploymentBranchPolicyState:
                  repository: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering RepositoryDeploymentBranchPolicy resources.
-        :param pulumi.Input[str] environment_name: The name of the environment. This environment must have `deployment_branch_policy.custom_branch_policies` set to true.
+        :param pulumi.Input[str] environment_name: The name of the environment. This environment must have `deployment_branch_policy.custom_branch_policies` set to true or a 404 error will be thrown.
         :param pulumi.Input[str] etag: An etag representing the Branch object.
         :param pulumi.Input[str] name: The name pattern that branches must match in order to deploy to the environment.
         :param pulumi.Input[str] repository: The repository to create the policy in.
@@ -92,7 +92,7 @@ class _RepositoryDeploymentBranchPolicyState:
     @pulumi.getter(name="environmentName")
     def environment_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the environment. This environment must have `deployment_branch_policy.custom_branch_policies` set to true.
+        The name of the environment. This environment must have `deployment_branch_policy.custom_branch_policies` set to true or a 404 error will be thrown.
         """
         return pulumi.get(self, "environment_name")
 
@@ -156,15 +156,16 @@ class RepositoryDeploymentBranchPolicy(pulumi.CustomResource):
         import pulumi_github as github
 
         env = github.RepositoryEnvironment("env",
-            deployment_branch_policy=github.RepositoryEnvironmentDeploymentBranchPolicyArgs(
-                custom_branch_policies=True,
-                protected_branches=False,
-            ),
+            repository="my_repo",
             environment="my_env",
-            repository="my_repo")
+            deployment_branch_policy=github.RepositoryEnvironmentDeploymentBranchPolicyArgs(
+                protected_branches=False,
+                custom_branch_policies=True,
+            ))
         foo = github.RepositoryDeploymentBranchPolicy("foo",
+            repository="my_repo",
             environment_name="my_env",
-            repository="my_repo")
+            opts=pulumi.ResourceOptions(depends_on=[env]))
         ```
 
         ## Import
@@ -175,7 +176,7 @@ class RepositoryDeploymentBranchPolicy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] environment_name: The name of the environment. This environment must have `deployment_branch_policy.custom_branch_policies` set to true.
+        :param pulumi.Input[str] environment_name: The name of the environment. This environment must have `deployment_branch_policy.custom_branch_policies` set to true or a 404 error will be thrown.
         :param pulumi.Input[str] name: The name pattern that branches must match in order to deploy to the environment.
         :param pulumi.Input[str] repository: The repository to create the policy in.
         """
@@ -195,15 +196,16 @@ class RepositoryDeploymentBranchPolicy(pulumi.CustomResource):
         import pulumi_github as github
 
         env = github.RepositoryEnvironment("env",
-            deployment_branch_policy=github.RepositoryEnvironmentDeploymentBranchPolicyArgs(
-                custom_branch_policies=True,
-                protected_branches=False,
-            ),
+            repository="my_repo",
             environment="my_env",
-            repository="my_repo")
+            deployment_branch_policy=github.RepositoryEnvironmentDeploymentBranchPolicyArgs(
+                protected_branches=False,
+                custom_branch_policies=True,
+            ))
         foo = github.RepositoryDeploymentBranchPolicy("foo",
+            repository="my_repo",
             environment_name="my_env",
-            repository="my_repo")
+            opts=pulumi.ResourceOptions(depends_on=[env]))
         ```
 
         ## Import
@@ -268,7 +270,7 @@ class RepositoryDeploymentBranchPolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] environment_name: The name of the environment. This environment must have `deployment_branch_policy.custom_branch_policies` set to true.
+        :param pulumi.Input[str] environment_name: The name of the environment. This environment must have `deployment_branch_policy.custom_branch_policies` set to true or a 404 error will be thrown.
         :param pulumi.Input[str] etag: An etag representing the Branch object.
         :param pulumi.Input[str] name: The name pattern that branches must match in order to deploy to the environment.
         :param pulumi.Input[str] repository: The repository to create the policy in.
@@ -287,7 +289,7 @@ class RepositoryDeploymentBranchPolicy(pulumi.CustomResource):
     @pulumi.getter(name="environmentName")
     def environment_name(self) -> pulumi.Output[str]:
         """
-        The name of the environment. This environment must have `deployment_branch_policy.custom_branch_policies` set to true.
+        The name of the environment. This environment must have `deployment_branch_policy.custom_branch_policies` set to true or a 404 error will be thrown.
         """
         return pulumi.get(self, "environment_name")
 

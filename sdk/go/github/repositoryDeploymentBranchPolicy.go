@@ -28,21 +28,23 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := github.NewRepositoryEnvironment(ctx, "env", &github.RepositoryEnvironmentArgs{
-//				DeploymentBranchPolicy: &github.RepositoryEnvironmentDeploymentBranchPolicyArgs{
-//					CustomBranchPolicies: pulumi.Bool(true),
-//					ProtectedBranches:    pulumi.Bool(false),
-//				},
-//				Environment: pulumi.String("my_env"),
+//			env, err := github.NewRepositoryEnvironment(ctx, "env", &github.RepositoryEnvironmentArgs{
 //				Repository:  pulumi.String("my_repo"),
+//				Environment: pulumi.String("my_env"),
+//				DeploymentBranchPolicy: &github.RepositoryEnvironmentDeploymentBranchPolicyArgs{
+//					ProtectedBranches:    pulumi.Bool(false),
+//					CustomBranchPolicies: pulumi.Bool(true),
+//				},
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = github.NewRepositoryDeploymentBranchPolicy(ctx, "foo", &github.RepositoryDeploymentBranchPolicyArgs{
-//				EnvironmentName: pulumi.String("my_env"),
 //				Repository:      pulumi.String("my_repo"),
-//			})
+//				EnvironmentName: pulumi.String("my_env"),
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				env,
+//			}))
 //			if err != nil {
 //				return err
 //			}
@@ -62,7 +64,7 @@ import (
 type RepositoryDeploymentBranchPolicy struct {
 	pulumi.CustomResourceState
 
-	// The name of the environment. This environment must have `deployment_branch_policy.custom_branch_policies` set to true.
+	// The name of the environment. This environment must have `deployment_branch_policy.custom_branch_policies` set to true or a 404 error will be thrown.
 	EnvironmentName pulumi.StringOutput `pulumi:"environmentName"`
 	// An etag representing the Branch object.
 	Etag pulumi.StringOutput `pulumi:"etag"`
@@ -108,7 +110,7 @@ func GetRepositoryDeploymentBranchPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RepositoryDeploymentBranchPolicy resources.
 type repositoryDeploymentBranchPolicyState struct {
-	// The name of the environment. This environment must have `deployment_branch_policy.custom_branch_policies` set to true.
+	// The name of the environment. This environment must have `deployment_branch_policy.custom_branch_policies` set to true or a 404 error will be thrown.
 	EnvironmentName *string `pulumi:"environmentName"`
 	// An etag representing the Branch object.
 	Etag *string `pulumi:"etag"`
@@ -119,7 +121,7 @@ type repositoryDeploymentBranchPolicyState struct {
 }
 
 type RepositoryDeploymentBranchPolicyState struct {
-	// The name of the environment. This environment must have `deployment_branch_policy.custom_branch_policies` set to true.
+	// The name of the environment. This environment must have `deployment_branch_policy.custom_branch_policies` set to true or a 404 error will be thrown.
 	EnvironmentName pulumi.StringPtrInput
 	// An etag representing the Branch object.
 	Etag pulumi.StringPtrInput
@@ -134,7 +136,7 @@ func (RepositoryDeploymentBranchPolicyState) ElementType() reflect.Type {
 }
 
 type repositoryDeploymentBranchPolicyArgs struct {
-	// The name of the environment. This environment must have `deployment_branch_policy.custom_branch_policies` set to true.
+	// The name of the environment. This environment must have `deployment_branch_policy.custom_branch_policies` set to true or a 404 error will be thrown.
 	EnvironmentName string `pulumi:"environmentName"`
 	// The name pattern that branches must match in order to deploy to the environment.
 	Name *string `pulumi:"name"`
@@ -144,7 +146,7 @@ type repositoryDeploymentBranchPolicyArgs struct {
 
 // The set of arguments for constructing a RepositoryDeploymentBranchPolicy resource.
 type RepositoryDeploymentBranchPolicyArgs struct {
-	// The name of the environment. This environment must have `deployment_branch_policy.custom_branch_policies` set to true.
+	// The name of the environment. This environment must have `deployment_branch_policy.custom_branch_policies` set to true or a 404 error will be thrown.
 	EnvironmentName pulumi.StringInput
 	// The name pattern that branches must match in order to deploy to the environment.
 	Name pulumi.StringPtrInput
@@ -239,7 +241,7 @@ func (o RepositoryDeploymentBranchPolicyOutput) ToRepositoryDeploymentBranchPoli
 	return o
 }
 
-// The name of the environment. This environment must have `deployment_branch_policy.custom_branch_policies` set to true.
+// The name of the environment. This environment must have `deployment_branch_policy.custom_branch_policies` set to true or a 404 error will be thrown.
 func (o RepositoryDeploymentBranchPolicyOutput) EnvironmentName() pulumi.StringOutput {
 	return o.ApplyT(func(v *RepositoryDeploymentBranchPolicy) pulumi.StringOutput { return v.EnvironmentName }).(pulumi.StringOutput)
 }

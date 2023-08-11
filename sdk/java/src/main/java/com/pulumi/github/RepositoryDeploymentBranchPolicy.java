@@ -28,6 +28,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.github.inputs.RepositoryEnvironmentDeploymentBranchPolicyArgs;
  * import com.pulumi.github.RepositoryDeploymentBranchPolicy;
  * import com.pulumi.github.RepositoryDeploymentBranchPolicyArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -42,18 +43,20 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var env = new RepositoryEnvironment(&#34;env&#34;, RepositoryEnvironmentArgs.builder()        
- *             .deploymentBranchPolicy(RepositoryEnvironmentDeploymentBranchPolicyArgs.builder()
- *                 .customBranchPolicies(true)
- *                 .protectedBranches(false)
- *                 .build())
- *             .environment(&#34;my_env&#34;)
  *             .repository(&#34;my_repo&#34;)
+ *             .environment(&#34;my_env&#34;)
+ *             .deploymentBranchPolicy(RepositoryEnvironmentDeploymentBranchPolicyArgs.builder()
+ *                 .protectedBranches(false)
+ *                 .customBranchPolicies(true)
+ *                 .build())
  *             .build());
  * 
  *         var foo = new RepositoryDeploymentBranchPolicy(&#34;foo&#34;, RepositoryDeploymentBranchPolicyArgs.builder()        
- *             .environmentName(&#34;my_env&#34;)
  *             .repository(&#34;my_repo&#34;)
- *             .build());
+ *             .environmentName(&#34;my_env&#34;)
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(env)
+ *                 .build());
  * 
  *     }
  * }
@@ -69,14 +72,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="github:index/repositoryDeploymentBranchPolicy:RepositoryDeploymentBranchPolicy")
 public class RepositoryDeploymentBranchPolicy extends com.pulumi.resources.CustomResource {
     /**
-     * The name of the environment. This environment must have `deployment_branch_policy.custom_branch_policies` set to true.
+     * The name of the environment. This environment must have `deployment_branch_policy.custom_branch_policies` set to true or a 404 error will be thrown.
      * 
      */
     @Export(name="environmentName", type=String.class, parameters={})
     private Output<String> environmentName;
 
     /**
-     * @return The name of the environment. This environment must have `deployment_branch_policy.custom_branch_policies` set to true.
+     * @return The name of the environment. This environment must have `deployment_branch_policy.custom_branch_policies` set to true or a 404 error will be thrown.
      * 
      */
     public Output<String> environmentName() {

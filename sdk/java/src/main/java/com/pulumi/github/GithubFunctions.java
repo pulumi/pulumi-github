@@ -89,6 +89,8 @@ import com.pulumi.github.inputs.GetTeamPlainArgs;
 import com.pulumi.github.inputs.GetTreeArgs;
 import com.pulumi.github.inputs.GetTreePlainArgs;
 import com.pulumi.github.inputs.GetUserArgs;
+import com.pulumi.github.inputs.GetUserExternalIdentityArgs;
+import com.pulumi.github.inputs.GetUserExternalIdentityPlainArgs;
 import com.pulumi.github.inputs.GetUserPlainArgs;
 import com.pulumi.github.inputs.GetUsersArgs;
 import com.pulumi.github.inputs.GetUsersPlainArgs;
@@ -150,6 +152,7 @@ import com.pulumi.github.outputs.GetRestApiResult;
 import com.pulumi.github.outputs.GetSshKeysResult;
 import com.pulumi.github.outputs.GetTeamResult;
 import com.pulumi.github.outputs.GetTreeResult;
+import com.pulumi.github.outputs.GetUserExternalIdentityResult;
 import com.pulumi.github.outputs.GetUserResult;
 import com.pulumi.github.outputs.GetUsersResult;
 import com.pulumi.resources.InvokeArgs;
@@ -10921,6 +10924,158 @@ public final class GithubFunctions {
      */
     public static CompletableFuture<GetUserResult> getUserPlain(GetUserPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("github:index/getUser:getUser", TypeShape.of(GetUserResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve a specific organization member&#39;s SAML or SCIM user
+     * attributes.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetUserExternalIdentityArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var exampleUser = GithubFunctions.getUserExternalIdentity(GetUserExternalIdentityArgs.builder()
+     *             .username(&#34;example-user&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetUserExternalIdentityResult> getUserExternalIdentity(GetUserExternalIdentityArgs args) {
+        return getUserExternalIdentity(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve a specific organization member&#39;s SAML or SCIM user
+     * attributes.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetUserExternalIdentityArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var exampleUser = GithubFunctions.getUserExternalIdentity(GetUserExternalIdentityArgs.builder()
+     *             .username(&#34;example-user&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetUserExternalIdentityResult> getUserExternalIdentityPlain(GetUserExternalIdentityPlainArgs args) {
+        return getUserExternalIdentityPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve a specific organization member&#39;s SAML or SCIM user
+     * attributes.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetUserExternalIdentityArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var exampleUser = GithubFunctions.getUserExternalIdentity(GetUserExternalIdentityArgs.builder()
+     *             .username(&#34;example-user&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetUserExternalIdentityResult> getUserExternalIdentity(GetUserExternalIdentityArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("github:index/getUserExternalIdentity:getUserExternalIdentity", TypeShape.of(GetUserExternalIdentityResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve a specific organization member&#39;s SAML or SCIM user
+     * attributes.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetUserExternalIdentityArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var exampleUser = GithubFunctions.getUserExternalIdentity(GetUserExternalIdentityArgs.builder()
+     *             .username(&#34;example-user&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetUserExternalIdentityResult> getUserExternalIdentityPlain(GetUserExternalIdentityPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("github:index/getUserExternalIdentity:getUserExternalIdentity", TypeShape.of(GetUserExternalIdentityResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to retrieve information about multiple GitHub users at once.

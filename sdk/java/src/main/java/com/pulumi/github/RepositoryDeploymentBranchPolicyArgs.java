@@ -16,14 +16,14 @@ public final class RepositoryDeploymentBranchPolicyArgs extends com.pulumi.resou
     public static final RepositoryDeploymentBranchPolicyArgs Empty = new RepositoryDeploymentBranchPolicyArgs();
 
     /**
-     * The name of the environment. This environment must have `deployment_branch_policy.custom_branch_policies` set to true.
+     * The name of the environment. This environment must have `deployment_branch_policy.custom_branch_policies` set to true or a 404 error will be thrown.
      * 
      */
     @Import(name="environmentName", required=true)
     private Output<String> environmentName;
 
     /**
-     * @return The name of the environment. This environment must have `deployment_branch_policy.custom_branch_policies` set to true.
+     * @return The name of the environment. This environment must have `deployment_branch_policy.custom_branch_policies` set to true or a 404 error will be thrown.
      * 
      */
     public Output<String> environmentName() {
@@ -87,7 +87,7 @@ public final class RepositoryDeploymentBranchPolicyArgs extends com.pulumi.resou
         }
 
         /**
-         * @param environmentName The name of the environment. This environment must have `deployment_branch_policy.custom_branch_policies` set to true.
+         * @param environmentName The name of the environment. This environment must have `deployment_branch_policy.custom_branch_policies` set to true or a 404 error will be thrown.
          * 
          * @return builder
          * 
@@ -98,7 +98,7 @@ public final class RepositoryDeploymentBranchPolicyArgs extends com.pulumi.resou
         }
 
         /**
-         * @param environmentName The name of the environment. This environment must have `deployment_branch_policy.custom_branch_policies` set to true.
+         * @param environmentName The name of the environment. This environment must have `deployment_branch_policy.custom_branch_policies` set to true or a 404 error will be thrown.
          * 
          * @return builder
          * 

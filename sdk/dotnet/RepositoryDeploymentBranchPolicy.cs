@@ -24,19 +24,25 @@ namespace Pulumi.Github
     /// {
     ///     var env = new Github.RepositoryEnvironment("env", new()
     ///     {
+    ///         Repository = "my_repo",
+    ///         Environment = "my_env",
     ///         DeploymentBranchPolicy = new Github.Inputs.RepositoryEnvironmentDeploymentBranchPolicyArgs
     ///         {
-    ///             CustomBranchPolicies = true,
     ///             ProtectedBranches = false,
+    ///             CustomBranchPolicies = true,
     ///         },
-    ///         Environment = "my_env",
-    ///         Repository = "my_repo",
     ///     });
     /// 
     ///     var foo = new Github.RepositoryDeploymentBranchPolicy("foo", new()
     ///     {
-    ///         EnvironmentName = "my_env",
     ///         Repository = "my_repo",
+    ///         EnvironmentName = "my_env",
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             env,
+    ///         },
     ///     });
     /// 
     /// });
@@ -52,7 +58,7 @@ namespace Pulumi.Github
     public partial class RepositoryDeploymentBranchPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The name of the environment. This environment must have `deployment_branch_policy.custom_branch_policies` set to true.
+        /// The name of the environment. This environment must have `deployment_branch_policy.custom_branch_policies` set to true or a 404 error will be thrown.
         /// </summary>
         [Output("environmentName")]
         public Output<string> EnvironmentName { get; private set; } = null!;
@@ -122,7 +128,7 @@ namespace Pulumi.Github
     public sealed class RepositoryDeploymentBranchPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the environment. This environment must have `deployment_branch_policy.custom_branch_policies` set to true.
+        /// The name of the environment. This environment must have `deployment_branch_policy.custom_branch_policies` set to true or a 404 error will be thrown.
         /// </summary>
         [Input("environmentName", required: true)]
         public Input<string> EnvironmentName { get; set; } = null!;
@@ -148,7 +154,7 @@ namespace Pulumi.Github
     public sealed class RepositoryDeploymentBranchPolicyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the environment. This environment must have `deployment_branch_policy.custom_branch_policies` set to true.
+        /// The name of the environment. This environment must have `deployment_branch_policy.custom_branch_policies` set to true or a 404 error will be thrown.
         /// </summary>
         [Input("environmentName")]
         public Input<string>? EnvironmentName { get; set; }

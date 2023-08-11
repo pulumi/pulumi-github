@@ -74,9 +74,6 @@ namespace Pulumi.Github
     [GithubResourceType("github:index/teamMembers:TeamMembers")]
     public partial class TeamMembers : global::Pulumi.CustomResource
     {
-        [Output("etag")]
-        public Output<string> Etag { get; private set; } = null!;
-
         /// <summary>
         /// List of team members. See Members below for details.
         /// </summary>
@@ -161,9 +158,6 @@ namespace Pulumi.Github
 
     public sealed class TeamMembersState : global::Pulumi.ResourceArgs
     {
-        [Input("etag")]
-        public Input<string>? Etag { get; set; }
-
         [Input("members")]
         private InputList<Inputs.TeamMembersMemberGetArgs>? _members;
 

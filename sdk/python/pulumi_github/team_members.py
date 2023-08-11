@@ -54,7 +54,6 @@ class TeamMembersArgs:
 @pulumi.input_type
 class _TeamMembersState:
     def __init__(__self__, *,
-                 etag: Optional[pulumi.Input[str]] = None,
                  members: Optional[pulumi.Input[Sequence[pulumi.Input['TeamMembersMemberArgs']]]] = None,
                  team_id: Optional[pulumi.Input[str]] = None):
         """
@@ -62,21 +61,10 @@ class _TeamMembersState:
         :param pulumi.Input[Sequence[pulumi.Input['TeamMembersMemberArgs']]] members: List of team members. See Members below for details.
         :param pulumi.Input[str] team_id: The GitHub team id or the GitHub team slug
         """
-        if etag is not None:
-            pulumi.set(__self__, "etag", etag)
         if members is not None:
             pulumi.set(__self__, "members", members)
         if team_id is not None:
             pulumi.set(__self__, "team_id", team_id)
-
-    @property
-    @pulumi.getter
-    def etag(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "etag")
-
-    @etag.setter
-    def etag(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "etag", value)
 
     @property
     @pulumi.getter
@@ -236,7 +224,6 @@ class TeamMembers(pulumi.CustomResource):
             if team_id is None and not opts.urn:
                 raise TypeError("Missing required property 'team_id'")
             __props__.__dict__["team_id"] = team_id
-            __props__.__dict__["etag"] = None
         super(TeamMembers, __self__).__init__(
             'github:index/teamMembers:TeamMembers',
             resource_name,
@@ -247,7 +234,6 @@ class TeamMembers(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            etag: Optional[pulumi.Input[str]] = None,
             members: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TeamMembersMemberArgs']]]]] = None,
             team_id: Optional[pulumi.Input[str]] = None) -> 'TeamMembers':
         """
@@ -264,15 +250,9 @@ class TeamMembers(pulumi.CustomResource):
 
         __props__ = _TeamMembersState.__new__(_TeamMembersState)
 
-        __props__.__dict__["etag"] = etag
         __props__.__dict__["members"] = members
         __props__.__dict__["team_id"] = team_id
         return TeamMembers(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter
-    def etag(self) -> pulumi.Output[str]:
-        return pulumi.get(self, "etag")
 
     @property
     @pulumi.getter
