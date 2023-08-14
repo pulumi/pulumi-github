@@ -417,6 +417,11 @@ export const getUser: typeof import("./getUser").getUser = null as any;
 export const getUserOutput: typeof import("./getUser").getUserOutput = null as any;
 utilities.lazyLoad(exports, ["getUser","getUserOutput"], () => require("./getUser"));
 
+export { GetUserExternalIdentityArgs, GetUserExternalIdentityResult, GetUserExternalIdentityOutputArgs } from "./getUserExternalIdentity";
+export const getUserExternalIdentity: typeof import("./getUserExternalIdentity").getUserExternalIdentity = null as any;
+export const getUserExternalIdentityOutput: typeof import("./getUserExternalIdentity").getUserExternalIdentityOutput = null as any;
+utilities.lazyLoad(exports, ["getUserExternalIdentity","getUserExternalIdentityOutput"], () => require("./getUserExternalIdentity"));
+
 export { GetUsersArgs, GetUsersResult, GetUsersOutputArgs } from "./getUsers";
 export const getUsers: typeof import("./getUsers").getUsers = null as any;
 export const getUsersOutput: typeof import("./getUsers").getUsersOutput = null as any;

@@ -86,7 +86,6 @@ import (
 type TeamMembers struct {
 	pulumi.CustomResourceState
 
-	Etag pulumi.StringOutput `pulumi:"etag"`
 	// List of team members. See Members below for details.
 	Members TeamMembersMemberArrayOutput `pulumi:"members"`
 	// The GitHub team id or the GitHub team slug
@@ -129,7 +128,6 @@ func GetTeamMembers(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering TeamMembers resources.
 type teamMembersState struct {
-	Etag *string `pulumi:"etag"`
 	// List of team members. See Members below for details.
 	Members []TeamMembersMember `pulumi:"members"`
 	// The GitHub team id or the GitHub team slug
@@ -137,7 +135,6 @@ type teamMembersState struct {
 }
 
 type TeamMembersState struct {
-	Etag pulumi.StringPtrInput
 	// List of team members. See Members below for details.
 	Members TeamMembersMemberArrayInput
 	// The GitHub team id or the GitHub team slug
@@ -248,10 +245,6 @@ func (o TeamMembersOutput) ToTeamMembersOutput() TeamMembersOutput {
 
 func (o TeamMembersOutput) ToTeamMembersOutputWithContext(ctx context.Context) TeamMembersOutput {
 	return o
-}
-
-func (o TeamMembersOutput) Etag() pulumi.StringOutput {
-	return o.ApplyT(func(v *TeamMembers) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
 }
 
 // List of team members. See Members below for details.

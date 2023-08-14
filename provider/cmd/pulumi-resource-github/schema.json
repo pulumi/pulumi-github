@@ -14,19 +14,19 @@
     },
     "language": {
         "csharp": {
-            "compatibility": "tfbridge20",
-            "namespaces": null,
             "packageReferences": {
                 "Pulumi": "3.*"
-            }
+            },
+            "compatibility": "tfbridge20"
         },
         "go": {
-            "generateExtraInputTypes": true,
+            "importBasePath": "github.com/pulumi/pulumi-github/sdk/v5/go/github",
             "generateResourceContainerTypes": true,
-            "importBasePath": "github.com/pulumi/pulumi-github/sdk/v5/go/github"
+            "generateExtraInputTypes": true
         },
         "nodejs": {
-            "compatibility": "tfbridge20",
+            "packageDescription": "A Pulumi package for creating and managing github cloud resources.",
+            "readme": "\u003e This provider is a derived work of the [Terraform Provider](https://github.com/integrations/terraform-provider-github)\n\u003e distributed under [MPL 2.0](https://www.mozilla.org/en-US/MPL/2.0/). If you encounter a bug or missing feature,\n\u003e first check the [`pulumi-github` repo](https://github.com/pulumi/pulumi-github/issues); however, if that doesn't turn up anything,\n\u003e please consult the source [`terraform-provider-github` repo](https://github.com/integrations/terraform-provider-github/issues).",
             "dependencies": {
                 "@pulumi/pulumi": "^3.0.0"
             },
@@ -34,20 +34,16 @@
                 "@types/mime": "^2.0.0",
                 "@types/node": "^10.0.0"
             },
-            "disableUnionOutputTypes": true,
-            "packageDescription": "A Pulumi package for creating and managing github cloud resources.",
-            "packageName": "",
-            "pluginName": "",
-            "pluginVersion": "",
-            "readme": "\u003e This provider is a derived work of the [Terraform Provider](https://github.com/integrations/terraform-provider-github)\n\u003e distributed under [MPL 2.0](https://www.mozilla.org/en-US/MPL/2.0/). If you encounter a bug or missing feature,\n\u003e first check the [`pulumi-github` repo](https://github.com/pulumi/pulumi-github/issues); however, if that doesn't turn up anything,\n\u003e please consult the source [`terraform-provider-github` repo](https://github.com/integrations/terraform-provider-github/issues).",
-            "typescriptVersion": ""
+            "compatibility": "tfbridge20",
+            "disableUnionOutputTypes": true
         },
         "python": {
-            "compatibility": "tfbridge20",
-            "readme": "\u003e This provider is a derived work of the [Terraform Provider](https://github.com/integrations/terraform-provider-github)\n\u003e distributed under [MPL 2.0](https://www.mozilla.org/en-US/MPL/2.0/). If you encounter a bug or missing feature,\n\u003e first check the [`pulumi-github` repo](https://github.com/pulumi/pulumi-github/issues); however, if that doesn't turn up anything,\n\u003e please consult the source [`terraform-provider-github` repo](https://github.com/integrations/terraform-provider-github/issues).",
             "requires": {
                 "pulumi": "\u003e=3.0.0,\u003c4.0.0"
-            }
+            },
+            "readme": "\u003e This provider is a derived work of the [Terraform Provider](https://github.com/integrations/terraform-provider-github)\n\u003e distributed under [MPL 2.0](https://www.mozilla.org/en-US/MPL/2.0/). If you encounter a bug or missing feature,\n\u003e first check the [`pulumi-github` repo](https://github.com/pulumi/pulumi-github/issues); however, if that doesn't turn up anything,\n\u003e please consult the source [`terraform-provider-github` repo](https://github.com/integrations/terraform-provider-github/issues).",
+            "compatibility": "tfbridge20",
+            "pyproject": {}
         }
     },
     "config": {
@@ -6540,11 +6536,11 @@
             }
         },
         "github:index/repositoryDeploymentBranchPolicy:RepositoryDeploymentBranchPolicy": {
-            "description": "This resource allows you to create and manage deployment branch policies.\n\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\nconst env = new github.RepositoryEnvironment(\"env\", {\n    deploymentBranchPolicy: {\n        customBranchPolicies: true,\n        protectedBranches: false,\n    },\n    environment: \"my_env\",\n    repository: \"my_repo\",\n});\nconst foo = new github.RepositoryDeploymentBranchPolicy(\"foo\", {\n    environmentName: \"my_env\",\n    repository: \"my_repo\",\n});\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\nenv = github.RepositoryEnvironment(\"env\",\n    deployment_branch_policy=github.RepositoryEnvironmentDeploymentBranchPolicyArgs(\n        custom_branch_policies=True,\n        protected_branches=False,\n    ),\n    environment=\"my_env\",\n    repository=\"my_repo\")\nfoo = github.RepositoryDeploymentBranchPolicy(\"foo\",\n    environment_name=\"my_env\",\n    repository=\"my_repo\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Github = Pulumi.Github;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var env = new Github.RepositoryEnvironment(\"env\", new()\n    {\n        DeploymentBranchPolicy = new Github.Inputs.RepositoryEnvironmentDeploymentBranchPolicyArgs\n        {\n            CustomBranchPolicies = true,\n            ProtectedBranches = false,\n        },\n        Environment = \"my_env\",\n        Repository = \"my_repo\",\n    });\n\n    var foo = new Github.RepositoryDeploymentBranchPolicy(\"foo\", new()\n    {\n        EnvironmentName = \"my_env\",\n        Repository = \"my_repo\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-github/sdk/v5/go/github\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := github.NewRepositoryEnvironment(ctx, \"env\", \u0026github.RepositoryEnvironmentArgs{\n\t\t\tDeploymentBranchPolicy: \u0026github.RepositoryEnvironmentDeploymentBranchPolicyArgs{\n\t\t\t\tCustomBranchPolicies: pulumi.Bool(true),\n\t\t\t\tProtectedBranches:    pulumi.Bool(false),\n\t\t\t},\n\t\t\tEnvironment: pulumi.String(\"my_env\"),\n\t\t\tRepository:  pulumi.String(\"my_repo\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = github.NewRepositoryDeploymentBranchPolicy(ctx, \"foo\", \u0026github.RepositoryDeploymentBranchPolicyArgs{\n\t\t\tEnvironmentName: pulumi.String(\"my_env\"),\n\t\t\tRepository:      pulumi.String(\"my_repo\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.github.RepositoryEnvironment;\nimport com.pulumi.github.RepositoryEnvironmentArgs;\nimport com.pulumi.github.inputs.RepositoryEnvironmentDeploymentBranchPolicyArgs;\nimport com.pulumi.github.RepositoryDeploymentBranchPolicy;\nimport com.pulumi.github.RepositoryDeploymentBranchPolicyArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var env = new RepositoryEnvironment(\"env\", RepositoryEnvironmentArgs.builder()        \n            .deploymentBranchPolicy(RepositoryEnvironmentDeploymentBranchPolicyArgs.builder()\n                .customBranchPolicies(true)\n                .protectedBranches(false)\n                .build())\n            .environment(\"my_env\")\n            .repository(\"my_repo\")\n            .build());\n\n        var foo = new RepositoryDeploymentBranchPolicy(\"foo\", RepositoryDeploymentBranchPolicyArgs.builder()        \n            .environmentName(\"my_env\")\n            .repository(\"my_repo\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  env:\n    type: github:RepositoryEnvironment\n    properties:\n      deploymentBranchPolicy:\n        customBranchPolicies: true\n        protectedBranches: false\n      environment: my_env\n      repository: my_repo\n  foo:\n    type: github:RepositoryDeploymentBranchPolicy\n    properties:\n      environmentName: my_env\n      repository: my_repo\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\n\n\n```sh\n $ pulumi import github:index/repositoryDeploymentBranchPolicy:RepositoryDeploymentBranchPolicy foo repo:env:id\n```\n\n ",
+            "description": "This resource allows you to create and manage deployment branch policies.\n\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\nconst env = new github.RepositoryEnvironment(\"env\", {\n    repository: \"my_repo\",\n    environment: \"my_env\",\n    deploymentBranchPolicy: {\n        protectedBranches: false,\n        customBranchPolicies: true,\n    },\n});\nconst foo = new github.RepositoryDeploymentBranchPolicy(\"foo\", {\n    repository: \"my_repo\",\n    environmentName: \"my_env\",\n}, {\n    dependsOn: [env],\n});\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\nenv = github.RepositoryEnvironment(\"env\",\n    repository=\"my_repo\",\n    environment=\"my_env\",\n    deployment_branch_policy=github.RepositoryEnvironmentDeploymentBranchPolicyArgs(\n        protected_branches=False,\n        custom_branch_policies=True,\n    ))\nfoo = github.RepositoryDeploymentBranchPolicy(\"foo\",\n    repository=\"my_repo\",\n    environment_name=\"my_env\",\n    opts=pulumi.ResourceOptions(depends_on=[env]))\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Github = Pulumi.Github;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var env = new Github.RepositoryEnvironment(\"env\", new()\n    {\n        Repository = \"my_repo\",\n        Environment = \"my_env\",\n        DeploymentBranchPolicy = new Github.Inputs.RepositoryEnvironmentDeploymentBranchPolicyArgs\n        {\n            ProtectedBranches = false,\n            CustomBranchPolicies = true,\n        },\n    });\n\n    var foo = new Github.RepositoryDeploymentBranchPolicy(\"foo\", new()\n    {\n        Repository = \"my_repo\",\n        EnvironmentName = \"my_env\",\n    }, new CustomResourceOptions\n    {\n        DependsOn = new[]\n        {\n            env,\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-github/sdk/v5/go/github\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tenv, err := github.NewRepositoryEnvironment(ctx, \"env\", \u0026github.RepositoryEnvironmentArgs{\n\t\t\tRepository:  pulumi.String(\"my_repo\"),\n\t\t\tEnvironment: pulumi.String(\"my_env\"),\n\t\t\tDeploymentBranchPolicy: \u0026github.RepositoryEnvironmentDeploymentBranchPolicyArgs{\n\t\t\t\tProtectedBranches:    pulumi.Bool(false),\n\t\t\t\tCustomBranchPolicies: pulumi.Bool(true),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = github.NewRepositoryDeploymentBranchPolicy(ctx, \"foo\", \u0026github.RepositoryDeploymentBranchPolicyArgs{\n\t\t\tRepository:      pulumi.String(\"my_repo\"),\n\t\t\tEnvironmentName: pulumi.String(\"my_env\"),\n\t\t}, pulumi.DependsOn([]pulumi.Resource{\n\t\t\tenv,\n\t\t}))\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.github.RepositoryEnvironment;\nimport com.pulumi.github.RepositoryEnvironmentArgs;\nimport com.pulumi.github.inputs.RepositoryEnvironmentDeploymentBranchPolicyArgs;\nimport com.pulumi.github.RepositoryDeploymentBranchPolicy;\nimport com.pulumi.github.RepositoryDeploymentBranchPolicyArgs;\nimport com.pulumi.resources.CustomResourceOptions;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var env = new RepositoryEnvironment(\"env\", RepositoryEnvironmentArgs.builder()        \n            .repository(\"my_repo\")\n            .environment(\"my_env\")\n            .deploymentBranchPolicy(RepositoryEnvironmentDeploymentBranchPolicyArgs.builder()\n                .protectedBranches(false)\n                .customBranchPolicies(true)\n                .build())\n            .build());\n\n        var foo = new RepositoryDeploymentBranchPolicy(\"foo\", RepositoryDeploymentBranchPolicyArgs.builder()        \n            .repository(\"my_repo\")\n            .environmentName(\"my_env\")\n            .build(), CustomResourceOptions.builder()\n                .dependsOn(env)\n                .build());\n\n    }\n}\n```\n```yaml\nresources:\n  env:\n    type: github:RepositoryEnvironment\n    properties:\n      repository: my_repo\n      environment: my_env\n      deploymentBranchPolicy:\n        protectedBranches: false\n        customBranchPolicies: true\n  foo:\n    type: github:RepositoryDeploymentBranchPolicy\n    properties:\n      repository: my_repo\n      environmentName: my_env\n    options:\n      dependson:\n        - ${env}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\n\n\n```sh\n $ pulumi import github:index/repositoryDeploymentBranchPolicy:RepositoryDeploymentBranchPolicy foo repo:env:id\n```\n\n ",
             "properties": {
                 "environmentName": {
                     "type": "string",
-                    "description": "The name of the environment. This environment must have `deployment_branch_policy.custom_branch_policies` set to true.\n"
+                    "description": "The name of the environment. This environment must have `deployment_branch_policy.custom_branch_policies` set to true or a 404 error will be thrown.\n"
                 },
                 "etag": {
                     "type": "string",
@@ -6568,7 +6564,7 @@
             "inputProperties": {
                 "environmentName": {
                     "type": "string",
-                    "description": "The name of the environment. This environment must have `deployment_branch_policy.custom_branch_policies` set to true.\n",
+                    "description": "The name of the environment. This environment must have `deployment_branch_policy.custom_branch_policies` set to true or a 404 error will be thrown.\n",
                     "willReplaceOnChanges": true
                 },
                 "name": {
@@ -6590,7 +6586,7 @@
                 "properties": {
                     "environmentName": {
                         "type": "string",
-                        "description": "The name of the environment. This environment must have `deployment_branch_policy.custom_branch_policies` set to true.\n",
+                        "description": "The name of the environment. This environment must have `deployment_branch_policy.custom_branch_policies` set to true or a 404 error will be thrown.\n",
                         "willReplaceOnChanges": true
                     },
                     "etag": {
@@ -7604,9 +7600,6 @@
         "github:index/teamMembers:TeamMembers": {
             "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\n// Add a user to the organization\nconst membershipForSomeUser = new github.Membership(\"membershipForSomeUser\", {\n    username: \"SomeUser\",\n    role: \"member\",\n});\nconst membershipForAnotherUser = new github.Membership(\"membershipForAnotherUser\", {\n    username: \"AnotherUser\",\n    role: \"member\",\n});\nconst someTeam = new github.Team(\"someTeam\", {description: \"Some cool team\"});\nconst someTeamMembers = new github.TeamMembers(\"someTeamMembers\", {\n    teamId: someTeam.id,\n    members: [\n        {\n            username: \"SomeUser\",\n            role: \"maintainer\",\n        },\n        {\n            username: \"AnotherUser\",\n            role: \"member\",\n        },\n    ],\n});\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\n# Add a user to the organization\nmembership_for_some_user = github.Membership(\"membershipForSomeUser\",\n    username=\"SomeUser\",\n    role=\"member\")\nmembership_for_another_user = github.Membership(\"membershipForAnotherUser\",\n    username=\"AnotherUser\",\n    role=\"member\")\nsome_team = github.Team(\"someTeam\", description=\"Some cool team\")\nsome_team_members = github.TeamMembers(\"someTeamMembers\",\n    team_id=some_team.id,\n    members=[\n        github.TeamMembersMemberArgs(\n            username=\"SomeUser\",\n            role=\"maintainer\",\n        ),\n        github.TeamMembersMemberArgs(\n            username=\"AnotherUser\",\n            role=\"member\",\n        ),\n    ])\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Github = Pulumi.Github;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    // Add a user to the organization\n    var membershipForSomeUser = new Github.Membership(\"membershipForSomeUser\", new()\n    {\n        Username = \"SomeUser\",\n        Role = \"member\",\n    });\n\n    var membershipForAnotherUser = new Github.Membership(\"membershipForAnotherUser\", new()\n    {\n        Username = \"AnotherUser\",\n        Role = \"member\",\n    });\n\n    var someTeam = new Github.Team(\"someTeam\", new()\n    {\n        Description = \"Some cool team\",\n    });\n\n    var someTeamMembers = new Github.TeamMembers(\"someTeamMembers\", new()\n    {\n        TeamId = someTeam.Id,\n        Members = new[]\n        {\n            new Github.Inputs.TeamMembersMemberArgs\n            {\n                Username = \"SomeUser\",\n                Role = \"maintainer\",\n            },\n            new Github.Inputs.TeamMembersMemberArgs\n            {\n                Username = \"AnotherUser\",\n                Role = \"member\",\n            },\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-github/sdk/v5/go/github\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := github.NewMembership(ctx, \"membershipForSomeUser\", \u0026github.MembershipArgs{\n\t\t\tUsername: pulumi.String(\"SomeUser\"),\n\t\t\tRole:     pulumi.String(\"member\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = github.NewMembership(ctx, \"membershipForAnotherUser\", \u0026github.MembershipArgs{\n\t\t\tUsername: pulumi.String(\"AnotherUser\"),\n\t\t\tRole:     pulumi.String(\"member\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tsomeTeam, err := github.NewTeam(ctx, \"someTeam\", \u0026github.TeamArgs{\n\t\t\tDescription: pulumi.String(\"Some cool team\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = github.NewTeamMembers(ctx, \"someTeamMembers\", \u0026github.TeamMembersArgs{\n\t\t\tTeamId: someTeam.ID(),\n\t\t\tMembers: github.TeamMembersMemberArray{\n\t\t\t\t\u0026github.TeamMembersMemberArgs{\n\t\t\t\t\tUsername: pulumi.String(\"SomeUser\"),\n\t\t\t\t\tRole:     pulumi.String(\"maintainer\"),\n\t\t\t\t},\n\t\t\t\t\u0026github.TeamMembersMemberArgs{\n\t\t\t\t\tUsername: pulumi.String(\"AnotherUser\"),\n\t\t\t\t\tRole:     pulumi.String(\"member\"),\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.github.Membership;\nimport com.pulumi.github.MembershipArgs;\nimport com.pulumi.github.Team;\nimport com.pulumi.github.TeamArgs;\nimport com.pulumi.github.TeamMembers;\nimport com.pulumi.github.TeamMembersArgs;\nimport com.pulumi.github.inputs.TeamMembersMemberArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var membershipForSomeUser = new Membership(\"membershipForSomeUser\", MembershipArgs.builder()        \n            .username(\"SomeUser\")\n            .role(\"member\")\n            .build());\n\n        var membershipForAnotherUser = new Membership(\"membershipForAnotherUser\", MembershipArgs.builder()        \n            .username(\"AnotherUser\")\n            .role(\"member\")\n            .build());\n\n        var someTeam = new Team(\"someTeam\", TeamArgs.builder()        \n            .description(\"Some cool team\")\n            .build());\n\n        var someTeamMembers = new TeamMembers(\"someTeamMembers\", TeamMembersArgs.builder()        \n            .teamId(someTeam.id())\n            .members(            \n                TeamMembersMemberArgs.builder()\n                    .username(\"SomeUser\")\n                    .role(\"maintainer\")\n                    .build(),\n                TeamMembersMemberArgs.builder()\n                    .username(\"AnotherUser\")\n                    .role(\"member\")\n                    .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  # Add a user to the organization\n  membershipForSomeUser:\n    type: github:Membership\n    properties:\n      username: SomeUser\n      role: member\n  membershipForAnotherUser:\n    type: github:Membership\n    properties:\n      username: AnotherUser\n      role: member\n  someTeam:\n    type: github:Team\n    properties:\n      description: Some cool team\n  someTeamMembers:\n    type: github:TeamMembers\n    properties:\n      teamId: ${someTeam.id}\n      members:\n        - username: SomeUser\n          role: maintainer\n        - username: AnotherUser\n          role: member\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nGitHub Team Membership can be imported using the team ID `teamid` or team name, e.g.\n\n```sh\n $ pulumi import github:index/teamMembers:TeamMembers some_team 1234567\n```\n\n\n\n```sh\n $ pulumi import github:index/teamMembers:TeamMembers some_team Administrators\n```\n\n ",
             "properties": {
-                "etag": {
-                    "type": "string"
-                },
                 "members": {
                     "type": "array",
                     "items": {
@@ -7620,7 +7613,6 @@
                 }
             },
             "required": [
-                "etag",
                 "members",
                 "teamId"
             ],
@@ -7645,9 +7637,6 @@
             "stateInputs": {
                 "description": "Input properties used for looking up and filtering TeamMembers resources.\n",
                 "properties": {
-                    "etag": {
-                        "type": "string"
-                    },
                     "members": {
                         "type": "array",
                         "items": {
@@ -11352,6 +11341,61 @@
                     "sshKeys",
                     "suspendedAt",
                     "updatedAt",
+                    "username",
+                    "id"
+                ]
+            }
+        },
+        "github:index/getUserExternalIdentity:getUserExternalIdentity": {
+            "description": "Use this data source to retrieve a specific organization member's SAML or SCIM user\nattributes.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\nconst exampleUser = github.getUserExternalIdentity({\n    username: \"example-user\",\n});\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\nexample_user = github.get_user_external_identity(username=\"example-user\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Github = Pulumi.Github;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var exampleUser = Github.GetUserExternalIdentity.Invoke(new()\n    {\n        Username = \"example-user\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-github/sdk/v5/go/github\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := github.GetUserExternalIdentity(ctx, \u0026github.GetUserExternalIdentityArgs{\n\t\t\tUsername: \"example-user\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.github.GithubFunctions;\nimport com.pulumi.github.inputs.GetUserExternalIdentityArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var exampleUser = GithubFunctions.getUserExternalIdentity(GetUserExternalIdentityArgs.builder()\n            .username(\"example-user\")\n            .build());\n\n    }\n}\n```\n```yaml\nvariables:\n  exampleUser:\n    fn::invoke:\n      Function: github:getUserExternalIdentity\n      Arguments:\n        username: example-user\n```\n{{% /example %}}\n{{% /examples %}}",
+            "inputs": {
+                "description": "A collection of arguments for invoking getUserExternalIdentity.\n",
+                "properties": {
+                    "username": {
+                        "type": "string",
+                        "description": "The username of the member to fetch external identity for.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "username"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getUserExternalIdentity.\n",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "login": {
+                        "type": "string",
+                        "description": "The username of the GitHub user\n"
+                    },
+                    "samlIdentity": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "An Object containing the user's SAML data. This object will\nbe empty if the user is not managed by SAML.\n"
+                    },
+                    "scimIdentity": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "An Object contining the user's SCIM data. This object will\nbe empty if the user is not managed by SCIM.\n"
+                    },
+                    "username": {
+                        "type": "string",
+                        "description": "The member's SAML Username\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "login",
+                    "samlIdentity",
+                    "scimIdentity",
                     "username",
                     "id"
                 ]

@@ -101,6 +101,7 @@
         "getTeam.ts",
         "getTree.ts",
         "getUser.ts",
+        "getUserExternalIdentity.ts",
         "getUsers.ts",
         "index.ts",
         "issue.ts",

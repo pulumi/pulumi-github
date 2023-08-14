@@ -14,16 +14,18 @@ import * as utilities from "./utilities";
  * import * as github from "@pulumi/github";
  *
  * const env = new github.RepositoryEnvironment("env", {
- *     deploymentBranchPolicy: {
- *         customBranchPolicies: true,
- *         protectedBranches: false,
- *     },
- *     environment: "my_env",
  *     repository: "my_repo",
+ *     environment: "my_env",
+ *     deploymentBranchPolicy: {
+ *         protectedBranches: false,
+ *         customBranchPolicies: true,
+ *     },
  * });
  * const foo = new github.RepositoryDeploymentBranchPolicy("foo", {
- *     environmentName: "my_env",
  *     repository: "my_repo",
+ *     environmentName: "my_env",
+ * }, {
+ *     dependsOn: [env],
  * });
  * ```
  *
@@ -62,7 +64,7 @@ export class RepositoryDeploymentBranchPolicy extends pulumi.CustomResource {
     }
 
     /**
-     * The name of the environment. This environment must have `deployment_branch_policy.custom_branch_policies` set to true.
+     * The name of the environment. This environment must have `deployment_branch_policy.custom_branch_policies` set to true or a 404 error will be thrown.
      */
     public readonly environmentName!: pulumi.Output<string>;
     /**
@@ -118,7 +120,7 @@ export class RepositoryDeploymentBranchPolicy extends pulumi.CustomResource {
  */
 export interface RepositoryDeploymentBranchPolicyState {
     /**
-     * The name of the environment. This environment must have `deployment_branch_policy.custom_branch_policies` set to true.
+     * The name of the environment. This environment must have `deployment_branch_policy.custom_branch_policies` set to true or a 404 error will be thrown.
      */
     environmentName?: pulumi.Input<string>;
     /**
@@ -140,7 +142,7 @@ export interface RepositoryDeploymentBranchPolicyState {
  */
 export interface RepositoryDeploymentBranchPolicyArgs {
     /**
-     * The name of the environment. This environment must have `deployment_branch_policy.custom_branch_policies` set to true.
+     * The name of the environment. This environment must have `deployment_branch_policy.custom_branch_policies` set to true or a 404 error will be thrown.
      */
     environmentName: pulumi.Input<string>;
     /**

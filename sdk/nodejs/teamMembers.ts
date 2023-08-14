@@ -78,7 +78,6 @@ export class TeamMembers extends pulumi.CustomResource {
         return obj['__pulumiType'] === TeamMembers.__pulumiType;
     }
 
-    public /*out*/ readonly etag!: pulumi.Output<string>;
     /**
      * List of team members. See Members below for details.
      */
@@ -101,7 +100,6 @@ export class TeamMembers extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TeamMembersState | undefined;
-            resourceInputs["etag"] = state ? state.etag : undefined;
             resourceInputs["members"] = state ? state.members : undefined;
             resourceInputs["teamId"] = state ? state.teamId : undefined;
         } else {
@@ -114,7 +112,6 @@ export class TeamMembers extends pulumi.CustomResource {
             }
             resourceInputs["members"] = args ? args.members : undefined;
             resourceInputs["teamId"] = args ? args.teamId : undefined;
-            resourceInputs["etag"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(TeamMembers.__pulumiType, name, resourceInputs, opts);
@@ -125,7 +122,6 @@ export class TeamMembers extends pulumi.CustomResource {
  * Input properties used for looking up and filtering TeamMembers resources.
  */
 export interface TeamMembersState {
-    etag?: pulumi.Input<string>;
     /**
      * List of team members. See Members below for details.
      */

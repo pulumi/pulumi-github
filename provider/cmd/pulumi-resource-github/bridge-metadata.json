@@ -988,6 +988,9 @@
                     }
                 }
             },
+            "github_user_external_identity": {
+                "current": "github:index/getUserExternalIdentity:getUserExternalIdentity"
+            },
             "github_users": {
                 "current": "github:index/getUsers:getUsers",
                 "fields": {
@@ -1135,6 +1138,7 @@
             "github:index/getTeam:getTeam": "github_team",
             "github:index/getTree:getTree": "github_tree",
             "github:index/getUser:getUser": "github_user",
+            "github:index/getUserExternalIdentity:getUserExternalIdentity": "github_user_external_identity",
             "github:index/getUsers:getUsers": "github_users"
         },
         "renamedProperties": {
@@ -1705,6 +1709,10 @@
                 "sshKeys": "ssh_keys",
                 "suspendedAt": "suspended_at",
                 "updatedAt": "updated_at"
+            },
+            "github:index/getUserExternalIdentity:getUserExternalIdentity": {
+                "samlIdentity": "saml_identity",
+                "scimIdentity": "scim_identity"
             },
             "github:index/getUsers:getUsers": {
                 "nodeIds": "node_ids",

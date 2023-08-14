@@ -17,13 +17,6 @@ public final class TeamMembersState extends com.pulumi.resources.ResourceArgs {
 
     public static final TeamMembersState Empty = new TeamMembersState();
 
-    @Import(name="etag")
-    private @Nullable Output<String> etag;
-
-    public Optional<Output<String>> etag() {
-        return Optional.ofNullable(this.etag);
-    }
-
     /**
      * List of team members. See Members below for details.
      * 
@@ -57,7 +50,6 @@ public final class TeamMembersState extends com.pulumi.resources.ResourceArgs {
     private TeamMembersState() {}
 
     private TeamMembersState(TeamMembersState $) {
-        this.etag = $.etag;
         this.members = $.members;
         this.teamId = $.teamId;
     }
@@ -78,15 +70,6 @@ public final class TeamMembersState extends com.pulumi.resources.ResourceArgs {
 
         public Builder(TeamMembersState defaults) {
             $ = new TeamMembersState(Objects.requireNonNull(defaults));
-        }
-
-        public Builder etag(@Nullable Output<String> etag) {
-            $.etag = etag;
-            return this;
-        }
-
-        public Builder etag(String etag) {
-            return etag(Output.of(etag));
         }
 
         /**

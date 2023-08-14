@@ -89,12 +89,6 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="github:index/teamMembers:TeamMembers")
 public class TeamMembers extends com.pulumi.resources.CustomResource {
-    @Export(name="etag", type=String.class, parameters={})
-    private Output<String> etag;
-
-    public Output<String> etag() {
-        return this.etag;
-    }
     /**
      * List of team members. See Members below for details.
      * 

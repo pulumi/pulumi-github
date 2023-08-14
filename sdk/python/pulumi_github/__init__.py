@@ -91,6 +91,7 @@ from .get_ssh_keys import *
 from .get_team import *
 from .get_tree import *
 from .get_user import *
+from .get_user_external_identity import *
 from .get_users import *
 from .issue import *
 from .issue_label import *
