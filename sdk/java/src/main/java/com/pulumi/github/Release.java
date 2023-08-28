@@ -119,7 +119,7 @@ public class Release extends com.pulumi.resources.CustomResource {
      * Text describing the contents of the tag.
      * 
      */
-    @Export(name="body", type=String.class, parameters={})
+    @Export(name="body", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> body;
 
     /**
@@ -133,7 +133,7 @@ public class Release extends com.pulumi.resources.CustomResource {
      * If specified, a discussion of the specified category is created and linked to the release. The value must be a category that already exists in the repository. For more information, see [Managing categories for discussions in your repository](https://docs.github.com/discussions/managing-discussions-for-your-community/managing-categories-for-discussions-in-your-repository).
      * 
      */
-    @Export(name="discussionCategoryName", type=String.class, parameters={})
+    @Export(name="discussionCategoryName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> discussionCategoryName;
 
     /**
@@ -147,7 +147,7 @@ public class Release extends com.pulumi.resources.CustomResource {
      * Set to `false` to create a published release.
      * 
      */
-    @Export(name="draft", type=Boolean.class, parameters={})
+    @Export(name="draft", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> draft;
 
     /**
@@ -157,7 +157,7 @@ public class Release extends com.pulumi.resources.CustomResource {
     public Output<Optional<Boolean>> draft() {
         return Codegen.optional(this.draft);
     }
-    @Export(name="etag", type=String.class, parameters={})
+    @Export(name="etag", refs={String.class}, tree="[0]")
     private Output<String> etag;
 
     public Output<String> etag() {
@@ -167,7 +167,7 @@ public class Release extends com.pulumi.resources.CustomResource {
      * Set to `true` to automatically generate the name and body for this release. If `name` is specified, the specified `name` will be used; otherwise, a name will be automatically generated. If `body` is specified, the `body` will be pre-pended to the automatically generated notes.
      * 
      */
-    @Export(name="generateReleaseNotes", type=Boolean.class, parameters={})
+    @Export(name="generateReleaseNotes", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> generateReleaseNotes;
 
     /**
@@ -181,7 +181,7 @@ public class Release extends com.pulumi.resources.CustomResource {
      * The name of the release.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -195,7 +195,7 @@ public class Release extends com.pulumi.resources.CustomResource {
      * Set to `false` to identify the release as a full release.
      * 
      */
-    @Export(name="prerelease", type=Boolean.class, parameters={})
+    @Export(name="prerelease", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> prerelease;
 
     /**
@@ -209,7 +209,7 @@ public class Release extends com.pulumi.resources.CustomResource {
      * The name of the repository.
      * 
      */
-    @Export(name="repository", type=String.class, parameters={})
+    @Export(name="repository", refs={String.class}, tree="[0]")
     private Output<String> repository;
 
     /**
@@ -223,7 +223,7 @@ public class Release extends com.pulumi.resources.CustomResource {
      * The name of the tag.
      * 
      */
-    @Export(name="tagName", type=String.class, parameters={})
+    @Export(name="tagName", refs={String.class}, tree="[0]")
     private Output<String> tagName;
 
     /**
@@ -237,7 +237,7 @@ public class Release extends com.pulumi.resources.CustomResource {
      * The branch name or commit SHA the tag is created from. Defaults to the default branch of the repository.
      * 
      */
-    @Export(name="targetCommitish", type=String.class, parameters={})
+    @Export(name="targetCommitish", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> targetCommitish;
 
     /**

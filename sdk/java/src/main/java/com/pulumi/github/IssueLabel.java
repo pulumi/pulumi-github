@@ -61,7 +61,7 @@ public class IssueLabel extends com.pulumi.resources.CustomResource {
      * A 6 character hex code, **without the leading #**, identifying the color of the label.
      * 
      */
-    @Export(name="color", type=String.class, parameters={})
+    @Export(name="color", refs={String.class}, tree="[0]")
     private Output<String> color;
 
     /**
@@ -75,7 +75,7 @@ public class IssueLabel extends com.pulumi.resources.CustomResource {
      * A short description of the label.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -85,7 +85,7 @@ public class IssueLabel extends com.pulumi.resources.CustomResource {
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
-    @Export(name="etag", type=String.class, parameters={})
+    @Export(name="etag", refs={String.class}, tree="[0]")
     private Output<String> etag;
 
     public Output<String> etag() {
@@ -95,7 +95,7 @@ public class IssueLabel extends com.pulumi.resources.CustomResource {
      * The name of the label.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -109,7 +109,7 @@ public class IssueLabel extends com.pulumi.resources.CustomResource {
      * The GitHub repository
      * 
      */
-    @Export(name="repository", type=String.class, parameters={})
+    @Export(name="repository", refs={String.class}, tree="[0]")
     private Output<String> repository;
 
     /**
@@ -123,7 +123,7 @@ public class IssueLabel extends com.pulumi.resources.CustomResource {
      * The URL to the issue label
      * 
      */
-    @Export(name="url", type=String.class, parameters={})
+    @Export(name="url", refs={String.class}, tree="[0]")
     private Output<String> url;
 
     /**

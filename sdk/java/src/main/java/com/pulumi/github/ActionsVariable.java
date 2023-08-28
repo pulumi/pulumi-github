@@ -64,7 +64,7 @@ public class ActionsVariable extends com.pulumi.resources.CustomResource {
      * Date of actions_variable creation.
      * 
      */
-    @Export(name="createdAt", type=String.class, parameters={})
+    @Export(name="createdAt", refs={String.class}, tree="[0]")
     private Output<String> createdAt;
 
     /**
@@ -78,7 +78,7 @@ public class ActionsVariable extends com.pulumi.resources.CustomResource {
      * Name of the repository
      * 
      */
-    @Export(name="repository", type=String.class, parameters={})
+    @Export(name="repository", refs={String.class}, tree="[0]")
     private Output<String> repository;
 
     /**
@@ -92,7 +92,7 @@ public class ActionsVariable extends com.pulumi.resources.CustomResource {
      * Date of actions_variable update.
      * 
      */
-    @Export(name="updatedAt", type=String.class, parameters={})
+    @Export(name="updatedAt", refs={String.class}, tree="[0]")
     private Output<String> updatedAt;
 
     /**
@@ -106,7 +106,7 @@ public class ActionsVariable extends com.pulumi.resources.CustomResource {
      * Value of the variable
      * 
      */
-    @Export(name="value", type=String.class, parameters={})
+    @Export(name="value", refs={String.class}, tree="[0]")
     private Output<String> value;
 
     /**
@@ -120,7 +120,7 @@ public class ActionsVariable extends com.pulumi.resources.CustomResource {
      * Name of the variable
      * 
      */
-    @Export(name="variableName", type=String.class, parameters={})
+    @Export(name="variableName", refs={String.class}, tree="[0]")
     private Output<String> variableName;
 
     /**

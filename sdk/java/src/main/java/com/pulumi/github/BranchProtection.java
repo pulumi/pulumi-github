@@ -114,7 +114,7 @@ public class BranchProtection extends com.pulumi.resources.CustomResource {
      * Boolean, setting this to `true` to allow the branch to be deleted.
      * 
      */
-    @Export(name="allowsDeletions", type=Boolean.class, parameters={})
+    @Export(name="allowsDeletions", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> allowsDeletions;
 
     /**
@@ -128,7 +128,7 @@ public class BranchProtection extends com.pulumi.resources.CustomResource {
      * Boolean, setting this to `true` to allow force pushes on the branch.
      * 
      */
-    @Export(name="allowsForcePushes", type=Boolean.class, parameters={})
+    @Export(name="allowsForcePushes", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> allowsForcePushes;
 
     /**
@@ -142,7 +142,7 @@ public class BranchProtection extends com.pulumi.resources.CustomResource {
      * Boolean, setting this to `true` to block creating the branch.
      * 
      */
-    @Export(name="blocksCreations", type=Boolean.class, parameters={})
+    @Export(name="blocksCreations", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> blocksCreations;
 
     /**
@@ -156,7 +156,7 @@ public class BranchProtection extends com.pulumi.resources.CustomResource {
      * Boolean, setting this to `true` enforces status checks for repository administrators.
      * 
      */
-    @Export(name="enforceAdmins", type=Boolean.class, parameters={})
+    @Export(name="enforceAdmins", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enforceAdmins;
 
     /**
@@ -170,7 +170,7 @@ public class BranchProtection extends com.pulumi.resources.CustomResource {
      * The list of actor Names/IDs that are allowed to bypass force push restrictions. Actor names must either begin with a &#34;/&#34; for users or the organization name followed by a &#34;/&#34; for teams.
      * 
      */
-    @Export(name="forcePushBypassers", type=List.class, parameters={String.class})
+    @Export(name="forcePushBypassers", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> forcePushBypassers;
 
     /**
@@ -184,7 +184,7 @@ public class BranchProtection extends com.pulumi.resources.CustomResource {
      * Boolean, Setting this to `true` will make the branch read-only and preventing any pushes to it. Defaults to `false`
      * 
      */
-    @Export(name="lockBranch", type=Boolean.class, parameters={})
+    @Export(name="lockBranch", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> lockBranch;
 
     /**
@@ -198,7 +198,7 @@ public class BranchProtection extends com.pulumi.resources.CustomResource {
      * Identifies the protection rule pattern.
      * 
      */
-    @Export(name="pattern", type=String.class, parameters={})
+    @Export(name="pattern", refs={String.class}, tree="[0]")
     private Output<String> pattern;
 
     /**
@@ -212,7 +212,7 @@ public class BranchProtection extends com.pulumi.resources.CustomResource {
      * The list of actor Names/IDs that may push to the branch. Actor names must either begin with a &#34;/&#34; for users or the organization name followed by a &#34;/&#34; for teams.
      * 
      */
-    @Export(name="pushRestrictions", type=List.class, parameters={String.class})
+    @Export(name="pushRestrictions", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> pushRestrictions;
 
     /**
@@ -226,7 +226,7 @@ public class BranchProtection extends com.pulumi.resources.CustomResource {
      * The name or node ID of the repository associated with this branch protection rule.
      * 
      */
-    @Export(name="repositoryId", type=String.class, parameters={})
+    @Export(name="repositoryId", refs={String.class}, tree="[0]")
     private Output<String> repositoryId;
 
     /**
@@ -240,7 +240,7 @@ public class BranchProtection extends com.pulumi.resources.CustomResource {
      * Boolean, setting this to `true` requires all conversations on code must be resolved before a pull request can be merged.
      * 
      */
-    @Export(name="requireConversationResolution", type=Boolean.class, parameters={})
+    @Export(name="requireConversationResolution", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> requireConversationResolution;
 
     /**
@@ -254,7 +254,7 @@ public class BranchProtection extends com.pulumi.resources.CustomResource {
      * Boolean, setting this to `true` requires all commits to be signed with GPG.
      * 
      */
-    @Export(name="requireSignedCommits", type=Boolean.class, parameters={})
+    @Export(name="requireSignedCommits", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> requireSignedCommits;
 
     /**
@@ -268,7 +268,7 @@ public class BranchProtection extends com.pulumi.resources.CustomResource {
      * Boolean, setting this to `true` enforces a linear commit Git history, which prevents anyone from pushing merge commits to a branch
      * 
      */
-    @Export(name="requiredLinearHistory", type=Boolean.class, parameters={})
+    @Export(name="requiredLinearHistory", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> requiredLinearHistory;
 
     /**
@@ -282,7 +282,7 @@ public class BranchProtection extends com.pulumi.resources.CustomResource {
      * Enforce restrictions for pull request reviews. See Required Pull Request Reviews below for details.
      * 
      */
-    @Export(name="requiredPullRequestReviews", type=List.class, parameters={BranchProtectionRequiredPullRequestReview.class})
+    @Export(name="requiredPullRequestReviews", refs={List.class,BranchProtectionRequiredPullRequestReview.class}, tree="[0,1]")
     private Output</* @Nullable */ List<BranchProtectionRequiredPullRequestReview>> requiredPullRequestReviews;
 
     /**
@@ -296,7 +296,7 @@ public class BranchProtection extends com.pulumi.resources.CustomResource {
      * Enforce restrictions for required status checks. See Required Status Checks below for details.
      * 
      */
-    @Export(name="requiredStatusChecks", type=List.class, parameters={BranchProtectionRequiredStatusCheck.class})
+    @Export(name="requiredStatusChecks", refs={List.class,BranchProtectionRequiredStatusCheck.class}, tree="[0,1]")
     private Output</* @Nullable */ List<BranchProtectionRequiredStatusCheck>> requiredStatusChecks;
 
     /**

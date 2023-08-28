@@ -102,6 +102,26 @@ namespace Pulumi.Github
     public sealed class GetOrganizationResult
     {
         /// <summary>
+        /// Whether advanced security is enabled for new repositories.
+        /// </summary>
+        public readonly bool AdvancedSecurityEnabledForNewRepositories;
+        /// <summary>
+        /// Default permission level members have for organization repositories.
+        /// </summary>
+        public readonly string DefaultRepositoryPermission;
+        /// <summary>
+        /// Whether Dependabot alerts is automatically enabled for new repositories.
+        /// </summary>
+        public readonly bool DependabotAlertsEnabledForNewRepositories;
+        /// <summary>
+        /// Whether Dependabot security updates is automatically enabled for new repositories.
+        /// </summary>
+        public readonly bool DependabotSecurityUpdatesEnabledForNewRepositories;
+        /// <summary>
+        /// Whether dependency graph is automatically enabled for new repositories.
+        /// </summary>
+        public readonly bool DependencyGraphEnabledForNewRepositories;
+        /// <summary>
         /// The organization account description
         /// </summary>
         public readonly string Description;
@@ -117,6 +137,42 @@ namespace Pulumi.Github
         /// **Deprecated**: use `users` instead by replacing `github_organization.example.members` to `github_organization.example.users[*].login` which will give you the same value, expect this field to be removed in next major version
         /// </summary>
         public readonly ImmutableArray<string> Members;
+        /// <summary>
+        /// The type of repository allowed to be created by members of the organization. Can be one of `ALL`, `PUBLIC`, `PRIVATE`, `NONE`.
+        /// </summary>
+        public readonly string MembersAllowedRepositoryCreationType;
+        /// <summary>
+        /// Whether organization members can create internal repositories.
+        /// </summary>
+        public readonly bool MembersCanCreateInternalRepositories;
+        /// <summary>
+        /// Whether organization members can create pages sites.
+        /// </summary>
+        public readonly bool MembersCanCreatePages;
+        /// <summary>
+        /// Whether organization members can create private pages sites.
+        /// </summary>
+        public readonly bool MembersCanCreatePrivatePages;
+        /// <summary>
+        /// Whether organization members can create private repositories.
+        /// </summary>
+        public readonly bool MembersCanCreatePrivateRepositories;
+        /// <summary>
+        /// Whether organization members can create public pages sites.
+        /// </summary>
+        public readonly bool MembersCanCreatePublicPages;
+        /// <summary>
+        /// Whether organization members can create public repositories.
+        /// </summary>
+        public readonly bool MembersCanCreatePublicRepositories;
+        /// <summary>
+        /// Whether non-admin organization members can create repositories.
+        /// </summary>
+        public readonly bool MembersCanCreateRepositories;
+        /// <summary>
+        /// Whether organization members can create private repository forks.
+        /// </summary>
+        public readonly bool MembersCanForkPrivateRepositories;
         /// <summary>
         /// The organization's public profile name
         /// </summary>
@@ -138,12 +194,38 @@ namespace Pulumi.Github
         /// </summary>
         public readonly ImmutableArray<string> Repositories;
         /// <summary>
+        /// Whether secret scanning is automatically enabled for new repositories.
+        /// </summary>
+        public readonly bool SecretScanningEnabledForNewRepositories;
+        /// <summary>
+        /// Whether secret scanning push protection is automatically enabled for new repositories.
+        /// </summary>
+        public readonly bool SecretScanningPushProtectionEnabledForNewRepositories;
+        /// <summary>
+        /// Whether two-factor authentication is required for all members of the organization.
+        /// </summary>
+        public readonly bool TwoFactorRequirementEnabled;
+        /// <summary>
         /// (`list`) A list with the members of the organization with following fields:
         /// </summary>
         public readonly ImmutableArray<ImmutableDictionary<string, string>> Users;
+        /// <summary>
+        /// Whether organization members must sign all commits.
+        /// </summary>
+        public readonly bool WebCommitSignoffRequired;
 
         [OutputConstructor]
         private GetOrganizationResult(
+            bool advancedSecurityEnabledForNewRepositories,
+
+            string defaultRepositoryPermission,
+
+            bool dependabotAlertsEnabledForNewRepositories,
+
+            bool dependabotSecurityUpdatesEnabledForNewRepositories,
+
+            bool dependencyGraphEnabledForNewRepositories,
+
             string description,
 
             string id,
@@ -151,6 +233,24 @@ namespace Pulumi.Github
             string login,
 
             ImmutableArray<string> members,
+
+            string membersAllowedRepositoryCreationType,
+
+            bool membersCanCreateInternalRepositories,
+
+            bool membersCanCreatePages,
+
+            bool membersCanCreatePrivatePages,
+
+            bool membersCanCreatePrivateRepositories,
+
+            bool membersCanCreatePublicPages,
+
+            bool membersCanCreatePublicRepositories,
+
+            bool membersCanCreateRepositories,
+
+            bool membersCanForkPrivateRepositories,
 
             string name,
 
@@ -162,18 +262,44 @@ namespace Pulumi.Github
 
             ImmutableArray<string> repositories,
 
-            ImmutableArray<ImmutableDictionary<string, string>> users)
+            bool secretScanningEnabledForNewRepositories,
+
+            bool secretScanningPushProtectionEnabledForNewRepositories,
+
+            bool twoFactorRequirementEnabled,
+
+            ImmutableArray<ImmutableDictionary<string, string>> users,
+
+            bool webCommitSignoffRequired)
         {
+            AdvancedSecurityEnabledForNewRepositories = advancedSecurityEnabledForNewRepositories;
+            DefaultRepositoryPermission = defaultRepositoryPermission;
+            DependabotAlertsEnabledForNewRepositories = dependabotAlertsEnabledForNewRepositories;
+            DependabotSecurityUpdatesEnabledForNewRepositories = dependabotSecurityUpdatesEnabledForNewRepositories;
+            DependencyGraphEnabledForNewRepositories = dependencyGraphEnabledForNewRepositories;
             Description = description;
             Id = id;
             Login = login;
             Members = members;
+            MembersAllowedRepositoryCreationType = membersAllowedRepositoryCreationType;
+            MembersCanCreateInternalRepositories = membersCanCreateInternalRepositories;
+            MembersCanCreatePages = membersCanCreatePages;
+            MembersCanCreatePrivatePages = membersCanCreatePrivatePages;
+            MembersCanCreatePrivateRepositories = membersCanCreatePrivateRepositories;
+            MembersCanCreatePublicPages = membersCanCreatePublicPages;
+            MembersCanCreatePublicRepositories = membersCanCreatePublicRepositories;
+            MembersCanCreateRepositories = membersCanCreateRepositories;
+            MembersCanForkPrivateRepositories = membersCanForkPrivateRepositories;
             Name = name;
             NodeId = nodeId;
             Orgname = orgname;
             Plan = plan;
             Repositories = repositories;
+            SecretScanningEnabledForNewRepositories = secretScanningEnabledForNewRepositories;
+            SecretScanningPushProtectionEnabledForNewRepositories = secretScanningPushProtectionEnabledForNewRepositories;
+            TwoFactorRequirementEnabled = twoFactorRequirementEnabled;
             Users = users;
+            WebCommitSignoffRequired = webCommitSignoffRequired;
         }
     }
 }

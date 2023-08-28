@@ -87,7 +87,7 @@ public class TeamSettings extends com.pulumi.resources.CustomResource {
      * The settings for delegating code reviews to individuals on behalf of the team. If this block is present, even without any fields, then review request delegation will be enabled for the team. See GitHub Review Request Delegation below for details. See [GitHub&#39;s documentation](https://docs.github.com/en/organizations/organizing-members-into-teams/managing-code-review-settings-for-your-team#configuring-team-notifications) for more configuration details.
      * 
      */
-    @Export(name="reviewRequestDelegation", type=TeamSettingsReviewRequestDelegation.class, parameters={})
+    @Export(name="reviewRequestDelegation", refs={TeamSettingsReviewRequestDelegation.class}, tree="[0]")
     private Output</* @Nullable */ TeamSettingsReviewRequestDelegation> reviewRequestDelegation;
 
     /**
@@ -101,7 +101,7 @@ public class TeamSettings extends com.pulumi.resources.CustomResource {
      * The GitHub team id or the GitHub team slug
      * 
      */
-    @Export(name="teamId", type=String.class, parameters={})
+    @Export(name="teamId", refs={String.class}, tree="[0]")
     private Output<String> teamId;
 
     /**
@@ -115,7 +115,7 @@ public class TeamSettings extends com.pulumi.resources.CustomResource {
      * The slug of the Team within the Organization.
      * 
      */
-    @Export(name="teamSlug", type=String.class, parameters={})
+    @Export(name="teamSlug", refs={String.class}, tree="[0]")
     private Output<String> teamSlug;
 
     /**
@@ -129,7 +129,7 @@ public class TeamSettings extends com.pulumi.resources.CustomResource {
      * The unique ID of the Team on GitHub. Corresponds to the ID of the &#39;github_team_settings&#39; resource.
      * 
      */
-    @Export(name="teamUid", type=String.class, parameters={})
+    @Export(name="teamUid", refs={String.class}, tree="[0]")
     private Output<String> teamUid;
 
     /**

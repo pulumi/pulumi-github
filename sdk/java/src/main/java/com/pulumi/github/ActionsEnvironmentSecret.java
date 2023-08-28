@@ -109,7 +109,7 @@ public class ActionsEnvironmentSecret extends com.pulumi.resources.CustomResourc
      * Date of actions_environment_secret creation.
      * 
      */
-    @Export(name="createdAt", type=String.class, parameters={})
+    @Export(name="createdAt", refs={String.class}, tree="[0]")
     private Output<String> createdAt;
 
     /**
@@ -123,7 +123,7 @@ public class ActionsEnvironmentSecret extends com.pulumi.resources.CustomResourc
      * Encrypted value of the secret using the GitHub public key in Base64 format.
      * 
      */
-    @Export(name="encryptedValue", type=String.class, parameters={})
+    @Export(name="encryptedValue", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> encryptedValue;
 
     /**
@@ -137,7 +137,7 @@ public class ActionsEnvironmentSecret extends com.pulumi.resources.CustomResourc
      * Name of the environment.
      * 
      */
-    @Export(name="environment", type=String.class, parameters={})
+    @Export(name="environment", refs={String.class}, tree="[0]")
     private Output<String> environment;
 
     /**
@@ -151,7 +151,7 @@ public class ActionsEnvironmentSecret extends com.pulumi.resources.CustomResourc
      * Plaintext value of the secret to be encrypted.
      * 
      */
-    @Export(name="plaintextValue", type=String.class, parameters={})
+    @Export(name="plaintextValue", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> plaintextValue;
 
     /**
@@ -165,7 +165,7 @@ public class ActionsEnvironmentSecret extends com.pulumi.resources.CustomResourc
      * Name of the repository.
      * 
      */
-    @Export(name="repository", type=String.class, parameters={})
+    @Export(name="repository", refs={String.class}, tree="[0]")
     private Output<String> repository;
 
     /**
@@ -179,7 +179,7 @@ public class ActionsEnvironmentSecret extends com.pulumi.resources.CustomResourc
      * Name of the secret.
      * 
      */
-    @Export(name="secretName", type=String.class, parameters={})
+    @Export(name="secretName", refs={String.class}, tree="[0]")
     private Output<String> secretName;
 
     /**
@@ -193,7 +193,7 @@ public class ActionsEnvironmentSecret extends com.pulumi.resources.CustomResourc
      * Date of actions_environment_secret update.
      * 
      */
-    @Export(name="updatedAt", type=String.class, parameters={})
+    @Export(name="updatedAt", refs={String.class}, tree="[0]")
     private Output<String> updatedAt;
 
     /**

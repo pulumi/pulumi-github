@@ -77,7 +77,7 @@ public class ActionsRepositoryPermissions extends com.pulumi.resources.CustomRes
      * The permissions policy that controls the actions that are allowed to run. Can be one of: `all`, `local_only`, or `selected`.
      * 
      */
-    @Export(name="allowedActions", type=String.class, parameters={})
+    @Export(name="allowedActions", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> allowedActions;
 
     /**
@@ -91,7 +91,7 @@ public class ActionsRepositoryPermissions extends com.pulumi.resources.CustomRes
      * Sets the actions that are allowed in an repository. Only available when `allowed_actions` = `selected`. See Allowed Actions Config below for details.
      * 
      */
-    @Export(name="allowedActionsConfig", type=ActionsRepositoryPermissionsAllowedActionsConfig.class, parameters={})
+    @Export(name="allowedActionsConfig", refs={ActionsRepositoryPermissionsAllowedActionsConfig.class}, tree="[0]")
     private Output</* @Nullable */ ActionsRepositoryPermissionsAllowedActionsConfig> allowedActionsConfig;
 
     /**
@@ -105,7 +105,7 @@ public class ActionsRepositoryPermissions extends com.pulumi.resources.CustomRes
      * Should GitHub actions be enabled on this repository?
      * 
      */
-    @Export(name="enabled", type=Boolean.class, parameters={})
+    @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
@@ -119,7 +119,7 @@ public class ActionsRepositoryPermissions extends com.pulumi.resources.CustomRes
      * The GitHub repository
      * 
      */
-    @Export(name="repository", type=String.class, parameters={})
+    @Export(name="repository", refs={String.class}, tree="[0]")
     private Output<String> repository;
 
     /**

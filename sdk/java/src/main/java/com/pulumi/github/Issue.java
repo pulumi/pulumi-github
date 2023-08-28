@@ -130,7 +130,7 @@ public class Issue extends com.pulumi.resources.CustomResource {
      * List of Logins to assign the to the issue
      * 
      */
-    @Export(name="assignees", type=List.class, parameters={String.class})
+    @Export(name="assignees", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> assignees;
 
     /**
@@ -144,7 +144,7 @@ public class Issue extends com.pulumi.resources.CustomResource {
      * Body of the issue
      * 
      */
-    @Export(name="body", type=String.class, parameters={})
+    @Export(name="body", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> body;
 
     /**
@@ -154,7 +154,7 @@ public class Issue extends com.pulumi.resources.CustomResource {
     public Output<Optional<String>> body() {
         return Codegen.optional(this.body);
     }
-    @Export(name="etag", type=String.class, parameters={})
+    @Export(name="etag", refs={String.class}, tree="[0]")
     private Output<String> etag;
 
     public Output<String> etag() {
@@ -164,7 +164,7 @@ public class Issue extends com.pulumi.resources.CustomResource {
      * (Computed) - The issue id
      * 
      */
-    @Export(name="issueId", type=Integer.class, parameters={})
+    @Export(name="issueId", refs={Integer.class}, tree="[0]")
     private Output<Integer> issueId;
 
     /**
@@ -178,7 +178,7 @@ public class Issue extends com.pulumi.resources.CustomResource {
      * List of labels to attach to the issue
      * 
      */
-    @Export(name="labels", type=List.class, parameters={String.class})
+    @Export(name="labels", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> labels;
 
     /**
@@ -192,7 +192,7 @@ public class Issue extends com.pulumi.resources.CustomResource {
      * Milestone number to assign to the issue
      * 
      */
-    @Export(name="milestoneNumber", type=Integer.class, parameters={})
+    @Export(name="milestoneNumber", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> milestoneNumber;
 
     /**
@@ -206,7 +206,7 @@ public class Issue extends com.pulumi.resources.CustomResource {
      * (Computed) - The issue number
      * 
      */
-    @Export(name="number", type=Integer.class, parameters={})
+    @Export(name="number", refs={Integer.class}, tree="[0]")
     private Output<Integer> number;
 
     /**
@@ -220,7 +220,7 @@ public class Issue extends com.pulumi.resources.CustomResource {
      * The GitHub repository name
      * 
      */
-    @Export(name="repository", type=String.class, parameters={})
+    @Export(name="repository", refs={String.class}, tree="[0]")
     private Output<String> repository;
 
     /**
@@ -234,7 +234,7 @@ public class Issue extends com.pulumi.resources.CustomResource {
      * Title of the issue
      * 
      */
-    @Export(name="title", type=String.class, parameters={})
+    @Export(name="title", refs={String.class}, tree="[0]")
     private Output<String> title;
 
     /**

@@ -67,7 +67,7 @@ public class RepositoryMilestone extends com.pulumi.resources.CustomResource {
      * A description of the milestone.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -81,7 +81,7 @@ public class RepositoryMilestone extends com.pulumi.resources.CustomResource {
      * The milestone due date. In `yyyy-mm-dd` format.
      * 
      */
-    @Export(name="dueDate", type=String.class, parameters={})
+    @Export(name="dueDate", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> dueDate;
 
     /**
@@ -95,7 +95,7 @@ public class RepositoryMilestone extends com.pulumi.resources.CustomResource {
      * The number of the milestone.
      * 
      */
-    @Export(name="number", type=Integer.class, parameters={})
+    @Export(name="number", refs={Integer.class}, tree="[0]")
     private Output<Integer> number;
 
     /**
@@ -109,7 +109,7 @@ public class RepositoryMilestone extends com.pulumi.resources.CustomResource {
      * The owner of the GitHub Repository.
      * 
      */
-    @Export(name="owner", type=String.class, parameters={})
+    @Export(name="owner", refs={String.class}, tree="[0]")
     private Output<String> owner;
 
     /**
@@ -123,7 +123,7 @@ public class RepositoryMilestone extends com.pulumi.resources.CustomResource {
      * The name of the GitHub Repository.
      * 
      */
-    @Export(name="repository", type=String.class, parameters={})
+    @Export(name="repository", refs={String.class}, tree="[0]")
     private Output<String> repository;
 
     /**
@@ -137,7 +137,7 @@ public class RepositoryMilestone extends com.pulumi.resources.CustomResource {
      * The state of the milestone. Either `open` or `closed`. Default: `open`
      * 
      */
-    @Export(name="state", type=String.class, parameters={})
+    @Export(name="state", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> state;
 
     /**
@@ -151,7 +151,7 @@ public class RepositoryMilestone extends com.pulumi.resources.CustomResource {
      * The title of the milestone.
      * 
      */
-    @Export(name="title", type=String.class, parameters={})
+    @Export(name="title", refs={String.class}, tree="[0]")
     private Output<String> title;
 
     /**

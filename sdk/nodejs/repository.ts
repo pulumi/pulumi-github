@@ -212,6 +212,10 @@ export class Repository extends pulumi.CustomResource {
      */
     public readonly pages!: pulumi.Output<outputs.RepositoryPages | undefined>;
     /**
+     * The primary language used in the repository.
+     */
+    public /*out*/ readonly primaryLanguage!: pulumi.Output<string>;
+    /**
      * Set to `true` to create a private repository.
      * Repositories are created as public (e.g. open source) by default.
      *
@@ -303,6 +307,7 @@ export class Repository extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["nodeId"] = state ? state.nodeId : undefined;
             resourceInputs["pages"] = state ? state.pages : undefined;
+            resourceInputs["primaryLanguage"] = state ? state.primaryLanguage : undefined;
             resourceInputs["private"] = state ? state.private : undefined;
             resourceInputs["repoId"] = state ? state.repoId : undefined;
             resourceInputs["securityAndAnalysis"] = state ? state.securityAndAnalysis : undefined;
@@ -355,6 +360,7 @@ export class Repository extends pulumi.CustomResource {
             resourceInputs["htmlUrl"] = undefined /*out*/;
             resourceInputs["httpCloneUrl"] = undefined /*out*/;
             resourceInputs["nodeId"] = undefined /*out*/;
+            resourceInputs["primaryLanguage"] = undefined /*out*/;
             resourceInputs["repoId"] = undefined /*out*/;
             resourceInputs["sshCloneUrl"] = undefined /*out*/;
             resourceInputs["svnUrl"] = undefined /*out*/;
@@ -495,6 +501,10 @@ export interface RepositoryState {
      * The repository's GitHub Pages configuration. See GitHub Pages Configuration below for details.
      */
     pages?: pulumi.Input<inputs.RepositoryPages>;
+    /**
+     * The primary language used in the repository.
+     */
+    primaryLanguage?: pulumi.Input<string>;
     /**
      * Set to `true` to create a private repository.
      * Repositories are created as public (e.g. open source) by default.

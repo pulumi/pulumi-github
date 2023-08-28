@@ -4,6 +4,7 @@
 package com.pulumi.github.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -11,6 +12,31 @@ import java.util.Objects;
 
 @CustomType
 public final class GetOrganizationResult {
+    /**
+     * @return Whether advanced security is enabled for new repositories.
+     * 
+     */
+    private Boolean advancedSecurityEnabledForNewRepositories;
+    /**
+     * @return Default permission level members have for organization repositories.
+     * 
+     */
+    private String defaultRepositoryPermission;
+    /**
+     * @return Whether Dependabot alerts is automatically enabled for new repositories.
+     * 
+     */
+    private Boolean dependabotAlertsEnabledForNewRepositories;
+    /**
+     * @return Whether Dependabot security updates is automatically enabled for new repositories.
+     * 
+     */
+    private Boolean dependabotSecurityUpdatesEnabledForNewRepositories;
+    /**
+     * @return Whether dependency graph is automatically enabled for new repositories.
+     * 
+     */
+    private Boolean dependencyGraphEnabledForNewRepositories;
     /**
      * @return The organization account description
      * 
@@ -35,6 +61,51 @@ public final class GetOrganizationResult {
      */
     @Deprecated /* Use `users` instead by replacing `github_organization.example.members` to `github_organization.example.users[*].login`. Expect this field to be removed in next major version. */
     private List<String> members;
+    /**
+     * @return The type of repository allowed to be created by members of the organization. Can be one of `ALL`, `PUBLIC`, `PRIVATE`, `NONE`.
+     * 
+     */
+    private String membersAllowedRepositoryCreationType;
+    /**
+     * @return Whether organization members can create internal repositories.
+     * 
+     */
+    private Boolean membersCanCreateInternalRepositories;
+    /**
+     * @return Whether organization members can create pages sites.
+     * 
+     */
+    private Boolean membersCanCreatePages;
+    /**
+     * @return Whether organization members can create private pages sites.
+     * 
+     */
+    private Boolean membersCanCreatePrivatePages;
+    /**
+     * @return Whether organization members can create private repositories.
+     * 
+     */
+    private Boolean membersCanCreatePrivateRepositories;
+    /**
+     * @return Whether organization members can create public pages sites.
+     * 
+     */
+    private Boolean membersCanCreatePublicPages;
+    /**
+     * @return Whether organization members can create public repositories.
+     * 
+     */
+    private Boolean membersCanCreatePublicRepositories;
+    /**
+     * @return Whether non-admin organization members can create repositories.
+     * 
+     */
+    private Boolean membersCanCreateRepositories;
+    /**
+     * @return Whether organization members can create private repository forks.
+     * 
+     */
+    private Boolean membersCanForkPrivateRepositories;
     /**
      * @return The organization&#39;s public profile name
      * 
@@ -61,12 +132,67 @@ public final class GetOrganizationResult {
      */
     private List<String> repositories;
     /**
+     * @return Whether secret scanning is automatically enabled for new repositories.
+     * 
+     */
+    private Boolean secretScanningEnabledForNewRepositories;
+    /**
+     * @return Whether secret scanning push protection is automatically enabled for new repositories.
+     * 
+     */
+    private Boolean secretScanningPushProtectionEnabledForNewRepositories;
+    /**
+     * @return Whether two-factor authentication is required for all members of the organization.
+     * 
+     */
+    private Boolean twoFactorRequirementEnabled;
+    /**
      * @return (`list`) A list with the members of the organization with following fields:
      * 
      */
     private List<Map<String,String>> users;
+    /**
+     * @return Whether organization members must sign all commits.
+     * 
+     */
+    private Boolean webCommitSignoffRequired;
 
     private GetOrganizationResult() {}
+    /**
+     * @return Whether advanced security is enabled for new repositories.
+     * 
+     */
+    public Boolean advancedSecurityEnabledForNewRepositories() {
+        return this.advancedSecurityEnabledForNewRepositories;
+    }
+    /**
+     * @return Default permission level members have for organization repositories.
+     * 
+     */
+    public String defaultRepositoryPermission() {
+        return this.defaultRepositoryPermission;
+    }
+    /**
+     * @return Whether Dependabot alerts is automatically enabled for new repositories.
+     * 
+     */
+    public Boolean dependabotAlertsEnabledForNewRepositories() {
+        return this.dependabotAlertsEnabledForNewRepositories;
+    }
+    /**
+     * @return Whether Dependabot security updates is automatically enabled for new repositories.
+     * 
+     */
+    public Boolean dependabotSecurityUpdatesEnabledForNewRepositories() {
+        return this.dependabotSecurityUpdatesEnabledForNewRepositories;
+    }
+    /**
+     * @return Whether dependency graph is automatically enabled for new repositories.
+     * 
+     */
+    public Boolean dependencyGraphEnabledForNewRepositories() {
+        return this.dependencyGraphEnabledForNewRepositories;
+    }
     /**
      * @return The organization account description
      * 
@@ -98,6 +224,69 @@ public final class GetOrganizationResult {
     @Deprecated /* Use `users` instead by replacing `github_organization.example.members` to `github_organization.example.users[*].login`. Expect this field to be removed in next major version. */
     public List<String> members() {
         return this.members;
+    }
+    /**
+     * @return The type of repository allowed to be created by members of the organization. Can be one of `ALL`, `PUBLIC`, `PRIVATE`, `NONE`.
+     * 
+     */
+    public String membersAllowedRepositoryCreationType() {
+        return this.membersAllowedRepositoryCreationType;
+    }
+    /**
+     * @return Whether organization members can create internal repositories.
+     * 
+     */
+    public Boolean membersCanCreateInternalRepositories() {
+        return this.membersCanCreateInternalRepositories;
+    }
+    /**
+     * @return Whether organization members can create pages sites.
+     * 
+     */
+    public Boolean membersCanCreatePages() {
+        return this.membersCanCreatePages;
+    }
+    /**
+     * @return Whether organization members can create private pages sites.
+     * 
+     */
+    public Boolean membersCanCreatePrivatePages() {
+        return this.membersCanCreatePrivatePages;
+    }
+    /**
+     * @return Whether organization members can create private repositories.
+     * 
+     */
+    public Boolean membersCanCreatePrivateRepositories() {
+        return this.membersCanCreatePrivateRepositories;
+    }
+    /**
+     * @return Whether organization members can create public pages sites.
+     * 
+     */
+    public Boolean membersCanCreatePublicPages() {
+        return this.membersCanCreatePublicPages;
+    }
+    /**
+     * @return Whether organization members can create public repositories.
+     * 
+     */
+    public Boolean membersCanCreatePublicRepositories() {
+        return this.membersCanCreatePublicRepositories;
+    }
+    /**
+     * @return Whether non-admin organization members can create repositories.
+     * 
+     */
+    public Boolean membersCanCreateRepositories() {
+        return this.membersCanCreateRepositories;
+    }
+    /**
+     * @return Whether organization members can create private repository forks.
+     * 
+     */
+    public Boolean membersCanForkPrivateRepositories() {
+        return this.membersCanForkPrivateRepositories;
     }
     /**
      * @return The organization&#39;s public profile name
@@ -135,11 +324,39 @@ public final class GetOrganizationResult {
         return this.repositories;
     }
     /**
+     * @return Whether secret scanning is automatically enabled for new repositories.
+     * 
+     */
+    public Boolean secretScanningEnabledForNewRepositories() {
+        return this.secretScanningEnabledForNewRepositories;
+    }
+    /**
+     * @return Whether secret scanning push protection is automatically enabled for new repositories.
+     * 
+     */
+    public Boolean secretScanningPushProtectionEnabledForNewRepositories() {
+        return this.secretScanningPushProtectionEnabledForNewRepositories;
+    }
+    /**
+     * @return Whether two-factor authentication is required for all members of the organization.
+     * 
+     */
+    public Boolean twoFactorRequirementEnabled() {
+        return this.twoFactorRequirementEnabled;
+    }
+    /**
      * @return (`list`) A list with the members of the organization with following fields:
      * 
      */
     public List<Map<String,String>> users() {
         return this.users;
+    }
+    /**
+     * @return Whether organization members must sign all commits.
+     * 
+     */
+    public Boolean webCommitSignoffRequired() {
+        return this.webCommitSignoffRequired;
     }
 
     public static Builder builder() {
@@ -151,31 +368,92 @@ public final class GetOrganizationResult {
     }
     @CustomType.Builder
     public static final class Builder {
+        private Boolean advancedSecurityEnabledForNewRepositories;
+        private String defaultRepositoryPermission;
+        private Boolean dependabotAlertsEnabledForNewRepositories;
+        private Boolean dependabotSecurityUpdatesEnabledForNewRepositories;
+        private Boolean dependencyGraphEnabledForNewRepositories;
         private String description;
         private String id;
         private String login;
         private List<String> members;
+        private String membersAllowedRepositoryCreationType;
+        private Boolean membersCanCreateInternalRepositories;
+        private Boolean membersCanCreatePages;
+        private Boolean membersCanCreatePrivatePages;
+        private Boolean membersCanCreatePrivateRepositories;
+        private Boolean membersCanCreatePublicPages;
+        private Boolean membersCanCreatePublicRepositories;
+        private Boolean membersCanCreateRepositories;
+        private Boolean membersCanForkPrivateRepositories;
         private String name;
         private String nodeId;
         private String orgname;
         private String plan;
         private List<String> repositories;
+        private Boolean secretScanningEnabledForNewRepositories;
+        private Boolean secretScanningPushProtectionEnabledForNewRepositories;
+        private Boolean twoFactorRequirementEnabled;
         private List<Map<String,String>> users;
+        private Boolean webCommitSignoffRequired;
         public Builder() {}
         public Builder(GetOrganizationResult defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.advancedSecurityEnabledForNewRepositories = defaults.advancedSecurityEnabledForNewRepositories;
+    	      this.defaultRepositoryPermission = defaults.defaultRepositoryPermission;
+    	      this.dependabotAlertsEnabledForNewRepositories = defaults.dependabotAlertsEnabledForNewRepositories;
+    	      this.dependabotSecurityUpdatesEnabledForNewRepositories = defaults.dependabotSecurityUpdatesEnabledForNewRepositories;
+    	      this.dependencyGraphEnabledForNewRepositories = defaults.dependencyGraphEnabledForNewRepositories;
     	      this.description = defaults.description;
     	      this.id = defaults.id;
     	      this.login = defaults.login;
     	      this.members = defaults.members;
+    	      this.membersAllowedRepositoryCreationType = defaults.membersAllowedRepositoryCreationType;
+    	      this.membersCanCreateInternalRepositories = defaults.membersCanCreateInternalRepositories;
+    	      this.membersCanCreatePages = defaults.membersCanCreatePages;
+    	      this.membersCanCreatePrivatePages = defaults.membersCanCreatePrivatePages;
+    	      this.membersCanCreatePrivateRepositories = defaults.membersCanCreatePrivateRepositories;
+    	      this.membersCanCreatePublicPages = defaults.membersCanCreatePublicPages;
+    	      this.membersCanCreatePublicRepositories = defaults.membersCanCreatePublicRepositories;
+    	      this.membersCanCreateRepositories = defaults.membersCanCreateRepositories;
+    	      this.membersCanForkPrivateRepositories = defaults.membersCanForkPrivateRepositories;
     	      this.name = defaults.name;
     	      this.nodeId = defaults.nodeId;
     	      this.orgname = defaults.orgname;
     	      this.plan = defaults.plan;
     	      this.repositories = defaults.repositories;
+    	      this.secretScanningEnabledForNewRepositories = defaults.secretScanningEnabledForNewRepositories;
+    	      this.secretScanningPushProtectionEnabledForNewRepositories = defaults.secretScanningPushProtectionEnabledForNewRepositories;
+    	      this.twoFactorRequirementEnabled = defaults.twoFactorRequirementEnabled;
     	      this.users = defaults.users;
+    	      this.webCommitSignoffRequired = defaults.webCommitSignoffRequired;
         }
 
+        @CustomType.Setter
+        public Builder advancedSecurityEnabledForNewRepositories(Boolean advancedSecurityEnabledForNewRepositories) {
+            this.advancedSecurityEnabledForNewRepositories = Objects.requireNonNull(advancedSecurityEnabledForNewRepositories);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder defaultRepositoryPermission(String defaultRepositoryPermission) {
+            this.defaultRepositoryPermission = Objects.requireNonNull(defaultRepositoryPermission);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder dependabotAlertsEnabledForNewRepositories(Boolean dependabotAlertsEnabledForNewRepositories) {
+            this.dependabotAlertsEnabledForNewRepositories = Objects.requireNonNull(dependabotAlertsEnabledForNewRepositories);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder dependabotSecurityUpdatesEnabledForNewRepositories(Boolean dependabotSecurityUpdatesEnabledForNewRepositories) {
+            this.dependabotSecurityUpdatesEnabledForNewRepositories = Objects.requireNonNull(dependabotSecurityUpdatesEnabledForNewRepositories);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder dependencyGraphEnabledForNewRepositories(Boolean dependencyGraphEnabledForNewRepositories) {
+            this.dependencyGraphEnabledForNewRepositories = Objects.requireNonNull(dependencyGraphEnabledForNewRepositories);
+            return this;
+        }
         @CustomType.Setter
         public Builder description(String description) {
             this.description = Objects.requireNonNull(description);
@@ -198,6 +476,51 @@ public final class GetOrganizationResult {
         }
         public Builder members(String... members) {
             return members(List.of(members));
+        }
+        @CustomType.Setter
+        public Builder membersAllowedRepositoryCreationType(String membersAllowedRepositoryCreationType) {
+            this.membersAllowedRepositoryCreationType = Objects.requireNonNull(membersAllowedRepositoryCreationType);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder membersCanCreateInternalRepositories(Boolean membersCanCreateInternalRepositories) {
+            this.membersCanCreateInternalRepositories = Objects.requireNonNull(membersCanCreateInternalRepositories);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder membersCanCreatePages(Boolean membersCanCreatePages) {
+            this.membersCanCreatePages = Objects.requireNonNull(membersCanCreatePages);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder membersCanCreatePrivatePages(Boolean membersCanCreatePrivatePages) {
+            this.membersCanCreatePrivatePages = Objects.requireNonNull(membersCanCreatePrivatePages);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder membersCanCreatePrivateRepositories(Boolean membersCanCreatePrivateRepositories) {
+            this.membersCanCreatePrivateRepositories = Objects.requireNonNull(membersCanCreatePrivateRepositories);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder membersCanCreatePublicPages(Boolean membersCanCreatePublicPages) {
+            this.membersCanCreatePublicPages = Objects.requireNonNull(membersCanCreatePublicPages);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder membersCanCreatePublicRepositories(Boolean membersCanCreatePublicRepositories) {
+            this.membersCanCreatePublicRepositories = Objects.requireNonNull(membersCanCreatePublicRepositories);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder membersCanCreateRepositories(Boolean membersCanCreateRepositories) {
+            this.membersCanCreateRepositories = Objects.requireNonNull(membersCanCreateRepositories);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder membersCanForkPrivateRepositories(Boolean membersCanForkPrivateRepositories) {
+            this.membersCanForkPrivateRepositories = Objects.requireNonNull(membersCanForkPrivateRepositories);
+            return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
@@ -228,22 +551,60 @@ public final class GetOrganizationResult {
             return repositories(List.of(repositories));
         }
         @CustomType.Setter
+        public Builder secretScanningEnabledForNewRepositories(Boolean secretScanningEnabledForNewRepositories) {
+            this.secretScanningEnabledForNewRepositories = Objects.requireNonNull(secretScanningEnabledForNewRepositories);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder secretScanningPushProtectionEnabledForNewRepositories(Boolean secretScanningPushProtectionEnabledForNewRepositories) {
+            this.secretScanningPushProtectionEnabledForNewRepositories = Objects.requireNonNull(secretScanningPushProtectionEnabledForNewRepositories);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder twoFactorRequirementEnabled(Boolean twoFactorRequirementEnabled) {
+            this.twoFactorRequirementEnabled = Objects.requireNonNull(twoFactorRequirementEnabled);
+            return this;
+        }
+        @CustomType.Setter
         public Builder users(List<Map<String,String>> users) {
             this.users = Objects.requireNonNull(users);
             return this;
         }
+        @CustomType.Setter
+        public Builder webCommitSignoffRequired(Boolean webCommitSignoffRequired) {
+            this.webCommitSignoffRequired = Objects.requireNonNull(webCommitSignoffRequired);
+            return this;
+        }
         public GetOrganizationResult build() {
             final var o = new GetOrganizationResult();
+            o.advancedSecurityEnabledForNewRepositories = advancedSecurityEnabledForNewRepositories;
+            o.defaultRepositoryPermission = defaultRepositoryPermission;
+            o.dependabotAlertsEnabledForNewRepositories = dependabotAlertsEnabledForNewRepositories;
+            o.dependabotSecurityUpdatesEnabledForNewRepositories = dependabotSecurityUpdatesEnabledForNewRepositories;
+            o.dependencyGraphEnabledForNewRepositories = dependencyGraphEnabledForNewRepositories;
             o.description = description;
             o.id = id;
             o.login = login;
             o.members = members;
+            o.membersAllowedRepositoryCreationType = membersAllowedRepositoryCreationType;
+            o.membersCanCreateInternalRepositories = membersCanCreateInternalRepositories;
+            o.membersCanCreatePages = membersCanCreatePages;
+            o.membersCanCreatePrivatePages = membersCanCreatePrivatePages;
+            o.membersCanCreatePrivateRepositories = membersCanCreatePrivateRepositories;
+            o.membersCanCreatePublicPages = membersCanCreatePublicPages;
+            o.membersCanCreatePublicRepositories = membersCanCreatePublicRepositories;
+            o.membersCanCreateRepositories = membersCanCreateRepositories;
+            o.membersCanForkPrivateRepositories = membersCanForkPrivateRepositories;
             o.name = name;
             o.nodeId = nodeId;
             o.orgname = orgname;
             o.plan = plan;
             o.repositories = repositories;
+            o.secretScanningEnabledForNewRepositories = secretScanningEnabledForNewRepositories;
+            o.secretScanningPushProtectionEnabledForNewRepositories = secretScanningPushProtectionEnabledForNewRepositories;
+            o.twoFactorRequirementEnabled = twoFactorRequirementEnabled;
             o.users = users;
+            o.webCommitSignoffRequired = webCommitSignoffRequired;
             return o;
         }
     }

@@ -109,7 +109,7 @@ public class RepositoryCollaborators extends com.pulumi.resources.CustomResource
      * be used in `github.UserInvitationAccepter`.
      * 
      */
-    @Export(name="invitationIds", type=Map.class, parameters={String.class, String.class})
+    @Export(name="invitationIds", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> invitationIds;
 
     /**
@@ -124,7 +124,7 @@ public class RepositoryCollaborators extends com.pulumi.resources.CustomResource
      * The GitHub repository
      * 
      */
-    @Export(name="repository", type=String.class, parameters={})
+    @Export(name="repository", refs={String.class}, tree="[0]")
     private Output<String> repository;
 
     /**
@@ -138,7 +138,7 @@ public class RepositoryCollaborators extends com.pulumi.resources.CustomResource
      * List of teams
      * 
      */
-    @Export(name="teams", type=List.class, parameters={RepositoryCollaboratorsTeam.class})
+    @Export(name="teams", refs={List.class,RepositoryCollaboratorsTeam.class}, tree="[0,1]")
     private Output</* @Nullable */ List<RepositoryCollaboratorsTeam>> teams;
 
     /**
@@ -152,7 +152,7 @@ public class RepositoryCollaborators extends com.pulumi.resources.CustomResource
      * List of uses
      * 
      */
-    @Export(name="users", type=List.class, parameters={RepositoryCollaboratorsUser.class})
+    @Export(name="users", refs={List.class,RepositoryCollaboratorsUser.class}, tree="[0,1]")
     private Output</* @Nullable */ List<RepositoryCollaboratorsUser>> users;
 
     /**

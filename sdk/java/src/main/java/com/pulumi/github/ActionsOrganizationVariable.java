@@ -104,7 +104,7 @@ public class ActionsOrganizationVariable extends com.pulumi.resources.CustomReso
      * Date of actions_variable creation.
      * 
      */
-    @Export(name="createdAt", type=String.class, parameters={})
+    @Export(name="createdAt", refs={String.class}, tree="[0]")
     private Output<String> createdAt;
 
     /**
@@ -118,7 +118,7 @@ public class ActionsOrganizationVariable extends com.pulumi.resources.CustomReso
      * An array of repository ids that can access the organization variable.
      * 
      */
-    @Export(name="selectedRepositoryIds", type=List.class, parameters={Integer.class})
+    @Export(name="selectedRepositoryIds", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> selectedRepositoryIds;
 
     /**
@@ -132,7 +132,7 @@ public class ActionsOrganizationVariable extends com.pulumi.resources.CustomReso
      * Date of actions_variable update.
      * 
      */
-    @Export(name="updatedAt", type=String.class, parameters={})
+    @Export(name="updatedAt", refs={String.class}, tree="[0]")
     private Output<String> updatedAt;
 
     /**
@@ -146,7 +146,7 @@ public class ActionsOrganizationVariable extends com.pulumi.resources.CustomReso
      * Value of the variable
      * 
      */
-    @Export(name="value", type=String.class, parameters={})
+    @Export(name="value", refs={String.class}, tree="[0]")
     private Output<String> value;
 
     /**
@@ -160,7 +160,7 @@ public class ActionsOrganizationVariable extends com.pulumi.resources.CustomReso
      * Name of the variable
      * 
      */
-    @Export(name="variableName", type=String.class, parameters={})
+    @Export(name="variableName", refs={String.class}, tree="[0]")
     private Output<String> variableName;
 
     /**
@@ -175,7 +175,7 @@ public class ActionsOrganizationVariable extends com.pulumi.resources.CustomReso
      * Must be one of `all`, `private`, `selected`. `selected_repository_ids` is required if set to `selected`.
      * 
      */
-    @Export(name="visibility", type=String.class, parameters={})
+    @Export(name="visibility", refs={String.class}, tree="[0]")
     private Output<String> visibility;
 
     /**

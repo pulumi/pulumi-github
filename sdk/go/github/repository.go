@@ -161,6 +161,8 @@ type Repository struct {
 	NodeId pulumi.StringOutput `pulumi:"nodeId"`
 	// The repository's GitHub Pages configuration. See GitHub Pages Configuration below for details.
 	Pages RepositoryPagesPtrOutput `pulumi:"pages"`
+	// The primary language used in the repository.
+	PrimaryLanguage pulumi.StringOutput `pulumi:"primaryLanguage"`
 	// Set to `true` to create a private repository.
 	// Repositories are created as public (e.g. open source) by default.
 	//
@@ -285,6 +287,8 @@ type repositoryState struct {
 	NodeId *string `pulumi:"nodeId"`
 	// The repository's GitHub Pages configuration. See GitHub Pages Configuration below for details.
 	Pages *RepositoryPages `pulumi:"pages"`
+	// The primary language used in the repository.
+	PrimaryLanguage *string `pulumi:"primaryLanguage"`
 	// Set to `true` to create a private repository.
 	// Repositories are created as public (e.g. open source) by default.
 	//
@@ -380,6 +384,8 @@ type RepositoryState struct {
 	NodeId pulumi.StringPtrInput
 	// The repository's GitHub Pages configuration. See GitHub Pages Configuration below for details.
 	Pages RepositoryPagesPtrInput
+	// The primary language used in the repository.
+	PrimaryLanguage pulumi.StringPtrInput
 	// Set to `true` to create a private repository.
 	// Repositories are created as public (e.g. open source) by default.
 	//
@@ -813,6 +819,11 @@ func (o RepositoryOutput) NodeId() pulumi.StringOutput {
 // The repository's GitHub Pages configuration. See GitHub Pages Configuration below for details.
 func (o RepositoryOutput) Pages() RepositoryPagesPtrOutput {
 	return o.ApplyT(func(v *Repository) RepositoryPagesPtrOutput { return v.Pages }).(RepositoryPagesPtrOutput)
+}
+
+// The primary language used in the repository.
+func (o RepositoryOutput) PrimaryLanguage() pulumi.StringOutput {
+	return o.ApplyT(func(v *Repository) pulumi.StringOutput { return v.PrimaryLanguage }).(pulumi.StringOutput)
 }
 
 // Set to `true` to create a private repository.

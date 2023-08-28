@@ -25,6 +25,7 @@ from .branch_default import *
 from .branch_protection import *
 from .branch_protection_v3 import *
 from .codespaces_organization_secret import *
+from .codespaces_organization_secret_repositories import *
 from .codespaces_secret import *
 from .codespaces_user_secret import *
 from .dependabot_organization_secret import *
@@ -110,6 +111,7 @@ from .repository import *
 from .repository_autolink_reference import *
 from .repository_collaborator import *
 from .repository_collaborators import *
+from .repository_dependabot_security_updates import *
 from .repository_deploy_key import *
 from .repository_deployment_branch_policy import *
 from .repository_environment import *
@@ -304,6 +306,14 @@ _utilities.register(
  },
  {
   "pkg": "github",
+  "mod": "index/codespacesOrganizationSecretRepositories",
+  "fqn": "pulumi_github",
+  "classes": {
+   "github:index/codespacesOrganizationSecretRepositories:CodespacesOrganizationSecretRepositories": "CodespacesOrganizationSecretRepositories"
+  }
+ },
+ {
+  "pkg": "github",
   "mod": "index/codespacesSecret",
   "fqn": "pulumi_github",
   "classes": {
@@ -484,6 +494,14 @@ _utilities.register(
   "fqn": "pulumi_github",
   "classes": {
    "github:index/repositoryCollaborators:RepositoryCollaborators": "RepositoryCollaborators"
+  }
+ },
+ {
+  "pkg": "github",
+  "mod": "index/repositoryDependabotSecurityUpdates",
+  "fqn": "pulumi_github",
+  "classes": {
+   "github:index/repositoryDependabotSecurityUpdates:RepositoryDependabotSecurityUpdates": "RepositoryDependabotSecurityUpdates"
   }
  },
  {

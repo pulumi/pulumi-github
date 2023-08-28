@@ -21,7 +21,7 @@ public class UserInvitationAccepter extends com.pulumi.resources.CustomResource 
      * Allow the ID to be unset. This will result in the resource being skipped when the ID is not set instead of returning an error.
      * 
      */
-    @Export(name="allowEmptyId", type=Boolean.class, parameters={})
+    @Export(name="allowEmptyId", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> allowEmptyId;
 
     /**
@@ -35,7 +35,7 @@ public class UserInvitationAccepter extends com.pulumi.resources.CustomResource 
      * ID of the invitation to accept. Must be set when `allow_empty_id` is `false`.
      * 
      */
-    @Export(name="invitationId", type=String.class, parameters={})
+    @Export(name="invitationId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> invitationId;
 
     /**

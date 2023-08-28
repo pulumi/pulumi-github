@@ -86,7 +86,7 @@ public class OrganizationCustomRole extends com.pulumi.resources.CustomResource 
      * The system role from which the role inherits permissions. Can be one of: `read`, `triage`, `write`, or `maintain`.
      * 
      */
-    @Export(name="baseRole", type=String.class, parameters={})
+    @Export(name="baseRole", refs={String.class}, tree="[0]")
     private Output<String> baseRole;
 
     /**
@@ -100,7 +100,7 @@ public class OrganizationCustomRole extends com.pulumi.resources.CustomResource 
      * The description for the custom role.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -114,7 +114,7 @@ public class OrganizationCustomRole extends com.pulumi.resources.CustomResource 
      * The name of the custom role.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -128,7 +128,7 @@ public class OrganizationCustomRole extends com.pulumi.resources.CustomResource 
      * A list of additional permissions included in this role. Must have a minimum of 1 additional permission. The list of available permissions can be found using the [list repository fine-grained permissions for an organization](https://docs.github.com/en/enterprise-cloud@latest/rest/orgs/custom-roles?apiVersion=2022-11-28#list-repository-fine-grained-permissions-for-an-organization) API.
      * 
      */
-    @Export(name="permissions", type=List.class, parameters={String.class})
+    @Export(name="permissions", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> permissions;
 
     /**

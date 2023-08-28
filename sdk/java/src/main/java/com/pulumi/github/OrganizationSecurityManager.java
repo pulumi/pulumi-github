@@ -65,7 +65,7 @@ public class OrganizationSecurityManager extends com.pulumi.resources.CustomReso
      * The slug of the team to manage.
      * 
      */
-    @Export(name="teamSlug", type=String.class, parameters={})
+    @Export(name="teamSlug", refs={String.class}, tree="[0]")
     private Output<String> teamSlug;
 
     /**

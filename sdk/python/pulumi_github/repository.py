@@ -605,6 +605,7 @@ class _RepositoryState:
                  name: Optional[pulumi.Input[str]] = None,
                  node_id: Optional[pulumi.Input[str]] = None,
                  pages: Optional[pulumi.Input['RepositoryPagesArgs']] = None,
+                 primary_language: Optional[pulumi.Input[str]] = None,
                  private: Optional[pulumi.Input[bool]] = None,
                  repo_id: Optional[pulumi.Input[int]] = None,
                  security_and_analysis: Optional[pulumi.Input['RepositorySecurityAndAnalysisArgs']] = None,
@@ -652,6 +653,7 @@ class _RepositoryState:
         :param pulumi.Input[str] name: The name of the repository.
         :param pulumi.Input[str] node_id: GraphQL global node id for use with v4 API
         :param pulumi.Input['RepositoryPagesArgs'] pages: The repository's GitHub Pages configuration. See GitHub Pages Configuration below for details.
+        :param pulumi.Input[str] primary_language: The primary language used in the repository.
         :param pulumi.Input[bool] private: Set to `true` to create a private repository.
                Repositories are created as public (e.g. open source) by default.
         :param pulumi.Input[int] repo_id: GitHub ID for the repository
@@ -730,6 +732,8 @@ class _RepositoryState:
             pulumi.set(__self__, "node_id", node_id)
         if pages is not None:
             pulumi.set(__self__, "pages", pages)
+        if primary_language is not None:
+            pulumi.set(__self__, "primary_language", primary_language)
         if private is not None:
             warnings.warn("""use visibility instead""", DeprecationWarning)
             pulumi.log.warn("""private is deprecated: use visibility instead""")
@@ -1131,6 +1135,18 @@ class _RepositoryState:
     @pages.setter
     def pages(self, value: Optional[pulumi.Input['RepositoryPagesArgs']]):
         pulumi.set(self, "pages", value)
+
+    @property
+    @pulumi.getter(name="primaryLanguage")
+    def primary_language(self) -> Optional[pulumi.Input[str]]:
+        """
+        The primary language used in the repository.
+        """
+        return pulumi.get(self, "primary_language")
+
+    @primary_language.setter
+    def primary_language(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "primary_language", value)
 
     @property
     @pulumi.getter
@@ -1553,6 +1569,7 @@ class Repository(pulumi.CustomResource):
             __props__.__dict__["html_url"] = None
             __props__.__dict__["http_clone_url"] = None
             __props__.__dict__["node_id"] = None
+            __props__.__dict__["primary_language"] = None
             __props__.__dict__["repo_id"] = None
             __props__.__dict__["ssh_clone_url"] = None
             __props__.__dict__["svn_url"] = None
@@ -1597,6 +1614,7 @@ class Repository(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             node_id: Optional[pulumi.Input[str]] = None,
             pages: Optional[pulumi.Input[pulumi.InputType['RepositoryPagesArgs']]] = None,
+            primary_language: Optional[pulumi.Input[str]] = None,
             private: Optional[pulumi.Input[bool]] = None,
             repo_id: Optional[pulumi.Input[int]] = None,
             security_and_analysis: Optional[pulumi.Input[pulumi.InputType['RepositorySecurityAndAnalysisArgs']]] = None,
@@ -1649,6 +1667,7 @@ class Repository(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the repository.
         :param pulumi.Input[str] node_id: GraphQL global node id for use with v4 API
         :param pulumi.Input[pulumi.InputType['RepositoryPagesArgs']] pages: The repository's GitHub Pages configuration. See GitHub Pages Configuration below for details.
+        :param pulumi.Input[str] primary_language: The primary language used in the repository.
         :param pulumi.Input[bool] private: Set to `true` to create a private repository.
                Repositories are created as public (e.g. open source) by default.
         :param pulumi.Input[int] repo_id: GitHub ID for the repository
@@ -1697,6 +1716,7 @@ class Repository(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["node_id"] = node_id
         __props__.__dict__["pages"] = pages
+        __props__.__dict__["primary_language"] = primary_language
         __props__.__dict__["private"] = private
         __props__.__dict__["repo_id"] = repo_id
         __props__.__dict__["security_and_analysis"] = security_and_analysis
@@ -1961,6 +1981,14 @@ class Repository(pulumi.CustomResource):
         The repository's GitHub Pages configuration. See GitHub Pages Configuration below for details.
         """
         return pulumi.get(self, "pages")
+
+    @property
+    @pulumi.getter(name="primaryLanguage")
+    def primary_language(self) -> pulumi.Output[str]:
+        """
+        The primary language used in the repository.
+        """
+        return pulumi.get(self, "primary_language")
 
     @property
     @pulumi.getter

@@ -54,7 +54,7 @@ public class OrganizationProject extends com.pulumi.resources.CustomResource {
      * The body of the project.
      * 
      */
-    @Export(name="body", type=String.class, parameters={})
+    @Export(name="body", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> body;
 
     /**
@@ -64,7 +64,7 @@ public class OrganizationProject extends com.pulumi.resources.CustomResource {
     public Output<Optional<String>> body() {
         return Codegen.optional(this.body);
     }
-    @Export(name="etag", type=String.class, parameters={})
+    @Export(name="etag", refs={String.class}, tree="[0]")
     private Output<String> etag;
 
     public Output<String> etag() {
@@ -74,7 +74,7 @@ public class OrganizationProject extends com.pulumi.resources.CustomResource {
      * The name of the project.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -88,7 +88,7 @@ public class OrganizationProject extends com.pulumi.resources.CustomResource {
      * URL of the project
      * 
      */
-    @Export(name="url", type=String.class, parameters={})
+    @Export(name="url", refs={String.class}, tree="[0]")
     private Output<String> url;
 
     /**

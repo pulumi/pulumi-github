@@ -62,7 +62,7 @@ public class EnterpriseOrganization extends com.pulumi.resources.CustomResource 
      * List of organization owner usernames.
      * 
      */
-    @Export(name="adminLogins", type=List.class, parameters={String.class})
+    @Export(name="adminLogins", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> adminLogins;
 
     /**
@@ -76,7 +76,7 @@ public class EnterpriseOrganization extends com.pulumi.resources.CustomResource 
      * The billing email address.
      * 
      */
-    @Export(name="billingEmail", type=String.class, parameters={})
+    @Export(name="billingEmail", refs={String.class}, tree="[0]")
     private Output<String> billingEmail;
 
     /**
@@ -90,7 +90,7 @@ public class EnterpriseOrganization extends com.pulumi.resources.CustomResource 
      * The description of the organization.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -104,7 +104,7 @@ public class EnterpriseOrganization extends com.pulumi.resources.CustomResource 
      * The ID of the enterprise.
      * 
      */
-    @Export(name="enterpriseId", type=String.class, parameters={})
+    @Export(name="enterpriseId", refs={String.class}, tree="[0]")
     private Output<String> enterpriseId;
 
     /**
@@ -118,7 +118,7 @@ public class EnterpriseOrganization extends com.pulumi.resources.CustomResource 
      * The name of the organization.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**

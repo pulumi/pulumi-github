@@ -71,7 +71,7 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="github:index/repositoryDeployKey:RepositoryDeployKey")
 public class RepositoryDeployKey extends com.pulumi.resources.CustomResource {
-    @Export(name="etag", type=String.class, parameters={})
+    @Export(name="etag", refs={String.class}, tree="[0]")
     private Output<String> etag;
 
     public Output<String> etag() {
@@ -81,7 +81,7 @@ public class RepositoryDeployKey extends com.pulumi.resources.CustomResource {
      * A SSH key.
      * 
      */
-    @Export(name="key", type=String.class, parameters={})
+    @Export(name="key", refs={String.class}, tree="[0]")
     private Output<String> key;
 
     /**
@@ -95,7 +95,7 @@ public class RepositoryDeployKey extends com.pulumi.resources.CustomResource {
      * A boolean qualifying the key to be either read only or read/write.
      * 
      */
-    @Export(name="readOnly", type=Boolean.class, parameters={})
+    @Export(name="readOnly", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> readOnly;
 
     /**
@@ -109,7 +109,7 @@ public class RepositoryDeployKey extends com.pulumi.resources.CustomResource {
      * Name of the GitHub repository.
      * 
      */
-    @Export(name="repository", type=String.class, parameters={})
+    @Export(name="repository", refs={String.class}, tree="[0]")
     private Output<String> repository;
 
     /**
@@ -125,7 +125,7 @@ public class RepositoryDeployKey extends com.pulumi.resources.CustomResource {
      * Changing any of the fields forces re-creating the resource.
      * 
      */
-    @Export(name="title", type=String.class, parameters={})
+    @Export(name="title", refs={String.class}, tree="[0]")
     private Output<String> title;
 
     /**

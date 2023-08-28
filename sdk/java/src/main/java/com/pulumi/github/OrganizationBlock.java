@@ -49,7 +49,7 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="github:index/organizationBlock:OrganizationBlock")
 public class OrganizationBlock extends com.pulumi.resources.CustomResource {
-    @Export(name="etag", type=String.class, parameters={})
+    @Export(name="etag", refs={String.class}, tree="[0]")
     private Output<String> etag;
 
     public Output<String> etag() {
@@ -59,7 +59,7 @@ public class OrganizationBlock extends com.pulumi.resources.CustomResource {
      * The name of the user to block.
      * 
      */
-    @Export(name="username", type=String.class, parameters={})
+    @Export(name="username", refs={String.class}, tree="[0]")
     private Output<String> username;
 
     /**

@@ -41,6 +41,26 @@ export interface GetOrganizationArgs {
  */
 export interface GetOrganizationResult {
     /**
+     * Whether advanced security is enabled for new repositories.
+     */
+    readonly advancedSecurityEnabledForNewRepositories: boolean;
+    /**
+     * Default permission level members have for organization repositories.
+     */
+    readonly defaultRepositoryPermission: string;
+    /**
+     * Whether Dependabot alerts is automatically enabled for new repositories.
+     */
+    readonly dependabotAlertsEnabledForNewRepositories: boolean;
+    /**
+     * Whether Dependabot security updates is automatically enabled for new repositories.
+     */
+    readonly dependabotSecurityUpdatesEnabledForNewRepositories: boolean;
+    /**
+     * Whether dependency graph is automatically enabled for new repositories.
+     */
+    readonly dependencyGraphEnabledForNewRepositories: boolean;
+    /**
      * The organization account description
      */
     readonly description: string;
@@ -58,6 +78,42 @@ export interface GetOrganizationResult {
      * @deprecated Use `users` instead by replacing `github_organization.example.members` to `github_organization.example.users[*].login`. Expect this field to be removed in next major version.
      */
     readonly members: string[];
+    /**
+     * The type of repository allowed to be created by members of the organization. Can be one of `ALL`, `PUBLIC`, `PRIVATE`, `NONE`.
+     */
+    readonly membersAllowedRepositoryCreationType: string;
+    /**
+     * Whether organization members can create internal repositories.
+     */
+    readonly membersCanCreateInternalRepositories: boolean;
+    /**
+     * Whether organization members can create pages sites.
+     */
+    readonly membersCanCreatePages: boolean;
+    /**
+     * Whether organization members can create private pages sites.
+     */
+    readonly membersCanCreatePrivatePages: boolean;
+    /**
+     * Whether organization members can create private repositories.
+     */
+    readonly membersCanCreatePrivateRepositories: boolean;
+    /**
+     * Whether organization members can create public pages sites.
+     */
+    readonly membersCanCreatePublicPages: boolean;
+    /**
+     * Whether organization members can create public repositories.
+     */
+    readonly membersCanCreatePublicRepositories: boolean;
+    /**
+     * Whether non-admin organization members can create repositories.
+     */
+    readonly membersCanCreateRepositories: boolean;
+    /**
+     * Whether organization members can create private repository forks.
+     */
+    readonly membersCanForkPrivateRepositories: boolean;
     /**
      * The organization's public profile name
      */
@@ -79,9 +135,25 @@ export interface GetOrganizationResult {
      */
     readonly repositories: string[];
     /**
+     * Whether secret scanning is automatically enabled for new repositories.
+     */
+    readonly secretScanningEnabledForNewRepositories: boolean;
+    /**
+     * Whether secret scanning push protection is automatically enabled for new repositories.
+     */
+    readonly secretScanningPushProtectionEnabledForNewRepositories: boolean;
+    /**
+     * Whether two-factor authentication is required for all members of the organization.
+     */
+    readonly twoFactorRequirementEnabled: boolean;
+    /**
      * (`list`) A list with the members of the organization with following fields:
      */
     readonly users: {[key: string]: string}[];
+    /**
+     * Whether organization members must sign all commits.
+     */
+    readonly webCommitSignoffRequired: boolean;
 }
 /**
  * Use this data source to retrieve basic information about a GitHub Organization.

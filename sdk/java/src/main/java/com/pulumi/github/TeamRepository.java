@@ -87,7 +87,7 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="github:index/teamRepository:TeamRepository")
 public class TeamRepository extends com.pulumi.resources.CustomResource {
-    @Export(name="etag", type=String.class, parameters={})
+    @Export(name="etag", refs={String.class}, tree="[0]")
     private Output<String> etag;
 
     public Output<String> etag() {
@@ -98,7 +98,7 @@ public class TeamRepository extends com.pulumi.resources.CustomResource {
      * Must be one of `pull`, `triage`, `push`, `maintain`, `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organisation. Defaults to `pull`.
      * 
      */
-    @Export(name="permission", type=String.class, parameters={})
+    @Export(name="permission", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> permission;
 
     /**
@@ -113,7 +113,7 @@ public class TeamRepository extends com.pulumi.resources.CustomResource {
      * The repository to add to the team.
      * 
      */
-    @Export(name="repository", type=String.class, parameters={})
+    @Export(name="repository", refs={String.class}, tree="[0]")
     private Output<String> repository;
 
     /**
@@ -127,7 +127,7 @@ public class TeamRepository extends com.pulumi.resources.CustomResource {
      * The GitHub team id or the GitHub team slug
      * 
      */
-    @Export(name="teamId", type=String.class, parameters={})
+    @Export(name="teamId", refs={String.class}, tree="[0]")
     private Output<String> teamId;
 
     /**

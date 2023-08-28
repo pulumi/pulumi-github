@@ -123,7 +123,7 @@ public class BranchDefault extends com.pulumi.resources.CustomResource {
      * The branch (e.g. `main`)
      * 
      */
-    @Export(name="branch", type=String.class, parameters={})
+    @Export(name="branch", refs={String.class}, tree="[0]")
     private Output<String> branch;
 
     /**
@@ -137,7 +137,7 @@ public class BranchDefault extends com.pulumi.resources.CustomResource {
      * Indicate if it should rename the branch rather than use an existing branch. Defaults to `false`.
      * 
      */
-    @Export(name="rename", type=Boolean.class, parameters={})
+    @Export(name="rename", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> rename;
 
     /**
@@ -151,7 +151,7 @@ public class BranchDefault extends com.pulumi.resources.CustomResource {
      * The GitHub repository
      * 
      */
-    @Export(name="repository", type=String.class, parameters={})
+    @Export(name="repository", refs={String.class}, tree="[0]")
     private Output<String> repository;
 
     /**

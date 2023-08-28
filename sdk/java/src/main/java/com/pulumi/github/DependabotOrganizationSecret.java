@@ -22,7 +22,7 @@ public class DependabotOrganizationSecret extends com.pulumi.resources.CustomRes
      * Date of &#39;dependabot_secret&#39; creation.
      * 
      */
-    @Export(name="createdAt", type=String.class, parameters={})
+    @Export(name="createdAt", refs={String.class}, tree="[0]")
     private Output<String> createdAt;
 
     /**
@@ -36,7 +36,7 @@ public class DependabotOrganizationSecret extends com.pulumi.resources.CustomRes
      * Encrypted value of the secret using the GitHub public key in Base64 format.
      * 
      */
-    @Export(name="encryptedValue", type=String.class, parameters={})
+    @Export(name="encryptedValue", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> encryptedValue;
 
     /**
@@ -50,7 +50,7 @@ public class DependabotOrganizationSecret extends com.pulumi.resources.CustomRes
      * Plaintext value of the secret to be encrypted.
      * 
      */
-    @Export(name="plaintextValue", type=String.class, parameters={})
+    @Export(name="plaintextValue", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> plaintextValue;
 
     /**
@@ -64,7 +64,7 @@ public class DependabotOrganizationSecret extends com.pulumi.resources.CustomRes
      * Name of the secret.
      * 
      */
-    @Export(name="secretName", type=String.class, parameters={})
+    @Export(name="secretName", refs={String.class}, tree="[0]")
     private Output<String> secretName;
 
     /**
@@ -78,7 +78,7 @@ public class DependabotOrganizationSecret extends com.pulumi.resources.CustomRes
      * An array of repository ids that can access the organization secret.
      * 
      */
-    @Export(name="selectedRepositoryIds", type=List.class, parameters={Integer.class})
+    @Export(name="selectedRepositoryIds", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> selectedRepositoryIds;
 
     /**
@@ -92,7 +92,7 @@ public class DependabotOrganizationSecret extends com.pulumi.resources.CustomRes
      * Date of &#39;dependabot_secret&#39; update.
      * 
      */
-    @Export(name="updatedAt", type=String.class, parameters={})
+    @Export(name="updatedAt", refs={String.class}, tree="[0]")
     private Output<String> updatedAt;
 
     /**
@@ -107,7 +107,7 @@ public class DependabotOrganizationSecret extends com.pulumi.resources.CustomRes
      * &#39;selected_repository_ids&#39; is required if set to &#39;selected&#39;.
      * 
      */
-    @Export(name="visibility", type=String.class, parameters={})
+    @Export(name="visibility", refs={String.class}, tree="[0]")
     private Output<String> visibility;
 
     /**

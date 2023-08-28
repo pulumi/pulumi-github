@@ -72,7 +72,7 @@ public class Team extends com.pulumi.resources.CustomResource {
      * Adds a default maintainer to the team. Defaults to `false` and adds the creating user to the team when `true`.
      * 
      */
-    @Export(name="createDefaultMaintainer", type=Boolean.class, parameters={})
+    @Export(name="createDefaultMaintainer", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> createDefaultMaintainer;
 
     /**
@@ -86,7 +86,7 @@ public class Team extends com.pulumi.resources.CustomResource {
      * A description of the team.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -96,7 +96,7 @@ public class Team extends com.pulumi.resources.CustomResource {
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
-    @Export(name="etag", type=String.class, parameters={})
+    @Export(name="etag", refs={String.class}, tree="[0]")
     private Output<String> etag;
 
     public Output<String> etag() {
@@ -106,7 +106,7 @@ public class Team extends com.pulumi.resources.CustomResource {
      * The LDAP Distinguished Name of the group where membership will be synchronized. Only available in GitHub Enterprise Server.
      * 
      */
-    @Export(name="ldapDn", type=String.class, parameters={})
+    @Export(name="ldapDn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> ldapDn;
 
     /**
@@ -116,7 +116,7 @@ public class Team extends com.pulumi.resources.CustomResource {
     public Output<Optional<String>> ldapDn() {
         return Codegen.optional(this.ldapDn);
     }
-    @Export(name="membersCount", type=Integer.class, parameters={})
+    @Export(name="membersCount", refs={Integer.class}, tree="[0]")
     private Output<Integer> membersCount;
 
     public Output<Integer> membersCount() {
@@ -126,7 +126,7 @@ public class Team extends com.pulumi.resources.CustomResource {
      * The name of the team.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -140,7 +140,7 @@ public class Team extends com.pulumi.resources.CustomResource {
      * The Node ID of the created team.
      * 
      */
-    @Export(name="nodeId", type=String.class, parameters={})
+    @Export(name="nodeId", refs={String.class}, tree="[0]")
     private Output<String> nodeId;
 
     /**
@@ -154,7 +154,7 @@ public class Team extends com.pulumi.resources.CustomResource {
      * The ID or slug of the parent team, if this is a nested team.
      * 
      */
-    @Export(name="parentTeamId", type=String.class, parameters={})
+    @Export(name="parentTeamId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> parentTeamId;
 
     /**
@@ -168,7 +168,7 @@ public class Team extends com.pulumi.resources.CustomResource {
      * The id of the parent team read in Github.
      * 
      */
-    @Export(name="parentTeamReadId", type=String.class, parameters={})
+    @Export(name="parentTeamReadId", refs={String.class}, tree="[0]")
     private Output<String> parentTeamReadId;
 
     /**
@@ -182,7 +182,7 @@ public class Team extends com.pulumi.resources.CustomResource {
      * The id of the parent team read in Github.
      * 
      */
-    @Export(name="parentTeamReadSlug", type=String.class, parameters={})
+    @Export(name="parentTeamReadSlug", refs={String.class}, tree="[0]")
     private Output<String> parentTeamReadSlug;
 
     /**
@@ -197,7 +197,7 @@ public class Team extends com.pulumi.resources.CustomResource {
      * Defaults to `secret`.
      * 
      */
-    @Export(name="privacy", type=String.class, parameters={})
+    @Export(name="privacy", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> privacy;
 
     /**
@@ -214,7 +214,7 @@ public class Team extends com.pulumi.resources.CustomResource {
      * Useful when referencing the team in [`github.BranchProtection`](https://www.terraform.io/docs/providers/github/r/branch_protection.html).
      * 
      */
-    @Export(name="slug", type=String.class, parameters={})
+    @Export(name="slug", refs={String.class}, tree="[0]")
     private Output<String> slug;
 
     /**

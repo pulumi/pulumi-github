@@ -76,7 +76,7 @@ public class AppInstallationRepository extends com.pulumi.resources.CustomResour
      * The GitHub app installation id.
      * 
      */
-    @Export(name="installationId", type=String.class, parameters={})
+    @Export(name="installationId", refs={String.class}, tree="[0]")
     private Output<String> installationId;
 
     /**
@@ -86,7 +86,7 @@ public class AppInstallationRepository extends com.pulumi.resources.CustomResour
     public Output<String> installationId() {
         return this.installationId;
     }
-    @Export(name="repoId", type=Integer.class, parameters={})
+    @Export(name="repoId", refs={Integer.class}, tree="[0]")
     private Output<Integer> repoId;
 
     public Output<Integer> repoId() {
@@ -96,7 +96,7 @@ public class AppInstallationRepository extends com.pulumi.resources.CustomResour
      * The repository to install the app on.
      * 
      */
-    @Export(name="repository", type=String.class, parameters={})
+    @Export(name="repository", refs={String.class}, tree="[0]")
     private Output<String> repository;
 
     /**

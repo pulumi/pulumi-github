@@ -88,7 +88,7 @@ public class RepositoryEnvironment extends com.pulumi.resources.CustomResource {
      * The deployment branch policy configuration
      * 
      */
-    @Export(name="deploymentBranchPolicy", type=RepositoryEnvironmentDeploymentBranchPolicy.class, parameters={})
+    @Export(name="deploymentBranchPolicy", refs={RepositoryEnvironmentDeploymentBranchPolicy.class}, tree="[0]")
     private Output</* @Nullable */ RepositoryEnvironmentDeploymentBranchPolicy> deploymentBranchPolicy;
 
     /**
@@ -102,7 +102,7 @@ public class RepositoryEnvironment extends com.pulumi.resources.CustomResource {
      * The name of the environment.
      * 
      */
-    @Export(name="environment", type=String.class, parameters={})
+    @Export(name="environment", refs={String.class}, tree="[0]")
     private Output<String> environment;
 
     /**
@@ -116,7 +116,7 @@ public class RepositoryEnvironment extends com.pulumi.resources.CustomResource {
      * The repository of the environment.
      * 
      */
-    @Export(name="repository", type=String.class, parameters={})
+    @Export(name="repository", refs={String.class}, tree="[0]")
     private Output<String> repository;
 
     /**
@@ -130,7 +130,7 @@ public class RepositoryEnvironment extends com.pulumi.resources.CustomResource {
      * The environment reviewers configuration.
      * 
      */
-    @Export(name="reviewers", type=List.class, parameters={RepositoryEnvironmentReviewer.class})
+    @Export(name="reviewers", refs={List.class,RepositoryEnvironmentReviewer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<RepositoryEnvironmentReviewer>> reviewers;
 
     /**
@@ -144,7 +144,7 @@ public class RepositoryEnvironment extends com.pulumi.resources.CustomResource {
      * Amount of time to delay a job after the job is initially triggered.
      * 
      */
-    @Export(name="waitTimer", type=Integer.class, parameters={})
+    @Export(name="waitTimer", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> waitTimer;
 
     /**

@@ -78,7 +78,7 @@ public class Branch extends com.pulumi.resources.CustomResource {
      * The repository branch to create.
      * 
      */
-    @Export(name="branch", type=String.class, parameters={})
+    @Export(name="branch", refs={String.class}, tree="[0]")
     private Output<String> branch;
 
     /**
@@ -92,7 +92,7 @@ public class Branch extends com.pulumi.resources.CustomResource {
      * An etag representing the Branch object.
      * 
      */
-    @Export(name="etag", type=String.class, parameters={})
+    @Export(name="etag", refs={String.class}, tree="[0]")
     private Output<String> etag;
 
     /**
@@ -106,7 +106,7 @@ public class Branch extends com.pulumi.resources.CustomResource {
      * A string representing a branch reference, in the form of `refs/heads/&lt;branch&gt;`.
      * 
      */
-    @Export(name="ref", type=String.class, parameters={})
+    @Export(name="ref", refs={String.class}, tree="[0]")
     private Output<String> ref;
 
     /**
@@ -120,7 +120,7 @@ public class Branch extends com.pulumi.resources.CustomResource {
      * The GitHub repository name.
      * 
      */
-    @Export(name="repository", type=String.class, parameters={})
+    @Export(name="repository", refs={String.class}, tree="[0]")
     private Output<String> repository;
 
     /**
@@ -134,7 +134,7 @@ public class Branch extends com.pulumi.resources.CustomResource {
      * A string storing the reference&#39;s `HEAD` commit&#39;s SHA1.
      * 
      */
-    @Export(name="sha", type=String.class, parameters={})
+    @Export(name="sha", refs={String.class}, tree="[0]")
     private Output<String> sha;
 
     /**
@@ -148,7 +148,7 @@ public class Branch extends com.pulumi.resources.CustomResource {
      * The branch name to start from. Defaults to `main`.
      * 
      */
-    @Export(name="sourceBranch", type=String.class, parameters={})
+    @Export(name="sourceBranch", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> sourceBranch;
 
     /**
@@ -162,7 +162,7 @@ public class Branch extends com.pulumi.resources.CustomResource {
      * The commit hash to start from. Defaults to the tip of `source_branch`. If provided, `source_branch` is ignored.
      * 
      */
-    @Export(name="sourceSha", type=String.class, parameters={})
+    @Export(name="sourceSha", refs={String.class}, tree="[0]")
     private Output<String> sourceSha;
 
     /**

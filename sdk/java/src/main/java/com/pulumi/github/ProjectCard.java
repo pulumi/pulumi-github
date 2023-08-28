@@ -135,7 +135,7 @@ public class ProjectCard extends com.pulumi.resources.CustomResource {
      * The ID of the card.
      * 
      */
-    @Export(name="cardId", type=Integer.class, parameters={})
+    @Export(name="cardId", refs={Integer.class}, tree="[0]")
     private Output<Integer> cardId;
 
     /**
@@ -149,7 +149,7 @@ public class ProjectCard extends com.pulumi.resources.CustomResource {
      * The ID of the card.
      * 
      */
-    @Export(name="columnId", type=String.class, parameters={})
+    @Export(name="columnId", refs={String.class}, tree="[0]")
     private Output<String> columnId;
 
     /**
@@ -163,7 +163,7 @@ public class ProjectCard extends com.pulumi.resources.CustomResource {
      * `github_issue.issue_id`.
      * 
      */
-    @Export(name="contentId", type=Integer.class, parameters={})
+    @Export(name="contentId", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> contentId;
 
     /**
@@ -180,7 +180,7 @@ public class ProjectCard extends com.pulumi.resources.CustomResource {
      * See note example or issue example for more information.
      * 
      */
-    @Export(name="contentType", type=String.class, parameters={})
+    @Export(name="contentType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> contentType;
 
     /**
@@ -193,7 +193,7 @@ public class ProjectCard extends com.pulumi.resources.CustomResource {
     public Output<Optional<String>> contentType() {
         return Codegen.optional(this.contentType);
     }
-    @Export(name="etag", type=String.class, parameters={})
+    @Export(name="etag", refs={String.class}, tree="[0]")
     private Output<String> etag;
 
     public Output<String> etag() {
@@ -203,7 +203,7 @@ public class ProjectCard extends com.pulumi.resources.CustomResource {
      * The note contents of the card. Markdown supported.
      * 
      */
-    @Export(name="note", type=String.class, parameters={})
+    @Export(name="note", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> note;
 
     /**

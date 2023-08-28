@@ -105,6 +105,11 @@ export type CodespacesOrganizationSecret = import("./codespacesOrganizationSecre
 export const CodespacesOrganizationSecret: typeof import("./codespacesOrganizationSecret").CodespacesOrganizationSecret = null as any;
 utilities.lazyLoad(exports, ["CodespacesOrganizationSecret"], () => require("./codespacesOrganizationSecret"));
 
+export { CodespacesOrganizationSecretRepositoriesArgs, CodespacesOrganizationSecretRepositoriesState } from "./codespacesOrganizationSecretRepositories";
+export type CodespacesOrganizationSecretRepositories = import("./codespacesOrganizationSecretRepositories").CodespacesOrganizationSecretRepositories;
+export const CodespacesOrganizationSecretRepositories: typeof import("./codespacesOrganizationSecretRepositories").CodespacesOrganizationSecretRepositories = null as any;
+utilities.lazyLoad(exports, ["CodespacesOrganizationSecretRepositories"], () => require("./codespacesOrganizationSecretRepositories"));
+
 export { CodespacesSecretArgs, CodespacesSecretState } from "./codespacesSecret";
 export type CodespacesSecret = import("./codespacesSecret").CodespacesSecret;
 export const CodespacesSecret: typeof import("./codespacesSecret").CodespacesSecret = null as any;
@@ -512,6 +517,11 @@ export type RepositoryCollaborators = import("./repositoryCollaborators").Reposi
 export const RepositoryCollaborators: typeof import("./repositoryCollaborators").RepositoryCollaborators = null as any;
 utilities.lazyLoad(exports, ["RepositoryCollaborators"], () => require("./repositoryCollaborators"));
 
+export { RepositoryDependabotSecurityUpdatesArgs, RepositoryDependabotSecurityUpdatesState } from "./repositoryDependabotSecurityUpdates";
+export type RepositoryDependabotSecurityUpdates = import("./repositoryDependabotSecurityUpdates").RepositoryDependabotSecurityUpdates;
+export const RepositoryDependabotSecurityUpdates: typeof import("./repositoryDependabotSecurityUpdates").RepositoryDependabotSecurityUpdates = null as any;
+utilities.lazyLoad(exports, ["RepositoryDependabotSecurityUpdates"], () => require("./repositoryDependabotSecurityUpdates"));
+
 export { RepositoryDeployKeyArgs, RepositoryDeployKeyState } from "./repositoryDeployKey";
 export type RepositoryDeployKey = import("./repositoryDeployKey").RepositoryDeployKey;
 export const RepositoryDeployKey: typeof import("./repositoryDeployKey").RepositoryDeployKey = null as any;
@@ -661,6 +671,8 @@ const _module = {
                 return new BranchProtectionV3(name, <any>undefined, { urn })
             case "github:index/codespacesOrganizationSecret:CodespacesOrganizationSecret":
                 return new CodespacesOrganizationSecret(name, <any>undefined, { urn })
+            case "github:index/codespacesOrganizationSecretRepositories:CodespacesOrganizationSecretRepositories":
+                return new CodespacesOrganizationSecretRepositories(name, <any>undefined, { urn })
             case "github:index/codespacesSecret:CodespacesSecret":
                 return new CodespacesSecret(name, <any>undefined, { urn })
             case "github:index/codespacesUserSecret:CodespacesUserSecret":
@@ -707,6 +719,8 @@ const _module = {
                 return new RepositoryCollaborator(name, <any>undefined, { urn })
             case "github:index/repositoryCollaborators:RepositoryCollaborators":
                 return new RepositoryCollaborators(name, <any>undefined, { urn })
+            case "github:index/repositoryDependabotSecurityUpdates:RepositoryDependabotSecurityUpdates":
+                return new RepositoryDependabotSecurityUpdates(name, <any>undefined, { urn })
             case "github:index/repositoryDeployKey:RepositoryDeployKey":
                 return new RepositoryDeployKey(name, <any>undefined, { urn })
             case "github:index/repositoryDeploymentBranchPolicy:RepositoryDeploymentBranchPolicy":
@@ -770,6 +784,7 @@ pulumi.runtime.registerResourceModule("github", "index/branchDefault", _module)
 pulumi.runtime.registerResourceModule("github", "index/branchProtection", _module)
 pulumi.runtime.registerResourceModule("github", "index/branchProtectionV3", _module)
 pulumi.runtime.registerResourceModule("github", "index/codespacesOrganizationSecret", _module)
+pulumi.runtime.registerResourceModule("github", "index/codespacesOrganizationSecretRepositories", _module)
 pulumi.runtime.registerResourceModule("github", "index/codespacesSecret", _module)
 pulumi.runtime.registerResourceModule("github", "index/codespacesUserSecret", _module)
 pulumi.runtime.registerResourceModule("github", "index/dependabotOrganizationSecret", _module)
@@ -793,6 +808,7 @@ pulumi.runtime.registerResourceModule("github", "index/repository", _module)
 pulumi.runtime.registerResourceModule("github", "index/repositoryAutolinkReference", _module)
 pulumi.runtime.registerResourceModule("github", "index/repositoryCollaborator", _module)
 pulumi.runtime.registerResourceModule("github", "index/repositoryCollaborators", _module)
+pulumi.runtime.registerResourceModule("github", "index/repositoryDependabotSecurityUpdates", _module)
 pulumi.runtime.registerResourceModule("github", "index/repositoryDeployKey", _module)
 pulumi.runtime.registerResourceModule("github", "index/repositoryDeploymentBranchPolicy", _module)
 pulumi.runtime.registerResourceModule("github", "index/repositoryEnvironment", _module)

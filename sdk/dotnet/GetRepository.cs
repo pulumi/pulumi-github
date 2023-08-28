@@ -232,6 +232,10 @@ namespace Pulumi.Github
         /// </summary>
         public readonly ImmutableArray<Outputs.GetRepositoryPageResult> Pages;
         /// <summary>
+        /// The primary language used in the repository.
+        /// </summary>
+        public readonly string PrimaryLanguage;
+        /// <summary>
         /// Whether the repository is private.
         /// </summary>
         public readonly bool Private;
@@ -320,6 +324,8 @@ namespace Pulumi.Github
 
             ImmutableArray<Outputs.GetRepositoryPageResult> pages,
 
+            string primaryLanguage,
+
             bool @private,
 
             int repoId,
@@ -363,6 +369,7 @@ namespace Pulumi.Github
             Name = name;
             NodeId = nodeId;
             Pages = pages;
+            PrimaryLanguage = primaryLanguage;
             Private = @private;
             RepoId = repoId;
             SquashMergeCommitMessage = squashMergeCommitMessage;

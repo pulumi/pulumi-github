@@ -134,6 +134,11 @@ public final class GetRepositoryResult {
      */
     private List<GetRepositoryPage> pages;
     /**
+     * @return The primary language used in the repository.
+     * 
+     */
+    private String primaryLanguage;
+    /**
      * @return Whether the repository is private.
      * 
      */
@@ -348,6 +353,13 @@ public final class GetRepositoryResult {
         return this.pages;
     }
     /**
+     * @return The primary language used in the repository.
+     * 
+     */
+    public String primaryLanguage() {
+        return this.primaryLanguage;
+    }
+    /**
      * @return Whether the repository is private.
      * 
      */
@@ -445,6 +457,7 @@ public final class GetRepositoryResult {
         private String name;
         private String nodeId;
         private List<GetRepositoryPage> pages;
+        private String primaryLanguage;
         private Boolean private_;
         private Integer repoId;
         private String squashMergeCommitMessage;
@@ -482,6 +495,7 @@ public final class GetRepositoryResult {
     	      this.name = defaults.name;
     	      this.nodeId = defaults.nodeId;
     	      this.pages = defaults.pages;
+    	      this.primaryLanguage = defaults.primaryLanguage;
     	      this.private_ = defaults.private_;
     	      this.repoId = defaults.repoId;
     	      this.squashMergeCommitMessage = defaults.squashMergeCommitMessage;
@@ -621,6 +635,11 @@ public final class GetRepositoryResult {
         public Builder pages(GetRepositoryPage... pages) {
             return pages(List.of(pages));
         }
+        @CustomType.Setter
+        public Builder primaryLanguage(String primaryLanguage) {
+            this.primaryLanguage = Objects.requireNonNull(primaryLanguage);
+            return this;
+        }
         @CustomType.Setter("private")
         public Builder private_(Boolean private_) {
             this.private_ = Objects.requireNonNull(private_);
@@ -696,6 +715,7 @@ public final class GetRepositoryResult {
             o.name = name;
             o.nodeId = nodeId;
             o.pages = pages;
+            o.primaryLanguage = primaryLanguage;
             o.private_ = private_;
             o.repoId = repoId;
             o.squashMergeCommitMessage = squashMergeCommitMessage;

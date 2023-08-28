@@ -22,7 +22,7 @@ class GetRepositoryResult:
     """
     A collection of values returned by getRepository.
     """
-    def __init__(__self__, allow_auto_merge=None, allow_merge_commit=None, allow_rebase_merge=None, allow_squash_merge=None, archived=None, default_branch=None, description=None, fork=None, full_name=None, git_clone_url=None, has_discussions=None, has_downloads=None, has_issues=None, has_projects=None, has_wiki=None, homepage_url=None, html_url=None, http_clone_url=None, id=None, is_template=None, merge_commit_message=None, merge_commit_title=None, name=None, node_id=None, pages=None, private=None, repo_id=None, squash_merge_commit_message=None, squash_merge_commit_title=None, ssh_clone_url=None, svn_url=None, template=None, topics=None, visibility=None):
+    def __init__(__self__, allow_auto_merge=None, allow_merge_commit=None, allow_rebase_merge=None, allow_squash_merge=None, archived=None, default_branch=None, description=None, fork=None, full_name=None, git_clone_url=None, has_discussions=None, has_downloads=None, has_issues=None, has_projects=None, has_wiki=None, homepage_url=None, html_url=None, http_clone_url=None, id=None, is_template=None, merge_commit_message=None, merge_commit_title=None, name=None, node_id=None, pages=None, primary_language=None, private=None, repo_id=None, squash_merge_commit_message=None, squash_merge_commit_title=None, ssh_clone_url=None, svn_url=None, template=None, topics=None, visibility=None):
         if allow_auto_merge and not isinstance(allow_auto_merge, bool):
             raise TypeError("Expected argument 'allow_auto_merge' to be a bool")
         pulumi.set(__self__, "allow_auto_merge", allow_auto_merge)
@@ -98,6 +98,9 @@ class GetRepositoryResult:
         if pages and not isinstance(pages, list):
             raise TypeError("Expected argument 'pages' to be a list")
         pulumi.set(__self__, "pages", pages)
+        if primary_language and not isinstance(primary_language, str):
+            raise TypeError("Expected argument 'primary_language' to be a str")
+        pulumi.set(__self__, "primary_language", primary_language)
         if private and not isinstance(private, bool):
             raise TypeError("Expected argument 'private' to be a bool")
         pulumi.set(__self__, "private", private)
@@ -321,6 +324,14 @@ class GetRepositoryResult:
         return pulumi.get(self, "pages")
 
     @property
+    @pulumi.getter(name="primaryLanguage")
+    def primary_language(self) -> str:
+        """
+        The primary language used in the repository.
+        """
+        return pulumi.get(self, "primary_language")
+
+    @property
     @pulumi.getter
     def private(self) -> bool:
         """
@@ -424,6 +435,7 @@ class AwaitableGetRepositoryResult(GetRepositoryResult):
             name=self.name,
             node_id=self.node_id,
             pages=self.pages,
+            primary_language=self.primary_language,
             private=self.private,
             repo_id=self.repo_id,
             squash_merge_commit_message=self.squash_merge_commit_message,
@@ -492,6 +504,7 @@ def get_repository(description: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         node_id=pulumi.get(__ret__, 'node_id'),
         pages=pulumi.get(__ret__, 'pages'),
+        primary_language=pulumi.get(__ret__, 'primary_language'),
         private=pulumi.get(__ret__, 'private'),
         repo_id=pulumi.get(__ret__, 'repo_id'),
         squash_merge_commit_message=pulumi.get(__ret__, 'squash_merge_commit_message'),

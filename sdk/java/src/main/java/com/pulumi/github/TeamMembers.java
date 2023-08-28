@@ -93,7 +93,7 @@ public class TeamMembers extends com.pulumi.resources.CustomResource {
      * List of team members. See Members below for details.
      * 
      */
-    @Export(name="members", type=List.class, parameters={TeamMembersMember.class})
+    @Export(name="members", refs={List.class,TeamMembersMember.class}, tree="[0,1]")
     private Output<List<TeamMembersMember>> members;
 
     /**
@@ -107,7 +107,7 @@ public class TeamMembers extends com.pulumi.resources.CustomResource {
      * The GitHub team id or the GitHub team slug
      * 
      */
-    @Export(name="teamId", type=String.class, parameters={})
+    @Export(name="teamId", refs={String.class}, tree="[0]")
     private Output<String> teamId;
 
     /**
