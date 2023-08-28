@@ -229,6 +229,14 @@
                     }
                 }
             },
+            "github_codespaces_organization_secret_repositories": {
+                "current": "github:index/codespacesOrganizationSecretRepositories:CodespacesOrganizationSecretRepositories",
+                "fields": {
+                    "selected_repository_ids": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "github_codespaces_secret": {
                 "current": "github:index/codespacesSecret:CodespacesSecret"
             },
@@ -380,6 +388,9 @@
                         "maxItemsOne": false
                     }
                 }
+            },
+            "github_repository_dependabot_security_updates": {
+                "current": "github:index/repositoryDependabotSecurityUpdates:RepositoryDependabotSecurityUpdates"
             },
             "github_repository_deploy_key": {
                 "current": "github:index/repositoryDeployKey:RepositoryDeployKey"
@@ -1035,6 +1046,7 @@
             "github:index/branchProtection:BranchProtection": "github_branch_protection",
             "github:index/branchProtectionV3:BranchProtectionV3": "github_branch_protection_v3",
             "github:index/codespacesOrganizationSecret:CodespacesOrganizationSecret": "github_codespaces_organization_secret",
+            "github:index/codespacesOrganizationSecretRepositories:CodespacesOrganizationSecretRepositories": "github_codespaces_organization_secret_repositories",
             "github:index/codespacesSecret:CodespacesSecret": "github_codespaces_secret",
             "github:index/codespacesUserSecret:CodespacesUserSecret": "github_codespaces_user_secret",
             "github:index/dependabotOrganizationSecret:DependabotOrganizationSecret": "github_dependabot_organization_secret",
@@ -1058,6 +1070,7 @@
             "github:index/repositoryAutolinkReference:RepositoryAutolinkReference": "github_repository_autolink_reference",
             "github:index/repositoryCollaborator:RepositoryCollaborator": "github_repository_collaborator",
             "github:index/repositoryCollaborators:RepositoryCollaborators": "github_repository_collaborators",
+            "github:index/repositoryDependabotSecurityUpdates:RepositoryDependabotSecurityUpdates": "github_repository_dependabot_security_updates",
             "github:index/repositoryDeployKey:RepositoryDeployKey": "github_repository_deploy_key",
             "github:index/repositoryDeploymentBranchPolicy:RepositoryDeploymentBranchPolicy": "github_repository_deployment_branch_policy",
             "github:index/repositoryEnvironment:RepositoryEnvironment": "github_repository_environment",
@@ -1332,6 +1345,10 @@
                 "selectedRepositoryIds": "selected_repository_ids",
                 "updatedAt": "updated_at"
             },
+            "github:index/codespacesOrganizationSecretRepositories:CodespacesOrganizationSecretRepositories": {
+                "secretName": "secret_name",
+                "selectedRepositoryIds": "selected_repository_ids"
+            },
             "github:index/codespacesSecret:CodespacesSecret": {
                 "createdAt": "created_at",
                 "encryptedValue": "encrypted_value",
@@ -1530,7 +1547,25 @@
                 "webs": "web"
             },
             "github:index/getOrganization:getOrganization": {
-                "nodeId": "node_id"
+                "advancedSecurityEnabledForNewRepositories": "advanced_security_enabled_for_new_repositories",
+                "defaultRepositoryPermission": "default_repository_permission",
+                "dependabotAlertsEnabledForNewRepositories": "dependabot_alerts_enabled_for_new_repositories",
+                "dependabotSecurityUpdatesEnabledForNewRepositories": "dependabot_security_updates_enabled_for_new_repositories",
+                "dependencyGraphEnabledForNewRepositories": "dependency_graph_enabled_for_new_repositories",
+                "membersAllowedRepositoryCreationType": "members_allowed_repository_creation_type",
+                "membersCanCreateInternalRepositories": "members_can_create_internal_repositories",
+                "membersCanCreatePages": "members_can_create_pages",
+                "membersCanCreatePrivatePages": "members_can_create_private_pages",
+                "membersCanCreatePrivateRepositories": "members_can_create_private_repositories",
+                "membersCanCreatePublicPages": "members_can_create_public_pages",
+                "membersCanCreatePublicRepositories": "members_can_create_public_repositories",
+                "membersCanCreateRepositories": "members_can_create_repositories",
+                "membersCanForkPrivateRepositories": "members_can_fork_private_repositories",
+                "nodeId": "node_id",
+                "secretScanningEnabledForNewRepositories": "secret_scanning_enabled_for_new_repositories",
+                "secretScanningPushProtectionEnabledForNewRepositories": "secret_scanning_push_protection_enabled_for_new_repositories",
+                "twoFactorRequirementEnabled": "two_factor_requirement_enabled",
+                "webCommitSignoffRequired": "web_commit_signoff_required"
             },
             "github:index/getOrganizationCustomRole:getOrganizationCustomRole": {
                 "baseRole": "base_role"
@@ -1608,6 +1643,7 @@
                 "mergeCommitMessage": "merge_commit_message",
                 "mergeCommitTitle": "merge_commit_title",
                 "nodeId": "node_id",
+                "primaryLanguage": "primary_language",
                 "repoId": "repo_id",
                 "squashMergeCommitMessage": "squash_merge_commit_message",
                 "squashMergeCommitTitle": "squash_merge_commit_title",
@@ -1796,6 +1832,7 @@
                 "mergeCommitMessage": "merge_commit_message",
                 "mergeCommitTitle": "merge_commit_title",
                 "nodeId": "node_id",
+                "primaryLanguage": "primary_language",
                 "repoId": "repo_id",
                 "securityAndAnalysis": "security_and_analysis",
                 "squashMergeCommitMessage": "squash_merge_commit_message",

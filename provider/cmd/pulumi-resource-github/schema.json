@@ -3843,6 +3843,62 @@
                 "type": "object"
             }
         },
+        "github:index/codespacesOrganizationSecretRepositories:CodespacesOrganizationSecretRepositories": {
+            "description": "This resource allows you to manage repository allow list for existing GitHub Codespaces secrets within your GitHub organization.\n\nYou must have write access to an organization secret to use this resource.\n\nThis resource is only applicable when `visibility` of the existing organization secret has been set to `selected`.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\nconst repo = github.getRepository({\n    fullName: \"my-org/repo\",\n});\nconst orgSecretRepos = new github.CodespacesOrganizationSecretRepositories(\"orgSecretRepos\", {\n    secretName: \"existing_secret_name\",\n    selectedRepositoryIds: [repo.then(repo =\u003e repo.repoId)],\n});\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\nrepo = github.get_repository(full_name=\"my-org/repo\")\norg_secret_repos = github.CodespacesOrganizationSecretRepositories(\"orgSecretRepos\",\n    secret_name=\"existing_secret_name\",\n    selected_repository_ids=[repo.repo_id])\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Github = Pulumi.Github;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var repo = Github.GetRepository.Invoke(new()\n    {\n        FullName = \"my-org/repo\",\n    });\n\n    var orgSecretRepos = new Github.CodespacesOrganizationSecretRepositories(\"orgSecretRepos\", new()\n    {\n        SecretName = \"existing_secret_name\",\n        SelectedRepositoryIds = new[]\n        {\n            repo.Apply(getRepositoryResult =\u003e getRepositoryResult.RepoId),\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-github/sdk/v5/go/github\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\trepo, err := github.LookupRepository(ctx, \u0026github.LookupRepositoryArgs{\n\t\t\tFullName: pulumi.StringRef(\"my-org/repo\"),\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = github.NewCodespacesOrganizationSecretRepositories(ctx, \"orgSecretRepos\", \u0026github.CodespacesOrganizationSecretRepositoriesArgs{\n\t\t\tSecretName: pulumi.String(\"existing_secret_name\"),\n\t\t\tSelectedRepositoryIds: pulumi.IntArray{\n\t\t\t\t*pulumi.Int(repo.RepoId),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.github.GithubFunctions;\nimport com.pulumi.github.inputs.GetRepositoryArgs;\nimport com.pulumi.github.CodespacesOrganizationSecretRepositories;\nimport com.pulumi.github.CodespacesOrganizationSecretRepositoriesArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var repo = GithubFunctions.getRepository(GetRepositoryArgs.builder()\n            .fullName(\"my-org/repo\")\n            .build());\n\n        var orgSecretRepos = new CodespacesOrganizationSecretRepositories(\"orgSecretRepos\", CodespacesOrganizationSecretRepositoriesArgs.builder()        \n            .secretName(\"existing_secret_name\")\n            .selectedRepositoryIds(repo.applyValue(getRepositoryResult -\u003e getRepositoryResult.repoId()))\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  orgSecretRepos:\n    type: github:CodespacesOrganizationSecretRepositories\n    properties:\n      secretName: existing_secret_name\n      selectedRepositoryIds:\n        - ${repo.repoId}\nvariables:\n  repo:\n    fn::invoke:\n      Function: github:getRepository\n      Arguments:\n        fullName: my-org/repo\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nThis resource can be imported using an ID made up of the secret name\n\n```sh\n $ pulumi import github:index/codespacesOrganizationSecretRepositories:CodespacesOrganizationSecretRepositories org_secret_repos existing_secret_name\n```\n\n ",
+            "properties": {
+                "secretName": {
+                    "type": "string",
+                    "description": "Name of the existing secret\n"
+                },
+                "selectedRepositoryIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    },
+                    "description": "An array of repository ids that can access the organization secret.\n"
+                }
+            },
+            "required": [
+                "secretName",
+                "selectedRepositoryIds"
+            ],
+            "inputProperties": {
+                "secretName": {
+                    "type": "string",
+                    "description": "Name of the existing secret\n",
+                    "willReplaceOnChanges": true
+                },
+                "selectedRepositoryIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    },
+                    "description": "An array of repository ids that can access the organization secret.\n"
+                }
+            },
+            "requiredInputs": [
+                "secretName",
+                "selectedRepositoryIds"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering CodespacesOrganizationSecretRepositories resources.\n",
+                "properties": {
+                    "secretName": {
+                        "type": "string",
+                        "description": "Name of the existing secret\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "selectedRepositoryIds": {
+                        "type": "array",
+                        "items": {
+                            "type": "integer"
+                        },
+                        "description": "An array of repository ids that can access the organization secret.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
         "github:index/codespacesSecret:CodespacesSecret": {
             "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\nconst examplePublicKey = github.getCodespacesPublicKey({\n    repository: \"example_repository\",\n});\nconst exampleSecretCodespacesSecret = new github.CodespacesSecret(\"exampleSecretCodespacesSecret\", {\n    repository: \"example_repository\",\n    secretName: \"example_secret_name\",\n    plaintextValue: _var.some_secret_string,\n});\nconst exampleSecretIndex_codespacesSecretCodespacesSecret = new github.CodespacesSecret(\"exampleSecretIndex/codespacesSecretCodespacesSecret\", {\n    repository: \"example_repository\",\n    secretName: \"example_secret_name\",\n    encryptedValue: _var.some_encrypted_secret_string,\n});\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\nexample_public_key = github.get_codespaces_public_key(repository=\"example_repository\")\nexample_secret_codespaces_secret = github.CodespacesSecret(\"exampleSecretCodespacesSecret\",\n    repository=\"example_repository\",\n    secret_name=\"example_secret_name\",\n    plaintext_value=var[\"some_secret_string\"])\nexample_secret_index_codespaces_secret_codespaces_secret = github.CodespacesSecret(\"exampleSecretIndex/codespacesSecretCodespacesSecret\",\n    repository=\"example_repository\",\n    secret_name=\"example_secret_name\",\n    encrypted_value=var[\"some_encrypted_secret_string\"])\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Github = Pulumi.Github;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var examplePublicKey = Github.GetCodespacesPublicKey.Invoke(new()\n    {\n        Repository = \"example_repository\",\n    });\n\n    var exampleSecretCodespacesSecret = new Github.CodespacesSecret(\"exampleSecretCodespacesSecret\", new()\n    {\n        Repository = \"example_repository\",\n        SecretName = \"example_secret_name\",\n        PlaintextValue = @var.Some_secret_string,\n    });\n\n    var exampleSecretIndex_codespacesSecretCodespacesSecret = new Github.CodespacesSecret(\"exampleSecretIndex/codespacesSecretCodespacesSecret\", new()\n    {\n        Repository = \"example_repository\",\n        SecretName = \"example_secret_name\",\n        EncryptedValue = @var.Some_encrypted_secret_string,\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-github/sdk/v5/go/github\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := github.GetCodespacesPublicKey(ctx, \u0026github.GetCodespacesPublicKeyArgs{\n\t\t\tRepository: \"example_repository\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = github.NewCodespacesSecret(ctx, \"exampleSecretCodespacesSecret\", \u0026github.CodespacesSecretArgs{\n\t\t\tRepository:     pulumi.String(\"example_repository\"),\n\t\t\tSecretName:     pulumi.String(\"example_secret_name\"),\n\t\t\tPlaintextValue: pulumi.Any(_var.Some_secret_string),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = github.NewCodespacesSecret(ctx, \"exampleSecretIndex/codespacesSecretCodespacesSecret\", \u0026github.CodespacesSecretArgs{\n\t\t\tRepository:     pulumi.String(\"example_repository\"),\n\t\t\tSecretName:     pulumi.String(\"example_secret_name\"),\n\t\t\tEncryptedValue: pulumi.Any(_var.Some_encrypted_secret_string),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.github.GithubFunctions;\nimport com.pulumi.github.inputs.GetCodespacesPublicKeyArgs;\nimport com.pulumi.github.CodespacesSecret;\nimport com.pulumi.github.CodespacesSecretArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var examplePublicKey = GithubFunctions.getCodespacesPublicKey(GetCodespacesPublicKeyArgs.builder()\n            .repository(\"example_repository\")\n            .build());\n\n        var exampleSecretCodespacesSecret = new CodespacesSecret(\"exampleSecretCodespacesSecret\", CodespacesSecretArgs.builder()        \n            .repository(\"example_repository\")\n            .secretName(\"example_secret_name\")\n            .plaintextValue(var_.some_secret_string())\n            .build());\n\n        var exampleSecretIndex_codespacesSecretCodespacesSecret = new CodespacesSecret(\"exampleSecretIndex/codespacesSecretCodespacesSecret\", CodespacesSecretArgs.builder()        \n            .repository(\"example_repository\")\n            .secretName(\"example_secret_name\")\n            .encryptedValue(var_.some_encrypted_secret_string())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  exampleSecretCodespacesSecret:\n    type: github:CodespacesSecret\n    properties:\n      repository: example_repository\n      secretName: example_secret_name\n      plaintextValue: ${var.some_secret_string}\n  exampleSecretIndex/codespacesSecretCodespacesSecret:\n    type: github:CodespacesSecret\n    properties:\n      repository: example_repository\n      secretName: example_secret_name\n      encryptedValue: ${var.some_encrypted_secret_string}\nvariables:\n  examplePublicKey:\n    fn::invoke:\n      Function: github:getCodespacesPublicKey\n      Arguments:\n        repository: example_repository\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nThis resource can be imported using an ID made up of the `repository` and `secret_name`\n\n```sh\n $ pulumi import github:index/codespacesSecret:CodespacesSecret example_secret \u003crepository\u003e/\u003csecret_name\u003e\n```\n\n NOTEthe implementation is limited in that it won't fetch the value of the `plaintext_value` or `encrypted_value` fields when importing. You may need to ignore changes for these as a workaround. ",
             "properties": {
@@ -5804,6 +5860,10 @@
                     "$ref": "#/types/github:index/RepositoryPages:RepositoryPages",
                     "description": "The repository's GitHub Pages configuration. See GitHub Pages Configuration below for details.\n"
                 },
+                "primaryLanguage": {
+                    "type": "string",
+                    "description": "The primary language used in the repository.\n"
+                },
                 "private": {
                     "type": "boolean",
                     "description": "Set to `true` to create a private repository.\nRepositories are created as public (e.g. open source) by default.\n",
@@ -5862,6 +5922,7 @@
                 "httpCloneUrl",
                 "name",
                 "nodeId",
+                "primaryLanguage",
                 "private",
                 "repoId",
                 "securityAndAnalysis",
@@ -6134,6 +6195,10 @@
                     "pages": {
                         "$ref": "#/types/github:index/RepositoryPages:RepositoryPages",
                         "description": "The repository's GitHub Pages configuration. See GitHub Pages Configuration below for details.\n"
+                    },
+                    "primaryLanguage": {
+                        "type": "string",
+                        "description": "The primary language used in the repository.\n"
                     },
                     "private": {
                         "type": "boolean",
@@ -6444,6 +6509,52 @@
                             "$ref": "#/types/github:index/RepositoryCollaboratorsUser:RepositoryCollaboratorsUser"
                         },
                         "description": "List of uses\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "github:index/repositoryDependabotSecurityUpdates:RepositoryDependabotSecurityUpdates": {
+            "properties": {
+                "enabled": {
+                    "type": "boolean",
+                    "description": "The state of the automated security fixes.\n"
+                },
+                "repository": {
+                    "type": "string",
+                    "description": "The GitHub repository.\n"
+                }
+            },
+            "required": [
+                "enabled",
+                "repository"
+            ],
+            "inputProperties": {
+                "enabled": {
+                    "type": "boolean",
+                    "description": "The state of the automated security fixes.\n"
+                },
+                "repository": {
+                    "type": "string",
+                    "description": "The GitHub repository.\n",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "requiredInputs": [
+                "enabled",
+                "repository"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering RepositoryDependabotSecurityUpdates resources.\n",
+                "properties": {
+                    "enabled": {
+                        "type": "boolean",
+                        "description": "The state of the automated security fixes.\n"
+                    },
+                    "repository": {
+                        "type": "string",
+                        "description": "The GitHub repository.\n",
+                        "willReplaceOnChanges": true
                     }
                 },
                 "type": "object"
@@ -9521,6 +9632,26 @@
             "outputs": {
                 "description": "A collection of values returned by getOrganization.\n",
                 "properties": {
+                    "advancedSecurityEnabledForNewRepositories": {
+                        "type": "boolean",
+                        "description": "Whether advanced security is enabled for new repositories.\n"
+                    },
+                    "defaultRepositoryPermission": {
+                        "type": "string",
+                        "description": "Default permission level members have for organization repositories.\n"
+                    },
+                    "dependabotAlertsEnabledForNewRepositories": {
+                        "type": "boolean",
+                        "description": "Whether Dependabot alerts is automatically enabled for new repositories.\n"
+                    },
+                    "dependabotSecurityUpdatesEnabledForNewRepositories": {
+                        "type": "boolean",
+                        "description": "Whether Dependabot security updates is automatically enabled for new repositories.\n"
+                    },
+                    "dependencyGraphEnabledForNewRepositories": {
+                        "type": "boolean",
+                        "description": "Whether dependency graph is automatically enabled for new repositories.\n"
+                    },
                     "description": {
                         "type": "string",
                         "description": "The organization account description\n"
@@ -9540,6 +9671,42 @@
                         },
                         "description": "**Deprecated**: use `users` instead by replacing `github_organization.example.members` to `github_organization.example.users[*].login` which will give you the same value, expect this field to be removed in next major version\n",
                         "deprecationMessage": "Use `users` instead by replacing `github_organization.example.members` to `github_organization.example.users[*].login`. Expect this field to be removed in next major version."
+                    },
+                    "membersAllowedRepositoryCreationType": {
+                        "type": "string",
+                        "description": "The type of repository allowed to be created by members of the organization. Can be one of `ALL`, `PUBLIC`, `PRIVATE`, `NONE`.\n"
+                    },
+                    "membersCanCreateInternalRepositories": {
+                        "type": "boolean",
+                        "description": "Whether organization members can create internal repositories.\n"
+                    },
+                    "membersCanCreatePages": {
+                        "type": "boolean",
+                        "description": "Whether organization members can create pages sites.\n"
+                    },
+                    "membersCanCreatePrivatePages": {
+                        "type": "boolean",
+                        "description": "Whether organization members can create private pages sites.\n"
+                    },
+                    "membersCanCreatePrivateRepositories": {
+                        "type": "boolean",
+                        "description": "Whether organization members can create private repositories.\n"
+                    },
+                    "membersCanCreatePublicPages": {
+                        "type": "boolean",
+                        "description": "Whether organization members can create public pages sites.\n"
+                    },
+                    "membersCanCreatePublicRepositories": {
+                        "type": "boolean",
+                        "description": "Whether organization members can create public repositories.\n"
+                    },
+                    "membersCanCreateRepositories": {
+                        "type": "boolean",
+                        "description": "Whether non-admin organization members can create repositories.\n"
+                    },
+                    "membersCanForkPrivateRepositories": {
+                        "type": "boolean",
+                        "description": "Whether organization members can create private repository forks.\n"
                     },
                     "name": {
                         "type": "string",
@@ -9564,6 +9731,18 @@
                         },
                         "description": "(`list`) A list of the full names of the repositories in the organization formatted as `owner/name` strings\n"
                     },
+                    "secretScanningEnabledForNewRepositories": {
+                        "type": "boolean",
+                        "description": "Whether secret scanning is automatically enabled for new repositories.\n"
+                    },
+                    "secretScanningPushProtectionEnabledForNewRepositories": {
+                        "type": "boolean",
+                        "description": "Whether secret scanning push protection is automatically enabled for new repositories.\n"
+                    },
+                    "twoFactorRequirementEnabled": {
+                        "type": "boolean",
+                        "description": "Whether two-factor authentication is required for all members of the organization.\n"
+                    },
                     "users": {
                         "type": "array",
                         "items": {
@@ -9573,19 +9752,41 @@
                             }
                         },
                         "description": "(`list`) A list with the members of the organization with following fields:\n"
+                    },
+                    "webCommitSignoffRequired": {
+                        "type": "boolean",
+                        "description": "Whether organization members must sign all commits.\n"
                     }
                 },
                 "type": "object",
                 "required": [
+                    "advancedSecurityEnabledForNewRepositories",
+                    "defaultRepositoryPermission",
+                    "dependabotAlertsEnabledForNewRepositories",
+                    "dependabotSecurityUpdatesEnabledForNewRepositories",
+                    "dependencyGraphEnabledForNewRepositories",
                     "description",
                     "login",
                     "members",
+                    "membersAllowedRepositoryCreationType",
+                    "membersCanCreateInternalRepositories",
+                    "membersCanCreatePages",
+                    "membersCanCreatePrivatePages",
+                    "membersCanCreatePrivateRepositories",
+                    "membersCanCreatePublicPages",
+                    "membersCanCreatePublicRepositories",
+                    "membersCanCreateRepositories",
+                    "membersCanForkPrivateRepositories",
                     "name",
                     "nodeId",
                     "orgname",
                     "plan",
                     "repositories",
+                    "secretScanningEnabledForNewRepositories",
+                    "secretScanningPushProtectionEnabledForNewRepositories",
+                    "twoFactorRequirementEnabled",
                     "users",
+                    "webCommitSignoffRequired",
                     "id"
                 ]
             }
@@ -10202,6 +10403,10 @@
                         },
                         "description": "The repository's GitHub Pages configuration.\n"
                     },
+                    "primaryLanguage": {
+                        "type": "string",
+                        "description": "The primary language used in the repository.\n"
+                    },
                     "private": {
                         "type": "boolean",
                         "description": "Whether the repository is private.\n"
@@ -10266,6 +10471,7 @@
                     "name",
                     "nodeId",
                     "pages",
+                    "primaryLanguage",
                     "private",
                     "repoId",
                     "squashMergeCommitMessage",
