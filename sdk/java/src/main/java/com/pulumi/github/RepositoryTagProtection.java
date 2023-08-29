@@ -63,7 +63,7 @@ public class RepositoryTagProtection extends com.pulumi.resources.CustomResource
      * The pattern of the tag to protect.
      * 
      */
-    @Export(name="pattern", type=String.class, parameters={})
+    @Export(name="pattern", refs={String.class}, tree="[0]")
     private Output<String> pattern;
 
     /**
@@ -77,7 +77,7 @@ public class RepositoryTagProtection extends com.pulumi.resources.CustomResource
      * Name of the repository to add the tag protection to.
      * 
      */
-    @Export(name="repository", type=String.class, parameters={})
+    @Export(name="repository", refs={String.class}, tree="[0]")
     private Output<String> repository;
 
     /**
@@ -91,7 +91,7 @@ public class RepositoryTagProtection extends com.pulumi.resources.CustomResource
      * The ID of the tag protection.
      * 
      */
-    @Export(name="tagProtectionId", type=Integer.class, parameters={})
+    @Export(name="tagProtectionId", refs={Integer.class}, tree="[0]")
     private Output<Integer> tagProtectionId;
 
     /**

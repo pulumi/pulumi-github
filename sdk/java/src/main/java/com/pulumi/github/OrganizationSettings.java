@@ -87,7 +87,7 @@ public class OrganizationSettings extends com.pulumi.resources.CustomResource {
      * Whether or not advanced security is enabled for new repositories. Defaults to `false`.
      * 
      */
-    @Export(name="advancedSecurityEnabledForNewRepositories", type=Boolean.class, parameters={})
+    @Export(name="advancedSecurityEnabledForNewRepositories", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> advancedSecurityEnabledForNewRepositories;
 
     /**
@@ -101,7 +101,7 @@ public class OrganizationSettings extends com.pulumi.resources.CustomResource {
      * The billing email address for the organization.
      * 
      */
-    @Export(name="billingEmail", type=String.class, parameters={})
+    @Export(name="billingEmail", refs={String.class}, tree="[0]")
     private Output<String> billingEmail;
 
     /**
@@ -115,7 +115,7 @@ public class OrganizationSettings extends com.pulumi.resources.CustomResource {
      * The blog URL for the organization.
      * 
      */
-    @Export(name="blog", type=String.class, parameters={})
+    @Export(name="blog", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> blog;
 
     /**
@@ -129,7 +129,7 @@ public class OrganizationSettings extends com.pulumi.resources.CustomResource {
      * The company name for the organization.
      * 
      */
-    @Export(name="company", type=String.class, parameters={})
+    @Export(name="company", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> company;
 
     /**
@@ -143,7 +143,7 @@ public class OrganizationSettings extends com.pulumi.resources.CustomResource {
      * The default permission for organization members to create new repositories. Can be one of `read`, `write`, `admin`, or `none`. Defaults to `read`.
      * 
      */
-    @Export(name="defaultRepositoryPermission", type=String.class, parameters={})
+    @Export(name="defaultRepositoryPermission", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> defaultRepositoryPermission;
 
     /**
@@ -157,7 +157,7 @@ public class OrganizationSettings extends com.pulumi.resources.CustomResource {
      * Whether or not dependabot alerts are enabled for new repositories. Defaults to `false`.
      * 
      */
-    @Export(name="dependabotAlertsEnabledForNewRepositories", type=Boolean.class, parameters={})
+    @Export(name="dependabotAlertsEnabledForNewRepositories", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> dependabotAlertsEnabledForNewRepositories;
 
     /**
@@ -171,7 +171,7 @@ public class OrganizationSettings extends com.pulumi.resources.CustomResource {
      * Whether or not dependabot security updates are enabled for new repositories. Defaults to `false`.
      * 
      */
-    @Export(name="dependabotSecurityUpdatesEnabledForNewRepositories", type=Boolean.class, parameters={})
+    @Export(name="dependabotSecurityUpdatesEnabledForNewRepositories", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> dependabotSecurityUpdatesEnabledForNewRepositories;
 
     /**
@@ -185,7 +185,7 @@ public class OrganizationSettings extends com.pulumi.resources.CustomResource {
      * Whether or not dependency graph is enabled for new repositories. Defaults to `false`.
      * 
      */
-    @Export(name="dependencyGraphEnabledForNewRepositories", type=Boolean.class, parameters={})
+    @Export(name="dependencyGraphEnabledForNewRepositories", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> dependencyGraphEnabledForNewRepositories;
 
     /**
@@ -199,7 +199,7 @@ public class OrganizationSettings extends com.pulumi.resources.CustomResource {
      * The description for the organization.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -213,7 +213,7 @@ public class OrganizationSettings extends com.pulumi.resources.CustomResource {
      * The email address for the organization.
      * 
      */
-    @Export(name="email", type=String.class, parameters={})
+    @Export(name="email", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> email;
 
     /**
@@ -227,7 +227,7 @@ public class OrganizationSettings extends com.pulumi.resources.CustomResource {
      * Whether or not organization projects are enabled for the organization.
      * 
      */
-    @Export(name="hasOrganizationProjects", type=Boolean.class, parameters={})
+    @Export(name="hasOrganizationProjects", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> hasOrganizationProjects;
 
     /**
@@ -241,7 +241,7 @@ public class OrganizationSettings extends com.pulumi.resources.CustomResource {
      * Whether or not repository projects are enabled for the organization.
      * 
      */
-    @Export(name="hasRepositoryProjects", type=Boolean.class, parameters={})
+    @Export(name="hasRepositoryProjects", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> hasRepositoryProjects;
 
     /**
@@ -255,7 +255,7 @@ public class OrganizationSettings extends com.pulumi.resources.CustomResource {
      * The location for the organization.
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> location;
 
     /**
@@ -269,7 +269,7 @@ public class OrganizationSettings extends com.pulumi.resources.CustomResource {
      * Whether or not organization members can create new internal repositories. For Enterprise Organizations only.
      * 
      */
-    @Export(name="membersCanCreateInternalRepositories", type=Boolean.class, parameters={})
+    @Export(name="membersCanCreateInternalRepositories", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> membersCanCreateInternalRepositories;
 
     /**
@@ -283,7 +283,7 @@ public class OrganizationSettings extends com.pulumi.resources.CustomResource {
      * Whether or not organization members can create new pages. Defaults to `true`.
      * 
      */
-    @Export(name="membersCanCreatePages", type=Boolean.class, parameters={})
+    @Export(name="membersCanCreatePages", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> membersCanCreatePages;
 
     /**
@@ -297,7 +297,7 @@ public class OrganizationSettings extends com.pulumi.resources.CustomResource {
      * Whether or not organization members can create new private pages. Defaults to `true`.
      * 
      */
-    @Export(name="membersCanCreatePrivatePages", type=Boolean.class, parameters={})
+    @Export(name="membersCanCreatePrivatePages", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> membersCanCreatePrivatePages;
 
     /**
@@ -311,7 +311,7 @@ public class OrganizationSettings extends com.pulumi.resources.CustomResource {
      * Whether or not organization members can create new private repositories. Defaults to `true`.
      * 
      */
-    @Export(name="membersCanCreatePrivateRepositories", type=Boolean.class, parameters={})
+    @Export(name="membersCanCreatePrivateRepositories", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> membersCanCreatePrivateRepositories;
 
     /**
@@ -325,7 +325,7 @@ public class OrganizationSettings extends com.pulumi.resources.CustomResource {
      * Whether or not organization members can create new public pages. Defaults to `true`.
      * 
      */
-    @Export(name="membersCanCreatePublicPages", type=Boolean.class, parameters={})
+    @Export(name="membersCanCreatePublicPages", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> membersCanCreatePublicPages;
 
     /**
@@ -339,7 +339,7 @@ public class OrganizationSettings extends com.pulumi.resources.CustomResource {
      * Whether or not organization members can create new public repositories. Defaults to `true`.
      * 
      */
-    @Export(name="membersCanCreatePublicRepositories", type=Boolean.class, parameters={})
+    @Export(name="membersCanCreatePublicRepositories", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> membersCanCreatePublicRepositories;
 
     /**
@@ -353,7 +353,7 @@ public class OrganizationSettings extends com.pulumi.resources.CustomResource {
      * Whether or not organization members can create new repositories. Defaults to `true`.
      * 
      */
-    @Export(name="membersCanCreateRepositories", type=Boolean.class, parameters={})
+    @Export(name="membersCanCreateRepositories", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> membersCanCreateRepositories;
 
     /**
@@ -367,7 +367,7 @@ public class OrganizationSettings extends com.pulumi.resources.CustomResource {
      * Whether or not organization members can fork private repositories. Defaults to `false`.
      * 
      */
-    @Export(name="membersCanForkPrivateRepositories", type=Boolean.class, parameters={})
+    @Export(name="membersCanForkPrivateRepositories", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> membersCanForkPrivateRepositories;
 
     /**
@@ -381,7 +381,7 @@ public class OrganizationSettings extends com.pulumi.resources.CustomResource {
      * The name for the organization.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -395,7 +395,7 @@ public class OrganizationSettings extends com.pulumi.resources.CustomResource {
      * Whether or not secret scanning is enabled for new repositories. Defaults to `false`.
      * 
      */
-    @Export(name="secretScanningEnabledForNewRepositories", type=Boolean.class, parameters={})
+    @Export(name="secretScanningEnabledForNewRepositories", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> secretScanningEnabledForNewRepositories;
 
     /**
@@ -409,7 +409,7 @@ public class OrganizationSettings extends com.pulumi.resources.CustomResource {
      * Whether or not secret scanning push protection is enabled for new repositories. Defaults to `false`.
      * 
      */
-    @Export(name="secretScanningPushProtectionEnabledForNewRepositories", type=Boolean.class, parameters={})
+    @Export(name="secretScanningPushProtectionEnabledForNewRepositories", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> secretScanningPushProtectionEnabledForNewRepositories;
 
     /**
@@ -423,7 +423,7 @@ public class OrganizationSettings extends com.pulumi.resources.CustomResource {
      * The Twitter username for the organization.
      * 
      */
-    @Export(name="twitterUsername", type=String.class, parameters={})
+    @Export(name="twitterUsername", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> twitterUsername;
 
     /**
@@ -437,7 +437,7 @@ public class OrganizationSettings extends com.pulumi.resources.CustomResource {
      * Whether or not commit signatures are required for commits to the organization. Defaults to `false`.
      * 
      */
-    @Export(name="webCommitSignoffRequired", type=Boolean.class, parameters={})
+    @Export(name="webCommitSignoffRequired", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> webCommitSignoffRequired;
 
     /**

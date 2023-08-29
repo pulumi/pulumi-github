@@ -153,6 +153,10 @@ export interface GetRepositoryResult {
      */
     readonly pages: outputs.GetRepositoryPage[];
     /**
+     * The primary language used in the repository.
+     */
+    readonly primaryLanguage: string;
+    /**
      * Whether the repository is private.
      */
     readonly private: boolean;

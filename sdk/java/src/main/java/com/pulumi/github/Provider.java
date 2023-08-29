@@ -26,7 +26,7 @@ public class Provider extends com.pulumi.resources.ProviderResource {
      * The GitHub Base API URL
      * 
      */
-    @Export(name="baseUrl", type=String.class, parameters={})
+    @Export(name="baseUrl", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> baseUrl;
 
     /**
@@ -44,7 +44,7 @@ public class Provider extends com.pulumi.resources.ProviderResource {
      * 
      */
     @Deprecated /* Use owner (or GITHUB_OWNER) instead of organization (or GITHUB_ORGANIZATION) */
-    @Export(name="organization", type=String.class, parameters={})
+    @Export(name="organization", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> organization;
 
     /**
@@ -58,7 +58,7 @@ public class Provider extends com.pulumi.resources.ProviderResource {
      * The GitHub owner name to manage. Use this field instead of `organization` when managing individual accounts.
      * 
      */
-    @Export(name="owner", type=String.class, parameters={})
+    @Export(name="owner", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> owner;
 
     /**
@@ -72,7 +72,7 @@ public class Provider extends com.pulumi.resources.ProviderResource {
      * The OAuth token used to connect to GitHub. Anonymous mode is enabled if both `token` and `app_auth` are not set.
      * 
      */
-    @Export(name="token", type=String.class, parameters={})
+    @Export(name="token", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> token;
 
     /**

@@ -142,7 +142,7 @@ public class BranchProtectionV3 extends com.pulumi.resources.CustomResource {
      * The Git branch to protect.
      * 
      */
-    @Export(name="branch", type=String.class, parameters={})
+    @Export(name="branch", refs={String.class}, tree="[0]")
     private Output<String> branch;
 
     /**
@@ -156,7 +156,7 @@ public class BranchProtectionV3 extends com.pulumi.resources.CustomResource {
      * Boolean, setting this to `true` enforces status checks for repository administrators.
      * 
      */
-    @Export(name="enforceAdmins", type=Boolean.class, parameters={})
+    @Export(name="enforceAdmins", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enforceAdmins;
 
     /**
@@ -166,7 +166,7 @@ public class BranchProtectionV3 extends com.pulumi.resources.CustomResource {
     public Output<Optional<Boolean>> enforceAdmins() {
         return Codegen.optional(this.enforceAdmins);
     }
-    @Export(name="etag", type=String.class, parameters={})
+    @Export(name="etag", refs={String.class}, tree="[0]")
     private Output<String> etag;
 
     public Output<String> etag() {
@@ -176,7 +176,7 @@ public class BranchProtectionV3 extends com.pulumi.resources.CustomResource {
      * The GitHub repository name.
      * 
      */
-    @Export(name="repository", type=String.class, parameters={})
+    @Export(name="repository", refs={String.class}, tree="[0]")
     private Output<String> repository;
 
     /**
@@ -190,7 +190,7 @@ public class BranchProtectionV3 extends com.pulumi.resources.CustomResource {
      * Boolean, setting this to `true` requires all conversations on code must be resolved before a pull request can be merged.
      * 
      */
-    @Export(name="requireConversationResolution", type=Boolean.class, parameters={})
+    @Export(name="requireConversationResolution", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> requireConversationResolution;
 
     /**
@@ -204,7 +204,7 @@ public class BranchProtectionV3 extends com.pulumi.resources.CustomResource {
      * Boolean, setting this to `true` requires all commits to be signed with GPG.
      * 
      */
-    @Export(name="requireSignedCommits", type=Boolean.class, parameters={})
+    @Export(name="requireSignedCommits", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> requireSignedCommits;
 
     /**
@@ -218,7 +218,7 @@ public class BranchProtectionV3 extends com.pulumi.resources.CustomResource {
      * Enforce restrictions for pull request reviews. See Required Pull Request Reviews below for details.
      * 
      */
-    @Export(name="requiredPullRequestReviews", type=BranchProtectionV3RequiredPullRequestReviews.class, parameters={})
+    @Export(name="requiredPullRequestReviews", refs={BranchProtectionV3RequiredPullRequestReviews.class}, tree="[0]")
     private Output</* @Nullable */ BranchProtectionV3RequiredPullRequestReviews> requiredPullRequestReviews;
 
     /**
@@ -232,7 +232,7 @@ public class BranchProtectionV3 extends com.pulumi.resources.CustomResource {
      * Enforce restrictions for required status checks. See Required Status Checks below for details.
      * 
      */
-    @Export(name="requiredStatusChecks", type=BranchProtectionV3RequiredStatusChecks.class, parameters={})
+    @Export(name="requiredStatusChecks", refs={BranchProtectionV3RequiredStatusChecks.class}, tree="[0]")
     private Output</* @Nullable */ BranchProtectionV3RequiredStatusChecks> requiredStatusChecks;
 
     /**
@@ -246,7 +246,7 @@ public class BranchProtectionV3 extends com.pulumi.resources.CustomResource {
      * Enforce restrictions for the users and teams that may push to the branch. See Restrictions below for details.
      * 
      */
-    @Export(name="restrictions", type=BranchProtectionV3Restrictions.class, parameters={})
+    @Export(name="restrictions", refs={BranchProtectionV3Restrictions.class}, tree="[0]")
     private Output</* @Nullable */ BranchProtectionV3Restrictions> restrictions;
 
     /**

@@ -69,7 +69,7 @@ public class ActionsOrganizationOidcSubjectClaimCustomizationTemplate extends co
      * A list of OpenID Connect claims.
      * 
      */
-    @Export(name="includeClaimKeys", type=List.class, parameters={String.class})
+    @Export(name="includeClaimKeys", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> includeClaimKeys;
 
     /**

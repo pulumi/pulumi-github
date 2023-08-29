@@ -84,7 +84,7 @@ public class ActionsRepositoryOidcSubjectClaimCustomizationTemplate extends com.
      * A list of OpenID Connect claims.
      * 
      */
-    @Export(name="includeClaimKeys", type=List.class, parameters={String.class})
+    @Export(name="includeClaimKeys", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> includeClaimKeys;
 
     /**
@@ -98,7 +98,7 @@ public class ActionsRepositoryOidcSubjectClaimCustomizationTemplate extends com.
      * The name of the repository.
      * 
      */
-    @Export(name="repository", type=String.class, parameters={})
+    @Export(name="repository", refs={String.class}, tree="[0]")
     private Output<String> repository;
 
     /**
@@ -113,7 +113,7 @@ public class ActionsRepositoryOidcSubjectClaimCustomizationTemplate extends com.
      * be set.
      * 
      */
-    @Export(name="useDefault", type=Boolean.class, parameters={})
+    @Export(name="useDefault", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> useDefault;
 
     /**

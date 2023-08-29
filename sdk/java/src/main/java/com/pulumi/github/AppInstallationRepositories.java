@@ -42,7 +42,7 @@ public class AppInstallationRepositories extends com.pulumi.resources.CustomReso
      * The GitHub app installation id.
      * 
      */
-    @Export(name="installationId", type=String.class, parameters={})
+    @Export(name="installationId", refs={String.class}, tree="[0]")
     private Output<String> installationId;
 
     /**
@@ -58,7 +58,7 @@ public class AppInstallationRepositories extends com.pulumi.resources.CustomReso
      * &gt; **Note**: Due to how GitHub implements app installations, apps cannot be installed with no repositories selected. Therefore deleting this resource will leave one repository with the app installed. Manually uninstall the app or set the installation to all repositories via the GUI as after deleting this resource.
      * 
      */
-    @Export(name="selectedRepositories", type=List.class, parameters={String.class})
+    @Export(name="selectedRepositories", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> selectedRepositories;
 
     /**

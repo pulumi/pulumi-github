@@ -69,7 +69,7 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="github:index/teamSyncGroupMapping:TeamSyncGroupMapping")
 public class TeamSyncGroupMapping extends com.pulumi.resources.CustomResource {
-    @Export(name="etag", type=String.class, parameters={})
+    @Export(name="etag", refs={String.class}, tree="[0]")
     private Output<String> etag;
 
     public Output<String> etag() {
@@ -82,7 +82,7 @@ public class TeamSyncGroupMapping extends com.pulumi.resources.CustomResource {
      * The `group` block consists of:
      * 
      */
-    @Export(name="groups", type=List.class, parameters={TeamSyncGroupMappingGroup.class})
+    @Export(name="groups", refs={List.class,TeamSyncGroupMappingGroup.class}, tree="[0,1]")
     private Output</* @Nullable */ List<TeamSyncGroupMappingGroup>> groups;
 
     /**
@@ -99,7 +99,7 @@ public class TeamSyncGroupMapping extends com.pulumi.resources.CustomResource {
      * Slug of the team
      * 
      */
-    @Export(name="teamSlug", type=String.class, parameters={})
+    @Export(name="teamSlug", refs={String.class}, tree="[0]")
     private Output<String> teamSlug;
 
     /**

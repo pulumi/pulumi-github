@@ -61,7 +61,7 @@ public class RepositoryPullRequest extends com.pulumi.resources.CustomResource {
      * Name of the branch serving as the base of the Pull Request.
      * 
      */
-    @Export(name="baseRef", type=String.class, parameters={})
+    @Export(name="baseRef", refs={String.class}, tree="[0]")
     private Output<String> baseRef;
 
     /**
@@ -75,7 +75,7 @@ public class RepositoryPullRequest extends com.pulumi.resources.CustomResource {
      * Name of the base repository to retrieve the Pull Requests from.
      * 
      */
-    @Export(name="baseRepository", type=String.class, parameters={})
+    @Export(name="baseRepository", refs={String.class}, tree="[0]")
     private Output<String> baseRepository;
 
     /**
@@ -89,7 +89,7 @@ public class RepositoryPullRequest extends com.pulumi.resources.CustomResource {
      * Head commit SHA of the Pull Request base.
      * 
      */
-    @Export(name="baseSha", type=String.class, parameters={})
+    @Export(name="baseSha", refs={String.class}, tree="[0]")
     private Output<String> baseSha;
 
     /**
@@ -103,7 +103,7 @@ public class RepositoryPullRequest extends com.pulumi.resources.CustomResource {
      * Body of the Pull Request.
      * 
      */
-    @Export(name="body", type=String.class, parameters={})
+    @Export(name="body", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> body;
 
     /**
@@ -117,7 +117,7 @@ public class RepositoryPullRequest extends com.pulumi.resources.CustomResource {
      * Indicates Whether this Pull Request is a draft.
      * 
      */
-    @Export(name="draft", type=Boolean.class, parameters={})
+    @Export(name="draft", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> draft;
 
     /**
@@ -131,7 +131,7 @@ public class RepositoryPullRequest extends com.pulumi.resources.CustomResource {
      * Name of the branch serving as the head of the Pull Request.
      * 
      */
-    @Export(name="headRef", type=String.class, parameters={})
+    @Export(name="headRef", refs={String.class}, tree="[0]")
     private Output<String> headRef;
 
     /**
@@ -145,7 +145,7 @@ public class RepositoryPullRequest extends com.pulumi.resources.CustomResource {
      * Head commit SHA of the Pull Request head.
      * 
      */
-    @Export(name="headSha", type=String.class, parameters={})
+    @Export(name="headSha", refs={String.class}, tree="[0]")
     private Output<String> headSha;
 
     /**
@@ -159,7 +159,7 @@ public class RepositoryPullRequest extends com.pulumi.resources.CustomResource {
      * List of label names set on the Pull Request.
      * 
      */
-    @Export(name="labels", type=List.class, parameters={String.class})
+    @Export(name="labels", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> labels;
 
     /**
@@ -173,7 +173,7 @@ public class RepositoryPullRequest extends com.pulumi.resources.CustomResource {
      * Controls whether the base repository maintainers can modify the Pull Request. Default: false.
      * 
      */
-    @Export(name="maintainerCanModify", type=Boolean.class, parameters={})
+    @Export(name="maintainerCanModify", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> maintainerCanModify;
 
     /**
@@ -187,7 +187,7 @@ public class RepositoryPullRequest extends com.pulumi.resources.CustomResource {
      * The number of the Pull Request within the repository.
      * 
      */
-    @Export(name="number", type=Integer.class, parameters={})
+    @Export(name="number", refs={Integer.class}, tree="[0]")
     private Output<Integer> number;
 
     /**
@@ -201,7 +201,7 @@ public class RepositoryPullRequest extends com.pulumi.resources.CustomResource {
      * Unix timestamp indicating the Pull Request creation time.
      * 
      */
-    @Export(name="openedAt", type=Integer.class, parameters={})
+    @Export(name="openedAt", refs={Integer.class}, tree="[0]")
     private Output<Integer> openedAt;
 
     /**
@@ -215,7 +215,7 @@ public class RepositoryPullRequest extends com.pulumi.resources.CustomResource {
      * GitHub login of the user who opened the Pull Request.
      * 
      */
-    @Export(name="openedBy", type=String.class, parameters={})
+    @Export(name="openedBy", refs={String.class}, tree="[0]")
     private Output<String> openedBy;
 
     /**
@@ -229,7 +229,7 @@ public class RepositoryPullRequest extends com.pulumi.resources.CustomResource {
      * Owner of the repository. If not provided, the provider&#39;s default owner is used.
      * 
      */
-    @Export(name="owner", type=String.class, parameters={})
+    @Export(name="owner", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> owner;
 
     /**
@@ -243,7 +243,7 @@ public class RepositoryPullRequest extends com.pulumi.resources.CustomResource {
      * the current Pull Request state - can be &#34;open&#34;, &#34;closed&#34; or &#34;merged&#34;.
      * 
      */
-    @Export(name="state", type=String.class, parameters={})
+    @Export(name="state", refs={String.class}, tree="[0]")
     private Output<String> state;
 
     /**
@@ -257,7 +257,7 @@ public class RepositoryPullRequest extends com.pulumi.resources.CustomResource {
      * The title of the Pull Request.
      * 
      */
-    @Export(name="title", type=String.class, parameters={})
+    @Export(name="title", refs={String.class}, tree="[0]")
     private Output<String> title;
 
     /**
@@ -271,7 +271,7 @@ public class RepositoryPullRequest extends com.pulumi.resources.CustomResource {
      * The timestamp of the last Pull Request update.
      * 
      */
-    @Export(name="updatedAt", type=Integer.class, parameters={})
+    @Export(name="updatedAt", refs={Integer.class}, tree="[0]")
     private Output<Integer> updatedAt;
 
     /**

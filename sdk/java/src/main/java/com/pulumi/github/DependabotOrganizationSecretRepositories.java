@@ -21,7 +21,7 @@ public class DependabotOrganizationSecretRepositories extends com.pulumi.resourc
      * Name of the existing secret.
      * 
      */
-    @Export(name="secretName", type=String.class, parameters={})
+    @Export(name="secretName", refs={String.class}, tree="[0]")
     private Output<String> secretName;
 
     /**
@@ -35,7 +35,7 @@ public class DependabotOrganizationSecretRepositories extends com.pulumi.resourc
      * An array of repository ids that can access the organization secret.
      * 
      */
-    @Export(name="selectedRepositoryIds", type=List.class, parameters={Integer.class})
+    @Export(name="selectedRepositoryIds", refs={List.class,Integer.class}, tree="[0,1]")
     private Output<List<Integer>> selectedRepositoryIds;
 
     /**

@@ -86,7 +86,7 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="github:index/teamMembership:TeamMembership")
 public class TeamMembership extends com.pulumi.resources.CustomResource {
-    @Export(name="etag", type=String.class, parameters={})
+    @Export(name="etag", refs={String.class}, tree="[0]")
     private Output<String> etag;
 
     public Output<String> etag() {
@@ -97,7 +97,7 @@ public class TeamMembership extends com.pulumi.resources.CustomResource {
      * Must be one of `member` or `maintainer`. Defaults to `member`.
      * 
      */
-    @Export(name="role", type=String.class, parameters={})
+    @Export(name="role", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> role;
 
     /**
@@ -112,7 +112,7 @@ public class TeamMembership extends com.pulumi.resources.CustomResource {
      * The GitHub team id or the GitHub team slug
      * 
      */
-    @Export(name="teamId", type=String.class, parameters={})
+    @Export(name="teamId", refs={String.class}, tree="[0]")
     private Output<String> teamId;
 
     /**
@@ -126,7 +126,7 @@ public class TeamMembership extends com.pulumi.resources.CustomResource {
      * The user to add to the team.
      * 
      */
-    @Export(name="username", type=String.class, parameters={})
+    @Export(name="username", refs={String.class}, tree="[0]")
     private Output<String> username;
 
     /**

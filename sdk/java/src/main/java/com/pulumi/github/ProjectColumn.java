@@ -60,7 +60,7 @@ public class ProjectColumn extends com.pulumi.resources.CustomResource {
      * The ID of the column.
      * 
      */
-    @Export(name="columnId", type=Integer.class, parameters={})
+    @Export(name="columnId", refs={Integer.class}, tree="[0]")
     private Output<Integer> columnId;
 
     /**
@@ -70,7 +70,7 @@ public class ProjectColumn extends com.pulumi.resources.CustomResource {
     public Output<Integer> columnId() {
         return this.columnId;
     }
-    @Export(name="etag", type=String.class, parameters={})
+    @Export(name="etag", refs={String.class}, tree="[0]")
     private Output<String> etag;
 
     public Output<String> etag() {
@@ -80,7 +80,7 @@ public class ProjectColumn extends com.pulumi.resources.CustomResource {
      * The name of the column.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -94,7 +94,7 @@ public class ProjectColumn extends com.pulumi.resources.CustomResource {
      * The ID of an existing project that the column will be created in.
      * 
      */
-    @Export(name="projectId", type=String.class, parameters={})
+    @Export(name="projectId", refs={String.class}, tree="[0]")
     private Output<String> projectId;
 
     /**

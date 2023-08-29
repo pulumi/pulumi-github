@@ -75,7 +75,7 @@ public class RepositoryDeploymentBranchPolicy extends com.pulumi.resources.Custo
      * The name of the environment. This environment must have `deployment_branch_policy.custom_branch_policies` set to true or a 404 error will be thrown.
      * 
      */
-    @Export(name="environmentName", type=String.class, parameters={})
+    @Export(name="environmentName", refs={String.class}, tree="[0]")
     private Output<String> environmentName;
 
     /**
@@ -89,7 +89,7 @@ public class RepositoryDeploymentBranchPolicy extends com.pulumi.resources.Custo
      * An etag representing the Branch object.
      * 
      */
-    @Export(name="etag", type=String.class, parameters={})
+    @Export(name="etag", refs={String.class}, tree="[0]")
     private Output<String> etag;
 
     /**
@@ -103,7 +103,7 @@ public class RepositoryDeploymentBranchPolicy extends com.pulumi.resources.Custo
      * The name pattern that branches must match in order to deploy to the environment.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -117,7 +117,7 @@ public class RepositoryDeploymentBranchPolicy extends com.pulumi.resources.Custo
      * The repository to create the policy in.
      * 
      */
-    @Export(name="repository", type=String.class, parameters={})
+    @Export(name="repository", refs={String.class}, tree="[0]")
     private Output<String> repository;
 
     /**

@@ -72,7 +72,7 @@ public class RepositoryAutolinkReference extends com.pulumi.resources.CustomReso
      * An etag representing the autolink reference object.
      * 
      */
-    @Export(name="etag", type=String.class, parameters={})
+    @Export(name="etag", refs={String.class}, tree="[0]")
     private Output<String> etag;
 
     /**
@@ -86,7 +86,7 @@ public class RepositoryAutolinkReference extends com.pulumi.resources.CustomReso
      * Whether this autolink reference matches alphanumeric characters. If false, this autolink reference only matches numeric characters. Default is true.
      * 
      */
-    @Export(name="isAlphanumeric", type=Boolean.class, parameters={})
+    @Export(name="isAlphanumeric", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> isAlphanumeric;
 
     /**
@@ -100,7 +100,7 @@ public class RepositoryAutolinkReference extends com.pulumi.resources.CustomReso
      * This prefix appended by a number will generate a link any time it is found in an issue, pull request, or commit.
      * 
      */
-    @Export(name="keyPrefix", type=String.class, parameters={})
+    @Export(name="keyPrefix", refs={String.class}, tree="[0]")
     private Output<String> keyPrefix;
 
     /**
@@ -114,7 +114,7 @@ public class RepositoryAutolinkReference extends com.pulumi.resources.CustomReso
      * The repository of the autolink reference.
      * 
      */
-    @Export(name="repository", type=String.class, parameters={})
+    @Export(name="repository", refs={String.class}, tree="[0]")
     private Output<String> repository;
 
     /**
@@ -128,7 +128,7 @@ public class RepositoryAutolinkReference extends com.pulumi.resources.CustomReso
      * The template of the target URL used for the links; must be a valid URL and contain `&lt;num&gt;` for the reference number
      * 
      */
-    @Export(name="targetUrlTemplate", type=String.class, parameters={})
+    @Export(name="targetUrlTemplate", refs={String.class}, tree="[0]")
     private Output<String> targetUrlTemplate;
 
     /**

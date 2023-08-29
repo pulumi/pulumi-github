@@ -81,7 +81,7 @@ public class ActionsOrganizationPermissions extends com.pulumi.resources.CustomR
      * The permissions policy that controls the actions that are allowed to run. Can be one of: `all`, `local_only`, or `selected`.
      * 
      */
-    @Export(name="allowedActions", type=String.class, parameters={})
+    @Export(name="allowedActions", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> allowedActions;
 
     /**
@@ -95,7 +95,7 @@ public class ActionsOrganizationPermissions extends com.pulumi.resources.CustomR
      * Sets the actions that are allowed in an organization. Only available when `allowed_actions` = `selected`. See Allowed Actions Config below for details.
      * 
      */
-    @Export(name="allowedActionsConfig", type=ActionsOrganizationPermissionsAllowedActionsConfig.class, parameters={})
+    @Export(name="allowedActionsConfig", refs={ActionsOrganizationPermissionsAllowedActionsConfig.class}, tree="[0]")
     private Output</* @Nullable */ ActionsOrganizationPermissionsAllowedActionsConfig> allowedActionsConfig;
 
     /**
@@ -109,7 +109,7 @@ public class ActionsOrganizationPermissions extends com.pulumi.resources.CustomR
      * The policy that controls the repositories in the organization that are allowed to run GitHub Actions. Can be one of: `all`, `none`, or `selected`.
      * 
      */
-    @Export(name="enabledRepositories", type=String.class, parameters={})
+    @Export(name="enabledRepositories", refs={String.class}, tree="[0]")
     private Output<String> enabledRepositories;
 
     /**
@@ -123,7 +123,7 @@ public class ActionsOrganizationPermissions extends com.pulumi.resources.CustomR
      * Sets the list of selected repositories that are enabled for GitHub Actions in an organization. Only available when `enabled_repositories` = `selected`. See Enabled Repositories Config below for details.
      * 
      */
-    @Export(name="enabledRepositoriesConfig", type=ActionsOrganizationPermissionsEnabledRepositoriesConfig.class, parameters={})
+    @Export(name="enabledRepositoriesConfig", refs={ActionsOrganizationPermissionsEnabledRepositoriesConfig.class}, tree="[0]")
     private Output</* @Nullable */ ActionsOrganizationPermissionsEnabledRepositoriesConfig> enabledRepositoriesConfig;
 
     /**

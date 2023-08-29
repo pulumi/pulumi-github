@@ -89,7 +89,7 @@ public class RepositoryEnvironmentDeploymentPolicy extends com.pulumi.resources.
      * The name pattern that branches must match in order to deploy to the environment.
      * 
      */
-    @Export(name="branchPattern", type=String.class, parameters={})
+    @Export(name="branchPattern", refs={String.class}, tree="[0]")
     private Output<String> branchPattern;
 
     /**
@@ -103,7 +103,7 @@ public class RepositoryEnvironmentDeploymentPolicy extends com.pulumi.resources.
      * The name of the environment.
      * 
      */
-    @Export(name="environment", type=String.class, parameters={})
+    @Export(name="environment", refs={String.class}, tree="[0]")
     private Output<String> environment;
 
     /**
@@ -117,7 +117,7 @@ public class RepositoryEnvironmentDeploymentPolicy extends com.pulumi.resources.
      * The repository of the environment.
      * 
      */
-    @Export(name="repository", type=String.class, parameters={})
+    @Export(name="repository", refs={String.class}, tree="[0]")
     private Output<String> repository;
 
     /**

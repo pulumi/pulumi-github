@@ -267,6 +267,12 @@ namespace Pulumi.Github
         public Output<Outputs.RepositoryPages?> Pages { get; private set; } = null!;
 
         /// <summary>
+        /// The primary language used in the repository.
+        /// </summary>
+        [Output("primaryLanguage")]
+        public Output<string> PrimaryLanguage { get; private set; } = null!;
+
+        /// <summary>
         /// Set to `true` to create a private repository.
         /// Repositories are created as public (e.g. open source) by default.
         /// </summary>
@@ -782,6 +788,12 @@ namespace Pulumi.Github
         /// </summary>
         [Input("pages")]
         public Input<Inputs.RepositoryPagesGetArgs>? Pages { get; set; }
+
+        /// <summary>
+        /// The primary language used in the repository.
+        /// </summary>
+        [Input("primaryLanguage")]
+        public Input<string>? PrimaryLanguage { get; set; }
 
         /// <summary>
         /// Set to `true` to create a private repository.

@@ -21,7 +21,22 @@ class GetOrganizationResult:
     """
     A collection of values returned by getOrganization.
     """
-    def __init__(__self__, description=None, id=None, login=None, members=None, name=None, node_id=None, orgname=None, plan=None, repositories=None, users=None):
+    def __init__(__self__, advanced_security_enabled_for_new_repositories=None, default_repository_permission=None, dependabot_alerts_enabled_for_new_repositories=None, dependabot_security_updates_enabled_for_new_repositories=None, dependency_graph_enabled_for_new_repositories=None, description=None, id=None, login=None, members=None, members_allowed_repository_creation_type=None, members_can_create_internal_repositories=None, members_can_create_pages=None, members_can_create_private_pages=None, members_can_create_private_repositories=None, members_can_create_public_pages=None, members_can_create_public_repositories=None, members_can_create_repositories=None, members_can_fork_private_repositories=None, name=None, node_id=None, orgname=None, plan=None, repositories=None, secret_scanning_enabled_for_new_repositories=None, secret_scanning_push_protection_enabled_for_new_repositories=None, two_factor_requirement_enabled=None, users=None, web_commit_signoff_required=None):
+        if advanced_security_enabled_for_new_repositories and not isinstance(advanced_security_enabled_for_new_repositories, bool):
+            raise TypeError("Expected argument 'advanced_security_enabled_for_new_repositories' to be a bool")
+        pulumi.set(__self__, "advanced_security_enabled_for_new_repositories", advanced_security_enabled_for_new_repositories)
+        if default_repository_permission and not isinstance(default_repository_permission, str):
+            raise TypeError("Expected argument 'default_repository_permission' to be a str")
+        pulumi.set(__self__, "default_repository_permission", default_repository_permission)
+        if dependabot_alerts_enabled_for_new_repositories and not isinstance(dependabot_alerts_enabled_for_new_repositories, bool):
+            raise TypeError("Expected argument 'dependabot_alerts_enabled_for_new_repositories' to be a bool")
+        pulumi.set(__self__, "dependabot_alerts_enabled_for_new_repositories", dependabot_alerts_enabled_for_new_repositories)
+        if dependabot_security_updates_enabled_for_new_repositories and not isinstance(dependabot_security_updates_enabled_for_new_repositories, bool):
+            raise TypeError("Expected argument 'dependabot_security_updates_enabled_for_new_repositories' to be a bool")
+        pulumi.set(__self__, "dependabot_security_updates_enabled_for_new_repositories", dependabot_security_updates_enabled_for_new_repositories)
+        if dependency_graph_enabled_for_new_repositories and not isinstance(dependency_graph_enabled_for_new_repositories, bool):
+            raise TypeError("Expected argument 'dependency_graph_enabled_for_new_repositories' to be a bool")
+        pulumi.set(__self__, "dependency_graph_enabled_for_new_repositories", dependency_graph_enabled_for_new_repositories)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -34,6 +49,33 @@ class GetOrganizationResult:
         if members and not isinstance(members, list):
             raise TypeError("Expected argument 'members' to be a list")
         pulumi.set(__self__, "members", members)
+        if members_allowed_repository_creation_type and not isinstance(members_allowed_repository_creation_type, str):
+            raise TypeError("Expected argument 'members_allowed_repository_creation_type' to be a str")
+        pulumi.set(__self__, "members_allowed_repository_creation_type", members_allowed_repository_creation_type)
+        if members_can_create_internal_repositories and not isinstance(members_can_create_internal_repositories, bool):
+            raise TypeError("Expected argument 'members_can_create_internal_repositories' to be a bool")
+        pulumi.set(__self__, "members_can_create_internal_repositories", members_can_create_internal_repositories)
+        if members_can_create_pages and not isinstance(members_can_create_pages, bool):
+            raise TypeError("Expected argument 'members_can_create_pages' to be a bool")
+        pulumi.set(__self__, "members_can_create_pages", members_can_create_pages)
+        if members_can_create_private_pages and not isinstance(members_can_create_private_pages, bool):
+            raise TypeError("Expected argument 'members_can_create_private_pages' to be a bool")
+        pulumi.set(__self__, "members_can_create_private_pages", members_can_create_private_pages)
+        if members_can_create_private_repositories and not isinstance(members_can_create_private_repositories, bool):
+            raise TypeError("Expected argument 'members_can_create_private_repositories' to be a bool")
+        pulumi.set(__self__, "members_can_create_private_repositories", members_can_create_private_repositories)
+        if members_can_create_public_pages and not isinstance(members_can_create_public_pages, bool):
+            raise TypeError("Expected argument 'members_can_create_public_pages' to be a bool")
+        pulumi.set(__self__, "members_can_create_public_pages", members_can_create_public_pages)
+        if members_can_create_public_repositories and not isinstance(members_can_create_public_repositories, bool):
+            raise TypeError("Expected argument 'members_can_create_public_repositories' to be a bool")
+        pulumi.set(__self__, "members_can_create_public_repositories", members_can_create_public_repositories)
+        if members_can_create_repositories and not isinstance(members_can_create_repositories, bool):
+            raise TypeError("Expected argument 'members_can_create_repositories' to be a bool")
+        pulumi.set(__self__, "members_can_create_repositories", members_can_create_repositories)
+        if members_can_fork_private_repositories and not isinstance(members_can_fork_private_repositories, bool):
+            raise TypeError("Expected argument 'members_can_fork_private_repositories' to be a bool")
+        pulumi.set(__self__, "members_can_fork_private_repositories", members_can_fork_private_repositories)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -49,9 +91,61 @@ class GetOrganizationResult:
         if repositories and not isinstance(repositories, list):
             raise TypeError("Expected argument 'repositories' to be a list")
         pulumi.set(__self__, "repositories", repositories)
+        if secret_scanning_enabled_for_new_repositories and not isinstance(secret_scanning_enabled_for_new_repositories, bool):
+            raise TypeError("Expected argument 'secret_scanning_enabled_for_new_repositories' to be a bool")
+        pulumi.set(__self__, "secret_scanning_enabled_for_new_repositories", secret_scanning_enabled_for_new_repositories)
+        if secret_scanning_push_protection_enabled_for_new_repositories and not isinstance(secret_scanning_push_protection_enabled_for_new_repositories, bool):
+            raise TypeError("Expected argument 'secret_scanning_push_protection_enabled_for_new_repositories' to be a bool")
+        pulumi.set(__self__, "secret_scanning_push_protection_enabled_for_new_repositories", secret_scanning_push_protection_enabled_for_new_repositories)
+        if two_factor_requirement_enabled and not isinstance(two_factor_requirement_enabled, bool):
+            raise TypeError("Expected argument 'two_factor_requirement_enabled' to be a bool")
+        pulumi.set(__self__, "two_factor_requirement_enabled", two_factor_requirement_enabled)
         if users and not isinstance(users, list):
             raise TypeError("Expected argument 'users' to be a list")
         pulumi.set(__self__, "users", users)
+        if web_commit_signoff_required and not isinstance(web_commit_signoff_required, bool):
+            raise TypeError("Expected argument 'web_commit_signoff_required' to be a bool")
+        pulumi.set(__self__, "web_commit_signoff_required", web_commit_signoff_required)
+
+    @property
+    @pulumi.getter(name="advancedSecurityEnabledForNewRepositories")
+    def advanced_security_enabled_for_new_repositories(self) -> bool:
+        """
+        Whether advanced security is enabled for new repositories.
+        """
+        return pulumi.get(self, "advanced_security_enabled_for_new_repositories")
+
+    @property
+    @pulumi.getter(name="defaultRepositoryPermission")
+    def default_repository_permission(self) -> str:
+        """
+        Default permission level members have for organization repositories.
+        """
+        return pulumi.get(self, "default_repository_permission")
+
+    @property
+    @pulumi.getter(name="dependabotAlertsEnabledForNewRepositories")
+    def dependabot_alerts_enabled_for_new_repositories(self) -> bool:
+        """
+        Whether Dependabot alerts is automatically enabled for new repositories.
+        """
+        return pulumi.get(self, "dependabot_alerts_enabled_for_new_repositories")
+
+    @property
+    @pulumi.getter(name="dependabotSecurityUpdatesEnabledForNewRepositories")
+    def dependabot_security_updates_enabled_for_new_repositories(self) -> bool:
+        """
+        Whether Dependabot security updates is automatically enabled for new repositories.
+        """
+        return pulumi.get(self, "dependabot_security_updates_enabled_for_new_repositories")
+
+    @property
+    @pulumi.getter(name="dependencyGraphEnabledForNewRepositories")
+    def dependency_graph_enabled_for_new_repositories(self) -> bool:
+        """
+        Whether dependency graph is automatically enabled for new repositories.
+        """
+        return pulumi.get(self, "dependency_graph_enabled_for_new_repositories")
 
     @property
     @pulumi.getter
@@ -87,6 +181,78 @@ class GetOrganizationResult:
         pulumi.log.warn("""members is deprecated: Use `users` instead by replacing `github_organization.example.members` to `github_organization.example.users[*].login`. Expect this field to be removed in next major version.""")
 
         return pulumi.get(self, "members")
+
+    @property
+    @pulumi.getter(name="membersAllowedRepositoryCreationType")
+    def members_allowed_repository_creation_type(self) -> str:
+        """
+        The type of repository allowed to be created by members of the organization. Can be one of `ALL`, `PUBLIC`, `PRIVATE`, `NONE`.
+        """
+        return pulumi.get(self, "members_allowed_repository_creation_type")
+
+    @property
+    @pulumi.getter(name="membersCanCreateInternalRepositories")
+    def members_can_create_internal_repositories(self) -> bool:
+        """
+        Whether organization members can create internal repositories.
+        """
+        return pulumi.get(self, "members_can_create_internal_repositories")
+
+    @property
+    @pulumi.getter(name="membersCanCreatePages")
+    def members_can_create_pages(self) -> bool:
+        """
+        Whether organization members can create pages sites.
+        """
+        return pulumi.get(self, "members_can_create_pages")
+
+    @property
+    @pulumi.getter(name="membersCanCreatePrivatePages")
+    def members_can_create_private_pages(self) -> bool:
+        """
+        Whether organization members can create private pages sites.
+        """
+        return pulumi.get(self, "members_can_create_private_pages")
+
+    @property
+    @pulumi.getter(name="membersCanCreatePrivateRepositories")
+    def members_can_create_private_repositories(self) -> bool:
+        """
+        Whether organization members can create private repositories.
+        """
+        return pulumi.get(self, "members_can_create_private_repositories")
+
+    @property
+    @pulumi.getter(name="membersCanCreatePublicPages")
+    def members_can_create_public_pages(self) -> bool:
+        """
+        Whether organization members can create public pages sites.
+        """
+        return pulumi.get(self, "members_can_create_public_pages")
+
+    @property
+    @pulumi.getter(name="membersCanCreatePublicRepositories")
+    def members_can_create_public_repositories(self) -> bool:
+        """
+        Whether organization members can create public repositories.
+        """
+        return pulumi.get(self, "members_can_create_public_repositories")
+
+    @property
+    @pulumi.getter(name="membersCanCreateRepositories")
+    def members_can_create_repositories(self) -> bool:
+        """
+        Whether non-admin organization members can create repositories.
+        """
+        return pulumi.get(self, "members_can_create_repositories")
+
+    @property
+    @pulumi.getter(name="membersCanForkPrivateRepositories")
+    def members_can_fork_private_repositories(self) -> bool:
+        """
+        Whether organization members can create private repository forks.
+        """
+        return pulumi.get(self, "members_can_fork_private_repositories")
 
     @property
     @pulumi.getter
@@ -129,12 +295,44 @@ class GetOrganizationResult:
         return pulumi.get(self, "repositories")
 
     @property
+    @pulumi.getter(name="secretScanningEnabledForNewRepositories")
+    def secret_scanning_enabled_for_new_repositories(self) -> bool:
+        """
+        Whether secret scanning is automatically enabled for new repositories.
+        """
+        return pulumi.get(self, "secret_scanning_enabled_for_new_repositories")
+
+    @property
+    @pulumi.getter(name="secretScanningPushProtectionEnabledForNewRepositories")
+    def secret_scanning_push_protection_enabled_for_new_repositories(self) -> bool:
+        """
+        Whether secret scanning push protection is automatically enabled for new repositories.
+        """
+        return pulumi.get(self, "secret_scanning_push_protection_enabled_for_new_repositories")
+
+    @property
+    @pulumi.getter(name="twoFactorRequirementEnabled")
+    def two_factor_requirement_enabled(self) -> bool:
+        """
+        Whether two-factor authentication is required for all members of the organization.
+        """
+        return pulumi.get(self, "two_factor_requirement_enabled")
+
+    @property
     @pulumi.getter
     def users(self) -> Sequence[Mapping[str, str]]:
         """
         (`list`) A list with the members of the organization with following fields:
         """
         return pulumi.get(self, "users")
+
+    @property
+    @pulumi.getter(name="webCommitSignoffRequired")
+    def web_commit_signoff_required(self) -> bool:
+        """
+        Whether organization members must sign all commits.
+        """
+        return pulumi.get(self, "web_commit_signoff_required")
 
 
 class AwaitableGetOrganizationResult(GetOrganizationResult):
@@ -143,16 +341,34 @@ class AwaitableGetOrganizationResult(GetOrganizationResult):
         if False:
             yield self
         return GetOrganizationResult(
+            advanced_security_enabled_for_new_repositories=self.advanced_security_enabled_for_new_repositories,
+            default_repository_permission=self.default_repository_permission,
+            dependabot_alerts_enabled_for_new_repositories=self.dependabot_alerts_enabled_for_new_repositories,
+            dependabot_security_updates_enabled_for_new_repositories=self.dependabot_security_updates_enabled_for_new_repositories,
+            dependency_graph_enabled_for_new_repositories=self.dependency_graph_enabled_for_new_repositories,
             description=self.description,
             id=self.id,
             login=self.login,
             members=self.members,
+            members_allowed_repository_creation_type=self.members_allowed_repository_creation_type,
+            members_can_create_internal_repositories=self.members_can_create_internal_repositories,
+            members_can_create_pages=self.members_can_create_pages,
+            members_can_create_private_pages=self.members_can_create_private_pages,
+            members_can_create_private_repositories=self.members_can_create_private_repositories,
+            members_can_create_public_pages=self.members_can_create_public_pages,
+            members_can_create_public_repositories=self.members_can_create_public_repositories,
+            members_can_create_repositories=self.members_can_create_repositories,
+            members_can_fork_private_repositories=self.members_can_fork_private_repositories,
             name=self.name,
             node_id=self.node_id,
             orgname=self.orgname,
             plan=self.plan,
             repositories=self.repositories,
-            users=self.users)
+            secret_scanning_enabled_for_new_repositories=self.secret_scanning_enabled_for_new_repositories,
+            secret_scanning_push_protection_enabled_for_new_repositories=self.secret_scanning_push_protection_enabled_for_new_repositories,
+            two_factor_requirement_enabled=self.two_factor_requirement_enabled,
+            users=self.users,
+            web_commit_signoff_required=self.web_commit_signoff_required)
 
 
 def get_organization(name: Optional[str] = None,
@@ -178,16 +394,34 @@ def get_organization(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('github:index/getOrganization:getOrganization', __args__, opts=opts, typ=GetOrganizationResult).value
 
     return AwaitableGetOrganizationResult(
+        advanced_security_enabled_for_new_repositories=pulumi.get(__ret__, 'advanced_security_enabled_for_new_repositories'),
+        default_repository_permission=pulumi.get(__ret__, 'default_repository_permission'),
+        dependabot_alerts_enabled_for_new_repositories=pulumi.get(__ret__, 'dependabot_alerts_enabled_for_new_repositories'),
+        dependabot_security_updates_enabled_for_new_repositories=pulumi.get(__ret__, 'dependabot_security_updates_enabled_for_new_repositories'),
+        dependency_graph_enabled_for_new_repositories=pulumi.get(__ret__, 'dependency_graph_enabled_for_new_repositories'),
         description=pulumi.get(__ret__, 'description'),
         id=pulumi.get(__ret__, 'id'),
         login=pulumi.get(__ret__, 'login'),
         members=pulumi.get(__ret__, 'members'),
+        members_allowed_repository_creation_type=pulumi.get(__ret__, 'members_allowed_repository_creation_type'),
+        members_can_create_internal_repositories=pulumi.get(__ret__, 'members_can_create_internal_repositories'),
+        members_can_create_pages=pulumi.get(__ret__, 'members_can_create_pages'),
+        members_can_create_private_pages=pulumi.get(__ret__, 'members_can_create_private_pages'),
+        members_can_create_private_repositories=pulumi.get(__ret__, 'members_can_create_private_repositories'),
+        members_can_create_public_pages=pulumi.get(__ret__, 'members_can_create_public_pages'),
+        members_can_create_public_repositories=pulumi.get(__ret__, 'members_can_create_public_repositories'),
+        members_can_create_repositories=pulumi.get(__ret__, 'members_can_create_repositories'),
+        members_can_fork_private_repositories=pulumi.get(__ret__, 'members_can_fork_private_repositories'),
         name=pulumi.get(__ret__, 'name'),
         node_id=pulumi.get(__ret__, 'node_id'),
         orgname=pulumi.get(__ret__, 'orgname'),
         plan=pulumi.get(__ret__, 'plan'),
         repositories=pulumi.get(__ret__, 'repositories'),
-        users=pulumi.get(__ret__, 'users'))
+        secret_scanning_enabled_for_new_repositories=pulumi.get(__ret__, 'secret_scanning_enabled_for_new_repositories'),
+        secret_scanning_push_protection_enabled_for_new_repositories=pulumi.get(__ret__, 'secret_scanning_push_protection_enabled_for_new_repositories'),
+        two_factor_requirement_enabled=pulumi.get(__ret__, 'two_factor_requirement_enabled'),
+        users=pulumi.get(__ret__, 'users'),
+        web_commit_signoff_required=pulumi.get(__ret__, 'web_commit_signoff_required'))
 
 
 @_utilities.lift_output_func(get_organization)

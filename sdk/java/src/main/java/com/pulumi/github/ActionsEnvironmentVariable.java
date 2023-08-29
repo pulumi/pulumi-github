@@ -108,7 +108,7 @@ public class ActionsEnvironmentVariable extends com.pulumi.resources.CustomResou
      * Date of actions_environment_secret creation.
      * 
      */
-    @Export(name="createdAt", type=String.class, parameters={})
+    @Export(name="createdAt", refs={String.class}, tree="[0]")
     private Output<String> createdAt;
 
     /**
@@ -122,7 +122,7 @@ public class ActionsEnvironmentVariable extends com.pulumi.resources.CustomResou
      * Name of the environment.
      * 
      */
-    @Export(name="environment", type=String.class, parameters={})
+    @Export(name="environment", refs={String.class}, tree="[0]")
     private Output<String> environment;
 
     /**
@@ -136,7 +136,7 @@ public class ActionsEnvironmentVariable extends com.pulumi.resources.CustomResou
      * Name of the repository.
      * 
      */
-    @Export(name="repository", type=String.class, parameters={})
+    @Export(name="repository", refs={String.class}, tree="[0]")
     private Output<String> repository;
 
     /**
@@ -150,7 +150,7 @@ public class ActionsEnvironmentVariable extends com.pulumi.resources.CustomResou
      * Date of actions_environment_secret update.
      * 
      */
-    @Export(name="updatedAt", type=String.class, parameters={})
+    @Export(name="updatedAt", refs={String.class}, tree="[0]")
     private Output<String> updatedAt;
 
     /**
@@ -164,7 +164,7 @@ public class ActionsEnvironmentVariable extends com.pulumi.resources.CustomResou
      * Value of the variable
      * 
      */
-    @Export(name="value", type=String.class, parameters={})
+    @Export(name="value", refs={String.class}, tree="[0]")
     private Output<String> value;
 
     /**
@@ -178,7 +178,7 @@ public class ActionsEnvironmentVariable extends com.pulumi.resources.CustomResou
      * Name of the variable.
      * 
      */
-    @Export(name="variableName", type=String.class, parameters={})
+    @Export(name="variableName", refs={String.class}, tree="[0]")
     private Output<String> variableName;
 
     /**

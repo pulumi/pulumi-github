@@ -88,7 +88,7 @@ public class RepositoryCollaborator extends com.pulumi.resources.CustomResource 
      * ID of the invitation to be used in `github.UserInvitationAccepter`
      * 
      */
-    @Export(name="invitationId", type=String.class, parameters={})
+    @Export(name="invitationId", refs={String.class}, tree="[0]")
     private Output<String> invitationId;
 
     /**
@@ -104,7 +104,7 @@ public class RepositoryCollaborator extends com.pulumi.resources.CustomResource 
      * Must be `push` for personal repositories. Defaults to `push`.
      * 
      */
-    @Export(name="permission", type=String.class, parameters={})
+    @Export(name="permission", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> permission;
 
     /**
@@ -120,7 +120,7 @@ public class RepositoryCollaborator extends com.pulumi.resources.CustomResource 
      * Suppress plan diffs for `triage` and `maintain`.  Defaults to `false`.
      * 
      */
-    @Export(name="permissionDiffSuppression", type=Boolean.class, parameters={})
+    @Export(name="permissionDiffSuppression", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> permissionDiffSuppression;
 
     /**
@@ -134,7 +134,7 @@ public class RepositoryCollaborator extends com.pulumi.resources.CustomResource 
      * The GitHub repository
      * 
      */
-    @Export(name="repository", type=String.class, parameters={})
+    @Export(name="repository", refs={String.class}, tree="[0]")
     private Output<String> repository;
 
     /**
@@ -148,7 +148,7 @@ public class RepositoryCollaborator extends com.pulumi.resources.CustomResource 
      * The user to add to the repository as a collaborator.
      * 
      */
-    @Export(name="username", type=String.class, parameters={})
+    @Export(name="username", refs={String.class}, tree="[0]")
     private Output<String> username;
 
     /**

@@ -495,6 +495,21 @@ public final class RepositoryState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The primary language used in the repository.
+     * 
+     */
+    @Import(name="primaryLanguage")
+    private @Nullable Output<String> primaryLanguage;
+
+    /**
+     * @return The primary language used in the repository.
+     * 
+     */
+    public Optional<Output<String>> primaryLanguage() {
+        return Optional.ofNullable(this.primaryLanguage);
+    }
+
+    /**
      * Set to `true` to create a private repository.
      * Repositories are created as public (e.g. open source) by default.
      * 
@@ -703,6 +718,7 @@ public final class RepositoryState extends com.pulumi.resources.ResourceArgs {
         this.name = $.name;
         this.nodeId = $.nodeId;
         this.pages = $.pages;
+        this.primaryLanguage = $.primaryLanguage;
         this.private_ = $.private_;
         this.repoId = $.repoId;
         this.securityAndAnalysis = $.securityAndAnalysis;
@@ -1387,6 +1403,27 @@ public final class RepositoryState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder pages(RepositoryPagesArgs pages) {
             return pages(Output.of(pages));
+        }
+
+        /**
+         * @param primaryLanguage The primary language used in the repository.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder primaryLanguage(@Nullable Output<String> primaryLanguage) {
+            $.primaryLanguage = primaryLanguage;
+            return this;
+        }
+
+        /**
+         * @param primaryLanguage The primary language used in the repository.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder primaryLanguage(String primaryLanguage) {
+            return primaryLanguage(Output.of(primaryLanguage));
         }
 
         /**

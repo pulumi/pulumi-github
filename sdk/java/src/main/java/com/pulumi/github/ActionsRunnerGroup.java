@@ -70,7 +70,7 @@ public class ActionsRunnerGroup extends com.pulumi.resources.CustomResource {
      * Whether public repositories can be added to the runner group. Defaults to false.
      * 
      */
-    @Export(name="allowsPublicRepositories", type=Boolean.class, parameters={})
+    @Export(name="allowsPublicRepositories", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> allowsPublicRepositories;
 
     /**
@@ -84,7 +84,7 @@ public class ActionsRunnerGroup extends com.pulumi.resources.CustomResource {
      * Whether this is the default runner group
      * 
      */
-    @Export(name="default", type=Boolean.class, parameters={})
+    @Export(name="default", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> default_;
 
     /**
@@ -98,7 +98,7 @@ public class ActionsRunnerGroup extends com.pulumi.resources.CustomResource {
      * An etag representing the runner group object
      * 
      */
-    @Export(name="etag", type=String.class, parameters={})
+    @Export(name="etag", refs={String.class}, tree="[0]")
     private Output<String> etag;
 
     /**
@@ -112,7 +112,7 @@ public class ActionsRunnerGroup extends com.pulumi.resources.CustomResource {
      * Whether the runner group is inherited from the enterprise level
      * 
      */
-    @Export(name="inherited", type=Boolean.class, parameters={})
+    @Export(name="inherited", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> inherited;
 
     /**
@@ -126,7 +126,7 @@ public class ActionsRunnerGroup extends com.pulumi.resources.CustomResource {
      * Name of the runner group
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -140,7 +140,7 @@ public class ActionsRunnerGroup extends com.pulumi.resources.CustomResource {
      * If true, the runner group will be restricted to running only the workflows specified in the selected_workflows array. Defaults to false.
      * 
      */
-    @Export(name="restrictedToWorkflows", type=Boolean.class, parameters={})
+    @Export(name="restrictedToWorkflows", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> restrictedToWorkflows;
 
     /**
@@ -154,7 +154,7 @@ public class ActionsRunnerGroup extends com.pulumi.resources.CustomResource {
      * The GitHub API URL for the runner group&#39;s runners
      * 
      */
-    @Export(name="runnersUrl", type=String.class, parameters={})
+    @Export(name="runnersUrl", refs={String.class}, tree="[0]")
     private Output<String> runnersUrl;
 
     /**
@@ -168,7 +168,7 @@ public class ActionsRunnerGroup extends com.pulumi.resources.CustomResource {
      * GitHub API URL for the runner group&#39;s repositories
      * 
      */
-    @Export(name="selectedRepositoriesUrl", type=String.class, parameters={})
+    @Export(name="selectedRepositoriesUrl", refs={String.class}, tree="[0]")
     private Output<String> selectedRepositoriesUrl;
 
     /**
@@ -182,7 +182,7 @@ public class ActionsRunnerGroup extends com.pulumi.resources.CustomResource {
      * IDs of the repositories which should be added to the runner group
      * 
      */
-    @Export(name="selectedRepositoryIds", type=List.class, parameters={Integer.class})
+    @Export(name="selectedRepositoryIds", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> selectedRepositoryIds;
 
     /**
@@ -196,7 +196,7 @@ public class ActionsRunnerGroup extends com.pulumi.resources.CustomResource {
      * List of workflows the runner group should be allowed to run. This setting will be ignored unless restricted_to_workflows is set to true.
      * 
      */
-    @Export(name="selectedWorkflows", type=List.class, parameters={String.class})
+    @Export(name="selectedWorkflows", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> selectedWorkflows;
 
     /**
@@ -210,7 +210,7 @@ public class ActionsRunnerGroup extends com.pulumi.resources.CustomResource {
      * Visibility of a runner group. Whether the runner group can include `all`, `selected`, or `private` repositories. A value of `private` is not currently supported due to limitations in the GitHub API.
      * 
      */
-    @Export(name="visibility", type=String.class, parameters={})
+    @Export(name="visibility", refs={String.class}, tree="[0]")
     private Output<String> visibility;
 
     /**

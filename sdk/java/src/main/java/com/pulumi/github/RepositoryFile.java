@@ -84,7 +84,7 @@ public class RepositoryFile extends com.pulumi.resources.CustomResource {
      * The branch must already exist, it will not be created if it does not already exist.
      * 
      */
-    @Export(name="branch", type=String.class, parameters={})
+    @Export(name="branch", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> branch;
 
     /**
@@ -99,7 +99,7 @@ public class RepositoryFile extends com.pulumi.resources.CustomResource {
      * Committer author name to use. **NOTE:** GitHub app users may omit author and email information so GitHub can verify commits as the GitHub App. This maybe useful when a branch protection rule requires signed commits.
      * 
      */
-    @Export(name="commitAuthor", type=String.class, parameters={})
+    @Export(name="commitAuthor", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> commitAuthor;
 
     /**
@@ -113,7 +113,7 @@ public class RepositoryFile extends com.pulumi.resources.CustomResource {
      * Committer email address to use. **NOTE:** GitHub app users may omit author and email information so GitHub can verify commits as the GitHub App. This may be useful when a branch protection rule requires signed commits.
      * 
      */
-    @Export(name="commitEmail", type=String.class, parameters={})
+    @Export(name="commitEmail", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> commitEmail;
 
     /**
@@ -127,7 +127,7 @@ public class RepositoryFile extends com.pulumi.resources.CustomResource {
      * Commit message when adding or updating the managed file.
      * 
      */
-    @Export(name="commitMessage", type=String.class, parameters={})
+    @Export(name="commitMessage", refs={String.class}, tree="[0]")
     private Output<String> commitMessage;
 
     /**
@@ -141,7 +141,7 @@ public class RepositoryFile extends com.pulumi.resources.CustomResource {
      * The SHA of the commit that modified the file.
      * 
      */
-    @Export(name="commitSha", type=String.class, parameters={})
+    @Export(name="commitSha", refs={String.class}, tree="[0]")
     private Output<String> commitSha;
 
     /**
@@ -155,7 +155,7 @@ public class RepositoryFile extends com.pulumi.resources.CustomResource {
      * The file content.
      * 
      */
-    @Export(name="content", type=String.class, parameters={})
+    @Export(name="content", refs={String.class}, tree="[0]")
     private Output<String> content;
 
     /**
@@ -169,7 +169,7 @@ public class RepositoryFile extends com.pulumi.resources.CustomResource {
      * The path of the file to manage.
      * 
      */
-    @Export(name="file", type=String.class, parameters={})
+    @Export(name="file", refs={String.class}, tree="[0]")
     private Output<String> file;
 
     /**
@@ -183,7 +183,7 @@ public class RepositoryFile extends com.pulumi.resources.CustomResource {
      * Enable overwriting existing files
      * 
      */
-    @Export(name="overwriteOnCreate", type=Boolean.class, parameters={})
+    @Export(name="overwriteOnCreate", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> overwriteOnCreate;
 
     /**
@@ -197,7 +197,7 @@ public class RepositoryFile extends com.pulumi.resources.CustomResource {
      * The name of the commit/branch/tag.
      * 
      */
-    @Export(name="ref", type=String.class, parameters={})
+    @Export(name="ref", refs={String.class}, tree="[0]")
     private Output<String> ref;
 
     /**
@@ -211,7 +211,7 @@ public class RepositoryFile extends com.pulumi.resources.CustomResource {
      * The repository to create the file in.
      * 
      */
-    @Export(name="repository", type=String.class, parameters={})
+    @Export(name="repository", refs={String.class}, tree="[0]")
     private Output<String> repository;
 
     /**
@@ -225,7 +225,7 @@ public class RepositoryFile extends com.pulumi.resources.CustomResource {
      * The SHA blob of the file.
      * 
      */
-    @Export(name="sha", type=String.class, parameters={})
+    @Export(name="sha", refs={String.class}, tree="[0]")
     private Output<String> sha;
 
     /**

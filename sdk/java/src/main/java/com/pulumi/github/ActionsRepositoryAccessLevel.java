@@ -69,7 +69,7 @@ public class ActionsRepositoryAccessLevel extends com.pulumi.resources.CustomRes
      * Where the actions or reusable workflows of the repository may be used. Possible values are `none`, `user`, `organization`, or `enterprise`.
      * 
      */
-    @Export(name="accessLevel", type=String.class, parameters={})
+    @Export(name="accessLevel", refs={String.class}, tree="[0]")
     private Output<String> accessLevel;
 
     /**
@@ -83,7 +83,7 @@ public class ActionsRepositoryAccessLevel extends com.pulumi.resources.CustomRes
      * The GitHub repository
      * 
      */
-    @Export(name="repository", type=String.class, parameters={})
+    @Export(name="repository", refs={String.class}, tree="[0]")
     private Output<String> repository;
 
     /**

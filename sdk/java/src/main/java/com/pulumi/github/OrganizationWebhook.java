@@ -74,7 +74,7 @@ public class OrganizationWebhook extends com.pulumi.resources.CustomResource {
      * Indicate of the webhook should receive events. Defaults to `true`.
      * 
      */
-    @Export(name="active", type=Boolean.class, parameters={})
+    @Export(name="active", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> active;
 
     /**
@@ -88,7 +88,7 @@ public class OrganizationWebhook extends com.pulumi.resources.CustomResource {
      * key/value pair of configuration for this webhook. Available keys are `url`, `content_type`, `secret` and `insecure_ssl`.
      * 
      */
-    @Export(name="configuration", type=OrganizationWebhookConfiguration.class, parameters={})
+    @Export(name="configuration", refs={OrganizationWebhookConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ OrganizationWebhookConfiguration> configuration;
 
     /**
@@ -98,7 +98,7 @@ public class OrganizationWebhook extends com.pulumi.resources.CustomResource {
     public Output<Optional<OrganizationWebhookConfiguration>> configuration() {
         return Codegen.optional(this.configuration);
     }
-    @Export(name="etag", type=String.class, parameters={})
+    @Export(name="etag", refs={String.class}, tree="[0]")
     private Output<String> etag;
 
     public Output<String> etag() {
@@ -108,7 +108,7 @@ public class OrganizationWebhook extends com.pulumi.resources.CustomResource {
      * A list of events which should trigger the webhook. See a list of [available events](https://developer.github.com/v3/activity/events/types/)
      * 
      */
-    @Export(name="events", type=List.class, parameters={String.class})
+    @Export(name="events", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> events;
 
     /**
@@ -122,7 +122,7 @@ public class OrganizationWebhook extends com.pulumi.resources.CustomResource {
      * URL of the webhook
      * 
      */
-    @Export(name="url", type=String.class, parameters={})
+    @Export(name="url", refs={String.class}, tree="[0]")
     private Output<String> url;
 
     /**

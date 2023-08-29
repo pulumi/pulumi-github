@@ -118,7 +118,7 @@ public class Repository extends com.pulumi.resources.CustomResource {
      * Set to `true` to allow auto-merging pull requests on the repository.
      * 
      */
-    @Export(name="allowAutoMerge", type=Boolean.class, parameters={})
+    @Export(name="allowAutoMerge", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> allowAutoMerge;
 
     /**
@@ -132,7 +132,7 @@ public class Repository extends com.pulumi.resources.CustomResource {
      * Set to `false` to disable merge commits on the repository.
      * 
      */
-    @Export(name="allowMergeCommit", type=Boolean.class, parameters={})
+    @Export(name="allowMergeCommit", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> allowMergeCommit;
 
     /**
@@ -146,7 +146,7 @@ public class Repository extends com.pulumi.resources.CustomResource {
      * Set to `false` to disable rebase merges on the repository.
      * 
      */
-    @Export(name="allowRebaseMerge", type=Boolean.class, parameters={})
+    @Export(name="allowRebaseMerge", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> allowRebaseMerge;
 
     /**
@@ -160,7 +160,7 @@ public class Repository extends com.pulumi.resources.CustomResource {
      * Set to `false` to disable squash merges on the repository.
      * 
      */
-    @Export(name="allowSquashMerge", type=Boolean.class, parameters={})
+    @Export(name="allowSquashMerge", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> allowSquashMerge;
 
     /**
@@ -174,7 +174,7 @@ public class Repository extends com.pulumi.resources.CustomResource {
      * Set to `true` to always suggest updating pull request branches.
      * 
      */
-    @Export(name="allowUpdateBranch", type=Boolean.class, parameters={})
+    @Export(name="allowUpdateBranch", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> allowUpdateBranch;
 
     /**
@@ -188,7 +188,7 @@ public class Repository extends com.pulumi.resources.CustomResource {
      * Set to `true` to archive the repository instead of deleting on destroy.
      * 
      */
-    @Export(name="archiveOnDestroy", type=Boolean.class, parameters={})
+    @Export(name="archiveOnDestroy", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> archiveOnDestroy;
 
     /**
@@ -202,7 +202,7 @@ public class Repository extends com.pulumi.resources.CustomResource {
      * Specifies if the repository should be archived. Defaults to `false`. **NOTE** Currently, the API does not support unarchiving.
      * 
      */
-    @Export(name="archived", type=Boolean.class, parameters={})
+    @Export(name="archived", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> archived;
 
     /**
@@ -216,7 +216,7 @@ public class Repository extends com.pulumi.resources.CustomResource {
      * Set to `true` to produce an initial commit in the repository.
      * 
      */
-    @Export(name="autoInit", type=Boolean.class, parameters={})
+    @Export(name="autoInit", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> autoInit;
 
     /**
@@ -236,7 +236,7 @@ public class Repository extends com.pulumi.resources.CustomResource {
      * 
      */
     @Deprecated /* Use the github_branch_default resource instead */
-    @Export(name="defaultBranch", type=String.class, parameters={})
+    @Export(name="defaultBranch", refs={String.class}, tree="[0]")
     private Output<String> defaultBranch;
 
     /**
@@ -252,7 +252,7 @@ public class Repository extends com.pulumi.resources.CustomResource {
      * Automatically delete head branch after a pull request is merged. Defaults to `false`.
      * 
      */
-    @Export(name="deleteBranchOnMerge", type=Boolean.class, parameters={})
+    @Export(name="deleteBranchOnMerge", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> deleteBranchOnMerge;
 
     /**
@@ -266,7 +266,7 @@ public class Repository extends com.pulumi.resources.CustomResource {
      * A description of the repository.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -276,7 +276,7 @@ public class Repository extends com.pulumi.resources.CustomResource {
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
-    @Export(name="etag", type=String.class, parameters={})
+    @Export(name="etag", refs={String.class}, tree="[0]")
     private Output<String> etag;
 
     public Output<String> etag() {
@@ -286,7 +286,7 @@ public class Repository extends com.pulumi.resources.CustomResource {
      * A string of the form &#34;orgname/reponame&#34;.
      * 
      */
-    @Export(name="fullName", type=String.class, parameters={})
+    @Export(name="fullName", refs={String.class}, tree="[0]")
     private Output<String> fullName;
 
     /**
@@ -300,7 +300,7 @@ public class Repository extends com.pulumi.resources.CustomResource {
      * URL that can be provided to `git clone` to clone the repository anonymously via the git protocol.
      * 
      */
-    @Export(name="gitCloneUrl", type=String.class, parameters={})
+    @Export(name="gitCloneUrl", refs={String.class}, tree="[0]")
     private Output<String> gitCloneUrl;
 
     /**
@@ -314,7 +314,7 @@ public class Repository extends com.pulumi.resources.CustomResource {
      * Use the [name of the template](https://github.com/github/gitignore) without the extension. For example, &#34;Haskell&#34;.
      * 
      */
-    @Export(name="gitignoreTemplate", type=String.class, parameters={})
+    @Export(name="gitignoreTemplate", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> gitignoreTemplate;
 
     /**
@@ -328,7 +328,7 @@ public class Repository extends com.pulumi.resources.CustomResource {
      * Set to `true` to enable GitHub Discussions on the repository. Defaults to `false`.
      * 
      */
-    @Export(name="hasDiscussions", type=Boolean.class, parameters={})
+    @Export(name="hasDiscussions", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> hasDiscussions;
 
     /**
@@ -342,7 +342,7 @@ public class Repository extends com.pulumi.resources.CustomResource {
      * Set to `true` to enable the (deprecated) downloads features on the repository.
      * 
      */
-    @Export(name="hasDownloads", type=Boolean.class, parameters={})
+    @Export(name="hasDownloads", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> hasDownloads;
 
     /**
@@ -357,7 +357,7 @@ public class Repository extends com.pulumi.resources.CustomResource {
      * on the repository.
      * 
      */
-    @Export(name="hasIssues", type=Boolean.class, parameters={})
+    @Export(name="hasIssues", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> hasIssues;
 
     /**
@@ -372,7 +372,7 @@ public class Repository extends com.pulumi.resources.CustomResource {
      * Set to `true` to enable the GitHub Projects features on the repository. Per the GitHub [documentation](https://developer.github.com/v3/repos/#create) when in an organization that has disabled repository projects it will default to `false` and will otherwise default to `true`. If you specify `true` when it has been disabled it will return an error.
      * 
      */
-    @Export(name="hasProjects", type=Boolean.class, parameters={})
+    @Export(name="hasProjects", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> hasProjects;
 
     /**
@@ -387,7 +387,7 @@ public class Repository extends com.pulumi.resources.CustomResource {
      * the repository.
      * 
      */
-    @Export(name="hasWiki", type=Boolean.class, parameters={})
+    @Export(name="hasWiki", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> hasWiki;
 
     /**
@@ -402,7 +402,7 @@ public class Repository extends com.pulumi.resources.CustomResource {
      * URL of a page describing the project.
      * 
      */
-    @Export(name="homepageUrl", type=String.class, parameters={})
+    @Export(name="homepageUrl", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> homepageUrl;
 
     /**
@@ -416,7 +416,7 @@ public class Repository extends com.pulumi.resources.CustomResource {
      * The absolute URL (including scheme) of the rendered GitHub Pages site e.g. `https://username.github.io`.
      * 
      */
-    @Export(name="htmlUrl", type=String.class, parameters={})
+    @Export(name="htmlUrl", refs={String.class}, tree="[0]")
     private Output<String> htmlUrl;
 
     /**
@@ -430,7 +430,7 @@ public class Repository extends com.pulumi.resources.CustomResource {
      * URL that can be provided to `git clone` to clone the repository via HTTPS.
      * 
      */
-    @Export(name="httpCloneUrl", type=String.class, parameters={})
+    @Export(name="httpCloneUrl", refs={String.class}, tree="[0]")
     private Output<String> httpCloneUrl;
 
     /**
@@ -444,7 +444,7 @@ public class Repository extends com.pulumi.resources.CustomResource {
      * Set to `true` to not call the vulnerability alerts endpoint so the resource can also be used without admin permissions during read.
      * 
      */
-    @Export(name="ignoreVulnerabilityAlertsDuringRead", type=Boolean.class, parameters={})
+    @Export(name="ignoreVulnerabilityAlertsDuringRead", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> ignoreVulnerabilityAlertsDuringRead;
 
     /**
@@ -458,7 +458,7 @@ public class Repository extends com.pulumi.resources.CustomResource {
      * Set to `true` to tell GitHub that this is a template repository.
      * 
      */
-    @Export(name="isTemplate", type=Boolean.class, parameters={})
+    @Export(name="isTemplate", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> isTemplate;
 
     /**
@@ -472,7 +472,7 @@ public class Repository extends com.pulumi.resources.CustomResource {
      * Use the [name of the template](https://github.com/github/choosealicense.com/tree/gh-pages/_licenses) without the extension. For example, &#34;mit&#34; or &#34;mpl-2.0&#34;.
      * 
      */
-    @Export(name="licenseTemplate", type=String.class, parameters={})
+    @Export(name="licenseTemplate", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> licenseTemplate;
 
     /**
@@ -486,7 +486,7 @@ public class Repository extends com.pulumi.resources.CustomResource {
      * Can be `PR_BODY`, `PR_TITLE`, or `BLANK` for a default merge commit message.
      * 
      */
-    @Export(name="mergeCommitMessage", type=String.class, parameters={})
+    @Export(name="mergeCommitMessage", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> mergeCommitMessage;
 
     /**
@@ -500,7 +500,7 @@ public class Repository extends com.pulumi.resources.CustomResource {
      * Can be `PR_TITLE` or `MERGE_MESSAGE` for a default merge commit title.
      * 
      */
-    @Export(name="mergeCommitTitle", type=String.class, parameters={})
+    @Export(name="mergeCommitTitle", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> mergeCommitTitle;
 
     /**
@@ -514,7 +514,7 @@ public class Repository extends com.pulumi.resources.CustomResource {
      * The name of the repository.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -528,7 +528,7 @@ public class Repository extends com.pulumi.resources.CustomResource {
      * GraphQL global node id for use with v4 API
      * 
      */
-    @Export(name="nodeId", type=String.class, parameters={})
+    @Export(name="nodeId", refs={String.class}, tree="[0]")
     private Output<String> nodeId;
 
     /**
@@ -542,7 +542,7 @@ public class Repository extends com.pulumi.resources.CustomResource {
      * The repository&#39;s GitHub Pages configuration. See GitHub Pages Configuration below for details.
      * 
      */
-    @Export(name="pages", type=RepositoryPages.class, parameters={})
+    @Export(name="pages", refs={RepositoryPages.class}, tree="[0]")
     private Output</* @Nullable */ RepositoryPages> pages;
 
     /**
@@ -553,6 +553,20 @@ public class Repository extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.pages);
     }
     /**
+     * The primary language used in the repository.
+     * 
+     */
+    @Export(name="primaryLanguage", refs={String.class}, tree="[0]")
+    private Output<String> primaryLanguage;
+
+    /**
+     * @return The primary language used in the repository.
+     * 
+     */
+    public Output<String> primaryLanguage() {
+        return this.primaryLanguage;
+    }
+    /**
      * Set to `true` to create a private repository.
      * Repositories are created as public (e.g. open source) by default.
      * 
@@ -561,7 +575,7 @@ public class Repository extends com.pulumi.resources.CustomResource {
      * 
      */
     @Deprecated /* use visibility instead */
-    @Export(name="private", type=Boolean.class, parameters={})
+    @Export(name="private", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> private_;
 
     /**
@@ -576,7 +590,7 @@ public class Repository extends com.pulumi.resources.CustomResource {
      * GitHub ID for the repository
      * 
      */
-    @Export(name="repoId", type=Integer.class, parameters={})
+    @Export(name="repoId", refs={Integer.class}, tree="[0]")
     private Output<Integer> repoId;
 
     /**
@@ -590,7 +604,7 @@ public class Repository extends com.pulumi.resources.CustomResource {
      * The repository&#39;s [security and analysis](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository) configuration. See Security and Analysis Configuration below for details.
      * 
      */
-    @Export(name="securityAndAnalysis", type=RepositorySecurityAndAnalysis.class, parameters={})
+    @Export(name="securityAndAnalysis", refs={RepositorySecurityAndAnalysis.class}, tree="[0]")
     private Output<RepositorySecurityAndAnalysis> securityAndAnalysis;
 
     /**
@@ -604,7 +618,7 @@ public class Repository extends com.pulumi.resources.CustomResource {
      * Can be `PR_BODY`, `COMMIT_MESSAGES`, or `BLANK` for a default squash merge commit message.
      * 
      */
-    @Export(name="squashMergeCommitMessage", type=String.class, parameters={})
+    @Export(name="squashMergeCommitMessage", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> squashMergeCommitMessage;
 
     /**
@@ -618,7 +632,7 @@ public class Repository extends com.pulumi.resources.CustomResource {
      * Can be `PR_TITLE` or `COMMIT_OR_PR_TITLE` for a default squash merge commit title.
      * 
      */
-    @Export(name="squashMergeCommitTitle", type=String.class, parameters={})
+    @Export(name="squashMergeCommitTitle", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> squashMergeCommitTitle;
 
     /**
@@ -632,7 +646,7 @@ public class Repository extends com.pulumi.resources.CustomResource {
      * URL that can be provided to `git clone` to clone the repository via SSH.
      * 
      */
-    @Export(name="sshCloneUrl", type=String.class, parameters={})
+    @Export(name="sshCloneUrl", refs={String.class}, tree="[0]")
     private Output<String> sshCloneUrl;
 
     /**
@@ -646,7 +660,7 @@ public class Repository extends com.pulumi.resources.CustomResource {
      * URL that can be provided to `svn checkout` to check out the repository via GitHub&#39;s Subversion protocol emulation.
      * 
      */
-    @Export(name="svnUrl", type=String.class, parameters={})
+    @Export(name="svnUrl", refs={String.class}, tree="[0]")
     private Output<String> svnUrl;
 
     /**
@@ -660,7 +674,7 @@ public class Repository extends com.pulumi.resources.CustomResource {
      * Use a template repository to create this resource. See Template Repositories below for details.
      * 
      */
-    @Export(name="template", type=RepositoryTemplate.class, parameters={})
+    @Export(name="template", refs={RepositoryTemplate.class}, tree="[0]")
     private Output</* @Nullable */ RepositoryTemplate> template;
 
     /**
@@ -674,7 +688,7 @@ public class Repository extends com.pulumi.resources.CustomResource {
      * The list of topics of the repository.
      * 
      */
-    @Export(name="topics", type=List.class, parameters={String.class})
+    @Export(name="topics", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> topics;
 
     /**
@@ -688,7 +702,7 @@ public class Repository extends com.pulumi.resources.CustomResource {
      * Can be `public` or `private`. If your organization is associated with an enterprise account using GitHub Enterprise Cloud or GitHub Enterprise Server 2.20+, visibility can also be `internal`. The `visibility` parameter overrides the `private` parameter.
      * 
      */
-    @Export(name="visibility", type=String.class, parameters={})
+    @Export(name="visibility", refs={String.class}, tree="[0]")
     private Output<String> visibility;
 
     /**
@@ -702,7 +716,7 @@ public class Repository extends com.pulumi.resources.CustomResource {
      * Set to `true` to enable security alerts for vulnerable dependencies. Enabling requires alerts to be enabled on the owner level. (Note for importing: GitHub enables the alerts on public repos but disables them on private repos by default.) See [GitHub Documentation](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for details. Note that vulnerability alerts have not been successfully tested on any GitHub Enterprise instance and may be unavailable in those settings.
      * 
      */
-    @Export(name="vulnerabilityAlerts", type=Boolean.class, parameters={})
+    @Export(name="vulnerabilityAlerts", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> vulnerabilityAlerts;
 
     /**

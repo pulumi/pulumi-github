@@ -60,7 +60,7 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="github:index/userSshKey:UserSshKey")
 public class UserSshKey extends com.pulumi.resources.CustomResource {
-    @Export(name="etag", type=String.class, parameters={})
+    @Export(name="etag", refs={String.class}, tree="[0]")
     private Output<String> etag;
 
     public Output<String> etag() {
@@ -70,7 +70,7 @@ public class UserSshKey extends com.pulumi.resources.CustomResource {
      * The public SSH key to add to your GitHub account.
      * 
      */
-    @Export(name="key", type=String.class, parameters={})
+    @Export(name="key", refs={String.class}, tree="[0]")
     private Output<String> key;
 
     /**
@@ -84,7 +84,7 @@ public class UserSshKey extends com.pulumi.resources.CustomResource {
      * A descriptive name for the new key. e.g. `Personal MacBook Air`
      * 
      */
-    @Export(name="title", type=String.class, parameters={})
+    @Export(name="title", refs={String.class}, tree="[0]")
     private Output<String> title;
 
     /**
@@ -98,7 +98,7 @@ public class UserSshKey extends com.pulumi.resources.CustomResource {
      * The URL of the SSH key
      * 
      */
-    @Export(name="url", type=String.class, parameters={})
+    @Export(name="url", refs={String.class}, tree="[0]")
     private Output<String> url;
 
     /**

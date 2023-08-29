@@ -64,7 +64,7 @@ public class UserGpgKey extends com.pulumi.resources.CustomResource {
      * See [Generating a new GPG key](https://help.github.com/articles/generating-a-new-gpg-key/) for help on creating a GPG key.
      * 
      */
-    @Export(name="armoredPublicKey", type=String.class, parameters={})
+    @Export(name="armoredPublicKey", refs={String.class}, tree="[0]")
     private Output<String> armoredPublicKey;
 
     /**
@@ -75,7 +75,7 @@ public class UserGpgKey extends com.pulumi.resources.CustomResource {
     public Output<String> armoredPublicKey() {
         return this.armoredPublicKey;
     }
-    @Export(name="etag", type=String.class, parameters={})
+    @Export(name="etag", refs={String.class}, tree="[0]")
     private Output<String> etag;
 
     public Output<String> etag() {
@@ -85,7 +85,7 @@ public class UserGpgKey extends com.pulumi.resources.CustomResource {
      * The key ID of the GPG key, e.g. `3262EFF25BA0D270`
      * 
      */
-    @Export(name="keyId", type=String.class, parameters={})
+    @Export(name="keyId", refs={String.class}, tree="[0]")
     private Output<String> keyId;
 
     /**

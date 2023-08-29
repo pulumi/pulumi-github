@@ -110,6 +110,8 @@ type LookupRepositoryResult struct {
 	NodeId string `pulumi:"nodeId"`
 	// The repository's GitHub Pages configuration.
 	Pages []GetRepositoryPage `pulumi:"pages"`
+	// The primary language used in the repository.
+	PrimaryLanguage string `pulumi:"primaryLanguage"`
 	// Whether the repository is private.
 	Private bool `pulumi:"private"`
 	// GitHub ID for the repository
@@ -295,6 +297,11 @@ func (o LookupRepositoryResultOutput) NodeId() pulumi.StringOutput {
 // The repository's GitHub Pages configuration.
 func (o LookupRepositoryResultOutput) Pages() GetRepositoryPageArrayOutput {
 	return o.ApplyT(func(v LookupRepositoryResult) []GetRepositoryPage { return v.Pages }).(GetRepositoryPageArrayOutput)
+}
+
+// The primary language used in the repository.
+func (o LookupRepositoryResultOutput) PrimaryLanguage() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRepositoryResult) string { return v.PrimaryLanguage }).(pulumi.StringOutput)
 }
 
 // Whether the repository is private.

@@ -59,7 +59,7 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="github:index/emuGroupMapping:EmuGroupMapping")
 public class EmuGroupMapping extends com.pulumi.resources.CustomResource {
-    @Export(name="etag", type=String.class, parameters={})
+    @Export(name="etag", refs={String.class}, tree="[0]")
     private Output<String> etag;
 
     public Output<String> etag() {
@@ -69,7 +69,7 @@ public class EmuGroupMapping extends com.pulumi.resources.CustomResource {
      * Integer corresponding to the external group ID to be linked
      * 
      */
-    @Export(name="groupId", type=Integer.class, parameters={})
+    @Export(name="groupId", refs={Integer.class}, tree="[0]")
     private Output<Integer> groupId;
 
     /**
@@ -83,7 +83,7 @@ public class EmuGroupMapping extends com.pulumi.resources.CustomResource {
      * Slug of the GitHub team
      * 
      */
-    @Export(name="teamSlug", type=String.class, parameters={})
+    @Export(name="teamSlug", refs={String.class}, tree="[0]")
     private Output<String> teamSlug;
 
     /**

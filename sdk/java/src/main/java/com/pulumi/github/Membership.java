@@ -71,7 +71,7 @@ public class Membership extends com.pulumi.resources.CustomResource {
      * downgraded to &#39;member&#39;.
      * 
      */
-    @Export(name="downgradeOnDestroy", type=Boolean.class, parameters={})
+    @Export(name="downgradeOnDestroy", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> downgradeOnDestroy;
 
     /**
@@ -84,7 +84,7 @@ public class Membership extends com.pulumi.resources.CustomResource {
     public Output<Optional<Boolean>> downgradeOnDestroy() {
         return Codegen.optional(this.downgradeOnDestroy);
     }
-    @Export(name="etag", type=String.class, parameters={})
+    @Export(name="etag", refs={String.class}, tree="[0]")
     private Output<String> etag;
 
     public Output<String> etag() {
@@ -95,7 +95,7 @@ public class Membership extends com.pulumi.resources.CustomResource {
      * Must be one of `member` or `admin`. Defaults to `member`.
      * 
      */
-    @Export(name="role", type=String.class, parameters={})
+    @Export(name="role", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> role;
 
     /**
@@ -110,7 +110,7 @@ public class Membership extends com.pulumi.resources.CustomResource {
      * The user to add to the organization.
      * 
      */
-    @Export(name="username", type=String.class, parameters={})
+    @Export(name="username", refs={String.class}, tree="[0]")
     private Output<String> username;
 
     /**

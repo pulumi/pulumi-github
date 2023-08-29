@@ -122,17 +122,11 @@ func Provider() tfbridge.ProviderInfo {
 				},
 			},
 			"github_dependabot_organization_secret_repositories": {
-				Tok: makeResource(mainMod, "DependabotOrganizationSecretRepositories"),
-				Docs: &tfbridge.DocInfo{
-					Markdown: []byte(" "),
-				},
+				Tok:  makeResource(mainMod, "DependabotOrganizationSecretRepositories"),
+				Docs: noDocs,
 			},
-			"github_dependabot_secret": {
-				Tok: makeResource(mainMod, "DependabotSecret"),
-				Docs: &tfbridge.DocInfo{
-					Markdown: []byte(" "),
-				},
-			},
+			"github_dependabot_secret": {Docs: noDocs},
+
 			"github_emu_group_mapping":             {Tok: makeResource(mainMod, "EmuGroupMapping")},
 			"github_issue":                         {Tok: makeResource(mainMod, "Issue")},
 			"github_issue_label":                   {Tok: makeResource(mainMod, "IssueLabel")},
@@ -145,8 +139,10 @@ func Provider() tfbridge.ProviderInfo {
 			"github_project_card":                  {Tok: makeResource(mainMod, "ProjectCard")},
 			"github_project_column":                {Tok: makeResource(mainMod, "ProjectColumn")},
 			"github_release":                       {Tok: makeResource(mainMod, "Release")},
-			"github_repository":                    {Tok: makeResource(mainMod, "Repository")},
-			"github_repository_collaborator":       {Tok: makeResource(mainMod, "RepositoryCollaborator")},
+
+			"github_repository":                             {Tok: makeResource(mainMod, "Repository")},
+			"github_repository_collaborator":                {Tok: makeResource(mainMod, "RepositoryCollaborator")},
+			"github_repository_dependabot_security_updates": {Docs: noDocs},
 			"github_repository_deploy_key": {
 				Tok:                 makeResource(mainMod, "RepositoryDeployKey"),
 				DeleteBeforeReplace: true},
@@ -262,3 +258,7 @@ func Provider() tfbridge.ProviderInfo {
 
 //go:embed cmd/pulumi-resource-github/bridge-metadata.json
 var metadata []byte
+
+var noDocs = &tfbridge.DocInfo{
+	Markdown: []byte(" "),
+}

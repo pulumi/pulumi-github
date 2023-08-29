@@ -116,7 +116,7 @@ public class CodespacesOrganizationSecret extends com.pulumi.resources.CustomRes
      * Date of codespaces_secret creation.
      * 
      */
-    @Export(name="createdAt", type=String.class, parameters={})
+    @Export(name="createdAt", refs={String.class}, tree="[0]")
     private Output<String> createdAt;
 
     /**
@@ -130,7 +130,7 @@ public class CodespacesOrganizationSecret extends com.pulumi.resources.CustomRes
      * Encrypted value of the secret using the GitHub public key in Base64 format.
      * 
      */
-    @Export(name="encryptedValue", type=String.class, parameters={})
+    @Export(name="encryptedValue", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> encryptedValue;
 
     /**
@@ -144,7 +144,7 @@ public class CodespacesOrganizationSecret extends com.pulumi.resources.CustomRes
      * Plaintext value of the secret to be encrypted
      * 
      */
-    @Export(name="plaintextValue", type=String.class, parameters={})
+    @Export(name="plaintextValue", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> plaintextValue;
 
     /**
@@ -158,7 +158,7 @@ public class CodespacesOrganizationSecret extends com.pulumi.resources.CustomRes
      * Name of the secret
      * 
      */
-    @Export(name="secretName", type=String.class, parameters={})
+    @Export(name="secretName", refs={String.class}, tree="[0]")
     private Output<String> secretName;
 
     /**
@@ -172,7 +172,7 @@ public class CodespacesOrganizationSecret extends com.pulumi.resources.CustomRes
      * An array of repository ids that can access the organization secret.
      * 
      */
-    @Export(name="selectedRepositoryIds", type=List.class, parameters={Integer.class})
+    @Export(name="selectedRepositoryIds", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> selectedRepositoryIds;
 
     /**
@@ -186,7 +186,7 @@ public class CodespacesOrganizationSecret extends com.pulumi.resources.CustomRes
      * Date of codespaces_secret update.
      * 
      */
-    @Export(name="updatedAt", type=String.class, parameters={})
+    @Export(name="updatedAt", refs={String.class}, tree="[0]")
     private Output<String> updatedAt;
 
     /**
@@ -201,7 +201,7 @@ public class CodespacesOrganizationSecret extends com.pulumi.resources.CustomRes
      * Must be one of `all`, `private`, `selected`. `selected_repository_ids` is required if set to `selected`.
      * 
      */
-    @Export(name="visibility", type=String.class, parameters={})
+    @Export(name="visibility", refs={String.class}, tree="[0]")
     private Output<String> visibility;
 
     /**
