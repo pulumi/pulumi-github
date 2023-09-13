@@ -309,6 +309,85 @@
             "github_organization_project": {
                 "current": "github:index/organizationProject:OrganizationProject"
             },
+            "github_organization_ruleset": {
+                "current": "github:index/organizationRuleset:OrganizationRuleset",
+                "fields": {
+                    "bypass_actors": {
+                        "maxItemsOne": false
+                    },
+                    "conditions": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "ref_name": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "exclude": {
+                                                "maxItemsOne": false
+                                            },
+                                            "include": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                },
+                                "repository_id": {
+                                    "maxItemsOne": true
+                                },
+                                "repository_name": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "exclude": {
+                                                "maxItemsOne": false
+                                            },
+                                            "inlcude": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "rules": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "branch_name_pattern": {
+                                    "maxItemsOne": true
+                                },
+                                "commit_author_email_pattern": {
+                                    "maxItemsOne": true
+                                },
+                                "commit_message_pattern": {
+                                    "maxItemsOne": true
+                                },
+                                "committer_email_pattern": {
+                                    "maxItemsOne": true
+                                },
+                                "pull_request": {
+                                    "maxItemsOne": true
+                                },
+                                "required_status_checks": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "required_check": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                },
+                                "tag_name_pattern": {
+                                    "maxItemsOne": true
+                                }
+                            }
+                        }
+                    }
+                }
+            },
             "github_organization_security_manager": {
                 "current": "github:index/organizationSecurityManager:OrganizationSecurityManager"
             },
@@ -439,8 +518,89 @@
                     }
                 }
             },
+            "github_repository_ruleset": {
+                "current": "github:index/repositoryRuleset:RepositoryRuleset",
+                "fields": {
+                    "bypass_actors": {
+                        "maxItemsOne": false
+                    },
+                    "conditions": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "ref_name": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "exclude": {
+                                                "maxItemsOne": false
+                                            },
+                                            "include": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "rules": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "branch_name_pattern": {
+                                    "maxItemsOne": true
+                                },
+                                "commit_author_email_pattern": {
+                                    "maxItemsOne": true
+                                },
+                                "commit_message_pattern": {
+                                    "maxItemsOne": true
+                                },
+                                "committer_email_pattern": {
+                                    "maxItemsOne": true
+                                },
+                                "pull_request": {
+                                    "maxItemsOne": true
+                                },
+                                "required_deployments": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "required_deployment_environments": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                },
+                                "required_status_checks": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "required_check": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                },
+                                "tag_name_pattern": {
+                                    "maxItemsOne": true
+                                }
+                            }
+                        }
+                    }
+                }
+            },
             "github_repository_tag_protection": {
                 "current": "github:index/repositoryTagProtection:RepositoryTagProtection"
+            },
+            "github_repository_topics": {
+                "current": "github:index/repositoryTopics:RepositoryTopics",
+                "fields": {
+                    "topics": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "github_repository_webhook": {
                 "current": "github:index/repositoryWebhook:RepositoryWebhook",
@@ -1060,6 +1220,7 @@
             "github:index/organizationBlock:OrganizationBlock": "github_organization_block",
             "github:index/organizationCustomRole:OrganizationCustomRole": "github_organization_custom_role",
             "github:index/organizationProject:OrganizationProject": "github_organization_project",
+            "github:index/organizationRuleset:OrganizationRuleset": "github_organization_ruleset",
             "github:index/organizationSecurityManager:OrganizationSecurityManager": "github_organization_security_manager",
             "github:index/organizationSettings:OrganizationSettings": "github_organization_settings",
             "github:index/organizationWebhook:OrganizationWebhook": "github_organization_webhook",
@@ -1079,7 +1240,9 @@
             "github:index/repositoryMilestone:RepositoryMilestone": "github_repository_milestone",
             "github:index/repositoryProject:RepositoryProject": "github_repository_project",
             "github:index/repositoryPullRequest:RepositoryPullRequest": "github_repository_pull_request",
+            "github:index/repositoryRuleset:RepositoryRuleset": "github_repository_ruleset",
             "github:index/repositoryTagProtection:RepositoryTagProtection": "github_repository_tag_protection",
+            "github:index/repositoryTopics:RepositoryTopics": "github_repository_topics",
             "github:index/repositoryWebhook:RepositoryWebhook": "github_repository_webhook",
             "github:index/team:Team": "github_team",
             "github:index/teamMembers:TeamMembers": "github_team_members",
@@ -1193,6 +1356,50 @@
             "github:index/BranchProtectionV3RequiredStatusChecks:BranchProtectionV3RequiredStatusChecks": {
                 "includeAdmins": "include_admins"
             },
+            "github:index/OrganizationRulesetBypassActor:OrganizationRulesetBypassActor": {
+                "actorId": "actor_id",
+                "actorType": "actor_type",
+                "bypassMode": "bypass_mode"
+            },
+            "github:index/OrganizationRulesetConditions:OrganizationRulesetConditions": {
+                "refName": "ref_name",
+                "repositoryId": "repository_id",
+                "repositoryName": "repository_name"
+            },
+            "github:index/OrganizationRulesetConditionsRefName:OrganizationRulesetConditionsRefName": {
+                "excludes": "exclude",
+                "includes": "include"
+            },
+            "github:index/OrganizationRulesetConditionsRepositoryName:OrganizationRulesetConditionsRepositoryName": {
+                "excludes": "exclude",
+                "inlcudes": "inlcude"
+            },
+            "github:index/OrganizationRulesetRules:OrganizationRulesetRules": {
+                "branchNamePattern": "branch_name_pattern",
+                "commitAuthorEmailPattern": "commit_author_email_pattern",
+                "commitMessagePattern": "commit_message_pattern",
+                "committerEmailPattern": "committer_email_pattern",
+                "nonFastForward": "non_fast_forward",
+                "pullRequest": "pull_request",
+                "requiredLinearHistory": "required_linear_history",
+                "requiredSignatures": "required_signatures",
+                "requiredStatusChecks": "required_status_checks",
+                "tagNamePattern": "tag_name_pattern"
+            },
+            "github:index/OrganizationRulesetRulesPullRequest:OrganizationRulesetRulesPullRequest": {
+                "dismissStaleReviewsOnPush": "dismiss_stale_reviews_on_push",
+                "requireCodeOwnerReview": "require_code_owner_review",
+                "requireLastPushApproval": "require_last_push_approval",
+                "requiredApprovingReviewCount": "required_approving_review_count",
+                "requiredReviewThreadResolution": "required_review_thread_resolution"
+            },
+            "github:index/OrganizationRulesetRulesRequiredStatusChecks:OrganizationRulesetRulesRequiredStatusChecks": {
+                "requiredChecks": "required_check",
+                "strictRequiredStatusChecksPolicy": "strict_required_status_checks_policy"
+            },
+            "github:index/OrganizationRulesetRulesRequiredStatusChecksRequiredCheck:OrganizationRulesetRulesRequiredStatusChecksRequiredCheck": {
+                "integrationId": "integration_id"
+            },
             "github:index/OrganizationWebhookConfiguration:OrganizationWebhookConfiguration": {
                 "contentType": "content_type",
                 "insecureSsl": "insecure_ssl"
@@ -1212,6 +1419,49 @@
                 "buildType": "build_type",
                 "custom404": "custom_404",
                 "htmlUrl": "html_url"
+            },
+            "github:index/RepositoryRulesetBypassActor:RepositoryRulesetBypassActor": {
+                "actorId": "actor_id",
+                "actorType": "actor_type",
+                "bypassMode": "bypass_mode"
+            },
+            "github:index/RepositoryRulesetConditions:RepositoryRulesetConditions": {
+                "refName": "ref_name"
+            },
+            "github:index/RepositoryRulesetConditionsRefName:RepositoryRulesetConditionsRefName": {
+                "excludes": "exclude",
+                "includes": "include"
+            },
+            "github:index/RepositoryRulesetRules:RepositoryRulesetRules": {
+                "branchNamePattern": "branch_name_pattern",
+                "commitAuthorEmailPattern": "commit_author_email_pattern",
+                "commitMessagePattern": "commit_message_pattern",
+                "committerEmailPattern": "committer_email_pattern",
+                "nonFastForward": "non_fast_forward",
+                "pullRequest": "pull_request",
+                "requiredDeployments": "required_deployments",
+                "requiredLinearHistory": "required_linear_history",
+                "requiredSignatures": "required_signatures",
+                "requiredStatusChecks": "required_status_checks",
+                "tagNamePattern": "tag_name_pattern",
+                "updateAllowsFetchAndMerge": "update_allows_fetch_and_merge"
+            },
+            "github:index/RepositoryRulesetRulesPullRequest:RepositoryRulesetRulesPullRequest": {
+                "dismissStaleReviewsOnPush": "dismiss_stale_reviews_on_push",
+                "requireCodeOwnerReview": "require_code_owner_review",
+                "requireLastPushApproval": "require_last_push_approval",
+                "requiredApprovingReviewCount": "required_approving_review_count",
+                "requiredReviewThreadResolution": "required_review_thread_resolution"
+            },
+            "github:index/RepositoryRulesetRulesRequiredDeployments:RepositoryRulesetRulesRequiredDeployments": {
+                "requiredDeploymentEnvironments": "required_deployment_environments"
+            },
+            "github:index/RepositoryRulesetRulesRequiredStatusChecks:RepositoryRulesetRulesRequiredStatusChecks": {
+                "requiredChecks": "required_check",
+                "strictRequiredStatusChecksPolicy": "strict_required_status_checks_policy"
+            },
+            "github:index/RepositoryRulesetRulesRequiredStatusChecksRequiredCheck:RepositoryRulesetRulesRequiredStatusChecksRequiredCheck": {
+                "integrationId": "integration_id"
             },
             "github:index/RepositorySecurityAndAnalysis:RepositorySecurityAndAnalysis": {
                 "advancedSecurity": "advanced_security",
@@ -1390,6 +1640,7 @@
             "github:index/enterpriseOrganization:EnterpriseOrganization": {
                 "adminLogins": "admin_logins",
                 "billingEmail": "billing_email",
+                "displayName": "display_name",
                 "enterpriseId": "enterprise_id"
             },
             "github:index/getActionsEnvironmentSecrets:getActionsEnvironmentSecrets": {
@@ -1764,6 +2015,11 @@
             "github:index/organizationCustomRole:OrganizationCustomRole": {
                 "baseRole": "base_role"
             },
+            "github:index/organizationRuleset:OrganizationRuleset": {
+                "bypassActors": "bypass_actors",
+                "nodeId": "node_id",
+                "rulesetId": "ruleset_id"
+            },
             "github:index/organizationSecurityManager:OrganizationSecurityManager": {
                 "teamSlug": "team_slug"
             },
@@ -1888,6 +2144,11 @@
                 "openedAt": "opened_at",
                 "openedBy": "opened_by",
                 "updatedAt": "updated_at"
+            },
+            "github:index/repositoryRuleset:RepositoryRuleset": {
+                "bypassActors": "bypass_actors",
+                "nodeId": "node_id",
+                "rulesetId": "ruleset_id"
             },
             "github:index/repositoryTagProtection:RepositoryTagProtection": {
                 "tagProtectionId": "tag_protection_id"
