@@ -42,6 +42,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var org = new EnterpriseOrganization(&#34;org&#34;, EnterpriseOrganizationArgs.builder()        
  *             .enterpriseId(data.github_enterprise().enterprise().id())
+ *             .displayName(&#34;Some Awesome Org&#34;)
  *             .description(&#34;Organization created with terraform&#34;)
  *             .billingEmail(&#34;jon@winteriscoming.com&#34;)
  *             .adminLogins(&#34;jon-snow&#34;)
@@ -53,7 +54,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Support for importing organizations is not currently supported.
+ * GitHub Enterprise Organization can be imported using the `slug` of the enterprise, combined with the `orgname` of the organization, separated by a `/` character.
+ * 
+ * ```sh
+ *  $ pulumi import github:index/enterpriseOrganization:EnterpriseOrganization org enterp/some-awesome-org
+ * ```
  * 
  */
 @ResourceType(type="github:index/enterpriseOrganization:EnterpriseOrganization")
@@ -99,6 +104,20 @@ public class EnterpriseOrganization extends com.pulumi.resources.CustomResource 
      */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
+    }
+    /**
+     * The display name of the organization.
+     * 
+     */
+    @Export(name="displayName", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> displayName;
+
+    /**
+     * @return The display name of the organization.
+     * 
+     */
+    public Output<Optional<String>> displayName() {
+        return Codegen.optional(this.displayName);
     }
     /**
      * The ID of the enterprise.

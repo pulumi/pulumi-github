@@ -480,6 +480,11 @@ export type OrganizationProject = import("./organizationProject").OrganizationPr
 export const OrganizationProject: typeof import("./organizationProject").OrganizationProject = null as any;
 utilities.lazyLoad(exports, ["OrganizationProject"], () => require("./organizationProject"));
 
+export { OrganizationRulesetArgs, OrganizationRulesetState } from "./organizationRuleset";
+export type OrganizationRuleset = import("./organizationRuleset").OrganizationRuleset;
+export const OrganizationRuleset: typeof import("./organizationRuleset").OrganizationRuleset = null as any;
+utilities.lazyLoad(exports, ["OrganizationRuleset"], () => require("./organizationRuleset"));
+
 export { OrganizationSecurityManagerArgs, OrganizationSecurityManagerState } from "./organizationSecurityManager";
 export type OrganizationSecurityManager = import("./organizationSecurityManager").OrganizationSecurityManager;
 export const OrganizationSecurityManager: typeof import("./organizationSecurityManager").OrganizationSecurityManager = null as any;
@@ -580,10 +585,20 @@ export type RepositoryPullRequest = import("./repositoryPullRequest").Repository
 export const RepositoryPullRequest: typeof import("./repositoryPullRequest").RepositoryPullRequest = null as any;
 utilities.lazyLoad(exports, ["RepositoryPullRequest"], () => require("./repositoryPullRequest"));
 
+export { RepositoryRulesetArgs, RepositoryRulesetState } from "./repositoryRuleset";
+export type RepositoryRuleset = import("./repositoryRuleset").RepositoryRuleset;
+export const RepositoryRuleset: typeof import("./repositoryRuleset").RepositoryRuleset = null as any;
+utilities.lazyLoad(exports, ["RepositoryRuleset"], () => require("./repositoryRuleset"));
+
 export { RepositoryTagProtectionArgs, RepositoryTagProtectionState } from "./repositoryTagProtection";
 export type RepositoryTagProtection = import("./repositoryTagProtection").RepositoryTagProtection;
 export const RepositoryTagProtection: typeof import("./repositoryTagProtection").RepositoryTagProtection = null as any;
 utilities.lazyLoad(exports, ["RepositoryTagProtection"], () => require("./repositoryTagProtection"));
+
+export { RepositoryTopicsArgs, RepositoryTopicsState } from "./repositoryTopics";
+export type RepositoryTopics = import("./repositoryTopics").RepositoryTopics;
+export const RepositoryTopics: typeof import("./repositoryTopics").RepositoryTopics = null as any;
+utilities.lazyLoad(exports, ["RepositoryTopics"], () => require("./repositoryTopics"));
 
 export { RepositoryWebhookArgs, RepositoryWebhookState } from "./repositoryWebhook";
 export type RepositoryWebhook = import("./repositoryWebhook").RepositoryWebhook;
@@ -717,6 +732,8 @@ const _module = {
                 return new OrganizationCustomRole(name, <any>undefined, { urn })
             case "github:index/organizationProject:OrganizationProject":
                 return new OrganizationProject(name, <any>undefined, { urn })
+            case "github:index/organizationRuleset:OrganizationRuleset":
+                return new OrganizationRuleset(name, <any>undefined, { urn })
             case "github:index/organizationSecurityManager:OrganizationSecurityManager":
                 return new OrganizationSecurityManager(name, <any>undefined, { urn })
             case "github:index/organizationSettings:OrganizationSettings":
@@ -755,8 +772,12 @@ const _module = {
                 return new RepositoryProject(name, <any>undefined, { urn })
             case "github:index/repositoryPullRequest:RepositoryPullRequest":
                 return new RepositoryPullRequest(name, <any>undefined, { urn })
+            case "github:index/repositoryRuleset:RepositoryRuleset":
+                return new RepositoryRuleset(name, <any>undefined, { urn })
             case "github:index/repositoryTagProtection:RepositoryTagProtection":
                 return new RepositoryTagProtection(name, <any>undefined, { urn })
+            case "github:index/repositoryTopics:RepositoryTopics":
+                return new RepositoryTopics(name, <any>undefined, { urn })
             case "github:index/repositoryWebhook:RepositoryWebhook":
                 return new RepositoryWebhook(name, <any>undefined, { urn })
             case "github:index/team:Team":
@@ -816,6 +837,7 @@ pulumi.runtime.registerResourceModule("github", "index/membership", _module)
 pulumi.runtime.registerResourceModule("github", "index/organizationBlock", _module)
 pulumi.runtime.registerResourceModule("github", "index/organizationCustomRole", _module)
 pulumi.runtime.registerResourceModule("github", "index/organizationProject", _module)
+pulumi.runtime.registerResourceModule("github", "index/organizationRuleset", _module)
 pulumi.runtime.registerResourceModule("github", "index/organizationSecurityManager", _module)
 pulumi.runtime.registerResourceModule("github", "index/organizationSettings", _module)
 pulumi.runtime.registerResourceModule("github", "index/organizationWebhook", _module)
@@ -835,7 +857,9 @@ pulumi.runtime.registerResourceModule("github", "index/repositoryFile", _module)
 pulumi.runtime.registerResourceModule("github", "index/repositoryMilestone", _module)
 pulumi.runtime.registerResourceModule("github", "index/repositoryProject", _module)
 pulumi.runtime.registerResourceModule("github", "index/repositoryPullRequest", _module)
+pulumi.runtime.registerResourceModule("github", "index/repositoryRuleset", _module)
 pulumi.runtime.registerResourceModule("github", "index/repositoryTagProtection", _module)
+pulumi.runtime.registerResourceModule("github", "index/repositoryTopics", _module)
 pulumi.runtime.registerResourceModule("github", "index/repositoryWebhook", _module)
 pulumi.runtime.registerResourceModule("github", "index/team", _module)
 pulumi.runtime.registerResourceModule("github", "index/teamMembers", _module)

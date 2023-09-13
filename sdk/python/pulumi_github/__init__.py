@@ -100,6 +100,7 @@ from .membership import *
 from .organization_block import *
 from .organization_custom_role import *
 from .organization_project import *
+from .organization_ruleset import *
 from .organization_security_manager import *
 from .organization_settings import *
 from .organization_webhook import *
@@ -120,7 +121,9 @@ from .repository_file import *
 from .repository_milestone import *
 from .repository_project import *
 from .repository_pull_request import *
+from .repository_ruleset import *
 from .repository_tag_protection import *
+from .repository_topics import *
 from .repository_webhook import *
 from .team import *
 from .team_members import *
@@ -418,6 +421,14 @@ _utilities.register(
  },
  {
   "pkg": "github",
+  "mod": "index/organizationRuleset",
+  "fqn": "pulumi_github",
+  "classes": {
+   "github:index/organizationRuleset:OrganizationRuleset": "OrganizationRuleset"
+  }
+ },
+ {
+  "pkg": "github",
   "mod": "index/organizationSecurityManager",
   "fqn": "pulumi_github",
   "classes": {
@@ -570,10 +581,26 @@ _utilities.register(
  },
  {
   "pkg": "github",
+  "mod": "index/repositoryRuleset",
+  "fqn": "pulumi_github",
+  "classes": {
+   "github:index/repositoryRuleset:RepositoryRuleset": "RepositoryRuleset"
+  }
+ },
+ {
+  "pkg": "github",
   "mod": "index/repositoryTagProtection",
   "fqn": "pulumi_github",
   "classes": {
    "github:index/repositoryTagProtection:RepositoryTagProtection": "RepositoryTagProtection"
+  }
+ },
+ {
+  "pkg": "github",
+  "mod": "index/repositoryTopics",
+  "fqn": "pulumi_github",
+  "classes": {
+   "github:index/repositoryTopics:RepositoryTopics": "RepositoryTopics"
   }
  },
  {

@@ -1804,6 +1804,2767 @@ func (o BranchProtectionV3RestrictionsPtrOutput) Users() pulumi.StringArrayOutpu
 	}).(pulumi.StringArrayOutput)
 }
 
+type OrganizationRulesetBypassActor struct {
+	// (Number) The ID of the actor that can bypass a ruleset
+	ActorId int `pulumi:"actorId"`
+	// The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`.
+	ActorType string `pulumi:"actorType"`
+	// (String) When the specified actor can bypass the ruleset. pullRequest means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pullRequest`.
+	BypassMode *string `pulumi:"bypassMode"`
+}
+
+// OrganizationRulesetBypassActorInput is an input type that accepts OrganizationRulesetBypassActorArgs and OrganizationRulesetBypassActorOutput values.
+// You can construct a concrete instance of `OrganizationRulesetBypassActorInput` via:
+//
+//	OrganizationRulesetBypassActorArgs{...}
+type OrganizationRulesetBypassActorInput interface {
+	pulumi.Input
+
+	ToOrganizationRulesetBypassActorOutput() OrganizationRulesetBypassActorOutput
+	ToOrganizationRulesetBypassActorOutputWithContext(context.Context) OrganizationRulesetBypassActorOutput
+}
+
+type OrganizationRulesetBypassActorArgs struct {
+	// (Number) The ID of the actor that can bypass a ruleset
+	ActorId pulumi.IntInput `pulumi:"actorId"`
+	// The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`.
+	ActorType pulumi.StringInput `pulumi:"actorType"`
+	// (String) When the specified actor can bypass the ruleset. pullRequest means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pullRequest`.
+	BypassMode pulumi.StringPtrInput `pulumi:"bypassMode"`
+}
+
+func (OrganizationRulesetBypassActorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationRulesetBypassActor)(nil)).Elem()
+}
+
+func (i OrganizationRulesetBypassActorArgs) ToOrganizationRulesetBypassActorOutput() OrganizationRulesetBypassActorOutput {
+	return i.ToOrganizationRulesetBypassActorOutputWithContext(context.Background())
+}
+
+func (i OrganizationRulesetBypassActorArgs) ToOrganizationRulesetBypassActorOutputWithContext(ctx context.Context) OrganizationRulesetBypassActorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationRulesetBypassActorOutput)
+}
+
+func (i OrganizationRulesetBypassActorArgs) ToOutput(ctx context.Context) pulumix.Output[OrganizationRulesetBypassActor] {
+	return pulumix.Output[OrganizationRulesetBypassActor]{
+		OutputState: i.ToOrganizationRulesetBypassActorOutputWithContext(ctx).OutputState,
+	}
+}
+
+// OrganizationRulesetBypassActorArrayInput is an input type that accepts OrganizationRulesetBypassActorArray and OrganizationRulesetBypassActorArrayOutput values.
+// You can construct a concrete instance of `OrganizationRulesetBypassActorArrayInput` via:
+//
+//	OrganizationRulesetBypassActorArray{ OrganizationRulesetBypassActorArgs{...} }
+type OrganizationRulesetBypassActorArrayInput interface {
+	pulumi.Input
+
+	ToOrganizationRulesetBypassActorArrayOutput() OrganizationRulesetBypassActorArrayOutput
+	ToOrganizationRulesetBypassActorArrayOutputWithContext(context.Context) OrganizationRulesetBypassActorArrayOutput
+}
+
+type OrganizationRulesetBypassActorArray []OrganizationRulesetBypassActorInput
+
+func (OrganizationRulesetBypassActorArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OrganizationRulesetBypassActor)(nil)).Elem()
+}
+
+func (i OrganizationRulesetBypassActorArray) ToOrganizationRulesetBypassActorArrayOutput() OrganizationRulesetBypassActorArrayOutput {
+	return i.ToOrganizationRulesetBypassActorArrayOutputWithContext(context.Background())
+}
+
+func (i OrganizationRulesetBypassActorArray) ToOrganizationRulesetBypassActorArrayOutputWithContext(ctx context.Context) OrganizationRulesetBypassActorArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationRulesetBypassActorArrayOutput)
+}
+
+func (i OrganizationRulesetBypassActorArray) ToOutput(ctx context.Context) pulumix.Output[[]OrganizationRulesetBypassActor] {
+	return pulumix.Output[[]OrganizationRulesetBypassActor]{
+		OutputState: i.ToOrganizationRulesetBypassActorArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type OrganizationRulesetBypassActorOutput struct{ *pulumi.OutputState }
+
+func (OrganizationRulesetBypassActorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationRulesetBypassActor)(nil)).Elem()
+}
+
+func (o OrganizationRulesetBypassActorOutput) ToOrganizationRulesetBypassActorOutput() OrganizationRulesetBypassActorOutput {
+	return o
+}
+
+func (o OrganizationRulesetBypassActorOutput) ToOrganizationRulesetBypassActorOutputWithContext(ctx context.Context) OrganizationRulesetBypassActorOutput {
+	return o
+}
+
+func (o OrganizationRulesetBypassActorOutput) ToOutput(ctx context.Context) pulumix.Output[OrganizationRulesetBypassActor] {
+	return pulumix.Output[OrganizationRulesetBypassActor]{
+		OutputState: o.OutputState,
+	}
+}
+
+// (Number) The ID of the actor that can bypass a ruleset
+func (o OrganizationRulesetBypassActorOutput) ActorId() pulumi.IntOutput {
+	return o.ApplyT(func(v OrganizationRulesetBypassActor) int { return v.ActorId }).(pulumi.IntOutput)
+}
+
+// The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`.
+func (o OrganizationRulesetBypassActorOutput) ActorType() pulumi.StringOutput {
+	return o.ApplyT(func(v OrganizationRulesetBypassActor) string { return v.ActorType }).(pulumi.StringOutput)
+}
+
+// (String) When the specified actor can bypass the ruleset. pullRequest means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pullRequest`.
+func (o OrganizationRulesetBypassActorOutput) BypassMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OrganizationRulesetBypassActor) *string { return v.BypassMode }).(pulumi.StringPtrOutput)
+}
+
+type OrganizationRulesetBypassActorArrayOutput struct{ *pulumi.OutputState }
+
+func (OrganizationRulesetBypassActorArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OrganizationRulesetBypassActor)(nil)).Elem()
+}
+
+func (o OrganizationRulesetBypassActorArrayOutput) ToOrganizationRulesetBypassActorArrayOutput() OrganizationRulesetBypassActorArrayOutput {
+	return o
+}
+
+func (o OrganizationRulesetBypassActorArrayOutput) ToOrganizationRulesetBypassActorArrayOutputWithContext(ctx context.Context) OrganizationRulesetBypassActorArrayOutput {
+	return o
+}
+
+func (o OrganizationRulesetBypassActorArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OrganizationRulesetBypassActor] {
+	return pulumix.Output[[]OrganizationRulesetBypassActor]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o OrganizationRulesetBypassActorArrayOutput) Index(i pulumi.IntInput) OrganizationRulesetBypassActorOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OrganizationRulesetBypassActor {
+		return vs[0].([]OrganizationRulesetBypassActor)[vs[1].(int)]
+	}).(OrganizationRulesetBypassActorOutput)
+}
+
+type OrganizationRulesetConditions struct {
+	// (Block List, Min: 1, Max: 1) (see below for nested schema)
+	RefName OrganizationRulesetConditionsRefName `pulumi:"refName"`
+	// The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass. Conflicts with `repositoryName`.
+	RepositoryId *int `pulumi:"repositoryId"`
+	// Conflicts with `repositoryId`. (see below for nested schema)
+	//
+	// One of `repositoryId` and `repositoryName` must be set for the rule to target any repositories.
+	RepositoryName *OrganizationRulesetConditionsRepositoryName `pulumi:"repositoryName"`
+}
+
+// OrganizationRulesetConditionsInput is an input type that accepts OrganizationRulesetConditionsArgs and OrganizationRulesetConditionsOutput values.
+// You can construct a concrete instance of `OrganizationRulesetConditionsInput` via:
+//
+//	OrganizationRulesetConditionsArgs{...}
+type OrganizationRulesetConditionsInput interface {
+	pulumi.Input
+
+	ToOrganizationRulesetConditionsOutput() OrganizationRulesetConditionsOutput
+	ToOrganizationRulesetConditionsOutputWithContext(context.Context) OrganizationRulesetConditionsOutput
+}
+
+type OrganizationRulesetConditionsArgs struct {
+	// (Block List, Min: 1, Max: 1) (see below for nested schema)
+	RefName OrganizationRulesetConditionsRefNameInput `pulumi:"refName"`
+	// The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass. Conflicts with `repositoryName`.
+	RepositoryId pulumi.IntPtrInput `pulumi:"repositoryId"`
+	// Conflicts with `repositoryId`. (see below for nested schema)
+	//
+	// One of `repositoryId` and `repositoryName` must be set for the rule to target any repositories.
+	RepositoryName OrganizationRulesetConditionsRepositoryNamePtrInput `pulumi:"repositoryName"`
+}
+
+func (OrganizationRulesetConditionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationRulesetConditions)(nil)).Elem()
+}
+
+func (i OrganizationRulesetConditionsArgs) ToOrganizationRulesetConditionsOutput() OrganizationRulesetConditionsOutput {
+	return i.ToOrganizationRulesetConditionsOutputWithContext(context.Background())
+}
+
+func (i OrganizationRulesetConditionsArgs) ToOrganizationRulesetConditionsOutputWithContext(ctx context.Context) OrganizationRulesetConditionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationRulesetConditionsOutput)
+}
+
+func (i OrganizationRulesetConditionsArgs) ToOutput(ctx context.Context) pulumix.Output[OrganizationRulesetConditions] {
+	return pulumix.Output[OrganizationRulesetConditions]{
+		OutputState: i.ToOrganizationRulesetConditionsOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i OrganizationRulesetConditionsArgs) ToOrganizationRulesetConditionsPtrOutput() OrganizationRulesetConditionsPtrOutput {
+	return i.ToOrganizationRulesetConditionsPtrOutputWithContext(context.Background())
+}
+
+func (i OrganizationRulesetConditionsArgs) ToOrganizationRulesetConditionsPtrOutputWithContext(ctx context.Context) OrganizationRulesetConditionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationRulesetConditionsOutput).ToOrganizationRulesetConditionsPtrOutputWithContext(ctx)
+}
+
+// OrganizationRulesetConditionsPtrInput is an input type that accepts OrganizationRulesetConditionsArgs, OrganizationRulesetConditionsPtr and OrganizationRulesetConditionsPtrOutput values.
+// You can construct a concrete instance of `OrganizationRulesetConditionsPtrInput` via:
+//
+//	        OrganizationRulesetConditionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type OrganizationRulesetConditionsPtrInput interface {
+	pulumi.Input
+
+	ToOrganizationRulesetConditionsPtrOutput() OrganizationRulesetConditionsPtrOutput
+	ToOrganizationRulesetConditionsPtrOutputWithContext(context.Context) OrganizationRulesetConditionsPtrOutput
+}
+
+type organizationRulesetConditionsPtrType OrganizationRulesetConditionsArgs
+
+func OrganizationRulesetConditionsPtr(v *OrganizationRulesetConditionsArgs) OrganizationRulesetConditionsPtrInput {
+	return (*organizationRulesetConditionsPtrType)(v)
+}
+
+func (*organizationRulesetConditionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrganizationRulesetConditions)(nil)).Elem()
+}
+
+func (i *organizationRulesetConditionsPtrType) ToOrganizationRulesetConditionsPtrOutput() OrganizationRulesetConditionsPtrOutput {
+	return i.ToOrganizationRulesetConditionsPtrOutputWithContext(context.Background())
+}
+
+func (i *organizationRulesetConditionsPtrType) ToOrganizationRulesetConditionsPtrOutputWithContext(ctx context.Context) OrganizationRulesetConditionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationRulesetConditionsPtrOutput)
+}
+
+func (i *organizationRulesetConditionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*OrganizationRulesetConditions] {
+	return pulumix.Output[*OrganizationRulesetConditions]{
+		OutputState: i.ToOrganizationRulesetConditionsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type OrganizationRulesetConditionsOutput struct{ *pulumi.OutputState }
+
+func (OrganizationRulesetConditionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationRulesetConditions)(nil)).Elem()
+}
+
+func (o OrganizationRulesetConditionsOutput) ToOrganizationRulesetConditionsOutput() OrganizationRulesetConditionsOutput {
+	return o
+}
+
+func (o OrganizationRulesetConditionsOutput) ToOrganizationRulesetConditionsOutputWithContext(ctx context.Context) OrganizationRulesetConditionsOutput {
+	return o
+}
+
+func (o OrganizationRulesetConditionsOutput) ToOrganizationRulesetConditionsPtrOutput() OrganizationRulesetConditionsPtrOutput {
+	return o.ToOrganizationRulesetConditionsPtrOutputWithContext(context.Background())
+}
+
+func (o OrganizationRulesetConditionsOutput) ToOrganizationRulesetConditionsPtrOutputWithContext(ctx context.Context) OrganizationRulesetConditionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OrganizationRulesetConditions) *OrganizationRulesetConditions {
+		return &v
+	}).(OrganizationRulesetConditionsPtrOutput)
+}
+
+func (o OrganizationRulesetConditionsOutput) ToOutput(ctx context.Context) pulumix.Output[OrganizationRulesetConditions] {
+	return pulumix.Output[OrganizationRulesetConditions]{
+		OutputState: o.OutputState,
+	}
+}
+
+// (Block List, Min: 1, Max: 1) (see below for nested schema)
+func (o OrganizationRulesetConditionsOutput) RefName() OrganizationRulesetConditionsRefNameOutput {
+	return o.ApplyT(func(v OrganizationRulesetConditions) OrganizationRulesetConditionsRefName { return v.RefName }).(OrganizationRulesetConditionsRefNameOutput)
+}
+
+// The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass. Conflicts with `repositoryName`.
+func (o OrganizationRulesetConditionsOutput) RepositoryId() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v OrganizationRulesetConditions) *int { return v.RepositoryId }).(pulumi.IntPtrOutput)
+}
+
+// Conflicts with `repositoryId`. (see below for nested schema)
+//
+// One of `repositoryId` and `repositoryName` must be set for the rule to target any repositories.
+func (o OrganizationRulesetConditionsOutput) RepositoryName() OrganizationRulesetConditionsRepositoryNamePtrOutput {
+	return o.ApplyT(func(v OrganizationRulesetConditions) *OrganizationRulesetConditionsRepositoryName {
+		return v.RepositoryName
+	}).(OrganizationRulesetConditionsRepositoryNamePtrOutput)
+}
+
+type OrganizationRulesetConditionsPtrOutput struct{ *pulumi.OutputState }
+
+func (OrganizationRulesetConditionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrganizationRulesetConditions)(nil)).Elem()
+}
+
+func (o OrganizationRulesetConditionsPtrOutput) ToOrganizationRulesetConditionsPtrOutput() OrganizationRulesetConditionsPtrOutput {
+	return o
+}
+
+func (o OrganizationRulesetConditionsPtrOutput) ToOrganizationRulesetConditionsPtrOutputWithContext(ctx context.Context) OrganizationRulesetConditionsPtrOutput {
+	return o
+}
+
+func (o OrganizationRulesetConditionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*OrganizationRulesetConditions] {
+	return pulumix.Output[*OrganizationRulesetConditions]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o OrganizationRulesetConditionsPtrOutput) Elem() OrganizationRulesetConditionsOutput {
+	return o.ApplyT(func(v *OrganizationRulesetConditions) OrganizationRulesetConditions {
+		if v != nil {
+			return *v
+		}
+		var ret OrganizationRulesetConditions
+		return ret
+	}).(OrganizationRulesetConditionsOutput)
+}
+
+// (Block List, Min: 1, Max: 1) (see below for nested schema)
+func (o OrganizationRulesetConditionsPtrOutput) RefName() OrganizationRulesetConditionsRefNamePtrOutput {
+	return o.ApplyT(func(v *OrganizationRulesetConditions) *OrganizationRulesetConditionsRefName {
+		if v == nil {
+			return nil
+		}
+		return &v.RefName
+	}).(OrganizationRulesetConditionsRefNamePtrOutput)
+}
+
+// The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass. Conflicts with `repositoryName`.
+func (o OrganizationRulesetConditionsPtrOutput) RepositoryId() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *OrganizationRulesetConditions) *int {
+		if v == nil {
+			return nil
+		}
+		return v.RepositoryId
+	}).(pulumi.IntPtrOutput)
+}
+
+// Conflicts with `repositoryId`. (see below for nested schema)
+//
+// One of `repositoryId` and `repositoryName` must be set for the rule to target any repositories.
+func (o OrganizationRulesetConditionsPtrOutput) RepositoryName() OrganizationRulesetConditionsRepositoryNamePtrOutput {
+	return o.ApplyT(func(v *OrganizationRulesetConditions) *OrganizationRulesetConditionsRepositoryName {
+		if v == nil {
+			return nil
+		}
+		return v.RepositoryName
+	}).(OrganizationRulesetConditionsRepositoryNamePtrOutput)
+}
+
+type OrganizationRulesetConditionsRefName struct {
+	// (List of String) Array of ref names or patterns to exclude. The condition will not pass if any of these patterns match.
+	Excludes []string `pulumi:"excludes"`
+	// (List of String) Array of ref names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~DEFAULT_BRANCH` to include the default branch or `~ALL` to include all branches.
+	Includes []string `pulumi:"includes"`
+}
+
+// OrganizationRulesetConditionsRefNameInput is an input type that accepts OrganizationRulesetConditionsRefNameArgs and OrganizationRulesetConditionsRefNameOutput values.
+// You can construct a concrete instance of `OrganizationRulesetConditionsRefNameInput` via:
+//
+//	OrganizationRulesetConditionsRefNameArgs{...}
+type OrganizationRulesetConditionsRefNameInput interface {
+	pulumi.Input
+
+	ToOrganizationRulesetConditionsRefNameOutput() OrganizationRulesetConditionsRefNameOutput
+	ToOrganizationRulesetConditionsRefNameOutputWithContext(context.Context) OrganizationRulesetConditionsRefNameOutput
+}
+
+type OrganizationRulesetConditionsRefNameArgs struct {
+	// (List of String) Array of ref names or patterns to exclude. The condition will not pass if any of these patterns match.
+	Excludes pulumi.StringArrayInput `pulumi:"excludes"`
+	// (List of String) Array of ref names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~DEFAULT_BRANCH` to include the default branch or `~ALL` to include all branches.
+	Includes pulumi.StringArrayInput `pulumi:"includes"`
+}
+
+func (OrganizationRulesetConditionsRefNameArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationRulesetConditionsRefName)(nil)).Elem()
+}
+
+func (i OrganizationRulesetConditionsRefNameArgs) ToOrganizationRulesetConditionsRefNameOutput() OrganizationRulesetConditionsRefNameOutput {
+	return i.ToOrganizationRulesetConditionsRefNameOutputWithContext(context.Background())
+}
+
+func (i OrganizationRulesetConditionsRefNameArgs) ToOrganizationRulesetConditionsRefNameOutputWithContext(ctx context.Context) OrganizationRulesetConditionsRefNameOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationRulesetConditionsRefNameOutput)
+}
+
+func (i OrganizationRulesetConditionsRefNameArgs) ToOutput(ctx context.Context) pulumix.Output[OrganizationRulesetConditionsRefName] {
+	return pulumix.Output[OrganizationRulesetConditionsRefName]{
+		OutputState: i.ToOrganizationRulesetConditionsRefNameOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i OrganizationRulesetConditionsRefNameArgs) ToOrganizationRulesetConditionsRefNamePtrOutput() OrganizationRulesetConditionsRefNamePtrOutput {
+	return i.ToOrganizationRulesetConditionsRefNamePtrOutputWithContext(context.Background())
+}
+
+func (i OrganizationRulesetConditionsRefNameArgs) ToOrganizationRulesetConditionsRefNamePtrOutputWithContext(ctx context.Context) OrganizationRulesetConditionsRefNamePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationRulesetConditionsRefNameOutput).ToOrganizationRulesetConditionsRefNamePtrOutputWithContext(ctx)
+}
+
+// OrganizationRulesetConditionsRefNamePtrInput is an input type that accepts OrganizationRulesetConditionsRefNameArgs, OrganizationRulesetConditionsRefNamePtr and OrganizationRulesetConditionsRefNamePtrOutput values.
+// You can construct a concrete instance of `OrganizationRulesetConditionsRefNamePtrInput` via:
+//
+//	        OrganizationRulesetConditionsRefNameArgs{...}
+//
+//	or:
+//
+//	        nil
+type OrganizationRulesetConditionsRefNamePtrInput interface {
+	pulumi.Input
+
+	ToOrganizationRulesetConditionsRefNamePtrOutput() OrganizationRulesetConditionsRefNamePtrOutput
+	ToOrganizationRulesetConditionsRefNamePtrOutputWithContext(context.Context) OrganizationRulesetConditionsRefNamePtrOutput
+}
+
+type organizationRulesetConditionsRefNamePtrType OrganizationRulesetConditionsRefNameArgs
+
+func OrganizationRulesetConditionsRefNamePtr(v *OrganizationRulesetConditionsRefNameArgs) OrganizationRulesetConditionsRefNamePtrInput {
+	return (*organizationRulesetConditionsRefNamePtrType)(v)
+}
+
+func (*organizationRulesetConditionsRefNamePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrganizationRulesetConditionsRefName)(nil)).Elem()
+}
+
+func (i *organizationRulesetConditionsRefNamePtrType) ToOrganizationRulesetConditionsRefNamePtrOutput() OrganizationRulesetConditionsRefNamePtrOutput {
+	return i.ToOrganizationRulesetConditionsRefNamePtrOutputWithContext(context.Background())
+}
+
+func (i *organizationRulesetConditionsRefNamePtrType) ToOrganizationRulesetConditionsRefNamePtrOutputWithContext(ctx context.Context) OrganizationRulesetConditionsRefNamePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationRulesetConditionsRefNamePtrOutput)
+}
+
+func (i *organizationRulesetConditionsRefNamePtrType) ToOutput(ctx context.Context) pulumix.Output[*OrganizationRulesetConditionsRefName] {
+	return pulumix.Output[*OrganizationRulesetConditionsRefName]{
+		OutputState: i.ToOrganizationRulesetConditionsRefNamePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type OrganizationRulesetConditionsRefNameOutput struct{ *pulumi.OutputState }
+
+func (OrganizationRulesetConditionsRefNameOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationRulesetConditionsRefName)(nil)).Elem()
+}
+
+func (o OrganizationRulesetConditionsRefNameOutput) ToOrganizationRulesetConditionsRefNameOutput() OrganizationRulesetConditionsRefNameOutput {
+	return o
+}
+
+func (o OrganizationRulesetConditionsRefNameOutput) ToOrganizationRulesetConditionsRefNameOutputWithContext(ctx context.Context) OrganizationRulesetConditionsRefNameOutput {
+	return o
+}
+
+func (o OrganizationRulesetConditionsRefNameOutput) ToOrganizationRulesetConditionsRefNamePtrOutput() OrganizationRulesetConditionsRefNamePtrOutput {
+	return o.ToOrganizationRulesetConditionsRefNamePtrOutputWithContext(context.Background())
+}
+
+func (o OrganizationRulesetConditionsRefNameOutput) ToOrganizationRulesetConditionsRefNamePtrOutputWithContext(ctx context.Context) OrganizationRulesetConditionsRefNamePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OrganizationRulesetConditionsRefName) *OrganizationRulesetConditionsRefName {
+		return &v
+	}).(OrganizationRulesetConditionsRefNamePtrOutput)
+}
+
+func (o OrganizationRulesetConditionsRefNameOutput) ToOutput(ctx context.Context) pulumix.Output[OrganizationRulesetConditionsRefName] {
+	return pulumix.Output[OrganizationRulesetConditionsRefName]{
+		OutputState: o.OutputState,
+	}
+}
+
+// (List of String) Array of ref names or patterns to exclude. The condition will not pass if any of these patterns match.
+func (o OrganizationRulesetConditionsRefNameOutput) Excludes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v OrganizationRulesetConditionsRefName) []string { return v.Excludes }).(pulumi.StringArrayOutput)
+}
+
+// (List of String) Array of ref names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~DEFAULT_BRANCH` to include the default branch or `~ALL` to include all branches.
+func (o OrganizationRulesetConditionsRefNameOutput) Includes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v OrganizationRulesetConditionsRefName) []string { return v.Includes }).(pulumi.StringArrayOutput)
+}
+
+type OrganizationRulesetConditionsRefNamePtrOutput struct{ *pulumi.OutputState }
+
+func (OrganizationRulesetConditionsRefNamePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrganizationRulesetConditionsRefName)(nil)).Elem()
+}
+
+func (o OrganizationRulesetConditionsRefNamePtrOutput) ToOrganizationRulesetConditionsRefNamePtrOutput() OrganizationRulesetConditionsRefNamePtrOutput {
+	return o
+}
+
+func (o OrganizationRulesetConditionsRefNamePtrOutput) ToOrganizationRulesetConditionsRefNamePtrOutputWithContext(ctx context.Context) OrganizationRulesetConditionsRefNamePtrOutput {
+	return o
+}
+
+func (o OrganizationRulesetConditionsRefNamePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*OrganizationRulesetConditionsRefName] {
+	return pulumix.Output[*OrganizationRulesetConditionsRefName]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o OrganizationRulesetConditionsRefNamePtrOutput) Elem() OrganizationRulesetConditionsRefNameOutput {
+	return o.ApplyT(func(v *OrganizationRulesetConditionsRefName) OrganizationRulesetConditionsRefName {
+		if v != nil {
+			return *v
+		}
+		var ret OrganizationRulesetConditionsRefName
+		return ret
+	}).(OrganizationRulesetConditionsRefNameOutput)
+}
+
+// (List of String) Array of ref names or patterns to exclude. The condition will not pass if any of these patterns match.
+func (o OrganizationRulesetConditionsRefNamePtrOutput) Excludes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *OrganizationRulesetConditionsRefName) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Excludes
+	}).(pulumi.StringArrayOutput)
+}
+
+// (List of String) Array of ref names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~DEFAULT_BRANCH` to include the default branch or `~ALL` to include all branches.
+func (o OrganizationRulesetConditionsRefNamePtrOutput) Includes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *OrganizationRulesetConditionsRefName) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Includes
+	}).(pulumi.StringArrayOutput)
+}
+
+type OrganizationRulesetConditionsRepositoryName struct {
+	// (List of String) Array of ref names or patterns to exclude. The condition will not pass if any of these patterns match.
+	Excludes []string `pulumi:"excludes"`
+	// (List of String) Array of repository names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~ALL` to include all repositories.
+	Inlcudes  []string `pulumi:"inlcudes"`
+	Protected *bool    `pulumi:"protected"`
+}
+
+// OrganizationRulesetConditionsRepositoryNameInput is an input type that accepts OrganizationRulesetConditionsRepositoryNameArgs and OrganizationRulesetConditionsRepositoryNameOutput values.
+// You can construct a concrete instance of `OrganizationRulesetConditionsRepositoryNameInput` via:
+//
+//	OrganizationRulesetConditionsRepositoryNameArgs{...}
+type OrganizationRulesetConditionsRepositoryNameInput interface {
+	pulumi.Input
+
+	ToOrganizationRulesetConditionsRepositoryNameOutput() OrganizationRulesetConditionsRepositoryNameOutput
+	ToOrganizationRulesetConditionsRepositoryNameOutputWithContext(context.Context) OrganizationRulesetConditionsRepositoryNameOutput
+}
+
+type OrganizationRulesetConditionsRepositoryNameArgs struct {
+	// (List of String) Array of ref names or patterns to exclude. The condition will not pass if any of these patterns match.
+	Excludes pulumi.StringArrayInput `pulumi:"excludes"`
+	// (List of String) Array of repository names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~ALL` to include all repositories.
+	Inlcudes  pulumi.StringArrayInput `pulumi:"inlcudes"`
+	Protected pulumi.BoolPtrInput     `pulumi:"protected"`
+}
+
+func (OrganizationRulesetConditionsRepositoryNameArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationRulesetConditionsRepositoryName)(nil)).Elem()
+}
+
+func (i OrganizationRulesetConditionsRepositoryNameArgs) ToOrganizationRulesetConditionsRepositoryNameOutput() OrganizationRulesetConditionsRepositoryNameOutput {
+	return i.ToOrganizationRulesetConditionsRepositoryNameOutputWithContext(context.Background())
+}
+
+func (i OrganizationRulesetConditionsRepositoryNameArgs) ToOrganizationRulesetConditionsRepositoryNameOutputWithContext(ctx context.Context) OrganizationRulesetConditionsRepositoryNameOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationRulesetConditionsRepositoryNameOutput)
+}
+
+func (i OrganizationRulesetConditionsRepositoryNameArgs) ToOutput(ctx context.Context) pulumix.Output[OrganizationRulesetConditionsRepositoryName] {
+	return pulumix.Output[OrganizationRulesetConditionsRepositoryName]{
+		OutputState: i.ToOrganizationRulesetConditionsRepositoryNameOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i OrganizationRulesetConditionsRepositoryNameArgs) ToOrganizationRulesetConditionsRepositoryNamePtrOutput() OrganizationRulesetConditionsRepositoryNamePtrOutput {
+	return i.ToOrganizationRulesetConditionsRepositoryNamePtrOutputWithContext(context.Background())
+}
+
+func (i OrganizationRulesetConditionsRepositoryNameArgs) ToOrganizationRulesetConditionsRepositoryNamePtrOutputWithContext(ctx context.Context) OrganizationRulesetConditionsRepositoryNamePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationRulesetConditionsRepositoryNameOutput).ToOrganizationRulesetConditionsRepositoryNamePtrOutputWithContext(ctx)
+}
+
+// OrganizationRulesetConditionsRepositoryNamePtrInput is an input type that accepts OrganizationRulesetConditionsRepositoryNameArgs, OrganizationRulesetConditionsRepositoryNamePtr and OrganizationRulesetConditionsRepositoryNamePtrOutput values.
+// You can construct a concrete instance of `OrganizationRulesetConditionsRepositoryNamePtrInput` via:
+//
+//	        OrganizationRulesetConditionsRepositoryNameArgs{...}
+//
+//	or:
+//
+//	        nil
+type OrganizationRulesetConditionsRepositoryNamePtrInput interface {
+	pulumi.Input
+
+	ToOrganizationRulesetConditionsRepositoryNamePtrOutput() OrganizationRulesetConditionsRepositoryNamePtrOutput
+	ToOrganizationRulesetConditionsRepositoryNamePtrOutputWithContext(context.Context) OrganizationRulesetConditionsRepositoryNamePtrOutput
+}
+
+type organizationRulesetConditionsRepositoryNamePtrType OrganizationRulesetConditionsRepositoryNameArgs
+
+func OrganizationRulesetConditionsRepositoryNamePtr(v *OrganizationRulesetConditionsRepositoryNameArgs) OrganizationRulesetConditionsRepositoryNamePtrInput {
+	return (*organizationRulesetConditionsRepositoryNamePtrType)(v)
+}
+
+func (*organizationRulesetConditionsRepositoryNamePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrganizationRulesetConditionsRepositoryName)(nil)).Elem()
+}
+
+func (i *organizationRulesetConditionsRepositoryNamePtrType) ToOrganizationRulesetConditionsRepositoryNamePtrOutput() OrganizationRulesetConditionsRepositoryNamePtrOutput {
+	return i.ToOrganizationRulesetConditionsRepositoryNamePtrOutputWithContext(context.Background())
+}
+
+func (i *organizationRulesetConditionsRepositoryNamePtrType) ToOrganizationRulesetConditionsRepositoryNamePtrOutputWithContext(ctx context.Context) OrganizationRulesetConditionsRepositoryNamePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationRulesetConditionsRepositoryNamePtrOutput)
+}
+
+func (i *organizationRulesetConditionsRepositoryNamePtrType) ToOutput(ctx context.Context) pulumix.Output[*OrganizationRulesetConditionsRepositoryName] {
+	return pulumix.Output[*OrganizationRulesetConditionsRepositoryName]{
+		OutputState: i.ToOrganizationRulesetConditionsRepositoryNamePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type OrganizationRulesetConditionsRepositoryNameOutput struct{ *pulumi.OutputState }
+
+func (OrganizationRulesetConditionsRepositoryNameOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationRulesetConditionsRepositoryName)(nil)).Elem()
+}
+
+func (o OrganizationRulesetConditionsRepositoryNameOutput) ToOrganizationRulesetConditionsRepositoryNameOutput() OrganizationRulesetConditionsRepositoryNameOutput {
+	return o
+}
+
+func (o OrganizationRulesetConditionsRepositoryNameOutput) ToOrganizationRulesetConditionsRepositoryNameOutputWithContext(ctx context.Context) OrganizationRulesetConditionsRepositoryNameOutput {
+	return o
+}
+
+func (o OrganizationRulesetConditionsRepositoryNameOutput) ToOrganizationRulesetConditionsRepositoryNamePtrOutput() OrganizationRulesetConditionsRepositoryNamePtrOutput {
+	return o.ToOrganizationRulesetConditionsRepositoryNamePtrOutputWithContext(context.Background())
+}
+
+func (o OrganizationRulesetConditionsRepositoryNameOutput) ToOrganizationRulesetConditionsRepositoryNamePtrOutputWithContext(ctx context.Context) OrganizationRulesetConditionsRepositoryNamePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OrganizationRulesetConditionsRepositoryName) *OrganizationRulesetConditionsRepositoryName {
+		return &v
+	}).(OrganizationRulesetConditionsRepositoryNamePtrOutput)
+}
+
+func (o OrganizationRulesetConditionsRepositoryNameOutput) ToOutput(ctx context.Context) pulumix.Output[OrganizationRulesetConditionsRepositoryName] {
+	return pulumix.Output[OrganizationRulesetConditionsRepositoryName]{
+		OutputState: o.OutputState,
+	}
+}
+
+// (List of String) Array of ref names or patterns to exclude. The condition will not pass if any of these patterns match.
+func (o OrganizationRulesetConditionsRepositoryNameOutput) Excludes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v OrganizationRulesetConditionsRepositoryName) []string { return v.Excludes }).(pulumi.StringArrayOutput)
+}
+
+// (List of String) Array of repository names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~ALL` to include all repositories.
+func (o OrganizationRulesetConditionsRepositoryNameOutput) Inlcudes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v OrganizationRulesetConditionsRepositoryName) []string { return v.Inlcudes }).(pulumi.StringArrayOutput)
+}
+
+func (o OrganizationRulesetConditionsRepositoryNameOutput) Protected() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v OrganizationRulesetConditionsRepositoryName) *bool { return v.Protected }).(pulumi.BoolPtrOutput)
+}
+
+type OrganizationRulesetConditionsRepositoryNamePtrOutput struct{ *pulumi.OutputState }
+
+func (OrganizationRulesetConditionsRepositoryNamePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrganizationRulesetConditionsRepositoryName)(nil)).Elem()
+}
+
+func (o OrganizationRulesetConditionsRepositoryNamePtrOutput) ToOrganizationRulesetConditionsRepositoryNamePtrOutput() OrganizationRulesetConditionsRepositoryNamePtrOutput {
+	return o
+}
+
+func (o OrganizationRulesetConditionsRepositoryNamePtrOutput) ToOrganizationRulesetConditionsRepositoryNamePtrOutputWithContext(ctx context.Context) OrganizationRulesetConditionsRepositoryNamePtrOutput {
+	return o
+}
+
+func (o OrganizationRulesetConditionsRepositoryNamePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*OrganizationRulesetConditionsRepositoryName] {
+	return pulumix.Output[*OrganizationRulesetConditionsRepositoryName]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o OrganizationRulesetConditionsRepositoryNamePtrOutput) Elem() OrganizationRulesetConditionsRepositoryNameOutput {
+	return o.ApplyT(func(v *OrganizationRulesetConditionsRepositoryName) OrganizationRulesetConditionsRepositoryName {
+		if v != nil {
+			return *v
+		}
+		var ret OrganizationRulesetConditionsRepositoryName
+		return ret
+	}).(OrganizationRulesetConditionsRepositoryNameOutput)
+}
+
+// (List of String) Array of ref names or patterns to exclude. The condition will not pass if any of these patterns match.
+func (o OrganizationRulesetConditionsRepositoryNamePtrOutput) Excludes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *OrganizationRulesetConditionsRepositoryName) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Excludes
+	}).(pulumi.StringArrayOutput)
+}
+
+// (List of String) Array of repository names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~ALL` to include all repositories.
+func (o OrganizationRulesetConditionsRepositoryNamePtrOutput) Inlcudes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *OrganizationRulesetConditionsRepositoryName) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Inlcudes
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o OrganizationRulesetConditionsRepositoryNamePtrOutput) Protected() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *OrganizationRulesetConditionsRepositoryName) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Protected
+	}).(pulumi.BoolPtrOutput)
+}
+
+type OrganizationRulesetRules struct {
+	// (Block List, Max: 1) Parameters to be used for the branchNamePattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. Conflicts with `tagNamePattern` as it only applies to rulesets with target `branch`. (see below for nested schema)
+	BranchNamePattern *OrganizationRulesetRulesBranchNamePattern `pulumi:"branchNamePattern"`
+	// (Block List, Max: 1) Parameters to be used for the commitAuthorEmailPattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)
+	CommitAuthorEmailPattern *OrganizationRulesetRulesCommitAuthorEmailPattern `pulumi:"commitAuthorEmailPattern"`
+	// (Block List, Max: 1) Parameters to be used for the commitMessagePattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)
+	CommitMessagePattern *OrganizationRulesetRulesCommitMessagePattern `pulumi:"commitMessagePattern"`
+	// (Block List, Max: 1) Parameters to be used for the committerEmailPattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)
+	CommitterEmailPattern *OrganizationRulesetRulesCommitterEmailPattern `pulumi:"committerEmailPattern"`
+	// (Boolean) Only allow users with bypass permission to create matching refs.
+	Creation *bool `pulumi:"creation"`
+	// (Boolean) Only allow users with bypass permissions to delete matching refs.
+	Deletion *bool `pulumi:"deletion"`
+	// (Boolean) Prevent users with push access from force pushing to branches.
+	NonFastForward *bool `pulumi:"nonFastForward"`
+	// (Block List, Max: 1) Require all commits be made to a non-target branch and submitted via a pull request before they can be merged. (see below for nested schema)
+	PullRequest *OrganizationRulesetRulesPullRequest `pulumi:"pullRequest"`
+	// (Boolean) Prevent merge commits from being pushed to matching branches.
+	RequiredLinearHistory *bool `pulumi:"requiredLinearHistory"`
+	// (Boolean) Commits pushed to matching branches must have verified signatures.
+	RequiredSignatures *bool `pulumi:"requiredSignatures"`
+	// (Block List, Max: 1) Choose which status checks must pass before branches can be merged into a branch that matches this rule. When enabled, commits must first be pushed to another branch, then merged or pushed directly to a branch that matches this rule after status checks have passed. (see below for nested schema)
+	RequiredStatusChecks *OrganizationRulesetRulesRequiredStatusChecks `pulumi:"requiredStatusChecks"`
+	// (Block List, Max: 1) Parameters to be used for the tagNamePattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. Conflicts with `branchNamePattern` as it only applies to rulesets with target `tag`. (see below for nested schema)
+	TagNamePattern *OrganizationRulesetRulesTagNamePattern `pulumi:"tagNamePattern"`
+	// (Boolean) Only allow users with bypass permission to update matching refs.
+	Update *bool `pulumi:"update"`
+}
+
+// OrganizationRulesetRulesInput is an input type that accepts OrganizationRulesetRulesArgs and OrganizationRulesetRulesOutput values.
+// You can construct a concrete instance of `OrganizationRulesetRulesInput` via:
+//
+//	OrganizationRulesetRulesArgs{...}
+type OrganizationRulesetRulesInput interface {
+	pulumi.Input
+
+	ToOrganizationRulesetRulesOutput() OrganizationRulesetRulesOutput
+	ToOrganizationRulesetRulesOutputWithContext(context.Context) OrganizationRulesetRulesOutput
+}
+
+type OrganizationRulesetRulesArgs struct {
+	// (Block List, Max: 1) Parameters to be used for the branchNamePattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. Conflicts with `tagNamePattern` as it only applies to rulesets with target `branch`. (see below for nested schema)
+	BranchNamePattern OrganizationRulesetRulesBranchNamePatternPtrInput `pulumi:"branchNamePattern"`
+	// (Block List, Max: 1) Parameters to be used for the commitAuthorEmailPattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)
+	CommitAuthorEmailPattern OrganizationRulesetRulesCommitAuthorEmailPatternPtrInput `pulumi:"commitAuthorEmailPattern"`
+	// (Block List, Max: 1) Parameters to be used for the commitMessagePattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)
+	CommitMessagePattern OrganizationRulesetRulesCommitMessagePatternPtrInput `pulumi:"commitMessagePattern"`
+	// (Block List, Max: 1) Parameters to be used for the committerEmailPattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)
+	CommitterEmailPattern OrganizationRulesetRulesCommitterEmailPatternPtrInput `pulumi:"committerEmailPattern"`
+	// (Boolean) Only allow users with bypass permission to create matching refs.
+	Creation pulumi.BoolPtrInput `pulumi:"creation"`
+	// (Boolean) Only allow users with bypass permissions to delete matching refs.
+	Deletion pulumi.BoolPtrInput `pulumi:"deletion"`
+	// (Boolean) Prevent users with push access from force pushing to branches.
+	NonFastForward pulumi.BoolPtrInput `pulumi:"nonFastForward"`
+	// (Block List, Max: 1) Require all commits be made to a non-target branch and submitted via a pull request before they can be merged. (see below for nested schema)
+	PullRequest OrganizationRulesetRulesPullRequestPtrInput `pulumi:"pullRequest"`
+	// (Boolean) Prevent merge commits from being pushed to matching branches.
+	RequiredLinearHistory pulumi.BoolPtrInput `pulumi:"requiredLinearHistory"`
+	// (Boolean) Commits pushed to matching branches must have verified signatures.
+	RequiredSignatures pulumi.BoolPtrInput `pulumi:"requiredSignatures"`
+	// (Block List, Max: 1) Choose which status checks must pass before branches can be merged into a branch that matches this rule. When enabled, commits must first be pushed to another branch, then merged or pushed directly to a branch that matches this rule after status checks have passed. (see below for nested schema)
+	RequiredStatusChecks OrganizationRulesetRulesRequiredStatusChecksPtrInput `pulumi:"requiredStatusChecks"`
+	// (Block List, Max: 1) Parameters to be used for the tagNamePattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. Conflicts with `branchNamePattern` as it only applies to rulesets with target `tag`. (see below for nested schema)
+	TagNamePattern OrganizationRulesetRulesTagNamePatternPtrInput `pulumi:"tagNamePattern"`
+	// (Boolean) Only allow users with bypass permission to update matching refs.
+	Update pulumi.BoolPtrInput `pulumi:"update"`
+}
+
+func (OrganizationRulesetRulesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationRulesetRules)(nil)).Elem()
+}
+
+func (i OrganizationRulesetRulesArgs) ToOrganizationRulesetRulesOutput() OrganizationRulesetRulesOutput {
+	return i.ToOrganizationRulesetRulesOutputWithContext(context.Background())
+}
+
+func (i OrganizationRulesetRulesArgs) ToOrganizationRulesetRulesOutputWithContext(ctx context.Context) OrganizationRulesetRulesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationRulesetRulesOutput)
+}
+
+func (i OrganizationRulesetRulesArgs) ToOutput(ctx context.Context) pulumix.Output[OrganizationRulesetRules] {
+	return pulumix.Output[OrganizationRulesetRules]{
+		OutputState: i.ToOrganizationRulesetRulesOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i OrganizationRulesetRulesArgs) ToOrganizationRulesetRulesPtrOutput() OrganizationRulesetRulesPtrOutput {
+	return i.ToOrganizationRulesetRulesPtrOutputWithContext(context.Background())
+}
+
+func (i OrganizationRulesetRulesArgs) ToOrganizationRulesetRulesPtrOutputWithContext(ctx context.Context) OrganizationRulesetRulesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationRulesetRulesOutput).ToOrganizationRulesetRulesPtrOutputWithContext(ctx)
+}
+
+// OrganizationRulesetRulesPtrInput is an input type that accepts OrganizationRulesetRulesArgs, OrganizationRulesetRulesPtr and OrganizationRulesetRulesPtrOutput values.
+// You can construct a concrete instance of `OrganizationRulesetRulesPtrInput` via:
+//
+//	        OrganizationRulesetRulesArgs{...}
+//
+//	or:
+//
+//	        nil
+type OrganizationRulesetRulesPtrInput interface {
+	pulumi.Input
+
+	ToOrganizationRulesetRulesPtrOutput() OrganizationRulesetRulesPtrOutput
+	ToOrganizationRulesetRulesPtrOutputWithContext(context.Context) OrganizationRulesetRulesPtrOutput
+}
+
+type organizationRulesetRulesPtrType OrganizationRulesetRulesArgs
+
+func OrganizationRulesetRulesPtr(v *OrganizationRulesetRulesArgs) OrganizationRulesetRulesPtrInput {
+	return (*organizationRulesetRulesPtrType)(v)
+}
+
+func (*organizationRulesetRulesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrganizationRulesetRules)(nil)).Elem()
+}
+
+func (i *organizationRulesetRulesPtrType) ToOrganizationRulesetRulesPtrOutput() OrganizationRulesetRulesPtrOutput {
+	return i.ToOrganizationRulesetRulesPtrOutputWithContext(context.Background())
+}
+
+func (i *organizationRulesetRulesPtrType) ToOrganizationRulesetRulesPtrOutputWithContext(ctx context.Context) OrganizationRulesetRulesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationRulesetRulesPtrOutput)
+}
+
+func (i *organizationRulesetRulesPtrType) ToOutput(ctx context.Context) pulumix.Output[*OrganizationRulesetRules] {
+	return pulumix.Output[*OrganizationRulesetRules]{
+		OutputState: i.ToOrganizationRulesetRulesPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type OrganizationRulesetRulesOutput struct{ *pulumi.OutputState }
+
+func (OrganizationRulesetRulesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationRulesetRules)(nil)).Elem()
+}
+
+func (o OrganizationRulesetRulesOutput) ToOrganizationRulesetRulesOutput() OrganizationRulesetRulesOutput {
+	return o
+}
+
+func (o OrganizationRulesetRulesOutput) ToOrganizationRulesetRulesOutputWithContext(ctx context.Context) OrganizationRulesetRulesOutput {
+	return o
+}
+
+func (o OrganizationRulesetRulesOutput) ToOrganizationRulesetRulesPtrOutput() OrganizationRulesetRulesPtrOutput {
+	return o.ToOrganizationRulesetRulesPtrOutputWithContext(context.Background())
+}
+
+func (o OrganizationRulesetRulesOutput) ToOrganizationRulesetRulesPtrOutputWithContext(ctx context.Context) OrganizationRulesetRulesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OrganizationRulesetRules) *OrganizationRulesetRules {
+		return &v
+	}).(OrganizationRulesetRulesPtrOutput)
+}
+
+func (o OrganizationRulesetRulesOutput) ToOutput(ctx context.Context) pulumix.Output[OrganizationRulesetRules] {
+	return pulumix.Output[OrganizationRulesetRules]{
+		OutputState: o.OutputState,
+	}
+}
+
+// (Block List, Max: 1) Parameters to be used for the branchNamePattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. Conflicts with `tagNamePattern` as it only applies to rulesets with target `branch`. (see below for nested schema)
+func (o OrganizationRulesetRulesOutput) BranchNamePattern() OrganizationRulesetRulesBranchNamePatternPtrOutput {
+	return o.ApplyT(func(v OrganizationRulesetRules) *OrganizationRulesetRulesBranchNamePattern {
+		return v.BranchNamePattern
+	}).(OrganizationRulesetRulesBranchNamePatternPtrOutput)
+}
+
+// (Block List, Max: 1) Parameters to be used for the commitAuthorEmailPattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)
+func (o OrganizationRulesetRulesOutput) CommitAuthorEmailPattern() OrganizationRulesetRulesCommitAuthorEmailPatternPtrOutput {
+	return o.ApplyT(func(v OrganizationRulesetRules) *OrganizationRulesetRulesCommitAuthorEmailPattern {
+		return v.CommitAuthorEmailPattern
+	}).(OrganizationRulesetRulesCommitAuthorEmailPatternPtrOutput)
+}
+
+// (Block List, Max: 1) Parameters to be used for the commitMessagePattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)
+func (o OrganizationRulesetRulesOutput) CommitMessagePattern() OrganizationRulesetRulesCommitMessagePatternPtrOutput {
+	return o.ApplyT(func(v OrganizationRulesetRules) *OrganizationRulesetRulesCommitMessagePattern {
+		return v.CommitMessagePattern
+	}).(OrganizationRulesetRulesCommitMessagePatternPtrOutput)
+}
+
+// (Block List, Max: 1) Parameters to be used for the committerEmailPattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)
+func (o OrganizationRulesetRulesOutput) CommitterEmailPattern() OrganizationRulesetRulesCommitterEmailPatternPtrOutput {
+	return o.ApplyT(func(v OrganizationRulesetRules) *OrganizationRulesetRulesCommitterEmailPattern {
+		return v.CommitterEmailPattern
+	}).(OrganizationRulesetRulesCommitterEmailPatternPtrOutput)
+}
+
+// (Boolean) Only allow users with bypass permission to create matching refs.
+func (o OrganizationRulesetRulesOutput) Creation() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v OrganizationRulesetRules) *bool { return v.Creation }).(pulumi.BoolPtrOutput)
+}
+
+// (Boolean) Only allow users with bypass permissions to delete matching refs.
+func (o OrganizationRulesetRulesOutput) Deletion() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v OrganizationRulesetRules) *bool { return v.Deletion }).(pulumi.BoolPtrOutput)
+}
+
+// (Boolean) Prevent users with push access from force pushing to branches.
+func (o OrganizationRulesetRulesOutput) NonFastForward() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v OrganizationRulesetRules) *bool { return v.NonFastForward }).(pulumi.BoolPtrOutput)
+}
+
+// (Block List, Max: 1) Require all commits be made to a non-target branch and submitted via a pull request before they can be merged. (see below for nested schema)
+func (o OrganizationRulesetRulesOutput) PullRequest() OrganizationRulesetRulesPullRequestPtrOutput {
+	return o.ApplyT(func(v OrganizationRulesetRules) *OrganizationRulesetRulesPullRequest { return v.PullRequest }).(OrganizationRulesetRulesPullRequestPtrOutput)
+}
+
+// (Boolean) Prevent merge commits from being pushed to matching branches.
+func (o OrganizationRulesetRulesOutput) RequiredLinearHistory() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v OrganizationRulesetRules) *bool { return v.RequiredLinearHistory }).(pulumi.BoolPtrOutput)
+}
+
+// (Boolean) Commits pushed to matching branches must have verified signatures.
+func (o OrganizationRulesetRulesOutput) RequiredSignatures() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v OrganizationRulesetRules) *bool { return v.RequiredSignatures }).(pulumi.BoolPtrOutput)
+}
+
+// (Block List, Max: 1) Choose which status checks must pass before branches can be merged into a branch that matches this rule. When enabled, commits must first be pushed to another branch, then merged or pushed directly to a branch that matches this rule after status checks have passed. (see below for nested schema)
+func (o OrganizationRulesetRulesOutput) RequiredStatusChecks() OrganizationRulesetRulesRequiredStatusChecksPtrOutput {
+	return o.ApplyT(func(v OrganizationRulesetRules) *OrganizationRulesetRulesRequiredStatusChecks {
+		return v.RequiredStatusChecks
+	}).(OrganizationRulesetRulesRequiredStatusChecksPtrOutput)
+}
+
+// (Block List, Max: 1) Parameters to be used for the tagNamePattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. Conflicts with `branchNamePattern` as it only applies to rulesets with target `tag`. (see below for nested schema)
+func (o OrganizationRulesetRulesOutput) TagNamePattern() OrganizationRulesetRulesTagNamePatternPtrOutput {
+	return o.ApplyT(func(v OrganizationRulesetRules) *OrganizationRulesetRulesTagNamePattern { return v.TagNamePattern }).(OrganizationRulesetRulesTagNamePatternPtrOutput)
+}
+
+// (Boolean) Only allow users with bypass permission to update matching refs.
+func (o OrganizationRulesetRulesOutput) Update() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v OrganizationRulesetRules) *bool { return v.Update }).(pulumi.BoolPtrOutput)
+}
+
+type OrganizationRulesetRulesPtrOutput struct{ *pulumi.OutputState }
+
+func (OrganizationRulesetRulesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrganizationRulesetRules)(nil)).Elem()
+}
+
+func (o OrganizationRulesetRulesPtrOutput) ToOrganizationRulesetRulesPtrOutput() OrganizationRulesetRulesPtrOutput {
+	return o
+}
+
+func (o OrganizationRulesetRulesPtrOutput) ToOrganizationRulesetRulesPtrOutputWithContext(ctx context.Context) OrganizationRulesetRulesPtrOutput {
+	return o
+}
+
+func (o OrganizationRulesetRulesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*OrganizationRulesetRules] {
+	return pulumix.Output[*OrganizationRulesetRules]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o OrganizationRulesetRulesPtrOutput) Elem() OrganizationRulesetRulesOutput {
+	return o.ApplyT(func(v *OrganizationRulesetRules) OrganizationRulesetRules {
+		if v != nil {
+			return *v
+		}
+		var ret OrganizationRulesetRules
+		return ret
+	}).(OrganizationRulesetRulesOutput)
+}
+
+// (Block List, Max: 1) Parameters to be used for the branchNamePattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. Conflicts with `tagNamePattern` as it only applies to rulesets with target `branch`. (see below for nested schema)
+func (o OrganizationRulesetRulesPtrOutput) BranchNamePattern() OrganizationRulesetRulesBranchNamePatternPtrOutput {
+	return o.ApplyT(func(v *OrganizationRulesetRules) *OrganizationRulesetRulesBranchNamePattern {
+		if v == nil {
+			return nil
+		}
+		return v.BranchNamePattern
+	}).(OrganizationRulesetRulesBranchNamePatternPtrOutput)
+}
+
+// (Block List, Max: 1) Parameters to be used for the commitAuthorEmailPattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)
+func (o OrganizationRulesetRulesPtrOutput) CommitAuthorEmailPattern() OrganizationRulesetRulesCommitAuthorEmailPatternPtrOutput {
+	return o.ApplyT(func(v *OrganizationRulesetRules) *OrganizationRulesetRulesCommitAuthorEmailPattern {
+		if v == nil {
+			return nil
+		}
+		return v.CommitAuthorEmailPattern
+	}).(OrganizationRulesetRulesCommitAuthorEmailPatternPtrOutput)
+}
+
+// (Block List, Max: 1) Parameters to be used for the commitMessagePattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)
+func (o OrganizationRulesetRulesPtrOutput) CommitMessagePattern() OrganizationRulesetRulesCommitMessagePatternPtrOutput {
+	return o.ApplyT(func(v *OrganizationRulesetRules) *OrganizationRulesetRulesCommitMessagePattern {
+		if v == nil {
+			return nil
+		}
+		return v.CommitMessagePattern
+	}).(OrganizationRulesetRulesCommitMessagePatternPtrOutput)
+}
+
+// (Block List, Max: 1) Parameters to be used for the committerEmailPattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)
+func (o OrganizationRulesetRulesPtrOutput) CommitterEmailPattern() OrganizationRulesetRulesCommitterEmailPatternPtrOutput {
+	return o.ApplyT(func(v *OrganizationRulesetRules) *OrganizationRulesetRulesCommitterEmailPattern {
+		if v == nil {
+			return nil
+		}
+		return v.CommitterEmailPattern
+	}).(OrganizationRulesetRulesCommitterEmailPatternPtrOutput)
+}
+
+// (Boolean) Only allow users with bypass permission to create matching refs.
+func (o OrganizationRulesetRulesPtrOutput) Creation() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *OrganizationRulesetRules) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Creation
+	}).(pulumi.BoolPtrOutput)
+}
+
+// (Boolean) Only allow users with bypass permissions to delete matching refs.
+func (o OrganizationRulesetRulesPtrOutput) Deletion() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *OrganizationRulesetRules) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Deletion
+	}).(pulumi.BoolPtrOutput)
+}
+
+// (Boolean) Prevent users with push access from force pushing to branches.
+func (o OrganizationRulesetRulesPtrOutput) NonFastForward() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *OrganizationRulesetRules) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.NonFastForward
+	}).(pulumi.BoolPtrOutput)
+}
+
+// (Block List, Max: 1) Require all commits be made to a non-target branch and submitted via a pull request before they can be merged. (see below for nested schema)
+func (o OrganizationRulesetRulesPtrOutput) PullRequest() OrganizationRulesetRulesPullRequestPtrOutput {
+	return o.ApplyT(func(v *OrganizationRulesetRules) *OrganizationRulesetRulesPullRequest {
+		if v == nil {
+			return nil
+		}
+		return v.PullRequest
+	}).(OrganizationRulesetRulesPullRequestPtrOutput)
+}
+
+// (Boolean) Prevent merge commits from being pushed to matching branches.
+func (o OrganizationRulesetRulesPtrOutput) RequiredLinearHistory() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *OrganizationRulesetRules) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.RequiredLinearHistory
+	}).(pulumi.BoolPtrOutput)
+}
+
+// (Boolean) Commits pushed to matching branches must have verified signatures.
+func (o OrganizationRulesetRulesPtrOutput) RequiredSignatures() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *OrganizationRulesetRules) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.RequiredSignatures
+	}).(pulumi.BoolPtrOutput)
+}
+
+// (Block List, Max: 1) Choose which status checks must pass before branches can be merged into a branch that matches this rule. When enabled, commits must first be pushed to another branch, then merged or pushed directly to a branch that matches this rule after status checks have passed. (see below for nested schema)
+func (o OrganizationRulesetRulesPtrOutput) RequiredStatusChecks() OrganizationRulesetRulesRequiredStatusChecksPtrOutput {
+	return o.ApplyT(func(v *OrganizationRulesetRules) *OrganizationRulesetRulesRequiredStatusChecks {
+		if v == nil {
+			return nil
+		}
+		return v.RequiredStatusChecks
+	}).(OrganizationRulesetRulesRequiredStatusChecksPtrOutput)
+}
+
+// (Block List, Max: 1) Parameters to be used for the tagNamePattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. Conflicts with `branchNamePattern` as it only applies to rulesets with target `tag`. (see below for nested schema)
+func (o OrganizationRulesetRulesPtrOutput) TagNamePattern() OrganizationRulesetRulesTagNamePatternPtrOutput {
+	return o.ApplyT(func(v *OrganizationRulesetRules) *OrganizationRulesetRulesTagNamePattern {
+		if v == nil {
+			return nil
+		}
+		return v.TagNamePattern
+	}).(OrganizationRulesetRulesTagNamePatternPtrOutput)
+}
+
+// (Boolean) Only allow users with bypass permission to update matching refs.
+func (o OrganizationRulesetRulesPtrOutput) Update() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *OrganizationRulesetRules) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Update
+	}).(pulumi.BoolPtrOutput)
+}
+
+type OrganizationRulesetRulesBranchNamePattern struct {
+	// (String) The name of the ruleset.
+	Name *string `pulumi:"name"`
+	// (Boolean) If true, the rule will fail if the pattern matches.
+	Negate *bool `pulumi:"negate"`
+	// (String) The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
+	Operator string `pulumi:"operator"`
+	// (String) The pattern to match with.
+	Pattern string `pulumi:"pattern"`
+}
+
+// OrganizationRulesetRulesBranchNamePatternInput is an input type that accepts OrganizationRulesetRulesBranchNamePatternArgs and OrganizationRulesetRulesBranchNamePatternOutput values.
+// You can construct a concrete instance of `OrganizationRulesetRulesBranchNamePatternInput` via:
+//
+//	OrganizationRulesetRulesBranchNamePatternArgs{...}
+type OrganizationRulesetRulesBranchNamePatternInput interface {
+	pulumi.Input
+
+	ToOrganizationRulesetRulesBranchNamePatternOutput() OrganizationRulesetRulesBranchNamePatternOutput
+	ToOrganizationRulesetRulesBranchNamePatternOutputWithContext(context.Context) OrganizationRulesetRulesBranchNamePatternOutput
+}
+
+type OrganizationRulesetRulesBranchNamePatternArgs struct {
+	// (String) The name of the ruleset.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// (Boolean) If true, the rule will fail if the pattern matches.
+	Negate pulumi.BoolPtrInput `pulumi:"negate"`
+	// (String) The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// (String) The pattern to match with.
+	Pattern pulumi.StringInput `pulumi:"pattern"`
+}
+
+func (OrganizationRulesetRulesBranchNamePatternArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationRulesetRulesBranchNamePattern)(nil)).Elem()
+}
+
+func (i OrganizationRulesetRulesBranchNamePatternArgs) ToOrganizationRulesetRulesBranchNamePatternOutput() OrganizationRulesetRulesBranchNamePatternOutput {
+	return i.ToOrganizationRulesetRulesBranchNamePatternOutputWithContext(context.Background())
+}
+
+func (i OrganizationRulesetRulesBranchNamePatternArgs) ToOrganizationRulesetRulesBranchNamePatternOutputWithContext(ctx context.Context) OrganizationRulesetRulesBranchNamePatternOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationRulesetRulesBranchNamePatternOutput)
+}
+
+func (i OrganizationRulesetRulesBranchNamePatternArgs) ToOutput(ctx context.Context) pulumix.Output[OrganizationRulesetRulesBranchNamePattern] {
+	return pulumix.Output[OrganizationRulesetRulesBranchNamePattern]{
+		OutputState: i.ToOrganizationRulesetRulesBranchNamePatternOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i OrganizationRulesetRulesBranchNamePatternArgs) ToOrganizationRulesetRulesBranchNamePatternPtrOutput() OrganizationRulesetRulesBranchNamePatternPtrOutput {
+	return i.ToOrganizationRulesetRulesBranchNamePatternPtrOutputWithContext(context.Background())
+}
+
+func (i OrganizationRulesetRulesBranchNamePatternArgs) ToOrganizationRulesetRulesBranchNamePatternPtrOutputWithContext(ctx context.Context) OrganizationRulesetRulesBranchNamePatternPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationRulesetRulesBranchNamePatternOutput).ToOrganizationRulesetRulesBranchNamePatternPtrOutputWithContext(ctx)
+}
+
+// OrganizationRulesetRulesBranchNamePatternPtrInput is an input type that accepts OrganizationRulesetRulesBranchNamePatternArgs, OrganizationRulesetRulesBranchNamePatternPtr and OrganizationRulesetRulesBranchNamePatternPtrOutput values.
+// You can construct a concrete instance of `OrganizationRulesetRulesBranchNamePatternPtrInput` via:
+//
+//	        OrganizationRulesetRulesBranchNamePatternArgs{...}
+//
+//	or:
+//
+//	        nil
+type OrganizationRulesetRulesBranchNamePatternPtrInput interface {
+	pulumi.Input
+
+	ToOrganizationRulesetRulesBranchNamePatternPtrOutput() OrganizationRulesetRulesBranchNamePatternPtrOutput
+	ToOrganizationRulesetRulesBranchNamePatternPtrOutputWithContext(context.Context) OrganizationRulesetRulesBranchNamePatternPtrOutput
+}
+
+type organizationRulesetRulesBranchNamePatternPtrType OrganizationRulesetRulesBranchNamePatternArgs
+
+func OrganizationRulesetRulesBranchNamePatternPtr(v *OrganizationRulesetRulesBranchNamePatternArgs) OrganizationRulesetRulesBranchNamePatternPtrInput {
+	return (*organizationRulesetRulesBranchNamePatternPtrType)(v)
+}
+
+func (*organizationRulesetRulesBranchNamePatternPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrganizationRulesetRulesBranchNamePattern)(nil)).Elem()
+}
+
+func (i *organizationRulesetRulesBranchNamePatternPtrType) ToOrganizationRulesetRulesBranchNamePatternPtrOutput() OrganizationRulesetRulesBranchNamePatternPtrOutput {
+	return i.ToOrganizationRulesetRulesBranchNamePatternPtrOutputWithContext(context.Background())
+}
+
+func (i *organizationRulesetRulesBranchNamePatternPtrType) ToOrganizationRulesetRulesBranchNamePatternPtrOutputWithContext(ctx context.Context) OrganizationRulesetRulesBranchNamePatternPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationRulesetRulesBranchNamePatternPtrOutput)
+}
+
+func (i *organizationRulesetRulesBranchNamePatternPtrType) ToOutput(ctx context.Context) pulumix.Output[*OrganizationRulesetRulesBranchNamePattern] {
+	return pulumix.Output[*OrganizationRulesetRulesBranchNamePattern]{
+		OutputState: i.ToOrganizationRulesetRulesBranchNamePatternPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type OrganizationRulesetRulesBranchNamePatternOutput struct{ *pulumi.OutputState }
+
+func (OrganizationRulesetRulesBranchNamePatternOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationRulesetRulesBranchNamePattern)(nil)).Elem()
+}
+
+func (o OrganizationRulesetRulesBranchNamePatternOutput) ToOrganizationRulesetRulesBranchNamePatternOutput() OrganizationRulesetRulesBranchNamePatternOutput {
+	return o
+}
+
+func (o OrganizationRulesetRulesBranchNamePatternOutput) ToOrganizationRulesetRulesBranchNamePatternOutputWithContext(ctx context.Context) OrganizationRulesetRulesBranchNamePatternOutput {
+	return o
+}
+
+func (o OrganizationRulesetRulesBranchNamePatternOutput) ToOrganizationRulesetRulesBranchNamePatternPtrOutput() OrganizationRulesetRulesBranchNamePatternPtrOutput {
+	return o.ToOrganizationRulesetRulesBranchNamePatternPtrOutputWithContext(context.Background())
+}
+
+func (o OrganizationRulesetRulesBranchNamePatternOutput) ToOrganizationRulesetRulesBranchNamePatternPtrOutputWithContext(ctx context.Context) OrganizationRulesetRulesBranchNamePatternPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OrganizationRulesetRulesBranchNamePattern) *OrganizationRulesetRulesBranchNamePattern {
+		return &v
+	}).(OrganizationRulesetRulesBranchNamePatternPtrOutput)
+}
+
+func (o OrganizationRulesetRulesBranchNamePatternOutput) ToOutput(ctx context.Context) pulumix.Output[OrganizationRulesetRulesBranchNamePattern] {
+	return pulumix.Output[OrganizationRulesetRulesBranchNamePattern]{
+		OutputState: o.OutputState,
+	}
+}
+
+// (String) The name of the ruleset.
+func (o OrganizationRulesetRulesBranchNamePatternOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OrganizationRulesetRulesBranchNamePattern) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// (Boolean) If true, the rule will fail if the pattern matches.
+func (o OrganizationRulesetRulesBranchNamePatternOutput) Negate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v OrganizationRulesetRulesBranchNamePattern) *bool { return v.Negate }).(pulumi.BoolPtrOutput)
+}
+
+// (String) The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
+func (o OrganizationRulesetRulesBranchNamePatternOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v OrganizationRulesetRulesBranchNamePattern) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// (String) The pattern to match with.
+func (o OrganizationRulesetRulesBranchNamePatternOutput) Pattern() pulumi.StringOutput {
+	return o.ApplyT(func(v OrganizationRulesetRulesBranchNamePattern) string { return v.Pattern }).(pulumi.StringOutput)
+}
+
+type OrganizationRulesetRulesBranchNamePatternPtrOutput struct{ *pulumi.OutputState }
+
+func (OrganizationRulesetRulesBranchNamePatternPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrganizationRulesetRulesBranchNamePattern)(nil)).Elem()
+}
+
+func (o OrganizationRulesetRulesBranchNamePatternPtrOutput) ToOrganizationRulesetRulesBranchNamePatternPtrOutput() OrganizationRulesetRulesBranchNamePatternPtrOutput {
+	return o
+}
+
+func (o OrganizationRulesetRulesBranchNamePatternPtrOutput) ToOrganizationRulesetRulesBranchNamePatternPtrOutputWithContext(ctx context.Context) OrganizationRulesetRulesBranchNamePatternPtrOutput {
+	return o
+}
+
+func (o OrganizationRulesetRulesBranchNamePatternPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*OrganizationRulesetRulesBranchNamePattern] {
+	return pulumix.Output[*OrganizationRulesetRulesBranchNamePattern]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o OrganizationRulesetRulesBranchNamePatternPtrOutput) Elem() OrganizationRulesetRulesBranchNamePatternOutput {
+	return o.ApplyT(func(v *OrganizationRulesetRulesBranchNamePattern) OrganizationRulesetRulesBranchNamePattern {
+		if v != nil {
+			return *v
+		}
+		var ret OrganizationRulesetRulesBranchNamePattern
+		return ret
+	}).(OrganizationRulesetRulesBranchNamePatternOutput)
+}
+
+// (String) The name of the ruleset.
+func (o OrganizationRulesetRulesBranchNamePatternPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrganizationRulesetRulesBranchNamePattern) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// (Boolean) If true, the rule will fail if the pattern matches.
+func (o OrganizationRulesetRulesBranchNamePatternPtrOutput) Negate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *OrganizationRulesetRulesBranchNamePattern) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Negate
+	}).(pulumi.BoolPtrOutput)
+}
+
+// (String) The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
+func (o OrganizationRulesetRulesBranchNamePatternPtrOutput) Operator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrganizationRulesetRulesBranchNamePattern) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Operator
+	}).(pulumi.StringPtrOutput)
+}
+
+// (String) The pattern to match with.
+func (o OrganizationRulesetRulesBranchNamePatternPtrOutput) Pattern() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrganizationRulesetRulesBranchNamePattern) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Pattern
+	}).(pulumi.StringPtrOutput)
+}
+
+type OrganizationRulesetRulesCommitAuthorEmailPattern struct {
+	// (String) The name of the ruleset.
+	Name *string `pulumi:"name"`
+	// (Boolean) If true, the rule will fail if the pattern matches.
+	Negate *bool `pulumi:"negate"`
+	// (String) The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
+	Operator string `pulumi:"operator"`
+	// (String) The pattern to match with.
+	Pattern string `pulumi:"pattern"`
+}
+
+// OrganizationRulesetRulesCommitAuthorEmailPatternInput is an input type that accepts OrganizationRulesetRulesCommitAuthorEmailPatternArgs and OrganizationRulesetRulesCommitAuthorEmailPatternOutput values.
+// You can construct a concrete instance of `OrganizationRulesetRulesCommitAuthorEmailPatternInput` via:
+//
+//	OrganizationRulesetRulesCommitAuthorEmailPatternArgs{...}
+type OrganizationRulesetRulesCommitAuthorEmailPatternInput interface {
+	pulumi.Input
+
+	ToOrganizationRulesetRulesCommitAuthorEmailPatternOutput() OrganizationRulesetRulesCommitAuthorEmailPatternOutput
+	ToOrganizationRulesetRulesCommitAuthorEmailPatternOutputWithContext(context.Context) OrganizationRulesetRulesCommitAuthorEmailPatternOutput
+}
+
+type OrganizationRulesetRulesCommitAuthorEmailPatternArgs struct {
+	// (String) The name of the ruleset.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// (Boolean) If true, the rule will fail if the pattern matches.
+	Negate pulumi.BoolPtrInput `pulumi:"negate"`
+	// (String) The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// (String) The pattern to match with.
+	Pattern pulumi.StringInput `pulumi:"pattern"`
+}
+
+func (OrganizationRulesetRulesCommitAuthorEmailPatternArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationRulesetRulesCommitAuthorEmailPattern)(nil)).Elem()
+}
+
+func (i OrganizationRulesetRulesCommitAuthorEmailPatternArgs) ToOrganizationRulesetRulesCommitAuthorEmailPatternOutput() OrganizationRulesetRulesCommitAuthorEmailPatternOutput {
+	return i.ToOrganizationRulesetRulesCommitAuthorEmailPatternOutputWithContext(context.Background())
+}
+
+func (i OrganizationRulesetRulesCommitAuthorEmailPatternArgs) ToOrganizationRulesetRulesCommitAuthorEmailPatternOutputWithContext(ctx context.Context) OrganizationRulesetRulesCommitAuthorEmailPatternOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationRulesetRulesCommitAuthorEmailPatternOutput)
+}
+
+func (i OrganizationRulesetRulesCommitAuthorEmailPatternArgs) ToOutput(ctx context.Context) pulumix.Output[OrganizationRulesetRulesCommitAuthorEmailPattern] {
+	return pulumix.Output[OrganizationRulesetRulesCommitAuthorEmailPattern]{
+		OutputState: i.ToOrganizationRulesetRulesCommitAuthorEmailPatternOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i OrganizationRulesetRulesCommitAuthorEmailPatternArgs) ToOrganizationRulesetRulesCommitAuthorEmailPatternPtrOutput() OrganizationRulesetRulesCommitAuthorEmailPatternPtrOutput {
+	return i.ToOrganizationRulesetRulesCommitAuthorEmailPatternPtrOutputWithContext(context.Background())
+}
+
+func (i OrganizationRulesetRulesCommitAuthorEmailPatternArgs) ToOrganizationRulesetRulesCommitAuthorEmailPatternPtrOutputWithContext(ctx context.Context) OrganizationRulesetRulesCommitAuthorEmailPatternPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationRulesetRulesCommitAuthorEmailPatternOutput).ToOrganizationRulesetRulesCommitAuthorEmailPatternPtrOutputWithContext(ctx)
+}
+
+// OrganizationRulesetRulesCommitAuthorEmailPatternPtrInput is an input type that accepts OrganizationRulesetRulesCommitAuthorEmailPatternArgs, OrganizationRulesetRulesCommitAuthorEmailPatternPtr and OrganizationRulesetRulesCommitAuthorEmailPatternPtrOutput values.
+// You can construct a concrete instance of `OrganizationRulesetRulesCommitAuthorEmailPatternPtrInput` via:
+//
+//	        OrganizationRulesetRulesCommitAuthorEmailPatternArgs{...}
+//
+//	or:
+//
+//	        nil
+type OrganizationRulesetRulesCommitAuthorEmailPatternPtrInput interface {
+	pulumi.Input
+
+	ToOrganizationRulesetRulesCommitAuthorEmailPatternPtrOutput() OrganizationRulesetRulesCommitAuthorEmailPatternPtrOutput
+	ToOrganizationRulesetRulesCommitAuthorEmailPatternPtrOutputWithContext(context.Context) OrganizationRulesetRulesCommitAuthorEmailPatternPtrOutput
+}
+
+type organizationRulesetRulesCommitAuthorEmailPatternPtrType OrganizationRulesetRulesCommitAuthorEmailPatternArgs
+
+func OrganizationRulesetRulesCommitAuthorEmailPatternPtr(v *OrganizationRulesetRulesCommitAuthorEmailPatternArgs) OrganizationRulesetRulesCommitAuthorEmailPatternPtrInput {
+	return (*organizationRulesetRulesCommitAuthorEmailPatternPtrType)(v)
+}
+
+func (*organizationRulesetRulesCommitAuthorEmailPatternPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrganizationRulesetRulesCommitAuthorEmailPattern)(nil)).Elem()
+}
+
+func (i *organizationRulesetRulesCommitAuthorEmailPatternPtrType) ToOrganizationRulesetRulesCommitAuthorEmailPatternPtrOutput() OrganizationRulesetRulesCommitAuthorEmailPatternPtrOutput {
+	return i.ToOrganizationRulesetRulesCommitAuthorEmailPatternPtrOutputWithContext(context.Background())
+}
+
+func (i *organizationRulesetRulesCommitAuthorEmailPatternPtrType) ToOrganizationRulesetRulesCommitAuthorEmailPatternPtrOutputWithContext(ctx context.Context) OrganizationRulesetRulesCommitAuthorEmailPatternPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationRulesetRulesCommitAuthorEmailPatternPtrOutput)
+}
+
+func (i *organizationRulesetRulesCommitAuthorEmailPatternPtrType) ToOutput(ctx context.Context) pulumix.Output[*OrganizationRulesetRulesCommitAuthorEmailPattern] {
+	return pulumix.Output[*OrganizationRulesetRulesCommitAuthorEmailPattern]{
+		OutputState: i.ToOrganizationRulesetRulesCommitAuthorEmailPatternPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type OrganizationRulesetRulesCommitAuthorEmailPatternOutput struct{ *pulumi.OutputState }
+
+func (OrganizationRulesetRulesCommitAuthorEmailPatternOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationRulesetRulesCommitAuthorEmailPattern)(nil)).Elem()
+}
+
+func (o OrganizationRulesetRulesCommitAuthorEmailPatternOutput) ToOrganizationRulesetRulesCommitAuthorEmailPatternOutput() OrganizationRulesetRulesCommitAuthorEmailPatternOutput {
+	return o
+}
+
+func (o OrganizationRulesetRulesCommitAuthorEmailPatternOutput) ToOrganizationRulesetRulesCommitAuthorEmailPatternOutputWithContext(ctx context.Context) OrganizationRulesetRulesCommitAuthorEmailPatternOutput {
+	return o
+}
+
+func (o OrganizationRulesetRulesCommitAuthorEmailPatternOutput) ToOrganizationRulesetRulesCommitAuthorEmailPatternPtrOutput() OrganizationRulesetRulesCommitAuthorEmailPatternPtrOutput {
+	return o.ToOrganizationRulesetRulesCommitAuthorEmailPatternPtrOutputWithContext(context.Background())
+}
+
+func (o OrganizationRulesetRulesCommitAuthorEmailPatternOutput) ToOrganizationRulesetRulesCommitAuthorEmailPatternPtrOutputWithContext(ctx context.Context) OrganizationRulesetRulesCommitAuthorEmailPatternPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OrganizationRulesetRulesCommitAuthorEmailPattern) *OrganizationRulesetRulesCommitAuthorEmailPattern {
+		return &v
+	}).(OrganizationRulesetRulesCommitAuthorEmailPatternPtrOutput)
+}
+
+func (o OrganizationRulesetRulesCommitAuthorEmailPatternOutput) ToOutput(ctx context.Context) pulumix.Output[OrganizationRulesetRulesCommitAuthorEmailPattern] {
+	return pulumix.Output[OrganizationRulesetRulesCommitAuthorEmailPattern]{
+		OutputState: o.OutputState,
+	}
+}
+
+// (String) The name of the ruleset.
+func (o OrganizationRulesetRulesCommitAuthorEmailPatternOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OrganizationRulesetRulesCommitAuthorEmailPattern) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// (Boolean) If true, the rule will fail if the pattern matches.
+func (o OrganizationRulesetRulesCommitAuthorEmailPatternOutput) Negate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v OrganizationRulesetRulesCommitAuthorEmailPattern) *bool { return v.Negate }).(pulumi.BoolPtrOutput)
+}
+
+// (String) The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
+func (o OrganizationRulesetRulesCommitAuthorEmailPatternOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v OrganizationRulesetRulesCommitAuthorEmailPattern) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// (String) The pattern to match with.
+func (o OrganizationRulesetRulesCommitAuthorEmailPatternOutput) Pattern() pulumi.StringOutput {
+	return o.ApplyT(func(v OrganizationRulesetRulesCommitAuthorEmailPattern) string { return v.Pattern }).(pulumi.StringOutput)
+}
+
+type OrganizationRulesetRulesCommitAuthorEmailPatternPtrOutput struct{ *pulumi.OutputState }
+
+func (OrganizationRulesetRulesCommitAuthorEmailPatternPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrganizationRulesetRulesCommitAuthorEmailPattern)(nil)).Elem()
+}
+
+func (o OrganizationRulesetRulesCommitAuthorEmailPatternPtrOutput) ToOrganizationRulesetRulesCommitAuthorEmailPatternPtrOutput() OrganizationRulesetRulesCommitAuthorEmailPatternPtrOutput {
+	return o
+}
+
+func (o OrganizationRulesetRulesCommitAuthorEmailPatternPtrOutput) ToOrganizationRulesetRulesCommitAuthorEmailPatternPtrOutputWithContext(ctx context.Context) OrganizationRulesetRulesCommitAuthorEmailPatternPtrOutput {
+	return o
+}
+
+func (o OrganizationRulesetRulesCommitAuthorEmailPatternPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*OrganizationRulesetRulesCommitAuthorEmailPattern] {
+	return pulumix.Output[*OrganizationRulesetRulesCommitAuthorEmailPattern]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o OrganizationRulesetRulesCommitAuthorEmailPatternPtrOutput) Elem() OrganizationRulesetRulesCommitAuthorEmailPatternOutput {
+	return o.ApplyT(func(v *OrganizationRulesetRulesCommitAuthorEmailPattern) OrganizationRulesetRulesCommitAuthorEmailPattern {
+		if v != nil {
+			return *v
+		}
+		var ret OrganizationRulesetRulesCommitAuthorEmailPattern
+		return ret
+	}).(OrganizationRulesetRulesCommitAuthorEmailPatternOutput)
+}
+
+// (String) The name of the ruleset.
+func (o OrganizationRulesetRulesCommitAuthorEmailPatternPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrganizationRulesetRulesCommitAuthorEmailPattern) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// (Boolean) If true, the rule will fail if the pattern matches.
+func (o OrganizationRulesetRulesCommitAuthorEmailPatternPtrOutput) Negate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *OrganizationRulesetRulesCommitAuthorEmailPattern) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Negate
+	}).(pulumi.BoolPtrOutput)
+}
+
+// (String) The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
+func (o OrganizationRulesetRulesCommitAuthorEmailPatternPtrOutput) Operator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrganizationRulesetRulesCommitAuthorEmailPattern) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Operator
+	}).(pulumi.StringPtrOutput)
+}
+
+// (String) The pattern to match with.
+func (o OrganizationRulesetRulesCommitAuthorEmailPatternPtrOutput) Pattern() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrganizationRulesetRulesCommitAuthorEmailPattern) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Pattern
+	}).(pulumi.StringPtrOutput)
+}
+
+type OrganizationRulesetRulesCommitMessagePattern struct {
+	// (String) The name of the ruleset.
+	Name *string `pulumi:"name"`
+	// (Boolean) If true, the rule will fail if the pattern matches.
+	Negate *bool `pulumi:"negate"`
+	// (String) The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
+	Operator string `pulumi:"operator"`
+	// (String) The pattern to match with.
+	Pattern string `pulumi:"pattern"`
+}
+
+// OrganizationRulesetRulesCommitMessagePatternInput is an input type that accepts OrganizationRulesetRulesCommitMessagePatternArgs and OrganizationRulesetRulesCommitMessagePatternOutput values.
+// You can construct a concrete instance of `OrganizationRulesetRulesCommitMessagePatternInput` via:
+//
+//	OrganizationRulesetRulesCommitMessagePatternArgs{...}
+type OrganizationRulesetRulesCommitMessagePatternInput interface {
+	pulumi.Input
+
+	ToOrganizationRulesetRulesCommitMessagePatternOutput() OrganizationRulesetRulesCommitMessagePatternOutput
+	ToOrganizationRulesetRulesCommitMessagePatternOutputWithContext(context.Context) OrganizationRulesetRulesCommitMessagePatternOutput
+}
+
+type OrganizationRulesetRulesCommitMessagePatternArgs struct {
+	// (String) The name of the ruleset.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// (Boolean) If true, the rule will fail if the pattern matches.
+	Negate pulumi.BoolPtrInput `pulumi:"negate"`
+	// (String) The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// (String) The pattern to match with.
+	Pattern pulumi.StringInput `pulumi:"pattern"`
+}
+
+func (OrganizationRulesetRulesCommitMessagePatternArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationRulesetRulesCommitMessagePattern)(nil)).Elem()
+}
+
+func (i OrganizationRulesetRulesCommitMessagePatternArgs) ToOrganizationRulesetRulesCommitMessagePatternOutput() OrganizationRulesetRulesCommitMessagePatternOutput {
+	return i.ToOrganizationRulesetRulesCommitMessagePatternOutputWithContext(context.Background())
+}
+
+func (i OrganizationRulesetRulesCommitMessagePatternArgs) ToOrganizationRulesetRulesCommitMessagePatternOutputWithContext(ctx context.Context) OrganizationRulesetRulesCommitMessagePatternOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationRulesetRulesCommitMessagePatternOutput)
+}
+
+func (i OrganizationRulesetRulesCommitMessagePatternArgs) ToOutput(ctx context.Context) pulumix.Output[OrganizationRulesetRulesCommitMessagePattern] {
+	return pulumix.Output[OrganizationRulesetRulesCommitMessagePattern]{
+		OutputState: i.ToOrganizationRulesetRulesCommitMessagePatternOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i OrganizationRulesetRulesCommitMessagePatternArgs) ToOrganizationRulesetRulesCommitMessagePatternPtrOutput() OrganizationRulesetRulesCommitMessagePatternPtrOutput {
+	return i.ToOrganizationRulesetRulesCommitMessagePatternPtrOutputWithContext(context.Background())
+}
+
+func (i OrganizationRulesetRulesCommitMessagePatternArgs) ToOrganizationRulesetRulesCommitMessagePatternPtrOutputWithContext(ctx context.Context) OrganizationRulesetRulesCommitMessagePatternPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationRulesetRulesCommitMessagePatternOutput).ToOrganizationRulesetRulesCommitMessagePatternPtrOutputWithContext(ctx)
+}
+
+// OrganizationRulesetRulesCommitMessagePatternPtrInput is an input type that accepts OrganizationRulesetRulesCommitMessagePatternArgs, OrganizationRulesetRulesCommitMessagePatternPtr and OrganizationRulesetRulesCommitMessagePatternPtrOutput values.
+// You can construct a concrete instance of `OrganizationRulesetRulesCommitMessagePatternPtrInput` via:
+//
+//	        OrganizationRulesetRulesCommitMessagePatternArgs{...}
+//
+//	or:
+//
+//	        nil
+type OrganizationRulesetRulesCommitMessagePatternPtrInput interface {
+	pulumi.Input
+
+	ToOrganizationRulesetRulesCommitMessagePatternPtrOutput() OrganizationRulesetRulesCommitMessagePatternPtrOutput
+	ToOrganizationRulesetRulesCommitMessagePatternPtrOutputWithContext(context.Context) OrganizationRulesetRulesCommitMessagePatternPtrOutput
+}
+
+type organizationRulesetRulesCommitMessagePatternPtrType OrganizationRulesetRulesCommitMessagePatternArgs
+
+func OrganizationRulesetRulesCommitMessagePatternPtr(v *OrganizationRulesetRulesCommitMessagePatternArgs) OrganizationRulesetRulesCommitMessagePatternPtrInput {
+	return (*organizationRulesetRulesCommitMessagePatternPtrType)(v)
+}
+
+func (*organizationRulesetRulesCommitMessagePatternPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrganizationRulesetRulesCommitMessagePattern)(nil)).Elem()
+}
+
+func (i *organizationRulesetRulesCommitMessagePatternPtrType) ToOrganizationRulesetRulesCommitMessagePatternPtrOutput() OrganizationRulesetRulesCommitMessagePatternPtrOutput {
+	return i.ToOrganizationRulesetRulesCommitMessagePatternPtrOutputWithContext(context.Background())
+}
+
+func (i *organizationRulesetRulesCommitMessagePatternPtrType) ToOrganizationRulesetRulesCommitMessagePatternPtrOutputWithContext(ctx context.Context) OrganizationRulesetRulesCommitMessagePatternPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationRulesetRulesCommitMessagePatternPtrOutput)
+}
+
+func (i *organizationRulesetRulesCommitMessagePatternPtrType) ToOutput(ctx context.Context) pulumix.Output[*OrganizationRulesetRulesCommitMessagePattern] {
+	return pulumix.Output[*OrganizationRulesetRulesCommitMessagePattern]{
+		OutputState: i.ToOrganizationRulesetRulesCommitMessagePatternPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type OrganizationRulesetRulesCommitMessagePatternOutput struct{ *pulumi.OutputState }
+
+func (OrganizationRulesetRulesCommitMessagePatternOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationRulesetRulesCommitMessagePattern)(nil)).Elem()
+}
+
+func (o OrganizationRulesetRulesCommitMessagePatternOutput) ToOrganizationRulesetRulesCommitMessagePatternOutput() OrganizationRulesetRulesCommitMessagePatternOutput {
+	return o
+}
+
+func (o OrganizationRulesetRulesCommitMessagePatternOutput) ToOrganizationRulesetRulesCommitMessagePatternOutputWithContext(ctx context.Context) OrganizationRulesetRulesCommitMessagePatternOutput {
+	return o
+}
+
+func (o OrganizationRulesetRulesCommitMessagePatternOutput) ToOrganizationRulesetRulesCommitMessagePatternPtrOutput() OrganizationRulesetRulesCommitMessagePatternPtrOutput {
+	return o.ToOrganizationRulesetRulesCommitMessagePatternPtrOutputWithContext(context.Background())
+}
+
+func (o OrganizationRulesetRulesCommitMessagePatternOutput) ToOrganizationRulesetRulesCommitMessagePatternPtrOutputWithContext(ctx context.Context) OrganizationRulesetRulesCommitMessagePatternPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OrganizationRulesetRulesCommitMessagePattern) *OrganizationRulesetRulesCommitMessagePattern {
+		return &v
+	}).(OrganizationRulesetRulesCommitMessagePatternPtrOutput)
+}
+
+func (o OrganizationRulesetRulesCommitMessagePatternOutput) ToOutput(ctx context.Context) pulumix.Output[OrganizationRulesetRulesCommitMessagePattern] {
+	return pulumix.Output[OrganizationRulesetRulesCommitMessagePattern]{
+		OutputState: o.OutputState,
+	}
+}
+
+// (String) The name of the ruleset.
+func (o OrganizationRulesetRulesCommitMessagePatternOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OrganizationRulesetRulesCommitMessagePattern) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// (Boolean) If true, the rule will fail if the pattern matches.
+func (o OrganizationRulesetRulesCommitMessagePatternOutput) Negate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v OrganizationRulesetRulesCommitMessagePattern) *bool { return v.Negate }).(pulumi.BoolPtrOutput)
+}
+
+// (String) The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
+func (o OrganizationRulesetRulesCommitMessagePatternOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v OrganizationRulesetRulesCommitMessagePattern) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// (String) The pattern to match with.
+func (o OrganizationRulesetRulesCommitMessagePatternOutput) Pattern() pulumi.StringOutput {
+	return o.ApplyT(func(v OrganizationRulesetRulesCommitMessagePattern) string { return v.Pattern }).(pulumi.StringOutput)
+}
+
+type OrganizationRulesetRulesCommitMessagePatternPtrOutput struct{ *pulumi.OutputState }
+
+func (OrganizationRulesetRulesCommitMessagePatternPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrganizationRulesetRulesCommitMessagePattern)(nil)).Elem()
+}
+
+func (o OrganizationRulesetRulesCommitMessagePatternPtrOutput) ToOrganizationRulesetRulesCommitMessagePatternPtrOutput() OrganizationRulesetRulesCommitMessagePatternPtrOutput {
+	return o
+}
+
+func (o OrganizationRulesetRulesCommitMessagePatternPtrOutput) ToOrganizationRulesetRulesCommitMessagePatternPtrOutputWithContext(ctx context.Context) OrganizationRulesetRulesCommitMessagePatternPtrOutput {
+	return o
+}
+
+func (o OrganizationRulesetRulesCommitMessagePatternPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*OrganizationRulesetRulesCommitMessagePattern] {
+	return pulumix.Output[*OrganizationRulesetRulesCommitMessagePattern]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o OrganizationRulesetRulesCommitMessagePatternPtrOutput) Elem() OrganizationRulesetRulesCommitMessagePatternOutput {
+	return o.ApplyT(func(v *OrganizationRulesetRulesCommitMessagePattern) OrganizationRulesetRulesCommitMessagePattern {
+		if v != nil {
+			return *v
+		}
+		var ret OrganizationRulesetRulesCommitMessagePattern
+		return ret
+	}).(OrganizationRulesetRulesCommitMessagePatternOutput)
+}
+
+// (String) The name of the ruleset.
+func (o OrganizationRulesetRulesCommitMessagePatternPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrganizationRulesetRulesCommitMessagePattern) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// (Boolean) If true, the rule will fail if the pattern matches.
+func (o OrganizationRulesetRulesCommitMessagePatternPtrOutput) Negate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *OrganizationRulesetRulesCommitMessagePattern) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Negate
+	}).(pulumi.BoolPtrOutput)
+}
+
+// (String) The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
+func (o OrganizationRulesetRulesCommitMessagePatternPtrOutput) Operator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrganizationRulesetRulesCommitMessagePattern) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Operator
+	}).(pulumi.StringPtrOutput)
+}
+
+// (String) The pattern to match with.
+func (o OrganizationRulesetRulesCommitMessagePatternPtrOutput) Pattern() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrganizationRulesetRulesCommitMessagePattern) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Pattern
+	}).(pulumi.StringPtrOutput)
+}
+
+type OrganizationRulesetRulesCommitterEmailPattern struct {
+	// (String) The name of the ruleset.
+	Name *string `pulumi:"name"`
+	// (Boolean) If true, the rule will fail if the pattern matches.
+	Negate *bool `pulumi:"negate"`
+	// (String) The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
+	Operator string `pulumi:"operator"`
+	// (String) The pattern to match with.
+	Pattern string `pulumi:"pattern"`
+}
+
+// OrganizationRulesetRulesCommitterEmailPatternInput is an input type that accepts OrganizationRulesetRulesCommitterEmailPatternArgs and OrganizationRulesetRulesCommitterEmailPatternOutput values.
+// You can construct a concrete instance of `OrganizationRulesetRulesCommitterEmailPatternInput` via:
+//
+//	OrganizationRulesetRulesCommitterEmailPatternArgs{...}
+type OrganizationRulesetRulesCommitterEmailPatternInput interface {
+	pulumi.Input
+
+	ToOrganizationRulesetRulesCommitterEmailPatternOutput() OrganizationRulesetRulesCommitterEmailPatternOutput
+	ToOrganizationRulesetRulesCommitterEmailPatternOutputWithContext(context.Context) OrganizationRulesetRulesCommitterEmailPatternOutput
+}
+
+type OrganizationRulesetRulesCommitterEmailPatternArgs struct {
+	// (String) The name of the ruleset.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// (Boolean) If true, the rule will fail if the pattern matches.
+	Negate pulumi.BoolPtrInput `pulumi:"negate"`
+	// (String) The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// (String) The pattern to match with.
+	Pattern pulumi.StringInput `pulumi:"pattern"`
+}
+
+func (OrganizationRulesetRulesCommitterEmailPatternArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationRulesetRulesCommitterEmailPattern)(nil)).Elem()
+}
+
+func (i OrganizationRulesetRulesCommitterEmailPatternArgs) ToOrganizationRulesetRulesCommitterEmailPatternOutput() OrganizationRulesetRulesCommitterEmailPatternOutput {
+	return i.ToOrganizationRulesetRulesCommitterEmailPatternOutputWithContext(context.Background())
+}
+
+func (i OrganizationRulesetRulesCommitterEmailPatternArgs) ToOrganizationRulesetRulesCommitterEmailPatternOutputWithContext(ctx context.Context) OrganizationRulesetRulesCommitterEmailPatternOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationRulesetRulesCommitterEmailPatternOutput)
+}
+
+func (i OrganizationRulesetRulesCommitterEmailPatternArgs) ToOutput(ctx context.Context) pulumix.Output[OrganizationRulesetRulesCommitterEmailPattern] {
+	return pulumix.Output[OrganizationRulesetRulesCommitterEmailPattern]{
+		OutputState: i.ToOrganizationRulesetRulesCommitterEmailPatternOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i OrganizationRulesetRulesCommitterEmailPatternArgs) ToOrganizationRulesetRulesCommitterEmailPatternPtrOutput() OrganizationRulesetRulesCommitterEmailPatternPtrOutput {
+	return i.ToOrganizationRulesetRulesCommitterEmailPatternPtrOutputWithContext(context.Background())
+}
+
+func (i OrganizationRulesetRulesCommitterEmailPatternArgs) ToOrganizationRulesetRulesCommitterEmailPatternPtrOutputWithContext(ctx context.Context) OrganizationRulesetRulesCommitterEmailPatternPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationRulesetRulesCommitterEmailPatternOutput).ToOrganizationRulesetRulesCommitterEmailPatternPtrOutputWithContext(ctx)
+}
+
+// OrganizationRulesetRulesCommitterEmailPatternPtrInput is an input type that accepts OrganizationRulesetRulesCommitterEmailPatternArgs, OrganizationRulesetRulesCommitterEmailPatternPtr and OrganizationRulesetRulesCommitterEmailPatternPtrOutput values.
+// You can construct a concrete instance of `OrganizationRulesetRulesCommitterEmailPatternPtrInput` via:
+//
+//	        OrganizationRulesetRulesCommitterEmailPatternArgs{...}
+//
+//	or:
+//
+//	        nil
+type OrganizationRulesetRulesCommitterEmailPatternPtrInput interface {
+	pulumi.Input
+
+	ToOrganizationRulesetRulesCommitterEmailPatternPtrOutput() OrganizationRulesetRulesCommitterEmailPatternPtrOutput
+	ToOrganizationRulesetRulesCommitterEmailPatternPtrOutputWithContext(context.Context) OrganizationRulesetRulesCommitterEmailPatternPtrOutput
+}
+
+type organizationRulesetRulesCommitterEmailPatternPtrType OrganizationRulesetRulesCommitterEmailPatternArgs
+
+func OrganizationRulesetRulesCommitterEmailPatternPtr(v *OrganizationRulesetRulesCommitterEmailPatternArgs) OrganizationRulesetRulesCommitterEmailPatternPtrInput {
+	return (*organizationRulesetRulesCommitterEmailPatternPtrType)(v)
+}
+
+func (*organizationRulesetRulesCommitterEmailPatternPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrganizationRulesetRulesCommitterEmailPattern)(nil)).Elem()
+}
+
+func (i *organizationRulesetRulesCommitterEmailPatternPtrType) ToOrganizationRulesetRulesCommitterEmailPatternPtrOutput() OrganizationRulesetRulesCommitterEmailPatternPtrOutput {
+	return i.ToOrganizationRulesetRulesCommitterEmailPatternPtrOutputWithContext(context.Background())
+}
+
+func (i *organizationRulesetRulesCommitterEmailPatternPtrType) ToOrganizationRulesetRulesCommitterEmailPatternPtrOutputWithContext(ctx context.Context) OrganizationRulesetRulesCommitterEmailPatternPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationRulesetRulesCommitterEmailPatternPtrOutput)
+}
+
+func (i *organizationRulesetRulesCommitterEmailPatternPtrType) ToOutput(ctx context.Context) pulumix.Output[*OrganizationRulesetRulesCommitterEmailPattern] {
+	return pulumix.Output[*OrganizationRulesetRulesCommitterEmailPattern]{
+		OutputState: i.ToOrganizationRulesetRulesCommitterEmailPatternPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type OrganizationRulesetRulesCommitterEmailPatternOutput struct{ *pulumi.OutputState }
+
+func (OrganizationRulesetRulesCommitterEmailPatternOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationRulesetRulesCommitterEmailPattern)(nil)).Elem()
+}
+
+func (o OrganizationRulesetRulesCommitterEmailPatternOutput) ToOrganizationRulesetRulesCommitterEmailPatternOutput() OrganizationRulesetRulesCommitterEmailPatternOutput {
+	return o
+}
+
+func (o OrganizationRulesetRulesCommitterEmailPatternOutput) ToOrganizationRulesetRulesCommitterEmailPatternOutputWithContext(ctx context.Context) OrganizationRulesetRulesCommitterEmailPatternOutput {
+	return o
+}
+
+func (o OrganizationRulesetRulesCommitterEmailPatternOutput) ToOrganizationRulesetRulesCommitterEmailPatternPtrOutput() OrganizationRulesetRulesCommitterEmailPatternPtrOutput {
+	return o.ToOrganizationRulesetRulesCommitterEmailPatternPtrOutputWithContext(context.Background())
+}
+
+func (o OrganizationRulesetRulesCommitterEmailPatternOutput) ToOrganizationRulesetRulesCommitterEmailPatternPtrOutputWithContext(ctx context.Context) OrganizationRulesetRulesCommitterEmailPatternPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OrganizationRulesetRulesCommitterEmailPattern) *OrganizationRulesetRulesCommitterEmailPattern {
+		return &v
+	}).(OrganizationRulesetRulesCommitterEmailPatternPtrOutput)
+}
+
+func (o OrganizationRulesetRulesCommitterEmailPatternOutput) ToOutput(ctx context.Context) pulumix.Output[OrganizationRulesetRulesCommitterEmailPattern] {
+	return pulumix.Output[OrganizationRulesetRulesCommitterEmailPattern]{
+		OutputState: o.OutputState,
+	}
+}
+
+// (String) The name of the ruleset.
+func (o OrganizationRulesetRulesCommitterEmailPatternOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OrganizationRulesetRulesCommitterEmailPattern) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// (Boolean) If true, the rule will fail if the pattern matches.
+func (o OrganizationRulesetRulesCommitterEmailPatternOutput) Negate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v OrganizationRulesetRulesCommitterEmailPattern) *bool { return v.Negate }).(pulumi.BoolPtrOutput)
+}
+
+// (String) The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
+func (o OrganizationRulesetRulesCommitterEmailPatternOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v OrganizationRulesetRulesCommitterEmailPattern) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// (String) The pattern to match with.
+func (o OrganizationRulesetRulesCommitterEmailPatternOutput) Pattern() pulumi.StringOutput {
+	return o.ApplyT(func(v OrganizationRulesetRulesCommitterEmailPattern) string { return v.Pattern }).(pulumi.StringOutput)
+}
+
+type OrganizationRulesetRulesCommitterEmailPatternPtrOutput struct{ *pulumi.OutputState }
+
+func (OrganizationRulesetRulesCommitterEmailPatternPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrganizationRulesetRulesCommitterEmailPattern)(nil)).Elem()
+}
+
+func (o OrganizationRulesetRulesCommitterEmailPatternPtrOutput) ToOrganizationRulesetRulesCommitterEmailPatternPtrOutput() OrganizationRulesetRulesCommitterEmailPatternPtrOutput {
+	return o
+}
+
+func (o OrganizationRulesetRulesCommitterEmailPatternPtrOutput) ToOrganizationRulesetRulesCommitterEmailPatternPtrOutputWithContext(ctx context.Context) OrganizationRulesetRulesCommitterEmailPatternPtrOutput {
+	return o
+}
+
+func (o OrganizationRulesetRulesCommitterEmailPatternPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*OrganizationRulesetRulesCommitterEmailPattern] {
+	return pulumix.Output[*OrganizationRulesetRulesCommitterEmailPattern]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o OrganizationRulesetRulesCommitterEmailPatternPtrOutput) Elem() OrganizationRulesetRulesCommitterEmailPatternOutput {
+	return o.ApplyT(func(v *OrganizationRulesetRulesCommitterEmailPattern) OrganizationRulesetRulesCommitterEmailPattern {
+		if v != nil {
+			return *v
+		}
+		var ret OrganizationRulesetRulesCommitterEmailPattern
+		return ret
+	}).(OrganizationRulesetRulesCommitterEmailPatternOutput)
+}
+
+// (String) The name of the ruleset.
+func (o OrganizationRulesetRulesCommitterEmailPatternPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrganizationRulesetRulesCommitterEmailPattern) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// (Boolean) If true, the rule will fail if the pattern matches.
+func (o OrganizationRulesetRulesCommitterEmailPatternPtrOutput) Negate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *OrganizationRulesetRulesCommitterEmailPattern) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Negate
+	}).(pulumi.BoolPtrOutput)
+}
+
+// (String) The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
+func (o OrganizationRulesetRulesCommitterEmailPatternPtrOutput) Operator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrganizationRulesetRulesCommitterEmailPattern) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Operator
+	}).(pulumi.StringPtrOutput)
+}
+
+// (String) The pattern to match with.
+func (o OrganizationRulesetRulesCommitterEmailPatternPtrOutput) Pattern() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrganizationRulesetRulesCommitterEmailPattern) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Pattern
+	}).(pulumi.StringPtrOutput)
+}
+
+type OrganizationRulesetRulesPullRequest struct {
+	// (Boolean) New, reviewable commits pushed will dismiss previous pull request review approvals. Defaults to `false`.
+	DismissStaleReviewsOnPush *bool `pulumi:"dismissStaleReviewsOnPush"`
+	// (Boolean) Require an approving review in pull requests that modify files that have a designated code owner. Defaults to `false`.
+	RequireCodeOwnerReview *bool `pulumi:"requireCodeOwnerReview"`
+	// (Boolean) Whether the most recent reviewable push must be approved by someone other than the person who pushed it. Defaults to `false`.
+	RequireLastPushApproval *bool `pulumi:"requireLastPushApproval"`
+	// (Number) The number of approving reviews that are required before a pull request can be merged. Defaults to `0`.
+	RequiredApprovingReviewCount *int `pulumi:"requiredApprovingReviewCount"`
+	// (Boolean) All conversations on code must be resolved before a pull request can be merged. Defaults to `false`.
+	RequiredReviewThreadResolution *bool `pulumi:"requiredReviewThreadResolution"`
+}
+
+// OrganizationRulesetRulesPullRequestInput is an input type that accepts OrganizationRulesetRulesPullRequestArgs and OrganizationRulesetRulesPullRequestOutput values.
+// You can construct a concrete instance of `OrganizationRulesetRulesPullRequestInput` via:
+//
+//	OrganizationRulesetRulesPullRequestArgs{...}
+type OrganizationRulesetRulesPullRequestInput interface {
+	pulumi.Input
+
+	ToOrganizationRulesetRulesPullRequestOutput() OrganizationRulesetRulesPullRequestOutput
+	ToOrganizationRulesetRulesPullRequestOutputWithContext(context.Context) OrganizationRulesetRulesPullRequestOutput
+}
+
+type OrganizationRulesetRulesPullRequestArgs struct {
+	// (Boolean) New, reviewable commits pushed will dismiss previous pull request review approvals. Defaults to `false`.
+	DismissStaleReviewsOnPush pulumi.BoolPtrInput `pulumi:"dismissStaleReviewsOnPush"`
+	// (Boolean) Require an approving review in pull requests that modify files that have a designated code owner. Defaults to `false`.
+	RequireCodeOwnerReview pulumi.BoolPtrInput `pulumi:"requireCodeOwnerReview"`
+	// (Boolean) Whether the most recent reviewable push must be approved by someone other than the person who pushed it. Defaults to `false`.
+	RequireLastPushApproval pulumi.BoolPtrInput `pulumi:"requireLastPushApproval"`
+	// (Number) The number of approving reviews that are required before a pull request can be merged. Defaults to `0`.
+	RequiredApprovingReviewCount pulumi.IntPtrInput `pulumi:"requiredApprovingReviewCount"`
+	// (Boolean) All conversations on code must be resolved before a pull request can be merged. Defaults to `false`.
+	RequiredReviewThreadResolution pulumi.BoolPtrInput `pulumi:"requiredReviewThreadResolution"`
+}
+
+func (OrganizationRulesetRulesPullRequestArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationRulesetRulesPullRequest)(nil)).Elem()
+}
+
+func (i OrganizationRulesetRulesPullRequestArgs) ToOrganizationRulesetRulesPullRequestOutput() OrganizationRulesetRulesPullRequestOutput {
+	return i.ToOrganizationRulesetRulesPullRequestOutputWithContext(context.Background())
+}
+
+func (i OrganizationRulesetRulesPullRequestArgs) ToOrganizationRulesetRulesPullRequestOutputWithContext(ctx context.Context) OrganizationRulesetRulesPullRequestOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationRulesetRulesPullRequestOutput)
+}
+
+func (i OrganizationRulesetRulesPullRequestArgs) ToOutput(ctx context.Context) pulumix.Output[OrganizationRulesetRulesPullRequest] {
+	return pulumix.Output[OrganizationRulesetRulesPullRequest]{
+		OutputState: i.ToOrganizationRulesetRulesPullRequestOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i OrganizationRulesetRulesPullRequestArgs) ToOrganizationRulesetRulesPullRequestPtrOutput() OrganizationRulesetRulesPullRequestPtrOutput {
+	return i.ToOrganizationRulesetRulesPullRequestPtrOutputWithContext(context.Background())
+}
+
+func (i OrganizationRulesetRulesPullRequestArgs) ToOrganizationRulesetRulesPullRequestPtrOutputWithContext(ctx context.Context) OrganizationRulesetRulesPullRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationRulesetRulesPullRequestOutput).ToOrganizationRulesetRulesPullRequestPtrOutputWithContext(ctx)
+}
+
+// OrganizationRulesetRulesPullRequestPtrInput is an input type that accepts OrganizationRulesetRulesPullRequestArgs, OrganizationRulesetRulesPullRequestPtr and OrganizationRulesetRulesPullRequestPtrOutput values.
+// You can construct a concrete instance of `OrganizationRulesetRulesPullRequestPtrInput` via:
+//
+//	        OrganizationRulesetRulesPullRequestArgs{...}
+//
+//	or:
+//
+//	        nil
+type OrganizationRulesetRulesPullRequestPtrInput interface {
+	pulumi.Input
+
+	ToOrganizationRulesetRulesPullRequestPtrOutput() OrganizationRulesetRulesPullRequestPtrOutput
+	ToOrganizationRulesetRulesPullRequestPtrOutputWithContext(context.Context) OrganizationRulesetRulesPullRequestPtrOutput
+}
+
+type organizationRulesetRulesPullRequestPtrType OrganizationRulesetRulesPullRequestArgs
+
+func OrganizationRulesetRulesPullRequestPtr(v *OrganizationRulesetRulesPullRequestArgs) OrganizationRulesetRulesPullRequestPtrInput {
+	return (*organizationRulesetRulesPullRequestPtrType)(v)
+}
+
+func (*organizationRulesetRulesPullRequestPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrganizationRulesetRulesPullRequest)(nil)).Elem()
+}
+
+func (i *organizationRulesetRulesPullRequestPtrType) ToOrganizationRulesetRulesPullRequestPtrOutput() OrganizationRulesetRulesPullRequestPtrOutput {
+	return i.ToOrganizationRulesetRulesPullRequestPtrOutputWithContext(context.Background())
+}
+
+func (i *organizationRulesetRulesPullRequestPtrType) ToOrganizationRulesetRulesPullRequestPtrOutputWithContext(ctx context.Context) OrganizationRulesetRulesPullRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationRulesetRulesPullRequestPtrOutput)
+}
+
+func (i *organizationRulesetRulesPullRequestPtrType) ToOutput(ctx context.Context) pulumix.Output[*OrganizationRulesetRulesPullRequest] {
+	return pulumix.Output[*OrganizationRulesetRulesPullRequest]{
+		OutputState: i.ToOrganizationRulesetRulesPullRequestPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type OrganizationRulesetRulesPullRequestOutput struct{ *pulumi.OutputState }
+
+func (OrganizationRulesetRulesPullRequestOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationRulesetRulesPullRequest)(nil)).Elem()
+}
+
+func (o OrganizationRulesetRulesPullRequestOutput) ToOrganizationRulesetRulesPullRequestOutput() OrganizationRulesetRulesPullRequestOutput {
+	return o
+}
+
+func (o OrganizationRulesetRulesPullRequestOutput) ToOrganizationRulesetRulesPullRequestOutputWithContext(ctx context.Context) OrganizationRulesetRulesPullRequestOutput {
+	return o
+}
+
+func (o OrganizationRulesetRulesPullRequestOutput) ToOrganizationRulesetRulesPullRequestPtrOutput() OrganizationRulesetRulesPullRequestPtrOutput {
+	return o.ToOrganizationRulesetRulesPullRequestPtrOutputWithContext(context.Background())
+}
+
+func (o OrganizationRulesetRulesPullRequestOutput) ToOrganizationRulesetRulesPullRequestPtrOutputWithContext(ctx context.Context) OrganizationRulesetRulesPullRequestPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OrganizationRulesetRulesPullRequest) *OrganizationRulesetRulesPullRequest {
+		return &v
+	}).(OrganizationRulesetRulesPullRequestPtrOutput)
+}
+
+func (o OrganizationRulesetRulesPullRequestOutput) ToOutput(ctx context.Context) pulumix.Output[OrganizationRulesetRulesPullRequest] {
+	return pulumix.Output[OrganizationRulesetRulesPullRequest]{
+		OutputState: o.OutputState,
+	}
+}
+
+// (Boolean) New, reviewable commits pushed will dismiss previous pull request review approvals. Defaults to `false`.
+func (o OrganizationRulesetRulesPullRequestOutput) DismissStaleReviewsOnPush() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v OrganizationRulesetRulesPullRequest) *bool { return v.DismissStaleReviewsOnPush }).(pulumi.BoolPtrOutput)
+}
+
+// (Boolean) Require an approving review in pull requests that modify files that have a designated code owner. Defaults to `false`.
+func (o OrganizationRulesetRulesPullRequestOutput) RequireCodeOwnerReview() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v OrganizationRulesetRulesPullRequest) *bool { return v.RequireCodeOwnerReview }).(pulumi.BoolPtrOutput)
+}
+
+// (Boolean) Whether the most recent reviewable push must be approved by someone other than the person who pushed it. Defaults to `false`.
+func (o OrganizationRulesetRulesPullRequestOutput) RequireLastPushApproval() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v OrganizationRulesetRulesPullRequest) *bool { return v.RequireLastPushApproval }).(pulumi.BoolPtrOutput)
+}
+
+// (Number) The number of approving reviews that are required before a pull request can be merged. Defaults to `0`.
+func (o OrganizationRulesetRulesPullRequestOutput) RequiredApprovingReviewCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v OrganizationRulesetRulesPullRequest) *int { return v.RequiredApprovingReviewCount }).(pulumi.IntPtrOutput)
+}
+
+// (Boolean) All conversations on code must be resolved before a pull request can be merged. Defaults to `false`.
+func (o OrganizationRulesetRulesPullRequestOutput) RequiredReviewThreadResolution() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v OrganizationRulesetRulesPullRequest) *bool { return v.RequiredReviewThreadResolution }).(pulumi.BoolPtrOutput)
+}
+
+type OrganizationRulesetRulesPullRequestPtrOutput struct{ *pulumi.OutputState }
+
+func (OrganizationRulesetRulesPullRequestPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrganizationRulesetRulesPullRequest)(nil)).Elem()
+}
+
+func (o OrganizationRulesetRulesPullRequestPtrOutput) ToOrganizationRulesetRulesPullRequestPtrOutput() OrganizationRulesetRulesPullRequestPtrOutput {
+	return o
+}
+
+func (o OrganizationRulesetRulesPullRequestPtrOutput) ToOrganizationRulesetRulesPullRequestPtrOutputWithContext(ctx context.Context) OrganizationRulesetRulesPullRequestPtrOutput {
+	return o
+}
+
+func (o OrganizationRulesetRulesPullRequestPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*OrganizationRulesetRulesPullRequest] {
+	return pulumix.Output[*OrganizationRulesetRulesPullRequest]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o OrganizationRulesetRulesPullRequestPtrOutput) Elem() OrganizationRulesetRulesPullRequestOutput {
+	return o.ApplyT(func(v *OrganizationRulesetRulesPullRequest) OrganizationRulesetRulesPullRequest {
+		if v != nil {
+			return *v
+		}
+		var ret OrganizationRulesetRulesPullRequest
+		return ret
+	}).(OrganizationRulesetRulesPullRequestOutput)
+}
+
+// (Boolean) New, reviewable commits pushed will dismiss previous pull request review approvals. Defaults to `false`.
+func (o OrganizationRulesetRulesPullRequestPtrOutput) DismissStaleReviewsOnPush() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *OrganizationRulesetRulesPullRequest) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DismissStaleReviewsOnPush
+	}).(pulumi.BoolPtrOutput)
+}
+
+// (Boolean) Require an approving review in pull requests that modify files that have a designated code owner. Defaults to `false`.
+func (o OrganizationRulesetRulesPullRequestPtrOutput) RequireCodeOwnerReview() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *OrganizationRulesetRulesPullRequest) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.RequireCodeOwnerReview
+	}).(pulumi.BoolPtrOutput)
+}
+
+// (Boolean) Whether the most recent reviewable push must be approved by someone other than the person who pushed it. Defaults to `false`.
+func (o OrganizationRulesetRulesPullRequestPtrOutput) RequireLastPushApproval() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *OrganizationRulesetRulesPullRequest) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.RequireLastPushApproval
+	}).(pulumi.BoolPtrOutput)
+}
+
+// (Number) The number of approving reviews that are required before a pull request can be merged. Defaults to `0`.
+func (o OrganizationRulesetRulesPullRequestPtrOutput) RequiredApprovingReviewCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *OrganizationRulesetRulesPullRequest) *int {
+		if v == nil {
+			return nil
+		}
+		return v.RequiredApprovingReviewCount
+	}).(pulumi.IntPtrOutput)
+}
+
+// (Boolean) All conversations on code must be resolved before a pull request can be merged. Defaults to `false`.
+func (o OrganizationRulesetRulesPullRequestPtrOutput) RequiredReviewThreadResolution() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *OrganizationRulesetRulesPullRequest) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.RequiredReviewThreadResolution
+	}).(pulumi.BoolPtrOutput)
+}
+
+type OrganizationRulesetRulesRequiredStatusChecks struct {
+	// (Block Set, Min: 1) Status checks that are required. Several can be defined. (see below for nested schema)
+	RequiredChecks []OrganizationRulesetRulesRequiredStatusChecksRequiredCheck `pulumi:"requiredChecks"`
+	// (Boolean) Whether pull requests targeting a matching branch must be tested with the latest code. This setting will not take effect unless at least one status check is enabled. Defaults to `false`.
+	StrictRequiredStatusChecksPolicy *bool `pulumi:"strictRequiredStatusChecksPolicy"`
+}
+
+// OrganizationRulesetRulesRequiredStatusChecksInput is an input type that accepts OrganizationRulesetRulesRequiredStatusChecksArgs and OrganizationRulesetRulesRequiredStatusChecksOutput values.
+// You can construct a concrete instance of `OrganizationRulesetRulesRequiredStatusChecksInput` via:
+//
+//	OrganizationRulesetRulesRequiredStatusChecksArgs{...}
+type OrganizationRulesetRulesRequiredStatusChecksInput interface {
+	pulumi.Input
+
+	ToOrganizationRulesetRulesRequiredStatusChecksOutput() OrganizationRulesetRulesRequiredStatusChecksOutput
+	ToOrganizationRulesetRulesRequiredStatusChecksOutputWithContext(context.Context) OrganizationRulesetRulesRequiredStatusChecksOutput
+}
+
+type OrganizationRulesetRulesRequiredStatusChecksArgs struct {
+	// (Block Set, Min: 1) Status checks that are required. Several can be defined. (see below for nested schema)
+	RequiredChecks OrganizationRulesetRulesRequiredStatusChecksRequiredCheckArrayInput `pulumi:"requiredChecks"`
+	// (Boolean) Whether pull requests targeting a matching branch must be tested with the latest code. This setting will not take effect unless at least one status check is enabled. Defaults to `false`.
+	StrictRequiredStatusChecksPolicy pulumi.BoolPtrInput `pulumi:"strictRequiredStatusChecksPolicy"`
+}
+
+func (OrganizationRulesetRulesRequiredStatusChecksArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationRulesetRulesRequiredStatusChecks)(nil)).Elem()
+}
+
+func (i OrganizationRulesetRulesRequiredStatusChecksArgs) ToOrganizationRulesetRulesRequiredStatusChecksOutput() OrganizationRulesetRulesRequiredStatusChecksOutput {
+	return i.ToOrganizationRulesetRulesRequiredStatusChecksOutputWithContext(context.Background())
+}
+
+func (i OrganizationRulesetRulesRequiredStatusChecksArgs) ToOrganizationRulesetRulesRequiredStatusChecksOutputWithContext(ctx context.Context) OrganizationRulesetRulesRequiredStatusChecksOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationRulesetRulesRequiredStatusChecksOutput)
+}
+
+func (i OrganizationRulesetRulesRequiredStatusChecksArgs) ToOutput(ctx context.Context) pulumix.Output[OrganizationRulesetRulesRequiredStatusChecks] {
+	return pulumix.Output[OrganizationRulesetRulesRequiredStatusChecks]{
+		OutputState: i.ToOrganizationRulesetRulesRequiredStatusChecksOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i OrganizationRulesetRulesRequiredStatusChecksArgs) ToOrganizationRulesetRulesRequiredStatusChecksPtrOutput() OrganizationRulesetRulesRequiredStatusChecksPtrOutput {
+	return i.ToOrganizationRulesetRulesRequiredStatusChecksPtrOutputWithContext(context.Background())
+}
+
+func (i OrganizationRulesetRulesRequiredStatusChecksArgs) ToOrganizationRulesetRulesRequiredStatusChecksPtrOutputWithContext(ctx context.Context) OrganizationRulesetRulesRequiredStatusChecksPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationRulesetRulesRequiredStatusChecksOutput).ToOrganizationRulesetRulesRequiredStatusChecksPtrOutputWithContext(ctx)
+}
+
+// OrganizationRulesetRulesRequiredStatusChecksPtrInput is an input type that accepts OrganizationRulesetRulesRequiredStatusChecksArgs, OrganizationRulesetRulesRequiredStatusChecksPtr and OrganizationRulesetRulesRequiredStatusChecksPtrOutput values.
+// You can construct a concrete instance of `OrganizationRulesetRulesRequiredStatusChecksPtrInput` via:
+//
+//	        OrganizationRulesetRulesRequiredStatusChecksArgs{...}
+//
+//	or:
+//
+//	        nil
+type OrganizationRulesetRulesRequiredStatusChecksPtrInput interface {
+	pulumi.Input
+
+	ToOrganizationRulesetRulesRequiredStatusChecksPtrOutput() OrganizationRulesetRulesRequiredStatusChecksPtrOutput
+	ToOrganizationRulesetRulesRequiredStatusChecksPtrOutputWithContext(context.Context) OrganizationRulesetRulesRequiredStatusChecksPtrOutput
+}
+
+type organizationRulesetRulesRequiredStatusChecksPtrType OrganizationRulesetRulesRequiredStatusChecksArgs
+
+func OrganizationRulesetRulesRequiredStatusChecksPtr(v *OrganizationRulesetRulesRequiredStatusChecksArgs) OrganizationRulesetRulesRequiredStatusChecksPtrInput {
+	return (*organizationRulesetRulesRequiredStatusChecksPtrType)(v)
+}
+
+func (*organizationRulesetRulesRequiredStatusChecksPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrganizationRulesetRulesRequiredStatusChecks)(nil)).Elem()
+}
+
+func (i *organizationRulesetRulesRequiredStatusChecksPtrType) ToOrganizationRulesetRulesRequiredStatusChecksPtrOutput() OrganizationRulesetRulesRequiredStatusChecksPtrOutput {
+	return i.ToOrganizationRulesetRulesRequiredStatusChecksPtrOutputWithContext(context.Background())
+}
+
+func (i *organizationRulesetRulesRequiredStatusChecksPtrType) ToOrganizationRulesetRulesRequiredStatusChecksPtrOutputWithContext(ctx context.Context) OrganizationRulesetRulesRequiredStatusChecksPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationRulesetRulesRequiredStatusChecksPtrOutput)
+}
+
+func (i *organizationRulesetRulesRequiredStatusChecksPtrType) ToOutput(ctx context.Context) pulumix.Output[*OrganizationRulesetRulesRequiredStatusChecks] {
+	return pulumix.Output[*OrganizationRulesetRulesRequiredStatusChecks]{
+		OutputState: i.ToOrganizationRulesetRulesRequiredStatusChecksPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type OrganizationRulesetRulesRequiredStatusChecksOutput struct{ *pulumi.OutputState }
+
+func (OrganizationRulesetRulesRequiredStatusChecksOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationRulesetRulesRequiredStatusChecks)(nil)).Elem()
+}
+
+func (o OrganizationRulesetRulesRequiredStatusChecksOutput) ToOrganizationRulesetRulesRequiredStatusChecksOutput() OrganizationRulesetRulesRequiredStatusChecksOutput {
+	return o
+}
+
+func (o OrganizationRulesetRulesRequiredStatusChecksOutput) ToOrganizationRulesetRulesRequiredStatusChecksOutputWithContext(ctx context.Context) OrganizationRulesetRulesRequiredStatusChecksOutput {
+	return o
+}
+
+func (o OrganizationRulesetRulesRequiredStatusChecksOutput) ToOrganizationRulesetRulesRequiredStatusChecksPtrOutput() OrganizationRulesetRulesRequiredStatusChecksPtrOutput {
+	return o.ToOrganizationRulesetRulesRequiredStatusChecksPtrOutputWithContext(context.Background())
+}
+
+func (o OrganizationRulesetRulesRequiredStatusChecksOutput) ToOrganizationRulesetRulesRequiredStatusChecksPtrOutputWithContext(ctx context.Context) OrganizationRulesetRulesRequiredStatusChecksPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OrganizationRulesetRulesRequiredStatusChecks) *OrganizationRulesetRulesRequiredStatusChecks {
+		return &v
+	}).(OrganizationRulesetRulesRequiredStatusChecksPtrOutput)
+}
+
+func (o OrganizationRulesetRulesRequiredStatusChecksOutput) ToOutput(ctx context.Context) pulumix.Output[OrganizationRulesetRulesRequiredStatusChecks] {
+	return pulumix.Output[OrganizationRulesetRulesRequiredStatusChecks]{
+		OutputState: o.OutputState,
+	}
+}
+
+// (Block Set, Min: 1) Status checks that are required. Several can be defined. (see below for nested schema)
+func (o OrganizationRulesetRulesRequiredStatusChecksOutput) RequiredChecks() OrganizationRulesetRulesRequiredStatusChecksRequiredCheckArrayOutput {
+	return o.ApplyT(func(v OrganizationRulesetRulesRequiredStatusChecks) []OrganizationRulesetRulesRequiredStatusChecksRequiredCheck {
+		return v.RequiredChecks
+	}).(OrganizationRulesetRulesRequiredStatusChecksRequiredCheckArrayOutput)
+}
+
+// (Boolean) Whether pull requests targeting a matching branch must be tested with the latest code. This setting will not take effect unless at least one status check is enabled. Defaults to `false`.
+func (o OrganizationRulesetRulesRequiredStatusChecksOutput) StrictRequiredStatusChecksPolicy() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v OrganizationRulesetRulesRequiredStatusChecks) *bool { return v.StrictRequiredStatusChecksPolicy }).(pulumi.BoolPtrOutput)
+}
+
+type OrganizationRulesetRulesRequiredStatusChecksPtrOutput struct{ *pulumi.OutputState }
+
+func (OrganizationRulesetRulesRequiredStatusChecksPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrganizationRulesetRulesRequiredStatusChecks)(nil)).Elem()
+}
+
+func (o OrganizationRulesetRulesRequiredStatusChecksPtrOutput) ToOrganizationRulesetRulesRequiredStatusChecksPtrOutput() OrganizationRulesetRulesRequiredStatusChecksPtrOutput {
+	return o
+}
+
+func (o OrganizationRulesetRulesRequiredStatusChecksPtrOutput) ToOrganizationRulesetRulesRequiredStatusChecksPtrOutputWithContext(ctx context.Context) OrganizationRulesetRulesRequiredStatusChecksPtrOutput {
+	return o
+}
+
+func (o OrganizationRulesetRulesRequiredStatusChecksPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*OrganizationRulesetRulesRequiredStatusChecks] {
+	return pulumix.Output[*OrganizationRulesetRulesRequiredStatusChecks]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o OrganizationRulesetRulesRequiredStatusChecksPtrOutput) Elem() OrganizationRulesetRulesRequiredStatusChecksOutput {
+	return o.ApplyT(func(v *OrganizationRulesetRulesRequiredStatusChecks) OrganizationRulesetRulesRequiredStatusChecks {
+		if v != nil {
+			return *v
+		}
+		var ret OrganizationRulesetRulesRequiredStatusChecks
+		return ret
+	}).(OrganizationRulesetRulesRequiredStatusChecksOutput)
+}
+
+// (Block Set, Min: 1) Status checks that are required. Several can be defined. (see below for nested schema)
+func (o OrganizationRulesetRulesRequiredStatusChecksPtrOutput) RequiredChecks() OrganizationRulesetRulesRequiredStatusChecksRequiredCheckArrayOutput {
+	return o.ApplyT(func(v *OrganizationRulesetRulesRequiredStatusChecks) []OrganizationRulesetRulesRequiredStatusChecksRequiredCheck {
+		if v == nil {
+			return nil
+		}
+		return v.RequiredChecks
+	}).(OrganizationRulesetRulesRequiredStatusChecksRequiredCheckArrayOutput)
+}
+
+// (Boolean) Whether pull requests targeting a matching branch must be tested with the latest code. This setting will not take effect unless at least one status check is enabled. Defaults to `false`.
+func (o OrganizationRulesetRulesRequiredStatusChecksPtrOutput) StrictRequiredStatusChecksPolicy() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *OrganizationRulesetRulesRequiredStatusChecks) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.StrictRequiredStatusChecksPolicy
+	}).(pulumi.BoolPtrOutput)
+}
+
+type OrganizationRulesetRulesRequiredStatusChecksRequiredCheck struct {
+	// (String) The status check context name that must be present on the commit.
+	Context string `pulumi:"context"`
+	// (Number) The optional integration ID that this status check must originate from.
+	IntegrationId *int `pulumi:"integrationId"`
+}
+
+// OrganizationRulesetRulesRequiredStatusChecksRequiredCheckInput is an input type that accepts OrganizationRulesetRulesRequiredStatusChecksRequiredCheckArgs and OrganizationRulesetRulesRequiredStatusChecksRequiredCheckOutput values.
+// You can construct a concrete instance of `OrganizationRulesetRulesRequiredStatusChecksRequiredCheckInput` via:
+//
+//	OrganizationRulesetRulesRequiredStatusChecksRequiredCheckArgs{...}
+type OrganizationRulesetRulesRequiredStatusChecksRequiredCheckInput interface {
+	pulumi.Input
+
+	ToOrganizationRulesetRulesRequiredStatusChecksRequiredCheckOutput() OrganizationRulesetRulesRequiredStatusChecksRequiredCheckOutput
+	ToOrganizationRulesetRulesRequiredStatusChecksRequiredCheckOutputWithContext(context.Context) OrganizationRulesetRulesRequiredStatusChecksRequiredCheckOutput
+}
+
+type OrganizationRulesetRulesRequiredStatusChecksRequiredCheckArgs struct {
+	// (String) The status check context name that must be present on the commit.
+	Context pulumi.StringInput `pulumi:"context"`
+	// (Number) The optional integration ID that this status check must originate from.
+	IntegrationId pulumi.IntPtrInput `pulumi:"integrationId"`
+}
+
+func (OrganizationRulesetRulesRequiredStatusChecksRequiredCheckArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationRulesetRulesRequiredStatusChecksRequiredCheck)(nil)).Elem()
+}
+
+func (i OrganizationRulesetRulesRequiredStatusChecksRequiredCheckArgs) ToOrganizationRulesetRulesRequiredStatusChecksRequiredCheckOutput() OrganizationRulesetRulesRequiredStatusChecksRequiredCheckOutput {
+	return i.ToOrganizationRulesetRulesRequiredStatusChecksRequiredCheckOutputWithContext(context.Background())
+}
+
+func (i OrganizationRulesetRulesRequiredStatusChecksRequiredCheckArgs) ToOrganizationRulesetRulesRequiredStatusChecksRequiredCheckOutputWithContext(ctx context.Context) OrganizationRulesetRulesRequiredStatusChecksRequiredCheckOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationRulesetRulesRequiredStatusChecksRequiredCheckOutput)
+}
+
+func (i OrganizationRulesetRulesRequiredStatusChecksRequiredCheckArgs) ToOutput(ctx context.Context) pulumix.Output[OrganizationRulesetRulesRequiredStatusChecksRequiredCheck] {
+	return pulumix.Output[OrganizationRulesetRulesRequiredStatusChecksRequiredCheck]{
+		OutputState: i.ToOrganizationRulesetRulesRequiredStatusChecksRequiredCheckOutputWithContext(ctx).OutputState,
+	}
+}
+
+// OrganizationRulesetRulesRequiredStatusChecksRequiredCheckArrayInput is an input type that accepts OrganizationRulesetRulesRequiredStatusChecksRequiredCheckArray and OrganizationRulesetRulesRequiredStatusChecksRequiredCheckArrayOutput values.
+// You can construct a concrete instance of `OrganizationRulesetRulesRequiredStatusChecksRequiredCheckArrayInput` via:
+//
+//	OrganizationRulesetRulesRequiredStatusChecksRequiredCheckArray{ OrganizationRulesetRulesRequiredStatusChecksRequiredCheckArgs{...} }
+type OrganizationRulesetRulesRequiredStatusChecksRequiredCheckArrayInput interface {
+	pulumi.Input
+
+	ToOrganizationRulesetRulesRequiredStatusChecksRequiredCheckArrayOutput() OrganizationRulesetRulesRequiredStatusChecksRequiredCheckArrayOutput
+	ToOrganizationRulesetRulesRequiredStatusChecksRequiredCheckArrayOutputWithContext(context.Context) OrganizationRulesetRulesRequiredStatusChecksRequiredCheckArrayOutput
+}
+
+type OrganizationRulesetRulesRequiredStatusChecksRequiredCheckArray []OrganizationRulesetRulesRequiredStatusChecksRequiredCheckInput
+
+func (OrganizationRulesetRulesRequiredStatusChecksRequiredCheckArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OrganizationRulesetRulesRequiredStatusChecksRequiredCheck)(nil)).Elem()
+}
+
+func (i OrganizationRulesetRulesRequiredStatusChecksRequiredCheckArray) ToOrganizationRulesetRulesRequiredStatusChecksRequiredCheckArrayOutput() OrganizationRulesetRulesRequiredStatusChecksRequiredCheckArrayOutput {
+	return i.ToOrganizationRulesetRulesRequiredStatusChecksRequiredCheckArrayOutputWithContext(context.Background())
+}
+
+func (i OrganizationRulesetRulesRequiredStatusChecksRequiredCheckArray) ToOrganizationRulesetRulesRequiredStatusChecksRequiredCheckArrayOutputWithContext(ctx context.Context) OrganizationRulesetRulesRequiredStatusChecksRequiredCheckArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationRulesetRulesRequiredStatusChecksRequiredCheckArrayOutput)
+}
+
+func (i OrganizationRulesetRulesRequiredStatusChecksRequiredCheckArray) ToOutput(ctx context.Context) pulumix.Output[[]OrganizationRulesetRulesRequiredStatusChecksRequiredCheck] {
+	return pulumix.Output[[]OrganizationRulesetRulesRequiredStatusChecksRequiredCheck]{
+		OutputState: i.ToOrganizationRulesetRulesRequiredStatusChecksRequiredCheckArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type OrganizationRulesetRulesRequiredStatusChecksRequiredCheckOutput struct{ *pulumi.OutputState }
+
+func (OrganizationRulesetRulesRequiredStatusChecksRequiredCheckOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationRulesetRulesRequiredStatusChecksRequiredCheck)(nil)).Elem()
+}
+
+func (o OrganizationRulesetRulesRequiredStatusChecksRequiredCheckOutput) ToOrganizationRulesetRulesRequiredStatusChecksRequiredCheckOutput() OrganizationRulesetRulesRequiredStatusChecksRequiredCheckOutput {
+	return o
+}
+
+func (o OrganizationRulesetRulesRequiredStatusChecksRequiredCheckOutput) ToOrganizationRulesetRulesRequiredStatusChecksRequiredCheckOutputWithContext(ctx context.Context) OrganizationRulesetRulesRequiredStatusChecksRequiredCheckOutput {
+	return o
+}
+
+func (o OrganizationRulesetRulesRequiredStatusChecksRequiredCheckOutput) ToOutput(ctx context.Context) pulumix.Output[OrganizationRulesetRulesRequiredStatusChecksRequiredCheck] {
+	return pulumix.Output[OrganizationRulesetRulesRequiredStatusChecksRequiredCheck]{
+		OutputState: o.OutputState,
+	}
+}
+
+// (String) The status check context name that must be present on the commit.
+func (o OrganizationRulesetRulesRequiredStatusChecksRequiredCheckOutput) Context() pulumi.StringOutput {
+	return o.ApplyT(func(v OrganizationRulesetRulesRequiredStatusChecksRequiredCheck) string { return v.Context }).(pulumi.StringOutput)
+}
+
+// (Number) The optional integration ID that this status check must originate from.
+func (o OrganizationRulesetRulesRequiredStatusChecksRequiredCheckOutput) IntegrationId() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v OrganizationRulesetRulesRequiredStatusChecksRequiredCheck) *int { return v.IntegrationId }).(pulumi.IntPtrOutput)
+}
+
+type OrganizationRulesetRulesRequiredStatusChecksRequiredCheckArrayOutput struct{ *pulumi.OutputState }
+
+func (OrganizationRulesetRulesRequiredStatusChecksRequiredCheckArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OrganizationRulesetRulesRequiredStatusChecksRequiredCheck)(nil)).Elem()
+}
+
+func (o OrganizationRulesetRulesRequiredStatusChecksRequiredCheckArrayOutput) ToOrganizationRulesetRulesRequiredStatusChecksRequiredCheckArrayOutput() OrganizationRulesetRulesRequiredStatusChecksRequiredCheckArrayOutput {
+	return o
+}
+
+func (o OrganizationRulesetRulesRequiredStatusChecksRequiredCheckArrayOutput) ToOrganizationRulesetRulesRequiredStatusChecksRequiredCheckArrayOutputWithContext(ctx context.Context) OrganizationRulesetRulesRequiredStatusChecksRequiredCheckArrayOutput {
+	return o
+}
+
+func (o OrganizationRulesetRulesRequiredStatusChecksRequiredCheckArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OrganizationRulesetRulesRequiredStatusChecksRequiredCheck] {
+	return pulumix.Output[[]OrganizationRulesetRulesRequiredStatusChecksRequiredCheck]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o OrganizationRulesetRulesRequiredStatusChecksRequiredCheckArrayOutput) Index(i pulumi.IntInput) OrganizationRulesetRulesRequiredStatusChecksRequiredCheckOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OrganizationRulesetRulesRequiredStatusChecksRequiredCheck {
+		return vs[0].([]OrganizationRulesetRulesRequiredStatusChecksRequiredCheck)[vs[1].(int)]
+	}).(OrganizationRulesetRulesRequiredStatusChecksRequiredCheckOutput)
+}
+
+type OrganizationRulesetRulesTagNamePattern struct {
+	// (String) The name of the ruleset.
+	Name *string `pulumi:"name"`
+	// (Boolean) If true, the rule will fail if the pattern matches.
+	Negate *bool `pulumi:"negate"`
+	// (String) The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
+	Operator string `pulumi:"operator"`
+	// (String) The pattern to match with.
+	Pattern string `pulumi:"pattern"`
+}
+
+// OrganizationRulesetRulesTagNamePatternInput is an input type that accepts OrganizationRulesetRulesTagNamePatternArgs and OrganizationRulesetRulesTagNamePatternOutput values.
+// You can construct a concrete instance of `OrganizationRulesetRulesTagNamePatternInput` via:
+//
+//	OrganizationRulesetRulesTagNamePatternArgs{...}
+type OrganizationRulesetRulesTagNamePatternInput interface {
+	pulumi.Input
+
+	ToOrganizationRulesetRulesTagNamePatternOutput() OrganizationRulesetRulesTagNamePatternOutput
+	ToOrganizationRulesetRulesTagNamePatternOutputWithContext(context.Context) OrganizationRulesetRulesTagNamePatternOutput
+}
+
+type OrganizationRulesetRulesTagNamePatternArgs struct {
+	// (String) The name of the ruleset.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// (Boolean) If true, the rule will fail if the pattern matches.
+	Negate pulumi.BoolPtrInput `pulumi:"negate"`
+	// (String) The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// (String) The pattern to match with.
+	Pattern pulumi.StringInput `pulumi:"pattern"`
+}
+
+func (OrganizationRulesetRulesTagNamePatternArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationRulesetRulesTagNamePattern)(nil)).Elem()
+}
+
+func (i OrganizationRulesetRulesTagNamePatternArgs) ToOrganizationRulesetRulesTagNamePatternOutput() OrganizationRulesetRulesTagNamePatternOutput {
+	return i.ToOrganizationRulesetRulesTagNamePatternOutputWithContext(context.Background())
+}
+
+func (i OrganizationRulesetRulesTagNamePatternArgs) ToOrganizationRulesetRulesTagNamePatternOutputWithContext(ctx context.Context) OrganizationRulesetRulesTagNamePatternOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationRulesetRulesTagNamePatternOutput)
+}
+
+func (i OrganizationRulesetRulesTagNamePatternArgs) ToOutput(ctx context.Context) pulumix.Output[OrganizationRulesetRulesTagNamePattern] {
+	return pulumix.Output[OrganizationRulesetRulesTagNamePattern]{
+		OutputState: i.ToOrganizationRulesetRulesTagNamePatternOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i OrganizationRulesetRulesTagNamePatternArgs) ToOrganizationRulesetRulesTagNamePatternPtrOutput() OrganizationRulesetRulesTagNamePatternPtrOutput {
+	return i.ToOrganizationRulesetRulesTagNamePatternPtrOutputWithContext(context.Background())
+}
+
+func (i OrganizationRulesetRulesTagNamePatternArgs) ToOrganizationRulesetRulesTagNamePatternPtrOutputWithContext(ctx context.Context) OrganizationRulesetRulesTagNamePatternPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationRulesetRulesTagNamePatternOutput).ToOrganizationRulesetRulesTagNamePatternPtrOutputWithContext(ctx)
+}
+
+// OrganizationRulesetRulesTagNamePatternPtrInput is an input type that accepts OrganizationRulesetRulesTagNamePatternArgs, OrganizationRulesetRulesTagNamePatternPtr and OrganizationRulesetRulesTagNamePatternPtrOutput values.
+// You can construct a concrete instance of `OrganizationRulesetRulesTagNamePatternPtrInput` via:
+//
+//	        OrganizationRulesetRulesTagNamePatternArgs{...}
+//
+//	or:
+//
+//	        nil
+type OrganizationRulesetRulesTagNamePatternPtrInput interface {
+	pulumi.Input
+
+	ToOrganizationRulesetRulesTagNamePatternPtrOutput() OrganizationRulesetRulesTagNamePatternPtrOutput
+	ToOrganizationRulesetRulesTagNamePatternPtrOutputWithContext(context.Context) OrganizationRulesetRulesTagNamePatternPtrOutput
+}
+
+type organizationRulesetRulesTagNamePatternPtrType OrganizationRulesetRulesTagNamePatternArgs
+
+func OrganizationRulesetRulesTagNamePatternPtr(v *OrganizationRulesetRulesTagNamePatternArgs) OrganizationRulesetRulesTagNamePatternPtrInput {
+	return (*organizationRulesetRulesTagNamePatternPtrType)(v)
+}
+
+func (*organizationRulesetRulesTagNamePatternPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrganizationRulesetRulesTagNamePattern)(nil)).Elem()
+}
+
+func (i *organizationRulesetRulesTagNamePatternPtrType) ToOrganizationRulesetRulesTagNamePatternPtrOutput() OrganizationRulesetRulesTagNamePatternPtrOutput {
+	return i.ToOrganizationRulesetRulesTagNamePatternPtrOutputWithContext(context.Background())
+}
+
+func (i *organizationRulesetRulesTagNamePatternPtrType) ToOrganizationRulesetRulesTagNamePatternPtrOutputWithContext(ctx context.Context) OrganizationRulesetRulesTagNamePatternPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationRulesetRulesTagNamePatternPtrOutput)
+}
+
+func (i *organizationRulesetRulesTagNamePatternPtrType) ToOutput(ctx context.Context) pulumix.Output[*OrganizationRulesetRulesTagNamePattern] {
+	return pulumix.Output[*OrganizationRulesetRulesTagNamePattern]{
+		OutputState: i.ToOrganizationRulesetRulesTagNamePatternPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type OrganizationRulesetRulesTagNamePatternOutput struct{ *pulumi.OutputState }
+
+func (OrganizationRulesetRulesTagNamePatternOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationRulesetRulesTagNamePattern)(nil)).Elem()
+}
+
+func (o OrganizationRulesetRulesTagNamePatternOutput) ToOrganizationRulesetRulesTagNamePatternOutput() OrganizationRulesetRulesTagNamePatternOutput {
+	return o
+}
+
+func (o OrganizationRulesetRulesTagNamePatternOutput) ToOrganizationRulesetRulesTagNamePatternOutputWithContext(ctx context.Context) OrganizationRulesetRulesTagNamePatternOutput {
+	return o
+}
+
+func (o OrganizationRulesetRulesTagNamePatternOutput) ToOrganizationRulesetRulesTagNamePatternPtrOutput() OrganizationRulesetRulesTagNamePatternPtrOutput {
+	return o.ToOrganizationRulesetRulesTagNamePatternPtrOutputWithContext(context.Background())
+}
+
+func (o OrganizationRulesetRulesTagNamePatternOutput) ToOrganizationRulesetRulesTagNamePatternPtrOutputWithContext(ctx context.Context) OrganizationRulesetRulesTagNamePatternPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OrganizationRulesetRulesTagNamePattern) *OrganizationRulesetRulesTagNamePattern {
+		return &v
+	}).(OrganizationRulesetRulesTagNamePatternPtrOutput)
+}
+
+func (o OrganizationRulesetRulesTagNamePatternOutput) ToOutput(ctx context.Context) pulumix.Output[OrganizationRulesetRulesTagNamePattern] {
+	return pulumix.Output[OrganizationRulesetRulesTagNamePattern]{
+		OutputState: o.OutputState,
+	}
+}
+
+// (String) The name of the ruleset.
+func (o OrganizationRulesetRulesTagNamePatternOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OrganizationRulesetRulesTagNamePattern) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// (Boolean) If true, the rule will fail if the pattern matches.
+func (o OrganizationRulesetRulesTagNamePatternOutput) Negate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v OrganizationRulesetRulesTagNamePattern) *bool { return v.Negate }).(pulumi.BoolPtrOutput)
+}
+
+// (String) The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
+func (o OrganizationRulesetRulesTagNamePatternOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v OrganizationRulesetRulesTagNamePattern) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// (String) The pattern to match with.
+func (o OrganizationRulesetRulesTagNamePatternOutput) Pattern() pulumi.StringOutput {
+	return o.ApplyT(func(v OrganizationRulesetRulesTagNamePattern) string { return v.Pattern }).(pulumi.StringOutput)
+}
+
+type OrganizationRulesetRulesTagNamePatternPtrOutput struct{ *pulumi.OutputState }
+
+func (OrganizationRulesetRulesTagNamePatternPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrganizationRulesetRulesTagNamePattern)(nil)).Elem()
+}
+
+func (o OrganizationRulesetRulesTagNamePatternPtrOutput) ToOrganizationRulesetRulesTagNamePatternPtrOutput() OrganizationRulesetRulesTagNamePatternPtrOutput {
+	return o
+}
+
+func (o OrganizationRulesetRulesTagNamePatternPtrOutput) ToOrganizationRulesetRulesTagNamePatternPtrOutputWithContext(ctx context.Context) OrganizationRulesetRulesTagNamePatternPtrOutput {
+	return o
+}
+
+func (o OrganizationRulesetRulesTagNamePatternPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*OrganizationRulesetRulesTagNamePattern] {
+	return pulumix.Output[*OrganizationRulesetRulesTagNamePattern]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o OrganizationRulesetRulesTagNamePatternPtrOutput) Elem() OrganizationRulesetRulesTagNamePatternOutput {
+	return o.ApplyT(func(v *OrganizationRulesetRulesTagNamePattern) OrganizationRulesetRulesTagNamePattern {
+		if v != nil {
+			return *v
+		}
+		var ret OrganizationRulesetRulesTagNamePattern
+		return ret
+	}).(OrganizationRulesetRulesTagNamePatternOutput)
+}
+
+// (String) The name of the ruleset.
+func (o OrganizationRulesetRulesTagNamePatternPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrganizationRulesetRulesTagNamePattern) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// (Boolean) If true, the rule will fail if the pattern matches.
+func (o OrganizationRulesetRulesTagNamePatternPtrOutput) Negate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *OrganizationRulesetRulesTagNamePattern) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Negate
+	}).(pulumi.BoolPtrOutput)
+}
+
+// (String) The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
+func (o OrganizationRulesetRulesTagNamePatternPtrOutput) Operator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrganizationRulesetRulesTagNamePattern) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Operator
+	}).(pulumi.StringPtrOutput)
+}
+
+// (String) The pattern to match with.
+func (o OrganizationRulesetRulesTagNamePatternPtrOutput) Pattern() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrganizationRulesetRulesTagNamePattern) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Pattern
+	}).(pulumi.StringPtrOutput)
+}
+
 type OrganizationWebhookConfiguration struct {
 	ContentType *string `pulumi:"contentType"`
 	InsecureSsl *bool   `pulumi:"insecureSsl"`
@@ -3224,6 +5985,2723 @@ func (o RepositoryPagesSourcePtrOutput) Path() pulumi.StringPtrOutput {
 			return nil
 		}
 		return v.Path
+	}).(pulumi.StringPtrOutput)
+}
+
+type RepositoryRulesetBypassActor struct {
+	// (Number) The ID of the actor that can bypass a ruleset
+	ActorId int `pulumi:"actorId"`
+	// The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`.
+	ActorType string `pulumi:"actorType"`
+	// (String) When the specified actor can bypass the ruleset. pullRequest means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pullRequest`.
+	BypassMode *string `pulumi:"bypassMode"`
+}
+
+// RepositoryRulesetBypassActorInput is an input type that accepts RepositoryRulesetBypassActorArgs and RepositoryRulesetBypassActorOutput values.
+// You can construct a concrete instance of `RepositoryRulesetBypassActorInput` via:
+//
+//	RepositoryRulesetBypassActorArgs{...}
+type RepositoryRulesetBypassActorInput interface {
+	pulumi.Input
+
+	ToRepositoryRulesetBypassActorOutput() RepositoryRulesetBypassActorOutput
+	ToRepositoryRulesetBypassActorOutputWithContext(context.Context) RepositoryRulesetBypassActorOutput
+}
+
+type RepositoryRulesetBypassActorArgs struct {
+	// (Number) The ID of the actor that can bypass a ruleset
+	ActorId pulumi.IntInput `pulumi:"actorId"`
+	// The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`.
+	ActorType pulumi.StringInput `pulumi:"actorType"`
+	// (String) When the specified actor can bypass the ruleset. pullRequest means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pullRequest`.
+	BypassMode pulumi.StringPtrInput `pulumi:"bypassMode"`
+}
+
+func (RepositoryRulesetBypassActorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositoryRulesetBypassActor)(nil)).Elem()
+}
+
+func (i RepositoryRulesetBypassActorArgs) ToRepositoryRulesetBypassActorOutput() RepositoryRulesetBypassActorOutput {
+	return i.ToRepositoryRulesetBypassActorOutputWithContext(context.Background())
+}
+
+func (i RepositoryRulesetBypassActorArgs) ToRepositoryRulesetBypassActorOutputWithContext(ctx context.Context) RepositoryRulesetBypassActorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryRulesetBypassActorOutput)
+}
+
+func (i RepositoryRulesetBypassActorArgs) ToOutput(ctx context.Context) pulumix.Output[RepositoryRulesetBypassActor] {
+	return pulumix.Output[RepositoryRulesetBypassActor]{
+		OutputState: i.ToRepositoryRulesetBypassActorOutputWithContext(ctx).OutputState,
+	}
+}
+
+// RepositoryRulesetBypassActorArrayInput is an input type that accepts RepositoryRulesetBypassActorArray and RepositoryRulesetBypassActorArrayOutput values.
+// You can construct a concrete instance of `RepositoryRulesetBypassActorArrayInput` via:
+//
+//	RepositoryRulesetBypassActorArray{ RepositoryRulesetBypassActorArgs{...} }
+type RepositoryRulesetBypassActorArrayInput interface {
+	pulumi.Input
+
+	ToRepositoryRulesetBypassActorArrayOutput() RepositoryRulesetBypassActorArrayOutput
+	ToRepositoryRulesetBypassActorArrayOutputWithContext(context.Context) RepositoryRulesetBypassActorArrayOutput
+}
+
+type RepositoryRulesetBypassActorArray []RepositoryRulesetBypassActorInput
+
+func (RepositoryRulesetBypassActorArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RepositoryRulesetBypassActor)(nil)).Elem()
+}
+
+func (i RepositoryRulesetBypassActorArray) ToRepositoryRulesetBypassActorArrayOutput() RepositoryRulesetBypassActorArrayOutput {
+	return i.ToRepositoryRulesetBypassActorArrayOutputWithContext(context.Background())
+}
+
+func (i RepositoryRulesetBypassActorArray) ToRepositoryRulesetBypassActorArrayOutputWithContext(ctx context.Context) RepositoryRulesetBypassActorArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryRulesetBypassActorArrayOutput)
+}
+
+func (i RepositoryRulesetBypassActorArray) ToOutput(ctx context.Context) pulumix.Output[[]RepositoryRulesetBypassActor] {
+	return pulumix.Output[[]RepositoryRulesetBypassActor]{
+		OutputState: i.ToRepositoryRulesetBypassActorArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type RepositoryRulesetBypassActorOutput struct{ *pulumi.OutputState }
+
+func (RepositoryRulesetBypassActorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositoryRulesetBypassActor)(nil)).Elem()
+}
+
+func (o RepositoryRulesetBypassActorOutput) ToRepositoryRulesetBypassActorOutput() RepositoryRulesetBypassActorOutput {
+	return o
+}
+
+func (o RepositoryRulesetBypassActorOutput) ToRepositoryRulesetBypassActorOutputWithContext(ctx context.Context) RepositoryRulesetBypassActorOutput {
+	return o
+}
+
+func (o RepositoryRulesetBypassActorOutput) ToOutput(ctx context.Context) pulumix.Output[RepositoryRulesetBypassActor] {
+	return pulumix.Output[RepositoryRulesetBypassActor]{
+		OutputState: o.OutputState,
+	}
+}
+
+// (Number) The ID of the actor that can bypass a ruleset
+func (o RepositoryRulesetBypassActorOutput) ActorId() pulumi.IntOutput {
+	return o.ApplyT(func(v RepositoryRulesetBypassActor) int { return v.ActorId }).(pulumi.IntOutput)
+}
+
+// The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`.
+func (o RepositoryRulesetBypassActorOutput) ActorType() pulumi.StringOutput {
+	return o.ApplyT(func(v RepositoryRulesetBypassActor) string { return v.ActorType }).(pulumi.StringOutput)
+}
+
+// (String) When the specified actor can bypass the ruleset. pullRequest means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pullRequest`.
+func (o RepositoryRulesetBypassActorOutput) BypassMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RepositoryRulesetBypassActor) *string { return v.BypassMode }).(pulumi.StringPtrOutput)
+}
+
+type RepositoryRulesetBypassActorArrayOutput struct{ *pulumi.OutputState }
+
+func (RepositoryRulesetBypassActorArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RepositoryRulesetBypassActor)(nil)).Elem()
+}
+
+func (o RepositoryRulesetBypassActorArrayOutput) ToRepositoryRulesetBypassActorArrayOutput() RepositoryRulesetBypassActorArrayOutput {
+	return o
+}
+
+func (o RepositoryRulesetBypassActorArrayOutput) ToRepositoryRulesetBypassActorArrayOutputWithContext(ctx context.Context) RepositoryRulesetBypassActorArrayOutput {
+	return o
+}
+
+func (o RepositoryRulesetBypassActorArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]RepositoryRulesetBypassActor] {
+	return pulumix.Output[[]RepositoryRulesetBypassActor]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o RepositoryRulesetBypassActorArrayOutput) Index(i pulumi.IntInput) RepositoryRulesetBypassActorOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RepositoryRulesetBypassActor {
+		return vs[0].([]RepositoryRulesetBypassActor)[vs[1].(int)]
+	}).(RepositoryRulesetBypassActorOutput)
+}
+
+type RepositoryRulesetConditions struct {
+	// (Block List, Min: 1, Max: 1) (see below for nested schema)
+	RefName RepositoryRulesetConditionsRefName `pulumi:"refName"`
+}
+
+// RepositoryRulesetConditionsInput is an input type that accepts RepositoryRulesetConditionsArgs and RepositoryRulesetConditionsOutput values.
+// You can construct a concrete instance of `RepositoryRulesetConditionsInput` via:
+//
+//	RepositoryRulesetConditionsArgs{...}
+type RepositoryRulesetConditionsInput interface {
+	pulumi.Input
+
+	ToRepositoryRulesetConditionsOutput() RepositoryRulesetConditionsOutput
+	ToRepositoryRulesetConditionsOutputWithContext(context.Context) RepositoryRulesetConditionsOutput
+}
+
+type RepositoryRulesetConditionsArgs struct {
+	// (Block List, Min: 1, Max: 1) (see below for nested schema)
+	RefName RepositoryRulesetConditionsRefNameInput `pulumi:"refName"`
+}
+
+func (RepositoryRulesetConditionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositoryRulesetConditions)(nil)).Elem()
+}
+
+func (i RepositoryRulesetConditionsArgs) ToRepositoryRulesetConditionsOutput() RepositoryRulesetConditionsOutput {
+	return i.ToRepositoryRulesetConditionsOutputWithContext(context.Background())
+}
+
+func (i RepositoryRulesetConditionsArgs) ToRepositoryRulesetConditionsOutputWithContext(ctx context.Context) RepositoryRulesetConditionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryRulesetConditionsOutput)
+}
+
+func (i RepositoryRulesetConditionsArgs) ToOutput(ctx context.Context) pulumix.Output[RepositoryRulesetConditions] {
+	return pulumix.Output[RepositoryRulesetConditions]{
+		OutputState: i.ToRepositoryRulesetConditionsOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i RepositoryRulesetConditionsArgs) ToRepositoryRulesetConditionsPtrOutput() RepositoryRulesetConditionsPtrOutput {
+	return i.ToRepositoryRulesetConditionsPtrOutputWithContext(context.Background())
+}
+
+func (i RepositoryRulesetConditionsArgs) ToRepositoryRulesetConditionsPtrOutputWithContext(ctx context.Context) RepositoryRulesetConditionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryRulesetConditionsOutput).ToRepositoryRulesetConditionsPtrOutputWithContext(ctx)
+}
+
+// RepositoryRulesetConditionsPtrInput is an input type that accepts RepositoryRulesetConditionsArgs, RepositoryRulesetConditionsPtr and RepositoryRulesetConditionsPtrOutput values.
+// You can construct a concrete instance of `RepositoryRulesetConditionsPtrInput` via:
+//
+//	        RepositoryRulesetConditionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type RepositoryRulesetConditionsPtrInput interface {
+	pulumi.Input
+
+	ToRepositoryRulesetConditionsPtrOutput() RepositoryRulesetConditionsPtrOutput
+	ToRepositoryRulesetConditionsPtrOutputWithContext(context.Context) RepositoryRulesetConditionsPtrOutput
+}
+
+type repositoryRulesetConditionsPtrType RepositoryRulesetConditionsArgs
+
+func RepositoryRulesetConditionsPtr(v *RepositoryRulesetConditionsArgs) RepositoryRulesetConditionsPtrInput {
+	return (*repositoryRulesetConditionsPtrType)(v)
+}
+
+func (*repositoryRulesetConditionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RepositoryRulesetConditions)(nil)).Elem()
+}
+
+func (i *repositoryRulesetConditionsPtrType) ToRepositoryRulesetConditionsPtrOutput() RepositoryRulesetConditionsPtrOutput {
+	return i.ToRepositoryRulesetConditionsPtrOutputWithContext(context.Background())
+}
+
+func (i *repositoryRulesetConditionsPtrType) ToRepositoryRulesetConditionsPtrOutputWithContext(ctx context.Context) RepositoryRulesetConditionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryRulesetConditionsPtrOutput)
+}
+
+func (i *repositoryRulesetConditionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*RepositoryRulesetConditions] {
+	return pulumix.Output[*RepositoryRulesetConditions]{
+		OutputState: i.ToRepositoryRulesetConditionsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type RepositoryRulesetConditionsOutput struct{ *pulumi.OutputState }
+
+func (RepositoryRulesetConditionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositoryRulesetConditions)(nil)).Elem()
+}
+
+func (o RepositoryRulesetConditionsOutput) ToRepositoryRulesetConditionsOutput() RepositoryRulesetConditionsOutput {
+	return o
+}
+
+func (o RepositoryRulesetConditionsOutput) ToRepositoryRulesetConditionsOutputWithContext(ctx context.Context) RepositoryRulesetConditionsOutput {
+	return o
+}
+
+func (o RepositoryRulesetConditionsOutput) ToRepositoryRulesetConditionsPtrOutput() RepositoryRulesetConditionsPtrOutput {
+	return o.ToRepositoryRulesetConditionsPtrOutputWithContext(context.Background())
+}
+
+func (o RepositoryRulesetConditionsOutput) ToRepositoryRulesetConditionsPtrOutputWithContext(ctx context.Context) RepositoryRulesetConditionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RepositoryRulesetConditions) *RepositoryRulesetConditions {
+		return &v
+	}).(RepositoryRulesetConditionsPtrOutput)
+}
+
+func (o RepositoryRulesetConditionsOutput) ToOutput(ctx context.Context) pulumix.Output[RepositoryRulesetConditions] {
+	return pulumix.Output[RepositoryRulesetConditions]{
+		OutputState: o.OutputState,
+	}
+}
+
+// (Block List, Min: 1, Max: 1) (see below for nested schema)
+func (o RepositoryRulesetConditionsOutput) RefName() RepositoryRulesetConditionsRefNameOutput {
+	return o.ApplyT(func(v RepositoryRulesetConditions) RepositoryRulesetConditionsRefName { return v.RefName }).(RepositoryRulesetConditionsRefNameOutput)
+}
+
+type RepositoryRulesetConditionsPtrOutput struct{ *pulumi.OutputState }
+
+func (RepositoryRulesetConditionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RepositoryRulesetConditions)(nil)).Elem()
+}
+
+func (o RepositoryRulesetConditionsPtrOutput) ToRepositoryRulesetConditionsPtrOutput() RepositoryRulesetConditionsPtrOutput {
+	return o
+}
+
+func (o RepositoryRulesetConditionsPtrOutput) ToRepositoryRulesetConditionsPtrOutputWithContext(ctx context.Context) RepositoryRulesetConditionsPtrOutput {
+	return o
+}
+
+func (o RepositoryRulesetConditionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RepositoryRulesetConditions] {
+	return pulumix.Output[*RepositoryRulesetConditions]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o RepositoryRulesetConditionsPtrOutput) Elem() RepositoryRulesetConditionsOutput {
+	return o.ApplyT(func(v *RepositoryRulesetConditions) RepositoryRulesetConditions {
+		if v != nil {
+			return *v
+		}
+		var ret RepositoryRulesetConditions
+		return ret
+	}).(RepositoryRulesetConditionsOutput)
+}
+
+// (Block List, Min: 1, Max: 1) (see below for nested schema)
+func (o RepositoryRulesetConditionsPtrOutput) RefName() RepositoryRulesetConditionsRefNamePtrOutput {
+	return o.ApplyT(func(v *RepositoryRulesetConditions) *RepositoryRulesetConditionsRefName {
+		if v == nil {
+			return nil
+		}
+		return &v.RefName
+	}).(RepositoryRulesetConditionsRefNamePtrOutput)
+}
+
+type RepositoryRulesetConditionsRefName struct {
+	// (List of String) Array of ref names or patterns to exclude. The condition will not pass if any of these patterns match.
+	Excludes []string `pulumi:"excludes"`
+	// (List of String) Array of ref names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~DEFAULT_BRANCH` to include the default branch or `~ALL` to include all branches.
+	Includes []string `pulumi:"includes"`
+}
+
+// RepositoryRulesetConditionsRefNameInput is an input type that accepts RepositoryRulesetConditionsRefNameArgs and RepositoryRulesetConditionsRefNameOutput values.
+// You can construct a concrete instance of `RepositoryRulesetConditionsRefNameInput` via:
+//
+//	RepositoryRulesetConditionsRefNameArgs{...}
+type RepositoryRulesetConditionsRefNameInput interface {
+	pulumi.Input
+
+	ToRepositoryRulesetConditionsRefNameOutput() RepositoryRulesetConditionsRefNameOutput
+	ToRepositoryRulesetConditionsRefNameOutputWithContext(context.Context) RepositoryRulesetConditionsRefNameOutput
+}
+
+type RepositoryRulesetConditionsRefNameArgs struct {
+	// (List of String) Array of ref names or patterns to exclude. The condition will not pass if any of these patterns match.
+	Excludes pulumi.StringArrayInput `pulumi:"excludes"`
+	// (List of String) Array of ref names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~DEFAULT_BRANCH` to include the default branch or `~ALL` to include all branches.
+	Includes pulumi.StringArrayInput `pulumi:"includes"`
+}
+
+func (RepositoryRulesetConditionsRefNameArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositoryRulesetConditionsRefName)(nil)).Elem()
+}
+
+func (i RepositoryRulesetConditionsRefNameArgs) ToRepositoryRulesetConditionsRefNameOutput() RepositoryRulesetConditionsRefNameOutput {
+	return i.ToRepositoryRulesetConditionsRefNameOutputWithContext(context.Background())
+}
+
+func (i RepositoryRulesetConditionsRefNameArgs) ToRepositoryRulesetConditionsRefNameOutputWithContext(ctx context.Context) RepositoryRulesetConditionsRefNameOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryRulesetConditionsRefNameOutput)
+}
+
+func (i RepositoryRulesetConditionsRefNameArgs) ToOutput(ctx context.Context) pulumix.Output[RepositoryRulesetConditionsRefName] {
+	return pulumix.Output[RepositoryRulesetConditionsRefName]{
+		OutputState: i.ToRepositoryRulesetConditionsRefNameOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i RepositoryRulesetConditionsRefNameArgs) ToRepositoryRulesetConditionsRefNamePtrOutput() RepositoryRulesetConditionsRefNamePtrOutput {
+	return i.ToRepositoryRulesetConditionsRefNamePtrOutputWithContext(context.Background())
+}
+
+func (i RepositoryRulesetConditionsRefNameArgs) ToRepositoryRulesetConditionsRefNamePtrOutputWithContext(ctx context.Context) RepositoryRulesetConditionsRefNamePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryRulesetConditionsRefNameOutput).ToRepositoryRulesetConditionsRefNamePtrOutputWithContext(ctx)
+}
+
+// RepositoryRulesetConditionsRefNamePtrInput is an input type that accepts RepositoryRulesetConditionsRefNameArgs, RepositoryRulesetConditionsRefNamePtr and RepositoryRulesetConditionsRefNamePtrOutput values.
+// You can construct a concrete instance of `RepositoryRulesetConditionsRefNamePtrInput` via:
+//
+//	        RepositoryRulesetConditionsRefNameArgs{...}
+//
+//	or:
+//
+//	        nil
+type RepositoryRulesetConditionsRefNamePtrInput interface {
+	pulumi.Input
+
+	ToRepositoryRulesetConditionsRefNamePtrOutput() RepositoryRulesetConditionsRefNamePtrOutput
+	ToRepositoryRulesetConditionsRefNamePtrOutputWithContext(context.Context) RepositoryRulesetConditionsRefNamePtrOutput
+}
+
+type repositoryRulesetConditionsRefNamePtrType RepositoryRulesetConditionsRefNameArgs
+
+func RepositoryRulesetConditionsRefNamePtr(v *RepositoryRulesetConditionsRefNameArgs) RepositoryRulesetConditionsRefNamePtrInput {
+	return (*repositoryRulesetConditionsRefNamePtrType)(v)
+}
+
+func (*repositoryRulesetConditionsRefNamePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RepositoryRulesetConditionsRefName)(nil)).Elem()
+}
+
+func (i *repositoryRulesetConditionsRefNamePtrType) ToRepositoryRulesetConditionsRefNamePtrOutput() RepositoryRulesetConditionsRefNamePtrOutput {
+	return i.ToRepositoryRulesetConditionsRefNamePtrOutputWithContext(context.Background())
+}
+
+func (i *repositoryRulesetConditionsRefNamePtrType) ToRepositoryRulesetConditionsRefNamePtrOutputWithContext(ctx context.Context) RepositoryRulesetConditionsRefNamePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryRulesetConditionsRefNamePtrOutput)
+}
+
+func (i *repositoryRulesetConditionsRefNamePtrType) ToOutput(ctx context.Context) pulumix.Output[*RepositoryRulesetConditionsRefName] {
+	return pulumix.Output[*RepositoryRulesetConditionsRefName]{
+		OutputState: i.ToRepositoryRulesetConditionsRefNamePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type RepositoryRulesetConditionsRefNameOutput struct{ *pulumi.OutputState }
+
+func (RepositoryRulesetConditionsRefNameOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositoryRulesetConditionsRefName)(nil)).Elem()
+}
+
+func (o RepositoryRulesetConditionsRefNameOutput) ToRepositoryRulesetConditionsRefNameOutput() RepositoryRulesetConditionsRefNameOutput {
+	return o
+}
+
+func (o RepositoryRulesetConditionsRefNameOutput) ToRepositoryRulesetConditionsRefNameOutputWithContext(ctx context.Context) RepositoryRulesetConditionsRefNameOutput {
+	return o
+}
+
+func (o RepositoryRulesetConditionsRefNameOutput) ToRepositoryRulesetConditionsRefNamePtrOutput() RepositoryRulesetConditionsRefNamePtrOutput {
+	return o.ToRepositoryRulesetConditionsRefNamePtrOutputWithContext(context.Background())
+}
+
+func (o RepositoryRulesetConditionsRefNameOutput) ToRepositoryRulesetConditionsRefNamePtrOutputWithContext(ctx context.Context) RepositoryRulesetConditionsRefNamePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RepositoryRulesetConditionsRefName) *RepositoryRulesetConditionsRefName {
+		return &v
+	}).(RepositoryRulesetConditionsRefNamePtrOutput)
+}
+
+func (o RepositoryRulesetConditionsRefNameOutput) ToOutput(ctx context.Context) pulumix.Output[RepositoryRulesetConditionsRefName] {
+	return pulumix.Output[RepositoryRulesetConditionsRefName]{
+		OutputState: o.OutputState,
+	}
+}
+
+// (List of String) Array of ref names or patterns to exclude. The condition will not pass if any of these patterns match.
+func (o RepositoryRulesetConditionsRefNameOutput) Excludes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RepositoryRulesetConditionsRefName) []string { return v.Excludes }).(pulumi.StringArrayOutput)
+}
+
+// (List of String) Array of ref names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~DEFAULT_BRANCH` to include the default branch or `~ALL` to include all branches.
+func (o RepositoryRulesetConditionsRefNameOutput) Includes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RepositoryRulesetConditionsRefName) []string { return v.Includes }).(pulumi.StringArrayOutput)
+}
+
+type RepositoryRulesetConditionsRefNamePtrOutput struct{ *pulumi.OutputState }
+
+func (RepositoryRulesetConditionsRefNamePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RepositoryRulesetConditionsRefName)(nil)).Elem()
+}
+
+func (o RepositoryRulesetConditionsRefNamePtrOutput) ToRepositoryRulesetConditionsRefNamePtrOutput() RepositoryRulesetConditionsRefNamePtrOutput {
+	return o
+}
+
+func (o RepositoryRulesetConditionsRefNamePtrOutput) ToRepositoryRulesetConditionsRefNamePtrOutputWithContext(ctx context.Context) RepositoryRulesetConditionsRefNamePtrOutput {
+	return o
+}
+
+func (o RepositoryRulesetConditionsRefNamePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RepositoryRulesetConditionsRefName] {
+	return pulumix.Output[*RepositoryRulesetConditionsRefName]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o RepositoryRulesetConditionsRefNamePtrOutput) Elem() RepositoryRulesetConditionsRefNameOutput {
+	return o.ApplyT(func(v *RepositoryRulesetConditionsRefName) RepositoryRulesetConditionsRefName {
+		if v != nil {
+			return *v
+		}
+		var ret RepositoryRulesetConditionsRefName
+		return ret
+	}).(RepositoryRulesetConditionsRefNameOutput)
+}
+
+// (List of String) Array of ref names or patterns to exclude. The condition will not pass if any of these patterns match.
+func (o RepositoryRulesetConditionsRefNamePtrOutput) Excludes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *RepositoryRulesetConditionsRefName) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Excludes
+	}).(pulumi.StringArrayOutput)
+}
+
+// (List of String) Array of ref names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~DEFAULT_BRANCH` to include the default branch or `~ALL` to include all branches.
+func (o RepositoryRulesetConditionsRefNamePtrOutput) Includes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *RepositoryRulesetConditionsRefName) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Includes
+	}).(pulumi.StringArrayOutput)
+}
+
+type RepositoryRulesetRules struct {
+	// (Block List, Max: 1) Parameters to be used for the branchNamePattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. Conflicts with `tagNamePattern` as it only applied to rulesets with target `branch`. (see below for nested schema)
+	BranchNamePattern *RepositoryRulesetRulesBranchNamePattern `pulumi:"branchNamePattern"`
+	// (Block List, Max: 1) Parameters to be used for the commitAuthorEmailPattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)
+	CommitAuthorEmailPattern *RepositoryRulesetRulesCommitAuthorEmailPattern `pulumi:"commitAuthorEmailPattern"`
+	// (Block List, Max: 1) Parameters to be used for the commitMessagePattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)
+	CommitMessagePattern *RepositoryRulesetRulesCommitMessagePattern `pulumi:"commitMessagePattern"`
+	// (Block List, Max: 1) Parameters to be used for the committerEmailPattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)
+	CommitterEmailPattern *RepositoryRulesetRulesCommitterEmailPattern `pulumi:"committerEmailPattern"`
+	// (Boolean) Only allow users with bypass permission to create matching refs.
+	Creation *bool `pulumi:"creation"`
+	// (Boolean) Only allow users with bypass permissions to delete matching refs.
+	Deletion *bool `pulumi:"deletion"`
+	// (Boolean) Prevent users with push access from force pushing to branches.
+	NonFastForward *bool `pulumi:"nonFastForward"`
+	// (Block List, Max: 1) Require all commits be made to a non-target branch and submitted via a pull request before they can be merged. (see below for nested schema)
+	PullRequest *RepositoryRulesetRulesPullRequest `pulumi:"pullRequest"`
+	// (Block List, Max: 1) Choose which environments must be successfully deployed to before branches can be merged into a branch that matches this rule. (see below for nested schema)
+	RequiredDeployments *RepositoryRulesetRulesRequiredDeployments `pulumi:"requiredDeployments"`
+	// (Boolean) Prevent merge commits from being pushed to matching branches.
+	RequiredLinearHistory *bool `pulumi:"requiredLinearHistory"`
+	// (Boolean) Commits pushed to matching branches must have verified signatures.
+	RequiredSignatures *bool `pulumi:"requiredSignatures"`
+	// (Block List, Max: 1) Choose which status checks must pass before branches can be merged into a branch that matches this rule. When enabled, commits must first be pushed to another branch, then merged or pushed directly to a branch that matches this rule after status checks have passed. (see below for nested schema)
+	RequiredStatusChecks *RepositoryRulesetRulesRequiredStatusChecks `pulumi:"requiredStatusChecks"`
+	// (Block List, Max: 1) Parameters to be used for the tagNamePattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. Conflicts with `branchNamePattern` as it only applied to rulesets with target `tag`. (see below for nested schema)
+	TagNamePattern *RepositoryRulesetRulesTagNamePattern `pulumi:"tagNamePattern"`
+	// (Boolean) Only allow users with bypass permission to update matching refs.
+	Update *bool `pulumi:"update"`
+	// (Boolean) Branch can pull changes from its upstream repository. This is only applicable to forked repositories. Requires `update` to be set to `true`. Note: behaviour is affected by a known bug on the GitHub side which may cause issues when using this parameter.
+	UpdateAllowsFetchAndMerge *bool `pulumi:"updateAllowsFetchAndMerge"`
+}
+
+// RepositoryRulesetRulesInput is an input type that accepts RepositoryRulesetRulesArgs and RepositoryRulesetRulesOutput values.
+// You can construct a concrete instance of `RepositoryRulesetRulesInput` via:
+//
+//	RepositoryRulesetRulesArgs{...}
+type RepositoryRulesetRulesInput interface {
+	pulumi.Input
+
+	ToRepositoryRulesetRulesOutput() RepositoryRulesetRulesOutput
+	ToRepositoryRulesetRulesOutputWithContext(context.Context) RepositoryRulesetRulesOutput
+}
+
+type RepositoryRulesetRulesArgs struct {
+	// (Block List, Max: 1) Parameters to be used for the branchNamePattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. Conflicts with `tagNamePattern` as it only applied to rulesets with target `branch`. (see below for nested schema)
+	BranchNamePattern RepositoryRulesetRulesBranchNamePatternPtrInput `pulumi:"branchNamePattern"`
+	// (Block List, Max: 1) Parameters to be used for the commitAuthorEmailPattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)
+	CommitAuthorEmailPattern RepositoryRulesetRulesCommitAuthorEmailPatternPtrInput `pulumi:"commitAuthorEmailPattern"`
+	// (Block List, Max: 1) Parameters to be used for the commitMessagePattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)
+	CommitMessagePattern RepositoryRulesetRulesCommitMessagePatternPtrInput `pulumi:"commitMessagePattern"`
+	// (Block List, Max: 1) Parameters to be used for the committerEmailPattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)
+	CommitterEmailPattern RepositoryRulesetRulesCommitterEmailPatternPtrInput `pulumi:"committerEmailPattern"`
+	// (Boolean) Only allow users with bypass permission to create matching refs.
+	Creation pulumi.BoolPtrInput `pulumi:"creation"`
+	// (Boolean) Only allow users with bypass permissions to delete matching refs.
+	Deletion pulumi.BoolPtrInput `pulumi:"deletion"`
+	// (Boolean) Prevent users with push access from force pushing to branches.
+	NonFastForward pulumi.BoolPtrInput `pulumi:"nonFastForward"`
+	// (Block List, Max: 1) Require all commits be made to a non-target branch and submitted via a pull request before they can be merged. (see below for nested schema)
+	PullRequest RepositoryRulesetRulesPullRequestPtrInput `pulumi:"pullRequest"`
+	// (Block List, Max: 1) Choose which environments must be successfully deployed to before branches can be merged into a branch that matches this rule. (see below for nested schema)
+	RequiredDeployments RepositoryRulesetRulesRequiredDeploymentsPtrInput `pulumi:"requiredDeployments"`
+	// (Boolean) Prevent merge commits from being pushed to matching branches.
+	RequiredLinearHistory pulumi.BoolPtrInput `pulumi:"requiredLinearHistory"`
+	// (Boolean) Commits pushed to matching branches must have verified signatures.
+	RequiredSignatures pulumi.BoolPtrInput `pulumi:"requiredSignatures"`
+	// (Block List, Max: 1) Choose which status checks must pass before branches can be merged into a branch that matches this rule. When enabled, commits must first be pushed to another branch, then merged or pushed directly to a branch that matches this rule after status checks have passed. (see below for nested schema)
+	RequiredStatusChecks RepositoryRulesetRulesRequiredStatusChecksPtrInput `pulumi:"requiredStatusChecks"`
+	// (Block List, Max: 1) Parameters to be used for the tagNamePattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. Conflicts with `branchNamePattern` as it only applied to rulesets with target `tag`. (see below for nested schema)
+	TagNamePattern RepositoryRulesetRulesTagNamePatternPtrInput `pulumi:"tagNamePattern"`
+	// (Boolean) Only allow users with bypass permission to update matching refs.
+	Update pulumi.BoolPtrInput `pulumi:"update"`
+	// (Boolean) Branch can pull changes from its upstream repository. This is only applicable to forked repositories. Requires `update` to be set to `true`. Note: behaviour is affected by a known bug on the GitHub side which may cause issues when using this parameter.
+	UpdateAllowsFetchAndMerge pulumi.BoolPtrInput `pulumi:"updateAllowsFetchAndMerge"`
+}
+
+func (RepositoryRulesetRulesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositoryRulesetRules)(nil)).Elem()
+}
+
+func (i RepositoryRulesetRulesArgs) ToRepositoryRulesetRulesOutput() RepositoryRulesetRulesOutput {
+	return i.ToRepositoryRulesetRulesOutputWithContext(context.Background())
+}
+
+func (i RepositoryRulesetRulesArgs) ToRepositoryRulesetRulesOutputWithContext(ctx context.Context) RepositoryRulesetRulesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryRulesetRulesOutput)
+}
+
+func (i RepositoryRulesetRulesArgs) ToOutput(ctx context.Context) pulumix.Output[RepositoryRulesetRules] {
+	return pulumix.Output[RepositoryRulesetRules]{
+		OutputState: i.ToRepositoryRulesetRulesOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i RepositoryRulesetRulesArgs) ToRepositoryRulesetRulesPtrOutput() RepositoryRulesetRulesPtrOutput {
+	return i.ToRepositoryRulesetRulesPtrOutputWithContext(context.Background())
+}
+
+func (i RepositoryRulesetRulesArgs) ToRepositoryRulesetRulesPtrOutputWithContext(ctx context.Context) RepositoryRulesetRulesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryRulesetRulesOutput).ToRepositoryRulesetRulesPtrOutputWithContext(ctx)
+}
+
+// RepositoryRulesetRulesPtrInput is an input type that accepts RepositoryRulesetRulesArgs, RepositoryRulesetRulesPtr and RepositoryRulesetRulesPtrOutput values.
+// You can construct a concrete instance of `RepositoryRulesetRulesPtrInput` via:
+//
+//	        RepositoryRulesetRulesArgs{...}
+//
+//	or:
+//
+//	        nil
+type RepositoryRulesetRulesPtrInput interface {
+	pulumi.Input
+
+	ToRepositoryRulesetRulesPtrOutput() RepositoryRulesetRulesPtrOutput
+	ToRepositoryRulesetRulesPtrOutputWithContext(context.Context) RepositoryRulesetRulesPtrOutput
+}
+
+type repositoryRulesetRulesPtrType RepositoryRulesetRulesArgs
+
+func RepositoryRulesetRulesPtr(v *RepositoryRulesetRulesArgs) RepositoryRulesetRulesPtrInput {
+	return (*repositoryRulesetRulesPtrType)(v)
+}
+
+func (*repositoryRulesetRulesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RepositoryRulesetRules)(nil)).Elem()
+}
+
+func (i *repositoryRulesetRulesPtrType) ToRepositoryRulesetRulesPtrOutput() RepositoryRulesetRulesPtrOutput {
+	return i.ToRepositoryRulesetRulesPtrOutputWithContext(context.Background())
+}
+
+func (i *repositoryRulesetRulesPtrType) ToRepositoryRulesetRulesPtrOutputWithContext(ctx context.Context) RepositoryRulesetRulesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryRulesetRulesPtrOutput)
+}
+
+func (i *repositoryRulesetRulesPtrType) ToOutput(ctx context.Context) pulumix.Output[*RepositoryRulesetRules] {
+	return pulumix.Output[*RepositoryRulesetRules]{
+		OutputState: i.ToRepositoryRulesetRulesPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type RepositoryRulesetRulesOutput struct{ *pulumi.OutputState }
+
+func (RepositoryRulesetRulesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositoryRulesetRules)(nil)).Elem()
+}
+
+func (o RepositoryRulesetRulesOutput) ToRepositoryRulesetRulesOutput() RepositoryRulesetRulesOutput {
+	return o
+}
+
+func (o RepositoryRulesetRulesOutput) ToRepositoryRulesetRulesOutputWithContext(ctx context.Context) RepositoryRulesetRulesOutput {
+	return o
+}
+
+func (o RepositoryRulesetRulesOutput) ToRepositoryRulesetRulesPtrOutput() RepositoryRulesetRulesPtrOutput {
+	return o.ToRepositoryRulesetRulesPtrOutputWithContext(context.Background())
+}
+
+func (o RepositoryRulesetRulesOutput) ToRepositoryRulesetRulesPtrOutputWithContext(ctx context.Context) RepositoryRulesetRulesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RepositoryRulesetRules) *RepositoryRulesetRules {
+		return &v
+	}).(RepositoryRulesetRulesPtrOutput)
+}
+
+func (o RepositoryRulesetRulesOutput) ToOutput(ctx context.Context) pulumix.Output[RepositoryRulesetRules] {
+	return pulumix.Output[RepositoryRulesetRules]{
+		OutputState: o.OutputState,
+	}
+}
+
+// (Block List, Max: 1) Parameters to be used for the branchNamePattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. Conflicts with `tagNamePattern` as it only applied to rulesets with target `branch`. (see below for nested schema)
+func (o RepositoryRulesetRulesOutput) BranchNamePattern() RepositoryRulesetRulesBranchNamePatternPtrOutput {
+	return o.ApplyT(func(v RepositoryRulesetRules) *RepositoryRulesetRulesBranchNamePattern { return v.BranchNamePattern }).(RepositoryRulesetRulesBranchNamePatternPtrOutput)
+}
+
+// (Block List, Max: 1) Parameters to be used for the commitAuthorEmailPattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)
+func (o RepositoryRulesetRulesOutput) CommitAuthorEmailPattern() RepositoryRulesetRulesCommitAuthorEmailPatternPtrOutput {
+	return o.ApplyT(func(v RepositoryRulesetRules) *RepositoryRulesetRulesCommitAuthorEmailPattern {
+		return v.CommitAuthorEmailPattern
+	}).(RepositoryRulesetRulesCommitAuthorEmailPatternPtrOutput)
+}
+
+// (Block List, Max: 1) Parameters to be used for the commitMessagePattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)
+func (o RepositoryRulesetRulesOutput) CommitMessagePattern() RepositoryRulesetRulesCommitMessagePatternPtrOutput {
+	return o.ApplyT(func(v RepositoryRulesetRules) *RepositoryRulesetRulesCommitMessagePattern {
+		return v.CommitMessagePattern
+	}).(RepositoryRulesetRulesCommitMessagePatternPtrOutput)
+}
+
+// (Block List, Max: 1) Parameters to be used for the committerEmailPattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)
+func (o RepositoryRulesetRulesOutput) CommitterEmailPattern() RepositoryRulesetRulesCommitterEmailPatternPtrOutput {
+	return o.ApplyT(func(v RepositoryRulesetRules) *RepositoryRulesetRulesCommitterEmailPattern {
+		return v.CommitterEmailPattern
+	}).(RepositoryRulesetRulesCommitterEmailPatternPtrOutput)
+}
+
+// (Boolean) Only allow users with bypass permission to create matching refs.
+func (o RepositoryRulesetRulesOutput) Creation() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RepositoryRulesetRules) *bool { return v.Creation }).(pulumi.BoolPtrOutput)
+}
+
+// (Boolean) Only allow users with bypass permissions to delete matching refs.
+func (o RepositoryRulesetRulesOutput) Deletion() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RepositoryRulesetRules) *bool { return v.Deletion }).(pulumi.BoolPtrOutput)
+}
+
+// (Boolean) Prevent users with push access from force pushing to branches.
+func (o RepositoryRulesetRulesOutput) NonFastForward() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RepositoryRulesetRules) *bool { return v.NonFastForward }).(pulumi.BoolPtrOutput)
+}
+
+// (Block List, Max: 1) Require all commits be made to a non-target branch and submitted via a pull request before they can be merged. (see below for nested schema)
+func (o RepositoryRulesetRulesOutput) PullRequest() RepositoryRulesetRulesPullRequestPtrOutput {
+	return o.ApplyT(func(v RepositoryRulesetRules) *RepositoryRulesetRulesPullRequest { return v.PullRequest }).(RepositoryRulesetRulesPullRequestPtrOutput)
+}
+
+// (Block List, Max: 1) Choose which environments must be successfully deployed to before branches can be merged into a branch that matches this rule. (see below for nested schema)
+func (o RepositoryRulesetRulesOutput) RequiredDeployments() RepositoryRulesetRulesRequiredDeploymentsPtrOutput {
+	return o.ApplyT(func(v RepositoryRulesetRules) *RepositoryRulesetRulesRequiredDeployments {
+		return v.RequiredDeployments
+	}).(RepositoryRulesetRulesRequiredDeploymentsPtrOutput)
+}
+
+// (Boolean) Prevent merge commits from being pushed to matching branches.
+func (o RepositoryRulesetRulesOutput) RequiredLinearHistory() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RepositoryRulesetRules) *bool { return v.RequiredLinearHistory }).(pulumi.BoolPtrOutput)
+}
+
+// (Boolean) Commits pushed to matching branches must have verified signatures.
+func (o RepositoryRulesetRulesOutput) RequiredSignatures() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RepositoryRulesetRules) *bool { return v.RequiredSignatures }).(pulumi.BoolPtrOutput)
+}
+
+// (Block List, Max: 1) Choose which status checks must pass before branches can be merged into a branch that matches this rule. When enabled, commits must first be pushed to another branch, then merged or pushed directly to a branch that matches this rule after status checks have passed. (see below for nested schema)
+func (o RepositoryRulesetRulesOutput) RequiredStatusChecks() RepositoryRulesetRulesRequiredStatusChecksPtrOutput {
+	return o.ApplyT(func(v RepositoryRulesetRules) *RepositoryRulesetRulesRequiredStatusChecks {
+		return v.RequiredStatusChecks
+	}).(RepositoryRulesetRulesRequiredStatusChecksPtrOutput)
+}
+
+// (Block List, Max: 1) Parameters to be used for the tagNamePattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. Conflicts with `branchNamePattern` as it only applied to rulesets with target `tag`. (see below for nested schema)
+func (o RepositoryRulesetRulesOutput) TagNamePattern() RepositoryRulesetRulesTagNamePatternPtrOutput {
+	return o.ApplyT(func(v RepositoryRulesetRules) *RepositoryRulesetRulesTagNamePattern { return v.TagNamePattern }).(RepositoryRulesetRulesTagNamePatternPtrOutput)
+}
+
+// (Boolean) Only allow users with bypass permission to update matching refs.
+func (o RepositoryRulesetRulesOutput) Update() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RepositoryRulesetRules) *bool { return v.Update }).(pulumi.BoolPtrOutput)
+}
+
+// (Boolean) Branch can pull changes from its upstream repository. This is only applicable to forked repositories. Requires `update` to be set to `true`. Note: behaviour is affected by a known bug on the GitHub side which may cause issues when using this parameter.
+func (o RepositoryRulesetRulesOutput) UpdateAllowsFetchAndMerge() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RepositoryRulesetRules) *bool { return v.UpdateAllowsFetchAndMerge }).(pulumi.BoolPtrOutput)
+}
+
+type RepositoryRulesetRulesPtrOutput struct{ *pulumi.OutputState }
+
+func (RepositoryRulesetRulesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RepositoryRulesetRules)(nil)).Elem()
+}
+
+func (o RepositoryRulesetRulesPtrOutput) ToRepositoryRulesetRulesPtrOutput() RepositoryRulesetRulesPtrOutput {
+	return o
+}
+
+func (o RepositoryRulesetRulesPtrOutput) ToRepositoryRulesetRulesPtrOutputWithContext(ctx context.Context) RepositoryRulesetRulesPtrOutput {
+	return o
+}
+
+func (o RepositoryRulesetRulesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RepositoryRulesetRules] {
+	return pulumix.Output[*RepositoryRulesetRules]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o RepositoryRulesetRulesPtrOutput) Elem() RepositoryRulesetRulesOutput {
+	return o.ApplyT(func(v *RepositoryRulesetRules) RepositoryRulesetRules {
+		if v != nil {
+			return *v
+		}
+		var ret RepositoryRulesetRules
+		return ret
+	}).(RepositoryRulesetRulesOutput)
+}
+
+// (Block List, Max: 1) Parameters to be used for the branchNamePattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. Conflicts with `tagNamePattern` as it only applied to rulesets with target `branch`. (see below for nested schema)
+func (o RepositoryRulesetRulesPtrOutput) BranchNamePattern() RepositoryRulesetRulesBranchNamePatternPtrOutput {
+	return o.ApplyT(func(v *RepositoryRulesetRules) *RepositoryRulesetRulesBranchNamePattern {
+		if v == nil {
+			return nil
+		}
+		return v.BranchNamePattern
+	}).(RepositoryRulesetRulesBranchNamePatternPtrOutput)
+}
+
+// (Block List, Max: 1) Parameters to be used for the commitAuthorEmailPattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)
+func (o RepositoryRulesetRulesPtrOutput) CommitAuthorEmailPattern() RepositoryRulesetRulesCommitAuthorEmailPatternPtrOutput {
+	return o.ApplyT(func(v *RepositoryRulesetRules) *RepositoryRulesetRulesCommitAuthorEmailPattern {
+		if v == nil {
+			return nil
+		}
+		return v.CommitAuthorEmailPattern
+	}).(RepositoryRulesetRulesCommitAuthorEmailPatternPtrOutput)
+}
+
+// (Block List, Max: 1) Parameters to be used for the commitMessagePattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)
+func (o RepositoryRulesetRulesPtrOutput) CommitMessagePattern() RepositoryRulesetRulesCommitMessagePatternPtrOutput {
+	return o.ApplyT(func(v *RepositoryRulesetRules) *RepositoryRulesetRulesCommitMessagePattern {
+		if v == nil {
+			return nil
+		}
+		return v.CommitMessagePattern
+	}).(RepositoryRulesetRulesCommitMessagePatternPtrOutput)
+}
+
+// (Block List, Max: 1) Parameters to be used for the committerEmailPattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)
+func (o RepositoryRulesetRulesPtrOutput) CommitterEmailPattern() RepositoryRulesetRulesCommitterEmailPatternPtrOutput {
+	return o.ApplyT(func(v *RepositoryRulesetRules) *RepositoryRulesetRulesCommitterEmailPattern {
+		if v == nil {
+			return nil
+		}
+		return v.CommitterEmailPattern
+	}).(RepositoryRulesetRulesCommitterEmailPatternPtrOutput)
+}
+
+// (Boolean) Only allow users with bypass permission to create matching refs.
+func (o RepositoryRulesetRulesPtrOutput) Creation() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RepositoryRulesetRules) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Creation
+	}).(pulumi.BoolPtrOutput)
+}
+
+// (Boolean) Only allow users with bypass permissions to delete matching refs.
+func (o RepositoryRulesetRulesPtrOutput) Deletion() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RepositoryRulesetRules) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Deletion
+	}).(pulumi.BoolPtrOutput)
+}
+
+// (Boolean) Prevent users with push access from force pushing to branches.
+func (o RepositoryRulesetRulesPtrOutput) NonFastForward() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RepositoryRulesetRules) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.NonFastForward
+	}).(pulumi.BoolPtrOutput)
+}
+
+// (Block List, Max: 1) Require all commits be made to a non-target branch and submitted via a pull request before they can be merged. (see below for nested schema)
+func (o RepositoryRulesetRulesPtrOutput) PullRequest() RepositoryRulesetRulesPullRequestPtrOutput {
+	return o.ApplyT(func(v *RepositoryRulesetRules) *RepositoryRulesetRulesPullRequest {
+		if v == nil {
+			return nil
+		}
+		return v.PullRequest
+	}).(RepositoryRulesetRulesPullRequestPtrOutput)
+}
+
+// (Block List, Max: 1) Choose which environments must be successfully deployed to before branches can be merged into a branch that matches this rule. (see below for nested schema)
+func (o RepositoryRulesetRulesPtrOutput) RequiredDeployments() RepositoryRulesetRulesRequiredDeploymentsPtrOutput {
+	return o.ApplyT(func(v *RepositoryRulesetRules) *RepositoryRulesetRulesRequiredDeployments {
+		if v == nil {
+			return nil
+		}
+		return v.RequiredDeployments
+	}).(RepositoryRulesetRulesRequiredDeploymentsPtrOutput)
+}
+
+// (Boolean) Prevent merge commits from being pushed to matching branches.
+func (o RepositoryRulesetRulesPtrOutput) RequiredLinearHistory() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RepositoryRulesetRules) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.RequiredLinearHistory
+	}).(pulumi.BoolPtrOutput)
+}
+
+// (Boolean) Commits pushed to matching branches must have verified signatures.
+func (o RepositoryRulesetRulesPtrOutput) RequiredSignatures() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RepositoryRulesetRules) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.RequiredSignatures
+	}).(pulumi.BoolPtrOutput)
+}
+
+// (Block List, Max: 1) Choose which status checks must pass before branches can be merged into a branch that matches this rule. When enabled, commits must first be pushed to another branch, then merged or pushed directly to a branch that matches this rule after status checks have passed. (see below for nested schema)
+func (o RepositoryRulesetRulesPtrOutput) RequiredStatusChecks() RepositoryRulesetRulesRequiredStatusChecksPtrOutput {
+	return o.ApplyT(func(v *RepositoryRulesetRules) *RepositoryRulesetRulesRequiredStatusChecks {
+		if v == nil {
+			return nil
+		}
+		return v.RequiredStatusChecks
+	}).(RepositoryRulesetRulesRequiredStatusChecksPtrOutput)
+}
+
+// (Block List, Max: 1) Parameters to be used for the tagNamePattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. Conflicts with `branchNamePattern` as it only applied to rulesets with target `tag`. (see below for nested schema)
+func (o RepositoryRulesetRulesPtrOutput) TagNamePattern() RepositoryRulesetRulesTagNamePatternPtrOutput {
+	return o.ApplyT(func(v *RepositoryRulesetRules) *RepositoryRulesetRulesTagNamePattern {
+		if v == nil {
+			return nil
+		}
+		return v.TagNamePattern
+	}).(RepositoryRulesetRulesTagNamePatternPtrOutput)
+}
+
+// (Boolean) Only allow users with bypass permission to update matching refs.
+func (o RepositoryRulesetRulesPtrOutput) Update() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RepositoryRulesetRules) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Update
+	}).(pulumi.BoolPtrOutput)
+}
+
+// (Boolean) Branch can pull changes from its upstream repository. This is only applicable to forked repositories. Requires `update` to be set to `true`. Note: behaviour is affected by a known bug on the GitHub side which may cause issues when using this parameter.
+func (o RepositoryRulesetRulesPtrOutput) UpdateAllowsFetchAndMerge() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RepositoryRulesetRules) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.UpdateAllowsFetchAndMerge
+	}).(pulumi.BoolPtrOutput)
+}
+
+type RepositoryRulesetRulesBranchNamePattern struct {
+	// (String) The name of the ruleset.
+	Name *string `pulumi:"name"`
+	// (Boolean) If true, the rule will fail if the pattern matches.
+	Negate *bool `pulumi:"negate"`
+	// (String) The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
+	Operator string `pulumi:"operator"`
+	// (String) The pattern to match with.
+	Pattern string `pulumi:"pattern"`
+}
+
+// RepositoryRulesetRulesBranchNamePatternInput is an input type that accepts RepositoryRulesetRulesBranchNamePatternArgs and RepositoryRulesetRulesBranchNamePatternOutput values.
+// You can construct a concrete instance of `RepositoryRulesetRulesBranchNamePatternInput` via:
+//
+//	RepositoryRulesetRulesBranchNamePatternArgs{...}
+type RepositoryRulesetRulesBranchNamePatternInput interface {
+	pulumi.Input
+
+	ToRepositoryRulesetRulesBranchNamePatternOutput() RepositoryRulesetRulesBranchNamePatternOutput
+	ToRepositoryRulesetRulesBranchNamePatternOutputWithContext(context.Context) RepositoryRulesetRulesBranchNamePatternOutput
+}
+
+type RepositoryRulesetRulesBranchNamePatternArgs struct {
+	// (String) The name of the ruleset.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// (Boolean) If true, the rule will fail if the pattern matches.
+	Negate pulumi.BoolPtrInput `pulumi:"negate"`
+	// (String) The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// (String) The pattern to match with.
+	Pattern pulumi.StringInput `pulumi:"pattern"`
+}
+
+func (RepositoryRulesetRulesBranchNamePatternArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositoryRulesetRulesBranchNamePattern)(nil)).Elem()
+}
+
+func (i RepositoryRulesetRulesBranchNamePatternArgs) ToRepositoryRulesetRulesBranchNamePatternOutput() RepositoryRulesetRulesBranchNamePatternOutput {
+	return i.ToRepositoryRulesetRulesBranchNamePatternOutputWithContext(context.Background())
+}
+
+func (i RepositoryRulesetRulesBranchNamePatternArgs) ToRepositoryRulesetRulesBranchNamePatternOutputWithContext(ctx context.Context) RepositoryRulesetRulesBranchNamePatternOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryRulesetRulesBranchNamePatternOutput)
+}
+
+func (i RepositoryRulesetRulesBranchNamePatternArgs) ToOutput(ctx context.Context) pulumix.Output[RepositoryRulesetRulesBranchNamePattern] {
+	return pulumix.Output[RepositoryRulesetRulesBranchNamePattern]{
+		OutputState: i.ToRepositoryRulesetRulesBranchNamePatternOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i RepositoryRulesetRulesBranchNamePatternArgs) ToRepositoryRulesetRulesBranchNamePatternPtrOutput() RepositoryRulesetRulesBranchNamePatternPtrOutput {
+	return i.ToRepositoryRulesetRulesBranchNamePatternPtrOutputWithContext(context.Background())
+}
+
+func (i RepositoryRulesetRulesBranchNamePatternArgs) ToRepositoryRulesetRulesBranchNamePatternPtrOutputWithContext(ctx context.Context) RepositoryRulesetRulesBranchNamePatternPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryRulesetRulesBranchNamePatternOutput).ToRepositoryRulesetRulesBranchNamePatternPtrOutputWithContext(ctx)
+}
+
+// RepositoryRulesetRulesBranchNamePatternPtrInput is an input type that accepts RepositoryRulesetRulesBranchNamePatternArgs, RepositoryRulesetRulesBranchNamePatternPtr and RepositoryRulesetRulesBranchNamePatternPtrOutput values.
+// You can construct a concrete instance of `RepositoryRulesetRulesBranchNamePatternPtrInput` via:
+//
+//	        RepositoryRulesetRulesBranchNamePatternArgs{...}
+//
+//	or:
+//
+//	        nil
+type RepositoryRulesetRulesBranchNamePatternPtrInput interface {
+	pulumi.Input
+
+	ToRepositoryRulesetRulesBranchNamePatternPtrOutput() RepositoryRulesetRulesBranchNamePatternPtrOutput
+	ToRepositoryRulesetRulesBranchNamePatternPtrOutputWithContext(context.Context) RepositoryRulesetRulesBranchNamePatternPtrOutput
+}
+
+type repositoryRulesetRulesBranchNamePatternPtrType RepositoryRulesetRulesBranchNamePatternArgs
+
+func RepositoryRulesetRulesBranchNamePatternPtr(v *RepositoryRulesetRulesBranchNamePatternArgs) RepositoryRulesetRulesBranchNamePatternPtrInput {
+	return (*repositoryRulesetRulesBranchNamePatternPtrType)(v)
+}
+
+func (*repositoryRulesetRulesBranchNamePatternPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RepositoryRulesetRulesBranchNamePattern)(nil)).Elem()
+}
+
+func (i *repositoryRulesetRulesBranchNamePatternPtrType) ToRepositoryRulesetRulesBranchNamePatternPtrOutput() RepositoryRulesetRulesBranchNamePatternPtrOutput {
+	return i.ToRepositoryRulesetRulesBranchNamePatternPtrOutputWithContext(context.Background())
+}
+
+func (i *repositoryRulesetRulesBranchNamePatternPtrType) ToRepositoryRulesetRulesBranchNamePatternPtrOutputWithContext(ctx context.Context) RepositoryRulesetRulesBranchNamePatternPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryRulesetRulesBranchNamePatternPtrOutput)
+}
+
+func (i *repositoryRulesetRulesBranchNamePatternPtrType) ToOutput(ctx context.Context) pulumix.Output[*RepositoryRulesetRulesBranchNamePattern] {
+	return pulumix.Output[*RepositoryRulesetRulesBranchNamePattern]{
+		OutputState: i.ToRepositoryRulesetRulesBranchNamePatternPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type RepositoryRulesetRulesBranchNamePatternOutput struct{ *pulumi.OutputState }
+
+func (RepositoryRulesetRulesBranchNamePatternOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositoryRulesetRulesBranchNamePattern)(nil)).Elem()
+}
+
+func (o RepositoryRulesetRulesBranchNamePatternOutput) ToRepositoryRulesetRulesBranchNamePatternOutput() RepositoryRulesetRulesBranchNamePatternOutput {
+	return o
+}
+
+func (o RepositoryRulesetRulesBranchNamePatternOutput) ToRepositoryRulesetRulesBranchNamePatternOutputWithContext(ctx context.Context) RepositoryRulesetRulesBranchNamePatternOutput {
+	return o
+}
+
+func (o RepositoryRulesetRulesBranchNamePatternOutput) ToRepositoryRulesetRulesBranchNamePatternPtrOutput() RepositoryRulesetRulesBranchNamePatternPtrOutput {
+	return o.ToRepositoryRulesetRulesBranchNamePatternPtrOutputWithContext(context.Background())
+}
+
+func (o RepositoryRulesetRulesBranchNamePatternOutput) ToRepositoryRulesetRulesBranchNamePatternPtrOutputWithContext(ctx context.Context) RepositoryRulesetRulesBranchNamePatternPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RepositoryRulesetRulesBranchNamePattern) *RepositoryRulesetRulesBranchNamePattern {
+		return &v
+	}).(RepositoryRulesetRulesBranchNamePatternPtrOutput)
+}
+
+func (o RepositoryRulesetRulesBranchNamePatternOutput) ToOutput(ctx context.Context) pulumix.Output[RepositoryRulesetRulesBranchNamePattern] {
+	return pulumix.Output[RepositoryRulesetRulesBranchNamePattern]{
+		OutputState: o.OutputState,
+	}
+}
+
+// (String) The name of the ruleset.
+func (o RepositoryRulesetRulesBranchNamePatternOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RepositoryRulesetRulesBranchNamePattern) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// (Boolean) If true, the rule will fail if the pattern matches.
+func (o RepositoryRulesetRulesBranchNamePatternOutput) Negate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RepositoryRulesetRulesBranchNamePattern) *bool { return v.Negate }).(pulumi.BoolPtrOutput)
+}
+
+// (String) The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
+func (o RepositoryRulesetRulesBranchNamePatternOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v RepositoryRulesetRulesBranchNamePattern) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// (String) The pattern to match with.
+func (o RepositoryRulesetRulesBranchNamePatternOutput) Pattern() pulumi.StringOutput {
+	return o.ApplyT(func(v RepositoryRulesetRulesBranchNamePattern) string { return v.Pattern }).(pulumi.StringOutput)
+}
+
+type RepositoryRulesetRulesBranchNamePatternPtrOutput struct{ *pulumi.OutputState }
+
+func (RepositoryRulesetRulesBranchNamePatternPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RepositoryRulesetRulesBranchNamePattern)(nil)).Elem()
+}
+
+func (o RepositoryRulesetRulesBranchNamePatternPtrOutput) ToRepositoryRulesetRulesBranchNamePatternPtrOutput() RepositoryRulesetRulesBranchNamePatternPtrOutput {
+	return o
+}
+
+func (o RepositoryRulesetRulesBranchNamePatternPtrOutput) ToRepositoryRulesetRulesBranchNamePatternPtrOutputWithContext(ctx context.Context) RepositoryRulesetRulesBranchNamePatternPtrOutput {
+	return o
+}
+
+func (o RepositoryRulesetRulesBranchNamePatternPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RepositoryRulesetRulesBranchNamePattern] {
+	return pulumix.Output[*RepositoryRulesetRulesBranchNamePattern]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o RepositoryRulesetRulesBranchNamePatternPtrOutput) Elem() RepositoryRulesetRulesBranchNamePatternOutput {
+	return o.ApplyT(func(v *RepositoryRulesetRulesBranchNamePattern) RepositoryRulesetRulesBranchNamePattern {
+		if v != nil {
+			return *v
+		}
+		var ret RepositoryRulesetRulesBranchNamePattern
+		return ret
+	}).(RepositoryRulesetRulesBranchNamePatternOutput)
+}
+
+// (String) The name of the ruleset.
+func (o RepositoryRulesetRulesBranchNamePatternPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RepositoryRulesetRulesBranchNamePattern) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// (Boolean) If true, the rule will fail if the pattern matches.
+func (o RepositoryRulesetRulesBranchNamePatternPtrOutput) Negate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RepositoryRulesetRulesBranchNamePattern) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Negate
+	}).(pulumi.BoolPtrOutput)
+}
+
+// (String) The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
+func (o RepositoryRulesetRulesBranchNamePatternPtrOutput) Operator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RepositoryRulesetRulesBranchNamePattern) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Operator
+	}).(pulumi.StringPtrOutput)
+}
+
+// (String) The pattern to match with.
+func (o RepositoryRulesetRulesBranchNamePatternPtrOutput) Pattern() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RepositoryRulesetRulesBranchNamePattern) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Pattern
+	}).(pulumi.StringPtrOutput)
+}
+
+type RepositoryRulesetRulesCommitAuthorEmailPattern struct {
+	// (String) The name of the ruleset.
+	Name *string `pulumi:"name"`
+	// (Boolean) If true, the rule will fail if the pattern matches.
+	Negate *bool `pulumi:"negate"`
+	// (String) The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
+	Operator string `pulumi:"operator"`
+	// (String) The pattern to match with.
+	Pattern string `pulumi:"pattern"`
+}
+
+// RepositoryRulesetRulesCommitAuthorEmailPatternInput is an input type that accepts RepositoryRulesetRulesCommitAuthorEmailPatternArgs and RepositoryRulesetRulesCommitAuthorEmailPatternOutput values.
+// You can construct a concrete instance of `RepositoryRulesetRulesCommitAuthorEmailPatternInput` via:
+//
+//	RepositoryRulesetRulesCommitAuthorEmailPatternArgs{...}
+type RepositoryRulesetRulesCommitAuthorEmailPatternInput interface {
+	pulumi.Input
+
+	ToRepositoryRulesetRulesCommitAuthorEmailPatternOutput() RepositoryRulesetRulesCommitAuthorEmailPatternOutput
+	ToRepositoryRulesetRulesCommitAuthorEmailPatternOutputWithContext(context.Context) RepositoryRulesetRulesCommitAuthorEmailPatternOutput
+}
+
+type RepositoryRulesetRulesCommitAuthorEmailPatternArgs struct {
+	// (String) The name of the ruleset.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// (Boolean) If true, the rule will fail if the pattern matches.
+	Negate pulumi.BoolPtrInput `pulumi:"negate"`
+	// (String) The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// (String) The pattern to match with.
+	Pattern pulumi.StringInput `pulumi:"pattern"`
+}
+
+func (RepositoryRulesetRulesCommitAuthorEmailPatternArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositoryRulesetRulesCommitAuthorEmailPattern)(nil)).Elem()
+}
+
+func (i RepositoryRulesetRulesCommitAuthorEmailPatternArgs) ToRepositoryRulesetRulesCommitAuthorEmailPatternOutput() RepositoryRulesetRulesCommitAuthorEmailPatternOutput {
+	return i.ToRepositoryRulesetRulesCommitAuthorEmailPatternOutputWithContext(context.Background())
+}
+
+func (i RepositoryRulesetRulesCommitAuthorEmailPatternArgs) ToRepositoryRulesetRulesCommitAuthorEmailPatternOutputWithContext(ctx context.Context) RepositoryRulesetRulesCommitAuthorEmailPatternOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryRulesetRulesCommitAuthorEmailPatternOutput)
+}
+
+func (i RepositoryRulesetRulesCommitAuthorEmailPatternArgs) ToOutput(ctx context.Context) pulumix.Output[RepositoryRulesetRulesCommitAuthorEmailPattern] {
+	return pulumix.Output[RepositoryRulesetRulesCommitAuthorEmailPattern]{
+		OutputState: i.ToRepositoryRulesetRulesCommitAuthorEmailPatternOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i RepositoryRulesetRulesCommitAuthorEmailPatternArgs) ToRepositoryRulesetRulesCommitAuthorEmailPatternPtrOutput() RepositoryRulesetRulesCommitAuthorEmailPatternPtrOutput {
+	return i.ToRepositoryRulesetRulesCommitAuthorEmailPatternPtrOutputWithContext(context.Background())
+}
+
+func (i RepositoryRulesetRulesCommitAuthorEmailPatternArgs) ToRepositoryRulesetRulesCommitAuthorEmailPatternPtrOutputWithContext(ctx context.Context) RepositoryRulesetRulesCommitAuthorEmailPatternPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryRulesetRulesCommitAuthorEmailPatternOutput).ToRepositoryRulesetRulesCommitAuthorEmailPatternPtrOutputWithContext(ctx)
+}
+
+// RepositoryRulesetRulesCommitAuthorEmailPatternPtrInput is an input type that accepts RepositoryRulesetRulesCommitAuthorEmailPatternArgs, RepositoryRulesetRulesCommitAuthorEmailPatternPtr and RepositoryRulesetRulesCommitAuthorEmailPatternPtrOutput values.
+// You can construct a concrete instance of `RepositoryRulesetRulesCommitAuthorEmailPatternPtrInput` via:
+//
+//	        RepositoryRulesetRulesCommitAuthorEmailPatternArgs{...}
+//
+//	or:
+//
+//	        nil
+type RepositoryRulesetRulesCommitAuthorEmailPatternPtrInput interface {
+	pulumi.Input
+
+	ToRepositoryRulesetRulesCommitAuthorEmailPatternPtrOutput() RepositoryRulesetRulesCommitAuthorEmailPatternPtrOutput
+	ToRepositoryRulesetRulesCommitAuthorEmailPatternPtrOutputWithContext(context.Context) RepositoryRulesetRulesCommitAuthorEmailPatternPtrOutput
+}
+
+type repositoryRulesetRulesCommitAuthorEmailPatternPtrType RepositoryRulesetRulesCommitAuthorEmailPatternArgs
+
+func RepositoryRulesetRulesCommitAuthorEmailPatternPtr(v *RepositoryRulesetRulesCommitAuthorEmailPatternArgs) RepositoryRulesetRulesCommitAuthorEmailPatternPtrInput {
+	return (*repositoryRulesetRulesCommitAuthorEmailPatternPtrType)(v)
+}
+
+func (*repositoryRulesetRulesCommitAuthorEmailPatternPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RepositoryRulesetRulesCommitAuthorEmailPattern)(nil)).Elem()
+}
+
+func (i *repositoryRulesetRulesCommitAuthorEmailPatternPtrType) ToRepositoryRulesetRulesCommitAuthorEmailPatternPtrOutput() RepositoryRulesetRulesCommitAuthorEmailPatternPtrOutput {
+	return i.ToRepositoryRulesetRulesCommitAuthorEmailPatternPtrOutputWithContext(context.Background())
+}
+
+func (i *repositoryRulesetRulesCommitAuthorEmailPatternPtrType) ToRepositoryRulesetRulesCommitAuthorEmailPatternPtrOutputWithContext(ctx context.Context) RepositoryRulesetRulesCommitAuthorEmailPatternPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryRulesetRulesCommitAuthorEmailPatternPtrOutput)
+}
+
+func (i *repositoryRulesetRulesCommitAuthorEmailPatternPtrType) ToOutput(ctx context.Context) pulumix.Output[*RepositoryRulesetRulesCommitAuthorEmailPattern] {
+	return pulumix.Output[*RepositoryRulesetRulesCommitAuthorEmailPattern]{
+		OutputState: i.ToRepositoryRulesetRulesCommitAuthorEmailPatternPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type RepositoryRulesetRulesCommitAuthorEmailPatternOutput struct{ *pulumi.OutputState }
+
+func (RepositoryRulesetRulesCommitAuthorEmailPatternOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositoryRulesetRulesCommitAuthorEmailPattern)(nil)).Elem()
+}
+
+func (o RepositoryRulesetRulesCommitAuthorEmailPatternOutput) ToRepositoryRulesetRulesCommitAuthorEmailPatternOutput() RepositoryRulesetRulesCommitAuthorEmailPatternOutput {
+	return o
+}
+
+func (o RepositoryRulesetRulesCommitAuthorEmailPatternOutput) ToRepositoryRulesetRulesCommitAuthorEmailPatternOutputWithContext(ctx context.Context) RepositoryRulesetRulesCommitAuthorEmailPatternOutput {
+	return o
+}
+
+func (o RepositoryRulesetRulesCommitAuthorEmailPatternOutput) ToRepositoryRulesetRulesCommitAuthorEmailPatternPtrOutput() RepositoryRulesetRulesCommitAuthorEmailPatternPtrOutput {
+	return o.ToRepositoryRulesetRulesCommitAuthorEmailPatternPtrOutputWithContext(context.Background())
+}
+
+func (o RepositoryRulesetRulesCommitAuthorEmailPatternOutput) ToRepositoryRulesetRulesCommitAuthorEmailPatternPtrOutputWithContext(ctx context.Context) RepositoryRulesetRulesCommitAuthorEmailPatternPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RepositoryRulesetRulesCommitAuthorEmailPattern) *RepositoryRulesetRulesCommitAuthorEmailPattern {
+		return &v
+	}).(RepositoryRulesetRulesCommitAuthorEmailPatternPtrOutput)
+}
+
+func (o RepositoryRulesetRulesCommitAuthorEmailPatternOutput) ToOutput(ctx context.Context) pulumix.Output[RepositoryRulesetRulesCommitAuthorEmailPattern] {
+	return pulumix.Output[RepositoryRulesetRulesCommitAuthorEmailPattern]{
+		OutputState: o.OutputState,
+	}
+}
+
+// (String) The name of the ruleset.
+func (o RepositoryRulesetRulesCommitAuthorEmailPatternOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RepositoryRulesetRulesCommitAuthorEmailPattern) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// (Boolean) If true, the rule will fail if the pattern matches.
+func (o RepositoryRulesetRulesCommitAuthorEmailPatternOutput) Negate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RepositoryRulesetRulesCommitAuthorEmailPattern) *bool { return v.Negate }).(pulumi.BoolPtrOutput)
+}
+
+// (String) The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
+func (o RepositoryRulesetRulesCommitAuthorEmailPatternOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v RepositoryRulesetRulesCommitAuthorEmailPattern) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// (String) The pattern to match with.
+func (o RepositoryRulesetRulesCommitAuthorEmailPatternOutput) Pattern() pulumi.StringOutput {
+	return o.ApplyT(func(v RepositoryRulesetRulesCommitAuthorEmailPattern) string { return v.Pattern }).(pulumi.StringOutput)
+}
+
+type RepositoryRulesetRulesCommitAuthorEmailPatternPtrOutput struct{ *pulumi.OutputState }
+
+func (RepositoryRulesetRulesCommitAuthorEmailPatternPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RepositoryRulesetRulesCommitAuthorEmailPattern)(nil)).Elem()
+}
+
+func (o RepositoryRulesetRulesCommitAuthorEmailPatternPtrOutput) ToRepositoryRulesetRulesCommitAuthorEmailPatternPtrOutput() RepositoryRulesetRulesCommitAuthorEmailPatternPtrOutput {
+	return o
+}
+
+func (o RepositoryRulesetRulesCommitAuthorEmailPatternPtrOutput) ToRepositoryRulesetRulesCommitAuthorEmailPatternPtrOutputWithContext(ctx context.Context) RepositoryRulesetRulesCommitAuthorEmailPatternPtrOutput {
+	return o
+}
+
+func (o RepositoryRulesetRulesCommitAuthorEmailPatternPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RepositoryRulesetRulesCommitAuthorEmailPattern] {
+	return pulumix.Output[*RepositoryRulesetRulesCommitAuthorEmailPattern]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o RepositoryRulesetRulesCommitAuthorEmailPatternPtrOutput) Elem() RepositoryRulesetRulesCommitAuthorEmailPatternOutput {
+	return o.ApplyT(func(v *RepositoryRulesetRulesCommitAuthorEmailPattern) RepositoryRulesetRulesCommitAuthorEmailPattern {
+		if v != nil {
+			return *v
+		}
+		var ret RepositoryRulesetRulesCommitAuthorEmailPattern
+		return ret
+	}).(RepositoryRulesetRulesCommitAuthorEmailPatternOutput)
+}
+
+// (String) The name of the ruleset.
+func (o RepositoryRulesetRulesCommitAuthorEmailPatternPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RepositoryRulesetRulesCommitAuthorEmailPattern) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// (Boolean) If true, the rule will fail if the pattern matches.
+func (o RepositoryRulesetRulesCommitAuthorEmailPatternPtrOutput) Negate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RepositoryRulesetRulesCommitAuthorEmailPattern) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Negate
+	}).(pulumi.BoolPtrOutput)
+}
+
+// (String) The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
+func (o RepositoryRulesetRulesCommitAuthorEmailPatternPtrOutput) Operator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RepositoryRulesetRulesCommitAuthorEmailPattern) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Operator
+	}).(pulumi.StringPtrOutput)
+}
+
+// (String) The pattern to match with.
+func (o RepositoryRulesetRulesCommitAuthorEmailPatternPtrOutput) Pattern() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RepositoryRulesetRulesCommitAuthorEmailPattern) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Pattern
+	}).(pulumi.StringPtrOutput)
+}
+
+type RepositoryRulesetRulesCommitMessagePattern struct {
+	// (String) The name of the ruleset.
+	Name *string `pulumi:"name"`
+	// (Boolean) If true, the rule will fail if the pattern matches.
+	Negate *bool `pulumi:"negate"`
+	// (String) The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
+	Operator string `pulumi:"operator"`
+	// (String) The pattern to match with.
+	Pattern string `pulumi:"pattern"`
+}
+
+// RepositoryRulesetRulesCommitMessagePatternInput is an input type that accepts RepositoryRulesetRulesCommitMessagePatternArgs and RepositoryRulesetRulesCommitMessagePatternOutput values.
+// You can construct a concrete instance of `RepositoryRulesetRulesCommitMessagePatternInput` via:
+//
+//	RepositoryRulesetRulesCommitMessagePatternArgs{...}
+type RepositoryRulesetRulesCommitMessagePatternInput interface {
+	pulumi.Input
+
+	ToRepositoryRulesetRulesCommitMessagePatternOutput() RepositoryRulesetRulesCommitMessagePatternOutput
+	ToRepositoryRulesetRulesCommitMessagePatternOutputWithContext(context.Context) RepositoryRulesetRulesCommitMessagePatternOutput
+}
+
+type RepositoryRulesetRulesCommitMessagePatternArgs struct {
+	// (String) The name of the ruleset.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// (Boolean) If true, the rule will fail if the pattern matches.
+	Negate pulumi.BoolPtrInput `pulumi:"negate"`
+	// (String) The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// (String) The pattern to match with.
+	Pattern pulumi.StringInput `pulumi:"pattern"`
+}
+
+func (RepositoryRulesetRulesCommitMessagePatternArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositoryRulesetRulesCommitMessagePattern)(nil)).Elem()
+}
+
+func (i RepositoryRulesetRulesCommitMessagePatternArgs) ToRepositoryRulesetRulesCommitMessagePatternOutput() RepositoryRulesetRulesCommitMessagePatternOutput {
+	return i.ToRepositoryRulesetRulesCommitMessagePatternOutputWithContext(context.Background())
+}
+
+func (i RepositoryRulesetRulesCommitMessagePatternArgs) ToRepositoryRulesetRulesCommitMessagePatternOutputWithContext(ctx context.Context) RepositoryRulesetRulesCommitMessagePatternOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryRulesetRulesCommitMessagePatternOutput)
+}
+
+func (i RepositoryRulesetRulesCommitMessagePatternArgs) ToOutput(ctx context.Context) pulumix.Output[RepositoryRulesetRulesCommitMessagePattern] {
+	return pulumix.Output[RepositoryRulesetRulesCommitMessagePattern]{
+		OutputState: i.ToRepositoryRulesetRulesCommitMessagePatternOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i RepositoryRulesetRulesCommitMessagePatternArgs) ToRepositoryRulesetRulesCommitMessagePatternPtrOutput() RepositoryRulesetRulesCommitMessagePatternPtrOutput {
+	return i.ToRepositoryRulesetRulesCommitMessagePatternPtrOutputWithContext(context.Background())
+}
+
+func (i RepositoryRulesetRulesCommitMessagePatternArgs) ToRepositoryRulesetRulesCommitMessagePatternPtrOutputWithContext(ctx context.Context) RepositoryRulesetRulesCommitMessagePatternPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryRulesetRulesCommitMessagePatternOutput).ToRepositoryRulesetRulesCommitMessagePatternPtrOutputWithContext(ctx)
+}
+
+// RepositoryRulesetRulesCommitMessagePatternPtrInput is an input type that accepts RepositoryRulesetRulesCommitMessagePatternArgs, RepositoryRulesetRulesCommitMessagePatternPtr and RepositoryRulesetRulesCommitMessagePatternPtrOutput values.
+// You can construct a concrete instance of `RepositoryRulesetRulesCommitMessagePatternPtrInput` via:
+//
+//	        RepositoryRulesetRulesCommitMessagePatternArgs{...}
+//
+//	or:
+//
+//	        nil
+type RepositoryRulesetRulesCommitMessagePatternPtrInput interface {
+	pulumi.Input
+
+	ToRepositoryRulesetRulesCommitMessagePatternPtrOutput() RepositoryRulesetRulesCommitMessagePatternPtrOutput
+	ToRepositoryRulesetRulesCommitMessagePatternPtrOutputWithContext(context.Context) RepositoryRulesetRulesCommitMessagePatternPtrOutput
+}
+
+type repositoryRulesetRulesCommitMessagePatternPtrType RepositoryRulesetRulesCommitMessagePatternArgs
+
+func RepositoryRulesetRulesCommitMessagePatternPtr(v *RepositoryRulesetRulesCommitMessagePatternArgs) RepositoryRulesetRulesCommitMessagePatternPtrInput {
+	return (*repositoryRulesetRulesCommitMessagePatternPtrType)(v)
+}
+
+func (*repositoryRulesetRulesCommitMessagePatternPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RepositoryRulesetRulesCommitMessagePattern)(nil)).Elem()
+}
+
+func (i *repositoryRulesetRulesCommitMessagePatternPtrType) ToRepositoryRulesetRulesCommitMessagePatternPtrOutput() RepositoryRulesetRulesCommitMessagePatternPtrOutput {
+	return i.ToRepositoryRulesetRulesCommitMessagePatternPtrOutputWithContext(context.Background())
+}
+
+func (i *repositoryRulesetRulesCommitMessagePatternPtrType) ToRepositoryRulesetRulesCommitMessagePatternPtrOutputWithContext(ctx context.Context) RepositoryRulesetRulesCommitMessagePatternPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryRulesetRulesCommitMessagePatternPtrOutput)
+}
+
+func (i *repositoryRulesetRulesCommitMessagePatternPtrType) ToOutput(ctx context.Context) pulumix.Output[*RepositoryRulesetRulesCommitMessagePattern] {
+	return pulumix.Output[*RepositoryRulesetRulesCommitMessagePattern]{
+		OutputState: i.ToRepositoryRulesetRulesCommitMessagePatternPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type RepositoryRulesetRulesCommitMessagePatternOutput struct{ *pulumi.OutputState }
+
+func (RepositoryRulesetRulesCommitMessagePatternOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositoryRulesetRulesCommitMessagePattern)(nil)).Elem()
+}
+
+func (o RepositoryRulesetRulesCommitMessagePatternOutput) ToRepositoryRulesetRulesCommitMessagePatternOutput() RepositoryRulesetRulesCommitMessagePatternOutput {
+	return o
+}
+
+func (o RepositoryRulesetRulesCommitMessagePatternOutput) ToRepositoryRulesetRulesCommitMessagePatternOutputWithContext(ctx context.Context) RepositoryRulesetRulesCommitMessagePatternOutput {
+	return o
+}
+
+func (o RepositoryRulesetRulesCommitMessagePatternOutput) ToRepositoryRulesetRulesCommitMessagePatternPtrOutput() RepositoryRulesetRulesCommitMessagePatternPtrOutput {
+	return o.ToRepositoryRulesetRulesCommitMessagePatternPtrOutputWithContext(context.Background())
+}
+
+func (o RepositoryRulesetRulesCommitMessagePatternOutput) ToRepositoryRulesetRulesCommitMessagePatternPtrOutputWithContext(ctx context.Context) RepositoryRulesetRulesCommitMessagePatternPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RepositoryRulesetRulesCommitMessagePattern) *RepositoryRulesetRulesCommitMessagePattern {
+		return &v
+	}).(RepositoryRulesetRulesCommitMessagePatternPtrOutput)
+}
+
+func (o RepositoryRulesetRulesCommitMessagePatternOutput) ToOutput(ctx context.Context) pulumix.Output[RepositoryRulesetRulesCommitMessagePattern] {
+	return pulumix.Output[RepositoryRulesetRulesCommitMessagePattern]{
+		OutputState: o.OutputState,
+	}
+}
+
+// (String) The name of the ruleset.
+func (o RepositoryRulesetRulesCommitMessagePatternOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RepositoryRulesetRulesCommitMessagePattern) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// (Boolean) If true, the rule will fail if the pattern matches.
+func (o RepositoryRulesetRulesCommitMessagePatternOutput) Negate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RepositoryRulesetRulesCommitMessagePattern) *bool { return v.Negate }).(pulumi.BoolPtrOutput)
+}
+
+// (String) The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
+func (o RepositoryRulesetRulesCommitMessagePatternOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v RepositoryRulesetRulesCommitMessagePattern) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// (String) The pattern to match with.
+func (o RepositoryRulesetRulesCommitMessagePatternOutput) Pattern() pulumi.StringOutput {
+	return o.ApplyT(func(v RepositoryRulesetRulesCommitMessagePattern) string { return v.Pattern }).(pulumi.StringOutput)
+}
+
+type RepositoryRulesetRulesCommitMessagePatternPtrOutput struct{ *pulumi.OutputState }
+
+func (RepositoryRulesetRulesCommitMessagePatternPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RepositoryRulesetRulesCommitMessagePattern)(nil)).Elem()
+}
+
+func (o RepositoryRulesetRulesCommitMessagePatternPtrOutput) ToRepositoryRulesetRulesCommitMessagePatternPtrOutput() RepositoryRulesetRulesCommitMessagePatternPtrOutput {
+	return o
+}
+
+func (o RepositoryRulesetRulesCommitMessagePatternPtrOutput) ToRepositoryRulesetRulesCommitMessagePatternPtrOutputWithContext(ctx context.Context) RepositoryRulesetRulesCommitMessagePatternPtrOutput {
+	return o
+}
+
+func (o RepositoryRulesetRulesCommitMessagePatternPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RepositoryRulesetRulesCommitMessagePattern] {
+	return pulumix.Output[*RepositoryRulesetRulesCommitMessagePattern]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o RepositoryRulesetRulesCommitMessagePatternPtrOutput) Elem() RepositoryRulesetRulesCommitMessagePatternOutput {
+	return o.ApplyT(func(v *RepositoryRulesetRulesCommitMessagePattern) RepositoryRulesetRulesCommitMessagePattern {
+		if v != nil {
+			return *v
+		}
+		var ret RepositoryRulesetRulesCommitMessagePattern
+		return ret
+	}).(RepositoryRulesetRulesCommitMessagePatternOutput)
+}
+
+// (String) The name of the ruleset.
+func (o RepositoryRulesetRulesCommitMessagePatternPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RepositoryRulesetRulesCommitMessagePattern) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// (Boolean) If true, the rule will fail if the pattern matches.
+func (o RepositoryRulesetRulesCommitMessagePatternPtrOutput) Negate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RepositoryRulesetRulesCommitMessagePattern) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Negate
+	}).(pulumi.BoolPtrOutput)
+}
+
+// (String) The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
+func (o RepositoryRulesetRulesCommitMessagePatternPtrOutput) Operator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RepositoryRulesetRulesCommitMessagePattern) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Operator
+	}).(pulumi.StringPtrOutput)
+}
+
+// (String) The pattern to match with.
+func (o RepositoryRulesetRulesCommitMessagePatternPtrOutput) Pattern() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RepositoryRulesetRulesCommitMessagePattern) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Pattern
+	}).(pulumi.StringPtrOutput)
+}
+
+type RepositoryRulesetRulesCommitterEmailPattern struct {
+	// (String) The name of the ruleset.
+	Name *string `pulumi:"name"`
+	// (Boolean) If true, the rule will fail if the pattern matches.
+	Negate *bool `pulumi:"negate"`
+	// (String) The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
+	Operator string `pulumi:"operator"`
+	// (String) The pattern to match with.
+	Pattern string `pulumi:"pattern"`
+}
+
+// RepositoryRulesetRulesCommitterEmailPatternInput is an input type that accepts RepositoryRulesetRulesCommitterEmailPatternArgs and RepositoryRulesetRulesCommitterEmailPatternOutput values.
+// You can construct a concrete instance of `RepositoryRulesetRulesCommitterEmailPatternInput` via:
+//
+//	RepositoryRulesetRulesCommitterEmailPatternArgs{...}
+type RepositoryRulesetRulesCommitterEmailPatternInput interface {
+	pulumi.Input
+
+	ToRepositoryRulesetRulesCommitterEmailPatternOutput() RepositoryRulesetRulesCommitterEmailPatternOutput
+	ToRepositoryRulesetRulesCommitterEmailPatternOutputWithContext(context.Context) RepositoryRulesetRulesCommitterEmailPatternOutput
+}
+
+type RepositoryRulesetRulesCommitterEmailPatternArgs struct {
+	// (String) The name of the ruleset.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// (Boolean) If true, the rule will fail if the pattern matches.
+	Negate pulumi.BoolPtrInput `pulumi:"negate"`
+	// (String) The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// (String) The pattern to match with.
+	Pattern pulumi.StringInput `pulumi:"pattern"`
+}
+
+func (RepositoryRulesetRulesCommitterEmailPatternArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositoryRulesetRulesCommitterEmailPattern)(nil)).Elem()
+}
+
+func (i RepositoryRulesetRulesCommitterEmailPatternArgs) ToRepositoryRulesetRulesCommitterEmailPatternOutput() RepositoryRulesetRulesCommitterEmailPatternOutput {
+	return i.ToRepositoryRulesetRulesCommitterEmailPatternOutputWithContext(context.Background())
+}
+
+func (i RepositoryRulesetRulesCommitterEmailPatternArgs) ToRepositoryRulesetRulesCommitterEmailPatternOutputWithContext(ctx context.Context) RepositoryRulesetRulesCommitterEmailPatternOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryRulesetRulesCommitterEmailPatternOutput)
+}
+
+func (i RepositoryRulesetRulesCommitterEmailPatternArgs) ToOutput(ctx context.Context) pulumix.Output[RepositoryRulesetRulesCommitterEmailPattern] {
+	return pulumix.Output[RepositoryRulesetRulesCommitterEmailPattern]{
+		OutputState: i.ToRepositoryRulesetRulesCommitterEmailPatternOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i RepositoryRulesetRulesCommitterEmailPatternArgs) ToRepositoryRulesetRulesCommitterEmailPatternPtrOutput() RepositoryRulesetRulesCommitterEmailPatternPtrOutput {
+	return i.ToRepositoryRulesetRulesCommitterEmailPatternPtrOutputWithContext(context.Background())
+}
+
+func (i RepositoryRulesetRulesCommitterEmailPatternArgs) ToRepositoryRulesetRulesCommitterEmailPatternPtrOutputWithContext(ctx context.Context) RepositoryRulesetRulesCommitterEmailPatternPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryRulesetRulesCommitterEmailPatternOutput).ToRepositoryRulesetRulesCommitterEmailPatternPtrOutputWithContext(ctx)
+}
+
+// RepositoryRulesetRulesCommitterEmailPatternPtrInput is an input type that accepts RepositoryRulesetRulesCommitterEmailPatternArgs, RepositoryRulesetRulesCommitterEmailPatternPtr and RepositoryRulesetRulesCommitterEmailPatternPtrOutput values.
+// You can construct a concrete instance of `RepositoryRulesetRulesCommitterEmailPatternPtrInput` via:
+//
+//	        RepositoryRulesetRulesCommitterEmailPatternArgs{...}
+//
+//	or:
+//
+//	        nil
+type RepositoryRulesetRulesCommitterEmailPatternPtrInput interface {
+	pulumi.Input
+
+	ToRepositoryRulesetRulesCommitterEmailPatternPtrOutput() RepositoryRulesetRulesCommitterEmailPatternPtrOutput
+	ToRepositoryRulesetRulesCommitterEmailPatternPtrOutputWithContext(context.Context) RepositoryRulesetRulesCommitterEmailPatternPtrOutput
+}
+
+type repositoryRulesetRulesCommitterEmailPatternPtrType RepositoryRulesetRulesCommitterEmailPatternArgs
+
+func RepositoryRulesetRulesCommitterEmailPatternPtr(v *RepositoryRulesetRulesCommitterEmailPatternArgs) RepositoryRulesetRulesCommitterEmailPatternPtrInput {
+	return (*repositoryRulesetRulesCommitterEmailPatternPtrType)(v)
+}
+
+func (*repositoryRulesetRulesCommitterEmailPatternPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RepositoryRulesetRulesCommitterEmailPattern)(nil)).Elem()
+}
+
+func (i *repositoryRulesetRulesCommitterEmailPatternPtrType) ToRepositoryRulesetRulesCommitterEmailPatternPtrOutput() RepositoryRulesetRulesCommitterEmailPatternPtrOutput {
+	return i.ToRepositoryRulesetRulesCommitterEmailPatternPtrOutputWithContext(context.Background())
+}
+
+func (i *repositoryRulesetRulesCommitterEmailPatternPtrType) ToRepositoryRulesetRulesCommitterEmailPatternPtrOutputWithContext(ctx context.Context) RepositoryRulesetRulesCommitterEmailPatternPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryRulesetRulesCommitterEmailPatternPtrOutput)
+}
+
+func (i *repositoryRulesetRulesCommitterEmailPatternPtrType) ToOutput(ctx context.Context) pulumix.Output[*RepositoryRulesetRulesCommitterEmailPattern] {
+	return pulumix.Output[*RepositoryRulesetRulesCommitterEmailPattern]{
+		OutputState: i.ToRepositoryRulesetRulesCommitterEmailPatternPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type RepositoryRulesetRulesCommitterEmailPatternOutput struct{ *pulumi.OutputState }
+
+func (RepositoryRulesetRulesCommitterEmailPatternOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositoryRulesetRulesCommitterEmailPattern)(nil)).Elem()
+}
+
+func (o RepositoryRulesetRulesCommitterEmailPatternOutput) ToRepositoryRulesetRulesCommitterEmailPatternOutput() RepositoryRulesetRulesCommitterEmailPatternOutput {
+	return o
+}
+
+func (o RepositoryRulesetRulesCommitterEmailPatternOutput) ToRepositoryRulesetRulesCommitterEmailPatternOutputWithContext(ctx context.Context) RepositoryRulesetRulesCommitterEmailPatternOutput {
+	return o
+}
+
+func (o RepositoryRulesetRulesCommitterEmailPatternOutput) ToRepositoryRulesetRulesCommitterEmailPatternPtrOutput() RepositoryRulesetRulesCommitterEmailPatternPtrOutput {
+	return o.ToRepositoryRulesetRulesCommitterEmailPatternPtrOutputWithContext(context.Background())
+}
+
+func (o RepositoryRulesetRulesCommitterEmailPatternOutput) ToRepositoryRulesetRulesCommitterEmailPatternPtrOutputWithContext(ctx context.Context) RepositoryRulesetRulesCommitterEmailPatternPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RepositoryRulesetRulesCommitterEmailPattern) *RepositoryRulesetRulesCommitterEmailPattern {
+		return &v
+	}).(RepositoryRulesetRulesCommitterEmailPatternPtrOutput)
+}
+
+func (o RepositoryRulesetRulesCommitterEmailPatternOutput) ToOutput(ctx context.Context) pulumix.Output[RepositoryRulesetRulesCommitterEmailPattern] {
+	return pulumix.Output[RepositoryRulesetRulesCommitterEmailPattern]{
+		OutputState: o.OutputState,
+	}
+}
+
+// (String) The name of the ruleset.
+func (o RepositoryRulesetRulesCommitterEmailPatternOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RepositoryRulesetRulesCommitterEmailPattern) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// (Boolean) If true, the rule will fail if the pattern matches.
+func (o RepositoryRulesetRulesCommitterEmailPatternOutput) Negate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RepositoryRulesetRulesCommitterEmailPattern) *bool { return v.Negate }).(pulumi.BoolPtrOutput)
+}
+
+// (String) The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
+func (o RepositoryRulesetRulesCommitterEmailPatternOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v RepositoryRulesetRulesCommitterEmailPattern) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// (String) The pattern to match with.
+func (o RepositoryRulesetRulesCommitterEmailPatternOutput) Pattern() pulumi.StringOutput {
+	return o.ApplyT(func(v RepositoryRulesetRulesCommitterEmailPattern) string { return v.Pattern }).(pulumi.StringOutput)
+}
+
+type RepositoryRulesetRulesCommitterEmailPatternPtrOutput struct{ *pulumi.OutputState }
+
+func (RepositoryRulesetRulesCommitterEmailPatternPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RepositoryRulesetRulesCommitterEmailPattern)(nil)).Elem()
+}
+
+func (o RepositoryRulesetRulesCommitterEmailPatternPtrOutput) ToRepositoryRulesetRulesCommitterEmailPatternPtrOutput() RepositoryRulesetRulesCommitterEmailPatternPtrOutput {
+	return o
+}
+
+func (o RepositoryRulesetRulesCommitterEmailPatternPtrOutput) ToRepositoryRulesetRulesCommitterEmailPatternPtrOutputWithContext(ctx context.Context) RepositoryRulesetRulesCommitterEmailPatternPtrOutput {
+	return o
+}
+
+func (o RepositoryRulesetRulesCommitterEmailPatternPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RepositoryRulesetRulesCommitterEmailPattern] {
+	return pulumix.Output[*RepositoryRulesetRulesCommitterEmailPattern]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o RepositoryRulesetRulesCommitterEmailPatternPtrOutput) Elem() RepositoryRulesetRulesCommitterEmailPatternOutput {
+	return o.ApplyT(func(v *RepositoryRulesetRulesCommitterEmailPattern) RepositoryRulesetRulesCommitterEmailPattern {
+		if v != nil {
+			return *v
+		}
+		var ret RepositoryRulesetRulesCommitterEmailPattern
+		return ret
+	}).(RepositoryRulesetRulesCommitterEmailPatternOutput)
+}
+
+// (String) The name of the ruleset.
+func (o RepositoryRulesetRulesCommitterEmailPatternPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RepositoryRulesetRulesCommitterEmailPattern) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// (Boolean) If true, the rule will fail if the pattern matches.
+func (o RepositoryRulesetRulesCommitterEmailPatternPtrOutput) Negate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RepositoryRulesetRulesCommitterEmailPattern) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Negate
+	}).(pulumi.BoolPtrOutput)
+}
+
+// (String) The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
+func (o RepositoryRulesetRulesCommitterEmailPatternPtrOutput) Operator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RepositoryRulesetRulesCommitterEmailPattern) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Operator
+	}).(pulumi.StringPtrOutput)
+}
+
+// (String) The pattern to match with.
+func (o RepositoryRulesetRulesCommitterEmailPatternPtrOutput) Pattern() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RepositoryRulesetRulesCommitterEmailPattern) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Pattern
+	}).(pulumi.StringPtrOutput)
+}
+
+type RepositoryRulesetRulesPullRequest struct {
+	// (Boolean) New, reviewable commits pushed will dismiss previous pull request review approvals. Defaults to `false`.
+	DismissStaleReviewsOnPush *bool `pulumi:"dismissStaleReviewsOnPush"`
+	// (Boolean) Require an approving review in pull requests that modify files that have a designated code owner. Defaults to `false`.
+	RequireCodeOwnerReview *bool `pulumi:"requireCodeOwnerReview"`
+	// (Boolean) Whether the most recent reviewable push must be approved by someone other than the person who pushed it. Defaults to `false`.
+	RequireLastPushApproval *bool `pulumi:"requireLastPushApproval"`
+	// (Number) The number of approving reviews that are required before a pull request can be merged. Defaults to `0`.
+	RequiredApprovingReviewCount *int `pulumi:"requiredApprovingReviewCount"`
+	// (Boolean) All conversations on code must be resolved before a pull request can be merged. Defaults to `false`.
+	RequiredReviewThreadResolution *bool `pulumi:"requiredReviewThreadResolution"`
+}
+
+// RepositoryRulesetRulesPullRequestInput is an input type that accepts RepositoryRulesetRulesPullRequestArgs and RepositoryRulesetRulesPullRequestOutput values.
+// You can construct a concrete instance of `RepositoryRulesetRulesPullRequestInput` via:
+//
+//	RepositoryRulesetRulesPullRequestArgs{...}
+type RepositoryRulesetRulesPullRequestInput interface {
+	pulumi.Input
+
+	ToRepositoryRulesetRulesPullRequestOutput() RepositoryRulesetRulesPullRequestOutput
+	ToRepositoryRulesetRulesPullRequestOutputWithContext(context.Context) RepositoryRulesetRulesPullRequestOutput
+}
+
+type RepositoryRulesetRulesPullRequestArgs struct {
+	// (Boolean) New, reviewable commits pushed will dismiss previous pull request review approvals. Defaults to `false`.
+	DismissStaleReviewsOnPush pulumi.BoolPtrInput `pulumi:"dismissStaleReviewsOnPush"`
+	// (Boolean) Require an approving review in pull requests that modify files that have a designated code owner. Defaults to `false`.
+	RequireCodeOwnerReview pulumi.BoolPtrInput `pulumi:"requireCodeOwnerReview"`
+	// (Boolean) Whether the most recent reviewable push must be approved by someone other than the person who pushed it. Defaults to `false`.
+	RequireLastPushApproval pulumi.BoolPtrInput `pulumi:"requireLastPushApproval"`
+	// (Number) The number of approving reviews that are required before a pull request can be merged. Defaults to `0`.
+	RequiredApprovingReviewCount pulumi.IntPtrInput `pulumi:"requiredApprovingReviewCount"`
+	// (Boolean) All conversations on code must be resolved before a pull request can be merged. Defaults to `false`.
+	RequiredReviewThreadResolution pulumi.BoolPtrInput `pulumi:"requiredReviewThreadResolution"`
+}
+
+func (RepositoryRulesetRulesPullRequestArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositoryRulesetRulesPullRequest)(nil)).Elem()
+}
+
+func (i RepositoryRulesetRulesPullRequestArgs) ToRepositoryRulesetRulesPullRequestOutput() RepositoryRulesetRulesPullRequestOutput {
+	return i.ToRepositoryRulesetRulesPullRequestOutputWithContext(context.Background())
+}
+
+func (i RepositoryRulesetRulesPullRequestArgs) ToRepositoryRulesetRulesPullRequestOutputWithContext(ctx context.Context) RepositoryRulesetRulesPullRequestOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryRulesetRulesPullRequestOutput)
+}
+
+func (i RepositoryRulesetRulesPullRequestArgs) ToOutput(ctx context.Context) pulumix.Output[RepositoryRulesetRulesPullRequest] {
+	return pulumix.Output[RepositoryRulesetRulesPullRequest]{
+		OutputState: i.ToRepositoryRulesetRulesPullRequestOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i RepositoryRulesetRulesPullRequestArgs) ToRepositoryRulesetRulesPullRequestPtrOutput() RepositoryRulesetRulesPullRequestPtrOutput {
+	return i.ToRepositoryRulesetRulesPullRequestPtrOutputWithContext(context.Background())
+}
+
+func (i RepositoryRulesetRulesPullRequestArgs) ToRepositoryRulesetRulesPullRequestPtrOutputWithContext(ctx context.Context) RepositoryRulesetRulesPullRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryRulesetRulesPullRequestOutput).ToRepositoryRulesetRulesPullRequestPtrOutputWithContext(ctx)
+}
+
+// RepositoryRulesetRulesPullRequestPtrInput is an input type that accepts RepositoryRulesetRulesPullRequestArgs, RepositoryRulesetRulesPullRequestPtr and RepositoryRulesetRulesPullRequestPtrOutput values.
+// You can construct a concrete instance of `RepositoryRulesetRulesPullRequestPtrInput` via:
+//
+//	        RepositoryRulesetRulesPullRequestArgs{...}
+//
+//	or:
+//
+//	        nil
+type RepositoryRulesetRulesPullRequestPtrInput interface {
+	pulumi.Input
+
+	ToRepositoryRulesetRulesPullRequestPtrOutput() RepositoryRulesetRulesPullRequestPtrOutput
+	ToRepositoryRulesetRulesPullRequestPtrOutputWithContext(context.Context) RepositoryRulesetRulesPullRequestPtrOutput
+}
+
+type repositoryRulesetRulesPullRequestPtrType RepositoryRulesetRulesPullRequestArgs
+
+func RepositoryRulesetRulesPullRequestPtr(v *RepositoryRulesetRulesPullRequestArgs) RepositoryRulesetRulesPullRequestPtrInput {
+	return (*repositoryRulesetRulesPullRequestPtrType)(v)
+}
+
+func (*repositoryRulesetRulesPullRequestPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RepositoryRulesetRulesPullRequest)(nil)).Elem()
+}
+
+func (i *repositoryRulesetRulesPullRequestPtrType) ToRepositoryRulesetRulesPullRequestPtrOutput() RepositoryRulesetRulesPullRequestPtrOutput {
+	return i.ToRepositoryRulesetRulesPullRequestPtrOutputWithContext(context.Background())
+}
+
+func (i *repositoryRulesetRulesPullRequestPtrType) ToRepositoryRulesetRulesPullRequestPtrOutputWithContext(ctx context.Context) RepositoryRulesetRulesPullRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryRulesetRulesPullRequestPtrOutput)
+}
+
+func (i *repositoryRulesetRulesPullRequestPtrType) ToOutput(ctx context.Context) pulumix.Output[*RepositoryRulesetRulesPullRequest] {
+	return pulumix.Output[*RepositoryRulesetRulesPullRequest]{
+		OutputState: i.ToRepositoryRulesetRulesPullRequestPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type RepositoryRulesetRulesPullRequestOutput struct{ *pulumi.OutputState }
+
+func (RepositoryRulesetRulesPullRequestOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositoryRulesetRulesPullRequest)(nil)).Elem()
+}
+
+func (o RepositoryRulesetRulesPullRequestOutput) ToRepositoryRulesetRulesPullRequestOutput() RepositoryRulesetRulesPullRequestOutput {
+	return o
+}
+
+func (o RepositoryRulesetRulesPullRequestOutput) ToRepositoryRulesetRulesPullRequestOutputWithContext(ctx context.Context) RepositoryRulesetRulesPullRequestOutput {
+	return o
+}
+
+func (o RepositoryRulesetRulesPullRequestOutput) ToRepositoryRulesetRulesPullRequestPtrOutput() RepositoryRulesetRulesPullRequestPtrOutput {
+	return o.ToRepositoryRulesetRulesPullRequestPtrOutputWithContext(context.Background())
+}
+
+func (o RepositoryRulesetRulesPullRequestOutput) ToRepositoryRulesetRulesPullRequestPtrOutputWithContext(ctx context.Context) RepositoryRulesetRulesPullRequestPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RepositoryRulesetRulesPullRequest) *RepositoryRulesetRulesPullRequest {
+		return &v
+	}).(RepositoryRulesetRulesPullRequestPtrOutput)
+}
+
+func (o RepositoryRulesetRulesPullRequestOutput) ToOutput(ctx context.Context) pulumix.Output[RepositoryRulesetRulesPullRequest] {
+	return pulumix.Output[RepositoryRulesetRulesPullRequest]{
+		OutputState: o.OutputState,
+	}
+}
+
+// (Boolean) New, reviewable commits pushed will dismiss previous pull request review approvals. Defaults to `false`.
+func (o RepositoryRulesetRulesPullRequestOutput) DismissStaleReviewsOnPush() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RepositoryRulesetRulesPullRequest) *bool { return v.DismissStaleReviewsOnPush }).(pulumi.BoolPtrOutput)
+}
+
+// (Boolean) Require an approving review in pull requests that modify files that have a designated code owner. Defaults to `false`.
+func (o RepositoryRulesetRulesPullRequestOutput) RequireCodeOwnerReview() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RepositoryRulesetRulesPullRequest) *bool { return v.RequireCodeOwnerReview }).(pulumi.BoolPtrOutput)
+}
+
+// (Boolean) Whether the most recent reviewable push must be approved by someone other than the person who pushed it. Defaults to `false`.
+func (o RepositoryRulesetRulesPullRequestOutput) RequireLastPushApproval() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RepositoryRulesetRulesPullRequest) *bool { return v.RequireLastPushApproval }).(pulumi.BoolPtrOutput)
+}
+
+// (Number) The number of approving reviews that are required before a pull request can be merged. Defaults to `0`.
+func (o RepositoryRulesetRulesPullRequestOutput) RequiredApprovingReviewCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v RepositoryRulesetRulesPullRequest) *int { return v.RequiredApprovingReviewCount }).(pulumi.IntPtrOutput)
+}
+
+// (Boolean) All conversations on code must be resolved before a pull request can be merged. Defaults to `false`.
+func (o RepositoryRulesetRulesPullRequestOutput) RequiredReviewThreadResolution() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RepositoryRulesetRulesPullRequest) *bool { return v.RequiredReviewThreadResolution }).(pulumi.BoolPtrOutput)
+}
+
+type RepositoryRulesetRulesPullRequestPtrOutput struct{ *pulumi.OutputState }
+
+func (RepositoryRulesetRulesPullRequestPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RepositoryRulesetRulesPullRequest)(nil)).Elem()
+}
+
+func (o RepositoryRulesetRulesPullRequestPtrOutput) ToRepositoryRulesetRulesPullRequestPtrOutput() RepositoryRulesetRulesPullRequestPtrOutput {
+	return o
+}
+
+func (o RepositoryRulesetRulesPullRequestPtrOutput) ToRepositoryRulesetRulesPullRequestPtrOutputWithContext(ctx context.Context) RepositoryRulesetRulesPullRequestPtrOutput {
+	return o
+}
+
+func (o RepositoryRulesetRulesPullRequestPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RepositoryRulesetRulesPullRequest] {
+	return pulumix.Output[*RepositoryRulesetRulesPullRequest]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o RepositoryRulesetRulesPullRequestPtrOutput) Elem() RepositoryRulesetRulesPullRequestOutput {
+	return o.ApplyT(func(v *RepositoryRulesetRulesPullRequest) RepositoryRulesetRulesPullRequest {
+		if v != nil {
+			return *v
+		}
+		var ret RepositoryRulesetRulesPullRequest
+		return ret
+	}).(RepositoryRulesetRulesPullRequestOutput)
+}
+
+// (Boolean) New, reviewable commits pushed will dismiss previous pull request review approvals. Defaults to `false`.
+func (o RepositoryRulesetRulesPullRequestPtrOutput) DismissStaleReviewsOnPush() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RepositoryRulesetRulesPullRequest) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DismissStaleReviewsOnPush
+	}).(pulumi.BoolPtrOutput)
+}
+
+// (Boolean) Require an approving review in pull requests that modify files that have a designated code owner. Defaults to `false`.
+func (o RepositoryRulesetRulesPullRequestPtrOutput) RequireCodeOwnerReview() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RepositoryRulesetRulesPullRequest) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.RequireCodeOwnerReview
+	}).(pulumi.BoolPtrOutput)
+}
+
+// (Boolean) Whether the most recent reviewable push must be approved by someone other than the person who pushed it. Defaults to `false`.
+func (o RepositoryRulesetRulesPullRequestPtrOutput) RequireLastPushApproval() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RepositoryRulesetRulesPullRequest) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.RequireLastPushApproval
+	}).(pulumi.BoolPtrOutput)
+}
+
+// (Number) The number of approving reviews that are required before a pull request can be merged. Defaults to `0`.
+func (o RepositoryRulesetRulesPullRequestPtrOutput) RequiredApprovingReviewCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *RepositoryRulesetRulesPullRequest) *int {
+		if v == nil {
+			return nil
+		}
+		return v.RequiredApprovingReviewCount
+	}).(pulumi.IntPtrOutput)
+}
+
+// (Boolean) All conversations on code must be resolved before a pull request can be merged. Defaults to `false`.
+func (o RepositoryRulesetRulesPullRequestPtrOutput) RequiredReviewThreadResolution() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RepositoryRulesetRulesPullRequest) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.RequiredReviewThreadResolution
+	}).(pulumi.BoolPtrOutput)
+}
+
+type RepositoryRulesetRulesRequiredDeployments struct {
+	// (List of String) The environments that must be successfully deployed to before branches can be merged.
+	RequiredDeploymentEnvironments []string `pulumi:"requiredDeploymentEnvironments"`
+}
+
+// RepositoryRulesetRulesRequiredDeploymentsInput is an input type that accepts RepositoryRulesetRulesRequiredDeploymentsArgs and RepositoryRulesetRulesRequiredDeploymentsOutput values.
+// You can construct a concrete instance of `RepositoryRulesetRulesRequiredDeploymentsInput` via:
+//
+//	RepositoryRulesetRulesRequiredDeploymentsArgs{...}
+type RepositoryRulesetRulesRequiredDeploymentsInput interface {
+	pulumi.Input
+
+	ToRepositoryRulesetRulesRequiredDeploymentsOutput() RepositoryRulesetRulesRequiredDeploymentsOutput
+	ToRepositoryRulesetRulesRequiredDeploymentsOutputWithContext(context.Context) RepositoryRulesetRulesRequiredDeploymentsOutput
+}
+
+type RepositoryRulesetRulesRequiredDeploymentsArgs struct {
+	// (List of String) The environments that must be successfully deployed to before branches can be merged.
+	RequiredDeploymentEnvironments pulumi.StringArrayInput `pulumi:"requiredDeploymentEnvironments"`
+}
+
+func (RepositoryRulesetRulesRequiredDeploymentsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositoryRulesetRulesRequiredDeployments)(nil)).Elem()
+}
+
+func (i RepositoryRulesetRulesRequiredDeploymentsArgs) ToRepositoryRulesetRulesRequiredDeploymentsOutput() RepositoryRulesetRulesRequiredDeploymentsOutput {
+	return i.ToRepositoryRulesetRulesRequiredDeploymentsOutputWithContext(context.Background())
+}
+
+func (i RepositoryRulesetRulesRequiredDeploymentsArgs) ToRepositoryRulesetRulesRequiredDeploymentsOutputWithContext(ctx context.Context) RepositoryRulesetRulesRequiredDeploymentsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryRulesetRulesRequiredDeploymentsOutput)
+}
+
+func (i RepositoryRulesetRulesRequiredDeploymentsArgs) ToOutput(ctx context.Context) pulumix.Output[RepositoryRulesetRulesRequiredDeployments] {
+	return pulumix.Output[RepositoryRulesetRulesRequiredDeployments]{
+		OutputState: i.ToRepositoryRulesetRulesRequiredDeploymentsOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i RepositoryRulesetRulesRequiredDeploymentsArgs) ToRepositoryRulesetRulesRequiredDeploymentsPtrOutput() RepositoryRulesetRulesRequiredDeploymentsPtrOutput {
+	return i.ToRepositoryRulesetRulesRequiredDeploymentsPtrOutputWithContext(context.Background())
+}
+
+func (i RepositoryRulesetRulesRequiredDeploymentsArgs) ToRepositoryRulesetRulesRequiredDeploymentsPtrOutputWithContext(ctx context.Context) RepositoryRulesetRulesRequiredDeploymentsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryRulesetRulesRequiredDeploymentsOutput).ToRepositoryRulesetRulesRequiredDeploymentsPtrOutputWithContext(ctx)
+}
+
+// RepositoryRulesetRulesRequiredDeploymentsPtrInput is an input type that accepts RepositoryRulesetRulesRequiredDeploymentsArgs, RepositoryRulesetRulesRequiredDeploymentsPtr and RepositoryRulesetRulesRequiredDeploymentsPtrOutput values.
+// You can construct a concrete instance of `RepositoryRulesetRulesRequiredDeploymentsPtrInput` via:
+//
+//	        RepositoryRulesetRulesRequiredDeploymentsArgs{...}
+//
+//	or:
+//
+//	        nil
+type RepositoryRulesetRulesRequiredDeploymentsPtrInput interface {
+	pulumi.Input
+
+	ToRepositoryRulesetRulesRequiredDeploymentsPtrOutput() RepositoryRulesetRulesRequiredDeploymentsPtrOutput
+	ToRepositoryRulesetRulesRequiredDeploymentsPtrOutputWithContext(context.Context) RepositoryRulesetRulesRequiredDeploymentsPtrOutput
+}
+
+type repositoryRulesetRulesRequiredDeploymentsPtrType RepositoryRulesetRulesRequiredDeploymentsArgs
+
+func RepositoryRulesetRulesRequiredDeploymentsPtr(v *RepositoryRulesetRulesRequiredDeploymentsArgs) RepositoryRulesetRulesRequiredDeploymentsPtrInput {
+	return (*repositoryRulesetRulesRequiredDeploymentsPtrType)(v)
+}
+
+func (*repositoryRulesetRulesRequiredDeploymentsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RepositoryRulesetRulesRequiredDeployments)(nil)).Elem()
+}
+
+func (i *repositoryRulesetRulesRequiredDeploymentsPtrType) ToRepositoryRulesetRulesRequiredDeploymentsPtrOutput() RepositoryRulesetRulesRequiredDeploymentsPtrOutput {
+	return i.ToRepositoryRulesetRulesRequiredDeploymentsPtrOutputWithContext(context.Background())
+}
+
+func (i *repositoryRulesetRulesRequiredDeploymentsPtrType) ToRepositoryRulesetRulesRequiredDeploymentsPtrOutputWithContext(ctx context.Context) RepositoryRulesetRulesRequiredDeploymentsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryRulesetRulesRequiredDeploymentsPtrOutput)
+}
+
+func (i *repositoryRulesetRulesRequiredDeploymentsPtrType) ToOutput(ctx context.Context) pulumix.Output[*RepositoryRulesetRulesRequiredDeployments] {
+	return pulumix.Output[*RepositoryRulesetRulesRequiredDeployments]{
+		OutputState: i.ToRepositoryRulesetRulesRequiredDeploymentsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type RepositoryRulesetRulesRequiredDeploymentsOutput struct{ *pulumi.OutputState }
+
+func (RepositoryRulesetRulesRequiredDeploymentsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositoryRulesetRulesRequiredDeployments)(nil)).Elem()
+}
+
+func (o RepositoryRulesetRulesRequiredDeploymentsOutput) ToRepositoryRulesetRulesRequiredDeploymentsOutput() RepositoryRulesetRulesRequiredDeploymentsOutput {
+	return o
+}
+
+func (o RepositoryRulesetRulesRequiredDeploymentsOutput) ToRepositoryRulesetRulesRequiredDeploymentsOutputWithContext(ctx context.Context) RepositoryRulesetRulesRequiredDeploymentsOutput {
+	return o
+}
+
+func (o RepositoryRulesetRulesRequiredDeploymentsOutput) ToRepositoryRulesetRulesRequiredDeploymentsPtrOutput() RepositoryRulesetRulesRequiredDeploymentsPtrOutput {
+	return o.ToRepositoryRulesetRulesRequiredDeploymentsPtrOutputWithContext(context.Background())
+}
+
+func (o RepositoryRulesetRulesRequiredDeploymentsOutput) ToRepositoryRulesetRulesRequiredDeploymentsPtrOutputWithContext(ctx context.Context) RepositoryRulesetRulesRequiredDeploymentsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RepositoryRulesetRulesRequiredDeployments) *RepositoryRulesetRulesRequiredDeployments {
+		return &v
+	}).(RepositoryRulesetRulesRequiredDeploymentsPtrOutput)
+}
+
+func (o RepositoryRulesetRulesRequiredDeploymentsOutput) ToOutput(ctx context.Context) pulumix.Output[RepositoryRulesetRulesRequiredDeployments] {
+	return pulumix.Output[RepositoryRulesetRulesRequiredDeployments]{
+		OutputState: o.OutputState,
+	}
+}
+
+// (List of String) The environments that must be successfully deployed to before branches can be merged.
+func (o RepositoryRulesetRulesRequiredDeploymentsOutput) RequiredDeploymentEnvironments() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RepositoryRulesetRulesRequiredDeployments) []string { return v.RequiredDeploymentEnvironments }).(pulumi.StringArrayOutput)
+}
+
+type RepositoryRulesetRulesRequiredDeploymentsPtrOutput struct{ *pulumi.OutputState }
+
+func (RepositoryRulesetRulesRequiredDeploymentsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RepositoryRulesetRulesRequiredDeployments)(nil)).Elem()
+}
+
+func (o RepositoryRulesetRulesRequiredDeploymentsPtrOutput) ToRepositoryRulesetRulesRequiredDeploymentsPtrOutput() RepositoryRulesetRulesRequiredDeploymentsPtrOutput {
+	return o
+}
+
+func (o RepositoryRulesetRulesRequiredDeploymentsPtrOutput) ToRepositoryRulesetRulesRequiredDeploymentsPtrOutputWithContext(ctx context.Context) RepositoryRulesetRulesRequiredDeploymentsPtrOutput {
+	return o
+}
+
+func (o RepositoryRulesetRulesRequiredDeploymentsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RepositoryRulesetRulesRequiredDeployments] {
+	return pulumix.Output[*RepositoryRulesetRulesRequiredDeployments]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o RepositoryRulesetRulesRequiredDeploymentsPtrOutput) Elem() RepositoryRulesetRulesRequiredDeploymentsOutput {
+	return o.ApplyT(func(v *RepositoryRulesetRulesRequiredDeployments) RepositoryRulesetRulesRequiredDeployments {
+		if v != nil {
+			return *v
+		}
+		var ret RepositoryRulesetRulesRequiredDeployments
+		return ret
+	}).(RepositoryRulesetRulesRequiredDeploymentsOutput)
+}
+
+// (List of String) The environments that must be successfully deployed to before branches can be merged.
+func (o RepositoryRulesetRulesRequiredDeploymentsPtrOutput) RequiredDeploymentEnvironments() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *RepositoryRulesetRulesRequiredDeployments) []string {
+		if v == nil {
+			return nil
+		}
+		return v.RequiredDeploymentEnvironments
+	}).(pulumi.StringArrayOutput)
+}
+
+type RepositoryRulesetRulesRequiredStatusChecks struct {
+	// (Block Set, Min: 1) Status checks that are required. Several can be defined. (see below for nested schema)
+	RequiredChecks []RepositoryRulesetRulesRequiredStatusChecksRequiredCheck `pulumi:"requiredChecks"`
+	// (Boolean) Whether pull requests targeting a matching branch must be tested with the latest code. This setting will not take effect unless at least one status check is enabled. Defaults to `false`.
+	StrictRequiredStatusChecksPolicy *bool `pulumi:"strictRequiredStatusChecksPolicy"`
+}
+
+// RepositoryRulesetRulesRequiredStatusChecksInput is an input type that accepts RepositoryRulesetRulesRequiredStatusChecksArgs and RepositoryRulesetRulesRequiredStatusChecksOutput values.
+// You can construct a concrete instance of `RepositoryRulesetRulesRequiredStatusChecksInput` via:
+//
+//	RepositoryRulesetRulesRequiredStatusChecksArgs{...}
+type RepositoryRulesetRulesRequiredStatusChecksInput interface {
+	pulumi.Input
+
+	ToRepositoryRulesetRulesRequiredStatusChecksOutput() RepositoryRulesetRulesRequiredStatusChecksOutput
+	ToRepositoryRulesetRulesRequiredStatusChecksOutputWithContext(context.Context) RepositoryRulesetRulesRequiredStatusChecksOutput
+}
+
+type RepositoryRulesetRulesRequiredStatusChecksArgs struct {
+	// (Block Set, Min: 1) Status checks that are required. Several can be defined. (see below for nested schema)
+	RequiredChecks RepositoryRulesetRulesRequiredStatusChecksRequiredCheckArrayInput `pulumi:"requiredChecks"`
+	// (Boolean) Whether pull requests targeting a matching branch must be tested with the latest code. This setting will not take effect unless at least one status check is enabled. Defaults to `false`.
+	StrictRequiredStatusChecksPolicy pulumi.BoolPtrInput `pulumi:"strictRequiredStatusChecksPolicy"`
+}
+
+func (RepositoryRulesetRulesRequiredStatusChecksArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositoryRulesetRulesRequiredStatusChecks)(nil)).Elem()
+}
+
+func (i RepositoryRulesetRulesRequiredStatusChecksArgs) ToRepositoryRulesetRulesRequiredStatusChecksOutput() RepositoryRulesetRulesRequiredStatusChecksOutput {
+	return i.ToRepositoryRulesetRulesRequiredStatusChecksOutputWithContext(context.Background())
+}
+
+func (i RepositoryRulesetRulesRequiredStatusChecksArgs) ToRepositoryRulesetRulesRequiredStatusChecksOutputWithContext(ctx context.Context) RepositoryRulesetRulesRequiredStatusChecksOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryRulesetRulesRequiredStatusChecksOutput)
+}
+
+func (i RepositoryRulesetRulesRequiredStatusChecksArgs) ToOutput(ctx context.Context) pulumix.Output[RepositoryRulesetRulesRequiredStatusChecks] {
+	return pulumix.Output[RepositoryRulesetRulesRequiredStatusChecks]{
+		OutputState: i.ToRepositoryRulesetRulesRequiredStatusChecksOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i RepositoryRulesetRulesRequiredStatusChecksArgs) ToRepositoryRulesetRulesRequiredStatusChecksPtrOutput() RepositoryRulesetRulesRequiredStatusChecksPtrOutput {
+	return i.ToRepositoryRulesetRulesRequiredStatusChecksPtrOutputWithContext(context.Background())
+}
+
+func (i RepositoryRulesetRulesRequiredStatusChecksArgs) ToRepositoryRulesetRulesRequiredStatusChecksPtrOutputWithContext(ctx context.Context) RepositoryRulesetRulesRequiredStatusChecksPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryRulesetRulesRequiredStatusChecksOutput).ToRepositoryRulesetRulesRequiredStatusChecksPtrOutputWithContext(ctx)
+}
+
+// RepositoryRulesetRulesRequiredStatusChecksPtrInput is an input type that accepts RepositoryRulesetRulesRequiredStatusChecksArgs, RepositoryRulesetRulesRequiredStatusChecksPtr and RepositoryRulesetRulesRequiredStatusChecksPtrOutput values.
+// You can construct a concrete instance of `RepositoryRulesetRulesRequiredStatusChecksPtrInput` via:
+//
+//	        RepositoryRulesetRulesRequiredStatusChecksArgs{...}
+//
+//	or:
+//
+//	        nil
+type RepositoryRulesetRulesRequiredStatusChecksPtrInput interface {
+	pulumi.Input
+
+	ToRepositoryRulesetRulesRequiredStatusChecksPtrOutput() RepositoryRulesetRulesRequiredStatusChecksPtrOutput
+	ToRepositoryRulesetRulesRequiredStatusChecksPtrOutputWithContext(context.Context) RepositoryRulesetRulesRequiredStatusChecksPtrOutput
+}
+
+type repositoryRulesetRulesRequiredStatusChecksPtrType RepositoryRulesetRulesRequiredStatusChecksArgs
+
+func RepositoryRulesetRulesRequiredStatusChecksPtr(v *RepositoryRulesetRulesRequiredStatusChecksArgs) RepositoryRulesetRulesRequiredStatusChecksPtrInput {
+	return (*repositoryRulesetRulesRequiredStatusChecksPtrType)(v)
+}
+
+func (*repositoryRulesetRulesRequiredStatusChecksPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RepositoryRulesetRulesRequiredStatusChecks)(nil)).Elem()
+}
+
+func (i *repositoryRulesetRulesRequiredStatusChecksPtrType) ToRepositoryRulesetRulesRequiredStatusChecksPtrOutput() RepositoryRulesetRulesRequiredStatusChecksPtrOutput {
+	return i.ToRepositoryRulesetRulesRequiredStatusChecksPtrOutputWithContext(context.Background())
+}
+
+func (i *repositoryRulesetRulesRequiredStatusChecksPtrType) ToRepositoryRulesetRulesRequiredStatusChecksPtrOutputWithContext(ctx context.Context) RepositoryRulesetRulesRequiredStatusChecksPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryRulesetRulesRequiredStatusChecksPtrOutput)
+}
+
+func (i *repositoryRulesetRulesRequiredStatusChecksPtrType) ToOutput(ctx context.Context) pulumix.Output[*RepositoryRulesetRulesRequiredStatusChecks] {
+	return pulumix.Output[*RepositoryRulesetRulesRequiredStatusChecks]{
+		OutputState: i.ToRepositoryRulesetRulesRequiredStatusChecksPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type RepositoryRulesetRulesRequiredStatusChecksOutput struct{ *pulumi.OutputState }
+
+func (RepositoryRulesetRulesRequiredStatusChecksOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositoryRulesetRulesRequiredStatusChecks)(nil)).Elem()
+}
+
+func (o RepositoryRulesetRulesRequiredStatusChecksOutput) ToRepositoryRulesetRulesRequiredStatusChecksOutput() RepositoryRulesetRulesRequiredStatusChecksOutput {
+	return o
+}
+
+func (o RepositoryRulesetRulesRequiredStatusChecksOutput) ToRepositoryRulesetRulesRequiredStatusChecksOutputWithContext(ctx context.Context) RepositoryRulesetRulesRequiredStatusChecksOutput {
+	return o
+}
+
+func (o RepositoryRulesetRulesRequiredStatusChecksOutput) ToRepositoryRulesetRulesRequiredStatusChecksPtrOutput() RepositoryRulesetRulesRequiredStatusChecksPtrOutput {
+	return o.ToRepositoryRulesetRulesRequiredStatusChecksPtrOutputWithContext(context.Background())
+}
+
+func (o RepositoryRulesetRulesRequiredStatusChecksOutput) ToRepositoryRulesetRulesRequiredStatusChecksPtrOutputWithContext(ctx context.Context) RepositoryRulesetRulesRequiredStatusChecksPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RepositoryRulesetRulesRequiredStatusChecks) *RepositoryRulesetRulesRequiredStatusChecks {
+		return &v
+	}).(RepositoryRulesetRulesRequiredStatusChecksPtrOutput)
+}
+
+func (o RepositoryRulesetRulesRequiredStatusChecksOutput) ToOutput(ctx context.Context) pulumix.Output[RepositoryRulesetRulesRequiredStatusChecks] {
+	return pulumix.Output[RepositoryRulesetRulesRequiredStatusChecks]{
+		OutputState: o.OutputState,
+	}
+}
+
+// (Block Set, Min: 1) Status checks that are required. Several can be defined. (see below for nested schema)
+func (o RepositoryRulesetRulesRequiredStatusChecksOutput) RequiredChecks() RepositoryRulesetRulesRequiredStatusChecksRequiredCheckArrayOutput {
+	return o.ApplyT(func(v RepositoryRulesetRulesRequiredStatusChecks) []RepositoryRulesetRulesRequiredStatusChecksRequiredCheck {
+		return v.RequiredChecks
+	}).(RepositoryRulesetRulesRequiredStatusChecksRequiredCheckArrayOutput)
+}
+
+// (Boolean) Whether pull requests targeting a matching branch must be tested with the latest code. This setting will not take effect unless at least one status check is enabled. Defaults to `false`.
+func (o RepositoryRulesetRulesRequiredStatusChecksOutput) StrictRequiredStatusChecksPolicy() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RepositoryRulesetRulesRequiredStatusChecks) *bool { return v.StrictRequiredStatusChecksPolicy }).(pulumi.BoolPtrOutput)
+}
+
+type RepositoryRulesetRulesRequiredStatusChecksPtrOutput struct{ *pulumi.OutputState }
+
+func (RepositoryRulesetRulesRequiredStatusChecksPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RepositoryRulesetRulesRequiredStatusChecks)(nil)).Elem()
+}
+
+func (o RepositoryRulesetRulesRequiredStatusChecksPtrOutput) ToRepositoryRulesetRulesRequiredStatusChecksPtrOutput() RepositoryRulesetRulesRequiredStatusChecksPtrOutput {
+	return o
+}
+
+func (o RepositoryRulesetRulesRequiredStatusChecksPtrOutput) ToRepositoryRulesetRulesRequiredStatusChecksPtrOutputWithContext(ctx context.Context) RepositoryRulesetRulesRequiredStatusChecksPtrOutput {
+	return o
+}
+
+func (o RepositoryRulesetRulesRequiredStatusChecksPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RepositoryRulesetRulesRequiredStatusChecks] {
+	return pulumix.Output[*RepositoryRulesetRulesRequiredStatusChecks]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o RepositoryRulesetRulesRequiredStatusChecksPtrOutput) Elem() RepositoryRulesetRulesRequiredStatusChecksOutput {
+	return o.ApplyT(func(v *RepositoryRulesetRulesRequiredStatusChecks) RepositoryRulesetRulesRequiredStatusChecks {
+		if v != nil {
+			return *v
+		}
+		var ret RepositoryRulesetRulesRequiredStatusChecks
+		return ret
+	}).(RepositoryRulesetRulesRequiredStatusChecksOutput)
+}
+
+// (Block Set, Min: 1) Status checks that are required. Several can be defined. (see below for nested schema)
+func (o RepositoryRulesetRulesRequiredStatusChecksPtrOutput) RequiredChecks() RepositoryRulesetRulesRequiredStatusChecksRequiredCheckArrayOutput {
+	return o.ApplyT(func(v *RepositoryRulesetRulesRequiredStatusChecks) []RepositoryRulesetRulesRequiredStatusChecksRequiredCheck {
+		if v == nil {
+			return nil
+		}
+		return v.RequiredChecks
+	}).(RepositoryRulesetRulesRequiredStatusChecksRequiredCheckArrayOutput)
+}
+
+// (Boolean) Whether pull requests targeting a matching branch must be tested with the latest code. This setting will not take effect unless at least one status check is enabled. Defaults to `false`.
+func (o RepositoryRulesetRulesRequiredStatusChecksPtrOutput) StrictRequiredStatusChecksPolicy() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RepositoryRulesetRulesRequiredStatusChecks) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.StrictRequiredStatusChecksPolicy
+	}).(pulumi.BoolPtrOutput)
+}
+
+type RepositoryRulesetRulesRequiredStatusChecksRequiredCheck struct {
+	// (String) The status check context name that must be present on the commit.
+	Context string `pulumi:"context"`
+	// (Number) The optional integration ID that this status check must originate from.
+	IntegrationId *int `pulumi:"integrationId"`
+}
+
+// RepositoryRulesetRulesRequiredStatusChecksRequiredCheckInput is an input type that accepts RepositoryRulesetRulesRequiredStatusChecksRequiredCheckArgs and RepositoryRulesetRulesRequiredStatusChecksRequiredCheckOutput values.
+// You can construct a concrete instance of `RepositoryRulesetRulesRequiredStatusChecksRequiredCheckInput` via:
+//
+//	RepositoryRulesetRulesRequiredStatusChecksRequiredCheckArgs{...}
+type RepositoryRulesetRulesRequiredStatusChecksRequiredCheckInput interface {
+	pulumi.Input
+
+	ToRepositoryRulesetRulesRequiredStatusChecksRequiredCheckOutput() RepositoryRulesetRulesRequiredStatusChecksRequiredCheckOutput
+	ToRepositoryRulesetRulesRequiredStatusChecksRequiredCheckOutputWithContext(context.Context) RepositoryRulesetRulesRequiredStatusChecksRequiredCheckOutput
+}
+
+type RepositoryRulesetRulesRequiredStatusChecksRequiredCheckArgs struct {
+	// (String) The status check context name that must be present on the commit.
+	Context pulumi.StringInput `pulumi:"context"`
+	// (Number) The optional integration ID that this status check must originate from.
+	IntegrationId pulumi.IntPtrInput `pulumi:"integrationId"`
+}
+
+func (RepositoryRulesetRulesRequiredStatusChecksRequiredCheckArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositoryRulesetRulesRequiredStatusChecksRequiredCheck)(nil)).Elem()
+}
+
+func (i RepositoryRulesetRulesRequiredStatusChecksRequiredCheckArgs) ToRepositoryRulesetRulesRequiredStatusChecksRequiredCheckOutput() RepositoryRulesetRulesRequiredStatusChecksRequiredCheckOutput {
+	return i.ToRepositoryRulesetRulesRequiredStatusChecksRequiredCheckOutputWithContext(context.Background())
+}
+
+func (i RepositoryRulesetRulesRequiredStatusChecksRequiredCheckArgs) ToRepositoryRulesetRulesRequiredStatusChecksRequiredCheckOutputWithContext(ctx context.Context) RepositoryRulesetRulesRequiredStatusChecksRequiredCheckOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryRulesetRulesRequiredStatusChecksRequiredCheckOutput)
+}
+
+func (i RepositoryRulesetRulesRequiredStatusChecksRequiredCheckArgs) ToOutput(ctx context.Context) pulumix.Output[RepositoryRulesetRulesRequiredStatusChecksRequiredCheck] {
+	return pulumix.Output[RepositoryRulesetRulesRequiredStatusChecksRequiredCheck]{
+		OutputState: i.ToRepositoryRulesetRulesRequiredStatusChecksRequiredCheckOutputWithContext(ctx).OutputState,
+	}
+}
+
+// RepositoryRulesetRulesRequiredStatusChecksRequiredCheckArrayInput is an input type that accepts RepositoryRulesetRulesRequiredStatusChecksRequiredCheckArray and RepositoryRulesetRulesRequiredStatusChecksRequiredCheckArrayOutput values.
+// You can construct a concrete instance of `RepositoryRulesetRulesRequiredStatusChecksRequiredCheckArrayInput` via:
+//
+//	RepositoryRulesetRulesRequiredStatusChecksRequiredCheckArray{ RepositoryRulesetRulesRequiredStatusChecksRequiredCheckArgs{...} }
+type RepositoryRulesetRulesRequiredStatusChecksRequiredCheckArrayInput interface {
+	pulumi.Input
+
+	ToRepositoryRulesetRulesRequiredStatusChecksRequiredCheckArrayOutput() RepositoryRulesetRulesRequiredStatusChecksRequiredCheckArrayOutput
+	ToRepositoryRulesetRulesRequiredStatusChecksRequiredCheckArrayOutputWithContext(context.Context) RepositoryRulesetRulesRequiredStatusChecksRequiredCheckArrayOutput
+}
+
+type RepositoryRulesetRulesRequiredStatusChecksRequiredCheckArray []RepositoryRulesetRulesRequiredStatusChecksRequiredCheckInput
+
+func (RepositoryRulesetRulesRequiredStatusChecksRequiredCheckArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RepositoryRulesetRulesRequiredStatusChecksRequiredCheck)(nil)).Elem()
+}
+
+func (i RepositoryRulesetRulesRequiredStatusChecksRequiredCheckArray) ToRepositoryRulesetRulesRequiredStatusChecksRequiredCheckArrayOutput() RepositoryRulesetRulesRequiredStatusChecksRequiredCheckArrayOutput {
+	return i.ToRepositoryRulesetRulesRequiredStatusChecksRequiredCheckArrayOutputWithContext(context.Background())
+}
+
+func (i RepositoryRulesetRulesRequiredStatusChecksRequiredCheckArray) ToRepositoryRulesetRulesRequiredStatusChecksRequiredCheckArrayOutputWithContext(ctx context.Context) RepositoryRulesetRulesRequiredStatusChecksRequiredCheckArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryRulesetRulesRequiredStatusChecksRequiredCheckArrayOutput)
+}
+
+func (i RepositoryRulesetRulesRequiredStatusChecksRequiredCheckArray) ToOutput(ctx context.Context) pulumix.Output[[]RepositoryRulesetRulesRequiredStatusChecksRequiredCheck] {
+	return pulumix.Output[[]RepositoryRulesetRulesRequiredStatusChecksRequiredCheck]{
+		OutputState: i.ToRepositoryRulesetRulesRequiredStatusChecksRequiredCheckArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type RepositoryRulesetRulesRequiredStatusChecksRequiredCheckOutput struct{ *pulumi.OutputState }
+
+func (RepositoryRulesetRulesRequiredStatusChecksRequiredCheckOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositoryRulesetRulesRequiredStatusChecksRequiredCheck)(nil)).Elem()
+}
+
+func (o RepositoryRulesetRulesRequiredStatusChecksRequiredCheckOutput) ToRepositoryRulesetRulesRequiredStatusChecksRequiredCheckOutput() RepositoryRulesetRulesRequiredStatusChecksRequiredCheckOutput {
+	return o
+}
+
+func (o RepositoryRulesetRulesRequiredStatusChecksRequiredCheckOutput) ToRepositoryRulesetRulesRequiredStatusChecksRequiredCheckOutputWithContext(ctx context.Context) RepositoryRulesetRulesRequiredStatusChecksRequiredCheckOutput {
+	return o
+}
+
+func (o RepositoryRulesetRulesRequiredStatusChecksRequiredCheckOutput) ToOutput(ctx context.Context) pulumix.Output[RepositoryRulesetRulesRequiredStatusChecksRequiredCheck] {
+	return pulumix.Output[RepositoryRulesetRulesRequiredStatusChecksRequiredCheck]{
+		OutputState: o.OutputState,
+	}
+}
+
+// (String) The status check context name that must be present on the commit.
+func (o RepositoryRulesetRulesRequiredStatusChecksRequiredCheckOutput) Context() pulumi.StringOutput {
+	return o.ApplyT(func(v RepositoryRulesetRulesRequiredStatusChecksRequiredCheck) string { return v.Context }).(pulumi.StringOutput)
+}
+
+// (Number) The optional integration ID that this status check must originate from.
+func (o RepositoryRulesetRulesRequiredStatusChecksRequiredCheckOutput) IntegrationId() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v RepositoryRulesetRulesRequiredStatusChecksRequiredCheck) *int { return v.IntegrationId }).(pulumi.IntPtrOutput)
+}
+
+type RepositoryRulesetRulesRequiredStatusChecksRequiredCheckArrayOutput struct{ *pulumi.OutputState }
+
+func (RepositoryRulesetRulesRequiredStatusChecksRequiredCheckArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RepositoryRulesetRulesRequiredStatusChecksRequiredCheck)(nil)).Elem()
+}
+
+func (o RepositoryRulesetRulesRequiredStatusChecksRequiredCheckArrayOutput) ToRepositoryRulesetRulesRequiredStatusChecksRequiredCheckArrayOutput() RepositoryRulesetRulesRequiredStatusChecksRequiredCheckArrayOutput {
+	return o
+}
+
+func (o RepositoryRulesetRulesRequiredStatusChecksRequiredCheckArrayOutput) ToRepositoryRulesetRulesRequiredStatusChecksRequiredCheckArrayOutputWithContext(ctx context.Context) RepositoryRulesetRulesRequiredStatusChecksRequiredCheckArrayOutput {
+	return o
+}
+
+func (o RepositoryRulesetRulesRequiredStatusChecksRequiredCheckArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]RepositoryRulesetRulesRequiredStatusChecksRequiredCheck] {
+	return pulumix.Output[[]RepositoryRulesetRulesRequiredStatusChecksRequiredCheck]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o RepositoryRulesetRulesRequiredStatusChecksRequiredCheckArrayOutput) Index(i pulumi.IntInput) RepositoryRulesetRulesRequiredStatusChecksRequiredCheckOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RepositoryRulesetRulesRequiredStatusChecksRequiredCheck {
+		return vs[0].([]RepositoryRulesetRulesRequiredStatusChecksRequiredCheck)[vs[1].(int)]
+	}).(RepositoryRulesetRulesRequiredStatusChecksRequiredCheckOutput)
+}
+
+type RepositoryRulesetRulesTagNamePattern struct {
+	// (String) The name of the ruleset.
+	Name *string `pulumi:"name"`
+	// (Boolean) If true, the rule will fail if the pattern matches.
+	Negate *bool `pulumi:"negate"`
+	// (String) The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
+	Operator string `pulumi:"operator"`
+	// (String) The pattern to match with.
+	Pattern string `pulumi:"pattern"`
+}
+
+// RepositoryRulesetRulesTagNamePatternInput is an input type that accepts RepositoryRulesetRulesTagNamePatternArgs and RepositoryRulesetRulesTagNamePatternOutput values.
+// You can construct a concrete instance of `RepositoryRulesetRulesTagNamePatternInput` via:
+//
+//	RepositoryRulesetRulesTagNamePatternArgs{...}
+type RepositoryRulesetRulesTagNamePatternInput interface {
+	pulumi.Input
+
+	ToRepositoryRulesetRulesTagNamePatternOutput() RepositoryRulesetRulesTagNamePatternOutput
+	ToRepositoryRulesetRulesTagNamePatternOutputWithContext(context.Context) RepositoryRulesetRulesTagNamePatternOutput
+}
+
+type RepositoryRulesetRulesTagNamePatternArgs struct {
+	// (String) The name of the ruleset.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// (Boolean) If true, the rule will fail if the pattern matches.
+	Negate pulumi.BoolPtrInput `pulumi:"negate"`
+	// (String) The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// (String) The pattern to match with.
+	Pattern pulumi.StringInput `pulumi:"pattern"`
+}
+
+func (RepositoryRulesetRulesTagNamePatternArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositoryRulesetRulesTagNamePattern)(nil)).Elem()
+}
+
+func (i RepositoryRulesetRulesTagNamePatternArgs) ToRepositoryRulesetRulesTagNamePatternOutput() RepositoryRulesetRulesTagNamePatternOutput {
+	return i.ToRepositoryRulesetRulesTagNamePatternOutputWithContext(context.Background())
+}
+
+func (i RepositoryRulesetRulesTagNamePatternArgs) ToRepositoryRulesetRulesTagNamePatternOutputWithContext(ctx context.Context) RepositoryRulesetRulesTagNamePatternOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryRulesetRulesTagNamePatternOutput)
+}
+
+func (i RepositoryRulesetRulesTagNamePatternArgs) ToOutput(ctx context.Context) pulumix.Output[RepositoryRulesetRulesTagNamePattern] {
+	return pulumix.Output[RepositoryRulesetRulesTagNamePattern]{
+		OutputState: i.ToRepositoryRulesetRulesTagNamePatternOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i RepositoryRulesetRulesTagNamePatternArgs) ToRepositoryRulesetRulesTagNamePatternPtrOutput() RepositoryRulesetRulesTagNamePatternPtrOutput {
+	return i.ToRepositoryRulesetRulesTagNamePatternPtrOutputWithContext(context.Background())
+}
+
+func (i RepositoryRulesetRulesTagNamePatternArgs) ToRepositoryRulesetRulesTagNamePatternPtrOutputWithContext(ctx context.Context) RepositoryRulesetRulesTagNamePatternPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryRulesetRulesTagNamePatternOutput).ToRepositoryRulesetRulesTagNamePatternPtrOutputWithContext(ctx)
+}
+
+// RepositoryRulesetRulesTagNamePatternPtrInput is an input type that accepts RepositoryRulesetRulesTagNamePatternArgs, RepositoryRulesetRulesTagNamePatternPtr and RepositoryRulesetRulesTagNamePatternPtrOutput values.
+// You can construct a concrete instance of `RepositoryRulesetRulesTagNamePatternPtrInput` via:
+//
+//	        RepositoryRulesetRulesTagNamePatternArgs{...}
+//
+//	or:
+//
+//	        nil
+type RepositoryRulesetRulesTagNamePatternPtrInput interface {
+	pulumi.Input
+
+	ToRepositoryRulesetRulesTagNamePatternPtrOutput() RepositoryRulesetRulesTagNamePatternPtrOutput
+	ToRepositoryRulesetRulesTagNamePatternPtrOutputWithContext(context.Context) RepositoryRulesetRulesTagNamePatternPtrOutput
+}
+
+type repositoryRulesetRulesTagNamePatternPtrType RepositoryRulesetRulesTagNamePatternArgs
+
+func RepositoryRulesetRulesTagNamePatternPtr(v *RepositoryRulesetRulesTagNamePatternArgs) RepositoryRulesetRulesTagNamePatternPtrInput {
+	return (*repositoryRulesetRulesTagNamePatternPtrType)(v)
+}
+
+func (*repositoryRulesetRulesTagNamePatternPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RepositoryRulesetRulesTagNamePattern)(nil)).Elem()
+}
+
+func (i *repositoryRulesetRulesTagNamePatternPtrType) ToRepositoryRulesetRulesTagNamePatternPtrOutput() RepositoryRulesetRulesTagNamePatternPtrOutput {
+	return i.ToRepositoryRulesetRulesTagNamePatternPtrOutputWithContext(context.Background())
+}
+
+func (i *repositoryRulesetRulesTagNamePatternPtrType) ToRepositoryRulesetRulesTagNamePatternPtrOutputWithContext(ctx context.Context) RepositoryRulesetRulesTagNamePatternPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryRulesetRulesTagNamePatternPtrOutput)
+}
+
+func (i *repositoryRulesetRulesTagNamePatternPtrType) ToOutput(ctx context.Context) pulumix.Output[*RepositoryRulesetRulesTagNamePattern] {
+	return pulumix.Output[*RepositoryRulesetRulesTagNamePattern]{
+		OutputState: i.ToRepositoryRulesetRulesTagNamePatternPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type RepositoryRulesetRulesTagNamePatternOutput struct{ *pulumi.OutputState }
+
+func (RepositoryRulesetRulesTagNamePatternOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositoryRulesetRulesTagNamePattern)(nil)).Elem()
+}
+
+func (o RepositoryRulesetRulesTagNamePatternOutput) ToRepositoryRulesetRulesTagNamePatternOutput() RepositoryRulesetRulesTagNamePatternOutput {
+	return o
+}
+
+func (o RepositoryRulesetRulesTagNamePatternOutput) ToRepositoryRulesetRulesTagNamePatternOutputWithContext(ctx context.Context) RepositoryRulesetRulesTagNamePatternOutput {
+	return o
+}
+
+func (o RepositoryRulesetRulesTagNamePatternOutput) ToRepositoryRulesetRulesTagNamePatternPtrOutput() RepositoryRulesetRulesTagNamePatternPtrOutput {
+	return o.ToRepositoryRulesetRulesTagNamePatternPtrOutputWithContext(context.Background())
+}
+
+func (o RepositoryRulesetRulesTagNamePatternOutput) ToRepositoryRulesetRulesTagNamePatternPtrOutputWithContext(ctx context.Context) RepositoryRulesetRulesTagNamePatternPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RepositoryRulesetRulesTagNamePattern) *RepositoryRulesetRulesTagNamePattern {
+		return &v
+	}).(RepositoryRulesetRulesTagNamePatternPtrOutput)
+}
+
+func (o RepositoryRulesetRulesTagNamePatternOutput) ToOutput(ctx context.Context) pulumix.Output[RepositoryRulesetRulesTagNamePattern] {
+	return pulumix.Output[RepositoryRulesetRulesTagNamePattern]{
+		OutputState: o.OutputState,
+	}
+}
+
+// (String) The name of the ruleset.
+func (o RepositoryRulesetRulesTagNamePatternOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RepositoryRulesetRulesTagNamePattern) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// (Boolean) If true, the rule will fail if the pattern matches.
+func (o RepositoryRulesetRulesTagNamePatternOutput) Negate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RepositoryRulesetRulesTagNamePattern) *bool { return v.Negate }).(pulumi.BoolPtrOutput)
+}
+
+// (String) The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
+func (o RepositoryRulesetRulesTagNamePatternOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v RepositoryRulesetRulesTagNamePattern) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// (String) The pattern to match with.
+func (o RepositoryRulesetRulesTagNamePatternOutput) Pattern() pulumi.StringOutput {
+	return o.ApplyT(func(v RepositoryRulesetRulesTagNamePattern) string { return v.Pattern }).(pulumi.StringOutput)
+}
+
+type RepositoryRulesetRulesTagNamePatternPtrOutput struct{ *pulumi.OutputState }
+
+func (RepositoryRulesetRulesTagNamePatternPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RepositoryRulesetRulesTagNamePattern)(nil)).Elem()
+}
+
+func (o RepositoryRulesetRulesTagNamePatternPtrOutput) ToRepositoryRulesetRulesTagNamePatternPtrOutput() RepositoryRulesetRulesTagNamePatternPtrOutput {
+	return o
+}
+
+func (o RepositoryRulesetRulesTagNamePatternPtrOutput) ToRepositoryRulesetRulesTagNamePatternPtrOutputWithContext(ctx context.Context) RepositoryRulesetRulesTagNamePatternPtrOutput {
+	return o
+}
+
+func (o RepositoryRulesetRulesTagNamePatternPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RepositoryRulesetRulesTagNamePattern] {
+	return pulumix.Output[*RepositoryRulesetRulesTagNamePattern]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o RepositoryRulesetRulesTagNamePatternPtrOutput) Elem() RepositoryRulesetRulesTagNamePatternOutput {
+	return o.ApplyT(func(v *RepositoryRulesetRulesTagNamePattern) RepositoryRulesetRulesTagNamePattern {
+		if v != nil {
+			return *v
+		}
+		var ret RepositoryRulesetRulesTagNamePattern
+		return ret
+	}).(RepositoryRulesetRulesTagNamePatternOutput)
+}
+
+// (String) The name of the ruleset.
+func (o RepositoryRulesetRulesTagNamePatternPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RepositoryRulesetRulesTagNamePattern) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// (Boolean) If true, the rule will fail if the pattern matches.
+func (o RepositoryRulesetRulesTagNamePatternPtrOutput) Negate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RepositoryRulesetRulesTagNamePattern) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Negate
+	}).(pulumi.BoolPtrOutput)
+}
+
+// (String) The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
+func (o RepositoryRulesetRulesTagNamePatternPtrOutput) Operator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RepositoryRulesetRulesTagNamePattern) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Operator
+	}).(pulumi.StringPtrOutput)
+}
+
+// (String) The pattern to match with.
+func (o RepositoryRulesetRulesTagNamePatternPtrOutput) Pattern() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RepositoryRulesetRulesTagNamePattern) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Pattern
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -9932,6 +15410,32 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BranchProtectionV3RequiredStatusChecksPtrInput)(nil)).Elem(), BranchProtectionV3RequiredStatusChecksArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BranchProtectionV3RestrictionsInput)(nil)).Elem(), BranchProtectionV3RestrictionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BranchProtectionV3RestrictionsPtrInput)(nil)).Elem(), BranchProtectionV3RestrictionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationRulesetBypassActorInput)(nil)).Elem(), OrganizationRulesetBypassActorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationRulesetBypassActorArrayInput)(nil)).Elem(), OrganizationRulesetBypassActorArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationRulesetConditionsInput)(nil)).Elem(), OrganizationRulesetConditionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationRulesetConditionsPtrInput)(nil)).Elem(), OrganizationRulesetConditionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationRulesetConditionsRefNameInput)(nil)).Elem(), OrganizationRulesetConditionsRefNameArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationRulesetConditionsRefNamePtrInput)(nil)).Elem(), OrganizationRulesetConditionsRefNameArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationRulesetConditionsRepositoryNameInput)(nil)).Elem(), OrganizationRulesetConditionsRepositoryNameArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationRulesetConditionsRepositoryNamePtrInput)(nil)).Elem(), OrganizationRulesetConditionsRepositoryNameArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationRulesetRulesInput)(nil)).Elem(), OrganizationRulesetRulesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationRulesetRulesPtrInput)(nil)).Elem(), OrganizationRulesetRulesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationRulesetRulesBranchNamePatternInput)(nil)).Elem(), OrganizationRulesetRulesBranchNamePatternArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationRulesetRulesBranchNamePatternPtrInput)(nil)).Elem(), OrganizationRulesetRulesBranchNamePatternArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationRulesetRulesCommitAuthorEmailPatternInput)(nil)).Elem(), OrganizationRulesetRulesCommitAuthorEmailPatternArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationRulesetRulesCommitAuthorEmailPatternPtrInput)(nil)).Elem(), OrganizationRulesetRulesCommitAuthorEmailPatternArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationRulesetRulesCommitMessagePatternInput)(nil)).Elem(), OrganizationRulesetRulesCommitMessagePatternArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationRulesetRulesCommitMessagePatternPtrInput)(nil)).Elem(), OrganizationRulesetRulesCommitMessagePatternArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationRulesetRulesCommitterEmailPatternInput)(nil)).Elem(), OrganizationRulesetRulesCommitterEmailPatternArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationRulesetRulesCommitterEmailPatternPtrInput)(nil)).Elem(), OrganizationRulesetRulesCommitterEmailPatternArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationRulesetRulesPullRequestInput)(nil)).Elem(), OrganizationRulesetRulesPullRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationRulesetRulesPullRequestPtrInput)(nil)).Elem(), OrganizationRulesetRulesPullRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationRulesetRulesRequiredStatusChecksInput)(nil)).Elem(), OrganizationRulesetRulesRequiredStatusChecksArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationRulesetRulesRequiredStatusChecksPtrInput)(nil)).Elem(), OrganizationRulesetRulesRequiredStatusChecksArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationRulesetRulesRequiredStatusChecksRequiredCheckInput)(nil)).Elem(), OrganizationRulesetRulesRequiredStatusChecksRequiredCheckArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationRulesetRulesRequiredStatusChecksRequiredCheckArrayInput)(nil)).Elem(), OrganizationRulesetRulesRequiredStatusChecksRequiredCheckArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationRulesetRulesTagNamePatternInput)(nil)).Elem(), OrganizationRulesetRulesTagNamePatternArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationRulesetRulesTagNamePatternPtrInput)(nil)).Elem(), OrganizationRulesetRulesTagNamePatternArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationWebhookConfigurationInput)(nil)).Elem(), OrganizationWebhookConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationWebhookConfigurationPtrInput)(nil)).Elem(), OrganizationWebhookConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProviderAppAuthInput)(nil)).Elem(), ProviderAppAuthArgs{})
@@ -9948,6 +15452,32 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryPagesPtrInput)(nil)).Elem(), RepositoryPagesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryPagesSourceInput)(nil)).Elem(), RepositoryPagesSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryPagesSourcePtrInput)(nil)).Elem(), RepositoryPagesSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryRulesetBypassActorInput)(nil)).Elem(), RepositoryRulesetBypassActorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryRulesetBypassActorArrayInput)(nil)).Elem(), RepositoryRulesetBypassActorArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryRulesetConditionsInput)(nil)).Elem(), RepositoryRulesetConditionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryRulesetConditionsPtrInput)(nil)).Elem(), RepositoryRulesetConditionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryRulesetConditionsRefNameInput)(nil)).Elem(), RepositoryRulesetConditionsRefNameArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryRulesetConditionsRefNamePtrInput)(nil)).Elem(), RepositoryRulesetConditionsRefNameArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryRulesetRulesInput)(nil)).Elem(), RepositoryRulesetRulesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryRulesetRulesPtrInput)(nil)).Elem(), RepositoryRulesetRulesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryRulesetRulesBranchNamePatternInput)(nil)).Elem(), RepositoryRulesetRulesBranchNamePatternArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryRulesetRulesBranchNamePatternPtrInput)(nil)).Elem(), RepositoryRulesetRulesBranchNamePatternArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryRulesetRulesCommitAuthorEmailPatternInput)(nil)).Elem(), RepositoryRulesetRulesCommitAuthorEmailPatternArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryRulesetRulesCommitAuthorEmailPatternPtrInput)(nil)).Elem(), RepositoryRulesetRulesCommitAuthorEmailPatternArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryRulesetRulesCommitMessagePatternInput)(nil)).Elem(), RepositoryRulesetRulesCommitMessagePatternArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryRulesetRulesCommitMessagePatternPtrInput)(nil)).Elem(), RepositoryRulesetRulesCommitMessagePatternArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryRulesetRulesCommitterEmailPatternInput)(nil)).Elem(), RepositoryRulesetRulesCommitterEmailPatternArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryRulesetRulesCommitterEmailPatternPtrInput)(nil)).Elem(), RepositoryRulesetRulesCommitterEmailPatternArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryRulesetRulesPullRequestInput)(nil)).Elem(), RepositoryRulesetRulesPullRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryRulesetRulesPullRequestPtrInput)(nil)).Elem(), RepositoryRulesetRulesPullRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryRulesetRulesRequiredDeploymentsInput)(nil)).Elem(), RepositoryRulesetRulesRequiredDeploymentsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryRulesetRulesRequiredDeploymentsPtrInput)(nil)).Elem(), RepositoryRulesetRulesRequiredDeploymentsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryRulesetRulesRequiredStatusChecksInput)(nil)).Elem(), RepositoryRulesetRulesRequiredStatusChecksArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryRulesetRulesRequiredStatusChecksPtrInput)(nil)).Elem(), RepositoryRulesetRulesRequiredStatusChecksArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryRulesetRulesRequiredStatusChecksRequiredCheckInput)(nil)).Elem(), RepositoryRulesetRulesRequiredStatusChecksRequiredCheckArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryRulesetRulesRequiredStatusChecksRequiredCheckArrayInput)(nil)).Elem(), RepositoryRulesetRulesRequiredStatusChecksRequiredCheckArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryRulesetRulesTagNamePatternInput)(nil)).Elem(), RepositoryRulesetRulesTagNamePatternArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryRulesetRulesTagNamePatternPtrInput)(nil)).Elem(), RepositoryRulesetRulesTagNamePatternArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositorySecurityAndAnalysisInput)(nil)).Elem(), RepositorySecurityAndAnalysisArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositorySecurityAndAnalysisPtrInput)(nil)).Elem(), RepositorySecurityAndAnalysisArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositorySecurityAndAnalysisAdvancedSecurityInput)(nil)).Elem(), RepositorySecurityAndAnalysisAdvancedSecurityArgs{})
@@ -10051,6 +15581,32 @@ func init() {
 	pulumi.RegisterOutputType(BranchProtectionV3RequiredStatusChecksPtrOutput{})
 	pulumi.RegisterOutputType(BranchProtectionV3RestrictionsOutput{})
 	pulumi.RegisterOutputType(BranchProtectionV3RestrictionsPtrOutput{})
+	pulumi.RegisterOutputType(OrganizationRulesetBypassActorOutput{})
+	pulumi.RegisterOutputType(OrganizationRulesetBypassActorArrayOutput{})
+	pulumi.RegisterOutputType(OrganizationRulesetConditionsOutput{})
+	pulumi.RegisterOutputType(OrganizationRulesetConditionsPtrOutput{})
+	pulumi.RegisterOutputType(OrganizationRulesetConditionsRefNameOutput{})
+	pulumi.RegisterOutputType(OrganizationRulesetConditionsRefNamePtrOutput{})
+	pulumi.RegisterOutputType(OrganizationRulesetConditionsRepositoryNameOutput{})
+	pulumi.RegisterOutputType(OrganizationRulesetConditionsRepositoryNamePtrOutput{})
+	pulumi.RegisterOutputType(OrganizationRulesetRulesOutput{})
+	pulumi.RegisterOutputType(OrganizationRulesetRulesPtrOutput{})
+	pulumi.RegisterOutputType(OrganizationRulesetRulesBranchNamePatternOutput{})
+	pulumi.RegisterOutputType(OrganizationRulesetRulesBranchNamePatternPtrOutput{})
+	pulumi.RegisterOutputType(OrganizationRulesetRulesCommitAuthorEmailPatternOutput{})
+	pulumi.RegisterOutputType(OrganizationRulesetRulesCommitAuthorEmailPatternPtrOutput{})
+	pulumi.RegisterOutputType(OrganizationRulesetRulesCommitMessagePatternOutput{})
+	pulumi.RegisterOutputType(OrganizationRulesetRulesCommitMessagePatternPtrOutput{})
+	pulumi.RegisterOutputType(OrganizationRulesetRulesCommitterEmailPatternOutput{})
+	pulumi.RegisterOutputType(OrganizationRulesetRulesCommitterEmailPatternPtrOutput{})
+	pulumi.RegisterOutputType(OrganizationRulesetRulesPullRequestOutput{})
+	pulumi.RegisterOutputType(OrganizationRulesetRulesPullRequestPtrOutput{})
+	pulumi.RegisterOutputType(OrganizationRulesetRulesRequiredStatusChecksOutput{})
+	pulumi.RegisterOutputType(OrganizationRulesetRulesRequiredStatusChecksPtrOutput{})
+	pulumi.RegisterOutputType(OrganizationRulesetRulesRequiredStatusChecksRequiredCheckOutput{})
+	pulumi.RegisterOutputType(OrganizationRulesetRulesRequiredStatusChecksRequiredCheckArrayOutput{})
+	pulumi.RegisterOutputType(OrganizationRulesetRulesTagNamePatternOutput{})
+	pulumi.RegisterOutputType(OrganizationRulesetRulesTagNamePatternPtrOutput{})
 	pulumi.RegisterOutputType(OrganizationWebhookConfigurationOutput{})
 	pulumi.RegisterOutputType(OrganizationWebhookConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ProviderAppAuthOutput{})
@@ -10067,6 +15623,32 @@ func init() {
 	pulumi.RegisterOutputType(RepositoryPagesPtrOutput{})
 	pulumi.RegisterOutputType(RepositoryPagesSourceOutput{})
 	pulumi.RegisterOutputType(RepositoryPagesSourcePtrOutput{})
+	pulumi.RegisterOutputType(RepositoryRulesetBypassActorOutput{})
+	pulumi.RegisterOutputType(RepositoryRulesetBypassActorArrayOutput{})
+	pulumi.RegisterOutputType(RepositoryRulesetConditionsOutput{})
+	pulumi.RegisterOutputType(RepositoryRulesetConditionsPtrOutput{})
+	pulumi.RegisterOutputType(RepositoryRulesetConditionsRefNameOutput{})
+	pulumi.RegisterOutputType(RepositoryRulesetConditionsRefNamePtrOutput{})
+	pulumi.RegisterOutputType(RepositoryRulesetRulesOutput{})
+	pulumi.RegisterOutputType(RepositoryRulesetRulesPtrOutput{})
+	pulumi.RegisterOutputType(RepositoryRulesetRulesBranchNamePatternOutput{})
+	pulumi.RegisterOutputType(RepositoryRulesetRulesBranchNamePatternPtrOutput{})
+	pulumi.RegisterOutputType(RepositoryRulesetRulesCommitAuthorEmailPatternOutput{})
+	pulumi.RegisterOutputType(RepositoryRulesetRulesCommitAuthorEmailPatternPtrOutput{})
+	pulumi.RegisterOutputType(RepositoryRulesetRulesCommitMessagePatternOutput{})
+	pulumi.RegisterOutputType(RepositoryRulesetRulesCommitMessagePatternPtrOutput{})
+	pulumi.RegisterOutputType(RepositoryRulesetRulesCommitterEmailPatternOutput{})
+	pulumi.RegisterOutputType(RepositoryRulesetRulesCommitterEmailPatternPtrOutput{})
+	pulumi.RegisterOutputType(RepositoryRulesetRulesPullRequestOutput{})
+	pulumi.RegisterOutputType(RepositoryRulesetRulesPullRequestPtrOutput{})
+	pulumi.RegisterOutputType(RepositoryRulesetRulesRequiredDeploymentsOutput{})
+	pulumi.RegisterOutputType(RepositoryRulesetRulesRequiredDeploymentsPtrOutput{})
+	pulumi.RegisterOutputType(RepositoryRulesetRulesRequiredStatusChecksOutput{})
+	pulumi.RegisterOutputType(RepositoryRulesetRulesRequiredStatusChecksPtrOutput{})
+	pulumi.RegisterOutputType(RepositoryRulesetRulesRequiredStatusChecksRequiredCheckOutput{})
+	pulumi.RegisterOutputType(RepositoryRulesetRulesRequiredStatusChecksRequiredCheckArrayOutput{})
+	pulumi.RegisterOutputType(RepositoryRulesetRulesTagNamePatternOutput{})
+	pulumi.RegisterOutputType(RepositoryRulesetRulesTagNamePatternPtrOutput{})
 	pulumi.RegisterOutputType(RepositorySecurityAndAnalysisOutput{})
 	pulumi.RegisterOutputType(RepositorySecurityAndAnalysisPtrOutput{})
 	pulumi.RegisterOutputType(RepositorySecurityAndAnalysisAdvancedSecurityOutput{})

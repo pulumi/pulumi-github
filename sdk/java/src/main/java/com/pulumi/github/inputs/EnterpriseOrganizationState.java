@@ -62,6 +62,21 @@ public final class EnterpriseOrganizationState extends com.pulumi.resources.Reso
     }
 
     /**
+     * The display name of the organization.
+     * 
+     */
+    @Import(name="displayName")
+    private @Nullable Output<String> displayName;
+
+    /**
+     * @return The display name of the organization.
+     * 
+     */
+    public Optional<Output<String>> displayName() {
+        return Optional.ofNullable(this.displayName);
+    }
+
+    /**
      * The ID of the enterprise.
      * 
      */
@@ -97,6 +112,7 @@ public final class EnterpriseOrganizationState extends com.pulumi.resources.Reso
         this.adminLogins = $.adminLogins;
         this.billingEmail = $.billingEmail;
         this.description = $.description;
+        this.displayName = $.displayName;
         this.enterpriseId = $.enterpriseId;
         this.name = $.name;
     }
@@ -190,6 +206,27 @@ public final class EnterpriseOrganizationState extends com.pulumi.resources.Reso
          */
         public Builder description(String description) {
             return description(Output.of(description));
+        }
+
+        /**
+         * @param displayName The display name of the organization.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder displayName(@Nullable Output<String> displayName) {
+            $.displayName = displayName;
+            return this;
+        }
+
+        /**
+         * @param displayName The display name of the organization.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder displayName(String displayName) {
+            return displayName(Output.of(displayName));
         }
 
         /**

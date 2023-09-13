@@ -2060,7 +2060,7 @@ class Repository(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def topics(self) -> pulumi.Output[Optional[Sequence[str]]]:
+    def topics(self) -> pulumi.Output[Sequence[str]]:
         """
         The list of topics of the repository.
         """
