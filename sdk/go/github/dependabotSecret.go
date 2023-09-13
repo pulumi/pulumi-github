@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type DependabotSecret struct {
@@ -155,6 +156,12 @@ func (i *DependabotSecret) ToDependabotSecretOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(DependabotSecretOutput)
 }
 
+func (i *DependabotSecret) ToOutput(ctx context.Context) pulumix.Output[*DependabotSecret] {
+	return pulumix.Output[*DependabotSecret]{
+		OutputState: i.ToDependabotSecretOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DependabotSecretArrayInput is an input type that accepts DependabotSecretArray and DependabotSecretArrayOutput values.
 // You can construct a concrete instance of `DependabotSecretArrayInput` via:
 //
@@ -178,6 +185,12 @@ func (i DependabotSecretArray) ToDependabotSecretArrayOutput() DependabotSecretA
 
 func (i DependabotSecretArray) ToDependabotSecretArrayOutputWithContext(ctx context.Context) DependabotSecretArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DependabotSecretArrayOutput)
+}
+
+func (i DependabotSecretArray) ToOutput(ctx context.Context) pulumix.Output[[]*DependabotSecret] {
+	return pulumix.Output[[]*DependabotSecret]{
+		OutputState: i.ToDependabotSecretArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // DependabotSecretMapInput is an input type that accepts DependabotSecretMap and DependabotSecretMapOutput values.
@@ -205,6 +218,12 @@ func (i DependabotSecretMap) ToDependabotSecretMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(DependabotSecretMapOutput)
 }
 
+func (i DependabotSecretMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*DependabotSecret] {
+	return pulumix.Output[map[string]*DependabotSecret]{
+		OutputState: i.ToDependabotSecretMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DependabotSecretOutput struct{ *pulumi.OutputState }
 
 func (DependabotSecretOutput) ElementType() reflect.Type {
@@ -217,6 +236,12 @@ func (o DependabotSecretOutput) ToDependabotSecretOutput() DependabotSecretOutpu
 
 func (o DependabotSecretOutput) ToDependabotSecretOutputWithContext(ctx context.Context) DependabotSecretOutput {
 	return o
+}
+
+func (o DependabotSecretOutput) ToOutput(ctx context.Context) pulumix.Output[*DependabotSecret] {
+	return pulumix.Output[*DependabotSecret]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Date of 'dependabot_secret' creation.
@@ -263,6 +288,12 @@ func (o DependabotSecretArrayOutput) ToDependabotSecretArrayOutputWithContext(ct
 	return o
 }
 
+func (o DependabotSecretArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*DependabotSecret] {
+	return pulumix.Output[[]*DependabotSecret]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DependabotSecretArrayOutput) Index(i pulumi.IntInput) DependabotSecretOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DependabotSecret {
 		return vs[0].([]*DependabotSecret)[vs[1].(int)]
@@ -281,6 +312,12 @@ func (o DependabotSecretMapOutput) ToDependabotSecretMapOutput() DependabotSecre
 
 func (o DependabotSecretMapOutput) ToDependabotSecretMapOutputWithContext(ctx context.Context) DependabotSecretMapOutput {
 	return o
+}
+
+func (o DependabotSecretMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*DependabotSecret] {
+	return pulumix.Output[map[string]*DependabotSecret]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DependabotSecretMapOutput) MapIndex(k pulumi.StringInput) DependabotSecretOutput {

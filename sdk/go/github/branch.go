@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // This resource allows you to create and manage branches within your repository.
@@ -207,6 +208,12 @@ func (i *Branch) ToBranchOutputWithContext(ctx context.Context) BranchOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BranchOutput)
 }
 
+func (i *Branch) ToOutput(ctx context.Context) pulumix.Output[*Branch] {
+	return pulumix.Output[*Branch]{
+		OutputState: i.ToBranchOutputWithContext(ctx).OutputState,
+	}
+}
+
 // BranchArrayInput is an input type that accepts BranchArray and BranchArrayOutput values.
 // You can construct a concrete instance of `BranchArrayInput` via:
 //
@@ -230,6 +237,12 @@ func (i BranchArray) ToBranchArrayOutput() BranchArrayOutput {
 
 func (i BranchArray) ToBranchArrayOutputWithContext(ctx context.Context) BranchArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BranchArrayOutput)
+}
+
+func (i BranchArray) ToOutput(ctx context.Context) pulumix.Output[[]*Branch] {
+	return pulumix.Output[[]*Branch]{
+		OutputState: i.ToBranchArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // BranchMapInput is an input type that accepts BranchMap and BranchMapOutput values.
@@ -257,6 +270,12 @@ func (i BranchMap) ToBranchMapOutputWithContext(ctx context.Context) BranchMapOu
 	return pulumi.ToOutputWithContext(ctx, i).(BranchMapOutput)
 }
 
+func (i BranchMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Branch] {
+	return pulumix.Output[map[string]*Branch]{
+		OutputState: i.ToBranchMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BranchOutput struct{ *pulumi.OutputState }
 
 func (BranchOutput) ElementType() reflect.Type {
@@ -269,6 +288,12 @@ func (o BranchOutput) ToBranchOutput() BranchOutput {
 
 func (o BranchOutput) ToBranchOutputWithContext(ctx context.Context) BranchOutput {
 	return o
+}
+
+func (o BranchOutput) ToOutput(ctx context.Context) pulumix.Output[*Branch] {
+	return pulumix.Output[*Branch]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The repository branch to create.
@@ -320,6 +345,12 @@ func (o BranchArrayOutput) ToBranchArrayOutputWithContext(ctx context.Context) B
 	return o
 }
 
+func (o BranchArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Branch] {
+	return pulumix.Output[[]*Branch]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o BranchArrayOutput) Index(i pulumi.IntInput) BranchOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Branch {
 		return vs[0].([]*Branch)[vs[1].(int)]
@@ -338,6 +369,12 @@ func (o BranchMapOutput) ToBranchMapOutput() BranchMapOutput {
 
 func (o BranchMapOutput) ToBranchMapOutputWithContext(ctx context.Context) BranchMapOutput {
 	return o
+}
+
+func (o BranchMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Branch] {
+	return pulumix.Output[map[string]*Branch]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BranchMapOutput) MapIndex(k pulumi.StringInput) BranchOutput {

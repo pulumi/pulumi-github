@@ -39,3 +39,19 @@ export interface GetOrganizationExternalIdentitiesResult {
      */
     readonly identities: outputs.GetOrganizationExternalIdentitiesIdentity[];
 }
+/**
+ * Use this data source to retrieve each organization member's SAML or SCIM user
+ * attributes.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const all = github.getOrganizationExternalIdentities({});
+ * ```
+ */
+export function getOrganizationExternalIdentitiesOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetOrganizationExternalIdentitiesResult> {
+    return pulumi.output(getOrganizationExternalIdentities(opts))
+}

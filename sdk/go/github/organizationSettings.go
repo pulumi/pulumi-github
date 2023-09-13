@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // This resource allows you to create and manage settings for a GitHub Organization.
@@ -410,6 +411,12 @@ func (i *OrganizationSettings) ToOrganizationSettingsOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationSettingsOutput)
 }
 
+func (i *OrganizationSettings) ToOutput(ctx context.Context) pulumix.Output[*OrganizationSettings] {
+	return pulumix.Output[*OrganizationSettings]{
+		OutputState: i.ToOrganizationSettingsOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OrganizationSettingsArrayInput is an input type that accepts OrganizationSettingsArray and OrganizationSettingsArrayOutput values.
 // You can construct a concrete instance of `OrganizationSettingsArrayInput` via:
 //
@@ -433,6 +440,12 @@ func (i OrganizationSettingsArray) ToOrganizationSettingsArrayOutput() Organizat
 
 func (i OrganizationSettingsArray) ToOrganizationSettingsArrayOutputWithContext(ctx context.Context) OrganizationSettingsArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationSettingsArrayOutput)
+}
+
+func (i OrganizationSettingsArray) ToOutput(ctx context.Context) pulumix.Output[[]*OrganizationSettings] {
+	return pulumix.Output[[]*OrganizationSettings]{
+		OutputState: i.ToOrganizationSettingsArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // OrganizationSettingsMapInput is an input type that accepts OrganizationSettingsMap and OrganizationSettingsMapOutput values.
@@ -460,6 +473,12 @@ func (i OrganizationSettingsMap) ToOrganizationSettingsMapOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationSettingsMapOutput)
 }
 
+func (i OrganizationSettingsMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*OrganizationSettings] {
+	return pulumix.Output[map[string]*OrganizationSettings]{
+		OutputState: i.ToOrganizationSettingsMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OrganizationSettingsOutput struct{ *pulumi.OutputState }
 
 func (OrganizationSettingsOutput) ElementType() reflect.Type {
@@ -472,6 +491,12 @@ func (o OrganizationSettingsOutput) ToOrganizationSettingsOutput() OrganizationS
 
 func (o OrganizationSettingsOutput) ToOrganizationSettingsOutputWithContext(ctx context.Context) OrganizationSettingsOutput {
 	return o
+}
+
+func (o OrganizationSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[*OrganizationSettings] {
+	return pulumix.Output[*OrganizationSettings]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Whether or not advanced security is enabled for new repositories. Defaults to `false`.
@@ -622,6 +647,12 @@ func (o OrganizationSettingsArrayOutput) ToOrganizationSettingsArrayOutputWithCo
 	return o
 }
 
+func (o OrganizationSettingsArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*OrganizationSettings] {
+	return pulumix.Output[[]*OrganizationSettings]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o OrganizationSettingsArrayOutput) Index(i pulumi.IntInput) OrganizationSettingsOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *OrganizationSettings {
 		return vs[0].([]*OrganizationSettings)[vs[1].(int)]
@@ -640,6 +671,12 @@ func (o OrganizationSettingsMapOutput) ToOrganizationSettingsMapOutput() Organiz
 
 func (o OrganizationSettingsMapOutput) ToOrganizationSettingsMapOutputWithContext(ctx context.Context) OrganizationSettingsMapOutput {
 	return o
+}
+
+func (o OrganizationSettingsMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*OrganizationSettings] {
+	return pulumix.Output[map[string]*OrganizationSettings]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OrganizationSettingsMapOutput) MapIndex(k pulumi.StringInput) OrganizationSettingsOutput {

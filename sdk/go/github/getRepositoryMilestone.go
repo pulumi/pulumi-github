@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to retrieve information about a specific GitHub milestone in a repository.
@@ -117,6 +118,12 @@ func (o LookupRepositoryMilestoneResultOutput) ToLookupRepositoryMilestoneResult
 
 func (o LookupRepositoryMilestoneResultOutput) ToLookupRepositoryMilestoneResultOutputWithContext(ctx context.Context) LookupRepositoryMilestoneResultOutput {
 	return o
+}
+
+func (o LookupRepositoryMilestoneResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupRepositoryMilestoneResult] {
+	return pulumix.Output[LookupRepositoryMilestoneResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Description of the milestone.

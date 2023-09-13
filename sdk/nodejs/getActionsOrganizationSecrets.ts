@@ -38,3 +38,18 @@ export interface GetActionsOrganizationSecretsResult {
      */
     readonly secrets: outputs.GetActionsOrganizationSecretsSecret[];
 }
+/**
+ * Use this data source to retrieve the list of secrets of the organization.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const example = github.getActionsOrganizationSecrets({});
+ * ```
+ */
+export function getActionsOrganizationSecretsOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetActionsOrganizationSecretsResult> {
+    return pulumi.output(getActionsOrganizationSecrets(opts))
+}

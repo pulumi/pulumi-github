@@ -64,7 +64,6 @@ import javax.annotation.Nullable;
  * ```sh
  *  $ pulumi import github:index/organizationWebhook:OrganizationWebhook terraform 123456789
  * ```
- * 
  *  If secret is populated in the webhook&#39;s configuration, the value will be imported as &#34;********&#34;.
  * 
  */

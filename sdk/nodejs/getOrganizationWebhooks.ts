@@ -41,3 +41,20 @@ export interface GetOrganizationWebhooksResult {
      */
     readonly webhooks: outputs.GetOrganizationWebhooksWebhook[];
 }
+/**
+ * Use this data source to retrieve all webhooks of the organization.
+ *
+ * ## Example Usage
+ *
+ * To retrieve *all* webhooks of the organization:
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const all = github.getOrganizationWebhooks({});
+ * ```
+ */
+export function getOrganizationWebhooksOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetOrganizationWebhooksResult> {
+    return pulumi.output(getOrganizationWebhooks(opts))
+}

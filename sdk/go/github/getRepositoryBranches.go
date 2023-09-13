@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to retrieve information about branches in a repository.
@@ -109,6 +110,12 @@ func (o GetRepositoryBranchesResultOutput) ToGetRepositoryBranchesResultOutput()
 
 func (o GetRepositoryBranchesResultOutput) ToGetRepositoryBranchesResultOutputWithContext(ctx context.Context) GetRepositoryBranchesResultOutput {
 	return o
+}
+
+func (o GetRepositoryBranchesResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetRepositoryBranchesResult] {
+	return pulumix.Output[GetRepositoryBranchesResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The list of this repository's branches. Each element of `branches` has the following attributes:

@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // This resource allows you to create and manage custom roles in a GitHub Organization for use in repositories.
@@ -193,6 +194,12 @@ func (i *OrganizationCustomRole) ToOrganizationCustomRoleOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationCustomRoleOutput)
 }
 
+func (i *OrganizationCustomRole) ToOutput(ctx context.Context) pulumix.Output[*OrganizationCustomRole] {
+	return pulumix.Output[*OrganizationCustomRole]{
+		OutputState: i.ToOrganizationCustomRoleOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OrganizationCustomRoleArrayInput is an input type that accepts OrganizationCustomRoleArray and OrganizationCustomRoleArrayOutput values.
 // You can construct a concrete instance of `OrganizationCustomRoleArrayInput` via:
 //
@@ -216,6 +223,12 @@ func (i OrganizationCustomRoleArray) ToOrganizationCustomRoleArrayOutput() Organ
 
 func (i OrganizationCustomRoleArray) ToOrganizationCustomRoleArrayOutputWithContext(ctx context.Context) OrganizationCustomRoleArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationCustomRoleArrayOutput)
+}
+
+func (i OrganizationCustomRoleArray) ToOutput(ctx context.Context) pulumix.Output[[]*OrganizationCustomRole] {
+	return pulumix.Output[[]*OrganizationCustomRole]{
+		OutputState: i.ToOrganizationCustomRoleArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // OrganizationCustomRoleMapInput is an input type that accepts OrganizationCustomRoleMap and OrganizationCustomRoleMapOutput values.
@@ -243,6 +256,12 @@ func (i OrganizationCustomRoleMap) ToOrganizationCustomRoleMapOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationCustomRoleMapOutput)
 }
 
+func (i OrganizationCustomRoleMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*OrganizationCustomRole] {
+	return pulumix.Output[map[string]*OrganizationCustomRole]{
+		OutputState: i.ToOrganizationCustomRoleMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OrganizationCustomRoleOutput struct{ *pulumi.OutputState }
 
 func (OrganizationCustomRoleOutput) ElementType() reflect.Type {
@@ -255,6 +274,12 @@ func (o OrganizationCustomRoleOutput) ToOrganizationCustomRoleOutput() Organizat
 
 func (o OrganizationCustomRoleOutput) ToOrganizationCustomRoleOutputWithContext(ctx context.Context) OrganizationCustomRoleOutput {
 	return o
+}
+
+func (o OrganizationCustomRoleOutput) ToOutput(ctx context.Context) pulumix.Output[*OrganizationCustomRole] {
+	return pulumix.Output[*OrganizationCustomRole]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The system role from which the role inherits permissions. Can be one of: `read`, `triage`, `write`, or `maintain`.
@@ -291,6 +316,12 @@ func (o OrganizationCustomRoleArrayOutput) ToOrganizationCustomRoleArrayOutputWi
 	return o
 }
 
+func (o OrganizationCustomRoleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*OrganizationCustomRole] {
+	return pulumix.Output[[]*OrganizationCustomRole]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o OrganizationCustomRoleArrayOutput) Index(i pulumi.IntInput) OrganizationCustomRoleOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *OrganizationCustomRole {
 		return vs[0].([]*OrganizationCustomRole)[vs[1].(int)]
@@ -309,6 +340,12 @@ func (o OrganizationCustomRoleMapOutput) ToOrganizationCustomRoleMapOutput() Org
 
 func (o OrganizationCustomRoleMapOutput) ToOrganizationCustomRoleMapOutputWithContext(ctx context.Context) OrganizationCustomRoleMapOutput {
 	return o
+}
+
+func (o OrganizationCustomRoleMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*OrganizationCustomRole] {
+	return pulumix.Output[map[string]*OrganizationCustomRole]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OrganizationCustomRoleMapOutput) MapIndex(k pulumi.StringInput) OrganizationCustomRoleOutput {

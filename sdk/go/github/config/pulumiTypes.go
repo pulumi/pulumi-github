@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -48,6 +49,12 @@ func (i AppAuthArgs) ToAppAuthOutputWithContext(ctx context.Context) AppAuthOutp
 	return pulumi.ToOutputWithContext(ctx, i).(AppAuthOutput)
 }
 
+func (i AppAuthArgs) ToOutput(ctx context.Context) pulumix.Output[AppAuth] {
+	return pulumix.Output[AppAuth]{
+		OutputState: i.ToAppAuthOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AppAuthOutput struct{ *pulumi.OutputState }
 
 func (AppAuthOutput) ElementType() reflect.Type {
@@ -60,6 +67,12 @@ func (o AppAuthOutput) ToAppAuthOutput() AppAuthOutput {
 
 func (o AppAuthOutput) ToAppAuthOutputWithContext(ctx context.Context) AppAuthOutput {
 	return o
+}
+
+func (o AppAuthOutput) ToOutput(ctx context.Context) pulumix.Output[AppAuth] {
+	return pulumix.Output[AppAuth]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AppAuthOutput) Id() pulumi.StringOutput {

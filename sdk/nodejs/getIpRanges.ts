@@ -128,3 +128,18 @@ export interface GetIpRangesResult {
      */
     readonly webs: string[];
 }
+/**
+ * Use this data source to retrieve information about GitHub's IP addresses.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const test = github.getIpRanges({});
+ * ```
+ */
+export function getIpRangesOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetIpRangesResult> {
+    return pulumi.output(getIpRanges(opts))
+}

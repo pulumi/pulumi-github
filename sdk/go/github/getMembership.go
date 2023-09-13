@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to find out if a user is a member of your organization, as well
@@ -112,6 +113,12 @@ func (o LookupMembershipResultOutput) ToLookupMembershipResultOutput() LookupMem
 
 func (o LookupMembershipResultOutput) ToLookupMembershipResultOutputWithContext(ctx context.Context) LookupMembershipResultOutput {
 	return o
+}
+
+func (o LookupMembershipResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupMembershipResult] {
+	return pulumix.Output[LookupMembershipResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // An etag representing the membership object.

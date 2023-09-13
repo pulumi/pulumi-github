@@ -41,3 +41,19 @@ export interface GetActionsOrganizationPublicKeyResult {
      */
     readonly keyId: string;
 }
+/**
+ * Use this data source to retrieve information about a GitHub Actions Organization public key. This data source is required to be used with other GitHub secrets interactions.
+ * Note that the provider `token` must have admin rights to an organization to retrieve it's action public key.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const example = github.getActionsOrganizationPublicKey({});
+ * ```
+ */
+export function getActionsOrganizationPublicKeyOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetActionsOrganizationPublicKeyResult> {
+    return pulumi.output(getActionsOrganizationPublicKey(opts))
+}

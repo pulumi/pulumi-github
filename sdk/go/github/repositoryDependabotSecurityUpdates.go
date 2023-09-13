@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type RepositoryDependabotSecurityUpdates struct {
@@ -112,6 +113,12 @@ func (i *RepositoryDependabotSecurityUpdates) ToRepositoryDependabotSecurityUpda
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryDependabotSecurityUpdatesOutput)
 }
 
+func (i *RepositoryDependabotSecurityUpdates) ToOutput(ctx context.Context) pulumix.Output[*RepositoryDependabotSecurityUpdates] {
+	return pulumix.Output[*RepositoryDependabotSecurityUpdates]{
+		OutputState: i.ToRepositoryDependabotSecurityUpdatesOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RepositoryDependabotSecurityUpdatesArrayInput is an input type that accepts RepositoryDependabotSecurityUpdatesArray and RepositoryDependabotSecurityUpdatesArrayOutput values.
 // You can construct a concrete instance of `RepositoryDependabotSecurityUpdatesArrayInput` via:
 //
@@ -135,6 +142,12 @@ func (i RepositoryDependabotSecurityUpdatesArray) ToRepositoryDependabotSecurity
 
 func (i RepositoryDependabotSecurityUpdatesArray) ToRepositoryDependabotSecurityUpdatesArrayOutputWithContext(ctx context.Context) RepositoryDependabotSecurityUpdatesArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryDependabotSecurityUpdatesArrayOutput)
+}
+
+func (i RepositoryDependabotSecurityUpdatesArray) ToOutput(ctx context.Context) pulumix.Output[[]*RepositoryDependabotSecurityUpdates] {
+	return pulumix.Output[[]*RepositoryDependabotSecurityUpdates]{
+		OutputState: i.ToRepositoryDependabotSecurityUpdatesArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // RepositoryDependabotSecurityUpdatesMapInput is an input type that accepts RepositoryDependabotSecurityUpdatesMap and RepositoryDependabotSecurityUpdatesMapOutput values.
@@ -162,6 +175,12 @@ func (i RepositoryDependabotSecurityUpdatesMap) ToRepositoryDependabotSecurityUp
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryDependabotSecurityUpdatesMapOutput)
 }
 
+func (i RepositoryDependabotSecurityUpdatesMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*RepositoryDependabotSecurityUpdates] {
+	return pulumix.Output[map[string]*RepositoryDependabotSecurityUpdates]{
+		OutputState: i.ToRepositoryDependabotSecurityUpdatesMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RepositoryDependabotSecurityUpdatesOutput struct{ *pulumi.OutputState }
 
 func (RepositoryDependabotSecurityUpdatesOutput) ElementType() reflect.Type {
@@ -174,6 +193,12 @@ func (o RepositoryDependabotSecurityUpdatesOutput) ToRepositoryDependabotSecurit
 
 func (o RepositoryDependabotSecurityUpdatesOutput) ToRepositoryDependabotSecurityUpdatesOutputWithContext(ctx context.Context) RepositoryDependabotSecurityUpdatesOutput {
 	return o
+}
+
+func (o RepositoryDependabotSecurityUpdatesOutput) ToOutput(ctx context.Context) pulumix.Output[*RepositoryDependabotSecurityUpdates] {
+	return pulumix.Output[*RepositoryDependabotSecurityUpdates]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The state of the automated security fixes.
@@ -200,6 +225,12 @@ func (o RepositoryDependabotSecurityUpdatesArrayOutput) ToRepositoryDependabotSe
 	return o
 }
 
+func (o RepositoryDependabotSecurityUpdatesArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*RepositoryDependabotSecurityUpdates] {
+	return pulumix.Output[[]*RepositoryDependabotSecurityUpdates]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RepositoryDependabotSecurityUpdatesArrayOutput) Index(i pulumi.IntInput) RepositoryDependabotSecurityUpdatesOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RepositoryDependabotSecurityUpdates {
 		return vs[0].([]*RepositoryDependabotSecurityUpdates)[vs[1].(int)]
@@ -218,6 +249,12 @@ func (o RepositoryDependabotSecurityUpdatesMapOutput) ToRepositoryDependabotSecu
 
 func (o RepositoryDependabotSecurityUpdatesMapOutput) ToRepositoryDependabotSecurityUpdatesMapOutputWithContext(ctx context.Context) RepositoryDependabotSecurityUpdatesMapOutput {
 	return o
+}
+
+func (o RepositoryDependabotSecurityUpdatesMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*RepositoryDependabotSecurityUpdates] {
+	return pulumix.Output[map[string]*RepositoryDependabotSecurityUpdates]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RepositoryDependabotSecurityUpdatesMapOutput) MapIndex(k pulumi.StringInput) RepositoryDependabotSecurityUpdatesOutput {

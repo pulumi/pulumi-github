@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // This data source allows you to read files within a
@@ -124,6 +125,12 @@ func (o LookupRepositoryFileResultOutput) ToLookupRepositoryFileResultOutput() L
 
 func (o LookupRepositoryFileResultOutput) ToLookupRepositoryFileResultOutputWithContext(ctx context.Context) LookupRepositoryFileResultOutput {
 	return o
+}
+
+func (o LookupRepositoryFileResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupRepositoryFileResult] {
+	return pulumix.Output[LookupRepositoryFileResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupRepositoryFileResultOutput) Branch() pulumi.StringPtrOutput {

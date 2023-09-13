@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -177,6 +178,12 @@ func (i *IssueLabel) ToIssueLabelOutputWithContext(ctx context.Context) IssueLab
 	return pulumi.ToOutputWithContext(ctx, i).(IssueLabelOutput)
 }
 
+func (i *IssueLabel) ToOutput(ctx context.Context) pulumix.Output[*IssueLabel] {
+	return pulumix.Output[*IssueLabel]{
+		OutputState: i.ToIssueLabelOutputWithContext(ctx).OutputState,
+	}
+}
+
 // IssueLabelArrayInput is an input type that accepts IssueLabelArray and IssueLabelArrayOutput values.
 // You can construct a concrete instance of `IssueLabelArrayInput` via:
 //
@@ -200,6 +207,12 @@ func (i IssueLabelArray) ToIssueLabelArrayOutput() IssueLabelArrayOutput {
 
 func (i IssueLabelArray) ToIssueLabelArrayOutputWithContext(ctx context.Context) IssueLabelArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IssueLabelArrayOutput)
+}
+
+func (i IssueLabelArray) ToOutput(ctx context.Context) pulumix.Output[[]*IssueLabel] {
+	return pulumix.Output[[]*IssueLabel]{
+		OutputState: i.ToIssueLabelArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // IssueLabelMapInput is an input type that accepts IssueLabelMap and IssueLabelMapOutput values.
@@ -227,6 +240,12 @@ func (i IssueLabelMap) ToIssueLabelMapOutputWithContext(ctx context.Context) Iss
 	return pulumi.ToOutputWithContext(ctx, i).(IssueLabelMapOutput)
 }
 
+func (i IssueLabelMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*IssueLabel] {
+	return pulumix.Output[map[string]*IssueLabel]{
+		OutputState: i.ToIssueLabelMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type IssueLabelOutput struct{ *pulumi.OutputState }
 
 func (IssueLabelOutput) ElementType() reflect.Type {
@@ -239,6 +258,12 @@ func (o IssueLabelOutput) ToIssueLabelOutput() IssueLabelOutput {
 
 func (o IssueLabelOutput) ToIssueLabelOutputWithContext(ctx context.Context) IssueLabelOutput {
 	return o
+}
+
+func (o IssueLabelOutput) ToOutput(ctx context.Context) pulumix.Output[*IssueLabel] {
+	return pulumix.Output[*IssueLabel]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A 6 character hex code, **without the leading #**, identifying the color of the label.
@@ -284,6 +309,12 @@ func (o IssueLabelArrayOutput) ToIssueLabelArrayOutputWithContext(ctx context.Co
 	return o
 }
 
+func (o IssueLabelArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*IssueLabel] {
+	return pulumix.Output[[]*IssueLabel]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o IssueLabelArrayOutput) Index(i pulumi.IntInput) IssueLabelOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *IssueLabel {
 		return vs[0].([]*IssueLabel)[vs[1].(int)]
@@ -302,6 +333,12 @@ func (o IssueLabelMapOutput) ToIssueLabelMapOutput() IssueLabelMapOutput {
 
 func (o IssueLabelMapOutput) ToIssueLabelMapOutputWithContext(ctx context.Context) IssueLabelMapOutput {
 	return o
+}
+
+func (o IssueLabelMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*IssueLabel] {
+	return pulumix.Output[map[string]*IssueLabel]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o IssueLabelMapOutput) MapIndex(k pulumi.StringInput) IssueLabelOutput {

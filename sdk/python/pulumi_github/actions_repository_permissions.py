@@ -192,7 +192,7 @@ class ActionsRepositoryPermissions(pulumi.CustomResource):
 
         ## Import
 
-        This resource can be imported using the name of the GitHub repository
+        This resource can be imported using the name of the GitHub repository:
 
         ```sh
          $ pulumi import github:index/actionsRepositoryPermissions:ActionsRepositoryPermissions test my-repository
@@ -237,7 +237,7 @@ class ActionsRepositoryPermissions(pulumi.CustomResource):
 
         ## Import
 
-        This resource can be imported using the name of the GitHub repository
+        This resource can be imported using the name of the GitHub repository:
 
         ```sh
          $ pulumi import github:index/actionsRepositoryPermissions:ActionsRepositoryPermissions test my-repository

@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -209,6 +210,12 @@ func (i *CodespacesUserSecret) ToCodespacesUserSecretOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(CodespacesUserSecretOutput)
 }
 
+func (i *CodespacesUserSecret) ToOutput(ctx context.Context) pulumix.Output[*CodespacesUserSecret] {
+	return pulumix.Output[*CodespacesUserSecret]{
+		OutputState: i.ToCodespacesUserSecretOutputWithContext(ctx).OutputState,
+	}
+}
+
 // CodespacesUserSecretArrayInput is an input type that accepts CodespacesUserSecretArray and CodespacesUserSecretArrayOutput values.
 // You can construct a concrete instance of `CodespacesUserSecretArrayInput` via:
 //
@@ -232,6 +239,12 @@ func (i CodespacesUserSecretArray) ToCodespacesUserSecretArrayOutput() Codespace
 
 func (i CodespacesUserSecretArray) ToCodespacesUserSecretArrayOutputWithContext(ctx context.Context) CodespacesUserSecretArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CodespacesUserSecretArrayOutput)
+}
+
+func (i CodespacesUserSecretArray) ToOutput(ctx context.Context) pulumix.Output[[]*CodespacesUserSecret] {
+	return pulumix.Output[[]*CodespacesUserSecret]{
+		OutputState: i.ToCodespacesUserSecretArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // CodespacesUserSecretMapInput is an input type that accepts CodespacesUserSecretMap and CodespacesUserSecretMapOutput values.
@@ -259,6 +272,12 @@ func (i CodespacesUserSecretMap) ToCodespacesUserSecretMapOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(CodespacesUserSecretMapOutput)
 }
 
+func (i CodespacesUserSecretMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*CodespacesUserSecret] {
+	return pulumix.Output[map[string]*CodespacesUserSecret]{
+		OutputState: i.ToCodespacesUserSecretMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type CodespacesUserSecretOutput struct{ *pulumi.OutputState }
 
 func (CodespacesUserSecretOutput) ElementType() reflect.Type {
@@ -271,6 +290,12 @@ func (o CodespacesUserSecretOutput) ToCodespacesUserSecretOutput() CodespacesUse
 
 func (o CodespacesUserSecretOutput) ToCodespacesUserSecretOutputWithContext(ctx context.Context) CodespacesUserSecretOutput {
 	return o
+}
+
+func (o CodespacesUserSecretOutput) ToOutput(ctx context.Context) pulumix.Output[*CodespacesUserSecret] {
+	return pulumix.Output[*CodespacesUserSecret]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Date of codespacesSecret creation.
@@ -317,6 +342,12 @@ func (o CodespacesUserSecretArrayOutput) ToCodespacesUserSecretArrayOutputWithCo
 	return o
 }
 
+func (o CodespacesUserSecretArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*CodespacesUserSecret] {
+	return pulumix.Output[[]*CodespacesUserSecret]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o CodespacesUserSecretArrayOutput) Index(i pulumi.IntInput) CodespacesUserSecretOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *CodespacesUserSecret {
 		return vs[0].([]*CodespacesUserSecret)[vs[1].(int)]
@@ -335,6 +366,12 @@ func (o CodespacesUserSecretMapOutput) ToCodespacesUserSecretMapOutput() Codespa
 
 func (o CodespacesUserSecretMapOutput) ToCodespacesUserSecretMapOutputWithContext(ctx context.Context) CodespacesUserSecretMapOutput {
 	return o
+}
+
+func (o CodespacesUserSecretMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*CodespacesUserSecret] {
+	return pulumix.Output[map[string]*CodespacesUserSecret]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o CodespacesUserSecretMapOutput) MapIndex(k pulumi.StringInput) CodespacesUserSecretOutput {

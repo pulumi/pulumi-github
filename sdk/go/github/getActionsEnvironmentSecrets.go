@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to retrieve the list of secrets of the repository environment.
@@ -107,6 +108,12 @@ func (o GetActionsEnvironmentSecretsResultOutput) ToGetActionsEnvironmentSecrets
 
 func (o GetActionsEnvironmentSecretsResultOutput) ToGetActionsEnvironmentSecretsResultOutputWithContext(ctx context.Context) GetActionsEnvironmentSecretsResultOutput {
 	return o
+}
+
+func (o GetActionsEnvironmentSecretsResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetActionsEnvironmentSecretsResult] {
+	return pulumix.Output[GetActionsEnvironmentSecretsResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetActionsEnvironmentSecretsResultOutput) Environment() pulumi.StringOutput {

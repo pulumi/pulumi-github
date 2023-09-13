@@ -38,3 +38,18 @@ export interface GetActionsOrganizationVariablesResult {
      */
     readonly variables: outputs.GetActionsOrganizationVariablesVariable[];
 }
+/**
+ * Use this data source to retrieve the list of variables of the organization.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const example = github.getActionsOrganizationVariables({});
+ * ```
+ */
+export function getActionsOrganizationVariablesOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetActionsOrganizationVariablesResult> {
+    return pulumi.output(getActionsOrganizationVariables(opts))
+}

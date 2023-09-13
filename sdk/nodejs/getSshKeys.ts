@@ -36,3 +36,18 @@ export interface GetSshKeysResult {
      */
     readonly keys: string[];
 }
+/**
+ * Use this data source to retrieve information about GitHub's SSH keys.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const test = github.getSshKeys({});
+ * ```
+ */
+export function getSshKeysOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetSshKeysResult> {
+    return pulumi.output(getSshKeys(opts))
+}

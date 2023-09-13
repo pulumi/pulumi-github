@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // This resource allows you to create and manage webhooks for GitHub organization.
@@ -175,6 +176,12 @@ func (i *OrganizationWebhook) ToOrganizationWebhookOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationWebhookOutput)
 }
 
+func (i *OrganizationWebhook) ToOutput(ctx context.Context) pulumix.Output[*OrganizationWebhook] {
+	return pulumix.Output[*OrganizationWebhook]{
+		OutputState: i.ToOrganizationWebhookOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OrganizationWebhookArrayInput is an input type that accepts OrganizationWebhookArray and OrganizationWebhookArrayOutput values.
 // You can construct a concrete instance of `OrganizationWebhookArrayInput` via:
 //
@@ -198,6 +205,12 @@ func (i OrganizationWebhookArray) ToOrganizationWebhookArrayOutput() Organizatio
 
 func (i OrganizationWebhookArray) ToOrganizationWebhookArrayOutputWithContext(ctx context.Context) OrganizationWebhookArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationWebhookArrayOutput)
+}
+
+func (i OrganizationWebhookArray) ToOutput(ctx context.Context) pulumix.Output[[]*OrganizationWebhook] {
+	return pulumix.Output[[]*OrganizationWebhook]{
+		OutputState: i.ToOrganizationWebhookArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // OrganizationWebhookMapInput is an input type that accepts OrganizationWebhookMap and OrganizationWebhookMapOutput values.
@@ -225,6 +238,12 @@ func (i OrganizationWebhookMap) ToOrganizationWebhookMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationWebhookMapOutput)
 }
 
+func (i OrganizationWebhookMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*OrganizationWebhook] {
+	return pulumix.Output[map[string]*OrganizationWebhook]{
+		OutputState: i.ToOrganizationWebhookMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OrganizationWebhookOutput struct{ *pulumi.OutputState }
 
 func (OrganizationWebhookOutput) ElementType() reflect.Type {
@@ -237,6 +256,12 @@ func (o OrganizationWebhookOutput) ToOrganizationWebhookOutput() OrganizationWeb
 
 func (o OrganizationWebhookOutput) ToOrganizationWebhookOutputWithContext(ctx context.Context) OrganizationWebhookOutput {
 	return o
+}
+
+func (o OrganizationWebhookOutput) ToOutput(ctx context.Context) pulumix.Output[*OrganizationWebhook] {
+	return pulumix.Output[*OrganizationWebhook]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Indicate of the webhook should receive events. Defaults to `true`.
@@ -277,6 +302,12 @@ func (o OrganizationWebhookArrayOutput) ToOrganizationWebhookArrayOutputWithCont
 	return o
 }
 
+func (o OrganizationWebhookArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*OrganizationWebhook] {
+	return pulumix.Output[[]*OrganizationWebhook]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o OrganizationWebhookArrayOutput) Index(i pulumi.IntInput) OrganizationWebhookOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *OrganizationWebhook {
 		return vs[0].([]*OrganizationWebhook)[vs[1].(int)]
@@ -295,6 +326,12 @@ func (o OrganizationWebhookMapOutput) ToOrganizationWebhookMapOutput() Organizat
 
 func (o OrganizationWebhookMapOutput) ToOrganizationWebhookMapOutputWithContext(ctx context.Context) OrganizationWebhookMapOutput {
 	return o
+}
+
+func (o OrganizationWebhookMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*OrganizationWebhook] {
+	return pulumix.Output[map[string]*OrganizationWebhook]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OrganizationWebhookMapOutput) MapIndex(k pulumi.StringInput) OrganizationWebhookOutput {

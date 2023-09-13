@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // This resource manages mappings between external groups for enterprise managed users and GitHub teams. It wraps the API detailed [here](https://docs.github.com/en/rest/reference/teams#external-groups). Note that this is a distinct resource from `TeamSyncGroupMapping`. `EmuGroupMapping` is special to the Enterprise Managed User (EMU) external group feature, whereas `TeamSyncGroupMapping` is specific to Identity Provider Groups.
@@ -153,6 +154,12 @@ func (i *EmuGroupMapping) ToEmuGroupMappingOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(EmuGroupMappingOutput)
 }
 
+func (i *EmuGroupMapping) ToOutput(ctx context.Context) pulumix.Output[*EmuGroupMapping] {
+	return pulumix.Output[*EmuGroupMapping]{
+		OutputState: i.ToEmuGroupMappingOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EmuGroupMappingArrayInput is an input type that accepts EmuGroupMappingArray and EmuGroupMappingArrayOutput values.
 // You can construct a concrete instance of `EmuGroupMappingArrayInput` via:
 //
@@ -176,6 +183,12 @@ func (i EmuGroupMappingArray) ToEmuGroupMappingArrayOutput() EmuGroupMappingArra
 
 func (i EmuGroupMappingArray) ToEmuGroupMappingArrayOutputWithContext(ctx context.Context) EmuGroupMappingArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EmuGroupMappingArrayOutput)
+}
+
+func (i EmuGroupMappingArray) ToOutput(ctx context.Context) pulumix.Output[[]*EmuGroupMapping] {
+	return pulumix.Output[[]*EmuGroupMapping]{
+		OutputState: i.ToEmuGroupMappingArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // EmuGroupMappingMapInput is an input type that accepts EmuGroupMappingMap and EmuGroupMappingMapOutput values.
@@ -203,6 +216,12 @@ func (i EmuGroupMappingMap) ToEmuGroupMappingMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(EmuGroupMappingMapOutput)
 }
 
+func (i EmuGroupMappingMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*EmuGroupMapping] {
+	return pulumix.Output[map[string]*EmuGroupMapping]{
+		OutputState: i.ToEmuGroupMappingMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EmuGroupMappingOutput struct{ *pulumi.OutputState }
 
 func (EmuGroupMappingOutput) ElementType() reflect.Type {
@@ -215,6 +234,12 @@ func (o EmuGroupMappingOutput) ToEmuGroupMappingOutput() EmuGroupMappingOutput {
 
 func (o EmuGroupMappingOutput) ToEmuGroupMappingOutputWithContext(ctx context.Context) EmuGroupMappingOutput {
 	return o
+}
+
+func (o EmuGroupMappingOutput) ToOutput(ctx context.Context) pulumix.Output[*EmuGroupMapping] {
+	return pulumix.Output[*EmuGroupMapping]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EmuGroupMappingOutput) Etag() pulumi.StringOutput {
@@ -245,6 +270,12 @@ func (o EmuGroupMappingArrayOutput) ToEmuGroupMappingArrayOutputWithContext(ctx 
 	return o
 }
 
+func (o EmuGroupMappingArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*EmuGroupMapping] {
+	return pulumix.Output[[]*EmuGroupMapping]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o EmuGroupMappingArrayOutput) Index(i pulumi.IntInput) EmuGroupMappingOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *EmuGroupMapping {
 		return vs[0].([]*EmuGroupMapping)[vs[1].(int)]
@@ -263,6 +294,12 @@ func (o EmuGroupMappingMapOutput) ToEmuGroupMappingMapOutput() EmuGroupMappingMa
 
 func (o EmuGroupMappingMapOutput) ToEmuGroupMappingMapOutputWithContext(ctx context.Context) EmuGroupMappingMapOutput {
 	return o
+}
+
+func (o EmuGroupMappingMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*EmuGroupMapping] {
+	return pulumix.Output[map[string]*EmuGroupMapping]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EmuGroupMappingMapOutput) MapIndex(k pulumi.StringInput) EmuGroupMappingOutput {

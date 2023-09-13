@@ -56,7 +56,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * This resource can be imported using the name of the GitHub repository
+ * This resource can be imported using the name of the GitHub repository:
  * 
  * ```sh
  *  $ pulumi import github:index/actionsRepositoryAccessLevel:ActionsRepositoryAccessLevel test &lt;github_repository_name&gt;

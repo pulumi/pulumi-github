@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Protects a GitHub branch.
@@ -301,6 +302,12 @@ func (i *BranchProtectionV3) ToBranchProtectionV3OutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(BranchProtectionV3Output)
 }
 
+func (i *BranchProtectionV3) ToOutput(ctx context.Context) pulumix.Output[*BranchProtectionV3] {
+	return pulumix.Output[*BranchProtectionV3]{
+		OutputState: i.ToBranchProtectionV3OutputWithContext(ctx).OutputState,
+	}
+}
+
 // BranchProtectionV3ArrayInput is an input type that accepts BranchProtectionV3Array and BranchProtectionV3ArrayOutput values.
 // You can construct a concrete instance of `BranchProtectionV3ArrayInput` via:
 //
@@ -324,6 +331,12 @@ func (i BranchProtectionV3Array) ToBranchProtectionV3ArrayOutput() BranchProtect
 
 func (i BranchProtectionV3Array) ToBranchProtectionV3ArrayOutputWithContext(ctx context.Context) BranchProtectionV3ArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BranchProtectionV3ArrayOutput)
+}
+
+func (i BranchProtectionV3Array) ToOutput(ctx context.Context) pulumix.Output[[]*BranchProtectionV3] {
+	return pulumix.Output[[]*BranchProtectionV3]{
+		OutputState: i.ToBranchProtectionV3ArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // BranchProtectionV3MapInput is an input type that accepts BranchProtectionV3Map and BranchProtectionV3MapOutput values.
@@ -351,6 +364,12 @@ func (i BranchProtectionV3Map) ToBranchProtectionV3MapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(BranchProtectionV3MapOutput)
 }
 
+func (i BranchProtectionV3Map) ToOutput(ctx context.Context) pulumix.Output[map[string]*BranchProtectionV3] {
+	return pulumix.Output[map[string]*BranchProtectionV3]{
+		OutputState: i.ToBranchProtectionV3MapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BranchProtectionV3Output struct{ *pulumi.OutputState }
 
 func (BranchProtectionV3Output) ElementType() reflect.Type {
@@ -363,6 +382,12 @@ func (o BranchProtectionV3Output) ToBranchProtectionV3Output() BranchProtectionV
 
 func (o BranchProtectionV3Output) ToBranchProtectionV3OutputWithContext(ctx context.Context) BranchProtectionV3Output {
 	return o
+}
+
+func (o BranchProtectionV3Output) ToOutput(ctx context.Context) pulumix.Output[*BranchProtectionV3] {
+	return pulumix.Output[*BranchProtectionV3]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Git branch to protect.
@@ -427,6 +452,12 @@ func (o BranchProtectionV3ArrayOutput) ToBranchProtectionV3ArrayOutputWithContex
 	return o
 }
 
+func (o BranchProtectionV3ArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*BranchProtectionV3] {
+	return pulumix.Output[[]*BranchProtectionV3]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o BranchProtectionV3ArrayOutput) Index(i pulumi.IntInput) BranchProtectionV3Output {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *BranchProtectionV3 {
 		return vs[0].([]*BranchProtectionV3)[vs[1].(int)]
@@ -445,6 +476,12 @@ func (o BranchProtectionV3MapOutput) ToBranchProtectionV3MapOutput() BranchProte
 
 func (o BranchProtectionV3MapOutput) ToBranchProtectionV3MapOutputWithContext(ctx context.Context) BranchProtectionV3MapOutput {
 	return o
+}
+
+func (o BranchProtectionV3MapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*BranchProtectionV3] {
+	return pulumix.Output[map[string]*BranchProtectionV3]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BranchProtectionV3MapOutput) MapIndex(k pulumi.StringInput) BranchProtectionV3Output {

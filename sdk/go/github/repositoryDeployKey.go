@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a GitHub repository deploy key resource.
@@ -197,6 +198,12 @@ func (i *RepositoryDeployKey) ToRepositoryDeployKeyOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryDeployKeyOutput)
 }
 
+func (i *RepositoryDeployKey) ToOutput(ctx context.Context) pulumix.Output[*RepositoryDeployKey] {
+	return pulumix.Output[*RepositoryDeployKey]{
+		OutputState: i.ToRepositoryDeployKeyOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RepositoryDeployKeyArrayInput is an input type that accepts RepositoryDeployKeyArray and RepositoryDeployKeyArrayOutput values.
 // You can construct a concrete instance of `RepositoryDeployKeyArrayInput` via:
 //
@@ -220,6 +227,12 @@ func (i RepositoryDeployKeyArray) ToRepositoryDeployKeyArrayOutput() RepositoryD
 
 func (i RepositoryDeployKeyArray) ToRepositoryDeployKeyArrayOutputWithContext(ctx context.Context) RepositoryDeployKeyArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryDeployKeyArrayOutput)
+}
+
+func (i RepositoryDeployKeyArray) ToOutput(ctx context.Context) pulumix.Output[[]*RepositoryDeployKey] {
+	return pulumix.Output[[]*RepositoryDeployKey]{
+		OutputState: i.ToRepositoryDeployKeyArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // RepositoryDeployKeyMapInput is an input type that accepts RepositoryDeployKeyMap and RepositoryDeployKeyMapOutput values.
@@ -247,6 +260,12 @@ func (i RepositoryDeployKeyMap) ToRepositoryDeployKeyMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryDeployKeyMapOutput)
 }
 
+func (i RepositoryDeployKeyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*RepositoryDeployKey] {
+	return pulumix.Output[map[string]*RepositoryDeployKey]{
+		OutputState: i.ToRepositoryDeployKeyMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RepositoryDeployKeyOutput struct{ *pulumi.OutputState }
 
 func (RepositoryDeployKeyOutput) ElementType() reflect.Type {
@@ -259,6 +278,12 @@ func (o RepositoryDeployKeyOutput) ToRepositoryDeployKeyOutput() RepositoryDeplo
 
 func (o RepositoryDeployKeyOutput) ToRepositoryDeployKeyOutputWithContext(ctx context.Context) RepositoryDeployKeyOutput {
 	return o
+}
+
+func (o RepositoryDeployKeyOutput) ToOutput(ctx context.Context) pulumix.Output[*RepositoryDeployKey] {
+	return pulumix.Output[*RepositoryDeployKey]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RepositoryDeployKeyOutput) Etag() pulumi.StringOutput {
@@ -301,6 +326,12 @@ func (o RepositoryDeployKeyArrayOutput) ToRepositoryDeployKeyArrayOutputWithCont
 	return o
 }
 
+func (o RepositoryDeployKeyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*RepositoryDeployKey] {
+	return pulumix.Output[[]*RepositoryDeployKey]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RepositoryDeployKeyArrayOutput) Index(i pulumi.IntInput) RepositoryDeployKeyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RepositoryDeployKey {
 		return vs[0].([]*RepositoryDeployKey)[vs[1].(int)]
@@ -319,6 +350,12 @@ func (o RepositoryDeployKeyMapOutput) ToRepositoryDeployKeyMapOutput() Repositor
 
 func (o RepositoryDeployKeyMapOutput) ToRepositoryDeployKeyMapOutputWithContext(ctx context.Context) RepositoryDeployKeyMapOutput {
 	return o
+}
+
+func (o RepositoryDeployKeyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*RepositoryDeployKey] {
+	return pulumix.Output[map[string]*RepositoryDeployKey]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RepositoryDeployKeyMapOutput) MapIndex(k pulumi.StringInput) RepositoryDeployKeyOutput {

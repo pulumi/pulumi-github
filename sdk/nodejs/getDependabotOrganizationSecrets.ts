@@ -38,3 +38,18 @@ export interface GetDependabotOrganizationSecretsResult {
      */
     readonly secrets: outputs.GetDependabotOrganizationSecretsSecret[];
 }
+/**
+ * Use this data source to retrieve the list of dependabot secrets of the organization.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const example = github.getDependabotOrganizationSecrets({});
+ * ```
+ */
+export function getDependabotOrganizationSecretsOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetDependabotOrganizationSecretsResult> {
+    return pulumi.output(getDependabotOrganizationSecrets(opts))
+}

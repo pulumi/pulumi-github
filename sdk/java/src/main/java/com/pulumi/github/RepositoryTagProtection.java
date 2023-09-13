@@ -50,7 +50,9 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Repository tag protections can be imported using the `name` of the repository, combined with the `id` of the tag protection, separated by a `/` character. The `id` of the tag protection can be found using the [GitHub API](https://docs.github.com/en/rest/repos/tags#list-tag-protection-states-for-a-repository). Importing uses the name of the repository, as well as the ID of the tag protection, e.g.
+ * Repository tag protections can be imported using the `name` of the repository, combined with the `id` of the tag protection, separated by a `/` character. The `id` of the tag protection can be found using the [GitHub API](https://docs.github.com/en/rest/repos/tags#list-tag-protection-states-for-a-repository).
+ * 
+ * Importing uses the name of the repository, as well as the ID of the tag protection, e.g.
  * 
  * ```sh
  *  $ pulumi import github:index/repositoryTagProtection:RepositoryTagProtection terraform my-repo/31077

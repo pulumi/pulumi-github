@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // This resource allows you to manage repository allow list for existing GitHub Actions secrets within your GitHub organization.
@@ -54,7 +55,7 @@ import (
 //
 // ## Import
 //
-// # This resource can be imported using an ID made up of the secret name
+// This resource can be imported using an ID made up of the secret name:
 //
 // ```sh
 //
@@ -161,6 +162,12 @@ func (i *ActionsOrganizationSecretRepositories) ToActionsOrganizationSecretRepos
 	return pulumi.ToOutputWithContext(ctx, i).(ActionsOrganizationSecretRepositoriesOutput)
 }
 
+func (i *ActionsOrganizationSecretRepositories) ToOutput(ctx context.Context) pulumix.Output[*ActionsOrganizationSecretRepositories] {
+	return pulumix.Output[*ActionsOrganizationSecretRepositories]{
+		OutputState: i.ToActionsOrganizationSecretRepositoriesOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ActionsOrganizationSecretRepositoriesArrayInput is an input type that accepts ActionsOrganizationSecretRepositoriesArray and ActionsOrganizationSecretRepositoriesArrayOutput values.
 // You can construct a concrete instance of `ActionsOrganizationSecretRepositoriesArrayInput` via:
 //
@@ -184,6 +191,12 @@ func (i ActionsOrganizationSecretRepositoriesArray) ToActionsOrganizationSecretR
 
 func (i ActionsOrganizationSecretRepositoriesArray) ToActionsOrganizationSecretRepositoriesArrayOutputWithContext(ctx context.Context) ActionsOrganizationSecretRepositoriesArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ActionsOrganizationSecretRepositoriesArrayOutput)
+}
+
+func (i ActionsOrganizationSecretRepositoriesArray) ToOutput(ctx context.Context) pulumix.Output[[]*ActionsOrganizationSecretRepositories] {
+	return pulumix.Output[[]*ActionsOrganizationSecretRepositories]{
+		OutputState: i.ToActionsOrganizationSecretRepositoriesArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ActionsOrganizationSecretRepositoriesMapInput is an input type that accepts ActionsOrganizationSecretRepositoriesMap and ActionsOrganizationSecretRepositoriesMapOutput values.
@@ -211,6 +224,12 @@ func (i ActionsOrganizationSecretRepositoriesMap) ToActionsOrganizationSecretRep
 	return pulumi.ToOutputWithContext(ctx, i).(ActionsOrganizationSecretRepositoriesMapOutput)
 }
 
+func (i ActionsOrganizationSecretRepositoriesMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ActionsOrganizationSecretRepositories] {
+	return pulumix.Output[map[string]*ActionsOrganizationSecretRepositories]{
+		OutputState: i.ToActionsOrganizationSecretRepositoriesMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ActionsOrganizationSecretRepositoriesOutput struct{ *pulumi.OutputState }
 
 func (ActionsOrganizationSecretRepositoriesOutput) ElementType() reflect.Type {
@@ -223,6 +242,12 @@ func (o ActionsOrganizationSecretRepositoriesOutput) ToActionsOrganizationSecret
 
 func (o ActionsOrganizationSecretRepositoriesOutput) ToActionsOrganizationSecretRepositoriesOutputWithContext(ctx context.Context) ActionsOrganizationSecretRepositoriesOutput {
 	return o
+}
+
+func (o ActionsOrganizationSecretRepositoriesOutput) ToOutput(ctx context.Context) pulumix.Output[*ActionsOrganizationSecretRepositories] {
+	return pulumix.Output[*ActionsOrganizationSecretRepositories]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Name of the existing secret
@@ -249,6 +274,12 @@ func (o ActionsOrganizationSecretRepositoriesArrayOutput) ToActionsOrganizationS
 	return o
 }
 
+func (o ActionsOrganizationSecretRepositoriesArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ActionsOrganizationSecretRepositories] {
+	return pulumix.Output[[]*ActionsOrganizationSecretRepositories]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ActionsOrganizationSecretRepositoriesArrayOutput) Index(i pulumi.IntInput) ActionsOrganizationSecretRepositoriesOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ActionsOrganizationSecretRepositories {
 		return vs[0].([]*ActionsOrganizationSecretRepositories)[vs[1].(int)]
@@ -267,6 +298,12 @@ func (o ActionsOrganizationSecretRepositoriesMapOutput) ToActionsOrganizationSec
 
 func (o ActionsOrganizationSecretRepositoriesMapOutput) ToActionsOrganizationSecretRepositoriesMapOutputWithContext(ctx context.Context) ActionsOrganizationSecretRepositoriesMapOutput {
 	return o
+}
+
+func (o ActionsOrganizationSecretRepositoriesMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ActionsOrganizationSecretRepositories] {
+	return pulumix.Output[map[string]*ActionsOrganizationSecretRepositories]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ActionsOrganizationSecretRepositoriesMapOutput) MapIndex(k pulumi.StringInput) ActionsOrganizationSecretRepositoriesOutput {

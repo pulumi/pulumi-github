@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to retrieve information about environments for a repository.
@@ -99,6 +100,12 @@ func (o GetRepositoryEnvironmentsResultOutput) ToGetRepositoryEnvironmentsResult
 
 func (o GetRepositoryEnvironmentsResultOutput) ToGetRepositoryEnvironmentsResultOutputWithContext(ctx context.Context) GetRepositoryEnvironmentsResultOutput {
 	return o
+}
+
+func (o GetRepositoryEnvironmentsResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetRepositoryEnvironmentsResult] {
+	return pulumix.Output[GetRepositoryEnvironmentsResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The list of this repository's environments. Each element of `environments` has the following attributes:
