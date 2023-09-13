@@ -195,7 +195,7 @@ class ActionsOrganizationPermissions(pulumi.CustomResource):
 
         ## Import
 
-        This resource can be imported using the ID of the GitHub organization
+        This resource can be imported using the ID of the GitHub organization:
 
         ```sh
          $ pulumi import github:index/actionsOrganizationPermissions:ActionsOrganizationPermissions test <github_organization_name>
@@ -243,7 +243,7 @@ class ActionsOrganizationPermissions(pulumi.CustomResource):
 
         ## Import
 
-        This resource can be imported using the ID of the GitHub organization
+        This resource can be imported using the ID of the GitHub organization:
 
         ```sh
          $ pulumi import github:index/actionsOrganizationPermissions:ActionsOrganizationPermissions test <github_organization_name>

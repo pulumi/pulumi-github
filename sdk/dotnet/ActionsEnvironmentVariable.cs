@@ -65,7 +65,7 @@ namespace Pulumi.Github
     /// 
     /// ## Import
     /// 
-    /// This resource can be imported using an ID made up of the repository name, environment name, and variable name
+    /// This resource can be imported using an ID made up of the repository name, environment name, and variable name:
     /// 
     /// ```sh
     ///  $ pulumi import github:index/actionsEnvironmentVariable:ActionsEnvironmentVariable test_variable myrepo:myenv:myvariable

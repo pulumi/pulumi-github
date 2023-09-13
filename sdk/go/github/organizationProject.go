@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // This resource allows you to create and manage projects for GitHub organization.
@@ -141,6 +142,12 @@ func (i *OrganizationProject) ToOrganizationProjectOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationProjectOutput)
 }
 
+func (i *OrganizationProject) ToOutput(ctx context.Context) pulumix.Output[*OrganizationProject] {
+	return pulumix.Output[*OrganizationProject]{
+		OutputState: i.ToOrganizationProjectOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OrganizationProjectArrayInput is an input type that accepts OrganizationProjectArray and OrganizationProjectArrayOutput values.
 // You can construct a concrete instance of `OrganizationProjectArrayInput` via:
 //
@@ -164,6 +171,12 @@ func (i OrganizationProjectArray) ToOrganizationProjectArrayOutput() Organizatio
 
 func (i OrganizationProjectArray) ToOrganizationProjectArrayOutputWithContext(ctx context.Context) OrganizationProjectArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationProjectArrayOutput)
+}
+
+func (i OrganizationProjectArray) ToOutput(ctx context.Context) pulumix.Output[[]*OrganizationProject] {
+	return pulumix.Output[[]*OrganizationProject]{
+		OutputState: i.ToOrganizationProjectArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // OrganizationProjectMapInput is an input type that accepts OrganizationProjectMap and OrganizationProjectMapOutput values.
@@ -191,6 +204,12 @@ func (i OrganizationProjectMap) ToOrganizationProjectMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationProjectMapOutput)
 }
 
+func (i OrganizationProjectMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*OrganizationProject] {
+	return pulumix.Output[map[string]*OrganizationProject]{
+		OutputState: i.ToOrganizationProjectMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OrganizationProjectOutput struct{ *pulumi.OutputState }
 
 func (OrganizationProjectOutput) ElementType() reflect.Type {
@@ -203,6 +222,12 @@ func (o OrganizationProjectOutput) ToOrganizationProjectOutput() OrganizationPro
 
 func (o OrganizationProjectOutput) ToOrganizationProjectOutputWithContext(ctx context.Context) OrganizationProjectOutput {
 	return o
+}
+
+func (o OrganizationProjectOutput) ToOutput(ctx context.Context) pulumix.Output[*OrganizationProject] {
+	return pulumix.Output[*OrganizationProject]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The body of the project.
@@ -238,6 +263,12 @@ func (o OrganizationProjectArrayOutput) ToOrganizationProjectArrayOutputWithCont
 	return o
 }
 
+func (o OrganizationProjectArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*OrganizationProject] {
+	return pulumix.Output[[]*OrganizationProject]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o OrganizationProjectArrayOutput) Index(i pulumi.IntInput) OrganizationProjectOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *OrganizationProject {
 		return vs[0].([]*OrganizationProject)[vs[1].(int)]
@@ -256,6 +287,12 @@ func (o OrganizationProjectMapOutput) ToOrganizationProjectMapOutput() Organizat
 
 func (o OrganizationProjectMapOutput) ToOrganizationProjectMapOutputWithContext(ctx context.Context) OrganizationProjectMapOutput {
 	return o
+}
+
+func (o OrganizationProjectMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*OrganizationProject] {
+	return pulumix.Output[map[string]*OrganizationProject]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OrganizationProjectMapOutput) MapIndex(k pulumi.StringInput) OrganizationProjectOutput {

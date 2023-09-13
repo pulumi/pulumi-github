@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type UserInvitationAccepter struct {
@@ -105,6 +106,12 @@ func (i *UserInvitationAccepter) ToUserInvitationAccepterOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(UserInvitationAccepterOutput)
 }
 
+func (i *UserInvitationAccepter) ToOutput(ctx context.Context) pulumix.Output[*UserInvitationAccepter] {
+	return pulumix.Output[*UserInvitationAccepter]{
+		OutputState: i.ToUserInvitationAccepterOutputWithContext(ctx).OutputState,
+	}
+}
+
 // UserInvitationAccepterArrayInput is an input type that accepts UserInvitationAccepterArray and UserInvitationAccepterArrayOutput values.
 // You can construct a concrete instance of `UserInvitationAccepterArrayInput` via:
 //
@@ -128,6 +135,12 @@ func (i UserInvitationAccepterArray) ToUserInvitationAccepterArrayOutput() UserI
 
 func (i UserInvitationAccepterArray) ToUserInvitationAccepterArrayOutputWithContext(ctx context.Context) UserInvitationAccepterArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(UserInvitationAccepterArrayOutput)
+}
+
+func (i UserInvitationAccepterArray) ToOutput(ctx context.Context) pulumix.Output[[]*UserInvitationAccepter] {
+	return pulumix.Output[[]*UserInvitationAccepter]{
+		OutputState: i.ToUserInvitationAccepterArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // UserInvitationAccepterMapInput is an input type that accepts UserInvitationAccepterMap and UserInvitationAccepterMapOutput values.
@@ -155,6 +168,12 @@ func (i UserInvitationAccepterMap) ToUserInvitationAccepterMapOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(UserInvitationAccepterMapOutput)
 }
 
+func (i UserInvitationAccepterMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*UserInvitationAccepter] {
+	return pulumix.Output[map[string]*UserInvitationAccepter]{
+		OutputState: i.ToUserInvitationAccepterMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type UserInvitationAccepterOutput struct{ *pulumi.OutputState }
 
 func (UserInvitationAccepterOutput) ElementType() reflect.Type {
@@ -167,6 +186,12 @@ func (o UserInvitationAccepterOutput) ToUserInvitationAccepterOutput() UserInvit
 
 func (o UserInvitationAccepterOutput) ToUserInvitationAccepterOutputWithContext(ctx context.Context) UserInvitationAccepterOutput {
 	return o
+}
+
+func (o UserInvitationAccepterOutput) ToOutput(ctx context.Context) pulumix.Output[*UserInvitationAccepter] {
+	return pulumix.Output[*UserInvitationAccepter]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Allow the ID to be unset. This will result in the resource being skipped when the ID is not set instead of returning an error.
@@ -193,6 +218,12 @@ func (o UserInvitationAccepterArrayOutput) ToUserInvitationAccepterArrayOutputWi
 	return o
 }
 
+func (o UserInvitationAccepterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*UserInvitationAccepter] {
+	return pulumix.Output[[]*UserInvitationAccepter]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o UserInvitationAccepterArrayOutput) Index(i pulumi.IntInput) UserInvitationAccepterOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *UserInvitationAccepter {
 		return vs[0].([]*UserInvitationAccepter)[vs[1].(int)]
@@ -211,6 +242,12 @@ func (o UserInvitationAccepterMapOutput) ToUserInvitationAccepterMapOutput() Use
 
 func (o UserInvitationAccepterMapOutput) ToUserInvitationAccepterMapOutputWithContext(ctx context.Context) UserInvitationAccepterMapOutput {
 	return o
+}
+
+func (o UserInvitationAccepterMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*UserInvitationAccepter] {
+	return pulumix.Output[map[string]*UserInvitationAccepter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o UserInvitationAccepterMapOutput) MapIndex(k pulumi.StringInput) UserInvitationAccepterOutput {

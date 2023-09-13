@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // This resource allows you to create and manage GitHub Actions variables within your GitHub organization.
@@ -80,7 +81,7 @@ import (
 //
 // ## Import
 //
-// # This resource can be imported using an ID made up of the variable name
+// This resource can be imported using an ID made up of the variable name:
 //
 // ```sh
 //
@@ -227,6 +228,12 @@ func (i *ActionsOrganizationVariable) ToActionsOrganizationVariableOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(ActionsOrganizationVariableOutput)
 }
 
+func (i *ActionsOrganizationVariable) ToOutput(ctx context.Context) pulumix.Output[*ActionsOrganizationVariable] {
+	return pulumix.Output[*ActionsOrganizationVariable]{
+		OutputState: i.ToActionsOrganizationVariableOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ActionsOrganizationVariableArrayInput is an input type that accepts ActionsOrganizationVariableArray and ActionsOrganizationVariableArrayOutput values.
 // You can construct a concrete instance of `ActionsOrganizationVariableArrayInput` via:
 //
@@ -250,6 +257,12 @@ func (i ActionsOrganizationVariableArray) ToActionsOrganizationVariableArrayOutp
 
 func (i ActionsOrganizationVariableArray) ToActionsOrganizationVariableArrayOutputWithContext(ctx context.Context) ActionsOrganizationVariableArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ActionsOrganizationVariableArrayOutput)
+}
+
+func (i ActionsOrganizationVariableArray) ToOutput(ctx context.Context) pulumix.Output[[]*ActionsOrganizationVariable] {
+	return pulumix.Output[[]*ActionsOrganizationVariable]{
+		OutputState: i.ToActionsOrganizationVariableArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ActionsOrganizationVariableMapInput is an input type that accepts ActionsOrganizationVariableMap and ActionsOrganizationVariableMapOutput values.
@@ -277,6 +290,12 @@ func (i ActionsOrganizationVariableMap) ToActionsOrganizationVariableMapOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(ActionsOrganizationVariableMapOutput)
 }
 
+func (i ActionsOrganizationVariableMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ActionsOrganizationVariable] {
+	return pulumix.Output[map[string]*ActionsOrganizationVariable]{
+		OutputState: i.ToActionsOrganizationVariableMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ActionsOrganizationVariableOutput struct{ *pulumi.OutputState }
 
 func (ActionsOrganizationVariableOutput) ElementType() reflect.Type {
@@ -289,6 +308,12 @@ func (o ActionsOrganizationVariableOutput) ToActionsOrganizationVariableOutput()
 
 func (o ActionsOrganizationVariableOutput) ToActionsOrganizationVariableOutputWithContext(ctx context.Context) ActionsOrganizationVariableOutput {
 	return o
+}
+
+func (o ActionsOrganizationVariableOutput) ToOutput(ctx context.Context) pulumix.Output[*ActionsOrganizationVariable] {
+	return pulumix.Output[*ActionsOrganizationVariable]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Date of actionsVariable creation.
@@ -336,6 +361,12 @@ func (o ActionsOrganizationVariableArrayOutput) ToActionsOrganizationVariableArr
 	return o
 }
 
+func (o ActionsOrganizationVariableArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ActionsOrganizationVariable] {
+	return pulumix.Output[[]*ActionsOrganizationVariable]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ActionsOrganizationVariableArrayOutput) Index(i pulumi.IntInput) ActionsOrganizationVariableOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ActionsOrganizationVariable {
 		return vs[0].([]*ActionsOrganizationVariable)[vs[1].(int)]
@@ -354,6 +385,12 @@ func (o ActionsOrganizationVariableMapOutput) ToActionsOrganizationVariableMapOu
 
 func (o ActionsOrganizationVariableMapOutput) ToActionsOrganizationVariableMapOutputWithContext(ctx context.Context) ActionsOrganizationVariableMapOutput {
 	return o
+}
+
+func (o ActionsOrganizationVariableMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ActionsOrganizationVariable] {
+	return pulumix.Output[map[string]*ActionsOrganizationVariable]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ActionsOrganizationVariableMapOutput) MapIndex(k pulumi.StringInput) ActionsOrganizationVariableOutput {

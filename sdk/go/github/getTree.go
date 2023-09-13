@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to retrieve information about a single tree.
@@ -125,6 +126,12 @@ func (o GetTreeResultOutput) ToGetTreeResultOutput() GetTreeResultOutput {
 
 func (o GetTreeResultOutput) ToGetTreeResultOutputWithContext(ctx context.Context) GetTreeResultOutput {
 	return o
+}
+
+func (o GetTreeResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetTreeResult] {
+	return pulumix.Output[GetTreeResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Objects (of `path`, `mode`, `type`, `size`, and `sha`) specifying a tree structure.

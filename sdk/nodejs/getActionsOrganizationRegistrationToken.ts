@@ -40,3 +40,18 @@ export interface GetActionsOrganizationRegistrationTokenResult {
      */
     readonly token: string;
 }
+/**
+ * Use this data source to retrieve a GitHub Actions organization registration token. This token can then be used to register a self-hosted runner.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const example = github.getActionsOrganizationRegistrationToken({});
+ * ```
+ */
+export function getActionsOrganizationRegistrationTokenOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetActionsOrganizationRegistrationTokenResult> {
+    return pulumi.output(getActionsOrganizationRegistrationToken(opts))
+}

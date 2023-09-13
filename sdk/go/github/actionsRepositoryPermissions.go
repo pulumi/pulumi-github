@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // This resource allows you to enable and manage GitHub Actions permissions for a given repository.
@@ -56,7 +57,7 @@ import (
 //
 // ## Import
 //
-// # This resource can be imported using the name of the GitHub repository
+// This resource can be imported using the name of the GitHub repository:
 //
 // ```sh
 //
@@ -180,6 +181,12 @@ func (i *ActionsRepositoryPermissions) ToActionsRepositoryPermissionsOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(ActionsRepositoryPermissionsOutput)
 }
 
+func (i *ActionsRepositoryPermissions) ToOutput(ctx context.Context) pulumix.Output[*ActionsRepositoryPermissions] {
+	return pulumix.Output[*ActionsRepositoryPermissions]{
+		OutputState: i.ToActionsRepositoryPermissionsOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ActionsRepositoryPermissionsArrayInput is an input type that accepts ActionsRepositoryPermissionsArray and ActionsRepositoryPermissionsArrayOutput values.
 // You can construct a concrete instance of `ActionsRepositoryPermissionsArrayInput` via:
 //
@@ -203,6 +210,12 @@ func (i ActionsRepositoryPermissionsArray) ToActionsRepositoryPermissionsArrayOu
 
 func (i ActionsRepositoryPermissionsArray) ToActionsRepositoryPermissionsArrayOutputWithContext(ctx context.Context) ActionsRepositoryPermissionsArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ActionsRepositoryPermissionsArrayOutput)
+}
+
+func (i ActionsRepositoryPermissionsArray) ToOutput(ctx context.Context) pulumix.Output[[]*ActionsRepositoryPermissions] {
+	return pulumix.Output[[]*ActionsRepositoryPermissions]{
+		OutputState: i.ToActionsRepositoryPermissionsArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ActionsRepositoryPermissionsMapInput is an input type that accepts ActionsRepositoryPermissionsMap and ActionsRepositoryPermissionsMapOutput values.
@@ -230,6 +243,12 @@ func (i ActionsRepositoryPermissionsMap) ToActionsRepositoryPermissionsMapOutput
 	return pulumi.ToOutputWithContext(ctx, i).(ActionsRepositoryPermissionsMapOutput)
 }
 
+func (i ActionsRepositoryPermissionsMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ActionsRepositoryPermissions] {
+	return pulumix.Output[map[string]*ActionsRepositoryPermissions]{
+		OutputState: i.ToActionsRepositoryPermissionsMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ActionsRepositoryPermissionsOutput struct{ *pulumi.OutputState }
 
 func (ActionsRepositoryPermissionsOutput) ElementType() reflect.Type {
@@ -242,6 +261,12 @@ func (o ActionsRepositoryPermissionsOutput) ToActionsRepositoryPermissionsOutput
 
 func (o ActionsRepositoryPermissionsOutput) ToActionsRepositoryPermissionsOutputWithContext(ctx context.Context) ActionsRepositoryPermissionsOutput {
 	return o
+}
+
+func (o ActionsRepositoryPermissionsOutput) ToOutput(ctx context.Context) pulumix.Output[*ActionsRepositoryPermissions] {
+	return pulumix.Output[*ActionsRepositoryPermissions]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The permissions policy that controls the actions that are allowed to run. Can be one of: `all`, `localOnly`, or `selected`.
@@ -280,6 +305,12 @@ func (o ActionsRepositoryPermissionsArrayOutput) ToActionsRepositoryPermissionsA
 	return o
 }
 
+func (o ActionsRepositoryPermissionsArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ActionsRepositoryPermissions] {
+	return pulumix.Output[[]*ActionsRepositoryPermissions]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ActionsRepositoryPermissionsArrayOutput) Index(i pulumi.IntInput) ActionsRepositoryPermissionsOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ActionsRepositoryPermissions {
 		return vs[0].([]*ActionsRepositoryPermissions)[vs[1].(int)]
@@ -298,6 +329,12 @@ func (o ActionsRepositoryPermissionsMapOutput) ToActionsRepositoryPermissionsMap
 
 func (o ActionsRepositoryPermissionsMapOutput) ToActionsRepositoryPermissionsMapOutputWithContext(ctx context.Context) ActionsRepositoryPermissionsMapOutput {
 	return o
+}
+
+func (o ActionsRepositoryPermissionsMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ActionsRepositoryPermissions] {
+	return pulumix.Output[map[string]*ActionsRepositoryPermissions]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ActionsRepositoryPermissionsMapOutput) MapIndex(k pulumi.StringInput) ActionsRepositoryPermissionsOutput {

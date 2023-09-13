@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to retrieve the collaborators for a given repository.
@@ -110,6 +111,12 @@ func (o GetCollaboratorsResultOutput) ToGetCollaboratorsResultOutput() GetCollab
 
 func (o GetCollaboratorsResultOutput) ToGetCollaboratorsResultOutputWithContext(ctx context.Context) GetCollaboratorsResultOutput {
 	return o
+}
+
+func (o GetCollaboratorsResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetCollaboratorsResult] {
+	return pulumix.Output[GetCollaboratorsResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetCollaboratorsResultOutput) Affiliation() pulumi.StringPtrOutput {

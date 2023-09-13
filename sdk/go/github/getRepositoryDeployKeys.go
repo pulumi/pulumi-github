@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to retrieve all deploy keys of a repository.
@@ -99,6 +100,12 @@ func (o GetRepositoryDeployKeysResultOutput) ToGetRepositoryDeployKeysResultOutp
 
 func (o GetRepositoryDeployKeysResultOutput) ToGetRepositoryDeployKeysResultOutputWithContext(ctx context.Context) GetRepositoryDeployKeysResultOutput {
 	return o
+}
+
+func (o GetRepositoryDeployKeysResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetRepositoryDeployKeysResult] {
+	return pulumix.Output[GetRepositoryDeployKeysResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The provider-assigned unique ID for this managed resource.

@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to retrieve the list of dependabot secrets for a GitHub repository.
@@ -105,6 +106,12 @@ func (o GetDependabotSecretsResultOutput) ToGetDependabotSecretsResultOutput() G
 
 func (o GetDependabotSecretsResultOutput) ToGetDependabotSecretsResultOutputWithContext(ctx context.Context) GetDependabotSecretsResultOutput {
 	return o
+}
+
+func (o GetDependabotSecretsResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetDependabotSecretsResult] {
+	return pulumix.Output[GetDependabotSecretsResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetDependabotSecretsResultOutput) FullName() pulumi.StringOutput {

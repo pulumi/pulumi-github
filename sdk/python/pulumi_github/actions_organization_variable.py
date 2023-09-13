@@ -228,7 +228,7 @@ class ActionsOrganizationVariable(pulumi.CustomResource):
 
         ## Import
 
-        This resource can be imported using an ID made up of the variable name
+        This resource can be imported using an ID made up of the variable name:
 
         ```sh
          $ pulumi import github:index/actionsOrganizationVariable:ActionsOrganizationVariable test_variable test_variable_name
@@ -278,7 +278,7 @@ class ActionsOrganizationVariable(pulumi.CustomResource):
 
         ## Import
 
-        This resource can be imported using an ID made up of the variable name
+        This resource can be imported using an ID made up of the variable name:
 
         ```sh
          $ pulumi import github:index/actionsOrganizationVariable:ActionsOrganizationVariable test_variable test_variable_name

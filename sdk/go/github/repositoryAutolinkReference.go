@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // This resource allows you to create and manage an autolink reference for a single repository.
@@ -187,6 +188,12 @@ func (i *RepositoryAutolinkReference) ToRepositoryAutolinkReferenceOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryAutolinkReferenceOutput)
 }
 
+func (i *RepositoryAutolinkReference) ToOutput(ctx context.Context) pulumix.Output[*RepositoryAutolinkReference] {
+	return pulumix.Output[*RepositoryAutolinkReference]{
+		OutputState: i.ToRepositoryAutolinkReferenceOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RepositoryAutolinkReferenceArrayInput is an input type that accepts RepositoryAutolinkReferenceArray and RepositoryAutolinkReferenceArrayOutput values.
 // You can construct a concrete instance of `RepositoryAutolinkReferenceArrayInput` via:
 //
@@ -210,6 +217,12 @@ func (i RepositoryAutolinkReferenceArray) ToRepositoryAutolinkReferenceArrayOutp
 
 func (i RepositoryAutolinkReferenceArray) ToRepositoryAutolinkReferenceArrayOutputWithContext(ctx context.Context) RepositoryAutolinkReferenceArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryAutolinkReferenceArrayOutput)
+}
+
+func (i RepositoryAutolinkReferenceArray) ToOutput(ctx context.Context) pulumix.Output[[]*RepositoryAutolinkReference] {
+	return pulumix.Output[[]*RepositoryAutolinkReference]{
+		OutputState: i.ToRepositoryAutolinkReferenceArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // RepositoryAutolinkReferenceMapInput is an input type that accepts RepositoryAutolinkReferenceMap and RepositoryAutolinkReferenceMapOutput values.
@@ -237,6 +250,12 @@ func (i RepositoryAutolinkReferenceMap) ToRepositoryAutolinkReferenceMapOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryAutolinkReferenceMapOutput)
 }
 
+func (i RepositoryAutolinkReferenceMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*RepositoryAutolinkReference] {
+	return pulumix.Output[map[string]*RepositoryAutolinkReference]{
+		OutputState: i.ToRepositoryAutolinkReferenceMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RepositoryAutolinkReferenceOutput struct{ *pulumi.OutputState }
 
 func (RepositoryAutolinkReferenceOutput) ElementType() reflect.Type {
@@ -249,6 +268,12 @@ func (o RepositoryAutolinkReferenceOutput) ToRepositoryAutolinkReferenceOutput()
 
 func (o RepositoryAutolinkReferenceOutput) ToRepositoryAutolinkReferenceOutputWithContext(ctx context.Context) RepositoryAutolinkReferenceOutput {
 	return o
+}
+
+func (o RepositoryAutolinkReferenceOutput) ToOutput(ctx context.Context) pulumix.Output[*RepositoryAutolinkReference] {
+	return pulumix.Output[*RepositoryAutolinkReference]{
+		OutputState: o.OutputState,
+	}
 }
 
 // An etag representing the autolink reference object.
@@ -290,6 +315,12 @@ func (o RepositoryAutolinkReferenceArrayOutput) ToRepositoryAutolinkReferenceArr
 	return o
 }
 
+func (o RepositoryAutolinkReferenceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*RepositoryAutolinkReference] {
+	return pulumix.Output[[]*RepositoryAutolinkReference]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RepositoryAutolinkReferenceArrayOutput) Index(i pulumi.IntInput) RepositoryAutolinkReferenceOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RepositoryAutolinkReference {
 		return vs[0].([]*RepositoryAutolinkReference)[vs[1].(int)]
@@ -308,6 +339,12 @@ func (o RepositoryAutolinkReferenceMapOutput) ToRepositoryAutolinkReferenceMapOu
 
 func (o RepositoryAutolinkReferenceMapOutput) ToRepositoryAutolinkReferenceMapOutputWithContext(ctx context.Context) RepositoryAutolinkReferenceMapOutput {
 	return o
+}
+
+func (o RepositoryAutolinkReferenceMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*RepositoryAutolinkReference] {
+	return pulumix.Output[map[string]*RepositoryAutolinkReference]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RepositoryAutolinkReferenceMapOutput) MapIndex(k pulumi.StringInput) RepositoryAutolinkReferenceOutput {

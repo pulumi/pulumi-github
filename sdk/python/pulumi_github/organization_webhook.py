@@ -187,7 +187,6 @@ class OrganizationWebhook(pulumi.CustomResource):
         ```sh
          $ pulumi import github:index/organizationWebhook:OrganizationWebhook terraform 123456789
         ```
-
          If secret is populated in the webhook's configuration, the value will be imported as "********".
 
         :param str resource_name: The name of the resource.
@@ -228,7 +227,6 @@ class OrganizationWebhook(pulumi.CustomResource):
         ```sh
          $ pulumi import github:index/organizationWebhook:OrganizationWebhook terraform 123456789
         ```
-
          If secret is populated in the webhook's configuration, the value will be imported as "********".
 
         :param str resource_name: The name of the resource.

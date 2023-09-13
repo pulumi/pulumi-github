@@ -23,7 +23,7 @@ import * as utilities from "./utilities";
  *
  * ## Import
  *
- * This resource can be imported using the ID of the runner group
+ * This resource can be imported using the ID of the runner group:
  *
  * ```sh
  *  $ pulumi import github:index/actionsRunnerGroup:ActionsRunnerGroup test 7

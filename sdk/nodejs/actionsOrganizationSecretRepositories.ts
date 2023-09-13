@@ -27,7 +27,7 @@ import * as utilities from "./utilities";
  *
  * ## Import
  *
- * This resource can be imported using an ID made up of the secret name
+ * This resource can be imported using an ID made up of the secret name:
  *
  * ```sh
  *  $ pulumi import github:index/actionsOrganizationSecretRepositories:ActionsOrganizationSecretRepositories test_secret_repos test_secret_name

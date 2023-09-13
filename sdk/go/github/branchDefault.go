@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a GitHub branch default resource.
@@ -215,6 +216,12 @@ func (i *BranchDefault) ToBranchDefaultOutputWithContext(ctx context.Context) Br
 	return pulumi.ToOutputWithContext(ctx, i).(BranchDefaultOutput)
 }
 
+func (i *BranchDefault) ToOutput(ctx context.Context) pulumix.Output[*BranchDefault] {
+	return pulumix.Output[*BranchDefault]{
+		OutputState: i.ToBranchDefaultOutputWithContext(ctx).OutputState,
+	}
+}
+
 // BranchDefaultArrayInput is an input type that accepts BranchDefaultArray and BranchDefaultArrayOutput values.
 // You can construct a concrete instance of `BranchDefaultArrayInput` via:
 //
@@ -238,6 +245,12 @@ func (i BranchDefaultArray) ToBranchDefaultArrayOutput() BranchDefaultArrayOutpu
 
 func (i BranchDefaultArray) ToBranchDefaultArrayOutputWithContext(ctx context.Context) BranchDefaultArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BranchDefaultArrayOutput)
+}
+
+func (i BranchDefaultArray) ToOutput(ctx context.Context) pulumix.Output[[]*BranchDefault] {
+	return pulumix.Output[[]*BranchDefault]{
+		OutputState: i.ToBranchDefaultArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // BranchDefaultMapInput is an input type that accepts BranchDefaultMap and BranchDefaultMapOutput values.
@@ -265,6 +278,12 @@ func (i BranchDefaultMap) ToBranchDefaultMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(BranchDefaultMapOutput)
 }
 
+func (i BranchDefaultMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*BranchDefault] {
+	return pulumix.Output[map[string]*BranchDefault]{
+		OutputState: i.ToBranchDefaultMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BranchDefaultOutput struct{ *pulumi.OutputState }
 
 func (BranchDefaultOutput) ElementType() reflect.Type {
@@ -277,6 +296,12 @@ func (o BranchDefaultOutput) ToBranchDefaultOutput() BranchDefaultOutput {
 
 func (o BranchDefaultOutput) ToBranchDefaultOutputWithContext(ctx context.Context) BranchDefaultOutput {
 	return o
+}
+
+func (o BranchDefaultOutput) ToOutput(ctx context.Context) pulumix.Output[*BranchDefault] {
+	return pulumix.Output[*BranchDefault]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The branch (e.g. `main`)
@@ -308,6 +333,12 @@ func (o BranchDefaultArrayOutput) ToBranchDefaultArrayOutputWithContext(ctx cont
 	return o
 }
 
+func (o BranchDefaultArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*BranchDefault] {
+	return pulumix.Output[[]*BranchDefault]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o BranchDefaultArrayOutput) Index(i pulumi.IntInput) BranchDefaultOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *BranchDefault {
 		return vs[0].([]*BranchDefault)[vs[1].(int)]
@@ -326,6 +357,12 @@ func (o BranchDefaultMapOutput) ToBranchDefaultMapOutput() BranchDefaultMapOutpu
 
 func (o BranchDefaultMapOutput) ToBranchDefaultMapOutputWithContext(ctx context.Context) BranchDefaultMapOutput {
 	return o
+}
+
+func (o BranchDefaultMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*BranchDefault] {
+	return pulumix.Output[map[string]*BranchDefault]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BranchDefaultMapOutput) MapIndex(k pulumi.StringInput) BranchDefaultOutput {

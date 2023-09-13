@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -263,6 +264,12 @@ func (i *CodespacesOrganizationSecret) ToCodespacesOrganizationSecretOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(CodespacesOrganizationSecretOutput)
 }
 
+func (i *CodespacesOrganizationSecret) ToOutput(ctx context.Context) pulumix.Output[*CodespacesOrganizationSecret] {
+	return pulumix.Output[*CodespacesOrganizationSecret]{
+		OutputState: i.ToCodespacesOrganizationSecretOutputWithContext(ctx).OutputState,
+	}
+}
+
 // CodespacesOrganizationSecretArrayInput is an input type that accepts CodespacesOrganizationSecretArray and CodespacesOrganizationSecretArrayOutput values.
 // You can construct a concrete instance of `CodespacesOrganizationSecretArrayInput` via:
 //
@@ -286,6 +293,12 @@ func (i CodespacesOrganizationSecretArray) ToCodespacesOrganizationSecretArrayOu
 
 func (i CodespacesOrganizationSecretArray) ToCodespacesOrganizationSecretArrayOutputWithContext(ctx context.Context) CodespacesOrganizationSecretArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CodespacesOrganizationSecretArrayOutput)
+}
+
+func (i CodespacesOrganizationSecretArray) ToOutput(ctx context.Context) pulumix.Output[[]*CodespacesOrganizationSecret] {
+	return pulumix.Output[[]*CodespacesOrganizationSecret]{
+		OutputState: i.ToCodespacesOrganizationSecretArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // CodespacesOrganizationSecretMapInput is an input type that accepts CodespacesOrganizationSecretMap and CodespacesOrganizationSecretMapOutput values.
@@ -313,6 +326,12 @@ func (i CodespacesOrganizationSecretMap) ToCodespacesOrganizationSecretMapOutput
 	return pulumi.ToOutputWithContext(ctx, i).(CodespacesOrganizationSecretMapOutput)
 }
 
+func (i CodespacesOrganizationSecretMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*CodespacesOrganizationSecret] {
+	return pulumix.Output[map[string]*CodespacesOrganizationSecret]{
+		OutputState: i.ToCodespacesOrganizationSecretMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type CodespacesOrganizationSecretOutput struct{ *pulumi.OutputState }
 
 func (CodespacesOrganizationSecretOutput) ElementType() reflect.Type {
@@ -325,6 +344,12 @@ func (o CodespacesOrganizationSecretOutput) ToCodespacesOrganizationSecretOutput
 
 func (o CodespacesOrganizationSecretOutput) ToCodespacesOrganizationSecretOutputWithContext(ctx context.Context) CodespacesOrganizationSecretOutput {
 	return o
+}
+
+func (o CodespacesOrganizationSecretOutput) ToOutput(ctx context.Context) pulumix.Output[*CodespacesOrganizationSecret] {
+	return pulumix.Output[*CodespacesOrganizationSecret]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Date of codespacesSecret creation.
@@ -377,6 +402,12 @@ func (o CodespacesOrganizationSecretArrayOutput) ToCodespacesOrganizationSecretA
 	return o
 }
 
+func (o CodespacesOrganizationSecretArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*CodespacesOrganizationSecret] {
+	return pulumix.Output[[]*CodespacesOrganizationSecret]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o CodespacesOrganizationSecretArrayOutput) Index(i pulumi.IntInput) CodespacesOrganizationSecretOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *CodespacesOrganizationSecret {
 		return vs[0].([]*CodespacesOrganizationSecret)[vs[1].(int)]
@@ -395,6 +426,12 @@ func (o CodespacesOrganizationSecretMapOutput) ToCodespacesOrganizationSecretMap
 
 func (o CodespacesOrganizationSecretMapOutput) ToCodespacesOrganizationSecretMapOutputWithContext(ctx context.Context) CodespacesOrganizationSecretMapOutput {
 	return o
+}
+
+func (o CodespacesOrganizationSecretMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*CodespacesOrganizationSecret] {
+	return pulumix.Output[map[string]*CodespacesOrganizationSecret]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o CodespacesOrganizationSecretMapOutput) MapIndex(k pulumi.StringInput) CodespacesOrganizationSecretOutput {

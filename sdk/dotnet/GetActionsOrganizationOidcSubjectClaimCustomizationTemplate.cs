@@ -35,6 +35,31 @@ namespace Pulumi.Github
         /// </summary>
         public static Task<GetActionsOrganizationOidcSubjectClaimCustomizationTemplateResult> InvokeAsync(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetActionsOrganizationOidcSubjectClaimCustomizationTemplateResult>("github:index/getActionsOrganizationOidcSubjectClaimCustomizationTemplate:getActionsOrganizationOidcSubjectClaimCustomizationTemplate", InvokeArgs.Empty, options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to retrieve the OpenID Connect subject claim customization template for an organization
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Github = Pulumi.Github;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Github.GetActionsOrganizationOidcSubjectClaimCustomizationTemplate.Invoke();
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetActionsOrganizationOidcSubjectClaimCustomizationTemplateResult> Invoke(InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<GetActionsOrganizationOidcSubjectClaimCustomizationTemplateResult>("github:index/getActionsOrganizationOidcSubjectClaimCustomizationTemplate:getActionsOrganizationOidcSubjectClaimCustomizationTemplate", InvokeArgs.Empty, options.WithDefaults());
     }
 
 

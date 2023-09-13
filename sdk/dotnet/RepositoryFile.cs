@@ -50,7 +50,6 @@ namespace Pulumi.Github
     /// ```sh
     ///  $ pulumi import github:index/repositoryFile:RepositoryFile gitignore example/.gitignore
     /// ```
-    /// 
     ///  To import a file from a branch other than the default branch, append `:` and the branch name, e.g.
     /// 
     /// ```sh

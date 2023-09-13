@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to retrieve information about a GitHub release in a specific repository.
@@ -125,6 +126,12 @@ func (o LookupReleaseResultOutput) ToLookupReleaseResultOutput() LookupReleaseRe
 
 func (o LookupReleaseResultOutput) ToLookupReleaseResultOutputWithContext(ctx context.Context) LookupReleaseResultOutput {
 	return o
+}
+
+func (o LookupReleaseResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupReleaseResult] {
+	return pulumix.Output[LookupReleaseResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // **Deprecated**: Use `assetsUrl` resource instead

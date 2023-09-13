@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to retrieve information about multiple GitHub Pull Requests in a repository.
@@ -136,6 +137,12 @@ func (o LookupRepositoryPullRequestsResultOutput) ToLookupRepositoryPullRequests
 
 func (o LookupRepositoryPullRequestsResultOutput) ToLookupRepositoryPullRequestsResultOutputWithContext(ctx context.Context) LookupRepositoryPullRequestsResultOutput {
 	return o
+}
+
+func (o LookupRepositoryPullRequestsResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupRepositoryPullRequestsResult] {
+	return pulumix.Output[LookupRepositoryPullRequestsResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Name of the ref (branch) of the Pull Request base.

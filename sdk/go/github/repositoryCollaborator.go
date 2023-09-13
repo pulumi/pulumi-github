@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a GitHub repository collaborator resource.
@@ -210,6 +211,12 @@ func (i *RepositoryCollaborator) ToRepositoryCollaboratorOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryCollaboratorOutput)
 }
 
+func (i *RepositoryCollaborator) ToOutput(ctx context.Context) pulumix.Output[*RepositoryCollaborator] {
+	return pulumix.Output[*RepositoryCollaborator]{
+		OutputState: i.ToRepositoryCollaboratorOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RepositoryCollaboratorArrayInput is an input type that accepts RepositoryCollaboratorArray and RepositoryCollaboratorArrayOutput values.
 // You can construct a concrete instance of `RepositoryCollaboratorArrayInput` via:
 //
@@ -233,6 +240,12 @@ func (i RepositoryCollaboratorArray) ToRepositoryCollaboratorArrayOutput() Repos
 
 func (i RepositoryCollaboratorArray) ToRepositoryCollaboratorArrayOutputWithContext(ctx context.Context) RepositoryCollaboratorArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryCollaboratorArrayOutput)
+}
+
+func (i RepositoryCollaboratorArray) ToOutput(ctx context.Context) pulumix.Output[[]*RepositoryCollaborator] {
+	return pulumix.Output[[]*RepositoryCollaborator]{
+		OutputState: i.ToRepositoryCollaboratorArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // RepositoryCollaboratorMapInput is an input type that accepts RepositoryCollaboratorMap and RepositoryCollaboratorMapOutput values.
@@ -260,6 +273,12 @@ func (i RepositoryCollaboratorMap) ToRepositoryCollaboratorMapOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryCollaboratorMapOutput)
 }
 
+func (i RepositoryCollaboratorMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*RepositoryCollaborator] {
+	return pulumix.Output[map[string]*RepositoryCollaborator]{
+		OutputState: i.ToRepositoryCollaboratorMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RepositoryCollaboratorOutput struct{ *pulumi.OutputState }
 
 func (RepositoryCollaboratorOutput) ElementType() reflect.Type {
@@ -272,6 +291,12 @@ func (o RepositoryCollaboratorOutput) ToRepositoryCollaboratorOutput() Repositor
 
 func (o RepositoryCollaboratorOutput) ToRepositoryCollaboratorOutputWithContext(ctx context.Context) RepositoryCollaboratorOutput {
 	return o
+}
+
+func (o RepositoryCollaboratorOutput) ToOutput(ctx context.Context) pulumix.Output[*RepositoryCollaborator] {
+	return pulumix.Output[*RepositoryCollaborator]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ID of the invitation to be used in `UserInvitationAccepter`
@@ -315,6 +340,12 @@ func (o RepositoryCollaboratorArrayOutput) ToRepositoryCollaboratorArrayOutputWi
 	return o
 }
 
+func (o RepositoryCollaboratorArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*RepositoryCollaborator] {
+	return pulumix.Output[[]*RepositoryCollaborator]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RepositoryCollaboratorArrayOutput) Index(i pulumi.IntInput) RepositoryCollaboratorOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RepositoryCollaborator {
 		return vs[0].([]*RepositoryCollaborator)[vs[1].(int)]
@@ -333,6 +364,12 @@ func (o RepositoryCollaboratorMapOutput) ToRepositoryCollaboratorMapOutput() Rep
 
 func (o RepositoryCollaboratorMapOutput) ToRepositoryCollaboratorMapOutputWithContext(ctx context.Context) RepositoryCollaboratorMapOutput {
 	return o
+}
+
+func (o RepositoryCollaboratorMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*RepositoryCollaborator] {
+	return pulumix.Output[map[string]*RepositoryCollaborator]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RepositoryCollaboratorMapOutput) MapIndex(k pulumi.StringInput) RepositoryCollaboratorOutput {

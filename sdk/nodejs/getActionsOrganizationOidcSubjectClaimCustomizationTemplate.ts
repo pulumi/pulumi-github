@@ -36,3 +36,18 @@ export interface GetActionsOrganizationOidcSubjectClaimCustomizationTemplateResu
      */
     readonly includeClaimKeys: string[];
 }
+/**
+ * Use this data source to retrieve the OpenID Connect subject claim customization template for an organization
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const example = github.getActionsOrganizationOidcSubjectClaimCustomizationTemplate({});
+ * ```
+ */
+export function getActionsOrganizationOidcSubjectClaimCustomizationTemplateOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetActionsOrganizationOidcSubjectClaimCustomizationTemplateResult> {
+    return pulumi.output(getActionsOrganizationOidcSubjectClaimCustomizationTemplate(opts))
+}

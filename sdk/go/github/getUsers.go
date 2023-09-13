@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to retrieve information about multiple GitHub users at once.
@@ -111,6 +112,12 @@ func (o GetUsersResultOutput) ToGetUsersResultOutput() GetUsersResultOutput {
 
 func (o GetUsersResultOutput) ToGetUsersResultOutputWithContext(ctx context.Context) GetUsersResultOutput {
 	return o
+}
+
+func (o GetUsersResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetUsersResult] {
+	return pulumix.Output[GetUsersResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // list of the user's publicly visible profile email (will be empty string in case if user decided not to show it).

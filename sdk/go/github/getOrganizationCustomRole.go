@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to retrieve information about a custom role in a GitHub Organization.
@@ -105,6 +106,12 @@ func (o LookupOrganizationCustomRoleResultOutput) ToLookupOrganizationCustomRole
 
 func (o LookupOrganizationCustomRoleResultOutput) ToLookupOrganizationCustomRoleResultOutputWithContext(ctx context.Context) LookupOrganizationCustomRoleResultOutput {
 	return o
+}
+
+func (o LookupOrganizationCustomRoleResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupOrganizationCustomRoleResult] {
+	return pulumix.Output[LookupOrganizationCustomRoleResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The system role from which the role inherits permissions.

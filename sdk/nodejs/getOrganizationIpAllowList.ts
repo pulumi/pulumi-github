@@ -41,3 +41,20 @@ export interface GetOrganizationIpAllowListResult {
      */
     readonly ipAllowLists: outputs.GetOrganizationIpAllowListIpAllowList[];
 }
+/**
+ * Use this data source to retrieve information about the IP allow list of an organization.
+ * The allow list for IP addresses will block access to private resources via the web, API,
+ * and Git from any IP addresses that are not on the allow list.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const all = github.getOrganizationIpAllowList({});
+ * ```
+ */
+export function getOrganizationIpAllowListOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetOrganizationIpAllowListResult> {
+    return pulumi.output(getOrganizationIpAllowList(opts))
+}

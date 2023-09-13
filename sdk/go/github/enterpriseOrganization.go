@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // This resource allows you to create and manage a GitHub enterprise organization.
@@ -181,6 +182,12 @@ func (i *EnterpriseOrganization) ToEnterpriseOrganizationOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(EnterpriseOrganizationOutput)
 }
 
+func (i *EnterpriseOrganization) ToOutput(ctx context.Context) pulumix.Output[*EnterpriseOrganization] {
+	return pulumix.Output[*EnterpriseOrganization]{
+		OutputState: i.ToEnterpriseOrganizationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EnterpriseOrganizationArrayInput is an input type that accepts EnterpriseOrganizationArray and EnterpriseOrganizationArrayOutput values.
 // You can construct a concrete instance of `EnterpriseOrganizationArrayInput` via:
 //
@@ -204,6 +211,12 @@ func (i EnterpriseOrganizationArray) ToEnterpriseOrganizationArrayOutput() Enter
 
 func (i EnterpriseOrganizationArray) ToEnterpriseOrganizationArrayOutputWithContext(ctx context.Context) EnterpriseOrganizationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EnterpriseOrganizationArrayOutput)
+}
+
+func (i EnterpriseOrganizationArray) ToOutput(ctx context.Context) pulumix.Output[[]*EnterpriseOrganization] {
+	return pulumix.Output[[]*EnterpriseOrganization]{
+		OutputState: i.ToEnterpriseOrganizationArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // EnterpriseOrganizationMapInput is an input type that accepts EnterpriseOrganizationMap and EnterpriseOrganizationMapOutput values.
@@ -231,6 +244,12 @@ func (i EnterpriseOrganizationMap) ToEnterpriseOrganizationMapOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(EnterpriseOrganizationMapOutput)
 }
 
+func (i EnterpriseOrganizationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*EnterpriseOrganization] {
+	return pulumix.Output[map[string]*EnterpriseOrganization]{
+		OutputState: i.ToEnterpriseOrganizationMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EnterpriseOrganizationOutput struct{ *pulumi.OutputState }
 
 func (EnterpriseOrganizationOutput) ElementType() reflect.Type {
@@ -243,6 +262,12 @@ func (o EnterpriseOrganizationOutput) ToEnterpriseOrganizationOutput() Enterpris
 
 func (o EnterpriseOrganizationOutput) ToEnterpriseOrganizationOutputWithContext(ctx context.Context) EnterpriseOrganizationOutput {
 	return o
+}
+
+func (o EnterpriseOrganizationOutput) ToOutput(ctx context.Context) pulumix.Output[*EnterpriseOrganization] {
+	return pulumix.Output[*EnterpriseOrganization]{
+		OutputState: o.OutputState,
+	}
 }
 
 // List of organization owner usernames.
@@ -284,6 +309,12 @@ func (o EnterpriseOrganizationArrayOutput) ToEnterpriseOrganizationArrayOutputWi
 	return o
 }
 
+func (o EnterpriseOrganizationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*EnterpriseOrganization] {
+	return pulumix.Output[[]*EnterpriseOrganization]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o EnterpriseOrganizationArrayOutput) Index(i pulumi.IntInput) EnterpriseOrganizationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *EnterpriseOrganization {
 		return vs[0].([]*EnterpriseOrganization)[vs[1].(int)]
@@ -302,6 +333,12 @@ func (o EnterpriseOrganizationMapOutput) ToEnterpriseOrganizationMapOutput() Ent
 
 func (o EnterpriseOrganizationMapOutput) ToEnterpriseOrganizationMapOutputWithContext(ctx context.Context) EnterpriseOrganizationMapOutput {
 	return o
+}
+
+func (o EnterpriseOrganizationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*EnterpriseOrganization] {
+	return pulumix.Output[map[string]*EnterpriseOrganization]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EnterpriseOrganizationMapOutput) MapIndex(k pulumi.StringInput) EnterpriseOrganizationOutput {

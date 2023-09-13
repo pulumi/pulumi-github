@@ -69,12 +69,13 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Repository webhooks can be imported using the `name` of the repository, combined with the `id` of the webhook, separated by a `/` character. The `id` of the webhook can be found in the URL of the webhook. For example`&#34;https://github.com/foo-org/foo-repo/settings/hooks/14711452&#34;`. Importing uses the name of the repository, as well as the ID of the webhook, e.g.
+ * Repository webhooks can be imported using the `name` of the repository, combined with the `id` of the webhook, separated by a `/` character. The `id` of the webhook can be found in the URL of the webhook. For example`&#34;https://github.com/foo-org/foo-repo/settings/hooks/14711452&#34;`.
+ * 
+ * Importing uses the name of the repository, as well as the ID of the webhook, e.g.
  * 
  * ```sh
  *  $ pulumi import github:index/repositoryWebhook:RepositoryWebhook terraform terraform/11235813
  * ```
- * 
  *  If secret is populated in the webhook&#39;s configuration, the value will be imported as &#34;********&#34;.
  * 
  */

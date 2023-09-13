@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to retrieve information about a GitHub Codespaces public key. This data source is required to be used with other GitHub secrets interactions.
@@ -102,6 +103,12 @@ func (o GetCodespacesPublicKeyResultOutput) ToGetCodespacesPublicKeyResultOutput
 
 func (o GetCodespacesPublicKeyResultOutput) ToGetCodespacesPublicKeyResultOutputWithContext(ctx context.Context) GetCodespacesPublicKeyResultOutput {
 	return o
+}
+
+func (o GetCodespacesPublicKeyResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetCodespacesPublicKeyResult] {
+	return pulumix.Output[GetCodespacesPublicKeyResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The provider-assigned unique ID for this managed resource.

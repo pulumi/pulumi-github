@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // This resource allows you to create and manage GitHub Actions variables within your GitHub repositories.
@@ -177,6 +178,12 @@ func (i *ActionsVariable) ToActionsVariableOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(ActionsVariableOutput)
 }
 
+func (i *ActionsVariable) ToOutput(ctx context.Context) pulumix.Output[*ActionsVariable] {
+	return pulumix.Output[*ActionsVariable]{
+		OutputState: i.ToActionsVariableOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ActionsVariableArrayInput is an input type that accepts ActionsVariableArray and ActionsVariableArrayOutput values.
 // You can construct a concrete instance of `ActionsVariableArrayInput` via:
 //
@@ -200,6 +207,12 @@ func (i ActionsVariableArray) ToActionsVariableArrayOutput() ActionsVariableArra
 
 func (i ActionsVariableArray) ToActionsVariableArrayOutputWithContext(ctx context.Context) ActionsVariableArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ActionsVariableArrayOutput)
+}
+
+func (i ActionsVariableArray) ToOutput(ctx context.Context) pulumix.Output[[]*ActionsVariable] {
+	return pulumix.Output[[]*ActionsVariable]{
+		OutputState: i.ToActionsVariableArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ActionsVariableMapInput is an input type that accepts ActionsVariableMap and ActionsVariableMapOutput values.
@@ -227,6 +240,12 @@ func (i ActionsVariableMap) ToActionsVariableMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(ActionsVariableMapOutput)
 }
 
+func (i ActionsVariableMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ActionsVariable] {
+	return pulumix.Output[map[string]*ActionsVariable]{
+		OutputState: i.ToActionsVariableMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ActionsVariableOutput struct{ *pulumi.OutputState }
 
 func (ActionsVariableOutput) ElementType() reflect.Type {
@@ -239,6 +258,12 @@ func (o ActionsVariableOutput) ToActionsVariableOutput() ActionsVariableOutput {
 
 func (o ActionsVariableOutput) ToActionsVariableOutputWithContext(ctx context.Context) ActionsVariableOutput {
 	return o
+}
+
+func (o ActionsVariableOutput) ToOutput(ctx context.Context) pulumix.Output[*ActionsVariable] {
+	return pulumix.Output[*ActionsVariable]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Date of actionsVariable creation.
@@ -280,6 +305,12 @@ func (o ActionsVariableArrayOutput) ToActionsVariableArrayOutputWithContext(ctx 
 	return o
 }
 
+func (o ActionsVariableArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ActionsVariable] {
+	return pulumix.Output[[]*ActionsVariable]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ActionsVariableArrayOutput) Index(i pulumi.IntInput) ActionsVariableOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ActionsVariable {
 		return vs[0].([]*ActionsVariable)[vs[1].(int)]
@@ -298,6 +329,12 @@ func (o ActionsVariableMapOutput) ToActionsVariableMapOutput() ActionsVariableMa
 
 func (o ActionsVariableMapOutput) ToActionsVariableMapOutputWithContext(ctx context.Context) ActionsVariableMapOutput {
 	return o
+}
+
+func (o ActionsVariableMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ActionsVariable] {
+	return pulumix.Output[map[string]*ActionsVariable]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ActionsVariableMapOutput) MapIndex(k pulumi.StringInput) ActionsVariableOutput {

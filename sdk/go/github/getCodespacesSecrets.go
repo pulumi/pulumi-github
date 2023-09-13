@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to retrieve the list of codespaces secrets for a GitHub repository.
@@ -111,6 +112,12 @@ func (o GetCodespacesSecretsResultOutput) ToGetCodespacesSecretsResultOutput() G
 
 func (o GetCodespacesSecretsResultOutput) ToGetCodespacesSecretsResultOutputWithContext(ctx context.Context) GetCodespacesSecretsResultOutput {
 	return o
+}
+
+func (o GetCodespacesSecretsResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetCodespacesSecretsResult] {
+	return pulumix.Output[GetCodespacesSecretsResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetCodespacesSecretsResultOutput) FullName() pulumi.StringOutput {

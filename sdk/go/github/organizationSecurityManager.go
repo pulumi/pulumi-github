@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -140,6 +141,12 @@ func (i *OrganizationSecurityManager) ToOrganizationSecurityManagerOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationSecurityManagerOutput)
 }
 
+func (i *OrganizationSecurityManager) ToOutput(ctx context.Context) pulumix.Output[*OrganizationSecurityManager] {
+	return pulumix.Output[*OrganizationSecurityManager]{
+		OutputState: i.ToOrganizationSecurityManagerOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OrganizationSecurityManagerArrayInput is an input type that accepts OrganizationSecurityManagerArray and OrganizationSecurityManagerArrayOutput values.
 // You can construct a concrete instance of `OrganizationSecurityManagerArrayInput` via:
 //
@@ -163,6 +170,12 @@ func (i OrganizationSecurityManagerArray) ToOrganizationSecurityManagerArrayOutp
 
 func (i OrganizationSecurityManagerArray) ToOrganizationSecurityManagerArrayOutputWithContext(ctx context.Context) OrganizationSecurityManagerArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationSecurityManagerArrayOutput)
+}
+
+func (i OrganizationSecurityManagerArray) ToOutput(ctx context.Context) pulumix.Output[[]*OrganizationSecurityManager] {
+	return pulumix.Output[[]*OrganizationSecurityManager]{
+		OutputState: i.ToOrganizationSecurityManagerArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // OrganizationSecurityManagerMapInput is an input type that accepts OrganizationSecurityManagerMap and OrganizationSecurityManagerMapOutput values.
@@ -190,6 +203,12 @@ func (i OrganizationSecurityManagerMap) ToOrganizationSecurityManagerMapOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationSecurityManagerMapOutput)
 }
 
+func (i OrganizationSecurityManagerMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*OrganizationSecurityManager] {
+	return pulumix.Output[map[string]*OrganizationSecurityManager]{
+		OutputState: i.ToOrganizationSecurityManagerMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OrganizationSecurityManagerOutput struct{ *pulumi.OutputState }
 
 func (OrganizationSecurityManagerOutput) ElementType() reflect.Type {
@@ -202,6 +221,12 @@ func (o OrganizationSecurityManagerOutput) ToOrganizationSecurityManagerOutput()
 
 func (o OrganizationSecurityManagerOutput) ToOrganizationSecurityManagerOutputWithContext(ctx context.Context) OrganizationSecurityManagerOutput {
 	return o
+}
+
+func (o OrganizationSecurityManagerOutput) ToOutput(ctx context.Context) pulumix.Output[*OrganizationSecurityManager] {
+	return pulumix.Output[*OrganizationSecurityManager]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The slug of the team to manage.
@@ -223,6 +248,12 @@ func (o OrganizationSecurityManagerArrayOutput) ToOrganizationSecurityManagerArr
 	return o
 }
 
+func (o OrganizationSecurityManagerArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*OrganizationSecurityManager] {
+	return pulumix.Output[[]*OrganizationSecurityManager]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o OrganizationSecurityManagerArrayOutput) Index(i pulumi.IntInput) OrganizationSecurityManagerOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *OrganizationSecurityManager {
 		return vs[0].([]*OrganizationSecurityManager)[vs[1].(int)]
@@ -241,6 +272,12 @@ func (o OrganizationSecurityManagerMapOutput) ToOrganizationSecurityManagerMapOu
 
 func (o OrganizationSecurityManagerMapOutput) ToOrganizationSecurityManagerMapOutputWithContext(ctx context.Context) OrganizationSecurityManagerMapOutput {
 	return o
+}
+
+func (o OrganizationSecurityManagerMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*OrganizationSecurityManager] {
+	return pulumix.Output[map[string]*OrganizationSecurityManager]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OrganizationSecurityManagerMapOutput) MapIndex(k pulumi.StringInput) OrganizationSecurityManagerOutput {

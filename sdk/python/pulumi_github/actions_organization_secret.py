@@ -268,12 +268,11 @@ class ActionsOrganizationSecret(pulumi.CustomResource):
 
         ## Import
 
-        This resource can be imported using an ID made up of the secret name
+        This resource can be imported using an ID made up of the secret name:
 
         ```sh
          $ pulumi import github:index/actionsOrganizationSecret:ActionsOrganizationSecret test_secret test_secret_name
         ```
-
          NOTEthe implementation is limited in that it won't fetch the value of the `plaintext_value` or `encrypted_value` fields when importing. You may need to ignore changes for these as a workaround.
 
         :param str resource_name: The name of the resource.
@@ -327,12 +326,11 @@ class ActionsOrganizationSecret(pulumi.CustomResource):
 
         ## Import
 
-        This resource can be imported using an ID made up of the secret name
+        This resource can be imported using an ID made up of the secret name:
 
         ```sh
          $ pulumi import github:index/actionsOrganizationSecret:ActionsOrganizationSecret test_secret test_secret_name
         ```
-
          NOTEthe implementation is limited in that it won't fetch the value of the `plaintext_value` or `encrypted_value` fields when importing. You may need to ignore changes for these as a workaround.
 
         :param str resource_name: The name of the resource.

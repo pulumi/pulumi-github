@@ -36,7 +36,7 @@ import * as utilities from "./utilities";
  *
  * ## Import
  *
- * This resource can be imported using the ID of the GitHub organization
+ * This resource can be imported using the ID of the GitHub organization:
  *
  * ```sh
  *  $ pulumi import github:index/actionsOrganizationPermissions:ActionsOrganizationPermissions test <github_organization_name>

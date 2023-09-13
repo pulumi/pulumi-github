@@ -38,3 +38,18 @@ export interface GetCodespacesOrganizationSecretsResult {
      */
     readonly secrets: outputs.GetCodespacesOrganizationSecretsSecret[];
 }
+/**
+ * Use this data source to retrieve the list of codespaces secrets of the organization.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const example = github.getCodespacesOrganizationSecrets({});
+ * ```
+ */
+export function getCodespacesOrganizationSecretsOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetCodespacesOrganizationSecretsResult> {
+    return pulumi.output(getCodespacesOrganizationSecrets(opts))
+}

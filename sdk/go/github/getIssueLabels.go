@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to retrieve the labels for a given repository.
@@ -73,6 +74,12 @@ func (o GetIssueLabelsResultOutput) ToGetIssueLabelsResultOutput() GetIssueLabel
 
 func (o GetIssueLabelsResultOutput) ToGetIssueLabelsResultOutputWithContext(ctx context.Context) GetIssueLabelsResultOutput {
 	return o
+}
+
+func (o GetIssueLabelsResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetIssueLabelsResult] {
+	return pulumix.Output[GetIssueLabelsResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The provider-assigned unique ID for this managed resource.

@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // This resource allows you to create and manage GitHub Actions permissions within your GitHub enterprise organizations.
@@ -61,7 +62,7 @@ import (
 //
 // ## Import
 //
-// # This resource can be imported using the ID of the GitHub organization
+// This resource can be imported using the ID of the GitHub organization:
 //
 // ```sh
 //
@@ -185,6 +186,12 @@ func (i *ActionsOrganizationPermissions) ToActionsOrganizationPermissionsOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(ActionsOrganizationPermissionsOutput)
 }
 
+func (i *ActionsOrganizationPermissions) ToOutput(ctx context.Context) pulumix.Output[*ActionsOrganizationPermissions] {
+	return pulumix.Output[*ActionsOrganizationPermissions]{
+		OutputState: i.ToActionsOrganizationPermissionsOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ActionsOrganizationPermissionsArrayInput is an input type that accepts ActionsOrganizationPermissionsArray and ActionsOrganizationPermissionsArrayOutput values.
 // You can construct a concrete instance of `ActionsOrganizationPermissionsArrayInput` via:
 //
@@ -208,6 +215,12 @@ func (i ActionsOrganizationPermissionsArray) ToActionsOrganizationPermissionsArr
 
 func (i ActionsOrganizationPermissionsArray) ToActionsOrganizationPermissionsArrayOutputWithContext(ctx context.Context) ActionsOrganizationPermissionsArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ActionsOrganizationPermissionsArrayOutput)
+}
+
+func (i ActionsOrganizationPermissionsArray) ToOutput(ctx context.Context) pulumix.Output[[]*ActionsOrganizationPermissions] {
+	return pulumix.Output[[]*ActionsOrganizationPermissions]{
+		OutputState: i.ToActionsOrganizationPermissionsArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ActionsOrganizationPermissionsMapInput is an input type that accepts ActionsOrganizationPermissionsMap and ActionsOrganizationPermissionsMapOutput values.
@@ -235,6 +248,12 @@ func (i ActionsOrganizationPermissionsMap) ToActionsOrganizationPermissionsMapOu
 	return pulumi.ToOutputWithContext(ctx, i).(ActionsOrganizationPermissionsMapOutput)
 }
 
+func (i ActionsOrganizationPermissionsMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ActionsOrganizationPermissions] {
+	return pulumix.Output[map[string]*ActionsOrganizationPermissions]{
+		OutputState: i.ToActionsOrganizationPermissionsMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ActionsOrganizationPermissionsOutput struct{ *pulumi.OutputState }
 
 func (ActionsOrganizationPermissionsOutput) ElementType() reflect.Type {
@@ -247,6 +266,12 @@ func (o ActionsOrganizationPermissionsOutput) ToActionsOrganizationPermissionsOu
 
 func (o ActionsOrganizationPermissionsOutput) ToActionsOrganizationPermissionsOutputWithContext(ctx context.Context) ActionsOrganizationPermissionsOutput {
 	return o
+}
+
+func (o ActionsOrganizationPermissionsOutput) ToOutput(ctx context.Context) pulumix.Output[*ActionsOrganizationPermissions] {
+	return pulumix.Output[*ActionsOrganizationPermissions]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The permissions policy that controls the actions that are allowed to run. Can be one of: `all`, `localOnly`, or `selected`.
@@ -287,6 +312,12 @@ func (o ActionsOrganizationPermissionsArrayOutput) ToActionsOrganizationPermissi
 	return o
 }
 
+func (o ActionsOrganizationPermissionsArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ActionsOrganizationPermissions] {
+	return pulumix.Output[[]*ActionsOrganizationPermissions]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ActionsOrganizationPermissionsArrayOutput) Index(i pulumi.IntInput) ActionsOrganizationPermissionsOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ActionsOrganizationPermissions {
 		return vs[0].([]*ActionsOrganizationPermissions)[vs[1].(int)]
@@ -305,6 +336,12 @@ func (o ActionsOrganizationPermissionsMapOutput) ToActionsOrganizationPermission
 
 func (o ActionsOrganizationPermissionsMapOutput) ToActionsOrganizationPermissionsMapOutputWithContext(ctx context.Context) ActionsOrganizationPermissionsMapOutput {
 	return o
+}
+
+func (o ActionsOrganizationPermissionsMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ActionsOrganizationPermissions] {
+	return pulumix.Output[map[string]*ActionsOrganizationPermissions]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ActionsOrganizationPermissionsMapOutput) MapIndex(k pulumi.StringInput) ActionsOrganizationPermissionsOutput {

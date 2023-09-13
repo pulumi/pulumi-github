@@ -44,12 +44,11 @@ namespace Pulumi.Github
     /// 
     /// ## Import
     /// 
-    /// This resource can be imported using an ID made up of the `repository` and `secret_name`
+    /// This resource can be imported using an ID made up of the `repository` and `secret_name`:
     /// 
     /// ```sh
     ///  $ pulumi import github:index/codespacesSecret:CodespacesSecret example_secret &lt;repository&gt;/&lt;secret_name&gt;
     /// ```
-    /// 
     ///  NOTEthe implementation is limited in that it won't fetch the value of the `plaintext_value` or `encrypted_value` fields when importing. You may need to ignore changes for these as a workaround.
     /// </summary>
     [GithubResourceType("github:index/codespacesSecret:CodespacesSecret")]

@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // This resource allows you to create and manage webhooks for repositories within your
@@ -60,7 +61,9 @@ import (
 //
 // ## Import
 //
-// Repository webhooks can be imported using the `name` of the repository, combined with the `id` of the webhook, separated by a `/` character. The `id` of the webhook can be found in the URL of the webhook. For example`"https://github.com/foo-org/foo-repo/settings/hooks/14711452"`. Importing uses the name of the repository, as well as the ID of the webhook, e.g.
+// Repository webhooks can be imported using the `name` of the repository, combined with the `id` of the webhook, separated by a `/` character. The `id` of the webhook can be found in the URL of the webhook. For example`"https://github.com/foo-org/foo-repo/settings/hooks/14711452"`.
+//
+// Importing uses the name of the repository, as well as the ID of the webhook, e.g.
 //
 // ```sh
 //
@@ -198,6 +201,12 @@ func (i *RepositoryWebhook) ToRepositoryWebhookOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryWebhookOutput)
 }
 
+func (i *RepositoryWebhook) ToOutput(ctx context.Context) pulumix.Output[*RepositoryWebhook] {
+	return pulumix.Output[*RepositoryWebhook]{
+		OutputState: i.ToRepositoryWebhookOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RepositoryWebhookArrayInput is an input type that accepts RepositoryWebhookArray and RepositoryWebhookArrayOutput values.
 // You can construct a concrete instance of `RepositoryWebhookArrayInput` via:
 //
@@ -221,6 +230,12 @@ func (i RepositoryWebhookArray) ToRepositoryWebhookArrayOutput() RepositoryWebho
 
 func (i RepositoryWebhookArray) ToRepositoryWebhookArrayOutputWithContext(ctx context.Context) RepositoryWebhookArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryWebhookArrayOutput)
+}
+
+func (i RepositoryWebhookArray) ToOutput(ctx context.Context) pulumix.Output[[]*RepositoryWebhook] {
+	return pulumix.Output[[]*RepositoryWebhook]{
+		OutputState: i.ToRepositoryWebhookArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // RepositoryWebhookMapInput is an input type that accepts RepositoryWebhookMap and RepositoryWebhookMapOutput values.
@@ -248,6 +263,12 @@ func (i RepositoryWebhookMap) ToRepositoryWebhookMapOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryWebhookMapOutput)
 }
 
+func (i RepositoryWebhookMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*RepositoryWebhook] {
+	return pulumix.Output[map[string]*RepositoryWebhook]{
+		OutputState: i.ToRepositoryWebhookMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RepositoryWebhookOutput struct{ *pulumi.OutputState }
 
 func (RepositoryWebhookOutput) ElementType() reflect.Type {
@@ -260,6 +281,12 @@ func (o RepositoryWebhookOutput) ToRepositoryWebhookOutput() RepositoryWebhookOu
 
 func (o RepositoryWebhookOutput) ToRepositoryWebhookOutputWithContext(ctx context.Context) RepositoryWebhookOutput {
 	return o
+}
+
+func (o RepositoryWebhookOutput) ToOutput(ctx context.Context) pulumix.Output[*RepositoryWebhook] {
+	return pulumix.Output[*RepositoryWebhook]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Indicate if the webhook should receive events. Defaults to `true`.
@@ -305,6 +332,12 @@ func (o RepositoryWebhookArrayOutput) ToRepositoryWebhookArrayOutputWithContext(
 	return o
 }
 
+func (o RepositoryWebhookArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*RepositoryWebhook] {
+	return pulumix.Output[[]*RepositoryWebhook]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RepositoryWebhookArrayOutput) Index(i pulumi.IntInput) RepositoryWebhookOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RepositoryWebhook {
 		return vs[0].([]*RepositoryWebhook)[vs[1].(int)]
@@ -323,6 +356,12 @@ func (o RepositoryWebhookMapOutput) ToRepositoryWebhookMapOutput() RepositoryWeb
 
 func (o RepositoryWebhookMapOutput) ToRepositoryWebhookMapOutputWithContext(ctx context.Context) RepositoryWebhookMapOutput {
 	return o
+}
+
+func (o RepositoryWebhookMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*RepositoryWebhook] {
+	return pulumix.Output[map[string]*RepositoryWebhook]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RepositoryWebhookMapOutput) MapIndex(k pulumi.StringInput) RepositoryWebhookOutput {

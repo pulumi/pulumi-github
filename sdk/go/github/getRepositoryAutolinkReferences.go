@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to retrieve autolink references for a repository.
@@ -99,6 +100,12 @@ func (o GetRepositoryAutolinkReferencesResultOutput) ToGetRepositoryAutolinkRefe
 
 func (o GetRepositoryAutolinkReferencesResultOutput) ToGetRepositoryAutolinkReferencesResultOutputWithContext(ctx context.Context) GetRepositoryAutolinkReferencesResultOutput {
 	return o
+}
+
+func (o GetRepositoryAutolinkReferencesResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetRepositoryAutolinkReferencesResult] {
+	return pulumix.Output[GetRepositoryAutolinkReferencesResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The list of this repository's autolink references. Each element of `autolinkReferences` has the following attributes:

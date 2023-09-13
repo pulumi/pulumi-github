@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Protects a GitHub branch.
@@ -326,6 +327,12 @@ func (i *BranchProtection) ToBranchProtectionOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(BranchProtectionOutput)
 }
 
+func (i *BranchProtection) ToOutput(ctx context.Context) pulumix.Output[*BranchProtection] {
+	return pulumix.Output[*BranchProtection]{
+		OutputState: i.ToBranchProtectionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // BranchProtectionArrayInput is an input type that accepts BranchProtectionArray and BranchProtectionArrayOutput values.
 // You can construct a concrete instance of `BranchProtectionArrayInput` via:
 //
@@ -349,6 +356,12 @@ func (i BranchProtectionArray) ToBranchProtectionArrayOutput() BranchProtectionA
 
 func (i BranchProtectionArray) ToBranchProtectionArrayOutputWithContext(ctx context.Context) BranchProtectionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BranchProtectionArrayOutput)
+}
+
+func (i BranchProtectionArray) ToOutput(ctx context.Context) pulumix.Output[[]*BranchProtection] {
+	return pulumix.Output[[]*BranchProtection]{
+		OutputState: i.ToBranchProtectionArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // BranchProtectionMapInput is an input type that accepts BranchProtectionMap and BranchProtectionMapOutput values.
@@ -376,6 +389,12 @@ func (i BranchProtectionMap) ToBranchProtectionMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(BranchProtectionMapOutput)
 }
 
+func (i BranchProtectionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*BranchProtection] {
+	return pulumix.Output[map[string]*BranchProtection]{
+		OutputState: i.ToBranchProtectionMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BranchProtectionOutput struct{ *pulumi.OutputState }
 
 func (BranchProtectionOutput) ElementType() reflect.Type {
@@ -388,6 +407,12 @@ func (o BranchProtectionOutput) ToBranchProtectionOutput() BranchProtectionOutpu
 
 func (o BranchProtectionOutput) ToBranchProtectionOutputWithContext(ctx context.Context) BranchProtectionOutput {
 	return o
+}
+
+func (o BranchProtectionOutput) ToOutput(ctx context.Context) pulumix.Output[*BranchProtection] {
+	return pulumix.Output[*BranchProtection]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Boolean, setting this to `true` to allow the branch to be deleted.
@@ -478,6 +503,12 @@ func (o BranchProtectionArrayOutput) ToBranchProtectionArrayOutputWithContext(ct
 	return o
 }
 
+func (o BranchProtectionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*BranchProtection] {
+	return pulumix.Output[[]*BranchProtection]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o BranchProtectionArrayOutput) Index(i pulumi.IntInput) BranchProtectionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *BranchProtection {
 		return vs[0].([]*BranchProtection)[vs[1].(int)]
@@ -496,6 +527,12 @@ func (o BranchProtectionMapOutput) ToBranchProtectionMapOutput() BranchProtectio
 
 func (o BranchProtectionMapOutput) ToBranchProtectionMapOutputWithContext(ctx context.Context) BranchProtectionMapOutput {
 	return o
+}
+
+func (o BranchProtectionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*BranchProtection] {
+	return pulumix.Output[map[string]*BranchProtection]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BranchProtectionMapOutput) MapIndex(k pulumi.StringInput) BranchProtectionOutput {

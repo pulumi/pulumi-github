@@ -40,3 +40,20 @@ export interface GetExternalGroupsResult {
      */
     readonly id: string;
 }
+/**
+ * Use this data source to retrieve external groups belonging to an organization.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const exampleExternalGroups = github.getExternalGroups({});
+ * const localGroups = exampleExternalGroups;
+ * export const groups = localGroups;
+ * ```
+ */
+export function getExternalGroupsOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetExternalGroupsResult> {
+    return pulumi.output(getExternalGroups(opts))
+}

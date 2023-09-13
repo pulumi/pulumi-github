@@ -36,6 +36,32 @@ namespace Pulumi.Github
         /// </summary>
         public static Task<GetActionsOrganizationPublicKeyResult> InvokeAsync(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetActionsOrganizationPublicKeyResult>("github:index/getActionsOrganizationPublicKey:getActionsOrganizationPublicKey", InvokeArgs.Empty, options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to retrieve information about a GitHub Actions Organization public key. This data source is required to be used with other GitHub secrets interactions.
+        /// Note that the provider `token` must have admin rights to an organization to retrieve it's action public key.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Github = Pulumi.Github;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Github.GetActionsOrganizationPublicKey.Invoke();
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetActionsOrganizationPublicKeyResult> Invoke(InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<GetActionsOrganizationPublicKeyResult>("github:index/getActionsOrganizationPublicKey:getActionsOrganizationPublicKey", InvokeArgs.Empty, options.WithDefaults());
     }
 
 

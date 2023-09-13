@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a GitHub user's GPG key resource.
@@ -146,6 +147,12 @@ func (i *UserGpgKey) ToUserGpgKeyOutputWithContext(ctx context.Context) UserGpgK
 	return pulumi.ToOutputWithContext(ctx, i).(UserGpgKeyOutput)
 }
 
+func (i *UserGpgKey) ToOutput(ctx context.Context) pulumix.Output[*UserGpgKey] {
+	return pulumix.Output[*UserGpgKey]{
+		OutputState: i.ToUserGpgKeyOutputWithContext(ctx).OutputState,
+	}
+}
+
 // UserGpgKeyArrayInput is an input type that accepts UserGpgKeyArray and UserGpgKeyArrayOutput values.
 // You can construct a concrete instance of `UserGpgKeyArrayInput` via:
 //
@@ -169,6 +176,12 @@ func (i UserGpgKeyArray) ToUserGpgKeyArrayOutput() UserGpgKeyArrayOutput {
 
 func (i UserGpgKeyArray) ToUserGpgKeyArrayOutputWithContext(ctx context.Context) UserGpgKeyArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(UserGpgKeyArrayOutput)
+}
+
+func (i UserGpgKeyArray) ToOutput(ctx context.Context) pulumix.Output[[]*UserGpgKey] {
+	return pulumix.Output[[]*UserGpgKey]{
+		OutputState: i.ToUserGpgKeyArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // UserGpgKeyMapInput is an input type that accepts UserGpgKeyMap and UserGpgKeyMapOutput values.
@@ -196,6 +209,12 @@ func (i UserGpgKeyMap) ToUserGpgKeyMapOutputWithContext(ctx context.Context) Use
 	return pulumi.ToOutputWithContext(ctx, i).(UserGpgKeyMapOutput)
 }
 
+func (i UserGpgKeyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*UserGpgKey] {
+	return pulumix.Output[map[string]*UserGpgKey]{
+		OutputState: i.ToUserGpgKeyMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type UserGpgKeyOutput struct{ *pulumi.OutputState }
 
 func (UserGpgKeyOutput) ElementType() reflect.Type {
@@ -208,6 +227,12 @@ func (o UserGpgKeyOutput) ToUserGpgKeyOutput() UserGpgKeyOutput {
 
 func (o UserGpgKeyOutput) ToUserGpgKeyOutputWithContext(ctx context.Context) UserGpgKeyOutput {
 	return o
+}
+
+func (o UserGpgKeyOutput) ToOutput(ctx context.Context) pulumix.Output[*UserGpgKey] {
+	return pulumix.Output[*UserGpgKey]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Your public GPG key, generated in ASCII-armored format.
@@ -239,6 +264,12 @@ func (o UserGpgKeyArrayOutput) ToUserGpgKeyArrayOutputWithContext(ctx context.Co
 	return o
 }
 
+func (o UserGpgKeyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*UserGpgKey] {
+	return pulumix.Output[[]*UserGpgKey]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o UserGpgKeyArrayOutput) Index(i pulumi.IntInput) UserGpgKeyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *UserGpgKey {
 		return vs[0].([]*UserGpgKey)[vs[1].(int)]
@@ -257,6 +288,12 @@ func (o UserGpgKeyMapOutput) ToUserGpgKeyMapOutput() UserGpgKeyMapOutput {
 
 func (o UserGpgKeyMapOutput) ToUserGpgKeyMapOutputWithContext(ctx context.Context) UserGpgKeyMapOutput {
 	return o
+}
+
+func (o UserGpgKeyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*UserGpgKey] {
+	return pulumix.Output[map[string]*UserGpgKey]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o UserGpgKeyMapOutput) MapIndex(k pulumi.StringInput) UserGpgKeyOutput {

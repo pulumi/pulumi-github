@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to retrieve information about a repository ref.
@@ -113,6 +114,12 @@ func (o GetRefResultOutput) ToGetRefResultOutput() GetRefResultOutput {
 
 func (o GetRefResultOutput) ToGetRefResultOutputWithContext(ctx context.Context) GetRefResultOutput {
 	return o
+}
+
+func (o GetRefResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetRefResult] {
+	return pulumix.Output[GetRefResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // An etag representing the ref.

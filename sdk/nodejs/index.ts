@@ -157,23 +157,28 @@ utilities.lazyLoad(exports, ["getActionsEnvironmentVariables","getActionsEnviron
 
 export { GetActionsOrganizationOidcSubjectClaimCustomizationTemplateResult } from "./getActionsOrganizationOidcSubjectClaimCustomizationTemplate";
 export const getActionsOrganizationOidcSubjectClaimCustomizationTemplate: typeof import("./getActionsOrganizationOidcSubjectClaimCustomizationTemplate").getActionsOrganizationOidcSubjectClaimCustomizationTemplate = null as any;
-utilities.lazyLoad(exports, ["getActionsOrganizationOidcSubjectClaimCustomizationTemplate"], () => require("./getActionsOrganizationOidcSubjectClaimCustomizationTemplate"));
+export const getActionsOrganizationOidcSubjectClaimCustomizationTemplateOutput: typeof import("./getActionsOrganizationOidcSubjectClaimCustomizationTemplate").getActionsOrganizationOidcSubjectClaimCustomizationTemplateOutput = null as any;
+utilities.lazyLoad(exports, ["getActionsOrganizationOidcSubjectClaimCustomizationTemplate","getActionsOrganizationOidcSubjectClaimCustomizationTemplateOutput"], () => require("./getActionsOrganizationOidcSubjectClaimCustomizationTemplate"));
 
 export { GetActionsOrganizationPublicKeyResult } from "./getActionsOrganizationPublicKey";
 export const getActionsOrganizationPublicKey: typeof import("./getActionsOrganizationPublicKey").getActionsOrganizationPublicKey = null as any;
-utilities.lazyLoad(exports, ["getActionsOrganizationPublicKey"], () => require("./getActionsOrganizationPublicKey"));
+export const getActionsOrganizationPublicKeyOutput: typeof import("./getActionsOrganizationPublicKey").getActionsOrganizationPublicKeyOutput = null as any;
+utilities.lazyLoad(exports, ["getActionsOrganizationPublicKey","getActionsOrganizationPublicKeyOutput"], () => require("./getActionsOrganizationPublicKey"));
 
 export { GetActionsOrganizationRegistrationTokenResult } from "./getActionsOrganizationRegistrationToken";
 export const getActionsOrganizationRegistrationToken: typeof import("./getActionsOrganizationRegistrationToken").getActionsOrganizationRegistrationToken = null as any;
-utilities.lazyLoad(exports, ["getActionsOrganizationRegistrationToken"], () => require("./getActionsOrganizationRegistrationToken"));
+export const getActionsOrganizationRegistrationTokenOutput: typeof import("./getActionsOrganizationRegistrationToken").getActionsOrganizationRegistrationTokenOutput = null as any;
+utilities.lazyLoad(exports, ["getActionsOrganizationRegistrationToken","getActionsOrganizationRegistrationTokenOutput"], () => require("./getActionsOrganizationRegistrationToken"));
 
 export { GetActionsOrganizationSecretsResult } from "./getActionsOrganizationSecrets";
 export const getActionsOrganizationSecrets: typeof import("./getActionsOrganizationSecrets").getActionsOrganizationSecrets = null as any;
-utilities.lazyLoad(exports, ["getActionsOrganizationSecrets"], () => require("./getActionsOrganizationSecrets"));
+export const getActionsOrganizationSecretsOutput: typeof import("./getActionsOrganizationSecrets").getActionsOrganizationSecretsOutput = null as any;
+utilities.lazyLoad(exports, ["getActionsOrganizationSecrets","getActionsOrganizationSecretsOutput"], () => require("./getActionsOrganizationSecrets"));
 
 export { GetActionsOrganizationVariablesResult } from "./getActionsOrganizationVariables";
 export const getActionsOrganizationVariables: typeof import("./getActionsOrganizationVariables").getActionsOrganizationVariables = null as any;
-utilities.lazyLoad(exports, ["getActionsOrganizationVariables"], () => require("./getActionsOrganizationVariables"));
+export const getActionsOrganizationVariablesOutput: typeof import("./getActionsOrganizationVariables").getActionsOrganizationVariablesOutput = null as any;
+utilities.lazyLoad(exports, ["getActionsOrganizationVariables","getActionsOrganizationVariablesOutput"], () => require("./getActionsOrganizationVariables"));
 
 export { GetActionsPublicKeyArgs, GetActionsPublicKeyResult, GetActionsPublicKeyOutputArgs } from "./getActionsPublicKey";
 export const getActionsPublicKey: typeof import("./getActionsPublicKey").getActionsPublicKey = null as any;
@@ -217,11 +222,13 @@ utilities.lazyLoad(exports, ["getBranchProtectionRules","getBranchProtectionRule
 
 export { GetCodespacesOrganizationPublicKeyResult } from "./getCodespacesOrganizationPublicKey";
 export const getCodespacesOrganizationPublicKey: typeof import("./getCodespacesOrganizationPublicKey").getCodespacesOrganizationPublicKey = null as any;
-utilities.lazyLoad(exports, ["getCodespacesOrganizationPublicKey"], () => require("./getCodespacesOrganizationPublicKey"));
+export const getCodespacesOrganizationPublicKeyOutput: typeof import("./getCodespacesOrganizationPublicKey").getCodespacesOrganizationPublicKeyOutput = null as any;
+utilities.lazyLoad(exports, ["getCodespacesOrganizationPublicKey","getCodespacesOrganizationPublicKeyOutput"], () => require("./getCodespacesOrganizationPublicKey"));
 
 export { GetCodespacesOrganizationSecretsResult } from "./getCodespacesOrganizationSecrets";
 export const getCodespacesOrganizationSecrets: typeof import("./getCodespacesOrganizationSecrets").getCodespacesOrganizationSecrets = null as any;
-utilities.lazyLoad(exports, ["getCodespacesOrganizationSecrets"], () => require("./getCodespacesOrganizationSecrets"));
+export const getCodespacesOrganizationSecretsOutput: typeof import("./getCodespacesOrganizationSecrets").getCodespacesOrganizationSecretsOutput = null as any;
+utilities.lazyLoad(exports, ["getCodespacesOrganizationSecrets","getCodespacesOrganizationSecretsOutput"], () => require("./getCodespacesOrganizationSecrets"));
 
 export { GetCodespacesPublicKeyArgs, GetCodespacesPublicKeyResult, GetCodespacesPublicKeyOutputArgs } from "./getCodespacesPublicKey";
 export const getCodespacesPublicKey: typeof import("./getCodespacesPublicKey").getCodespacesPublicKey = null as any;
@@ -235,11 +242,13 @@ utilities.lazyLoad(exports, ["getCodespacesSecrets","getCodespacesSecretsOutput"
 
 export { GetCodespacesUserPublicKeyResult } from "./getCodespacesUserPublicKey";
 export const getCodespacesUserPublicKey: typeof import("./getCodespacesUserPublicKey").getCodespacesUserPublicKey = null as any;
-utilities.lazyLoad(exports, ["getCodespacesUserPublicKey"], () => require("./getCodespacesUserPublicKey"));
+export const getCodespacesUserPublicKeyOutput: typeof import("./getCodespacesUserPublicKey").getCodespacesUserPublicKeyOutput = null as any;
+utilities.lazyLoad(exports, ["getCodespacesUserPublicKey","getCodespacesUserPublicKeyOutput"], () => require("./getCodespacesUserPublicKey"));
 
 export { GetCodespacesUserSecretsResult } from "./getCodespacesUserSecrets";
 export const getCodespacesUserSecrets: typeof import("./getCodespacesUserSecrets").getCodespacesUserSecrets = null as any;
-utilities.lazyLoad(exports, ["getCodespacesUserSecrets"], () => require("./getCodespacesUserSecrets"));
+export const getCodespacesUserSecretsOutput: typeof import("./getCodespacesUserSecrets").getCodespacesUserSecretsOutput = null as any;
+utilities.lazyLoad(exports, ["getCodespacesUserSecrets","getCodespacesUserSecretsOutput"], () => require("./getCodespacesUserSecrets"));
 
 export { GetCollaboratorsArgs, GetCollaboratorsResult, GetCollaboratorsOutputArgs } from "./getCollaborators";
 export const getCollaborators: typeof import("./getCollaborators").getCollaborators = null as any;
@@ -248,11 +257,13 @@ utilities.lazyLoad(exports, ["getCollaborators","getCollaboratorsOutput"], () =>
 
 export { GetDependabotOrganizationPublicKeyResult } from "./getDependabotOrganizationPublicKey";
 export const getDependabotOrganizationPublicKey: typeof import("./getDependabotOrganizationPublicKey").getDependabotOrganizationPublicKey = null as any;
-utilities.lazyLoad(exports, ["getDependabotOrganizationPublicKey"], () => require("./getDependabotOrganizationPublicKey"));
+export const getDependabotOrganizationPublicKeyOutput: typeof import("./getDependabotOrganizationPublicKey").getDependabotOrganizationPublicKeyOutput = null as any;
+utilities.lazyLoad(exports, ["getDependabotOrganizationPublicKey","getDependabotOrganizationPublicKeyOutput"], () => require("./getDependabotOrganizationPublicKey"));
 
 export { GetDependabotOrganizationSecretsResult } from "./getDependabotOrganizationSecrets";
 export const getDependabotOrganizationSecrets: typeof import("./getDependabotOrganizationSecrets").getDependabotOrganizationSecrets = null as any;
-utilities.lazyLoad(exports, ["getDependabotOrganizationSecrets"], () => require("./getDependabotOrganizationSecrets"));
+export const getDependabotOrganizationSecretsOutput: typeof import("./getDependabotOrganizationSecrets").getDependabotOrganizationSecretsOutput = null as any;
+utilities.lazyLoad(exports, ["getDependabotOrganizationSecrets","getDependabotOrganizationSecretsOutput"], () => require("./getDependabotOrganizationSecrets"));
 
 export { GetDependabotPublicKeyArgs, GetDependabotPublicKeyResult, GetDependabotPublicKeyOutputArgs } from "./getDependabotPublicKey";
 export const getDependabotPublicKey: typeof import("./getDependabotPublicKey").getDependabotPublicKey = null as any;
@@ -271,7 +282,8 @@ utilities.lazyLoad(exports, ["getEnterprise","getEnterpriseOutput"], () => requi
 
 export { GetExternalGroupsResult } from "./getExternalGroups";
 export const getExternalGroups: typeof import("./getExternalGroups").getExternalGroups = null as any;
-utilities.lazyLoad(exports, ["getExternalGroups"], () => require("./getExternalGroups"));
+export const getExternalGroupsOutput: typeof import("./getExternalGroups").getExternalGroupsOutput = null as any;
+utilities.lazyLoad(exports, ["getExternalGroups","getExternalGroupsOutput"], () => require("./getExternalGroups"));
 
 export { GetGithubAppArgs, GetGithubAppResult, GetGithubAppOutputArgs } from "./getGithubApp";
 export const getGithubApp: typeof import("./getGithubApp").getGithubApp = null as any;
@@ -280,7 +292,8 @@ utilities.lazyLoad(exports, ["getGithubApp","getGithubAppOutput"], () => require
 
 export { GetIpRangesResult } from "./getIpRanges";
 export const getIpRanges: typeof import("./getIpRanges").getIpRanges = null as any;
-utilities.lazyLoad(exports, ["getIpRanges"], () => require("./getIpRanges"));
+export const getIpRangesOutput: typeof import("./getIpRanges").getIpRangesOutput = null as any;
+utilities.lazyLoad(exports, ["getIpRanges","getIpRangesOutput"], () => require("./getIpRanges"));
 
 export { GetIssueLabelsArgs, GetIssueLabelsResult, GetIssueLabelsOutputArgs } from "./getIssueLabels";
 export const getIssueLabels: typeof import("./getIssueLabels").getIssueLabels = null as any;
@@ -304,15 +317,18 @@ utilities.lazyLoad(exports, ["getOrganizationCustomRole","getOrganizationCustomR
 
 export { GetOrganizationExternalIdentitiesResult } from "./getOrganizationExternalIdentities";
 export const getOrganizationExternalIdentities: typeof import("./getOrganizationExternalIdentities").getOrganizationExternalIdentities = null as any;
-utilities.lazyLoad(exports, ["getOrganizationExternalIdentities"], () => require("./getOrganizationExternalIdentities"));
+export const getOrganizationExternalIdentitiesOutput: typeof import("./getOrganizationExternalIdentities").getOrganizationExternalIdentitiesOutput = null as any;
+utilities.lazyLoad(exports, ["getOrganizationExternalIdentities","getOrganizationExternalIdentitiesOutput"], () => require("./getOrganizationExternalIdentities"));
 
 export { GetOrganizationIpAllowListResult } from "./getOrganizationIpAllowList";
 export const getOrganizationIpAllowList: typeof import("./getOrganizationIpAllowList").getOrganizationIpAllowList = null as any;
-utilities.lazyLoad(exports, ["getOrganizationIpAllowList"], () => require("./getOrganizationIpAllowList"));
+export const getOrganizationIpAllowListOutput: typeof import("./getOrganizationIpAllowList").getOrganizationIpAllowListOutput = null as any;
+utilities.lazyLoad(exports, ["getOrganizationIpAllowList","getOrganizationIpAllowListOutput"], () => require("./getOrganizationIpAllowList"));
 
 export { GetOrganizationTeamSyncGroupsResult } from "./getOrganizationTeamSyncGroups";
 export const getOrganizationTeamSyncGroups: typeof import("./getOrganizationTeamSyncGroups").getOrganizationTeamSyncGroups = null as any;
-utilities.lazyLoad(exports, ["getOrganizationTeamSyncGroups"], () => require("./getOrganizationTeamSyncGroups"));
+export const getOrganizationTeamSyncGroupsOutput: typeof import("./getOrganizationTeamSyncGroups").getOrganizationTeamSyncGroupsOutput = null as any;
+utilities.lazyLoad(exports, ["getOrganizationTeamSyncGroups","getOrganizationTeamSyncGroupsOutput"], () => require("./getOrganizationTeamSyncGroups"));
 
 export { GetOrganizationTeamsArgs, GetOrganizationTeamsResult, GetOrganizationTeamsOutputArgs } from "./getOrganizationTeams";
 export const getOrganizationTeams: typeof import("./getOrganizationTeams").getOrganizationTeams = null as any;
@@ -321,7 +337,8 @@ utilities.lazyLoad(exports, ["getOrganizationTeams","getOrganizationTeamsOutput"
 
 export { GetOrganizationWebhooksResult } from "./getOrganizationWebhooks";
 export const getOrganizationWebhooks: typeof import("./getOrganizationWebhooks").getOrganizationWebhooks = null as any;
-utilities.lazyLoad(exports, ["getOrganizationWebhooks"], () => require("./getOrganizationWebhooks"));
+export const getOrganizationWebhooksOutput: typeof import("./getOrganizationWebhooks").getOrganizationWebhooksOutput = null as any;
+utilities.lazyLoad(exports, ["getOrganizationWebhooks","getOrganizationWebhooksOutput"], () => require("./getOrganizationWebhooks"));
 
 export { GetRefArgs, GetRefResult, GetRefOutputArgs } from "./getRef";
 export const getRef: typeof import("./getRef").getRef = null as any;
@@ -405,7 +422,8 @@ utilities.lazyLoad(exports, ["getRestApi","getRestApiOutput"], () => require("./
 
 export { GetSshKeysResult } from "./getSshKeys";
 export const getSshKeys: typeof import("./getSshKeys").getSshKeys = null as any;
-utilities.lazyLoad(exports, ["getSshKeys"], () => require("./getSshKeys"));
+export const getSshKeysOutput: typeof import("./getSshKeys").getSshKeysOutput = null as any;
+utilities.lazyLoad(exports, ["getSshKeys","getSshKeysOutput"], () => require("./getSshKeys"));
 
 export { GetTeamArgs, GetTeamResult, GetTeamOutputArgs } from "./getTeam";
 export const getTeam: typeof import("./getTeam").getTeam = null as any;
