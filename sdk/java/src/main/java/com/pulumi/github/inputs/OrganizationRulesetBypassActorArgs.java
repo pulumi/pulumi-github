@@ -8,8 +8,6 @@ import com.pulumi.core.annotations.Import;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 
 public final class OrganizationRulesetBypassActorArgs extends com.pulumi.resources.ResourceArgs {
@@ -50,15 +48,15 @@ public final class OrganizationRulesetBypassActorArgs extends com.pulumi.resourc
      * (String) When the specified actor can bypass the ruleset. pull_request means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pull_request`.
      * 
      */
-    @Import(name="bypassMode")
-    private @Nullable Output<String> bypassMode;
+    @Import(name="bypassMode", required=true)
+    private Output<String> bypassMode;
 
     /**
      * @return (String) When the specified actor can bypass the ruleset. pull_request means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pull_request`.
      * 
      */
-    public Optional<Output<String>> bypassMode() {
-        return Optional.ofNullable(this.bypassMode);
+    public Output<String> bypassMode() {
+        return this.bypassMode;
     }
 
     private OrganizationRulesetBypassActorArgs() {}
@@ -135,7 +133,7 @@ public final class OrganizationRulesetBypassActorArgs extends com.pulumi.resourc
          * @return builder
          * 
          */
-        public Builder bypassMode(@Nullable Output<String> bypassMode) {
+        public Builder bypassMode(Output<String> bypassMode) {
             $.bypassMode = bypassMode;
             return this;
         }
@@ -153,6 +151,7 @@ public final class OrganizationRulesetBypassActorArgs extends com.pulumi.resourc
         public OrganizationRulesetBypassActorArgs build() {
             $.actorId = Objects.requireNonNull($.actorId, "expected parameter 'actorId' to be non-null");
             $.actorType = Objects.requireNonNull($.actorType, "expected parameter 'actorType' to be non-null");
+            $.bypassMode = Objects.requireNonNull($.bypassMode, "expected parameter 'bypassMode' to be non-null");
             return $;
         }
     }

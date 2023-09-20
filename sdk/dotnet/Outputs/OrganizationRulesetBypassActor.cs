@@ -24,7 +24,7 @@ namespace Pulumi.Github.Outputs
         /// <summary>
         /// (String) When the specified actor can bypass the ruleset. pull_request means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pull_request`.
         /// </summary>
-        public readonly string? BypassMode;
+        public readonly string BypassMode;
 
         [OutputConstructor]
         private OrganizationRulesetBypassActor(
@@ -32,7 +32,7 @@ namespace Pulumi.Github.Outputs
 
             string actorType,
 
-            string? bypassMode)
+            string bypassMode)
         {
             ActorId = actorId;
             ActorType = actorType;

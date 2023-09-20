@@ -7,8 +7,6 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class RepositoryRulesetBypassActor {
@@ -26,7 +24,7 @@ public final class RepositoryRulesetBypassActor {
      * @return (String) When the specified actor can bypass the ruleset. pull_request means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pull_request`.
      * 
      */
-    private @Nullable String bypassMode;
+    private String bypassMode;
 
     private RepositoryRulesetBypassActor() {}
     /**
@@ -47,8 +45,8 @@ public final class RepositoryRulesetBypassActor {
      * @return (String) When the specified actor can bypass the ruleset. pull_request means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pull_request`.
      * 
      */
-    public Optional<String> bypassMode() {
-        return Optional.ofNullable(this.bypassMode);
+    public String bypassMode() {
+        return this.bypassMode;
     }
 
     public static Builder builder() {
@@ -62,7 +60,7 @@ public final class RepositoryRulesetBypassActor {
     public static final class Builder {
         private Integer actorId;
         private String actorType;
-        private @Nullable String bypassMode;
+        private String bypassMode;
         public Builder() {}
         public Builder(RepositoryRulesetBypassActor defaults) {
     	      Objects.requireNonNull(defaults);
@@ -82,8 +80,8 @@ public final class RepositoryRulesetBypassActor {
             return this;
         }
         @CustomType.Setter
-        public Builder bypassMode(@Nullable String bypassMode) {
-            this.bypassMode = bypassMode;
+        public Builder bypassMode(String bypassMode) {
+            this.bypassMode = Objects.requireNonNull(bypassMode);
             return this;
         }
         public RepositoryRulesetBypassActor build() {

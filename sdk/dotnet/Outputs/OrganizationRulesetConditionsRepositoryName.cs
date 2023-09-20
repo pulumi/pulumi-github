@@ -18,21 +18,21 @@ namespace Pulumi.Github.Outputs
         /// </summary>
         public readonly ImmutableArray<string> Excludes;
         /// <summary>
-        /// (List of String) Array of repository names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~ALL` to include all repositories.
+        /// (List of String) Array of ref names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~DEFAULT_BRANCH` to include the default branch or `~ALL` to include all branches.
         /// </summary>
-        public readonly ImmutableArray<string> Inlcudes;
+        public readonly ImmutableArray<string> Includes;
         public readonly bool? Protected;
 
         [OutputConstructor]
         private OrganizationRulesetConditionsRepositoryName(
             ImmutableArray<string> excludes,
 
-            ImmutableArray<string> inlcudes,
+            ImmutableArray<string> includes,
 
             bool? @protected)
         {
             Excludes = excludes;
-            Inlcudes = inlcudes;
+            Includes = includes;
             Protected = @protected;
         }
     }

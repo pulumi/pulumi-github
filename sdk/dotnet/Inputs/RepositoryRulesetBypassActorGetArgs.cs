@@ -27,8 +27,8 @@ namespace Pulumi.Github.Inputs
         /// <summary>
         /// (String) When the specified actor can bypass the ruleset. pull_request means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pull_request`.
         /// </summary>
-        [Input("bypassMode")]
-        public Input<string>? BypassMode { get; set; }
+        [Input("bypassMode", required: true)]
+        public Input<string> BypassMode { get; set; } = null!;
 
         public RepositoryRulesetBypassActorGetArgs()
         {

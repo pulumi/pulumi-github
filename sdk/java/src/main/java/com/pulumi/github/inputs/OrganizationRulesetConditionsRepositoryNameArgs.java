@@ -33,18 +33,18 @@ public final class OrganizationRulesetConditionsRepositoryNameArgs extends com.p
     }
 
     /**
-     * (List of String) Array of repository names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~ALL` to include all repositories.
+     * (List of String) Array of ref names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~DEFAULT_BRANCH` to include the default branch or `~ALL` to include all branches.
      * 
      */
-    @Import(name="inlcudes", required=true)
-    private Output<List<String>> inlcudes;
+    @Import(name="includes", required=true)
+    private Output<List<String>> includes;
 
     /**
-     * @return (List of String) Array of repository names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~ALL` to include all repositories.
+     * @return (List of String) Array of ref names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~DEFAULT_BRANCH` to include the default branch or `~ALL` to include all branches.
      * 
      */
-    public Output<List<String>> inlcudes() {
-        return this.inlcudes;
+    public Output<List<String>> includes() {
+        return this.includes;
     }
 
     @Import(name="protected")
@@ -58,7 +58,7 @@ public final class OrganizationRulesetConditionsRepositoryNameArgs extends com.p
 
     private OrganizationRulesetConditionsRepositoryNameArgs(OrganizationRulesetConditionsRepositoryNameArgs $) {
         this.excludes = $.excludes;
-        this.inlcudes = $.inlcudes;
+        this.includes = $.includes;
         this.protected_ = $.protected_;
     }
 
@@ -112,34 +112,34 @@ public final class OrganizationRulesetConditionsRepositoryNameArgs extends com.p
         }
 
         /**
-         * @param inlcudes (List of String) Array of repository names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~ALL` to include all repositories.
+         * @param includes (List of String) Array of ref names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~DEFAULT_BRANCH` to include the default branch or `~ALL` to include all branches.
          * 
          * @return builder
          * 
          */
-        public Builder inlcudes(Output<List<String>> inlcudes) {
-            $.inlcudes = inlcudes;
+        public Builder includes(Output<List<String>> includes) {
+            $.includes = includes;
             return this;
         }
 
         /**
-         * @param inlcudes (List of String) Array of repository names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~ALL` to include all repositories.
+         * @param includes (List of String) Array of ref names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~DEFAULT_BRANCH` to include the default branch or `~ALL` to include all branches.
          * 
          * @return builder
          * 
          */
-        public Builder inlcudes(List<String> inlcudes) {
-            return inlcudes(Output.of(inlcudes));
+        public Builder includes(List<String> includes) {
+            return includes(Output.of(includes));
         }
 
         /**
-         * @param inlcudes (List of String) Array of repository names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~ALL` to include all repositories.
+         * @param includes (List of String) Array of ref names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~DEFAULT_BRANCH` to include the default branch or `~ALL` to include all branches.
          * 
          * @return builder
          * 
          */
-        public Builder inlcudes(String... inlcudes) {
-            return inlcudes(List.of(inlcudes));
+        public Builder includes(String... includes) {
+            return includes(List.of(includes));
         }
 
         public Builder protected_(@Nullable Output<Boolean> protected_) {
@@ -153,7 +153,7 @@ public final class OrganizationRulesetConditionsRepositoryNameArgs extends com.p
 
         public OrganizationRulesetConditionsRepositoryNameArgs build() {
             $.excludes = Objects.requireNonNull($.excludes, "expected parameter 'excludes' to be non-null");
-            $.inlcudes = Objects.requireNonNull($.inlcudes, "expected parameter 'inlcudes' to be non-null");
+            $.includes = Objects.requireNonNull($.includes, "expected parameter 'includes' to be non-null");
             return $;
         }
     }
