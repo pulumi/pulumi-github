@@ -372,7 +372,8 @@
             "type": "object",
             "required": [
                 "actorId",
-                "actorType"
+                "actorType",
+                "bypassMode"
             ]
         },
         "github:index/OrganizationRulesetConditions:OrganizationRulesetConditions": {
@@ -427,12 +428,12 @@
                     },
                     "description": "(List of String) Array of ref names or patterns to exclude. The condition will not pass if any of these patterns match.\n"
                 },
-                "inlcudes": {
+                "includes": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "(List of String) Array of repository names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~ALL` to include all repositories.\n"
+                    "description": "(List of String) Array of ref names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~DEFAULT_BRANCH` to include the default branch or `~ALL` to include all branches.\n"
                 },
                 "protected": {
                     "type": "boolean"
@@ -441,7 +442,7 @@
             "type": "object",
             "required": [
                 "excludes",
-                "inlcudes"
+                "includes"
             ]
         },
         "github:index/OrganizationRulesetRules:OrganizationRulesetRules": {
@@ -877,7 +878,8 @@
             "type": "object",
             "required": [
                 "actorId",
-                "actorType"
+                "actorType",
+                "bypassMode"
             ]
         },
         "github:index/RepositoryRulesetConditions:RepositoryRulesetConditions": {
