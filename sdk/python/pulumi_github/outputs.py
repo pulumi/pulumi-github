@@ -20,6 +20,19 @@ __all__ = [
     'BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowances',
     'BranchProtectionV3RequiredStatusChecks',
     'BranchProtectionV3Restrictions',
+    'OrganizationRulesetBypassActor',
+    'OrganizationRulesetConditions',
+    'OrganizationRulesetConditionsRefName',
+    'OrganizationRulesetConditionsRepositoryName',
+    'OrganizationRulesetRules',
+    'OrganizationRulesetRulesBranchNamePattern',
+    'OrganizationRulesetRulesCommitAuthorEmailPattern',
+    'OrganizationRulesetRulesCommitMessagePattern',
+    'OrganizationRulesetRulesCommitterEmailPattern',
+    'OrganizationRulesetRulesPullRequest',
+    'OrganizationRulesetRulesRequiredStatusChecks',
+    'OrganizationRulesetRulesRequiredStatusChecksRequiredCheck',
+    'OrganizationRulesetRulesTagNamePattern',
     'OrganizationWebhookConfiguration',
     'RepositoryCollaboratorsTeam',
     'RepositoryCollaboratorsUser',
@@ -27,6 +40,19 @@ __all__ = [
     'RepositoryEnvironmentReviewer',
     'RepositoryPages',
     'RepositoryPagesSource',
+    'RepositoryRulesetBypassActor',
+    'RepositoryRulesetConditions',
+    'RepositoryRulesetConditionsRefName',
+    'RepositoryRulesetRules',
+    'RepositoryRulesetRulesBranchNamePattern',
+    'RepositoryRulesetRulesCommitAuthorEmailPattern',
+    'RepositoryRulesetRulesCommitMessagePattern',
+    'RepositoryRulesetRulesCommitterEmailPattern',
+    'RepositoryRulesetRulesPullRequest',
+    'RepositoryRulesetRulesRequiredDeployments',
+    'RepositoryRulesetRulesRequiredStatusChecks',
+    'RepositoryRulesetRulesRequiredStatusChecksRequiredCheck',
+    'RepositoryRulesetRulesTagNamePattern',
     'RepositorySecurityAndAnalysis',
     'RepositorySecurityAndAnalysisAdvancedSecurity',
     'RepositorySecurityAndAnalysisSecretScanning',
@@ -674,6 +700,852 @@ class BranchProtectionV3Restrictions(dict):
 
 
 @pulumi.output_type
+class OrganizationRulesetBypassActor(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "actorId":
+            suggest = "actor_id"
+        elif key == "actorType":
+            suggest = "actor_type"
+        elif key == "bypassMode":
+            suggest = "bypass_mode"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OrganizationRulesetBypassActor. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OrganizationRulesetBypassActor.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OrganizationRulesetBypassActor.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 actor_id: int,
+                 actor_type: str,
+                 bypass_mode: Optional[str] = None):
+        """
+        :param int actor_id: (Number) The ID of the actor that can bypass a ruleset
+        :param str actor_type: The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`.
+        :param str bypass_mode: (String) When the specified actor can bypass the ruleset. pull_request means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pull_request`.
+        """
+        pulumi.set(__self__, "actor_id", actor_id)
+        pulumi.set(__self__, "actor_type", actor_type)
+        if bypass_mode is not None:
+            pulumi.set(__self__, "bypass_mode", bypass_mode)
+
+    @property
+    @pulumi.getter(name="actorId")
+    def actor_id(self) -> int:
+        """
+        (Number) The ID of the actor that can bypass a ruleset
+        """
+        return pulumi.get(self, "actor_id")
+
+    @property
+    @pulumi.getter(name="actorType")
+    def actor_type(self) -> str:
+        """
+        The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`.
+        """
+        return pulumi.get(self, "actor_type")
+
+    @property
+    @pulumi.getter(name="bypassMode")
+    def bypass_mode(self) -> Optional[str]:
+        """
+        (String) When the specified actor can bypass the ruleset. pull_request means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pull_request`.
+        """
+        return pulumi.get(self, "bypass_mode")
+
+
+@pulumi.output_type
+class OrganizationRulesetConditions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "refName":
+            suggest = "ref_name"
+        elif key == "repositoryId":
+            suggest = "repository_id"
+        elif key == "repositoryName":
+            suggest = "repository_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OrganizationRulesetConditions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OrganizationRulesetConditions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OrganizationRulesetConditions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 ref_name: 'outputs.OrganizationRulesetConditionsRefName',
+                 repository_id: Optional[int] = None,
+                 repository_name: Optional['outputs.OrganizationRulesetConditionsRepositoryName'] = None):
+        """
+        :param 'OrganizationRulesetConditionsRefNameArgs' ref_name: (Block List, Min: 1, Max: 1) (see below for nested schema)
+        :param int repository_id: The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass. Conflicts with `repository_name`.
+        :param 'OrganizationRulesetConditionsRepositoryNameArgs' repository_name: Conflicts with `repository_id`. (see below for nested schema)
+               
+               One of `repository_id` and `repository_name` must be set for the rule to target any repositories.
+        """
+        pulumi.set(__self__, "ref_name", ref_name)
+        if repository_id is not None:
+            pulumi.set(__self__, "repository_id", repository_id)
+        if repository_name is not None:
+            pulumi.set(__self__, "repository_name", repository_name)
+
+    @property
+    @pulumi.getter(name="refName")
+    def ref_name(self) -> 'outputs.OrganizationRulesetConditionsRefName':
+        """
+        (Block List, Min: 1, Max: 1) (see below for nested schema)
+        """
+        return pulumi.get(self, "ref_name")
+
+    @property
+    @pulumi.getter(name="repositoryId")
+    def repository_id(self) -> Optional[int]:
+        """
+        The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass. Conflicts with `repository_name`.
+        """
+        return pulumi.get(self, "repository_id")
+
+    @property
+    @pulumi.getter(name="repositoryName")
+    def repository_name(self) -> Optional['outputs.OrganizationRulesetConditionsRepositoryName']:
+        """
+        Conflicts with `repository_id`. (see below for nested schema)
+
+        One of `repository_id` and `repository_name` must be set for the rule to target any repositories.
+        """
+        return pulumi.get(self, "repository_name")
+
+
+@pulumi.output_type
+class OrganizationRulesetConditionsRefName(dict):
+    def __init__(__self__, *,
+                 excludes: Sequence[str],
+                 includes: Sequence[str]):
+        """
+        :param Sequence[str] excludes: (List of String) Array of ref names or patterns to exclude. The condition will not pass if any of these patterns match.
+        :param Sequence[str] includes: (List of String) Array of ref names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~DEFAULT_BRANCH` to include the default branch or `~ALL` to include all branches.
+        """
+        pulumi.set(__self__, "excludes", excludes)
+        pulumi.set(__self__, "includes", includes)
+
+    @property
+    @pulumi.getter
+    def excludes(self) -> Sequence[str]:
+        """
+        (List of String) Array of ref names or patterns to exclude. The condition will not pass if any of these patterns match.
+        """
+        return pulumi.get(self, "excludes")
+
+    @property
+    @pulumi.getter
+    def includes(self) -> Sequence[str]:
+        """
+        (List of String) Array of ref names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~DEFAULT_BRANCH` to include the default branch or `~ALL` to include all branches.
+        """
+        return pulumi.get(self, "includes")
+
+
+@pulumi.output_type
+class OrganizationRulesetConditionsRepositoryName(dict):
+    def __init__(__self__, *,
+                 excludes: Sequence[str],
+                 inlcudes: Sequence[str],
+                 protected: Optional[bool] = None):
+        """
+        :param Sequence[str] excludes: (List of String) Array of ref names or patterns to exclude. The condition will not pass if any of these patterns match.
+        :param Sequence[str] inlcudes: (List of String) Array of repository names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~ALL` to include all repositories.
+        """
+        pulumi.set(__self__, "excludes", excludes)
+        pulumi.set(__self__, "inlcudes", inlcudes)
+        if protected is not None:
+            pulumi.set(__self__, "protected", protected)
+
+    @property
+    @pulumi.getter
+    def excludes(self) -> Sequence[str]:
+        """
+        (List of String) Array of ref names or patterns to exclude. The condition will not pass if any of these patterns match.
+        """
+        return pulumi.get(self, "excludes")
+
+    @property
+    @pulumi.getter
+    def inlcudes(self) -> Sequence[str]:
+        """
+        (List of String) Array of repository names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~ALL` to include all repositories.
+        """
+        return pulumi.get(self, "inlcudes")
+
+    @property
+    @pulumi.getter
+    def protected(self) -> Optional[bool]:
+        return pulumi.get(self, "protected")
+
+
+@pulumi.output_type
+class OrganizationRulesetRules(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "branchNamePattern":
+            suggest = "branch_name_pattern"
+        elif key == "commitAuthorEmailPattern":
+            suggest = "commit_author_email_pattern"
+        elif key == "commitMessagePattern":
+            suggest = "commit_message_pattern"
+        elif key == "committerEmailPattern":
+            suggest = "committer_email_pattern"
+        elif key == "nonFastForward":
+            suggest = "non_fast_forward"
+        elif key == "pullRequest":
+            suggest = "pull_request"
+        elif key == "requiredLinearHistory":
+            suggest = "required_linear_history"
+        elif key == "requiredSignatures":
+            suggest = "required_signatures"
+        elif key == "requiredStatusChecks":
+            suggest = "required_status_checks"
+        elif key == "tagNamePattern":
+            suggest = "tag_name_pattern"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OrganizationRulesetRules. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OrganizationRulesetRules.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OrganizationRulesetRules.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 branch_name_pattern: Optional['outputs.OrganizationRulesetRulesBranchNamePattern'] = None,
+                 commit_author_email_pattern: Optional['outputs.OrganizationRulesetRulesCommitAuthorEmailPattern'] = None,
+                 commit_message_pattern: Optional['outputs.OrganizationRulesetRulesCommitMessagePattern'] = None,
+                 committer_email_pattern: Optional['outputs.OrganizationRulesetRulesCommitterEmailPattern'] = None,
+                 creation: Optional[bool] = None,
+                 deletion: Optional[bool] = None,
+                 non_fast_forward: Optional[bool] = None,
+                 pull_request: Optional['outputs.OrganizationRulesetRulesPullRequest'] = None,
+                 required_linear_history: Optional[bool] = None,
+                 required_signatures: Optional[bool] = None,
+                 required_status_checks: Optional['outputs.OrganizationRulesetRulesRequiredStatusChecks'] = None,
+                 tag_name_pattern: Optional['outputs.OrganizationRulesetRulesTagNamePattern'] = None,
+                 update: Optional[bool] = None):
+        """
+        :param 'OrganizationRulesetRulesBranchNamePatternArgs' branch_name_pattern: (Block List, Max: 1) Parameters to be used for the branch_name_pattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. Conflicts with `tag_name_pattern` as it only applies to rulesets with target `branch`. (see below for nested schema)
+        :param 'OrganizationRulesetRulesCommitAuthorEmailPatternArgs' commit_author_email_pattern: (Block List, Max: 1) Parameters to be used for the commit_author_email_pattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)
+        :param 'OrganizationRulesetRulesCommitMessagePatternArgs' commit_message_pattern: (Block List, Max: 1) Parameters to be used for the commit_message_pattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)
+        :param 'OrganizationRulesetRulesCommitterEmailPatternArgs' committer_email_pattern: (Block List, Max: 1) Parameters to be used for the committer_email_pattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)
+        :param bool creation: (Boolean) Only allow users with bypass permission to create matching refs.
+        :param bool deletion: (Boolean) Only allow users with bypass permissions to delete matching refs.
+        :param bool non_fast_forward: (Boolean) Prevent users with push access from force pushing to branches.
+        :param 'OrganizationRulesetRulesPullRequestArgs' pull_request: (Block List, Max: 1) Require all commits be made to a non-target branch and submitted via a pull request before they can be merged. (see below for nested schema)
+        :param bool required_linear_history: (Boolean) Prevent merge commits from being pushed to matching branches.
+        :param bool required_signatures: (Boolean) Commits pushed to matching branches must have verified signatures.
+        :param 'OrganizationRulesetRulesRequiredStatusChecksArgs' required_status_checks: (Block List, Max: 1) Choose which status checks must pass before branches can be merged into a branch that matches this rule. When enabled, commits must first be pushed to another branch, then merged or pushed directly to a branch that matches this rule after status checks have passed. (see below for nested schema)
+        :param 'OrganizationRulesetRulesTagNamePatternArgs' tag_name_pattern: (Block List, Max: 1) Parameters to be used for the tag_name_pattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. Conflicts with `branch_name_pattern` as it only applies to rulesets with target `tag`. (see below for nested schema)
+        :param bool update: (Boolean) Only allow users with bypass permission to update matching refs.
+        """
+        if branch_name_pattern is not None:
+            pulumi.set(__self__, "branch_name_pattern", branch_name_pattern)
+        if commit_author_email_pattern is not None:
+            pulumi.set(__self__, "commit_author_email_pattern", commit_author_email_pattern)
+        if commit_message_pattern is not None:
+            pulumi.set(__self__, "commit_message_pattern", commit_message_pattern)
+        if committer_email_pattern is not None:
+            pulumi.set(__self__, "committer_email_pattern", committer_email_pattern)
+        if creation is not None:
+            pulumi.set(__self__, "creation", creation)
+        if deletion is not None:
+            pulumi.set(__self__, "deletion", deletion)
+        if non_fast_forward is not None:
+            pulumi.set(__self__, "non_fast_forward", non_fast_forward)
+        if pull_request is not None:
+            pulumi.set(__self__, "pull_request", pull_request)
+        if required_linear_history is not None:
+            pulumi.set(__self__, "required_linear_history", required_linear_history)
+        if required_signatures is not None:
+            pulumi.set(__self__, "required_signatures", required_signatures)
+        if required_status_checks is not None:
+            pulumi.set(__self__, "required_status_checks", required_status_checks)
+        if tag_name_pattern is not None:
+            pulumi.set(__self__, "tag_name_pattern", tag_name_pattern)
+        if update is not None:
+            pulumi.set(__self__, "update", update)
+
+    @property
+    @pulumi.getter(name="branchNamePattern")
+    def branch_name_pattern(self) -> Optional['outputs.OrganizationRulesetRulesBranchNamePattern']:
+        """
+        (Block List, Max: 1) Parameters to be used for the branch_name_pattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. Conflicts with `tag_name_pattern` as it only applies to rulesets with target `branch`. (see below for nested schema)
+        """
+        return pulumi.get(self, "branch_name_pattern")
+
+    @property
+    @pulumi.getter(name="commitAuthorEmailPattern")
+    def commit_author_email_pattern(self) -> Optional['outputs.OrganizationRulesetRulesCommitAuthorEmailPattern']:
+        """
+        (Block List, Max: 1) Parameters to be used for the commit_author_email_pattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)
+        """
+        return pulumi.get(self, "commit_author_email_pattern")
+
+    @property
+    @pulumi.getter(name="commitMessagePattern")
+    def commit_message_pattern(self) -> Optional['outputs.OrganizationRulesetRulesCommitMessagePattern']:
+        """
+        (Block List, Max: 1) Parameters to be used for the commit_message_pattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)
+        """
+        return pulumi.get(self, "commit_message_pattern")
+
+    @property
+    @pulumi.getter(name="committerEmailPattern")
+    def committer_email_pattern(self) -> Optional['outputs.OrganizationRulesetRulesCommitterEmailPattern']:
+        """
+        (Block List, Max: 1) Parameters to be used for the committer_email_pattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)
+        """
+        return pulumi.get(self, "committer_email_pattern")
+
+    @property
+    @pulumi.getter
+    def creation(self) -> Optional[bool]:
+        """
+        (Boolean) Only allow users with bypass permission to create matching refs.
+        """
+        return pulumi.get(self, "creation")
+
+    @property
+    @pulumi.getter
+    def deletion(self) -> Optional[bool]:
+        """
+        (Boolean) Only allow users with bypass permissions to delete matching refs.
+        """
+        return pulumi.get(self, "deletion")
+
+    @property
+    @pulumi.getter(name="nonFastForward")
+    def non_fast_forward(self) -> Optional[bool]:
+        """
+        (Boolean) Prevent users with push access from force pushing to branches.
+        """
+        return pulumi.get(self, "non_fast_forward")
+
+    @property
+    @pulumi.getter(name="pullRequest")
+    def pull_request(self) -> Optional['outputs.OrganizationRulesetRulesPullRequest']:
+        """
+        (Block List, Max: 1) Require all commits be made to a non-target branch and submitted via a pull request before they can be merged. (see below for nested schema)
+        """
+        return pulumi.get(self, "pull_request")
+
+    @property
+    @pulumi.getter(name="requiredLinearHistory")
+    def required_linear_history(self) -> Optional[bool]:
+        """
+        (Boolean) Prevent merge commits from being pushed to matching branches.
+        """
+        return pulumi.get(self, "required_linear_history")
+
+    @property
+    @pulumi.getter(name="requiredSignatures")
+    def required_signatures(self) -> Optional[bool]:
+        """
+        (Boolean) Commits pushed to matching branches must have verified signatures.
+        """
+        return pulumi.get(self, "required_signatures")
+
+    @property
+    @pulumi.getter(name="requiredStatusChecks")
+    def required_status_checks(self) -> Optional['outputs.OrganizationRulesetRulesRequiredStatusChecks']:
+        """
+        (Block List, Max: 1) Choose which status checks must pass before branches can be merged into a branch that matches this rule. When enabled, commits must first be pushed to another branch, then merged or pushed directly to a branch that matches this rule after status checks have passed. (see below for nested schema)
+        """
+        return pulumi.get(self, "required_status_checks")
+
+    @property
+    @pulumi.getter(name="tagNamePattern")
+    def tag_name_pattern(self) -> Optional['outputs.OrganizationRulesetRulesTagNamePattern']:
+        """
+        (Block List, Max: 1) Parameters to be used for the tag_name_pattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. Conflicts with `branch_name_pattern` as it only applies to rulesets with target `tag`. (see below for nested schema)
+        """
+        return pulumi.get(self, "tag_name_pattern")
+
+    @property
+    @pulumi.getter
+    def update(self) -> Optional[bool]:
+        """
+        (Boolean) Only allow users with bypass permission to update matching refs.
+        """
+        return pulumi.get(self, "update")
+
+
+@pulumi.output_type
+class OrganizationRulesetRulesBranchNamePattern(dict):
+    def __init__(__self__, *,
+                 operator: str,
+                 pattern: str,
+                 name: Optional[str] = None,
+                 negate: Optional[bool] = None):
+        """
+        :param str operator: (String) The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.
+        :param str pattern: (String) The pattern to match with.
+        :param str name: (String) The name of the ruleset.
+        :param bool negate: (Boolean) If true, the rule will fail if the pattern matches.
+        """
+        pulumi.set(__self__, "operator", operator)
+        pulumi.set(__self__, "pattern", pattern)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if negate is not None:
+            pulumi.set(__self__, "negate", negate)
+
+    @property
+    @pulumi.getter
+    def operator(self) -> str:
+        """
+        (String) The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.
+        """
+        return pulumi.get(self, "operator")
+
+    @property
+    @pulumi.getter
+    def pattern(self) -> str:
+        """
+        (String) The pattern to match with.
+        """
+        return pulumi.get(self, "pattern")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        (String) The name of the ruleset.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def negate(self) -> Optional[bool]:
+        """
+        (Boolean) If true, the rule will fail if the pattern matches.
+        """
+        return pulumi.get(self, "negate")
+
+
+@pulumi.output_type
+class OrganizationRulesetRulesCommitAuthorEmailPattern(dict):
+    def __init__(__self__, *,
+                 operator: str,
+                 pattern: str,
+                 name: Optional[str] = None,
+                 negate: Optional[bool] = None):
+        """
+        :param str operator: (String) The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.
+        :param str pattern: (String) The pattern to match with.
+        :param str name: (String) The name of the ruleset.
+        :param bool negate: (Boolean) If true, the rule will fail if the pattern matches.
+        """
+        pulumi.set(__self__, "operator", operator)
+        pulumi.set(__self__, "pattern", pattern)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if negate is not None:
+            pulumi.set(__self__, "negate", negate)
+
+    @property
+    @pulumi.getter
+    def operator(self) -> str:
+        """
+        (String) The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.
+        """
+        return pulumi.get(self, "operator")
+
+    @property
+    @pulumi.getter
+    def pattern(self) -> str:
+        """
+        (String) The pattern to match with.
+        """
+        return pulumi.get(self, "pattern")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        (String) The name of the ruleset.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def negate(self) -> Optional[bool]:
+        """
+        (Boolean) If true, the rule will fail if the pattern matches.
+        """
+        return pulumi.get(self, "negate")
+
+
+@pulumi.output_type
+class OrganizationRulesetRulesCommitMessagePattern(dict):
+    def __init__(__self__, *,
+                 operator: str,
+                 pattern: str,
+                 name: Optional[str] = None,
+                 negate: Optional[bool] = None):
+        """
+        :param str operator: (String) The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.
+        :param str pattern: (String) The pattern to match with.
+        :param str name: (String) The name of the ruleset.
+        :param bool negate: (Boolean) If true, the rule will fail if the pattern matches.
+        """
+        pulumi.set(__self__, "operator", operator)
+        pulumi.set(__self__, "pattern", pattern)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if negate is not None:
+            pulumi.set(__self__, "negate", negate)
+
+    @property
+    @pulumi.getter
+    def operator(self) -> str:
+        """
+        (String) The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.
+        """
+        return pulumi.get(self, "operator")
+
+    @property
+    @pulumi.getter
+    def pattern(self) -> str:
+        """
+        (String) The pattern to match with.
+        """
+        return pulumi.get(self, "pattern")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        (String) The name of the ruleset.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def negate(self) -> Optional[bool]:
+        """
+        (Boolean) If true, the rule will fail if the pattern matches.
+        """
+        return pulumi.get(self, "negate")
+
+
+@pulumi.output_type
+class OrganizationRulesetRulesCommitterEmailPattern(dict):
+    def __init__(__self__, *,
+                 operator: str,
+                 pattern: str,
+                 name: Optional[str] = None,
+                 negate: Optional[bool] = None):
+        """
+        :param str operator: (String) The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.
+        :param str pattern: (String) The pattern to match with.
+        :param str name: (String) The name of the ruleset.
+        :param bool negate: (Boolean) If true, the rule will fail if the pattern matches.
+        """
+        pulumi.set(__self__, "operator", operator)
+        pulumi.set(__self__, "pattern", pattern)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if negate is not None:
+            pulumi.set(__self__, "negate", negate)
+
+    @property
+    @pulumi.getter
+    def operator(self) -> str:
+        """
+        (String) The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.
+        """
+        return pulumi.get(self, "operator")
+
+    @property
+    @pulumi.getter
+    def pattern(self) -> str:
+        """
+        (String) The pattern to match with.
+        """
+        return pulumi.get(self, "pattern")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        (String) The name of the ruleset.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def negate(self) -> Optional[bool]:
+        """
+        (Boolean) If true, the rule will fail if the pattern matches.
+        """
+        return pulumi.get(self, "negate")
+
+
+@pulumi.output_type
+class OrganizationRulesetRulesPullRequest(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dismissStaleReviewsOnPush":
+            suggest = "dismiss_stale_reviews_on_push"
+        elif key == "requireCodeOwnerReview":
+            suggest = "require_code_owner_review"
+        elif key == "requireLastPushApproval":
+            suggest = "require_last_push_approval"
+        elif key == "requiredApprovingReviewCount":
+            suggest = "required_approving_review_count"
+        elif key == "requiredReviewThreadResolution":
+            suggest = "required_review_thread_resolution"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OrganizationRulesetRulesPullRequest. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OrganizationRulesetRulesPullRequest.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OrganizationRulesetRulesPullRequest.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 dismiss_stale_reviews_on_push: Optional[bool] = None,
+                 require_code_owner_review: Optional[bool] = None,
+                 require_last_push_approval: Optional[bool] = None,
+                 required_approving_review_count: Optional[int] = None,
+                 required_review_thread_resolution: Optional[bool] = None):
+        """
+        :param bool dismiss_stale_reviews_on_push: (Boolean) New, reviewable commits pushed will dismiss previous pull request review approvals. Defaults to `false`.
+        :param bool require_code_owner_review: (Boolean) Require an approving review in pull requests that modify files that have a designated code owner. Defaults to `false`.
+        :param bool require_last_push_approval: (Boolean) Whether the most recent reviewable push must be approved by someone other than the person who pushed it. Defaults to `false`.
+        :param int required_approving_review_count: (Number) The number of approving reviews that are required before a pull request can be merged. Defaults to `0`.
+        :param bool required_review_thread_resolution: (Boolean) All conversations on code must be resolved before a pull request can be merged. Defaults to `false`.
+        """
+        if dismiss_stale_reviews_on_push is not None:
+            pulumi.set(__self__, "dismiss_stale_reviews_on_push", dismiss_stale_reviews_on_push)
+        if require_code_owner_review is not None:
+            pulumi.set(__self__, "require_code_owner_review", require_code_owner_review)
+        if require_last_push_approval is not None:
+            pulumi.set(__self__, "require_last_push_approval", require_last_push_approval)
+        if required_approving_review_count is not None:
+            pulumi.set(__self__, "required_approving_review_count", required_approving_review_count)
+        if required_review_thread_resolution is not None:
+            pulumi.set(__self__, "required_review_thread_resolution", required_review_thread_resolution)
+
+    @property
+    @pulumi.getter(name="dismissStaleReviewsOnPush")
+    def dismiss_stale_reviews_on_push(self) -> Optional[bool]:
+        """
+        (Boolean) New, reviewable commits pushed will dismiss previous pull request review approvals. Defaults to `false`.
+        """
+        return pulumi.get(self, "dismiss_stale_reviews_on_push")
+
+    @property
+    @pulumi.getter(name="requireCodeOwnerReview")
+    def require_code_owner_review(self) -> Optional[bool]:
+        """
+        (Boolean) Require an approving review in pull requests that modify files that have a designated code owner. Defaults to `false`.
+        """
+        return pulumi.get(self, "require_code_owner_review")
+
+    @property
+    @pulumi.getter(name="requireLastPushApproval")
+    def require_last_push_approval(self) -> Optional[bool]:
+        """
+        (Boolean) Whether the most recent reviewable push must be approved by someone other than the person who pushed it. Defaults to `false`.
+        """
+        return pulumi.get(self, "require_last_push_approval")
+
+    @property
+    @pulumi.getter(name="requiredApprovingReviewCount")
+    def required_approving_review_count(self) -> Optional[int]:
+        """
+        (Number) The number of approving reviews that are required before a pull request can be merged. Defaults to `0`.
+        """
+        return pulumi.get(self, "required_approving_review_count")
+
+    @property
+    @pulumi.getter(name="requiredReviewThreadResolution")
+    def required_review_thread_resolution(self) -> Optional[bool]:
+        """
+        (Boolean) All conversations on code must be resolved before a pull request can be merged. Defaults to `false`.
+        """
+        return pulumi.get(self, "required_review_thread_resolution")
+
+
+@pulumi.output_type
+class OrganizationRulesetRulesRequiredStatusChecks(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "requiredChecks":
+            suggest = "required_checks"
+        elif key == "strictRequiredStatusChecksPolicy":
+            suggest = "strict_required_status_checks_policy"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OrganizationRulesetRulesRequiredStatusChecks. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OrganizationRulesetRulesRequiredStatusChecks.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OrganizationRulesetRulesRequiredStatusChecks.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 required_checks: Sequence['outputs.OrganizationRulesetRulesRequiredStatusChecksRequiredCheck'],
+                 strict_required_status_checks_policy: Optional[bool] = None):
+        """
+        :param Sequence['OrganizationRulesetRulesRequiredStatusChecksRequiredCheckArgs'] required_checks: (Block Set, Min: 1) Status checks that are required. Several can be defined. (see below for nested schema)
+        :param bool strict_required_status_checks_policy: (Boolean) Whether pull requests targeting a matching branch must be tested with the latest code. This setting will not take effect unless at least one status check is enabled. Defaults to `false`.
+        """
+        pulumi.set(__self__, "required_checks", required_checks)
+        if strict_required_status_checks_policy is not None:
+            pulumi.set(__self__, "strict_required_status_checks_policy", strict_required_status_checks_policy)
+
+    @property
+    @pulumi.getter(name="requiredChecks")
+    def required_checks(self) -> Sequence['outputs.OrganizationRulesetRulesRequiredStatusChecksRequiredCheck']:
+        """
+        (Block Set, Min: 1) Status checks that are required. Several can be defined. (see below for nested schema)
+        """
+        return pulumi.get(self, "required_checks")
+
+    @property
+    @pulumi.getter(name="strictRequiredStatusChecksPolicy")
+    def strict_required_status_checks_policy(self) -> Optional[bool]:
+        """
+        (Boolean) Whether pull requests targeting a matching branch must be tested with the latest code. This setting will not take effect unless at least one status check is enabled. Defaults to `false`.
+        """
+        return pulumi.get(self, "strict_required_status_checks_policy")
+
+
+@pulumi.output_type
+class OrganizationRulesetRulesRequiredStatusChecksRequiredCheck(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "integrationId":
+            suggest = "integration_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OrganizationRulesetRulesRequiredStatusChecksRequiredCheck. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OrganizationRulesetRulesRequiredStatusChecksRequiredCheck.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OrganizationRulesetRulesRequiredStatusChecksRequiredCheck.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 context: str,
+                 integration_id: Optional[int] = None):
+        """
+        :param str context: (String) The status check context name that must be present on the commit.
+        :param int integration_id: (Number) The optional integration ID that this status check must originate from.
+        """
+        pulumi.set(__self__, "context", context)
+        if integration_id is not None:
+            pulumi.set(__self__, "integration_id", integration_id)
+
+    @property
+    @pulumi.getter
+    def context(self) -> str:
+        """
+        (String) The status check context name that must be present on the commit.
+        """
+        return pulumi.get(self, "context")
+
+    @property
+    @pulumi.getter(name="integrationId")
+    def integration_id(self) -> Optional[int]:
+        """
+        (Number) The optional integration ID that this status check must originate from.
+        """
+        return pulumi.get(self, "integration_id")
+
+
+@pulumi.output_type
+class OrganizationRulesetRulesTagNamePattern(dict):
+    def __init__(__self__, *,
+                 operator: str,
+                 pattern: str,
+                 name: Optional[str] = None,
+                 negate: Optional[bool] = None):
+        """
+        :param str operator: (String) The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.
+        :param str pattern: (String) The pattern to match with.
+        :param str name: (String) The name of the ruleset.
+        :param bool negate: (Boolean) If true, the rule will fail if the pattern matches.
+        """
+        pulumi.set(__self__, "operator", operator)
+        pulumi.set(__self__, "pattern", pattern)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if negate is not None:
+            pulumi.set(__self__, "negate", negate)
+
+    @property
+    @pulumi.getter
+    def operator(self) -> str:
+        """
+        (String) The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.
+        """
+        return pulumi.get(self, "operator")
+
+    @property
+    @pulumi.getter
+    def pattern(self) -> str:
+        """
+        (String) The pattern to match with.
+        """
+        return pulumi.get(self, "pattern")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        (String) The name of the ruleset.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def negate(self) -> Optional[bool]:
+        """
+        (Boolean) If true, the rule will fail if the pattern matches.
+        """
+        return pulumi.get(self, "negate")
+
+
+@pulumi.output_type
 class OrganizationWebhookConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -1028,6 +1900,846 @@ class RepositoryPagesSource(dict):
         The repository directory from which the site publishes (Default: `/`).
         """
         return pulumi.get(self, "path")
+
+
+@pulumi.output_type
+class RepositoryRulesetBypassActor(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "actorId":
+            suggest = "actor_id"
+        elif key == "actorType":
+            suggest = "actor_type"
+        elif key == "bypassMode":
+            suggest = "bypass_mode"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RepositoryRulesetBypassActor. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RepositoryRulesetBypassActor.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RepositoryRulesetBypassActor.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 actor_id: int,
+                 actor_type: str,
+                 bypass_mode: Optional[str] = None):
+        """
+        :param int actor_id: (Number) The ID of the actor that can bypass a ruleset
+        :param str actor_type: The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`.
+        :param str bypass_mode: (String) When the specified actor can bypass the ruleset. pull_request means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pull_request`.
+        """
+        pulumi.set(__self__, "actor_id", actor_id)
+        pulumi.set(__self__, "actor_type", actor_type)
+        if bypass_mode is not None:
+            pulumi.set(__self__, "bypass_mode", bypass_mode)
+
+    @property
+    @pulumi.getter(name="actorId")
+    def actor_id(self) -> int:
+        """
+        (Number) The ID of the actor that can bypass a ruleset
+        """
+        return pulumi.get(self, "actor_id")
+
+    @property
+    @pulumi.getter(name="actorType")
+    def actor_type(self) -> str:
+        """
+        The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`.
+        """
+        return pulumi.get(self, "actor_type")
+
+    @property
+    @pulumi.getter(name="bypassMode")
+    def bypass_mode(self) -> Optional[str]:
+        """
+        (String) When the specified actor can bypass the ruleset. pull_request means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pull_request`.
+        """
+        return pulumi.get(self, "bypass_mode")
+
+
+@pulumi.output_type
+class RepositoryRulesetConditions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "refName":
+            suggest = "ref_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RepositoryRulesetConditions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RepositoryRulesetConditions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RepositoryRulesetConditions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 ref_name: 'outputs.RepositoryRulesetConditionsRefName'):
+        """
+        :param 'RepositoryRulesetConditionsRefNameArgs' ref_name: (Block List, Min: 1, Max: 1) (see below for nested schema)
+        """
+        pulumi.set(__self__, "ref_name", ref_name)
+
+    @property
+    @pulumi.getter(name="refName")
+    def ref_name(self) -> 'outputs.RepositoryRulesetConditionsRefName':
+        """
+        (Block List, Min: 1, Max: 1) (see below for nested schema)
+        """
+        return pulumi.get(self, "ref_name")
+
+
+@pulumi.output_type
+class RepositoryRulesetConditionsRefName(dict):
+    def __init__(__self__, *,
+                 excludes: Sequence[str],
+                 includes: Sequence[str]):
+        """
+        :param Sequence[str] excludes: (List of String) Array of ref names or patterns to exclude. The condition will not pass if any of these patterns match.
+        :param Sequence[str] includes: (List of String) Array of ref names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~DEFAULT_BRANCH` to include the default branch or `~ALL` to include all branches.
+        """
+        pulumi.set(__self__, "excludes", excludes)
+        pulumi.set(__self__, "includes", includes)
+
+    @property
+    @pulumi.getter
+    def excludes(self) -> Sequence[str]:
+        """
+        (List of String) Array of ref names or patterns to exclude. The condition will not pass if any of these patterns match.
+        """
+        return pulumi.get(self, "excludes")
+
+    @property
+    @pulumi.getter
+    def includes(self) -> Sequence[str]:
+        """
+        (List of String) Array of ref names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~DEFAULT_BRANCH` to include the default branch or `~ALL` to include all branches.
+        """
+        return pulumi.get(self, "includes")
+
+
+@pulumi.output_type
+class RepositoryRulesetRules(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "branchNamePattern":
+            suggest = "branch_name_pattern"
+        elif key == "commitAuthorEmailPattern":
+            suggest = "commit_author_email_pattern"
+        elif key == "commitMessagePattern":
+            suggest = "commit_message_pattern"
+        elif key == "committerEmailPattern":
+            suggest = "committer_email_pattern"
+        elif key == "nonFastForward":
+            suggest = "non_fast_forward"
+        elif key == "pullRequest":
+            suggest = "pull_request"
+        elif key == "requiredDeployments":
+            suggest = "required_deployments"
+        elif key == "requiredLinearHistory":
+            suggest = "required_linear_history"
+        elif key == "requiredSignatures":
+            suggest = "required_signatures"
+        elif key == "requiredStatusChecks":
+            suggest = "required_status_checks"
+        elif key == "tagNamePattern":
+            suggest = "tag_name_pattern"
+        elif key == "updateAllowsFetchAndMerge":
+            suggest = "update_allows_fetch_and_merge"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RepositoryRulesetRules. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RepositoryRulesetRules.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RepositoryRulesetRules.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 branch_name_pattern: Optional['outputs.RepositoryRulesetRulesBranchNamePattern'] = None,
+                 commit_author_email_pattern: Optional['outputs.RepositoryRulesetRulesCommitAuthorEmailPattern'] = None,
+                 commit_message_pattern: Optional['outputs.RepositoryRulesetRulesCommitMessagePattern'] = None,
+                 committer_email_pattern: Optional['outputs.RepositoryRulesetRulesCommitterEmailPattern'] = None,
+                 creation: Optional[bool] = None,
+                 deletion: Optional[bool] = None,
+                 non_fast_forward: Optional[bool] = None,
+                 pull_request: Optional['outputs.RepositoryRulesetRulesPullRequest'] = None,
+                 required_deployments: Optional['outputs.RepositoryRulesetRulesRequiredDeployments'] = None,
+                 required_linear_history: Optional[bool] = None,
+                 required_signatures: Optional[bool] = None,
+                 required_status_checks: Optional['outputs.RepositoryRulesetRulesRequiredStatusChecks'] = None,
+                 tag_name_pattern: Optional['outputs.RepositoryRulesetRulesTagNamePattern'] = None,
+                 update: Optional[bool] = None,
+                 update_allows_fetch_and_merge: Optional[bool] = None):
+        """
+        :param 'RepositoryRulesetRulesBranchNamePatternArgs' branch_name_pattern: (Block List, Max: 1) Parameters to be used for the branch_name_pattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. Conflicts with `tag_name_pattern` as it only applied to rulesets with target `branch`. (see below for nested schema)
+        :param 'RepositoryRulesetRulesCommitAuthorEmailPatternArgs' commit_author_email_pattern: (Block List, Max: 1) Parameters to be used for the commit_author_email_pattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)
+        :param 'RepositoryRulesetRulesCommitMessagePatternArgs' commit_message_pattern: (Block List, Max: 1) Parameters to be used for the commit_message_pattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)
+        :param 'RepositoryRulesetRulesCommitterEmailPatternArgs' committer_email_pattern: (Block List, Max: 1) Parameters to be used for the committer_email_pattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)
+        :param bool creation: (Boolean) Only allow users with bypass permission to create matching refs.
+        :param bool deletion: (Boolean) Only allow users with bypass permissions to delete matching refs.
+        :param bool non_fast_forward: (Boolean) Prevent users with push access from force pushing to branches.
+        :param 'RepositoryRulesetRulesPullRequestArgs' pull_request: (Block List, Max: 1) Require all commits be made to a non-target branch and submitted via a pull request before they can be merged. (see below for nested schema)
+        :param 'RepositoryRulesetRulesRequiredDeploymentsArgs' required_deployments: (Block List, Max: 1) Choose which environments must be successfully deployed to before branches can be merged into a branch that matches this rule. (see below for nested schema)
+        :param bool required_linear_history: (Boolean) Prevent merge commits from being pushed to matching branches.
+        :param bool required_signatures: (Boolean) Commits pushed to matching branches must have verified signatures.
+        :param 'RepositoryRulesetRulesRequiredStatusChecksArgs' required_status_checks: (Block List, Max: 1) Choose which status checks must pass before branches can be merged into a branch that matches this rule. When enabled, commits must first be pushed to another branch, then merged or pushed directly to a branch that matches this rule after status checks have passed. (see below for nested schema)
+        :param 'RepositoryRulesetRulesTagNamePatternArgs' tag_name_pattern: (Block List, Max: 1) Parameters to be used for the tag_name_pattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. Conflicts with `branch_name_pattern` as it only applied to rulesets with target `tag`. (see below for nested schema)
+        :param bool update: (Boolean) Only allow users with bypass permission to update matching refs.
+        :param bool update_allows_fetch_and_merge: (Boolean) Branch can pull changes from its upstream repository. This is only applicable to forked repositories. Requires `update` to be set to `true`. Note: behaviour is affected by a known bug on the GitHub side which may cause issues when using this parameter.
+        """
+        if branch_name_pattern is not None:
+            pulumi.set(__self__, "branch_name_pattern", branch_name_pattern)
+        if commit_author_email_pattern is not None:
+            pulumi.set(__self__, "commit_author_email_pattern", commit_author_email_pattern)
+        if commit_message_pattern is not None:
+            pulumi.set(__self__, "commit_message_pattern", commit_message_pattern)
+        if committer_email_pattern is not None:
+            pulumi.set(__self__, "committer_email_pattern", committer_email_pattern)
+        if creation is not None:
+            pulumi.set(__self__, "creation", creation)
+        if deletion is not None:
+            pulumi.set(__self__, "deletion", deletion)
+        if non_fast_forward is not None:
+            pulumi.set(__self__, "non_fast_forward", non_fast_forward)
+        if pull_request is not None:
+            pulumi.set(__self__, "pull_request", pull_request)
+        if required_deployments is not None:
+            pulumi.set(__self__, "required_deployments", required_deployments)
+        if required_linear_history is not None:
+            pulumi.set(__self__, "required_linear_history", required_linear_history)
+        if required_signatures is not None:
+            pulumi.set(__self__, "required_signatures", required_signatures)
+        if required_status_checks is not None:
+            pulumi.set(__self__, "required_status_checks", required_status_checks)
+        if tag_name_pattern is not None:
+            pulumi.set(__self__, "tag_name_pattern", tag_name_pattern)
+        if update is not None:
+            pulumi.set(__self__, "update", update)
+        if update_allows_fetch_and_merge is not None:
+            pulumi.set(__self__, "update_allows_fetch_and_merge", update_allows_fetch_and_merge)
+
+    @property
+    @pulumi.getter(name="branchNamePattern")
+    def branch_name_pattern(self) -> Optional['outputs.RepositoryRulesetRulesBranchNamePattern']:
+        """
+        (Block List, Max: 1) Parameters to be used for the branch_name_pattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. Conflicts with `tag_name_pattern` as it only applied to rulesets with target `branch`. (see below for nested schema)
+        """
+        return pulumi.get(self, "branch_name_pattern")
+
+    @property
+    @pulumi.getter(name="commitAuthorEmailPattern")
+    def commit_author_email_pattern(self) -> Optional['outputs.RepositoryRulesetRulesCommitAuthorEmailPattern']:
+        """
+        (Block List, Max: 1) Parameters to be used for the commit_author_email_pattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)
+        """
+        return pulumi.get(self, "commit_author_email_pattern")
+
+    @property
+    @pulumi.getter(name="commitMessagePattern")
+    def commit_message_pattern(self) -> Optional['outputs.RepositoryRulesetRulesCommitMessagePattern']:
+        """
+        (Block List, Max: 1) Parameters to be used for the commit_message_pattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)
+        """
+        return pulumi.get(self, "commit_message_pattern")
+
+    @property
+    @pulumi.getter(name="committerEmailPattern")
+    def committer_email_pattern(self) -> Optional['outputs.RepositoryRulesetRulesCommitterEmailPattern']:
+        """
+        (Block List, Max: 1) Parameters to be used for the committer_email_pattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)
+        """
+        return pulumi.get(self, "committer_email_pattern")
+
+    @property
+    @pulumi.getter
+    def creation(self) -> Optional[bool]:
+        """
+        (Boolean) Only allow users with bypass permission to create matching refs.
+        """
+        return pulumi.get(self, "creation")
+
+    @property
+    @pulumi.getter
+    def deletion(self) -> Optional[bool]:
+        """
+        (Boolean) Only allow users with bypass permissions to delete matching refs.
+        """
+        return pulumi.get(self, "deletion")
+
+    @property
+    @pulumi.getter(name="nonFastForward")
+    def non_fast_forward(self) -> Optional[bool]:
+        """
+        (Boolean) Prevent users with push access from force pushing to branches.
+        """
+        return pulumi.get(self, "non_fast_forward")
+
+    @property
+    @pulumi.getter(name="pullRequest")
+    def pull_request(self) -> Optional['outputs.RepositoryRulesetRulesPullRequest']:
+        """
+        (Block List, Max: 1) Require all commits be made to a non-target branch and submitted via a pull request before they can be merged. (see below for nested schema)
+        """
+        return pulumi.get(self, "pull_request")
+
+    @property
+    @pulumi.getter(name="requiredDeployments")
+    def required_deployments(self) -> Optional['outputs.RepositoryRulesetRulesRequiredDeployments']:
+        """
+        (Block List, Max: 1) Choose which environments must be successfully deployed to before branches can be merged into a branch that matches this rule. (see below for nested schema)
+        """
+        return pulumi.get(self, "required_deployments")
+
+    @property
+    @pulumi.getter(name="requiredLinearHistory")
+    def required_linear_history(self) -> Optional[bool]:
+        """
+        (Boolean) Prevent merge commits from being pushed to matching branches.
+        """
+        return pulumi.get(self, "required_linear_history")
+
+    @property
+    @pulumi.getter(name="requiredSignatures")
+    def required_signatures(self) -> Optional[bool]:
+        """
+        (Boolean) Commits pushed to matching branches must have verified signatures.
+        """
+        return pulumi.get(self, "required_signatures")
+
+    @property
+    @pulumi.getter(name="requiredStatusChecks")
+    def required_status_checks(self) -> Optional['outputs.RepositoryRulesetRulesRequiredStatusChecks']:
+        """
+        (Block List, Max: 1) Choose which status checks must pass before branches can be merged into a branch that matches this rule. When enabled, commits must first be pushed to another branch, then merged or pushed directly to a branch that matches this rule after status checks have passed. (see below for nested schema)
+        """
+        return pulumi.get(self, "required_status_checks")
+
+    @property
+    @pulumi.getter(name="tagNamePattern")
+    def tag_name_pattern(self) -> Optional['outputs.RepositoryRulesetRulesTagNamePattern']:
+        """
+        (Block List, Max: 1) Parameters to be used for the tag_name_pattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. Conflicts with `branch_name_pattern` as it only applied to rulesets with target `tag`. (see below for nested schema)
+        """
+        return pulumi.get(self, "tag_name_pattern")
+
+    @property
+    @pulumi.getter
+    def update(self) -> Optional[bool]:
+        """
+        (Boolean) Only allow users with bypass permission to update matching refs.
+        """
+        return pulumi.get(self, "update")
+
+    @property
+    @pulumi.getter(name="updateAllowsFetchAndMerge")
+    def update_allows_fetch_and_merge(self) -> Optional[bool]:
+        """
+        (Boolean) Branch can pull changes from its upstream repository. This is only applicable to forked repositories. Requires `update` to be set to `true`. Note: behaviour is affected by a known bug on the GitHub side which may cause issues when using this parameter.
+        """
+        return pulumi.get(self, "update_allows_fetch_and_merge")
+
+
+@pulumi.output_type
+class RepositoryRulesetRulesBranchNamePattern(dict):
+    def __init__(__self__, *,
+                 operator: str,
+                 pattern: str,
+                 name: Optional[str] = None,
+                 negate: Optional[bool] = None):
+        """
+        :param str operator: (String) The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.
+        :param str pattern: (String) The pattern to match with.
+        :param str name: (String) The name of the ruleset.
+        :param bool negate: (Boolean) If true, the rule will fail if the pattern matches.
+        """
+        pulumi.set(__self__, "operator", operator)
+        pulumi.set(__self__, "pattern", pattern)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if negate is not None:
+            pulumi.set(__self__, "negate", negate)
+
+    @property
+    @pulumi.getter
+    def operator(self) -> str:
+        """
+        (String) The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.
+        """
+        return pulumi.get(self, "operator")
+
+    @property
+    @pulumi.getter
+    def pattern(self) -> str:
+        """
+        (String) The pattern to match with.
+        """
+        return pulumi.get(self, "pattern")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        (String) The name of the ruleset.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def negate(self) -> Optional[bool]:
+        """
+        (Boolean) If true, the rule will fail if the pattern matches.
+        """
+        return pulumi.get(self, "negate")
+
+
+@pulumi.output_type
+class RepositoryRulesetRulesCommitAuthorEmailPattern(dict):
+    def __init__(__self__, *,
+                 operator: str,
+                 pattern: str,
+                 name: Optional[str] = None,
+                 negate: Optional[bool] = None):
+        """
+        :param str operator: (String) The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.
+        :param str pattern: (String) The pattern to match with.
+        :param str name: (String) The name of the ruleset.
+        :param bool negate: (Boolean) If true, the rule will fail if the pattern matches.
+        """
+        pulumi.set(__self__, "operator", operator)
+        pulumi.set(__self__, "pattern", pattern)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if negate is not None:
+            pulumi.set(__self__, "negate", negate)
+
+    @property
+    @pulumi.getter
+    def operator(self) -> str:
+        """
+        (String) The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.
+        """
+        return pulumi.get(self, "operator")
+
+    @property
+    @pulumi.getter
+    def pattern(self) -> str:
+        """
+        (String) The pattern to match with.
+        """
+        return pulumi.get(self, "pattern")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        (String) The name of the ruleset.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def negate(self) -> Optional[bool]:
+        """
+        (Boolean) If true, the rule will fail if the pattern matches.
+        """
+        return pulumi.get(self, "negate")
+
+
+@pulumi.output_type
+class RepositoryRulesetRulesCommitMessagePattern(dict):
+    def __init__(__self__, *,
+                 operator: str,
+                 pattern: str,
+                 name: Optional[str] = None,
+                 negate: Optional[bool] = None):
+        """
+        :param str operator: (String) The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.
+        :param str pattern: (String) The pattern to match with.
+        :param str name: (String) The name of the ruleset.
+        :param bool negate: (Boolean) If true, the rule will fail if the pattern matches.
+        """
+        pulumi.set(__self__, "operator", operator)
+        pulumi.set(__self__, "pattern", pattern)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if negate is not None:
+            pulumi.set(__self__, "negate", negate)
+
+    @property
+    @pulumi.getter
+    def operator(self) -> str:
+        """
+        (String) The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.
+        """
+        return pulumi.get(self, "operator")
+
+    @property
+    @pulumi.getter
+    def pattern(self) -> str:
+        """
+        (String) The pattern to match with.
+        """
+        return pulumi.get(self, "pattern")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        (String) The name of the ruleset.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def negate(self) -> Optional[bool]:
+        """
+        (Boolean) If true, the rule will fail if the pattern matches.
+        """
+        return pulumi.get(self, "negate")
+
+
+@pulumi.output_type
+class RepositoryRulesetRulesCommitterEmailPattern(dict):
+    def __init__(__self__, *,
+                 operator: str,
+                 pattern: str,
+                 name: Optional[str] = None,
+                 negate: Optional[bool] = None):
+        """
+        :param str operator: (String) The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.
+        :param str pattern: (String) The pattern to match with.
+        :param str name: (String) The name of the ruleset.
+        :param bool negate: (Boolean) If true, the rule will fail if the pattern matches.
+        """
+        pulumi.set(__self__, "operator", operator)
+        pulumi.set(__self__, "pattern", pattern)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if negate is not None:
+            pulumi.set(__self__, "negate", negate)
+
+    @property
+    @pulumi.getter
+    def operator(self) -> str:
+        """
+        (String) The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.
+        """
+        return pulumi.get(self, "operator")
+
+    @property
+    @pulumi.getter
+    def pattern(self) -> str:
+        """
+        (String) The pattern to match with.
+        """
+        return pulumi.get(self, "pattern")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        (String) The name of the ruleset.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def negate(self) -> Optional[bool]:
+        """
+        (Boolean) If true, the rule will fail if the pattern matches.
+        """
+        return pulumi.get(self, "negate")
+
+
+@pulumi.output_type
+class RepositoryRulesetRulesPullRequest(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dismissStaleReviewsOnPush":
+            suggest = "dismiss_stale_reviews_on_push"
+        elif key == "requireCodeOwnerReview":
+            suggest = "require_code_owner_review"
+        elif key == "requireLastPushApproval":
+            suggest = "require_last_push_approval"
+        elif key == "requiredApprovingReviewCount":
+            suggest = "required_approving_review_count"
+        elif key == "requiredReviewThreadResolution":
+            suggest = "required_review_thread_resolution"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RepositoryRulesetRulesPullRequest. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RepositoryRulesetRulesPullRequest.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RepositoryRulesetRulesPullRequest.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 dismiss_stale_reviews_on_push: Optional[bool] = None,
+                 require_code_owner_review: Optional[bool] = None,
+                 require_last_push_approval: Optional[bool] = None,
+                 required_approving_review_count: Optional[int] = None,
+                 required_review_thread_resolution: Optional[bool] = None):
+        """
+        :param bool dismiss_stale_reviews_on_push: (Boolean) New, reviewable commits pushed will dismiss previous pull request review approvals. Defaults to `false`.
+        :param bool require_code_owner_review: (Boolean) Require an approving review in pull requests that modify files that have a designated code owner. Defaults to `false`.
+        :param bool require_last_push_approval: (Boolean) Whether the most recent reviewable push must be approved by someone other than the person who pushed it. Defaults to `false`.
+        :param int required_approving_review_count: (Number) The number of approving reviews that are required before a pull request can be merged. Defaults to `0`.
+        :param bool required_review_thread_resolution: (Boolean) All conversations on code must be resolved before a pull request can be merged. Defaults to `false`.
+        """
+        if dismiss_stale_reviews_on_push is not None:
+            pulumi.set(__self__, "dismiss_stale_reviews_on_push", dismiss_stale_reviews_on_push)
+        if require_code_owner_review is not None:
+            pulumi.set(__self__, "require_code_owner_review", require_code_owner_review)
+        if require_last_push_approval is not None:
+            pulumi.set(__self__, "require_last_push_approval", require_last_push_approval)
+        if required_approving_review_count is not None:
+            pulumi.set(__self__, "required_approving_review_count", required_approving_review_count)
+        if required_review_thread_resolution is not None:
+            pulumi.set(__self__, "required_review_thread_resolution", required_review_thread_resolution)
+
+    @property
+    @pulumi.getter(name="dismissStaleReviewsOnPush")
+    def dismiss_stale_reviews_on_push(self) -> Optional[bool]:
+        """
+        (Boolean) New, reviewable commits pushed will dismiss previous pull request review approvals. Defaults to `false`.
+        """
+        return pulumi.get(self, "dismiss_stale_reviews_on_push")
+
+    @property
+    @pulumi.getter(name="requireCodeOwnerReview")
+    def require_code_owner_review(self) -> Optional[bool]:
+        """
+        (Boolean) Require an approving review in pull requests that modify files that have a designated code owner. Defaults to `false`.
+        """
+        return pulumi.get(self, "require_code_owner_review")
+
+    @property
+    @pulumi.getter(name="requireLastPushApproval")
+    def require_last_push_approval(self) -> Optional[bool]:
+        """
+        (Boolean) Whether the most recent reviewable push must be approved by someone other than the person who pushed it. Defaults to `false`.
+        """
+        return pulumi.get(self, "require_last_push_approval")
+
+    @property
+    @pulumi.getter(name="requiredApprovingReviewCount")
+    def required_approving_review_count(self) -> Optional[int]:
+        """
+        (Number) The number of approving reviews that are required before a pull request can be merged. Defaults to `0`.
+        """
+        return pulumi.get(self, "required_approving_review_count")
+
+    @property
+    @pulumi.getter(name="requiredReviewThreadResolution")
+    def required_review_thread_resolution(self) -> Optional[bool]:
+        """
+        (Boolean) All conversations on code must be resolved before a pull request can be merged. Defaults to `false`.
+        """
+        return pulumi.get(self, "required_review_thread_resolution")
+
+
+@pulumi.output_type
+class RepositoryRulesetRulesRequiredDeployments(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "requiredDeploymentEnvironments":
+            suggest = "required_deployment_environments"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RepositoryRulesetRulesRequiredDeployments. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RepositoryRulesetRulesRequiredDeployments.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RepositoryRulesetRulesRequiredDeployments.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 required_deployment_environments: Sequence[str]):
+        """
+        :param Sequence[str] required_deployment_environments: (List of String) The environments that must be successfully deployed to before branches can be merged.
+        """
+        pulumi.set(__self__, "required_deployment_environments", required_deployment_environments)
+
+    @property
+    @pulumi.getter(name="requiredDeploymentEnvironments")
+    def required_deployment_environments(self) -> Sequence[str]:
+        """
+        (List of String) The environments that must be successfully deployed to before branches can be merged.
+        """
+        return pulumi.get(self, "required_deployment_environments")
+
+
+@pulumi.output_type
+class RepositoryRulesetRulesRequiredStatusChecks(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "requiredChecks":
+            suggest = "required_checks"
+        elif key == "strictRequiredStatusChecksPolicy":
+            suggest = "strict_required_status_checks_policy"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RepositoryRulesetRulesRequiredStatusChecks. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RepositoryRulesetRulesRequiredStatusChecks.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RepositoryRulesetRulesRequiredStatusChecks.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 required_checks: Sequence['outputs.RepositoryRulesetRulesRequiredStatusChecksRequiredCheck'],
+                 strict_required_status_checks_policy: Optional[bool] = None):
+        """
+        :param Sequence['RepositoryRulesetRulesRequiredStatusChecksRequiredCheckArgs'] required_checks: (Block Set, Min: 1) Status checks that are required. Several can be defined. (see below for nested schema)
+        :param bool strict_required_status_checks_policy: (Boolean) Whether pull requests targeting a matching branch must be tested with the latest code. This setting will not take effect unless at least one status check is enabled. Defaults to `false`.
+        """
+        pulumi.set(__self__, "required_checks", required_checks)
+        if strict_required_status_checks_policy is not None:
+            pulumi.set(__self__, "strict_required_status_checks_policy", strict_required_status_checks_policy)
+
+    @property
+    @pulumi.getter(name="requiredChecks")
+    def required_checks(self) -> Sequence['outputs.RepositoryRulesetRulesRequiredStatusChecksRequiredCheck']:
+        """
+        (Block Set, Min: 1) Status checks that are required. Several can be defined. (see below for nested schema)
+        """
+        return pulumi.get(self, "required_checks")
+
+    @property
+    @pulumi.getter(name="strictRequiredStatusChecksPolicy")
+    def strict_required_status_checks_policy(self) -> Optional[bool]:
+        """
+        (Boolean) Whether pull requests targeting a matching branch must be tested with the latest code. This setting will not take effect unless at least one status check is enabled. Defaults to `false`.
+        """
+        return pulumi.get(self, "strict_required_status_checks_policy")
+
+
+@pulumi.output_type
+class RepositoryRulesetRulesRequiredStatusChecksRequiredCheck(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "integrationId":
+            suggest = "integration_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RepositoryRulesetRulesRequiredStatusChecksRequiredCheck. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RepositoryRulesetRulesRequiredStatusChecksRequiredCheck.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RepositoryRulesetRulesRequiredStatusChecksRequiredCheck.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 context: str,
+                 integration_id: Optional[int] = None):
+        """
+        :param str context: (String) The status check context name that must be present on the commit.
+        :param int integration_id: (Number) The optional integration ID that this status check must originate from.
+        """
+        pulumi.set(__self__, "context", context)
+        if integration_id is not None:
+            pulumi.set(__self__, "integration_id", integration_id)
+
+    @property
+    @pulumi.getter
+    def context(self) -> str:
+        """
+        (String) The status check context name that must be present on the commit.
+        """
+        return pulumi.get(self, "context")
+
+    @property
+    @pulumi.getter(name="integrationId")
+    def integration_id(self) -> Optional[int]:
+        """
+        (Number) The optional integration ID that this status check must originate from.
+        """
+        return pulumi.get(self, "integration_id")
+
+
+@pulumi.output_type
+class RepositoryRulesetRulesTagNamePattern(dict):
+    def __init__(__self__, *,
+                 operator: str,
+                 pattern: str,
+                 name: Optional[str] = None,
+                 negate: Optional[bool] = None):
+        """
+        :param str operator: (String) The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.
+        :param str pattern: (String) The pattern to match with.
+        :param str name: (String) The name of the ruleset.
+        :param bool negate: (Boolean) If true, the rule will fail if the pattern matches.
+        """
+        pulumi.set(__self__, "operator", operator)
+        pulumi.set(__self__, "pattern", pattern)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if negate is not None:
+            pulumi.set(__self__, "negate", negate)
+
+    @property
+    @pulumi.getter
+    def operator(self) -> str:
+        """
+        (String) The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.
+        """
+        return pulumi.get(self, "operator")
+
+    @property
+    @pulumi.getter
+    def pattern(self) -> str:
+        """
+        (String) The pattern to match with.
+        """
+        return pulumi.get(self, "pattern")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        (String) The name of the ruleset.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def negate(self) -> Optional[bool]:
+        """
+        (Boolean) If true, the rule will fail if the pattern matches.
+        """
+        return pulumi.get(self, "negate")
 
 
 @pulumi.output_type

@@ -25,6 +25,7 @@ namespace Pulumi.Github
     ///     var org = new Github.EnterpriseOrganization("org", new()
     ///     {
     ///         EnterpriseId = data.Github_enterprise.Enterprise.Id,
+    ///         DisplayName = "Some Awesome Org",
     ///         Description = "Organization created with terraform",
     ///         BillingEmail = "jon@winteriscoming.com",
     ///         AdminLogins = new[]
@@ -38,7 +39,11 @@ namespace Pulumi.Github
     /// 
     /// ## Import
     /// 
-    /// Support for importing organizations is not currently supported.
+    /// GitHub Enterprise Organization can be imported using the `slug` of the enterprise, combined with the `orgname` of the organization, separated by a `/` character.
+    /// 
+    /// ```sh
+    ///  $ pulumi import github:index/enterpriseOrganization:EnterpriseOrganization org enterp/some-awesome-org
+    /// ```
     /// </summary>
     [GithubResourceType("github:index/enterpriseOrganization:EnterpriseOrganization")]
     public partial class EnterpriseOrganization : global::Pulumi.CustomResource
@@ -60,6 +65,12 @@ namespace Pulumi.Github
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
+
+        /// <summary>
+        /// The display name of the organization.
+        /// </summary>
+        [Output("displayName")]
+        public Output<string?> DisplayName { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the enterprise.
@@ -144,6 +155,12 @@ namespace Pulumi.Github
         public Input<string>? Description { get; set; }
 
         /// <summary>
+        /// The display name of the organization.
+        /// </summary>
+        [Input("displayName")]
+        public Input<string>? DisplayName { get; set; }
+
+        /// <summary>
         /// The ID of the enterprise.
         /// </summary>
         [Input("enterpriseId", required: true)]
@@ -186,6 +203,12 @@ namespace Pulumi.Github
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// The display name of the organization.
+        /// </summary>
+        [Input("displayName")]
+        public Input<string>? DisplayName { get; set; }
 
         /// <summary>
         /// The ID of the enterprise.

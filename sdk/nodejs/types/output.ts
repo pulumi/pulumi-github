@@ -848,6 +848,256 @@ export interface GetTreeEntry {
     type: string;
 }
 
+export interface OrganizationRulesetBypassActor {
+    /**
+     * (Number) The ID of the actor that can bypass a ruleset
+     */
+    actorId: number;
+    /**
+     * The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`.
+     */
+    actorType: string;
+    /**
+     * (String) When the specified actor can bypass the ruleset. pullRequest means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pullRequest`.
+     */
+    bypassMode?: string;
+}
+
+export interface OrganizationRulesetConditions {
+    /**
+     * (Block List, Min: 1, Max: 1) (see below for nested schema)
+     */
+    refName: outputs.OrganizationRulesetConditionsRefName;
+    /**
+     * The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass. Conflicts with `repositoryName`.
+     */
+    repositoryId?: number;
+    /**
+     * Conflicts with `repositoryId`. (see below for nested schema)
+     *
+     * One of `repositoryId` and `repositoryName` must be set for the rule to target any repositories.
+     */
+    repositoryName?: outputs.OrganizationRulesetConditionsRepositoryName;
+}
+
+export interface OrganizationRulesetConditionsRefName {
+    /**
+     * (List of String) Array of ref names or patterns to exclude. The condition will not pass if any of these patterns match.
+     */
+    excludes: string[];
+    /**
+     * (List of String) Array of ref names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~DEFAULT_BRANCH` to include the default branch or `~ALL` to include all branches.
+     */
+    includes: string[];
+}
+
+export interface OrganizationRulesetConditionsRepositoryName {
+    /**
+     * (List of String) Array of ref names or patterns to exclude. The condition will not pass if any of these patterns match.
+     */
+    excludes: string[];
+    /**
+     * (List of String) Array of repository names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~ALL` to include all repositories.
+     */
+    inlcudes: string[];
+    protected?: boolean;
+}
+
+export interface OrganizationRulesetRules {
+    /**
+     * (Block List, Max: 1) Parameters to be used for the branchNamePattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. Conflicts with `tagNamePattern` as it only applies to rulesets with target `branch`. (see below for nested schema)
+     */
+    branchNamePattern?: outputs.OrganizationRulesetRulesBranchNamePattern;
+    /**
+     * (Block List, Max: 1) Parameters to be used for the commitAuthorEmailPattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)
+     */
+    commitAuthorEmailPattern?: outputs.OrganizationRulesetRulesCommitAuthorEmailPattern;
+    /**
+     * (Block List, Max: 1) Parameters to be used for the commitMessagePattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)
+     */
+    commitMessagePattern?: outputs.OrganizationRulesetRulesCommitMessagePattern;
+    /**
+     * (Block List, Max: 1) Parameters to be used for the committerEmailPattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)
+     */
+    committerEmailPattern?: outputs.OrganizationRulesetRulesCommitterEmailPattern;
+    /**
+     * (Boolean) Only allow users with bypass permission to create matching refs.
+     */
+    creation?: boolean;
+    /**
+     * (Boolean) Only allow users with bypass permissions to delete matching refs.
+     */
+    deletion?: boolean;
+    /**
+     * (Boolean) Prevent users with push access from force pushing to branches.
+     */
+    nonFastForward?: boolean;
+    /**
+     * (Block List, Max: 1) Require all commits be made to a non-target branch and submitted via a pull request before they can be merged. (see below for nested schema)
+     */
+    pullRequest?: outputs.OrganizationRulesetRulesPullRequest;
+    /**
+     * (Boolean) Prevent merge commits from being pushed to matching branches.
+     */
+    requiredLinearHistory?: boolean;
+    /**
+     * (Boolean) Commits pushed to matching branches must have verified signatures.
+     */
+    requiredSignatures?: boolean;
+    /**
+     * (Block List, Max: 1) Choose which status checks must pass before branches can be merged into a branch that matches this rule. When enabled, commits must first be pushed to another branch, then merged or pushed directly to a branch that matches this rule after status checks have passed. (see below for nested schema)
+     */
+    requiredStatusChecks?: outputs.OrganizationRulesetRulesRequiredStatusChecks;
+    /**
+     * (Block List, Max: 1) Parameters to be used for the tagNamePattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. Conflicts with `branchNamePattern` as it only applies to rulesets with target `tag`. (see below for nested schema)
+     */
+    tagNamePattern?: outputs.OrganizationRulesetRulesTagNamePattern;
+    /**
+     * (Boolean) Only allow users with bypass permission to update matching refs.
+     */
+    update?: boolean;
+}
+
+export interface OrganizationRulesetRulesBranchNamePattern {
+    /**
+     * (String) The name of the ruleset.
+     */
+    name?: string;
+    /**
+     * (Boolean) If true, the rule will fail if the pattern matches.
+     */
+    negate?: boolean;
+    /**
+     * (String) The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
+     */
+    operator: string;
+    /**
+     * (String) The pattern to match with.
+     */
+    pattern: string;
+}
+
+export interface OrganizationRulesetRulesCommitAuthorEmailPattern {
+    /**
+     * (String) The name of the ruleset.
+     */
+    name?: string;
+    /**
+     * (Boolean) If true, the rule will fail if the pattern matches.
+     */
+    negate?: boolean;
+    /**
+     * (String) The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
+     */
+    operator: string;
+    /**
+     * (String) The pattern to match with.
+     */
+    pattern: string;
+}
+
+export interface OrganizationRulesetRulesCommitMessagePattern {
+    /**
+     * (String) The name of the ruleset.
+     */
+    name?: string;
+    /**
+     * (Boolean) If true, the rule will fail if the pattern matches.
+     */
+    negate?: boolean;
+    /**
+     * (String) The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
+     */
+    operator: string;
+    /**
+     * (String) The pattern to match with.
+     */
+    pattern: string;
+}
+
+export interface OrganizationRulesetRulesCommitterEmailPattern {
+    /**
+     * (String) The name of the ruleset.
+     */
+    name?: string;
+    /**
+     * (Boolean) If true, the rule will fail if the pattern matches.
+     */
+    negate?: boolean;
+    /**
+     * (String) The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
+     */
+    operator: string;
+    /**
+     * (String) The pattern to match with.
+     */
+    pattern: string;
+}
+
+export interface OrganizationRulesetRulesPullRequest {
+    /**
+     * (Boolean) New, reviewable commits pushed will dismiss previous pull request review approvals. Defaults to `false`.
+     */
+    dismissStaleReviewsOnPush?: boolean;
+    /**
+     * (Boolean) Require an approving review in pull requests that modify files that have a designated code owner. Defaults to `false`.
+     */
+    requireCodeOwnerReview?: boolean;
+    /**
+     * (Boolean) Whether the most recent reviewable push must be approved by someone other than the person who pushed it. Defaults to `false`.
+     */
+    requireLastPushApproval?: boolean;
+    /**
+     * (Number) The number of approving reviews that are required before a pull request can be merged. Defaults to `0`.
+     */
+    requiredApprovingReviewCount?: number;
+    /**
+     * (Boolean) All conversations on code must be resolved before a pull request can be merged. Defaults to `false`.
+     */
+    requiredReviewThreadResolution?: boolean;
+}
+
+export interface OrganizationRulesetRulesRequiredStatusChecks {
+    /**
+     * (Block Set, Min: 1) Status checks that are required. Several can be defined. (see below for nested schema)
+     */
+    requiredChecks: outputs.OrganizationRulesetRulesRequiredStatusChecksRequiredCheck[];
+    /**
+     * (Boolean) Whether pull requests targeting a matching branch must be tested with the latest code. This setting will not take effect unless at least one status check is enabled. Defaults to `false`.
+     */
+    strictRequiredStatusChecksPolicy?: boolean;
+}
+
+export interface OrganizationRulesetRulesRequiredStatusChecksRequiredCheck {
+    /**
+     * (String) The status check context name that must be present on the commit.
+     */
+    context: string;
+    /**
+     * (Number) The optional integration ID that this status check must originate from.
+     */
+    integrationId?: number;
+}
+
+export interface OrganizationRulesetRulesTagNamePattern {
+    /**
+     * (String) The name of the ruleset.
+     */
+    name?: string;
+    /**
+     * (Boolean) If true, the rule will fail if the pattern matches.
+     */
+    negate?: boolean;
+    /**
+     * (String) The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
+     */
+    operator: string;
+    /**
+     * (String) The pattern to match with.
+     */
+    pattern: string;
+}
+
 export interface OrganizationWebhookConfiguration {
     contentType?: string;
     insecureSsl?: boolean;
@@ -940,6 +1190,249 @@ export interface RepositoryPagesSource {
      * The repository directory from which the site publishes (Default: `/`).
      */
     path?: string;
+}
+
+export interface RepositoryRulesetBypassActor {
+    /**
+     * (Number) The ID of the actor that can bypass a ruleset
+     */
+    actorId: number;
+    /**
+     * The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`.
+     */
+    actorType: string;
+    /**
+     * (String) When the specified actor can bypass the ruleset. pullRequest means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pullRequest`.
+     */
+    bypassMode?: string;
+}
+
+export interface RepositoryRulesetConditions {
+    /**
+     * (Block List, Min: 1, Max: 1) (see below for nested schema)
+     */
+    refName: outputs.RepositoryRulesetConditionsRefName;
+}
+
+export interface RepositoryRulesetConditionsRefName {
+    /**
+     * (List of String) Array of ref names or patterns to exclude. The condition will not pass if any of these patterns match.
+     */
+    excludes: string[];
+    /**
+     * (List of String) Array of ref names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~DEFAULT_BRANCH` to include the default branch or `~ALL` to include all branches.
+     */
+    includes: string[];
+}
+
+export interface RepositoryRulesetRules {
+    /**
+     * (Block List, Max: 1) Parameters to be used for the branchNamePattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. Conflicts with `tagNamePattern` as it only applied to rulesets with target `branch`. (see below for nested schema)
+     */
+    branchNamePattern?: outputs.RepositoryRulesetRulesBranchNamePattern;
+    /**
+     * (Block List, Max: 1) Parameters to be used for the commitAuthorEmailPattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)
+     */
+    commitAuthorEmailPattern?: outputs.RepositoryRulesetRulesCommitAuthorEmailPattern;
+    /**
+     * (Block List, Max: 1) Parameters to be used for the commitMessagePattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)
+     */
+    commitMessagePattern?: outputs.RepositoryRulesetRulesCommitMessagePattern;
+    /**
+     * (Block List, Max: 1) Parameters to be used for the committerEmailPattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)
+     */
+    committerEmailPattern?: outputs.RepositoryRulesetRulesCommitterEmailPattern;
+    /**
+     * (Boolean) Only allow users with bypass permission to create matching refs.
+     */
+    creation?: boolean;
+    /**
+     * (Boolean) Only allow users with bypass permissions to delete matching refs.
+     */
+    deletion?: boolean;
+    /**
+     * (Boolean) Prevent users with push access from force pushing to branches.
+     */
+    nonFastForward?: boolean;
+    /**
+     * (Block List, Max: 1) Require all commits be made to a non-target branch and submitted via a pull request before they can be merged. (see below for nested schema)
+     */
+    pullRequest?: outputs.RepositoryRulesetRulesPullRequest;
+    /**
+     * (Block List, Max: 1) Choose which environments must be successfully deployed to before branches can be merged into a branch that matches this rule. (see below for nested schema)
+     */
+    requiredDeployments?: outputs.RepositoryRulesetRulesRequiredDeployments;
+    /**
+     * (Boolean) Prevent merge commits from being pushed to matching branches.
+     */
+    requiredLinearHistory?: boolean;
+    /**
+     * (Boolean) Commits pushed to matching branches must have verified signatures.
+     */
+    requiredSignatures?: boolean;
+    /**
+     * (Block List, Max: 1) Choose which status checks must pass before branches can be merged into a branch that matches this rule. When enabled, commits must first be pushed to another branch, then merged or pushed directly to a branch that matches this rule after status checks have passed. (see below for nested schema)
+     */
+    requiredStatusChecks?: outputs.RepositoryRulesetRulesRequiredStatusChecks;
+    /**
+     * (Block List, Max: 1) Parameters to be used for the tagNamePattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. Conflicts with `branchNamePattern` as it only applied to rulesets with target `tag`. (see below for nested schema)
+     */
+    tagNamePattern?: outputs.RepositoryRulesetRulesTagNamePattern;
+    /**
+     * (Boolean) Only allow users with bypass permission to update matching refs.
+     */
+    update?: boolean;
+    /**
+     * (Boolean) Branch can pull changes from its upstream repository. This is only applicable to forked repositories. Requires `update` to be set to `true`. Note: behaviour is affected by a known bug on the GitHub side which may cause issues when using this parameter.
+     */
+    updateAllowsFetchAndMerge?: boolean;
+}
+
+export interface RepositoryRulesetRulesBranchNamePattern {
+    /**
+     * (String) The name of the ruleset.
+     */
+    name?: string;
+    /**
+     * (Boolean) If true, the rule will fail if the pattern matches.
+     */
+    negate?: boolean;
+    /**
+     * (String) The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
+     */
+    operator: string;
+    /**
+     * (String) The pattern to match with.
+     */
+    pattern: string;
+}
+
+export interface RepositoryRulesetRulesCommitAuthorEmailPattern {
+    /**
+     * (String) The name of the ruleset.
+     */
+    name?: string;
+    /**
+     * (Boolean) If true, the rule will fail if the pattern matches.
+     */
+    negate?: boolean;
+    /**
+     * (String) The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
+     */
+    operator: string;
+    /**
+     * (String) The pattern to match with.
+     */
+    pattern: string;
+}
+
+export interface RepositoryRulesetRulesCommitMessagePattern {
+    /**
+     * (String) The name of the ruleset.
+     */
+    name?: string;
+    /**
+     * (Boolean) If true, the rule will fail if the pattern matches.
+     */
+    negate?: boolean;
+    /**
+     * (String) The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
+     */
+    operator: string;
+    /**
+     * (String) The pattern to match with.
+     */
+    pattern: string;
+}
+
+export interface RepositoryRulesetRulesCommitterEmailPattern {
+    /**
+     * (String) The name of the ruleset.
+     */
+    name?: string;
+    /**
+     * (Boolean) If true, the rule will fail if the pattern matches.
+     */
+    negate?: boolean;
+    /**
+     * (String) The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
+     */
+    operator: string;
+    /**
+     * (String) The pattern to match with.
+     */
+    pattern: string;
+}
+
+export interface RepositoryRulesetRulesPullRequest {
+    /**
+     * (Boolean) New, reviewable commits pushed will dismiss previous pull request review approvals. Defaults to `false`.
+     */
+    dismissStaleReviewsOnPush?: boolean;
+    /**
+     * (Boolean) Require an approving review in pull requests that modify files that have a designated code owner. Defaults to `false`.
+     */
+    requireCodeOwnerReview?: boolean;
+    /**
+     * (Boolean) Whether the most recent reviewable push must be approved by someone other than the person who pushed it. Defaults to `false`.
+     */
+    requireLastPushApproval?: boolean;
+    /**
+     * (Number) The number of approving reviews that are required before a pull request can be merged. Defaults to `0`.
+     */
+    requiredApprovingReviewCount?: number;
+    /**
+     * (Boolean) All conversations on code must be resolved before a pull request can be merged. Defaults to `false`.
+     */
+    requiredReviewThreadResolution?: boolean;
+}
+
+export interface RepositoryRulesetRulesRequiredDeployments {
+    /**
+     * (List of String) The environments that must be successfully deployed to before branches can be merged.
+     */
+    requiredDeploymentEnvironments: string[];
+}
+
+export interface RepositoryRulesetRulesRequiredStatusChecks {
+    /**
+     * (Block Set, Min: 1) Status checks that are required. Several can be defined. (see below for nested schema)
+     */
+    requiredChecks: outputs.RepositoryRulesetRulesRequiredStatusChecksRequiredCheck[];
+    /**
+     * (Boolean) Whether pull requests targeting a matching branch must be tested with the latest code. This setting will not take effect unless at least one status check is enabled. Defaults to `false`.
+     */
+    strictRequiredStatusChecksPolicy?: boolean;
+}
+
+export interface RepositoryRulesetRulesRequiredStatusChecksRequiredCheck {
+    /**
+     * (String) The status check context name that must be present on the commit.
+     */
+    context: string;
+    /**
+     * (Number) The optional integration ID that this status check must originate from.
+     */
+    integrationId?: number;
+}
+
+export interface RepositoryRulesetRulesTagNamePattern {
+    /**
+     * (String) The name of the ruleset.
+     */
+    name?: string;
+    /**
+     * (Boolean) If true, the rule will fail if the pattern matches.
+     */
+    negate?: boolean;
+    /**
+     * (String) The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
+     */
+    operator: string;
+    /**
+     * (String) The pattern to match with.
+     */
+    pattern: string;
 }
 
 export interface RepositorySecurityAndAnalysis {

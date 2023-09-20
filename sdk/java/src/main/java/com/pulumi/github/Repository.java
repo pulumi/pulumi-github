@@ -689,14 +689,14 @@ public class Repository extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="topics", refs={List.class,String.class}, tree="[0,1]")
-    private Output</* @Nullable */ List<String>> topics;
+    private Output<List<String>> topics;
 
     /**
      * @return The list of topics of the repository.
      * 
      */
-    public Output<Optional<List<String>>> topics() {
-        return Codegen.optional(this.topics);
+    public Output<List<String>> topics() {
+        return this.topics;
     }
     /**
      * Can be `public` or `private`. If your organization is associated with an enterprise account using GitHub Enterprise Cloud or GitHub Enterprise Server 2.20+, visibility can also be `internal`. The `visibility` parameter overrides the `private` parameter.

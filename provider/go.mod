@@ -4,7 +4,7 @@ go 1.20
 
 require (
 	github.com/hashicorp/terraform-plugin-sdk v1.17.2
-	github.com/integrations/terraform-provider-github/v5 v5.34.0
+	github.com/integrations/terraform-provider-github/v5 v5.36.0
 	github.com/pulumi/pulumi-terraform-bridge/v3 v3.59.0
 	github.com/pulumi/pulumi/sdk/v3 v3.81.0
 )
@@ -96,7 +96,7 @@ require (
 	github.com/google/go-querystring v1.1.0 // indirect
 	github.com/google/s2a-go v0.1.4 // indirect
 	github.com/google/shlex v0.0.0-20191202100458-e7afc7fbc510 // indirect
-	github.com/google/uuid v1.3.0 // indirect
+	github.com/google/uuid v1.3.1 // indirect
 	github.com/google/wire v0.5.0 // indirect
 	github.com/googleapis/enterprise-certificate-proxy v0.2.3 // indirect
 	github.com/googleapis/gax-go/v2 v2.11.0 // indirect
@@ -206,14 +206,14 @@ require (
 	go.uber.org/atomic v1.10.0 // indirect
 	gocloud.dev v0.29.0 // indirect
 	gocloud.dev/secrets/hashivault v0.29.0 // indirect
-	golang.org/x/crypto v0.12.0 // indirect
+	golang.org/x/crypto v0.13.0 // indirect
 	golang.org/x/mod v0.10.0 // indirect
-	golang.org/x/net v0.14.0 // indirect
-	golang.org/x/oauth2 v0.11.0 // indirect
+	golang.org/x/net v0.15.0 // indirect
+	golang.org/x/oauth2 v0.12.0 // indirect
 	golang.org/x/sync v0.2.0 // indirect
-	golang.org/x/sys v0.11.0 // indirect
-	golang.org/x/term v0.11.0 // indirect
-	golang.org/x/text v0.12.0 // indirect
+	golang.org/x/sys v0.12.0 // indirect
+	golang.org/x/term v0.12.0 // indirect
+	golang.org/x/text v0.13.0 // indirect
 	golang.org/x/time v0.3.0 // indirect
 	golang.org/x/tools v0.9.3 // indirect
 	golang.org/x/xerrors v0.0.0-20220907171357-04be3eba64a2 // indirect

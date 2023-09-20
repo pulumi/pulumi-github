@@ -61,7 +61,7 @@ import (
 //
 // ```sh
 //
-//	$ pulumi import github:index/actionsSecret:ActionsSecret example_secret <repository>/<secret_name>
+//	$ pulumi import github:index/actionsSecret:ActionsSecret example_secret repository/secret_name
 //
 // ```
 //

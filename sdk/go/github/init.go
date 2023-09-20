@@ -89,6 +89,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &OrganizationCustomRole{}
 	case "github:index/organizationProject:OrganizationProject":
 		r = &OrganizationProject{}
+	case "github:index/organizationRuleset:OrganizationRuleset":
+		r = &OrganizationRuleset{}
 	case "github:index/organizationSecurityManager:OrganizationSecurityManager":
 		r = &OrganizationSecurityManager{}
 	case "github:index/organizationSettings:OrganizationSettings":
@@ -127,8 +129,12 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &RepositoryProject{}
 	case "github:index/repositoryPullRequest:RepositoryPullRequest":
 		r = &RepositoryPullRequest{}
+	case "github:index/repositoryRuleset:RepositoryRuleset":
+		r = &RepositoryRuleset{}
 	case "github:index/repositoryTagProtection:RepositoryTagProtection":
 		r = &RepositoryTagProtection{}
+	case "github:index/repositoryTopics:RepositoryTopics":
+		r = &RepositoryTopics{}
 	case "github:index/repositoryWebhook:RepositoryWebhook":
 		r = &RepositoryWebhook{}
 	case "github:index/team:Team":
@@ -352,6 +358,11 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"github",
+		"index/organizationRuleset",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"github",
 		"index/organizationSecurityManager",
 		&module{version},
 	)
@@ -447,7 +458,17 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"github",
+		"index/repositoryRuleset",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"github",
 		"index/repositoryTagProtection",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"github",
+		"index/repositoryTopics",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

@@ -15,6 +15,7 @@ import * as utilities from "./utilities";
  *
  * const org = new github.EnterpriseOrganization("org", {
  *     enterpriseId: data.github_enterprise.enterprise.id,
+ *     displayName: "Some Awesome Org",
  *     description: "Organization created with terraform",
  *     billingEmail: "jon@winteriscoming.com",
  *     adminLogins: ["jon-snow"],
@@ -23,7 +24,11 @@ import * as utilities from "./utilities";
  *
  * ## Import
  *
- * Support for importing organizations is not currently supported.
+ * GitHub Enterprise Organization can be imported using the `slug` of the enterprise, combined with the `orgname` of the organization, separated by a `/` character.
+ *
+ * ```sh
+ *  $ pulumi import github:index/enterpriseOrganization:EnterpriseOrganization org enterp/some-awesome-org
+ * ```
  */
 export class EnterpriseOrganization extends pulumi.CustomResource {
     /**
@@ -66,6 +71,10 @@ export class EnterpriseOrganization extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
+     * The display name of the organization.
+     */
+    public readonly displayName!: pulumi.Output<string | undefined>;
+    /**
      * The ID of the enterprise.
      */
     public readonly enterpriseId!: pulumi.Output<string>;
@@ -90,6 +99,7 @@ export class EnterpriseOrganization extends pulumi.CustomResource {
             resourceInputs["adminLogins"] = state ? state.adminLogins : undefined;
             resourceInputs["billingEmail"] = state ? state.billingEmail : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["displayName"] = state ? state.displayName : undefined;
             resourceInputs["enterpriseId"] = state ? state.enterpriseId : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
         } else {
@@ -106,6 +116,7 @@ export class EnterpriseOrganization extends pulumi.CustomResource {
             resourceInputs["adminLogins"] = args ? args.adminLogins : undefined;
             resourceInputs["billingEmail"] = args ? args.billingEmail : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["displayName"] = args ? args.displayName : undefined;
             resourceInputs["enterpriseId"] = args ? args.enterpriseId : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
         }
@@ -130,6 +141,10 @@ export interface EnterpriseOrganizationState {
      * The description of the organization.
      */
     description?: pulumi.Input<string>;
+    /**
+     * The display name of the organization.
+     */
+    displayName?: pulumi.Input<string>;
     /**
      * The ID of the enterprise.
      */
@@ -156,6 +171,10 @@ export interface EnterpriseOrganizationArgs {
      * The description of the organization.
      */
     description?: pulumi.Input<string>;
+    /**
+     * The display name of the organization.
+     */
+    displayName?: pulumi.Input<string>;
     /**
      * The ID of the enterprise.
      */

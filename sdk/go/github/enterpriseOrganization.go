@@ -31,6 +31,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := github.NewEnterpriseOrganization(ctx, "org", &github.EnterpriseOrganizationArgs{
 //				EnterpriseId: pulumi.Any(data.Github_enterprise.Enterprise.Id),
+//				DisplayName:  pulumi.String("Some Awesome Org"),
 //				Description:  pulumi.String("Organization created with terraform"),
 //				BillingEmail: pulumi.String("jon@winteriscoming.com"),
 //				AdminLogins: pulumi.StringArray{
@@ -48,7 +49,13 @@ import (
 //
 // ## Import
 //
-// Support for importing organizations is not currently supported.
+// GitHub Enterprise Organization can be imported using the `slug` of the enterprise, combined with the `orgname` of the organization, separated by a `/` character.
+//
+// ```sh
+//
+//	$ pulumi import github:index/enterpriseOrganization:EnterpriseOrganization org enterp/some-awesome-org
+//
+// ```
 type EnterpriseOrganization struct {
 	pulumi.CustomResourceState
 
@@ -58,6 +65,8 @@ type EnterpriseOrganization struct {
 	BillingEmail pulumi.StringOutput `pulumi:"billingEmail"`
 	// The description of the organization.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The display name of the organization.
+	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
 	// The ID of the enterprise.
 	EnterpriseId pulumi.StringOutput `pulumi:"enterpriseId"`
 	// The name of the organization.
@@ -109,6 +118,8 @@ type enterpriseOrganizationState struct {
 	BillingEmail *string `pulumi:"billingEmail"`
 	// The description of the organization.
 	Description *string `pulumi:"description"`
+	// The display name of the organization.
+	DisplayName *string `pulumi:"displayName"`
 	// The ID of the enterprise.
 	EnterpriseId *string `pulumi:"enterpriseId"`
 	// The name of the organization.
@@ -122,6 +133,8 @@ type EnterpriseOrganizationState struct {
 	BillingEmail pulumi.StringPtrInput
 	// The description of the organization.
 	Description pulumi.StringPtrInput
+	// The display name of the organization.
+	DisplayName pulumi.StringPtrInput
 	// The ID of the enterprise.
 	EnterpriseId pulumi.StringPtrInput
 	// The name of the organization.
@@ -139,6 +152,8 @@ type enterpriseOrganizationArgs struct {
 	BillingEmail string `pulumi:"billingEmail"`
 	// The description of the organization.
 	Description *string `pulumi:"description"`
+	// The display name of the organization.
+	DisplayName *string `pulumi:"displayName"`
 	// The ID of the enterprise.
 	EnterpriseId string `pulumi:"enterpriseId"`
 	// The name of the organization.
@@ -153,6 +168,8 @@ type EnterpriseOrganizationArgs struct {
 	BillingEmail pulumi.StringInput
 	// The description of the organization.
 	Description pulumi.StringPtrInput
+	// The display name of the organization.
+	DisplayName pulumi.StringPtrInput
 	// The ID of the enterprise.
 	EnterpriseId pulumi.StringInput
 	// The name of the organization.
@@ -283,6 +300,11 @@ func (o EnterpriseOrganizationOutput) BillingEmail() pulumi.StringOutput {
 // The description of the organization.
 func (o EnterpriseOrganizationOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EnterpriseOrganization) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The display name of the organization.
+func (o EnterpriseOrganizationOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EnterpriseOrganization) pulumi.StringPtrOutput { return v.DisplayName }).(pulumi.StringPtrOutput)
 }
 
 // The ID of the enterprise.

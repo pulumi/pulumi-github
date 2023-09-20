@@ -354,6 +354,338 @@
             },
             "type": "object"
         },
+        "github:index/OrganizationRulesetBypassActor:OrganizationRulesetBypassActor": {
+            "properties": {
+                "actorId": {
+                    "type": "integer",
+                    "description": "(Number) The ID of the actor that can bypass a ruleset\n"
+                },
+                "actorType": {
+                    "type": "string",
+                    "description": "The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`.\n"
+                },
+                "bypassMode": {
+                    "type": "string",
+                    "description": "(String) When the specified actor can bypass the ruleset. pull_request means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pull_request`.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "actorId",
+                "actorType"
+            ]
+        },
+        "github:index/OrganizationRulesetConditions:OrganizationRulesetConditions": {
+            "properties": {
+                "refName": {
+                    "$ref": "#/types/github:index/OrganizationRulesetConditionsRefName:OrganizationRulesetConditionsRefName",
+                    "description": "(Block List, Min: 1, Max: 1) (see below for nested schema)\n"
+                },
+                "repositoryId": {
+                    "type": "integer",
+                    "description": "The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass. Conflicts with `repository_name`.\n"
+                },
+                "repositoryName": {
+                    "$ref": "#/types/github:index/OrganizationRulesetConditionsRepositoryName:OrganizationRulesetConditionsRepositoryName",
+                    "description": "Conflicts with `repository_id`. (see below for nested schema)\n\nOne of `repository_id` and `repository_name` must be set for the rule to target any repositories.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "refName"
+            ]
+        },
+        "github:index/OrganizationRulesetConditionsRefName:OrganizationRulesetConditionsRefName": {
+            "properties": {
+                "excludes": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "(List of String) Array of ref names or patterns to exclude. The condition will not pass if any of these patterns match.\n"
+                },
+                "includes": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "(List of String) Array of ref names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~DEFAULT_BRANCH` to include the default branch or `~ALL` to include all branches.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "excludes",
+                "includes"
+            ]
+        },
+        "github:index/OrganizationRulesetConditionsRepositoryName:OrganizationRulesetConditionsRepositoryName": {
+            "properties": {
+                "excludes": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "(List of String) Array of ref names or patterns to exclude. The condition will not pass if any of these patterns match.\n"
+                },
+                "inlcudes": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "(List of String) Array of repository names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~ALL` to include all repositories.\n"
+                },
+                "protected": {
+                    "type": "boolean"
+                }
+            },
+            "type": "object",
+            "required": [
+                "excludes",
+                "inlcudes"
+            ]
+        },
+        "github:index/OrganizationRulesetRules:OrganizationRulesetRules": {
+            "properties": {
+                "branchNamePattern": {
+                    "$ref": "#/types/github:index/OrganizationRulesetRulesBranchNamePattern:OrganizationRulesetRulesBranchNamePattern",
+                    "description": "(Block List, Max: 1) Parameters to be used for the branch_name_pattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. Conflicts with `tag_name_pattern` as it only applies to rulesets with target `branch`. (see below for nested schema)\n"
+                },
+                "commitAuthorEmailPattern": {
+                    "$ref": "#/types/github:index/OrganizationRulesetRulesCommitAuthorEmailPattern:OrganizationRulesetRulesCommitAuthorEmailPattern",
+                    "description": "(Block List, Max: 1) Parameters to be used for the commit_author_email_pattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)\n"
+                },
+                "commitMessagePattern": {
+                    "$ref": "#/types/github:index/OrganizationRulesetRulesCommitMessagePattern:OrganizationRulesetRulesCommitMessagePattern",
+                    "description": "(Block List, Max: 1) Parameters to be used for the commit_message_pattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)\n"
+                },
+                "committerEmailPattern": {
+                    "$ref": "#/types/github:index/OrganizationRulesetRulesCommitterEmailPattern:OrganizationRulesetRulesCommitterEmailPattern",
+                    "description": "(Block List, Max: 1) Parameters to be used for the committer_email_pattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)\n"
+                },
+                "creation": {
+                    "type": "boolean",
+                    "description": "(Boolean) Only allow users with bypass permission to create matching refs.\n"
+                },
+                "deletion": {
+                    "type": "boolean",
+                    "description": "(Boolean) Only allow users with bypass permissions to delete matching refs.\n"
+                },
+                "nonFastForward": {
+                    "type": "boolean",
+                    "description": "(Boolean) Prevent users with push access from force pushing to branches.\n"
+                },
+                "pullRequest": {
+                    "$ref": "#/types/github:index/OrganizationRulesetRulesPullRequest:OrganizationRulesetRulesPullRequest",
+                    "description": "(Block List, Max: 1) Require all commits be made to a non-target branch and submitted via a pull request before they can be merged. (see below for nested schema)\n"
+                },
+                "requiredLinearHistory": {
+                    "type": "boolean",
+                    "description": "(Boolean) Prevent merge commits from being pushed to matching branches.\n"
+                },
+                "requiredSignatures": {
+                    "type": "boolean",
+                    "description": "(Boolean) Commits pushed to matching branches must have verified signatures.\n"
+                },
+                "requiredStatusChecks": {
+                    "$ref": "#/types/github:index/OrganizationRulesetRulesRequiredStatusChecks:OrganizationRulesetRulesRequiredStatusChecks",
+                    "description": "(Block List, Max: 1) Choose which status checks must pass before branches can be merged into a branch that matches this rule. When enabled, commits must first be pushed to another branch, then merged or pushed directly to a branch that matches this rule after status checks have passed. (see below for nested schema)\n"
+                },
+                "tagNamePattern": {
+                    "$ref": "#/types/github:index/OrganizationRulesetRulesTagNamePattern:OrganizationRulesetRulesTagNamePattern",
+                    "description": "(Block List, Max: 1) Parameters to be used for the tag_name_pattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. Conflicts with `branch_name_pattern` as it only applies to rulesets with target `tag`. (see below for nested schema)\n"
+                },
+                "update": {
+                    "type": "boolean",
+                    "description": "(Boolean) Only allow users with bypass permission to update matching refs.\n"
+                }
+            },
+            "type": "object"
+        },
+        "github:index/OrganizationRulesetRulesBranchNamePattern:OrganizationRulesetRulesBranchNamePattern": {
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "(String) The name of the ruleset.\n"
+                },
+                "negate": {
+                    "type": "boolean",
+                    "description": "(Boolean) If true, the rule will fail if the pattern matches.\n"
+                },
+                "operator": {
+                    "type": "string",
+                    "description": "(String) The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.\n"
+                },
+                "pattern": {
+                    "type": "string",
+                    "description": "(String) The pattern to match with.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "operator",
+                "pattern"
+            ]
+        },
+        "github:index/OrganizationRulesetRulesCommitAuthorEmailPattern:OrganizationRulesetRulesCommitAuthorEmailPattern": {
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "(String) The name of the ruleset.\n"
+                },
+                "negate": {
+                    "type": "boolean",
+                    "description": "(Boolean) If true, the rule will fail if the pattern matches.\n"
+                },
+                "operator": {
+                    "type": "string",
+                    "description": "(String) The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.\n"
+                },
+                "pattern": {
+                    "type": "string",
+                    "description": "(String) The pattern to match with.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "operator",
+                "pattern"
+            ]
+        },
+        "github:index/OrganizationRulesetRulesCommitMessagePattern:OrganizationRulesetRulesCommitMessagePattern": {
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "(String) The name of the ruleset.\n"
+                },
+                "negate": {
+                    "type": "boolean",
+                    "description": "(Boolean) If true, the rule will fail if the pattern matches.\n"
+                },
+                "operator": {
+                    "type": "string",
+                    "description": "(String) The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.\n"
+                },
+                "pattern": {
+                    "type": "string",
+                    "description": "(String) The pattern to match with.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "operator",
+                "pattern"
+            ]
+        },
+        "github:index/OrganizationRulesetRulesCommitterEmailPattern:OrganizationRulesetRulesCommitterEmailPattern": {
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "(String) The name of the ruleset.\n"
+                },
+                "negate": {
+                    "type": "boolean",
+                    "description": "(Boolean) If true, the rule will fail if the pattern matches.\n"
+                },
+                "operator": {
+                    "type": "string",
+                    "description": "(String) The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.\n"
+                },
+                "pattern": {
+                    "type": "string",
+                    "description": "(String) The pattern to match with.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "operator",
+                "pattern"
+            ]
+        },
+        "github:index/OrganizationRulesetRulesPullRequest:OrganizationRulesetRulesPullRequest": {
+            "properties": {
+                "dismissStaleReviewsOnPush": {
+                    "type": "boolean",
+                    "description": "(Boolean) New, reviewable commits pushed will dismiss previous pull request review approvals. Defaults to `false`.\n"
+                },
+                "requireCodeOwnerReview": {
+                    "type": "boolean",
+                    "description": "(Boolean) Require an approving review in pull requests that modify files that have a designated code owner. Defaults to `false`.\n"
+                },
+                "requireLastPushApproval": {
+                    "type": "boolean",
+                    "description": "(Boolean) Whether the most recent reviewable push must be approved by someone other than the person who pushed it. Defaults to `false`.\n"
+                },
+                "requiredApprovingReviewCount": {
+                    "type": "integer",
+                    "description": "(Number) The number of approving reviews that are required before a pull request can be merged. Defaults to `0`.\n"
+                },
+                "requiredReviewThreadResolution": {
+                    "type": "boolean",
+                    "description": "(Boolean) All conversations on code must be resolved before a pull request can be merged. Defaults to `false`.\n"
+                }
+            },
+            "type": "object"
+        },
+        "github:index/OrganizationRulesetRulesRequiredStatusChecks:OrganizationRulesetRulesRequiredStatusChecks": {
+            "properties": {
+                "requiredChecks": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/github:index/OrganizationRulesetRulesRequiredStatusChecksRequiredCheck:OrganizationRulesetRulesRequiredStatusChecksRequiredCheck"
+                    },
+                    "description": "(Block Set, Min: 1) Status checks that are required. Several can be defined. (see below for nested schema)\n"
+                },
+                "strictRequiredStatusChecksPolicy": {
+                    "type": "boolean",
+                    "description": "(Boolean) Whether pull requests targeting a matching branch must be tested with the latest code. This setting will not take effect unless at least one status check is enabled. Defaults to `false`.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "requiredChecks"
+            ]
+        },
+        "github:index/OrganizationRulesetRulesRequiredStatusChecksRequiredCheck:OrganizationRulesetRulesRequiredStatusChecksRequiredCheck": {
+            "properties": {
+                "context": {
+                    "type": "string",
+                    "description": "(String) The status check context name that must be present on the commit.\n"
+                },
+                "integrationId": {
+                    "type": "integer",
+                    "description": "(Number) The optional integration ID that this status check must originate from.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "context"
+            ]
+        },
+        "github:index/OrganizationRulesetRulesTagNamePattern:OrganizationRulesetRulesTagNamePattern": {
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "(String) The name of the ruleset.\n"
+                },
+                "negate": {
+                    "type": "boolean",
+                    "description": "(Boolean) If true, the rule will fail if the pattern matches.\n"
+                },
+                "operator": {
+                    "type": "string",
+                    "description": "(String) The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.\n"
+                },
+                "pattern": {
+                    "type": "string",
+                    "description": "(String) The pattern to match with.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "operator",
+                "pattern"
+            ]
+        },
         "github:index/OrganizationWebhookConfiguration:OrganizationWebhookConfiguration": {
             "properties": {
                 "contentType": {
@@ -525,6 +857,327 @@
             "type": "object",
             "required": [
                 "branch"
+            ]
+        },
+        "github:index/RepositoryRulesetBypassActor:RepositoryRulesetBypassActor": {
+            "properties": {
+                "actorId": {
+                    "type": "integer",
+                    "description": "(Number) The ID of the actor that can bypass a ruleset\n"
+                },
+                "actorType": {
+                    "type": "string",
+                    "description": "The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`.\n"
+                },
+                "bypassMode": {
+                    "type": "string",
+                    "description": "(String) When the specified actor can bypass the ruleset. pull_request means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pull_request`.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "actorId",
+                "actorType"
+            ]
+        },
+        "github:index/RepositoryRulesetConditions:RepositoryRulesetConditions": {
+            "properties": {
+                "refName": {
+                    "$ref": "#/types/github:index/RepositoryRulesetConditionsRefName:RepositoryRulesetConditionsRefName",
+                    "description": "(Block List, Min: 1, Max: 1) (see below for nested schema)\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "refName"
+            ]
+        },
+        "github:index/RepositoryRulesetConditionsRefName:RepositoryRulesetConditionsRefName": {
+            "properties": {
+                "excludes": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "(List of String) Array of ref names or patterns to exclude. The condition will not pass if any of these patterns match.\n"
+                },
+                "includes": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "(List of String) Array of ref names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~DEFAULT_BRANCH` to include the default branch or `~ALL` to include all branches.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "excludes",
+                "includes"
+            ]
+        },
+        "github:index/RepositoryRulesetRules:RepositoryRulesetRules": {
+            "properties": {
+                "branchNamePattern": {
+                    "$ref": "#/types/github:index/RepositoryRulesetRulesBranchNamePattern:RepositoryRulesetRulesBranchNamePattern",
+                    "description": "(Block List, Max: 1) Parameters to be used for the branch_name_pattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. Conflicts with `tag_name_pattern` as it only applied to rulesets with target `branch`. (see below for nested schema)\n"
+                },
+                "commitAuthorEmailPattern": {
+                    "$ref": "#/types/github:index/RepositoryRulesetRulesCommitAuthorEmailPattern:RepositoryRulesetRulesCommitAuthorEmailPattern",
+                    "description": "(Block List, Max: 1) Parameters to be used for the commit_author_email_pattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)\n"
+                },
+                "commitMessagePattern": {
+                    "$ref": "#/types/github:index/RepositoryRulesetRulesCommitMessagePattern:RepositoryRulesetRulesCommitMessagePattern",
+                    "description": "(Block List, Max: 1) Parameters to be used for the commit_message_pattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)\n"
+                },
+                "committerEmailPattern": {
+                    "$ref": "#/types/github:index/RepositoryRulesetRulesCommitterEmailPattern:RepositoryRulesetRulesCommitterEmailPattern",
+                    "description": "(Block List, Max: 1) Parameters to be used for the committer_email_pattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)\n"
+                },
+                "creation": {
+                    "type": "boolean",
+                    "description": "(Boolean) Only allow users with bypass permission to create matching refs.\n"
+                },
+                "deletion": {
+                    "type": "boolean",
+                    "description": "(Boolean) Only allow users with bypass permissions to delete matching refs.\n"
+                },
+                "nonFastForward": {
+                    "type": "boolean",
+                    "description": "(Boolean) Prevent users with push access from force pushing to branches.\n"
+                },
+                "pullRequest": {
+                    "$ref": "#/types/github:index/RepositoryRulesetRulesPullRequest:RepositoryRulesetRulesPullRequest",
+                    "description": "(Block List, Max: 1) Require all commits be made to a non-target branch and submitted via a pull request before they can be merged. (see below for nested schema)\n"
+                },
+                "requiredDeployments": {
+                    "$ref": "#/types/github:index/RepositoryRulesetRulesRequiredDeployments:RepositoryRulesetRulesRequiredDeployments",
+                    "description": "(Block List, Max: 1) Choose which environments must be successfully deployed to before branches can be merged into a branch that matches this rule. (see below for nested schema)\n"
+                },
+                "requiredLinearHistory": {
+                    "type": "boolean",
+                    "description": "(Boolean) Prevent merge commits from being pushed to matching branches.\n"
+                },
+                "requiredSignatures": {
+                    "type": "boolean",
+                    "description": "(Boolean) Commits pushed to matching branches must have verified signatures.\n"
+                },
+                "requiredStatusChecks": {
+                    "$ref": "#/types/github:index/RepositoryRulesetRulesRequiredStatusChecks:RepositoryRulesetRulesRequiredStatusChecks",
+                    "description": "(Block List, Max: 1) Choose which status checks must pass before branches can be merged into a branch that matches this rule. When enabled, commits must first be pushed to another branch, then merged or pushed directly to a branch that matches this rule after status checks have passed. (see below for nested schema)\n"
+                },
+                "tagNamePattern": {
+                    "$ref": "#/types/github:index/RepositoryRulesetRulesTagNamePattern:RepositoryRulesetRulesTagNamePattern",
+                    "description": "(Block List, Max: 1) Parameters to be used for the tag_name_pattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. Conflicts with `branch_name_pattern` as it only applied to rulesets with target `tag`. (see below for nested schema)\n"
+                },
+                "update": {
+                    "type": "boolean",
+                    "description": "(Boolean) Only allow users with bypass permission to update matching refs.\n"
+                },
+                "updateAllowsFetchAndMerge": {
+                    "type": "boolean",
+                    "description": "(Boolean) Branch can pull changes from its upstream repository. This is only applicable to forked repositories. Requires `update` to be set to `true`. Note: behaviour is affected by a known bug on the GitHub side which may cause issues when using this parameter.\n"
+                }
+            },
+            "type": "object"
+        },
+        "github:index/RepositoryRulesetRulesBranchNamePattern:RepositoryRulesetRulesBranchNamePattern": {
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "(String) The name of the ruleset.\n"
+                },
+                "negate": {
+                    "type": "boolean",
+                    "description": "(Boolean) If true, the rule will fail if the pattern matches.\n"
+                },
+                "operator": {
+                    "type": "string",
+                    "description": "(String) The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.\n"
+                },
+                "pattern": {
+                    "type": "string",
+                    "description": "(String) The pattern to match with.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "operator",
+                "pattern"
+            ]
+        },
+        "github:index/RepositoryRulesetRulesCommitAuthorEmailPattern:RepositoryRulesetRulesCommitAuthorEmailPattern": {
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "(String) The name of the ruleset.\n"
+                },
+                "negate": {
+                    "type": "boolean",
+                    "description": "(Boolean) If true, the rule will fail if the pattern matches.\n"
+                },
+                "operator": {
+                    "type": "string",
+                    "description": "(String) The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.\n"
+                },
+                "pattern": {
+                    "type": "string",
+                    "description": "(String) The pattern to match with.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "operator",
+                "pattern"
+            ]
+        },
+        "github:index/RepositoryRulesetRulesCommitMessagePattern:RepositoryRulesetRulesCommitMessagePattern": {
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "(String) The name of the ruleset.\n"
+                },
+                "negate": {
+                    "type": "boolean",
+                    "description": "(Boolean) If true, the rule will fail if the pattern matches.\n"
+                },
+                "operator": {
+                    "type": "string",
+                    "description": "(String) The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.\n"
+                },
+                "pattern": {
+                    "type": "string",
+                    "description": "(String) The pattern to match with.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "operator",
+                "pattern"
+            ]
+        },
+        "github:index/RepositoryRulesetRulesCommitterEmailPattern:RepositoryRulesetRulesCommitterEmailPattern": {
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "(String) The name of the ruleset.\n"
+                },
+                "negate": {
+                    "type": "boolean",
+                    "description": "(Boolean) If true, the rule will fail if the pattern matches.\n"
+                },
+                "operator": {
+                    "type": "string",
+                    "description": "(String) The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.\n"
+                },
+                "pattern": {
+                    "type": "string",
+                    "description": "(String) The pattern to match with.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "operator",
+                "pattern"
+            ]
+        },
+        "github:index/RepositoryRulesetRulesPullRequest:RepositoryRulesetRulesPullRequest": {
+            "properties": {
+                "dismissStaleReviewsOnPush": {
+                    "type": "boolean",
+                    "description": "(Boolean) New, reviewable commits pushed will dismiss previous pull request review approvals. Defaults to `false`.\n"
+                },
+                "requireCodeOwnerReview": {
+                    "type": "boolean",
+                    "description": "(Boolean) Require an approving review in pull requests that modify files that have a designated code owner. Defaults to `false`.\n"
+                },
+                "requireLastPushApproval": {
+                    "type": "boolean",
+                    "description": "(Boolean) Whether the most recent reviewable push must be approved by someone other than the person who pushed it. Defaults to `false`.\n"
+                },
+                "requiredApprovingReviewCount": {
+                    "type": "integer",
+                    "description": "(Number) The number of approving reviews that are required before a pull request can be merged. Defaults to `0`.\n"
+                },
+                "requiredReviewThreadResolution": {
+                    "type": "boolean",
+                    "description": "(Boolean) All conversations on code must be resolved before a pull request can be merged. Defaults to `false`.\n"
+                }
+            },
+            "type": "object"
+        },
+        "github:index/RepositoryRulesetRulesRequiredDeployments:RepositoryRulesetRulesRequiredDeployments": {
+            "properties": {
+                "requiredDeploymentEnvironments": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "(List of String) The environments that must be successfully deployed to before branches can be merged.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "requiredDeploymentEnvironments"
+            ]
+        },
+        "github:index/RepositoryRulesetRulesRequiredStatusChecks:RepositoryRulesetRulesRequiredStatusChecks": {
+            "properties": {
+                "requiredChecks": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/github:index/RepositoryRulesetRulesRequiredStatusChecksRequiredCheck:RepositoryRulesetRulesRequiredStatusChecksRequiredCheck"
+                    },
+                    "description": "(Block Set, Min: 1) Status checks that are required. Several can be defined. (see below for nested schema)\n"
+                },
+                "strictRequiredStatusChecksPolicy": {
+                    "type": "boolean",
+                    "description": "(Boolean) Whether pull requests targeting a matching branch must be tested with the latest code. This setting will not take effect unless at least one status check is enabled. Defaults to `false`.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "requiredChecks"
+            ]
+        },
+        "github:index/RepositoryRulesetRulesRequiredStatusChecksRequiredCheck:RepositoryRulesetRulesRequiredStatusChecksRequiredCheck": {
+            "properties": {
+                "context": {
+                    "type": "string",
+                    "description": "(String) The status check context name that must be present on the commit.\n"
+                },
+                "integrationId": {
+                    "type": "integer",
+                    "description": "(Number) The optional integration ID that this status check must originate from.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "context"
+            ]
+        },
+        "github:index/RepositoryRulesetRulesTagNamePattern:RepositoryRulesetRulesTagNamePattern": {
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "(String) The name of the ruleset.\n"
+                },
+                "negate": {
+                    "type": "boolean",
+                    "description": "(Boolean) If true, the rule will fail if the pattern matches.\n"
+                },
+                "operator": {
+                    "type": "string",
+                    "description": "(String) The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.\n"
+                },
+                "pattern": {
+                    "type": "string",
+                    "description": "(String) The pattern to match with.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "operator",
+                "pattern"
             ]
         },
         "github:index/RepositorySecurityAndAnalysis:RepositorySecurityAndAnalysis": {
@@ -2896,7 +3549,7 @@
             }
         },
         "github:index/actionsSecret:ActionsSecret": {
-            "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\nconst examplePublicKey = github.getActionsPublicKey({\n    repository: \"example_repository\",\n});\nconst exampleSecretActionsSecret = new github.ActionsSecret(\"exampleSecretActionsSecret\", {\n    repository: \"example_repository\",\n    secretName: \"example_secret_name\",\n    plaintextValue: _var.some_secret_string,\n});\nconst exampleSecretIndex_actionsSecretActionsSecret = new github.ActionsSecret(\"exampleSecretIndex/actionsSecretActionsSecret\", {\n    repository: \"example_repository\",\n    secretName: \"example_secret_name\",\n    encryptedValue: _var.some_encrypted_secret_string,\n});\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\nexample_public_key = github.get_actions_public_key(repository=\"example_repository\")\nexample_secret_actions_secret = github.ActionsSecret(\"exampleSecretActionsSecret\",\n    repository=\"example_repository\",\n    secret_name=\"example_secret_name\",\n    plaintext_value=var[\"some_secret_string\"])\nexample_secret_index_actions_secret_actions_secret = github.ActionsSecret(\"exampleSecretIndex/actionsSecretActionsSecret\",\n    repository=\"example_repository\",\n    secret_name=\"example_secret_name\",\n    encrypted_value=var[\"some_encrypted_secret_string\"])\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Github = Pulumi.Github;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var examplePublicKey = Github.GetActionsPublicKey.Invoke(new()\n    {\n        Repository = \"example_repository\",\n    });\n\n    var exampleSecretActionsSecret = new Github.ActionsSecret(\"exampleSecretActionsSecret\", new()\n    {\n        Repository = \"example_repository\",\n        SecretName = \"example_secret_name\",\n        PlaintextValue = @var.Some_secret_string,\n    });\n\n    var exampleSecretIndex_actionsSecretActionsSecret = new Github.ActionsSecret(\"exampleSecretIndex/actionsSecretActionsSecret\", new()\n    {\n        Repository = \"example_repository\",\n        SecretName = \"example_secret_name\",\n        EncryptedValue = @var.Some_encrypted_secret_string,\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-github/sdk/v5/go/github\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := github.GetActionsPublicKey(ctx, \u0026github.GetActionsPublicKeyArgs{\n\t\t\tRepository: \"example_repository\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = github.NewActionsSecret(ctx, \"exampleSecretActionsSecret\", \u0026github.ActionsSecretArgs{\n\t\t\tRepository:     pulumi.String(\"example_repository\"),\n\t\t\tSecretName:     pulumi.String(\"example_secret_name\"),\n\t\t\tPlaintextValue: pulumi.Any(_var.Some_secret_string),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = github.NewActionsSecret(ctx, \"exampleSecretIndex/actionsSecretActionsSecret\", \u0026github.ActionsSecretArgs{\n\t\t\tRepository:     pulumi.String(\"example_repository\"),\n\t\t\tSecretName:     pulumi.String(\"example_secret_name\"),\n\t\t\tEncryptedValue: pulumi.Any(_var.Some_encrypted_secret_string),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.github.GithubFunctions;\nimport com.pulumi.github.inputs.GetActionsPublicKeyArgs;\nimport com.pulumi.github.ActionsSecret;\nimport com.pulumi.github.ActionsSecretArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var examplePublicKey = GithubFunctions.getActionsPublicKey(GetActionsPublicKeyArgs.builder()\n            .repository(\"example_repository\")\n            .build());\n\n        var exampleSecretActionsSecret = new ActionsSecret(\"exampleSecretActionsSecret\", ActionsSecretArgs.builder()        \n            .repository(\"example_repository\")\n            .secretName(\"example_secret_name\")\n            .plaintextValue(var_.some_secret_string())\n            .build());\n\n        var exampleSecretIndex_actionsSecretActionsSecret = new ActionsSecret(\"exampleSecretIndex/actionsSecretActionsSecret\", ActionsSecretArgs.builder()        \n            .repository(\"example_repository\")\n            .secretName(\"example_secret_name\")\n            .encryptedValue(var_.some_encrypted_secret_string())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  exampleSecretActionsSecret:\n    type: github:ActionsSecret\n    properties:\n      repository: example_repository\n      secretName: example_secret_name\n      plaintextValue: ${var.some_secret_string}\n  exampleSecretIndex/actionsSecretActionsSecret:\n    type: github:ActionsSecret\n    properties:\n      repository: example_repository\n      secretName: example_secret_name\n      encryptedValue: ${var.some_encrypted_secret_string}\nvariables:\n  examplePublicKey:\n    fn::invoke:\n      Function: github:getActionsPublicKey\n      Arguments:\n        repository: example_repository\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nThis resource can be imported using an ID made up of the `repository` and `secret_name`:\n\n```sh\n $ pulumi import github:index/actionsSecret:ActionsSecret example_secret \u003crepository\u003e/\u003csecret_name\u003e\n```\n NOTEthe implementation is limited in that it won't fetch the value of the `plaintext_value` or `encrypted_value` fields when importing. You may need to ignore changes for these as a workaround.\n\n",
+            "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\nconst examplePublicKey = github.getActionsPublicKey({\n    repository: \"example_repository\",\n});\nconst exampleSecretActionsSecret = new github.ActionsSecret(\"exampleSecretActionsSecret\", {\n    repository: \"example_repository\",\n    secretName: \"example_secret_name\",\n    plaintextValue: _var.some_secret_string,\n});\nconst exampleSecretIndex_actionsSecretActionsSecret = new github.ActionsSecret(\"exampleSecretIndex/actionsSecretActionsSecret\", {\n    repository: \"example_repository\",\n    secretName: \"example_secret_name\",\n    encryptedValue: _var.some_encrypted_secret_string,\n});\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\nexample_public_key = github.get_actions_public_key(repository=\"example_repository\")\nexample_secret_actions_secret = github.ActionsSecret(\"exampleSecretActionsSecret\",\n    repository=\"example_repository\",\n    secret_name=\"example_secret_name\",\n    plaintext_value=var[\"some_secret_string\"])\nexample_secret_index_actions_secret_actions_secret = github.ActionsSecret(\"exampleSecretIndex/actionsSecretActionsSecret\",\n    repository=\"example_repository\",\n    secret_name=\"example_secret_name\",\n    encrypted_value=var[\"some_encrypted_secret_string\"])\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Github = Pulumi.Github;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var examplePublicKey = Github.GetActionsPublicKey.Invoke(new()\n    {\n        Repository = \"example_repository\",\n    });\n\n    var exampleSecretActionsSecret = new Github.ActionsSecret(\"exampleSecretActionsSecret\", new()\n    {\n        Repository = \"example_repository\",\n        SecretName = \"example_secret_name\",\n        PlaintextValue = @var.Some_secret_string,\n    });\n\n    var exampleSecretIndex_actionsSecretActionsSecret = new Github.ActionsSecret(\"exampleSecretIndex/actionsSecretActionsSecret\", new()\n    {\n        Repository = \"example_repository\",\n        SecretName = \"example_secret_name\",\n        EncryptedValue = @var.Some_encrypted_secret_string,\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-github/sdk/v5/go/github\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := github.GetActionsPublicKey(ctx, \u0026github.GetActionsPublicKeyArgs{\n\t\t\tRepository: \"example_repository\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = github.NewActionsSecret(ctx, \"exampleSecretActionsSecret\", \u0026github.ActionsSecretArgs{\n\t\t\tRepository:     pulumi.String(\"example_repository\"),\n\t\t\tSecretName:     pulumi.String(\"example_secret_name\"),\n\t\t\tPlaintextValue: pulumi.Any(_var.Some_secret_string),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = github.NewActionsSecret(ctx, \"exampleSecretIndex/actionsSecretActionsSecret\", \u0026github.ActionsSecretArgs{\n\t\t\tRepository:     pulumi.String(\"example_repository\"),\n\t\t\tSecretName:     pulumi.String(\"example_secret_name\"),\n\t\t\tEncryptedValue: pulumi.Any(_var.Some_encrypted_secret_string),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.github.GithubFunctions;\nimport com.pulumi.github.inputs.GetActionsPublicKeyArgs;\nimport com.pulumi.github.ActionsSecret;\nimport com.pulumi.github.ActionsSecretArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var examplePublicKey = GithubFunctions.getActionsPublicKey(GetActionsPublicKeyArgs.builder()\n            .repository(\"example_repository\")\n            .build());\n\n        var exampleSecretActionsSecret = new ActionsSecret(\"exampleSecretActionsSecret\", ActionsSecretArgs.builder()        \n            .repository(\"example_repository\")\n            .secretName(\"example_secret_name\")\n            .plaintextValue(var_.some_secret_string())\n            .build());\n\n        var exampleSecretIndex_actionsSecretActionsSecret = new ActionsSecret(\"exampleSecretIndex/actionsSecretActionsSecret\", ActionsSecretArgs.builder()        \n            .repository(\"example_repository\")\n            .secretName(\"example_secret_name\")\n            .encryptedValue(var_.some_encrypted_secret_string())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  exampleSecretActionsSecret:\n    type: github:ActionsSecret\n    properties:\n      repository: example_repository\n      secretName: example_secret_name\n      plaintextValue: ${var.some_secret_string}\n  exampleSecretIndex/actionsSecretActionsSecret:\n    type: github:ActionsSecret\n    properties:\n      repository: example_repository\n      secretName: example_secret_name\n      encryptedValue: ${var.some_encrypted_secret_string}\nvariables:\n  examplePublicKey:\n    fn::invoke:\n      Function: github:getActionsPublicKey\n      Arguments:\n        repository: example_repository\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nThis resource can be imported using an ID made up of the `repository` and `secret_name`:\n\n```sh\n $ pulumi import github:index/actionsSecret:ActionsSecret example_secret repository/secret_name\n```\n NOTEthe implementation is limited in that it won't fetch the value of the `plaintext_value` or `encrypted_value` fields when importing. You may need to ignore changes for these as a workaround.\n\n",
             "properties": {
                 "createdAt": {
                     "type": "string",
@@ -4435,7 +5088,7 @@
             }
         },
         "github:index/enterpriseOrganization:EnterpriseOrganization": {
-            "description": "This resource allows you to create and manage a GitHub enterprise organization.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\nconst org = new github.EnterpriseOrganization(\"org\", {\n    enterpriseId: data.github_enterprise.enterprise.id,\n    description: \"Organization created with terraform\",\n    billingEmail: \"jon@winteriscoming.com\",\n    adminLogins: [\"jon-snow\"],\n});\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\norg = github.EnterpriseOrganization(\"org\",\n    enterprise_id=data[\"github_enterprise\"][\"enterprise\"][\"id\"],\n    description=\"Organization created with terraform\",\n    billing_email=\"jon@winteriscoming.com\",\n    admin_logins=[\"jon-snow\"])\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Github = Pulumi.Github;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var org = new Github.EnterpriseOrganization(\"org\", new()\n    {\n        EnterpriseId = data.Github_enterprise.Enterprise.Id,\n        Description = \"Organization created with terraform\",\n        BillingEmail = \"jon@winteriscoming.com\",\n        AdminLogins = new[]\n        {\n            \"jon-snow\",\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-github/sdk/v5/go/github\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := github.NewEnterpriseOrganization(ctx, \"org\", \u0026github.EnterpriseOrganizationArgs{\n\t\t\tEnterpriseId: pulumi.Any(data.Github_enterprise.Enterprise.Id),\n\t\t\tDescription:  pulumi.String(\"Organization created with terraform\"),\n\t\t\tBillingEmail: pulumi.String(\"jon@winteriscoming.com\"),\n\t\t\tAdminLogins: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"jon-snow\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.github.EnterpriseOrganization;\nimport com.pulumi.github.EnterpriseOrganizationArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var org = new EnterpriseOrganization(\"org\", EnterpriseOrganizationArgs.builder()        \n            .enterpriseId(data.github_enterprise().enterprise().id())\n            .description(\"Organization created with terraform\")\n            .billingEmail(\"jon@winteriscoming.com\")\n            .adminLogins(\"jon-snow\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  org:\n    type: github:EnterpriseOrganization\n    properties:\n      enterpriseId: ${data.github_enterprise.enterprise.id}\n      description: Organization created with terraform\n      billingEmail: jon@winteriscoming.com\n      adminLogins:\n        - jon-snow\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nSupport for importing organizations is not currently supported. ",
+            "description": "This resource allows you to create and manage a GitHub enterprise organization.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\nconst org = new github.EnterpriseOrganization(\"org\", {\n    enterpriseId: data.github_enterprise.enterprise.id,\n    displayName: \"Some Awesome Org\",\n    description: \"Organization created with terraform\",\n    billingEmail: \"jon@winteriscoming.com\",\n    adminLogins: [\"jon-snow\"],\n});\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\norg = github.EnterpriseOrganization(\"org\",\n    enterprise_id=data[\"github_enterprise\"][\"enterprise\"][\"id\"],\n    display_name=\"Some Awesome Org\",\n    description=\"Organization created with terraform\",\n    billing_email=\"jon@winteriscoming.com\",\n    admin_logins=[\"jon-snow\"])\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Github = Pulumi.Github;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var org = new Github.EnterpriseOrganization(\"org\", new()\n    {\n        EnterpriseId = data.Github_enterprise.Enterprise.Id,\n        DisplayName = \"Some Awesome Org\",\n        Description = \"Organization created with terraform\",\n        BillingEmail = \"jon@winteriscoming.com\",\n        AdminLogins = new[]\n        {\n            \"jon-snow\",\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-github/sdk/v5/go/github\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := github.NewEnterpriseOrganization(ctx, \"org\", \u0026github.EnterpriseOrganizationArgs{\n\t\t\tEnterpriseId: pulumi.Any(data.Github_enterprise.Enterprise.Id),\n\t\t\tDisplayName:  pulumi.String(\"Some Awesome Org\"),\n\t\t\tDescription:  pulumi.String(\"Organization created with terraform\"),\n\t\t\tBillingEmail: pulumi.String(\"jon@winteriscoming.com\"),\n\t\t\tAdminLogins: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"jon-snow\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.github.EnterpriseOrganization;\nimport com.pulumi.github.EnterpriseOrganizationArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var org = new EnterpriseOrganization(\"org\", EnterpriseOrganizationArgs.builder()        \n            .enterpriseId(data.github_enterprise().enterprise().id())\n            .displayName(\"Some Awesome Org\")\n            .description(\"Organization created with terraform\")\n            .billingEmail(\"jon@winteriscoming.com\")\n            .adminLogins(\"jon-snow\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  org:\n    type: github:EnterpriseOrganization\n    properties:\n      enterpriseId: ${data.github_enterprise.enterprise.id}\n      displayName: Some Awesome Org\n      description: Organization created with terraform\n      billingEmail: jon@winteriscoming.com\n      adminLogins:\n        - jon-snow\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nGitHub Enterprise Organization can be imported using the `slug` of the enterprise, combined with the `orgname` of the organization, separated by a `/` character.\n\n```sh\n $ pulumi import github:index/enterpriseOrganization:EnterpriseOrganization org enterp/some-awesome-org\n```\n ",
             "properties": {
                 "adminLogins": {
                     "type": "array",
@@ -4451,6 +5104,10 @@
                 "description": {
                     "type": "string",
                     "description": "The description of the organization.\n"
+                },
+                "displayName": {
+                    "type": "string",
+                    "description": "The display name of the organization.\n"
                 },
                 "enterpriseId": {
                     "type": "string",
@@ -4482,6 +5139,10 @@
                 "description": {
                     "type": "string",
                     "description": "The description of the organization.\n"
+                },
+                "displayName": {
+                    "type": "string",
+                    "description": "The display name of the organization.\n"
                 },
                 "enterpriseId": {
                     "type": "string",
@@ -4516,6 +5177,10 @@
                     "description": {
                         "type": "string",
                         "description": "The description of the organization.\n"
+                    },
+                    "displayName": {
+                        "type": "string",
+                        "description": "The display name of the organization.\n"
                     },
                     "enterpriseId": {
                         "type": "string",
@@ -4991,6 +5656,138 @@
                     "url": {
                         "type": "string",
                         "description": "URL of the project\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "github:index/organizationRuleset:OrganizationRuleset": {
+            "description": "Creates a GitHub organization ruleset.\n\nThis resource allows you to create and manage rulesets on the organization level. When applied, a new ruleset will be created. When destroyed, that ruleset will be removed.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.github.OrganizationRuleset;\nimport com.pulumi.github.OrganizationRulesetArgs;\nimport com.pulumi.github.inputs.OrganizationRulesetBypassActorArgs;\nimport com.pulumi.github.inputs.OrganizationRulesetConditionsArgs;\nimport com.pulumi.github.inputs.OrganizationRulesetConditionsRefNameArgs;\nimport com.pulumi.github.inputs.OrganizationRulesetRulesArgs;\nimport com.pulumi.github.inputs.OrganizationRulesetRulesBranchNamePatternArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new OrganizationRuleset(\"example\", OrganizationRulesetArgs.builder()        \n            .bypassActors(OrganizationRulesetBypassActorArgs.builder()\n                .actorId(13473)\n                .actorType(\"Integration\")\n                .bypassMode(\"always\")\n                .build())\n            .conditions(OrganizationRulesetConditionsArgs.builder()\n                .refName(OrganizationRulesetConditionsRefNameArgs.builder()\n                    .exclude()\n                    .include(\"~ALL\")\n                    .build())\n                .build())\n            .enforcement(\"active\")\n            .rules(OrganizationRulesetRulesArgs.builder()\n                .branchNamePattern(OrganizationRulesetRulesBranchNamePatternArgs.builder()\n                    .name(\"example\")\n                    .negate(false)\n                    .operator(\"starts_with\")\n                    .pattern(\"ex\")\n                    .build())\n                .creation(true)\n                .deletion(true)\n                .requiredLinearHistory(true)\n                .requiredSignatures(true)\n                .update(true)\n                .build())\n            .target(\"branch\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: github:OrganizationRuleset\n    properties:\n      bypassActors:\n        - actorId: 13473\n          actorType: Integration\n          bypassMode: always\n      conditions:\n        refName:\n          exclude: []\n          include:\n            - ~ALL\n      enforcement: active\n      rules:\n        branchNamePattern:\n          name: example\n          negate: false\n          operator: starts_with\n          pattern: ex\n        creation: true\n        deletion: true\n        requiredLinearHistory: true\n        requiredSignatures: true\n        update: true\n      target: branch\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nGitHub Organization Rulesets can be imported using the GitHub ruleset ID e.g.\n\n```sh\n $ pulumi import github:index/organizationRuleset:OrganizationRuleset example 12345`\n```\n\n ",
+            "properties": {
+                "bypassActors": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/github:index/OrganizationRulesetBypassActor:OrganizationRulesetBypassActor"
+                    },
+                    "description": "(Block List) The actors that can bypass the rules in this ruleset. (see below for nested schema)\n"
+                },
+                "conditions": {
+                    "$ref": "#/types/github:index/OrganizationRulesetConditions:OrganizationRulesetConditions",
+                    "description": "(Block List, Max: 1) Parameters for an organization ruleset ref name condition. (see below for nested schema)\n"
+                },
+                "enforcement": {
+                    "type": "string",
+                    "description": "(String) Possible values for Enforcement are `disabled`, `active`, `evaluate`. Note: `evaluate` is currently only supported for owners of type `organization`.\n"
+                },
+                "etag": {
+                    "type": "string",
+                    "description": "(String)\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "(String) The name of the ruleset.\n"
+                },
+                "nodeId": {
+                    "type": "string",
+                    "description": "(String) GraphQL global node id for use with v4 API.\n"
+                },
+                "rules": {
+                    "$ref": "#/types/github:index/OrganizationRulesetRules:OrganizationRulesetRules",
+                    "description": "(Block List, Min: 1, Max: 1) Rules within the ruleset. (see below for nested schema)\n"
+                },
+                "rulesetId": {
+                    "type": "integer",
+                    "description": "(Number) GitHub ID for the ruleset.\n"
+                },
+                "target": {
+                    "type": "string",
+                    "description": "(String) Possible values are `branch` and `tag`.\n"
+                }
+            },
+            "required": [
+                "enforcement",
+                "etag",
+                "name",
+                "nodeId",
+                "rules",
+                "rulesetId",
+                "target"
+            ],
+            "inputProperties": {
+                "bypassActors": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/github:index/OrganizationRulesetBypassActor:OrganizationRulesetBypassActor"
+                    },
+                    "description": "(Block List) The actors that can bypass the rules in this ruleset. (see below for nested schema)\n"
+                },
+                "conditions": {
+                    "$ref": "#/types/github:index/OrganizationRulesetConditions:OrganizationRulesetConditions",
+                    "description": "(Block List, Max: 1) Parameters for an organization ruleset ref name condition. (see below for nested schema)\n"
+                },
+                "enforcement": {
+                    "type": "string",
+                    "description": "(String) Possible values for Enforcement are `disabled`, `active`, `evaluate`. Note: `evaluate` is currently only supported for owners of type `organization`.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "(String) The name of the ruleset.\n"
+                },
+                "rules": {
+                    "$ref": "#/types/github:index/OrganizationRulesetRules:OrganizationRulesetRules",
+                    "description": "(Block List, Min: 1, Max: 1) Rules within the ruleset. (see below for nested schema)\n"
+                },
+                "target": {
+                    "type": "string",
+                    "description": "(String) Possible values are `branch` and `tag`.\n"
+                }
+            },
+            "requiredInputs": [
+                "enforcement",
+                "rules",
+                "target"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering OrganizationRuleset resources.\n",
+                "properties": {
+                    "bypassActors": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/github:index/OrganizationRulesetBypassActor:OrganizationRulesetBypassActor"
+                        },
+                        "description": "(Block List) The actors that can bypass the rules in this ruleset. (see below for nested schema)\n"
+                    },
+                    "conditions": {
+                        "$ref": "#/types/github:index/OrganizationRulesetConditions:OrganizationRulesetConditions",
+                        "description": "(Block List, Max: 1) Parameters for an organization ruleset ref name condition. (see below for nested schema)\n"
+                    },
+                    "enforcement": {
+                        "type": "string",
+                        "description": "(String) Possible values for Enforcement are `disabled`, `active`, `evaluate`. Note: `evaluate` is currently only supported for owners of type `organization`.\n"
+                    },
+                    "etag": {
+                        "type": "string",
+                        "description": "(String)\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "(String) The name of the ruleset.\n"
+                    },
+                    "nodeId": {
+                        "type": "string",
+                        "description": "(String) GraphQL global node id for use with v4 API.\n"
+                    },
+                    "rules": {
+                        "$ref": "#/types/github:index/OrganizationRulesetRules:OrganizationRulesetRules",
+                        "description": "(Block List, Min: 1, Max: 1) Rules within the ruleset. (see below for nested schema)\n"
+                    },
+                    "rulesetId": {
+                        "type": "integer",
+                        "description": "(Number) GitHub ID for the ruleset.\n"
+                    },
+                    "target": {
+                        "type": "string",
+                        "description": "(String) Possible values are `branch` and `tag`.\n"
                     }
                 },
                 "type": "object"
@@ -5928,6 +6725,7 @@
                 "securityAndAnalysis",
                 "sshCloneUrl",
                 "svnUrl",
+                "topics",
                 "visibility"
             ],
             "inputProperties": {
@@ -7408,6 +8206,150 @@
                 "type": "object"
             }
         },
+        "github:index/repositoryRuleset:RepositoryRuleset": {
+            "description": "Creates a GitHub repository ruleset.\n\nThis resource allows you to create and manage rulesets on the repository level. When applied, a new ruleset will be created. When destroyed, that ruleset will be removed.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\nconst exampleRepository = new github.Repository(\"exampleRepository\", {description: \"Example repository\"});\nconst exampleRepositoryRuleset = new github.RepositoryRuleset(\"exampleRepositoryRuleset\", {\n    repository: exampleRepository.name,\n    target: \"branch\",\n    enforcement: \"active\",\n    conditions: {\n        refName: {\n            includes: [\"~ALL\"],\n            excludes: [],\n        },\n    },\n    bypassActors: [{\n        actorId: 13473,\n        actorType: \"Integration\",\n        bypassMode: \"always\",\n    }],\n    rules: {\n        creation: true,\n        update: true,\n        deletion: true,\n        requiredLinearHistory: true,\n        requiredSignatures: true,\n        requiredDeployments: {\n            requiredDeploymentEnvironments: [\"test\"],\n        },\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\nexample_repository = github.Repository(\"exampleRepository\", description=\"Example repository\")\nexample_repository_ruleset = github.RepositoryRuleset(\"exampleRepositoryRuleset\",\n    repository=example_repository.name,\n    target=\"branch\",\n    enforcement=\"active\",\n    conditions=github.RepositoryRulesetConditionsArgs(\n        ref_name=github.RepositoryRulesetConditionsRefNameArgs(\n            includes=[\"~ALL\"],\n            excludes=[],\n        ),\n    ),\n    bypass_actors=[github.RepositoryRulesetBypassActorArgs(\n        actor_id=13473,\n        actor_type=\"Integration\",\n        bypass_mode=\"always\",\n    )],\n    rules=github.RepositoryRulesetRulesArgs(\n        creation=True,\n        update=True,\n        deletion=True,\n        required_linear_history=True,\n        required_signatures=True,\n        required_deployments=github.RepositoryRulesetRulesRequiredDeploymentsArgs(\n            required_deployment_environments=[\"test\"],\n        ),\n    ))\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Github = Pulumi.Github;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var exampleRepository = new Github.Repository(\"exampleRepository\", new()\n    {\n        Description = \"Example repository\",\n    });\n\n    var exampleRepositoryRuleset = new Github.RepositoryRuleset(\"exampleRepositoryRuleset\", new()\n    {\n        Repository = exampleRepository.Name,\n        Target = \"branch\",\n        Enforcement = \"active\",\n        Conditions = new Github.Inputs.RepositoryRulesetConditionsArgs\n        {\n            RefName = new Github.Inputs.RepositoryRulesetConditionsRefNameArgs\n            {\n                Includes = new[]\n                {\n                    \"~ALL\",\n                },\n                Excludes = new[] {},\n            },\n        },\n        BypassActors = new[]\n        {\n            new Github.Inputs.RepositoryRulesetBypassActorArgs\n            {\n                ActorId = 13473,\n                ActorType = \"Integration\",\n                BypassMode = \"always\",\n            },\n        },\n        Rules = new Github.Inputs.RepositoryRulesetRulesArgs\n        {\n            Creation = true,\n            Update = true,\n            Deletion = true,\n            RequiredLinearHistory = true,\n            RequiredSignatures = true,\n            RequiredDeployments = new Github.Inputs.RepositoryRulesetRulesRequiredDeploymentsArgs\n            {\n                RequiredDeploymentEnvironments = new[]\n                {\n                    \"test\",\n                },\n            },\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-github/sdk/v5/go/github\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\texampleRepository, err := github.NewRepository(ctx, \"exampleRepository\", \u0026github.RepositoryArgs{\n\t\t\tDescription: pulumi.String(\"Example repository\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = github.NewRepositoryRuleset(ctx, \"exampleRepositoryRuleset\", \u0026github.RepositoryRulesetArgs{\n\t\t\tRepository:  exampleRepository.Name,\n\t\t\tTarget:      pulumi.String(\"branch\"),\n\t\t\tEnforcement: pulumi.String(\"active\"),\n\t\t\tConditions: \u0026github.RepositoryRulesetConditionsArgs{\n\t\t\t\tRefName: \u0026github.RepositoryRulesetConditionsRefNameArgs{\n\t\t\t\t\tIncludes: pulumi.StringArray{\n\t\t\t\t\t\tpulumi.String(\"~ALL\"),\n\t\t\t\t\t},\n\t\t\t\t\tExcludes: pulumi.StringArray{},\n\t\t\t\t},\n\t\t\t},\n\t\t\tBypassActors: github.RepositoryRulesetBypassActorArray{\n\t\t\t\t\u0026github.RepositoryRulesetBypassActorArgs{\n\t\t\t\t\tActorId:    pulumi.Int(13473),\n\t\t\t\t\tActorType:  pulumi.String(\"Integration\"),\n\t\t\t\t\tBypassMode: pulumi.String(\"always\"),\n\t\t\t\t},\n\t\t\t},\n\t\t\tRules: \u0026github.RepositoryRulesetRulesArgs{\n\t\t\t\tCreation:              pulumi.Bool(true),\n\t\t\t\tUpdate:                pulumi.Bool(true),\n\t\t\t\tDeletion:              pulumi.Bool(true),\n\t\t\t\tRequiredLinearHistory: pulumi.Bool(true),\n\t\t\t\tRequiredSignatures:    pulumi.Bool(true),\n\t\t\t\tRequiredDeployments: \u0026github.RepositoryRulesetRulesRequiredDeploymentsArgs{\n\t\t\t\t\tRequiredDeploymentEnvironments: pulumi.StringArray{\n\t\t\t\t\t\tpulumi.String(\"test\"),\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.github.Repository;\nimport com.pulumi.github.RepositoryArgs;\nimport com.pulumi.github.RepositoryRuleset;\nimport com.pulumi.github.RepositoryRulesetArgs;\nimport com.pulumi.github.inputs.RepositoryRulesetConditionsArgs;\nimport com.pulumi.github.inputs.RepositoryRulesetConditionsRefNameArgs;\nimport com.pulumi.github.inputs.RepositoryRulesetBypassActorArgs;\nimport com.pulumi.github.inputs.RepositoryRulesetRulesArgs;\nimport com.pulumi.github.inputs.RepositoryRulesetRulesRequiredDeploymentsArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var exampleRepository = new Repository(\"exampleRepository\", RepositoryArgs.builder()        \n            .description(\"Example repository\")\n            .build());\n\n        var exampleRepositoryRuleset = new RepositoryRuleset(\"exampleRepositoryRuleset\", RepositoryRulesetArgs.builder()        \n            .repository(exampleRepository.name())\n            .target(\"branch\")\n            .enforcement(\"active\")\n            .conditions(RepositoryRulesetConditionsArgs.builder()\n                .refName(RepositoryRulesetConditionsRefNameArgs.builder()\n                    .includes(\"~ALL\")\n                    .excludes()\n                    .build())\n                .build())\n            .bypassActors(RepositoryRulesetBypassActorArgs.builder()\n                .actorId(13473)\n                .actorType(\"Integration\")\n                .bypassMode(\"always\")\n                .build())\n            .rules(RepositoryRulesetRulesArgs.builder()\n                .creation(true)\n                .update(true)\n                .deletion(true)\n                .requiredLinearHistory(true)\n                .requiredSignatures(true)\n                .requiredDeployments(RepositoryRulesetRulesRequiredDeploymentsArgs.builder()\n                    .requiredDeploymentEnvironments(\"test\")\n                    .build())\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  exampleRepository:\n    type: github:Repository\n    properties:\n      description: Example repository\n  exampleRepositoryRuleset:\n    type: github:RepositoryRuleset\n    properties:\n      repository: ${exampleRepository.name}\n      target: branch\n      enforcement: active\n      conditions:\n        refName:\n          includes:\n            - ~ALL\n          excludes: []\n      bypassActors:\n        - actorId: 13473\n          actorType: Integration\n          bypassMode: always\n      rules:\n        creation: true\n        update: true\n        deletion: true\n        requiredLinearHistory: true\n        requiredSignatures: true\n        requiredDeployments:\n          requiredDeploymentEnvironments:\n            - test\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nGitHub Repository Rulesets can be imported using the GitHub repository name and ruleset ID e.g.\n\n```sh\n $ pulumi import github:index/repositoryRuleset:RepositoryRuleset example example:12345`\n```\n\n ",
+            "properties": {
+                "bypassActors": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/github:index/RepositoryRulesetBypassActor:RepositoryRulesetBypassActor"
+                    },
+                    "description": "(Block List) The actors that can bypass the rules in this ruleset. (see below for nested schema)\n"
+                },
+                "conditions": {
+                    "$ref": "#/types/github:index/RepositoryRulesetConditions:RepositoryRulesetConditions",
+                    "description": "(Block List, Max: 1) Parameters for a repository ruleset ref name condition. (see below for nested schema)\n"
+                },
+                "enforcement": {
+                    "type": "string",
+                    "description": "(String) Possible values for Enforcement are `disabled`, `active`, `evaluate`. Note: `evaluate` is currently only supported for owners of type `organization`.\n"
+                },
+                "etag": {
+                    "type": "string",
+                    "description": "(String)\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "(String) The name of the ruleset.\n"
+                },
+                "nodeId": {
+                    "type": "string",
+                    "description": "(String) GraphQL global node id for use with v4 API.\n"
+                },
+                "repository": {
+                    "type": "string",
+                    "description": "(String) Name of the repository to apply rulset to.\n"
+                },
+                "rules": {
+                    "$ref": "#/types/github:index/RepositoryRulesetRules:RepositoryRulesetRules",
+                    "description": "(Block List, Min: 1, Max: 1) Rules within the ruleset. (see below for nested schema)\n"
+                },
+                "rulesetId": {
+                    "type": "integer",
+                    "description": "(Number) GitHub ID for the ruleset.\n"
+                },
+                "target": {
+                    "type": "string",
+                    "description": "(String) Possible values are `branch` and `tag`.\n"
+                }
+            },
+            "required": [
+                "enforcement",
+                "etag",
+                "name",
+                "nodeId",
+                "rules",
+                "rulesetId",
+                "target"
+            ],
+            "inputProperties": {
+                "bypassActors": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/github:index/RepositoryRulesetBypassActor:RepositoryRulesetBypassActor"
+                    },
+                    "description": "(Block List) The actors that can bypass the rules in this ruleset. (see below for nested schema)\n"
+                },
+                "conditions": {
+                    "$ref": "#/types/github:index/RepositoryRulesetConditions:RepositoryRulesetConditions",
+                    "description": "(Block List, Max: 1) Parameters for a repository ruleset ref name condition. (see below for nested schema)\n"
+                },
+                "enforcement": {
+                    "type": "string",
+                    "description": "(String) Possible values for Enforcement are `disabled`, `active`, `evaluate`. Note: `evaluate` is currently only supported for owners of type `organization`.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "(String) The name of the ruleset.\n"
+                },
+                "repository": {
+                    "type": "string",
+                    "description": "(String) Name of the repository to apply rulset to.\n"
+                },
+                "rules": {
+                    "$ref": "#/types/github:index/RepositoryRulesetRules:RepositoryRulesetRules",
+                    "description": "(Block List, Min: 1, Max: 1) Rules within the ruleset. (see below for nested schema)\n"
+                },
+                "target": {
+                    "type": "string",
+                    "description": "(String) Possible values are `branch` and `tag`.\n"
+                }
+            },
+            "requiredInputs": [
+                "enforcement",
+                "rules",
+                "target"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering RepositoryRuleset resources.\n",
+                "properties": {
+                    "bypassActors": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/github:index/RepositoryRulesetBypassActor:RepositoryRulesetBypassActor"
+                        },
+                        "description": "(Block List) The actors that can bypass the rules in this ruleset. (see below for nested schema)\n"
+                    },
+                    "conditions": {
+                        "$ref": "#/types/github:index/RepositoryRulesetConditions:RepositoryRulesetConditions",
+                        "description": "(Block List, Max: 1) Parameters for a repository ruleset ref name condition. (see below for nested schema)\n"
+                    },
+                    "enforcement": {
+                        "type": "string",
+                        "description": "(String) Possible values for Enforcement are `disabled`, `active`, `evaluate`. Note: `evaluate` is currently only supported for owners of type `organization`.\n"
+                    },
+                    "etag": {
+                        "type": "string",
+                        "description": "(String)\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "(String) The name of the ruleset.\n"
+                    },
+                    "nodeId": {
+                        "type": "string",
+                        "description": "(String) GraphQL global node id for use with v4 API.\n"
+                    },
+                    "repository": {
+                        "type": "string",
+                        "description": "(String) Name of the repository to apply rulset to.\n"
+                    },
+                    "rules": {
+                        "$ref": "#/types/github:index/RepositoryRulesetRules:RepositoryRulesetRules",
+                        "description": "(Block List, Min: 1, Max: 1) Rules within the ruleset. (see below for nested schema)\n"
+                    },
+                    "rulesetId": {
+                        "type": "integer",
+                        "description": "(Number) GitHub ID for the ruleset.\n"
+                    },
+                    "target": {
+                        "type": "string",
+                        "description": "(String) Possible values are `branch` and `tag`.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
         "github:index/repositoryTagProtection:RepositoryTagProtection": {
             "description": "This resource allows you to create and manage a repository tag protection for repositories within your GitHub organization or personal account.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\nconst example = new github.RepositoryTagProtection(\"example\", {\n    pattern: \"v*\",\n    repository: \"example-repository\",\n});\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\nexample = github.RepositoryTagProtection(\"example\",\n    pattern=\"v*\",\n    repository=\"example-repository\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Github = Pulumi.Github;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new Github.RepositoryTagProtection(\"example\", new()\n    {\n        Pattern = \"v*\",\n        Repository = \"example-repository\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-github/sdk/v5/go/github\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := github.NewRepositoryTagProtection(ctx, \"example\", \u0026github.RepositoryTagProtectionArgs{\n\t\t\tPattern:    pulumi.String(\"v*\"),\n\t\t\tRepository: pulumi.String(\"example-repository\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.github.RepositoryTagProtection;\nimport com.pulumi.github.RepositoryTagProtectionArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new RepositoryTagProtection(\"example\", RepositoryTagProtectionArgs.builder()        \n            .pattern(\"v*\")\n            .repository(\"example-repository\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: github:RepositoryTagProtection\n    properties:\n      pattern: v*\n      repository: example-repository\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nRepository tag protections can be imported using the `name` of the repository, combined with the `id` of the tag protection, separated by a `/` character. The `id` of the tag protection can be found using the [GitHub API](https://docs.github.com/en/rest/repos/tags#list-tag-protection-states-for-a-repository).\n\nImporting uses the name of the repository, as well as the ID of the tag protection, e.g.\n\n```sh\n $ pulumi import github:index/repositoryTagProtection:RepositoryTagProtection terraform my-repo/31077\n```\n ",
             "properties": {
@@ -7461,6 +8403,60 @@
                     "tagProtectionId": {
                         "type": "integer",
                         "description": "The ID of the tag protection.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "github:index/repositoryTopics:RepositoryTopics": {
+            "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\nconst testRepository = github.getRepository({\n    name: \"test\",\n});\nconst testRepositoryTopics = new github.RepositoryTopics(\"testRepositoryTopics\", {\n    repository: github_repository.test.name,\n    topics: [\n        \"topic-1\",\n        \"topic-2\",\n    ],\n});\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\ntest_repository = github.get_repository(name=\"test\")\ntest_repository_topics = github.RepositoryTopics(\"testRepositoryTopics\",\n    repository=github_repository[\"test\"][\"name\"],\n    topics=[\n        \"topic-1\",\n        \"topic-2\",\n    ])\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Github = Pulumi.Github;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var testRepository = Github.GetRepository.Invoke(new()\n    {\n        Name = \"test\",\n    });\n\n    var testRepositoryTopics = new Github.RepositoryTopics(\"testRepositoryTopics\", new()\n    {\n        Repository = github_repository.Test.Name,\n        Topics = new[]\n        {\n            \"topic-1\",\n            \"topic-2\",\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-github/sdk/v5/go/github\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := github.LookupRepository(ctx, \u0026github.LookupRepositoryArgs{\n\t\t\tName: pulumi.StringRef(\"test\"),\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = github.NewRepositoryTopics(ctx, \"testRepositoryTopics\", \u0026github.RepositoryTopicsArgs{\n\t\t\tRepository: pulumi.Any(github_repository.Test.Name),\n\t\t\tTopics: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"topic-1\"),\n\t\t\t\tpulumi.String(\"topic-2\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.github.GithubFunctions;\nimport com.pulumi.github.inputs.GetRepositoryArgs;\nimport com.pulumi.github.RepositoryTopics;\nimport com.pulumi.github.RepositoryTopicsArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var testRepository = GithubFunctions.getRepository(GetRepositoryArgs.builder()\n            .name(\"test\")\n            .build());\n\n        var testRepositoryTopics = new RepositoryTopics(\"testRepositoryTopics\", RepositoryTopicsArgs.builder()        \n            .repository(github_repository.test().name())\n            .topics(            \n                \"topic-1\",\n                \"topic-2\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  testRepositoryTopics:\n    type: github:RepositoryTopics\n    properties:\n      repository: ${github_repository.test.name}\n      topics:\n        - topic-1\n        - topic-2\nvariables:\n  testRepository:\n    fn::invoke:\n      Function: github:getRepository\n      Arguments:\n        name: test\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nRepository topics can be imported using the `name` of the repository.\n\n```sh\n $ pulumi import github:index/repositoryTopics:RepositoryTopics terraform terraform\n```\n ",
+            "properties": {
+                "repository": {
+                    "type": "string",
+                    "description": "The repository name.\n"
+                },
+                "topics": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of topics to add to the repository.\n"
+                }
+            },
+            "required": [
+                "repository",
+                "topics"
+            ],
+            "inputProperties": {
+                "repository": {
+                    "type": "string",
+                    "description": "The repository name.\n"
+                },
+                "topics": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of topics to add to the repository.\n"
+                }
+            },
+            "requiredInputs": [
+                "repository",
+                "topics"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering RepositoryTopics resources.\n",
+                "properties": {
+                    "repository": {
+                        "type": "string",
+                        "description": "The repository name.\n"
+                    },
+                    "topics": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "A list of topics to add to the repository.\n"
                     }
                 },
                 "type": "object"
