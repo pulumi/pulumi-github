@@ -19,10 +19,10 @@ public final class OrganizationRulesetConditionsRepositoryName {
      */
     private List<String> excludes;
     /**
-     * @return (List of String) Array of repository names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~ALL` to include all repositories.
+     * @return (List of String) Array of ref names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~DEFAULT_BRANCH` to include the default branch or `~ALL` to include all branches.
      * 
      */
-    private List<String> inlcudes;
+    private List<String> includes;
     private @Nullable Boolean protected_;
 
     private OrganizationRulesetConditionsRepositoryName() {}
@@ -34,11 +34,11 @@ public final class OrganizationRulesetConditionsRepositoryName {
         return this.excludes;
     }
     /**
-     * @return (List of String) Array of repository names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~ALL` to include all repositories.
+     * @return (List of String) Array of ref names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~DEFAULT_BRANCH` to include the default branch or `~ALL` to include all branches.
      * 
      */
-    public List<String> inlcudes() {
-        return this.inlcudes;
+    public List<String> includes() {
+        return this.includes;
     }
     public Optional<Boolean> protected_() {
         return Optional.ofNullable(this.protected_);
@@ -54,13 +54,13 @@ public final class OrganizationRulesetConditionsRepositoryName {
     @CustomType.Builder
     public static final class Builder {
         private List<String> excludes;
-        private List<String> inlcudes;
+        private List<String> includes;
         private @Nullable Boolean protected_;
         public Builder() {}
         public Builder(OrganizationRulesetConditionsRepositoryName defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.excludes = defaults.excludes;
-    	      this.inlcudes = defaults.inlcudes;
+    	      this.includes = defaults.includes;
     	      this.protected_ = defaults.protected_;
         }
 
@@ -73,12 +73,12 @@ public final class OrganizationRulesetConditionsRepositoryName {
             return excludes(List.of(excludes));
         }
         @CustomType.Setter
-        public Builder inlcudes(List<String> inlcudes) {
-            this.inlcudes = Objects.requireNonNull(inlcudes);
+        public Builder includes(List<String> includes) {
+            this.includes = Objects.requireNonNull(includes);
             return this;
         }
-        public Builder inlcudes(String... inlcudes) {
-            return inlcudes(List.of(inlcudes));
+        public Builder includes(String... includes) {
+            return includes(List.of(includes));
         }
         @CustomType.Setter("protected")
         public Builder protected_(@Nullable Boolean protected_) {
@@ -88,7 +88,7 @@ public final class OrganizationRulesetConditionsRepositoryName {
         public OrganizationRulesetConditionsRepositoryName build() {
             final var o = new OrganizationRulesetConditionsRepositoryName();
             o.excludes = excludes;
-            o.inlcudes = inlcudes;
+            o.includes = includes;
             o.protected_ = protected_;
             return o;
         }

@@ -342,6 +342,9 @@
                                             "exclude": {
                                                 "maxItemsOne": false
                                             },
+                                            "include": {
+                                                "maxItemsOne": false
+                                            },
                                             "inlcude": {
                                                 "maxItemsOne": false
                                             }
@@ -1372,7 +1375,7 @@
             },
             "github:index/OrganizationRulesetConditionsRepositoryName:OrganizationRulesetConditionsRepositoryName": {
                 "excludes": "exclude",
-                "inlcudes": "inlcude"
+                "includes": "include"
             },
             "github:index/OrganizationRulesetRules:OrganizationRulesetRules": {
                 "branchNamePattern": "branch_name_pattern",

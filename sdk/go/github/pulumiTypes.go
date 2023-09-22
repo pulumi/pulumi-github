@@ -1810,7 +1810,7 @@ type OrganizationRulesetBypassActor struct {
 	// The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`.
 	ActorType string `pulumi:"actorType"`
 	// (String) When the specified actor can bypass the ruleset. pullRequest means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pullRequest`.
-	BypassMode *string `pulumi:"bypassMode"`
+	BypassMode string `pulumi:"bypassMode"`
 }
 
 // OrganizationRulesetBypassActorInput is an input type that accepts OrganizationRulesetBypassActorArgs and OrganizationRulesetBypassActorOutput values.
@@ -1830,7 +1830,7 @@ type OrganizationRulesetBypassActorArgs struct {
 	// The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`.
 	ActorType pulumi.StringInput `pulumi:"actorType"`
 	// (String) When the specified actor can bypass the ruleset. pullRequest means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pullRequest`.
-	BypassMode pulumi.StringPtrInput `pulumi:"bypassMode"`
+	BypassMode pulumi.StringInput `pulumi:"bypassMode"`
 }
 
 func (OrganizationRulesetBypassActorArgs) ElementType() reflect.Type {
@@ -1913,8 +1913,8 @@ func (o OrganizationRulesetBypassActorOutput) ActorType() pulumi.StringOutput {
 }
 
 // (String) When the specified actor can bypass the ruleset. pullRequest means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pullRequest`.
-func (o OrganizationRulesetBypassActorOutput) BypassMode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v OrganizationRulesetBypassActor) *string { return v.BypassMode }).(pulumi.StringPtrOutput)
+func (o OrganizationRulesetBypassActorOutput) BypassMode() pulumi.StringOutput {
+	return o.ApplyT(func(v OrganizationRulesetBypassActor) string { return v.BypassMode }).(pulumi.StringOutput)
 }
 
 type OrganizationRulesetBypassActorArrayOutput struct{ *pulumi.OutputState }
@@ -2335,8 +2335,8 @@ func (o OrganizationRulesetConditionsRefNamePtrOutput) Includes() pulumi.StringA
 type OrganizationRulesetConditionsRepositoryName struct {
 	// (List of String) Array of ref names or patterns to exclude. The condition will not pass if any of these patterns match.
 	Excludes []string `pulumi:"excludes"`
-	// (List of String) Array of repository names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~ALL` to include all repositories.
-	Inlcudes  []string `pulumi:"inlcudes"`
+	// (List of String) Array of ref names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~DEFAULT_BRANCH` to include the default branch or `~ALL` to include all branches.
+	Includes  []string `pulumi:"includes"`
 	Protected *bool    `pulumi:"protected"`
 }
 
@@ -2354,8 +2354,8 @@ type OrganizationRulesetConditionsRepositoryNameInput interface {
 type OrganizationRulesetConditionsRepositoryNameArgs struct {
 	// (List of String) Array of ref names or patterns to exclude. The condition will not pass if any of these patterns match.
 	Excludes pulumi.StringArrayInput `pulumi:"excludes"`
-	// (List of String) Array of repository names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~ALL` to include all repositories.
-	Inlcudes  pulumi.StringArrayInput `pulumi:"inlcudes"`
+	// (List of String) Array of ref names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~DEFAULT_BRANCH` to include the default branch or `~ALL` to include all branches.
+	Includes  pulumi.StringArrayInput `pulumi:"includes"`
 	Protected pulumi.BoolPtrInput     `pulumi:"protected"`
 }
 
@@ -2459,9 +2459,9 @@ func (o OrganizationRulesetConditionsRepositoryNameOutput) Excludes() pulumi.Str
 	return o.ApplyT(func(v OrganizationRulesetConditionsRepositoryName) []string { return v.Excludes }).(pulumi.StringArrayOutput)
 }
 
-// (List of String) Array of repository names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~ALL` to include all repositories.
-func (o OrganizationRulesetConditionsRepositoryNameOutput) Inlcudes() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v OrganizationRulesetConditionsRepositoryName) []string { return v.Inlcudes }).(pulumi.StringArrayOutput)
+// (List of String) Array of ref names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~DEFAULT_BRANCH` to include the default branch or `~ALL` to include all branches.
+func (o OrganizationRulesetConditionsRepositoryNameOutput) Includes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v OrganizationRulesetConditionsRepositoryName) []string { return v.Includes }).(pulumi.StringArrayOutput)
 }
 
 func (o OrganizationRulesetConditionsRepositoryNameOutput) Protected() pulumi.BoolPtrOutput {
@@ -2508,13 +2508,13 @@ func (o OrganizationRulesetConditionsRepositoryNamePtrOutput) Excludes() pulumi.
 	}).(pulumi.StringArrayOutput)
 }
 
-// (List of String) Array of repository names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~ALL` to include all repositories.
-func (o OrganizationRulesetConditionsRepositoryNamePtrOutput) Inlcudes() pulumi.StringArrayOutput {
+// (List of String) Array of ref names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~DEFAULT_BRANCH` to include the default branch or `~ALL` to include all branches.
+func (o OrganizationRulesetConditionsRepositoryNamePtrOutput) Includes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *OrganizationRulesetConditionsRepositoryName) []string {
 		if v == nil {
 			return nil
 		}
-		return v.Inlcudes
+		return v.Includes
 	}).(pulumi.StringArrayOutput)
 }
 
@@ -5994,7 +5994,7 @@ type RepositoryRulesetBypassActor struct {
 	// The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`.
 	ActorType string `pulumi:"actorType"`
 	// (String) When the specified actor can bypass the ruleset. pullRequest means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pullRequest`.
-	BypassMode *string `pulumi:"bypassMode"`
+	BypassMode string `pulumi:"bypassMode"`
 }
 
 // RepositoryRulesetBypassActorInput is an input type that accepts RepositoryRulesetBypassActorArgs and RepositoryRulesetBypassActorOutput values.
@@ -6014,7 +6014,7 @@ type RepositoryRulesetBypassActorArgs struct {
 	// The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`.
 	ActorType pulumi.StringInput `pulumi:"actorType"`
 	// (String) When the specified actor can bypass the ruleset. pullRequest means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pullRequest`.
-	BypassMode pulumi.StringPtrInput `pulumi:"bypassMode"`
+	BypassMode pulumi.StringInput `pulumi:"bypassMode"`
 }
 
 func (RepositoryRulesetBypassActorArgs) ElementType() reflect.Type {
@@ -6097,8 +6097,8 @@ func (o RepositoryRulesetBypassActorOutput) ActorType() pulumi.StringOutput {
 }
 
 // (String) When the specified actor can bypass the ruleset. pullRequest means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pullRequest`.
-func (o RepositoryRulesetBypassActorOutput) BypassMode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RepositoryRulesetBypassActor) *string { return v.BypassMode }).(pulumi.StringPtrOutput)
+func (o RepositoryRulesetBypassActorOutput) BypassMode() pulumi.StringOutput {
+	return o.ApplyT(func(v RepositoryRulesetBypassActor) string { return v.BypassMode }).(pulumi.StringOutput)
 }
 
 type RepositoryRulesetBypassActorArrayOutput struct{ *pulumi.OutputState }

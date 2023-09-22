@@ -725,7 +725,7 @@ class OrganizationRulesetBypassActor(dict):
     def __init__(__self__, *,
                  actor_id: int,
                  actor_type: str,
-                 bypass_mode: Optional[str] = None):
+                 bypass_mode: str):
         """
         :param int actor_id: (Number) The ID of the actor that can bypass a ruleset
         :param str actor_type: The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`.
@@ -733,8 +733,7 @@ class OrganizationRulesetBypassActor(dict):
         """
         pulumi.set(__self__, "actor_id", actor_id)
         pulumi.set(__self__, "actor_type", actor_type)
-        if bypass_mode is not None:
-            pulumi.set(__self__, "bypass_mode", bypass_mode)
+        pulumi.set(__self__, "bypass_mode", bypass_mode)
 
     @property
     @pulumi.getter(name="actorId")
@@ -754,7 +753,7 @@ class OrganizationRulesetBypassActor(dict):
 
     @property
     @pulumi.getter(name="bypassMode")
-    def bypass_mode(self) -> Optional[str]:
+    def bypass_mode(self) -> str:
         """
         (String) When the specified actor can bypass the ruleset. pull_request means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pull_request`.
         """
@@ -861,14 +860,14 @@ class OrganizationRulesetConditionsRefName(dict):
 class OrganizationRulesetConditionsRepositoryName(dict):
     def __init__(__self__, *,
                  excludes: Sequence[str],
-                 inlcudes: Sequence[str],
+                 includes: Sequence[str],
                  protected: Optional[bool] = None):
         """
         :param Sequence[str] excludes: (List of String) Array of ref names or patterns to exclude. The condition will not pass if any of these patterns match.
-        :param Sequence[str] inlcudes: (List of String) Array of repository names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~ALL` to include all repositories.
+        :param Sequence[str] includes: (List of String) Array of ref names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~DEFAULT_BRANCH` to include the default branch or `~ALL` to include all branches.
         """
         pulumi.set(__self__, "excludes", excludes)
-        pulumi.set(__self__, "inlcudes", inlcudes)
+        pulumi.set(__self__, "includes", includes)
         if protected is not None:
             pulumi.set(__self__, "protected", protected)
 
@@ -882,11 +881,11 @@ class OrganizationRulesetConditionsRepositoryName(dict):
 
     @property
     @pulumi.getter
-    def inlcudes(self) -> Sequence[str]:
+    def includes(self) -> Sequence[str]:
         """
-        (List of String) Array of repository names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~ALL` to include all repositories.
+        (List of String) Array of ref names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~DEFAULT_BRANCH` to include the default branch or `~ALL` to include all branches.
         """
-        return pulumi.get(self, "inlcudes")
+        return pulumi.get(self, "includes")
 
     @property
     @pulumi.getter
@@ -1928,7 +1927,7 @@ class RepositoryRulesetBypassActor(dict):
     def __init__(__self__, *,
                  actor_id: int,
                  actor_type: str,
-                 bypass_mode: Optional[str] = None):
+                 bypass_mode: str):
         """
         :param int actor_id: (Number) The ID of the actor that can bypass a ruleset
         :param str actor_type: The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`.
@@ -1936,8 +1935,7 @@ class RepositoryRulesetBypassActor(dict):
         """
         pulumi.set(__self__, "actor_id", actor_id)
         pulumi.set(__self__, "actor_type", actor_type)
-        if bypass_mode is not None:
-            pulumi.set(__self__, "bypass_mode", bypass_mode)
+        pulumi.set(__self__, "bypass_mode", bypass_mode)
 
     @property
     @pulumi.getter(name="actorId")
@@ -1957,7 +1955,7 @@ class RepositoryRulesetBypassActor(dict):
 
     @property
     @pulumi.getter(name="bypassMode")
-    def bypass_mode(self) -> Optional[str]:
+    def bypass_mode(self) -> str:
         """
         (String) When the specified actor can bypass the ruleset. pull_request means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pull_request`.
         """

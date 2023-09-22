@@ -24,16 +24,16 @@ namespace Pulumi.Github.Inputs
             set => _excludes = value;
         }
 
-        [Input("inlcudes", required: true)]
-        private InputList<string>? _inlcudes;
+        [Input("includes", required: true)]
+        private InputList<string>? _includes;
 
         /// <summary>
-        /// (List of String) Array of repository names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~ALL` to include all repositories.
+        /// (List of String) Array of ref names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~DEFAULT_BRANCH` to include the default branch or `~ALL` to include all branches.
         /// </summary>
-        public InputList<string> Inlcudes
+        public InputList<string> Includes
         {
-            get => _inlcudes ?? (_inlcudes = new InputList<string>());
-            set => _inlcudes = value;
+            get => _includes ?? (_includes = new InputList<string>());
+            set => _includes = value;
         }
 
         [Input("protected")]

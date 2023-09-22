@@ -860,7 +860,7 @@ export interface OrganizationRulesetBypassActor {
     /**
      * (String) When the specified actor can bypass the ruleset. pullRequest means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pullRequest`.
      */
-    bypassMode?: string;
+    bypassMode: string;
 }
 
 export interface OrganizationRulesetConditions {
@@ -897,9 +897,9 @@ export interface OrganizationRulesetConditionsRepositoryName {
      */
     excludes: string[];
     /**
-     * (List of String) Array of repository names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~ALL` to include all repositories.
+     * (List of String) Array of ref names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~DEFAULT_BRANCH` to include the default branch or `~ALL` to include all branches.
      */
-    inlcudes: string[];
+    includes: string[];
     protected?: boolean;
 }
 
@@ -1204,7 +1204,7 @@ export interface RepositoryRulesetBypassActor {
     /**
      * (String) When the specified actor can bypass the ruleset. pullRequest means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pullRequest`.
      */
-    bypassMode?: string;
+    bypassMode: string;
 }
 
 export interface RepositoryRulesetConditions {
