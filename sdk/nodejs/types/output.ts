@@ -850,7 +850,7 @@ export interface GetTreeEntry {
 
 export interface OrganizationRulesetBypassActor {
     /**
-     * (Number) The ID of the actor that can bypass a ruleset
+     * (Number) The ID of the actor that can bypass a ruleset.
      */
     actorId: number;
     /**
@@ -859,6 +859,8 @@ export interface OrganizationRulesetBypassActor {
     actorType: string;
     /**
      * (String) When the specified actor can bypass the ruleset. pullRequest means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pullRequest`.
+     *
+     * ~>Note: at the time of writing this, the following actor types correspond to the following actor IDs:
      */
     bypassMode: string;
 }
@@ -1194,7 +1196,7 @@ export interface RepositoryPagesSource {
 
 export interface RepositoryRulesetBypassActor {
     /**
-     * (Number) The ID of the actor that can bypass a ruleset
+     * (Number) The ID of the actor that can bypass a ruleset.
      */
     actorId: number;
     /**
@@ -1203,6 +1205,8 @@ export interface RepositoryRulesetBypassActor {
     actorType: string;
     /**
      * (String) When the specified actor can bypass the ruleset. pullRequest means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pullRequest`.
+     *
+     * > Note: at the time of writing this, the following actor types correspond to the following actor IDs:
      */
     bypassMode: string;
 }

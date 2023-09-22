@@ -358,7 +358,7 @@
             "properties": {
                 "actorId": {
                     "type": "integer",
-                    "description": "(Number) The ID of the actor that can bypass a ruleset\n"
+                    "description": "(Number) The ID of the actor that can bypass a ruleset.\n"
                 },
                 "actorType": {
                     "type": "string",
@@ -366,7 +366,7 @@
                 },
                 "bypassMode": {
                     "type": "string",
-                    "description": "(String) When the specified actor can bypass the ruleset. pull_request means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pull_request`.\n"
+                    "description": "(String) When the specified actor can bypass the ruleset. pull_request means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pull_request`.\n\n~\u003eNote: at the time of writing this, the following actor types correspond to the following actor IDs:\n"
                 }
             },
             "type": "object",
@@ -864,7 +864,7 @@
             "properties": {
                 "actorId": {
                     "type": "integer",
-                    "description": "(Number) The ID of the actor that can bypass a ruleset\n"
+                    "description": "(Number) The ID of the actor that can bypass a ruleset.\n"
                 },
                 "actorType": {
                     "type": "string",
@@ -872,7 +872,7 @@
                 },
                 "bypassMode": {
                     "type": "string",
-                    "description": "(String) When the specified actor can bypass the ruleset. pull_request means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pull_request`.\n"
+                    "description": "(String) When the specified actor can bypass the ruleset. pull_request means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pull_request`.\n\n\u003e Note: at the time of writing this, the following actor types correspond to the following actor IDs:\n"
                 }
             },
             "type": "object",
@@ -5675,7 +5675,7 @@
                 },
                 "conditions": {
                     "$ref": "#/types/github:index/OrganizationRulesetConditions:OrganizationRulesetConditions",
-                    "description": "(Block List, Max: 1) Parameters for an organization ruleset ref name condition. (see below for nested schema)\n"
+                    "description": "(Block List, Max: 1) Parameters for an organization ruleset condition. `ref_name` is required alongside one of `repository_name` or `repository_id`. (see below for nested schema)\n"
                 },
                 "enforcement": {
                     "type": "string",
@@ -5725,7 +5725,7 @@
                 },
                 "conditions": {
                     "$ref": "#/types/github:index/OrganizationRulesetConditions:OrganizationRulesetConditions",
-                    "description": "(Block List, Max: 1) Parameters for an organization ruleset ref name condition. (see below for nested schema)\n"
+                    "description": "(Block List, Max: 1) Parameters for an organization ruleset condition. `ref_name` is required alongside one of `repository_name` or `repository_id`. (see below for nested schema)\n"
                 },
                 "enforcement": {
                     "type": "string",
@@ -5761,7 +5761,7 @@
                     },
                     "conditions": {
                         "$ref": "#/types/github:index/OrganizationRulesetConditions:OrganizationRulesetConditions",
-                        "description": "(Block List, Max: 1) Parameters for an organization ruleset ref name condition. (see below for nested schema)\n"
+                        "description": "(Block List, Max: 1) Parameters for an organization ruleset condition. `ref_name` is required alongside one of `repository_name` or `repository_id`. (see below for nested schema)\n"
                     },
                     "enforcement": {
                         "type": "string",
