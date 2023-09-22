@@ -14,7 +14,7 @@ namespace Pulumi.Github.Outputs
     public sealed class OrganizationRulesetBypassActor
     {
         /// <summary>
-        /// (Number) The ID of the actor that can bypass a ruleset
+        /// (Number) The ID of the actor that can bypass a ruleset.
         /// </summary>
         public readonly int ActorId;
         /// <summary>
@@ -23,6 +23,8 @@ namespace Pulumi.Github.Outputs
         public readonly string ActorType;
         /// <summary>
         /// (String) When the specified actor can bypass the ruleset. pull_request means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pull_request`.
+        /// 
+        /// ~&gt;Note: at the time of writing this, the following actor types correspond to the following actor IDs:
         /// </summary>
         public readonly string BypassMode;
 

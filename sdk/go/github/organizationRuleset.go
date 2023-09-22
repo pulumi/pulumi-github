@@ -31,7 +31,7 @@ type OrganizationRuleset struct {
 
 	// (Block List) The actors that can bypass the rules in this ruleset. (see below for nested schema)
 	BypassActors OrganizationRulesetBypassActorArrayOutput `pulumi:"bypassActors"`
-	// (Block List, Max: 1) Parameters for an organization ruleset ref name condition. (see below for nested schema)
+	// (Block List, Max: 1) Parameters for an organization ruleset condition. `refName` is required alongside one of `repositoryName` or `repositoryId`. (see below for nested schema)
 	Conditions OrganizationRulesetConditionsPtrOutput `pulumi:"conditions"`
 	// (String) Possible values for Enforcement are `disabled`, `active`, `evaluate`. Note: `evaluate` is currently only supported for owners of type `organization`.
 	Enforcement pulumi.StringOutput `pulumi:"enforcement"`
@@ -90,7 +90,7 @@ func GetOrganizationRuleset(ctx *pulumi.Context,
 type organizationRulesetState struct {
 	// (Block List) The actors that can bypass the rules in this ruleset. (see below for nested schema)
 	BypassActors []OrganizationRulesetBypassActor `pulumi:"bypassActors"`
-	// (Block List, Max: 1) Parameters for an organization ruleset ref name condition. (see below for nested schema)
+	// (Block List, Max: 1) Parameters for an organization ruleset condition. `refName` is required alongside one of `repositoryName` or `repositoryId`. (see below for nested schema)
 	Conditions *OrganizationRulesetConditions `pulumi:"conditions"`
 	// (String) Possible values for Enforcement are `disabled`, `active`, `evaluate`. Note: `evaluate` is currently only supported for owners of type `organization`.
 	Enforcement *string `pulumi:"enforcement"`
@@ -111,7 +111,7 @@ type organizationRulesetState struct {
 type OrganizationRulesetState struct {
 	// (Block List) The actors that can bypass the rules in this ruleset. (see below for nested schema)
 	BypassActors OrganizationRulesetBypassActorArrayInput
-	// (Block List, Max: 1) Parameters for an organization ruleset ref name condition. (see below for nested schema)
+	// (Block List, Max: 1) Parameters for an organization ruleset condition. `refName` is required alongside one of `repositoryName` or `repositoryId`. (see below for nested schema)
 	Conditions OrganizationRulesetConditionsPtrInput
 	// (String) Possible values for Enforcement are `disabled`, `active`, `evaluate`. Note: `evaluate` is currently only supported for owners of type `organization`.
 	Enforcement pulumi.StringPtrInput
@@ -136,7 +136,7 @@ func (OrganizationRulesetState) ElementType() reflect.Type {
 type organizationRulesetArgs struct {
 	// (Block List) The actors that can bypass the rules in this ruleset. (see below for nested schema)
 	BypassActors []OrganizationRulesetBypassActor `pulumi:"bypassActors"`
-	// (Block List, Max: 1) Parameters for an organization ruleset ref name condition. (see below for nested schema)
+	// (Block List, Max: 1) Parameters for an organization ruleset condition. `refName` is required alongside one of `repositoryName` or `repositoryId`. (see below for nested schema)
 	Conditions *OrganizationRulesetConditions `pulumi:"conditions"`
 	// (String) Possible values for Enforcement are `disabled`, `active`, `evaluate`. Note: `evaluate` is currently only supported for owners of type `organization`.
 	Enforcement string `pulumi:"enforcement"`
@@ -152,7 +152,7 @@ type organizationRulesetArgs struct {
 type OrganizationRulesetArgs struct {
 	// (Block List) The actors that can bypass the rules in this ruleset. (see below for nested schema)
 	BypassActors OrganizationRulesetBypassActorArrayInput
-	// (Block List, Max: 1) Parameters for an organization ruleset ref name condition. (see below for nested schema)
+	// (Block List, Max: 1) Parameters for an organization ruleset condition. `refName` is required alongside one of `repositoryName` or `repositoryId`. (see below for nested schema)
 	Conditions OrganizationRulesetConditionsPtrInput
 	// (String) Possible values for Enforcement are `disabled`, `active`, `evaluate`. Note: `evaluate` is currently only supported for owners of type `organization`.
 	Enforcement pulumi.StringInput
@@ -280,7 +280,7 @@ func (o OrganizationRulesetOutput) BypassActors() OrganizationRulesetBypassActor
 	return o.ApplyT(func(v *OrganizationRuleset) OrganizationRulesetBypassActorArrayOutput { return v.BypassActors }).(OrganizationRulesetBypassActorArrayOutput)
 }
 
-// (Block List, Max: 1) Parameters for an organization ruleset ref name condition. (see below for nested schema)
+// (Block List, Max: 1) Parameters for an organization ruleset condition. `refName` is required alongside one of `repositoryName` or `repositoryId`. (see below for nested schema)
 func (o OrganizationRulesetOutput) Conditions() OrganizationRulesetConditionsPtrOutput {
 	return o.ApplyT(func(v *OrganizationRuleset) OrganizationRulesetConditionsPtrOutput { return v.Conditions }).(OrganizationRulesetConditionsPtrOutput)
 }

@@ -32,7 +32,7 @@ namespace Pulumi.Github
         public Output<ImmutableArray<Outputs.OrganizationRulesetBypassActor>> BypassActors { get; private set; } = null!;
 
         /// <summary>
-        /// (Block List, Max: 1) Parameters for an organization ruleset ref name condition. (see below for nested schema)
+        /// (Block List, Max: 1) Parameters for an organization ruleset condition. `ref_name` is required alongside one of `repository_name` or `repository_id`. (see below for nested schema)
         /// </summary>
         [Output("conditions")]
         public Output<Outputs.OrganizationRulesetConditions?> Conditions { get; private set; } = null!;
@@ -138,7 +138,7 @@ namespace Pulumi.Github
         }
 
         /// <summary>
-        /// (Block List, Max: 1) Parameters for an organization ruleset ref name condition. (see below for nested schema)
+        /// (Block List, Max: 1) Parameters for an organization ruleset condition. `ref_name` is required alongside one of `repository_name` or `repository_id`. (see below for nested schema)
         /// </summary>
         [Input("conditions")]
         public Input<Inputs.OrganizationRulesetConditionsArgs>? Conditions { get; set; }
@@ -188,7 +188,7 @@ namespace Pulumi.Github
         }
 
         /// <summary>
-        /// (Block List, Max: 1) Parameters for an organization ruleset ref name condition. (see below for nested schema)
+        /// (Block List, Max: 1) Parameters for an organization ruleset condition. `ref_name` is required alongside one of `repository_name` or `repository_id`. (see below for nested schema)
         /// </summary>
         [Input("conditions")]
         public Input<Inputs.OrganizationRulesetConditionsGetArgs>? Conditions { get; set; }

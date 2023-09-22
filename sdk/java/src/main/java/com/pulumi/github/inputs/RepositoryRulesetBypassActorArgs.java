@@ -15,14 +15,14 @@ public final class RepositoryRulesetBypassActorArgs extends com.pulumi.resources
     public static final RepositoryRulesetBypassActorArgs Empty = new RepositoryRulesetBypassActorArgs();
 
     /**
-     * (Number) The ID of the actor that can bypass a ruleset
+     * (Number) The ID of the actor that can bypass a ruleset.
      * 
      */
     @Import(name="actorId", required=true)
     private Output<Integer> actorId;
 
     /**
-     * @return (Number) The ID of the actor that can bypass a ruleset
+     * @return (Number) The ID of the actor that can bypass a ruleset.
      * 
      */
     public Output<Integer> actorId() {
@@ -47,12 +47,16 @@ public final class RepositoryRulesetBypassActorArgs extends com.pulumi.resources
     /**
      * (String) When the specified actor can bypass the ruleset. pull_request means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pull_request`.
      * 
+     * &gt; Note: at the time of writing this, the following actor types correspond to the following actor IDs:
+     * 
      */
     @Import(name="bypassMode", required=true)
     private Output<String> bypassMode;
 
     /**
      * @return (String) When the specified actor can bypass the ruleset. pull_request means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pull_request`.
+     * 
+     * &gt; Note: at the time of writing this, the following actor types correspond to the following actor IDs:
      * 
      */
     public Output<String> bypassMode() {
@@ -86,7 +90,7 @@ public final class RepositoryRulesetBypassActorArgs extends com.pulumi.resources
         }
 
         /**
-         * @param actorId (Number) The ID of the actor that can bypass a ruleset
+         * @param actorId (Number) The ID of the actor that can bypass a ruleset.
          * 
          * @return builder
          * 
@@ -97,7 +101,7 @@ public final class RepositoryRulesetBypassActorArgs extends com.pulumi.resources
         }
 
         /**
-         * @param actorId (Number) The ID of the actor that can bypass a ruleset
+         * @param actorId (Number) The ID of the actor that can bypass a ruleset.
          * 
          * @return builder
          * 
@@ -130,6 +134,8 @@ public final class RepositoryRulesetBypassActorArgs extends com.pulumi.resources
         /**
          * @param bypassMode (String) When the specified actor can bypass the ruleset. pull_request means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pull_request`.
          * 
+         * &gt; Note: at the time of writing this, the following actor types correspond to the following actor IDs:
+         * 
          * @return builder
          * 
          */
@@ -140,6 +146,8 @@ public final class RepositoryRulesetBypassActorArgs extends com.pulumi.resources
 
         /**
          * @param bypassMode (String) When the specified actor can bypass the ruleset. pull_request means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pull_request`.
+         * 
+         * &gt; Note: at the time of writing this, the following actor types correspond to the following actor IDs:
          * 
          * @return builder
          * 

@@ -727,9 +727,11 @@ class OrganizationRulesetBypassActor(dict):
                  actor_type: str,
                  bypass_mode: str):
         """
-        :param int actor_id: (Number) The ID of the actor that can bypass a ruleset
+        :param int actor_id: (Number) The ID of the actor that can bypass a ruleset.
         :param str actor_type: The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`.
         :param str bypass_mode: (String) When the specified actor can bypass the ruleset. pull_request means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pull_request`.
+               
+               ~>Note: at the time of writing this, the following actor types correspond to the following actor IDs:
         """
         pulumi.set(__self__, "actor_id", actor_id)
         pulumi.set(__self__, "actor_type", actor_type)
@@ -739,7 +741,7 @@ class OrganizationRulesetBypassActor(dict):
     @pulumi.getter(name="actorId")
     def actor_id(self) -> int:
         """
-        (Number) The ID of the actor that can bypass a ruleset
+        (Number) The ID of the actor that can bypass a ruleset.
         """
         return pulumi.get(self, "actor_id")
 
@@ -756,6 +758,8 @@ class OrganizationRulesetBypassActor(dict):
     def bypass_mode(self) -> str:
         """
         (String) When the specified actor can bypass the ruleset. pull_request means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pull_request`.
+
+        ~>Note: at the time of writing this, the following actor types correspond to the following actor IDs:
         """
         return pulumi.get(self, "bypass_mode")
 
@@ -1929,9 +1933,11 @@ class RepositoryRulesetBypassActor(dict):
                  actor_type: str,
                  bypass_mode: str):
         """
-        :param int actor_id: (Number) The ID of the actor that can bypass a ruleset
+        :param int actor_id: (Number) The ID of the actor that can bypass a ruleset.
         :param str actor_type: The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`.
         :param str bypass_mode: (String) When the specified actor can bypass the ruleset. pull_request means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pull_request`.
+               
+               > Note: at the time of writing this, the following actor types correspond to the following actor IDs:
         """
         pulumi.set(__self__, "actor_id", actor_id)
         pulumi.set(__self__, "actor_type", actor_type)
@@ -1941,7 +1947,7 @@ class RepositoryRulesetBypassActor(dict):
     @pulumi.getter(name="actorId")
     def actor_id(self) -> int:
         """
-        (Number) The ID of the actor that can bypass a ruleset
+        (Number) The ID of the actor that can bypass a ruleset.
         """
         return pulumi.get(self, "actor_id")
 
@@ -1958,6 +1964,8 @@ class RepositoryRulesetBypassActor(dict):
     def bypass_mode(self) -> str:
         """
         (String) When the specified actor can bypass the ruleset. pull_request means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pull_request`.
+
+        > Note: at the time of writing this, the following actor types correspond to the following actor IDs:
         """
         return pulumi.get(self, "bypass_mode")
 

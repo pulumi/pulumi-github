@@ -52,7 +52,7 @@ export class OrganizationRuleset extends pulumi.CustomResource {
      */
     public readonly bypassActors!: pulumi.Output<outputs.OrganizationRulesetBypassActor[] | undefined>;
     /**
-     * (Block List, Max: 1) Parameters for an organization ruleset ref name condition. (see below for nested schema)
+     * (Block List, Max: 1) Parameters for an organization ruleset condition. `refName` is required alongside one of `repositoryName` or `repositoryId`. (see below for nested schema)
      */
     public readonly conditions!: pulumi.Output<outputs.OrganizationRulesetConditions | undefined>;
     /**
@@ -141,7 +141,7 @@ export interface OrganizationRulesetState {
      */
     bypassActors?: pulumi.Input<pulumi.Input<inputs.OrganizationRulesetBypassActor>[]>;
     /**
-     * (Block List, Max: 1) Parameters for an organization ruleset ref name condition. (see below for nested schema)
+     * (Block List, Max: 1) Parameters for an organization ruleset condition. `refName` is required alongside one of `repositoryName` or `repositoryId`. (see below for nested schema)
      */
     conditions?: pulumi.Input<inputs.OrganizationRulesetConditions>;
     /**
@@ -183,7 +183,7 @@ export interface OrganizationRulesetArgs {
      */
     bypassActors?: pulumi.Input<pulumi.Input<inputs.OrganizationRulesetBypassActor>[]>;
     /**
-     * (Block List, Max: 1) Parameters for an organization ruleset ref name condition. (see below for nested schema)
+     * (Block List, Max: 1) Parameters for an organization ruleset condition. `refName` is required alongside one of `repositoryName` or `repositoryId`. (see below for nested schema)
      */
     conditions?: pulumi.Input<inputs.OrganizationRulesetConditions>;
     /**
