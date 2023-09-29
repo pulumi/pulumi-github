@@ -13,14 +13,14 @@ public final class GetBranchPlainArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetBranchPlainArgs Empty = new GetBranchPlainArgs();
 
     /**
-     * The repository branch to create.
+     * The repository branch to retrieve.
      * 
      */
     @Import(name="branch", required=true)
     private String branch;
 
     /**
-     * @return The repository branch to create.
+     * @return The repository branch to retrieve.
      * 
      */
     public String branch() {
@@ -68,7 +68,7 @@ public final class GetBranchPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param branch The repository branch to create.
+         * @param branch The repository branch to retrieve.
          * 
          * @return builder
          * 

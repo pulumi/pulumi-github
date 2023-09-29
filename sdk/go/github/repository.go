@@ -152,9 +152,9 @@ type Repository struct {
 	IsTemplate pulumi.BoolPtrOutput `pulumi:"isTemplate"`
 	// Use the [name of the template](https://github.com/github/choosealicense.com/tree/gh-pages/_licenses) without the extension. For example, "mit" or "mpl-2.0".
 	LicenseTemplate pulumi.StringPtrOutput `pulumi:"licenseTemplate"`
-	// Can be `PR_BODY`, `PR_TITLE`, or `BLANK` for a default merge commit message.
+	// Can be `PR_BODY`, `PR_TITLE`, or `BLANK` for a default merge commit message. Applicable only if `allowMergeCommit` is `true`.
 	MergeCommitMessage pulumi.StringPtrOutput `pulumi:"mergeCommitMessage"`
-	// Can be `PR_TITLE` or `MERGE_MESSAGE` for a default merge commit title.
+	// Can be `PR_TITLE` or `MERGE_MESSAGE` for a default merge commit title. Applicable only if `allowMergeCommit` is `true`.
 	MergeCommitTitle pulumi.StringPtrOutput `pulumi:"mergeCommitTitle"`
 	// The name of the repository.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -173,9 +173,9 @@ type Repository struct {
 	RepoId pulumi.IntOutput `pulumi:"repoId"`
 	// The repository's [security and analysis](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository) configuration. See Security and Analysis Configuration below for details.
 	SecurityAndAnalysis RepositorySecurityAndAnalysisOutput `pulumi:"securityAndAnalysis"`
-	// Can be `PR_BODY`, `COMMIT_MESSAGES`, or `BLANK` for a default squash merge commit message.
+	// Can be `PR_BODY`, `COMMIT_MESSAGES`, or `BLANK` for a default squash merge commit message. Applicable only if `allowSquashMerge` is `true`.
 	SquashMergeCommitMessage pulumi.StringPtrOutput `pulumi:"squashMergeCommitMessage"`
-	// Can be `PR_TITLE` or `COMMIT_OR_PR_TITLE` for a default squash merge commit title.
+	// Can be `PR_TITLE` or `COMMIT_OR_PR_TITLE` for a default squash merge commit title. Applicable only if `allowSquashMerge` is `true`.
 	SquashMergeCommitTitle pulumi.StringPtrOutput `pulumi:"squashMergeCommitTitle"`
 	// URL that can be provided to `git clone` to clone the repository via SSH.
 	SshCloneUrl pulumi.StringOutput `pulumi:"sshCloneUrl"`
@@ -278,9 +278,9 @@ type repositoryState struct {
 	IsTemplate *bool `pulumi:"isTemplate"`
 	// Use the [name of the template](https://github.com/github/choosealicense.com/tree/gh-pages/_licenses) without the extension. For example, "mit" or "mpl-2.0".
 	LicenseTemplate *string `pulumi:"licenseTemplate"`
-	// Can be `PR_BODY`, `PR_TITLE`, or `BLANK` for a default merge commit message.
+	// Can be `PR_BODY`, `PR_TITLE`, or `BLANK` for a default merge commit message. Applicable only if `allowMergeCommit` is `true`.
 	MergeCommitMessage *string `pulumi:"mergeCommitMessage"`
-	// Can be `PR_TITLE` or `MERGE_MESSAGE` for a default merge commit title.
+	// Can be `PR_TITLE` or `MERGE_MESSAGE` for a default merge commit title. Applicable only if `allowMergeCommit` is `true`.
 	MergeCommitTitle *string `pulumi:"mergeCommitTitle"`
 	// The name of the repository.
 	Name *string `pulumi:"name"`
@@ -299,9 +299,9 @@ type repositoryState struct {
 	RepoId *int `pulumi:"repoId"`
 	// The repository's [security and analysis](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository) configuration. See Security and Analysis Configuration below for details.
 	SecurityAndAnalysis *RepositorySecurityAndAnalysis `pulumi:"securityAndAnalysis"`
-	// Can be `PR_BODY`, `COMMIT_MESSAGES`, or `BLANK` for a default squash merge commit message.
+	// Can be `PR_BODY`, `COMMIT_MESSAGES`, or `BLANK` for a default squash merge commit message. Applicable only if `allowSquashMerge` is `true`.
 	SquashMergeCommitMessage *string `pulumi:"squashMergeCommitMessage"`
-	// Can be `PR_TITLE` or `COMMIT_OR_PR_TITLE` for a default squash merge commit title.
+	// Can be `PR_TITLE` or `COMMIT_OR_PR_TITLE` for a default squash merge commit title. Applicable only if `allowSquashMerge` is `true`.
 	SquashMergeCommitTitle *string `pulumi:"squashMergeCommitTitle"`
 	// URL that can be provided to `git clone` to clone the repository via SSH.
 	SshCloneUrl *string `pulumi:"sshCloneUrl"`
@@ -375,9 +375,9 @@ type RepositoryState struct {
 	IsTemplate pulumi.BoolPtrInput
 	// Use the [name of the template](https://github.com/github/choosealicense.com/tree/gh-pages/_licenses) without the extension. For example, "mit" or "mpl-2.0".
 	LicenseTemplate pulumi.StringPtrInput
-	// Can be `PR_BODY`, `PR_TITLE`, or `BLANK` for a default merge commit message.
+	// Can be `PR_BODY`, `PR_TITLE`, or `BLANK` for a default merge commit message. Applicable only if `allowMergeCommit` is `true`.
 	MergeCommitMessage pulumi.StringPtrInput
-	// Can be `PR_TITLE` or `MERGE_MESSAGE` for a default merge commit title.
+	// Can be `PR_TITLE` or `MERGE_MESSAGE` for a default merge commit title. Applicable only if `allowMergeCommit` is `true`.
 	MergeCommitTitle pulumi.StringPtrInput
 	// The name of the repository.
 	Name pulumi.StringPtrInput
@@ -396,9 +396,9 @@ type RepositoryState struct {
 	RepoId pulumi.IntPtrInput
 	// The repository's [security and analysis](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository) configuration. See Security and Analysis Configuration below for details.
 	SecurityAndAnalysis RepositorySecurityAndAnalysisPtrInput
-	// Can be `PR_BODY`, `COMMIT_MESSAGES`, or `BLANK` for a default squash merge commit message.
+	// Can be `PR_BODY`, `COMMIT_MESSAGES`, or `BLANK` for a default squash merge commit message. Applicable only if `allowSquashMerge` is `true`.
 	SquashMergeCommitMessage pulumi.StringPtrInput
-	// Can be `PR_TITLE` or `COMMIT_OR_PR_TITLE` for a default squash merge commit title.
+	// Can be `PR_TITLE` or `COMMIT_OR_PR_TITLE` for a default squash merge commit title. Applicable only if `allowSquashMerge` is `true`.
 	SquashMergeCommitTitle pulumi.StringPtrInput
 	// URL that can be provided to `git clone` to clone the repository via SSH.
 	SshCloneUrl pulumi.StringPtrInput
@@ -467,9 +467,9 @@ type repositoryArgs struct {
 	IsTemplate *bool `pulumi:"isTemplate"`
 	// Use the [name of the template](https://github.com/github/choosealicense.com/tree/gh-pages/_licenses) without the extension. For example, "mit" or "mpl-2.0".
 	LicenseTemplate *string `pulumi:"licenseTemplate"`
-	// Can be `PR_BODY`, `PR_TITLE`, or `BLANK` for a default merge commit message.
+	// Can be `PR_BODY`, `PR_TITLE`, or `BLANK` for a default merge commit message. Applicable only if `allowMergeCommit` is `true`.
 	MergeCommitMessage *string `pulumi:"mergeCommitMessage"`
-	// Can be `PR_TITLE` or `MERGE_MESSAGE` for a default merge commit title.
+	// Can be `PR_TITLE` or `MERGE_MESSAGE` for a default merge commit title. Applicable only if `allowMergeCommit` is `true`.
 	MergeCommitTitle *string `pulumi:"mergeCommitTitle"`
 	// The name of the repository.
 	Name *string `pulumi:"name"`
@@ -482,9 +482,9 @@ type repositoryArgs struct {
 	Private *bool `pulumi:"private"`
 	// The repository's [security and analysis](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository) configuration. See Security and Analysis Configuration below for details.
 	SecurityAndAnalysis *RepositorySecurityAndAnalysis `pulumi:"securityAndAnalysis"`
-	// Can be `PR_BODY`, `COMMIT_MESSAGES`, or `BLANK` for a default squash merge commit message.
+	// Can be `PR_BODY`, `COMMIT_MESSAGES`, or `BLANK` for a default squash merge commit message. Applicable only if `allowSquashMerge` is `true`.
 	SquashMergeCommitMessage *string `pulumi:"squashMergeCommitMessage"`
-	// Can be `PR_TITLE` or `COMMIT_OR_PR_TITLE` for a default squash merge commit title.
+	// Can be `PR_TITLE` or `COMMIT_OR_PR_TITLE` for a default squash merge commit title. Applicable only if `allowSquashMerge` is `true`.
 	SquashMergeCommitTitle *string `pulumi:"squashMergeCommitTitle"`
 	// Use a template repository to create this resource. See Template Repositories below for details.
 	Template *RepositoryTemplate `pulumi:"template"`
@@ -546,9 +546,9 @@ type RepositoryArgs struct {
 	IsTemplate pulumi.BoolPtrInput
 	// Use the [name of the template](https://github.com/github/choosealicense.com/tree/gh-pages/_licenses) without the extension. For example, "mit" or "mpl-2.0".
 	LicenseTemplate pulumi.StringPtrInput
-	// Can be `PR_BODY`, `PR_TITLE`, or `BLANK` for a default merge commit message.
+	// Can be `PR_BODY`, `PR_TITLE`, or `BLANK` for a default merge commit message. Applicable only if `allowMergeCommit` is `true`.
 	MergeCommitMessage pulumi.StringPtrInput
-	// Can be `PR_TITLE` or `MERGE_MESSAGE` for a default merge commit title.
+	// Can be `PR_TITLE` or `MERGE_MESSAGE` for a default merge commit title. Applicable only if `allowMergeCommit` is `true`.
 	MergeCommitTitle pulumi.StringPtrInput
 	// The name of the repository.
 	Name pulumi.StringPtrInput
@@ -561,9 +561,9 @@ type RepositoryArgs struct {
 	Private pulumi.BoolPtrInput
 	// The repository's [security and analysis](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository) configuration. See Security and Analysis Configuration below for details.
 	SecurityAndAnalysis RepositorySecurityAndAnalysisPtrInput
-	// Can be `PR_BODY`, `COMMIT_MESSAGES`, or `BLANK` for a default squash merge commit message.
+	// Can be `PR_BODY`, `COMMIT_MESSAGES`, or `BLANK` for a default squash merge commit message. Applicable only if `allowSquashMerge` is `true`.
 	SquashMergeCommitMessage pulumi.StringPtrInput
-	// Can be `PR_TITLE` or `COMMIT_OR_PR_TITLE` for a default squash merge commit title.
+	// Can be `PR_TITLE` or `COMMIT_OR_PR_TITLE` for a default squash merge commit title. Applicable only if `allowSquashMerge` is `true`.
 	SquashMergeCommitTitle pulumi.StringPtrInput
 	// Use a template repository to create this resource. See Template Repositories below for details.
 	Template RepositoryTemplatePtrInput
@@ -821,12 +821,12 @@ func (o RepositoryOutput) LicenseTemplate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Repository) pulumi.StringPtrOutput { return v.LicenseTemplate }).(pulumi.StringPtrOutput)
 }
 
-// Can be `PR_BODY`, `PR_TITLE`, or `BLANK` for a default merge commit message.
+// Can be `PR_BODY`, `PR_TITLE`, or `BLANK` for a default merge commit message. Applicable only if `allowMergeCommit` is `true`.
 func (o RepositoryOutput) MergeCommitMessage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Repository) pulumi.StringPtrOutput { return v.MergeCommitMessage }).(pulumi.StringPtrOutput)
 }
 
-// Can be `PR_TITLE` or `MERGE_MESSAGE` for a default merge commit title.
+// Can be `PR_TITLE` or `MERGE_MESSAGE` for a default merge commit title. Applicable only if `allowMergeCommit` is `true`.
 func (o RepositoryOutput) MergeCommitTitle() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Repository) pulumi.StringPtrOutput { return v.MergeCommitTitle }).(pulumi.StringPtrOutput)
 }
@@ -869,12 +869,12 @@ func (o RepositoryOutput) SecurityAndAnalysis() RepositorySecurityAndAnalysisOut
 	return o.ApplyT(func(v *Repository) RepositorySecurityAndAnalysisOutput { return v.SecurityAndAnalysis }).(RepositorySecurityAndAnalysisOutput)
 }
 
-// Can be `PR_BODY`, `COMMIT_MESSAGES`, or `BLANK` for a default squash merge commit message.
+// Can be `PR_BODY`, `COMMIT_MESSAGES`, or `BLANK` for a default squash merge commit message. Applicable only if `allowSquashMerge` is `true`.
 func (o RepositoryOutput) SquashMergeCommitMessage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Repository) pulumi.StringPtrOutput { return v.SquashMergeCommitMessage }).(pulumi.StringPtrOutput)
 }
 
-// Can be `PR_TITLE` or `COMMIT_OR_PR_TITLE` for a default squash merge commit title.
+// Can be `PR_TITLE` or `COMMIT_OR_PR_TITLE` for a default squash merge commit title. Applicable only if `allowSquashMerge` is `true`.
 func (o RepositoryOutput) SquashMergeCommitTitle() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Repository) pulumi.StringPtrOutput { return v.SquashMergeCommitTitle }).(pulumi.StringPtrOutput)
 }

@@ -483,28 +483,28 @@ public class Repository extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.licenseTemplate);
     }
     /**
-     * Can be `PR_BODY`, `PR_TITLE`, or `BLANK` for a default merge commit message.
+     * Can be `PR_BODY`, `PR_TITLE`, or `BLANK` for a default merge commit message. Applicable only if `allow_merge_commit` is `true`.
      * 
      */
     @Export(name="mergeCommitMessage", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> mergeCommitMessage;
 
     /**
-     * @return Can be `PR_BODY`, `PR_TITLE`, or `BLANK` for a default merge commit message.
+     * @return Can be `PR_BODY`, `PR_TITLE`, or `BLANK` for a default merge commit message. Applicable only if `allow_merge_commit` is `true`.
      * 
      */
     public Output<Optional<String>> mergeCommitMessage() {
         return Codegen.optional(this.mergeCommitMessage);
     }
     /**
-     * Can be `PR_TITLE` or `MERGE_MESSAGE` for a default merge commit title.
+     * Can be `PR_TITLE` or `MERGE_MESSAGE` for a default merge commit title. Applicable only if `allow_merge_commit` is `true`.
      * 
      */
     @Export(name="mergeCommitTitle", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> mergeCommitTitle;
 
     /**
-     * @return Can be `PR_TITLE` or `MERGE_MESSAGE` for a default merge commit title.
+     * @return Can be `PR_TITLE` or `MERGE_MESSAGE` for a default merge commit title. Applicable only if `allow_merge_commit` is `true`.
      * 
      */
     public Output<Optional<String>> mergeCommitTitle() {
@@ -615,28 +615,28 @@ public class Repository extends com.pulumi.resources.CustomResource {
         return this.securityAndAnalysis;
     }
     /**
-     * Can be `PR_BODY`, `COMMIT_MESSAGES`, or `BLANK` for a default squash merge commit message.
+     * Can be `PR_BODY`, `COMMIT_MESSAGES`, or `BLANK` for a default squash merge commit message. Applicable only if `allow_squash_merge` is `true`.
      * 
      */
     @Export(name="squashMergeCommitMessage", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> squashMergeCommitMessage;
 
     /**
-     * @return Can be `PR_BODY`, `COMMIT_MESSAGES`, or `BLANK` for a default squash merge commit message.
+     * @return Can be `PR_BODY`, `COMMIT_MESSAGES`, or `BLANK` for a default squash merge commit message. Applicable only if `allow_squash_merge` is `true`.
      * 
      */
     public Output<Optional<String>> squashMergeCommitMessage() {
         return Codegen.optional(this.squashMergeCommitMessage);
     }
     /**
-     * Can be `PR_TITLE` or `COMMIT_OR_PR_TITLE` for a default squash merge commit title.
+     * Can be `PR_TITLE` or `COMMIT_OR_PR_TITLE` for a default squash merge commit title. Applicable only if `allow_squash_merge` is `true`.
      * 
      */
     @Export(name="squashMergeCommitTitle", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> squashMergeCommitTitle;
 
     /**
-     * @return Can be `PR_TITLE` or `COMMIT_OR_PR_TITLE` for a default squash merge commit title.
+     * @return Can be `PR_TITLE` or `COMMIT_OR_PR_TITLE` for a default squash merge commit title. Applicable only if `allow_squash_merge` is `true`.
      * 
      */
     public Output<Optional<String>> squashMergeCommitTitle() {

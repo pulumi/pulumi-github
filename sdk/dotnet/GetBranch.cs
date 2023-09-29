@@ -74,7 +74,7 @@ namespace Pulumi.Github
     public sealed class GetBranchArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The repository branch to create.
+        /// The repository branch to retrieve.
         /// </summary>
         [Input("branch", required: true)]
         public string Branch { get; set; } = null!;
@@ -94,7 +94,7 @@ namespace Pulumi.Github
     public sealed class GetBranchInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The repository branch to create.
+        /// The repository branch to retrieve.
         /// </summary>
         [Input("branch", required: true)]
         public Input<string> Branch { get; set; } = null!;
