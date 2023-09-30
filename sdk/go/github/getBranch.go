@@ -52,7 +52,7 @@ func LookupBranch(ctx *pulumi.Context, args *LookupBranchArgs, opts ...pulumi.In
 
 // A collection of arguments for invoking getBranch.
 type LookupBranchArgs struct {
-	// The repository branch to create.
+	// The repository branch to retrieve.
 	Branch string `pulumi:"branch"`
 	// The GitHub repository name.
 	Repository string `pulumi:"repository"`
@@ -87,7 +87,7 @@ func LookupBranchOutput(ctx *pulumi.Context, args LookupBranchOutputArgs, opts .
 
 // A collection of arguments for invoking getBranch.
 type LookupBranchOutputArgs struct {
-	// The repository branch to create.
+	// The repository branch to retrieve.
 	Branch pulumi.StringInput `pulumi:"branch"`
 	// The GitHub repository name.
 	Repository pulumi.StringInput `pulumi:"repository"`

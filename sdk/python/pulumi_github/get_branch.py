@@ -115,7 +115,7 @@ def get_branch(branch: Optional[str] = None,
     ```
 
 
-    :param str branch: The repository branch to create.
+    :param str branch: The repository branch to retrieve.
     :param str repository: The GitHub repository name.
     """
     __args__ = dict()
@@ -151,7 +151,7 @@ def get_branch_output(branch: Optional[pulumi.Input[str]] = None,
     ```
 
 
-    :param str branch: The repository branch to create.
+    :param str branch: The repository branch to retrieve.
     :param str repository: The GitHub repository name.
     """
     ...

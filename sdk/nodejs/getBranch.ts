@@ -33,7 +33,7 @@ export function getBranch(args: GetBranchArgs, opts?: pulumi.InvokeOptions): Pro
  */
 export interface GetBranchArgs {
     /**
-     * The repository branch to create.
+     * The repository branch to retrieve.
      */
     branch: string;
     /**
@@ -89,7 +89,7 @@ export function getBranchOutput(args: GetBranchOutputArgs, opts?: pulumi.InvokeO
  */
 export interface GetBranchOutputArgs {
     /**
-     * The repository branch to create.
+     * The repository branch to retrieve.
      */
     branch: pulumi.Input<string>;
     /**

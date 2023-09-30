@@ -76,15 +76,15 @@ class RepositoryArgs:
         :param pulumi.Input[bool] ignore_vulnerability_alerts_during_read: Set to `true` to not call the vulnerability alerts endpoint so the resource can also be used without admin permissions during read.
         :param pulumi.Input[bool] is_template: Set to `true` to tell GitHub that this is a template repository.
         :param pulumi.Input[str] license_template: Use the [name of the template](https://github.com/github/choosealicense.com/tree/gh-pages/_licenses) without the extension. For example, "mit" or "mpl-2.0".
-        :param pulumi.Input[str] merge_commit_message: Can be `PR_BODY`, `PR_TITLE`, or `BLANK` for a default merge commit message.
-        :param pulumi.Input[str] merge_commit_title: Can be `PR_TITLE` or `MERGE_MESSAGE` for a default merge commit title.
+        :param pulumi.Input[str] merge_commit_message: Can be `PR_BODY`, `PR_TITLE`, or `BLANK` for a default merge commit message. Applicable only if `allow_merge_commit` is `true`.
+        :param pulumi.Input[str] merge_commit_title: Can be `PR_TITLE` or `MERGE_MESSAGE` for a default merge commit title. Applicable only if `allow_merge_commit` is `true`.
         :param pulumi.Input[str] name: The name of the repository.
         :param pulumi.Input['RepositoryPagesArgs'] pages: The repository's GitHub Pages configuration. See GitHub Pages Configuration below for details.
         :param pulumi.Input[bool] private: Set to `true` to create a private repository.
                Repositories are created as public (e.g. open source) by default.
         :param pulumi.Input['RepositorySecurityAndAnalysisArgs'] security_and_analysis: The repository's [security and analysis](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository) configuration. See Security and Analysis Configuration below for details.
-        :param pulumi.Input[str] squash_merge_commit_message: Can be `PR_BODY`, `COMMIT_MESSAGES`, or `BLANK` for a default squash merge commit message.
-        :param pulumi.Input[str] squash_merge_commit_title: Can be `PR_TITLE` or `COMMIT_OR_PR_TITLE` for a default squash merge commit title.
+        :param pulumi.Input[str] squash_merge_commit_message: Can be `PR_BODY`, `COMMIT_MESSAGES`, or `BLANK` for a default squash merge commit message. Applicable only if `allow_squash_merge` is `true`.
+        :param pulumi.Input[str] squash_merge_commit_title: Can be `PR_TITLE` or `COMMIT_OR_PR_TITLE` for a default squash merge commit title. Applicable only if `allow_squash_merge` is `true`.
         :param pulumi.Input['RepositoryTemplateArgs'] template: Use a template repository to create this resource. See Template Repositories below for details.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] topics: The list of topics of the repository.
         :param pulumi.Input[str] visibility: Can be `public` or `private`. If your organization is associated with an enterprise account using GitHub Enterprise Cloud or GitHub Enterprise Server 2.20+, visibility can also be `internal`. The `visibility` parameter overrides the `private` parameter.
@@ -426,7 +426,7 @@ class RepositoryArgs:
     @pulumi.getter(name="mergeCommitMessage")
     def merge_commit_message(self) -> Optional[pulumi.Input[str]]:
         """
-        Can be `PR_BODY`, `PR_TITLE`, or `BLANK` for a default merge commit message.
+        Can be `PR_BODY`, `PR_TITLE`, or `BLANK` for a default merge commit message. Applicable only if `allow_merge_commit` is `true`.
         """
         return pulumi.get(self, "merge_commit_message")
 
@@ -438,7 +438,7 @@ class RepositoryArgs:
     @pulumi.getter(name="mergeCommitTitle")
     def merge_commit_title(self) -> Optional[pulumi.Input[str]]:
         """
-        Can be `PR_TITLE` or `MERGE_MESSAGE` for a default merge commit title.
+        Can be `PR_TITLE` or `MERGE_MESSAGE` for a default merge commit title. Applicable only if `allow_merge_commit` is `true`.
         """
         return pulumi.get(self, "merge_commit_title")
 
@@ -502,7 +502,7 @@ class RepositoryArgs:
     @pulumi.getter(name="squashMergeCommitMessage")
     def squash_merge_commit_message(self) -> Optional[pulumi.Input[str]]:
         """
-        Can be `PR_BODY`, `COMMIT_MESSAGES`, or `BLANK` for a default squash merge commit message.
+        Can be `PR_BODY`, `COMMIT_MESSAGES`, or `BLANK` for a default squash merge commit message. Applicable only if `allow_squash_merge` is `true`.
         """
         return pulumi.get(self, "squash_merge_commit_message")
 
@@ -514,7 +514,7 @@ class RepositoryArgs:
     @pulumi.getter(name="squashMergeCommitTitle")
     def squash_merge_commit_title(self) -> Optional[pulumi.Input[str]]:
         """
-        Can be `PR_TITLE` or `COMMIT_OR_PR_TITLE` for a default squash merge commit title.
+        Can be `PR_TITLE` or `COMMIT_OR_PR_TITLE` for a default squash merge commit title. Applicable only if `allow_squash_merge` is `true`.
         """
         return pulumi.get(self, "squash_merge_commit_title")
 
@@ -648,8 +648,8 @@ class _RepositoryState:
         :param pulumi.Input[bool] ignore_vulnerability_alerts_during_read: Set to `true` to not call the vulnerability alerts endpoint so the resource can also be used without admin permissions during read.
         :param pulumi.Input[bool] is_template: Set to `true` to tell GitHub that this is a template repository.
         :param pulumi.Input[str] license_template: Use the [name of the template](https://github.com/github/choosealicense.com/tree/gh-pages/_licenses) without the extension. For example, "mit" or "mpl-2.0".
-        :param pulumi.Input[str] merge_commit_message: Can be `PR_BODY`, `PR_TITLE`, or `BLANK` for a default merge commit message.
-        :param pulumi.Input[str] merge_commit_title: Can be `PR_TITLE` or `MERGE_MESSAGE` for a default merge commit title.
+        :param pulumi.Input[str] merge_commit_message: Can be `PR_BODY`, `PR_TITLE`, or `BLANK` for a default merge commit message. Applicable only if `allow_merge_commit` is `true`.
+        :param pulumi.Input[str] merge_commit_title: Can be `PR_TITLE` or `MERGE_MESSAGE` for a default merge commit title. Applicable only if `allow_merge_commit` is `true`.
         :param pulumi.Input[str] name: The name of the repository.
         :param pulumi.Input[str] node_id: GraphQL global node id for use with v4 API
         :param pulumi.Input['RepositoryPagesArgs'] pages: The repository's GitHub Pages configuration. See GitHub Pages Configuration below for details.
@@ -658,8 +658,8 @@ class _RepositoryState:
                Repositories are created as public (e.g. open source) by default.
         :param pulumi.Input[int] repo_id: GitHub ID for the repository
         :param pulumi.Input['RepositorySecurityAndAnalysisArgs'] security_and_analysis: The repository's [security and analysis](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository) configuration. See Security and Analysis Configuration below for details.
-        :param pulumi.Input[str] squash_merge_commit_message: Can be `PR_BODY`, `COMMIT_MESSAGES`, or `BLANK` for a default squash merge commit message.
-        :param pulumi.Input[str] squash_merge_commit_title: Can be `PR_TITLE` or `COMMIT_OR_PR_TITLE` for a default squash merge commit title.
+        :param pulumi.Input[str] squash_merge_commit_message: Can be `PR_BODY`, `COMMIT_MESSAGES`, or `BLANK` for a default squash merge commit message. Applicable only if `allow_squash_merge` is `true`.
+        :param pulumi.Input[str] squash_merge_commit_title: Can be `PR_TITLE` or `COMMIT_OR_PR_TITLE` for a default squash merge commit title. Applicable only if `allow_squash_merge` is `true`.
         :param pulumi.Input[str] ssh_clone_url: URL that can be provided to `git clone` to clone the repository via SSH.
         :param pulumi.Input[str] svn_url: URL that can be provided to `svn checkout` to check out the repository via GitHub's Subversion protocol emulation.
         :param pulumi.Input['RepositoryTemplateArgs'] template: Use a template repository to create this resource. See Template Repositories below for details.
@@ -1080,7 +1080,7 @@ class _RepositoryState:
     @pulumi.getter(name="mergeCommitMessage")
     def merge_commit_message(self) -> Optional[pulumi.Input[str]]:
         """
-        Can be `PR_BODY`, `PR_TITLE`, or `BLANK` for a default merge commit message.
+        Can be `PR_BODY`, `PR_TITLE`, or `BLANK` for a default merge commit message. Applicable only if `allow_merge_commit` is `true`.
         """
         return pulumi.get(self, "merge_commit_message")
 
@@ -1092,7 +1092,7 @@ class _RepositoryState:
     @pulumi.getter(name="mergeCommitTitle")
     def merge_commit_title(self) -> Optional[pulumi.Input[str]]:
         """
-        Can be `PR_TITLE` or `MERGE_MESSAGE` for a default merge commit title.
+        Can be `PR_TITLE` or `MERGE_MESSAGE` for a default merge commit title. Applicable only if `allow_merge_commit` is `true`.
         """
         return pulumi.get(self, "merge_commit_title")
 
@@ -1192,7 +1192,7 @@ class _RepositoryState:
     @pulumi.getter(name="squashMergeCommitMessage")
     def squash_merge_commit_message(self) -> Optional[pulumi.Input[str]]:
         """
-        Can be `PR_BODY`, `COMMIT_MESSAGES`, or `BLANK` for a default squash merge commit message.
+        Can be `PR_BODY`, `COMMIT_MESSAGES`, or `BLANK` for a default squash merge commit message. Applicable only if `allow_squash_merge` is `true`.
         """
         return pulumi.get(self, "squash_merge_commit_message")
 
@@ -1204,7 +1204,7 @@ class _RepositoryState:
     @pulumi.getter(name="squashMergeCommitTitle")
     def squash_merge_commit_title(self) -> Optional[pulumi.Input[str]]:
         """
-        Can be `PR_TITLE` or `COMMIT_OR_PR_TITLE` for a default squash merge commit title.
+        Can be `PR_TITLE` or `COMMIT_OR_PR_TITLE` for a default squash merge commit title. Applicable only if `allow_squash_merge` is `true`.
         """
         return pulumi.get(self, "squash_merge_commit_title")
 
@@ -1399,15 +1399,15 @@ class Repository(pulumi.CustomResource):
         :param pulumi.Input[bool] ignore_vulnerability_alerts_during_read: Set to `true` to not call the vulnerability alerts endpoint so the resource can also be used without admin permissions during read.
         :param pulumi.Input[bool] is_template: Set to `true` to tell GitHub that this is a template repository.
         :param pulumi.Input[str] license_template: Use the [name of the template](https://github.com/github/choosealicense.com/tree/gh-pages/_licenses) without the extension. For example, "mit" or "mpl-2.0".
-        :param pulumi.Input[str] merge_commit_message: Can be `PR_BODY`, `PR_TITLE`, or `BLANK` for a default merge commit message.
-        :param pulumi.Input[str] merge_commit_title: Can be `PR_TITLE` or `MERGE_MESSAGE` for a default merge commit title.
+        :param pulumi.Input[str] merge_commit_message: Can be `PR_BODY`, `PR_TITLE`, or `BLANK` for a default merge commit message. Applicable only if `allow_merge_commit` is `true`.
+        :param pulumi.Input[str] merge_commit_title: Can be `PR_TITLE` or `MERGE_MESSAGE` for a default merge commit title. Applicable only if `allow_merge_commit` is `true`.
         :param pulumi.Input[str] name: The name of the repository.
         :param pulumi.Input[pulumi.InputType['RepositoryPagesArgs']] pages: The repository's GitHub Pages configuration. See GitHub Pages Configuration below for details.
         :param pulumi.Input[bool] private: Set to `true` to create a private repository.
                Repositories are created as public (e.g. open source) by default.
         :param pulumi.Input[pulumi.InputType['RepositorySecurityAndAnalysisArgs']] security_and_analysis: The repository's [security and analysis](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository) configuration. See Security and Analysis Configuration below for details.
-        :param pulumi.Input[str] squash_merge_commit_message: Can be `PR_BODY`, `COMMIT_MESSAGES`, or `BLANK` for a default squash merge commit message.
-        :param pulumi.Input[str] squash_merge_commit_title: Can be `PR_TITLE` or `COMMIT_OR_PR_TITLE` for a default squash merge commit title.
+        :param pulumi.Input[str] squash_merge_commit_message: Can be `PR_BODY`, `COMMIT_MESSAGES`, or `BLANK` for a default squash merge commit message. Applicable only if `allow_squash_merge` is `true`.
+        :param pulumi.Input[str] squash_merge_commit_title: Can be `PR_TITLE` or `COMMIT_OR_PR_TITLE` for a default squash merge commit title. Applicable only if `allow_squash_merge` is `true`.
         :param pulumi.Input[pulumi.InputType['RepositoryTemplateArgs']] template: Use a template repository to create this resource. See Template Repositories below for details.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] topics: The list of topics of the repository.
         :param pulumi.Input[str] visibility: Can be `public` or `private`. If your organization is associated with an enterprise account using GitHub Enterprise Cloud or GitHub Enterprise Server 2.20+, visibility can also be `internal`. The `visibility` parameter overrides the `private` parameter.
@@ -1662,8 +1662,8 @@ class Repository(pulumi.CustomResource):
         :param pulumi.Input[bool] ignore_vulnerability_alerts_during_read: Set to `true` to not call the vulnerability alerts endpoint so the resource can also be used without admin permissions during read.
         :param pulumi.Input[bool] is_template: Set to `true` to tell GitHub that this is a template repository.
         :param pulumi.Input[str] license_template: Use the [name of the template](https://github.com/github/choosealicense.com/tree/gh-pages/_licenses) without the extension. For example, "mit" or "mpl-2.0".
-        :param pulumi.Input[str] merge_commit_message: Can be `PR_BODY`, `PR_TITLE`, or `BLANK` for a default merge commit message.
-        :param pulumi.Input[str] merge_commit_title: Can be `PR_TITLE` or `MERGE_MESSAGE` for a default merge commit title.
+        :param pulumi.Input[str] merge_commit_message: Can be `PR_BODY`, `PR_TITLE`, or `BLANK` for a default merge commit message. Applicable only if `allow_merge_commit` is `true`.
+        :param pulumi.Input[str] merge_commit_title: Can be `PR_TITLE` or `MERGE_MESSAGE` for a default merge commit title. Applicable only if `allow_merge_commit` is `true`.
         :param pulumi.Input[str] name: The name of the repository.
         :param pulumi.Input[str] node_id: GraphQL global node id for use with v4 API
         :param pulumi.Input[pulumi.InputType['RepositoryPagesArgs']] pages: The repository's GitHub Pages configuration. See GitHub Pages Configuration below for details.
@@ -1672,8 +1672,8 @@ class Repository(pulumi.CustomResource):
                Repositories are created as public (e.g. open source) by default.
         :param pulumi.Input[int] repo_id: GitHub ID for the repository
         :param pulumi.Input[pulumi.InputType['RepositorySecurityAndAnalysisArgs']] security_and_analysis: The repository's [security and analysis](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository) configuration. See Security and Analysis Configuration below for details.
-        :param pulumi.Input[str] squash_merge_commit_message: Can be `PR_BODY`, `COMMIT_MESSAGES`, or `BLANK` for a default squash merge commit message.
-        :param pulumi.Input[str] squash_merge_commit_title: Can be `PR_TITLE` or `COMMIT_OR_PR_TITLE` for a default squash merge commit title.
+        :param pulumi.Input[str] squash_merge_commit_message: Can be `PR_BODY`, `COMMIT_MESSAGES`, or `BLANK` for a default squash merge commit message. Applicable only if `allow_squash_merge` is `true`.
+        :param pulumi.Input[str] squash_merge_commit_title: Can be `PR_TITLE` or `COMMIT_OR_PR_TITLE` for a default squash merge commit title. Applicable only if `allow_squash_merge` is `true`.
         :param pulumi.Input[str] ssh_clone_url: URL that can be provided to `git clone` to clone the repository via SSH.
         :param pulumi.Input[str] svn_url: URL that can be provided to `svn checkout` to check out the repository via GitHub's Subversion protocol emulation.
         :param pulumi.Input[pulumi.InputType['RepositoryTemplateArgs']] template: Use a template repository to create this resource. See Template Repositories below for details.
@@ -1946,7 +1946,7 @@ class Repository(pulumi.CustomResource):
     @pulumi.getter(name="mergeCommitMessage")
     def merge_commit_message(self) -> pulumi.Output[Optional[str]]:
         """
-        Can be `PR_BODY`, `PR_TITLE`, or `BLANK` for a default merge commit message.
+        Can be `PR_BODY`, `PR_TITLE`, or `BLANK` for a default merge commit message. Applicable only if `allow_merge_commit` is `true`.
         """
         return pulumi.get(self, "merge_commit_message")
 
@@ -1954,7 +1954,7 @@ class Repository(pulumi.CustomResource):
     @pulumi.getter(name="mergeCommitTitle")
     def merge_commit_title(self) -> pulumi.Output[Optional[str]]:
         """
-        Can be `PR_TITLE` or `MERGE_MESSAGE` for a default merge commit title.
+        Can be `PR_TITLE` or `MERGE_MESSAGE` for a default merge commit title. Applicable only if `allow_merge_commit` is `true`.
         """
         return pulumi.get(self, "merge_commit_title")
 
@@ -2022,7 +2022,7 @@ class Repository(pulumi.CustomResource):
     @pulumi.getter(name="squashMergeCommitMessage")
     def squash_merge_commit_message(self) -> pulumi.Output[Optional[str]]:
         """
-        Can be `PR_BODY`, `COMMIT_MESSAGES`, or `BLANK` for a default squash merge commit message.
+        Can be `PR_BODY`, `COMMIT_MESSAGES`, or `BLANK` for a default squash merge commit message. Applicable only if `allow_squash_merge` is `true`.
         """
         return pulumi.get(self, "squash_merge_commit_message")
 
@@ -2030,7 +2030,7 @@ class Repository(pulumi.CustomResource):
     @pulumi.getter(name="squashMergeCommitTitle")
     def squash_merge_commit_title(self) -> pulumi.Output[Optional[str]]:
         """
-        Can be `PR_TITLE` or `COMMIT_OR_PR_TITLE` for a default squash merge commit title.
+        Can be `PR_TITLE` or `COMMIT_OR_PR_TITLE` for a default squash merge commit title. Applicable only if `allow_squash_merge` is `true`.
         """
         return pulumi.get(self, "squash_merge_commit_title")
 

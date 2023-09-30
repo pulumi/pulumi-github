@@ -6643,11 +6643,11 @@
                 },
                 "mergeCommitMessage": {
                     "type": "string",
-                    "description": "Can be `PR_BODY`, `PR_TITLE`, or `BLANK` for a default merge commit message.\n"
+                    "description": "Can be `PR_BODY`, `PR_TITLE`, or `BLANK` for a default merge commit message. Applicable only if `allow_merge_commit` is `true`.\n"
                 },
                 "mergeCommitTitle": {
                     "type": "string",
-                    "description": "Can be `PR_TITLE` or `MERGE_MESSAGE` for a default merge commit title.\n"
+                    "description": "Can be `PR_TITLE` or `MERGE_MESSAGE` for a default merge commit title. Applicable only if `allow_merge_commit` is `true`.\n"
                 },
                 "name": {
                     "type": "string",
@@ -6680,11 +6680,11 @@
                 },
                 "squashMergeCommitMessage": {
                     "type": "string",
-                    "description": "Can be `PR_BODY`, `COMMIT_MESSAGES`, or `BLANK` for a default squash merge commit message.\n"
+                    "description": "Can be `PR_BODY`, `COMMIT_MESSAGES`, or `BLANK` for a default squash merge commit message. Applicable only if `allow_squash_merge` is `true`.\n"
                 },
                 "squashMergeCommitTitle": {
                     "type": "string",
-                    "description": "Can be `PR_TITLE` or `COMMIT_OR_PR_TITLE` for a default squash merge commit title.\n"
+                    "description": "Can be `PR_TITLE` or `COMMIT_OR_PR_TITLE` for a default squash merge commit title. Applicable only if `allow_squash_merge` is `true`.\n"
                 },
                 "sshCloneUrl": {
                     "type": "string",
@@ -6820,11 +6820,11 @@
                 },
                 "mergeCommitMessage": {
                     "type": "string",
-                    "description": "Can be `PR_BODY`, `PR_TITLE`, or `BLANK` for a default merge commit message.\n"
+                    "description": "Can be `PR_BODY`, `PR_TITLE`, or `BLANK` for a default merge commit message. Applicable only if `allow_merge_commit` is `true`.\n"
                 },
                 "mergeCommitTitle": {
                     "type": "string",
-                    "description": "Can be `PR_TITLE` or `MERGE_MESSAGE` for a default merge commit title.\n"
+                    "description": "Can be `PR_TITLE` or `MERGE_MESSAGE` for a default merge commit title. Applicable only if `allow_merge_commit` is `true`.\n"
                 },
                 "name": {
                     "type": "string",
@@ -6845,11 +6845,11 @@
                 },
                 "squashMergeCommitMessage": {
                     "type": "string",
-                    "description": "Can be `PR_BODY`, `COMMIT_MESSAGES`, or `BLANK` for a default squash merge commit message.\n"
+                    "description": "Can be `PR_BODY`, `COMMIT_MESSAGES`, or `BLANK` for a default squash merge commit message. Applicable only if `allow_squash_merge` is `true`.\n"
                 },
                 "squashMergeCommitTitle": {
                     "type": "string",
-                    "description": "Can be `PR_TITLE` or `COMMIT_OR_PR_TITLE` for a default squash merge commit title.\n"
+                    "description": "Can be `PR_TITLE` or `COMMIT_OR_PR_TITLE` for a default squash merge commit title. Applicable only if `allow_squash_merge` is `true`.\n"
                 },
                 "template": {
                     "$ref": "#/types/github:index/RepositoryTemplate:RepositoryTemplate",
@@ -6980,11 +6980,11 @@
                     },
                     "mergeCommitMessage": {
                         "type": "string",
-                        "description": "Can be `PR_BODY`, `PR_TITLE`, or `BLANK` for a default merge commit message.\n"
+                        "description": "Can be `PR_BODY`, `PR_TITLE`, or `BLANK` for a default merge commit message. Applicable only if `allow_merge_commit` is `true`.\n"
                     },
                     "mergeCommitTitle": {
                         "type": "string",
-                        "description": "Can be `PR_TITLE` or `MERGE_MESSAGE` for a default merge commit title.\n"
+                        "description": "Can be `PR_TITLE` or `MERGE_MESSAGE` for a default merge commit title. Applicable only if `allow_merge_commit` is `true`.\n"
                     },
                     "name": {
                         "type": "string",
@@ -7017,11 +7017,11 @@
                     },
                     "squashMergeCommitMessage": {
                         "type": "string",
-                        "description": "Can be `PR_BODY`, `COMMIT_MESSAGES`, or `BLANK` for a default squash merge commit message.\n"
+                        "description": "Can be `PR_BODY`, `COMMIT_MESSAGES`, or `BLANK` for a default squash merge commit message. Applicable only if `allow_squash_merge` is `true`.\n"
                     },
                     "squashMergeCommitTitle": {
                         "type": "string",
-                        "description": "Can be `PR_TITLE` or `COMMIT_OR_PR_TITLE` for a default squash merge commit title.\n"
+                        "description": "Can be `PR_TITLE` or `COMMIT_OR_PR_TITLE` for a default squash merge commit title. Applicable only if `allow_squash_merge` is `true`.\n"
                     },
                     "sshCloneUrl": {
                         "type": "string",
@@ -9707,7 +9707,7 @@
                 "properties": {
                     "branch": {
                         "type": "string",
-                        "description": "The repository branch to create.\n",
+                        "description": "The repository branch to retrieve.\n",
                         "willReplaceOnChanges": true
                     },
                     "repository": {

@@ -237,13 +237,13 @@ namespace Pulumi.Github
         public Output<string?> LicenseTemplate { get; private set; } = null!;
 
         /// <summary>
-        /// Can be `PR_BODY`, `PR_TITLE`, or `BLANK` for a default merge commit message.
+        /// Can be `PR_BODY`, `PR_TITLE`, or `BLANK` for a default merge commit message. Applicable only if `allow_merge_commit` is `true`.
         /// </summary>
         [Output("mergeCommitMessage")]
         public Output<string?> MergeCommitMessage { get; private set; } = null!;
 
         /// <summary>
-        /// Can be `PR_TITLE` or `MERGE_MESSAGE` for a default merge commit title.
+        /// Can be `PR_TITLE` or `MERGE_MESSAGE` for a default merge commit title. Applicable only if `allow_merge_commit` is `true`.
         /// </summary>
         [Output("mergeCommitTitle")]
         public Output<string?> MergeCommitTitle { get; private set; } = null!;
@@ -292,13 +292,13 @@ namespace Pulumi.Github
         public Output<Outputs.RepositorySecurityAndAnalysis> SecurityAndAnalysis { get; private set; } = null!;
 
         /// <summary>
-        /// Can be `PR_BODY`, `COMMIT_MESSAGES`, or `BLANK` for a default squash merge commit message.
+        /// Can be `PR_BODY`, `COMMIT_MESSAGES`, or `BLANK` for a default squash merge commit message. Applicable only if `allow_squash_merge` is `true`.
         /// </summary>
         [Output("squashMergeCommitMessage")]
         public Output<string?> SquashMergeCommitMessage { get; private set; } = null!;
 
         /// <summary>
-        /// Can be `PR_TITLE` or `COMMIT_OR_PR_TITLE` for a default squash merge commit title.
+        /// Can be `PR_TITLE` or `COMMIT_OR_PR_TITLE` for a default squash merge commit title. Applicable only if `allow_squash_merge` is `true`.
         /// </summary>
         [Output("squashMergeCommitTitle")]
         public Output<string?> SquashMergeCommitTitle { get; private set; } = null!;
@@ -516,13 +516,13 @@ namespace Pulumi.Github
         public Input<string>? LicenseTemplate { get; set; }
 
         /// <summary>
-        /// Can be `PR_BODY`, `PR_TITLE`, or `BLANK` for a default merge commit message.
+        /// Can be `PR_BODY`, `PR_TITLE`, or `BLANK` for a default merge commit message. Applicable only if `allow_merge_commit` is `true`.
         /// </summary>
         [Input("mergeCommitMessage")]
         public Input<string>? MergeCommitMessage { get; set; }
 
         /// <summary>
-        /// Can be `PR_TITLE` or `MERGE_MESSAGE` for a default merge commit title.
+        /// Can be `PR_TITLE` or `MERGE_MESSAGE` for a default merge commit title. Applicable only if `allow_merge_commit` is `true`.
         /// </summary>
         [Input("mergeCommitTitle")]
         public Input<string>? MergeCommitTitle { get; set; }
@@ -553,13 +553,13 @@ namespace Pulumi.Github
         public Input<Inputs.RepositorySecurityAndAnalysisArgs>? SecurityAndAnalysis { get; set; }
 
         /// <summary>
-        /// Can be `PR_BODY`, `COMMIT_MESSAGES`, or `BLANK` for a default squash merge commit message.
+        /// Can be `PR_BODY`, `COMMIT_MESSAGES`, or `BLANK` for a default squash merge commit message. Applicable only if `allow_squash_merge` is `true`.
         /// </summary>
         [Input("squashMergeCommitMessage")]
         public Input<string>? SquashMergeCommitMessage { get; set; }
 
         /// <summary>
-        /// Can be `PR_TITLE` or `COMMIT_OR_PR_TITLE` for a default squash merge commit title.
+        /// Can be `PR_TITLE` or `COMMIT_OR_PR_TITLE` for a default squash merge commit title. Applicable only if `allow_squash_merge` is `true`.
         /// </summary>
         [Input("squashMergeCommitTitle")]
         public Input<string>? SquashMergeCommitTitle { get; set; }
@@ -760,13 +760,13 @@ namespace Pulumi.Github
         public Input<string>? LicenseTemplate { get; set; }
 
         /// <summary>
-        /// Can be `PR_BODY`, `PR_TITLE`, or `BLANK` for a default merge commit message.
+        /// Can be `PR_BODY`, `PR_TITLE`, or `BLANK` for a default merge commit message. Applicable only if `allow_merge_commit` is `true`.
         /// </summary>
         [Input("mergeCommitMessage")]
         public Input<string>? MergeCommitMessage { get; set; }
 
         /// <summary>
-        /// Can be `PR_TITLE` or `MERGE_MESSAGE` for a default merge commit title.
+        /// Can be `PR_TITLE` or `MERGE_MESSAGE` for a default merge commit title. Applicable only if `allow_merge_commit` is `true`.
         /// </summary>
         [Input("mergeCommitTitle")]
         public Input<string>? MergeCommitTitle { get; set; }
@@ -815,13 +815,13 @@ namespace Pulumi.Github
         public Input<Inputs.RepositorySecurityAndAnalysisGetArgs>? SecurityAndAnalysis { get; set; }
 
         /// <summary>
-        /// Can be `PR_BODY`, `COMMIT_MESSAGES`, or `BLANK` for a default squash merge commit message.
+        /// Can be `PR_BODY`, `COMMIT_MESSAGES`, or `BLANK` for a default squash merge commit message. Applicable only if `allow_squash_merge` is `true`.
         /// </summary>
         [Input("squashMergeCommitMessage")]
         public Input<string>? SquashMergeCommitMessage { get; set; }
 
         /// <summary>
-        /// Can be `PR_TITLE` or `COMMIT_OR_PR_TITLE` for a default squash merge commit title.
+        /// Can be `PR_TITLE` or `COMMIT_OR_PR_TITLE` for a default squash merge commit title. Applicable only if `allow_squash_merge` is `true`.
         /// </summary>
         [Input("squashMergeCommitTitle")]
         public Input<string>? SquashMergeCommitTitle { get; set; }
