@@ -15,14 +15,14 @@ public final class OrganizationRulesetConditionsRefNameArgs extends com.pulumi.r
     public static final OrganizationRulesetConditionsRefNameArgs Empty = new OrganizationRulesetConditionsRefNameArgs();
 
     /**
-     * (List of String) Array of ref names or patterns to exclude. The condition will not pass if any of these patterns match.
+     * (List of String) Array of repository names or patterns to exclude. The condition will not pass if any of these patterns match.
      * 
      */
     @Import(name="excludes", required=true)
     private Output<List<String>> excludes;
 
     /**
-     * @return (List of String) Array of ref names or patterns to exclude. The condition will not pass if any of these patterns match.
+     * @return (List of String) Array of repository names or patterns to exclude. The condition will not pass if any of these patterns match.
      * 
      */
     public Output<List<String>> excludes() {
@@ -30,14 +30,14 @@ public final class OrganizationRulesetConditionsRefNameArgs extends com.pulumi.r
     }
 
     /**
-     * (List of String) Array of ref names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~DEFAULT_BRANCH` to include the default branch or `~ALL` to include all branches.
+     * (List of String) Array of repository names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~ALL` to include all repositories.
      * 
      */
     @Import(name="includes", required=true)
     private Output<List<String>> includes;
 
     /**
-     * @return (List of String) Array of ref names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~DEFAULT_BRANCH` to include the default branch or `~ALL` to include all branches.
+     * @return (List of String) Array of repository names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~ALL` to include all repositories.
      * 
      */
     public Output<List<String>> includes() {
@@ -70,7 +70,7 @@ public final class OrganizationRulesetConditionsRefNameArgs extends com.pulumi.r
         }
 
         /**
-         * @param excludes (List of String) Array of ref names or patterns to exclude. The condition will not pass if any of these patterns match.
+         * @param excludes (List of String) Array of repository names or patterns to exclude. The condition will not pass if any of these patterns match.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class OrganizationRulesetConditionsRefNameArgs extends com.pulumi.r
         }
 
         /**
-         * @param excludes (List of String) Array of ref names or patterns to exclude. The condition will not pass if any of these patterns match.
+         * @param excludes (List of String) Array of repository names or patterns to exclude. The condition will not pass if any of these patterns match.
          * 
          * @return builder
          * 
@@ -91,7 +91,7 @@ public final class OrganizationRulesetConditionsRefNameArgs extends com.pulumi.r
         }
 
         /**
-         * @param excludes (List of String) Array of ref names or patterns to exclude. The condition will not pass if any of these patterns match.
+         * @param excludes (List of String) Array of repository names or patterns to exclude. The condition will not pass if any of these patterns match.
          * 
          * @return builder
          * 
@@ -101,7 +101,7 @@ public final class OrganizationRulesetConditionsRefNameArgs extends com.pulumi.r
         }
 
         /**
-         * @param includes (List of String) Array of ref names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~DEFAULT_BRANCH` to include the default branch or `~ALL` to include all branches.
+         * @param includes (List of String) Array of repository names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~ALL` to include all repositories.
          * 
          * @return builder
          * 
@@ -112,7 +112,7 @@ public final class OrganizationRulesetConditionsRefNameArgs extends com.pulumi.r
         }
 
         /**
-         * @param includes (List of String) Array of ref names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~DEFAULT_BRANCH` to include the default branch or `~ALL` to include all branches.
+         * @param includes (List of String) Array of repository names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~ALL` to include all repositories.
          * 
          * @return builder
          * 
@@ -122,7 +122,7 @@ public final class OrganizationRulesetConditionsRefNameArgs extends com.pulumi.r
         }
 
         /**
-         * @param includes (List of String) Array of ref names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~DEFAULT_BRANCH` to include the default branch or `~ALL` to include all branches.
+         * @param includes (List of String) Array of repository names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~ALL` to include all repositories.
          * 
          * @return builder
          * 

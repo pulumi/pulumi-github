@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -23,8 +23,19 @@ class TeamMembersArgs:
         :param pulumi.Input[Sequence[pulumi.Input['TeamMembersMemberArgs']]] members: List of team members. See Members below for details.
         :param pulumi.Input[str] team_id: The GitHub team id or the GitHub team slug
         """
-        pulumi.set(__self__, "members", members)
-        pulumi.set(__self__, "team_id", team_id)
+        TeamMembersArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            members=members,
+            team_id=team_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             members: pulumi.Input[Sequence[pulumi.Input['TeamMembersMemberArgs']]],
+             team_id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("members", members)
+        _setter("team_id", team_id)
 
     @property
     @pulumi.getter
@@ -61,10 +72,21 @@ class _TeamMembersState:
         :param pulumi.Input[Sequence[pulumi.Input['TeamMembersMemberArgs']]] members: List of team members. See Members below for details.
         :param pulumi.Input[str] team_id: The GitHub team id or the GitHub team slug
         """
+        _TeamMembersState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            members=members,
+            team_id=team_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             members: Optional[pulumi.Input[Sequence[pulumi.Input['TeamMembersMemberArgs']]]] = None,
+             team_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if members is not None:
-            pulumi.set(__self__, "members", members)
+            _setter("members", members)
         if team_id is not None:
-            pulumi.set(__self__, "team_id", team_id)
+            _setter("team_id", team_id)
 
     @property
     @pulumi.getter
@@ -202,6 +224,10 @@ class TeamMembers(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            TeamMembersArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

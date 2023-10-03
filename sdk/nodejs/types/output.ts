@@ -884,22 +884,22 @@ export interface OrganizationRulesetConditions {
 
 export interface OrganizationRulesetConditionsRefName {
     /**
-     * (List of String) Array of ref names or patterns to exclude. The condition will not pass if any of these patterns match.
+     * (List of String) Array of repository names or patterns to exclude. The condition will not pass if any of these patterns match.
      */
     excludes: string[];
     /**
-     * (List of String) Array of ref names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~DEFAULT_BRANCH` to include the default branch or `~ALL` to include all branches.
+     * (List of String) Array of repository names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~ALL` to include all repositories.
      */
     includes: string[];
 }
 
 export interface OrganizationRulesetConditionsRepositoryName {
     /**
-     * (List of String) Array of ref names or patterns to exclude. The condition will not pass if any of these patterns match.
+     * (List of String) Array of repository names or patterns to exclude. The condition will not pass if any of these patterns match.
      */
     excludes: string[];
     /**
-     * (List of String) Array of ref names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~DEFAULT_BRANCH` to include the default branch or `~ALL` to include all branches.
+     * (List of String) Array of repository names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~ALL` to include all repositories.
      */
     includes: string[];
     protected?: boolean;

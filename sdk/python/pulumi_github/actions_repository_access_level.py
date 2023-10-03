@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['ActionsRepositoryAccessLevelArgs', 'ActionsRepositoryAccessLevel']
@@ -21,8 +21,19 @@ class ActionsRepositoryAccessLevelArgs:
         :param pulumi.Input[str] access_level: Where the actions or reusable workflows of the repository may be used. Possible values are `none`, `user`, `organization`, or `enterprise`.
         :param pulumi.Input[str] repository: The GitHub repository
         """
-        pulumi.set(__self__, "access_level", access_level)
-        pulumi.set(__self__, "repository", repository)
+        ActionsRepositoryAccessLevelArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            access_level=access_level,
+            repository=repository,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             access_level: pulumi.Input[str],
+             repository: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("access_level", access_level)
+        _setter("repository", repository)
 
     @property
     @pulumi.getter(name="accessLevel")
@@ -59,10 +70,21 @@ class _ActionsRepositoryAccessLevelState:
         :param pulumi.Input[str] access_level: Where the actions or reusable workflows of the repository may be used. Possible values are `none`, `user`, `organization`, or `enterprise`.
         :param pulumi.Input[str] repository: The GitHub repository
         """
+        _ActionsRepositoryAccessLevelState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            access_level=access_level,
+            repository=repository,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             access_level: Optional[pulumi.Input[str]] = None,
+             repository: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if access_level is not None:
-            pulumi.set(__self__, "access_level", access_level)
+            _setter("access_level", access_level)
         if repository is not None:
-            pulumi.set(__self__, "repository", repository)
+            _setter("repository", repository)
 
     @property
     @pulumi.getter(name="accessLevel")
@@ -166,6 +188,10 @@ class ActionsRepositoryAccessLevel(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ActionsRepositoryAccessLevelArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

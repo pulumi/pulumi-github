@@ -6,13 +6,14 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = [
     'GetActionsOrganizationOidcSubjectClaimCustomizationTemplateResult',
     'AwaitableGetActionsOrganizationOidcSubjectClaimCustomizationTemplateResult',
     'get_actions_organization_oidc_subject_claim_customization_template',
+    'get_actions_organization_oidc_subject_claim_customization_template_output',
 ]
 
 @pulumi.output_type
@@ -75,3 +76,20 @@ def get_actions_organization_oidc_subject_claim_customization_template(opts: Opt
     return AwaitableGetActionsOrganizationOidcSubjectClaimCustomizationTemplateResult(
         id=pulumi.get(__ret__, 'id'),
         include_claim_keys=pulumi.get(__ret__, 'include_claim_keys'))
+
+
+@_utilities.lift_output_func(get_actions_organization_oidc_subject_claim_customization_template)
+def get_actions_organization_oidc_subject_claim_customization_template_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetActionsOrganizationOidcSubjectClaimCustomizationTemplateResult]:
+    """
+    Use this data source to retrieve the OpenID Connect subject claim customization template for an organization
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_github as github
+
+    example = github.get_actions_organization_oidc_subject_claim_customization_template()
+    ```
+    """
+    ...

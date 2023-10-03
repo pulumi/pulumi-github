@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['OrganizationCustomRoleArgs', 'OrganizationCustomRole']
@@ -25,12 +25,27 @@ class OrganizationCustomRoleArgs:
         :param pulumi.Input[str] description: The description for the custom role.
         :param pulumi.Input[str] name: The name of the custom role.
         """
-        pulumi.set(__self__, "base_role", base_role)
-        pulumi.set(__self__, "permissions", permissions)
+        OrganizationCustomRoleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            base_role=base_role,
+            permissions=permissions,
+            description=description,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             base_role: pulumi.Input[str],
+             permissions: pulumi.Input[Sequence[pulumi.Input[str]]],
+             description: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("base_role", base_role)
+        _setter("permissions", permissions)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="baseRole")
@@ -95,14 +110,29 @@ class _OrganizationCustomRoleState:
         :param pulumi.Input[str] name: The name of the custom role.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] permissions: A list of additional permissions included in this role. Must have a minimum of 1 additional permission. The list of available permissions can be found using the [list repository fine-grained permissions for an organization](https://docs.github.com/en/enterprise-cloud@latest/rest/orgs/custom-roles?apiVersion=2022-11-28#list-repository-fine-grained-permissions-for-an-organization) API.
         """
+        _OrganizationCustomRoleState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            base_role=base_role,
+            description=description,
+            name=name,
+            permissions=permissions,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             base_role: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             permissions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if base_role is not None:
-            pulumi.set(__self__, "base_role", base_role)
+            _setter("base_role", base_role)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if permissions is not None:
-            pulumi.set(__self__, "permissions", permissions)
+            _setter("permissions", permissions)
 
     @property
     @pulumi.getter(name="baseRole")
@@ -276,6 +306,10 @@ class OrganizationCustomRole(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            OrganizationCustomRoleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

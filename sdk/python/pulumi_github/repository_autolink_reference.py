@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['RepositoryAutolinkReferenceArgs', 'RepositoryAutolinkReference']
@@ -25,11 +25,26 @@ class RepositoryAutolinkReferenceArgs:
         :param pulumi.Input[str] target_url_template: The template of the target URL used for the links; must be a valid URL and contain `<num>` for the reference number
         :param pulumi.Input[bool] is_alphanumeric: Whether this autolink reference matches alphanumeric characters. If false, this autolink reference only matches numeric characters. Default is true.
         """
-        pulumi.set(__self__, "key_prefix", key_prefix)
-        pulumi.set(__self__, "repository", repository)
-        pulumi.set(__self__, "target_url_template", target_url_template)
+        RepositoryAutolinkReferenceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_prefix=key_prefix,
+            repository=repository,
+            target_url_template=target_url_template,
+            is_alphanumeric=is_alphanumeric,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_prefix: pulumi.Input[str],
+             repository: pulumi.Input[str],
+             target_url_template: pulumi.Input[str],
+             is_alphanumeric: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key_prefix", key_prefix)
+        _setter("repository", repository)
+        _setter("target_url_template", target_url_template)
         if is_alphanumeric is not None:
-            pulumi.set(__self__, "is_alphanumeric", is_alphanumeric)
+            _setter("is_alphanumeric", is_alphanumeric)
 
     @property
     @pulumi.getter(name="keyPrefix")
@@ -96,16 +111,33 @@ class _RepositoryAutolinkReferenceState:
         :param pulumi.Input[str] repository: The repository of the autolink reference.
         :param pulumi.Input[str] target_url_template: The template of the target URL used for the links; must be a valid URL and contain `<num>` for the reference number
         """
+        _RepositoryAutolinkReferenceState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            etag=etag,
+            is_alphanumeric=is_alphanumeric,
+            key_prefix=key_prefix,
+            repository=repository,
+            target_url_template=target_url_template,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             etag: Optional[pulumi.Input[str]] = None,
+             is_alphanumeric: Optional[pulumi.Input[bool]] = None,
+             key_prefix: Optional[pulumi.Input[str]] = None,
+             repository: Optional[pulumi.Input[str]] = None,
+             target_url_template: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if etag is not None:
-            pulumi.set(__self__, "etag", etag)
+            _setter("etag", etag)
         if is_alphanumeric is not None:
-            pulumi.set(__self__, "is_alphanumeric", is_alphanumeric)
+            _setter("is_alphanumeric", is_alphanumeric)
         if key_prefix is not None:
-            pulumi.set(__self__, "key_prefix", key_prefix)
+            _setter("key_prefix", key_prefix)
         if repository is not None:
-            pulumi.set(__self__, "repository", repository)
+            _setter("repository", repository)
         if target_url_template is not None:
-            pulumi.set(__self__, "target_url_template", target_url_template)
+            _setter("target_url_template", target_url_template)
 
     @property
     @pulumi.getter
@@ -253,6 +285,10 @@ class RepositoryAutolinkReference(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            RepositoryAutolinkReferenceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

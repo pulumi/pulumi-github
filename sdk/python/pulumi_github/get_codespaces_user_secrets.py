@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 
@@ -14,6 +14,7 @@ __all__ = [
     'GetCodespacesUserSecretsResult',
     'AwaitableGetCodespacesUserSecretsResult',
     'get_codespaces_user_secrets',
+    'get_codespaces_user_secrets_output',
 ]
 
 @pulumi.output_type
@@ -76,3 +77,20 @@ def get_codespaces_user_secrets(opts: Optional[pulumi.InvokeOptions] = None) -> 
     return AwaitableGetCodespacesUserSecretsResult(
         id=pulumi.get(__ret__, 'id'),
         secrets=pulumi.get(__ret__, 'secrets'))
+
+
+@_utilities.lift_output_func(get_codespaces_user_secrets)
+def get_codespaces_user_secrets_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCodespacesUserSecretsResult]:
+    """
+    Use this data source to retrieve the list of codespaces secrets of the user.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_github as github
+
+    example = github.get_codespaces_user_secrets()
+    ```
+    """
+    ...

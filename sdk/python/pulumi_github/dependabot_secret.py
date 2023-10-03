@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['DependabotSecretArgs', 'DependabotSecret']
@@ -25,12 +25,27 @@ class DependabotSecretArgs:
         :param pulumi.Input[str] encrypted_value: Encrypted value of the secret using the GitHub public key in Base64 format.
         :param pulumi.Input[str] plaintext_value: Plaintext value of the secret to be encrypted.
         """
-        pulumi.set(__self__, "repository", repository)
-        pulumi.set(__self__, "secret_name", secret_name)
+        DependabotSecretArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            repository=repository,
+            secret_name=secret_name,
+            encrypted_value=encrypted_value,
+            plaintext_value=plaintext_value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             repository: pulumi.Input[str],
+             secret_name: pulumi.Input[str],
+             encrypted_value: Optional[pulumi.Input[str]] = None,
+             plaintext_value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("repository", repository)
+        _setter("secret_name", secret_name)
         if encrypted_value is not None:
-            pulumi.set(__self__, "encrypted_value", encrypted_value)
+            _setter("encrypted_value", encrypted_value)
         if plaintext_value is not None:
-            pulumi.set(__self__, "plaintext_value", plaintext_value)
+            _setter("plaintext_value", plaintext_value)
 
     @property
     @pulumi.getter
@@ -99,18 +114,37 @@ class _DependabotSecretState:
         :param pulumi.Input[str] secret_name: Name of the secret.
         :param pulumi.Input[str] updated_at: Date of 'dependabot_secret' update.
         """
+        _DependabotSecretState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            encrypted_value=encrypted_value,
+            plaintext_value=plaintext_value,
+            repository=repository,
+            secret_name=secret_name,
+            updated_at=updated_at,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: Optional[pulumi.Input[str]] = None,
+             encrypted_value: Optional[pulumi.Input[str]] = None,
+             plaintext_value: Optional[pulumi.Input[str]] = None,
+             repository: Optional[pulumi.Input[str]] = None,
+             secret_name: Optional[pulumi.Input[str]] = None,
+             updated_at: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if encrypted_value is not None:
-            pulumi.set(__self__, "encrypted_value", encrypted_value)
+            _setter("encrypted_value", encrypted_value)
         if plaintext_value is not None:
-            pulumi.set(__self__, "plaintext_value", plaintext_value)
+            _setter("plaintext_value", plaintext_value)
         if repository is not None:
-            pulumi.set(__self__, "repository", repository)
+            _setter("repository", repository)
         if secret_name is not None:
-            pulumi.set(__self__, "secret_name", secret_name)
+            _setter("secret_name", secret_name)
         if updated_at is not None:
-            pulumi.set(__self__, "updated_at", updated_at)
+            _setter("updated_at", updated_at)
 
     @property
     @pulumi.getter(name="createdAt")
@@ -222,6 +256,10 @@ class DependabotSecret(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DependabotSecretArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

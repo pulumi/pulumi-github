@@ -6,13 +6,14 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = [
     'GetSshKeysResult',
     'AwaitableGetSshKeysResult',
     'get_ssh_keys',
+    'get_ssh_keys_output',
 ]
 
 @pulumi.output_type
@@ -75,3 +76,20 @@ def get_ssh_keys(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSsh
     return AwaitableGetSshKeysResult(
         id=pulumi.get(__ret__, 'id'),
         keys=pulumi.get(__ret__, 'keys'))
+
+
+@_utilities.lift_output_func(get_ssh_keys)
+def get_ssh_keys_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSshKeysResult]:
+    """
+    Use this data source to retrieve information about GitHub's SSH keys.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_github as github
+
+    test = github.get_ssh_keys()
+    ```
+    """
+    ...

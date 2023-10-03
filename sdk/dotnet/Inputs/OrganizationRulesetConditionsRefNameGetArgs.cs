@@ -16,7 +16,7 @@ namespace Pulumi.Github.Inputs
         private InputList<string>? _excludes;
 
         /// <summary>
-        /// (List of String) Array of ref names or patterns to exclude. The condition will not pass if any of these patterns match.
+        /// (List of String) Array of repository names or patterns to exclude. The condition will not pass if any of these patterns match.
         /// </summary>
         public InputList<string> Excludes
         {
@@ -28,7 +28,7 @@ namespace Pulumi.Github.Inputs
         private InputList<string>? _includes;
 
         /// <summary>
-        /// (List of String) Array of ref names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~DEFAULT_BRANCH` to include the default branch or `~ALL` to include all branches.
+        /// (List of String) Array of repository names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~ALL` to include all repositories.
         /// </summary>
         public InputList<string> Includes
         {

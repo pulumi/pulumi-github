@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['ActionsEnvironmentVariableArgs', 'ActionsEnvironmentVariable']
@@ -25,10 +25,25 @@ class ActionsEnvironmentVariableArgs:
         :param pulumi.Input[str] value: Value of the variable
         :param pulumi.Input[str] variable_name: Name of the variable.
         """
-        pulumi.set(__self__, "environment", environment)
-        pulumi.set(__self__, "repository", repository)
-        pulumi.set(__self__, "value", value)
-        pulumi.set(__self__, "variable_name", variable_name)
+        ActionsEnvironmentVariableArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            environment=environment,
+            repository=repository,
+            value=value,
+            variable_name=variable_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             environment: pulumi.Input[str],
+             repository: pulumi.Input[str],
+             value: pulumi.Input[str],
+             variable_name: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("environment", environment)
+        _setter("repository", repository)
+        _setter("value", value)
+        _setter("variable_name", variable_name)
 
     @property
     @pulumi.getter
@@ -97,18 +112,37 @@ class _ActionsEnvironmentVariableState:
         :param pulumi.Input[str] value: Value of the variable
         :param pulumi.Input[str] variable_name: Name of the variable.
         """
+        _ActionsEnvironmentVariableState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            environment=environment,
+            repository=repository,
+            updated_at=updated_at,
+            value=value,
+            variable_name=variable_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: Optional[pulumi.Input[str]] = None,
+             environment: Optional[pulumi.Input[str]] = None,
+             repository: Optional[pulumi.Input[str]] = None,
+             updated_at: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             variable_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if environment is not None:
-            pulumi.set(__self__, "environment", environment)
+            _setter("environment", environment)
         if repository is not None:
-            pulumi.set(__self__, "repository", repository)
+            _setter("repository", repository)
         if updated_at is not None:
-            pulumi.set(__self__, "updated_at", updated_at)
+            _setter("updated_at", updated_at)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
         if variable_name is not None:
-            pulumi.set(__self__, "variable_name", variable_name)
+            _setter("variable_name", variable_name)
 
     @property
     @pulumi.getter(name="createdAt")
@@ -294,6 +328,10 @@ class ActionsEnvironmentVariable(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ActionsEnvironmentVariableArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

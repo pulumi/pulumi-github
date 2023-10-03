@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['RepositoryDeploymentBranchPolicyArgs', 'RepositoryDeploymentBranchPolicy']
@@ -23,10 +23,23 @@ class RepositoryDeploymentBranchPolicyArgs:
         :param pulumi.Input[str] repository: The repository to create the policy in.
         :param pulumi.Input[str] name: The name pattern that branches must match in order to deploy to the environment.
         """
-        pulumi.set(__self__, "environment_name", environment_name)
-        pulumi.set(__self__, "repository", repository)
+        RepositoryDeploymentBranchPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            environment_name=environment_name,
+            repository=repository,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             environment_name: pulumi.Input[str],
+             repository: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("environment_name", environment_name)
+        _setter("repository", repository)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="environmentName")
@@ -79,14 +92,29 @@ class _RepositoryDeploymentBranchPolicyState:
         :param pulumi.Input[str] name: The name pattern that branches must match in order to deploy to the environment.
         :param pulumi.Input[str] repository: The repository to create the policy in.
         """
+        _RepositoryDeploymentBranchPolicyState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            environment_name=environment_name,
+            etag=etag,
+            name=name,
+            repository=repository,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             environment_name: Optional[pulumi.Input[str]] = None,
+             etag: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             repository: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if environment_name is not None:
-            pulumi.set(__self__, "environment_name", environment_name)
+            _setter("environment_name", environment_name)
         if etag is not None:
-            pulumi.set(__self__, "etag", etag)
+            _setter("etag", etag)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if repository is not None:
-            pulumi.set(__self__, "repository", repository)
+            _setter("repository", repository)
 
     @property
     @pulumi.getter(name="environmentName")
@@ -224,6 +252,10 @@ class RepositoryDeploymentBranchPolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            RepositoryDeploymentBranchPolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

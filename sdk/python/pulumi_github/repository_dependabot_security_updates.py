@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['RepositoryDependabotSecurityUpdatesArgs', 'RepositoryDependabotSecurityUpdates']
@@ -21,8 +21,19 @@ class RepositoryDependabotSecurityUpdatesArgs:
         :param pulumi.Input[bool] enabled: The state of the automated security fixes.
         :param pulumi.Input[str] repository: The GitHub repository.
         """
-        pulumi.set(__self__, "enabled", enabled)
-        pulumi.set(__self__, "repository", repository)
+        RepositoryDependabotSecurityUpdatesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            repository=repository,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: pulumi.Input[bool],
+             repository: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("enabled", enabled)
+        _setter("repository", repository)
 
     @property
     @pulumi.getter
@@ -59,10 +70,21 @@ class _RepositoryDependabotSecurityUpdatesState:
         :param pulumi.Input[bool] enabled: The state of the automated security fixes.
         :param pulumi.Input[str] repository: The GitHub repository.
         """
+        _RepositoryDependabotSecurityUpdatesState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            repository=repository,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: Optional[pulumi.Input[bool]] = None,
+             repository: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if repository is not None:
-            pulumi.set(__self__, "repository", repository)
+            _setter("repository", repository)
 
     @property
     @pulumi.getter
@@ -122,6 +144,10 @@ class RepositoryDependabotSecurityUpdates(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            RepositoryDependabotSecurityUpdatesArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

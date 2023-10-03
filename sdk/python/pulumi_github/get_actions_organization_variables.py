@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 
@@ -14,6 +14,7 @@ __all__ = [
     'GetActionsOrganizationVariablesResult',
     'AwaitableGetActionsOrganizationVariablesResult',
     'get_actions_organization_variables',
+    'get_actions_organization_variables_output',
 ]
 
 @pulumi.output_type
@@ -76,3 +77,20 @@ def get_actions_organization_variables(opts: Optional[pulumi.InvokeOptions] = No
     return AwaitableGetActionsOrganizationVariablesResult(
         id=pulumi.get(__ret__, 'id'),
         variables=pulumi.get(__ret__, 'variables'))
+
+
+@_utilities.lift_output_func(get_actions_organization_variables)
+def get_actions_organization_variables_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetActionsOrganizationVariablesResult]:
+    """
+    Use this data source to retrieve the list of variables of the organization.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_github as github
+
+    example = github.get_actions_organization_variables()
+    ```
+    """
+    ...

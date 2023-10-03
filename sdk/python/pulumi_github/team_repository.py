@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['TeamRepositoryArgs', 'TeamRepository']
@@ -24,10 +24,23 @@ class TeamRepositoryArgs:
         :param pulumi.Input[str] permission: The permissions of team members regarding the repository.
                Must be one of `pull`, `triage`, `push`, `maintain`, `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organisation. Defaults to `pull`.
         """
-        pulumi.set(__self__, "repository", repository)
-        pulumi.set(__self__, "team_id", team_id)
+        TeamRepositoryArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            repository=repository,
+            team_id=team_id,
+            permission=permission,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             repository: pulumi.Input[str],
+             team_id: pulumi.Input[str],
+             permission: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("repository", repository)
+        _setter("team_id", team_id)
         if permission is not None:
-            pulumi.set(__self__, "permission", permission)
+            _setter("permission", permission)
 
     @property
     @pulumi.getter
@@ -81,14 +94,29 @@ class _TeamRepositoryState:
         :param pulumi.Input[str] repository: The repository to add to the team.
         :param pulumi.Input[str] team_id: The GitHub team id or the GitHub team slug
         """
+        _TeamRepositoryState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            etag=etag,
+            permission=permission,
+            repository=repository,
+            team_id=team_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             etag: Optional[pulumi.Input[str]] = None,
+             permission: Optional[pulumi.Input[str]] = None,
+             repository: Optional[pulumi.Input[str]] = None,
+             team_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if etag is not None:
-            pulumi.set(__self__, "etag", etag)
+            _setter("etag", etag)
         if permission is not None:
-            pulumi.set(__self__, "permission", permission)
+            _setter("permission", permission)
         if repository is not None:
-            pulumi.set(__self__, "repository", repository)
+            _setter("repository", repository)
         if team_id is not None:
-            pulumi.set(__self__, "team_id", team_id)
+            _setter("team_id", team_id)
 
     @property
     @pulumi.getter
@@ -257,6 +285,10 @@ class TeamRepository(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            TeamRepositoryArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
