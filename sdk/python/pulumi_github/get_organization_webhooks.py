@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 
@@ -14,6 +14,7 @@ __all__ = [
     'GetOrganizationWebhooksResult',
     'AwaitableGetOrganizationWebhooksResult',
     'get_organization_webhooks',
+    'get_organization_webhooks_output',
 ]
 
 @pulumi.output_type
@@ -79,3 +80,22 @@ def get_organization_webhooks(opts: Optional[pulumi.InvokeOptions] = None) -> Aw
     return AwaitableGetOrganizationWebhooksResult(
         id=pulumi.get(__ret__, 'id'),
         webhooks=pulumi.get(__ret__, 'webhooks'))
+
+
+@_utilities.lift_output_func(get_organization_webhooks)
+def get_organization_webhooks_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOrganizationWebhooksResult]:
+    """
+    Use this data source to retrieve all webhooks of the organization.
+
+    ## Example Usage
+
+    To retrieve *all* webhooks of the organization:
+
+    ```python
+    import pulumi
+    import pulumi_github as github
+
+    all = github.get_organization_webhooks()
+    ```
+    """
+    ...

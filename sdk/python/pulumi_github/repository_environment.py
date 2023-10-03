@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -29,14 +29,31 @@ class RepositoryEnvironmentArgs:
         :param pulumi.Input[Sequence[pulumi.Input['RepositoryEnvironmentReviewerArgs']]] reviewers: The environment reviewers configuration.
         :param pulumi.Input[int] wait_timer: Amount of time to delay a job after the job is initially triggered.
         """
-        pulumi.set(__self__, "environment", environment)
-        pulumi.set(__self__, "repository", repository)
+        RepositoryEnvironmentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            environment=environment,
+            repository=repository,
+            deployment_branch_policy=deployment_branch_policy,
+            reviewers=reviewers,
+            wait_timer=wait_timer,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             environment: pulumi.Input[str],
+             repository: pulumi.Input[str],
+             deployment_branch_policy: Optional[pulumi.Input['RepositoryEnvironmentDeploymentBranchPolicyArgs']] = None,
+             reviewers: Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryEnvironmentReviewerArgs']]]] = None,
+             wait_timer: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("environment", environment)
+        _setter("repository", repository)
         if deployment_branch_policy is not None:
-            pulumi.set(__self__, "deployment_branch_policy", deployment_branch_policy)
+            _setter("deployment_branch_policy", deployment_branch_policy)
         if reviewers is not None:
-            pulumi.set(__self__, "reviewers", reviewers)
+            _setter("reviewers", reviewers)
         if wait_timer is not None:
-            pulumi.set(__self__, "wait_timer", wait_timer)
+            _setter("wait_timer", wait_timer)
 
     @property
     @pulumi.getter
@@ -115,16 +132,33 @@ class _RepositoryEnvironmentState:
         :param pulumi.Input[Sequence[pulumi.Input['RepositoryEnvironmentReviewerArgs']]] reviewers: The environment reviewers configuration.
         :param pulumi.Input[int] wait_timer: Amount of time to delay a job after the job is initially triggered.
         """
+        _RepositoryEnvironmentState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            deployment_branch_policy=deployment_branch_policy,
+            environment=environment,
+            repository=repository,
+            reviewers=reviewers,
+            wait_timer=wait_timer,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             deployment_branch_policy: Optional[pulumi.Input['RepositoryEnvironmentDeploymentBranchPolicyArgs']] = None,
+             environment: Optional[pulumi.Input[str]] = None,
+             repository: Optional[pulumi.Input[str]] = None,
+             reviewers: Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryEnvironmentReviewerArgs']]]] = None,
+             wait_timer: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if deployment_branch_policy is not None:
-            pulumi.set(__self__, "deployment_branch_policy", deployment_branch_policy)
+            _setter("deployment_branch_policy", deployment_branch_policy)
         if environment is not None:
-            pulumi.set(__self__, "environment", environment)
+            _setter("environment", environment)
         if repository is not None:
-            pulumi.set(__self__, "repository", repository)
+            _setter("repository", repository)
         if reviewers is not None:
-            pulumi.set(__self__, "reviewers", reviewers)
+            _setter("reviewers", reviewers)
         if wait_timer is not None:
-            pulumi.set(__self__, "wait_timer", wait_timer)
+            _setter("wait_timer", wait_timer)
 
     @property
     @pulumi.getter(name="deploymentBranchPolicy")
@@ -284,6 +318,10 @@ class RepositoryEnvironment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            RepositoryEnvironmentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -303,6 +341,11 @@ class RepositoryEnvironment(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = RepositoryEnvironmentArgs.__new__(RepositoryEnvironmentArgs)
 
+            if deployment_branch_policy is not None and not isinstance(deployment_branch_policy, RepositoryEnvironmentDeploymentBranchPolicyArgs):
+                deployment_branch_policy = deployment_branch_policy or {}
+                def _setter(key, value):
+                    deployment_branch_policy[key] = value
+                RepositoryEnvironmentDeploymentBranchPolicyArgs._configure(_setter, **deployment_branch_policy)
             __props__.__dict__["deployment_branch_policy"] = deployment_branch_policy
             if environment is None and not opts.urn:
                 raise TypeError("Missing required property 'environment'")

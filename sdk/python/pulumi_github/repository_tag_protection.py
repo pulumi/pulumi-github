@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['RepositoryTagProtectionArgs', 'RepositoryTagProtection']
@@ -21,8 +21,19 @@ class RepositoryTagProtectionArgs:
         :param pulumi.Input[str] pattern: The pattern of the tag to protect.
         :param pulumi.Input[str] repository: Name of the repository to add the tag protection to.
         """
-        pulumi.set(__self__, "pattern", pattern)
-        pulumi.set(__self__, "repository", repository)
+        RepositoryTagProtectionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            pattern=pattern,
+            repository=repository,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             pattern: pulumi.Input[str],
+             repository: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("pattern", pattern)
+        _setter("repository", repository)
 
     @property
     @pulumi.getter
@@ -61,12 +72,25 @@ class _RepositoryTagProtectionState:
         :param pulumi.Input[str] repository: Name of the repository to add the tag protection to.
         :param pulumi.Input[int] tag_protection_id: The ID of the tag protection.
         """
+        _RepositoryTagProtectionState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            pattern=pattern,
+            repository=repository,
+            tag_protection_id=tag_protection_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             pattern: Optional[pulumi.Input[str]] = None,
+             repository: Optional[pulumi.Input[str]] = None,
+             tag_protection_id: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if pattern is not None:
-            pulumi.set(__self__, "pattern", pattern)
+            _setter("pattern", pattern)
         if repository is not None:
-            pulumi.set(__self__, "repository", repository)
+            _setter("repository", repository)
         if tag_protection_id is not None:
-            pulumi.set(__self__, "tag_protection_id", tag_protection_id)
+            _setter("tag_protection_id", tag_protection_id)
 
     @property
     @pulumi.getter
@@ -182,6 +206,10 @@ class RepositoryTagProtection(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            RepositoryTagProtectionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

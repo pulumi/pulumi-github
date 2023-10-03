@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -47,32 +47,67 @@ class BranchProtectionArgs:
         :param pulumi.Input[Sequence[pulumi.Input['BranchProtectionRequiredPullRequestReviewArgs']]] required_pull_request_reviews: Enforce restrictions for pull request reviews. See Required Pull Request Reviews below for details.
         :param pulumi.Input[Sequence[pulumi.Input['BranchProtectionRequiredStatusCheckArgs']]] required_status_checks: Enforce restrictions for required status checks. See Required Status Checks below for details.
         """
-        pulumi.set(__self__, "pattern", pattern)
-        pulumi.set(__self__, "repository_id", repository_id)
+        BranchProtectionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            pattern=pattern,
+            repository_id=repository_id,
+            allows_deletions=allows_deletions,
+            allows_force_pushes=allows_force_pushes,
+            blocks_creations=blocks_creations,
+            enforce_admins=enforce_admins,
+            force_push_bypassers=force_push_bypassers,
+            lock_branch=lock_branch,
+            push_restrictions=push_restrictions,
+            require_conversation_resolution=require_conversation_resolution,
+            require_signed_commits=require_signed_commits,
+            required_linear_history=required_linear_history,
+            required_pull_request_reviews=required_pull_request_reviews,
+            required_status_checks=required_status_checks,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             pattern: pulumi.Input[str],
+             repository_id: pulumi.Input[str],
+             allows_deletions: Optional[pulumi.Input[bool]] = None,
+             allows_force_pushes: Optional[pulumi.Input[bool]] = None,
+             blocks_creations: Optional[pulumi.Input[bool]] = None,
+             enforce_admins: Optional[pulumi.Input[bool]] = None,
+             force_push_bypassers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             lock_branch: Optional[pulumi.Input[bool]] = None,
+             push_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             require_conversation_resolution: Optional[pulumi.Input[bool]] = None,
+             require_signed_commits: Optional[pulumi.Input[bool]] = None,
+             required_linear_history: Optional[pulumi.Input[bool]] = None,
+             required_pull_request_reviews: Optional[pulumi.Input[Sequence[pulumi.Input['BranchProtectionRequiredPullRequestReviewArgs']]]] = None,
+             required_status_checks: Optional[pulumi.Input[Sequence[pulumi.Input['BranchProtectionRequiredStatusCheckArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("pattern", pattern)
+        _setter("repository_id", repository_id)
         if allows_deletions is not None:
-            pulumi.set(__self__, "allows_deletions", allows_deletions)
+            _setter("allows_deletions", allows_deletions)
         if allows_force_pushes is not None:
-            pulumi.set(__self__, "allows_force_pushes", allows_force_pushes)
+            _setter("allows_force_pushes", allows_force_pushes)
         if blocks_creations is not None:
-            pulumi.set(__self__, "blocks_creations", blocks_creations)
+            _setter("blocks_creations", blocks_creations)
         if enforce_admins is not None:
-            pulumi.set(__self__, "enforce_admins", enforce_admins)
+            _setter("enforce_admins", enforce_admins)
         if force_push_bypassers is not None:
-            pulumi.set(__self__, "force_push_bypassers", force_push_bypassers)
+            _setter("force_push_bypassers", force_push_bypassers)
         if lock_branch is not None:
-            pulumi.set(__self__, "lock_branch", lock_branch)
+            _setter("lock_branch", lock_branch)
         if push_restrictions is not None:
-            pulumi.set(__self__, "push_restrictions", push_restrictions)
+            _setter("push_restrictions", push_restrictions)
         if require_conversation_resolution is not None:
-            pulumi.set(__self__, "require_conversation_resolution", require_conversation_resolution)
+            _setter("require_conversation_resolution", require_conversation_resolution)
         if require_signed_commits is not None:
-            pulumi.set(__self__, "require_signed_commits", require_signed_commits)
+            _setter("require_signed_commits", require_signed_commits)
         if required_linear_history is not None:
-            pulumi.set(__self__, "required_linear_history", required_linear_history)
+            _setter("required_linear_history", required_linear_history)
         if required_pull_request_reviews is not None:
-            pulumi.set(__self__, "required_pull_request_reviews", required_pull_request_reviews)
+            _setter("required_pull_request_reviews", required_pull_request_reviews)
         if required_status_checks is not None:
-            pulumi.set(__self__, "required_status_checks", required_status_checks)
+            _setter("required_status_checks", required_status_checks)
 
     @property
     @pulumi.getter
@@ -277,34 +312,69 @@ class _BranchProtectionState:
         :param pulumi.Input[Sequence[pulumi.Input['BranchProtectionRequiredPullRequestReviewArgs']]] required_pull_request_reviews: Enforce restrictions for pull request reviews. See Required Pull Request Reviews below for details.
         :param pulumi.Input[Sequence[pulumi.Input['BranchProtectionRequiredStatusCheckArgs']]] required_status_checks: Enforce restrictions for required status checks. See Required Status Checks below for details.
         """
+        _BranchProtectionState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allows_deletions=allows_deletions,
+            allows_force_pushes=allows_force_pushes,
+            blocks_creations=blocks_creations,
+            enforce_admins=enforce_admins,
+            force_push_bypassers=force_push_bypassers,
+            lock_branch=lock_branch,
+            pattern=pattern,
+            push_restrictions=push_restrictions,
+            repository_id=repository_id,
+            require_conversation_resolution=require_conversation_resolution,
+            require_signed_commits=require_signed_commits,
+            required_linear_history=required_linear_history,
+            required_pull_request_reviews=required_pull_request_reviews,
+            required_status_checks=required_status_checks,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allows_deletions: Optional[pulumi.Input[bool]] = None,
+             allows_force_pushes: Optional[pulumi.Input[bool]] = None,
+             blocks_creations: Optional[pulumi.Input[bool]] = None,
+             enforce_admins: Optional[pulumi.Input[bool]] = None,
+             force_push_bypassers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             lock_branch: Optional[pulumi.Input[bool]] = None,
+             pattern: Optional[pulumi.Input[str]] = None,
+             push_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             repository_id: Optional[pulumi.Input[str]] = None,
+             require_conversation_resolution: Optional[pulumi.Input[bool]] = None,
+             require_signed_commits: Optional[pulumi.Input[bool]] = None,
+             required_linear_history: Optional[pulumi.Input[bool]] = None,
+             required_pull_request_reviews: Optional[pulumi.Input[Sequence[pulumi.Input['BranchProtectionRequiredPullRequestReviewArgs']]]] = None,
+             required_status_checks: Optional[pulumi.Input[Sequence[pulumi.Input['BranchProtectionRequiredStatusCheckArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if allows_deletions is not None:
-            pulumi.set(__self__, "allows_deletions", allows_deletions)
+            _setter("allows_deletions", allows_deletions)
         if allows_force_pushes is not None:
-            pulumi.set(__self__, "allows_force_pushes", allows_force_pushes)
+            _setter("allows_force_pushes", allows_force_pushes)
         if blocks_creations is not None:
-            pulumi.set(__self__, "blocks_creations", blocks_creations)
+            _setter("blocks_creations", blocks_creations)
         if enforce_admins is not None:
-            pulumi.set(__self__, "enforce_admins", enforce_admins)
+            _setter("enforce_admins", enforce_admins)
         if force_push_bypassers is not None:
-            pulumi.set(__self__, "force_push_bypassers", force_push_bypassers)
+            _setter("force_push_bypassers", force_push_bypassers)
         if lock_branch is not None:
-            pulumi.set(__self__, "lock_branch", lock_branch)
+            _setter("lock_branch", lock_branch)
         if pattern is not None:
-            pulumi.set(__self__, "pattern", pattern)
+            _setter("pattern", pattern)
         if push_restrictions is not None:
-            pulumi.set(__self__, "push_restrictions", push_restrictions)
+            _setter("push_restrictions", push_restrictions)
         if repository_id is not None:
-            pulumi.set(__self__, "repository_id", repository_id)
+            _setter("repository_id", repository_id)
         if require_conversation_resolution is not None:
-            pulumi.set(__self__, "require_conversation_resolution", require_conversation_resolution)
+            _setter("require_conversation_resolution", require_conversation_resolution)
         if require_signed_commits is not None:
-            pulumi.set(__self__, "require_signed_commits", require_signed_commits)
+            _setter("require_signed_commits", require_signed_commits)
         if required_linear_history is not None:
-            pulumi.set(__self__, "required_linear_history", required_linear_history)
+            _setter("required_linear_history", required_linear_history)
         if required_pull_request_reviews is not None:
-            pulumi.set(__self__, "required_pull_request_reviews", required_pull_request_reviews)
+            _setter("required_pull_request_reviews", required_pull_request_reviews)
         if required_status_checks is not None:
-            pulumi.set(__self__, "required_status_checks", required_status_checks)
+            _setter("required_status_checks", required_status_checks)
 
     @property
     @pulumi.getter(name="allowsDeletions")
@@ -648,6 +718,10 @@ class BranchProtection(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            BranchProtectionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

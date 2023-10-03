@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -35,20 +35,43 @@ class BranchProtectionV3Args:
         :param pulumi.Input['BranchProtectionV3RequiredStatusChecksArgs'] required_status_checks: Enforce restrictions for required status checks. See Required Status Checks below for details.
         :param pulumi.Input['BranchProtectionV3RestrictionsArgs'] restrictions: Enforce restrictions for the users and teams that may push to the branch. See Restrictions below for details.
         """
-        pulumi.set(__self__, "branch", branch)
-        pulumi.set(__self__, "repository", repository)
+        BranchProtectionV3Args._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            branch=branch,
+            repository=repository,
+            enforce_admins=enforce_admins,
+            require_conversation_resolution=require_conversation_resolution,
+            require_signed_commits=require_signed_commits,
+            required_pull_request_reviews=required_pull_request_reviews,
+            required_status_checks=required_status_checks,
+            restrictions=restrictions,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             branch: pulumi.Input[str],
+             repository: pulumi.Input[str],
+             enforce_admins: Optional[pulumi.Input[bool]] = None,
+             require_conversation_resolution: Optional[pulumi.Input[bool]] = None,
+             require_signed_commits: Optional[pulumi.Input[bool]] = None,
+             required_pull_request_reviews: Optional[pulumi.Input['BranchProtectionV3RequiredPullRequestReviewsArgs']] = None,
+             required_status_checks: Optional[pulumi.Input['BranchProtectionV3RequiredStatusChecksArgs']] = None,
+             restrictions: Optional[pulumi.Input['BranchProtectionV3RestrictionsArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("branch", branch)
+        _setter("repository", repository)
         if enforce_admins is not None:
-            pulumi.set(__self__, "enforce_admins", enforce_admins)
+            _setter("enforce_admins", enforce_admins)
         if require_conversation_resolution is not None:
-            pulumi.set(__self__, "require_conversation_resolution", require_conversation_resolution)
+            _setter("require_conversation_resolution", require_conversation_resolution)
         if require_signed_commits is not None:
-            pulumi.set(__self__, "require_signed_commits", require_signed_commits)
+            _setter("require_signed_commits", require_signed_commits)
         if required_pull_request_reviews is not None:
-            pulumi.set(__self__, "required_pull_request_reviews", required_pull_request_reviews)
+            _setter("required_pull_request_reviews", required_pull_request_reviews)
         if required_status_checks is not None:
-            pulumi.set(__self__, "required_status_checks", required_status_checks)
+            _setter("required_status_checks", required_status_checks)
         if restrictions is not None:
-            pulumi.set(__self__, "restrictions", restrictions)
+            _setter("restrictions", restrictions)
 
     @property
     @pulumi.getter
@@ -170,24 +193,49 @@ class _BranchProtectionV3State:
         :param pulumi.Input['BranchProtectionV3RequiredStatusChecksArgs'] required_status_checks: Enforce restrictions for required status checks. See Required Status Checks below for details.
         :param pulumi.Input['BranchProtectionV3RestrictionsArgs'] restrictions: Enforce restrictions for the users and teams that may push to the branch. See Restrictions below for details.
         """
+        _BranchProtectionV3State._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            branch=branch,
+            enforce_admins=enforce_admins,
+            etag=etag,
+            repository=repository,
+            require_conversation_resolution=require_conversation_resolution,
+            require_signed_commits=require_signed_commits,
+            required_pull_request_reviews=required_pull_request_reviews,
+            required_status_checks=required_status_checks,
+            restrictions=restrictions,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             branch: Optional[pulumi.Input[str]] = None,
+             enforce_admins: Optional[pulumi.Input[bool]] = None,
+             etag: Optional[pulumi.Input[str]] = None,
+             repository: Optional[pulumi.Input[str]] = None,
+             require_conversation_resolution: Optional[pulumi.Input[bool]] = None,
+             require_signed_commits: Optional[pulumi.Input[bool]] = None,
+             required_pull_request_reviews: Optional[pulumi.Input['BranchProtectionV3RequiredPullRequestReviewsArgs']] = None,
+             required_status_checks: Optional[pulumi.Input['BranchProtectionV3RequiredStatusChecksArgs']] = None,
+             restrictions: Optional[pulumi.Input['BranchProtectionV3RestrictionsArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if branch is not None:
-            pulumi.set(__self__, "branch", branch)
+            _setter("branch", branch)
         if enforce_admins is not None:
-            pulumi.set(__self__, "enforce_admins", enforce_admins)
+            _setter("enforce_admins", enforce_admins)
         if etag is not None:
-            pulumi.set(__self__, "etag", etag)
+            _setter("etag", etag)
         if repository is not None:
-            pulumi.set(__self__, "repository", repository)
+            _setter("repository", repository)
         if require_conversation_resolution is not None:
-            pulumi.set(__self__, "require_conversation_resolution", require_conversation_resolution)
+            _setter("require_conversation_resolution", require_conversation_resolution)
         if require_signed_commits is not None:
-            pulumi.set(__self__, "require_signed_commits", require_signed_commits)
+            _setter("require_signed_commits", require_signed_commits)
         if required_pull_request_reviews is not None:
-            pulumi.set(__self__, "required_pull_request_reviews", required_pull_request_reviews)
+            _setter("required_pull_request_reviews", required_pull_request_reviews)
         if required_status_checks is not None:
-            pulumi.set(__self__, "required_status_checks", required_status_checks)
+            _setter("required_status_checks", required_status_checks)
         if restrictions is not None:
-            pulumi.set(__self__, "restrictions", restrictions)
+            _setter("restrictions", restrictions)
 
     @property
     @pulumi.getter
@@ -472,6 +520,10 @@ class BranchProtectionV3(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            BranchProtectionV3Args._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -503,8 +555,23 @@ class BranchProtectionV3(pulumi.CustomResource):
             __props__.__dict__["repository"] = repository
             __props__.__dict__["require_conversation_resolution"] = require_conversation_resolution
             __props__.__dict__["require_signed_commits"] = require_signed_commits
+            if required_pull_request_reviews is not None and not isinstance(required_pull_request_reviews, BranchProtectionV3RequiredPullRequestReviewsArgs):
+                required_pull_request_reviews = required_pull_request_reviews or {}
+                def _setter(key, value):
+                    required_pull_request_reviews[key] = value
+                BranchProtectionV3RequiredPullRequestReviewsArgs._configure(_setter, **required_pull_request_reviews)
             __props__.__dict__["required_pull_request_reviews"] = required_pull_request_reviews
+            if required_status_checks is not None and not isinstance(required_status_checks, BranchProtectionV3RequiredStatusChecksArgs):
+                required_status_checks = required_status_checks or {}
+                def _setter(key, value):
+                    required_status_checks[key] = value
+                BranchProtectionV3RequiredStatusChecksArgs._configure(_setter, **required_status_checks)
             __props__.__dict__["required_status_checks"] = required_status_checks
+            if restrictions is not None and not isinstance(restrictions, BranchProtectionV3RestrictionsArgs):
+                restrictions = restrictions or {}
+                def _setter(key, value):
+                    restrictions[key] = value
+                BranchProtectionV3RestrictionsArgs._configure(_setter, **restrictions)
             __props__.__dict__["restrictions"] = restrictions
             __props__.__dict__["etag"] = None
         super(BranchProtectionV3, __self__).__init__(

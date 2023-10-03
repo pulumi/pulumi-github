@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['ActionsRepositoryOidcSubjectClaimCustomizationTemplateArgs', 'ActionsRepositoryOidcSubjectClaimCustomizationTemplate']
@@ -24,10 +24,23 @@ class ActionsRepositoryOidcSubjectClaimCustomizationTemplateArgs:
                be set.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] include_claim_keys: A list of OpenID Connect claims.
         """
-        pulumi.set(__self__, "repository", repository)
-        pulumi.set(__self__, "use_default", use_default)
+        ActionsRepositoryOidcSubjectClaimCustomizationTemplateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            repository=repository,
+            use_default=use_default,
+            include_claim_keys=include_claim_keys,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             repository: pulumi.Input[str],
+             use_default: pulumi.Input[bool],
+             include_claim_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("repository", repository)
+        _setter("use_default", use_default)
         if include_claim_keys is not None:
-            pulumi.set(__self__, "include_claim_keys", include_claim_keys)
+            _setter("include_claim_keys", include_claim_keys)
 
     @property
     @pulumi.getter
@@ -80,12 +93,25 @@ class _ActionsRepositoryOidcSubjectClaimCustomizationTemplateState:
         :param pulumi.Input[bool] use_default: Whether to use the default template or not. If `true`, `include_claim_keys` must not
                be set.
         """
+        _ActionsRepositoryOidcSubjectClaimCustomizationTemplateState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            include_claim_keys=include_claim_keys,
+            repository=repository,
+            use_default=use_default,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             include_claim_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             repository: Optional[pulumi.Input[str]] = None,
+             use_default: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if include_claim_keys is not None:
-            pulumi.set(__self__, "include_claim_keys", include_claim_keys)
+            _setter("include_claim_keys", include_claim_keys)
         if repository is not None:
-            pulumi.set(__self__, "repository", repository)
+            _setter("repository", repository)
         if use_default is not None:
-            pulumi.set(__self__, "use_default", use_default)
+            _setter("use_default", use_default)
 
     @property
     @pulumi.getter(name="includeClaimKeys")
@@ -237,6 +263,10 @@ class ActionsRepositoryOidcSubjectClaimCustomizationTemplate(pulumi.CustomResour
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ActionsRepositoryOidcSubjectClaimCustomizationTemplateArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

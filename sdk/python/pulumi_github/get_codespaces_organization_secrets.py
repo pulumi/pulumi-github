@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 
@@ -14,6 +14,7 @@ __all__ = [
     'GetCodespacesOrganizationSecretsResult',
     'AwaitableGetCodespacesOrganizationSecretsResult',
     'get_codespaces_organization_secrets',
+    'get_codespaces_organization_secrets_output',
 ]
 
 @pulumi.output_type
@@ -76,3 +77,20 @@ def get_codespaces_organization_secrets(opts: Optional[pulumi.InvokeOptions] = N
     return AwaitableGetCodespacesOrganizationSecretsResult(
         id=pulumi.get(__ret__, 'id'),
         secrets=pulumi.get(__ret__, 'secrets'))
+
+
+@_utilities.lift_output_func(get_codespaces_organization_secrets)
+def get_codespaces_organization_secrets_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCodespacesOrganizationSecretsResult]:
+    """
+    Use this data source to retrieve the list of codespaces secrets of the organization.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_github as github
+
+    example = github.get_codespaces_organization_secrets()
+    ```
+    """
+    ...

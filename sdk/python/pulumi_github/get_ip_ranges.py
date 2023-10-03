@@ -6,13 +6,14 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = [
     'GetIpRangesResult',
     'AwaitableGetIpRangesResult',
     'get_ip_ranges',
+    'get_ip_ranges_output',
 ]
 
 @pulumi.output_type
@@ -374,3 +375,20 @@ def get_ip_ranges(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIp
         web_ipv4s=pulumi.get(__ret__, 'web_ipv4s'),
         web_ipv6s=pulumi.get(__ret__, 'web_ipv6s'),
         webs=pulumi.get(__ret__, 'webs'))
+
+
+@_utilities.lift_output_func(get_ip_ranges)
+def get_ip_ranges_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIpRangesResult]:
+    """
+    Use this data source to retrieve information about GitHub's IP addresses.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_github as github
+
+    test = github.get_ip_ranges()
+    ```
+    """
+    ...

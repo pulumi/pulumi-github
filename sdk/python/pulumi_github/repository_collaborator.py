@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['RepositoryCollaboratorArgs', 'RepositoryCollaborator']
@@ -27,12 +27,27 @@ class RepositoryCollaboratorArgs:
                Must be `push` for personal repositories. Defaults to `push`.
         :param pulumi.Input[bool] permission_diff_suppression: Suppress plan diffs for `triage` and `maintain`.  Defaults to `false`.
         """
-        pulumi.set(__self__, "repository", repository)
-        pulumi.set(__self__, "username", username)
+        RepositoryCollaboratorArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            repository=repository,
+            username=username,
+            permission=permission,
+            permission_diff_suppression=permission_diff_suppression,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             repository: pulumi.Input[str],
+             username: pulumi.Input[str],
+             permission: Optional[pulumi.Input[str]] = None,
+             permission_diff_suppression: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("repository", repository)
+        _setter("username", username)
         if permission is not None:
-            pulumi.set(__self__, "permission", permission)
+            _setter("permission", permission)
         if permission_diff_suppression is not None:
-            pulumi.set(__self__, "permission_diff_suppression", permission_diff_suppression)
+            _setter("permission_diff_suppression", permission_diff_suppression)
 
     @property
     @pulumi.getter
@@ -103,16 +118,33 @@ class _RepositoryCollaboratorState:
         :param pulumi.Input[str] repository: The GitHub repository
         :param pulumi.Input[str] username: The user to add to the repository as a collaborator.
         """
+        _RepositoryCollaboratorState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            invitation_id=invitation_id,
+            permission=permission,
+            permission_diff_suppression=permission_diff_suppression,
+            repository=repository,
+            username=username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             invitation_id: Optional[pulumi.Input[str]] = None,
+             permission: Optional[pulumi.Input[str]] = None,
+             permission_diff_suppression: Optional[pulumi.Input[bool]] = None,
+             repository: Optional[pulumi.Input[str]] = None,
+             username: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if invitation_id is not None:
-            pulumi.set(__self__, "invitation_id", invitation_id)
+            _setter("invitation_id", invitation_id)
         if permission is not None:
-            pulumi.set(__self__, "permission", permission)
+            _setter("permission", permission)
         if permission_diff_suppression is not None:
-            pulumi.set(__self__, "permission_diff_suppression", permission_diff_suppression)
+            _setter("permission_diff_suppression", permission_diff_suppression)
         if repository is not None:
-            pulumi.set(__self__, "repository", repository)
+            _setter("repository", repository)
         if username is not None:
-            pulumi.set(__self__, "username", username)
+            _setter("username", username)
 
     @property
     @pulumi.getter(name="invitationId")
@@ -306,6 +338,10 @@ class RepositoryCollaborator(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            RepositoryCollaboratorArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

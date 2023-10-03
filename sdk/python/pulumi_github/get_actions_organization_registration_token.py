@@ -6,13 +6,14 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = [
     'GetActionsOrganizationRegistrationTokenResult',
     'AwaitableGetActionsOrganizationRegistrationTokenResult',
     'get_actions_organization_registration_token',
+    'get_actions_organization_registration_token_output',
 ]
 
 @pulumi.output_type
@@ -88,3 +89,20 @@ def get_actions_organization_registration_token(opts: Optional[pulumi.InvokeOpti
         expires_at=pulumi.get(__ret__, 'expires_at'),
         id=pulumi.get(__ret__, 'id'),
         token=pulumi.get(__ret__, 'token'))
+
+
+@_utilities.lift_output_func(get_actions_organization_registration_token)
+def get_actions_organization_registration_token_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetActionsOrganizationRegistrationTokenResult]:
+    """
+    Use this data source to retrieve a GitHub Actions organization registration token. This token can then be used to register a self-hosted runner.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_github as github
+
+    example = github.get_actions_organization_registration_token()
+    ```
+    """
+    ...

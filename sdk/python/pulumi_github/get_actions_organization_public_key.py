@@ -6,13 +6,14 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = [
     'GetActionsOrganizationPublicKeyResult',
     'AwaitableGetActionsOrganizationPublicKeyResult',
     'get_actions_organization_public_key',
+    'get_actions_organization_public_key_output',
 ]
 
 @pulumi.output_type
@@ -89,3 +90,21 @@ def get_actions_organization_public_key(opts: Optional[pulumi.InvokeOptions] = N
         id=pulumi.get(__ret__, 'id'),
         key=pulumi.get(__ret__, 'key'),
         key_id=pulumi.get(__ret__, 'key_id'))
+
+
+@_utilities.lift_output_func(get_actions_organization_public_key)
+def get_actions_organization_public_key_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetActionsOrganizationPublicKeyResult]:
+    """
+    Use this data source to retrieve information about a GitHub Actions Organization public key. This data source is required to be used with other GitHub secrets interactions.
+    Note that the provider `token` must have admin rights to an organization to retrieve it's action public key.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_github as github
+
+    example = github.get_actions_organization_public_key()
+    ```
+    """
+    ...

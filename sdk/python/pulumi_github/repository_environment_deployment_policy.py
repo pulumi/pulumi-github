@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['RepositoryEnvironmentDeploymentPolicyArgs', 'RepositoryEnvironmentDeploymentPolicy']
@@ -23,9 +23,22 @@ class RepositoryEnvironmentDeploymentPolicyArgs:
         :param pulumi.Input[str] environment: The name of the environment.
         :param pulumi.Input[str] repository: The repository of the environment.
         """
-        pulumi.set(__self__, "branch_pattern", branch_pattern)
-        pulumi.set(__self__, "environment", environment)
-        pulumi.set(__self__, "repository", repository)
+        RepositoryEnvironmentDeploymentPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            branch_pattern=branch_pattern,
+            environment=environment,
+            repository=repository,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             branch_pattern: pulumi.Input[str],
+             environment: pulumi.Input[str],
+             repository: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("branch_pattern", branch_pattern)
+        _setter("environment", environment)
+        _setter("repository", repository)
 
     @property
     @pulumi.getter(name="branchPattern")
@@ -76,12 +89,25 @@ class _RepositoryEnvironmentDeploymentPolicyState:
         :param pulumi.Input[str] environment: The name of the environment.
         :param pulumi.Input[str] repository: The repository of the environment.
         """
+        _RepositoryEnvironmentDeploymentPolicyState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            branch_pattern=branch_pattern,
+            environment=environment,
+            repository=repository,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             branch_pattern: Optional[pulumi.Input[str]] = None,
+             environment: Optional[pulumi.Input[str]] = None,
+             repository: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if branch_pattern is not None:
-            pulumi.set(__self__, "branch_pattern", branch_pattern)
+            _setter("branch_pattern", branch_pattern)
         if environment is not None:
-            pulumi.set(__self__, "environment", environment)
+            _setter("environment", environment)
         if repository is not None:
-            pulumi.set(__self__, "repository", repository)
+            _setter("repository", repository)
 
     @property
     @pulumi.getter(name="branchPattern")
@@ -223,6 +249,10 @@ class RepositoryEnvironmentDeploymentPolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            RepositoryEnvironmentDeploymentPolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

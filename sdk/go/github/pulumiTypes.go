@@ -2159,9 +2159,9 @@ func (o OrganizationRulesetConditionsPtrOutput) RepositoryName() OrganizationRul
 }
 
 type OrganizationRulesetConditionsRefName struct {
-	// (List of String) Array of ref names or patterns to exclude. The condition will not pass if any of these patterns match.
+	// (List of String) Array of repository names or patterns to exclude. The condition will not pass if any of these patterns match.
 	Excludes []string `pulumi:"excludes"`
-	// (List of String) Array of ref names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~DEFAULT_BRANCH` to include the default branch or `~ALL` to include all branches.
+	// (List of String) Array of repository names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~ALL` to include all repositories.
 	Includes []string `pulumi:"includes"`
 }
 
@@ -2177,9 +2177,9 @@ type OrganizationRulesetConditionsRefNameInput interface {
 }
 
 type OrganizationRulesetConditionsRefNameArgs struct {
-	// (List of String) Array of ref names or patterns to exclude. The condition will not pass if any of these patterns match.
+	// (List of String) Array of repository names or patterns to exclude. The condition will not pass if any of these patterns match.
 	Excludes pulumi.StringArrayInput `pulumi:"excludes"`
-	// (List of String) Array of ref names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~DEFAULT_BRANCH` to include the default branch or `~ALL` to include all branches.
+	// (List of String) Array of repository names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~ALL` to include all repositories.
 	Includes pulumi.StringArrayInput `pulumi:"includes"`
 }
 
@@ -2278,12 +2278,12 @@ func (o OrganizationRulesetConditionsRefNameOutput) ToOutput(ctx context.Context
 	}
 }
 
-// (List of String) Array of ref names or patterns to exclude. The condition will not pass if any of these patterns match.
+// (List of String) Array of repository names or patterns to exclude. The condition will not pass if any of these patterns match.
 func (o OrganizationRulesetConditionsRefNameOutput) Excludes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v OrganizationRulesetConditionsRefName) []string { return v.Excludes }).(pulumi.StringArrayOutput)
 }
 
-// (List of String) Array of ref names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~DEFAULT_BRANCH` to include the default branch or `~ALL` to include all branches.
+// (List of String) Array of repository names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~ALL` to include all repositories.
 func (o OrganizationRulesetConditionsRefNameOutput) Includes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v OrganizationRulesetConditionsRefName) []string { return v.Includes }).(pulumi.StringArrayOutput)
 }
@@ -2318,7 +2318,7 @@ func (o OrganizationRulesetConditionsRefNamePtrOutput) Elem() OrganizationRulese
 	}).(OrganizationRulesetConditionsRefNameOutput)
 }
 
-// (List of String) Array of ref names or patterns to exclude. The condition will not pass if any of these patterns match.
+// (List of String) Array of repository names or patterns to exclude. The condition will not pass if any of these patterns match.
 func (o OrganizationRulesetConditionsRefNamePtrOutput) Excludes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *OrganizationRulesetConditionsRefName) []string {
 		if v == nil {
@@ -2328,7 +2328,7 @@ func (o OrganizationRulesetConditionsRefNamePtrOutput) Excludes() pulumi.StringA
 	}).(pulumi.StringArrayOutput)
 }
 
-// (List of String) Array of ref names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~DEFAULT_BRANCH` to include the default branch or `~ALL` to include all branches.
+// (List of String) Array of repository names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~ALL` to include all repositories.
 func (o OrganizationRulesetConditionsRefNamePtrOutput) Includes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *OrganizationRulesetConditionsRefName) []string {
 		if v == nil {
@@ -2339,9 +2339,9 @@ func (o OrganizationRulesetConditionsRefNamePtrOutput) Includes() pulumi.StringA
 }
 
 type OrganizationRulesetConditionsRepositoryName struct {
-	// (List of String) Array of ref names or patterns to exclude. The condition will not pass if any of these patterns match.
+	// (List of String) Array of repository names or patterns to exclude. The condition will not pass if any of these patterns match.
 	Excludes []string `pulumi:"excludes"`
-	// (List of String) Array of ref names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~DEFAULT_BRANCH` to include the default branch or `~ALL` to include all branches.
+	// (List of String) Array of repository names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~ALL` to include all repositories.
 	Includes  []string `pulumi:"includes"`
 	Protected *bool    `pulumi:"protected"`
 }
@@ -2358,9 +2358,9 @@ type OrganizationRulesetConditionsRepositoryNameInput interface {
 }
 
 type OrganizationRulesetConditionsRepositoryNameArgs struct {
-	// (List of String) Array of ref names or patterns to exclude. The condition will not pass if any of these patterns match.
+	// (List of String) Array of repository names or patterns to exclude. The condition will not pass if any of these patterns match.
 	Excludes pulumi.StringArrayInput `pulumi:"excludes"`
-	// (List of String) Array of ref names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~DEFAULT_BRANCH` to include the default branch or `~ALL` to include all branches.
+	// (List of String) Array of repository names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~ALL` to include all repositories.
 	Includes  pulumi.StringArrayInput `pulumi:"includes"`
 	Protected pulumi.BoolPtrInput     `pulumi:"protected"`
 }
@@ -2460,12 +2460,12 @@ func (o OrganizationRulesetConditionsRepositoryNameOutput) ToOutput(ctx context.
 	}
 }
 
-// (List of String) Array of ref names or patterns to exclude. The condition will not pass if any of these patterns match.
+// (List of String) Array of repository names or patterns to exclude. The condition will not pass if any of these patterns match.
 func (o OrganizationRulesetConditionsRepositoryNameOutput) Excludes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v OrganizationRulesetConditionsRepositoryName) []string { return v.Excludes }).(pulumi.StringArrayOutput)
 }
 
-// (List of String) Array of ref names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~DEFAULT_BRANCH` to include the default branch or `~ALL` to include all branches.
+// (List of String) Array of repository names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~ALL` to include all repositories.
 func (o OrganizationRulesetConditionsRepositoryNameOutput) Includes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v OrganizationRulesetConditionsRepositoryName) []string { return v.Includes }).(pulumi.StringArrayOutput)
 }
@@ -2504,7 +2504,7 @@ func (o OrganizationRulesetConditionsRepositoryNamePtrOutput) Elem() Organizatio
 	}).(OrganizationRulesetConditionsRepositoryNameOutput)
 }
 
-// (List of String) Array of ref names or patterns to exclude. The condition will not pass if any of these patterns match.
+// (List of String) Array of repository names or patterns to exclude. The condition will not pass if any of these patterns match.
 func (o OrganizationRulesetConditionsRepositoryNamePtrOutput) Excludes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *OrganizationRulesetConditionsRepositoryName) []string {
 		if v == nil {
@@ -2514,7 +2514,7 @@ func (o OrganizationRulesetConditionsRepositoryNamePtrOutput) Excludes() pulumi.
 	}).(pulumi.StringArrayOutput)
 }
 
-// (List of String) Array of ref names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~DEFAULT_BRANCH` to include the default branch or `~ALL` to include all branches.
+// (List of String) Array of repository names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~ALL` to include all repositories.
 func (o OrganizationRulesetConditionsRepositoryNamePtrOutput) Includes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *OrganizationRulesetConditionsRepositoryName) []string {
 		if v == nil {

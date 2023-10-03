@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['RepositoryDeployKeyArgs', 'RepositoryDeployKey']
@@ -27,11 +27,26 @@ class RepositoryDeployKeyArgs:
                Changing any of the fields forces re-creating the resource.
         :param pulumi.Input[bool] read_only: A boolean qualifying the key to be either read only or read/write.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "repository", repository)
-        pulumi.set(__self__, "title", title)
+        RepositoryDeployKeyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            repository=repository,
+            title=title,
+            read_only=read_only,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: pulumi.Input[str],
+             repository: pulumi.Input[str],
+             title: pulumi.Input[str],
+             read_only: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("repository", repository)
+        _setter("title", title)
         if read_only is not None:
-            pulumi.set(__self__, "read_only", read_only)
+            _setter("read_only", read_only)
 
     @property
     @pulumi.getter
@@ -101,16 +116,33 @@ class _RepositoryDeployKeyState:
                
                Changing any of the fields forces re-creating the resource.
         """
+        _RepositoryDeployKeyState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            etag=etag,
+            key=key,
+            read_only=read_only,
+            repository=repository,
+            title=title,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             etag: Optional[pulumi.Input[str]] = None,
+             key: Optional[pulumi.Input[str]] = None,
+             read_only: Optional[pulumi.Input[bool]] = None,
+             repository: Optional[pulumi.Input[str]] = None,
+             title: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if etag is not None:
-            pulumi.set(__self__, "etag", etag)
+            _setter("etag", etag)
         if key is not None:
-            pulumi.set(__self__, "key", key)
+            _setter("key", key)
         if read_only is not None:
-            pulumi.set(__self__, "read_only", read_only)
+            _setter("read_only", read_only)
         if repository is not None:
-            pulumi.set(__self__, "repository", repository)
+            _setter("repository", repository)
         if title is not None:
-            pulumi.set(__self__, "title", title)
+            _setter("title", title)
 
     @property
     @pulumi.getter
@@ -275,6 +307,10 @@ class RepositoryDeployKey(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            RepositoryDeployKeyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

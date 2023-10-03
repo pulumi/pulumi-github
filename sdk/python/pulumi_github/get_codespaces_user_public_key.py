@@ -6,13 +6,14 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = [
     'GetCodespacesUserPublicKeyResult',
     'AwaitableGetCodespacesUserPublicKeyResult',
     'get_codespaces_user_public_key',
+    'get_codespaces_user_public_key_output',
 ]
 
 @pulumi.output_type
@@ -89,3 +90,21 @@ def get_codespaces_user_public_key(opts: Optional[pulumi.InvokeOptions] = None) 
         id=pulumi.get(__ret__, 'id'),
         key=pulumi.get(__ret__, 'key'),
         key_id=pulumi.get(__ret__, 'key_id'))
+
+
+@_utilities.lift_output_func(get_codespaces_user_public_key)
+def get_codespaces_user_public_key_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCodespacesUserPublicKeyResult]:
+    """
+    Use this data source to retrieve information about a GitHub Codespaces User public key. This data source is required to be used with other GitHub secrets interactions.
+    Note that the provider `token` must have admin rights to an user to retrieve it's Codespaces public key.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_github as github
+
+    example = github.get_codespaces_user_public_key()
+    ```
+    """
+    ...

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['OrganizationBlockArgs', 'OrganizationBlock']
@@ -19,7 +19,16 @@ class OrganizationBlockArgs:
         The set of arguments for constructing a OrganizationBlock resource.
         :param pulumi.Input[str] username: The name of the user to block.
         """
-        pulumi.set(__self__, "username", username)
+        OrganizationBlockArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            username=username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             username: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("username", username)
 
     @property
     @pulumi.getter
@@ -43,10 +52,21 @@ class _OrganizationBlockState:
         Input properties used for looking up and filtering OrganizationBlock resources.
         :param pulumi.Input[str] username: The name of the user to block.
         """
+        _OrganizationBlockState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            etag=etag,
+            username=username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             etag: Optional[pulumi.Input[str]] = None,
+             username: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if etag is not None:
-            pulumi.set(__self__, "etag", etag)
+            _setter("etag", etag)
         if username is not None:
-            pulumi.set(__self__, "username", username)
+            _setter("username", username)
 
     @property
     @pulumi.getter
@@ -121,6 +141,10 @@ class OrganizationBlock(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            OrganizationBlockArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
