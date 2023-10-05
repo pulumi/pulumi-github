@@ -1,0 +1,9 @@
+provider: github
+major-version: 5
+env:
+  GH_ORGANIZATION: ${{ secrets.GH_ORGANIZATION }}
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  GH_TESTING_TOKEN: ${{ secrets.GH_TESTING_TOKEN }}
+makeTemplate: bridged
+team: ecosystem
+javaGenVersion: "v0.9.4"
