@@ -1130,6 +1130,9 @@ export interface RepositoryCollaboratorsUser {
      * Must be `push` for personal repositories. Defaults to `push`.
      */
     permission?: string;
+    /**
+     * The user to add to the repository as a collaborator.
+     */
     username: string;
 }
 

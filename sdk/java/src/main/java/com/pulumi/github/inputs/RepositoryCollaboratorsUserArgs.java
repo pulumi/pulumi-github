@@ -34,9 +34,17 @@ public final class RepositoryCollaboratorsUserArgs extends com.pulumi.resources.
         return Optional.ofNullable(this.permission);
     }
 
+    /**
+     * The user to add to the repository as a collaborator.
+     * 
+     */
     @Import(name="username", required=true)
     private Output<String> username;
 
+    /**
+     * @return The user to add to the repository as a collaborator.
+     * 
+     */
     public Output<String> username() {
         return this.username;
     }
@@ -91,11 +99,23 @@ public final class RepositoryCollaboratorsUserArgs extends com.pulumi.resources.
             return permission(Output.of(permission));
         }
 
+        /**
+         * @param username The user to add to the repository as a collaborator.
+         * 
+         * @return builder
+         * 
+         */
         public Builder username(Output<String> username) {
             $.username = username;
             return this;
         }
 
+        /**
+         * @param username The user to add to the repository as a collaborator.
+         * 
+         * @return builder
+         * 
+         */
         public Builder username(String username) {
             return username(Output.of(username));
         }

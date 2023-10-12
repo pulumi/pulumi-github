@@ -19,10 +19,6 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Protects a GitHub branch.
- * 
- * This resource allows you to configure branch protection for repositories in your organization. When applied, the branch will be protected from forced pushes and deletion. Additional constraints, such as required status checks or restrictions on users, teams, and apps, can also be configured.
- * 
  * ## Example Usage
  * ```java
  * package generated_program;

@@ -19,6 +19,9 @@ namespace Pulumi.Github.Outputs
         /// Must be `push` for personal repositories. Defaults to `push`.
         /// </summary>
         public readonly string? Permission;
+        /// <summary>
+        /// The user to add to the repository as a collaborator.
+        /// </summary>
         public readonly string Username;
 
         [OutputConstructor]

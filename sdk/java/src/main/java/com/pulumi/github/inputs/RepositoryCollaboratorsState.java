@@ -67,14 +67,14 @@ public final class RepositoryCollaboratorsState extends com.pulumi.resources.Res
     }
 
     /**
-     * List of uses
+     * List of users
      * 
      */
     @Import(name="users")
     private @Nullable Output<List<RepositoryCollaboratorsUserArgs>> users;
 
     /**
-     * @return List of uses
+     * @return List of users
      * 
      */
     public Optional<Output<List<RepositoryCollaboratorsUserArgs>>> users() {
@@ -184,7 +184,7 @@ public final class RepositoryCollaboratorsState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param users List of uses
+         * @param users List of users
          * 
          * @return builder
          * 
@@ -195,7 +195,7 @@ public final class RepositoryCollaboratorsState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param users List of uses
+         * @param users List of users
          * 
          * @return builder
          * 
@@ -205,7 +205,7 @@ public final class RepositoryCollaboratorsState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param users List of uses
+         * @param users List of users
          * 
          * @return builder
          * 

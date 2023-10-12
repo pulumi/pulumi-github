@@ -20,6 +20,9 @@ namespace Pulumi.Github.Inputs
         [Input("permission")]
         public Input<string>? Permission { get; set; }
 
+        /// <summary>
+        /// The user to add to the repository as a collaborator.
+        /// </summary>
         [Input("username", required: true)]
         public Input<string> Username { get; set; } = null!;
 

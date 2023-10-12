@@ -62,7 +62,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = github.NewRepositoryCollaborators(ctx, "aRepoCollaborators", &github.RepositoryCollaboratorsArgs{
+//			_, err = github.NewRepositoryCollaborators(ctx, "someRepoCollaborators", &github.RepositoryCollaboratorsArgs{
 //				Repository: someRepo.Name,
 //				Users: github.RepositoryCollaboratorsUserArray{
 //					&github.RepositoryCollaboratorsUserArgs{
@@ -105,7 +105,7 @@ type RepositoryCollaborators struct {
 	Repository pulumi.StringOutput `pulumi:"repository"`
 	// List of teams
 	Teams RepositoryCollaboratorsTeamArrayOutput `pulumi:"teams"`
-	// List of uses
+	// List of users
 	Users RepositoryCollaboratorsUserArrayOutput `pulumi:"users"`
 }
 
@@ -149,7 +149,7 @@ type repositoryCollaboratorsState struct {
 	Repository *string `pulumi:"repository"`
 	// List of teams
 	Teams []RepositoryCollaboratorsTeam `pulumi:"teams"`
-	// List of uses
+	// List of users
 	Users []RepositoryCollaboratorsUser `pulumi:"users"`
 }
 
@@ -161,7 +161,7 @@ type RepositoryCollaboratorsState struct {
 	Repository pulumi.StringPtrInput
 	// List of teams
 	Teams RepositoryCollaboratorsTeamArrayInput
-	// List of uses
+	// List of users
 	Users RepositoryCollaboratorsUserArrayInput
 }
 
@@ -174,7 +174,7 @@ type repositoryCollaboratorsArgs struct {
 	Repository string `pulumi:"repository"`
 	// List of teams
 	Teams []RepositoryCollaboratorsTeam `pulumi:"teams"`
-	// List of uses
+	// List of users
 	Users []RepositoryCollaboratorsUser `pulumi:"users"`
 }
 
@@ -184,7 +184,7 @@ type RepositoryCollaboratorsArgs struct {
 	Repository pulumi.StringInput
 	// List of teams
 	Teams RepositoryCollaboratorsTeamArrayInput
-	// List of uses
+	// List of users
 	Users RepositoryCollaboratorsUserArrayInput
 }
 
@@ -315,7 +315,7 @@ func (o RepositoryCollaboratorsOutput) Teams() RepositoryCollaboratorsTeamArrayO
 	return o.ApplyT(func(v *RepositoryCollaborators) RepositoryCollaboratorsTeamArrayOutput { return v.Teams }).(RepositoryCollaboratorsTeamArrayOutput)
 }
 
-// List of uses
+// List of users
 func (o RepositoryCollaboratorsOutput) Users() RepositoryCollaboratorsUserArrayOutput {
 	return o.ApplyT(func(v *RepositoryCollaborators) RepositoryCollaboratorsUserArrayOutput { return v.Users }).(RepositoryCollaboratorsUserArrayOutput)
 }

@@ -41,7 +41,7 @@ import * as utilities from "./utilities";
  * // Add collaborators to a repository
  * const someTeam = new github.Team("someTeam", {description: "Some cool team"});
  * const someRepo = new github.Repository("someRepo", {});
- * const aRepoCollaborators = new github.RepositoryCollaborators("aRepoCollaborators", {
+ * const someRepoCollaborators = new github.RepositoryCollaborators("someRepoCollaborators", {
  *     repository: someRepo.name,
  *     users: [{
  *         permission: "admin",
@@ -104,7 +104,7 @@ export class RepositoryCollaborators extends pulumi.CustomResource {
      */
     public readonly teams!: pulumi.Output<outputs.RepositoryCollaboratorsTeam[] | undefined>;
     /**
-     * List of uses
+     * List of users
      */
     public readonly users!: pulumi.Output<outputs.RepositoryCollaboratorsUser[] | undefined>;
 
@@ -158,7 +158,7 @@ export interface RepositoryCollaboratorsState {
      */
     teams?: pulumi.Input<pulumi.Input<inputs.RepositoryCollaboratorsTeam>[]>;
     /**
-     * List of uses
+     * List of users
      */
     users?: pulumi.Input<pulumi.Input<inputs.RepositoryCollaboratorsUser>[]>;
 }
@@ -176,7 +176,7 @@ export interface RepositoryCollaboratorsArgs {
      */
     teams?: pulumi.Input<pulumi.Input<inputs.RepositoryCollaboratorsTeam>[]>;
     /**
-     * List of uses
+     * List of users
      */
     users?: pulumi.Input<pulumi.Input<inputs.RepositoryCollaboratorsUser>[]>;
 }

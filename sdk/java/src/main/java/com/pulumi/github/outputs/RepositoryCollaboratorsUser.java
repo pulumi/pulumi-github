@@ -18,6 +18,10 @@ public final class RepositoryCollaboratorsUser {
      * 
      */
     private @Nullable String permission;
+    /**
+     * @return The user to add to the repository as a collaborator.
+     * 
+     */
     private String username;
 
     private RepositoryCollaboratorsUser() {}
@@ -30,6 +34,10 @@ public final class RepositoryCollaboratorsUser {
     public Optional<String> permission() {
         return Optional.ofNullable(this.permission);
     }
+    /**
+     * @return The user to add to the repository as a collaborator.
+     * 
+     */
     public String username() {
         return this.username;
     }
