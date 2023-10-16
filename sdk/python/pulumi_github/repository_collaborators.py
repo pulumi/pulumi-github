@@ -23,7 +23,7 @@ class RepositoryCollaboratorsArgs:
         The set of arguments for constructing a RepositoryCollaborators resource.
         :param pulumi.Input[str] repository: The GitHub repository
         :param pulumi.Input[Sequence[pulumi.Input['RepositoryCollaboratorsTeamArgs']]] teams: List of teams
-        :param pulumi.Input[Sequence[pulumi.Input['RepositoryCollaboratorsUserArgs']]] users: List of uses
+        :param pulumi.Input[Sequence[pulumi.Input['RepositoryCollaboratorsUserArgs']]] users: List of users
         """
         RepositoryCollaboratorsArgs._configure(
             lambda key, value: pulumi.set(__self__, key, value),
@@ -72,7 +72,7 @@ class RepositoryCollaboratorsArgs:
     @pulumi.getter
     def users(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryCollaboratorsUserArgs']]]]:
         """
-        List of uses
+        List of users
         """
         return pulumi.get(self, "users")
 
@@ -94,7 +94,7 @@ class _RepositoryCollaboratorsState:
                be used in `UserInvitationAccepter`.
         :param pulumi.Input[str] repository: The GitHub repository
         :param pulumi.Input[Sequence[pulumi.Input['RepositoryCollaboratorsTeamArgs']]] teams: List of teams
-        :param pulumi.Input[Sequence[pulumi.Input['RepositoryCollaboratorsUserArgs']]] users: List of uses
+        :param pulumi.Input[Sequence[pulumi.Input['RepositoryCollaboratorsUserArgs']]] users: List of users
         """
         _RepositoryCollaboratorsState._configure(
             lambda key, value: pulumi.set(__self__, key, value),
@@ -161,7 +161,7 @@ class _RepositoryCollaboratorsState:
     @pulumi.getter
     def users(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryCollaboratorsUserArgs']]]]:
         """
-        List of uses
+        List of users
         """
         return pulumi.get(self, "users")
 
@@ -214,7 +214,7 @@ class RepositoryCollaborators(pulumi.CustomResource):
         # Add collaborators to a repository
         some_team = github.Team("someTeam", description="Some cool team")
         some_repo = github.Repository("someRepo")
-        a_repo_collaborators = github.RepositoryCollaborators("aRepoCollaborators",
+        some_repo_collaborators = github.RepositoryCollaborators("someRepoCollaborators",
             repository=some_repo.name,
             users=[github.RepositoryCollaboratorsUserArgs(
                 permission="admin",
@@ -238,7 +238,7 @@ class RepositoryCollaborators(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] repository: The GitHub repository
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RepositoryCollaboratorsTeamArgs']]]] teams: List of teams
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RepositoryCollaboratorsUserArgs']]]] users: List of uses
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RepositoryCollaboratorsUserArgs']]]] users: List of users
         """
         ...
     @overload
@@ -281,7 +281,7 @@ class RepositoryCollaborators(pulumi.CustomResource):
         # Add collaborators to a repository
         some_team = github.Team("someTeam", description="Some cool team")
         some_repo = github.Repository("someRepo")
-        a_repo_collaborators = github.RepositoryCollaborators("aRepoCollaborators",
+        some_repo_collaborators = github.RepositoryCollaborators("someRepoCollaborators",
             repository=some_repo.name,
             users=[github.RepositoryCollaboratorsUserArgs(
                 permission="admin",
@@ -363,7 +363,7 @@ class RepositoryCollaborators(pulumi.CustomResource):
                be used in `UserInvitationAccepter`.
         :param pulumi.Input[str] repository: The GitHub repository
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RepositoryCollaboratorsTeamArgs']]]] teams: List of teams
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RepositoryCollaboratorsUserArgs']]]] users: List of uses
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RepositoryCollaboratorsUserArgs']]]] users: List of users
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -404,7 +404,7 @@ class RepositoryCollaborators(pulumi.CustomResource):
     @pulumi.getter
     def users(self) -> pulumi.Output[Optional[Sequence['outputs.RepositoryCollaboratorsUser']]]:
         """
-        List of uses
+        List of users
         """
         return pulumi.get(self, "users")
 

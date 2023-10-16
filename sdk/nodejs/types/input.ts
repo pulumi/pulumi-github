@@ -459,6 +459,9 @@ export interface RepositoryCollaboratorsUser {
      * Must be `push` for personal repositories. Defaults to `push`.
      */
     permission?: pulumi.Input<string>;
+    /**
+     * The user to add to the repository as a collaborator.
+     */
     username: pulumi.Input<string>;
 }
 

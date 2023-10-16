@@ -2104,6 +2104,7 @@ class RepositoryCollaboratorsUserArgs:
                  username: pulumi.Input[str],
                  permission: Optional[pulumi.Input[str]] = None):
         """
+        :param pulumi.Input[str] username: The user to add to the repository as a collaborator.
         :param pulumi.Input[str] permission: The permission of the outside collaborators for the repository.
                Must be one of `pull`, `push`, `maintain`, `triage` or `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organization for organization-owned repositories.
                Must be `push` for personal repositories. Defaults to `push`.
@@ -2126,6 +2127,9 @@ class RepositoryCollaboratorsUserArgs:
     @property
     @pulumi.getter
     def username(self) -> pulumi.Input[str]:
+        """
+        The user to add to the repository as a collaborator.
+        """
         return pulumi.get(self, "username")
 
     @username.setter

@@ -53,7 +53,7 @@ namespace Pulumi.Github
     /// 
     ///     var someRepo = new Github.Repository("someRepo");
     /// 
-    ///     var aRepoCollaborators = new Github.RepositoryCollaborators("aRepoCollaborators", new()
+    ///     var someRepoCollaborators = new Github.RepositoryCollaborators("someRepoCollaborators", new()
     ///     {
     ///         Repository = someRepo.Name,
     ///         Users = new[]
@@ -108,7 +108,7 @@ namespace Pulumi.Github
         public Output<ImmutableArray<Outputs.RepositoryCollaboratorsTeam>> Teams { get; private set; } = null!;
 
         /// <summary>
-        /// List of uses
+        /// List of users
         /// </summary>
         [Output("users")]
         public Output<ImmutableArray<Outputs.RepositoryCollaboratorsUser>> Users { get; private set; } = null!;
@@ -181,7 +181,7 @@ namespace Pulumi.Github
         private InputList<Inputs.RepositoryCollaboratorsUserArgs>? _users;
 
         /// <summary>
-        /// List of uses
+        /// List of users
         /// </summary>
         public InputList<Inputs.RepositoryCollaboratorsUserArgs> Users
         {
@@ -232,7 +232,7 @@ namespace Pulumi.Github
         private InputList<Inputs.RepositoryCollaboratorsUserGetArgs>? _users;
 
         /// <summary>
-        /// List of uses
+        /// List of users
         /// </summary>
         public InputList<Inputs.RepositoryCollaboratorsUserGetArgs> Users
         {

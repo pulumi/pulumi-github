@@ -77,7 +77,7 @@ import javax.annotation.Nullable;
  * 
  *         var someRepo = new Repository(&#34;someRepo&#34;);
  * 
- *         var aRepoCollaborators = new RepositoryCollaborators(&#34;aRepoCollaborators&#34;, RepositoryCollaboratorsArgs.builder()        
+ *         var someRepoCollaborators = new RepositoryCollaborators(&#34;someRepoCollaborators&#34;, RepositoryCollaboratorsArgs.builder()        
  *             .repository(someRepo.name())
  *             .users(RepositoryCollaboratorsUserArgs.builder()
  *                 .permission(&#34;admin&#34;)
@@ -149,14 +149,14 @@ public class RepositoryCollaborators extends com.pulumi.resources.CustomResource
         return Codegen.optional(this.teams);
     }
     /**
-     * List of uses
+     * List of users
      * 
      */
     @Export(name="users", refs={List.class,RepositoryCollaboratorsUser.class}, tree="[0,1]")
     private Output</* @Nullable */ List<RepositoryCollaboratorsUser>> users;
 
     /**
-     * @return List of uses
+     * @return List of users
      * 
      */
     public Output<Optional<List<RepositoryCollaboratorsUser>>> users() {

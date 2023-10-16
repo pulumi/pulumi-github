@@ -5105,7 +5105,8 @@ type RepositoryCollaboratorsUser struct {
 	// Must be one of `pull`, `push`, `maintain`, `triage` or `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organization for organization-owned repositories.
 	// Must be `push` for personal repositories. Defaults to `push`.
 	Permission *string `pulumi:"permission"`
-	Username   string  `pulumi:"username"`
+	// The user to add to the repository as a collaborator.
+	Username string `pulumi:"username"`
 }
 
 // RepositoryCollaboratorsUserInput is an input type that accepts RepositoryCollaboratorsUserArgs and RepositoryCollaboratorsUserOutput values.
@@ -5124,7 +5125,8 @@ type RepositoryCollaboratorsUserArgs struct {
 	// Must be one of `pull`, `push`, `maintain`, `triage` or `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organization for organization-owned repositories.
 	// Must be `push` for personal repositories. Defaults to `push`.
 	Permission pulumi.StringPtrInput `pulumi:"permission"`
-	Username   pulumi.StringInput    `pulumi:"username"`
+	// The user to add to the repository as a collaborator.
+	Username pulumi.StringInput `pulumi:"username"`
 }
 
 func (RepositoryCollaboratorsUserArgs) ElementType() reflect.Type {
@@ -5203,6 +5205,7 @@ func (o RepositoryCollaboratorsUserOutput) Permission() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RepositoryCollaboratorsUser) *string { return v.Permission }).(pulumi.StringPtrOutput)
 }
 
+// The user to add to the repository as a collaborator.
 func (o RepositoryCollaboratorsUserOutput) Username() pulumi.StringOutput {
 	return o.ApplyT(func(v RepositoryCollaboratorsUser) string { return v.Username }).(pulumi.StringOutput)
 }
