@@ -31,9 +31,17 @@ class TeamSettingsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             team_id: pulumi.Input[str],
+             team_id: Optional[pulumi.Input[str]] = None,
              review_request_delegation: Optional[pulumi.Input['TeamSettingsReviewRequestDelegationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if team_id is None and 'teamId' in kwargs:
+            team_id = kwargs['teamId']
+        if team_id is None:
+            raise TypeError("Missing 'team_id' argument")
+        if review_request_delegation is None and 'reviewRequestDelegation' in kwargs:
+            review_request_delegation = kwargs['reviewRequestDelegation']
+
         _setter("team_id", team_id)
         if review_request_delegation is not None:
             _setter("review_request_delegation", review_request_delegation)
@@ -91,7 +99,17 @@ class _TeamSettingsState:
              team_id: Optional[pulumi.Input[str]] = None,
              team_slug: Optional[pulumi.Input[str]] = None,
              team_uid: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if review_request_delegation is None and 'reviewRequestDelegation' in kwargs:
+            review_request_delegation = kwargs['reviewRequestDelegation']
+        if team_id is None and 'teamId' in kwargs:
+            team_id = kwargs['teamId']
+        if team_slug is None and 'teamSlug' in kwargs:
+            team_slug = kwargs['teamSlug']
+        if team_uid is None and 'teamUid' in kwargs:
+            team_uid = kwargs['teamUid']
+
         if review_request_delegation is not None:
             _setter("review_request_delegation", review_request_delegation)
         if team_id is not None:

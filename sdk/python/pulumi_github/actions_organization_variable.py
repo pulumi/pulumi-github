@@ -36,11 +36,23 @@ class ActionsOrganizationVariableArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             value: pulumi.Input[str],
-             variable_name: pulumi.Input[str],
-             visibility: pulumi.Input[str],
+             value: Optional[pulumi.Input[str]] = None,
+             variable_name: Optional[pulumi.Input[str]] = None,
+             visibility: Optional[pulumi.Input[str]] = None,
              selected_repository_ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+        if variable_name is None and 'variableName' in kwargs:
+            variable_name = kwargs['variableName']
+        if variable_name is None:
+            raise TypeError("Missing 'variable_name' argument")
+        if visibility is None:
+            raise TypeError("Missing 'visibility' argument")
+        if selected_repository_ids is None and 'selectedRepositoryIds' in kwargs:
+            selected_repository_ids = kwargs['selectedRepositoryIds']
+
         _setter("value", value)
         _setter("variable_name", variable_name)
         _setter("visibility", visibility)
@@ -134,7 +146,17 @@ class _ActionsOrganizationVariableState:
              value: Optional[pulumi.Input[str]] = None,
              variable_name: Optional[pulumi.Input[str]] = None,
              visibility: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if created_at is None and 'createdAt' in kwargs:
+            created_at = kwargs['createdAt']
+        if selected_repository_ids is None and 'selectedRepositoryIds' in kwargs:
+            selected_repository_ids = kwargs['selectedRepositoryIds']
+        if updated_at is None and 'updatedAt' in kwargs:
+            updated_at = kwargs['updatedAt']
+        if variable_name is None and 'variableName' in kwargs:
+            variable_name = kwargs['variableName']
+
         if created_at is not None:
             _setter("created_at", created_at)
         if selected_repository_ids is not None:

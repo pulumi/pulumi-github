@@ -4,8 +4,12 @@
 package github
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to retrieve a GitHub Actions organization registration token. This token can then be used to register a self-hosted runner.
@@ -51,4 +55,55 @@ type GetActionsOrganizationRegistrationTokenResult struct {
 	Id string `pulumi:"id"`
 	// The token that has been retrieved.
 	Token string `pulumi:"token"`
+}
+
+func GetActionsOrganizationRegistrationTokenOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetActionsOrganizationRegistrationTokenResultOutput {
+	return pulumi.ToOutput(0).ApplyT(func(int) (GetActionsOrganizationRegistrationTokenResult, error) {
+		r, err := GetActionsOrganizationRegistrationToken(ctx, opts...)
+		var s GetActionsOrganizationRegistrationTokenResult
+		if r != nil {
+			s = *r
+		}
+		return s, err
+	}).(GetActionsOrganizationRegistrationTokenResultOutput)
+}
+
+// A collection of values returned by getActionsOrganizationRegistrationToken.
+type GetActionsOrganizationRegistrationTokenResultOutput struct{ *pulumi.OutputState }
+
+func (GetActionsOrganizationRegistrationTokenResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetActionsOrganizationRegistrationTokenResult)(nil)).Elem()
+}
+
+func (o GetActionsOrganizationRegistrationTokenResultOutput) ToGetActionsOrganizationRegistrationTokenResultOutput() GetActionsOrganizationRegistrationTokenResultOutput {
+	return o
+}
+
+func (o GetActionsOrganizationRegistrationTokenResultOutput) ToGetActionsOrganizationRegistrationTokenResultOutputWithContext(ctx context.Context) GetActionsOrganizationRegistrationTokenResultOutput {
+	return o
+}
+
+func (o GetActionsOrganizationRegistrationTokenResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetActionsOrganizationRegistrationTokenResult] {
+	return pulumix.Output[GetActionsOrganizationRegistrationTokenResult]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The token expiration date.
+func (o GetActionsOrganizationRegistrationTokenResultOutput) ExpiresAt() pulumi.IntOutput {
+	return o.ApplyT(func(v GetActionsOrganizationRegistrationTokenResult) int { return v.ExpiresAt }).(pulumi.IntOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetActionsOrganizationRegistrationTokenResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetActionsOrganizationRegistrationTokenResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The token that has been retrieved.
+func (o GetActionsOrganizationRegistrationTokenResultOutput) Token() pulumi.StringOutput {
+	return o.ApplyT(func(v GetActionsOrganizationRegistrationTokenResult) string { return v.Token }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetActionsOrganizationRegistrationTokenResultOutput{})
 }

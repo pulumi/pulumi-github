@@ -34,9 +34,15 @@ class TeamSyncGroupMappingArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             team_slug: pulumi.Input[str],
+             team_slug: Optional[pulumi.Input[str]] = None,
              groups: Optional[pulumi.Input[Sequence[pulumi.Input['TeamSyncGroupMappingGroupArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if team_slug is None and 'teamSlug' in kwargs:
+            team_slug = kwargs['teamSlug']
+        if team_slug is None:
+            raise TypeError("Missing 'team_slug' argument")
+
         _setter("team_slug", team_slug)
         if groups is not None:
             _setter("groups", groups)
@@ -95,7 +101,11 @@ class _TeamSyncGroupMappingState:
              etag: Optional[pulumi.Input[str]] = None,
              groups: Optional[pulumi.Input[Sequence[pulumi.Input['TeamSyncGroupMappingGroupArgs']]]] = None,
              team_slug: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if team_slug is None and 'teamSlug' in kwargs:
+            team_slug = kwargs['teamSlug']
+
         if etag is not None:
             _setter("etag", etag)
         if groups is not None:

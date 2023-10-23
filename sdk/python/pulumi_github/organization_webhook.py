@@ -34,10 +34,14 @@ class OrganizationWebhookArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             events: pulumi.Input[Sequence[pulumi.Input[str]]],
+             events: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              active: Optional[pulumi.Input[bool]] = None,
              configuration: Optional[pulumi.Input['OrganizationWebhookConfigurationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if events is None:
+            raise TypeError("Missing 'events' argument")
+
         _setter("events", events)
         if active is not None:
             _setter("active", active)
@@ -112,7 +116,9 @@ class _OrganizationWebhookState:
              etag: Optional[pulumi.Input[str]] = None,
              events: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              url: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if active is not None:
             _setter("active", active)
         if configuration is not None:

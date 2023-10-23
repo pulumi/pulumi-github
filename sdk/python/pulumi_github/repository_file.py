@@ -48,15 +48,31 @@ class RepositoryFileArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             content: pulumi.Input[str],
-             file: pulumi.Input[str],
-             repository: pulumi.Input[str],
+             content: Optional[pulumi.Input[str]] = None,
+             file: Optional[pulumi.Input[str]] = None,
+             repository: Optional[pulumi.Input[str]] = None,
              branch: Optional[pulumi.Input[str]] = None,
              commit_author: Optional[pulumi.Input[str]] = None,
              commit_email: Optional[pulumi.Input[str]] = None,
              commit_message: Optional[pulumi.Input[str]] = None,
              overwrite_on_create: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if content is None:
+            raise TypeError("Missing 'content' argument")
+        if file is None:
+            raise TypeError("Missing 'file' argument")
+        if repository is None:
+            raise TypeError("Missing 'repository' argument")
+        if commit_author is None and 'commitAuthor' in kwargs:
+            commit_author = kwargs['commitAuthor']
+        if commit_email is None and 'commitEmail' in kwargs:
+            commit_email = kwargs['commitEmail']
+        if commit_message is None and 'commitMessage' in kwargs:
+            commit_message = kwargs['commitMessage']
+        if overwrite_on_create is None and 'overwriteOnCreate' in kwargs:
+            overwrite_on_create = kwargs['overwriteOnCreate']
+
         _setter("content", content)
         _setter("file", file)
         _setter("repository", repository)
@@ -226,7 +242,19 @@ class _RepositoryFileState:
              ref: Optional[pulumi.Input[str]] = None,
              repository: Optional[pulumi.Input[str]] = None,
              sha: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if commit_author is None and 'commitAuthor' in kwargs:
+            commit_author = kwargs['commitAuthor']
+        if commit_email is None and 'commitEmail' in kwargs:
+            commit_email = kwargs['commitEmail']
+        if commit_message is None and 'commitMessage' in kwargs:
+            commit_message = kwargs['commitMessage']
+        if commit_sha is None and 'commitSha' in kwargs:
+            commit_sha = kwargs['commitSha']
+        if overwrite_on_create is None and 'overwriteOnCreate' in kwargs:
+            overwrite_on_create = kwargs['overwriteOnCreate']
+
         if branch is not None:
             _setter("branch", branch)
         if commit_author is not None:

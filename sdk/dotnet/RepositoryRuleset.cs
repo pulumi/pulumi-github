@@ -42,7 +42,7 @@ namespace Pulumi.Github
     ///                 {
     ///                     "~ALL",
     ///                 },
-    ///                 Excludes = new[] {},
+    ///                 Excludes = new() { },
     ///             },
     ///         },
     ///         BypassActors = new[]

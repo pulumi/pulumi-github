@@ -35,11 +35,23 @@ class ActionsEnvironmentVariableArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             environment: pulumi.Input[str],
-             repository: pulumi.Input[str],
-             value: pulumi.Input[str],
-             variable_name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             environment: Optional[pulumi.Input[str]] = None,
+             repository: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             variable_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if environment is None:
+            raise TypeError("Missing 'environment' argument")
+        if repository is None:
+            raise TypeError("Missing 'repository' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+        if variable_name is None and 'variableName' in kwargs:
+            variable_name = kwargs['variableName']
+        if variable_name is None:
+            raise TypeError("Missing 'variable_name' argument")
+
         _setter("environment", environment)
         _setter("repository", repository)
         _setter("value", value)
@@ -130,7 +142,15 @@ class _ActionsEnvironmentVariableState:
              updated_at: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
              variable_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if created_at is None and 'createdAt' in kwargs:
+            created_at = kwargs['createdAt']
+        if updated_at is None and 'updatedAt' in kwargs:
+            updated_at = kwargs['updatedAt']
+        if variable_name is None and 'variableName' in kwargs:
+            variable_name = kwargs['variableName']
+
         if created_at is not None:
             _setter("created_at", created_at)
         if environment is not None:

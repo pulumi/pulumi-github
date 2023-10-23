@@ -44,14 +44,32 @@ class RepositoryPullRequestArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             base_ref: pulumi.Input[str],
-             base_repository: pulumi.Input[str],
-             head_ref: pulumi.Input[str],
-             title: pulumi.Input[str],
+             base_ref: Optional[pulumi.Input[str]] = None,
+             base_repository: Optional[pulumi.Input[str]] = None,
+             head_ref: Optional[pulumi.Input[str]] = None,
+             title: Optional[pulumi.Input[str]] = None,
              body: Optional[pulumi.Input[str]] = None,
              maintainer_can_modify: Optional[pulumi.Input[bool]] = None,
              owner: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if base_ref is None and 'baseRef' in kwargs:
+            base_ref = kwargs['baseRef']
+        if base_ref is None:
+            raise TypeError("Missing 'base_ref' argument")
+        if base_repository is None and 'baseRepository' in kwargs:
+            base_repository = kwargs['baseRepository']
+        if base_repository is None:
+            raise TypeError("Missing 'base_repository' argument")
+        if head_ref is None and 'headRef' in kwargs:
+            head_ref = kwargs['headRef']
+        if head_ref is None:
+            raise TypeError("Missing 'head_ref' argument")
+        if title is None:
+            raise TypeError("Missing 'title' argument")
+        if maintainer_can_modify is None and 'maintainerCanModify' in kwargs:
+            maintainer_can_modify = kwargs['maintainerCanModify']
+
         _setter("base_ref", base_ref)
         _setter("base_repository", base_repository)
         _setter("head_ref", head_ref)
@@ -224,7 +242,27 @@ class _RepositoryPullRequestState:
              state: Optional[pulumi.Input[str]] = None,
              title: Optional[pulumi.Input[str]] = None,
              updated_at: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if base_ref is None and 'baseRef' in kwargs:
+            base_ref = kwargs['baseRef']
+        if base_repository is None and 'baseRepository' in kwargs:
+            base_repository = kwargs['baseRepository']
+        if base_sha is None and 'baseSha' in kwargs:
+            base_sha = kwargs['baseSha']
+        if head_ref is None and 'headRef' in kwargs:
+            head_ref = kwargs['headRef']
+        if head_sha is None and 'headSha' in kwargs:
+            head_sha = kwargs['headSha']
+        if maintainer_can_modify is None and 'maintainerCanModify' in kwargs:
+            maintainer_can_modify = kwargs['maintainerCanModify']
+        if opened_at is None and 'openedAt' in kwargs:
+            opened_at = kwargs['openedAt']
+        if opened_by is None and 'openedBy' in kwargs:
+            opened_by = kwargs['openedBy']
+        if updated_at is None and 'updatedAt' in kwargs:
+            updated_at = kwargs['updatedAt']
+
         if base_ref is not None:
             _setter("base_ref", base_ref)
         if base_repository is not None:

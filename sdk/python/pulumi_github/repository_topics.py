@@ -29,9 +29,15 @@ class RepositoryTopicsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             repository: pulumi.Input[str],
-             topics: pulumi.Input[Sequence[pulumi.Input[str]]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             repository: Optional[pulumi.Input[str]] = None,
+             topics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if repository is None:
+            raise TypeError("Missing 'repository' argument")
+        if topics is None:
+            raise TypeError("Missing 'topics' argument")
+
         _setter("repository", repository)
         _setter("topics", topics)
 
@@ -80,7 +86,9 @@ class _RepositoryTopicsState:
              _setter: Callable[[Any, Any], None],
              repository: Optional[pulumi.Input[str]] = None,
              topics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if repository is not None:
             _setter("repository", repository)
         if topics is not None:

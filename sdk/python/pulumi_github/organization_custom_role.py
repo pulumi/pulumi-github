@@ -35,11 +35,19 @@ class OrganizationCustomRoleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             base_role: pulumi.Input[str],
-             permissions: pulumi.Input[Sequence[pulumi.Input[str]]],
+             base_role: Optional[pulumi.Input[str]] = None,
+             permissions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if base_role is None and 'baseRole' in kwargs:
+            base_role = kwargs['baseRole']
+        if base_role is None:
+            raise TypeError("Missing 'base_role' argument")
+        if permissions is None:
+            raise TypeError("Missing 'permissions' argument")
+
         _setter("base_role", base_role)
         _setter("permissions", permissions)
         if description is not None:
@@ -124,7 +132,11 @@ class _OrganizationCustomRoleState:
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              permissions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if base_role is None and 'baseRole' in kwargs:
+            base_role = kwargs['baseRole']
+
         if base_role is not None:
             _setter("base_role", base_role)
         if description is not None:

@@ -41,13 +41,21 @@ class IssueArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             repository: pulumi.Input[str],
-             title: pulumi.Input[str],
+             repository: Optional[pulumi.Input[str]] = None,
+             title: Optional[pulumi.Input[str]] = None,
              assignees: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              body: Optional[pulumi.Input[str]] = None,
              labels: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              milestone_number: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if repository is None:
+            raise TypeError("Missing 'repository' argument")
+        if title is None:
+            raise TypeError("Missing 'title' argument")
+        if milestone_number is None and 'milestoneNumber' in kwargs:
+            milestone_number = kwargs['milestoneNumber']
+
         _setter("repository", repository)
         _setter("title", title)
         if assignees is not None:
@@ -179,7 +187,13 @@ class _IssueState:
              number: Optional[pulumi.Input[int]] = None,
              repository: Optional[pulumi.Input[str]] = None,
              title: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if issue_id is None and 'issueId' in kwargs:
+            issue_id = kwargs['issueId']
+        if milestone_number is None and 'milestoneNumber' in kwargs:
+            milestone_number = kwargs['milestoneNumber']
+
         if assignees is not None:
             _setter("assignees", assignees)
         if body is not None:

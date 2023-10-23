@@ -41,13 +41,23 @@ class RepositoryMilestoneArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             owner: pulumi.Input[str],
-             repository: pulumi.Input[str],
-             title: pulumi.Input[str],
+             owner: Optional[pulumi.Input[str]] = None,
+             repository: Optional[pulumi.Input[str]] = None,
+             title: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              due_date: Optional[pulumi.Input[str]] = None,
              state: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if owner is None:
+            raise TypeError("Missing 'owner' argument")
+        if repository is None:
+            raise TypeError("Missing 'repository' argument")
+        if title is None:
+            raise TypeError("Missing 'title' argument")
+        if due_date is None and 'dueDate' in kwargs:
+            due_date = kwargs['dueDate']
+
         _setter("owner", owner)
         _setter("repository", repository)
         _setter("title", title)
@@ -171,7 +181,11 @@ class _RepositoryMilestoneState:
              repository: Optional[pulumi.Input[str]] = None,
              state: Optional[pulumi.Input[str]] = None,
              title: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if due_date is None and 'dueDate' in kwargs:
+            due_date = kwargs['dueDate']
+
         if description is not None:
             _setter("description", description)
         if due_date is not None:

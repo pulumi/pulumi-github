@@ -29,9 +29,17 @@ class AppInstallationRepositoryArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             installation_id: pulumi.Input[str],
-             repository: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             installation_id: Optional[pulumi.Input[str]] = None,
+             repository: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if installation_id is None and 'installationId' in kwargs:
+            installation_id = kwargs['installationId']
+        if installation_id is None:
+            raise TypeError("Missing 'installation_id' argument")
+        if repository is None:
+            raise TypeError("Missing 'repository' argument")
+
         _setter("installation_id", installation_id)
         _setter("repository", repository)
 
@@ -83,7 +91,13 @@ class _AppInstallationRepositoryState:
              installation_id: Optional[pulumi.Input[str]] = None,
              repo_id: Optional[pulumi.Input[int]] = None,
              repository: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if installation_id is None and 'installationId' in kwargs:
+            installation_id = kwargs['installationId']
+        if repo_id is None and 'repoId' in kwargs:
+            repo_id = kwargs['repoId']
+
         if installation_id is not None:
             _setter("installation_id", installation_id)
         if repo_id is not None:

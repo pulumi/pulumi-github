@@ -38,12 +38,26 @@ class ActionsEnvironmentSecretArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             environment: pulumi.Input[str],
-             repository: pulumi.Input[str],
-             secret_name: pulumi.Input[str],
+             environment: Optional[pulumi.Input[str]] = None,
+             repository: Optional[pulumi.Input[str]] = None,
+             secret_name: Optional[pulumi.Input[str]] = None,
              encrypted_value: Optional[pulumi.Input[str]] = None,
              plaintext_value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if environment is None:
+            raise TypeError("Missing 'environment' argument")
+        if repository is None:
+            raise TypeError("Missing 'repository' argument")
+        if secret_name is None and 'secretName' in kwargs:
+            secret_name = kwargs['secretName']
+        if secret_name is None:
+            raise TypeError("Missing 'secret_name' argument")
+        if encrypted_value is None and 'encryptedValue' in kwargs:
+            encrypted_value = kwargs['encryptedValue']
+        if plaintext_value is None and 'plaintextValue' in kwargs:
+            plaintext_value = kwargs['plaintextValue']
+
         _setter("environment", environment)
         _setter("repository", repository)
         _setter("secret_name", secret_name)
@@ -153,7 +167,19 @@ class _ActionsEnvironmentSecretState:
              repository: Optional[pulumi.Input[str]] = None,
              secret_name: Optional[pulumi.Input[str]] = None,
              updated_at: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if created_at is None and 'createdAt' in kwargs:
+            created_at = kwargs['createdAt']
+        if encrypted_value is None and 'encryptedValue' in kwargs:
+            encrypted_value = kwargs['encryptedValue']
+        if plaintext_value is None and 'plaintextValue' in kwargs:
+            plaintext_value = kwargs['plaintextValue']
+        if secret_name is None and 'secretName' in kwargs:
+            secret_name = kwargs['secretName']
+        if updated_at is None and 'updatedAt' in kwargs:
+            updated_at = kwargs['updatedAt']
+
         if created_at is not None:
             _setter("created_at", created_at)
         if encrypted_value is not None:

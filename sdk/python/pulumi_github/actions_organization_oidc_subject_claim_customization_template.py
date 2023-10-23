@@ -26,8 +26,14 @@ class ActionsOrganizationOidcSubjectClaimCustomizationTemplateArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             include_claim_keys: pulumi.Input[Sequence[pulumi.Input[str]]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             include_claim_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if include_claim_keys is None and 'includeClaimKeys' in kwargs:
+            include_claim_keys = kwargs['includeClaimKeys']
+        if include_claim_keys is None:
+            raise TypeError("Missing 'include_claim_keys' argument")
+
         _setter("include_claim_keys", include_claim_keys)
 
     @property
@@ -59,7 +65,11 @@ class _ActionsOrganizationOidcSubjectClaimCustomizationTemplateState:
     def _configure(
              _setter: Callable[[Any, Any], None],
              include_claim_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if include_claim_keys is None and 'includeClaimKeys' in kwargs:
+            include_claim_keys = kwargs['includeClaimKeys']
+
         if include_claim_keys is not None:
             _setter("include_claim_keys", include_claim_keys)
 

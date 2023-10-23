@@ -4,8 +4,12 @@
 package github
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to retrieve the OpenID Connect subject claim customization template for an organization
@@ -49,4 +53,52 @@ type LookupActionsOrganizationOidcSubjectClaimCustomizationTemplateResult struct
 	Id string `pulumi:"id"`
 	// The list of OpenID Connect claim keys.
 	IncludeClaimKeys []string `pulumi:"includeClaimKeys"`
+}
+
+func LookupActionsOrganizationOidcSubjectClaimCustomizationTemplateOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) LookupActionsOrganizationOidcSubjectClaimCustomizationTemplateResultOutput {
+	return pulumi.ToOutput(0).ApplyT(func(int) (LookupActionsOrganizationOidcSubjectClaimCustomizationTemplateResult, error) {
+		r, err := LookupActionsOrganizationOidcSubjectClaimCustomizationTemplate(ctx, opts...)
+		var s LookupActionsOrganizationOidcSubjectClaimCustomizationTemplateResult
+		if r != nil {
+			s = *r
+		}
+		return s, err
+	}).(LookupActionsOrganizationOidcSubjectClaimCustomizationTemplateResultOutput)
+}
+
+// A collection of values returned by getActionsOrganizationOidcSubjectClaimCustomizationTemplate.
+type LookupActionsOrganizationOidcSubjectClaimCustomizationTemplateResultOutput struct{ *pulumi.OutputState }
+
+func (LookupActionsOrganizationOidcSubjectClaimCustomizationTemplateResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupActionsOrganizationOidcSubjectClaimCustomizationTemplateResult)(nil)).Elem()
+}
+
+func (o LookupActionsOrganizationOidcSubjectClaimCustomizationTemplateResultOutput) ToLookupActionsOrganizationOidcSubjectClaimCustomizationTemplateResultOutput() LookupActionsOrganizationOidcSubjectClaimCustomizationTemplateResultOutput {
+	return o
+}
+
+func (o LookupActionsOrganizationOidcSubjectClaimCustomizationTemplateResultOutput) ToLookupActionsOrganizationOidcSubjectClaimCustomizationTemplateResultOutputWithContext(ctx context.Context) LookupActionsOrganizationOidcSubjectClaimCustomizationTemplateResultOutput {
+	return o
+}
+
+func (o LookupActionsOrganizationOidcSubjectClaimCustomizationTemplateResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupActionsOrganizationOidcSubjectClaimCustomizationTemplateResult] {
+	return pulumix.Output[LookupActionsOrganizationOidcSubjectClaimCustomizationTemplateResult]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupActionsOrganizationOidcSubjectClaimCustomizationTemplateResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupActionsOrganizationOidcSubjectClaimCustomizationTemplateResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The list of OpenID Connect claim keys.
+func (o LookupActionsOrganizationOidcSubjectClaimCustomizationTemplateResultOutput) IncludeClaimKeys() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupActionsOrganizationOidcSubjectClaimCustomizationTemplateResult) []string {
+		return v.IncludeClaimKeys
+	}).(pulumi.StringArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupActionsOrganizationOidcSubjectClaimCustomizationTemplateResultOutput{})
 }

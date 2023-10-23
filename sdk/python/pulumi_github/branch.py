@@ -35,11 +35,21 @@ class BranchArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             branch: pulumi.Input[str],
-             repository: pulumi.Input[str],
+             branch: Optional[pulumi.Input[str]] = None,
+             repository: Optional[pulumi.Input[str]] = None,
              source_branch: Optional[pulumi.Input[str]] = None,
              source_sha: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if branch is None:
+            raise TypeError("Missing 'branch' argument")
+        if repository is None:
+            raise TypeError("Missing 'repository' argument")
+        if source_branch is None and 'sourceBranch' in kwargs:
+            source_branch = kwargs['sourceBranch']
+        if source_sha is None and 'sourceSha' in kwargs:
+            source_sha = kwargs['sourceSha']
+
         _setter("branch", branch)
         _setter("repository", repository)
         if source_branch is not None:
@@ -136,7 +146,13 @@ class _BranchState:
              sha: Optional[pulumi.Input[str]] = None,
              source_branch: Optional[pulumi.Input[str]] = None,
              source_sha: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if source_branch is None and 'sourceBranch' in kwargs:
+            source_branch = kwargs['sourceBranch']
+        if source_sha is None and 'sourceSha' in kwargs:
+            source_sha = kwargs['sourceSha']
+
         if branch is not None:
             _setter("branch", branch)
         if etag is not None:

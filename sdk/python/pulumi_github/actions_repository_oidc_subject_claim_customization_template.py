@@ -33,10 +33,20 @@ class ActionsRepositoryOidcSubjectClaimCustomizationTemplateArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             repository: pulumi.Input[str],
-             use_default: pulumi.Input[bool],
+             repository: Optional[pulumi.Input[str]] = None,
+             use_default: Optional[pulumi.Input[bool]] = None,
              include_claim_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if repository is None:
+            raise TypeError("Missing 'repository' argument")
+        if use_default is None and 'useDefault' in kwargs:
+            use_default = kwargs['useDefault']
+        if use_default is None:
+            raise TypeError("Missing 'use_default' argument")
+        if include_claim_keys is None and 'includeClaimKeys' in kwargs:
+            include_claim_keys = kwargs['includeClaimKeys']
+
         _setter("repository", repository)
         _setter("use_default", use_default)
         if include_claim_keys is not None:
@@ -105,7 +115,13 @@ class _ActionsRepositoryOidcSubjectClaimCustomizationTemplateState:
              include_claim_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              repository: Optional[pulumi.Input[str]] = None,
              use_default: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if include_claim_keys is None and 'includeClaimKeys' in kwargs:
+            include_claim_keys = kwargs['includeClaimKeys']
+        if use_default is None and 'useDefault' in kwargs:
+            use_default = kwargs['useDefault']
+
         if include_claim_keys is not None:
             _setter("include_claim_keys", include_claim_keys)
         if repository is not None:

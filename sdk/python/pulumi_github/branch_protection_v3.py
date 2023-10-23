@@ -49,15 +49,31 @@ class BranchProtectionV3Args:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             branch: pulumi.Input[str],
-             repository: pulumi.Input[str],
+             branch: Optional[pulumi.Input[str]] = None,
+             repository: Optional[pulumi.Input[str]] = None,
              enforce_admins: Optional[pulumi.Input[bool]] = None,
              require_conversation_resolution: Optional[pulumi.Input[bool]] = None,
              require_signed_commits: Optional[pulumi.Input[bool]] = None,
              required_pull_request_reviews: Optional[pulumi.Input['BranchProtectionV3RequiredPullRequestReviewsArgs']] = None,
              required_status_checks: Optional[pulumi.Input['BranchProtectionV3RequiredStatusChecksArgs']] = None,
              restrictions: Optional[pulumi.Input['BranchProtectionV3RestrictionsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if branch is None:
+            raise TypeError("Missing 'branch' argument")
+        if repository is None:
+            raise TypeError("Missing 'repository' argument")
+        if enforce_admins is None and 'enforceAdmins' in kwargs:
+            enforce_admins = kwargs['enforceAdmins']
+        if require_conversation_resolution is None and 'requireConversationResolution' in kwargs:
+            require_conversation_resolution = kwargs['requireConversationResolution']
+        if require_signed_commits is None and 'requireSignedCommits' in kwargs:
+            require_signed_commits = kwargs['requireSignedCommits']
+        if required_pull_request_reviews is None and 'requiredPullRequestReviews' in kwargs:
+            required_pull_request_reviews = kwargs['requiredPullRequestReviews']
+        if required_status_checks is None and 'requiredStatusChecks' in kwargs:
+            required_status_checks = kwargs['requiredStatusChecks']
+
         _setter("branch", branch)
         _setter("repository", repository)
         if enforce_admins is not None:
@@ -217,7 +233,19 @@ class _BranchProtectionV3State:
              required_pull_request_reviews: Optional[pulumi.Input['BranchProtectionV3RequiredPullRequestReviewsArgs']] = None,
              required_status_checks: Optional[pulumi.Input['BranchProtectionV3RequiredStatusChecksArgs']] = None,
              restrictions: Optional[pulumi.Input['BranchProtectionV3RestrictionsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if enforce_admins is None and 'enforceAdmins' in kwargs:
+            enforce_admins = kwargs['enforceAdmins']
+        if require_conversation_resolution is None and 'requireConversationResolution' in kwargs:
+            require_conversation_resolution = kwargs['requireConversationResolution']
+        if require_signed_commits is None and 'requireSignedCommits' in kwargs:
+            require_signed_commits = kwargs['requireSignedCommits']
+        if required_pull_request_reviews is None and 'requiredPullRequestReviews' in kwargs:
+            required_pull_request_reviews = kwargs['requiredPullRequestReviews']
+        if required_status_checks is None and 'requiredStatusChecks' in kwargs:
+            required_status_checks = kwargs['requiredStatusChecks']
+
         if branch is not None:
             _setter("branch", branch)
         if enforce_admins is not None:

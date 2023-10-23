@@ -37,11 +37,19 @@ class ActionsRepositoryPermissionsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             repository: pulumi.Input[str],
+             repository: Optional[pulumi.Input[str]] = None,
              allowed_actions: Optional[pulumi.Input[str]] = None,
              allowed_actions_config: Optional[pulumi.Input['ActionsRepositoryPermissionsAllowedActionsConfigArgs']] = None,
              enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if repository is None:
+            raise TypeError("Missing 'repository' argument")
+        if allowed_actions is None and 'allowedActions' in kwargs:
+            allowed_actions = kwargs['allowedActions']
+        if allowed_actions_config is None and 'allowedActionsConfig' in kwargs:
+            allowed_actions_config = kwargs['allowedActionsConfig']
+
         _setter("repository", repository)
         if allowed_actions is not None:
             _setter("allowed_actions", allowed_actions)
@@ -127,7 +135,13 @@ class _ActionsRepositoryPermissionsState:
              allowed_actions_config: Optional[pulumi.Input['ActionsRepositoryPermissionsAllowedActionsConfigArgs']] = None,
              enabled: Optional[pulumi.Input[bool]] = None,
              repository: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if allowed_actions is None and 'allowedActions' in kwargs:
+            allowed_actions = kwargs['allowedActions']
+        if allowed_actions_config is None and 'allowedActionsConfig' in kwargs:
+            allowed_actions_config = kwargs['allowedActionsConfig']
+
         if allowed_actions is not None:
             _setter("allowed_actions", allowed_actions)
         if allowed_actions_config is not None:

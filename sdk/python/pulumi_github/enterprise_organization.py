@@ -41,13 +41,29 @@ class EnterpriseOrganizationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             admin_logins: pulumi.Input[Sequence[pulumi.Input[str]]],
-             billing_email: pulumi.Input[str],
-             enterprise_id: pulumi.Input[str],
+             admin_logins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             billing_email: Optional[pulumi.Input[str]] = None,
+             enterprise_id: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              display_name: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if admin_logins is None and 'adminLogins' in kwargs:
+            admin_logins = kwargs['adminLogins']
+        if admin_logins is None:
+            raise TypeError("Missing 'admin_logins' argument")
+        if billing_email is None and 'billingEmail' in kwargs:
+            billing_email = kwargs['billingEmail']
+        if billing_email is None:
+            raise TypeError("Missing 'billing_email' argument")
+        if enterprise_id is None and 'enterpriseId' in kwargs:
+            enterprise_id = kwargs['enterpriseId']
+        if enterprise_id is None:
+            raise TypeError("Missing 'enterprise_id' argument")
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+
         _setter("admin_logins", admin_logins)
         _setter("billing_email", billing_email)
         _setter("enterprise_id", enterprise_id)
@@ -167,7 +183,17 @@ class _EnterpriseOrganizationState:
              display_name: Optional[pulumi.Input[str]] = None,
              enterprise_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if admin_logins is None and 'adminLogins' in kwargs:
+            admin_logins = kwargs['adminLogins']
+        if billing_email is None and 'billingEmail' in kwargs:
+            billing_email = kwargs['billingEmail']
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if enterprise_id is None and 'enterpriseId' in kwargs:
+            enterprise_id = kwargs['enterpriseId']
+
         if admin_logins is not None:
             _setter("admin_logins", admin_logins)
         if billing_email is not None:

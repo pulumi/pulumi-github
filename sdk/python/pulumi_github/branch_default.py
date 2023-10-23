@@ -32,10 +32,16 @@ class BranchDefaultArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             branch: pulumi.Input[str],
-             repository: pulumi.Input[str],
+             branch: Optional[pulumi.Input[str]] = None,
+             repository: Optional[pulumi.Input[str]] = None,
              rename: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if branch is None:
+            raise TypeError("Missing 'branch' argument")
+        if repository is None:
+            raise TypeError("Missing 'repository' argument")
+
         _setter("branch", branch)
         _setter("repository", repository)
         if rename is not None:
@@ -102,7 +108,9 @@ class _BranchDefaultState:
              branch: Optional[pulumi.Input[str]] = None,
              rename: Optional[pulumi.Input[bool]] = None,
              repository: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if branch is not None:
             _setter("branch", branch)
         if rename is not None:

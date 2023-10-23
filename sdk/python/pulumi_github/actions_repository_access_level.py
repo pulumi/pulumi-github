@@ -29,9 +29,17 @@ class ActionsRepositoryAccessLevelArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             access_level: pulumi.Input[str],
-             repository: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             access_level: Optional[pulumi.Input[str]] = None,
+             repository: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if access_level is None and 'accessLevel' in kwargs:
+            access_level = kwargs['accessLevel']
+        if access_level is None:
+            raise TypeError("Missing 'access_level' argument")
+        if repository is None:
+            raise TypeError("Missing 'repository' argument")
+
         _setter("access_level", access_level)
         _setter("repository", repository)
 
@@ -80,7 +88,11 @@ class _ActionsRepositoryAccessLevelState:
              _setter: Callable[[Any, Any], None],
              access_level: Optional[pulumi.Input[str]] = None,
              repository: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if access_level is None and 'accessLevel' in kwargs:
+            access_level = kwargs['accessLevel']
+
         if access_level is not None:
             _setter("access_level", access_level)
         if repository is not None:

@@ -32,10 +32,14 @@ class RepositoryProjectArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             repository: pulumi.Input[str],
+             repository: Optional[pulumi.Input[str]] = None,
              body: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if repository is None:
+            raise TypeError("Missing 'repository' argument")
+
         _setter("repository", repository)
         if body is not None:
             _setter("body", body)
@@ -110,7 +114,9 @@ class _RepositoryProjectState:
              name: Optional[pulumi.Input[str]] = None,
              repository: Optional[pulumi.Input[str]] = None,
              url: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if body is not None:
             _setter("body", body)
         if etag is not None:

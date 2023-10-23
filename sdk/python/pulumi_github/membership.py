@@ -36,10 +36,16 @@ class MembershipArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             username: pulumi.Input[str],
+             username: Optional[pulumi.Input[str]] = None,
              downgrade_on_destroy: Optional[pulumi.Input[bool]] = None,
              role: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if username is None:
+            raise TypeError("Missing 'username' argument")
+        if downgrade_on_destroy is None and 'downgradeOnDestroy' in kwargs:
+            downgrade_on_destroy = kwargs['downgradeOnDestroy']
+
         _setter("username", username)
         if downgrade_on_destroy is not None:
             _setter("downgrade_on_destroy", downgrade_on_destroy)
@@ -118,7 +124,11 @@ class _MembershipState:
              etag: Optional[pulumi.Input[str]] = None,
              role: Optional[pulumi.Input[str]] = None,
              username: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if downgrade_on_destroy is None and 'downgradeOnDestroy' in kwargs:
+            downgrade_on_destroy = kwargs['downgradeOnDestroy']
+
         if downgrade_on_destroy is not None:
             _setter("downgrade_on_destroy", downgrade_on_destroy)
         if etag is not None:

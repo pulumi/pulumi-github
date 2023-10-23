@@ -46,14 +46,24 @@ class RepositoryRulesetArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             enforcement: pulumi.Input[str],
-             rules: pulumi.Input['RepositoryRulesetRulesArgs'],
-             target: pulumi.Input[str],
+             enforcement: Optional[pulumi.Input[str]] = None,
+             rules: Optional[pulumi.Input['RepositoryRulesetRulesArgs']] = None,
+             target: Optional[pulumi.Input[str]] = None,
              bypass_actors: Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryRulesetBypassActorArgs']]]] = None,
              conditions: Optional[pulumi.Input['RepositoryRulesetConditionsArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
              repository: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if enforcement is None:
+            raise TypeError("Missing 'enforcement' argument")
+        if rules is None:
+            raise TypeError("Missing 'rules' argument")
+        if target is None:
+            raise TypeError("Missing 'target' argument")
+        if bypass_actors is None and 'bypassActors' in kwargs:
+            bypass_actors = kwargs['bypassActors']
+
         _setter("enforcement", enforcement)
         _setter("rules", rules)
         _setter("target", target)
@@ -203,7 +213,15 @@ class _RepositoryRulesetState:
              rules: Optional[pulumi.Input['RepositoryRulesetRulesArgs']] = None,
              ruleset_id: Optional[pulumi.Input[int]] = None,
              target: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if bypass_actors is None and 'bypassActors' in kwargs:
+            bypass_actors = kwargs['bypassActors']
+        if node_id is None and 'nodeId' in kwargs:
+            node_id = kwargs['nodeId']
+        if ruleset_id is None and 'rulesetId' in kwargs:
+            ruleset_id = kwargs['rulesetId']
+
         if bypass_actors is not None:
             _setter("bypass_actors", bypass_actors)
         if conditions is not None:

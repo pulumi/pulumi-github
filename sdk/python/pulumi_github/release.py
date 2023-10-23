@@ -50,8 +50,8 @@ class ReleaseArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             repository: pulumi.Input[str],
-             tag_name: pulumi.Input[str],
+             repository: Optional[pulumi.Input[str]] = None,
+             tag_name: Optional[pulumi.Input[str]] = None,
              body: Optional[pulumi.Input[str]] = None,
              discussion_category_name: Optional[pulumi.Input[str]] = None,
              draft: Optional[pulumi.Input[bool]] = None,
@@ -59,7 +59,21 @@ class ReleaseArgs:
              name: Optional[pulumi.Input[str]] = None,
              prerelease: Optional[pulumi.Input[bool]] = None,
              target_commitish: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if repository is None:
+            raise TypeError("Missing 'repository' argument")
+        if tag_name is None and 'tagName' in kwargs:
+            tag_name = kwargs['tagName']
+        if tag_name is None:
+            raise TypeError("Missing 'tag_name' argument")
+        if discussion_category_name is None and 'discussionCategoryName' in kwargs:
+            discussion_category_name = kwargs['discussionCategoryName']
+        if generate_release_notes is None and 'generateReleaseNotes' in kwargs:
+            generate_release_notes = kwargs['generateReleaseNotes']
+        if target_commitish is None and 'targetCommitish' in kwargs:
+            target_commitish = kwargs['targetCommitish']
+
         _setter("repository", repository)
         _setter("tag_name", tag_name)
         if body is not None:
@@ -237,7 +251,17 @@ class _ReleaseState:
              repository: Optional[pulumi.Input[str]] = None,
              tag_name: Optional[pulumi.Input[str]] = None,
              target_commitish: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if discussion_category_name is None and 'discussionCategoryName' in kwargs:
+            discussion_category_name = kwargs['discussionCategoryName']
+        if generate_release_notes is None and 'generateReleaseNotes' in kwargs:
+            generate_release_notes = kwargs['generateReleaseNotes']
+        if tag_name is None and 'tagName' in kwargs:
+            tag_name = kwargs['tagName']
+        if target_commitish is None and 'targetCommitish' in kwargs:
+            target_commitish = kwargs['targetCommitish']
+
         if body is not None:
             _setter("body", body)
         if discussion_category_name is not None:

@@ -67,8 +67,8 @@ class BranchProtectionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             pattern: pulumi.Input[str],
-             repository_id: pulumi.Input[str],
+             pattern: Optional[pulumi.Input[str]] = None,
+             repository_id: Optional[pulumi.Input[str]] = None,
              allows_deletions: Optional[pulumi.Input[bool]] = None,
              allows_force_pushes: Optional[pulumi.Input[bool]] = None,
              blocks_creations: Optional[pulumi.Input[bool]] = None,
@@ -81,7 +81,39 @@ class BranchProtectionArgs:
              required_linear_history: Optional[pulumi.Input[bool]] = None,
              required_pull_request_reviews: Optional[pulumi.Input[Sequence[pulumi.Input['BranchProtectionRequiredPullRequestReviewArgs']]]] = None,
              required_status_checks: Optional[pulumi.Input[Sequence[pulumi.Input['BranchProtectionRequiredStatusCheckArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if pattern is None:
+            raise TypeError("Missing 'pattern' argument")
+        if repository_id is None and 'repositoryId' in kwargs:
+            repository_id = kwargs['repositoryId']
+        if repository_id is None:
+            raise TypeError("Missing 'repository_id' argument")
+        if allows_deletions is None and 'allowsDeletions' in kwargs:
+            allows_deletions = kwargs['allowsDeletions']
+        if allows_force_pushes is None and 'allowsForcePushes' in kwargs:
+            allows_force_pushes = kwargs['allowsForcePushes']
+        if blocks_creations is None and 'blocksCreations' in kwargs:
+            blocks_creations = kwargs['blocksCreations']
+        if enforce_admins is None and 'enforceAdmins' in kwargs:
+            enforce_admins = kwargs['enforceAdmins']
+        if force_push_bypassers is None and 'forcePushBypassers' in kwargs:
+            force_push_bypassers = kwargs['forcePushBypassers']
+        if lock_branch is None and 'lockBranch' in kwargs:
+            lock_branch = kwargs['lockBranch']
+        if push_restrictions is None and 'pushRestrictions' in kwargs:
+            push_restrictions = kwargs['pushRestrictions']
+        if require_conversation_resolution is None and 'requireConversationResolution' in kwargs:
+            require_conversation_resolution = kwargs['requireConversationResolution']
+        if require_signed_commits is None and 'requireSignedCommits' in kwargs:
+            require_signed_commits = kwargs['requireSignedCommits']
+        if required_linear_history is None and 'requiredLinearHistory' in kwargs:
+            required_linear_history = kwargs['requiredLinearHistory']
+        if required_pull_request_reviews is None and 'requiredPullRequestReviews' in kwargs:
+            required_pull_request_reviews = kwargs['requiredPullRequestReviews']
+        if required_status_checks is None and 'requiredStatusChecks' in kwargs:
+            required_status_checks = kwargs['requiredStatusChecks']
+
         _setter("pattern", pattern)
         _setter("repository_id", repository_id)
         if allows_deletions is not None:
@@ -346,7 +378,35 @@ class _BranchProtectionState:
              required_linear_history: Optional[pulumi.Input[bool]] = None,
              required_pull_request_reviews: Optional[pulumi.Input[Sequence[pulumi.Input['BranchProtectionRequiredPullRequestReviewArgs']]]] = None,
              required_status_checks: Optional[pulumi.Input[Sequence[pulumi.Input['BranchProtectionRequiredStatusCheckArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if allows_deletions is None and 'allowsDeletions' in kwargs:
+            allows_deletions = kwargs['allowsDeletions']
+        if allows_force_pushes is None and 'allowsForcePushes' in kwargs:
+            allows_force_pushes = kwargs['allowsForcePushes']
+        if blocks_creations is None and 'blocksCreations' in kwargs:
+            blocks_creations = kwargs['blocksCreations']
+        if enforce_admins is None and 'enforceAdmins' in kwargs:
+            enforce_admins = kwargs['enforceAdmins']
+        if force_push_bypassers is None and 'forcePushBypassers' in kwargs:
+            force_push_bypassers = kwargs['forcePushBypassers']
+        if lock_branch is None and 'lockBranch' in kwargs:
+            lock_branch = kwargs['lockBranch']
+        if push_restrictions is None and 'pushRestrictions' in kwargs:
+            push_restrictions = kwargs['pushRestrictions']
+        if repository_id is None and 'repositoryId' in kwargs:
+            repository_id = kwargs['repositoryId']
+        if require_conversation_resolution is None and 'requireConversationResolution' in kwargs:
+            require_conversation_resolution = kwargs['requireConversationResolution']
+        if require_signed_commits is None and 'requireSignedCommits' in kwargs:
+            require_signed_commits = kwargs['requireSignedCommits']
+        if required_linear_history is None and 'requiredLinearHistory' in kwargs:
+            required_linear_history = kwargs['requiredLinearHistory']
+        if required_pull_request_reviews is None and 'requiredPullRequestReviews' in kwargs:
+            required_pull_request_reviews = kwargs['requiredPullRequestReviews']
+        if required_status_checks is None and 'requiredStatusChecks' in kwargs:
+            required_status_checks = kwargs['requiredStatusChecks']
+
         if allows_deletions is not None:
             _setter("allows_deletions", allows_deletions)
         if allows_force_pushes is not None:

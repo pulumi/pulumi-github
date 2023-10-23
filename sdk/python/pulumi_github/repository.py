@@ -162,7 +162,59 @@ class RepositoryArgs:
              topics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              visibility: Optional[pulumi.Input[str]] = None,
              vulnerability_alerts: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if allow_auto_merge is None and 'allowAutoMerge' in kwargs:
+            allow_auto_merge = kwargs['allowAutoMerge']
+        if allow_merge_commit is None and 'allowMergeCommit' in kwargs:
+            allow_merge_commit = kwargs['allowMergeCommit']
+        if allow_rebase_merge is None and 'allowRebaseMerge' in kwargs:
+            allow_rebase_merge = kwargs['allowRebaseMerge']
+        if allow_squash_merge is None and 'allowSquashMerge' in kwargs:
+            allow_squash_merge = kwargs['allowSquashMerge']
+        if allow_update_branch is None and 'allowUpdateBranch' in kwargs:
+            allow_update_branch = kwargs['allowUpdateBranch']
+        if archive_on_destroy is None and 'archiveOnDestroy' in kwargs:
+            archive_on_destroy = kwargs['archiveOnDestroy']
+        if auto_init is None and 'autoInit' in kwargs:
+            auto_init = kwargs['autoInit']
+        if default_branch is None and 'defaultBranch' in kwargs:
+            default_branch = kwargs['defaultBranch']
+        if delete_branch_on_merge is None and 'deleteBranchOnMerge' in kwargs:
+            delete_branch_on_merge = kwargs['deleteBranchOnMerge']
+        if gitignore_template is None and 'gitignoreTemplate' in kwargs:
+            gitignore_template = kwargs['gitignoreTemplate']
+        if has_discussions is None and 'hasDiscussions' in kwargs:
+            has_discussions = kwargs['hasDiscussions']
+        if has_downloads is None and 'hasDownloads' in kwargs:
+            has_downloads = kwargs['hasDownloads']
+        if has_issues is None and 'hasIssues' in kwargs:
+            has_issues = kwargs['hasIssues']
+        if has_projects is None and 'hasProjects' in kwargs:
+            has_projects = kwargs['hasProjects']
+        if has_wiki is None and 'hasWiki' in kwargs:
+            has_wiki = kwargs['hasWiki']
+        if homepage_url is None and 'homepageUrl' in kwargs:
+            homepage_url = kwargs['homepageUrl']
+        if ignore_vulnerability_alerts_during_read is None and 'ignoreVulnerabilityAlertsDuringRead' in kwargs:
+            ignore_vulnerability_alerts_during_read = kwargs['ignoreVulnerabilityAlertsDuringRead']
+        if is_template is None and 'isTemplate' in kwargs:
+            is_template = kwargs['isTemplate']
+        if license_template is None and 'licenseTemplate' in kwargs:
+            license_template = kwargs['licenseTemplate']
+        if merge_commit_message is None and 'mergeCommitMessage' in kwargs:
+            merge_commit_message = kwargs['mergeCommitMessage']
+        if merge_commit_title is None and 'mergeCommitTitle' in kwargs:
+            merge_commit_title = kwargs['mergeCommitTitle']
+        if security_and_analysis is None and 'securityAndAnalysis' in kwargs:
+            security_and_analysis = kwargs['securityAndAnalysis']
+        if squash_merge_commit_message is None and 'squashMergeCommitMessage' in kwargs:
+            squash_merge_commit_message = kwargs['squashMergeCommitMessage']
+        if squash_merge_commit_title is None and 'squashMergeCommitTitle' in kwargs:
+            squash_merge_commit_title = kwargs['squashMergeCommitTitle']
+        if vulnerability_alerts is None and 'vulnerabilityAlerts' in kwargs:
+            vulnerability_alerts = kwargs['vulnerabilityAlerts']
+
         if allow_auto_merge is not None:
             _setter("allow_auto_merge", allow_auto_merge)
         if allow_merge_commit is not None:
@@ -832,7 +884,77 @@ class _RepositoryState:
              topics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              visibility: Optional[pulumi.Input[str]] = None,
              vulnerability_alerts: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if allow_auto_merge is None and 'allowAutoMerge' in kwargs:
+            allow_auto_merge = kwargs['allowAutoMerge']
+        if allow_merge_commit is None and 'allowMergeCommit' in kwargs:
+            allow_merge_commit = kwargs['allowMergeCommit']
+        if allow_rebase_merge is None and 'allowRebaseMerge' in kwargs:
+            allow_rebase_merge = kwargs['allowRebaseMerge']
+        if allow_squash_merge is None and 'allowSquashMerge' in kwargs:
+            allow_squash_merge = kwargs['allowSquashMerge']
+        if allow_update_branch is None and 'allowUpdateBranch' in kwargs:
+            allow_update_branch = kwargs['allowUpdateBranch']
+        if archive_on_destroy is None and 'archiveOnDestroy' in kwargs:
+            archive_on_destroy = kwargs['archiveOnDestroy']
+        if auto_init is None and 'autoInit' in kwargs:
+            auto_init = kwargs['autoInit']
+        if default_branch is None and 'defaultBranch' in kwargs:
+            default_branch = kwargs['defaultBranch']
+        if delete_branch_on_merge is None and 'deleteBranchOnMerge' in kwargs:
+            delete_branch_on_merge = kwargs['deleteBranchOnMerge']
+        if full_name is None and 'fullName' in kwargs:
+            full_name = kwargs['fullName']
+        if git_clone_url is None and 'gitCloneUrl' in kwargs:
+            git_clone_url = kwargs['gitCloneUrl']
+        if gitignore_template is None and 'gitignoreTemplate' in kwargs:
+            gitignore_template = kwargs['gitignoreTemplate']
+        if has_discussions is None and 'hasDiscussions' in kwargs:
+            has_discussions = kwargs['hasDiscussions']
+        if has_downloads is None and 'hasDownloads' in kwargs:
+            has_downloads = kwargs['hasDownloads']
+        if has_issues is None and 'hasIssues' in kwargs:
+            has_issues = kwargs['hasIssues']
+        if has_projects is None and 'hasProjects' in kwargs:
+            has_projects = kwargs['hasProjects']
+        if has_wiki is None and 'hasWiki' in kwargs:
+            has_wiki = kwargs['hasWiki']
+        if homepage_url is None and 'homepageUrl' in kwargs:
+            homepage_url = kwargs['homepageUrl']
+        if html_url is None and 'htmlUrl' in kwargs:
+            html_url = kwargs['htmlUrl']
+        if http_clone_url is None and 'httpCloneUrl' in kwargs:
+            http_clone_url = kwargs['httpCloneUrl']
+        if ignore_vulnerability_alerts_during_read is None and 'ignoreVulnerabilityAlertsDuringRead' in kwargs:
+            ignore_vulnerability_alerts_during_read = kwargs['ignoreVulnerabilityAlertsDuringRead']
+        if is_template is None and 'isTemplate' in kwargs:
+            is_template = kwargs['isTemplate']
+        if license_template is None and 'licenseTemplate' in kwargs:
+            license_template = kwargs['licenseTemplate']
+        if merge_commit_message is None and 'mergeCommitMessage' in kwargs:
+            merge_commit_message = kwargs['mergeCommitMessage']
+        if merge_commit_title is None and 'mergeCommitTitle' in kwargs:
+            merge_commit_title = kwargs['mergeCommitTitle']
+        if node_id is None and 'nodeId' in kwargs:
+            node_id = kwargs['nodeId']
+        if primary_language is None and 'primaryLanguage' in kwargs:
+            primary_language = kwargs['primaryLanguage']
+        if repo_id is None and 'repoId' in kwargs:
+            repo_id = kwargs['repoId']
+        if security_and_analysis is None and 'securityAndAnalysis' in kwargs:
+            security_and_analysis = kwargs['securityAndAnalysis']
+        if squash_merge_commit_message is None and 'squashMergeCommitMessage' in kwargs:
+            squash_merge_commit_message = kwargs['squashMergeCommitMessage']
+        if squash_merge_commit_title is None and 'squashMergeCommitTitle' in kwargs:
+            squash_merge_commit_title = kwargs['squashMergeCommitTitle']
+        if ssh_clone_url is None and 'sshCloneUrl' in kwargs:
+            ssh_clone_url = kwargs['sshCloneUrl']
+        if svn_url is None and 'svnUrl' in kwargs:
+            svn_url = kwargs['svnUrl']
+        if vulnerability_alerts is None and 'vulnerabilityAlerts' in kwargs:
+            vulnerability_alerts = kwargs['vulnerabilityAlerts']
+
         if allow_auto_merge is not None:
             _setter("allow_auto_merge", allow_auto_merge)
         if allow_merge_commit is not None:

@@ -34,10 +34,14 @@ class RepositoryCollaboratorsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             repository: pulumi.Input[str],
+             repository: Optional[pulumi.Input[str]] = None,
              teams: Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryCollaboratorsTeamArgs']]]] = None,
              users: Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryCollaboratorsUserArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if repository is None:
+            raise TypeError("Missing 'repository' argument")
+
         _setter("repository", repository)
         if teams is not None:
             _setter("teams", teams)
@@ -110,7 +114,11 @@ class _RepositoryCollaboratorsState:
              repository: Optional[pulumi.Input[str]] = None,
              teams: Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryCollaboratorsTeamArgs']]]] = None,
              users: Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryCollaboratorsUserArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if invitation_ids is None and 'invitationIds' in kwargs:
+            invitation_ids = kwargs['invitationIds']
+
         if invitation_ids is not None:
             _setter("invitation_ids", invitation_ids)
         if repository is not None:

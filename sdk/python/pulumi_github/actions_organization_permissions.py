@@ -37,11 +37,23 @@ class ActionsOrganizationPermissionsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             enabled_repositories: pulumi.Input[str],
+             enabled_repositories: Optional[pulumi.Input[str]] = None,
              allowed_actions: Optional[pulumi.Input[str]] = None,
              allowed_actions_config: Optional[pulumi.Input['ActionsOrganizationPermissionsAllowedActionsConfigArgs']] = None,
              enabled_repositories_config: Optional[pulumi.Input['ActionsOrganizationPermissionsEnabledRepositoriesConfigArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if enabled_repositories is None and 'enabledRepositories' in kwargs:
+            enabled_repositories = kwargs['enabledRepositories']
+        if enabled_repositories is None:
+            raise TypeError("Missing 'enabled_repositories' argument")
+        if allowed_actions is None and 'allowedActions' in kwargs:
+            allowed_actions = kwargs['allowedActions']
+        if allowed_actions_config is None and 'allowedActionsConfig' in kwargs:
+            allowed_actions_config = kwargs['allowedActionsConfig']
+        if enabled_repositories_config is None and 'enabledRepositoriesConfig' in kwargs:
+            enabled_repositories_config = kwargs['enabledRepositoriesConfig']
+
         _setter("enabled_repositories", enabled_repositories)
         if allowed_actions is not None:
             _setter("allowed_actions", allowed_actions)
@@ -127,7 +139,17 @@ class _ActionsOrganizationPermissionsState:
              allowed_actions_config: Optional[pulumi.Input['ActionsOrganizationPermissionsAllowedActionsConfigArgs']] = None,
              enabled_repositories: Optional[pulumi.Input[str]] = None,
              enabled_repositories_config: Optional[pulumi.Input['ActionsOrganizationPermissionsEnabledRepositoriesConfigArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if allowed_actions is None and 'allowedActions' in kwargs:
+            allowed_actions = kwargs['allowedActions']
+        if allowed_actions_config is None and 'allowedActionsConfig' in kwargs:
+            allowed_actions_config = kwargs['allowedActionsConfig']
+        if enabled_repositories is None and 'enabledRepositories' in kwargs:
+            enabled_repositories = kwargs['enabledRepositories']
+        if enabled_repositories_config is None and 'enabledRepositoriesConfig' in kwargs:
+            enabled_repositories_config = kwargs['enabledRepositoriesConfig']
+
         if allowed_actions is not None:
             _setter("allowed_actions", allowed_actions)
         if allowed_actions_config is not None:

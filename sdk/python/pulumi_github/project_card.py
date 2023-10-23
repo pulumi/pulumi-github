@@ -38,11 +38,21 @@ class ProjectCardArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             column_id: pulumi.Input[str],
+             column_id: Optional[pulumi.Input[str]] = None,
              content_id: Optional[pulumi.Input[int]] = None,
              content_type: Optional[pulumi.Input[str]] = None,
              note: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if column_id is None and 'columnId' in kwargs:
+            column_id = kwargs['columnId']
+        if column_id is None:
+            raise TypeError("Missing 'column_id' argument")
+        if content_id is None and 'contentId' in kwargs:
+            content_id = kwargs['contentId']
+        if content_type is None and 'contentType' in kwargs:
+            content_type = kwargs['contentType']
+
         _setter("column_id", column_id)
         if content_id is not None:
             _setter("content_id", content_id)
@@ -141,7 +151,17 @@ class _ProjectCardState:
              content_type: Optional[pulumi.Input[str]] = None,
              etag: Optional[pulumi.Input[str]] = None,
              note: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if card_id is None and 'cardId' in kwargs:
+            card_id = kwargs['cardId']
+        if column_id is None and 'columnId' in kwargs:
+            column_id = kwargs['columnId']
+        if content_id is None and 'contentId' in kwargs:
+            content_id = kwargs['contentId']
+        if content_type is None and 'contentType' in kwargs:
+            content_type = kwargs['contentType']
+
         if card_id is not None:
             _setter("card_id", card_id)
         if column_id is not None:

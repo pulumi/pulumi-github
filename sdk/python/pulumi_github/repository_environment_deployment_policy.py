@@ -32,10 +32,20 @@ class RepositoryEnvironmentDeploymentPolicyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             branch_pattern: pulumi.Input[str],
-             environment: pulumi.Input[str],
-             repository: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             branch_pattern: Optional[pulumi.Input[str]] = None,
+             environment: Optional[pulumi.Input[str]] = None,
+             repository: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if branch_pattern is None and 'branchPattern' in kwargs:
+            branch_pattern = kwargs['branchPattern']
+        if branch_pattern is None:
+            raise TypeError("Missing 'branch_pattern' argument")
+        if environment is None:
+            raise TypeError("Missing 'environment' argument")
+        if repository is None:
+            raise TypeError("Missing 'repository' argument")
+
         _setter("branch_pattern", branch_pattern)
         _setter("environment", environment)
         _setter("repository", repository)
@@ -101,7 +111,11 @@ class _RepositoryEnvironmentDeploymentPolicyState:
              branch_pattern: Optional[pulumi.Input[str]] = None,
              environment: Optional[pulumi.Input[str]] = None,
              repository: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if branch_pattern is None and 'branchPattern' in kwargs:
+            branch_pattern = kwargs['branchPattern']
+
         if branch_pattern is not None:
             _setter("branch_pattern", branch_pattern)
         if environment is not None:

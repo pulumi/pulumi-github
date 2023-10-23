@@ -4,8 +4,12 @@
 package github
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to retrieve the identity provider (IdP) groups for an organization.
@@ -49,4 +53,50 @@ type GetOrganizationTeamSyncGroupsResult struct {
 	Groups []GetOrganizationTeamSyncGroupsGroup `pulumi:"groups"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
+}
+
+func GetOrganizationTeamSyncGroupsOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetOrganizationTeamSyncGroupsResultOutput {
+	return pulumi.ToOutput(0).ApplyT(func(int) (GetOrganizationTeamSyncGroupsResult, error) {
+		r, err := GetOrganizationTeamSyncGroups(ctx, opts...)
+		var s GetOrganizationTeamSyncGroupsResult
+		if r != nil {
+			s = *r
+		}
+		return s, err
+	}).(GetOrganizationTeamSyncGroupsResultOutput)
+}
+
+// A collection of values returned by getOrganizationTeamSyncGroups.
+type GetOrganizationTeamSyncGroupsResultOutput struct{ *pulumi.OutputState }
+
+func (GetOrganizationTeamSyncGroupsResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetOrganizationTeamSyncGroupsResult)(nil)).Elem()
+}
+
+func (o GetOrganizationTeamSyncGroupsResultOutput) ToGetOrganizationTeamSyncGroupsResultOutput() GetOrganizationTeamSyncGroupsResultOutput {
+	return o
+}
+
+func (o GetOrganizationTeamSyncGroupsResultOutput) ToGetOrganizationTeamSyncGroupsResultOutputWithContext(ctx context.Context) GetOrganizationTeamSyncGroupsResultOutput {
+	return o
+}
+
+func (o GetOrganizationTeamSyncGroupsResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetOrganizationTeamSyncGroupsResult] {
+	return pulumix.Output[GetOrganizationTeamSyncGroupsResult]{
+		OutputState: o.OutputState,
+	}
+}
+
+// An Array of GitHub Identity Provider Groups.  Each `group` block consists of the fields documented below.
+func (o GetOrganizationTeamSyncGroupsResultOutput) Groups() GetOrganizationTeamSyncGroupsGroupArrayOutput {
+	return o.ApplyT(func(v GetOrganizationTeamSyncGroupsResult) []GetOrganizationTeamSyncGroupsGroup { return v.Groups }).(GetOrganizationTeamSyncGroupsGroupArrayOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetOrganizationTeamSyncGroupsResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOrganizationTeamSyncGroupsResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetOrganizationTeamSyncGroupsResultOutput{})
 }

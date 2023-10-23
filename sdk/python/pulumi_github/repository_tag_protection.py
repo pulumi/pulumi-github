@@ -29,9 +29,15 @@ class RepositoryTagProtectionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             pattern: pulumi.Input[str],
-             repository: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             pattern: Optional[pulumi.Input[str]] = None,
+             repository: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if pattern is None:
+            raise TypeError("Missing 'pattern' argument")
+        if repository is None:
+            raise TypeError("Missing 'repository' argument")
+
         _setter("pattern", pattern)
         _setter("repository", repository)
 
@@ -84,7 +90,11 @@ class _RepositoryTagProtectionState:
              pattern: Optional[pulumi.Input[str]] = None,
              repository: Optional[pulumi.Input[str]] = None,
              tag_protection_id: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if tag_protection_id is None and 'tagProtectionId' in kwargs:
+            tag_protection_id = kwargs['tagProtectionId']
+
         if pattern is not None:
             _setter("pattern", pattern)
         if repository is not None:

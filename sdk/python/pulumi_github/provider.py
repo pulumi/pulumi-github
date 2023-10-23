@@ -63,7 +63,19 @@ class ProviderArgs:
              read_delay_ms: Optional[pulumi.Input[int]] = None,
              token: Optional[pulumi.Input[str]] = None,
              write_delay_ms: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if app_auth is None and 'appAuth' in kwargs:
+            app_auth = kwargs['appAuth']
+        if base_url is None and 'baseUrl' in kwargs:
+            base_url = kwargs['baseUrl']
+        if parallel_requests is None and 'parallelRequests' in kwargs:
+            parallel_requests = kwargs['parallelRequests']
+        if read_delay_ms is None and 'readDelayMs' in kwargs:
+            read_delay_ms = kwargs['readDelayMs']
+        if write_delay_ms is None and 'writeDelayMs' in kwargs:
+            write_delay_ms = kwargs['writeDelayMs']
+
         if app_auth is not None:
             _setter("app_auth", app_auth)
         if base_url is None:

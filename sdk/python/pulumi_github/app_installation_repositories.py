@@ -31,9 +31,19 @@ class AppInstallationRepositoriesArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             installation_id: pulumi.Input[str],
-             selected_repositories: pulumi.Input[Sequence[pulumi.Input[str]]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             installation_id: Optional[pulumi.Input[str]] = None,
+             selected_repositories: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if installation_id is None and 'installationId' in kwargs:
+            installation_id = kwargs['installationId']
+        if installation_id is None:
+            raise TypeError("Missing 'installation_id' argument")
+        if selected_repositories is None and 'selectedRepositories' in kwargs:
+            selected_repositories = kwargs['selectedRepositories']
+        if selected_repositories is None:
+            raise TypeError("Missing 'selected_repositories' argument")
+
         _setter("installation_id", installation_id)
         _setter("selected_repositories", selected_repositories)
 
@@ -86,7 +96,13 @@ class _AppInstallationRepositoriesState:
              _setter: Callable[[Any, Any], None],
              installation_id: Optional[pulumi.Input[str]] = None,
              selected_repositories: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if installation_id is None and 'installationId' in kwargs:
+            installation_id = kwargs['installationId']
+        if selected_repositories is None and 'selectedRepositories' in kwargs:
+            selected_repositories = kwargs['selectedRepositories']
+
         if installation_id is not None:
             _setter("installation_id", installation_id)
         if selected_repositories is not None:

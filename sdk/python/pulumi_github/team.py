@@ -56,7 +56,19 @@ class TeamArgs:
              parent_team_read_id: Optional[pulumi.Input[str]] = None,
              parent_team_read_slug: Optional[pulumi.Input[str]] = None,
              privacy: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if create_default_maintainer is None and 'createDefaultMaintainer' in kwargs:
+            create_default_maintainer = kwargs['createDefaultMaintainer']
+        if ldap_dn is None and 'ldapDn' in kwargs:
+            ldap_dn = kwargs['ldapDn']
+        if parent_team_id is None and 'parentTeamId' in kwargs:
+            parent_team_id = kwargs['parentTeamId']
+        if parent_team_read_id is None and 'parentTeamReadId' in kwargs:
+            parent_team_read_id = kwargs['parentTeamReadId']
+        if parent_team_read_slug is None and 'parentTeamReadSlug' in kwargs:
+            parent_team_read_slug = kwargs['parentTeamReadSlug']
+
         if create_default_maintainer is not None:
             _setter("create_default_maintainer", create_default_maintainer)
         if description is not None:
@@ -233,7 +245,23 @@ class _TeamState:
              parent_team_read_slug: Optional[pulumi.Input[str]] = None,
              privacy: Optional[pulumi.Input[str]] = None,
              slug: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if create_default_maintainer is None and 'createDefaultMaintainer' in kwargs:
+            create_default_maintainer = kwargs['createDefaultMaintainer']
+        if ldap_dn is None and 'ldapDn' in kwargs:
+            ldap_dn = kwargs['ldapDn']
+        if members_count is None and 'membersCount' in kwargs:
+            members_count = kwargs['membersCount']
+        if node_id is None and 'nodeId' in kwargs:
+            node_id = kwargs['nodeId']
+        if parent_team_id is None and 'parentTeamId' in kwargs:
+            parent_team_id = kwargs['parentTeamId']
+        if parent_team_read_id is None and 'parentTeamReadId' in kwargs:
+            parent_team_read_id = kwargs['parentTeamReadId']
+        if parent_team_read_slug is None and 'parentTeamReadSlug' in kwargs:
+            parent_team_read_slug = kwargs['parentTeamReadSlug']
+
         if create_default_maintainer is not None:
             _setter("create_default_maintainer", create_default_maintainer)
         if description is not None:

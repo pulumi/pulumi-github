@@ -31,7 +31,9 @@ class OrganizationProjectArgs:
              _setter: Callable[[Any, Any], None],
              body: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if body is not None:
             _setter("body", body)
         if name is not None:
@@ -89,7 +91,9 @@ class _OrganizationProjectState:
              etag: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              url: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if body is not None:
             _setter("body", body)
         if etag is not None:

@@ -31,7 +31,13 @@ class UserInvitationAccepterArgs:
              _setter: Callable[[Any, Any], None],
              allow_empty_id: Optional[pulumi.Input[bool]] = None,
              invitation_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if allow_empty_id is None and 'allowEmptyId' in kwargs:
+            allow_empty_id = kwargs['allowEmptyId']
+        if invitation_id is None and 'invitationId' in kwargs:
+            invitation_id = kwargs['invitationId']
+
         if allow_empty_id is not None:
             _setter("allow_empty_id", allow_empty_id)
         if invitation_id is not None:
@@ -82,7 +88,13 @@ class _UserInvitationAccepterState:
              _setter: Callable[[Any, Any], None],
              allow_empty_id: Optional[pulumi.Input[bool]] = None,
              invitation_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if allow_empty_id is None and 'allowEmptyId' in kwargs:
+            allow_empty_id = kwargs['allowEmptyId']
+        if invitation_id is None and 'invitationId' in kwargs:
+            invitation_id = kwargs['invitationId']
+
         if allow_empty_id is not None:
             _setter("allow_empty_id", allow_empty_id)
         if invitation_id is not None:
